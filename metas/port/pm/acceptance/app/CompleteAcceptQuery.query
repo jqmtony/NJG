@@ -1,0 +1,2476 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<joinQuery xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.port.pm.acceptance.app</package>
+    <name>CompleteAcceptQuery</name>
+    <alias>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].alias</alias>
+    <description>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].description</description>
+    <userDefined>true</userDefined>
+    <reportDataSource />
+    <bizUnitPK>com.kingdee.eas.port.pm.acceptance.CompleteAccept</bizUnitPK>
+    <connectionProvider />
+    <subObjects>
+        <subEntity>
+            <name>CompleteAccept</name>
+            <alias>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].subObjects.subEntity[CompleteAccept].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAccept" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>auditor</name>
+            <alias>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].subObjects.subEntity[auditor].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.base.permission.app" />
+                <key name="name" value="User" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>lastUpdateUser</name>
+            <alias>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].subObjects.subEntity[lastUpdateUser].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.base.permission.app" />
+                <key name="name" value="User" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>creator</name>
+            <alias>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].subObjects.subEntity[creator].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.base.permission.app" />
+                <key name="name" value="User" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>CU</name>
+            <alias>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].subObjects.subEntity[CU].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.basedata.org.app" />
+                <key name="name" value="CtrlUnit" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>projectName</name>
+            <alias>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].subObjects.subEntity[projectName].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="Project" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>E1</name>
+            <alias>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].subObjects.subEntity[E1].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptE1" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>E1_type</name>
+            <alias>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].subObjects.subEntity[E1_type].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.port.equipment.record.app" />
+                <key name="name" value="EquId" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>E1_usePerson</name>
+            <alias>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].subObjects.subEntity[E1_usePerson].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.basedata.person.app" />
+                <key name="name" value="Person" />
+            </entityRef>
+        </subEntity>
+    </subObjects>
+    <units>
+        <queryField>
+            <name>status</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[status].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Int</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>538d4f61-cd00-40af-a241-ff4504ba65d2</key>
+                    <parentUnit>
+                        <key name="name" value="status" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="CompleteAccept" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="status" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>number</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[number].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>19dbe509-f268-4cea-8fa6-7b6764c72623</key>
+                    <parentUnit>
+                        <key name="name" value="number" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="CompleteAccept" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="number" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>bizDate</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[bizDate].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Date</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>cb7f731a-431c-49a5-b7d5-381c3ffbc29c</key>
+                    <parentUnit>
+                        <key name="name" value="bizDate" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="CompleteAccept" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="bizDate" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>creator.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[creator.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>7adc4c92-9787-486e-ba95-3db724e75b36</key>
+                    <parentUnit>
+                        <key name="name" value="creator.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="creator" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>createTime</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[createTime].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Timestamp</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>49ba5ef1-f78b-4df1-9e0a-dfb8ea209208</key>
+                    <parentUnit>
+                        <key name="name" value="createTime" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="CompleteAccept" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="createTime" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>lastUpdateUser.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[lastUpdateUser.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>978ac494-6508-4912-86d0-4d934ca8fb6f</key>
+                    <parentUnit>
+                        <key name="name" value="lastUpdateUser.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="lastUpdateUser" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>lastUpdateTime</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[lastUpdateTime].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Timestamp</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>fed2a620-b4f9-4320-86d0-ad1a98a04ce9</key>
+                    <parentUnit>
+                        <key name="name" value="lastUpdateTime" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="CompleteAccept" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="lastUpdateTime" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>auditor.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[auditor.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>62e79ba2-0ff2-44e1-9435-6498d0029bd2</key>
+                    <parentUnit>
+                        <key name="name" value="auditor.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="auditor" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>auditTime</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[auditTime].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Timestamp</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>60bee6c4-14c8-4937-b5c6-052285fd7ad2</key>
+                    <parentUnit>
+                        <key name="name" value="auditTime" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="CompleteAccept" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="auditTime" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>id</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>21252636-7873-4b63-bc08-1d60f96d5bf5</key>
+                    <parentUnit>
+                        <key name="name" value="id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="CompleteAccept" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>5ffb10c2-9017-4af9-a5ab-adf2cfd35ac2</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.propertyUnit[5ffb10c2-9017-4af9-a5ab-adf2cfd35ac2].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>d44abb48-c7be-4c98-bab7-c129da3c1658</key>
+                    <parentUnit>
+                        <key name="name" value="5ffb10c2-9017-4af9-a5ab-adf2cfd35ac2" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="CompleteAccept" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="auditor" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>1e677688-0a37-405c-b842-4cbc1777feb8</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.propertyUnit[1e677688-0a37-405c-b842-4cbc1777feb8].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>daa653cc-8c66-4864-822c-9d8dc88b0657</key>
+                    <parentUnit>
+                        <key name="name" value="1e677688-0a37-405c-b842-4cbc1777feb8" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="auditor" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>4d2ea50d-87b6-4764-8511-ad9d75aa377a</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.propertyUnit[4d2ea50d-87b6-4764-8511-ad9d75aa377a].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>a15f96e0-b011-4ba2-918d-eae540539b4a</key>
+                    <parentUnit>
+                        <key name="name" value="4d2ea50d-87b6-4764-8511-ad9d75aa377a" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="CompleteAccept" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="lastUpdateUser" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>1616fe90-d3db-4e68-841c-68e3da457f4a</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.propertyUnit[1616fe90-d3db-4e68-841c-68e3da457f4a].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>9888e17a-1ee9-4a33-85d6-a4baa8a48cf4</key>
+                    <parentUnit>
+                        <key name="name" value="1616fe90-d3db-4e68-841c-68e3da457f4a" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="lastUpdateUser" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>e2d4e712-e3ae-494f-ac8e-5908534f9998</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.propertyUnit[e2d4e712-e3ae-494f-ac8e-5908534f9998].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>484cba99-61fc-4e13-a963-57ab22c6c7eb</key>
+                    <parentUnit>
+                        <key name="name" value="e2d4e712-e3ae-494f-ac8e-5908534f9998" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="CompleteAccept" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="creator" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>f231c185-16de-45db-a775-a716e2c6fa35</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.propertyUnit[f231c185-16de-45db-a775-a716e2c6fa35].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>e6167aea-3925-4565-98cf-2993cf436083</key>
+                    <parentUnit>
+                        <key name="name" value="f231c185-16de-45db-a775-a716e2c6fa35" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="creator" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>254e050a-a59f-4caa-adcc-505b3f65c9d0</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.propertyUnit[254e050a-a59f-4caa-adcc-505b3f65c9d0].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>9590a1ca-62a4-4417-beb9-e77c36cb9afe</key>
+                    <parentUnit>
+                        <key name="name" value="254e050a-a59f-4caa-adcc-505b3f65c9d0" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="CompleteAccept" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="CU" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>00a866a6-64e1-4f3f-a034-5740ab0d31ec</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.propertyUnit[00a866a6-64e1-4f3f-a034-5740ab0d31ec].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>9e9f7277-b57c-4e90-82ad-d2dccb799ddd</key>
+                    <parentUnit>
+                        <key name="name" value="00a866a6-64e1-4f3f-a034-5740ab0d31ec" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="CU" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>CU.id</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[CU.id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>913696cd-bc5f-416c-9e6e-887c5c0dc4cb</key>
+                    <parentUnit>
+                        <key name="name" value="CU.id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="CU" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>projectName.name</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[projectName.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>3d1b706b-1290-49b2-a689-cf7e4ad679fa</key>
+                    <parentUnit>
+                        <key name="name" value="projectName.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="projectName" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>11df57c5-f514-471b-8ad7-7273ebe384d0</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.propertyUnit[11df57c5-f514-471b-8ad7-7273ebe384d0].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>5d030abf-2c0a-4b68-a0a6-3749b0fb326a</key>
+                    <parentUnit>
+                        <key name="name" value="11df57c5-f514-471b-8ad7-7273ebe384d0" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="CompleteAccept" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="projectName" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>9ddfff23-19c6-4f32-bcaf-74d7a4cce971</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.propertyUnit[9ddfff23-19c6-4f32-bcaf-74d7a4cce971].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>93835043-85f4-4800-9586-8955c862fc36</key>
+                    <parentUnit>
+                        <key name="name" value="9ddfff23-19c6-4f32-bcaf-74d7a4cce971" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="projectName" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>projectType</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[projectType].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Int</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>b163097c-4336-4750-ae3b-85eb6e69caa6</key>
+                    <parentUnit>
+                        <key name="name" value="projectType" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="CompleteAccept" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="projectType" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>E1.seq</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.seq].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Int</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>dc658f49-f57d-4799-8da8-fef5432cca48</key>
+                    <parentUnit>
+                        <key name="name" value="E1.seq" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="E1" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="seq" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>3244aed7-d82d-4521-ac6a-50fc84a0d12f</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.propertyUnit[3244aed7-d82d-4521-ac6a-50fc84a0d12f].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>eaa717b5-d18e-4d06-b171-bdbf448d96a5</key>
+                    <parentUnit>
+                        <key name="name" value="3244aed7-d82d-4521-ac6a-50fc84a0d12f" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="CompleteAccept" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>78a39505-b98f-46f1-b9f8-fa0906e69dc3</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.propertyUnit[78a39505-b98f-46f1-b9f8-fa0906e69dc3].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>16281369-725a-4ed0-ada8-68083e8fdd46</key>
+                    <parentUnit>
+                        <key name="name" value="78a39505-b98f-46f1-b9f8-fa0906e69dc3" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="E1" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="parent" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>E1.type.EqmCategory</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.type.EqmCategory].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>e815579b-75b8-4ecf-bddd-f0385e9abb9d</key>
+                    <parentUnit>
+                        <key name="name" value="E1.type.EqmCategory" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="E1_type" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="EqmCategory" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>167c19d1-2b56-46c5-9660-28cbae0d1a48</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.propertyUnit[167c19d1-2b56-46c5-9660-28cbae0d1a48].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>d8e4a7b8-d2f2-4986-9689-6f356eada501</key>
+                    <parentUnit>
+                        <key name="name" value="167c19d1-2b56-46c5-9660-28cbae0d1a48" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="E1" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="type" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>4ac08953-952d-405b-98d1-bffefd67ed6b</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.propertyUnit[4ac08953-952d-405b-98d1-bffefd67ed6b].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0dafc7f1-81f1-43db-8a8a-b6fe4c91abb2</key>
+                    <parentUnit>
+                        <key name="name" value="4ac08953-952d-405b-98d1-bffefd67ed6b" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="E1_type" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>E1.brand</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.brand].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>f519b752-b20d-4ca6-9dba-c752417837c3</key>
+                    <parentUnit>
+                        <key name="name" value="E1.brand" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="E1" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="brand" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>E1.name</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>90ec468e-6aca-4b1e-90d1-94f140833b84</key>
+                    <parentUnit>
+                        <key name="name" value="E1.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="E1" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>E1.model</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.model].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>78434f94-422c-4944-92d4-7a402516ec6f</key>
+                    <parentUnit>
+                        <key name="name" value="E1.model" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="E1" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="model" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>E1.configuration</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.configuration].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>f38e5dd2-bea4-4349-96ad-6da5338b9d2c</key>
+                    <parentUnit>
+                        <key name="name" value="E1.configuration" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="E1" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="configuration" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>E1.quantity</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.quantity].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>dc823bff-e4a8-4b1b-907b-f3c166dcf88c</key>
+                    <parentUnit>
+                        <key name="name" value="E1.quantity" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="E1" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="quantity" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>E1.price</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.price].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>e887a3c7-20f5-4501-967e-7d1063a937d8</key>
+                    <parentUnit>
+                        <key name="name" value="E1.price" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="E1" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="price" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>E1.subtotal</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.subtotal].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>11870947-377e-444a-a79f-f5792b1f1998</key>
+                    <parentUnit>
+                        <key name="name" value="E1.subtotal" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="E1" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="subtotal" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>E1.location</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.location].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>a23f57e8-53ec-49b7-bc1d-dacd180e5677</key>
+                    <parentUnit>
+                        <key name="name" value="E1.location" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="E1" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="location" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>E1.usePerson.name</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.usePerson.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>e463f540-5e7a-442e-aea9-11222426d1a3</key>
+                    <parentUnit>
+                        <key name="name" value="E1.usePerson.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="E1_usePerson" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>2f3dcf4b-4a05-4550-aee3-b3ed3b702f10</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.propertyUnit[2f3dcf4b-4a05-4550-aee3-b3ed3b702f10].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>755652b8-6dcd-4c18-95e1-63dc609207b7</key>
+                    <parentUnit>
+                        <key name="name" value="2f3dcf4b-4a05-4550-aee3-b3ed3b702f10" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="E1" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="usePerson" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>f090c4ef-27a1-4e2b-a2e9-be40e5f21307</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.propertyUnit[f090c4ef-27a1-4e2b-a2e9-be40e5f21307].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>c56353cc-5daf-4cc4-872f-6177d1d4d8e7</key>
+                    <parentUnit>
+                        <key name="name" value="f090c4ef-27a1-4e2b-a2e9-be40e5f21307" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="E1_usePerson" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>E1.responsible</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.responsible].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>4d33823c-c5d2-4082-a8a6-1fa685e9e0ad</key>
+                    <parentUnit>
+                        <key name="name" value="E1.responsible" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="E1" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="responsible" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>E1.cost</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.cost].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>8cad2ba9-4c22-472f-ada7-38e9c7f4fbdf</key>
+                    <parentUnit>
+                        <key name="name" value="E1.cost" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="E1" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="cost" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>E1.useLife</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.useLife].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Date</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>7a8f2319-07fb-41d5-85af-729fa45ed8a5</key>
+                    <parentUnit>
+                        <key name="name" value="E1.useLife" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="E1" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="useLife" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>E1.completeDate</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.completeDate].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Date</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>ae9fae7d-8a0e-4d8e-8322-582b8058d3f0</key>
+                    <parentUnit>
+                        <key name="name" value="E1.completeDate" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="E1" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="completeDate" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>E1.takeoverDepart</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.takeoverDepart].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>e3a16ec5-e147-411a-ae5f-862255c9c5b8</key>
+                    <parentUnit>
+                        <key name="name" value="E1.takeoverDepart" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="E1" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="takeoverDepart" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>E1.management</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.management].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>c3fd2680-f770-4d16-b809-d43180a19673</key>
+                    <parentUnit>
+                        <key name="name" value="E1.management" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="E1" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="management" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+        </queryField>
+    </units>
+    <defaultFilter>
+        <name>defaultFilter</name>
+        <formulaString />
+        <query>
+            <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+            <key name="name" value="CompleteAcceptQuery" />
+        </query>
+    </defaultFilter>
+    <defaultSorters>
+        <querySorterItem>
+            <propertyName>createTime</propertyName>
+            <sortType>DESC</sortType>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+            <configured>false</configured>
+        </querySorterItem>
+    </defaultSorters>
+    <isDistinct>false</isDistinct>
+    <joins>
+        <join>
+            <name>29847dab-b3b8-4368-93ca-87f8bb379b46</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="CompleteAccept" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="auditor" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>296ebf95-b4de-49c2-a3dc-ea70caaf4160</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="5ffb10c2-9017-4af9-a5ab-adf2cfd35ac2" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="1e677688-0a37-405c-b842-4cbc1777feb8" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="29847dab-b3b8-4368-93ca-87f8bb379b46" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+        </join>
+        <join>
+            <name>69827004-67eb-4202-bb1d-d69e02503fb4</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="CompleteAccept" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="lastUpdateUser" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>7a2a2f5d-ff01-4dea-aac4-667f7a4de13c</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="4d2ea50d-87b6-4764-8511-ad9d75aa377a" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="1616fe90-d3db-4e68-841c-68e3da457f4a" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="69827004-67eb-4202-bb1d-d69e02503fb4" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+        </join>
+        <join>
+            <name>736d74bc-27e6-4a40-85bc-5e59e61fb692</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="CompleteAccept" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="creator" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>38978d75-8822-4238-ad3b-223abe1055e6</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="e2d4e712-e3ae-494f-ac8e-5908534f9998" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="f231c185-16de-45db-a775-a716e2c6fa35" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="736d74bc-27e6-4a40-85bc-5e59e61fb692" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+        </join>
+        <join>
+            <name>68f642a1-e453-4708-ac64-b9c74c74c11d</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="CompleteAccept" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="CU" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>53eba324-783d-4280-907a-af62529e234f</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="254e050a-a59f-4caa-adcc-505b3f65c9d0" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="00a866a6-64e1-4f3f-a034-5740ab0d31ec" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="68f642a1-e453-4708-ac64-b9c74c74c11d" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+        </join>
+        <join>
+            <name>df54a2f6-e3f4-454b-a6ce-a4ba283a1e0a</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="CompleteAccept" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="projectName" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>3f2aa082-c8ca-44e6-9979-e0de7d10de5d</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="11df57c5-f514-471b-8ad7-7273ebe384d0" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="9ddfff23-19c6-4f32-bcaf-74d7a4cce971" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="df54a2f6-e3f4-454b-a6ce-a4ba283a1e0a" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+        </join>
+        <join>
+            <name>b4d6e32f-6b9f-41e1-bc64-ccb01f5db992</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="CompleteAccept" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="E1" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>7aa0275a-a2e1-4f27-a410-51503ccc1985</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="3244aed7-d82d-4521-ac6a-50fc84a0d12f" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="78a39505-b98f-46f1-b9f8-fa0906e69dc3" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="b4d6e32f-6b9f-41e1-bc64-ccb01f5db992" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+        </join>
+        <join>
+            <name>b13b60aa-93e1-4ebb-bdbb-22d7a42442f2</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="E1" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="E1_type" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>9ca56fcc-5768-4043-bee9-3df6915e98ec</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="167c19d1-2b56-46c5-9660-28cbae0d1a48" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="4ac08953-952d-405b-98d1-bffefd67ed6b" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="b13b60aa-93e1-4ebb-bdbb-22d7a42442f2" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+        </join>
+        <join>
+            <name>8b40ba20-d695-4e8b-8297-8cf62de73b44</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="E1" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="E1_usePerson" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>ce2e2a1a-36c6-4c1e-b9b8-83e7d8c38787</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="2f3dcf4b-4a05-4550-aee3-b3ed3b702f10" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="f090c4ef-27a1-4e2b-a2e9-be40e5f21307" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="8b40ba20-d695-4e8b-8297-8cf62de73b44" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+        </join>
+    </joins>
+    <resource>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="竣工验收单" />
+            <lang locale="zh_HK" value="竣工驗收單" />
+            <lang locale="zh_TW" value="竣工驗收單" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].defaultSorters.querySorterItemextendedProperty.f7WindowTitle">
+            <lang locale="en_US" value="XR业务单据模版" />
+            <lang locale="zh_CN" value="XR业务单据模版" />
+            <lang locale="zh_TW" value="XR业务单据模版" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="基础单据Query" />
+            <lang locale="zh_HK" value="基礎單據Query" />
+            <lang locale="zh_TW" value="基礎單據Query" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].extendedProperty.F7WindowTitle">
+            <lang locale="en_US" value="com.kingdee.eas.port.pm.acceptance.client.AcceptanceResource.CompleteAcceptQueryF7WindowTitle" />
+            <lang locale="zh_CN" value="com.kingdee.eas.port.pm.acceptance.client.AcceptanceResource.CompleteAcceptQueryF7WindowTitle" />
+            <lang locale="zh_TW" value="com.kingdee.eas.port.pm.acceptance.client.AcceptanceResource.CompleteAcceptQueryF7WindowTitle" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].extendedProperty.f7WindowTitle">
+            <lang locale="en_US" value="竣工验收单" />
+            <lang locale="zh_CN" value="竣工验收单" />
+            <lang locale="zh_TW" value="竣工验收单" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].subObjects.subEntity[CU].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].subObjects.subEntity[CompleteAccept].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].subObjects.subEntity[E1].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].subObjects.subEntity[E1_type].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].subObjects.subEntity[E1_usePerson].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].subObjects.subEntity[auditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].subObjects.subEntity[creator].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].subObjects.subEntity[lastUpdateUser].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].subObjects.subEntity[projectName].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.propertyUnit[00a866a6-64e1-4f3f-a034-5740ab0d31ec].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.propertyUnit[11df57c5-f514-471b-8ad7-7273ebe384d0].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.propertyUnit[1616fe90-d3db-4e68-841c-68e3da457f4a].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.propertyUnit[167c19d1-2b56-46c5-9660-28cbae0d1a48].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.propertyUnit[1e677688-0a37-405c-b842-4cbc1777feb8].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.propertyUnit[254e050a-a59f-4caa-adcc-505b3f65c9d0].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.propertyUnit[2f3dcf4b-4a05-4550-aee3-b3ed3b702f10].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.propertyUnit[3244aed7-d82d-4521-ac6a-50fc84a0d12f].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.propertyUnit[4ac08953-952d-405b-98d1-bffefd67ed6b].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.propertyUnit[4d2ea50d-87b6-4764-8511-ad9d75aa377a].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.propertyUnit[5ffb10c2-9017-4af9-a5ab-adf2cfd35ac2].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.propertyUnit[78a39505-b98f-46f1-b9f8-fa0906e69dc3].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.propertyUnit[9ddfff23-19c6-4f32-bcaf-74d7a4cce971].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.propertyUnit[e2d4e712-e3ae-494f-ac8e-5908534f9998].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.propertyUnit[f090c4ef-27a1-4e2b-a2e9-be40e5f21307].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.propertyUnit[f231c185-16de-45db-a775-a716e2c6fa35].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[CU.id].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="ID" />
+            <lang locale="zh_HK" value="ID" />
+            <lang locale="zh_TW" value="ID" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.brand].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="品牌" />
+            <lang locale="zh_HK" value="品牌" />
+            <lang locale="zh_TW" value="品牌" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.brand].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.brand].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.completeDate].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="竣工或购置日期" />
+            <lang locale="zh_HK" value="竣工或購置日期" />
+            <lang locale="zh_TW" value="竣工或購置日期" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.completeDate].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.completeDate].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.configuration].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="配置" />
+            <lang locale="zh_HK" value="配置" />
+            <lang locale="zh_TW" value="配置" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.configuration].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.configuration].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.cost].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="原值" />
+            <lang locale="zh_HK" value="原值" />
+            <lang locale="zh_TW" value="原值" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.cost].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.cost].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.location].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="位置" />
+            <lang locale="zh_HK" value="位置" />
+            <lang locale="zh_TW" value="位置" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.location].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.location].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.management].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="管理部门" />
+            <lang locale="zh_HK" value="管理部門" />
+            <lang locale="zh_TW" value="管理部門" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.management].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.management].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.model].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="型号" />
+            <lang locale="zh_HK" value="型號" />
+            <lang locale="zh_TW" value="型號" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.model].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.model].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="名称" />
+            <lang locale="zh_HK" value="名稱" />
+            <lang locale="zh_TW" value="名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.price].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单价" />
+            <lang locale="zh_HK" value="單價" />
+            <lang locale="zh_TW" value="單價" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.price].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.price].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.quantity].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="数量" />
+            <lang locale="zh_HK" value="數量" />
+            <lang locale="zh_TW" value="數量" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.quantity].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.quantity].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.responsible].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="责任人" />
+            <lang locale="zh_HK" value="責任人" />
+            <lang locale="zh_TW" value="責任人" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.responsible].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.responsible].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.seq].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据分录序列号" />
+            <lang locale="zh_HK" value="單據分錄序列號" />
+            <lang locale="zh_TW" value="單據分錄序列號" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.seq].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.seq].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.subtotal].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="小计" />
+            <lang locale="zh_HK" value="小計" />
+            <lang locale="zh_TW" value="小計" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.subtotal].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.subtotal].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.takeoverDepart].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="接管部门" />
+            <lang locale="zh_HK" value="接管部門" />
+            <lang locale="zh_TW" value="接管部門" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.takeoverDepart].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.takeoverDepart].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.type.EqmCategory].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="分类" />
+            <lang locale="zh_HK" value="分類" />
+            <lang locale="zh_TW" value="分類" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.type.EqmCategory].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.type.EqmCategory].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.type.EqmCategory].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.useLife].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="使用年限" />
+            <lang locale="zh_HK" value="使用年限" />
+            <lang locale="zh_TW" value="使用年限" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.useLife].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.useLife].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.usePerson.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="使用人" />
+            <lang locale="zh_HK" value="使用人" />
+            <lang locale="zh_TW" value="使用人" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.usePerson.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.usePerson.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[E1.usePerson.name].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[auditTime].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="审核时间" />
+            <lang locale="zh_HK" value="審核時間" />
+            <lang locale="zh_TW" value="審核時間" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[auditTime].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[auditTime].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[auditor.name].displayName">
+            <lang locale="en_US" value="用户别名" />
+            <lang locale="zh_CN" value="审核人" />
+            <lang locale="zh_HK" value="審核人" />
+            <lang locale="zh_TW" value="審核人" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[auditor.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[bizDate].displayName">
+            <lang locale="en_US" value="" />
+            <lang locale="zh_CN" value="业务日期" />
+            <lang locale="zh_HK" value="業務日期" />
+            <lang locale="zh_TW" value="業務日期" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[bizDate].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[bizDate].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[createTime].displayName">
+            <lang locale="en_US" value="createTime" />
+            <lang locale="zh_CN" value="制单时间" />
+            <lang locale="zh_HK" value="制單時間" />
+            <lang locale="zh_TW" value="制單時間" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[createTime].extendedProperty.colWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[createTime].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[createTime].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[createTime].extendedProperty.isDynCommonQuery">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[createTime].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[creator.name].displayName">
+            <lang locale="en_US" value="用户别名" />
+            <lang locale="zh_CN" value="制单人" />
+            <lang locale="zh_HK" value="制單人" />
+            <lang locale="zh_TW" value="制單人" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[creator.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[id].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="ID" />
+            <lang locale="zh_HK" value="ID" />
+            <lang locale="zh_TW" value="ID" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[lastUpdateTime].displayName">
+            <lang locale="en_US" value="lastUpdateTime" />
+            <lang locale="zh_CN" value="最后修改时间" />
+            <lang locale="zh_HK" value="最後修改時間" />
+            <lang locale="zh_TW" value="最後修改時間" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[lastUpdateTime].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[lastUpdateTime].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[lastUpdateUser.name].displayName">
+            <lang locale="en_US" value="用户别名" />
+            <lang locale="zh_CN" value="最后修改人" />
+            <lang locale="zh_HK" value="最後修改人" />
+            <lang locale="zh_TW" value="最後修改人" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[lastUpdateUser.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[number].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据编号" />
+            <lang locale="zh_HK" value="單據編號" />
+            <lang locale="zh_TW" value="單據編號" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[number].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[number].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[projectName.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="工程名称" />
+            <lang locale="zh_HK" value="工程名稱" />
+            <lang locale="zh_TW" value="工程名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[projectName.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[projectName.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[projectName.name].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[projectType].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="工程类型" />
+            <lang locale="zh_HK" value="工程類型" />
+            <lang locale="zh_TW" value="工程類型" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[projectType].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[projectType].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[status].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据状态" />
+            <lang locale="zh_HK" value="單據狀態" />
+            <lang locale="zh_TW" value="單據狀態" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[status].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[status].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+    </resource>
+</joinQuery>
+
