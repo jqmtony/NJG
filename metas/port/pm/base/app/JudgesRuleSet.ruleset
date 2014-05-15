@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleSet xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.port.pm.base.app</package>
+    <name>JudgesRuleSet</name>
+    <alias>ruleSet[com.kingdee.eas.port.pm.base.app.JudgesRuleSet].alias</alias>
+    <description>ruleSet[com.kingdee.eas.port.pm.base.app.JudgesRuleSet].description</description>
+    <userDefined>true</userDefined>
+    <expressions>
+        <groupExpression>
+            <id>df874fff-52a0-4dab-a89f-4a753f1c4380</id>
+            <parentID />
+            <source>personName=juName.name</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>89177e44-de07-46c0-bae7-974e4001aaa1</id>
+            <parentID>df874fff-52a0-4dab-a89f-4a753f1c4380</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>27467237-7399-4ec8-8e54-a4f835c63db9</ownerID>
+                <name>text</name>
+                <type>java.lang.String</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>27467237-7399-4ec8-8e54-a4f835c63db9</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>txtpersonName</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>d6c17413-593c-42a6-aa47-1e57b97ad783</id>
+            <parentID>df874fff-52a0-4dab-a89f-4a753f1c4380</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>c2fef55e-1c4a-42e1-9bc1-6668570a6801</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>0847fa24-c8a9-4ce1-a158-ed20db1ffe57</id>
+                        <expressionID>1db4994e-b43a-4f52-8113-ee3452215c9b</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>859fd3b3-8ec9-48ad-a778-d27ddcc55510</id>
+                        <expressionID>bd14e898-e0a9-4121-bedf-b71f9d9dddf2</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>c2fef55e-1c4a-42e1-9bc1-6668570a6801</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>1db4994e-b43a-4f52-8113-ee3452215c9b</id>
+            <parentID />
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>Object</valueType>
+            <value />
+            <method>
+                <ownerID>6dca6a1a-1224-434e-9636-9762e9bc3c15</ownerID>
+                <name>getData</name>
+                <type>Object</type>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>6dca6a1a-1224-434e-9636-9762e9bc3c15</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)prmtjuName</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>bd14e898-e0a9-4121-bedf-b71f9d9dddf2</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>name</value>
+        </simpleExpression>
+    </expressions>
+    <actions>
+        <action>
+            <id>9d22accf-ce16-4077-8bca-65643919c229</id>
+            <name>Judges_personName_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.pm.base.app.JudgesRuleSet].actions.action[Judges_personName_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.pm.base.app.JudgesRuleSet].actions.action[Judges_personName_ActionInfo].description</description>
+            <expressionID>df874fff-52a0-4dab-a89f-4a753f1c4380</expressionID>
+        </action>
+    </actions>
+    <rules>
+        <conditionRule>
+            <name>Judges_personName_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.pm.base.app.JudgesRuleSet].rules.conditionRule[Judges_personName_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.pm.base.app.JudgesRuleSet].rules.conditionRule[Judges_personName_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="9d22accf-ce16-4077-8bca-65643919c229" />
+                </action>
+            </actions>
+        </conditionRule>
+    </rules>
+    <resource>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.base.app.JudgesRuleSet].actions.action[Judges_personName_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_name" />
+            <lang locale="zh_HK" value="攜帶字段屬性_name" />
+            <lang locale="zh_TW" value="攜帶字段屬性_name" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.base.app.JudgesRuleSet].actions.action[Judges_personName_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.base.app.JudgesRuleSet].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.base.app.JudgesRuleSet].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.base.app.JudgesRuleSet].rules.conditionRule[Judges_personName_RuleInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_name" />
+            <lang locale="zh_HK" value="攜帶字段屬性_name" />
+            <lang locale="zh_TW" value="攜帶字段屬性_name" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.base.app.JudgesRuleSet].rules.conditionRule[Judges_personName_RuleInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.base.app.JudgesRuleSet].rules.conditionRule[Judges_personName_RuleInfo].extendedProperty.columnName">
+            <lang locale="en_US" value="juName" />
+            <lang locale="zh_CN" value="juName" />
+            <lang locale="zh_TW" value="juName" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.base.app.JudgesRuleSet].rules.conditionRule[Judges_personName_RuleInfo].extendedProperty.userDefined">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+    </resource>
+</ruleSet>
+

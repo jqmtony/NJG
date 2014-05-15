@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleSet xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.port.pm.base.app</package>
+    <name>EvaluationTemplateRuleSet</name>
+    <alias>ruleSet[com.kingdee.eas.port.pm.base.app.EvaluationTemplateRuleSet].alias</alias>
+    <description>ruleSet[com.kingdee.eas.port.pm.base.app.EvaluationTemplateRuleSet].description</description>
+    <userDefined>true</userDefined>
+    <expressions>
+        <groupExpression>
+            <id>739277fb-0510-41e9-b66a-73bf1f8b618c</id>
+            <parentID />
+            <source>Entry.indicatorName=Entry.indicatorType.name</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>8874fb6e-c08b-4d26-ba3f-6356e83b504d</id>
+            <parentID>739277fb-0510-41e9-b66a-73bf1f8b618c</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>edcda809-5f6b-4041-8e86-6e7b7c08636f</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>edcda809-5f6b-4041-8e86-6e7b7c08636f</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>kdtEntry.getCell(rowIndex,"indicatorName")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>84ef59e4-ba34-49de-8645-1a40e2fd219f</id>
+            <parentID>739277fb-0510-41e9-b66a-73bf1f8b618c</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>163bd03f-6553-49b0-b0ab-ce4b1070e34a</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>77cbd829-90c2-4b21-a628-af4aafc31979</id>
+                        <expressionID>613ed661-1def-47c7-84e5-c7db0e05ea92</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>92c8bb22-3157-4061-913a-4a8145cf6ce3</id>
+                        <expressionID>5bb6ecc0-54e0-4054-a5d1-40557fbb14fd</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>163bd03f-6553-49b0-b0ab-ce4b1070e34a</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>613ed661-1def-47c7-84e5-c7db0e05ea92</id>
+            <parentID />
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>a393c27a-4b54-48da-a943-a63b5e39ae39</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>a393c27a-4b54-48da-a943-a63b5e39ae39</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)kdtEntry.getCell(rowIndex,"indicatorType")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>5bb6ecc0-54e0-4054-a5d1-40557fbb14fd</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>name</value>
+        </simpleExpression>
+    </expressions>
+    <actions>
+        <action>
+            <id>b86203ce-57df-49b3-92ff-bb9ba62d8d62</id>
+            <name>Entry_indicatorName_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.pm.base.app.EvaluationTemplateRuleSet].actions.action[Entry_indicatorName_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.pm.base.app.EvaluationTemplateRuleSet].actions.action[Entry_indicatorName_ActionInfo].description</description>
+            <expressionID>739277fb-0510-41e9-b66a-73bf1f8b618c</expressionID>
+        </action>
+    </actions>
+    <rules>
+        <conditionRule>
+            <name>Entry_indicatorName_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.pm.base.app.EvaluationTemplateRuleSet].rules.conditionRule[Entry_indicatorName_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.pm.base.app.EvaluationTemplateRuleSet].rules.conditionRule[Entry_indicatorName_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="b86203ce-57df-49b3-92ff-bb9ba62d8d62" />
+                </action>
+            </actions>
+        </conditionRule>
+    </rules>
+    <resource>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.base.app.EvaluationTemplateRuleSet].actions.action[Entry_indicatorName_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_name" />
+            <lang locale="zh_HK" value="攜帶字段屬性_name" />
+            <lang locale="zh_TW" value="攜帶字段屬性_name" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.base.app.EvaluationTemplateRuleSet].actions.action[Entry_indicatorName_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.base.app.EvaluationTemplateRuleSet].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.base.app.EvaluationTemplateRuleSet].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.base.app.EvaluationTemplateRuleSet].rules.conditionRule[Entry_indicatorName_RuleInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_name" />
+            <lang locale="zh_HK" value="攜帶字段屬性_name" />
+            <lang locale="zh_TW" value="攜帶字段屬性_name" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.base.app.EvaluationTemplateRuleSet].rules.conditionRule[Entry_indicatorName_RuleInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.base.app.EvaluationTemplateRuleSet].rules.conditionRule[Entry_indicatorName_RuleInfo].extendedProperty.columnName">
+            <lang locale="en_US" value="indicatorType" />
+            <lang locale="zh_CN" value="indicatorType" />
+            <lang locale="zh_TW" value="indicatorType" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.base.app.EvaluationTemplateRuleSet].rules.conditionRule[Entry_indicatorName_RuleInfo].extendedProperty.userDefined">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+    </resource>
+</ruleSet>
+
