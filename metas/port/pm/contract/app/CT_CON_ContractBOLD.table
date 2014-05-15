@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataTable xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.port.pm.contract.app</package>
+    <name>CT_CON_ContractBOLD</name>
+    <alias>dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractBOLD].alias</alias>
+    <description>dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractBOLD].description</description>
+    <userDefined>true</userDefined>
+    <bizUnitPK />
+    <columns>
+        <column>
+            <name>FID</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractBOLD].columns.column[FID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractBOLD].columns.column[FID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>44</precision>
+        </column>
+        <column>
+            <name>FContractID</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractBOLD].columns.column[FContractID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractBOLD].columns.column[FContractID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>44</precision>
+        </column>
+        <column>
+            <name>FLandDeveloperID</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractBOLD].columns.column[FLandDeveloperID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractBOLD].columns.column[FLandDeveloperID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+    </columns>
+    <primaryKey>
+        <name>CPK_CON_CntrcBOu45</name>
+        <userDefined>true</userDefined>
+        <primaryKeyColumns>
+            <primaryKeyColumn>
+                <indexID>0</indexID>
+                <sortType>ASC</sortType>
+                <column>
+                    <key name="name" value="FID" />
+                </column>
+            </primaryKeyColumn>
+        </primaryKeyColumns>
+    </primaryKey>
+    <indexes>
+        <index>
+            <name>IX_CN_ConLaDeCon</name>
+            <isUnique>false</isUnique>
+            <isClusteredIndex>false</isClusteredIndex>
+            <userDefined>true</userDefined>
+            <indexColumns>
+                <indexColumn>
+                    <indexID>0</indexID>
+                    <sortType>ASC</sortType>
+                    <column>
+                        <key name="name" value="FContractID" />
+                    </column>
+                </indexColumn>
+            </indexColumns>
+        </index>
+        <index>
+            <name>IX_CN_ConLaDeLop</name>
+            <isUnique>false</isUnique>
+            <isClusteredIndex>false</isClusteredIndex>
+            <userDefined>true</userDefined>
+            <indexColumns>
+                <indexColumn>
+                    <indexID>0</indexID>
+                    <sortType>ASC</sortType>
+                    <column>
+                        <key name="name" value="FLandDeveloperID" />
+                    </column>
+                </indexColumn>
+            </indexColumns>
+        </index>
+    </indexes>
+    <foreignKeys>
+        <foreignKey>
+            <name>CFK_CON_CONCBOLDu4</name>
+            <userDefined>true</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.port.pm.contract.app" />
+                <key name="name" value="CT_CON_ContractBill" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="FContractID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
+        <foreignKey>
+            <name>CFK_CON_CONCBOLDu4</name>
+            <userDefined>true</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="T_FDC_LandDeveloper" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="FLandDeveloperID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
+    </foreignKeys>
+    <resource>
+        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractBOLD].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="其他甲方" />
+            <lang locale="zh_HK" value="其他甲方" />
+            <lang locale="zh_TW" value="其他甲方" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractBOLD].columns.column[FContractID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractBOLD].columns.column[FContractID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractBOLD].columns.column[FID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractBOLD].columns.column[FID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractBOLD].columns.column[FLandDeveloperID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractBOLD].columns.column[FLandDeveloperID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractBOLD].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+    </resource>
+</dataTable>
+

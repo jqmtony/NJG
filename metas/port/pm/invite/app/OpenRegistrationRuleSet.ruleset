@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleSet xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.port.pm.invite.app</package>
+    <name>OpenRegistrationRuleSet</name>
+    <alias>ruleSet[com.kingdee.eas.port.pm.invite.app.OpenRegistrationRuleSet].alias</alias>
+    <description>ruleSet[com.kingdee.eas.port.pm.invite.app.OpenRegistrationRuleSet].description</description>
+    <userDefined>true</userDefined>
+    <expressions>
+        <groupExpression>
+            <id>8dbee4f5-debc-4b18-b5e1-7fc544b7dd99</id>
+            <parentID />
+            <source>reportNumber=reportName.number</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>8aeec6c4-bc20-46e9-a309-29ff3fe0b104</id>
+            <parentID>8dbee4f5-debc-4b18-b5e1-7fc544b7dd99</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>bc30fa0e-7305-4baf-904e-37587666ebc0</ownerID>
+                <name>text</name>
+                <type>java.lang.String</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>bc30fa0e-7305-4baf-904e-37587666ebc0</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>txtreportNumber</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>1695cbf9-d14d-4e7d-93cf-77cfcbb6c527</id>
+            <parentID>8dbee4f5-debc-4b18-b5e1-7fc544b7dd99</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>00fbafe3-3226-426d-b896-c3517c4d8f47</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>6a86f873-15e9-4f81-b78c-882fa3cd5f5b</id>
+                        <expressionID>47a0caf3-fb12-4377-931d-2453d03fb207</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>22781612-87fb-4e45-afd6-4d3177c1dc4e</id>
+                        <expressionID>28d28b63-d000-42d5-80b6-d65e085fa750</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>00fbafe3-3226-426d-b896-c3517c4d8f47</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>47a0caf3-fb12-4377-931d-2453d03fb207</id>
+            <parentID />
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>Object</valueType>
+            <value />
+            <method>
+                <ownerID>44c5fde2-26d1-4b70-ba59-0de8ad2e5929</ownerID>
+                <name>getData</name>
+                <type>Object</type>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>44c5fde2-26d1-4b70-ba59-0de8ad2e5929</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)prmtreportName</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>28d28b63-d000-42d5-80b6-d65e085fa750</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>number</value>
+        </simpleExpression>
+        <groupExpression>
+            <id>4c82b11d-9180-49aa-99fe-16f6d437158f</id>
+            <parentID />
+            <source>Entry.contact=Entry.supName.corporation</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>ef963257-f3e4-4080-9ae3-054c5fb160c9</id>
+            <parentID>4c82b11d-9180-49aa-99fe-16f6d437158f</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>7468b177-1b93-44a3-add4-a5a718c7d047</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>7468b177-1b93-44a3-add4-a5a718c7d047</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>kdtEntry.getCell(rowIndex,"contact")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>f0aac9f0-ae53-4cdc-86c8-85dde6d18e70</id>
+            <parentID>4c82b11d-9180-49aa-99fe-16f6d437158f</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>a0fec8ef-8080-49cb-a04c-dace0b34d1ae</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>220a87db-808e-424b-be04-01745635132f</id>
+                        <expressionID>f7d565e5-0694-43a9-9893-a676a3d5b40d</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>4f133d2b-1f10-4ce2-b664-876eb281aea5</id>
+                        <expressionID>8a64480f-9288-40a3-a968-28585b55d7d0</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>a0fec8ef-8080-49cb-a04c-dace0b34d1ae</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>f7d565e5-0694-43a9-9893-a676a3d5b40d</id>
+            <parentID />
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>c3d07254-4ebd-466d-92f4-a45b7f6dc244</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>c3d07254-4ebd-466d-92f4-a45b7f6dc244</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)kdtEntry.getCell(rowIndex,"supName")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>8a64480f-9288-40a3-a968-28585b55d7d0</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>corporation</value>
+        </simpleExpression>
+        <groupExpression>
+            <id>6aa1701c-8ead-48d1-b0ce-269e063e236e</id>
+            <parentID />
+            <source>Entry.supLevel=Entry.supName.level.name</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>67a2f2b7-e6f1-41fe-bd1d-6bb801b6bd3e</id>
+            <parentID>6aa1701c-8ead-48d1-b0ce-269e063e236e</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>e0cc74f4-2d77-4814-a72f-f1d647c4e964</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>e0cc74f4-2d77-4814-a72f-f1d647c4e964</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>kdtEntry.getCell(rowIndex,"supLevel")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>cdb7ce79-01a8-404c-b10f-dcc10360b3b9</id>
+            <parentID>6aa1701c-8ead-48d1-b0ce-269e063e236e</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>1f66851b-c2de-4014-930b-6dd0580296dd</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>844105bc-efe7-4b46-aea5-4c0511b8326d</id>
+                        <expressionID>06ea6610-ab2d-4fc2-8754-0ddf6d23b5bd</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>ab332f2a-311b-43af-a00c-f89044207224</id>
+                        <expressionID>29751111-2c55-43c6-a80a-21e760ff7099</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>1f66851b-c2de-4014-930b-6dd0580296dd</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>06ea6610-ab2d-4fc2-8754-0ddf6d23b5bd</id>
+            <parentID />
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>63375e81-a039-497a-a8e9-06ab1ca583ee</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>63375e81-a039-497a-a8e9-06ab1ca583ee</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)kdtEntry.getCell(rowIndex,"supName")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>29751111-2c55-43c6-a80a-21e760ff7099</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>level.name</value>
+        </simpleExpression>
+        <groupExpression>
+            <id>93010941-daa6-42a8-9820-e2a6aeb2d560</id>
+            <parentID />
+            <source>reportNumber=reportName.number</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>0abd2e70-aaa9-488e-97f8-72e71f760069</id>
+            <parentID>93010941-daa6-42a8-9820-e2a6aeb2d560</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>0a24590f-b60a-4969-8b24-b094628c2895</ownerID>
+                <name>text</name>
+                <type>java.lang.String</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>0a24590f-b60a-4969-8b24-b094628c2895</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>txtreportNumber</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>a5b1e8c1-3cbe-459b-a81e-76e8f0e32a5e</id>
+            <parentID>93010941-daa6-42a8-9820-e2a6aeb2d560</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>330cf9a4-0027-4c2d-a075-ea66491d9141</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>f564a7b9-56cc-41cd-b6cf-4873a7306eec</id>
+                        <expressionID>61743af3-752e-4d1e-a2ba-519f6e0eb33f</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>8ed7c7cb-7031-4b7d-9bc5-3f9c49287dd5</id>
+                        <expressionID>c76791cb-c0c2-4260-b133-250e3b44efde</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>330cf9a4-0027-4c2d-a075-ea66491d9141</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>61743af3-752e-4d1e-a2ba-519f6e0eb33f</id>
+            <parentID />
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>Object</valueType>
+            <value />
+            <method>
+                <ownerID>439f1c53-59ba-4a77-823c-8cc541084d4b</ownerID>
+                <name>getData</name>
+                <type>Object</type>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>439f1c53-59ba-4a77-823c-8cc541084d4b</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)prmtreportName</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>c76791cb-c0c2-4260-b133-250e3b44efde</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>number</value>
+        </simpleExpression>
+    </expressions>
+    <actions>
+        <action>
+            <id>9fe50c62-2559-4bf2-bda4-e2c805139af0</id>
+            <name>OpenRegistration_reportNumber_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.pm.invite.app.OpenRegistrationRuleSet].actions.action[OpenRegistration_reportNumber_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.pm.invite.app.OpenRegistrationRuleSet].actions.action[OpenRegistration_reportNumber_ActionInfo].description</description>
+            <expressionID>8dbee4f5-debc-4b18-b5e1-7fc544b7dd99</expressionID>
+        </action>
+        <action>
+            <id>99ef3d81-9485-4229-91f9-3b0c89dce74c</id>
+            <name>Entry_contact_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.pm.invite.app.OpenRegistrationRuleSet].actions.action[Entry_contact_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.pm.invite.app.OpenRegistrationRuleSet].actions.action[Entry_contact_ActionInfo].description</description>
+            <expressionID>4c82b11d-9180-49aa-99fe-16f6d437158f</expressionID>
+        </action>
+        <action>
+            <id>c14f4dfa-85e5-491f-b337-9013cba1faa9</id>
+            <name>Entry_supLevel_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.pm.invite.app.OpenRegistrationRuleSet].actions.action[Entry_supLevel_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.pm.invite.app.OpenRegistrationRuleSet].actions.action[Entry_supLevel_ActionInfo].description</description>
+            <expressionID>6aa1701c-8ead-48d1-b0ce-269e063e236e</expressionID>
+        </action>
+        <action>
+            <id>31e92254-3e7f-4b93-856d-16cd020625f3</id>
+            <name>OpenRegistration_reportNumber_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.pm.invite.app.OpenRegistrationRuleSet].actions.action[OpenRegistration_reportNumber_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.pm.invite.app.OpenRegistrationRuleSet].actions.action[OpenRegistration_reportNumber_ActionInfo].description</description>
+            <expressionID>93010941-daa6-42a8-9820-e2a6aeb2d560</expressionID>
+        </action>
+    </actions>
+    <rules>
+        <conditionRule>
+            <name>OpenRegistration_reportNumber_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.pm.invite.app.OpenRegistrationRuleSet].rules.conditionRule[OpenRegistration_reportNumber_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.pm.invite.app.OpenRegistrationRuleSet].rules.conditionRule[OpenRegistration_reportNumber_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="31e92254-3e7f-4b93-856d-16cd020625f3" />
+                </action>
+            </actions>
+        </conditionRule>
+    </rules>
+    <resource>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.OpenRegistrationRuleSet].actions.action[Entry_contact_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_corporation" />
+            <lang locale="zh_HK" value="攜帶字段屬性_corporation" />
+            <lang locale="zh_TW" value="攜帶字段屬性_corporation" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.OpenRegistrationRuleSet].actions.action[Entry_contact_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.OpenRegistrationRuleSet].actions.action[Entry_supLevel_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_level" />
+            <lang locale="zh_HK" value="攜帶字段屬性_level" />
+            <lang locale="zh_TW" value="攜帶字段屬性_level" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.OpenRegistrationRuleSet].actions.action[Entry_supLevel_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.OpenRegistrationRuleSet].actions.action[OpenRegistration_reportNumber_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_number" />
+            <lang locale="zh_HK" value="攜帶字段屬性_number" />
+            <lang locale="zh_TW" value="攜帶字段屬性_number" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.OpenRegistrationRuleSet].actions.action[OpenRegistration_reportNumber_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.OpenRegistrationRuleSet].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.OpenRegistrationRuleSet].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.OpenRegistrationRuleSet].rules.conditionRule[OpenRegistration_reportNumber_RuleInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_number" />
+            <lang locale="zh_HK" value="攜帶字段屬性_number" />
+            <lang locale="zh_TW" value="攜帶字段屬性_number" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.OpenRegistrationRuleSet].rules.conditionRule[OpenRegistration_reportNumber_RuleInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.OpenRegistrationRuleSet].rules.conditionRule[OpenRegistration_reportNumber_RuleInfo].extendedProperty.columnName">
+            <lang locale="en_US" value="reportName" />
+            <lang locale="zh_CN" value="reportName" />
+            <lang locale="zh_TW" value="reportName" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.OpenRegistrationRuleSet].rules.conditionRule[OpenRegistration_reportNumber_RuleInfo].extendedProperty.userDefined">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+    </resource>
+</ruleSet>
+

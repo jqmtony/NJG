@@ -1,0 +1,1021 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleSet xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.port.pm.invite.app</package>
+    <name>JudgesComfirmRuleSet</name>
+    <alias>ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].alias</alias>
+    <description>ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].description</description>
+    <userDefined>true</userDefined>
+    <expressions>
+        <groupExpression>
+            <id>0c5dbad3-7cc9-4e94-a8e9-e8201eb15e6b</id>
+            <parentID />
+            <source>planNumber=planName.number</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>514fdea6-0096-49ae-9c80-e25e45401356</id>
+            <parentID>0c5dbad3-7cc9-4e94-a8e9-e8201eb15e6b</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>68b60e0d-9669-4f27-accd-2d7ce178368d</ownerID>
+                <name>text</name>
+                <type>java.lang.String</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>68b60e0d-9669-4f27-accd-2d7ce178368d</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>txtplanNumber</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>5cc54a75-2388-42c4-9690-f2ae60ab11b2</id>
+            <parentID>0c5dbad3-7cc9-4e94-a8e9-e8201eb15e6b</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>8bce9532-5ca4-4d68-9cba-6339262fd248</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>fe529ad1-7829-4062-b7ed-4084ab78e904</id>
+                        <expressionID>91df97f0-d144-4def-b76f-33cdfe4c48db</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>33d4be6a-f4f2-46a7-b985-e6104ccae947</id>
+                        <expressionID>9ea1b269-a467-4577-b1bf-df36f88c911f</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>8bce9532-5ca4-4d68-9cba-6339262fd248</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>91df97f0-d144-4def-b76f-33cdfe4c48db</id>
+            <parentID />
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>Object</valueType>
+            <value />
+            <method>
+                <ownerID>12ce15d3-b167-49b1-bcf8-c397a3693b75</ownerID>
+                <name>getData</name>
+                <type>Object</type>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>12ce15d3-b167-49b1-bcf8-c397a3693b75</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)prmtplanName</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>9ea1b269-a467-4577-b1bf-df36f88c911f</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>number</value>
+        </simpleExpression>
+        <groupExpression>
+            <id>5b4abcd8-e3a0-4946-ba4c-7f6cb2f7902b</id>
+            <parentID />
+            <source>inviteType=planName.inviteType.name</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>80be39f1-0c18-4c8d-b113-5ee4fd21b20d</id>
+            <parentID>5b4abcd8-e3a0-4946-ba4c-7f6cb2f7902b</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>a8b92697-72b8-47b8-98c0-19072fead77c</ownerID>
+                <name>text</name>
+                <type>java.lang.String</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>a8b92697-72b8-47b8-98c0-19072fead77c</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>txtinviteType</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>1aea9c27-caa3-4444-b998-0173949508e2</id>
+            <parentID>5b4abcd8-e3a0-4946-ba4c-7f6cb2f7902b</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>6c78f531-eefb-4c96-a523-1a4eba298ecc</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>dc0eba0b-ea16-46a2-a524-3607b3f46da8</id>
+                        <expressionID>a5644a92-a2e7-4c18-9ffc-c7593a8aeb49</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>41d0edfa-74b2-41a7-90d8-33a89945e773</id>
+                        <expressionID>39475038-767b-46d1-9966-5817ef4de382</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>6c78f531-eefb-4c96-a523-1a4eba298ecc</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>a5644a92-a2e7-4c18-9ffc-c7593a8aeb49</id>
+            <parentID />
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>Object</valueType>
+            <value />
+            <method>
+                <ownerID>633a61b3-a8fc-47b2-9b7d-6c548d4408d8</ownerID>
+                <name>getData</name>
+                <type>Object</type>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>633a61b3-a8fc-47b2-9b7d-6c548d4408d8</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)prmtplanName</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>39475038-767b-46d1-9966-5817ef4de382</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>inviteType.name</value>
+        </simpleExpression>
+        <groupExpression>
+            <id>1ece96ed-7eee-4793-9dc6-2b6b900864d9</id>
+            <parentID />
+            <source>prjName=planName.proName.name</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>0772396b-7bc4-4b3c-aed4-8642e1bb2e6a</id>
+            <parentID>1ece96ed-7eee-4793-9dc6-2b6b900864d9</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>0eea69e7-f7f5-4101-9bc4-ed7a577daf80</ownerID>
+                <name>text</name>
+                <type>java.lang.String</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>0eea69e7-f7f5-4101-9bc4-ed7a577daf80</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>txtprjName</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>49afb712-4d7a-45db-970a-2a8be570352a</id>
+            <parentID>1ece96ed-7eee-4793-9dc6-2b6b900864d9</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>9e196a22-0320-4f78-a970-95973158be38</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>b6d90e7b-0730-4a23-a362-d75ca4d64291</id>
+                        <expressionID>9d24d42b-f284-4a8c-ba09-972de0fb627c</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>e20f4ae3-35ba-4360-89f7-3d0e5a1e77eb</id>
+                        <expressionID>3743b36d-ea8d-489c-bf50-913be16636f4</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>9e196a22-0320-4f78-a970-95973158be38</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>9d24d42b-f284-4a8c-ba09-972de0fb627c</id>
+            <parentID />
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>Object</valueType>
+            <value />
+            <method>
+                <ownerID>e6e00f91-7a88-4057-ab05-c1f6709f2ba0</ownerID>
+                <name>getData</name>
+                <type>Object</type>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>e6e00f91-7a88-4057-ab05-c1f6709f2ba0</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)prmtplanName</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>3743b36d-ea8d-489c-bf50-913be16636f4</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>proName.name</value>
+        </simpleExpression>
+        <groupExpression>
+            <id>b988aa7b-5c2c-44c4-8c30-0c372310a1df</id>
+            <parentID />
+            <source>orgUnit=planName.useOrg.name</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>6f72eafc-edf7-4eec-964d-d2daa8e25ef5</id>
+            <parentID>b988aa7b-5c2c-44c4-8c30-0c372310a1df</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>e0302e1c-58f0-4953-9f7f-362c752a2e6f</ownerID>
+                <name>text</name>
+                <type>java.lang.String</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>e0302e1c-58f0-4953-9f7f-362c752a2e6f</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>txtorgUnit</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>9f2656bc-f87d-401f-a04c-c47f3a54fa6e</id>
+            <parentID>b988aa7b-5c2c-44c4-8c30-0c372310a1df</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>aa60e83c-dcdc-4f64-9852-3d0b23614fbc</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>3f562c64-2f4e-4e39-958b-f97ca50a9ce8</id>
+                        <expressionID>d2d7cfad-4a1a-487e-a1a9-d5d414811813</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>58422c3e-0c3a-42b5-b70b-72f4380a9602</id>
+                        <expressionID>6dc1d2ca-0afd-42c0-89e8-5ae9a922a08e</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>aa60e83c-dcdc-4f64-9852-3d0b23614fbc</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>d2d7cfad-4a1a-487e-a1a9-d5d414811813</id>
+            <parentID />
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>Object</valueType>
+            <value />
+            <method>
+                <ownerID>be5d5a57-f28e-429a-a454-88541f5f3661</ownerID>
+                <name>getData</name>
+                <type>Object</type>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>be5d5a57-f28e-429a-a454-88541f5f3661</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)prmtplanName</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>6dc1d2ca-0afd-42c0-89e8-5ae9a922a08e</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>useOrg.name</value>
+        </simpleExpression>
+        <groupExpression>
+            <id>4202145d-a7f7-42c7-828b-cf8ab78f60b0</id>
+            <parentID />
+            <source>Entry.juName=Entry.judgeNumber.juName.name</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>54b9d6c8-339b-4baa-a500-4c245e1bd138</id>
+            <parentID>4202145d-a7f7-42c7-828b-cf8ab78f60b0</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>a571683e-53fd-4e5e-8288-931f61bd1b12</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>a571683e-53fd-4e5e-8288-931f61bd1b12</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>kdtEntry.getCell(rowIndex,"juName")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>76d92321-2274-466c-951e-0e986ad5ea2a</id>
+            <parentID>4202145d-a7f7-42c7-828b-cf8ab78f60b0</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>85b47c19-ec53-43f1-a3f5-e3073c00c3ad</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>b4bc12a1-99ce-43b8-96ec-64edf150f9db</id>
+                        <expressionID>eed51279-20b8-4c24-9e0f-103858778873</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>0c9381a0-8145-40b2-9de8-8268f5250ce0</id>
+                        <expressionID>0d096a88-bb33-4b5d-9f30-b18aa9310ae4</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>85b47c19-ec53-43f1-a3f5-e3073c00c3ad</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>eed51279-20b8-4c24-9e0f-103858778873</id>
+            <parentID />
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>839f6ca9-84d5-41f9-8a53-222821c23a83</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>839f6ca9-84d5-41f9-8a53-222821c23a83</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)kdtEntry.getCell(rowIndex,"judgeNumber")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>0d096a88-bb33-4b5d-9f30-b18aa9310ae4</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>juName.name</value>
+        </simpleExpression>
+        <groupExpression>
+            <id>d6325e5c-235f-45e8-a6d2-bc00b4c92f7d</id>
+            <parentID />
+            <source>Entry.juType=Entry.judgeNumber.judgeType.name</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>79a652d9-3ca2-4e5b-a370-4070eb446af6</id>
+            <parentID>d6325e5c-235f-45e8-a6d2-bc00b4c92f7d</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>3dd24e35-08c4-4047-83eb-14918f98a5e2</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>3dd24e35-08c4-4047-83eb-14918f98a5e2</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>kdtEntry.getCell(rowIndex,"juType")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>b1b933e9-7f1c-44e4-9aff-1bbd5795b2dc</id>
+            <parentID>d6325e5c-235f-45e8-a6d2-bc00b4c92f7d</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>f19d2ce4-7844-4512-ac29-4021c4adef2e</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>5fed0006-64fe-4ca6-a236-95a5a6d20455</id>
+                        <expressionID>d8ddd121-2796-4541-bfd8-c7dba05feac9</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>bc35ed30-0db4-42d8-9bd2-612edce18d5c</id>
+                        <expressionID>472eb456-1748-43cd-b5d0-da53dbeb6c4f</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>f19d2ce4-7844-4512-ac29-4021c4adef2e</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>d8ddd121-2796-4541-bfd8-c7dba05feac9</id>
+            <parentID />
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>ebdc09c3-2c98-4873-a073-23a31fa5961d</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>ebdc09c3-2c98-4873-a073-23a31fa5961d</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)kdtEntry.getCell(rowIndex,"judgeNumber")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>472eb456-1748-43cd-b5d0-da53dbeb6c4f</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>judgeType.name</value>
+        </simpleExpression>
+        <groupExpression>
+            <id>f61422b9-e0a3-45fd-abfd-9180f5a19adb</id>
+            <parentID />
+            <source>Entry.orgUnit=Entry.judgeNumber.curDep.name</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>5b8143d6-f3ea-40c6-bf77-76c3c28b3dc0</id>
+            <parentID>f61422b9-e0a3-45fd-abfd-9180f5a19adb</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>3188ed46-87bb-4d10-9c02-e9718ef64088</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>3188ed46-87bb-4d10-9c02-e9718ef64088</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>kdtEntry.getCell(rowIndex,"orgUnit")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>5a8db78c-05b7-47e7-8e4c-8b34790f2442</id>
+            <parentID>f61422b9-e0a3-45fd-abfd-9180f5a19adb</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>8ecae447-5a3b-4ad4-b155-bfe57bf821f6</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>bc3eb1c9-3ce9-4fb3-afb0-ce6d94999da3</id>
+                        <expressionID>e8eef3e4-587d-4afc-b9ee-c4e50fceed50</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>b2c7e1d3-68c3-4ddd-9808-77ed2fceca38</id>
+                        <expressionID>3c5fe195-6f65-4d12-89c0-877a2a22c76a</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>8ecae447-5a3b-4ad4-b155-bfe57bf821f6</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>e8eef3e4-587d-4afc-b9ee-c4e50fceed50</id>
+            <parentID />
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>28d39460-7c03-4d59-a9d6-059ac90a8a9d</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>28d39460-7c03-4d59-a9d6-059ac90a8a9d</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)kdtEntry.getCell(rowIndex,"judgeNumber")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>3c5fe195-6f65-4d12-89c0-877a2a22c76a</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>curDep.name</value>
+        </simpleExpression>
+        <groupExpression>
+            <id>6ddad9c1-178a-4abd-b059-51163f8caf1e</id>
+            <parentID />
+            <source>Entry.telephone=Entry.judgeNumber.mobile</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>58129356-0754-4245-8147-5002c24bfea2</id>
+            <parentID>6ddad9c1-178a-4abd-b059-51163f8caf1e</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>02e597b9-9804-4b03-80d6-9819c2a2259b</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>02e597b9-9804-4b03-80d6-9819c2a2259b</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>kdtEntry.getCell(rowIndex,"telephone")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>cefbec2a-228a-40f9-b507-914efacaf33d</id>
+            <parentID>6ddad9c1-178a-4abd-b059-51163f8caf1e</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>98e28fea-9b62-47df-a69e-1e59092e6a0f</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>10235c5f-d643-4575-a50e-ce7dd096da58</id>
+                        <expressionID>16e9a2ea-0931-4099-ad9c-12874cbfb266</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>e237e9f0-62fd-467c-9c3e-ceac8105627d</id>
+                        <expressionID>8a780d76-d78d-4a41-a918-b2880ea9c093</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>98e28fea-9b62-47df-a69e-1e59092e6a0f</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>16e9a2ea-0931-4099-ad9c-12874cbfb266</id>
+            <parentID />
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>13a4aab0-2def-48c7-a76d-121fb8e3c480</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>13a4aab0-2def-48c7-a76d-121fb8e3c480</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)kdtEntry.getCell(rowIndex,"judgeNumber")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>8a780d76-d78d-4a41-a918-b2880ea9c093</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>mobile</value>
+        </simpleExpression>
+    </expressions>
+    <actions>
+        <action>
+            <id>9fda0a49-ad94-4454-bd6b-71573d2d8b40</id>
+            <name>JudgesComfirm_planNumber_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].actions.action[JudgesComfirm_planNumber_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].actions.action[JudgesComfirm_planNumber_ActionInfo].description</description>
+            <expressionID>0c5dbad3-7cc9-4e94-a8e9-e8201eb15e6b</expressionID>
+        </action>
+        <action>
+            <id>3ca58892-bf12-47ba-9cdd-b64b2c412def</id>
+            <name>JudgesComfirm_inviteType_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].actions.action[JudgesComfirm_inviteType_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].actions.action[JudgesComfirm_inviteType_ActionInfo].description</description>
+            <expressionID>5b4abcd8-e3a0-4946-ba4c-7f6cb2f7902b</expressionID>
+        </action>
+        <action>
+            <id>f862cb8a-503c-4105-8ec0-fcf4a20d4127</id>
+            <name>JudgesComfirm_prjName_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].actions.action[JudgesComfirm_prjName_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].actions.action[JudgesComfirm_prjName_ActionInfo].description</description>
+            <expressionID>1ece96ed-7eee-4793-9dc6-2b6b900864d9</expressionID>
+        </action>
+        <action>
+            <id>6dfd415a-a90f-4d25-b81e-b8409d4dc33f</id>
+            <name>JudgesComfirm_orgUnit_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].actions.action[JudgesComfirm_orgUnit_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].actions.action[JudgesComfirm_orgUnit_ActionInfo].description</description>
+            <expressionID>b988aa7b-5c2c-44c4-8c30-0c372310a1df</expressionID>
+        </action>
+        <action>
+            <id>4fabc806-cdea-4e46-9635-63d07c6d7abc</id>
+            <name>Entry_juName_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].actions.action[Entry_juName_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].actions.action[Entry_juName_ActionInfo].description</description>
+            <expressionID>4202145d-a7f7-42c7-828b-cf8ab78f60b0</expressionID>
+        </action>
+        <action>
+            <id>e965f326-d882-4082-9891-afddcb28d6dc</id>
+            <name>Entry_juType_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].actions.action[Entry_juType_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].actions.action[Entry_juType_ActionInfo].description</description>
+            <expressionID>d6325e5c-235f-45e8-a6d2-bc00b4c92f7d</expressionID>
+        </action>
+        <action>
+            <id>b7e6d4d9-c080-4834-ba13-1728bcedcf7c</id>
+            <name>Entry_orgUnit_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].actions.action[Entry_orgUnit_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].actions.action[Entry_orgUnit_ActionInfo].description</description>
+            <expressionID>f61422b9-e0a3-45fd-abfd-9180f5a19adb</expressionID>
+        </action>
+        <action>
+            <id>ccab1674-0bfd-429c-be6e-4388efcb8e81</id>
+            <name>Entry_telephone_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].actions.action[Entry_telephone_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].actions.action[Entry_telephone_ActionInfo].description</description>
+            <expressionID>6ddad9c1-178a-4abd-b059-51163f8caf1e</expressionID>
+        </action>
+    </actions>
+    <rules>
+        <conditionRule>
+            <name>Entry_juName_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].rules.conditionRule[Entry_juName_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].rules.conditionRule[Entry_juName_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="4fabc806-cdea-4e46-9635-63d07c6d7abc" />
+                </action>
+            </actions>
+        </conditionRule>
+        <conditionRule>
+            <name>Entry_juType_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].rules.conditionRule[Entry_juType_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].rules.conditionRule[Entry_juType_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="e965f326-d882-4082-9891-afddcb28d6dc" />
+                </action>
+            </actions>
+        </conditionRule>
+        <conditionRule>
+            <name>Entry_orgUnit_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].rules.conditionRule[Entry_orgUnit_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].rules.conditionRule[Entry_orgUnit_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="b7e6d4d9-c080-4834-ba13-1728bcedcf7c" />
+                </action>
+            </actions>
+        </conditionRule>
+        <conditionRule>
+            <name>Entry_telephone_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].rules.conditionRule[Entry_telephone_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].rules.conditionRule[Entry_telephone_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="ccab1674-0bfd-429c-be6e-4388efcb8e81" />
+                </action>
+            </actions>
+        </conditionRule>
+    </rules>
+    <resource>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].actions.action[Entry_juName_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_juName" />
+            <lang locale="zh_HK" value="攜帶字段屬性_juName" />
+            <lang locale="zh_TW" value="攜帶字段屬性_juName" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].actions.action[Entry_juName_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].actions.action[Entry_juType_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_judgeType" />
+            <lang locale="zh_HK" value="攜帶字段屬性_judgeType" />
+            <lang locale="zh_TW" value="攜帶字段屬性_judgeType" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].actions.action[Entry_juType_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].actions.action[Entry_orgUnit_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_curDep" />
+            <lang locale="zh_HK" value="攜帶字段屬性_curDep" />
+            <lang locale="zh_TW" value="攜帶字段屬性_curDep" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].actions.action[Entry_orgUnit_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].actions.action[Entry_telephone_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_mobile" />
+            <lang locale="zh_HK" value="攜帶字段屬性_mobile" />
+            <lang locale="zh_TW" value="攜帶字段屬性_mobile" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].actions.action[Entry_telephone_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].actions.action[JudgesComfirm_inviteType_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_inviteType" />
+            <lang locale="zh_HK" value="攜帶字段屬性_inviteType" />
+            <lang locale="zh_TW" value="攜帶字段屬性_inviteType" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].actions.action[JudgesComfirm_inviteType_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].actions.action[JudgesComfirm_orgUnit_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_useOrg" />
+            <lang locale="zh_HK" value="攜帶字段屬性_useOrg" />
+            <lang locale="zh_TW" value="攜帶字段屬性_useOrg" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].actions.action[JudgesComfirm_orgUnit_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].actions.action[JudgesComfirm_planNumber_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_number" />
+            <lang locale="zh_HK" value="攜帶字段屬性_number" />
+            <lang locale="zh_TW" value="攜帶字段屬性_number" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].actions.action[JudgesComfirm_planNumber_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].actions.action[JudgesComfirm_prjName_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_proName" />
+            <lang locale="zh_HK" value="攜帶字段屬性_proName" />
+            <lang locale="zh_TW" value="攜帶字段屬性_proName" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].actions.action[JudgesComfirm_prjName_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].rules.conditionRule[Entry_juName_RuleInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_juName" />
+            <lang locale="zh_HK" value="攜帶字段屬性_juName" />
+            <lang locale="zh_TW" value="攜帶字段屬性_juName" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].rules.conditionRule[Entry_juName_RuleInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].rules.conditionRule[Entry_juName_RuleInfo].extendedProperty.columnName">
+            <lang locale="en_US" value="judgeNumber" />
+            <lang locale="zh_CN" value="judgeNumber" />
+            <lang locale="zh_TW" value="judgeNumber" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].rules.conditionRule[Entry_juName_RuleInfo].extendedProperty.userDefined">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].rules.conditionRule[Entry_juType_RuleInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_judgeType" />
+            <lang locale="zh_HK" value="攜帶字段屬性_judgeType" />
+            <lang locale="zh_TW" value="攜帶字段屬性_judgeType" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].rules.conditionRule[Entry_juType_RuleInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].rules.conditionRule[Entry_juType_RuleInfo].extendedProperty.columnName">
+            <lang locale="en_US" value="judgeNumber" />
+            <lang locale="zh_CN" value="judgeNumber" />
+            <lang locale="zh_TW" value="judgeNumber" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].rules.conditionRule[Entry_juType_RuleInfo].extendedProperty.userDefined">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].rules.conditionRule[Entry_orgUnit_RuleInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_curDep" />
+            <lang locale="zh_HK" value="攜帶字段屬性_curDep" />
+            <lang locale="zh_TW" value="攜帶字段屬性_curDep" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].rules.conditionRule[Entry_orgUnit_RuleInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].rules.conditionRule[Entry_orgUnit_RuleInfo].extendedProperty.columnName">
+            <lang locale="en_US" value="judgeNumber" />
+            <lang locale="zh_CN" value="judgeNumber" />
+            <lang locale="zh_TW" value="judgeNumber" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].rules.conditionRule[Entry_orgUnit_RuleInfo].extendedProperty.userDefined">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].rules.conditionRule[Entry_telephone_RuleInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_mobile" />
+            <lang locale="zh_HK" value="攜帶字段屬性_mobile" />
+            <lang locale="zh_TW" value="攜帶字段屬性_mobile" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].rules.conditionRule[Entry_telephone_RuleInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].rules.conditionRule[Entry_telephone_RuleInfo].extendedProperty.columnName">
+            <lang locale="en_US" value="judgeNumber" />
+            <lang locale="zh_CN" value="judgeNumber" />
+            <lang locale="zh_TW" value="judgeNumber" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].rules.conditionRule[Entry_telephone_RuleInfo].extendedProperty.userDefined">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+    </resource>
+</ruleSet>
+

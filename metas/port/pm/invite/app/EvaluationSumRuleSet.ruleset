@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleSet xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.port.pm.invite.app</package>
+    <name>EvaluationSumRuleSet</name>
+    <alias>ruleSet[com.kingdee.eas.port.pm.invite.app.EvaluationSumRuleSet].alias</alias>
+    <description>ruleSet[com.kingdee.eas.port.pm.invite.app.EvaluationSumRuleSet].description</description>
+    <userDefined>true</userDefined>
+    <expressions>
+        <groupExpression>
+            <id>5ebd8728-73c8-40d1-93b9-f9a816df9c21</id>
+            <parentID />
+            <source>Entry.quality=Entry.unitName.barCode</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>95fc74da-a951-480d-b0ce-f3471e585584</id>
+            <parentID>5ebd8728-73c8-40d1-93b9-f9a816df9c21</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>06bbb847-83a8-49d9-ad9d-1d2337cc1601</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>06bbb847-83a8-49d9-ad9d-1d2337cc1601</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>kdtEntry.getCell(rowIndex,"quality")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>b0805d97-4272-4652-943c-5d49a48b51f4</id>
+            <parentID>5ebd8728-73c8-40d1-93b9-f9a816df9c21</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>614a3383-e44b-44a7-a724-1ec22b8dd55b</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>61dc8f5e-c2ed-41a0-87ea-e3e6ffc3158b</id>
+                        <expressionID>18906a9d-c98e-41d6-bb10-de3a2b8caf5c</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>e2322060-6c51-4413-b7ea-763b05ec63d7</id>
+                        <expressionID>88887b53-1d8c-433d-a129-83b89e181035</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>614a3383-e44b-44a7-a724-1ec22b8dd55b</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>18906a9d-c98e-41d6-bb10-de3a2b8caf5c</id>
+            <parentID />
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>67f15957-e197-4eca-97fc-683158e30ce5</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>67f15957-e197-4eca-97fc-683158e30ce5</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)kdtEntry.getCell(rowIndex,"unitName")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>88887b53-1d8c-433d-a129-83b89e181035</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>barCode</value>
+        </simpleExpression>
+        <groupExpression>
+            <id>8cfcdf4d-b31d-4384-ad96-c28ee4e2227c</id>
+            <parentID />
+            <source>inviteName=inviteReport.description</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>0b0da154-38e4-42f4-9b49-0e1810b432d3</id>
+            <parentID>8cfcdf4d-b31d-4384-ad96-c28ee4e2227c</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>c5827268-0d52-4b16-83b6-38c702a7e1d1</ownerID>
+                <name>text</name>
+                <type>java.lang.String</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>c5827268-0d52-4b16-83b6-38c702a7e1d1</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>txtinviteName</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>98e4b6e7-b2af-4fb6-b7c5-b3582c527d3d</id>
+            <parentID>8cfcdf4d-b31d-4384-ad96-c28ee4e2227c</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>4dc9f980-8b9b-41b6-8839-01ba749283f6</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>34c1ab6f-83d9-4cbd-afb0-0dd7969583ee</id>
+                        <expressionID>56d97571-5a5c-4c4a-a027-de234d5c162d</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>e3e8c1d4-edf6-43d2-8742-ae75ff2445d0</id>
+                        <expressionID>7c680cfd-8a03-4985-9b68-9d24b8a21051</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>4dc9f980-8b9b-41b6-8839-01ba749283f6</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>56d97571-5a5c-4c4a-a027-de234d5c162d</id>
+            <parentID />
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>Object</valueType>
+            <value />
+            <method>
+                <ownerID>c9eb66fc-33ab-4d77-b748-7c29acb61306</ownerID>
+                <name>getData</name>
+                <type>Object</type>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>c9eb66fc-33ab-4d77-b748-7c29acb61306</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)prmtinviteReport</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>7c680cfd-8a03-4985-9b68-9d24b8a21051</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>description</value>
+        </simpleExpression>
+    </expressions>
+    <actions>
+        <action>
+            <id>16a131b1-c582-4b93-a174-ac19b5100225</id>
+            <name>Entry_quality_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.pm.invite.app.EvaluationSumRuleSet].actions.action[Entry_quality_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.pm.invite.app.EvaluationSumRuleSet].actions.action[Entry_quality_ActionInfo].description</description>
+            <expressionID>5ebd8728-73c8-40d1-93b9-f9a816df9c21</expressionID>
+        </action>
+        <action>
+            <id>822145f2-30f2-4c2c-9d03-f2b8b760d0f4</id>
+            <name>EvaluationSum_inviteName_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.pm.invite.app.EvaluationSumRuleSet].actions.action[EvaluationSum_inviteName_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.pm.invite.app.EvaluationSumRuleSet].actions.action[EvaluationSum_inviteName_ActionInfo].description</description>
+            <expressionID>8cfcdf4d-b31d-4384-ad96-c28ee4e2227c</expressionID>
+        </action>
+    </actions>
+    <rules>
+        <conditionRule>
+            <name>EvaluationSum_inviteName_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.pm.invite.app.EvaluationSumRuleSet].rules.conditionRule[EvaluationSum_inviteName_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.pm.invite.app.EvaluationSumRuleSet].rules.conditionRule[EvaluationSum_inviteName_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="822145f2-30f2-4c2c-9d03-f2b8b760d0f4" />
+                </action>
+            </actions>
+        </conditionRule>
+        <conditionRule>
+            <name>Entry_quality_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.pm.invite.app.EvaluationSumRuleSet].rules.conditionRule[Entry_quality_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.pm.invite.app.EvaluationSumRuleSet].rules.conditionRule[Entry_quality_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="16a131b1-c582-4b93-a174-ac19b5100225" />
+                </action>
+            </actions>
+        </conditionRule>
+    </rules>
+    <resource>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.EvaluationSumRuleSet].actions.action[Entry_quality_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_barCode" />
+            <lang locale="zh_HK" value="攜帶字段屬性_barCode" />
+            <lang locale="zh_TW" value="攜帶字段屬性_barCode" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.EvaluationSumRuleSet].actions.action[Entry_quality_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.EvaluationSumRuleSet].actions.action[EvaluationSum_inviteName_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_description" />
+            <lang locale="zh_HK" value="攜帶字段屬性_description" />
+            <lang locale="zh_TW" value="攜帶字段屬性_description" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.EvaluationSumRuleSet].actions.action[EvaluationSum_inviteName_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.EvaluationSumRuleSet].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.EvaluationSumRuleSet].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.EvaluationSumRuleSet].rules.conditionRule[Entry_quality_RuleInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_barCode" />
+            <lang locale="zh_HK" value="攜帶字段屬性_barCode" />
+            <lang locale="zh_TW" value="攜帶字段屬性_barCode" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.EvaluationSumRuleSet].rules.conditionRule[Entry_quality_RuleInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.EvaluationSumRuleSet].rules.conditionRule[Entry_quality_RuleInfo].extendedProperty.columnName">
+            <lang locale="en_US" value="unitName" />
+            <lang locale="zh_CN" value="unitName" />
+            <lang locale="zh_TW" value="unitName" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.EvaluationSumRuleSet].rules.conditionRule[Entry_quality_RuleInfo].extendedProperty.userDefined">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.EvaluationSumRuleSet].rules.conditionRule[EvaluationSum_inviteName_RuleInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_description" />
+            <lang locale="zh_HK" value="攜帶字段屬性_description" />
+            <lang locale="zh_TW" value="攜帶字段屬性_description" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.EvaluationSumRuleSet].rules.conditionRule[EvaluationSum_inviteName_RuleInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.EvaluationSumRuleSet].rules.conditionRule[EvaluationSum_inviteName_RuleInfo].extendedProperty.columnName">
+            <lang locale="en_US" value="inviteReport" />
+            <lang locale="zh_CN" value="inviteReport" />
+            <lang locale="zh_TW" value="inviteReport" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.EvaluationSumRuleSet].rules.conditionRule[EvaluationSum_inviteName_RuleInfo].extendedProperty.userDefined">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+    </resource>
+</ruleSet>
+

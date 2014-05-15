@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleSet xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.port.equipment.maintenance.app</package>
+    <name>RepairOrderRuleSet</name>
+    <alias>ruleSet[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderRuleSet].alias</alias>
+    <description>ruleSet[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderRuleSet].description</description>
+    <userDefined>true</userDefined>
+    <expressions>
+        <groupExpression>
+            <id>80676084-00ce-4253-b8ab-f4f20cb393ac</id>
+            <parentID />
+            <source>equModel=equName.model</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>da6fd20f-80ea-4a00-a7ab-bbad4c4c2fa4</id>
+            <parentID>80676084-00ce-4253-b8ab-f4f20cb393ac</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>f7dd7236-4c26-43d8-98e8-a1c11234dce4</ownerID>
+                <name>text</name>
+                <type>java.lang.String</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>f7dd7236-4c26-43d8-98e8-a1c11234dce4</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>txtequModel</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>7e8d0d94-c830-495a-8f55-90435959d964</id>
+            <parentID>80676084-00ce-4253-b8ab-f4f20cb393ac</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>a4dcda7c-16ba-4ed8-a310-fd7b09bea76f</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>410bd5c6-e243-405c-bb87-afe7ccac1c4a</id>
+                        <expressionID>0664b588-65dd-4552-b1e6-31da2e1facc9</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>926dc2f6-18de-4e2d-95f1-06039d85ba9c</id>
+                        <expressionID>bc972489-2ef6-498a-9d76-b67b76ba658e</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>a4dcda7c-16ba-4ed8-a310-fd7b09bea76f</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>0664b588-65dd-4552-b1e6-31da2e1facc9</id>
+            <parentID />
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>Object</valueType>
+            <value />
+            <method>
+                <ownerID>eba1cc0b-7851-4b2d-8e09-d4a5623f0ea7</ownerID>
+                <name>getData</name>
+                <type>Object</type>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>eba1cc0b-7851-4b2d-8e09-d4a5623f0ea7</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)prmtequName</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>bc972489-2ef6-498a-9d76-b67b76ba658e</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>model</value>
+        </simpleExpression>
+        <groupExpression>
+            <id>2ed9027e-4c5b-431d-8c67-84a7e77c1989</id>
+            <parentID />
+            <source>equAddress=equName.address.name</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>ee06fd6d-89ea-4a97-89cb-eb523aee4e19</id>
+            <parentID>2ed9027e-4c5b-431d-8c67-84a7e77c1989</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>6d81f7f1-df1d-483d-923f-0c4a731d7725</ownerID>
+                <name>text</name>
+                <type>java.lang.String</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>6d81f7f1-df1d-483d-923f-0c4a731d7725</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>txtequAddress</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>1ac82cf9-25d8-4364-9c09-3f80b2b9ec4f</id>
+            <parentID>2ed9027e-4c5b-431d-8c67-84a7e77c1989</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>eab2db39-a51e-45b7-8637-e209fd039de4</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>719cc537-d2a3-4472-a914-d14981806e42</id>
+                        <expressionID>e4cc203f-75a0-4e3b-b779-4c71c0f9ab99</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>791fc5d4-9bea-403f-916f-b00e42dbe0c3</id>
+                        <expressionID>79f5a2b9-5a87-4de8-a035-09fcd0bf43dc</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>eab2db39-a51e-45b7-8637-e209fd039de4</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>e4cc203f-75a0-4e3b-b779-4c71c0f9ab99</id>
+            <parentID />
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>Object</valueType>
+            <value />
+            <method>
+                <ownerID>f26533c6-2b2f-4318-aa6b-6f018cfad7f3</ownerID>
+                <name>getData</name>
+                <type>Object</type>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>f26533c6-2b2f-4318-aa6b-6f018cfad7f3</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)prmtequName</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>79f5a2b9-5a87-4de8-a035-09fcd0bf43dc</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>address.name</value>
+        </simpleExpression>
+    </expressions>
+    <actions>
+        <action>
+            <id>6faf5345-7f52-411c-90a1-98c649a9b31d</id>
+            <name>RepairOrder_equModel_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderRuleSet].actions.action[RepairOrder_equModel_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderRuleSet].actions.action[RepairOrder_equModel_ActionInfo].description</description>
+            <expressionID>80676084-00ce-4253-b8ab-f4f20cb393ac</expressionID>
+        </action>
+        <action>
+            <id>a8b73922-3126-4022-b219-6c293632fdd7</id>
+            <name>RepairOrder_equAddress_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderRuleSet].actions.action[RepairOrder_equAddress_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderRuleSet].actions.action[RepairOrder_equAddress_ActionInfo].description</description>
+            <expressionID>2ed9027e-4c5b-431d-8c67-84a7e77c1989</expressionID>
+        </action>
+    </actions>
+    <rules>
+        <conditionRule>
+            <name>RepairOrder_equModel_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderRuleSet].rules.conditionRule[RepairOrder_equModel_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderRuleSet].rules.conditionRule[RepairOrder_equModel_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="6faf5345-7f52-411c-90a1-98c649a9b31d" />
+                </action>
+            </actions>
+        </conditionRule>
+        <conditionRule>
+            <name>RepairOrder_equAddress_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderRuleSet].rules.conditionRule[RepairOrder_equAddress_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderRuleSet].rules.conditionRule[RepairOrder_equAddress_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="a8b73922-3126-4022-b219-6c293632fdd7" />
+                </action>
+            </actions>
+        </conditionRule>
+    </rules>
+    <resource>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderRuleSet].actions.action[RepairOrder_equAddress_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_address" />
+            <lang locale="zh_HK" value="攜帶字段屬性_address" />
+            <lang locale="zh_TW" value="攜帶字段屬性_address" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderRuleSet].actions.action[RepairOrder_equAddress_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderRuleSet].actions.action[RepairOrder_equModel_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_model" />
+            <lang locale="zh_HK" value="攜帶字段屬性_model" />
+            <lang locale="zh_TW" value="攜帶字段屬性_model" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderRuleSet].actions.action[RepairOrder_equModel_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderRuleSet].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderRuleSet].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderRuleSet].rules.conditionRule[RepairOrder_equAddress_RuleInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_address" />
+            <lang locale="zh_HK" value="攜帶字段屬性_address" />
+            <lang locale="zh_TW" value="攜帶字段屬性_address" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderRuleSet].rules.conditionRule[RepairOrder_equAddress_RuleInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderRuleSet].rules.conditionRule[RepairOrder_equAddress_RuleInfo].extendedProperty.columnName">
+            <lang locale="en_US" value="equName" />
+            <lang locale="zh_CN" value="equName" />
+            <lang locale="zh_TW" value="equName" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderRuleSet].rules.conditionRule[RepairOrder_equAddress_RuleInfo].extendedProperty.userDefined">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderRuleSet].rules.conditionRule[RepairOrder_equModel_RuleInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_model" />
+            <lang locale="zh_HK" value="攜帶字段屬性_model" />
+            <lang locale="zh_TW" value="攜帶字段屬性_model" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderRuleSet].rules.conditionRule[RepairOrder_equModel_RuleInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderRuleSet].rules.conditionRule[RepairOrder_equModel_RuleInfo].extendedProperty.columnName">
+            <lang locale="en_US" value="equName" />
+            <lang locale="zh_CN" value="equName" />
+            <lang locale="zh_TW" value="equName" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderRuleSet].rules.conditionRule[RepairOrder_equModel_RuleInfo].extendedProperty.userDefined">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+    </resource>
+</ruleSet>
+

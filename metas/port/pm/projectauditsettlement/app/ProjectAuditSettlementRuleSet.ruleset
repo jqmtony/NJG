@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleSet xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.port.pm.projectauditsettlement.app</package>
+    <name>ProjectAuditSettlementRuleSet</name>
+    <alias>ruleSet[com.kingdee.eas.port.pm.projectauditsettlement.app.ProjectAuditSettlementRuleSet].alias</alias>
+    <description>ruleSet[com.kingdee.eas.port.pm.projectauditsettlement.app.ProjectAuditSettlementRuleSet].description</description>
+    <userDefined>true</userDefined>
+    <expressions>
+        <groupExpression>
+            <id>28bab76c-5b75-4985-9b27-b15dfe0b8fb9</id>
+            <parentID />
+            <source>projectType=projectName.type</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>6972bf95-98de-4108-88cf-ab80b4b6273d</id>
+            <parentID>28bab76c-5b75-4985-9b27-b15dfe0b8fb9</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>56749678-95c2-4a8d-a5ea-34131dd24be2</ownerID>
+                <name>selectedItem</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>56749678-95c2-4a8d-a5ea-34131dd24be2</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>projectType</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>7751a621-d4d2-42c1-a04b-4761d5d64eb9</id>
+            <parentID>28bab76c-5b75-4985-9b27-b15dfe0b8fb9</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>Enum</valueType>
+            <value />
+            <method>
+                <ownerID>af420a62-4d2d-4335-9145-9776e4f9e860</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>1e9cd891-9893-4431-8b97-99731e57ab71</id>
+                        <expressionID>788eea6a-358b-4f4a-b352-9df93ec90ab4</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>194aa439-aac5-4765-b0c8-381a5ad92f17</id>
+                        <expressionID>8f2e6a01-f3e2-47de-b090-19271e2d842a</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>af420a62-4d2d-4335-9145-9776e4f9e860</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>788eea6a-358b-4f4a-b352-9df93ec90ab4</id>
+            <parentID />
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>Object</valueType>
+            <value />
+            <method>
+                <ownerID>c7dd72bd-a6c9-4a73-abe6-ea0eb03c63cd</ownerID>
+                <name>getData</name>
+                <type>Object</type>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>c7dd72bd-a6c9-4a73-abe6-ea0eb03c63cd</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)prmtprojectName</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>8f2e6a01-f3e2-47de-b090-19271e2d842a</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>type</value>
+        </simpleExpression>
+    </expressions>
+    <actions>
+        <action>
+            <id>ad44adf2-096f-40ff-909a-d8f9e327b84d</id>
+            <name>ProjectAuditSettlement_projectType_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.pm.projectauditsettlement.app.ProjectAuditSettlementRuleSet].actions.action[ProjectAuditSettlement_projectType_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.pm.projectauditsettlement.app.ProjectAuditSettlementRuleSet].actions.action[ProjectAuditSettlement_projectType_ActionInfo].description</description>
+            <expressionID>28bab76c-5b75-4985-9b27-b15dfe0b8fb9</expressionID>
+        </action>
+    </actions>
+    <rules>
+        <conditionRule>
+            <name>ProjectAuditSettlement_projectType_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.pm.projectauditsettlement.app.ProjectAuditSettlementRuleSet].rules.conditionRule[ProjectAuditSettlement_projectType_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.pm.projectauditsettlement.app.ProjectAuditSettlementRuleSet].rules.conditionRule[ProjectAuditSettlement_projectType_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="ad44adf2-096f-40ff-909a-d8f9e327b84d" />
+                </action>
+            </actions>
+        </conditionRule>
+    </rules>
+    <resource>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.projectauditsettlement.app.ProjectAuditSettlementRuleSet].actions.action[ProjectAuditSettlement_projectType_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_type" />
+            <lang locale="zh_HK" value="攜帶字段屬性_type" />
+            <lang locale="zh_TW" value="攜帶字段屬性_type" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.projectauditsettlement.app.ProjectAuditSettlementRuleSet].actions.action[ProjectAuditSettlement_projectType_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.projectauditsettlement.app.ProjectAuditSettlementRuleSet].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.projectauditsettlement.app.ProjectAuditSettlementRuleSet].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.projectauditsettlement.app.ProjectAuditSettlementRuleSet].rules.conditionRule[ProjectAuditSettlement_projectType_RuleInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_type" />
+            <lang locale="zh_HK" value="攜帶字段屬性_type" />
+            <lang locale="zh_TW" value="攜帶字段屬性_type" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.projectauditsettlement.app.ProjectAuditSettlementRuleSet].rules.conditionRule[ProjectAuditSettlement_projectType_RuleInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.projectauditsettlement.app.ProjectAuditSettlementRuleSet].rules.conditionRule[ProjectAuditSettlement_projectType_RuleInfo].extendedProperty.columnName">
+            <lang locale="en_US" value="projectName" />
+            <lang locale="zh_CN" value="projectName" />
+            <lang locale="zh_TW" value="projectName" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.projectauditsettlement.app.ProjectAuditSettlementRuleSet].rules.conditionRule[ProjectAuditSettlement_projectType_RuleInfo].extendedProperty.userDefined">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+    </resource>
+</ruleSet>
+

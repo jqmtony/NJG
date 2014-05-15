@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleSet xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.port.equipment.maintenance.app</package>
+    <name>MonMainPlanRuleSet</name>
+    <alias>ruleSet[com.kingdee.eas.port.equipment.maintenance.app.MonMainPlanRuleSet].alias</alias>
+    <description>ruleSet[com.kingdee.eas.port.equipment.maintenance.app.MonMainPlanRuleSet].description</description>
+    <userDefined>true</userDefined>
+    <expressions>
+        <groupExpression>
+            <id>7d4b41c7-7ad3-4391-ba8b-36bef64e17ca</id>
+            <parentID />
+            <source>E1.equName=E1.equNumber.name</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>07f841e9-b2e9-44f6-b533-597834c00864</id>
+            <parentID>7d4b41c7-7ad3-4391-ba8b-36bef64e17ca</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>e283918f-6a04-4da0-8429-6b555936ecca</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>e283918f-6a04-4da0-8429-6b555936ecca</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>kdtE1.getCell(rowIndex,"equName")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>b225348c-192e-4ef8-b2ed-d3c7bc7ba7f1</id>
+            <parentID>7d4b41c7-7ad3-4391-ba8b-36bef64e17ca</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>de6d91b0-1c57-484c-8563-529de2256b00</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>a1591cc7-00cf-4652-8249-d23387de352e</id>
+                        <expressionID>389c28c1-7295-40bc-8f15-46021442e185</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>0cfbbc48-39c9-4e89-9eec-fb3d9f597a3b</id>
+                        <expressionID>4eba4359-edb4-4dab-b08c-4a64b3b96e92</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>de6d91b0-1c57-484c-8563-529de2256b00</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>389c28c1-7295-40bc-8f15-46021442e185</id>
+            <parentID />
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>c440d8ba-2c5f-4666-a998-46c5c8932e4c</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>c440d8ba-2c5f-4666-a998-46c5c8932e4c</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)kdtE1.getCell(rowIndex,"equNumber")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>4eba4359-edb4-4dab-b08c-4a64b3b96e92</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>name</value>
+        </simpleExpression>
+    </expressions>
+    <actions>
+        <action>
+            <id>eab800b2-5293-416e-a56e-fc393a6c065f</id>
+            <name>E1_equName_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.maintenance.app.MonMainPlanRuleSet].actions.action[E1_equName_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.maintenance.app.MonMainPlanRuleSet].actions.action[E1_equName_ActionInfo].description</description>
+            <expressionID>7d4b41c7-7ad3-4391-ba8b-36bef64e17ca</expressionID>
+        </action>
+    </actions>
+    <rules>
+        <conditionRule>
+            <name>E1_equName_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.maintenance.app.MonMainPlanRuleSet].rules.conditionRule[E1_equName_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.maintenance.app.MonMainPlanRuleSet].rules.conditionRule[E1_equName_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="eab800b2-5293-416e-a56e-fc393a6c065f" />
+                </action>
+            </actions>
+        </conditionRule>
+    </rules>
+    <resource>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.maintenance.app.MonMainPlanRuleSet].actions.action[E1_equName_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_name" />
+            <lang locale="zh_HK" value="攜帶字段屬性_name" />
+            <lang locale="zh_TW" value="攜帶字段屬性_name" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.maintenance.app.MonMainPlanRuleSet].actions.action[E1_equName_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.maintenance.app.MonMainPlanRuleSet].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.maintenance.app.MonMainPlanRuleSet].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.maintenance.app.MonMainPlanRuleSet].rules.conditionRule[E1_equName_RuleInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_name" />
+            <lang locale="zh_HK" value="攜帶字段屬性_name" />
+            <lang locale="zh_TW" value="攜帶字段屬性_name" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.maintenance.app.MonMainPlanRuleSet].rules.conditionRule[E1_equName_RuleInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.maintenance.app.MonMainPlanRuleSet].rules.conditionRule[E1_equName_RuleInfo].extendedProperty.columnName">
+            <lang locale="en_US" value="equNumber" />
+            <lang locale="zh_CN" value="equNumber" />
+            <lang locale="zh_TW" value="equNumber" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.maintenance.app.MonMainPlanRuleSet].rules.conditionRule[E1_equName_RuleInfo].extendedProperty.userDefined">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+    </resource>
+</ruleSet>
+

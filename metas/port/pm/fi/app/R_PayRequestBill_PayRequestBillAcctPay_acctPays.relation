@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<relationship xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.port.pm.fi.app</package>
+    <name>R_PayRequestBill_PayRequestBillAcctPay_acctPays</name>
+    <alias>relationship[com.kingdee.eas.port.pm.fi.app.R_PayRequestBill_PayRequestBillAcctPay_acctPays].alias</alias>
+    <description>relationship[com.kingdee.eas.port.pm.fi.app.R_PayRequestBill_PayRequestBillAcctPay_acctPays].description</description>
+    <userDefined>true</userDefined>
+    <type>Association</type>
+    <clientCardinality>0..1</clientCardinality>
+    <supplierCardinality>0..*</supplierCardinality>
+    <xmlNodeRelationship />
+    <clientObject>
+        <key name="package" value="com.kingdee.eas.port.pm.fi.app" />
+        <key name="name" value="PayRequestBill" />
+    </clientObject>
+    <supplierObject>
+        <key name="package" value="com.kingdee.eas.port.pm.fi.app" />
+        <key name="name" value="PayRequestBillAcctPay" />
+    </supplierObject>
+    <resource>
+        <rs key="relationship[com.kingdee.eas.port.pm.fi.app.R_PayRequestBill_PayRequestBillAcctPay_acctPays].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="付款申请单关联科目付款分录" />
+            <lang locale="zh_HK" value="付款申請單關聯科目付款分錄" />
+            <lang locale="zh_TW" value="付款申請單關聯科目付款分錄" />
+        </rs>
+        <rs key="relationship[com.kingdee.eas.port.pm.fi.app.R_PayRequestBill_PayRequestBillAcctPay_acctPays].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="付款申请单关联科目付款分录" />
+            <lang locale="zh_HK" value="付款申請單關聯科目付款分錄" />
+            <lang locale="zh_TW" value="付款申請單關聯科目付款分錄" />
+        </rs>
+    </resource>
+</relationship>
+

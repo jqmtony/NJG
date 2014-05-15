@@ -1,0 +1,887 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataTable xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.port.equipment.insurance.app</package>
+    <name>CT_INS_EquInsuranceAccident</name>
+    <alias>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].alias</alias>
+    <description>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].description</description>
+    <userDefined>true</userDefined>
+    <bizUnitPK>com.kingdee.eas.port.equipment.insurance.EquInsuranceAccident</bizUnitPK>
+    <columns>
+        <column>
+            <name>FStatus</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FStatus].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FStatus].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>INT</sqlType>
+            <length>4</length>
+            <scale>0</scale>
+            <precision>4</precision>
+        </column>
+        <column>
+            <name>FBizStatus</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FBizStatus].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FBizStatus].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>INT</sqlType>
+            <length>4</length>
+            <scale>0</scale>
+            <precision>4</precision>
+        </column>
+        <column>
+            <name>FAuditTime</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FAuditTime].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FAuditTime].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>DATETIME</sqlType>
+            <length>8</length>
+            <scale>0</scale>
+            <precision>8</precision>
+        </column>
+        <column>
+            <name>FNumber</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FNumber].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FNumber].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>80</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FBizDate</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FBizDate].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FBizDate].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>DATETIME</sqlType>
+            <length>8</length>
+            <scale>0</scale>
+            <precision>8</precision>
+        </column>
+        <column>
+            <name>FHandlerID</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FHandlerID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FHandlerID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FDescription</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FDescription].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FDescription].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>80</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FHasEffected</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FHasEffected].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FHasEffected].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>INT</sqlType>
+            <length>4</length>
+            <scale>0</scale>
+            <precision>4</precision>
+        </column>
+        <column>
+            <name>FAuditorID</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FAuditorID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FAuditorID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FSourceBillID</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FSourceBillID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FSourceBillID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>80</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FSourceFunction</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FSourceFunction].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FSourceFunction].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>80</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FCreatorID</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FCreatorID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FCreatorID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FCreateTime</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FCreateTime].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FCreateTime].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>DATETIME</sqlType>
+            <length>8</length>
+            <scale>0</scale>
+            <precision>8</precision>
+        </column>
+        <column>
+            <name>FLastUpdateUserID</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FLastUpdateUserID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FLastUpdateUserID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FLastUpdateTime</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FLastUpdateTime].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FLastUpdateTime].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>DATETIME</sqlType>
+            <length>8</length>
+            <scale>0</scale>
+            <precision>8</precision>
+        </column>
+        <column>
+            <name>FControlUnitID</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FControlUnitID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FControlUnitID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FID</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>44</precision>
+        </column>
+        <column>
+            <name>CFEquNumberID</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[CFEquNumberID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[CFEquNumberID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFEquName</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[CFEquName].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[CFEquName].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>80</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFInsuranceCompany</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[CFInsuranceCompany].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[CFInsuranceCompany].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFPolicyNumberID</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[CFPolicyNumberID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[CFPolicyNumberID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFInsuranceID</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[CFInsuranceID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[CFInsuranceID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFLossDate</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[CFLossDate].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[CFLossDate].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>DATETIME</sqlType>
+            <length>8</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFExpectedLoss</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[CFExpectedLoss].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[CFExpectedLoss].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NUMERIC</sqlType>
+            <length>28</length>
+            <scale>2</scale>
+            <precision>28</precision>
+        </column>
+        <column>
+            <name>CFClaimAmount</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[CFClaimAmount].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[CFClaimAmount].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NUMERIC</sqlType>
+            <length>28</length>
+            <scale>2</scale>
+            <precision>28</precision>
+        </column>
+        <column>
+            <name>CFDescriptionIncident</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[CFDescriptionIncident].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[CFDescriptionIncident].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>255</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+    </columns>
+    <primaryKey>
+        <name>CPK_INS_EquIAID0am</name>
+        <userDefined>true</userDefined>
+        <primaryKeyColumns>
+            <primaryKeyColumn>
+                <indexID>0</indexID>
+                <sortType>ASC</sortType>
+                <column>
+                    <key name="name" value="FID" />
+                </column>
+            </primaryKeyColumn>
+        </primaryKeyColumns>
+    </primaryKey>
+    <foreignKeys>
+        <foreignKey>
+            <name>CFK_INS_INSEIACr0a</name>
+            <userDefined>true</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.base.permission.app" />
+                <key name="name" value="T_PM_User" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="FCreatorID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
+        <foreignKey>
+            <name>CFK_INS_INSEIALU1a</name>
+            <userDefined>true</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.base.permission.app" />
+                <key name="name" value="T_PM_User" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="FLastUpdateUserID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
+        <foreignKey>
+            <name>CFK_INS_INSEIACU2a</name>
+            <userDefined>true</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.basedata.org" />
+                <key name="name" value="T_ORG_CtrlUnit" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="FControlUnitID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
+        <foreignKey>
+            <name>CFK_INS_INSEIAHn2a</name>
+            <userDefined>true</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.base.permission.app" />
+                <key name="name" value="T_PM_User" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="FHandlerID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
+        <foreignKey>
+            <name>CFK_INS_INSEIAAd3a</name>
+            <userDefined>true</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.base.permission.app" />
+                <key name="name" value="T_PM_User" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="FAuditorID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
+        <foreignKey>
+            <name>CFK_INS_INSEIAQuko</name>
+            <userDefined>true</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.port.equipment.record.app" />
+                <key name="name" value="CT_REC_EquId" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="CFEquNumberID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
+        <foreignKey>
+            <name>CFK_INS_INSEIANss3</name>
+            <userDefined>true</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.port.equipment.base.app" />
+                <key name="name" value="CT_BAS_InsuranceCompany" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="CFInsuranceCompany" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
+        <foreignKey>
+            <name>CFK_INS_INSEIAOlqt</name>
+            <userDefined>true</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.port.equipment.insurance.app" />
+                <key name="name" value="CT_INS_InsuranceCoverage" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="CFPolicyNumberID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
+        <foreignKey>
+            <name>CFK_INS_INSEIANsr0</name>
+            <userDefined>true</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.port.equipment.base.app" />
+                <key name="name" value="CT_BAS_Insurance" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="CFInsuranceID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
+    </foreignKeys>
+    <resource>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="设备保险事故记录" />
+            <lang locale="zh_HK" value="設備保險事故記錄" />
+            <lang locale="zh_TW" value="設備保險事故記錄" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[CFClaimAmount].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="理赔金额" />
+            <lang locale="zh_HK" value="理賠金額" />
+            <lang locale="zh_TW" value="理賠金額" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[CFClaimAmount].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="理赔金额" />
+            <lang locale="zh_HK" value="理賠金額" />
+            <lang locale="zh_TW" value="理賠金額" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[CFDescriptionIncident].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="事故说明" />
+            <lang locale="zh_HK" value="事故說明" />
+            <lang locale="zh_TW" value="事故說明" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[CFDescriptionIncident].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="事故说明" />
+            <lang locale="zh_HK" value="事故說明" />
+            <lang locale="zh_TW" value="事故說明" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[CFEquName].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="设备名称" />
+            <lang locale="zh_HK" value="設備名稱" />
+            <lang locale="zh_TW" value="設備名稱" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[CFEquName].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="设备名称" />
+            <lang locale="zh_HK" value="設備名稱" />
+            <lang locale="zh_TW" value="設備名稱" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[CFEquNumberID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="设备编号" />
+            <lang locale="zh_HK" value="設備編號" />
+            <lang locale="zh_TW" value="設備編號" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[CFEquNumberID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="设备编号" />
+            <lang locale="zh_HK" value="設備編號" />
+            <lang locale="zh_TW" value="設備編號" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[CFExpectedLoss].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="预计损失金额" />
+            <lang locale="zh_HK" value="預計損失金額" />
+            <lang locale="zh_TW" value="預計損失金額" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[CFExpectedLoss].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="预计损失金额" />
+            <lang locale="zh_HK" value="預計損失金額" />
+            <lang locale="zh_TW" value="預計損失金額" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[CFInsuranceCompany].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="保险公司" />
+            <lang locale="zh_HK" value="保險公司" />
+            <lang locale="zh_TW" value="保險公司" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[CFInsuranceCompany].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="保险公司" />
+            <lang locale="zh_HK" value="保險公司" />
+            <lang locale="zh_TW" value="保險公司" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[CFInsuranceID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="险种" />
+            <lang locale="zh_HK" value="險種" />
+            <lang locale="zh_TW" value="險種" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[CFInsuranceID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="险种" />
+            <lang locale="zh_HK" value="險種" />
+            <lang locale="zh_TW" value="險種" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[CFLossDate].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="出险日期" />
+            <lang locale="zh_HK" value="出險日期" />
+            <lang locale="zh_TW" value="出險日期" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[CFLossDate].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="出险日期" />
+            <lang locale="zh_HK" value="出險日期" />
+            <lang locale="zh_TW" value="出險日期" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[CFPolicyNumberID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="保单号" />
+            <lang locale="zh_HK" value="保單號" />
+            <lang locale="zh_TW" value="保單號" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[CFPolicyNumberID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="保单号" />
+            <lang locale="zh_HK" value="保單號" />
+            <lang locale="zh_TW" value="保單號" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FAuditTime].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="审核时间" />
+            <lang locale="zh_HK" value="審核時間" />
+            <lang locale="zh_TW" value="審核時間" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FAuditTime].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="审核时间" />
+            <lang locale="zh_HK" value="審核時間" />
+            <lang locale="zh_TW" value="審核時間" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FAuditorID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="审核人" />
+            <lang locale="zh_HK" value="審核人" />
+            <lang locale="zh_TW" value="審核人" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FAuditorID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="审核人" />
+            <lang locale="zh_HK" value="審核人" />
+            <lang locale="zh_TW" value="審核人" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FBizDate].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="业务日期" />
+            <lang locale="zh_HK" value="業務日期" />
+            <lang locale="zh_TW" value="業務日期" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FBizDate].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="业务日期" />
+            <lang locale="zh_HK" value="業務日期" />
+            <lang locale="zh_TW" value="業務日期" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FBizStatus].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="业务状态" />
+            <lang locale="zh_HK" value="業務狀態" />
+            <lang locale="zh_TW" value="業務狀態" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FBizStatus].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="业务状态" />
+            <lang locale="zh_HK" value="業務狀態" />
+            <lang locale="zh_TW" value="業務狀態" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FControlUnitID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="控制单元" />
+            <lang locale="zh_HK" value="控制單元" />
+            <lang locale="zh_TW" value="控制單元" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FControlUnitID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="控制单元" />
+            <lang locale="zh_HK" value="控制單元" />
+            <lang locale="zh_TW" value="控制單元" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FCreateTime].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="创建时间" />
+            <lang locale="zh_HK" value="創建時間" />
+            <lang locale="zh_TW" value="創建時間" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FCreateTime].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="创建时间" />
+            <lang locale="zh_HK" value="創建時間" />
+            <lang locale="zh_TW" value="創建時間" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FCreatorID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="创建者" />
+            <lang locale="zh_HK" value="創建者" />
+            <lang locale="zh_TW" value="創建者" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FCreatorID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="创建者" />
+            <lang locale="zh_HK" value="創建者" />
+            <lang locale="zh_TW" value="創建者" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FDescription].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="参考信息" />
+            <lang locale="zh_HK" value="參考信息" />
+            <lang locale="zh_TW" value="參考信息" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FDescription].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="参考信息" />
+            <lang locale="zh_HK" value="參考信息" />
+            <lang locale="zh_TW" value="參考信息" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FHandlerID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="经手人" />
+            <lang locale="zh_HK" value="經手人" />
+            <lang locale="zh_TW" value="經手人" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FHandlerID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="经手人" />
+            <lang locale="zh_HK" value="經手人" />
+            <lang locale="zh_TW" value="經手人" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FHasEffected].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否曾经生效" />
+            <lang locale="zh_HK" value="是否曾經生效" />
+            <lang locale="zh_TW" value="是否曾經生效" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FHasEffected].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否曾经生效" />
+            <lang locale="zh_HK" value="是否曾經生效" />
+            <lang locale="zh_TW" value="是否曾經生效" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="ID" />
+            <lang locale="zh_HK" value="ID" />
+            <lang locale="zh_TW" value="ID" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FLastUpdateTime].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="最后修改时间" />
+            <lang locale="zh_HK" value="最後修改時間" />
+            <lang locale="zh_TW" value="最後修改時間" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FLastUpdateTime].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="最后修改时间" />
+            <lang locale="zh_HK" value="最後修改時間" />
+            <lang locale="zh_TW" value="最後修改時間" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FLastUpdateUserID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="最后修改者" />
+            <lang locale="zh_HK" value="最後修改者" />
+            <lang locale="zh_TW" value="最後修改者" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FLastUpdateUserID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="最后修改者" />
+            <lang locale="zh_HK" value="最後修改者" />
+            <lang locale="zh_TW" value="最後修改者" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FNumber].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据编号" />
+            <lang locale="zh_HK" value="單據編號" />
+            <lang locale="zh_TW" value="單據編號" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FNumber].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据编号" />
+            <lang locale="zh_HK" value="單據編號" />
+            <lang locale="zh_TW" value="單據編號" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FSourceBillID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="原始单据ID" />
+            <lang locale="zh_HK" value="原始單據ID" />
+            <lang locale="zh_TW" value="原始單據ID" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FSourceBillID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="原始单据ID" />
+            <lang locale="zh_HK" value="原始單據ID" />
+            <lang locale="zh_TW" value="原始單據ID" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FSourceFunction].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="来源功能" />
+            <lang locale="zh_HK" value="來源功能" />
+            <lang locale="zh_TW" value="來源功能" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FSourceFunction].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="来源功能" />
+            <lang locale="zh_HK" value="來源功能" />
+            <lang locale="zh_TW" value="來源功能" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FStatus].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据状态" />
+            <lang locale="zh_HK" value="單據狀態" />
+            <lang locale="zh_TW" value="單據狀態" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].columns.column[FStatus].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据状态" />
+            <lang locale="zh_HK" value="單據狀態" />
+            <lang locale="zh_TW" value="單據狀態" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_EquInsuranceAccident].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="设备保险事故记录" />
+            <lang locale="zh_HK" value="設備保險事故記錄" />
+            <lang locale="zh_TW" value="設備保險事故記錄" />
+        </rs>
+    </resource>
+</dataTable>
+

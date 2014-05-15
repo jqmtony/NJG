@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleSet xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.port.pm.invite.app</package>
+    <name>WinInviteReportRuleSet</name>
+    <alias>ruleSet[com.kingdee.eas.port.pm.invite.app.WinInviteReportRuleSet].alias</alias>
+    <description>ruleSet[com.kingdee.eas.port.pm.invite.app.WinInviteReportRuleSet].description</description>
+    <userDefined>true</userDefined>
+    <expressions>
+        <groupExpression>
+            <id>b1c570f1-3c98-47e0-b4b3-5bd6293fd2b2</id>
+            <parentID />
+            <source>inviteName=inviteReport.description</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>b26e1c13-89f0-480c-9151-39108c310c62</id>
+            <parentID>b1c570f1-3c98-47e0-b4b3-5bd6293fd2b2</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>4d0a7398-77cc-4777-8ddc-d7d9d91e7661</ownerID>
+                <name>text</name>
+                <type>java.lang.String</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>4d0a7398-77cc-4777-8ddc-d7d9d91e7661</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>txtinviteName</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>ba28b254-3f34-4f21-9f43-7b10d472e048</id>
+            <parentID>b1c570f1-3c98-47e0-b4b3-5bd6293fd2b2</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>3e3f09d9-6690-4bff-9a73-ed641a274ba7</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>e9804d43-a28e-4146-a40c-73e20b33330e</id>
+                        <expressionID>0776ea83-ffd6-48ed-ae78-c23658978328</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>7c61874f-28ee-4e3b-9c72-8faec00c7368</id>
+                        <expressionID>ce194042-af3f-47fc-bd93-3ebb0d79148e</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>3e3f09d9-6690-4bff-9a73-ed641a274ba7</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>0776ea83-ffd6-48ed-ae78-c23658978328</id>
+            <parentID />
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>Object</valueType>
+            <value />
+            <method>
+                <ownerID>9c45ccd4-be32-4099-98e6-2b40422e9589</ownerID>
+                <name>getData</name>
+                <type>Object</type>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>9c45ccd4-be32-4099-98e6-2b40422e9589</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)prmtinviteReport</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>ce194042-af3f-47fc-bd93-3ebb0d79148e</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>description</value>
+        </simpleExpression>
+        <groupExpression>
+            <id>d805835d-d696-4a3e-9361-33c6840b94ca</id>
+            <parentID />
+            <source>evaSolution=inviteReport.judgeSolution</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>4b2ba775-c125-4d3d-8de4-e318dd680795</id>
+            <parentID>d805835d-d696-4a3e-9361-33c6840b94ca</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>d1b9f014-1348-474d-8ad3-41d3c80696d8</ownerID>
+                <name>selectedItem</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>d1b9f014-1348-474d-8ad3-41d3c80696d8</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>evaSolution</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>5ad737fb-4142-49c1-b800-8fbe6e1f6e84</id>
+            <parentID>d805835d-d696-4a3e-9361-33c6840b94ca</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>Enum</valueType>
+            <value />
+            <method>
+                <ownerID>73d62284-cd3d-42e4-82fb-3b5f20866e8f</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>32bbbcf6-6fd5-4877-8078-ee9574f47df0</id>
+                        <expressionID>1cf88884-3343-46bf-9f64-7a9ff74e31ea</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>2b97f5e1-e757-4579-bab6-82f7d4a9ff23</id>
+                        <expressionID>b8345ff4-dba4-465a-a5a2-b931ba559f35</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>73d62284-cd3d-42e4-82fb-3b5f20866e8f</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>1cf88884-3343-46bf-9f64-7a9ff74e31ea</id>
+            <parentID />
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>Object</valueType>
+            <value />
+            <method>
+                <ownerID>2a97384b-5c23-46d4-a3fa-a830b4fd837e</ownerID>
+                <name>getData</name>
+                <type>Object</type>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>2a97384b-5c23-46d4-a3fa-a830b4fd837e</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)prmtinviteReport</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>b8345ff4-dba4-465a-a5a2-b931ba559f35</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>judgeSolution</value>
+        </simpleExpression>
+        <groupExpression>
+            <id>cf8ab54e-8c7f-42fe-b793-3d793e8d9269</id>
+            <parentID />
+            <source>invitePrjName=inviteReport.proName.name</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>0d8997fa-6848-486c-a594-baf6c3b3b824</id>
+            <parentID>cf8ab54e-8c7f-42fe-b793-3d793e8d9269</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>677a82a4-201f-46d3-a556-944047ab88ff</ownerID>
+                <name>text</name>
+                <type>java.lang.String</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>677a82a4-201f-46d3-a556-944047ab88ff</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>txtinvitePrjName</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>ea683722-fbe7-4b2b-b1e2-cfdb4cc4b1bb</id>
+            <parentID>cf8ab54e-8c7f-42fe-b793-3d793e8d9269</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>1b7cb025-8b6d-4f54-8116-f77e30ed0220</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>a5ed2809-0d64-4100-9a9d-bef5563ec9cf</id>
+                        <expressionID>3569b0e0-2314-484d-9e84-eb2423afb2a4</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>a8b9604d-78cb-40f5-968d-d7c726c3c503</id>
+                        <expressionID>a6b23d89-1cb9-4d82-aa8e-03de592311d5</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>1b7cb025-8b6d-4f54-8116-f77e30ed0220</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>3569b0e0-2314-484d-9e84-eb2423afb2a4</id>
+            <parentID />
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>Object</valueType>
+            <value />
+            <method>
+                <ownerID>2662d260-c5ec-41fa-88f2-0dced0f89b17</ownerID>
+                <name>getData</name>
+                <type>Object</type>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>2662d260-c5ec-41fa-88f2-0dced0f89b17</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)prmtinviteReport</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>a6b23d89-1cb9-4d82-aa8e-03de592311d5</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>proName.name</value>
+        </simpleExpression>
+    </expressions>
+    <actions>
+        <action>
+            <id>60d8baec-90f8-445f-a83d-9053023cd08e</id>
+            <name>WinInviteReport_inviteName_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.pm.invite.app.WinInviteReportRuleSet].actions.action[WinInviteReport_inviteName_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.pm.invite.app.WinInviteReportRuleSet].actions.action[WinInviteReport_inviteName_ActionInfo].description</description>
+            <expressionID>b1c570f1-3c98-47e0-b4b3-5bd6293fd2b2</expressionID>
+        </action>
+        <action>
+            <id>67770260-c0e2-42e2-b072-b4610fab681c</id>
+            <name>WinInviteReport_evaSolution_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.pm.invite.app.WinInviteReportRuleSet].actions.action[WinInviteReport_evaSolution_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.pm.invite.app.WinInviteReportRuleSet].actions.action[WinInviteReport_evaSolution_ActionInfo].description</description>
+            <expressionID>d805835d-d696-4a3e-9361-33c6840b94ca</expressionID>
+        </action>
+        <action>
+            <id>528aa9a7-19b4-4550-bcf8-7173e7cebe8d</id>
+            <name>WinInviteReport_invitePrjName_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.pm.invite.app.WinInviteReportRuleSet].actions.action[WinInviteReport_invitePrjName_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.pm.invite.app.WinInviteReportRuleSet].actions.action[WinInviteReport_invitePrjName_ActionInfo].description</description>
+            <expressionID>cf8ab54e-8c7f-42fe-b793-3d793e8d9269</expressionID>
+        </action>
+    </actions>
+    <rules>
+        <conditionRule>
+            <name>WinInviteReport_evaSolution_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.pm.invite.app.WinInviteReportRuleSet].rules.conditionRule[WinInviteReport_evaSolution_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.pm.invite.app.WinInviteReportRuleSet].rules.conditionRule[WinInviteReport_evaSolution_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="67770260-c0e2-42e2-b072-b4610fab681c" />
+                </action>
+            </actions>
+        </conditionRule>
+        <conditionRule>
+            <name>WinInviteReport_invitePrjName_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.pm.invite.app.WinInviteReportRuleSet].rules.conditionRule[WinInviteReport_invitePrjName_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.pm.invite.app.WinInviteReportRuleSet].rules.conditionRule[WinInviteReport_invitePrjName_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="528aa9a7-19b4-4550-bcf8-7173e7cebe8d" />
+                </action>
+            </actions>
+        </conditionRule>
+    </rules>
+    <resource>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.WinInviteReportRuleSet].actions.action[WinInviteReport_evaSolution_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_judgeSolution" />
+            <lang locale="zh_HK" value="攜帶字段屬性_judgeSolution" />
+            <lang locale="zh_TW" value="攜帶字段屬性_judgeSolution" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.WinInviteReportRuleSet].actions.action[WinInviteReport_evaSolution_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.WinInviteReportRuleSet].actions.action[WinInviteReport_inviteName_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_description" />
+            <lang locale="zh_HK" value="攜帶字段屬性_description" />
+            <lang locale="zh_TW" value="攜帶字段屬性_description" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.WinInviteReportRuleSet].actions.action[WinInviteReport_inviteName_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.WinInviteReportRuleSet].actions.action[WinInviteReport_invitePrjName_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_proName" />
+            <lang locale="zh_HK" value="攜帶字段屬性_proName" />
+            <lang locale="zh_TW" value="攜帶字段屬性_proName" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.WinInviteReportRuleSet].actions.action[WinInviteReport_invitePrjName_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.WinInviteReportRuleSet].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.WinInviteReportRuleSet].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.WinInviteReportRuleSet].rules.conditionRule[WinInviteReport_evaSolution_RuleInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_judgeSolution" />
+            <lang locale="zh_HK" value="攜帶字段屬性_judgeSolution" />
+            <lang locale="zh_TW" value="攜帶字段屬性_judgeSolution" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.WinInviteReportRuleSet].rules.conditionRule[WinInviteReport_evaSolution_RuleInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.WinInviteReportRuleSet].rules.conditionRule[WinInviteReport_evaSolution_RuleInfo].extendedProperty.columnName">
+            <lang locale="en_US" value="inviteReport" />
+            <lang locale="zh_CN" value="inviteReport" />
+            <lang locale="zh_TW" value="inviteReport" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.WinInviteReportRuleSet].rules.conditionRule[WinInviteReport_evaSolution_RuleInfo].extendedProperty.userDefined">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.WinInviteReportRuleSet].rules.conditionRule[WinInviteReport_invitePrjName_RuleInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_proName" />
+            <lang locale="zh_HK" value="攜帶字段屬性_proName" />
+            <lang locale="zh_TW" value="攜帶字段屬性_proName" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.WinInviteReportRuleSet].rules.conditionRule[WinInviteReport_invitePrjName_RuleInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.WinInviteReportRuleSet].rules.conditionRule[WinInviteReport_invitePrjName_RuleInfo].extendedProperty.columnName">
+            <lang locale="en_US" value="inviteReport" />
+            <lang locale="zh_CN" value="inviteReport" />
+            <lang locale="zh_TW" value="inviteReport" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.WinInviteReportRuleSet].rules.conditionRule[WinInviteReport_invitePrjName_RuleInfo].extendedProperty.userDefined">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+    </resource>
+</ruleSet>
+

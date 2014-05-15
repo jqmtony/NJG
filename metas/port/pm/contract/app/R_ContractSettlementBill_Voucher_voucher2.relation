@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<relationship xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.port.pm.contract.app</package>
+    <name>R_ContractSettlementBill_Voucher_voucher</name>
+    <alias>relationship[com.kingdee.eas.port.pm.contract.app.R_ContractSettlementBill_Voucher_voucher].alias</alias>
+    <description>relationship[com.kingdee.eas.port.pm.contract.app.R_ContractSettlementBill_Voucher_voucher].description</description>
+    <userDefined>true</userDefined>
+    <type>Association</type>
+    <clientCardinality>1</clientCardinality>
+    <supplierCardinality>0..1</supplierCardinality>
+    <xmlNodeRelationship />
+    <clientObject>
+        <key name="package" value="com.kingdee.eas.port.pm.contract.app" />
+        <key name="name" value="ContractSettlementBill" />
+    </clientObject>
+    <supplierObject>
+        <key name="package" value="com.kingdee.eas.fi.gl.app" />
+        <key name="name" value="Voucher" />
+    </supplierObject>
+    <resource>
+        <rs key="relationship[com.kingdee.eas.port.pm.contract.app.R_ContractSettlementBill_Voucher_voucher].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="结算单关联凭证" />
+            <lang locale="zh_HK" value="結算單關聯憑證" />
+            <lang locale="zh_TW" value="結算單關聯憑證" />
+        </rs>
+        <rs key="relationship[com.kingdee.eas.port.pm.contract.app.R_ContractSettlementBill_Voucher_voucher].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="结算单关联凭证" />
+            <lang locale="zh_HK" value="結算單關聯憑證" />
+            <lang locale="zh_TW" value="結算單關聯憑證" />
+        </rs>
+    </resource>
+</relationship>
+
