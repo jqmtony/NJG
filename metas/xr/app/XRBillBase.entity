@@ -1,0 +1,1905 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entityObject xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.xr.app</package>
+    <name>XRBillBase</name>
+    <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].alias</alias>
+    <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].description</description>
+    <userDefined>true</userDefined>
+    <bosType>3F95834E</bosType>
+    <stereoType>false</stereoType>
+    <businessImplName>com.kingdee.eas.xr.XRBillBase</businessImplName>
+    <businessControllerName>com.kingdee.eas.xr.app.XRBillBaseController</businessControllerName>
+    <accessLevel>public</accessLevel>
+    <subClassingMode>normal</subClassingMode>
+    <methods>
+        <method>
+            <name>exists</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[exists].alias</alias>
+            <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[exists].description</description>
+            <innerID>1f24648f-8df4-446c-8145-26ebe0b9eac8</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>Boolean</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[exists].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[exists].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>exists</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[exists].alias</alias>
+            <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[exists].description</description>
+            <innerID>682321fb-c0e6-49b3-a58a-559530c16696</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>Boolean</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>filter</name>
+                    <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[exists].parameters.parameter[filter].alias</alias>
+                    <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[exists].parameters.parameter[filter].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.FilterInfo</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>exists</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[exists].alias</alias>
+            <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[exists].description</description>
+            <innerID>7893e9ac-f1e3-4dfc-9176-38c18963334e</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>Boolean</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>oql</name>
+                    <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[exists].parameters.parameter[oql].alias</alias>
+                    <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[exists].parameters.parameter[oql].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <exceptions>
+                <bizException>
+                    <key name="package" value="com.kingdee.eas.common" />
+                    <key name="name" value="EASBizException" />
+                </bizException>
+            </exceptions>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getValue</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getValue].alias</alias>
+            <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getValue].description</description>
+            <innerID>1255044a-eaf1-4d24-9390-e05812966698</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>ObjectValue</returnValueType>
+            <metadataRef>com.kingdee.eas.xr.app.XRBillBase</metadataRef>
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getValue].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getValue].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getValue</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getValue].alias</alias>
+            <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getValue].description</description>
+            <innerID>50f33838-f414-469d-8a15-684f796e3a85</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>ObjectValue</returnValueType>
+            <metadataRef>com.kingdee.eas.xr.app.XRBillBase</metadataRef>
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getValue].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getValue].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>selector</name>
+                    <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getValue].parameters.parameter[selector].alias</alias>
+                    <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getValue].parameters.parameter[selector].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.SelectorItemCollection</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getValue</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getValue].alias</alias>
+            <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getValue].description</description>
+            <innerID>d65f53dc-9c9c-4e78-9085-ddc9dd9d8d3d</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>ObjectValue</returnValueType>
+            <metadataRef>com.kingdee.eas.xr.app.XRBillBase</metadataRef>
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>oql</name>
+                    <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getValue].parameters.parameter[oql].alias</alias>
+                    <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getValue].parameters.parameter[oql].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>addnew</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[addnew].alias</alias>
+            <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[addnew].description</description>
+            <innerID>fc393078-bc13-4a33-811d-8d46528cf1fe</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>com.kingdee.bos.dao.IObjectPK</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[addnew].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[addnew].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.xr.app.XRBillBase</metadataRef>
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>addnew</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[addnew].alias</alias>
+            <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[addnew].description</description>
+            <innerID>c87faad6-450d-438f-b95b-1a6c806b2235</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[addnew].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[addnew].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[addnew].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[addnew].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.xr.app.XRBillBase</metadataRef>
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>update</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[update].alias</alias>
+            <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[update].description</description>
+            <innerID>260441d2-899c-44a9-aa86-6ce50c008f87</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[update].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[update].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[update].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[update].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.xr.app.XRBillBase</metadataRef>
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>updatePartial</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[updatePartial].alias</alias>
+            <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[updatePartial].description</description>
+            <innerID>bf5624cf-ae21-4412-b380-d14c1369bbbc</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[updatePartial].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[updatePartial].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.xr.app.XRBillBase</metadataRef>
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>selector</name>
+                    <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[updatePartial].parameters.parameter[selector].alias</alias>
+                    <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[updatePartial].parameters.parameter[selector].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.SelectorItemCollection</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>updateBigObject</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[updateBigObject].alias</alias>
+            <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[updateBigObject].description</description>
+            <innerID>0e9f666c-7156-4f30-9e91-55045fa65f1b</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[updateBigObject].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[updateBigObject].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[updateBigObject].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[updateBigObject].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.xr.app.XRBillBase</metadataRef>
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>delete</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[delete].alias</alias>
+            <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[delete].description</description>
+            <innerID>5ba3fcb9-b689-4fc9-bba2-0ce9b5189b43</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[delete].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[delete].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getPKList</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getPKList].alias</alias>
+            <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getPKList].description</description>
+            <innerID>a9bc9232-bc35-46a4-8e30-6faacbade52b</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>com.kingdee.bos.dao.IObjectPK[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getPKList</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getPKList].alias</alias>
+            <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getPKList].description</description>
+            <innerID>798a0237-c3f6-44df-87e9-62a263c33850</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>com.kingdee.bos.dao.IObjectPK[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>oql</name>
+                    <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getPKList].parameters.parameter[oql].alias</alias>
+                    <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getPKList].parameters.parameter[oql].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getPKList</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getPKList].alias</alias>
+            <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getPKList].description</description>
+            <innerID>320c5711-ef8f-4bd6-9518-cca847cd1d88</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>com.kingdee.bos.dao.IObjectPK[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>filter</name>
+                    <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getPKList].parameters.parameter[filter].alias</alias>
+                    <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getPKList].parameters.parameter[filter].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.FilterInfo</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>sorter</name>
+                    <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getPKList].parameters.parameter[sorter].alias</alias>
+                    <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getPKList].parameters.parameter[sorter].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.SorterItemCollection</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getCollection</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getCollection].alias</alias>
+            <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getCollection].description</description>
+            <innerID>a77c11a5-fce7-4258-882b-8337a8357f27</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>ObjectCollection</returnValueType>
+            <metadataRef>com.kingdee.eas.xr.app.XRBillBase</metadataRef>
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getCollection</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getCollection].alias</alias>
+            <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getCollection].description</description>
+            <innerID>91e4e8ea-3dff-40ba-b5ce-b5b6ea1e04f5</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>ObjectCollection</returnValueType>
+            <metadataRef>com.kingdee.eas.xr.app.XRBillBase</metadataRef>
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>view</name>
+                    <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getCollection].parameters.parameter[view].alias</alias>
+                    <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getCollection].parameters.parameter[view].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.EntityViewInfo</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getCollection</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getCollection].alias</alias>
+            <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getCollection].description</description>
+            <innerID>a4c662fb-831c-442b-b61e-0aef7434bc5f</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>ObjectCollection</returnValueType>
+            <metadataRef>com.kingdee.eas.xr.app.XRBillBase</metadataRef>
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>oql</name>
+                    <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getCollection].parameters.parameter[oql].alias</alias>
+                    <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getCollection].parameters.parameter[oql].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>delete</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[delete].alias</alias>
+            <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[delete].description</description>
+            <innerID>583c0c4a-d14d-4c21-aa1f-006785ee4cf0</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>com.kingdee.bos.dao.IObjectPK[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>filter</name>
+                    <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[delete].parameters.parameter[filter].alias</alias>
+                    <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[delete].parameters.parameter[filter].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.FilterInfo</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>delete</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[delete].alias</alias>
+            <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[delete].description</description>
+            <innerID>30e5c402-ae57-4ed9-ba57-043ea13a2e09</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>com.kingdee.bos.dao.IObjectPK[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>oql</name>
+                    <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[delete].parameters.parameter[oql].alias</alias>
+                    <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[delete].parameters.parameter[oql].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>delete</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[delete].alias</alias>
+            <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[delete].description</description>
+            <innerID>b797ab12-2ba5-4f52-9897-38cb20177364</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>arrayPK</name>
+                    <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[delete].parameters.parameter[arrayPK].alias</alias>
+                    <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[delete].parameters.parameter[arrayPK].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK[]</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>audit</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[audit].alias</alias>
+            <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[audit].description</description>
+            <innerID>40538ca7-4350-4ccb-b35a-4364333809ac</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>void</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[audit].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[audit].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <exceptions>
+                <bizException>
+                    <key name="package" value="com.kingdee.eas.common" />
+                    <key name="name" value="EASBizException" />
+                </bizException>
+            </exceptions>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>unAudit</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[unAudit].alias</alias>
+            <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[unAudit].description</description>
+            <innerID>f1b97477-8439-4fb6-b89d-809fac0bd1e4</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>void</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[unAudit].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[unAudit].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <exceptions>
+                <bizException>
+                    <key name="package" value="com.kingdee.eas.common" />
+                    <key name="name" value="EASBizException" />
+                </bizException>
+            </exceptions>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>unAudit</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[unAudit].alias</alias>
+            <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[unAudit].description</description>
+            <innerID>751bedce-9ec8-4ed4-88ac-f7860a5b681f</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>void</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pks</name>
+                    <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[unAudit].parameters.parameter[pks].alias</alias>
+                    <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[unAudit].parameters.parameter[pks].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK[]</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <exceptions>
+                <bizException>
+                    <key name="package" value="com.kingdee.eas.common" />
+                    <key name="name" value="EASBizException" />
+                </bizException>
+            </exceptions>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getBindingProperty</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getBindingProperty].alias</alias>
+            <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getBindingProperty].description</description>
+            <innerID>210ed8ef-7318-40f1-b2f9-637312f552cc</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>String</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <configured>false</configured>
+        </method>
+    </methods>
+    <isAbstract>true</isAbstract>
+    <bizUnitPK />
+    <baseEntity>
+        <key name="package" value="com.kingdee.eas.framework.app" />
+        <key name="name" value="CoreBillBase" />
+    </baseEntity>
+    <properties>
+        <ownProperty>
+            <name>status</name>
+            <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].properties.ownProperty[status].alias</alias>
+            <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].properties.ownProperty[status].description</description>
+            <userDefined>false</userDefined>
+            <configured>false</configured>
+            <dataType>Enum</dataType>
+            <metadataRef>com.kingdee.eas.xr.app.XRBillStatusEnum</metadataRef>
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>0</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.xr.app.XRBillBase].properties.ownProperty[status].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="FStatus" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>bizStatus</name>
+            <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].properties.ownProperty[bizStatus].alias</alias>
+            <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].properties.ownProperty[bizStatus].description</description>
+            <userDefined>false</userDefined>
+            <configured>false</configured>
+            <dataType>Enum</dataType>
+            <metadataRef>com.kingdee.eas.xr.app.XRBizActionEnum</metadataRef>
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>0</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.xr.app.XRBillBase].properties.ownProperty[bizStatus].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="FBizStatus" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>auditTime</name>
+            <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].properties.ownProperty[auditTime].alias</alias>
+            <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].properties.ownProperty[auditTime].description</description>
+            <userDefined>false</userDefined>
+            <configured>false</configured>
+            <dataType>TimeStamp</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>0</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.xr.app.XRBillBase].properties.ownProperty[auditTime].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="FAuditTime" />
+            </mappingField>
+        </ownProperty>
+    </properties>
+    <logicalKey>
+        <name />
+        <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].logicalKeyalias</alias>
+        <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].logicalKeydescription</description>
+        <keyClass>com.kingdee.bos.dao.IObjectPK</keyClass>
+        <userDefined>false</userDefined>
+    </logicalKey>
+    <events>
+        <event>
+            <name>submitEvent</name>
+            <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[submitEvent].alias</alias>
+            <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[submitEvent].description</description>
+            <userDefined>false</userDefined>
+            <eventMethods>
+                <eventMethod>
+                    <name>dfd2c083-00fa-1000-e000-001fc0a813e6</name>
+                    <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[submitEvent].eventMethods.eventMethod[dfd2c083-00fa-1000-e000-001fc0a813e6].alias</alias>
+                    <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[submitEvent].eventMethods.eventMethod[dfd2c083-00fa-1000-e000-001fc0a813e6].description</description>
+                    <entityMethodRef>
+                        <key name="name" value="submit" />
+                        <key name="innerID" value="dfd2c083-00fa-1000-e000-001fc0a813e6" />
+                    </entityMethodRef>
+                    <parameterMappings>
+                        <parameterMapping>
+                            <name />
+                            <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[submitEvent].eventMethods.eventMethod[dfd2c083-00fa-1000-e000-001fc0a813e6].parameterMappings.parameterMappingalias</alias>
+                            <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[submitEvent].eventMethods.eventMethod[dfd2c083-00fa-1000-e000-001fc0a813e6].parameterMappings.parameterMappingdescription</description>
+                            <formalParameterInnerID />
+                            <actualParameterIndex>0</actualParameterIndex>
+                            <isBOPK>true</isBOPK>
+                        </parameterMapping>
+                    </parameterMappings>
+                </eventMethod>
+            </eventMethods>
+            <formalParameters>
+                <formalParameter>
+                    <innerID>2ef7a652-26e5-424a-b634-f63c677d5572evfp</innerID>
+                    <userDefined>false</userDefined>
+                    <parameter>
+                        <name>model</name>
+                        <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[submitEvent].formalParameters.formalParameter.parameter[model].alias</alias>
+                        <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[submitEvent].formalParameters.formalParameter.parameter[model].description</description>
+                        <direction>in</direction>
+                        <dataType>ObjectValue</dataType>
+                        <metadataRef>com.kingdee.eas.xr.app.XRBillBase</metadataRef>
+                        <userDefined>false</userDefined>
+                    </parameter>
+                </formalParameter>
+            </formalParameters>
+        </event>
+        <event>
+            <name>deleteEvent</name>
+            <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[deleteEvent].alias</alias>
+            <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[deleteEvent].description</description>
+            <userDefined>false</userDefined>
+            <eventMethods>
+                <eventMethod>
+                    <name>583c0c4a-d14d-4c21-aa1f-006785ee4cf0</name>
+                    <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[deleteEvent].eventMethods.eventMethod[583c0c4a-d14d-4c21-aa1f-006785ee4cf0].alias</alias>
+                    <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[deleteEvent].eventMethods.eventMethod[583c0c4a-d14d-4c21-aa1f-006785ee4cf0].description</description>
+                    <entityMethodRef>
+                        <key name="name" value="delete" />
+                        <key name="innerID" value="583c0c4a-d14d-4c21-aa1f-006785ee4cf0" />
+                    </entityMethodRef>
+                    <parameterMappings>
+                        <parameterMapping>
+                            <name />
+                            <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[deleteEvent].eventMethods.eventMethod[583c0c4a-d14d-4c21-aa1f-006785ee4cf0].parameterMappings.parameterMappingalias</alias>
+                            <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[deleteEvent].eventMethods.eventMethod[583c0c4a-d14d-4c21-aa1f-006785ee4cf0].parameterMappings.parameterMappingdescription</description>
+                            <formalParameterInnerID />
+                            <actualParameterIndex>0</actualParameterIndex>
+                            <isBOPK>true</isBOPK>
+                        </parameterMapping>
+                    </parameterMappings>
+                </eventMethod>
+            </eventMethods>
+            <formalParameters>
+                <formalParameter>
+                    <innerID>9a27a61f-a6da-4af1-b605-ff6f08dcf729evfp</innerID>
+                    <userDefined>false</userDefined>
+                    <parameter>
+                        <name>pk</name>
+                        <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[deleteEvent].formalParameters.formalParameter.parameter[pk].alias</alias>
+                        <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[deleteEvent].formalParameters.formalParameter.parameter[pk].description</description>
+                        <direction>in</direction>
+                        <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                        <metadataRef />
+                        <userDefined>false</userDefined>
+                    </parameter>
+                </formalParameter>
+            </formalParameters>
+        </event>
+        <event>
+            <name>passAuditEvent</name>
+            <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[passAuditEvent].alias</alias>
+            <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[passAuditEvent].description</description>
+            <userDefined>false</userDefined>
+            <eventMethods>
+                <eventMethod>
+                    <name>40538ca7-4350-4ccb-b35a-4364333809ac</name>
+                    <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[passAuditEvent].eventMethods.eventMethod[40538ca7-4350-4ccb-b35a-4364333809ac].alias</alias>
+                    <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[passAuditEvent].eventMethods.eventMethod[40538ca7-4350-4ccb-b35a-4364333809ac].description</description>
+                    <entityMethodRef>
+                        <key name="name" value="audit" />
+                        <key name="innerID" value="40538ca7-4350-4ccb-b35a-4364333809ac" />
+                    </entityMethodRef>
+                    <parameterMappings>
+                        <parameterMapping>
+                            <name />
+                            <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[passAuditEvent].eventMethods.eventMethod[40538ca7-4350-4ccb-b35a-4364333809ac].parameterMappings.parameterMappingalias</alias>
+                            <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[passAuditEvent].eventMethods.eventMethod[40538ca7-4350-4ccb-b35a-4364333809ac].parameterMappings.parameterMappingdescription</description>
+                            <formalParameterInnerID />
+                            <actualParameterIndex>0</actualParameterIndex>
+                            <isBOPK>true</isBOPK>
+                        </parameterMapping>
+                    </parameterMappings>
+                </eventMethod>
+            </eventMethods>
+            <formalParameters>
+                <formalParameter>
+                    <innerID>4a93f5c9-13f2-470f-918b-135607266b32evfp</innerID>
+                    <userDefined>false</userDefined>
+                    <parameter>
+                        <name>pk</name>
+                        <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[passAuditEvent].formalParameters.formalParameter.parameter[pk].alias</alias>
+                        <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[passAuditEvent].formalParameters.formalParameter.parameter[pk].description</description>
+                        <direction>in</direction>
+                        <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                        <metadataRef />
+                        <userDefined>false</userDefined>
+                    </parameter>
+                </formalParameter>
+            </formalParameters>
+        </event>
+        <event>
+            <name>unpassAuditEvent</name>
+            <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[unpassAuditEvent].alias</alias>
+            <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[unpassAuditEvent].description</description>
+            <userDefined>false</userDefined>
+            <eventMethods>
+                <eventMethod>
+                    <name>751bedce-9ec8-4ed4-88ac-f7860a5b681f</name>
+                    <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[unpassAuditEvent].eventMethods.eventMethod[751bedce-9ec8-4ed4-88ac-f7860a5b681f].alias</alias>
+                    <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[unpassAuditEvent].eventMethods.eventMethod[751bedce-9ec8-4ed4-88ac-f7860a5b681f].description</description>
+                    <entityMethodRef>
+                        <key name="name" value="unAudit" />
+                        <key name="innerID" value="751bedce-9ec8-4ed4-88ac-f7860a5b681f" />
+                    </entityMethodRef>
+                    <parameterMappings>
+                        <parameterMapping>
+                            <name />
+                            <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[unpassAuditEvent].eventMethods.eventMethod[751bedce-9ec8-4ed4-88ac-f7860a5b681f].parameterMappings.parameterMappingalias</alias>
+                            <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[unpassAuditEvent].eventMethods.eventMethod[751bedce-9ec8-4ed4-88ac-f7860a5b681f].parameterMappings.parameterMappingdescription</description>
+                            <formalParameterInnerID />
+                            <actualParameterIndex>0</actualParameterIndex>
+                            <isBOPK>true</isBOPK>
+                        </parameterMapping>
+                    </parameterMappings>
+                </eventMethod>
+            </eventMethods>
+            <formalParameters>
+                <formalParameter>
+                    <innerID>0643755e-1684-4b8b-bbd5-459854127cbeevfp</innerID>
+                    <userDefined>false</userDefined>
+                    <parameter>
+                        <name>pk</name>
+                        <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[unpassAuditEvent].formalParameters.formalParameter.parameter[pk].alias</alias>
+                        <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[unpassAuditEvent].formalParameters.formalParameter.parameter[pk].description</description>
+                        <direction>in</direction>
+                        <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                        <metadataRef />
+                        <userDefined>false</userDefined>
+                    </parameter>
+                </formalParameter>
+            </formalParameters>
+        </event>
+        <event>
+            <name>auditEvent</name>
+            <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[auditEvent].alias</alias>
+            <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[auditEvent].description</description>
+            <userDefined>false</userDefined>
+            <eventMethods>
+                <eventMethod>
+                    <name>40538ca7-4350-4ccb-b35a-4364333809ac</name>
+                    <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[auditEvent].eventMethods.eventMethod[40538ca7-4350-4ccb-b35a-4364333809ac].alias</alias>
+                    <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[auditEvent].eventMethods.eventMethod[40538ca7-4350-4ccb-b35a-4364333809ac].description</description>
+                    <entityMethodRef>
+                        <key name="name" value="audit" />
+                        <key name="innerID" value="40538ca7-4350-4ccb-b35a-4364333809ac" />
+                    </entityMethodRef>
+                    <parameterMappings>
+                        <parameterMapping>
+                            <name />
+                            <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[auditEvent].eventMethods.eventMethod[40538ca7-4350-4ccb-b35a-4364333809ac].parameterMappings.parameterMappingalias</alias>
+                            <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[auditEvent].eventMethods.eventMethod[40538ca7-4350-4ccb-b35a-4364333809ac].parameterMappings.parameterMappingdescription</description>
+                            <formalParameterInnerID />
+                            <actualParameterIndex>0</actualParameterIndex>
+                            <isBOPK>true</isBOPK>
+                        </parameterMapping>
+                    </parameterMappings>
+                </eventMethod>
+            </eventMethods>
+            <formalParameters>
+                <formalParameter>
+                    <innerID>8ce520c1-30d9-4a64-ae48-b6082771eb63evfp</innerID>
+                    <userDefined>false</userDefined>
+                    <parameter>
+                        <name>model</name>
+                        <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[auditEvent].formalParameters.formalParameter.parameter[model].alias</alias>
+                        <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[auditEvent].formalParameters.formalParameter.parameter[model].description</description>
+                        <direction>in</direction>
+                        <dataType>ObjectValue</dataType>
+                        <metadataRef>com.kingdee.eas.xr.app.XRBillBase</metadataRef>
+                        <userDefined>false</userDefined>
+                    </parameter>
+                </formalParameter>
+            </formalParameters>
+        </event>
+        <event>
+            <name>unAudit</name>
+            <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[unAudit].alias</alias>
+            <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[unAudit].description</description>
+            <userDefined>false</userDefined>
+            <eventMethods>
+                <eventMethod>
+                    <name>f1b97477-8439-4fb6-b89d-809fac0bd1e4</name>
+                    <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[unAudit].eventMethods.eventMethod[f1b97477-8439-4fb6-b89d-809fac0bd1e4].alias</alias>
+                    <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[unAudit].eventMethods.eventMethod[f1b97477-8439-4fb6-b89d-809fac0bd1e4].description</description>
+                    <entityMethodRef>
+                        <key name="name" value="unAudit" />
+                        <key name="innerID" value="f1b97477-8439-4fb6-b89d-809fac0bd1e4" />
+                    </entityMethodRef>
+                    <parameterMappings>
+                        <parameterMapping>
+                            <name />
+                            <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[unAudit].eventMethods.eventMethod[f1b97477-8439-4fb6-b89d-809fac0bd1e4].parameterMappings.parameterMappingalias</alias>
+                            <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[unAudit].eventMethods.eventMethod[f1b97477-8439-4fb6-b89d-809fac0bd1e4].parameterMappings.parameterMappingdescription</description>
+                            <formalParameterInnerID />
+                            <actualParameterIndex>0</actualParameterIndex>
+                            <isBOPK>true</isBOPK>
+                        </parameterMapping>
+                    </parameterMappings>
+                </eventMethod>
+            </eventMethods>
+            <formalParameters>
+                <formalParameter>
+                    <innerID>a8d06c8b-7d1d-4af4-8ada-317c80f42a43evfp</innerID>
+                    <userDefined>false</userDefined>
+                    <parameter>
+                        <name>model</name>
+                        <alias>entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[unAudit].formalParameters.formalParameter.parameter[model].alias</alias>
+                        <description>entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[unAudit].formalParameters.formalParameter.parameter[model].description</description>
+                        <direction>in</direction>
+                        <dataType>ObjectValue</dataType>
+                        <metadataRef>com.kingdee.eas.xr.app.XRBillBase</metadataRef>
+                        <userDefined>false</userDefined>
+                    </parameter>
+                </formalParameter>
+            </formalParameters>
+        </event>
+    </events>
+    <resource>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].alias">
+            <lang locale="zh_CN" value="XR业务单据模版" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="XR業務單據模版" />
+            <lang locale="zh_TW" value="XR業務單據模版" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].description">
+            <lang locale="zh_CN" value="多分录基础单据模板" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="多分錄基礎單據範本" />
+            <lang locale="zh_TW" value="多分錄基礎單據範本" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[auditEvent].alias">
+            <lang locale="zh_CN" value="审核" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="審核" />
+            <lang locale="zh_TW" value="審核" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[auditEvent].description">
+            <lang locale="zh_CN" value="审核" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="審核" />
+            <lang locale="zh_TW" value="審核" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[auditEvent].eventMethods.eventMethod[40538ca7-4350-4ccb-b35a-4364333809ac].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[auditEvent].eventMethods.eventMethod[40538ca7-4350-4ccb-b35a-4364333809ac].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[auditEvent].eventMethods.eventMethod[40538ca7-4350-4ccb-b35a-4364333809ac].parameterMappings.parameterMappingalias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[auditEvent].eventMethods.eventMethod[40538ca7-4350-4ccb-b35a-4364333809ac].parameterMappings.parameterMappingdescription">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[auditEvent].formalParameters.formalParameter.parameter[model].alias">
+            <lang locale="zh_CN" value="值对象" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="值對象" />
+            <lang locale="zh_TW" value="值對象" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[auditEvent].formalParameters.formalParameter.parameter[model].description">
+            <lang locale="zh_CN" value="值对象" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="值對象" />
+            <lang locale="zh_TW" value="值對象" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[deleteEvent].alias">
+            <lang locale="zh_CN" value="删除事件" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="刪除事件" />
+            <lang locale="zh_TW" value="刪除事件" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[deleteEvent].description">
+            <lang locale="zh_CN" value="删除事件" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="刪除事件" />
+            <lang locale="zh_TW" value="刪除事件" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[deleteEvent].eventMethods.eventMethod[583c0c4a-d14d-4c21-aa1f-006785ee4cf0].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[deleteEvent].eventMethods.eventMethod[583c0c4a-d14d-4c21-aa1f-006785ee4cf0].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[deleteEvent].eventMethods.eventMethod[583c0c4a-d14d-4c21-aa1f-006785ee4cf0].parameterMappings.parameterMappingalias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[deleteEvent].eventMethods.eventMethod[583c0c4a-d14d-4c21-aa1f-006785ee4cf0].parameterMappings.parameterMappingdescription">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[deleteEvent].formalParameters.formalParameter.parameter[pk].alias">
+            <lang locale="zh_CN" value="主键" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="主鍵" />
+            <lang locale="zh_TW" value="主鍵" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[deleteEvent].formalParameters.formalParameter.parameter[pk].description">
+            <lang locale="zh_CN" value="主键" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="主鍵" />
+            <lang locale="zh_TW" value="主鍵" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[passAuditEvent].alias">
+            <lang locale="zh_CN" value="审核通过事件" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="審核通過事件" />
+            <lang locale="zh_TW" value="審核通過事件" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[passAuditEvent].description">
+            <lang locale="zh_CN" value="审核通过事件" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="審核通過事件" />
+            <lang locale="zh_TW" value="審核通過事件" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[passAuditEvent].eventMethods.eventMethod[40538ca7-4350-4ccb-b35a-4364333809ac].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[passAuditEvent].eventMethods.eventMethod[40538ca7-4350-4ccb-b35a-4364333809ac].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[passAuditEvent].eventMethods.eventMethod[40538ca7-4350-4ccb-b35a-4364333809ac].parameterMappings.parameterMappingalias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[passAuditEvent].eventMethods.eventMethod[40538ca7-4350-4ccb-b35a-4364333809ac].parameterMappings.parameterMappingdescription">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[passAuditEvent].formalParameters.formalParameter.parameter[pk].alias">
+            <lang locale="zh_CN" value="主键" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="主鍵" />
+            <lang locale="zh_TW" value="主鍵" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[passAuditEvent].formalParameters.formalParameter.parameter[pk].description">
+            <lang locale="zh_CN" value="主键" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="主鍵" />
+            <lang locale="zh_TW" value="主鍵" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[submitEvent].alias">
+            <lang locale="zh_CN" value="提交" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="提交" />
+            <lang locale="zh_TW" value="提交" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[submitEvent].description">
+            <lang locale="zh_CN" value="提交" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="提交" />
+            <lang locale="zh_TW" value="提交" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[submitEvent].eventMethods.eventMethod[dfd2c083-00fa-1000-e000-001fc0a813e6].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[submitEvent].eventMethods.eventMethod[dfd2c083-00fa-1000-e000-001fc0a813e6].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[submitEvent].eventMethods.eventMethod[dfd2c083-00fa-1000-e000-001fc0a813e6].parameterMappings.parameterMappingalias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[submitEvent].eventMethods.eventMethod[dfd2c083-00fa-1000-e000-001fc0a813e6].parameterMappings.parameterMappingdescription">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[submitEvent].formalParameters.formalParameter.parameter[model].alias">
+            <lang locale="zh_CN" value="值对象" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="值對象" />
+            <lang locale="zh_TW" value="值對象" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[submitEvent].formalParameters.formalParameter.parameter[model].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[unAudit].alias">
+            <lang locale="zh_CN" value="反审核" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="反審核" />
+            <lang locale="zh_TW" value="反審核" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[unAudit].description">
+            <lang locale="zh_CN" value="反审核" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="反審核" />
+            <lang locale="zh_TW" value="反審核" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[unAudit].eventMethods.eventMethod[f1b97477-8439-4fb6-b89d-809fac0bd1e4].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[unAudit].eventMethods.eventMethod[f1b97477-8439-4fb6-b89d-809fac0bd1e4].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[unAudit].eventMethods.eventMethod[f1b97477-8439-4fb6-b89d-809fac0bd1e4].parameterMappings.parameterMappingalias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[unAudit].eventMethods.eventMethod[f1b97477-8439-4fb6-b89d-809fac0bd1e4].parameterMappings.parameterMappingdescription">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[unAudit].formalParameters.formalParameter.parameter[model].alias">
+            <lang locale="zh_CN" value="值对象" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="值對象" />
+            <lang locale="zh_TW" value="值對象" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[unAudit].formalParameters.formalParameter.parameter[model].description">
+            <lang locale="zh_CN" value="值对象" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="值對象" />
+            <lang locale="zh_TW" value="值對象" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[unpassAuditEvent].alias">
+            <lang locale="zh_CN" value="反审核通过事件" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="反審核通過事件" />
+            <lang locale="zh_TW" value="反審核通過事件" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[unpassAuditEvent].description">
+            <lang locale="zh_CN" value="反审核通过事件" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="反審核通過事件" />
+            <lang locale="zh_TW" value="反審核通過事件" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[unpassAuditEvent].eventMethods.eventMethod[751bedce-9ec8-4ed4-88ac-f7860a5b681f].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[unpassAuditEvent].eventMethods.eventMethod[751bedce-9ec8-4ed4-88ac-f7860a5b681f].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[unpassAuditEvent].eventMethods.eventMethod[751bedce-9ec8-4ed4-88ac-f7860a5b681f].parameterMappings.parameterMappingalias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[unpassAuditEvent].eventMethods.eventMethod[751bedce-9ec8-4ed4-88ac-f7860a5b681f].parameterMappings.parameterMappingdescription">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[unpassAuditEvent].formalParameters.formalParameter.parameter[pk].alias">
+            <lang locale="zh_CN" value="主键" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="主鍵" />
+            <lang locale="zh_TW" value="主鍵" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].events.event[unpassAuditEvent].formalParameters.formalParameter.parameter[pk].description">
+            <lang locale="zh_CN" value="主键" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="主鍵" />
+            <lang locale="zh_TW" value="主鍵" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].extendedProperty.codingRuleEnabled">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+            <lang locale="en_US" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].extendedProperty.editUI">
+            <lang locale="zh_CN" value="com.kingdee.eas.xr.client.XRBizBillEidtUI" />
+            <lang locale="zh_TW" value="com.kingdee.eas.xr.client.XRBizBillEidtUI" />
+            <lang locale="en_US" value="com.kingdee.eas.xr.client.XRBizBillEidtUI" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].extendedProperty.enableFieldPermission">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].extendedProperty.listUI">
+            <lang locale="zh_CN" value="com.kingdee.eas.xr.client.XRBizBillListUI" />
+            <lang locale="zh_TW" value="com.kingdee.eas.xr.client.XRBizBillListUI" />
+            <lang locale="en_US" value="com.kingdee.eas.xr.client.XRBizBillListUI" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].logicalKeyalias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].logicalKeydescription">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].logicalKeyextendedProperty.codingRuleEnabled">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+            <lang locale="en_US" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].logicalKeyextendedProperty.editUI">
+            <lang locale="zh_CN" value="com.kingdee.eas.xr.client.XRBizBillEidtUI" />
+            <lang locale="zh_TW" value="com.kingdee.eas.xr.client.XRBizBillEidtUI" />
+            <lang locale="en_US" value="com.kingdee.eas.xr.client.XRBizBillEidtUI" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].logicalKeyextendedProperty.enableFieldPermission">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].logicalKeyextendedProperty.listUI">
+            <lang locale="zh_CN" value="com.kingdee.eas.xr.client.XRBizBillListUI" />
+            <lang locale="zh_TW" value="com.kingdee.eas.xr.client.XRBizBillListUI" />
+            <lang locale="en_US" value="com.kingdee.eas.xr.client.XRBizBillListUI" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[addnew].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[addnew].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[addnew].parameters.parameter[model].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[addnew].parameters.parameter[model].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[addnew].parameters.parameter[pk].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[addnew].parameters.parameter[pk].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[audit].alias">
+            <lang locale="zh_CN" value="审核" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="審核" />
+            <lang locale="zh_TW" value="審核" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[audit].description">
+            <lang locale="zh_CN" value="注意EJB事务" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="注意EJB事務" />
+            <lang locale="zh_TW" value="注意EJB事務" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[audit].parameters.parameter[pk].alias">
+            <lang locale="zh_CN" value="主键" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="主鍵" />
+            <lang locale="zh_TW" value="主鍵" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[audit].parameters.parameter[pk].description">
+            <lang locale="zh_CN" value="主键" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="主鍵" />
+            <lang locale="zh_TW" value="主鍵" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[delete].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[delete].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[delete].parameters.parameter[arrayPK].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[delete].parameters.parameter[arrayPK].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[delete].parameters.parameter[filter].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[delete].parameters.parameter[filter].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[delete].parameters.parameter[oql].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[delete].parameters.parameter[oql].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[delete].parameters.parameter[pk].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[delete].parameters.parameter[pk].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[exists].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[exists].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[exists].parameters.parameter[filter].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[exists].parameters.parameter[filter].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[exists].parameters.parameter[oql].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[exists].parameters.parameter[oql].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[exists].parameters.parameter[pk].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[exists].parameters.parameter[pk].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getBindingProperty].alias">
+            <lang locale="zh_CN" value="得到编码绑定属性" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="得到編碼綁定屬性" />
+            <lang locale="zh_TW" value="得到編碼綁定屬性" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getBindingProperty].description">
+            <lang locale="zh_CN" value="得到编码绑定属性" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="得到編碼綁定屬性" />
+            <lang locale="zh_TW" value="得到編碼綁定屬性" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getCollection].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getCollection].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getCollection].parameters.parameter[oql].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getCollection].parameters.parameter[oql].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getCollection].parameters.parameter[view].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getCollection].parameters.parameter[view].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getPKList].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getPKList].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getPKList].parameters.parameter[filter].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getPKList].parameters.parameter[filter].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getPKList].parameters.parameter[oql].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getPKList].parameters.parameter[oql].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getPKList].parameters.parameter[sorter].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getPKList].parameters.parameter[sorter].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getValue].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getValue].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getValue].parameters.parameter[oql].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getValue].parameters.parameter[oql].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getValue].parameters.parameter[pk].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getValue].parameters.parameter[pk].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getValue].parameters.parameter[selector].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[getValue].parameters.parameter[selector].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[unAudit].alias">
+            <lang locale="zh_CN" value="批量反审核" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="批量反審核" />
+            <lang locale="zh_TW" value="批量反審核" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[unAudit].description">
+            <lang locale="zh_CN" value="批量反审核" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="批量反審核" />
+            <lang locale="zh_TW" value="批量反審核" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[unAudit].parameters.parameter[pk].alias">
+            <lang locale="zh_CN" value="主键" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="主鍵" />
+            <lang locale="zh_TW" value="主鍵" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[unAudit].parameters.parameter[pk].description">
+            <lang locale="zh_CN" value="主键" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="主鍵" />
+            <lang locale="zh_TW" value="主鍵" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[unAudit].parameters.parameter[pks].alias">
+            <lang locale="zh_CN" value="pks" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="pks" />
+            <lang locale="zh_TW" value="pks" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[unAudit].parameters.parameter[pks].description">
+            <lang locale="zh_CN" value="pks" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="pks" />
+            <lang locale="zh_TW" value="pks" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[updateBigObject].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[updateBigObject].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[updateBigObject].parameters.parameter[model].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[updateBigObject].parameters.parameter[model].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[updateBigObject].parameters.parameter[pk].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[updateBigObject].parameters.parameter[pk].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[updatePartial].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[updatePartial].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[updatePartial].parameters.parameter[model].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[updatePartial].parameters.parameter[model].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[updatePartial].parameters.parameter[selector].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[updatePartial].parameters.parameter[selector].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[update].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[update].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[update].parameters.parameter[model].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[update].parameters.parameter[model].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[update].parameters.parameter[pk].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].methods.method[update].parameters.parameter[pk].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].properties.ownProperty[auditTime].alias">
+            <lang locale="zh_CN" value="审核时间" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="審核時間" />
+            <lang locale="zh_TW" value="審核時間" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].properties.ownProperty[auditTime].defaultValue">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].properties.ownProperty[auditTime].description">
+            <lang locale="zh_CN" value="审核时间" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="審核時間" />
+            <lang locale="zh_TW" value="審核時間" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].properties.ownProperty[bizStatus].alias">
+            <lang locale="zh_CN" value="业务状态" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="業務狀態" />
+            <lang locale="zh_TW" value="業務狀態" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].properties.ownProperty[bizStatus].defaultValue">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].properties.ownProperty[bizStatus].description">
+            <lang locale="zh_CN" value="业务状态" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="業務狀態" />
+            <lang locale="zh_TW" value="業務狀態" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].properties.ownProperty[status].alias">
+            <lang locale="zh_CN" value="单据状态" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="單據狀態" />
+            <lang locale="zh_TW" value="單據狀態" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].properties.ownProperty[status].defaultValue">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.xr.app.XRBillBase].properties.ownProperty[status].description">
+            <lang locale="zh_CN" value="单据状态" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="單據狀態" />
+            <lang locale="zh_TW" value="單據狀態" />
+        </rs>
+    </resource>
+</entityObject>
+
