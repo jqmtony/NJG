@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleSet xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.port.markesupplier.subase.app</package>
+    <name>MarketSupplierAppraiseTemplateRuleSet</name>
+    <alias>ruleSet[com.kingdee.eas.port.markesupplier.subase.app.MarketSupplierAppraiseTemplateRuleSet].alias</alias>
+    <description>ruleSet[com.kingdee.eas.port.markesupplier.subase.app.MarketSupplierAppraiseTemplateRuleSet].description</description>
+    <userDefined>true</userDefined>
+    <expressions>
+        <groupExpression>
+            <id>5f000f2c-1876-4b0e-8ac8-7e6cb5346ac6</id>
+            <parentID />
+            <source>Entry.threeStandard=Entry.IndexName.threeStandard</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>aa676f22-faa6-42ae-99a0-42e3f460a41c</id>
+            <parentID>5f000f2c-1876-4b0e-8ac8-7e6cb5346ac6</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>768f4a40-3cbb-4da9-aec9-58fd8e3d7d0a</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>768f4a40-3cbb-4da9-aec9-58fd8e3d7d0a</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>kdtEntry.getCell(rowIndex,"threeStandard")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>43588e96-655c-4c49-8ca0-c9b054e8d3a0</id>
+            <parentID>5f000f2c-1876-4b0e-8ac8-7e6cb5346ac6</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>3e64ff39-b72b-473a-a4c2-c91c3a274e12</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>53063836-fe85-4b13-a919-e05932b0c816</id>
+                        <expressionID>2cfcd108-4657-4871-a29c-bf204cfbc9e7</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>771733d6-bf31-4167-b04e-a163980bd582</id>
+                        <expressionID>8d6e477f-eb82-4af3-bb6a-19e2b82da229</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>3e64ff39-b72b-473a-a4c2-c91c3a274e12</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>2cfcd108-4657-4871-a29c-bf204cfbc9e7</id>
+            <parentID />
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>3bb13bd4-5078-479d-973d-6f0bb0061a43</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>3bb13bd4-5078-479d-973d-6f0bb0061a43</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)kdtEntry.getCell(rowIndex,"IndexName")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>8d6e477f-eb82-4af3-bb6a-19e2b82da229</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>threeStandard</value>
+        </simpleExpression>
+        <groupExpression>
+            <id>d31f1d58-d3c1-419a-813b-3c4010c0d409</id>
+            <parentID />
+            <source>Entry.IndexDesc=Entry.IndexName.remake</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>d28413f0-38e1-4885-a9f5-bfa8225c725a</id>
+            <parentID>d31f1d58-d3c1-419a-813b-3c4010c0d409</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>df825c28-88db-4ded-89b5-3eb81d4ac0e5</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>df825c28-88db-4ded-89b5-3eb81d4ac0e5</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>kdtEntry.getCell(rowIndex,"IndexDesc")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>6e150d1d-29e2-435a-b3f0-e3e517e7e2d9</id>
+            <parentID>d31f1d58-d3c1-419a-813b-3c4010c0d409</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>c2081e29-2a5b-4a89-9614-d85ced818bf1</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>864d455c-3bf7-4b8b-b0e0-fdfea9d89006</id>
+                        <expressionID>c2104a24-25ac-42fa-a5d7-45bdbabd1291</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>9bdbb3e2-bc75-4384-85f6-b0d54a5a045f</id>
+                        <expressionID>b7127bf4-76be-4f76-87a1-3a3f3ee6c891</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>c2081e29-2a5b-4a89-9614-d85ced818bf1</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>c2104a24-25ac-42fa-a5d7-45bdbabd1291</id>
+            <parentID />
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>47b5c117-f335-4aba-8691-a7900e426737</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>47b5c117-f335-4aba-8691-a7900e426737</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)kdtEntry.getCell(rowIndex,"IndexName")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>b7127bf4-76be-4f76-87a1-3a3f3ee6c891</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>remake</value>
+        </simpleExpression>
+    </expressions>
+    <actions>
+        <action>
+            <id>7c26a962-0641-4b7d-8fd3-7058e0d7109e</id>
+            <name>Entry_threeStandard_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.markesupplier.subase.app.MarketSupplierAppraiseTemplateRuleSet].actions.action[Entry_threeStandard_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.markesupplier.subase.app.MarketSupplierAppraiseTemplateRuleSet].actions.action[Entry_threeStandard_ActionInfo].description</description>
+            <expressionID>5f000f2c-1876-4b0e-8ac8-7e6cb5346ac6</expressionID>
+        </action>
+        <action>
+            <id>5ffb8673-8670-431b-8927-589052cc7900</id>
+            <name>Entry_IndexDesc_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.markesupplier.subase.app.MarketSupplierAppraiseTemplateRuleSet].actions.action[Entry_IndexDesc_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.markesupplier.subase.app.MarketSupplierAppraiseTemplateRuleSet].actions.action[Entry_IndexDesc_ActionInfo].description</description>
+            <expressionID>d31f1d58-d3c1-419a-813b-3c4010c0d409</expressionID>
+        </action>
+    </actions>
+    <rules>
+        <conditionRule>
+            <name>Entry_threeStandard_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.markesupplier.subase.app.MarketSupplierAppraiseTemplateRuleSet].rules.conditionRule[Entry_threeStandard_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.markesupplier.subase.app.MarketSupplierAppraiseTemplateRuleSet].rules.conditionRule[Entry_threeStandard_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="7c26a962-0641-4b7d-8fd3-7058e0d7109e" />
+                </action>
+            </actions>
+        </conditionRule>
+        <conditionRule>
+            <name>Entry_IndexDesc_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.markesupplier.subase.app.MarketSupplierAppraiseTemplateRuleSet].rules.conditionRule[Entry_IndexDesc_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.markesupplier.subase.app.MarketSupplierAppraiseTemplateRuleSet].rules.conditionRule[Entry_IndexDesc_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="5ffb8673-8670-431b-8927-589052cc7900" />
+                </action>
+            </actions>
+        </conditionRule>
+    </rules>
+    <resource>
+        <rs key="ruleSet[com.kingdee.eas.port.markesupplier.subase.app.MarketSupplierAppraiseTemplateRuleSet].actions.action[Entry_IndexDesc_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_remake" />
+            <lang locale="zh_HK" value="攜帶字段屬性_remake" />
+            <lang locale="zh_TW" value="攜帶字段屬性_remake" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.markesupplier.subase.app.MarketSupplierAppraiseTemplateRuleSet].actions.action[Entry_IndexDesc_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.markesupplier.subase.app.MarketSupplierAppraiseTemplateRuleSet].actions.action[Entry_threeStandard_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_threeStandard" />
+            <lang locale="zh_HK" value="攜帶字段屬性_threeStandard" />
+            <lang locale="zh_TW" value="攜帶字段屬性_threeStandard" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.markesupplier.subase.app.MarketSupplierAppraiseTemplateRuleSet].actions.action[Entry_threeStandard_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.markesupplier.subase.app.MarketSupplierAppraiseTemplateRuleSet].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.markesupplier.subase.app.MarketSupplierAppraiseTemplateRuleSet].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.markesupplier.subase.app.MarketSupplierAppraiseTemplateRuleSet].rules.conditionRule[Entry_IndexDesc_RuleInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_remake" />
+            <lang locale="zh_HK" value="攜帶字段屬性_remake" />
+            <lang locale="zh_TW" value="攜帶字段屬性_remake" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.markesupplier.subase.app.MarketSupplierAppraiseTemplateRuleSet].rules.conditionRule[Entry_IndexDesc_RuleInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.markesupplier.subase.app.MarketSupplierAppraiseTemplateRuleSet].rules.conditionRule[Entry_IndexDesc_RuleInfo].extendedProperty.columnName">
+            <lang locale="en_US" value="IndexName" />
+            <lang locale="zh_CN" value="IndexName" />
+            <lang locale="zh_TW" value="IndexName" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.markesupplier.subase.app.MarketSupplierAppraiseTemplateRuleSet].rules.conditionRule[Entry_IndexDesc_RuleInfo].extendedProperty.userDefined">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.markesupplier.subase.app.MarketSupplierAppraiseTemplateRuleSet].rules.conditionRule[Entry_threeStandard_RuleInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_threeStandard" />
+            <lang locale="zh_HK" value="攜帶字段屬性_threeStandard" />
+            <lang locale="zh_TW" value="攜帶字段屬性_threeStandard" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.markesupplier.subase.app.MarketSupplierAppraiseTemplateRuleSet].rules.conditionRule[Entry_threeStandard_RuleInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.markesupplier.subase.app.MarketSupplierAppraiseTemplateRuleSet].rules.conditionRule[Entry_threeStandard_RuleInfo].extendedProperty.columnName">
+            <lang locale="en_US" value="IndexName" />
+            <lang locale="zh_CN" value="IndexName" />
+            <lang locale="zh_TW" value="IndexName" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.markesupplier.subase.app.MarketSupplierAppraiseTemplateRuleSet].rules.conditionRule[Entry_threeStandard_RuleInfo].extendedProperty.userDefined">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+    </resource>
+</ruleSet>
+

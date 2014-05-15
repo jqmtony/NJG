@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleSet xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.port.markesupplier.subill.app</package>
+    <name>MarketSupplierReviewGatherRuleSet</name>
+    <alias>ruleSet[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierReviewGatherRuleSet].alias</alias>
+    <description>ruleSet[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierReviewGatherRuleSet].description</description>
+    <userDefined>true</userDefined>
+    <expressions>
+        <groupExpression>
+            <id>70625fe1-bbc4-41cf-9700-3083ee3c4610</id>
+            <parentID />
+            <source>SupplierName=Supplier.supplierName</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>928bed3e-9031-47c9-9f36-8bf5f389cf2d</id>
+            <parentID>70625fe1-bbc4-41cf-9700-3083ee3c4610</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>e9d0c3cf-6753-48d2-874b-48ef4f85a195</ownerID>
+                <name>text</name>
+                <type>java.lang.String</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>e9d0c3cf-6753-48d2-874b-48ef4f85a195</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>txtSupplierName</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>f94297d5-33a8-4cfe-a055-18390bd24d4c</id>
+            <parentID>70625fe1-bbc4-41cf-9700-3083ee3c4610</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>ecc3fed7-4d1f-45cd-8215-88280f25a700</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>c6f471cf-f850-4e01-b386-ef84f05d755d</id>
+                        <expressionID>2270c254-a23c-411d-b30d-556c288c6680</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>9d7b1345-b895-4bcb-9997-0dd2560a7070</id>
+                        <expressionID>932b3171-ffa1-40d0-9df5-00b0b211d748</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>ecc3fed7-4d1f-45cd-8215-88280f25a700</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>2270c254-a23c-411d-b30d-556c288c6680</id>
+            <parentID />
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>Object</valueType>
+            <value />
+            <method>
+                <ownerID>5fc06c2d-3f2f-4708-a684-60245bff8241</ownerID>
+                <name>getData</name>
+                <type>Object</type>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>5fc06c2d-3f2f-4708-a684-60245bff8241</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)prmtSupplier</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>932b3171-ffa1-40d0-9df5-00b0b211d748</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>supplierName</value>
+        </simpleExpression>
+    </expressions>
+    <actions>
+        <action>
+            <id>bc567e50-1ce6-4fce-b216-7db075c0f982</id>
+            <name>MarketSupplierReviewGather_SupplierName_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierReviewGatherRuleSet].actions.action[MarketSupplierReviewGather_SupplierName_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierReviewGatherRuleSet].actions.action[MarketSupplierReviewGather_SupplierName_ActionInfo].description</description>
+            <expressionID>70625fe1-bbc4-41cf-9700-3083ee3c4610</expressionID>
+        </action>
+    </actions>
+    <rules>
+        <conditionRule>
+            <name>MarketSupplierReviewGather_SupplierName_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierReviewGatherRuleSet].rules.conditionRule[MarketSupplierReviewGather_SupplierName_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierReviewGatherRuleSet].rules.conditionRule[MarketSupplierReviewGather_SupplierName_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="bc567e50-1ce6-4fce-b216-7db075c0f982" />
+                </action>
+            </actions>
+        </conditionRule>
+    </rules>
+    <resource>
+        <rs key="ruleSet[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierReviewGatherRuleSet].actions.action[MarketSupplierReviewGather_SupplierName_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_supplierName" />
+            <lang locale="zh_HK" value="攜帶字段屬性_supplierName" />
+            <lang locale="zh_TW" value="攜帶字段屬性_supplierName" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierReviewGatherRuleSet].actions.action[MarketSupplierReviewGather_SupplierName_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierReviewGatherRuleSet].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierReviewGatherRuleSet].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierReviewGatherRuleSet].rules.conditionRule[MarketSupplierReviewGather_SupplierName_RuleInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_supplierName" />
+            <lang locale="zh_HK" value="攜帶字段屬性_supplierName" />
+            <lang locale="zh_TW" value="攜帶字段屬性_supplierName" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierReviewGatherRuleSet].rules.conditionRule[MarketSupplierReviewGather_SupplierName_RuleInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierReviewGatherRuleSet].rules.conditionRule[MarketSupplierReviewGather_SupplierName_RuleInfo].extendedProperty.columnName">
+            <lang locale="en_US" value="Supplier" />
+            <lang locale="zh_CN" value="Supplier" />
+            <lang locale="zh_TW" value="Supplier" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierReviewGatherRuleSet].rules.conditionRule[MarketSupplierReviewGather_SupplierName_RuleInfo].extendedProperty.userDefined">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+    </resource>
+</ruleSet>
+
