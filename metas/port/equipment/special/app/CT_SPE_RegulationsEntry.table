@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataTable xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.port.equipment.special.app</package>
+    <name>CT_SPE_RegulationsEntry</name>
+    <alias>dataTable[com.kingdee.eas.port.equipment.special.app.CT_SPE_RegulationsEntry].alias</alias>
+    <description>dataTable[com.kingdee.eas.port.equipment.special.app.CT_SPE_RegulationsEntry].description</description>
+    <userDefined>true</userDefined>
+    <bizUnitPK />
+    <columns>
+        <column>
+            <name>FID</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.special.app.CT_SPE_RegulationsEntry].columns.column[FID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.special.app.CT_SPE_RegulationsEntry].columns.column[FID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FSeq</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.special.app.CT_SPE_RegulationsEntry].columns.column[FSeq].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.special.app.CT_SPE_RegulationsEntry].columns.column[FSeq].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue />
+            <sqlType>INT</sqlType>
+            <length>4</length>
+            <scale>0</scale>
+            <precision>4</precision>
+        </column>
+        <column>
+            <name>FParentID</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.special.app.CT_SPE_RegulationsEntry].columns.column[FParentID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.special.app.CT_SPE_RegulationsEntry].columns.column[FParentID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFSeq</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.special.app.CT_SPE_RegulationsEntry].columns.column[CFSeq].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.special.app.CT_SPE_RegulationsEntry].columns.column[CFSeq].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>INT</sqlType>
+            <length>0</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFDocName</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.special.app.CT_SPE_RegulationsEntry].columns.column[CFDocName].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.special.app.CT_SPE_RegulationsEntry].columns.column[CFDocName].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>100</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFUpLoadDate</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.special.app.CT_SPE_RegulationsEntry].columns.column[CFUpLoadDate].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.special.app.CT_SPE_RegulationsEntry].columns.column[CFUpLoadDate].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>DATETIME</sqlType>
+            <length>8</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFBeizhu</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.special.app.CT_SPE_RegulationsEntry].columns.column[CFBeizhu].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.special.app.CT_SPE_RegulationsEntry].columns.column[CFBeizhu].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>100</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+    </columns>
+    <primaryKey>
+        <name>CPK_SPE_RglxnsEko3</name>
+        <userDefined>true</userDefined>
+        <primaryKeyColumns>
+            <primaryKeyColumn>
+                <indexID>0</indexID>
+                <sortType />
+                <column>
+                    <key name="name" value="FID" />
+                </column>
+            </primaryKeyColumn>
+        </primaryKeyColumns>
+    </primaryKey>
+    <resource>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.special.app.CT_SPE_RegulationsEntry].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="附件明细" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.special.app.CT_SPE_RegulationsEntry].columns.column[CFBeizhu].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="备注" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.special.app.CT_SPE_RegulationsEntry].columns.column[CFBeizhu].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="备注" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.special.app.CT_SPE_RegulationsEntry].columns.column[CFDocName].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="附件名称" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.special.app.CT_SPE_RegulationsEntry].columns.column[CFDocName].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="附件名称" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.special.app.CT_SPE_RegulationsEntry].columns.column[CFSeq].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据分录序列号" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.special.app.CT_SPE_RegulationsEntry].columns.column[CFSeq].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.special.app.CT_SPE_RegulationsEntry].columns.column[CFUpLoadDate].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="上传日期" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.special.app.CT_SPE_RegulationsEntry].columns.column[CFUpLoadDate].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="上传日期" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.special.app.CT_SPE_RegulationsEntry].columns.column[FID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.special.app.CT_SPE_RegulationsEntry].columns.column[FID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.special.app.CT_SPE_RegulationsEntry].columns.column[FParentID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.special.app.CT_SPE_RegulationsEntry].columns.column[FParentID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.special.app.CT_SPE_RegulationsEntry].columns.column[FSeq].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.special.app.CT_SPE_RegulationsEntry].columns.column[FSeq].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.special.app.CT_SPE_RegulationsEntry].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+    </resource>
+</dataTable>
+

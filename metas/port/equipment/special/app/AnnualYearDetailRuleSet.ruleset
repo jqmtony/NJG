@@ -1,0 +1,1733 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleSet xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.port.equipment.special.app</package>
+    <name>AnnualYearDetailRuleSet</name>
+    <alias>ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].alias</alias>
+    <description>ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].description</description>
+    <userDefined>true</userDefined>
+    <expressions>
+        <groupExpression>
+            <id>741b73e0-df65-499b-b290-bbb26e5abf38</id>
+            <parentID />
+            <source>Entry.equipmentName=Entry.zdaNumber.name</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>225cb25d-b8f9-4867-be6d-183081cfa1d5</id>
+            <parentID>741b73e0-df65-499b-b290-bbb26e5abf38</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>0997efe3-b623-4240-a007-357d4b6f619f</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>0997efe3-b623-4240-a007-357d4b6f619f</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>kdtEntry.getCell(rowIndex,"equipmentName")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>b7a1ce39-350d-4c8d-89b1-bf4a1b8ca1d1</id>
+            <parentID>741b73e0-df65-499b-b290-bbb26e5abf38</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>07a878d8-76ce-47f9-8a7b-c8f19be1c338</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>f0d1ba55-9ec7-475a-9998-e56d58254587</id>
+                        <expressionID>b1ed425f-130d-4cf3-911a-f70ac23e6bed</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>919341af-6e1c-489b-96b0-c565ec837f30</id>
+                        <expressionID>50e71127-b607-4f7b-9138-719fdb678ab7</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>07a878d8-76ce-47f9-8a7b-c8f19be1c338</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>b1ed425f-130d-4cf3-911a-f70ac23e6bed</id>
+            <parentID />
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>165b3c34-6ddf-4778-b343-db3a4f97e619</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>165b3c34-6ddf-4778-b343-db3a4f97e619</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)kdtEntry.getCell(rowIndex,"zdaNumber")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>50e71127-b607-4f7b-9138-719fdb678ab7</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>name</value>
+        </simpleExpression>
+        <groupExpression>
+            <id>50e7d5d2-29e5-4dfd-8b51-b88ce4e7393a</id>
+            <parentID />
+            <source>Entry.code=Entry.zdaNumber.code</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>495ba4eb-8892-4f6e-a192-6ccc88a3cd2e</id>
+            <parentID>50e7d5d2-29e5-4dfd-8b51-b88ce4e7393a</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>2b0f52d2-a269-4bd9-8a19-4a7d22d3a99f</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>2b0f52d2-a269-4bd9-8a19-4a7d22d3a99f</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>kdtEntry.getCell(rowIndex,"code")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>c665c1b9-e1cc-480b-b1e9-88a9f6bc63a5</id>
+            <parentID>50e7d5d2-29e5-4dfd-8b51-b88ce4e7393a</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>ba8fe67e-16c9-4a41-80ae-f8744ef17362</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>02bbf15f-c2c9-47ae-b4cc-26abd1342cea</id>
+                        <expressionID>71519864-9932-40f2-aac4-1f66727391ad</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>a5358825-b776-41ac-8a68-c28f911c330c</id>
+                        <expressionID>c3c7ab73-51fc-4979-8a02-02cf900d677c</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>ba8fe67e-16c9-4a41-80ae-f8744ef17362</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>71519864-9932-40f2-aac4-1f66727391ad</id>
+            <parentID />
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>e70318de-3be5-46b6-80af-7a038b3a9c17</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>e70318de-3be5-46b6-80af-7a038b3a9c17</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)kdtEntry.getCell(rowIndex,"zdaNumber")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>c3c7ab73-51fc-4979-8a02-02cf900d677c</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>code</value>
+        </simpleExpression>
+        <groupExpression>
+            <id>fb50c6e3-c6ed-4087-9c21-8e0b8758a4b7</id>
+            <parentID />
+            <source>Entry.useUnit=Entry.zdaNumber.usingDept.name</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>3594271c-926e-4615-9cb3-bcb2df8a3154</id>
+            <parentID>fb50c6e3-c6ed-4087-9c21-8e0b8758a4b7</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>77745cbe-d10f-42d1-a750-9cdff15dbbe3</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>77745cbe-d10f-42d1-a750-9cdff15dbbe3</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>kdtEntry.getCell(rowIndex,"useUnit")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>4dd2c508-2658-42e5-93be-b3514581e3e0</id>
+            <parentID>fb50c6e3-c6ed-4087-9c21-8e0b8758a4b7</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>4eeb6375-41f0-489f-90a8-2c3dab99476f</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>48bd7e3c-46ae-4876-8fdc-4b840331aa00</id>
+                        <expressionID>4153a8ee-3ad5-4859-8c78-a69a807a4bbf</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>83d08a86-5ce7-4b93-8641-3a54c476bdfa</id>
+                        <expressionID>ba491437-2a4a-4b63-8683-575ec13ee51a</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>4eeb6375-41f0-489f-90a8-2c3dab99476f</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>4153a8ee-3ad5-4859-8c78-a69a807a4bbf</id>
+            <parentID />
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>6bbf9dce-a5ae-4767-a610-629f20173d40</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>6bbf9dce-a5ae-4767-a610-629f20173d40</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)kdtEntry.getCell(rowIndex,"zdaNumber")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>ba491437-2a4a-4b63-8683-575ec13ee51a</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>usingDept.name</value>
+        </simpleExpression>
+        <groupExpression>
+            <id>0ad3b182-19af-4404-b7b7-2bef4f8d16a1</id>
+            <parentID />
+            <source>Entry.state=Entry.zdaNumber.tzsbStatus</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>a95c7378-afa4-4826-8876-68dddb786c83</id>
+            <parentID>0ad3b182-19af-4404-b7b7-2bef4f8d16a1</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>d348f68d-69a5-4935-9f8d-e405f31226ac</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>d348f68d-69a5-4935-9f8d-e405f31226ac</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>kdtEntry.getCell(rowIndex,"state")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>d4082836-f629-4af0-8eb0-d6ceb1369695</id>
+            <parentID>0ad3b182-19af-4404-b7b7-2bef4f8d16a1</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>Enum</valueType>
+            <value />
+            <method>
+                <ownerID>3b0e0974-a18e-48cd-81ba-368acef85aec</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>8fab05aa-98dc-4dfe-90b6-d5453ed21b72</id>
+                        <expressionID>5c13dc2f-220f-4cd8-ac23-1f62b9ed0446</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>d9154464-311d-4014-a03c-af2dc3753699</id>
+                        <expressionID>317d7359-96d2-4c08-a888-cac3e55b0152</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>3b0e0974-a18e-48cd-81ba-368acef85aec</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>5c13dc2f-220f-4cd8-ac23-1f62b9ed0446</id>
+            <parentID />
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>9e87307c-cb47-43e9-b269-cc8938098125</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>9e87307c-cb47-43e9-b269-cc8938098125</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)kdtEntry.getCell(rowIndex,"zdaNumber")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>317d7359-96d2-4c08-a888-cac3e55b0152</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>tzsbStatus</value>
+        </simpleExpression>
+        <groupExpression>
+            <id>c9fd84c3-b22e-4c13-bc95-c975f6affa4f</id>
+            <parentID />
+            <source>Entry.address=Entry.zdaNumber.address.name</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>9b582e43-3993-4ed4-bab5-8acb3688d25b</id>
+            <parentID>c9fd84c3-b22e-4c13-bc95-c975f6affa4f</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>913b65e7-1af8-417d-86fb-2c214f01eb4a</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>913b65e7-1af8-417d-86fb-2c214f01eb4a</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>kdtEntry.getCell(rowIndex,"address")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>1987806d-ffc3-482f-9336-f4428b7ef5f3</id>
+            <parentID>c9fd84c3-b22e-4c13-bc95-c975f6affa4f</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>da1826cd-e017-4511-8483-8e42a86b16fc</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>a76cb490-0106-49de-a2f1-b8e353ac150f</id>
+                        <expressionID>9f2e0dd0-f49c-446d-a19b-e737d5bc6f87</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>14744824-bffc-4a07-b70f-4153302c9e6c</id>
+                        <expressionID>05977ec4-1fdb-4958-807f-7ece0cbbfade</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>da1826cd-e017-4511-8483-8e42a86b16fc</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>9f2e0dd0-f49c-446d-a19b-e737d5bc6f87</id>
+            <parentID />
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>0e8be3a6-2c5d-457a-8e58-cc8f2981ebef</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>0e8be3a6-2c5d-457a-8e58-cc8f2981ebef</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)kdtEntry.getCell(rowIndex,"zdaNumber")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>05977ec4-1fdb-4958-807f-7ece0cbbfade</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>address.name</value>
+        </simpleExpression>
+        <groupExpression>
+            <id>890ee971-d61e-4946-bd48-d93303b6ebb5</id>
+            <parentID />
+            <source>Entry.companyNumber=Entry.zdaNumber.innerNumber</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>44eebbde-c97b-4cce-9e96-d5b526a201fd</id>
+            <parentID>890ee971-d61e-4946-bd48-d93303b6ebb5</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>c6251552-a88c-4bdd-9710-84f7b7e1fec3</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>c6251552-a88c-4bdd-9710-84f7b7e1fec3</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>kdtEntry.getCell(rowIndex,"companyNumber")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>0a0586b7-ee33-40ec-918f-507c7b6d9884</id>
+            <parentID>890ee971-d61e-4946-bd48-d93303b6ebb5</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>6b23ddaf-431a-4f19-9d37-a115c1777c48</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>98c6efbe-047b-4084-a836-338911571e83</id>
+                        <expressionID>2cefe48e-7c27-4aab-9de4-27157c5eb2b9</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>569294ff-6317-4c30-a1b5-64fbde3405c5</id>
+                        <expressionID>b62c0a14-5c82-4d65-a980-043a02f1119d</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>6b23ddaf-431a-4f19-9d37-a115c1777c48</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>2cefe48e-7c27-4aab-9de4-27157c5eb2b9</id>
+            <parentID />
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>24e0e88c-cb0f-4a62-8989-e39578a1b551</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>24e0e88c-cb0f-4a62-8989-e39578a1b551</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)kdtEntry.getCell(rowIndex,"zdaNumber")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>b62c0a14-5c82-4d65-a980-043a02f1119d</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>innerNumber</value>
+        </simpleExpression>
+        <groupExpression>
+            <id>9daaa7f3-6604-4442-b23b-c8f8285788c5</id>
+            <parentID />
+            <source>Entry.NO=Entry.zdaNumber.model</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>c29747c2-cbe5-476b-8cbd-a9ff43754f46</id>
+            <parentID>9daaa7f3-6604-4442-b23b-c8f8285788c5</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>700490d1-153e-4be3-b07c-876d96c3a4c4</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>700490d1-153e-4be3-b07c-876d96c3a4c4</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>kdtEntry.getCell(rowIndex,"NO")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>503fe549-673e-4314-b1f1-cba05494d523</id>
+            <parentID>9daaa7f3-6604-4442-b23b-c8f8285788c5</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>104e281d-f44a-4f99-ba89-3683b01aa580</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>1894d66f-35e6-4a01-b89d-0d47eb8985b4</id>
+                        <expressionID>34597011-23c3-4008-ac35-b23f9d9925bf</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>d58b263a-d65a-46ac-9f28-9fd40727747e</id>
+                        <expressionID>6952a6bd-51bf-4fc2-b06b-398de49f52e5</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>104e281d-f44a-4f99-ba89-3683b01aa580</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>34597011-23c3-4008-ac35-b23f9d9925bf</id>
+            <parentID />
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>80403761-8c91-43da-b806-5a6de3d1b74c</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>80403761-8c91-43da-b806-5a6de3d1b74c</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)kdtEntry.getCell(rowIndex,"zdaNumber")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>6952a6bd-51bf-4fc2-b06b-398de49f52e5</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>model</value>
+        </simpleExpression>
+        <groupExpression>
+            <id>398d3d0c-364e-4cca-8372-3bcc0b5da26c</id>
+            <parentID />
+            <source>Entry.engineNumber=Entry.zdaNumber.engineNumber</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>87c5c4b1-3489-48fe-be09-deb1b4840c32</id>
+            <parentID>398d3d0c-364e-4cca-8372-3bcc0b5da26c</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>2a2ee4c4-98d1-48aa-819f-c19bd7708a81</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>2a2ee4c4-98d1-48aa-819f-c19bd7708a81</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>kdtEntry.getCell(rowIndex,"engineNumber")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>cdcd3121-2b3d-467a-a5c6-9eef8927808a</id>
+            <parentID>398d3d0c-364e-4cca-8372-3bcc0b5da26c</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>692496fb-1647-49f8-9478-0e08b0018de2</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>baef3c83-8e0e-42f5-b6b6-ed5d904af98e</id>
+                        <expressionID>818b3ae8-f0d4-4cd2-b5ee-5fee139d1708</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>d6069696-870e-48b6-a869-e1d5a897ecb0</id>
+                        <expressionID>9cb51639-6b3a-4641-96c6-d12f7812c369</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>692496fb-1647-49f8-9478-0e08b0018de2</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>818b3ae8-f0d4-4cd2-b5ee-5fee139d1708</id>
+            <parentID />
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>72ada836-ec10-4f9d-ada4-e834bd0e81db</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>72ada836-ec10-4f9d-ada4-e834bd0e81db</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)kdtEntry.getCell(rowIndex,"zdaNumber")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>9cb51639-6b3a-4641-96c6-d12f7812c369</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>engineNumber</value>
+        </simpleExpression>
+        <groupExpression>
+            <id>2955a7cb-a20a-4828-98b0-50c481f33645</id>
+            <parentID />
+            <source>Entry.carNumber=Entry.zdaNumber.carNumber</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>a6a341cb-5b3c-465e-aeb5-86bba7c5273c</id>
+            <parentID>2955a7cb-a20a-4828-98b0-50c481f33645</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>b91654b5-cc59-4c85-9c0f-f25e41464fa5</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>b91654b5-cc59-4c85-9c0f-f25e41464fa5</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>kdtEntry.getCell(rowIndex,"carNumber")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>deb37644-dcd6-47c1-a809-a4c10931cc70</id>
+            <parentID>2955a7cb-a20a-4828-98b0-50c481f33645</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>c844d497-de3a-48f6-8a1e-069fdfb0f370</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>b21ed288-4f41-4462-9881-34e8479460e5</id>
+                        <expressionID>93b6443d-5869-4374-a0c5-3490f40b02fc</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>7d1d90a6-b3d5-4cc8-8a89-6c6b04b98f87</id>
+                        <expressionID>ac4ff6fb-eb72-4856-8278-93b1e413eafc</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>c844d497-de3a-48f6-8a1e-069fdfb0f370</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>93b6443d-5869-4374-a0c5-3490f40b02fc</id>
+            <parentID />
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>a813564a-a0c0-4ffe-b804-0af04dfd8a3b</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>a813564a-a0c0-4ffe-b804-0af04dfd8a3b</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)kdtEntry.getCell(rowIndex,"zdaNumber")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>ac4ff6fb-eb72-4856-8278-93b1e413eafc</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>carNumber</value>
+        </simpleExpression>
+        <groupExpression>
+            <id>17383e5d-3777-42a5-bc49-9e57a36c6684</id>
+            <parentID />
+            <source>Entry.weight=Entry.zdaNumber.ratedWeight</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>b6b2a79c-27ca-4e7a-88c8-933952e735fd</id>
+            <parentID>17383e5d-3777-42a5-bc49-9e57a36c6684</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>BigDecimal</valueType>
+            <value />
+            <property>
+                <ownerID>000660da-c09e-4626-afe2-04636a226154</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>000660da-c09e-4626-afe2-04636a226154</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>kdtEntry.getCell(rowIndex,"weight")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>12da708e-77cf-46f7-9650-3a6163b231bb</id>
+            <parentID>17383e5d-3777-42a5-bc49-9e57a36c6684</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>BigDecimal</valueType>
+            <value />
+            <method>
+                <ownerID>8e77bd01-a4a3-476e-a741-a467893cffb4</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>56b13103-6d3c-4f3b-add5-41f58aa213ce</id>
+                        <expressionID>2f553cbb-c91e-45fb-9b7a-fbdcdf1c8417</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>90271cf2-385d-4316-92be-d86e1043cd2e</id>
+                        <expressionID>8de37eaf-d848-4a46-8668-8542a188e284</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>8e77bd01-a4a3-476e-a741-a467893cffb4</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>2f553cbb-c91e-45fb-9b7a-fbdcdf1c8417</id>
+            <parentID />
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>d7bd0824-0beb-4f1a-9214-095992489865</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>d7bd0824-0beb-4f1a-9214-095992489865</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)kdtEntry.getCell(rowIndex,"zdaNumber")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>8de37eaf-d848-4a46-8668-8542a188e284</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>ratedWeight</value>
+        </simpleExpression>
+        <groupExpression>
+            <id>49cd11e8-21c7-480f-a197-66d45059a992</id>
+            <parentID />
+            <source>Entry.useDate=Entry.zdaNumber.qyDate</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>83315084-127e-4a4e-9003-1868ee5b678c</id>
+            <parentID>49cd11e8-21c7-480f-a197-66d45059a992</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Date</valueType>
+            <value />
+            <property>
+                <ownerID>68826a3b-2f49-4854-a794-86e00d172042</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>68826a3b-2f49-4854-a794-86e00d172042</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>kdtEntry.getCell(rowIndex,"useDate")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>a3097ea0-9e1c-4d79-8e02-34d1d5e2ea71</id>
+            <parentID>49cd11e8-21c7-480f-a197-66d45059a992</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>Date</valueType>
+            <value />
+            <method>
+                <ownerID>55ba412c-7143-4f22-9337-c00b46d5fd1b</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>8f635ebd-bdc4-4841-99b9-36383e54736b</id>
+                        <expressionID>65f9862b-df70-45a8-8251-495517bc734d</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>9a0e6631-4f8c-449b-9f43-cf31dbfe37a9</id>
+                        <expressionID>3f39c0de-95e5-418c-81e3-5066acbc2d54</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>55ba412c-7143-4f22-9337-c00b46d5fd1b</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>65f9862b-df70-45a8-8251-495517bc734d</id>
+            <parentID />
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>07780733-2e42-4744-92bb-4f4d4fe6567f</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>07780733-2e42-4744-92bb-4f4d4fe6567f</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)kdtEntry.getCell(rowIndex,"zdaNumber")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>3f39c0de-95e5-418c-81e3-5066acbc2d54</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>qyDate</value>
+        </simpleExpression>
+        <groupExpression>
+            <id>e026da77-81d3-4730-a70c-58f10a68d3f3</id>
+            <parentID />
+            <source>Entry.createUnit=Entry.zdaNumber.mader</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>878c4f70-ab9f-4082-8b10-401c9125f248</id>
+            <parentID>e026da77-81d3-4730-a70c-58f10a68d3f3</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>e6d7bdc9-2137-4f6e-bfca-c6142324d5c6</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>e6d7bdc9-2137-4f6e-bfca-c6142324d5c6</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>kdtEntry.getCell(rowIndex,"createUnit")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>174f92c0-9abc-40cc-af81-ce640637845d</id>
+            <parentID>e026da77-81d3-4730-a70c-58f10a68d3f3</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>d28051ec-1dc9-4b35-adac-9bb678d0f813</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>61f8b1f3-2526-4788-a288-c0eef3b62e75</id>
+                        <expressionID>dc58b3d9-be47-4a02-954d-f0eeeb4feb3c</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>ab482e69-9688-401e-8710-86efc1c90a6a</id>
+                        <expressionID>dfc73ec3-28e6-4101-9d7f-07391ce14672</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>d28051ec-1dc9-4b35-adac-9bb678d0f813</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>dc58b3d9-be47-4a02-954d-f0eeeb4feb3c</id>
+            <parentID />
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>43f63cdc-38b9-496b-8a5a-920f15fbc9f1</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>43f63cdc-38b9-496b-8a5a-920f15fbc9f1</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)kdtEntry.getCell(rowIndex,"zdaNumber")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>dfc73ec3-28e6-4101-9d7f-07391ce14672</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>mader</value>
+        </simpleExpression>
+    </expressions>
+    <actions>
+        <action>
+            <id>2c6630a1-3b18-403d-b81b-6f4c3e778575</id>
+            <name>Entry_equipmentName_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].actions.action[Entry_equipmentName_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].actions.action[Entry_equipmentName_ActionInfo].description</description>
+            <expressionID>741b73e0-df65-499b-b290-bbb26e5abf38</expressionID>
+        </action>
+        <action>
+            <id>404c6031-db8a-447e-a009-2a764836a6c7</id>
+            <name>Entry_code_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].actions.action[Entry_code_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].actions.action[Entry_code_ActionInfo].description</description>
+            <expressionID>50e7d5d2-29e5-4dfd-8b51-b88ce4e7393a</expressionID>
+        </action>
+        <action>
+            <id>0ba0388a-573f-4add-90ee-3d4a83352fab</id>
+            <name>Entry_useUnit_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].actions.action[Entry_useUnit_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].actions.action[Entry_useUnit_ActionInfo].description</description>
+            <expressionID>fb50c6e3-c6ed-4087-9c21-8e0b8758a4b7</expressionID>
+        </action>
+        <action>
+            <id>fccd249b-fa91-4f4a-99d4-f9f9a12257f6</id>
+            <name>Entry_state_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].actions.action[Entry_state_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].actions.action[Entry_state_ActionInfo].description</description>
+            <expressionID>0ad3b182-19af-4404-b7b7-2bef4f8d16a1</expressionID>
+        </action>
+        <action>
+            <id>6213a06f-8749-433f-848d-61ede4993c1e</id>
+            <name>Entry_address_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].actions.action[Entry_address_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].actions.action[Entry_address_ActionInfo].description</description>
+            <expressionID>c9fd84c3-b22e-4c13-bc95-c975f6affa4f</expressionID>
+        </action>
+        <action>
+            <id>d9d5a046-5009-4365-abb7-974b2aca3553</id>
+            <name>Entry_companyNumber_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].actions.action[Entry_companyNumber_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].actions.action[Entry_companyNumber_ActionInfo].description</description>
+            <expressionID>890ee971-d61e-4946-bd48-d93303b6ebb5</expressionID>
+        </action>
+        <action>
+            <id>0bb09915-9e42-43cd-8c09-2589a3f97491</id>
+            <name>Entry_NO_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].actions.action[Entry_NO_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].actions.action[Entry_NO_ActionInfo].description</description>
+            <expressionID>9daaa7f3-6604-4442-b23b-c8f8285788c5</expressionID>
+        </action>
+        <action>
+            <id>5f0c836b-b34f-47c9-b2b7-d1d6bb01dc14</id>
+            <name>Entry_engineNumber_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].actions.action[Entry_engineNumber_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].actions.action[Entry_engineNumber_ActionInfo].description</description>
+            <expressionID>398d3d0c-364e-4cca-8372-3bcc0b5da26c</expressionID>
+        </action>
+        <action>
+            <id>24b759b1-d69d-45f1-961e-b1a85bae8e67</id>
+            <name>Entry_carNumber_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].actions.action[Entry_carNumber_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].actions.action[Entry_carNumber_ActionInfo].description</description>
+            <expressionID>2955a7cb-a20a-4828-98b0-50c481f33645</expressionID>
+        </action>
+        <action>
+            <id>eb7187d4-2382-4b15-88a0-34d536093c5d</id>
+            <name>Entry_weight_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].actions.action[Entry_weight_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].actions.action[Entry_weight_ActionInfo].description</description>
+            <expressionID>17383e5d-3777-42a5-bc49-9e57a36c6684</expressionID>
+        </action>
+        <action>
+            <id>0d3d5f08-e8de-4d44-84b8-b2c55dbb3d59</id>
+            <name>Entry_useDate_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].actions.action[Entry_useDate_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].actions.action[Entry_useDate_ActionInfo].description</description>
+            <expressionID>49cd11e8-21c7-480f-a197-66d45059a992</expressionID>
+        </action>
+        <action>
+            <id>aab34335-ae98-4fed-9114-9b457e7f7385</id>
+            <name>Entry_createUnit_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].actions.action[Entry_createUnit_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].actions.action[Entry_createUnit_ActionInfo].description</description>
+            <expressionID>e026da77-81d3-4730-a70c-58f10a68d3f3</expressionID>
+        </action>
+    </actions>
+    <rules>
+        <conditionRule>
+            <name>Entry_equipmentName_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_equipmentName_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_equipmentName_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="2c6630a1-3b18-403d-b81b-6f4c3e778575" />
+                </action>
+            </actions>
+        </conditionRule>
+        <conditionRule>
+            <name>Entry_code_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_code_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_code_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="404c6031-db8a-447e-a009-2a764836a6c7" />
+                </action>
+            </actions>
+        </conditionRule>
+        <conditionRule>
+            <name>Entry_useUnit_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_useUnit_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_useUnit_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="0ba0388a-573f-4add-90ee-3d4a83352fab" />
+                </action>
+            </actions>
+        </conditionRule>
+        <conditionRule>
+            <name>Entry_state_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_state_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_state_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="fccd249b-fa91-4f4a-99d4-f9f9a12257f6" />
+                </action>
+            </actions>
+        </conditionRule>
+        <conditionRule>
+            <name>Entry_address_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_address_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_address_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="6213a06f-8749-433f-848d-61ede4993c1e" />
+                </action>
+            </actions>
+        </conditionRule>
+        <conditionRule>
+            <name>Entry_companyNumber_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_companyNumber_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_companyNumber_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="d9d5a046-5009-4365-abb7-974b2aca3553" />
+                </action>
+            </actions>
+        </conditionRule>
+        <conditionRule>
+            <name>Entry_NO_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_NO_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_NO_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="0bb09915-9e42-43cd-8c09-2589a3f97491" />
+                </action>
+            </actions>
+        </conditionRule>
+        <conditionRule>
+            <name>Entry_engineNumber_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_engineNumber_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_engineNumber_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="5f0c836b-b34f-47c9-b2b7-d1d6bb01dc14" />
+                </action>
+            </actions>
+        </conditionRule>
+        <conditionRule>
+            <name>Entry_carNumber_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_carNumber_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_carNumber_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="24b759b1-d69d-45f1-961e-b1a85bae8e67" />
+                </action>
+            </actions>
+        </conditionRule>
+        <conditionRule>
+            <name>Entry_weight_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_weight_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_weight_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="eb7187d4-2382-4b15-88a0-34d536093c5d" />
+                </action>
+            </actions>
+        </conditionRule>
+        <conditionRule>
+            <name>Entry_useDate_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_useDate_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_useDate_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="0d3d5f08-e8de-4d44-84b8-b2c55dbb3d59" />
+                </action>
+            </actions>
+        </conditionRule>
+        <conditionRule>
+            <name>Entry_createUnit_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_createUnit_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_createUnit_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="aab34335-ae98-4fed-9114-9b457e7f7385" />
+                </action>
+            </actions>
+        </conditionRule>
+    </rules>
+    <resource>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].actions.action[Entry_NO_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_model" />
+            <lang locale="zh_HK" value="攜帶字段屬性_model" />
+            <lang locale="zh_TW" value="攜帶字段屬性_model" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].actions.action[Entry_NO_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].actions.action[Entry_address_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_address" />
+            <lang locale="zh_HK" value="攜帶字段屬性_address" />
+            <lang locale="zh_TW" value="攜帶字段屬性_address" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].actions.action[Entry_address_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].actions.action[Entry_carNumber_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_carNumber" />
+            <lang locale="zh_HK" value="攜帶字段屬性_carNumber" />
+            <lang locale="zh_TW" value="攜帶字段屬性_carNumber" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].actions.action[Entry_carNumber_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].actions.action[Entry_code_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_code" />
+            <lang locale="zh_HK" value="攜帶字段屬性_code" />
+            <lang locale="zh_TW" value="攜帶字段屬性_code" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].actions.action[Entry_code_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].actions.action[Entry_companyNumber_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_innerNumber" />
+            <lang locale="zh_HK" value="攜帶字段屬性_innerNumber" />
+            <lang locale="zh_TW" value="攜帶字段屬性_innerNumber" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].actions.action[Entry_companyNumber_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].actions.action[Entry_createUnit_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_mader" />
+            <lang locale="zh_HK" value="攜帶字段屬性_mader" />
+            <lang locale="zh_TW" value="攜帶字段屬性_mader" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].actions.action[Entry_createUnit_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].actions.action[Entry_engineNumber_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_engineNumber" />
+            <lang locale="zh_HK" value="攜帶字段屬性_engineNumber" />
+            <lang locale="zh_TW" value="攜帶字段屬性_engineNumber" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].actions.action[Entry_engineNumber_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].actions.action[Entry_equipmentName_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_name" />
+            <lang locale="zh_HK" value="攜帶字段屬性_name" />
+            <lang locale="zh_TW" value="攜帶字段屬性_name" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].actions.action[Entry_equipmentName_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].actions.action[Entry_state_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_tzsbStatus" />
+            <lang locale="zh_HK" value="攜帶字段屬性_tzsbStatus" />
+            <lang locale="zh_TW" value="攜帶字段屬性_tzsbStatus" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].actions.action[Entry_state_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].actions.action[Entry_useDate_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_qyDate" />
+            <lang locale="zh_HK" value="攜帶字段屬性_qyDate" />
+            <lang locale="zh_TW" value="攜帶字段屬性_qyDate" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].actions.action[Entry_useDate_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].actions.action[Entry_useUnit_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_usingDept" />
+            <lang locale="zh_HK" value="攜帶字段屬性_usingDept" />
+            <lang locale="zh_TW" value="攜帶字段屬性_usingDept" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].actions.action[Entry_useUnit_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].actions.action[Entry_weight_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_ratedWeight" />
+            <lang locale="zh_HK" value="攜帶字段屬性_ratedWeight" />
+            <lang locale="zh_TW" value="攜帶字段屬性_ratedWeight" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].actions.action[Entry_weight_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_NO_RuleInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_model" />
+            <lang locale="zh_HK" value="攜帶字段屬性_model" />
+            <lang locale="zh_TW" value="攜帶字段屬性_model" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_NO_RuleInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_NO_RuleInfo].extendedProperty.columnName">
+            <lang locale="en_US" value="zdaNumber" />
+            <lang locale="zh_CN" value="zdaNumber" />
+            <lang locale="zh_TW" value="zdaNumber" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_NO_RuleInfo].extendedProperty.userDefined">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_address_RuleInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_address" />
+            <lang locale="zh_HK" value="攜帶字段屬性_address" />
+            <lang locale="zh_TW" value="攜帶字段屬性_address" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_address_RuleInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_address_RuleInfo].extendedProperty.columnName">
+            <lang locale="en_US" value="zdaNumber" />
+            <lang locale="zh_CN" value="zdaNumber" />
+            <lang locale="zh_TW" value="zdaNumber" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_address_RuleInfo].extendedProperty.userDefined">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_carNumber_RuleInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_carNumber" />
+            <lang locale="zh_HK" value="攜帶字段屬性_carNumber" />
+            <lang locale="zh_TW" value="攜帶字段屬性_carNumber" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_carNumber_RuleInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_carNumber_RuleInfo].extendedProperty.columnName">
+            <lang locale="en_US" value="zdaNumber" />
+            <lang locale="zh_CN" value="zdaNumber" />
+            <lang locale="zh_TW" value="zdaNumber" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_carNumber_RuleInfo].extendedProperty.userDefined">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_code_RuleInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_code" />
+            <lang locale="zh_HK" value="攜帶字段屬性_code" />
+            <lang locale="zh_TW" value="攜帶字段屬性_code" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_code_RuleInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_code_RuleInfo].extendedProperty.columnName">
+            <lang locale="en_US" value="zdaNumber" />
+            <lang locale="zh_CN" value="zdaNumber" />
+            <lang locale="zh_TW" value="zdaNumber" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_code_RuleInfo].extendedProperty.userDefined">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_companyNumber_RuleInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_innerNumber" />
+            <lang locale="zh_HK" value="攜帶字段屬性_innerNumber" />
+            <lang locale="zh_TW" value="攜帶字段屬性_innerNumber" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_companyNumber_RuleInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_companyNumber_RuleInfo].extendedProperty.columnName">
+            <lang locale="en_US" value="zdaNumber" />
+            <lang locale="zh_CN" value="zdaNumber" />
+            <lang locale="zh_TW" value="zdaNumber" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_companyNumber_RuleInfo].extendedProperty.userDefined">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_createUnit_RuleInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_mader" />
+            <lang locale="zh_HK" value="攜帶字段屬性_mader" />
+            <lang locale="zh_TW" value="攜帶字段屬性_mader" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_createUnit_RuleInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_createUnit_RuleInfo].extendedProperty.columnName">
+            <lang locale="en_US" value="zdaNumber" />
+            <lang locale="zh_CN" value="zdaNumber" />
+            <lang locale="zh_TW" value="zdaNumber" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_createUnit_RuleInfo].extendedProperty.userDefined">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_engineNumber_RuleInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_engineNumber" />
+            <lang locale="zh_HK" value="攜帶字段屬性_engineNumber" />
+            <lang locale="zh_TW" value="攜帶字段屬性_engineNumber" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_engineNumber_RuleInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_engineNumber_RuleInfo].extendedProperty.columnName">
+            <lang locale="en_US" value="zdaNumber" />
+            <lang locale="zh_CN" value="zdaNumber" />
+            <lang locale="zh_TW" value="zdaNumber" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_engineNumber_RuleInfo].extendedProperty.userDefined">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_equipmentName_RuleInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_name" />
+            <lang locale="zh_HK" value="攜帶字段屬性_name" />
+            <lang locale="zh_TW" value="攜帶字段屬性_name" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_equipmentName_RuleInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_equipmentName_RuleInfo].extendedProperty.columnName">
+            <lang locale="en_US" value="zdaNumber" />
+            <lang locale="zh_CN" value="zdaNumber" />
+            <lang locale="zh_TW" value="zdaNumber" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_equipmentName_RuleInfo].extendedProperty.userDefined">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_state_RuleInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_tzsbStatus" />
+            <lang locale="zh_HK" value="攜帶字段屬性_tzsbStatus" />
+            <lang locale="zh_TW" value="攜帶字段屬性_tzsbStatus" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_state_RuleInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_state_RuleInfo].extendedProperty.columnName">
+            <lang locale="en_US" value="zdaNumber" />
+            <lang locale="zh_CN" value="zdaNumber" />
+            <lang locale="zh_TW" value="zdaNumber" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_state_RuleInfo].extendedProperty.userDefined">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_useDate_RuleInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_qyDate" />
+            <lang locale="zh_HK" value="攜帶字段屬性_qyDate" />
+            <lang locale="zh_TW" value="攜帶字段屬性_qyDate" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_useDate_RuleInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_useDate_RuleInfo].extendedProperty.columnName">
+            <lang locale="en_US" value="zdaNumber" />
+            <lang locale="zh_CN" value="zdaNumber" />
+            <lang locale="zh_TW" value="zdaNumber" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_useDate_RuleInfo].extendedProperty.userDefined">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_useUnit_RuleInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_usingDept" />
+            <lang locale="zh_HK" value="攜帶字段屬性_usingDept" />
+            <lang locale="zh_TW" value="攜帶字段屬性_usingDept" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_useUnit_RuleInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_useUnit_RuleInfo].extendedProperty.columnName">
+            <lang locale="en_US" value="zdaNumber" />
+            <lang locale="zh_CN" value="zdaNumber" />
+            <lang locale="zh_TW" value="zdaNumber" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_useUnit_RuleInfo].extendedProperty.userDefined">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_weight_RuleInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_ratedWeight" />
+            <lang locale="zh_HK" value="攜帶字段屬性_ratedWeight" />
+            <lang locale="zh_TW" value="攜帶字段屬性_ratedWeight" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_weight_RuleInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_weight_RuleInfo].extendedProperty.columnName">
+            <lang locale="en_US" value="zdaNumber" />
+            <lang locale="zh_CN" value="zdaNumber" />
+            <lang locale="zh_TW" value="zdaNumber" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailRuleSet].rules.conditionRule[Entry_weight_RuleInfo].extendedProperty.userDefined">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+    </resource>
+</ruleSet>
+

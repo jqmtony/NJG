@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleSet xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.port.equipment.special.app</package>
+    <name>OverhaulNoticeRuleSet</name>
+    <alias>ruleSet[com.kingdee.eas.port.equipment.special.app.OverhaulNoticeRuleSet].alias</alias>
+    <description>ruleSet[com.kingdee.eas.port.equipment.special.app.OverhaulNoticeRuleSet].description</description>
+    <userDefined>true</userDefined>
+    <expressions>
+        <groupExpression>
+            <id>57c0508f-8376-405d-94a2-9af079fe747f</id>
+            <parentID />
+            <source>Entry.equipmentName=Entry.zdaNumber.name</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>a5478562-6f24-4637-89d9-347b468650d1</id>
+            <parentID>57c0508f-8376-405d-94a2-9af079fe747f</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>9a628ff8-4a63-4ece-bf87-969bb7a74351</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>9a628ff8-4a63-4ece-bf87-969bb7a74351</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>kdtEntry.getCell(rowIndex,"equipmentName")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>24c14980-25d2-442c-b87a-ff019c8160aa</id>
+            <parentID>57c0508f-8376-405d-94a2-9af079fe747f</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>9cda53ad-81fc-4def-ae87-d15209f73b64</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>693b1810-3ae2-44f4-b947-a1b9ef29e5d4</id>
+                        <expressionID>1a48b2a0-9e25-4b18-a438-21316faf1695</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>a5972ded-a234-460c-b0ef-84c7d7fdeea5</id>
+                        <expressionID>2b6c36b3-f801-46ef-9159-3ee027cffbf8</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>9cda53ad-81fc-4def-ae87-d15209f73b64</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>1a48b2a0-9e25-4b18-a438-21316faf1695</id>
+            <parentID />
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>5b12079e-e998-42c1-9223-95b1ef4297d7</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>5b12079e-e998-42c1-9223-95b1ef4297d7</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)kdtEntry.getCell(rowIndex,"zdaNumber")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>2b6c36b3-f801-46ef-9159-3ee027cffbf8</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>name</value>
+        </simpleExpression>
+    </expressions>
+    <actions>
+        <action>
+            <id>c6b22a6f-f81f-4f9c-b32d-73d6ce4d89a1</id>
+            <name>Entry_equipmentName_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.special.app.OverhaulNoticeRuleSet].actions.action[Entry_equipmentName_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.special.app.OverhaulNoticeRuleSet].actions.action[Entry_equipmentName_ActionInfo].description</description>
+            <expressionID>57c0508f-8376-405d-94a2-9af079fe747f</expressionID>
+        </action>
+    </actions>
+    <rules>
+        <conditionRule>
+            <name>Entry_equipmentName_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.special.app.OverhaulNoticeRuleSet].rules.conditionRule[Entry_equipmentName_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.special.app.OverhaulNoticeRuleSet].rules.conditionRule[Entry_equipmentName_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="c6b22a6f-f81f-4f9c-b32d-73d6ce4d89a1" />
+                </action>
+            </actions>
+        </conditionRule>
+    </rules>
+    <resource>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.OverhaulNoticeRuleSet].actions.action[Entry_equipmentName_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_name" />
+            <lang locale="zh_HK" value="攜帶字段屬性_name" />
+            <lang locale="zh_TW" value="攜帶字段屬性_name" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.OverhaulNoticeRuleSet].actions.action[Entry_equipmentName_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.OverhaulNoticeRuleSet].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.OverhaulNoticeRuleSet].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.OverhaulNoticeRuleSet].rules.conditionRule[Entry_equipmentName_RuleInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_name" />
+            <lang locale="zh_HK" value="攜帶字段屬性_name" />
+            <lang locale="zh_TW" value="攜帶字段屬性_name" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.OverhaulNoticeRuleSet].rules.conditionRule[Entry_equipmentName_RuleInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.OverhaulNoticeRuleSet].rules.conditionRule[Entry_equipmentName_RuleInfo].extendedProperty.columnName">
+            <lang locale="en_US" value="zdaNumber" />
+            <lang locale="zh_CN" value="zdaNumber" />
+            <lang locale="zh_TW" value="zdaNumber" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.special.app.OverhaulNoticeRuleSet].rules.conditionRule[Entry_equipmentName_RuleInfo].extendedProperty.userDefined">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+    </resource>
+</ruleSet>
+
