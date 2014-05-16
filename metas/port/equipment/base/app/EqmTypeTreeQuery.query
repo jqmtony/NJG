@@ -1,0 +1,845 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<joinQuery xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.port.equipment.base.app</package>
+    <name>EqmTypeTreeQuery</name>
+    <alias>joinQuery[com.kingdee.eas.port.equipment.base.app.EqmTypeTreeQuery].alias</alias>
+    <description>joinQuery[com.kingdee.eas.port.equipment.base.app.EqmTypeTreeQuery].description</description>
+    <userDefined>true</userDefined>
+    <reportDataSource />
+    <bizUnitPK />
+    <connectionProvider />
+    <subObjects>
+        <subEntity>
+            <name>EqmTypeTree</name>
+            <alias>joinQuery[com.kingdee.eas.port.equipment.base.app.EqmTypeTreeQuery].subObjects.subEntity[EqmTypeTree].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.base.app" />
+                <key name="name" value="EqmTypeTreeQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.port.equipment.base.app" />
+                <key name="name" value="EqmTypeTree" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>CU</name>
+            <alias>joinQuery[com.kingdee.eas.port.equipment.base.app.EqmTypeTreeQuery].subObjects.subEntity[CU].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.base.app" />
+                <key name="name" value="EqmTypeTreeQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.basedata.org.app" />
+                <key name="name" value="CtrlUnit" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>parent</name>
+            <alias>joinQuery[com.kingdee.eas.port.equipment.base.app.EqmTypeTreeQuery].subObjects.subEntity[parent].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.base.app" />
+                <key name="name" value="EqmTypeTreeQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.port.equipment.base.app" />
+                <key name="name" value="EqmTypeTree" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>creator</name>
+            <alias>joinQuery[com.kingdee.eas.port.equipment.base.app.EqmTypeTreeQuery].subObjects.subEntity[creator].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.base.app" />
+                <key name="name" value="EqmTypeTreeQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.base.permission.app" />
+                <key name="name" value="User" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>lastUpdateUser</name>
+            <alias>joinQuery[com.kingdee.eas.port.equipment.base.app.EqmTypeTreeQuery].subObjects.subEntity[lastUpdateUser].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.base.app" />
+                <key name="name" value="EqmTypeTreeQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.base.permission.app" />
+                <key name="name" value="User" />
+            </entityRef>
+        </subEntity>
+    </subObjects>
+    <units>
+        <propertyUnit>
+            <name>1b94df00-11ca-4d71-b7b3-565f0e680567</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.base.app.EqmTypeTreeQuery].units.propertyUnit[1b94df00-11ca-4d71-b7b3-565f0e680567].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>be6aeb38-adc8-469e-a37d-57dc7c67aaff</key>
+                    <parentUnit>
+                        <key name="name" value="1b94df00-11ca-4d71-b7b3-565f0e680567" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="EqmTypeTree" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="CU" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.base.app" />
+                <key name="name" value="EqmTypeTreeQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>4a925120-67a5-4483-bc43-555ae3ae461a</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.base.app.EqmTypeTreeQuery].units.propertyUnit[4a925120-67a5-4483-bc43-555ae3ae461a].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>aeb29656-298c-4bf0-9dd6-03b58f076b39</key>
+                    <parentUnit>
+                        <key name="name" value="4a925120-67a5-4483-bc43-555ae3ae461a" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="CU" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.base.app" />
+                <key name="name" value="EqmTypeTreeQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>f778dbea-3e01-4206-8c98-75a2c7481921</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.base.app.EqmTypeTreeQuery].units.propertyUnit[f778dbea-3e01-4206-8c98-75a2c7481921].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>ed5b86f9-f414-4655-a1a9-4d1174418d4c</key>
+                    <parentUnit>
+                        <key name="name" value="f778dbea-3e01-4206-8c98-75a2c7481921" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="EqmTypeTree" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="parent" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.base.app" />
+                <key name="name" value="EqmTypeTreeQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>8bcec3cf-4c90-4175-bcbf-98409fcc516e</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.base.app.EqmTypeTreeQuery].units.propertyUnit[8bcec3cf-4c90-4175-bcbf-98409fcc516e].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>39141a2e-5727-4e04-ba1a-493e2b6c4a87</key>
+                    <parentUnit>
+                        <key name="name" value="8bcec3cf-4c90-4175-bcbf-98409fcc516e" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="parent" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.base.app" />
+                <key name="name" value="EqmTypeTreeQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>9a9b0f22-cae0-495f-ac20-b050174daec2</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.base.app.EqmTypeTreeQuery].units.propertyUnit[9a9b0f22-cae0-495f-ac20-b050174daec2].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>7ed01786-898f-4aa1-b00d-d2fd3bf4ba57</key>
+                    <parentUnit>
+                        <key name="name" value="9a9b0f22-cae0-495f-ac20-b050174daec2" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="EqmTypeTree" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="creator" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.base.app" />
+                <key name="name" value="EqmTypeTreeQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>073cafec-7422-4278-a6d4-895182a0e3fd</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.base.app.EqmTypeTreeQuery].units.propertyUnit[073cafec-7422-4278-a6d4-895182a0e3fd].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>1e9049ad-4a7e-463a-b2ee-6dd5870056f3</key>
+                    <parentUnit>
+                        <key name="name" value="073cafec-7422-4278-a6d4-895182a0e3fd" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="creator" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.base.app" />
+                <key name="name" value="EqmTypeTreeQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>7392c2e4-a720-436f-8f04-ba03456053e4</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.base.app.EqmTypeTreeQuery].units.propertyUnit[7392c2e4-a720-436f-8f04-ba03456053e4].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>2816f749-30a3-4968-a7d4-710707c684ba</key>
+                    <parentUnit>
+                        <key name="name" value="7392c2e4-a720-436f-8f04-ba03456053e4" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="EqmTypeTree" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="lastUpdateUser" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.base.app" />
+                <key name="name" value="EqmTypeTreeQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>f5353929-2869-42cb-9db1-c1ddb7ecd5aa</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.base.app.EqmTypeTreeQuery].units.propertyUnit[f5353929-2869-42cb-9db1-c1ddb7ecd5aa].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>31f86ab3-1d60-4109-a48c-9f666a9f5d47</key>
+                    <parentUnit>
+                        <key name="name" value="f5353929-2869-42cb-9db1-c1ddb7ecd5aa" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="lastUpdateUser" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.base.app" />
+                <key name="name" value="EqmTypeTreeQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>number</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.base.app.EqmTypeTreeQuery].units.queryField[number].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>f3879e1a-637c-41a8-a766-8a1234738f7b</key>
+                    <parentUnit>
+                        <key name="name" value="number" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="EqmTypeTree" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="number" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.base.app" />
+                <key name="name" value="EqmTypeTreeQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.base.app.EqmTypeTreeQuery].units.queryField[name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>acfd23e2-9816-4181-b8a2-4b503ab6c674</key>
+                    <parentUnit>
+                        <key name="name" value="name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="EqmTypeTree" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.base.app" />
+                <key name="name" value="EqmTypeTreeQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>creator.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.base.app.EqmTypeTreeQuery].units.queryField[creator.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0ea8f0b2-aa20-4564-a707-a282c7f8b160</key>
+                    <parentUnit>
+                        <key name="name" value="creator.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="creator" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.base.app" />
+                <key name="name" value="EqmTypeTreeQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>createTime</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.base.app.EqmTypeTreeQuery].units.queryField[createTime].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Timestamp</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>9cc19b94-044b-47e8-8496-f045dce8fe2f</key>
+                    <parentUnit>
+                        <key name="name" value="createTime" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="EqmTypeTree" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="createTime" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.base.app" />
+                <key name="name" value="EqmTypeTreeQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>lastUpdateUser.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.base.app.EqmTypeTreeQuery].units.queryField[lastUpdateUser.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>ffefa33a-5e98-4e08-8081-22b9e8e8c053</key>
+                    <parentUnit>
+                        <key name="name" value="lastUpdateUser.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="lastUpdateUser" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.base.app" />
+                <key name="name" value="EqmTypeTreeQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>lastUpdateTime</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.base.app.EqmTypeTreeQuery].units.queryField[lastUpdateTime].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Timestamp</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>f0d1a974-27d3-4e83-b60c-6012a4c4d54e</key>
+                    <parentUnit>
+                        <key name="name" value="lastUpdateTime" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="EqmTypeTree" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="lastUpdateTime" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.base.app" />
+                <key name="name" value="EqmTypeTreeQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>id</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.base.app.EqmTypeTreeQuery].units.queryField[id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>1b560f07-91b7-42d4-a6fc-bd5028fc437c</key>
+                    <parentUnit>
+                        <key name="name" value="id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="EqmTypeTree" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.base.app" />
+                <key name="name" value="EqmTypeTreeQuery" />
+            </query>
+        </queryField>
+    </units>
+    <defaultFilter>
+        <name>defaultFilter</name>
+        <formulaString />
+        <query>
+            <key name="package" value="com.kingdee.eas.port.equipment.base.app" />
+            <key name="name" value="EqmTypeTreeQuery" />
+        </query>
+    </defaultFilter>
+    <defaultSorters>
+        <querySorterItem>
+            <propertyName>number</propertyName>
+            <sortType>ASC</sortType>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.base.app" />
+                <key name="name" value="EqmTypeTreeQuery" />
+            </query>
+            <configured>false</configured>
+        </querySorterItem>
+    </defaultSorters>
+    <queryPK>
+        <name>QueryPK</name>
+        <alias>joinQuery[com.kingdee.eas.port.equipment.base.app.EqmTypeTreeQuery].queryPK[QueryPK].alias</alias>
+        <description>joinQuery[com.kingdee.eas.port.equipment.base.app.EqmTypeTreeQuery].queryPK[QueryPK].description</description>
+        <keyProperties>
+            <queryField>
+                <key name="name" value="id" />
+            </queryField>
+        </keyProperties>
+    </queryPK>
+    <isDistinct>false</isDistinct>
+    <joins>
+        <join>
+            <name>ecfcd231-4e55-4562-9c11-5c497b24c1fc</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="EqmTypeTree" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="CU" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>c637933c-7071-4562-835c-c499e14bebb0</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="1b94df00-11ca-4d71-b7b3-565f0e680567" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="4a925120-67a5-4483-bc43-555ae3ae461a" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="ecfcd231-4e55-4562-9c11-5c497b24c1fc" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.base.app" />
+                <key name="name" value="EqmTypeTreeQuery" />
+            </query>
+        </join>
+        <join>
+            <name>599c0707-357a-4eab-9fa1-275b25a79e94</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="EqmTypeTree" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="parent" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>f3c5e42b-db65-4ad6-9a39-498928724534</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="f778dbea-3e01-4206-8c98-75a2c7481921" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="8bcec3cf-4c90-4175-bcbf-98409fcc516e" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="599c0707-357a-4eab-9fa1-275b25a79e94" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.base.app" />
+                <key name="name" value="EqmTypeTreeQuery" />
+            </query>
+        </join>
+        <join>
+            <name>351c4d92-5c1e-44f0-aee5-97a103a07e6c</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="EqmTypeTree" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="creator" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>e71e07d6-e459-4aed-8db7-3b4ef40a30c2</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="9a9b0f22-cae0-495f-ac20-b050174daec2" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="073cafec-7422-4278-a6d4-895182a0e3fd" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="351c4d92-5c1e-44f0-aee5-97a103a07e6c" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.base.app" />
+                <key name="name" value="EqmTypeTreeQuery" />
+            </query>
+        </join>
+        <join>
+            <name>2e9f05f6-24fa-4993-9b6d-d60f3613ef09</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="EqmTypeTree" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="lastUpdateUser" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>cdd39c96-bb25-4427-9309-9982bc6c0c89</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="7392c2e4-a720-436f-8f04-ba03456053e4" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="f5353929-2869-42cb-9db1-c1ddb7ecd5aa" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="2e9f05f6-24fa-4993-9b6d-d60f3613ef09" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.base.app" />
+                <key name="name" value="EqmTypeTreeQuery" />
+            </query>
+        </join>
+    </joins>
+    <resource>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.EqmTypeTreeQuery].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="设备类型组别" />
+            <lang locale="zh_HK" value="設備類型組別" />
+            <lang locale="zh_TW" value="設備類型組別" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.EqmTypeTreeQuery].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="设备类型组别" />
+            <lang locale="zh_HK" value="設備類型組別" />
+            <lang locale="zh_TW" value="設備類型組別" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.EqmTypeTreeQuery].queryPK[QueryPK].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.EqmTypeTreeQuery].queryPK[QueryPK].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.EqmTypeTreeQuery].subObjects.subEntity[CU].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.EqmTypeTreeQuery].subObjects.subEntity[EqmTypeTree].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.EqmTypeTreeQuery].subObjects.subEntity[creator].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.EqmTypeTreeQuery].subObjects.subEntity[lastUpdateUser].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.EqmTypeTreeQuery].subObjects.subEntity[parent].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.EqmTypeTreeQuery].units.propertyUnit[073cafec-7422-4278-a6d4-895182a0e3fd].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.EqmTypeTreeQuery].units.propertyUnit[1b94df00-11ca-4d71-b7b3-565f0e680567].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.EqmTypeTreeQuery].units.propertyUnit[4a925120-67a5-4483-bc43-555ae3ae461a].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.EqmTypeTreeQuery].units.propertyUnit[7392c2e4-a720-436f-8f04-ba03456053e4].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.EqmTypeTreeQuery].units.propertyUnit[8bcec3cf-4c90-4175-bcbf-98409fcc516e].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.EqmTypeTreeQuery].units.propertyUnit[9a9b0f22-cae0-495f-ac20-b050174daec2].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.EqmTypeTreeQuery].units.propertyUnit[f5353929-2869-42cb-9db1-c1ddb7ecd5aa].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.EqmTypeTreeQuery].units.propertyUnit[f778dbea-3e01-4206-8c98-75a2c7481921].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.EqmTypeTreeQuery].units.queryField[createTime].displayName">
+            <lang locale="en_US" value="createTime" />
+            <lang locale="zh_CN" value="创建时间" />
+            <lang locale="zh_HK" value="創建時間" />
+            <lang locale="zh_TW" value="創建時間" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.EqmTypeTreeQuery].units.queryField[creator.name].displayName">
+            <lang locale="en_US" value="用户别名" />
+            <lang locale="zh_CN" value="创建者" />
+            <lang locale="zh_HK" value="創建者" />
+            <lang locale="zh_TW" value="創建者" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.EqmTypeTreeQuery].units.queryField[id].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="ID" />
+            <lang locale="zh_HK" value="ID" />
+            <lang locale="zh_TW" value="ID" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.EqmTypeTreeQuery].units.queryField[lastUpdateTime].displayName">
+            <lang locale="en_US" value="lastUpdateTime" />
+            <lang locale="zh_CN" value="最后修改时间" />
+            <lang locale="zh_HK" value="最後修改時間" />
+            <lang locale="zh_TW" value="最後修改時間" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.EqmTypeTreeQuery].units.queryField[lastUpdateUser.name].displayName">
+            <lang locale="en_US" value="用户别名" />
+            <lang locale="zh_CN" value="用户实名" />
+            <lang locale="zh_HK" value="用戶實名" />
+            <lang locale="zh_TW" value="用戶實名" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.EqmTypeTreeQuery].units.queryField[name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="名称" />
+            <lang locale="zh_HK" value="名稱" />
+            <lang locale="zh_TW" value="名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.EqmTypeTreeQuery].units.queryField[number].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="编码" />
+            <lang locale="zh_HK" value="編碼" />
+            <lang locale="zh_TW" value="編碼" />
+        </rs>
+    </resource>
+</joinQuery>
+
