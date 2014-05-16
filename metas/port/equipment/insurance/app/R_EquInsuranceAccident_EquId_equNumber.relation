@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<relationship xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.port.equipment.insurance.app</package>
+    <name>R_EquInsuranceAccident_EquId_equNumber</name>
+    <alias>relationship[com.kingdee.eas.port.equipment.insurance.app.R_EquInsuranceAccident_EquId_equNumber].alias</alias>
+    <description>relationship[com.kingdee.eas.port.equipment.insurance.app.R_EquInsuranceAccident_EquId_equNumber].description</description>
+    <userDefined>true</userDefined>
+    <type>Association</type>
+    <clientCardinality>1</clientCardinality>
+    <supplierCardinality>0..1</supplierCardinality>
+    <xmlNodeRelationship />
+    <clientObject>
+        <key name="package" value="com.kingdee.eas.port.equipment.insurance.app" />
+        <key name="name" value="EquInsuranceAccident" />
+    </clientObject>
+    <supplierObject>
+        <key name="package" value="com.kingdee.eas.port.equipment.record.app" />
+        <key name="name" value="EquId" />
+    </supplierObject>
+    <resource>
+        <rs key="relationship[com.kingdee.eas.port.equipment.insurance.app.R_EquInsuranceAccident_EquId_equNumber].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="relationship[com.kingdee.eas.port.equipment.insurance.app.R_EquInsuranceAccident_EquId_equNumber].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+    </resource>
+</relationship>
+

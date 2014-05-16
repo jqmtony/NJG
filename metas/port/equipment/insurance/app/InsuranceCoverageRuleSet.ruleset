@@ -1,0 +1,881 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleSet xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.port.equipment.insurance.app</package>
+    <name>InsuranceCoverageRuleSet</name>
+    <alias>ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].alias</alias>
+    <description>ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].description</description>
+    <userDefined>true</userDefined>
+    <expressions>
+        <groupExpression>
+            <id>2e395f48-68ac-4596-b2c2-5cc8441671a3</id>
+            <parentID />
+            <source>E1.equType=E1.equNumber.eqmType.name</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>212bb385-7700-478c-8e56-38beaae4f674</id>
+            <parentID>2e395f48-68ac-4596-b2c2-5cc8441671a3</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>8b2e8f30-5421-4ab4-8030-552055435dec</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>8b2e8f30-5421-4ab4-8030-552055435dec</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>kdtE1.getCell(rowIndex,"equType")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>9e9a13dc-5189-4f4e-87da-7bb4633094d1</id>
+            <parentID>2e395f48-68ac-4596-b2c2-5cc8441671a3</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>e2e5b40d-d548-4655-bd3c-5c190598c8ce</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>88525d61-7eda-4e48-b8b3-22af9ccdbed6</id>
+                        <expressionID>2aaf24cd-2c75-4e27-b688-49ffebafaa75</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>3aecf207-2682-4a61-822c-5a9491266643</id>
+                        <expressionID>6d0002a0-f8e4-453d-a3b6-f94257bb6f05</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>e2e5b40d-d548-4655-bd3c-5c190598c8ce</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>2aaf24cd-2c75-4e27-b688-49ffebafaa75</id>
+            <parentID />
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>0d4f9a26-e5ff-4f01-8de4-d5e18cdb9e96</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>0d4f9a26-e5ff-4f01-8de4-d5e18cdb9e96</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)kdtE1.getCell(rowIndex,"equNumber")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>6d0002a0-f8e4-453d-a3b6-f94257bb6f05</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>eqmType.name</value>
+        </simpleExpression>
+        <groupExpression>
+            <id>43023fee-1371-45d2-9ae7-2bbf60fbf6d4</id>
+            <parentID />
+            <source>E1.equName=E1.equNumber.name</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>8e704942-764e-41b0-aa90-5560eedd0b31</id>
+            <parentID>43023fee-1371-45d2-9ae7-2bbf60fbf6d4</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>13bdfbd9-31b1-4bf9-9c6f-4e9801390ba2</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>13bdfbd9-31b1-4bf9-9c6f-4e9801390ba2</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>kdtE1.getCell(rowIndex,"equName")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>ac43e584-fb6e-491f-ba01-27ebd283a76f</id>
+            <parentID>43023fee-1371-45d2-9ae7-2bbf60fbf6d4</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>1386fe41-ef15-4be3-81ad-ee10a5a10238</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>c9887a8b-0277-4bfd-9b27-4aab31a13fbe</id>
+                        <expressionID>ae65eb01-2ab2-40bc-b846-2fb15229f84c</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>b72b7acc-d306-48ad-9cbd-026e189ed96b</id>
+                        <expressionID>ed9609e5-7957-45fc-8dad-00ae3ecc5fa2</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>1386fe41-ef15-4be3-81ad-ee10a5a10238</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>ae65eb01-2ab2-40bc-b846-2fb15229f84c</id>
+            <parentID />
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>faead275-6d8e-4169-8b75-1cababd28eaf</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>faead275-6d8e-4169-8b75-1cababd28eaf</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)kdtE1.getCell(rowIndex,"equNumber")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>ed9609e5-7957-45fc-8dad-00ae3ecc5fa2</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>name</value>
+        </simpleExpression>
+        <groupExpression>
+            <id>af3c2330-9a05-4bb4-8681-c7b86a7ebe68</id>
+            <parentID />
+            <source>E1.specModel=E1.equNumber.model</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>57b599fd-da28-44c3-9478-134f6de563fb</id>
+            <parentID>af3c2330-9a05-4bb4-8681-c7b86a7ebe68</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>8da2802d-54e8-4ce8-a039-013c10f365b0</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>8da2802d-54e8-4ce8-a039-013c10f365b0</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>kdtE1.getCell(rowIndex,"specModel")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>e4a09398-740d-4bba-9e38-9c59b5b54bf2</id>
+            <parentID>af3c2330-9a05-4bb4-8681-c7b86a7ebe68</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>b0a0fd48-03f8-42f7-9363-5d66978df5f6</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>400b8c5f-dd33-4a81-a251-11d2f17b1956</id>
+                        <expressionID>4583362b-10f9-4d24-b607-cbc09c8518f7</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>15389343-895d-4726-90ed-b1987076aab9</id>
+                        <expressionID>0c70cdb0-408e-4ab7-b0d2-741509ee406b</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>b0a0fd48-03f8-42f7-9363-5d66978df5f6</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>4583362b-10f9-4d24-b607-cbc09c8518f7</id>
+            <parentID />
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>bef6d85c-2b04-46be-b625-e2c190a625dc</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>bef6d85c-2b04-46be-b625-e2c190a625dc</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)kdtE1.getCell(rowIndex,"equNumber")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>0c70cdb0-408e-4ab7-b0d2-741509ee406b</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>model</value>
+        </simpleExpression>
+        <groupExpression>
+            <id>4dc559e5-590b-4c1d-b58e-279b5788c563</id>
+            <parentID />
+            <source>E1.factoryUseDate=E1.equNumber.qyDate</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>46f840a1-bd50-47a8-85b1-6f90ec22c6fa</id>
+            <parentID>4dc559e5-590b-4c1d-b58e-279b5788c563</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Date</valueType>
+            <value />
+            <property>
+                <ownerID>d6f2f311-3726-4d4e-b3e7-b060bdae49cf</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>d6f2f311-3726-4d4e-b3e7-b060bdae49cf</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>kdtE1.getCell(rowIndex,"factoryUseDate")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>627afaef-87ff-4290-91cd-47e56ba2dff4</id>
+            <parentID>4dc559e5-590b-4c1d-b58e-279b5788c563</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>Date</valueType>
+            <value />
+            <method>
+                <ownerID>5db2675f-ff59-459e-80ef-964b32fe95f1</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>e12eebd7-2460-4e52-ae7e-8f68bb676811</id>
+                        <expressionID>fd5cbd5d-8c6d-4d40-b70f-9caf85579e0c</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>50ccdd77-ed5a-4ce3-8b6d-099516aea033</id>
+                        <expressionID>91029169-b9e9-41ef-8e86-932b882d259b</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>5db2675f-ff59-459e-80ef-964b32fe95f1</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>fd5cbd5d-8c6d-4d40-b70f-9caf85579e0c</id>
+            <parentID />
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>6b069ec6-46b9-413b-9902-99c514dda875</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>6b069ec6-46b9-413b-9902-99c514dda875</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)kdtE1.getCell(rowIndex,"equNumber")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>91029169-b9e9-41ef-8e86-932b882d259b</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>qyDate</value>
+        </simpleExpression>
+        <groupExpression>
+            <id>441bf686-d71d-458a-8053-a683ceea5b3e</id>
+            <parentID />
+            <source>E1.makeUnit=E1.equNumber.mader</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>0476782d-58ea-4bb7-92a7-d1a80d52b9e4</id>
+            <parentID>441bf686-d71d-458a-8053-a683ceea5b3e</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>10b57a94-e67e-4c2b-8fde-0d41ab6bfb0c</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>10b57a94-e67e-4c2b-8fde-0d41ab6bfb0c</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>kdtE1.getCell(rowIndex,"makeUnit")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>e1813024-61a9-4484-b5b5-0bc8c9891d4a</id>
+            <parentID>441bf686-d71d-458a-8053-a683ceea5b3e</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>4d118e48-727f-475c-a778-601a70240bfb</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>6cb2d44e-b1d2-4129-8d0d-24ad0746458a</id>
+                        <expressionID>b66b204a-b3c1-4af6-aa28-6c211f023534</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>d3e68366-e754-459c-aac3-7e5a07d3251d</id>
+                        <expressionID>69343179-80c6-42cd-b14e-1578ab15e815</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>4d118e48-727f-475c-a778-601a70240bfb</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>b66b204a-b3c1-4af6-aa28-6c211f023534</id>
+            <parentID />
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>104abc0b-da3b-44cd-95f0-fd5faac13aa6</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>104abc0b-da3b-44cd-95f0-fd5faac13aa6</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)kdtE1.getCell(rowIndex,"equNumber")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>69343179-80c6-42cd-b14e-1578ab15e815</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>mader</value>
+        </simpleExpression>
+        <groupExpression>
+            <id>2b83190b-4252-40fe-952b-80ec2febdd0d</id>
+            <parentID />
+            <source>E1.tonnage=E1.equNumber.weight</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>3606c4df-9913-43e9-aeac-e5e94ec0db5e</id>
+            <parentID>2b83190b-4252-40fe-952b-80ec2febdd0d</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>064f3929-31c5-44f1-822d-e5a45f9bc0a2</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>064f3929-31c5-44f1-822d-e5a45f9bc0a2</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>kdtE1.getCell(rowIndex,"tonnage")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>9b6daa19-cde3-486d-9347-9c02c01004f4</id>
+            <parentID>2b83190b-4252-40fe-952b-80ec2febdd0d</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>0b692ccb-1dcc-4327-a67d-c6cc41eafce8</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>95281f00-67ef-4cda-a4e9-a4c04fccbf1e</id>
+                        <expressionID>f564f823-2b82-41cd-b500-9cfb9e0761f9</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>faf474e8-a36f-4ec3-8702-16a80468f3a3</id>
+                        <expressionID>e6cc0d29-dc3d-4fc0-aaf4-692710f6ba7a</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>0b692ccb-1dcc-4327-a67d-c6cc41eafce8</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>f564f823-2b82-41cd-b500-9cfb9e0761f9</id>
+            <parentID />
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>56658240-cc08-41da-8d4b-4cff3182fd1f</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>56658240-cc08-41da-8d4b-4cff3182fd1f</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)kdtE1.getCell(rowIndex,"equNumber")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>e6cc0d29-dc3d-4fc0-aaf4-692710f6ba7a</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>weight</value>
+        </simpleExpression>
+    </expressions>
+    <actions>
+        <action>
+            <id>296e92a8-0b16-4cdb-a5f3-08ee303e32b5</id>
+            <name>E1_equType_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].actions.action[E1_equType_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].actions.action[E1_equType_ActionInfo].description</description>
+            <expressionID>2e395f48-68ac-4596-b2c2-5cc8441671a3</expressionID>
+        </action>
+        <action>
+            <id>09c0a311-a18b-437c-80ef-fceb09e2a96f</id>
+            <name>E1_equName_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].actions.action[E1_equName_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].actions.action[E1_equName_ActionInfo].description</description>
+            <expressionID>43023fee-1371-45d2-9ae7-2bbf60fbf6d4</expressionID>
+        </action>
+        <action>
+            <id>58b22425-4177-4e9b-8d39-abfe26eda63d</id>
+            <name>E1_specModel_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].actions.action[E1_specModel_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].actions.action[E1_specModel_ActionInfo].description</description>
+            <expressionID>af3c2330-9a05-4bb4-8681-c7b86a7ebe68</expressionID>
+        </action>
+        <action>
+            <id>05724730-1ddc-4df9-9ba9-c4dd3a213278</id>
+            <name>E1_factoryUseDate_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].actions.action[E1_factoryUseDate_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].actions.action[E1_factoryUseDate_ActionInfo].description</description>
+            <expressionID>4dc559e5-590b-4c1d-b58e-279b5788c563</expressionID>
+        </action>
+        <action>
+            <id>d380aa14-a1e4-488f-bb0b-68bed559295f</id>
+            <name>E1_makeUnit_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].actions.action[E1_makeUnit_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].actions.action[E1_makeUnit_ActionInfo].description</description>
+            <expressionID>441bf686-d71d-458a-8053-a683ceea5b3e</expressionID>
+        </action>
+        <action>
+            <id>5e59dc00-52fe-4d4c-a8ef-3bdc1baee2cb</id>
+            <name>E1_tonnage_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].actions.action[E1_tonnage_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].actions.action[E1_tonnage_ActionInfo].description</description>
+            <expressionID>2b83190b-4252-40fe-952b-80ec2febdd0d</expressionID>
+        </action>
+    </actions>
+    <rules>
+        <conditionRule>
+            <name>E1_equType_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].rules.conditionRule[E1_equType_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].rules.conditionRule[E1_equType_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="296e92a8-0b16-4cdb-a5f3-08ee303e32b5" />
+                </action>
+            </actions>
+        </conditionRule>
+        <conditionRule>
+            <name>E1_equName_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].rules.conditionRule[E1_equName_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].rules.conditionRule[E1_equName_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="09c0a311-a18b-437c-80ef-fceb09e2a96f" />
+                </action>
+            </actions>
+        </conditionRule>
+        <conditionRule>
+            <name>E1_specModel_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].rules.conditionRule[E1_specModel_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].rules.conditionRule[E1_specModel_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="58b22425-4177-4e9b-8d39-abfe26eda63d" />
+                </action>
+            </actions>
+        </conditionRule>
+        <conditionRule>
+            <name>E1_factoryUseDate_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].rules.conditionRule[E1_factoryUseDate_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].rules.conditionRule[E1_factoryUseDate_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="05724730-1ddc-4df9-9ba9-c4dd3a213278" />
+                </action>
+            </actions>
+        </conditionRule>
+        <conditionRule>
+            <name>E1_makeUnit_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].rules.conditionRule[E1_makeUnit_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].rules.conditionRule[E1_makeUnit_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="d380aa14-a1e4-488f-bb0b-68bed559295f" />
+                </action>
+            </actions>
+        </conditionRule>
+        <conditionRule>
+            <name>E1_tonnage_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].rules.conditionRule[E1_tonnage_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].rules.conditionRule[E1_tonnage_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="5e59dc00-52fe-4d4c-a8ef-3bdc1baee2cb" />
+                </action>
+            </actions>
+        </conditionRule>
+    </rules>
+    <resource>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].actions.action[E1_equName_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_name" />
+            <lang locale="zh_HK" value="攜帶字段屬性_name" />
+            <lang locale="zh_TW" value="攜帶字段屬性_name" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].actions.action[E1_equName_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].actions.action[E1_equType_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_eqmType" />
+            <lang locale="zh_HK" value="攜帶字段屬性_eqmType" />
+            <lang locale="zh_TW" value="攜帶字段屬性_eqmType" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].actions.action[E1_equType_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].actions.action[E1_factoryUseDate_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_qyDate" />
+            <lang locale="zh_HK" value="攜帶字段屬性_qyDate" />
+            <lang locale="zh_TW" value="攜帶字段屬性_qyDate" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].actions.action[E1_factoryUseDate_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].actions.action[E1_makeUnit_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_mader" />
+            <lang locale="zh_HK" value="攜帶字段屬性_mader" />
+            <lang locale="zh_TW" value="攜帶字段屬性_mader" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].actions.action[E1_makeUnit_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].actions.action[E1_specModel_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_model" />
+            <lang locale="zh_HK" value="攜帶字段屬性_model" />
+            <lang locale="zh_TW" value="攜帶字段屬性_model" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].actions.action[E1_specModel_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].actions.action[E1_tonnage_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_weight" />
+            <lang locale="zh_HK" value="攜帶字段屬性_weight" />
+            <lang locale="zh_TW" value="攜帶字段屬性_weight" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].actions.action[E1_tonnage_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].rules.conditionRule[E1_equName_RuleInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_name" />
+            <lang locale="zh_HK" value="攜帶字段屬性_name" />
+            <lang locale="zh_TW" value="攜帶字段屬性_name" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].rules.conditionRule[E1_equName_RuleInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].rules.conditionRule[E1_equName_RuleInfo].extendedProperty.columnName">
+            <lang locale="en_US" value="equNumber" />
+            <lang locale="zh_CN" value="equNumber" />
+            <lang locale="zh_TW" value="equNumber" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].rules.conditionRule[E1_equName_RuleInfo].extendedProperty.userDefined">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].rules.conditionRule[E1_equType_RuleInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_eqmType" />
+            <lang locale="zh_HK" value="攜帶字段屬性_eqmType" />
+            <lang locale="zh_TW" value="攜帶字段屬性_eqmType" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].rules.conditionRule[E1_equType_RuleInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].rules.conditionRule[E1_equType_RuleInfo].extendedProperty.columnName">
+            <lang locale="en_US" value="equNumber" />
+            <lang locale="zh_CN" value="equNumber" />
+            <lang locale="zh_TW" value="equNumber" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].rules.conditionRule[E1_equType_RuleInfo].extendedProperty.userDefined">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].rules.conditionRule[E1_factoryUseDate_RuleInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_qyDate" />
+            <lang locale="zh_HK" value="攜帶字段屬性_qyDate" />
+            <lang locale="zh_TW" value="攜帶字段屬性_qyDate" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].rules.conditionRule[E1_factoryUseDate_RuleInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].rules.conditionRule[E1_factoryUseDate_RuleInfo].extendedProperty.columnName">
+            <lang locale="en_US" value="equNumber" />
+            <lang locale="zh_CN" value="equNumber" />
+            <lang locale="zh_TW" value="equNumber" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].rules.conditionRule[E1_factoryUseDate_RuleInfo].extendedProperty.userDefined">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].rules.conditionRule[E1_makeUnit_RuleInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_mader" />
+            <lang locale="zh_HK" value="攜帶字段屬性_mader" />
+            <lang locale="zh_TW" value="攜帶字段屬性_mader" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].rules.conditionRule[E1_makeUnit_RuleInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].rules.conditionRule[E1_makeUnit_RuleInfo].extendedProperty.columnName">
+            <lang locale="en_US" value="equNumber" />
+            <lang locale="zh_CN" value="equNumber" />
+            <lang locale="zh_TW" value="equNumber" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].rules.conditionRule[E1_makeUnit_RuleInfo].extendedProperty.userDefined">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].rules.conditionRule[E1_specModel_RuleInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_model" />
+            <lang locale="zh_HK" value="攜帶字段屬性_model" />
+            <lang locale="zh_TW" value="攜帶字段屬性_model" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].rules.conditionRule[E1_specModel_RuleInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].rules.conditionRule[E1_specModel_RuleInfo].extendedProperty.columnName">
+            <lang locale="en_US" value="equNumber" />
+            <lang locale="zh_CN" value="equNumber" />
+            <lang locale="zh_TW" value="equNumber" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].rules.conditionRule[E1_specModel_RuleInfo].extendedProperty.userDefined">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].rules.conditionRule[E1_tonnage_RuleInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_weight" />
+            <lang locale="zh_HK" value="攜帶字段屬性_weight" />
+            <lang locale="zh_TW" value="攜帶字段屬性_weight" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].rules.conditionRule[E1_tonnage_RuleInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].rules.conditionRule[E1_tonnage_RuleInfo].extendedProperty.columnName">
+            <lang locale="en_US" value="equNumber" />
+            <lang locale="zh_CN" value="equNumber" />
+            <lang locale="zh_TW" value="equNumber" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].rules.conditionRule[E1_tonnage_RuleInfo].extendedProperty.userDefined">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+    </resource>
+</ruleSet>
+
