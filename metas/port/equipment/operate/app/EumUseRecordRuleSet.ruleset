@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleSet xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.port.equipment.operate.app</package>
+    <name>EumUseRecordRuleSet</name>
+    <alias>ruleSet[com.kingdee.eas.port.equipment.operate.app.EumUseRecordRuleSet].alias</alias>
+    <description>ruleSet[com.kingdee.eas.port.equipment.operate.app.EumUseRecordRuleSet].description</description>
+    <userDefined>true</userDefined>
+    <expressions>
+        <groupExpression>
+            <id>bd5bbfe7-d26c-4325-9888-ed7c39634350</id>
+            <parentID />
+            <source>EqmUse.eqmCategory=EqmUse.eqmType.treeid.name</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>e6b5d8bd-18fd-457f-af2a-be564cfc9e34</id>
+            <parentID>bd5bbfe7-d26c-4325-9888-ed7c39634350</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>bd5b1da8-7e46-4a6e-bb77-8960c6713bc1</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>bd5b1da8-7e46-4a6e-bb77-8960c6713bc1</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>kdtEqmUse.getCell(rowIndex,"eqmCategory")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>b73d72c4-da9a-4813-bcd1-88005a6deb15</id>
+            <parentID>bd5bbfe7-d26c-4325-9888-ed7c39634350</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>017735fc-0387-4d95-8bc2-fe42dbbe1d12</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>1fc6d2f5-470a-4272-9c75-375f2ea4bf60</id>
+                        <expressionID>ae3c20f6-5929-445e-b09a-dd0717da02da</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>027d9f1d-7ee8-44df-9975-2a9211bcb8b8</id>
+                        <expressionID>d984d377-4587-4e2b-b60f-3af9926ce811</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>017735fc-0387-4d95-8bc2-fe42dbbe1d12</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>ae3c20f6-5929-445e-b09a-dd0717da02da</id>
+            <parentID />
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>62f33061-7440-4a38-adbd-1bc0e31c4037</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>62f33061-7440-4a38-adbd-1bc0e31c4037</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)kdtEqmUse.getCell(rowIndex,"eqmType")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>d984d377-4587-4e2b-b60f-3af9926ce811</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>treeid.name</value>
+        </simpleExpression>
+    </expressions>
+    <actions>
+        <action>
+            <id>594e61a1-a4ec-4140-9fb4-cb7b4a7df504</id>
+            <name>EqmUse_eqmCategory_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.operate.app.EumUseRecordRuleSet].actions.action[EqmUse_eqmCategory_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.operate.app.EumUseRecordRuleSet].actions.action[EqmUse_eqmCategory_ActionInfo].description</description>
+            <expressionID>bd5bbfe7-d26c-4325-9888-ed7c39634350</expressionID>
+        </action>
+    </actions>
+    <resource>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.operate.app.EumUseRecordRuleSet].actions.action[EqmUse_eqmCategory_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_treeid" />
+            <lang locale="zh_HK" value="攜帶字段屬性_treeid" />
+            <lang locale="zh_TW" value="攜帶字段屬性_treeid" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.operate.app.EumUseRecordRuleSet].actions.action[EqmUse_eqmCategory_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.operate.app.EumUseRecordRuleSet].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.operate.app.EumUseRecordRuleSet].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+    </resource>
+</ruleSet>
+

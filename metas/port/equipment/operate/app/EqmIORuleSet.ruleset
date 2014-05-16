@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleSet xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.port.equipment.operate.app</package>
+    <name>EqmIORuleSet</name>
+    <alias>ruleSet[com.kingdee.eas.port.equipment.operate.app.EqmIORuleSet].alias</alias>
+    <description>ruleSet[com.kingdee.eas.port.equipment.operate.app.EqmIORuleSet].description</description>
+    <userDefined>true</userDefined>
+    <expressions>
+        <groupExpression>
+            <id>1a8f4ab9-255f-48dc-9844-d8cba7b363c1</id>
+            <parentID />
+            <source>eqmName=eqmNumber.name</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>6582844f-d4cd-404d-990b-234fb2f969ce</id>
+            <parentID>1a8f4ab9-255f-48dc-9844-d8cba7b363c1</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>8ed58287-f39b-4be4-936c-77a76c28cf71</ownerID>
+                <name>text</name>
+                <type>java.lang.String</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>8ed58287-f39b-4be4-936c-77a76c28cf71</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>txteqmName</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>bb983c17-3599-40f1-a07e-5261cc8b52f5</id>
+            <parentID>1a8f4ab9-255f-48dc-9844-d8cba7b363c1</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>fedb0eff-1d09-4ea4-88d3-bc6d8784417b</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>ca35c6fc-a196-4360-aa09-9710e6a83c35</id>
+                        <expressionID>25453145-e80d-4a6a-94b7-06b2d5a40a2b</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>8e6f5678-70e3-4369-9721-4f9a20cf405f</id>
+                        <expressionID>31939cbe-42d7-4f7a-9545-eb0a6490c279</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>fedb0eff-1d09-4ea4-88d3-bc6d8784417b</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>25453145-e80d-4a6a-94b7-06b2d5a40a2b</id>
+            <parentID />
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>Object</valueType>
+            <value />
+            <method>
+                <ownerID>696b9905-2710-4dff-9078-9215952dcea5</ownerID>
+                <name>getData</name>
+                <type>Object</type>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>696b9905-2710-4dff-9078-9215952dcea5</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)prmteqmNumber</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>31939cbe-42d7-4f7a-9545-eb0a6490c279</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>name</value>
+        </simpleExpression>
+    </expressions>
+    <actions>
+        <action>
+            <id>2eea8831-abdd-4a54-825c-d7ac52a109be</id>
+            <name>EqmIO_eqmName_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.operate.app.EqmIORuleSet].actions.action[EqmIO_eqmName_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.operate.app.EqmIORuleSet].actions.action[EqmIO_eqmName_ActionInfo].description</description>
+            <expressionID>1a8f4ab9-255f-48dc-9844-d8cba7b363c1</expressionID>
+        </action>
+    </actions>
+    <rules>
+        <conditionRule>
+            <name>EqmIO_eqmName_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.operate.app.EqmIORuleSet].rules.conditionRule[EqmIO_eqmName_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.operate.app.EqmIORuleSet].rules.conditionRule[EqmIO_eqmName_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="2eea8831-abdd-4a54-825c-d7ac52a109be" />
+                </action>
+            </actions>
+        </conditionRule>
+    </rules>
+    <resource>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.operate.app.EqmIORuleSet].actions.action[EqmIO_eqmName_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_name" />
+            <lang locale="zh_HK" value="攜帶字段屬性_name" />
+            <lang locale="zh_TW" value="攜帶字段屬性_name" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.operate.app.EqmIORuleSet].actions.action[EqmIO_eqmName_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.operate.app.EqmIORuleSet].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.operate.app.EqmIORuleSet].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.operate.app.EqmIORuleSet].rules.conditionRule[EqmIO_eqmName_RuleInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_name" />
+            <lang locale="zh_HK" value="攜帶字段屬性_name" />
+            <lang locale="zh_TW" value="攜帶字段屬性_name" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.operate.app.EqmIORuleSet].rules.conditionRule[EqmIO_eqmName_RuleInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.operate.app.EqmIORuleSet].rules.conditionRule[EqmIO_eqmName_RuleInfo].extendedProperty.columnName">
+            <lang locale="en_US" value="eqmNumber" />
+            <lang locale="zh_CN" value="eqmNumber" />
+            <lang locale="zh_TW" value="eqmNumber" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.operate.app.EqmIORuleSet].rules.conditionRule[EqmIO_eqmName_RuleInfo].extendedProperty.userDefined">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+    </resource>
+</ruleSet>
+

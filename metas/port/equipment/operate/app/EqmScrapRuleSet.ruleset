@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleSet xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.port.equipment.operate.app</package>
+    <name>EqmScrapRuleSet</name>
+    <alias>ruleSet[com.kingdee.eas.port.equipment.operate.app.EqmScrapRuleSet].alias</alias>
+    <description>ruleSet[com.kingdee.eas.port.equipment.operate.app.EqmScrapRuleSet].description</description>
+    <userDefined>true</userDefined>
+    <expressions>
+        <groupExpression>
+            <id>93fc98f7-7dd2-463c-8e15-bb04e75189e6</id>
+            <parentID />
+            <source>eqmName=eqmNumber.name</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>163bc78d-4e1b-4c75-bfc1-202c6c3ea9b0</id>
+            <parentID>93fc98f7-7dd2-463c-8e15-bb04e75189e6</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>de9b9777-8605-4301-9ba9-7e0e2f15852d</ownerID>
+                <name>text</name>
+                <type>java.lang.String</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>de9b9777-8605-4301-9ba9-7e0e2f15852d</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>txteqmName</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>27c679df-c741-4fa2-9416-127b107d1cc6</id>
+            <parentID>93fc98f7-7dd2-463c-8e15-bb04e75189e6</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>b4d904e5-18e0-4d2a-89bf-17d4fbd3e66d</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>b0b0154a-552e-49a9-afcf-7b850114d912</id>
+                        <expressionID>eb8e5923-4e59-4902-b63c-be63ff5a39d9</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>f1b52665-c44e-4e37-a7d4-604163452b46</id>
+                        <expressionID>6847fd27-0995-4afe-bd75-6dd66d18171d</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>b4d904e5-18e0-4d2a-89bf-17d4fbd3e66d</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>eb8e5923-4e59-4902-b63c-be63ff5a39d9</id>
+            <parentID />
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>Object</valueType>
+            <value />
+            <method>
+                <ownerID>d785d733-d2d4-44f9-9528-6618f044acb3</ownerID>
+                <name>getData</name>
+                <type>Object</type>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>d785d733-d2d4-44f9-9528-6618f044acb3</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)prmteqmNumber</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>6847fd27-0995-4afe-bd75-6dd66d18171d</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>name</value>
+        </simpleExpression>
+    </expressions>
+    <actions>
+        <action>
+            <id>789622b9-c22c-4239-a937-b5070d069c15</id>
+            <name>EqmScrap_eqmName_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.operate.app.EqmScrapRuleSet].actions.action[EqmScrap_eqmName_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.operate.app.EqmScrapRuleSet].actions.action[EqmScrap_eqmName_ActionInfo].description</description>
+            <expressionID>93fc98f7-7dd2-463c-8e15-bb04e75189e6</expressionID>
+        </action>
+    </actions>
+    <rules>
+        <conditionRule>
+            <name>EqmScrap_eqmName_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.operate.app.EqmScrapRuleSet].rules.conditionRule[EqmScrap_eqmName_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.operate.app.EqmScrapRuleSet].rules.conditionRule[EqmScrap_eqmName_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="789622b9-c22c-4239-a937-b5070d069c15" />
+                </action>
+            </actions>
+        </conditionRule>
+    </rules>
+    <resource>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.operate.app.EqmScrapRuleSet].actions.action[EqmScrap_eqmName_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_name" />
+            <lang locale="zh_HK" value="攜帶字段屬性_name" />
+            <lang locale="zh_TW" value="攜帶字段屬性_name" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.operate.app.EqmScrapRuleSet].actions.action[EqmScrap_eqmName_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.operate.app.EqmScrapRuleSet].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.operate.app.EqmScrapRuleSet].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.operate.app.EqmScrapRuleSet].rules.conditionRule[EqmScrap_eqmName_RuleInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_name" />
+            <lang locale="zh_HK" value="攜帶字段屬性_name" />
+            <lang locale="zh_TW" value="攜帶字段屬性_name" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.operate.app.EqmScrapRuleSet].rules.conditionRule[EqmScrap_eqmName_RuleInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.operate.app.EqmScrapRuleSet].rules.conditionRule[EqmScrap_eqmName_RuleInfo].extendedProperty.columnName">
+            <lang locale="en_US" value="eqmNumber" />
+            <lang locale="zh_CN" value="eqmNumber" />
+            <lang locale="zh_TW" value="eqmNumber" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.operate.app.EqmScrapRuleSet].rules.conditionRule[EqmScrap_eqmName_RuleInfo].extendedProperty.userDefined">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+    </resource>
+</ruleSet>
+
