@@ -397,6 +397,19 @@ public class DateXRHelper {
 	}
 	
 	/**
+	 * 本月的最后一天,截断分秒
+	 * @param date
+	 * @return
+	 */
+	public static java.util.Date getMonthMaxDate(Date date) {
+		Calendar cal = new GregorianCalendar();
+		cal.setTime(date);
+		cal.set(Calendar.DAY_OF_MONTH, 1);
+		cal.set(Calendar.MONTH, cal.get(Calendar.MONTH));
+		cal.set(Calendar.DAY_OF_MONTH, cal.getActualMaximum(Calendar.DAY_OF_MONTH));
+		return DateTimeUtils.truncateDate(cal.getTime());
+	}
+	/**
 	 * sql 的开始时间
 	 * 
 	 * @param da
