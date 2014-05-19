@@ -87,6 +87,7 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 		detachListeners();
 		super.loadFields();
 		attachListeners();
+		tzsbStatus.setEnabled(true);
 	}
 
 	/**
@@ -472,7 +473,7 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 //		chkcityTest.setEnabled(state);
 //		chkportTest.setEnabled(state);
 		testDay.setEnabled(state);
-		tzsbStatus.setEnabled(state);
+		
 	}
 
 	protected void prmtasset_dataChanged(DataChangeEvent e) throws Exception {

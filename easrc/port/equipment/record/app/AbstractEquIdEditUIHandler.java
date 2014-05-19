@@ -14,4 +14,14 @@ import com.kingdee.eas.framework.batchHandler.ResponseContext;
 public abstract class AbstractEquIdEditUIHandler extends com.kingdee.eas.xr.app.XRBillBaseEditUIHandler
 
 {
+	public void handleActionInUse(RequestContext request,ResponseContext response, Context context) throws Exception {
+		_handleActionInUse(request,response,context);
+	}
+	protected void _handleActionInUse(RequestContext request,ResponseContext response, Context context) throws Exception {
+	}
+	public void handleActionOutUse(RequestContext request,ResponseContext response, Context context) throws Exception {
+		_handleActionOutUse(request,response,context);
+	}
+	protected void _handleActionOutUse(RequestContext request,ResponseContext response, Context context) throws Exception {
+	}
 }

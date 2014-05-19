@@ -53,4 +53,6 @@ public interface EquIdController extends XRBillBaseController
     public void updateBigObject(Context ctx, IObjectPK pk, EquIdInfo model) throws BOSException, RemoteException;
     public void updatePartial(Context ctx, EquIdInfo model, SelectorItemCollection selector) throws BOSException, EASBizException, RemoteException;
     public String getBindingProperty(Context ctx) throws BOSException, RemoteException;
+    public void inUse(Context ctx, EquIdInfo model) throws BOSException, RemoteException;
+    public void outUse(Context ctx, EquIdInfo model) throws BOSException, RemoteException;
 }

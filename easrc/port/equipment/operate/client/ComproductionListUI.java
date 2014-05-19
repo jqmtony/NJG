@@ -1,45 +1,55 @@
 /**
  * output package name
  */
-package com.kingdee.eas.port.equipment.record.client;
+package com.kingdee.eas.port.equipment.operate.client;
 
-import java.awt.event.ActionEvent;
+import java.awt.event.*;
 import java.util.ArrayList;
-import java.util.Iterator;
 
 import org.apache.log4j.Logger;
 
-import com.kingdee.bos.ctrl.kdf.table.KDTSelectBlock;
-import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
-import com.kingdee.bos.metadata.entity.FilterInfo;
+import com.kingdee.bos.metadata.data.SortType;
+import com.kingdee.bos.metadata.entity.SelectorItemCollection;
+import com.kingdee.bos.metadata.entity.SorterItemCollection;
+import com.kingdee.bos.metadata.entity.SorterItemInfo;
 import com.kingdee.bos.ui.face.CoreUIObject;
-import com.kingdee.eas.common.client.SysContext;
-import com.kingdee.eas.common.client.UIFactoryName;
-import com.kingdee.eas.port.equipment.base.enumbase.sbStatusType;
-import com.kingdee.eas.port.equipment.record.EquIdFactory;
-import com.kingdee.eas.port.equipment.record.EquIdInfo;
-import com.kingdee.eas.port.equipment.record.IEquId;
-import com.kingdee.eas.util.client.KDTableUtil;
+import com.kingdee.bos.util.BOSUuid;
+import com.kingdee.bos.ctrl.kdf.table.IRow;
+import com.kingdee.bos.ctrl.kdf.table.KDTSelectBlock;
+import com.kingdee.bos.dao.IObjectPK;
+import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.bos.dao.ormapping.ObjectStringPK;
+import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.eas.auto4s.vip.util.UIFactoryName;
+import com.kingdee.eas.common.EASBizException;
+import com.kingdee.eas.framework.*;
+import com.kingdee.eas.port.equipment.operate.ComproductionInfo;
+import com.kingdee.eas.port.equipment.operate.IComproduction;
+import com.kingdee.eas.scm.common.SCMBillException;
+import com.kingdee.eas.scm.common.client.SCMClientUtils;
+import com.kingdee.eas.util.SysUtil;
+import com.kingdee.eas.util.client.EASResource;
+import com.kingdee.eas.util.client.MsgBox;
+import com.kingdee.eas.xr.IXRBillBase;
+import com.kingdee.eas.xr.XRBillBaseInfo;
+import com.kingdee.eas.xr.app.XRBillStatusEnum;
+import com.kingdee.eas.xr.helper.WorkflowXRHelper;
 
 /**
  * output class name
  */
-public class EquIdListUI extends AbstractEquIdListUI
+public class ComproductionListUI extends AbstractComproductionListUI
 {
-    private static final Logger logger = CoreUIObject.getLogger(EquIdListUI.class);
+    private static final Logger logger = CoreUIObject.getLogger(ComproductionListUI.class);
     
     /**
      * output class constructor
      */
-    public EquIdListUI() throws Exception
+    public ComproductionListUI() throws Exception
     {
         super();
     }
 
-    protected String getEditUIModal() {
-    	return UIFactoryName.NEWTAB;
-    }
-    
     /**
      * output storeFields method
      */
@@ -317,17 +327,119 @@ public class EquIdListUI extends AbstractEquIdListUI
      */
     public void actionEdit_actionPerformed(ActionEvent e) throws Exception
     {
-        super.actionEdit_actionPerformed(e);
+    	checkSelected();
+	    checkCanEdit();
+        String billID = getSelectedKeyValue();
+        if(billID == null)
+            return;
+        ObjectUuidPK pk = new ObjectUuidPK(BOSUuid.read(billID));
+        if(WorkflowXRHelper.checkInProInst(pk.toString())){
+			MsgBox.showInfo("此单据记录有流程正在运行!");
+			SysUtil.abort();
+		}
+	    super.actionEdit_actionPerformed(e);
     }
+    
+    protected void checkCanEdit()
+    throws Exception
+{
+    String id = getSelectedKeyValue();
+    if(id != null)
+    {
+        IObjectPK pk = new ObjectStringPK(id);
+        ComproductionInfo billInfo = ((IComproduction)getBizInterface()).getComproductionInfo(pk);
+        checkCanEdit(billInfo);
+    }
+}
+
+protected void checkCanEdit(ComproductionInfo billInfo)
+    throws Exception
+{
+    if(getUIContext().get("BillQuery") != null)
+    {
+        if(!billInfo.getState().equals(XRBillStatusEnum.AUDITED))
+        {
+            MsgBox.showInfo(this, SCMClientUtils.getResource("BillAt") + billInfo.getState().getAlias() + SCMClientUtils.getResource("CantBeEdited"));
+            SysUtil.abort();
+        }
+        return;
+    }
+    if(billInfo.getState().equals(XRBillStatusEnum.AUDITED)){
+    	MsgBox.showInfo(this, SCMClientUtils.getResource("BillAt") + billInfo.getState().getAlias() + SCMClientUtils.getResource("CantBeEdited"));
+        SysUtil.abort();
+    }
+}
 
     /**
      * output actionRemove_actionPerformed
      */
     public void actionRemove_actionPerformed(ActionEvent e) throws Exception
     {
-        super.actionRemove_actionPerformed(e);
+    	checkSelected();
+        if(confirmRemove())
+        {
+            ArrayList ids = super.getSelectedIdValues();
+            if(ids != null)
+            {
+                boolean hasException = false;
+                ICoreBase scmBillBase = getBizInterface();
+                int i = 0;
+                for(int num = ids.size(); i < num; i++)
+                {
+                    try
+                    {
+                        setOprtState("REMOVE");
+                        pubFireVOChangeListener(ids.get(i).toString());
+                    }
+                    catch(Throwable ex)
+                    {
+                        if(num == 1)
+                        {
+                            handUIException(ex);
+                            abort();
+                        }
+                        hasException = true;
+                        continue;
+                    }
+                    try
+                    {
+                    	if(WorkflowXRHelper.checkInProInst(ids.get(i).toString())){
+                  			MsgBox.showInfo("此单据记录有流程正在运行!");
+                  			SysUtil.abort();
+                  		}
+                    	scmBillBase.delete(new ObjectUuidPK(BOSUuid.read(ids.get(i).toString())));
+                    }
+                    catch(Exception onfe)
+                    {
+                        if(num == 1)
+                        {
+                            refreshList();
+                            throw onfe;
+                        }
+                        hasException = true;
+                    }
+                    try
+                    {
+                        setOprtState("RELEASEALL");
+                        pubFireVOChangeListener(ids.get(i).toString());
+                    }
+                    catch(Throwable t) { }
+                }
+
+                if(hasException)
+                {
+                    refreshList();
+                    throw new SCMBillException(SCMBillException.PARTOFDELETEDBILL_CANNOT_BE_DELETE);
+                }
+            }
+            refresh(e);
+        }
     }
 
+    protected boolean confirmUnAduit()
+    {
+        return MsgBox.isYes(MsgBox.showConfirm2(this, EASResource.getString("com.kingdee.eas.scm.common.SCM_COMMONResource", "IsConfirmUnAudit")));
+    }
     /**
      * output actionRefresh_actionPerformed
      */
@@ -569,19 +681,19 @@ public class EquIdListUI extends AbstractEquIdListUI
     }
 
     /**
-     * output actionAudit_actionPerformed
+     * output actionTDPrint_actionPerformed
      */
-    public void actionAudit_actionPerformed(ActionEvent e) throws Exception
+    public void actionTDPrint_actionPerformed(ActionEvent e) throws Exception
     {
-        super.actionAudit_actionPerformed(e);
+        super.actionTDPrint_actionPerformed(e);
     }
 
     /**
-     * output actionUnAudit_actionPerformed
+     * output actionTDPrintPreview_actionPerformed
      */
-    public void actionUnAudit_actionPerformed(ActionEvent e) throws Exception
+    public void actionTDPrintPreview_actionPerformed(ActionEvent e) throws Exception
     {
-        super.actionUnAudit_actionPerformed(e);
+        super.actionTDPrintPreview_actionPerformed(e);
     }
 
     /**
@@ -589,7 +701,7 @@ public class EquIdListUI extends AbstractEquIdListUI
      */
     protected com.kingdee.eas.framework.ICoreBase getBizInterface() throws Exception
     {
-        return com.kingdee.eas.port.equipment.record.EquIdFactory.getRemoteInstance();
+        return com.kingdee.eas.port.equipment.operate.ComproductionFactory.getRemoteInstance();
     }
 
     /**
@@ -597,55 +709,137 @@ public class EquIdListUI extends AbstractEquIdListUI
      */
     protected com.kingdee.bos.dao.IObjectValue createNewData()
     {
-        com.kingdee.eas.port.equipment.record.EquIdInfo objectValue = new com.kingdee.eas.port.equipment.record.EquIdInfo();
+        com.kingdee.eas.port.equipment.operate.ComproductionInfo objectValue = new com.kingdee.eas.port.equipment.operate.ComproductionInfo();
 		
         return objectValue;
     }
 
-    protected FilterInfo getDefaultFilterForQuery() {
-    	String id = SysContext.getSysContext().getCurrentAdminUnit().getId().toString();
-    	if(EquIdEditUI.Coll_CU_ID.equals(id)){
-    		return null;
-    	}else {			
-    		return super.getDefaultFilterForQuery();
+
+    public void onLoad() throws Exception {
+    	super.onLoad();
+    	this.mainQuery.getSorter().clear();
+	    SorterItemCollection siColl = this.mainQuery.getSorter();
+	    siColl.add(new SorterItemInfo("createTime"));
+	    SorterItemInfo siInfo = siColl.get(0);
+	    siInfo.setSortType(SortType.DESCEND);
+    }
+    
+    protected void initWorkButton()
+    {
+        super.initWorkButton();
+        btnAudit.setIcon(EASResource.getIcon("imgTbtn_auditing"));
+        btnUnAudit.setIcon(EASResource.getIcon("imgTbtn_fauditing"));
+    }
+    
+    protected void checkAudit()
+    {
+        int size = tblMain.getSelectManager().size();
+        for(int j = 0; j < size; j++)
+        {
+            KDTSelectBlock selectBlock = tblMain.getSelectManager().get(j);
+            if(selectBlock == null)
+                continue;
+            int i = selectBlock.getTop();
+            for(int num = selectBlock.getEndRow(); i <= num && i >= 0; i++)
+            {
+                IRow row = tblMain.getRow(i);
+                String baseStatus = row.getCell("baseStatus").getValue().toString();
+                if(!baseStatus.trim().equalsIgnoreCase(XRBillStatusEnum.SUBMITED.toString()) && !baseStatus.trim().equalsIgnoreCase(XRBillStatusEnum.ALTERING.toString()))
+                {
+                    MsgBox.showInfo(EASResource.getString("com.kingdee.eas.scm.common.SDSMResource", "check_audit"));
+                    SysUtil.abort();
+                }
+            }
+
+        }
+
+    }
+
+    protected void checkBillBaseStatusCanUnAudit()
+    {
+        int size = tblMain.getSelectManager().size();
+        for(int j = 0; j < size; j++)
+        {
+            KDTSelectBlock selectBlock = tblMain.getSelectManager().get(j);
+            if(selectBlock == null)
+                continue;
+            int i = selectBlock.getTop();
+            for(int num = selectBlock.getEndRow(); i <= num && i >= 0; i++)
+            {
+                IRow row = tblMain.getRow(i);
+                String baseStatus = row.getCell("baseStatus").getValue().toString();
+                if(!baseStatus.trim().equalsIgnoreCase(XRBillStatusEnum.AUDITED.toString()))
+                {
+                    MsgBox.showInfo(EASResource.getString("com.kingdee.eas.scm.common.SDSMResource", "check_unaudit"));
+                    SysUtil.abort();
+                }
+            }
+
+        }
+
+    }
+    
+    protected String getEditUIModal() {
+    	return UIFactoryName.NEWTAB;
+    }
+    
+
+    public void actionAudit_actionPerformed(ActionEvent e) throws Exception {
+    	  checkSelected();
+          String billID = getSelectedKeyValue();
+          if(billID == null)
+              return;
+          ObjectUuidPK pk = new ObjectUuidPK(BOSUuid.read(billID));
+          if(WorkflowXRHelper.checkInProInst(pk.toString())){
+  			MsgBox.showInfo("此单据记录有流程正在运行!");
+  			SysUtil.abort();
+  		}
+          if(!getBizInterface().exists(pk))
+          {
+              refreshList();
+              throw new EASBizException(EASBizException.CHECKEXIST);
+          }
+          SelectorItemCollection sc = new SelectorItemCollection();
+          Object o = getBizInterface().getValue(pk, sc);
+          ComproductionInfo aXRBillBaseInfo = (ComproductionInfo)o;
+          if(aXRBillBaseInfo.getState() != XRBillStatusEnum.SUBMITED)
+          {
+              String msg = EASResource.getString("com.kingdee.eas.scm.common.SCMResource.NotAudit");
+              MsgBox.showInfo(this, msg);
+              return;
+          }
+          ((IComproduction)getBizInterface()).actionAudit(aXRBillBaseInfo);
+          refresh(e);
+    }
+    
+
+    public void actionUnAudit_actionPerformed(ActionEvent e) throws Exception {
+    	checkSelected();
+//        if(!confirmUnAduit())
+//            return;
+        String billID = getSelectedKeyValue();
+        if(billID == null)
+            return;
+        ObjectUuidPK pk = new ObjectUuidPK(BOSUuid.read(billID));
+        if(WorkflowXRHelper.checkInProInst(pk.toString())){
+			MsgBox.showInfo("此单据记录有流程正在运行!");
+			SysUtil.abort();
 		}
+        if(!getBizInterface().exists(pk))
+        {
+            refreshList();
+            throw new EASBizException(EASBizException.CHECKEXIST);
+        } else
+        {
+            ((IComproduction)getBizInterface()).actionAudit((ComproductionInfo) getBizInterface().getValue(pk));
+            refresh(e);
+            return;
+        }
     }
     
-    /**
-     * zhangjuan
-     * 2014.5.15
-     * 实现功能：设备档案列表界面的在用按钮，点击此按钮改变单据的设备状态为在用。
-     **/
-    public void actionInUse_actionPerformed(ActionEvent e) throws Exception {
-    	super.actionInUse_actionPerformed(e); 
-    	IEquId  conntion =EquIdFactory.getRemoteInstance();
-    	
-    	int selecRow[] = KDTableUtil.getSelectedRows(this.tblMain);
-    	for (int i = 0; i < selecRow.length; i++) 
-    	{
-    		EquIdInfo conInfo = conntion.getEquIdInfo(new ObjectUuidPK(tblMain.getRow(i).getCell("id").getValue().toString()));
-    		conInfo.setSbStatus(sbStatusType.inUse);
-			conntion.update(new ObjectUuidPK(conInfo.getId()), conInfo)  ;
-    	}
-    	this.refresh(e);
-    }
-    
-    /**
-     * zhangjuan
-     * 2014.5.15
-     * 实现功能：设备档案列表界面的停用按钮，点击此按钮改变单据的设备状态为停用。
-     **/
-    public void actionOutUse_actionPerformed(ActionEvent e) throws Exception {
-    	super.actionOutUse_actionPerformed(e);
-	IEquId  conntion =EquIdFactory.getRemoteInstance();
-    	
-    	int selecRow[] = KDTableUtil.getSelectedRows(this.tblMain);
-    	for (int i = 0; i < selecRow.length; i++) 
-    	{
-    		EquIdInfo conInfo = conntion.getEquIdInfo(new ObjectUuidPK(tblMain.getRow(i).getCell("id").getValue().toString()));
-    		conInfo.setSbStatus(sbStatusType.notUse);
-			conntion.update(new ObjectUuidPK(conInfo.getId()), conInfo)  ;
-    	}
-    	this.refresh(e);
-    }
+    public void auditBill(ObjectUuidPK pk)
+    throws Exception
+{
+    ((IComproduction)getBizInterface()).passAudit(pk, null);
+}
 }

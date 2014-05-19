@@ -48,4 +48,6 @@ public interface IEquId extends IXRBillBase
     public void updateBigObject(IObjectPK pk, EquIdInfo model) throws BOSException;
     public void updatePartial(EquIdInfo model, SelectorItemCollection selector) throws BOSException, EASBizException;
     public String getBindingProperty() throws BOSException;
+    public void inUse(EquIdInfo model) throws BOSException;
+    public void outUse(EquIdInfo model) throws BOSException;
 }

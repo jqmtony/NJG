@@ -46,6 +46,10 @@ import com.kingdee.bos.appframework.uip.UINavigator;
 public abstract class AbstractEquIdListUI extends com.kingdee.eas.xr.client.XRBillBaseListUI
 {
     private static final Logger logger = CoreUIObject.getLogger(AbstractEquIdListUI.class);
+    protected com.kingdee.bos.ctrl.swing.KDWorkButton btninUse;
+    protected com.kingdee.bos.ctrl.swing.KDWorkButton btnoutUse;
+    protected ActionInUse actionInUse = null;
+    protected ActionOutUse actionOutUse = null;
     /**
      * output class constructor
      */
@@ -82,6 +86,26 @@ public abstract class AbstractEquIdListUI extends com.kingdee.eas.xr.client.XRBi
          this.actionRemove.addService(new com.kingdee.eas.framework.client.service.PermissionService());
          this.actionRemove.addService(new com.kingdee.eas.framework.client.service.NetFunctionService());
          this.actionRemove.addService(new com.kingdee.eas.framework.client.service.UserMonitorService());
+        //actionInUse
+        this.actionInUse = new ActionInUse(this);
+        getActionManager().registerAction("actionInUse", actionInUse);
+        this.actionInUse.setExtendProperty("canForewarn", "true");
+        this.actionInUse.setExtendProperty("userDefined", "true");
+        this.actionInUse.setExtendProperty("isObjectUpdateLock", "false");
+         this.actionInUse.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+         this.actionInUse.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
+        //actionOutUse
+        this.actionOutUse = new ActionOutUse(this);
+        getActionManager().registerAction("actionOutUse", actionOutUse);
+        this.actionOutUse.setExtendProperty("canForewarn", "true");
+        this.actionOutUse.setExtendProperty("userDefined", "true");
+        this.actionOutUse.setExtendProperty("isObjectUpdateLock", "false");
+         this.actionOutUse.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+         this.actionOutUse.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
+        this.btninUse = new com.kingdee.bos.ctrl.swing.KDWorkButton();
+        this.btnoutUse = new com.kingdee.bos.ctrl.swing.KDWorkButton();
+        this.btninUse.setName("btninUse");
+        this.btnoutUse.setName("btnoutUse");
         // CoreUI
 		String tblMainStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol17\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol18\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol22\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"model\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"size\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"weight\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"qyDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"serialNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"sbStatus\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"special\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"ccNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"tzdaNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"tzsbStatus\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"assetValue\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"EqmCategory\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"wxOrgUnit.id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"specialType.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"cityPeriod\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol17\" /><t:Column t:key=\"portPeriod\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol18\" /><t:Column t:key=\"code\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"engineNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"carNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"ratedWeight\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol22\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{name}</t:Cell><t:Cell>$Resource{model}</t:Cell><t:Cell>$Resource{size}</t:Cell><t:Cell>$Resource{weight}</t:Cell><t:Cell>$Resource{qyDate}</t:Cell><t:Cell>$Resource{serialNumber}</t:Cell><t:Cell>$Resource{sbStatus}</t:Cell><t:Cell>$Resource{special}</t:Cell><t:Cell>$Resource{ccNumber}</t:Cell><t:Cell>$Resource{tzdaNumber}</t:Cell><t:Cell>$Resource{tzsbStatus}</t:Cell><t:Cell>$Resource{assetValue}</t:Cell><t:Cell>$Resource{EqmCategory}</t:Cell><t:Cell>$Resource{number}</t:Cell><t:Cell>$Resource{wxOrgUnit.id}</t:Cell><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{specialType.name}</t:Cell><t:Cell>$Resource{cityPeriod}</t:Cell><t:Cell>$Resource{portPeriod}</t:Cell><t:Cell>$Resource{code}</t:Cell><t:Cell>$Resource{engineNumber}</t:Cell><t:Cell>$Resource{carNumber}</t:Cell><t:Cell>$Resource{ratedWeight}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
@@ -91,6 +115,14 @@ public abstract class AbstractEquIdListUI extends com.kingdee.eas.xr.client.XRBi
 
         this.tblMain.checkParsed();
         this.tblMain.getGroupManager().setGroup(true);
+        // btninUse
+        this.btninUse.setAction((IItemAction)ActionProxyFactory.getProxy(actionInUse, new Class[] { IItemAction.class }, getServiceContext()));		
+        this.btninUse.setText(resHelper.getString("btninUse.text"));		
+        this.btninUse.setToolTipText(resHelper.getString("btninUse.toolTipText"));
+        // btnoutUse
+        this.btnoutUse.setAction((IItemAction)ActionProxyFactory.getProxy(actionOutUse, new Class[] { IItemAction.class }, getServiceContext()));		
+        this.btnoutUse.setText(resHelper.getString("btnoutUse.text"));		
+        this.btnoutUse.setToolTipText(resHelper.getString("btnoutUse.toolTipText"));
 		//Register control's property binding
 		registerBindings();
 		registerUIState();
@@ -229,6 +261,8 @@ public abstract class AbstractEquIdListUI extends com.kingdee.eas.xr.client.XRBi
         this.toolBar.add(btnEdit);
         this.toolBar.add(btnRemove);
         this.toolBar.add(btnRefresh);
+        this.toolBar.add(btninUse);
+        this.toolBar.add(btnoutUse);
         this.toolBar.add(btnQuery);
         this.toolBar.add(btnLocate);
         this.toolBar.add(btnAttachment);
@@ -421,6 +455,28 @@ public abstract class AbstractEquIdListUI extends com.kingdee.eas.xr.client.XRBi
     {
         super.actionRemove_actionPerformed(e);
     }
+    	
+
+    /**
+     * output actionInUse_actionPerformed method
+     */
+    public void actionInUse_actionPerformed(ActionEvent e) throws Exception
+    {
+        if (getSelectedKeyValue() == null) return;
+com.kingdee.eas.port.equipment.record.EquIdInfo editData = (com.kingdee.eas.port.equipment.record.EquIdInfo)getBizInterface().getValue(new com.kingdee.bos.dao.ormapping.ObjectUuidPK(BOSUuid.read(getSelectedKeyValue())));
+com.kingdee.eas.port.equipment.record.EquIdFactory.getRemoteInstance().inUse(editData);
+    }
+    	
+
+    /**
+     * output actionOutUse_actionPerformed method
+     */
+    public void actionOutUse_actionPerformed(ActionEvent e) throws Exception
+    {
+        if (getSelectedKeyValue() == null) return;
+com.kingdee.eas.port.equipment.record.EquIdInfo editData = (com.kingdee.eas.port.equipment.record.EquIdInfo)getBizInterface().getValue(new com.kingdee.bos.dao.ormapping.ObjectUuidPK(BOSUuid.read(getSelectedKeyValue())));
+com.kingdee.eas.port.equipment.record.EquIdFactory.getRemoteInstance().outUse(editData);
+    }
 	public RequestContext prepareActionRemove(IItemAction itemAction) throws Exception {
 			RequestContext request = super.prepareActionRemove(itemAction);		
 		if (request != null) {
@@ -431,6 +487,88 @@ public abstract class AbstractEquIdListUI extends com.kingdee.eas.xr.client.XRBi
 	
 	public boolean isPrepareActionRemove() {
     	return false;
+    }
+	public RequestContext prepareActionInUse(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionInUse() {
+    	return false;
+    }
+	public RequestContext prepareActionOutUse(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionOutUse() {
+    	return false;
+    }
+
+    /**
+     * output ActionInUse class
+     */     
+    protected class ActionInUse extends ItemAction {     
+    
+        public ActionInUse()
+        {
+            this(null);
+        }
+
+        public ActionInUse(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            _tempStr = resHelper.getString("ActionInUse.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionInUse.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionInUse.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractEquIdListUI.this, "ActionInUse", "actionInUse_actionPerformed", e);
+        }
+    }
+
+    /**
+     * output ActionOutUse class
+     */     
+    protected class ActionOutUse extends ItemAction {     
+    
+        public ActionOutUse()
+        {
+            this(null);
+        }
+
+        public ActionOutUse(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            _tempStr = resHelper.getString("ActionOutUse.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionOutUse.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionOutUse.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractEquIdListUI.this, "ActionOutUse", "actionOutUse_actionPerformed", e);
+        }
     }
 
     /**

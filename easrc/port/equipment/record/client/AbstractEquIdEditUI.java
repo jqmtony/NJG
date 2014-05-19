@@ -188,6 +188,8 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
     protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtSpareInfo;
 	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtSpareInfo_detailPanel = null;
     protected com.kingdee.eas.port.equipment.record.EquIdInfo editData = null;
+    protected ActionInUse actionInUse = null;
+    protected ActionOutUse actionOutUse = null;
     /**
      * output class constructor
      */
@@ -237,6 +239,22 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         actionUnAudit.putValue(ItemAction.NAME, _tempStr);
         this.actionUnAudit.setBindWorkFlow(true);
          this.actionUnAudit.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+        //actionInUse
+        this.actionInUse = new ActionInUse(this);
+        getActionManager().registerAction("actionInUse", actionInUse);
+        this.actionInUse.setExtendProperty("canForewarn", "true");
+        this.actionInUse.setExtendProperty("userDefined", "true");
+        this.actionInUse.setExtendProperty("isObjectUpdateLock", "false");
+         this.actionInUse.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+         this.actionInUse.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
+        //actionOutUse
+        this.actionOutUse = new ActionOutUse(this);
+        getActionManager().registerAction("actionOutUse", actionOutUse);
+        this.actionOutUse.setExtendProperty("canForewarn", "true");
+        this.actionOutUse.setExtendProperty("userDefined", "true");
+        this.actionOutUse.setExtendProperty("isObjectUpdateLock", "false");
+         this.actionOutUse.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+         this.actionOutUse.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
         this.contCreator = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contCreateTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contLastUpdateUser = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -2369,6 +2387,24 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
     {
         super.actionUnAudit_actionPerformed(e);
     }
+    	
+
+    /**
+     * output actionInUse_actionPerformed method
+     */
+    public void actionInUse_actionPerformed(ActionEvent e) throws Exception
+    {
+        com.kingdee.eas.port.equipment.record.EquIdFactory.getRemoteInstance().inUse(editData);
+    }
+    	
+
+    /**
+     * output actionOutUse_actionPerformed method
+     */
+    public void actionOutUse_actionPerformed(ActionEvent e) throws Exception
+    {
+        com.kingdee.eas.port.equipment.record.EquIdFactory.getRemoteInstance().outUse(editData);
+    }
 	public RequestContext prepareActionSubmit(IItemAction itemAction) throws Exception {
 			RequestContext request = super.prepareActionSubmit(itemAction);		
 		if (request != null) {
@@ -2390,6 +2426,88 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
 	
 	public boolean isPrepareActionUnAudit() {
     	return false;
+    }
+	public RequestContext prepareActionInUse(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionInUse() {
+    	return false;
+    }
+	public RequestContext prepareActionOutUse(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionOutUse() {
+    	return false;
+    }
+
+    /**
+     * output ActionInUse class
+     */     
+    protected class ActionInUse extends ItemAction {     
+    
+        public ActionInUse()
+        {
+            this(null);
+        }
+
+        public ActionInUse(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            _tempStr = resHelper.getString("ActionInUse.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionInUse.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionInUse.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractEquIdEditUI.this, "ActionInUse", "actionInUse_actionPerformed", e);
+        }
+    }
+
+    /**
+     * output ActionOutUse class
+     */     
+    protected class ActionOutUse extends ItemAction {     
+    
+        public ActionOutUse()
+        {
+            this(null);
+        }
+
+        public ActionOutUse(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            _tempStr = resHelper.getString("ActionOutUse.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionOutUse.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionOutUse.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractEquIdEditUI.this, "ActionOutUse", "actionOutUse_actionPerformed", e);
+        }
     }
 
     /**

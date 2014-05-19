@@ -387,4 +387,30 @@ public class EquId extends XRBillBase implements IEquId
             throw new EJBRemoteException(err);
         }
     }
+    /**
+     *‘⁄”√-User defined method
+     *@param model model
+     */
+    public void inUse(EquIdInfo model) throws BOSException
+    {
+        try {
+            getController().inUse(getContext(), model);
+        }
+        catch(RemoteException err) {
+            throw new EJBRemoteException(err);
+        }
+    }
+    /**
+     *Õ£”√-User defined method
+     *@param model model
+     */
+    public void outUse(EquIdInfo model) throws BOSException
+    {
+        try {
+            getController().outUse(getContext(), model);
+        }
+        catch(RemoteException err) {
+            throw new EJBRemoteException(err);
+        }
+    }
 }
