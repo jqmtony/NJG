@@ -8,12 +8,13 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ItemEvent;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
 import org.apache.log4j.Logger;
+import org.claros.commons.utility.Formatter;
 
-import com.kingdee.bos.BOSException;
 import com.kingdee.bos.ctrl.extendcontrols.BizDataFormat;
 import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
@@ -27,11 +28,9 @@ import com.kingdee.bos.ctrl.swing.KDWorkButton;
 import com.kingdee.bos.ctrl.swing.event.DataChangeEvent;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
-import com.kingdee.bos.metadata.entity.EntityViewInfo;
-import com.kingdee.bos.metadata.entity.FilterInfo;
-import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.UIRuleUtil;
+import com.kingdee.eas.base.core.fm.ClientVerifyHelper;
 import com.kingdee.eas.base.permission.UserInfo;
 import com.kingdee.eas.basedata.org.AdminOrgUnitCollection;
 import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
@@ -46,9 +45,6 @@ import com.kingdee.eas.port.pm.invest.CostTempE1Collection;
 import com.kingdee.eas.port.pm.invest.CostTempE1Info;
 import com.kingdee.eas.port.pm.invest.CostTempInfo;
 import com.kingdee.eas.port.pm.invest.ObjectStateEnum;
-import com.kingdee.eas.port.pm.project.PortProjectCollection;
-import com.kingdee.eas.port.pm.project.PortProjectFactory;
-import com.kingdee.eas.port.pm.project.PortProjectInfo;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
 import com.kingdee.eas.xr.helper.PersonXRHelper;
@@ -74,11 +70,22 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 		prmtCU.setVisible(true);
 		txtaddInvestAmount.setEditable(false);
 		pkBizDate.setEditable(false);
+		contBizDate.setEnabled(false);
+		contrequestOrg.setEnabled(false);
+		prmtportProject.setVisible(false);
+		contportProject.setVisible(false);
 		kdtEntry.getColumn("seq").getStyleAttributes().setHided(true);
 		kdtE3.setEditable(false);
-		/**
-		 * add F7
-		 */
+		kdtE3_detailPanel.getAddNewLineButton().setVisible(false);
+		kdtE3_detailPanel.getInsertLineButton().setVisible(false);
+		kdtE3_detailPanel.getRemoveLinesButton().setVisible(false);
+		
+		this.txtBIMUDF0027.setMaxLength(2000);
+		this.txtanalyse.setMaxLength(2000);
+		this.txtscheme.setMaxLength(2000);
+	/**
+	 * add分录costType为F7字段
+	 */
 		final KDBizPromptBox kdtEntry_costType_PromptBox = new KDBizPromptBox();
 		kdtEntry_costType_PromptBox.setQueryInfo("com.kingdee.eas.port.pm.invest.app.costTypeTreeQuery");
 		kdtEntry_costType_PromptBox.setVisible(true);
@@ -93,12 +100,6 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 		this.kdtEntry.getColumn("costType").setRenderer(kdtEntry_costType_OVR);
 
 		if (getOprtState().equals(OprtState.ADDNEW)) {
-			Calendar cal = Calendar.getInstance();//默认为当前年度
-			if (cal.getTime() != null) {
-				int year = cal.get(Calendar.YEAR);
-				txtyear.setValue(year);
-				return;
-			}
 			UserInfo user = SysContext.getSysContext().getCurrentUserInfo();
 			if (user.getPerson() != null) {//申请人带出申请单位
 				PersonInfo person = user.getPerson();
@@ -113,9 +114,8 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 
 		this.kDContainer1.getContentPane().add(this.kdtEntry,BorderLayout.CENTER);
 		initProWorkButton(this.kDContainer1, false);
-
 	}
-
+	
 	protected void prmtrequestPerson_dataChanged(DataChangeEvent e)throws Exception {
 		if (prmtrequestPerson.getValue() != null) {
 			PersonInfo prinfo = (PersonInfo) prmtrequestPerson.getValue();
@@ -124,7 +124,9 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 			prmtrequestOrg.setValue(adminInfo);
 		}
 	}
-
+	/**
+	 * 费用模板直接带出费用类型，费用名称
+	 */
 	protected void prmtcostTemp_dataChanged(DataChangeEvent e) throws Exception {
 		super.prmtcostTemp_dataChanged(e);
 		if (prmtcostTemp.getValue() != null) {
@@ -143,9 +145,10 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 			}
 		}
 	}
-
-	protected void prmtbuildType_dataChanged(DataChangeEvent e)
-			throws Exception {
+	/**
+	 * 建设性质为续建项目时显示出项目信息字段
+	 */
+	protected void prmtbuildType_dataChanged(DataChangeEvent e)throws Exception {
 		super.prmtbuildType_dataChanged(e);
 		if (prmtbuildType.getValue() != null) {
 			BuildTypeInfo bdtinfo = (BuildTypeInfo) prmtbuildType.getValue();
@@ -157,8 +160,6 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 				prmtportProject.setValue(null);
 				contportProject.setVisible(false);
 				txtaddInvestAmount.setValue(null);
-				
-
 			}
 		} else {
 			prmtportProject.setVisible(false);
@@ -169,33 +170,33 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 
 	protected void prmtportProject_dataChanged(DataChangeEvent e)throws Exception {
 		super.prmtportProject_dataChanged(e);
-		if (prmtportProject.getValue() != null) {
-			PortProjectInfo info = (PortProjectInfo) prmtportProject.getValue();
-			BigDecimal budgetAmount = getLastInvestAmount(info);
-			txtaddInvestAmount.setValue(budgetAmount);
-		}
+//		if (prmtportProject.getValue() != null) {
+//			ProjectInfo info = (ProjectInfo) prmtportProject.getValue();
+//			BigDecimal budgetAmount = getLastInvestAmount(info);
+//			txtaddInvestAmount.setValue(budgetAmount);
+//		}
 	}
 
-	public BigDecimal getLastInvestAmount(PortProjectInfo info)throws BOSException {
-		EntityViewInfo view = new EntityViewInfo();
-		FilterInfo filter = new FilterInfo();
-		view.setFilter(filter);
-		filter.getFilterItems().add(new FilterItemInfo("id", info.getId()));
-		PortProjectCollection coll = PortProjectFactory.getRemoteInstance().getPortProjectCollection(view);
-		BigDecimal budgetAmount = new BigDecimal(0.00);
-		for (int i = 0; i < coll.size(); i++) {
-			PortProjectInfo project = coll.get(i);
-			budgetAmount = budgetAmount.add(project.getBudgetAmount());
-		}
-		// select sum(budgetAmount) from T_bas_portProject where
-		// fid="'+info.getId()+'"
-		return budgetAmount;
-	}
+//	public BigDecimal getLastInvestAmount(ProjectInfo info)throws BOSException {
+//		EntityViewInfo view = new EntityViewInfo();
+//		FilterInfo filter = new FilterInfo();
+//		view.setFilter(filter);
+//		filter.getFilterItems().add(new FilterItemInfo("id", info.getId()));
+//		ProjectCollection coll = ProjectFactory.getRemoteInstance().getProjectCollection(view);
+//		BigDecimal budgetAmount = new BigDecimal(0.00);
+//		for (int i = 0; i < coll.size(); i++) {
+//			ProjectInfo project = coll.get(i);
+//			budgetAmount = budgetAmount.add(project.getBudgetAmount());
+//		}
+//		// select sum(budgetAmount) from T_bas_portProject where
+//		// fid="'+info.getId()+'"
+//		return budgetAmount;
+//	}
 
 	protected void objectState_itemStateChanged(ItemEvent e) throws Exception {
 		super.objectState_itemStateChanged(e);
 	}
-
+	
 	protected void kdtEntry_editStopped(KDTEditEvent e) throws Exception {
 		super.kdtEntry_editStopped(e);
 		if (e.getRowIndex() == -1) {
@@ -207,21 +208,44 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 			this.txtinvestAmount.setValue(UIRuleUtil.sum(this.kdtEntry,"estimate"));
 
 	}
-	
+	/**
+	 * 校验信息
+	 */
 	protected void verifyInput(ActionEvent e) throws Exception {
 		BigDecimal a = this.txtinvestAmount.getBigDecimalValue();
 		BigDecimal b = new BigDecimal(UIRuleUtil.sum(this.kdtEntry,"estimate"));
 		if(a.compareTo(b)!=0){
-			MsgBox.showWarning("请确定项目投资金额");abort();
+			MsgBox.showWarning("请确定项目投资总金额");abort();
 		}
 		BigDecimal c = this.txtamount.getBigDecimalValue();
 		BigDecimal d = new BigDecimal(UIRuleUtil.sum(this.kdtEntry, "yearInvestBudget"));
 		if(c.compareTo(d)!=0){
-			MsgBox.showWarning("请确定计划投资金额");abort();
+			MsgBox.showWarning("请确定本年计划投资金额");abort();
 		}
+		if(a.compareTo(c)<0){
+			MsgBox.showWarning("项目投资总金额不能小于本年计划投资金额");abort();
+		}
+    	ClientVerifyHelper.verifyEmpty(this, this.pkplanStartDate);
+    	ClientVerifyHelper.verifyEmpty(this, this.pkplanEndDate);
+    	ClientVerifyHelper.verifyEmpty(this, this.pkBizDate);
+    	SimpleDateFormat Formatter = new SimpleDateFormat("yyyy-MM-dd");
+    	if(!Formatter.format(this.pkplanStartDate.getSqlDate()).equals(Formatter.format(this.pkBizDate.getSqlDate())))
+    	{	
+    		if(this.pkplanStartDate.getSqlDate().before(this.pkBizDate.getSqlDate())){
+    	    	MsgBox.showWarning("计划开工日期不能早于计划申报日期！");abort();
+    	    }
+    	}	
+    	if(!Formatter.format(this.pkplanStartDate.getSqlDate()).equals(Formatter.format(this.pkplanEndDate.getSqlDate())))
+    	{	
+    		if(this.pkplanEndDate.getSqlDate().before(this.pkplanStartDate.getSqlDate())){
+    	    	MsgBox.showWarning("计划完工日期不能早于计划开工日期！");abort();
+    	    }
+    	}	
 		super.verifyInput(e);
 	}
-
+	/**
+	 * 添加分录“新增”，“插入”，“删除”按钮
+	 */
 	protected void initProWorkButton(KDContainer container, boolean flse) {
 		KDWorkButton btnAddRowinfo = new KDWorkButton();
 		KDWorkButton btnInsertRowinfo = new KDWorkButton();
@@ -879,6 +903,10 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 		objectValue.setCreator((com.kingdee.eas.base.permission.UserInfo) (com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentUser()));
 		objectValue.setObjectState(ObjectStateEnum.save);
 		objectValue.setBizDate(new Date());
+		
+		Calendar cal = Calendar.getInstance();//默认为当前年度
+		int year = cal.get(Calendar.YEAR);
+		objectValue.setYear(year);
 		return objectValue;
 	}
 
@@ -901,7 +929,9 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 	public static void main(String[] args) {
 	}
 	
-	
+	/**
+	 * 设置保存时焦点校对
+	 */
 	protected void beforeStoreFields(ActionEvent arg0) throws Exception {
 		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(txtNumber.getText())) {
 			txtNumber.requestFocus(true);

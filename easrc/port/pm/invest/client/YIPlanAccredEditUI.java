@@ -99,7 +99,9 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
 		//当评审时，选定评审表类型
 		if(OprtState.ADDNEW.equals(getOprtState())&&((this.editData.getDescription()!=null)?this.editData.getDescription():"").equals("初审")){
 			accredType.setSelectedItem(AccredTypeEnum.trial);
-			
+			kdtE2_detailPanel.getAddNewLineButton().setVisible(false);
+			kdtE2_detailPanel.getInsertLineButton().setVisible(false);
+			kdtE2_detailPanel.getRemoveLinesButton().setVisible(false);
 		}else if(OprtState.ADDNEW.equals(getOprtState())&&((this.editData.getDescription()!=null)?this.editData.getDescription():"").equals("评审")){
 			accredType.setSelectedItem(AccredTypeEnum.accred);
 		}else{

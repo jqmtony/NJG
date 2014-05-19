@@ -7,8 +7,12 @@ import java.awt.event.ActionEvent;
 
 import org.apache.log4j.Logger;
 
+import com.kingdee.bos.metadata.entity.FilterInfo;
+import com.kingdee.bos.metadata.entity.FilterItemInfo;
+import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.eas.auto4s.bdm.vip.util.UIFactoryName;
+import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.framework.ICoreBase;
 import com.kingdee.eas.port.pm.invest.YearInvestPlanFactory;
 
@@ -33,6 +37,12 @@ public class YearPlanCollectListUI extends AbstractYearPlanCollectListUI
     public void storeFields()
     {
         super.storeFields();
+    }
+    protected FilterInfo getDefaultFilterForQuery() {
+    	FilterInfo filter = new FilterInfo();
+    	String cuNumber = SysContext.getSysContext().getCurrentCtrlUnit().getLongNumber();
+    	filter.getFilterItems().add(new FilterItemInfo("CU.longNumber",cuNumber+"%",CompareType.LIKE));
+    	return filter;
     }
     /**
      * output actionNumberSign_actionPerformed

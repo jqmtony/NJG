@@ -401,12 +401,7 @@ public abstract class AbstractPreProjectTempListUI extends com.kingdee.eas.xr.cl
         sorterFieldList.add("createTime"); 
         return sorterFieldList; 
     } 
-    protected java.util.List getQueryPKFields() 
-    { 
-        java.util.List pkList = new ArrayList(); 
-        pkList.add("id"); 
-        return pkList;
-    }
+
     	
 
     /**

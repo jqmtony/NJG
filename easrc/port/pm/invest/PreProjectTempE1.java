@@ -87,7 +87,7 @@ public class PreProjectTempE1 extends CoreBillEntryBase implements IPreProjectTe
     }
     /**
      *getValue-System defined method
-     *@param pk pk
+     *@param pk 
      *@return
      */
     public PreProjectTempE1Info getPreProjectTempE1Info(IObjectPK pk) throws BOSException, EASBizException

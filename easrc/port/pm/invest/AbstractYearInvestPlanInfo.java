@@ -45,11 +45,11 @@ public class AbstractYearInvestPlanInfo extends com.kingdee.eas.xr.XRBillBaseInf
     /**
      * Object: 年度投资计划 's 项目信息 property 
      */
-    public com.kingdee.eas.port.pm.project.PortProjectInfo getPortProject()
+    public com.kingdee.eas.basedata.assistant.ProjectInfo getPortProject()
     {
-        return (com.kingdee.eas.port.pm.project.PortProjectInfo)get("portProject");
+        return (com.kingdee.eas.basedata.assistant.ProjectInfo)get("portProject");
     }
-    public void setPortProject(com.kingdee.eas.port.pm.project.PortProjectInfo item)
+    public void setPortProject(com.kingdee.eas.basedata.assistant.ProjectInfo item)
     {
         put("portProject", item);
     }

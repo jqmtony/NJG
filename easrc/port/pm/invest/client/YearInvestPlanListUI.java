@@ -40,24 +40,10 @@ public class YearInvestPlanListUI extends AbstractYearInvestPlanListUI
     	return UIFactoryName.NEWTAB;
     }
     
-//    protected boolean isIgnoreCUFilter() {
-//    	String cuNumber=SysContext.getSysContext().getCurrentCtrlUnit().getNumber();
-//    	if(cuNumber.equals("NJP")){
-//    		return true;	
-//		}else{
-//			return false;	
-//		}
-//    }
-    
     protected FilterInfo getDefaultFilterForQuery() {
-    	FilterInfo filter = new FilterInfo();
-    	filter.getFilterItems().add(new
-    	FilterItemInfo("CU.id",SysContext.getSysContext().getCurrentCtrlUnit(),CompareType.EQUALS));
-    	String cuNumber=SysContext.getSysContext().getCurrentCtrlUnit().getNumber();
-    	if(cuNumber.compareTo(NJGhelper.NJP)==0){
-    		return null;
-    	}
-    	
+    	FilterInfo  filter = new FilterInfo();
+    	String cuNumber=SysContext.getSysContext().getCurrentCtrlUnit().getLongNumber();
+    	filter.getFilterItems().add(new FilterItemInfo("CU.longnumber",cuNumber+"%",CompareType.LIKE));
     	return filter;
     }
 
