@@ -175,11 +175,11 @@
             </query>
         </propertyUnit>
         <queryField>
-            <name>id</name>
+            <name>number</name>
             <userDefined>true</userDefined>
             <formulaString />
             <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.base.app.BuildTypeQuery].units.queryField[id].displayName</displayName>
+            <displayName>joinQuery[com.kingdee.eas.port.pm.base.app.BuildTypeQuery].units.queryField[number].displayName</displayName>
             <groupType />
             <isSelector>true</isSelector>
             <isFilter>true</isFilter>
@@ -190,13 +190,13 @@
                 <propertyRef>
                     <key>0</key>
                     <parentUnit>
-                        <key name="name" value="id" />
+                        <key name="name" value="number" />
                     </parentUnit>
                     <subEntity>
                         <key name="name" value="BuildType" />
                     </subEntity>
                     <refProperty>
-                        <key name="name" value="id" />
+                        <key name="name" value="number" />
                     </refProperty>
                 </propertyRef>
             </propertyRefs>
@@ -228,37 +228,6 @@
                     </subEntity>
                     <refProperty>
                         <key name="name" value="name" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
-                <key name="name" value="BuildTypeQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>number</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.base.app.BuildTypeQuery].units.queryField[number].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>0</key>
-                    <parentUnit>
-                        <key name="name" value="number" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="BuildType" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="number" />
                     </refProperty>
                 </propertyRef>
             </propertyRefs>
@@ -330,6 +299,37 @@
             </query>
         </queryField>
         <queryField>
+            <name>creator.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.base.app.BuildTypeQuery].units.queryField[creator.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="creator.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="creator" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
+                <key name="name" value="BuildTypeQuery" />
+            </query>
+        </queryField>
+        <queryField>
             <name>createTime</name>
             <userDefined>true</userDefined>
             <formulaString />
@@ -361,11 +361,11 @@
             </query>
         </queryField>
         <queryField>
-            <name>creator.number</name>
+            <name>lastUpdateUser.name</name>
             <userDefined>true</userDefined>
             <formulaString />
             <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.base.app.BuildTypeQuery].units.queryField[creator.number].displayName</displayName>
+            <displayName>joinQuery[com.kingdee.eas.port.pm.base.app.BuildTypeQuery].units.queryField[lastUpdateUser.name].displayName</displayName>
             <groupType />
             <isSelector>true</isSelector>
             <isFilter>true</isFilter>
@@ -376,41 +376,10 @@
                 <propertyRef>
                     <key>0</key>
                     <parentUnit>
-                        <key name="name" value="creator.number" />
+                        <key name="name" value="lastUpdateUser.name" />
                     </parentUnit>
                     <subEntity>
-                        <key name="name" value="creator" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="number" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
-                <key name="name" value="BuildTypeQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>creator.name</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.base.app.BuildTypeQuery].units.queryField[creator.name].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>0</key>
-                    <parentUnit>
-                        <key name="name" value="creator.name" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="creator" />
+                        <key name="name" value="lastUpdateUser" />
                     </subEntity>
                     <refProperty>
                         <key name="name" value="name" />
@@ -454,11 +423,11 @@
             </query>
         </queryField>
         <queryField>
-            <name>lastUpdateUser.number</name>
+            <name>id</name>
             <userDefined>true</userDefined>
             <formulaString />
             <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.base.app.BuildTypeQuery].units.queryField[lastUpdateUser.number].displayName</displayName>
+            <displayName>joinQuery[com.kingdee.eas.port.pm.base.app.BuildTypeQuery].units.queryField[id].displayName</displayName>
             <groupType />
             <isSelector>true</isSelector>
             <isFilter>true</isFilter>
@@ -469,44 +438,13 @@
                 <propertyRef>
                     <key>0</key>
                     <parentUnit>
-                        <key name="name" value="lastUpdateUser.number" />
+                        <key name="name" value="id" />
                     </parentUnit>
                     <subEntity>
-                        <key name="name" value="lastUpdateUser" />
+                        <key name="name" value="BuildType" />
                     </subEntity>
                     <refProperty>
-                        <key name="name" value="number" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
-                <key name="name" value="BuildTypeQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>lastUpdateUser.name</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.base.app.BuildTypeQuery].units.queryField[lastUpdateUser.name].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>0</key>
-                    <parentUnit>
-                        <key name="name" value="lastUpdateUser.name" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="lastUpdateUser" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="name" />
+                        <key name="name" value="id" />
                     </refProperty>
                 </propertyRef>
             </propertyRefs>
@@ -613,7 +551,8 @@
         <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.BuildTypeQuery].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="建设性质" />
-            <lang locale="zh_TW" value="單級基礎資料查詢" />
+            <lang locale="zh_HK" value="建設性質" />
+            <lang locale="zh_TW" value="建設性質" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.BuildTypeQuery].defaultSorters.querySorterItemextendedProperty.ColWidthInKDTable">
             <lang locale="en_US" value="50" />
@@ -643,6 +582,7 @@
         <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.BuildTypeQuery].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="单级基础资料查询" />
+            <lang locale="zh_HK" value="單級基礎資料查詢" />
             <lang locale="zh_TW" value="單級基礎資料查詢" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.BuildTypeQuery].extendedProperty.ColWidthInKDTable">
@@ -683,51 +623,61 @@
         <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.BuildTypeQuery].queryPK[QueryPK].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.BuildTypeQuery].queryPK[QueryPK].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.BuildTypeQuery].subObjects.subEntity[BuildType].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.BuildTypeQuery].subObjects.subEntity[creator].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.BuildTypeQuery].subObjects.subEntity[lastUpdateUser].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.BuildTypeQuery].units.propertyUnit[NewUnit0].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.BuildTypeQuery].units.propertyUnit[NewUnit1].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.BuildTypeQuery].units.propertyUnit[NewUnit2].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.BuildTypeQuery].units.propertyUnit[NewUnit3].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.BuildTypeQuery].units.queryField[createTime].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="创建时间" />
+            <lang locale="zh_HK" value="創建時間" />
             <lang locale="zh_TW" value="創建時間" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.BuildTypeQuery].units.queryField[createTime].extendedProperty.colWidthInKDTable">
@@ -757,8 +707,9 @@
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.BuildTypeQuery].units.queryField[creator.name].displayName">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="别名" />
-            <lang locale="zh_TW" value="別名" />
+            <lang locale="zh_CN" value="创建人" />
+            <lang locale="zh_HK" value="創建人" />
+            <lang locale="zh_TW" value="創建人" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.BuildTypeQuery].units.queryField[creator.name].extendedProperty.colWidthInKDTable">
             <lang locale="en_US" value="50" />
@@ -785,39 +736,10 @@
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.BuildTypeQuery].units.queryField[creator.number].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="用户名" />
-            <lang locale="zh_TW" value="用戶名" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.BuildTypeQuery].units.queryField[creator.number].extendedProperty.colWidthInKDTable">
-            <lang locale="en_US" value="50" />
-            <lang locale="zh_CN" value="50" />
-            <lang locale="zh_TW" value="50" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.BuildTypeQuery].units.queryField[creator.number].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="false" />
-            <lang locale="zh_CN" value="false" />
-            <lang locale="zh_TW" value="false" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.BuildTypeQuery].units.queryField[creator.number].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="false" />
-            <lang locale="zh_CN" value="false" />
-            <lang locale="zh_TW" value="false" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.BuildTypeQuery].units.queryField[creator.number].extendedProperty.isUsingF7">
-            <lang locale="en_US" value="false" />
-            <lang locale="zh_CN" value="false" />
-            <lang locale="zh_TW" value="false" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.BuildTypeQuery].units.queryField[creator.number].extendedProperty.isVisibleForKDTable">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.BuildTypeQuery].units.queryField[description].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="描述" />
+            <lang locale="zh_HK" value="描述" />
             <lang locale="zh_TW" value="描述" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.BuildTypeQuery].units.queryField[description].extendedProperty.colWidthInKDTable">
@@ -878,6 +800,7 @@
         <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.BuildTypeQuery].units.queryField[lastUpdateTime].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="最后修改时间" />
+            <lang locale="zh_HK" value="最後修改時間" />
             <lang locale="zh_TW" value="最後修改時間" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.BuildTypeQuery].units.queryField[lastUpdateTime].extendedProperty.colWidthInKDTable">
@@ -907,8 +830,9 @@
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.BuildTypeQuery].units.queryField[lastUpdateUser.name].displayName">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="别名" />
-            <lang locale="zh_TW" value="別名" />
+            <lang locale="zh_CN" value="最后修改人" />
+            <lang locale="zh_HK" value="最後修改人" />
+            <lang locale="zh_TW" value="最後修改人" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.BuildTypeQuery].units.queryField[lastUpdateUser.name].extendedProperty.colWidthInKDTable">
             <lang locale="en_US" value="50" />
@@ -935,40 +859,11 @@
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.BuildTypeQuery].units.queryField[lastUpdateUser.number].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="用户名" />
-            <lang locale="zh_TW" value="用戶名" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.BuildTypeQuery].units.queryField[lastUpdateUser.number].extendedProperty.colWidthInKDTable">
-            <lang locale="en_US" value="50" />
-            <lang locale="zh_CN" value="50" />
-            <lang locale="zh_TW" value="50" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.BuildTypeQuery].units.queryField[lastUpdateUser.number].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="false" />
-            <lang locale="zh_CN" value="false" />
-            <lang locale="zh_TW" value="false" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.BuildTypeQuery].units.queryField[lastUpdateUser.number].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="false" />
-            <lang locale="zh_CN" value="false" />
-            <lang locale="zh_TW" value="false" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.BuildTypeQuery].units.queryField[lastUpdateUser.number].extendedProperty.isUsingF7">
-            <lang locale="en_US" value="false" />
-            <lang locale="zh_CN" value="false" />
-            <lang locale="zh_TW" value="false" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.BuildTypeQuery].units.queryField[lastUpdateUser.number].extendedProperty.isVisibleForKDTable">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.BuildTypeQuery].units.queryField[name].displayName">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="名称" />
-            <lang locale="zh_TW" value="名稱" />
+            <lang locale="zh_CN" value="建设性质" />
+            <lang locale="zh_HK" value="建設性質" />
+            <lang locale="zh_TW" value="建設性質" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.BuildTypeQuery].units.queryField[name].extendedProperty.colWidthInKDTable">
             <lang locale="en_US" value="50" />
@@ -998,6 +893,7 @@
         <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.BuildTypeQuery].units.queryField[number].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="编码" />
+            <lang locale="zh_HK" value="編碼" />
             <lang locale="zh_TW" value="編碼" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.BuildTypeQuery].units.queryField[number].extendedProperty.colWidthInKDTable">
@@ -1028,6 +924,7 @@
         <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.BuildTypeQuery].units.queryField[simpleName].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="简称" />
+            <lang locale="zh_HK" value="簡稱" />
             <lang locale="zh_TW" value="簡稱" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.BuildTypeQuery].units.queryField[simpleName].extendedProperty.colWidthInKDTable">

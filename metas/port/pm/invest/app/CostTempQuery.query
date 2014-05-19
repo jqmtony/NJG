@@ -87,45 +87,6 @@
                 <key name="name" value="User" />
             </entityRef>
         </subEntity>
-        <subEntity>
-            <name>E1</name>
-            <alias>joinQuery[com.kingdee.eas.port.pm.invest.app.CostTempQuery].subObjects.subEntity[E1].alias</alias>
-            <userDefined>true</userDefined>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
-                <key name="name" value="CostTempQuery" />
-            </query>
-            <entityRef>
-                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
-                <key name="name" value="CostTempE1" />
-            </entityRef>
-        </subEntity>
-        <subEntity>
-            <name>costType</name>
-            <alias>joinQuery[com.kingdee.eas.port.pm.invest.app.CostTempQuery].subObjects.subEntity[costType].alias</alias>
-            <userDefined>true</userDefined>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
-                <key name="name" value="CostTempQuery" />
-            </query>
-            <entityRef>
-                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
-                <key name="name" value="CostTypeTree" />
-            </entityRef>
-        </subEntity>
-        <subEntity>
-            <name>costNames</name>
-            <alias>joinQuery[com.kingdee.eas.port.pm.invest.app.CostTempQuery].subObjects.subEntity[costNames].alias</alias>
-            <userDefined>true</userDefined>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
-                <key name="name" value="CostTempQuery" />
-            </query>
-            <entityRef>
-                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
-                <key name="name" value="CostType" />
-            </entityRef>
-        </subEntity>
     </subObjects>
     <units>
         <propertyUnit>
@@ -718,68 +679,6 @@
             </query>
         </propertyUnit>
         <queryField>
-            <name>costType.name</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.CostTempQuery].units.queryField[costType.name].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>e6f8119a-a34a-48cd-930d-8eb55f18f249</key>
-                    <parentUnit>
-                        <key name="name" value="costType.name" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="costType" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="name" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
-                <key name="name" value="CostTempQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>costNames.name</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.CostTempQuery].units.queryField[costNames.name].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>4941d2ac-c78f-4b48-bbce-0148dcbbdfdc</key>
-                    <parentUnit>
-                        <key name="name" value="costNames.name" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="costNames" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="name" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
-                <key name="name" value="CostTempQuery" />
-            </query>
-        </queryField>
-        <queryField>
             <name>bizDate</name>
             <userDefined>true</userDefined>
             <formulaString />
@@ -903,192 +802,6 @@
                 <key name="name" value="CostTempQuery" />
             </query>
         </queryField>
-        <propertyUnit>
-            <name>31d8bf0f-1c26-4d2a-85a4-59859dd15404</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.CostTempQuery].units.propertyUnit[31d8bf0f-1c26-4d2a-85a4-59859dd15404].displayName</displayName>
-            <groupType />
-            <isSelector>false</isSelector>
-            <isFilter>false</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>a94b9b5c-5e70-4a60-9e59-0ae59eb03dc8</key>
-                    <parentUnit>
-                        <key name="name" value="31d8bf0f-1c26-4d2a-85a4-59859dd15404" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="CostTemp" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="id" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
-                <key name="name" value="CostTempQuery" />
-            </query>
-        </propertyUnit>
-        <propertyUnit>
-            <name>fc3b4df8-32aa-426e-905e-207e6678dfe3</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.CostTempQuery].units.propertyUnit[fc3b4df8-32aa-426e-905e-207e6678dfe3].displayName</displayName>
-            <groupType />
-            <isSelector>false</isSelector>
-            <isFilter>false</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>e005182c-d073-4101-a7f7-6b221e4b5336</key>
-                    <parentUnit>
-                        <key name="name" value="fc3b4df8-32aa-426e-905e-207e6678dfe3" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="E1" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="parent" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
-                <key name="name" value="CostTempQuery" />
-            </query>
-        </propertyUnit>
-        <propertyUnit>
-            <name>160c4664-9526-4577-99a8-3451fd226de7</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.CostTempQuery].units.propertyUnit[160c4664-9526-4577-99a8-3451fd226de7].displayName</displayName>
-            <groupType />
-            <isSelector>false</isSelector>
-            <isFilter>false</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>e604c445-bff2-4fa9-a730-311c90884474</key>
-                    <parentUnit>
-                        <key name="name" value="160c4664-9526-4577-99a8-3451fd226de7" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="E1" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="costType" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
-                <key name="name" value="CostTempQuery" />
-            </query>
-        </propertyUnit>
-        <propertyUnit>
-            <name>c771acf1-ec5d-4dee-9b02-08069762de31</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.CostTempQuery].units.propertyUnit[c771acf1-ec5d-4dee-9b02-08069762de31].displayName</displayName>
-            <groupType />
-            <isSelector>false</isSelector>
-            <isFilter>false</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>76068f0b-cffc-456b-9951-45ca03cec3cd</key>
-                    <parentUnit>
-                        <key name="name" value="c771acf1-ec5d-4dee-9b02-08069762de31" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="costType" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="id" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
-                <key name="name" value="CostTempQuery" />
-            </query>
-        </propertyUnit>
-        <propertyUnit>
-            <name>553e6d92-f777-46a8-a5fd-776c62d43622</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.CostTempQuery].units.propertyUnit[553e6d92-f777-46a8-a5fd-776c62d43622].displayName</displayName>
-            <groupType />
-            <isSelector>false</isSelector>
-            <isFilter>false</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>e8239283-56d1-4cd2-a08f-853de808dd75</key>
-                    <parentUnit>
-                        <key name="name" value="553e6d92-f777-46a8-a5fd-776c62d43622" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="E1" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="costNames" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
-                <key name="name" value="CostTempQuery" />
-            </query>
-        </propertyUnit>
-        <propertyUnit>
-            <name>8d9b2927-4173-4e1d-9ff2-e401479aae9f</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.CostTempQuery].units.propertyUnit[8d9b2927-4173-4e1d-9ff2-e401479aae9f].displayName</displayName>
-            <groupType />
-            <isSelector>false</isSelector>
-            <isFilter>false</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>b500caee-8dae-4a93-a528-67ce2d54640c</key>
-                    <parentUnit>
-                        <key name="name" value="8d9b2927-4173-4e1d-9ff2-e401479aae9f" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="costNames" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="id" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
-                <key name="name" value="CostTempQuery" />
-            </query>
-        </propertyUnit>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -1260,96 +973,6 @@
                 <key name="name" value="CostTempQuery" />
             </query>
         </join>
-        <join>
-            <name>4cc5e648-3ae6-4f40-80f1-99744ba3816a</name>
-            <formulaString>#0</formulaString>
-            <type>LEFT OUTER JOIN</type>
-            <leftObject>
-                <key name="name" value="CostTemp" />
-            </leftObject>
-            <rightObject>
-                <key name="name" value="E1" />
-            </rightObject>
-            <joinItems>
-                <joinItem>
-                    <name>12920f37-2b80-4ce1-869e-6cc8ff590391</name>
-                    <compareType>=</compareType>
-                    <leftField>
-                        <key name="name" value="31d8bf0f-1c26-4d2a-85a4-59859dd15404" />
-                    </leftField>
-                    <rightField>
-                        <key name="name" value="fc3b4df8-32aa-426e-905e-207e6678dfe3" />
-                    </rightField>
-                    <join>
-                        <key name="name" value="4cc5e648-3ae6-4f40-80f1-99744ba3816a" />
-                    </join>
-                </joinItem>
-            </joinItems>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
-                <key name="name" value="CostTempQuery" />
-            </query>
-        </join>
-        <join>
-            <name>289f6f5e-41e5-4360-8e7a-74dd9b62b30c</name>
-            <formulaString>#0</formulaString>
-            <type>LEFT OUTER JOIN</type>
-            <leftObject>
-                <key name="name" value="E1" />
-            </leftObject>
-            <rightObject>
-                <key name="name" value="costType" />
-            </rightObject>
-            <joinItems>
-                <joinItem>
-                    <name>2a45e826-cb0b-4f37-86a0-fd8a3a565af1</name>
-                    <compareType>=</compareType>
-                    <leftField>
-                        <key name="name" value="160c4664-9526-4577-99a8-3451fd226de7" />
-                    </leftField>
-                    <rightField>
-                        <key name="name" value="c771acf1-ec5d-4dee-9b02-08069762de31" />
-                    </rightField>
-                    <join>
-                        <key name="name" value="289f6f5e-41e5-4360-8e7a-74dd9b62b30c" />
-                    </join>
-                </joinItem>
-            </joinItems>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
-                <key name="name" value="CostTempQuery" />
-            </query>
-        </join>
-        <join>
-            <name>18ce40a5-a248-4d34-ad31-989b65729979</name>
-            <formulaString>#0</formulaString>
-            <type>LEFT OUTER JOIN</type>
-            <leftObject>
-                <key name="name" value="E1" />
-            </leftObject>
-            <rightObject>
-                <key name="name" value="costNames" />
-            </rightObject>
-            <joinItems>
-                <joinItem>
-                    <name>73309f38-6dd4-42ef-bb9e-34e2db655c9b</name>
-                    <compareType>=</compareType>
-                    <leftField>
-                        <key name="name" value="553e6d92-f777-46a8-a5fd-776c62d43622" />
-                    </leftField>
-                    <rightField>
-                        <key name="name" value="8d9b2927-4173-4e1d-9ff2-e401479aae9f" />
-                    </rightField>
-                    <join>
-                        <key name="name" value="18ce40a5-a248-4d34-ad31-989b65729979" />
-                    </join>
-                </joinItem>
-            </joinItems>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
-                <key name="name" value="CostTempQuery" />
-            </query>
-        </join>
     </joins>
     <resource>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.CostTempQuery].alias">
@@ -1398,25 +1021,7 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.CostTempQuery].subObjects.subEntity[E1].alias">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.CostTempQuery].subObjects.subEntity[auditor].alias">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.CostTempQuery].subObjects.subEntity[costNames].alias">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.CostTempQuery].subObjects.subEntity[costType].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -1458,19 +1063,7 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.CostTempQuery].units.propertyUnit[160c4664-9526-4577-99a8-3451fd226de7].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.CostTempQuery].units.propertyUnit[2919c846-f67f-41bd-84c9-5150a920307d].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.CostTempQuery].units.propertyUnit[31d8bf0f-1c26-4d2a-85a4-59859dd15404].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -1495,12 +1088,6 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.CostTempQuery].units.propertyUnit[54a81184-06f2-41b1-8995-3423652bdf49].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.CostTempQuery].units.propertyUnit[553e6d92-f777-46a8-a5fd-776c62d43622].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -1536,12 +1123,6 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.CostTempQuery].units.propertyUnit[8d9b2927-4173-4e1d-9ff2-e401479aae9f].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.CostTempQuery].units.propertyUnit[ac961b6f-1dad-474f-88a2-01b40462cd74].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -1554,12 +1135,6 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.CostTempQuery].units.propertyUnit[c771acf1-ec5d-4dee-9b02-08069762de31].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.CostTempQuery].units.propertyUnit[ea4a2b0a-dcad-45bd-b416-07a0020bc88b].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -1567,12 +1142,6 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.CostTempQuery].units.propertyUnit[fa27cceb-0117-4102-89a0-2e20f834bd78].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.CostTempQuery].units.propertyUnit[fc3b4df8-32aa-426e-905e-207e6678dfe3].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -1614,18 +1183,6 @@
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.CostTempQuery].units.queryField[costNames.name].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="费用名称" />
-            <lang locale="zh_HK" value="費用名稱" />
-            <lang locale="zh_TW" value="費用名稱" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.CostTempQuery].units.queryField[costType.name].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="费用类型" />
-            <lang locale="zh_HK" value="費用類型" />
-            <lang locale="zh_TW" value="費用類型" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.CostTempQuery].units.queryField[id].displayName">
             <lang locale="en_US" value="null" />
