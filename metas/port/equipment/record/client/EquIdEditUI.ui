@@ -7765,8 +7765,122 @@
             <isEntryAction>false</isEntryAction>
             <batchMethodName />
         </action>
+        <action>
+            <instanceName>actionInUse</instanceName>
+            <className>ActionInUse</className>
+            <name>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].actions.action[actionInUse].name</name>
+            <enabled>true</enabled>
+            <actionPerformed>com.kingdee.eas.port.equipment.record.EquIdFactory.getRemoteInstance().inUse(editData);</actionPerformed>
+            <beforeActionPerformed />
+            <afterActionPerformed />
+            <finallyActionPerformed />
+            <actionCommandKey />
+            <acceleratorKey />
+            <mnemonicKey />
+            <smallIcon>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].actions.action[actionInUse].smallIcon</smallIcon>
+            <shortDescription>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].actions.action[actionInUse].shortDescription</shortDescription>
+            <longDescription>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].actions.action[actionInUse].longDescription</longDescription>
+            <isBindWorkFlow>false</isBindWorkFlow>
+            <herited>false</herited>
+            <daemonRun>false</daemonRun>
+            <actionExtendProperty>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;ExtendProperty&gt;&lt;item key="canForewarn" value="true" /&gt;&lt;item key="userDefined" value="true" /&gt;&lt;item key="isObjectUpdateLock" value="false" /&gt;&lt;/ExtendProperty&gt;
+</actionExtendProperty>
+            <services>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root&gt;&lt;service class="com.kingdee.eas.framework.client.service.PermissionService" /&gt;&lt;service class="com.kingdee.eas.framework.client.service.ForewarnService" /&gt;&lt;/root&gt;
+</services>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <oprtIntent />
+            <nextUI />
+            <isUIPNavigator>false</isUIPNavigator>
+            <isBatchAction>false</isBatchAction>
+            <isEntryAction>false</isEntryAction>
+            <batchMethodName />
+        </action>
+        <action>
+            <instanceName>actionOutUse</instanceName>
+            <className>ActionOutUse</className>
+            <name>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].actions.action[actionOutUse].name</name>
+            <enabled>true</enabled>
+            <actionPerformed>com.kingdee.eas.port.equipment.record.EquIdFactory.getRemoteInstance().outUse(editData);</actionPerformed>
+            <beforeActionPerformed />
+            <afterActionPerformed />
+            <finallyActionPerformed />
+            <actionCommandKey />
+            <acceleratorKey />
+            <mnemonicKey />
+            <smallIcon>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].actions.action[actionOutUse].smallIcon</smallIcon>
+            <shortDescription>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].actions.action[actionOutUse].shortDescription</shortDescription>
+            <longDescription>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].actions.action[actionOutUse].longDescription</longDescription>
+            <isBindWorkFlow>false</isBindWorkFlow>
+            <herited>false</herited>
+            <daemonRun>false</daemonRun>
+            <actionExtendProperty>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;ExtendProperty&gt;&lt;item key="canForewarn" value="true" /&gt;&lt;item key="userDefined" value="true" /&gt;&lt;item key="isObjectUpdateLock" value="false" /&gt;&lt;/ExtendProperty&gt;
+</actionExtendProperty>
+            <services>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root&gt;&lt;service class="com.kingdee.eas.framework.client.service.PermissionService" /&gt;&lt;service class="com.kingdee.eas.framework.client.service.ForewarnService" /&gt;&lt;/root&gt;
+</services>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <oprtIntent />
+            <nextUI />
+            <isUIPNavigator>false</isUIPNavigator>
+            <isBatchAction>false</isBatchAction>
+            <isEntryAction>false</isEntryAction>
+            <batchMethodName />
+        </action>
     </actions>
     <resource>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].actions.action[actionInUse].longDescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].actions.action[actionInUse].name">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="在用" />
+            <lang locale="zh_HK" value="在用" />
+            <lang locale="zh_TW" value="在用" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].actions.action[actionInUse].shortDescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].actions.action[actionInUse].smallIcon">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].actions.action[actionOutUse].longDescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].actions.action[actionOutUse].name">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="停用" />
+            <lang locale="zh_HK" value="停用" />
+            <lang locale="zh_TW" value="停用" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].actions.action[actionOutUse].shortDescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].actions.action[actionOutUse].smallIcon">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].actions.action[actionSubmit].longDescription">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="提交" />

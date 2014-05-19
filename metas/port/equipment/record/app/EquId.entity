@@ -707,6 +707,58 @@
             <userDefinedLogic />
             <configured>false</configured>
         </method>
+        <method>
+            <name>inUse</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].methods.method[inUse].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].methods.method[inUse].description</description>
+            <innerID>be8ddac5-16d6-4d32-9514-afc38db1d083</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].methods.method[inUse].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].methods.method[inUse].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.port.equipment.record.app.EquId</metadataRef>
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>outUse</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].methods.method[outUse].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].methods.method[outUse].description</description>
+            <innerID>b5707ad9-c2bf-4ad7-9306-da8eed5d19ea</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].methods.method[outUse].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].methods.method[outUse].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.port.equipment.record.app.EquId</metadataRef>
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
     </methods>
     <isAbstract>false</isAbstract>
     <bizUnitPK>com.kingdee.eas.port.equipment.record.EquId</bizUnitPK>
@@ -1832,6 +1884,92 @@
             </baseProperty>
         </keyProperties>
     </logicalKey>
+    <events>
+        <event>
+            <name>inUseEvent</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[inUseEvent].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[inUseEvent].description</description>
+            <userDefined>true</userDefined>
+            <eventMethods>
+                <eventMethod>
+                    <name>be8ddac5-16d6-4d32-9514-afc38db1d083</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[inUseEvent].eventMethods.eventMethod[be8ddac5-16d6-4d32-9514-afc38db1d083].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[inUseEvent].eventMethods.eventMethod[be8ddac5-16d6-4d32-9514-afc38db1d083].description</description>
+                    <entityMethodRef>
+                        <key name="name" value="inUse" />
+                        <key name="innerID" value="be8ddac5-16d6-4d32-9514-afc38db1d083" />
+                    </entityMethodRef>
+                    <parameterMappings>
+                        <parameterMapping>
+                            <name />
+                            <alias>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[inUseEvent].eventMethods.eventMethod[be8ddac5-16d6-4d32-9514-afc38db1d083].parameterMappings.parameterMappingalias</alias>
+                            <description>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[inUseEvent].eventMethods.eventMethod[be8ddac5-16d6-4d32-9514-afc38db1d083].parameterMappings.parameterMappingdescription</description>
+                            <formalParameterInnerID>6115f3b7-08ae-46fc-bb6d-8a713a921be3evfp</formalParameterInnerID>
+                            <actualParameterIndex>0</actualParameterIndex>
+                            <isBOPK>true</isBOPK>
+                        </parameterMapping>
+                    </parameterMappings>
+                </eventMethod>
+            </eventMethods>
+            <formalParameters>
+                <formalParameter>
+                    <innerID>6115f3b7-08ae-46fc-bb6d-8a713a921be3evfp</innerID>
+                    <userDefined>true</userDefined>
+                    <parameter>
+                        <name>model</name>
+                        <alias>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[inUseEvent].formalParameters.formalParameter.parameter[model].alias</alias>
+                        <description>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[inUseEvent].formalParameters.formalParameter.parameter[model].description</description>
+                        <direction>in</direction>
+                        <dataType>ObjectValue</dataType>
+                        <metadataRef>com.kingdee.eas.port.equipment.record.app.EquId</metadataRef>
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </formalParameter>
+            </formalParameters>
+        </event>
+        <event>
+            <name>outUseEvent</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[outUseEvent].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[outUseEvent].description</description>
+            <userDefined>true</userDefined>
+            <eventMethods>
+                <eventMethod>
+                    <name>b5707ad9-c2bf-4ad7-9306-da8eed5d19ea</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[outUseEvent].eventMethods.eventMethod[b5707ad9-c2bf-4ad7-9306-da8eed5d19ea].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[outUseEvent].eventMethods.eventMethod[b5707ad9-c2bf-4ad7-9306-da8eed5d19ea].description</description>
+                    <entityMethodRef>
+                        <key name="name" value="outUse" />
+                        <key name="innerID" value="b5707ad9-c2bf-4ad7-9306-da8eed5d19ea" />
+                    </entityMethodRef>
+                    <parameterMappings>
+                        <parameterMapping>
+                            <name />
+                            <alias>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[outUseEvent].eventMethods.eventMethod[b5707ad9-c2bf-4ad7-9306-da8eed5d19ea].parameterMappings.parameterMappingalias</alias>
+                            <description>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[outUseEvent].eventMethods.eventMethod[b5707ad9-c2bf-4ad7-9306-da8eed5d19ea].parameterMappings.parameterMappingdescription</description>
+                            <formalParameterInnerID>69146520-cd5e-4242-a355-df6070aecb7bevfp</formalParameterInnerID>
+                            <actualParameterIndex>0</actualParameterIndex>
+                            <isBOPK>true</isBOPK>
+                        </parameterMapping>
+                    </parameterMappings>
+                </eventMethod>
+            </eventMethods>
+            <formalParameters>
+                <formalParameter>
+                    <innerID>69146520-cd5e-4242-a355-df6070aecb7bevfp</innerID>
+                    <userDefined>true</userDefined>
+                    <parameter>
+                        <name>model</name>
+                        <alias>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[outUseEvent].formalParameters.formalParameter.parameter[model].alias</alias>
+                        <description>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[outUseEvent].formalParameters.formalParameter.parameter[model].description</description>
+                        <direction>in</direction>
+                        <dataType>ObjectValue</dataType>
+                        <metadataRef>com.kingdee.eas.port.equipment.record.app.EquId</metadataRef>
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </formalParameter>
+            </formalParameters>
+        </event>
+    </events>
     <defaultView>
         <name />
         <alias>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].defaultViewalias</alias>
@@ -1907,6 +2045,102 @@
             <lang locale="zh_HK" value="記錄設備的詳細的靜態信息和動態信息" />
             <lang locale="zh_TW" value="記錄設備的詳細的靜態信息和動態信息" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[inUseEvent].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="在用事件" />
+            <lang locale="zh_HK" value="在用事件" />
+            <lang locale="zh_TW" value="在用事件" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[inUseEvent].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[inUseEvent].eventMethods.eventMethod[be8ddac5-16d6-4d32-9514-afc38db1d083].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[inUseEvent].eventMethods.eventMethod[be8ddac5-16d6-4d32-9514-afc38db1d083].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[inUseEvent].eventMethods.eventMethod[be8ddac5-16d6-4d32-9514-afc38db1d083].parameterMappings.parameterMappingalias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[inUseEvent].eventMethods.eventMethod[be8ddac5-16d6-4d32-9514-afc38db1d083].parameterMappings.parameterMappingdescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[inUseEvent].formalParameters.formalParameter.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[inUseEvent].formalParameters.formalParameter.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[outUseEvent].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="停用事件" />
+            <lang locale="zh_HK" value="停用事件" />
+            <lang locale="zh_TW" value="停用事件" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[outUseEvent].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[outUseEvent].eventMethods.eventMethod[b5707ad9-c2bf-4ad7-9306-da8eed5d19ea].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[outUseEvent].eventMethods.eventMethod[b5707ad9-c2bf-4ad7-9306-da8eed5d19ea].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[outUseEvent].eventMethods.eventMethod[b5707ad9-c2bf-4ad7-9306-da8eed5d19ea].parameterMappings.parameterMappingalias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[outUseEvent].eventMethods.eventMethod[b5707ad9-c2bf-4ad7-9306-da8eed5d19ea].parameterMappings.parameterMappingdescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[outUseEvent].formalParameters.formalParameter.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[outUseEvent].formalParameters.formalParameter.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].extendedProperty.OrgType">
             <lang locale="en_US" value="NONE" />
             <lang locale="zh_CN" value="NONE" />
@@ -1916,6 +2150,11 @@
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].extendedProperty.controllerBeanEx">
+            <lang locale="en_US" value="com.kingdee.eas.port.equipment.record.app.EquIdControllerBeanEx" />
+            <lang locale="zh_CN" value="com.kingdee.eas.port.equipment.record.app.EquIdControllerBeanEx" />
+            <lang locale="zh_TW" value="com.kingdee.eas.port.equipment.record.app.EquIdControllerBeanEx" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].extendedProperty.defaultDisplayField">
             <lang locale="en_US" value="" />
@@ -2321,6 +2560,54 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].methods.method[getValue].parameters.parameter[selector].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].methods.method[inUse].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="在用" />
+            <lang locale="zh_HK" value="在用" />
+            <lang locale="zh_TW" value="在用" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].methods.method[inUse].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].methods.method[inUse].parameters.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].methods.method[inUse].parameters.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].methods.method[outUse].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="停用" />
+            <lang locale="zh_HK" value="停用" />
+            <lang locale="zh_TW" value="停用" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].methods.method[outUse].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].methods.method[outUse].parameters.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].methods.method[outUse].parameters.parameter[model].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />

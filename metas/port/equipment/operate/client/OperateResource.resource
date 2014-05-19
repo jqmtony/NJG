@@ -27,6 +27,11 @@
             <value>i18nResource[com.kingdee.eas.port.equipment.operate.client.OperateResource].resourceItems.resourceItem[EqmAccidentQueryF7WindowTitle].value</value>
             <userDefined>true</userDefined>
         </resourceItem>
+        <resourceItem>
+            <name>ComproductionQueryF7WindowTitle</name>
+            <value>i18nResource[com.kingdee.eas.port.equipment.operate.client.OperateResource].resourceItems.resourceItem[ComproductionQueryF7WindowTitle].value</value>
+            <userDefined>true</userDefined>
+        </resourceItem>
     </resourceItems>
     <resource>
         <rs key="i18nResource[com.kingdee.eas.port.equipment.operate.client.OperateResource].alias">
@@ -40,6 +45,12 @@
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="i18nResource[com.kingdee.eas.port.equipment.operate.client.OperateResource].resourceItems.resourceItem[ComproductionQueryF7WindowTitle].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="公司产能报表" />
+            <lang locale="zh_HK" value="公司產能報表" />
+            <lang locale="zh_TW" value="公司產能報表" />
         </rs>
         <rs key="i18nResource[com.kingdee.eas.port.equipment.operate.client.OperateResource].resourceItems.resourceItem[EqmAccidentQueryF7WindowTitle].value">
             <lang locale="en_US" value="null" />
