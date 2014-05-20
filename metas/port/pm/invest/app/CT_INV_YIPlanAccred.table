@@ -43,6 +43,20 @@
             <isMultilingual>false</isMultilingual>
             <isEncoded>false</isEncoded>
             <isNullable>true</isNullable>
+            <defaultValue>trial</defaultValue>
+            <sqlType>VARCHAR</sqlType>
+            <length>100</length>
+            <scale>0</scale>
+            <precision>100</precision>
+        </column>
+        <column>
+            <name>CFRemark</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YIPlanAccred].columns.column[CFRemark].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YIPlanAccred].columns.column[CFRemark].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
             <defaultValue />
             <sqlType>VARCHAR</sqlType>
             <length>100</length>
@@ -143,7 +157,7 @@
             <isNullable>true</isNullable>
             <defaultValue />
             <sqlType>VARCHAR</sqlType>
-            <length>255</length>
+            <length>44</length>
             <scale>0</scale>
             <precision>0</precision>
         </column>
@@ -281,23 +295,23 @@
             <isMultilingual>false</isMultilingual>
             <isEncoded>false</isEncoded>
             <isNullable>false</isNullable>
-            <defaultValue>''</defaultValue>
+            <defaultValue />
             <sqlType>VARCHAR</sqlType>
             <length>44</length>
             <scale>0</scale>
             <precision>44</precision>
         </column>
         <column>
-            <name>CFRemark</name>
-            <alias>dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YIPlanAccred].columns.column[CFRemark].alias</alias>
-            <description>dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YIPlanAccred].columns.column[CFRemark].description</description>
+            <name>CFAccredInformation</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YIPlanAccred].columns.column[CFAccredInformation].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YIPlanAccred].columns.column[CFAccredInformation].description</description>
             <userDefined>true</userDefined>
             <isMultilingual>false</isMultilingual>
             <isEncoded>false</isEncoded>
             <isNullable>true</isNullable>
             <defaultValue />
-            <sqlType>NVARCHAR</sqlType>
-            <length>100</length>
+            <sqlType>VARCHAR</sqlType>
+            <length>1000</length>
             <scale>0</scale>
             <precision>0</precision>
         </column>
@@ -450,6 +464,17 @@
             <lang locale="zh_HK" value="評審日期" />
             <lang locale="zh_TW" value="評審日期" />
         </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YIPlanAccred].columns.column[CFAccredInformation].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="评审信息" />
+            <lang locale="zh_HK" value="評審信息" />
+            <lang locale="zh_TW" value="評審信息" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YIPlanAccred].columns.column[CFAccredInformation].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YIPlanAccred].columns.column[CFAccredPersonID].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="评审人" />
@@ -500,9 +525,9 @@
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YIPlanAccred].columns.column[FAuditorID].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="审核人" />
-            <lang locale="zh_HK" value="審核人" />
-            <lang locale="zh_TW" value="審核人" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YIPlanAccred].columns.column[FAuditorID].description">
             <lang locale="en_US" value="null" />
@@ -536,9 +561,9 @@
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YIPlanAccred].columns.column[FControlUnitID].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="控制单元" />
-            <lang locale="zh_HK" value="控制單元" />
-            <lang locale="zh_TW" value="控制單元" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YIPlanAccred].columns.column[FControlUnitID].description">
             <lang locale="en_US" value="null" />
@@ -560,9 +585,9 @@
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YIPlanAccred].columns.column[FCreatorID].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="创建者" />
-            <lang locale="zh_HK" value="創建者" />
-            <lang locale="zh_TW" value="創建者" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YIPlanAccred].columns.column[FCreatorID].description">
             <lang locale="en_US" value="null" />
@@ -584,9 +609,9 @@
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YIPlanAccred].columns.column[FHandlerID].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="经手人" />
-            <lang locale="zh_HK" value="經手人" />
-            <lang locale="zh_TW" value="經手人" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YIPlanAccred].columns.column[FHandlerID].description">
             <lang locale="en_US" value="null" />
@@ -631,9 +656,9 @@
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YIPlanAccred].columns.column[FLastUpdateUserID].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="最后修改者" />
-            <lang locale="zh_HK" value="最後修改者" />
-            <lang locale="zh_TW" value="最後修改者" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YIPlanAccred].columns.column[FLastUpdateUserID].description">
             <lang locale="en_US" value="null" />

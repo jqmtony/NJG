@@ -74,32 +74,6 @@
                 <key name="name" value="CtrlUnit" />
             </entityRef>
         </subEntity>
-        <subEntity>
-            <name>E1</name>
-            <alias>joinQuery[com.kingdee.eas.port.pm.invest.app.PreProjectTempQuery].subObjects.subEntity[E1].alias</alias>
-            <userDefined>true</userDefined>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
-                <key name="name" value="PreProjectTempQuery" />
-            </query>
-            <entityRef>
-                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
-                <key name="name" value="PreProjectTempE1" />
-            </entityRef>
-        </subEntity>
-        <subEntity>
-            <name>E1_respondDepart</name>
-            <alias>joinQuery[com.kingdee.eas.port.pm.invest.app.PreProjectTempQuery].subObjects.subEntity[E1_respondDepart].alias</alias>
-            <userDefined>true</userDefined>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
-                <key name="name" value="PreProjectTempQuery" />
-            </query>
-            <entityRef>
-                <key name="package" value="com.kingdee.eas.basedata.org.app" />
-                <key name="name" value="AdminOrgUnit" />
-            </entityRef>
-        </subEntity>
     </subObjects>
     <units>
         <queryField>
@@ -156,99 +130,6 @@
                     </subEntity>
                     <refProperty>
                         <key name="name" value="number" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
-                <key name="name" value="PreProjectTempQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>E1.preWorkContent</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.PreProjectTempQuery].units.queryField[E1.preWorkContent].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>b6b2f0ea-2edb-49ea-9fdd-8bf8cdad9f62</key>
-                    <parentUnit>
-                        <key name="name" value="E1.preWorkContent" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="E1" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="preWorkContent" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
-                <key name="name" value="PreProjectTempQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>E1.workRequest</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.PreProjectTempQuery].units.queryField[E1.workRequest].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>9064a2ef-48c1-43fd-9f49-e45d72b900a5</key>
-                    <parentUnit>
-                        <key name="name" value="E1.workRequest" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="E1" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="workRequest" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
-                <key name="name" value="PreProjectTempQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>E1.respondDepart.name</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.PreProjectTempQuery].units.queryField[E1.respondDepart.name].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>8c757d10-8ba0-491a-a5f0-0490c3a74efd</key>
-                    <parentUnit>
-                        <key name="name" value="E1.respondDepart.name" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="E1_respondDepart" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="name" />
                     </refProperty>
                 </propertyRef>
             </propertyRefs>
@@ -816,161 +697,6 @@
             </query>
         </propertyUnit>
         <queryField>
-            <name>E1.seq</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.PreProjectTempQuery].units.queryField[E1.seq].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>Int</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>35f8e833-5511-45b0-b3ad-e414de8b3213</key>
-                    <parentUnit>
-                        <key name="name" value="E1.seq" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="E1" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="seq" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
-                <key name="name" value="PreProjectTempQuery" />
-            </query>
-        </queryField>
-        <propertyUnit>
-            <name>8ebe4ac7-46f8-4b15-834b-6e8bf9b95070</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.PreProjectTempQuery].units.propertyUnit[8ebe4ac7-46f8-4b15-834b-6e8bf9b95070].displayName</displayName>
-            <groupType />
-            <isSelector>false</isSelector>
-            <isFilter>false</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType />
-            <propertyRefs>
-                <propertyRef>
-                    <key>b03df07c-71fc-4d0d-b1b1-46537ed3ea6c</key>
-                    <parentUnit>
-                        <key name="name" value="8ebe4ac7-46f8-4b15-834b-6e8bf9b95070" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="PreProjectTemp" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="id" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
-                <key name="name" value="PreProjectTempQuery" />
-            </query>
-        </propertyUnit>
-        <propertyUnit>
-            <name>0f5e37d8-4746-4025-a1b7-c4d00b360028</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.PreProjectTempQuery].units.propertyUnit[0f5e37d8-4746-4025-a1b7-c4d00b360028].displayName</displayName>
-            <groupType />
-            <isSelector>false</isSelector>
-            <isFilter>false</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType />
-            <propertyRefs>
-                <propertyRef>
-                    <key>4f6d9a28-ea7c-4dad-a214-497896a4e9d8</key>
-                    <parentUnit>
-                        <key name="name" value="0f5e37d8-4746-4025-a1b7-c4d00b360028" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="E1" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="parent" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
-                <key name="name" value="PreProjectTempQuery" />
-            </query>
-        </propertyUnit>
-        <propertyUnit>
-            <name>0ae80e14-a9a8-454c-bf6a-0db9e51e20d2</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.PreProjectTempQuery].units.propertyUnit[0ae80e14-a9a8-454c-bf6a-0db9e51e20d2].displayName</displayName>
-            <groupType />
-            <isSelector>false</isSelector>
-            <isFilter>false</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType />
-            <propertyRefs>
-                <propertyRef>
-                    <key>f6071b67-638e-461c-930d-203a58ed1d36</key>
-                    <parentUnit>
-                        <key name="name" value="0ae80e14-a9a8-454c-bf6a-0db9e51e20d2" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="E1" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="respondDepart" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
-                <key name="name" value="PreProjectTempQuery" />
-            </query>
-        </propertyUnit>
-        <propertyUnit>
-            <name>9cecea4f-44e7-4408-8799-9822185c1ec4</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.PreProjectTempQuery].units.propertyUnit[9cecea4f-44e7-4408-8799-9822185c1ec4].displayName</displayName>
-            <groupType />
-            <isSelector>false</isSelector>
-            <isFilter>false</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType />
-            <propertyRefs>
-                <propertyRef>
-                    <key>519b90b4-d43a-4f8d-b52b-4eb9ca901442</key>
-                    <parentUnit>
-                        <key name="name" value="9cecea4f-44e7-4408-8799-9822185c1ec4" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="E1_respondDepart" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="id" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
-                <key name="name" value="PreProjectTempQuery" />
-            </query>
-        </propertyUnit>
-        <queryField>
             <name>CU.id</name>
             <userDefined>true</userDefined>
             <formulaString />
@@ -1154,66 +880,6 @@
                 <key name="name" value="PreProjectTempQuery" />
             </query>
         </join>
-        <join>
-            <name>e6248954-730f-4566-87c9-8c905a5d78f8</name>
-            <formulaString>#0</formulaString>
-            <type>LEFT OUTER JOIN</type>
-            <leftObject>
-                <key name="name" value="PreProjectTemp" />
-            </leftObject>
-            <rightObject>
-                <key name="name" value="E1" />
-            </rightObject>
-            <joinItems>
-                <joinItem>
-                    <name>67167503-a657-4114-ba0f-d79d3ec6e75b</name>
-                    <compareType>=</compareType>
-                    <leftField>
-                        <key name="name" value="8ebe4ac7-46f8-4b15-834b-6e8bf9b95070" />
-                    </leftField>
-                    <rightField>
-                        <key name="name" value="0f5e37d8-4746-4025-a1b7-c4d00b360028" />
-                    </rightField>
-                    <join>
-                        <key name="name" value="e6248954-730f-4566-87c9-8c905a5d78f8" />
-                    </join>
-                </joinItem>
-            </joinItems>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
-                <key name="name" value="PreProjectTempQuery" />
-            </query>
-        </join>
-        <join>
-            <name>6b237492-ca33-4203-b8ab-17f8b3f3ec54</name>
-            <formulaString>#0</formulaString>
-            <type>LEFT OUTER JOIN</type>
-            <leftObject>
-                <key name="name" value="E1" />
-            </leftObject>
-            <rightObject>
-                <key name="name" value="E1_respondDepart" />
-            </rightObject>
-            <joinItems>
-                <joinItem>
-                    <name>53cdcfae-712a-4629-ba10-47a972ea83a2</name>
-                    <compareType>=</compareType>
-                    <leftField>
-                        <key name="name" value="0ae80e14-a9a8-454c-bf6a-0db9e51e20d2" />
-                    </leftField>
-                    <rightField>
-                        <key name="name" value="9cecea4f-44e7-4408-8799-9822185c1ec4" />
-                    </rightField>
-                    <join>
-                        <key name="name" value="6b237492-ca33-4203-b8ab-17f8b3f3ec54" />
-                    </join>
-                </joinItem>
-            </joinItems>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
-                <key name="name" value="PreProjectTempQuery" />
-            </query>
-        </join>
     </joins>
     <resource>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.PreProjectTempQuery].alias">
@@ -1261,18 +927,6 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.PreProjectTempQuery].subObjects.subEntity[E1].alias">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.PreProjectTempQuery].subObjects.subEntity[E1_respondDepart].alias">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.PreProjectTempQuery].subObjects.subEntity[PreProjectTemp].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -1298,18 +952,6 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.PreProjectTempQuery].units.propertyUnit[00a866a6-64e1-4f3f-a034-5740ab0d31ec].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.PreProjectTempQuery].units.propertyUnit[0ae80e14-a9a8-454c-bf6a-0db9e51e20d2].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.PreProjectTempQuery].units.propertyUnit[0f5e37d8-4746-4025-a1b7-c4d00b360028].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -1345,18 +987,6 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.PreProjectTempQuery].units.propertyUnit[8ebe4ac7-46f8-4b15-834b-6e8bf9b95070].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.PreProjectTempQuery].units.propertyUnit[9cecea4f-44e7-4408-8799-9822185c1ec4].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.PreProjectTempQuery].units.propertyUnit[e2d4e712-e3ae-494f-ac8e-5908534f9998].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -1385,80 +1015,6 @@
             <lang locale="zh_CN" value="建模单位" />
             <lang locale="zh_HK" value="建模單位" />
             <lang locale="zh_TW" value="建模單位" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.PreProjectTempQuery].units.queryField[E1.preWorkContent].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="前期工作内容" />
-            <lang locale="zh_HK" value="前期工作內容" />
-            <lang locale="zh_TW" value="前期工作內容" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.PreProjectTempQuery].units.queryField[E1.preWorkContent].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.PreProjectTempQuery].units.queryField[E1.preWorkContent].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.PreProjectTempQuery].units.queryField[E1.respondDepart.name].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="责任部门" />
-            <lang locale="zh_HK" value="責任部門" />
-            <lang locale="zh_TW" value="責任部門" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.PreProjectTempQuery].units.queryField[E1.respondDepart.name].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.PreProjectTempQuery].units.queryField[E1.respondDepart.name].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.PreProjectTempQuery].units.queryField[E1.respondDepart.name].extendedProperty.isUsingF7">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.PreProjectTempQuery].units.queryField[E1.seq].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="单据分录序列号" />
-            <lang locale="zh_HK" value="單據分錄序列號" />
-            <lang locale="zh_TW" value="單據分錄序列號" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.PreProjectTempQuery].units.queryField[E1.seq].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.PreProjectTempQuery].units.queryField[E1.seq].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.PreProjectTempQuery].units.queryField[E1.seq].extendedProperty.isVisibleForKDTable">
-            <lang locale="en_US" value="false" />
-            <lang locale="zh_CN" value="false" />
-            <lang locale="zh_TW" value="false" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.PreProjectTempQuery].units.queryField[E1.workRequest].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="工作要求" />
-            <lang locale="zh_HK" value="工作要求" />
-            <lang locale="zh_TW" value="工作要求" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.PreProjectTempQuery].units.queryField[E1.workRequest].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.PreProjectTempQuery].units.queryField[E1.workRequest].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.PreProjectTempQuery].units.queryField[auditTime].displayName">
             <lang locale="en_US" value="null" />
@@ -1489,9 +1045,9 @@
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.PreProjectTempQuery].units.queryField[bizDate].displayName">
             <lang locale="en_US" value="" />
-            <lang locale="zh_CN" value="业务日期" />
-            <lang locale="zh_HK" value="業務日期" />
-            <lang locale="zh_TW" value="業務日期" />
+            <lang locale="zh_CN" value="建模日期" />
+            <lang locale="zh_HK" value="建模日期" />
+            <lang locale="zh_TW" value="建模日期" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.PreProjectTempQuery].units.queryField[bizDate].extendedProperty.isCommonQueryFilter">
             <lang locale="en_US" value="true" />

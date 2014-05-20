@@ -219,7 +219,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>668,12,270,19,137</constraints>
+            <constraints>341,12,270,19,385</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -436,7 +436,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>341,12,270,19,385</constraints>
+            <constraints>668,12,270,19,137</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -576,7 +576,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>14,42,270,19,261</constraints>
+            <constraints>341,38,270,19,385</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -625,7 +625,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>658,39,270,19,261</constraints>
+            <constraints>668,38,270,19,137</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -674,7 +674,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>341,42,270,19,385</constraints>
+            <constraints>14,38,270,19,261</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -723,7 +723,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>14,65,923,384,77</constraints>
+            <constraints>14,65,923,383,77</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -751,7 +751,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>12,452,923,206,46</constraints>
+            <constraints>14,452,923,206,46</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -1757,7 +1757,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.kdf.table.KDTable</classType>
             <isContainer>false</isContainer>
-            <constraints>Center</constraints>
+            <constraints>4,245,923,187,0</constraints>
             <tabIndex>1</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -1908,12 +1908,31 @@
             </parent>
         </component>
         <component>
-            <name>kDTextField1</name>
-            <alias>uiObject[com.kingdee.eas.port.pm.invest.client.YIPlanAccredEditUI].components.component[kDTextField1].alias</alias>
+            <name>kDScrollPane1</name>
+            <alias>uiObject[com.kingdee.eas.port.pm.invest.client.YIPlanAccredEditUI].components.component[kDScrollPane1].alias</alias>
             <userDefined>true</userDefined>
-            <classType>com.kingdee.bos.ctrl.swing.KDTextField</classType>
+            <classType>com.kingdee.bos.ctrl.swing.KDScrollPane</classType>
+            <isContainer>true</isContainer>
+            <constraints>8</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>SameGridLayout</type>
+                <value>1,1,0,0,0,0</value>
+            </layoutInfo>
+            <parent>
+                <key name="name" value="kDLabelContainer1" />
+            </parent>
+        </component>
+        <component>
+            <name>accredInformation</name>
+            <alias>uiObject[com.kingdee.eas.port.pm.invest.client.YIPlanAccredEditUI].components.component[accredInformation].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDTextArea</classType>
             <isContainer>false</isContainer>
-            <constraints>-33,-73,902,131,0</constraints>
+            <constraints>0,0,1,1</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -1923,8 +1942,21 @@
                 <value />
             </layoutInfo>
             <parent>
-                <key name="name" value="kDLabelContainer1" />
+                <key name="name" value="kDScrollPane1" />
             </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>text</propertyName>
+                    <propertyType>java.lang.String</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>accredInformation</bindingField>
+                    <fieldType>String</fieldType>
+                    <accessType />
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
         </component>
         <component>
             <name>txtremark</name>
@@ -2121,6 +2153,12 @@
             <lang locale="zh_HK" value="1000,670" />
             <lang locale="zh_TW" value="1000,670" />
         </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invest.client.YIPlanAccredEditUI].components.component[accredInformation].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
         <rs key="uiObject[com.kingdee.eas.port.pm.invest.client.YIPlanAccredEditUI].components.component[accredType].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="评审类型" />
@@ -2303,9 +2341,9 @@
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.pm.invest.client.YIPlanAccredEditUI].components.component[contCU].properties.property[boundLabelText].value">
             <lang locale="en_US" value="控制单元" />
-            <lang locale="zh_CN" value="管理公司" />
-            <lang locale="zh_HK" value="管理公司" />
-            <lang locale="zh_TW" value="管理公司" />
+            <lang locale="zh_CN" value="评审单位" />
+            <lang locale="zh_HK" value="評審單位" />
+            <lang locale="zh_TW" value="評審單位" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.pm.invest.client.YIPlanAccredEditUI].components.component[contCU].properties.property[boundLabelUnderline].value">
             <lang locale="en_US" value="true" />
@@ -2667,7 +2705,7 @@
             <lang locale="zh_HK" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
-        <rs key="uiObject[com.kingdee.eas.port.pm.invest.client.YIPlanAccredEditUI].components.component[kDTextField1].alias">
+        <rs key="uiObject[com.kingdee.eas.port.pm.invest.client.YIPlanAccredEditUI].components.component[kDScrollPane1].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
