@@ -96,16 +96,22 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
 		kdtE2.getColumn("accredDpart").getStyleAttributes().setLocked(true);
 		kdtE2.getColumn("accredPerson").getStyleAttributes().setLocked(true);
 		accredType.setEnabled(false);
+		
 		//µ±∆¿…Û ±£¨—°∂®∆¿…Û±Ì¿‡–Õ
-		if(OprtState.ADDNEW.equals(getOprtState())&&((this.editData.getDescription()!=null)?this.editData.getDescription():"").equals("≥ı…Û")){
-			accredType.setSelectedItem(AccredTypeEnum.trial);
-			kdtE2_detailPanel.getAddNewLineButton().setVisible(false);
-			kdtE2_detailPanel.getInsertLineButton().setVisible(false);
-			kdtE2_detailPanel.getRemoveLinesButton().setVisible(false);
-		}else if(OprtState.ADDNEW.equals(getOprtState())&&((this.editData.getDescription()!=null)?this.editData.getDescription():"").equals("∆¿…Û")){
-			accredType.setSelectedItem(AccredTypeEnum.accred);
-		}else{
-			accredType.setSelectedItem(AccredTypeEnum.approve);
+		if(OprtState.ADDNEW.equals(getOprtState()))
+		{
+			if(((this.editData.getDescription()!=null)?this.editData.getDescription():"").equals("≥ı…Û"))
+			{
+				accredType.setSelectedItem(AccredTypeEnum.trial);
+			}
+			else if(((this.editData.getDescription()!=null)?this.editData.getDescription():"").equals("∆¿…Û"))
+			{
+				accredType.setSelectedItem(AccredTypeEnum.accred);
+			}
+			else
+			{
+				accredType.setSelectedItem(AccredTypeEnum.approve);
+			}
 		}
 		pkaccredDate.setEnabled(false);
 		EntityViewInfo evInfo = new EntityViewInfo();
@@ -138,6 +144,7 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
 	        list.add(ObjectStateEnum.throughAudit);
 	        list.add(ObjectStateEnum.complement);
 	        list.add(ObjectStateEnum.veto);
+	        
 		}
 		else if(accredType.getSelectedItem().equals(AccredTypeEnum.accred))  {
 			kDContainer2.getContentPane().removeAll();
@@ -227,7 +234,7 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
 		});
 		
 		if(accredType.getSelectedItem().equals(AccredTypeEnum.trial)){
-			btnperson.setEnabled(flse);
+			btnperson.setEnabled(false);
 		}
 		
 		btnAddRowinfo.setIcon(EASResource.getIcon("imgTbtn_addline"));
@@ -311,7 +318,7 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
 		btnAddRowinfo.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
 				try {
-					kdtE2_detailPanel.actionInsertLine_actionPerformed(e);
+					kdtE2_detailPanel.actionAddnewLine_actionPerformed(e);
 				} catch (Exception e1) {
 					e1.printStackTrace();
 				}
@@ -345,6 +352,11 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
 				}
 			}
 		});
+		if(accredType.getSelectedItem().equals(AccredTypeEnum.trial)){
+			btnAddRowinfo.setVisible(false);
+			btnInsertRowinfo.setVisible(false);
+			btnDeleteRowinfo.setVisible(false);
+		}
 	}
 	
 	public void onShow() throws Exception {

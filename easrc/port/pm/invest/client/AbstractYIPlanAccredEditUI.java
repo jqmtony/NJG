@@ -84,7 +84,8 @@ public abstract class AbstractYIPlanAccredEditUI extends com.kingdee.eas.xr.clie
     protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtE2;
 	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtE2_detailPanel = null;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer1;
-    protected com.kingdee.bos.ctrl.swing.KDTextField kDTextField1;
+    protected com.kingdee.bos.ctrl.swing.KDScrollPane kDScrollPane1;
+    protected com.kingdee.bos.ctrl.swing.KDTextArea accredInformation;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtremark;
     protected com.kingdee.eas.port.pm.invest.YIPlanAccredInfo editData = null;
     /**
@@ -172,7 +173,8 @@ public abstract class AbstractYIPlanAccredEditUI extends com.kingdee.eas.xr.clie
         this.kdtE1 = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.kdtE2 = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.kDLabelContainer1 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.kDTextField1 = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.kDScrollPane1 = new com.kingdee.bos.ctrl.swing.KDScrollPane();
+        this.accredInformation = new com.kingdee.bos.ctrl.swing.KDTextArea();
         this.txtremark = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.contCreator.setName("contCreator");
         this.contCreateTime.setName("contCreateTime");
@@ -210,7 +212,8 @@ public abstract class AbstractYIPlanAccredEditUI extends com.kingdee.eas.xr.clie
         this.kdtE1.setName("kdtE1");
         this.kdtE2.setName("kdtE2");
         this.kDLabelContainer1.setName("kDLabelContainer1");
-        this.kDTextField1.setName("kDTextField1");
+        this.kDScrollPane1.setName("kDScrollPane1");
+        this.accredInformation.setName("accredInformation");
         this.txtremark.setName("txtremark");
         // CoreUI		
         this.setPreferredSize(new Dimension(1000,670));
@@ -487,7 +490,8 @@ public abstract class AbstractYIPlanAccredEditUI extends com.kingdee.eas.xr.clie
         this.kDLabelContainer1.setBoundLabelUnderline(true);		
         this.kDLabelContainer1.setBoundLabelLength(1);		
         this.kDLabelContainer1.setBoundLabelAlignment(8);
-        // kDTextField1
+        // kDScrollPane1
+        // accredInformation
         // txtremark		
         this.txtremark.setHorizontalAlignment(2);		
         this.txtremark.setMaxLength(100);		
@@ -529,8 +533,8 @@ public abstract class AbstractYIPlanAccredEditUI extends com.kingdee.eas.xr.clie
         this.add(contLastUpdateUser, new KDLayout.Constraints(322, 664, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contLastUpdateTime.setBounds(new Rectangle(322, 690, 270, 19));
         this.add(contLastUpdateTime, new KDLayout.Constraints(322, 690, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contCU.setBounds(new Rectangle(668, 12, 270, 19));
-        this.add(contCU, new KDLayout.Constraints(668, 12, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contCU.setBounds(new Rectangle(341, 12, 270, 19));
+        this.add(contCU, new KDLayout.Constraints(341, 12, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contNumber.setBounds(new Rectangle(14, 12, 270, 19));
         this.add(contNumber, new KDLayout.Constraints(14, 12, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contBizDate.setBounds(new Rectangle(286, 697, 32, 19));
@@ -539,22 +543,22 @@ public abstract class AbstractYIPlanAccredEditUI extends com.kingdee.eas.xr.clie
         this.add(contDescription, new KDLayout.Constraints(613, 702, 16, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contAuditor.setBounds(new Rectangle(633, 663, 270, 19));
         this.add(contAuditor, new KDLayout.Constraints(633, 663, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contStatus.setBounds(new Rectangle(341, 12, 270, 19));
-        this.add(contStatus, new KDLayout.Constraints(341, 12, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contStatus.setBounds(new Rectangle(668, 12, 270, 19));
+        this.add(contStatus, new KDLayout.Constraints(668, 12, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contBizStatus.setBounds(new Rectangle(903, 695, 34, 19));
         this.add(contBizStatus, new KDLayout.Constraints(903, 695, 34, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contAuditTime.setBounds(new Rectangle(633, 689, 270, 19));
         this.add(contAuditTime, new KDLayout.Constraints(633, 689, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contaccredDate.setBounds(new Rectangle(14, 42, 270, 19));
-        this.add(contaccredDate, new KDLayout.Constraints(14, 42, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contaccredPerson.setBounds(new Rectangle(658, 39, 270, 19));
-        this.add(contaccredPerson, new KDLayout.Constraints(658, 39, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contaccredType.setBounds(new Rectangle(341, 42, 270, 19));
-        this.add(contaccredType, new KDLayout.Constraints(341, 42, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        kDContainer1.setBounds(new Rectangle(14, 65, 923, 384));
-        this.add(kDContainer1, new KDLayout.Constraints(14, 65, 923, 384, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        kDContainer2.setBounds(new Rectangle(12, 452, 923, 206));
-        this.add(kDContainer2, new KDLayout.Constraints(12, 452, 923, 206, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        contaccredDate.setBounds(new Rectangle(341, 38, 270, 19));
+        this.add(contaccredDate, new KDLayout.Constraints(341, 38, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contaccredPerson.setBounds(new Rectangle(668, 38, 270, 19));
+        this.add(contaccredPerson, new KDLayout.Constraints(668, 38, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contaccredType.setBounds(new Rectangle(14, 38, 270, 19));
+        this.add(contaccredType, new KDLayout.Constraints(14, 38, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDContainer1.setBounds(new Rectangle(14, 65, 923, 383));
+        this.add(kDContainer1, new KDLayout.Constraints(14, 65, 923, 383, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        kDContainer2.setBounds(new Rectangle(14, 452, 923, 206));
+        this.add(kDContainer2, new KDLayout.Constraints(14, 452, 923, 206, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         contremark.setBounds(new Rectangle(319, 708, 270, 19));
         this.add(contremark, new KDLayout.Constraints(319, 708, 270, 19, 0));
         //contCreator
@@ -603,7 +607,9 @@ kDContainer2.getContentPane().setLayout(new BorderLayout(0, 0));        kdtE2_de
         kDContainer2.getContentPane().add(kdtE2_detailPanel, BorderLayout.CENTER);
         kDContainer2.getContentPane().add(kDLabelContainer1, BorderLayout.CENTER);
         //kDLabelContainer1
-        kDLabelContainer1.setBoundEditor(kDTextField1);
+        kDLabelContainer1.setBoundEditor(kDScrollPane1);
+        //kDScrollPane1
+        kDScrollPane1.getViewport().add(accredInformation, null);
         //contremark
         contremark.setBoundEditor(txtremark);
 
@@ -810,6 +816,7 @@ kDContainer2.getContentPane().setLayout(new BorderLayout(0, 0));        kdtE2_de
 		dataBinder.registerBinding("E1.E2.opinion", String.class, this.kdtE2, "opinion.text");
 		dataBinder.registerBinding("E1.E2.accreConclu", String.class, this.kdtE2, "accreConclu.text");
 		dataBinder.registerBinding("E1.E2.remark", String.class, this.kdtE2, "remark.text");
+		dataBinder.registerBinding("accredInformation", String.class, this.accredInformation, "text");
 		dataBinder.registerBinding("remark", String.class, this.txtremark, "text");		
 	}
 	//Regiester UI State
@@ -976,6 +983,7 @@ kDContainer2.getContentPane().setLayout(new BorderLayout(0, 0));        kdtE2_de
 		getValidateHelper().registerBindProperty("E1.E2.opinion", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("E1.E2.accreConclu", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("E1.E2.remark", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("accredInformation", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("remark", ValidateHelper.ON_SAVE);    		
 	}
 
@@ -1147,6 +1155,7 @@ kDContainer2.getContentPane().setLayout(new BorderLayout(0, 0));        kdtE2_de
     	sic.add(new SelectorItemInfo("E1.E2.opinion"));
     	sic.add(new SelectorItemInfo("E1.E2.accreConclu"));
     	sic.add(new SelectorItemInfo("E1.E2.remark"));
+        sic.add(new SelectorItemInfo("accredInformation"));
         sic.add(new SelectorItemInfo("remark"));
         return sic;
     }        

@@ -71,6 +71,17 @@ public class AbstractYIPlanAccredInfo extends com.kingdee.eas.xr.XRBillBaseInfo 
     {
         setString("remark", item);
     }
+    /**
+     * Object:年度投资计划评审's 评审信息property 
+     */
+    public String getAccredInformation()
+    {
+        return getString("accredInformation");
+    }
+    public void setAccredInformation(String item)
+    {
+        setString("accredInformation", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("5FA92066");
