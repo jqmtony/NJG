@@ -174,7 +174,7 @@ public abstract class AbstractEvaluationTemplateEditUI extends com.kingdee.eas.f
         this.contcomment.setVisible(true);		
         this.contcomment.setBoundLabelAlignment(8);
         // kdtEntry
-		String kdtEntryStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style><c:Style id=\"sCol2\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol3\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"indicatorType\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"indicatorName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol2\" /><t:Column t:key=\"weight\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol3\" /><t:Column t:key=\"isValid\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"comment\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{indicatorType}</t:Cell><t:Cell>$Resource{indicatorName}</t:Cell><t:Cell>$Resource{weight}</t:Cell><t:Cell>$Resource{isValid}</t:Cell><t:Cell>$Resource{comment}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		String kdtEntryStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style><c:Style id=\"sCol2\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol3\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"indicatorType\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"indicatorName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol2\" /><t:Column t:key=\"weight\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol3\" /><t:Column t:key=\"comment\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{indicatorType}</t:Cell><t:Cell>$Resource{indicatorName}</t:Cell><t:Cell>$Resource{weight}</t:Cell><t:Cell>$Resource{comment}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.kdtEntry.setFormatXml(resHelper.translateString("kdtEntry",kdtEntryStrXML));
         kdtEntry.addKDTEditListener(new KDTEditAdapter() {
@@ -198,7 +198,7 @@ public abstract class AbstractEvaluationTemplateEditUI extends com.kingdee.eas.f
             }
         });
 
-                this.kdtEntry.putBindContents("editData",new String[] {"seq","indicatorType","indicatorName","weight","isValid","comment"});
+                this.kdtEntry.putBindContents("editData",new String[] {"seq","indicatorType","indicatorName","weight","comment"});
 
 
         this.kdtEntry.checkParsed();
@@ -255,10 +255,6 @@ public abstract class AbstractEvaluationTemplateEditUI extends com.kingdee.eas.f
         kdtEntry_weight_TextField.setPrecision(10);
         KDTDefaultCellEditor kdtEntry_weight_CellEditor = new KDTDefaultCellEditor(kdtEntry_weight_TextField);
         this.kdtEntry.getColumn("weight").setEditor(kdtEntry_weight_CellEditor);
-        KDCheckBox kdtEntry_isValid_CheckBox = new KDCheckBox();
-        kdtEntry_isValid_CheckBox.setName("kdtEntry_isValid_CheckBox");
-        KDTDefaultCellEditor kdtEntry_isValid_CellEditor = new KDTDefaultCellEditor(kdtEntry_isValid_CheckBox);
-        this.kdtEntry.getColumn("isValid").setEditor(kdtEntry_isValid_CellEditor);
         KDTextField kdtEntry_comment_TextField = new KDTextField();
         kdtEntry_comment_TextField.setName("kdtEntry_comment_TextField");
         kdtEntry_comment_TextField.setMaxLength(100);
@@ -491,7 +487,6 @@ public abstract class AbstractEvaluationTemplateEditUI extends com.kingdee.eas.f
 		dataBinder.registerBinding("Entry.indicatorName", String.class, this.kdtEntry, "indicatorName.text");
 		dataBinder.registerBinding("Entry.weight", java.math.BigDecimal.class, this.kdtEntry, "weight.text");
 		dataBinder.registerBinding("Entry.comment", String.class, this.kdtEntry, "comment.text");
-		dataBinder.registerBinding("Entry.isValid", boolean.class, this.kdtEntry, "isValid.text");
 		dataBinder.registerBinding("use", boolean.class, this.chkuse, "selected");
 		dataBinder.registerBinding("number", String.class, this.txtNumber, "text");
 		dataBinder.registerBinding("templateName", String.class, this.txttemplateName, "text");
@@ -653,7 +648,6 @@ public abstract class AbstractEvaluationTemplateEditUI extends com.kingdee.eas.f
 		getValidateHelper().registerBindProperty("Entry.indicatorName", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("Entry.weight", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("Entry.comment", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("Entry.isValid", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("use", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("number", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("templateName", ValidateHelper.ON_SAVE);    
@@ -741,7 +735,6 @@ kdtEntry.getCell(rowIndex,"indicatorName").setValue(com.kingdee.bos.ui.face.UIRu
     	sic.add(new SelectorItemInfo("Entry.indicatorName"));
     	sic.add(new SelectorItemInfo("Entry.weight"));
     	sic.add(new SelectorItemInfo("Entry.comment"));
-    	sic.add(new SelectorItemInfo("Entry.isValid"));
         sic.add(new SelectorItemInfo("use"));
         sic.add(new SelectorItemInfo("number"));
         sic.add(new SelectorItemInfo("templateName"));

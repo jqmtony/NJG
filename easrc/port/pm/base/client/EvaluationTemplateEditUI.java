@@ -6,10 +6,15 @@ package com.kingdee.eas.port.pm.base.client;
 import java.awt.event.*;
 import java.math.BigDecimal;
 
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+
 import org.apache.log4j.Logger;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ctrl.kdf.table.ICell;
+import com.kingdee.bos.ctrl.kdf.table.IRow;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent;
+import com.kingdee.bos.ctrl.swing.KDCheckBox;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.eas.framework.*;
 import com.kingdee.eas.port.pm.base.EvaluationTemplateTreeInfo;
@@ -39,26 +44,30 @@ public class EvaluationTemplateEditUI extends AbstractEvaluationTemplateEditUI
     @Override
     public void onLoad() throws Exception {
     	// TODO Auto-generated method stub
+    	
     	prmttemplateType.setEnabled(false);
     	super.onLoad();
     	this.txtNumber.setRequired(true);
     	this.txttemplateName.setRequired(true);
     	this.conttemplateType.setEnabled(false);
-    	this.chkisWeight.setEnabled(false);
     	this.chkuse.setVisible(false);
-    	btnCancel.setEnabled(true);
-    	btnCancelCancel.setEnabled(true);
+    	this.btnCancel.setEnabled(true);
+    	this.btnCancelCancel.setEnabled(true);
+    	this.chkisWeight.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent e) {
+				// TODO Auto-generated method stub
+				KDCheckBox check = (KDCheckBox)e.getSource();
+				if(check.isSelected())
+					kdtEntry.getColumn("weight").getStyleAttributes().setHided(false);
+				else 
+					kdtEntry.getColumn("weight").getStyleAttributes().setHided(true);
+			}
+    	});
+    	if(this.chkisWeight.isSelected())
+    		kdtEntry.getColumn("weight").getStyleAttributes().setHided(false);
+    	else
+    		kdtEntry.getColumn("weight").getStyleAttributes().setHided(true);
     	this.kdtEntry_detailPanel.setTitle("指标分录");
-    	EvaluationTemplateTreeInfo info = (EvaluationTemplateTreeInfo) prmttemplateType.getValue();
-    	if(info != null) {
-    		if("综合评分".equals(info.getName().trim())) {
-    			chkisWeight.setSelected(true);
-    			this.kdtEntry.getColumn("isValid").getStyleAttributes().setHided(true);
-    			TableXRHelper.getFootRow(kdtEntry, new String[] {"weight"});
-    		} else if("低价评分".equals(info.getName().trim())) {
-    			this.kdtEntry.getColumn("weight").getStyleAttributes().setHided(true);
-    		}
-    	}
     }
     @Override
     protected void verifyInput(ActionEvent e) throws Exception {
@@ -71,13 +80,22 @@ public class EvaluationTemplateEditUI extends AbstractEvaluationTemplateEditUI
     		MsgBox.showWarning("模板名称不能为空");
     		SysUtil.abort();
     	}
-    	EvaluationTemplateTreeInfo info = (EvaluationTemplateTreeInfo) prmttemplateType.getValue();
-    	if(info != null && "综合评分".equals(info.getName().trim())) {
-    		String sum = this.kdtEntry.getFootRow(0).getCell("weight").getValue().toString();
-	    	if(new BigDecimal("100").compareTo(new BigDecimal(sum)) != 0) {
-	    		MsgBox.showWarning("指标权重总和不为100，请修改");
-	    		SysUtil.abort();
-	    	}
+    	if(chkisWeight.isSelected()) {
+    		if(this.kdtEntry.getRowCount() > 0) {
+	    		BigDecimal weightSum = new BigDecimal(0);
+	    		for(int i = 0; i < this.kdtEntry.getRowCount(); i++) {
+	    			IRow row = this.kdtEntry.getRow(i);
+	    			if(row.getCell("weight").getValue() == null) {
+	    				MsgBox.showWarning("权重不能为空!");
+	    				SysUtil.abort();
+	    			}
+	    			weightSum = weightSum.add((BigDecimal)row.getCell("weight").getValue());
+	    		}
+	    		if(weightSum.compareTo(new BigDecimal(100)) != 0) {
+	    			MsgBox.showWarning("指标分录权重之和不为100， 请修改!");
+	    			SysUtil.abort();
+	    		}
+    		}
     	}
     	super.verifyInput(e);
     }
@@ -85,10 +103,6 @@ public class EvaluationTemplateEditUI extends AbstractEvaluationTemplateEditUI
     protected void kdtEntry_editStopped(KDTEditEvent e) throws Exception {
     	// TODO Auto-generated method stub
     	super.kdtEntry_editStopped(e);
-    	EvaluationTemplateTreeInfo info = (EvaluationTemplateTreeInfo) prmttemplateType.getValue();
-    	if("综合评分".equals(info.getName())) {
-    		TableXRHelper.getFootRow(kdtEntry, new String[] {"weight"});
-    	}
     }
     /**
      * output loadFields method
