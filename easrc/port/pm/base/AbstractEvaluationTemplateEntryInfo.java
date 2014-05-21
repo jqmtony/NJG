@@ -72,17 +72,6 @@ public class AbstractEvaluationTemplateEntryInfo extends com.kingdee.eas.framewo
     {
         setString("comment", item);
     }
-    /**
-     * Object:指标分录's 是否符合property 
-     */
-    public boolean isIsValid()
-    {
-        return getBoolean("isValid");
-    }
-    public void setIsValid(boolean item)
-    {
-        setBoolean("isValid", item);
-    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("71D148DB");
