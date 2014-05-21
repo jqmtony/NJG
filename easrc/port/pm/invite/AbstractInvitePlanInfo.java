@@ -18,17 +18,6 @@ public class AbstractInvitePlanInfo extends com.kingdee.eas.xr.XRBillBaseInfo im
         super(pkField);
     }
     /**
-     * Object:招标计划's 计划编码property 
-     */
-    public String getPlanNumber()
-    {
-        return getString("planNumber");
-    }
-    public void setPlanNumber(String item)
-    {
-        setString("planNumber", item);
-    }
-    /**
      * Object:招标计划's 计划名称property 
      */
     public String getPlanName()
@@ -84,17 +73,6 @@ public class AbstractInvitePlanInfo extends com.kingdee.eas.xr.XRBillBaseInfo im
         put("response", item);
     }
     /**
-     * Object: 招标计划 's 所属项目 property 
-     */
-    public com.kingdee.eas.port.pm.project.PortProjectInfo getProject()
-    {
-        return (com.kingdee.eas.port.pm.project.PortProjectInfo)get("project");
-    }
-    public void setProject(com.kingdee.eas.port.pm.project.PortProjectInfo item)
-    {
-        put("project", item);
-    }
-    /**
      * Object: 招标计划 's 责任部门 property 
      */
     public com.kingdee.eas.basedata.org.AdminOrgUnitInfo getDepartment()
@@ -115,6 +93,17 @@ public class AbstractInvitePlanInfo extends com.kingdee.eas.xr.XRBillBaseInfo im
     public void setBIMUDF0009(String item)
     {
         setString("BIMUDF0009", item);
+    }
+    /**
+     * Object: 招标计划 's 所属项目 property 
+     */
+    public com.kingdee.eas.basedata.assistant.ProjectInfo getProject()
+    {
+        return (com.kingdee.eas.basedata.assistant.ProjectInfo)get("project");
+    }
+    public void setProject(com.kingdee.eas.basedata.assistant.ProjectInfo item)
+    {
+        put("project", item);
     }
     public BOSObjectType getBOSType()
     {
