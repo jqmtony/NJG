@@ -644,6 +644,26 @@ public abstract class AbstractOpenRegistrationControllerBean extends XRBillBaseC
         }
     }
 
+    public void doCancel(Context ctx, OpenRegistrationInfo model) throws BOSException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("c43b4c14-31c3-452f-bfa3-e75f3f69eb4e"), new Object[]{ctx, model});
+            invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
+            _doCancel(ctx, model);
+            }
+            invokeServiceAfter(svcCtx);
+        } catch (BOSException ex) {
+            throw ex;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected void _doCancel(Context ctx, IObjectValue model) throws BOSException
+    {    	
+        return;
+    }
+
     public XRBillBaseCollection getXRBillBaseCollection (Context ctx) throws BOSException
     {
     	return (XRBillBaseCollection)(getOpenRegistrationCollection(ctx).cast(XRBillBaseCollection.class));

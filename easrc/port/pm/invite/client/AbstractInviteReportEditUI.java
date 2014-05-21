@@ -1024,14 +1024,14 @@ public abstract class AbstractInviteReportEditUI extends com.kingdee.eas.xr.clie
         kDTabbedPane1.add(kDPanel6, resHelper.getString("kDPanel6.constraints"));
         //kDPanel3
         kDPanel3.setLayout(new KDLayout());
-        kDPanel3.putClientProperty("OriginalBounds", new Rectangle(0, 0, 1018, 264));        contreportName.setBounds(new Rectangle(7, 15, 270, 19));
-        kDPanel3.add(contreportName, new KDLayout.Constraints(7, 15, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contproSite.setBounds(new Rectangle(7, 75, 270, 19));
-        kDPanel3.add(contproSite, new KDLayout.Constraints(7, 75, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDPanel3.putClientProperty("OriginalBounds", new Rectangle(0, 0, 1018, 264));        contreportName.setBounds(new Rectangle(7, 45, 270, 19));
+        kDPanel3.add(contreportName, new KDLayout.Constraints(7, 45, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contproSite.setBounds(new Rectangle(364, 75, 270, 19));
+        kDPanel3.add(contproSite, new KDLayout.Constraints(364, 75, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contuseOrg.setBounds(new Rectangle(364, 45, 270, 19));
         kDPanel3.add(contuseOrg, new KDLayout.Constraints(364, 45, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contNumber.setBounds(new Rectangle(364, 75, 270, 19));
-        kDPanel3.add(contNumber, new KDLayout.Constraints(364, 75, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contNumber.setBounds(new Rectangle(7, 15, 270, 19));
+        kDPanel3.add(contNumber, new KDLayout.Constraints(7, 15, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         kDButton1.setBounds(new Rectangle(722, 15, 133, 21));
         kDPanel3.add(kDButton1, new KDLayout.Constraints(722, 15, 133, 21, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contdevOrg.setBounds(new Rectangle(722, 46, 270, 19));
@@ -1044,8 +1044,8 @@ public abstract class AbstractInviteReportEditUI extends com.kingdee.eas.xr.clie
         kDPanel3.add(kDContainer4, new KDLayout.Constraints(528, 112, 464, 146, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contproName.setBounds(new Rectangle(364, 15, 270, 19));
         kDPanel3.add(contproName, new KDLayout.Constraints(364, 15, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contprojectNumber.setBounds(new Rectangle(7, 45, 270, 19));
-        kDPanel3.add(contprojectNumber, new KDLayout.Constraints(7, 45, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contprojectNumber.setBounds(new Rectangle(7, 75, 270, 19));
+        kDPanel3.add(contprojectNumber, new KDLayout.Constraints(7, 75, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         //contreportName
         contreportName.setBoundEditor(txtreportName);
         //contproSite

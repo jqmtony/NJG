@@ -46,6 +46,8 @@ import com.kingdee.bos.appframework.uip.UINavigator;
 public abstract class AbstractOpenRegistrationListUI extends com.kingdee.eas.xr.client.XRBillBaseListUI
 {
     private static final Logger logger = CoreUIObject.getLogger(AbstractOpenRegistrationListUI.class);
+    protected com.kingdee.bos.ctrl.swing.KDWorkButton btnDoCancel;
+    protected ActionDoCancel actionDoCancel = null;
     /**
      * output class constructor
      */
@@ -82,15 +84,28 @@ public abstract class AbstractOpenRegistrationListUI extends com.kingdee.eas.xr.
          this.actionRemove.addService(new com.kingdee.eas.framework.client.service.PermissionService());
          this.actionRemove.addService(new com.kingdee.eas.framework.client.service.NetFunctionService());
          this.actionRemove.addService(new com.kingdee.eas.framework.client.service.UserMonitorService());
+        //actionDoCancel
+        this.actionDoCancel = new ActionDoCancel(this);
+        getActionManager().registerAction("actionDoCancel", actionDoCancel);
+        this.actionDoCancel.setExtendProperty("canForewarn", "true");
+        this.actionDoCancel.setExtendProperty("userDefined", "true");
+        this.actionDoCancel.setExtendProperty("isObjectUpdateLock", "false");
+         this.actionDoCancel.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+         this.actionDoCancel.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
+        this.btnDoCancel = new com.kingdee.bos.ctrl.swing.KDWorkButton();
+        this.btnDoCancel.setName("btnDoCancel");
         // CoreUI
-		String tblMainStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol9\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol10\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol12\"><c:NumberFormat>&amp;date</c:NumberFormat></c:Style><c:Style id=\"sCol14\"><c:NumberFormat>&amp;date</c:NumberFormat></c:Style><c:Style id=\"sCol15\"><c:Protection hidden=\"true\" /><c:NumberFormat>&amp;int</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"status\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"bizDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"creator.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"createTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"lastUpdateUser.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"lastUpdateTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"auditor.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"auditTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol9\" /><t:Column t:key=\"CU.id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol10\" /><t:Column t:key=\"opLocation\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"opDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol12\" /><t:Column t:key=\"reportName.projectNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"endDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol14\" /><t:Column t:key=\"Entry.seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol15\" /><t:Column t:key=\"Entry.quality\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.payDeposit\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.deposit\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.quotedPrice\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.directions\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.comment\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.contact\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.telephone\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.prjPeriod\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"reportNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.supplierName.supplierName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"regName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"coefficient\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"cancel\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{status}</t:Cell><t:Cell>$Resource{number}</t:Cell><t:Cell>$Resource{bizDate}</t:Cell><t:Cell>$Resource{creator.name}</t:Cell><t:Cell>$Resource{createTime}</t:Cell><t:Cell>$Resource{lastUpdateUser.name}</t:Cell><t:Cell>$Resource{lastUpdateTime}</t:Cell><t:Cell>$Resource{auditor.name}</t:Cell><t:Cell>$Resource{auditTime}</t:Cell><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{CU.id}</t:Cell><t:Cell>$Resource{opLocation}</t:Cell><t:Cell>$Resource{opDate}</t:Cell><t:Cell>$Resource{reportName.projectNumber}</t:Cell><t:Cell>$Resource{endDate}</t:Cell><t:Cell>$Resource{Entry.seq}</t:Cell><t:Cell>$Resource{Entry.quality}</t:Cell><t:Cell>$Resource{Entry.payDeposit}</t:Cell><t:Cell>$Resource{Entry.deposit}</t:Cell><t:Cell>$Resource{Entry.quotedPrice}</t:Cell><t:Cell>$Resource{Entry.directions}</t:Cell><t:Cell>$Resource{Entry.comment}</t:Cell><t:Cell>$Resource{Entry.contact}</t:Cell><t:Cell>$Resource{Entry.telephone}</t:Cell><t:Cell>$Resource{Entry.prjPeriod}</t:Cell><t:Cell>$Resource{reportNumber}</t:Cell><t:Cell>$Resource{Entry.supplierName.supplierName}</t:Cell><t:Cell>$Resource{regName}</t:Cell><t:Cell>$Resource{coefficient}</t:Cell><t:Cell>$Resource{cancel}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		String tblMainStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol28\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol29\"><c:Protection hidden=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"status\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"regName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"reportNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"opLocation\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"opDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"endDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"cancel\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"coefficient\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"reportName.projectNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"bizDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"creator.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"createTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"lastUpdateUser.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"lastUpdateTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"auditor.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"auditTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.contact\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.quality\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.payDeposit\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.deposit\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.quotedPrice\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.directions\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.comment\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.telephone\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.prjPeriod\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.supplierName.supplierName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol28\" /><t:Column t:key=\"CU.id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol29\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{number}</t:Cell><t:Cell>$Resource{status}</t:Cell><t:Cell>$Resource{regName}</t:Cell><t:Cell>$Resource{reportNumber}</t:Cell><t:Cell>$Resource{opLocation}</t:Cell><t:Cell>$Resource{opDate}</t:Cell><t:Cell>$Resource{endDate}</t:Cell><t:Cell>$Resource{cancel}</t:Cell><t:Cell>$Resource{coefficient}</t:Cell><t:Cell>$Resource{reportName.projectNumber}</t:Cell><t:Cell>$Resource{bizDate}</t:Cell><t:Cell>$Resource{creator.name}</t:Cell><t:Cell>$Resource{createTime}</t:Cell><t:Cell>$Resource{lastUpdateUser.name}</t:Cell><t:Cell>$Resource{lastUpdateTime}</t:Cell><t:Cell>$Resource{auditor.name}</t:Cell><t:Cell>$Resource{auditTime}</t:Cell><t:Cell>$Resource{Entry.seq}</t:Cell><t:Cell>$Resource{Entry.contact}</t:Cell><t:Cell>$Resource{Entry.quality}</t:Cell><t:Cell>$Resource{Entry.payDeposit}</t:Cell><t:Cell>$Resource{Entry.deposit}</t:Cell><t:Cell>$Resource{Entry.quotedPrice}</t:Cell><t:Cell>$Resource{Entry.directions}</t:Cell><t:Cell>$Resource{Entry.comment}</t:Cell><t:Cell>$Resource{Entry.telephone}</t:Cell><t:Cell>$Resource{Entry.prjPeriod}</t:Cell><t:Cell>$Resource{Entry.supplierName.supplierName}</t:Cell><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{CU.id}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.tblMain.setFormatXml(resHelper.translateString("tblMain",tblMainStrXML));
-                this.tblMain.putBindContents("mainQuery",new String[] {"status","number","bizDate","creator.name","createTime","lastUpdateUser.name","lastUpdateTime","auditor.name","auditTime","id","CU.id","opLocation","opDate","reportName.projectNumber","endDate","Entry.seq","Entry.quality","Entry.payDeposit","Entry.deposit","Entry.quotedPrice","Entry.directions","Entry.comment","Entry.contact","Entry.telephone","Entry.prjPeriod","reportNumber","Entry.supplierName.supplierName","regName","coefficient","cancel"});
+                this.tblMain.putBindContents("mainQuery",new String[] {"number","status","regName","reportNumber","opLocation","opDate","endDate","cancel","coefficient","reportName.projectNumber","bizDate","creator.name","createTime","lastUpdateUser.name","lastUpdateTime","auditor.name","auditTime","Entry.seq","Entry.contact","Entry.quality","Entry.payDeposit","Entry.deposit","Entry.quotedPrice","Entry.directions","Entry.comment","Entry.telephone","Entry.prjPeriod","Entry.supplierName.supplierName","id","CU.id"});
 
 
         this.tblMain.checkParsed();
         this.tblMain.getGroupManager().setGroup(true);
+        // btnDoCancel
+        this.btnDoCancel.setAction((IItemAction)ActionProxyFactory.getProxy(actionDoCancel, new Class[] { IItemAction.class }, getServiceContext()));		
+        this.btnDoCancel.setText(resHelper.getString("btnDoCancel.text"));
 		//Register control's property binding
 		registerBindings();
 		registerUIState();
@@ -259,6 +274,7 @@ public abstract class AbstractOpenRegistrationListUI extends com.kingdee.eas.xr.
         this.toolBar.add(btnCancel);
         this.toolBar.add(btnCancelCancel);
         this.toolBar.add(btnWFViewdoProccess);
+        this.toolBar.add(btnDoCancel);
 
 
     }
@@ -377,8 +393,16 @@ public abstract class AbstractOpenRegistrationListUI extends com.kingdee.eas.xr.
 		if(StringUtils.isEmpty(selectorAll)){
 			selectorAll = "true";
 		}
-        sic.add(new SelectorItemInfo("status"));
         sic.add(new SelectorItemInfo("number"));
+        sic.add(new SelectorItemInfo("status"));
+        sic.add(new SelectorItemInfo("regName"));
+        sic.add(new SelectorItemInfo("reportNumber"));
+        sic.add(new SelectorItemInfo("opLocation"));
+        sic.add(new SelectorItemInfo("opDate"));
+        sic.add(new SelectorItemInfo("endDate"));
+        sic.add(new SelectorItemInfo("cancel"));
+        sic.add(new SelectorItemInfo("coefficient"));
+        sic.add(new SelectorItemInfo("reportName.projectNumber"));
         sic.add(new SelectorItemInfo("bizDate"));
         sic.add(new SelectorItemInfo("creator.name"));
         sic.add(new SelectorItemInfo("createTime"));
@@ -386,27 +410,19 @@ public abstract class AbstractOpenRegistrationListUI extends com.kingdee.eas.xr.
         sic.add(new SelectorItemInfo("lastUpdateTime"));
         sic.add(new SelectorItemInfo("auditor.name"));
         sic.add(new SelectorItemInfo("auditTime"));
-        sic.add(new SelectorItemInfo("id"));
-        sic.add(new SelectorItemInfo("CU.id"));
-        sic.add(new SelectorItemInfo("opLocation"));
-        sic.add(new SelectorItemInfo("opDate"));
-        sic.add(new SelectorItemInfo("reportName.projectNumber"));
-        sic.add(new SelectorItemInfo("endDate"));
         sic.add(new SelectorItemInfo("Entry.seq"));
+        sic.add(new SelectorItemInfo("Entry.contact"));
         sic.add(new SelectorItemInfo("Entry.quality"));
         sic.add(new SelectorItemInfo("Entry.payDeposit"));
         sic.add(new SelectorItemInfo("Entry.deposit"));
         sic.add(new SelectorItemInfo("Entry.quotedPrice"));
         sic.add(new SelectorItemInfo("Entry.directions"));
         sic.add(new SelectorItemInfo("Entry.comment"));
-        sic.add(new SelectorItemInfo("Entry.contact"));
         sic.add(new SelectorItemInfo("Entry.telephone"));
         sic.add(new SelectorItemInfo("Entry.prjPeriod"));
-        sic.add(new SelectorItemInfo("reportNumber"));
         sic.add(new SelectorItemInfo("Entry.supplierName.supplierName"));
-        sic.add(new SelectorItemInfo("regName"));
-        sic.add(new SelectorItemInfo("coefficient"));
-        sic.add(new SelectorItemInfo("cancel"));
+        sic.add(new SelectorItemInfo("id"));
+        sic.add(new SelectorItemInfo("CU.id"));
         return sic;
     }            protected java.util.List getQuerySorterFields() 
     { 
@@ -424,6 +440,17 @@ public abstract class AbstractOpenRegistrationListUI extends com.kingdee.eas.xr.
     {
         super.actionRemove_actionPerformed(e);
     }
+    	
+
+    /**
+     * output actionDoCancel_actionPerformed method
+     */
+    public void actionDoCancel_actionPerformed(ActionEvent e) throws Exception
+    {
+        if (getSelectedKeyValue() == null) return;
+com.kingdee.eas.port.pm.invite.OpenRegistrationInfo editData = (com.kingdee.eas.port.pm.invite.OpenRegistrationInfo)getBizInterface().getValue(new com.kingdee.bos.dao.ormapping.ObjectUuidPK(BOSUuid.read(getSelectedKeyValue())));
+com.kingdee.eas.port.pm.invite.OpenRegistrationFactory.getRemoteInstance().doCancel(editData);
+    }
 	public RequestContext prepareActionRemove(IItemAction itemAction) throws Exception {
 			RequestContext request = super.prepareActionRemove(itemAction);		
 		if (request != null) {
@@ -434,6 +461,47 @@ public abstract class AbstractOpenRegistrationListUI extends com.kingdee.eas.xr.
 	
 	public boolean isPrepareActionRemove() {
     	return false;
+    }
+	public RequestContext prepareActionDoCancel(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionDoCancel() {
+    	return false;
+    }
+
+    /**
+     * output ActionDoCancel class
+     */     
+    protected class ActionDoCancel extends ItemAction {     
+    
+        public ActionDoCancel()
+        {
+            this(null);
+        }
+
+        public ActionDoCancel(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            _tempStr = resHelper.getString("ActionDoCancel.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionDoCancel.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionDoCancel.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractOpenRegistrationListUI.this, "ActionDoCancel", "actionDoCancel_actionPerformed", e);
+        }
     }
 
     /**
@@ -481,7 +549,7 @@ public abstract class AbstractOpenRegistrationListUI extends com.kingdee.eas.xr.
      */
     public String[] getMergeColumnKeys()
     {
-        return new String[] {"status","number","bizDate","creator.name","createTime","lastUpdateUser.name","lastUpdateTime","auditor.name","auditTime","id","CU.id","opLocation","opDate","reportName.projectNumber","endDate","reportNumber","Entry.supplierName.supplierName","regName","coefficient","cancel"};
+        return new String[] {"number","status","regName","reportNumber","opLocation","opDate","endDate","cancel","coefficient","reportName.projectNumber","bizDate","creator.name","createTime","lastUpdateUser.name","lastUpdateTime","auditor.name","auditTime","Entry.supplierName.supplierName","id","CU.id"};
     }
 
 

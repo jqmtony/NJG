@@ -14,4 +14,9 @@ import com.kingdee.eas.framework.batchHandler.ResponseContext;
 public abstract class AbstractOpenRegistrationListUIHandler extends com.kingdee.eas.xr.app.XRBillBaseListUIHandler
 
 {
+	public void handleActionDoCancel(RequestContext request,ResponseContext response, Context context) throws Exception {
+		_handleActionDoCancel(request,response,context);
+	}
+	protected void _handleActionDoCancel(RequestContext request,ResponseContext response, Context context) throws Exception {
+	}
 }

@@ -48,4 +48,5 @@ public interface IOpenRegistration extends IXRBillBase
     public void updateBigObject(IObjectPK pk, OpenRegistrationInfo model) throws BOSException;
     public void updatePartial(OpenRegistrationInfo model, SelectorItemCollection selector) throws BOSException, EASBizException;
     public String getBindingProperty() throws BOSException;
+    public void doCancel(OpenRegistrationInfo model) throws BOSException;
 }

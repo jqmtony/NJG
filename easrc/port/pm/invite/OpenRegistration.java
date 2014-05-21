@@ -387,4 +387,17 @@ public class OpenRegistration extends XRBillBase implements IOpenRegistration
             throw new EJBRemoteException(err);
         }
     }
+    /**
+     *×÷·Ï-User defined method
+     *@param model model
+     */
+    public void doCancel(OpenRegistrationInfo model) throws BOSException
+    {
+        try {
+            getController().doCancel(getContext(), model);
+        }
+        catch(RemoteException err) {
+            throw new EJBRemoteException(err);
+        }
+    }
 }

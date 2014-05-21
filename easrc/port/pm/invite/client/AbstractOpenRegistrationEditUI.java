@@ -89,7 +89,9 @@ public abstract class AbstractOpenRegistrationEditUI extends com.kingdee.eas.xr.
     protected com.kingdee.bos.ctrl.swing.KDTextField txtreportNumber;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtregName;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtcoefficient;
+    protected com.kingdee.bos.ctrl.swing.KDWorkButton btnDoCancel;
     protected com.kingdee.eas.port.pm.invite.OpenRegistrationInfo editData = null;
+    protected ActionDoCancel actionDoCancel = null;
     /**
      * output class constructor
      */
@@ -139,6 +141,14 @@ public abstract class AbstractOpenRegistrationEditUI extends com.kingdee.eas.xr.
         actionUnAudit.putValue(ItemAction.NAME, _tempStr);
         this.actionUnAudit.setBindWorkFlow(true);
          this.actionUnAudit.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+        //actionDoCancel
+        this.actionDoCancel = new ActionDoCancel(this);
+        getActionManager().registerAction("actionDoCancel", actionDoCancel);
+        this.actionDoCancel.setExtendProperty("canForewarn", "true");
+        this.actionDoCancel.setExtendProperty("userDefined", "true");
+        this.actionDoCancel.setExtendProperty("isObjectUpdateLock", "false");
+         this.actionDoCancel.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+         this.actionDoCancel.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
         this.contLastUpdateUser = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contLastUpdateTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contCU = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -181,6 +191,7 @@ public abstract class AbstractOpenRegistrationEditUI extends com.kingdee.eas.xr.
         this.txtreportNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtregName = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtcoefficient = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.btnDoCancel = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.contLastUpdateUser.setName("contLastUpdateUser");
         this.contLastUpdateTime.setName("contLastUpdateTime");
         this.contCU.setName("contCU");
@@ -223,6 +234,7 @@ public abstract class AbstractOpenRegistrationEditUI extends com.kingdee.eas.xr.
         this.txtreportNumber.setName("txtreportNumber");
         this.txtregName.setName("txtregName");
         this.txtcoefficient.setName("txtcoefficient");
+        this.btnDoCancel.setName("btnDoCancel");
         // CoreUI		
         this.setPreferredSize(new Dimension(953,439));
         // contLastUpdateUser		
@@ -479,6 +491,9 @@ public abstract class AbstractOpenRegistrationEditUI extends com.kingdee.eas.xr.
         this.txtcoefficient.setHorizontalAlignment(2);		
         this.txtcoefficient.setMaxLength(100);		
         this.txtcoefficient.setRequired(false);
+        // btnDoCancel
+        this.btnDoCancel.setAction((IItemAction)ActionProxyFactory.getProxy(actionDoCancel, new Class[] { IItemAction.class }, getServiceContext()));		
+        this.btnDoCancel.setText(resHelper.getString("btnDoCancel.text"));
         this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {comboStatus,comboBizStatus,pkAuditTime,txtNumber,pkBizDate,txtDescription,prmtAuditor,prmtCreator,pkCreateTime,prmtLastUpdateUser,pkLastUpdateTime,prmtCU,txtopLocation,pkopDate,prmtreportName,pkendDate,txtreportNumber,kdtEntry,txtregName,txtcoefficient,chkcancel}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
@@ -762,6 +777,7 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
         this.toolBar.add(btnWFViewdoProccess);
         this.toolBar.add(btnWFViewSubmitProccess);
         this.toolBar.add(btnNextPerson);
+        this.toolBar.add(btnDoCancel);
 
 
     }
@@ -1116,6 +1132,15 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
     {
         super.actionUnAudit_actionPerformed(e);
     }
+    	
+
+    /**
+     * output actionDoCancel_actionPerformed method
+     */
+    public void actionDoCancel_actionPerformed(ActionEvent e) throws Exception
+    {
+        com.kingdee.eas.port.pm.invite.OpenRegistrationFactory.getRemoteInstance().doCancel(editData);
+    }
 	public RequestContext prepareActionSubmit(IItemAction itemAction) throws Exception {
 			RequestContext request = super.prepareActionSubmit(itemAction);		
 		if (request != null) {
@@ -1137,6 +1162,47 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
 	
 	public boolean isPrepareActionUnAudit() {
     	return false;
+    }
+	public RequestContext prepareActionDoCancel(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionDoCancel() {
+    	return false;
+    }
+
+    /**
+     * output ActionDoCancel class
+     */     
+    protected class ActionDoCancel extends ItemAction {     
+    
+        public ActionDoCancel()
+        {
+            this(null);
+        }
+
+        public ActionDoCancel(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            _tempStr = resHelper.getString("ActionDoCancel.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionDoCancel.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionDoCancel.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractOpenRegistrationEditUI.this, "ActionDoCancel", "actionDoCancel_actionPerformed", e);
+        }
     }
 
     /**

@@ -53,4 +53,5 @@ public interface OpenRegistrationController extends XRBillBaseController
     public void updateBigObject(Context ctx, IObjectPK pk, OpenRegistrationInfo model) throws BOSException, RemoteException;
     public void updatePartial(Context ctx, OpenRegistrationInfo model, SelectorItemCollection selector) throws BOSException, EASBizException, RemoteException;
     public String getBindingProperty(Context ctx) throws BOSException, RemoteException;
+    public void doCancel(Context ctx, OpenRegistrationInfo model) throws BOSException, RemoteException;
 }

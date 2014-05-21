@@ -4,6 +4,8 @@
 package com.kingdee.eas.port.pm.invite.client;
 
 import java.awt.event.*;
+import java.util.ArrayList;
+
 import org.apache.log4j.Logger;
 
 import com.kingdee.bos.BOSException;
@@ -13,9 +15,16 @@ import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.dao.query.IQueryExecutor;
 import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.framework.*;
+import com.kingdee.eas.port.pm.invite.IOpenRegistration;
+import com.kingdee.eas.port.pm.invite.OpenRegistrationFactory;
+import com.kingdee.eas.port.pm.invite.OpenRegistrationInfo;
+import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
+import com.kingdee.eas.util.SysUtil;
+import com.kingdee.eas.xr.app.XRBillStatusEnum;
 
 /**
  * output class name
@@ -41,6 +50,19 @@ public class OpenRegistrationListUI extends AbstractOpenRegistrationListUI
     protected String getEditUIModal() {
     	// TODO Auto-generated method stub
     	return UIFactoryName.MODEL;
+    }
+    @Override
+    public void actionDoCancel_actionPerformed(ActionEvent e) throws Exception {
+    	// TODO Auto-generated method stub
+    	checkSelected();
+    	IOpenRegistration iopenReg = OpenRegistrationFactory.getRemoteInstance();
+    	OpenRegistrationInfo info = iopenReg.getOpenRegistrationInfo(new ObjectUuidPK(getSelectedKeyValue()));
+    	if(!info.getStatus().equals(XRBillStatusEnum.getEnum("AUDITED")))
+    	{
+    		MsgBox.showWarning("不允许非审核单据作废!");
+    		SysUtil.abort();
+    	}
+    	super.actionDoCancel_actionPerformed(e);
     }
     /**
      * output storeFields method

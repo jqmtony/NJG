@@ -31,6 +31,7 @@ import com.kingdee.eas.port.pm.invite.InviteReportInfo;
 import com.kingdee.eas.port.pm.invite.judgeSolution;
 import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
 import com.kingdee.eas.util.SysUtil;
+import com.kingdee.eas.xr.app.XRBillStatusEnum;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
 import com.kingdee.bos.ctrl.kdf.table.KDTHead;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
@@ -128,6 +129,15 @@ public class OpenRegistrationEditUI extends AbstractOpenRegistrationEditUI
     	    	}
     		}
     	}
+    }
+    @Override
+    public void actionDoCancel_actionPerformed(ActionEvent e) throws Exception {
+    	// TODO Auto-generated method stub
+    	if(!XRBillStatusEnum.getEnum("AUDITED").equals(editData.getStatus())) {
+    		MsgBox.showWarning("不允许非审核单据作废!");
+    		SysUtil.abort();
+    	}
+    	super.actionDoCancel_actionPerformed(e);
     }
     /**
      * output loadFields method
