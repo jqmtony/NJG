@@ -267,6 +267,93 @@
             <valueType>String</valueType>
             <value>number</value>
         </simpleExpression>
+        <groupExpression>
+            <id>ea5d655c-2ae9-4826-b673-b83cfb469f84</id>
+            <parentID />
+            <source>projectNumber=proName.number</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>5090d4d8-ad60-4579-a48c-7e2718ddb851</id>
+            <parentID>ea5d655c-2ae9-4826-b673-b83cfb469f84</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>83224e0d-abff-4c6f-ae5a-1a066f1928dd</ownerID>
+                <name>text</name>
+                <type>java.lang.String</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>83224e0d-abff-4c6f-ae5a-1a066f1928dd</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>txtprojectNumber</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>0ecd081b-0ea2-4555-a37a-1b8530173d81</id>
+            <parentID>ea5d655c-2ae9-4826-b673-b83cfb469f84</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>3b0e5086-fa7b-446a-9184-fba6b1231b1b</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>2fe0c103-66f5-452b-9d60-3c310eb13ac7</id>
+                        <expressionID>df74ece6-c9d8-43ad-9d04-122943fe8da0</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>e87c991a-1138-4d8d-8191-e4d7c1ddb3d9</id>
+                        <expressionID>78662a9e-74e9-4d8c-a672-f555f42fc4c8</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>3b0e5086-fa7b-446a-9184-fba6b1231b1b</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>df74ece6-c9d8-43ad-9d04-122943fe8da0</id>
+            <parentID />
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>Object</valueType>
+            <value />
+            <method>
+                <ownerID>a0bd14d1-1d27-46d9-bc85-eee4f55078ad</ownerID>
+                <name>getData</name>
+                <type>Object</type>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>a0bd14d1-1d27-46d9-bc85-eee4f55078ad</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)prmtproName</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>78662a9e-74e9-4d8c-a672-f555f42fc4c8</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>number</value>
+        </simpleExpression>
     </expressions>
     <actions>
         <action>
@@ -290,22 +377,15 @@
             <description>ruleSet[com.kingdee.eas.port.pm.invite.app.InviteReportRuleSet].actions.action[InviteReport_projectNumber_ActionInfo].description</description>
             <expressionID>3c241447-948c-47ff-b308-a55b4a8977aa</expressionID>
         </action>
+        <action>
+            <id>76cc1aae-2d3c-4b1f-b613-1049f3155f26</id>
+            <name>InviteReport_projectNumber_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.pm.invite.app.InviteReportRuleSet].actions.action[InviteReport_projectNumber_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.pm.invite.app.InviteReportRuleSet].actions.action[InviteReport_projectNumber_ActionInfo].description</description>
+            <expressionID>ea5d655c-2ae9-4826-b673-b83cfb469f84</expressionID>
+        </action>
     </actions>
     <rules>
-        <conditionRule>
-            <name>InviteReport_projectNumber_RuleInfo</name>
-            <alias>ruleSet[com.kingdee.eas.port.pm.invite.app.InviteReportRuleSet].rules.conditionRule[InviteReport_projectNumber_RuleInfo].alias</alias>
-            <description>ruleSet[com.kingdee.eas.port.pm.invite.app.InviteReportRuleSet].rules.conditionRule[InviteReport_projectNumber_RuleInfo].description</description>
-            <ruleType>withproperty</ruleType>
-            <eventObjectName />
-            <eventType>CHANGE</eventType>
-            <eventName>CHANGE</eventName>
-            <actions>
-                <action>
-                    <key name="id" value="d20a0b7d-c053-4100-85cc-09959e481714" />
-                </action>
-            </actions>
-        </conditionRule>
         <conditionRule>
             <name>Entry3_department_RuleInfo</name>
             <alias>ruleSet[com.kingdee.eas.port.pm.invite.app.InviteReportRuleSet].rules.conditionRule[Entry3_department_RuleInfo].alias</alias>
@@ -317,6 +397,20 @@
             <actions>
                 <action>
                     <key name="id" value="6540095b-2a5e-455a-aff9-c23a85eeb735" />
+                </action>
+            </actions>
+        </conditionRule>
+        <conditionRule>
+            <name>InviteReport_projectNumber_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.pm.invite.app.InviteReportRuleSet].rules.conditionRule[InviteReport_projectNumber_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.pm.invite.app.InviteReportRuleSet].rules.conditionRule[InviteReport_projectNumber_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="76cc1aae-2d3c-4b1f-b613-1049f3155f26" />
                 </action>
             </actions>
         </conditionRule>

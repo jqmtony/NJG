@@ -246,23 +246,51 @@
             <precision>44</precision>
         </column>
         <column>
-            <name>CFPlanNumber</name>
-            <alias>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_JudgesComfirm].columns.column[CFPlanNumber].alias</alias>
-            <description>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_JudgesComfirm].columns.column[CFPlanNumber].description</description>
+            <name>CFDepartmentID</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_JudgesComfirm].columns.column[CFDepartmentID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_JudgesComfirm].columns.column[CFDepartmentID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFComment</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_JudgesComfirm].columns.column[CFComment].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_JudgesComfirm].columns.column[CFComment].description</description>
             <userDefined>true</userDefined>
             <isMultilingual>false</isMultilingual>
             <isEncoded>false</isEncoded>
             <isNullable>true</isNullable>
             <defaultValue />
             <sqlType>NVARCHAR</sqlType>
-            <length>80</length>
+            <length>255</length>
             <scale>0</scale>
             <precision>0</precision>
         </column>
         <column>
-            <name>CFInviteType</name>
-            <alias>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_JudgesComfirm].columns.column[CFInviteType].alias</alias>
-            <description>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_JudgesComfirm].columns.column[CFInviteType].description</description>
+            <name>CFPlanNameID</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_JudgesComfirm].columns.column[CFPlanNameID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_JudgesComfirm].columns.column[CFPlanNameID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFPlanNumber</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_JudgesComfirm].columns.column[CFPlanNumber].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_JudgesComfirm].columns.column[CFPlanNumber].description</description>
             <userDefined>true</userDefined>
             <isMultilingual>false</isMultilingual>
             <isEncoded>false</isEncoded>
@@ -302,44 +330,16 @@
             <precision>0</precision>
         </column>
         <column>
-            <name>CFDepartmentID</name>
-            <alias>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_JudgesComfirm].columns.column[CFDepartmentID].alias</alias>
-            <description>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_JudgesComfirm].columns.column[CFDepartmentID].description</description>
-            <userDefined>true</userDefined>
-            <isMultilingual>false</isMultilingual>
-            <isEncoded>false</isEncoded>
-            <isNullable>true</isNullable>
-            <defaultValue />
-            <sqlType>VARCHAR</sqlType>
-            <length>44</length>
-            <scale>0</scale>
-            <precision>0</precision>
-        </column>
-        <column>
-            <name>CFComment</name>
-            <alias>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_JudgesComfirm].columns.column[CFComment].alias</alias>
-            <description>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_JudgesComfirm].columns.column[CFComment].description</description>
+            <name>CFInviteType</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_JudgesComfirm].columns.column[CFInviteType].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_JudgesComfirm].columns.column[CFInviteType].description</description>
             <userDefined>true</userDefined>
             <isMultilingual>false</isMultilingual>
             <isEncoded>false</isEncoded>
             <isNullable>true</isNullable>
             <defaultValue />
             <sqlType>NVARCHAR</sqlType>
-            <length>255</length>
-            <scale>0</scale>
-            <precision>0</precision>
-        </column>
-        <column>
-            <name>CFPlanNameID</name>
-            <alias>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_JudgesComfirm].columns.column[CFPlanNameID].alias</alias>
-            <description>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_JudgesComfirm].columns.column[CFPlanNameID].description</description>
-            <userDefined>true</userDefined>
-            <isMultilingual>false</isMultilingual>
-            <isEncoded>false</isEncoded>
-            <isNullable>true</isNullable>
-            <defaultValue />
-            <sqlType>VARCHAR</sqlType>
-            <length>44</length>
+            <length>80</length>
             <scale>0</scale>
             <precision>0</precision>
         </column>
@@ -525,15 +525,15 @@
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_JudgesComfirm].columns.column[CFInviteType].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="招标类型" />
-            <lang locale="zh_HK" value="招標類型" />
-            <lang locale="zh_TW" value="招標類型" />
+            <lang locale="zh_CN" value="招标方式" />
+            <lang locale="zh_HK" value="招標方式" />
+            <lang locale="zh_TW" value="招標方式" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_JudgesComfirm].columns.column[CFInviteType].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="招标类型" />
-            <lang locale="zh_HK" value="招標類型" />
-            <lang locale="zh_TW" value="招標類型" />
+            <lang locale="zh_CN" value="招标方式" />
+            <lang locale="zh_HK" value="招標方式" />
+            <lang locale="zh_TW" value="招標方式" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_JudgesComfirm].columns.column[CFOrgUnit].alias">
             <lang locale="en_US" value="null" />
@@ -573,15 +573,15 @@
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_JudgesComfirm].columns.column[CFPrjName].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="所属项目" />
-            <lang locale="zh_HK" value="所屬項目" />
-            <lang locale="zh_TW" value="所屬項目" />
+            <lang locale="zh_CN" value="项目名称" />
+            <lang locale="zh_HK" value="項目名稱" />
+            <lang locale="zh_TW" value="項目名稱" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_JudgesComfirm].columns.column[CFPrjName].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="所属项目" />
-            <lang locale="zh_HK" value="所屬項目" />
-            <lang locale="zh_TW" value="所屬項目" />
+            <lang locale="zh_CN" value="项目名称" />
+            <lang locale="zh_HK" value="項目名稱" />
+            <lang locale="zh_TW" value="項目名稱" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_JudgesComfirm].columns.column[FAuditTime].alias">
             <lang locale="en_US" value="null" />

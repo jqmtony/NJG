@@ -15,7 +15,7 @@
             <isMultilingual>false</isMultilingual>
             <isEncoded>false</isEncoded>
             <isNullable>false</isNullable>
-            <defaultValue />
+            <defaultValue>''</defaultValue>
             <sqlType>VARCHAR</sqlType>
             <length>44</length>
             <scale>0</scale>
@@ -29,7 +29,7 @@
             <isMultilingual>false</isMultilingual>
             <isEncoded>false</isEncoded>
             <isNullable>false</isNullable>
-            <defaultValue />
+            <defaultValue>0</defaultValue>
             <sqlType>INT</sqlType>
             <length>4</length>
             <scale>0</scale>
@@ -43,7 +43,7 @@
             <isMultilingual>false</isMultilingual>
             <isEncoded>false</isEncoded>
             <isNullable>false</isNullable>
-            <defaultValue />
+            <defaultValue>''</defaultValue>
             <sqlType>VARCHAR</sqlType>
             <length>44</length>
             <scale>0</scale>
@@ -64,23 +64,23 @@
             <precision>0</precision>
         </column>
         <column>
-            <name>CFJudgesName</name>
-            <alias>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_WinInviteReportJudges].columns.column[CFJudgesName].alias</alias>
-            <description>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_WinInviteReportJudges].columns.column[CFJudgesName].description</description>
+            <name>CFOrgID</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_WinInviteReportJudges].columns.column[CFOrgID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_WinInviteReportJudges].columns.column[CFOrgID].description</description>
             <userDefined>true</userDefined>
             <isMultilingual>false</isMultilingual>
             <isEncoded>false</isEncoded>
             <isNullable>true</isNullable>
             <defaultValue />
-            <sqlType>NVARCHAR</sqlType>
-            <length>100</length>
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
             <scale>0</scale>
             <precision>0</precision>
         </column>
         <column>
-            <name>CFOrgID</name>
-            <alias>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_WinInviteReportJudges].columns.column[CFOrgID].alias</alias>
-            <description>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_WinInviteReportJudges].columns.column[CFOrgID].description</description>
+            <name>CFJudgesNameID</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_WinInviteReportJudges].columns.column[CFJudgesNameID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_WinInviteReportJudges].columns.column[CFJudgesNameID].description</description>
             <userDefined>true</userDefined>
             <isMultilingual>false</isMultilingual>
             <isEncoded>false</isEncoded>
@@ -125,6 +125,25 @@
                 </fkColumnPair>
             </fkColumnPairs>
         </foreignKey>
+        <foreignKey>
+            <name>CFK_INV_INVWIRJU4t</name>
+            <userDefined>true</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
+                <key name="name" value="CT_BAS_Judges" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="CFJudgesNameID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
     </foreignKeys>
     <resource>
         <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_WinInviteReportJudges].alias">
@@ -133,17 +152,17 @@
             <lang locale="zh_HK" value="專家評委" />
             <lang locale="zh_TW" value="專家評委" />
         </rs>
-        <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_WinInviteReportJudges].columns.column[CFJudgesName].alias">
+        <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_WinInviteReportJudges].columns.column[CFJudgesNameID].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="专家名称" />
-            <lang locale="zh_HK" value="專家名稱" />
-            <lang locale="zh_TW" value="專家名稱" />
+            <lang locale="zh_CN" value="专家姓名" />
+            <lang locale="zh_HK" value="專家姓名" />
+            <lang locale="zh_TW" value="專家姓名" />
         </rs>
-        <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_WinInviteReportJudges].columns.column[CFJudgesName].description">
+        <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_WinInviteReportJudges].columns.column[CFJudgesNameID].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="专家名称" />
-            <lang locale="zh_HK" value="專家名稱" />
-            <lang locale="zh_TW" value="專家名稱" />
+            <lang locale="zh_CN" value="专家姓名" />
+            <lang locale="zh_HK" value="專家姓名" />
+            <lang locale="zh_TW" value="專家姓名" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_WinInviteReportJudges].columns.column[CFOrgID].alias">
             <lang locale="en_US" value="null" />

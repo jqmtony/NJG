@@ -87,21 +87,101 @@
                 <key name="name" value="InviteReport" />
             </entityRef>
         </subEntity>
-        <subEntity>
-            <name>EntryValid</name>
-            <alias>joinQuery[com.kingdee.eas.port.pm.invite.app.EvaluationQuery].subObjects.subEntity[EntryValid].alias</alias>
+    </subObjects>
+    <units>
+        <queryField>
+            <name>inviteReport.reportName</name>
             <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.EvaluationQuery].units.queryField[inviteReport.reportName].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>50d1098e-1547-42ac-830c-c53402bb4955</key>
+                    <parentUnit>
+                        <key name="name" value="inviteReport.reportName" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="inviteReport" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="reportName" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
             <query>
                 <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
                 <key name="name" value="EvaluationQuery" />
             </query>
-            <entityRef>
+        </queryField>
+        <queryField>
+            <name>prjName</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.EvaluationQuery].units.queryField[prjName].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>408ecdf8-e7f7-4824-b7f9-ea8624a680b0</key>
+                    <parentUnit>
+                        <key name="name" value="prjName" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Evaluation" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="prjName" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
                 <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="EvaluationEntryValid" />
-            </entityRef>
-        </subEntity>
-    </subObjects>
-    <units>
+                <key name="name" value="EvaluationQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>number</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.EvaluationQuery].units.queryField[number].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>19dbe509-f268-4cea-8fa6-7b6764c72623</key>
+                    <parentUnit>
+                        <key name="name" value="number" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Evaluation" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="number" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="EvaluationQuery" />
+            </query>
+        </queryField>
         <queryField>
             <name>status</name>
             <userDefined>true</userDefined>
@@ -134,28 +214,90 @@
             </query>
         </queryField>
         <queryField>
-            <name>number</name>
+            <name>evaSolution</name>
             <userDefined>true</userDefined>
-            <formulaString />
+            <formulaString>#0</formulaString>
             <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.EvaluationQuery].units.queryField[number].displayName</displayName>
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.EvaluationQuery].units.queryField[evaSolution].displayName</displayName>
             <groupType />
             <isSelector>true</isSelector>
             <isFilter>true</isFilter>
-            <isSorter>false</isSorter>
+            <isSorter>true</isSorter>
             <isParameter>false</isParameter>
             <returnType>String</returnType>
             <propertyRefs>
                 <propertyRef>
-                    <key>19dbe509-f268-4cea-8fa6-7b6764c72623</key>
+                    <key>22855c3a-22ce-41bd-9473-416c4a4cdf2d</key>
                     <parentUnit>
-                        <key name="name" value="number" />
+                        <key name="name" value="evaSolution" />
                     </parentUnit>
                     <subEntity>
                         <key name="name" value="Evaluation" />
                     </subEntity>
                     <refProperty>
-                        <key name="name" value="number" />
+                        <key name="name" value="evaSolution" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="EvaluationQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>evaDate</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.EvaluationQuery].units.queryField[evaDate].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Date</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>54fb34a8-798d-4c70-924e-310a5b4ba433</key>
+                    <parentUnit>
+                        <key name="name" value="evaDate" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Evaluation" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="evaDate" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="EvaluationQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>basePrice</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.EvaluationQuery].units.queryField[basePrice].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0a6fbd45-c97a-407a-bdd7-128e8173c770</key>
+                    <parentUnit>
+                        <key name="name" value="basePrice" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Evaluation" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="basePrice" />
                     </refProperty>
                 </propertyRef>
             </propertyRefs>
@@ -691,37 +833,6 @@
                 <key name="name" value="EvaluationQuery" />
             </query>
         </queryField>
-        <queryField>
-            <name>inviteReport.reportName</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.EvaluationQuery].units.queryField[inviteReport.reportName].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>50d1098e-1547-42ac-830c-c53402bb4955</key>
-                    <parentUnit>
-                        <key name="name" value="inviteReport.reportName" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="inviteReport" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="reportName" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="EvaluationQuery" />
-            </query>
-        </queryField>
         <propertyUnit>
             <name>f1ee59b4-314f-45b1-8439-7bce2b2cc923</name>
             <userDefined>true</userDefined>
@@ -784,316 +895,6 @@
                 <key name="name" value="EvaluationQuery" />
             </query>
         </propertyUnit>
-        <queryField>
-            <name>prjName</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.EvaluationQuery].units.queryField[prjName].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>408ecdf8-e7f7-4824-b7f9-ea8624a680b0</key>
-                    <parentUnit>
-                        <key name="name" value="prjName" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="Evaluation" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="prjName" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="EvaluationQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>evaSolution</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.EvaluationQuery].units.queryField[evaSolution].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>22855c3a-22ce-41bd-9473-416c4a4cdf2d</key>
-                    <parentUnit>
-                        <key name="name" value="evaSolution" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="Evaluation" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="evaSolution" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="EvaluationQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>evaDate</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.EvaluationQuery].units.queryField[evaDate].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>Date</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>54fb34a8-798d-4c70-924e-310a5b4ba433</key>
-                    <parentUnit>
-                        <key name="name" value="evaDate" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="Evaluation" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="evaDate" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="EvaluationQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>EntryValid.seq</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.EvaluationQuery].units.queryField[EntryValid.seq].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>Int</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>94e62006-9974-4a5a-901e-a89b40558efd</key>
-                    <parentUnit>
-                        <key name="name" value="EntryValid.seq" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="EntryValid" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="seq" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="EvaluationQuery" />
-            </query>
-        </queryField>
-        <propertyUnit>
-            <name>01728c2b-4516-438e-b21d-d84e1ecc0f5e</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.EvaluationQuery].units.propertyUnit[01728c2b-4516-438e-b21d-d84e1ecc0f5e].displayName</displayName>
-            <groupType />
-            <isSelector>false</isSelector>
-            <isFilter>false</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType />
-            <propertyRefs>
-                <propertyRef>
-                    <key>84ca3563-291b-47d6-aa18-e023bdf758b0</key>
-                    <parentUnit>
-                        <key name="name" value="01728c2b-4516-438e-b21d-d84e1ecc0f5e" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="Evaluation" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="id" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="EvaluationQuery" />
-            </query>
-        </propertyUnit>
-        <propertyUnit>
-            <name>8ad142b2-bdd5-4562-b150-5fe263c44c22</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.EvaluationQuery].units.propertyUnit[8ad142b2-bdd5-4562-b150-5fe263c44c22].displayName</displayName>
-            <groupType />
-            <isSelector>false</isSelector>
-            <isFilter>false</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType />
-            <propertyRefs>
-                <propertyRef>
-                    <key>6b96ad78-1a85-4d34-bdb0-784396364e4e</key>
-                    <parentUnit>
-                        <key name="name" value="8ad142b2-bdd5-4562-b150-5fe263c44c22" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="EntryValid" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="parent" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="EvaluationQuery" />
-            </query>
-        </propertyUnit>
-        <queryField>
-            <name>EntryValid.indicators</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.EvaluationQuery].units.queryField[EntryValid.indicators].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>af5837f5-461e-4f94-bd0c-b318b90de751</key>
-                    <parentUnit>
-                        <key name="name" value="EntryValid.indicators" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="EntryValid" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="indicators" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="EvaluationQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>EntryValid.valid</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.EvaluationQuery].units.queryField[EntryValid.valid].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>021f50ec-5f41-4771-ac9e-8a502040a1ba</key>
-                    <parentUnit>
-                        <key name="name" value="EntryValid.valid" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="EntryValid" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="valid" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="EvaluationQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>EntryValid.judges</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.EvaluationQuery].units.queryField[EntryValid.judges].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>89cf1d2f-1103-4a6d-8581-c090f00d517f</key>
-                    <parentUnit>
-                        <key name="name" value="EntryValid.judges" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="EntryValid" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="judges" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="EvaluationQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>basePrice</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.EvaluationQuery].units.queryField[basePrice].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>Number</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>0a6fbd45-c97a-407a-bdd7-128e8173c770</key>
-                    <parentUnit>
-                        <key name="name" value="basePrice" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="Evaluation" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="basePrice" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="EvaluationQuery" />
-            </query>
-        </queryField>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -1267,36 +1068,6 @@
                 <key name="name" value="EvaluationQuery" />
             </query>
         </join>
-        <join>
-            <name>5ed93069-257f-4981-8a45-834f07d7248d</name>
-            <formulaString>#0</formulaString>
-            <type>LEFT OUTER JOIN</type>
-            <leftObject>
-                <key name="name" value="Evaluation" />
-            </leftObject>
-            <rightObject>
-                <key name="name" value="EntryValid" />
-            </rightObject>
-            <joinItems>
-                <joinItem>
-                    <name>9db2fced-2b6b-4d23-9463-5367470995fe</name>
-                    <compareType>=</compareType>
-                    <leftField>
-                        <key name="name" value="01728c2b-4516-438e-b21d-d84e1ecc0f5e" />
-                    </leftField>
-                    <rightField>
-                        <key name="name" value="8ad142b2-bdd5-4562-b150-5fe263c44c22" />
-                    </rightField>
-                    <join>
-                        <key name="name" value="5ed93069-257f-4981-8a45-834f07d7248d" />
-                    </join>
-                </joinItem>
-            </joinItems>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="EvaluationQuery" />
-            </query>
-        </join>
     </joins>
     <resource>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.EvaluationQuery].alias">
@@ -1327,12 +1098,6 @@
             <lang locale="zh_TW" value="专家评标" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.EvaluationQuery].subObjects.subEntity[CU].alias">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.EvaluationQuery].subObjects.subEntity[EntryValid].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -1374,12 +1139,6 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.EvaluationQuery].units.propertyUnit[01728c2b-4516-438e-b21d-d84e1ecc0f5e].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.EvaluationQuery].units.propertyUnit[1616fe90-d3db-4e68-841c-68e3da457f4a].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -1416,12 +1175,6 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.EvaluationQuery].units.propertyUnit[8ad142b2-bdd5-4562-b150-5fe263c44c22].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.EvaluationQuery].units.propertyUnit[e2d4e712-e3ae-494f-ac8e-5908534f9998].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -1445,70 +1198,6 @@
             <lang locale="zh_CN" value="ID" />
             <lang locale="zh_HK" value="ID" />
             <lang locale="zh_TW" value="ID" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.EvaluationQuery].units.queryField[EntryValid.indicators].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="符合性指标" />
-            <lang locale="zh_HK" value="符合性指標" />
-            <lang locale="zh_TW" value="符合性指標" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.EvaluationQuery].units.queryField[EntryValid.indicators].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.EvaluationQuery].units.queryField[EntryValid.indicators].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.EvaluationQuery].units.queryField[EntryValid.judges].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="评委" />
-            <lang locale="zh_HK" value="評委" />
-            <lang locale="zh_TW" value="評委" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.EvaluationQuery].units.queryField[EntryValid.judges].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.EvaluationQuery].units.queryField[EntryValid.judges].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.EvaluationQuery].units.queryField[EntryValid.seq].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="单据分录序列号" />
-            <lang locale="zh_HK" value="單據分錄序列號" />
-            <lang locale="zh_TW" value="單據分錄序列號" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.EvaluationQuery].units.queryField[EntryValid.seq].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.EvaluationQuery].units.queryField[EntryValid.seq].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.EvaluationQuery].units.queryField[EntryValid.valid].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="符合性" />
-            <lang locale="zh_HK" value="符合性" />
-            <lang locale="zh_TW" value="符合性" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.EvaluationQuery].units.queryField[EntryValid.valid].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.EvaluationQuery].units.queryField[EntryValid.valid].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.EvaluationQuery].units.queryField[auditTime].displayName">
             <lang locale="en_US" value="null" />

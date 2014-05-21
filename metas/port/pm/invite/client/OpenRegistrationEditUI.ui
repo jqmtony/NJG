@@ -902,7 +902,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>12,107,927,221,0</constraints>
+            <constraints>12,127,927,221,0</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -937,7 +937,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>24,342,270,19,260</constraints>
+            <constraints>24,359,270,19,260</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -979,7 +979,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>652,342,270,19,136</constraints>
+            <constraints>652,359,270,19,136</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -1021,7 +1021,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>652,368,270,19,200</constraints>
+            <constraints>652,385,270,19,200</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -1063,7 +1063,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>24,368,270,19,324</constraints>
+            <constraints>24,385,270,19,324</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -1245,6 +1245,56 @@
             <parent>
                 <key name="name" value="kDPanel1" />
             </parent>
+        </component>
+        <component>
+            <name>chkcancel</name>
+            <alias>uiObject[com.kingdee.eas.port.pm.invite.client.OpenRegistrationEditUI].components.component[chkcancel].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDCheckBox</classType>
+            <isContainer>false</isContainer>
+            <constraints>24,100,270,19,0</constraints>
+            <tabIndex>26</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>text</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.invite.client.OpenRegistrationEditUI].components.component[chkcancel].properties.property[text].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.invite.client.OpenRegistrationEditUI].components.component[chkcancel].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>horizontalAlignment</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.invite.client.OpenRegistrationEditUI].components.component[chkcancel].properties.property[horizontalAlignment].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="kDPanel1" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>selected</propertyName>
+                    <propertyType>boolean</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>cancel</bindingField>
+                    <fieldType>boolean</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
         </component>
         <component>
             <name>prmtreportName</name>
@@ -2258,6 +2308,30 @@
             <lang locale="zh_CN" value="953,439" />
             <lang locale="zh_HK" value="953,439" />
             <lang locale="zh_TW" value="953,439" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invite.client.OpenRegistrationEditUI].components.component[chkcancel].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否作废" />
+            <lang locale="zh_HK" value="是否作廢" />
+            <lang locale="zh_TW" value="是否作廢" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invite.client.OpenRegistrationEditUI].components.component[chkcancel].properties.property[horizontalAlignment].value">
+            <lang locale="en_US" value="2" />
+            <lang locale="zh_CN" value="2" />
+            <lang locale="zh_HK" value="2" />
+            <lang locale="zh_TW" value="2" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invite.client.OpenRegistrationEditUI].components.component[chkcancel].properties.property[text].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否作废" />
+            <lang locale="zh_HK" value="是否作廢" />
+            <lang locale="zh_TW" value="是否作廢" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invite.client.OpenRegistrationEditUI].components.component[chkcancel].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.pm.invite.client.OpenRegistrationEditUI].components.component[comboBizStatus].alias">
             <lang locale="en_US" value="null" />

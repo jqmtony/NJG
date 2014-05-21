@@ -778,20 +778,6 @@
                 <key name="name" value="R_InviteReport_InviteReportEntry1" />
             </relationship>
         </linkProperty>
-        <linkProperty>
-            <name>proName</name>
-            <alias>entityObject[com.kingdee.eas.port.pm.invite.app.InviteReport].properties.linkProperty[proName].alias</alias>
-            <description>entityObject[com.kingdee.eas.port.pm.invite.app.InviteReport].properties.linkProperty[proName].description</description>
-            <userDefined>true</userDefined>
-            <configured>false</configured>
-            <mappingField>
-                <key name="name" value="CFProNameID" />
-            </mappingField>
-            <relationship>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="R_InviteReport_PortProject_proName" />
-            </relationship>
-        </linkProperty>
         <ownProperty>
             <name>inviteBudget</name>
             <alias>entityObject[com.kingdee.eas.port.pm.invite.app.InviteReport].properties.ownProperty[inviteBudget].alias</alias>
@@ -1078,26 +1064,6 @@
                 <key name="name" value="CFReportName" />
             </mappingField>
         </ownProperty>
-        <ownProperty>
-            <name>projectNumber</name>
-            <alias>entityObject[com.kingdee.eas.port.pm.invite.app.InviteReport].properties.ownProperty[projectNumber].alias</alias>
-            <description>entityObject[com.kingdee.eas.port.pm.invite.app.InviteReport].properties.ownProperty[projectNumber].description</description>
-            <userDefined>true</userDefined>
-            <configured>false</configured>
-            <dataType>String</dataType>
-            <metadataRef />
-            <isMultilingual>false</isMultilingual>
-            <isNullable>false</isNullable>
-            <formula />
-            <length>80</length>
-            <precision>0</precision>
-            <decimalDigits>0</decimalDigits>
-            <defaultValue>entityObject[com.kingdee.eas.port.pm.invite.app.InviteReport].properties.ownProperty[projectNumber].defaultValue</defaultValue>
-            <displayFormat />
-            <mappingField>
-                <key name="name" value="CFProjectNumber" />
-            </mappingField>
-        </ownProperty>
         <linkProperty>
             <name>validTemplate</name>
             <alias>entityObject[com.kingdee.eas.port.pm.invite.app.InviteReport].properties.linkProperty[validTemplate].alias</alias>
@@ -1230,6 +1196,40 @@
             <displayFormat />
             <mappingField>
                 <key name="name" value="CFReduLow" />
+            </mappingField>
+        </ownProperty>
+        <linkProperty>
+            <name>proName</name>
+            <alias>entityObject[com.kingdee.eas.port.pm.invite.app.InviteReport].properties.linkProperty[proName].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invite.app.InviteReport].properties.linkProperty[proName].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <mappingField>
+                <key name="name" value="CFProNameID" />
+            </mappingField>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="R_InviteReport_Project_proName" />
+            </relationship>
+        </linkProperty>
+        <ownProperty>
+            <name>projectNumber</name>
+            <alias>entityObject[com.kingdee.eas.port.pm.invite.app.InviteReport].properties.ownProperty[projectNumber].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invite.app.InviteReport].properties.ownProperty[projectNumber].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>String</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>80</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.port.pm.invite.app.InviteReport].properties.ownProperty[projectNumber].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFProjectNumber" />
             </mappingField>
         </ownProperty>
     </properties>

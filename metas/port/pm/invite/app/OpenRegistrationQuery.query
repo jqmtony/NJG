@@ -1448,6 +1448,37 @@
                 <key name="name" value="OpenRegistrationQuery" />
             </query>
         </queryField>
+        <queryField>
+            <name>cancel</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[cancel].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Boolean</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>abdc1e9e-10de-4bf9-81ce-86ede15143f0</key>
+                    <parentUnit>
+                        <key name="name" value="cancel" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="OpenRegistration" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="cancel" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="OpenRegistrationQuery" />
+            </query>
+        </queryField>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -2068,6 +2099,22 @@
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[bizDate].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[cancel].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否作废" />
+            <lang locale="zh_HK" value="是否作廢" />
+            <lang locale="zh_TW" value="是否作廢" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[cancel].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[cancel].extendedProperty.isCommonQuerySorter">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />

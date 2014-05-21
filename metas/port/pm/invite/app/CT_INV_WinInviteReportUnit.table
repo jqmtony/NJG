@@ -15,7 +15,7 @@
             <isMultilingual>false</isMultilingual>
             <isEncoded>false</isEncoded>
             <isNullable>false</isNullable>
-            <defaultValue />
+            <defaultValue>''</defaultValue>
             <sqlType>VARCHAR</sqlType>
             <length>44</length>
             <scale>0</scale>
@@ -29,7 +29,7 @@
             <isMultilingual>false</isMultilingual>
             <isEncoded>false</isEncoded>
             <isNullable>false</isNullable>
-            <defaultValue />
+            <defaultValue>0</defaultValue>
             <sqlType>INT</sqlType>
             <length>4</length>
             <scale>0</scale>
@@ -43,7 +43,7 @@
             <isMultilingual>false</isMultilingual>
             <isEncoded>false</isEncoded>
             <isNullable>false</isNullable>
-            <defaultValue />
+            <defaultValue>''</defaultValue>
             <sqlType>VARCHAR</sqlType>
             <length>44</length>
             <scale>0</scale>
@@ -60,20 +60,6 @@
             <defaultValue />
             <sqlType>INT</sqlType>
             <length>0</length>
-            <scale>0</scale>
-            <precision>0</precision>
-        </column>
-        <column>
-            <name>CFUnitNameID</name>
-            <alias>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_WinInviteReportUnit].columns.column[CFUnitNameID].alias</alias>
-            <description>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_WinInviteReportUnit].columns.column[CFUnitNameID].description</description>
-            <userDefined>true</userDefined>
-            <isMultilingual>false</isMultilingual>
-            <isEncoded>false</isEncoded>
-            <isNullable>true</isNullable>
-            <defaultValue />
-            <sqlType>VARCHAR</sqlType>
-            <length>44</length>
             <scale>0</scale>
             <precision>0</precision>
         </column>
@@ -133,6 +119,20 @@
             <scale>0</scale>
             <precision>0</precision>
         </column>
+        <column>
+            <name>CFUnitNameID</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_WinInviteReportUnit].columns.column[CFUnitNameID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_WinInviteReportUnit].columns.column[CFUnitNameID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
     </columns>
     <primaryKey>
         <name>CPK_INV_WinIRUIese</name>
@@ -149,11 +149,11 @@
     </primaryKey>
     <foreignKeys>
         <foreignKey>
-            <name>CFK_INV_INVWIRUNiu</name>
+            <name>CFK_INV_INVWIRUNbk</name>
             <userDefined>true</userDefined>
             <refTable>
-                <key name="package" value="com.kingdee.eas.basedata.master.cssp.app" />
-                <key name="name" value="T_BD_Supplier" />
+                <key name="package" value="com.kingdee.eas.port.markesupplier.subill.app" />
+                <key name="name" value="CT_SUB_MarketSupplierStock" />
             </refTable>
             <fkColumnPairs>
                 <fkColumnPair>

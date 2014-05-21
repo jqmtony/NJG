@@ -616,20 +616,6 @@
                 <key name="name" value="R_WinInviteReport_WinInviteReportUnit" />
             </relationship>
         </linkProperty>
-        <linkProperty>
-            <name>unitName</name>
-            <alias>entityObject[com.kingdee.eas.port.pm.invite.app.WinInviteReportUnit].properties.linkProperty[unitName].alias</alias>
-            <description>entityObject[com.kingdee.eas.port.pm.invite.app.WinInviteReportUnit].properties.linkProperty[unitName].description</description>
-            <userDefined>true</userDefined>
-            <configured>false</configured>
-            <mappingField>
-                <key name="name" value="CFUnitNameID" />
-            </mappingField>
-            <relationship>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="R_WinInviteReportUnit_Supplier_unitName" />
-            </relationship>
-        </linkProperty>
         <ownProperty>
             <name>quality</name>
             <alias>entityObject[com.kingdee.eas.port.pm.invite.app.WinInviteReportUnit].properties.ownProperty[quality].alias</alias>
@@ -710,6 +696,20 @@
                 <key name="name" value="CFBeizhu" />
             </mappingField>
         </ownProperty>
+        <linkProperty>
+            <name>unitName</name>
+            <alias>entityObject[com.kingdee.eas.port.pm.invite.app.WinInviteReportUnit].properties.linkProperty[unitName].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invite.app.WinInviteReportUnit].properties.linkProperty[unitName].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <mappingField>
+                <key name="name" value="CFUnitNameID" />
+            </mappingField>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="R_WinInviteReportUnit_MarketSupplierStock_unitName" />
+            </relationship>
+        </linkProperty>
     </properties>
     <logicalKey>
         <name>id</name>
@@ -757,6 +757,11 @@
             <lang locale="zh_CN" value="投标单位" />
             <lang locale="zh_HK" value="投標單位" />
             <lang locale="zh_TW" value="投標單位" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.WinInviteReportUnit].extendedProperty.genBusinessImplCode">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.WinInviteReportUnit].extendedProperty.genImplementCode">
             <lang locale="en_US" value="true" />
@@ -1189,9 +1194,9 @@
             <lang locale="zh_TW" value="50" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.WinInviteReportUnit].properties.linkProperty[unitName].extendedProperty.dataField">
-            <lang locale="en_US" value="name" />
-            <lang locale="zh_CN" value="name" />
-            <lang locale="zh_TW" value="name" />
+            <lang locale="en_US" value="supplierName" />
+            <lang locale="zh_CN" value="supplierName" />
+            <lang locale="zh_TW" value="supplierName" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.WinInviteReportUnit].properties.linkProperty[unitName].extendedProperty.isForGrouping">
             <lang locale="en_US" value="false" />

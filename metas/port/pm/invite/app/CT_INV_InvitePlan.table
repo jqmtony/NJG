@@ -246,20 +246,6 @@
             <precision>44</precision>
         </column>
         <column>
-            <name>CFPlanNumber</name>
-            <alias>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFPlanNumber].alias</alias>
-            <description>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFPlanNumber].description</description>
-            <userDefined>true</userDefined>
-            <isMultilingual>false</isMultilingual>
-            <isEncoded>false</isEncoded>
-            <isNullable>true</isNullable>
-            <defaultValue />
-            <sqlType>NVARCHAR</sqlType>
-            <length>100</length>
-            <scale>0</scale>
-            <precision>0</precision>
-        </column>
-        <column>
             <name>CFPlanName</name>
             <alias>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFPlanName].alias</alias>
             <description>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFPlanName].description</description>
@@ -330,20 +316,6 @@
             <precision>0</precision>
         </column>
         <column>
-            <name>CFProjectID</name>
-            <alias>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFProjectID].alias</alias>
-            <description>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFProjectID].description</description>
-            <userDefined>true</userDefined>
-            <isMultilingual>false</isMultilingual>
-            <isEncoded>false</isEncoded>
-            <isNullable>true</isNullable>
-            <defaultValue />
-            <sqlType>VARCHAR</sqlType>
-            <length>44</length>
-            <scale>0</scale>
-            <precision>0</precision>
-        </column>
-        <column>
             <name>CFDepartmentID</name>
             <alias>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFDepartmentID].alias</alias>
             <description>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFDepartmentID].description</description>
@@ -368,6 +340,20 @@
             <defaultValue />
             <sqlType>NVARCHAR</sqlType>
             <length>255</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFProjectID</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFProjectID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFProjectID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
             <scale>0</scale>
             <precision>0</precision>
         </column>
@@ -501,25 +487,6 @@
             </fkColumnPairs>
         </foreignKey>
         <foreignKey>
-            <name>CFK_INV_INVIPRjc4i</name>
-            <userDefined>true</userDefined>
-            <refTable>
-                <key name="package" value="com.kingdee.eas.port.pm.project.app" />
-                <key name="name" value="CT_PRO_PortProject" />
-            </refTable>
-            <fkColumnPairs>
-                <fkColumnPair>
-                    <sequence>0</sequence>
-                    <refColumn>
-                        <key name="name" value="FID" />
-                    </refColumn>
-                    <fkColumn>
-                        <key name="name" value="CFProjectID" />
-                    </fkColumn>
-                </fkColumnPair>
-            </fkColumnPairs>
-        </foreignKey>
-        <foreignKey>
             <name>CFK_INV_INVIPEpr75</name>
             <userDefined>true</userDefined>
             <refTable>
@@ -534,6 +501,25 @@
                     </refColumn>
                     <fkColumn>
                         <key name="name" value="CFDepartmentID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
+        <foreignKey>
+            <name>CFK_INV_INVIPRjc8l</name>
+            <userDefined>true</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="CT_BD_Project" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="CFProjectID" />
                     </fkColumn>
                 </fkColumnPair>
             </fkColumnPairs>
@@ -605,18 +591,6 @@
             <lang locale="zh_CN" value="计划名称" />
             <lang locale="zh_HK" value="計畫名稱" />
             <lang locale="zh_TW" value="計畫名稱" />
-        </rs>
-        <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFPlanNumber].alias">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="计划编码" />
-            <lang locale="zh_HK" value="計畫編碼" />
-            <lang locale="zh_TW" value="計畫編碼" />
-        </rs>
-        <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFPlanNumber].description">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="计划编码" />
-            <lang locale="zh_HK" value="計畫編碼" />
-            <lang locale="zh_TW" value="計畫編碼" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFProjectID].alias">
             <lang locale="en_US" value="null" />
