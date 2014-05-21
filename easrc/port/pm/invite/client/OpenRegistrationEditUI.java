@@ -60,6 +60,7 @@ public class OpenRegistrationEditUI extends AbstractOpenRegistrationEditUI
     	com.kingdee.eas.port.pm.invite.client.InviteReportEditUI.initContainerButton(this.kDContainer1, this.kdtEntry_detailPanel);
     }
     private void initConpoment() {
+    	chkcancel.setEnabled(false);
     	txtNumber.setRequired(true);
     	prmtreportName.setRequired(true);
     	txtcoefficient.setRequired(true);
