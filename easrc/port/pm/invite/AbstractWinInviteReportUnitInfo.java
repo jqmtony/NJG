@@ -29,17 +29,6 @@ public class AbstractWinInviteReportUnitInfo extends com.kingdee.eas.framework.C
         put("parent", item);
     }
     /**
-     * Object: 投标单位 's 投标单位 property 
-     */
-    public com.kingdee.eas.basedata.master.cssp.SupplierInfo getUnitName()
-    {
-        return (com.kingdee.eas.basedata.master.cssp.SupplierInfo)get("unitName");
-    }
-    public void setUnitName(com.kingdee.eas.basedata.master.cssp.SupplierInfo item)
-    {
-        put("unitName", item);
-    }
-    /**
      * Object:投标单位's 质量property 
      */
     public String getQuality()
@@ -82,6 +71,17 @@ public class AbstractWinInviteReportUnitInfo extends com.kingdee.eas.framework.C
     public void setBeizhu(String item)
     {
         setString("beizhu", item);
+    }
+    /**
+     * Object: 投标单位 's 投标单位 property 
+     */
+    public com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockInfo getUnitName()
+    {
+        return (com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockInfo)get("unitName");
+    }
+    public void setUnitName(com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockInfo item)
+    {
+        put("unitName", item);
     }
     public BOSObjectType getBOSType()
     {

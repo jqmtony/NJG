@@ -28,6 +28,7 @@ import com.kingdee.eas.port.pm.invite.InviteReportEntry2Factory;
 import com.kingdee.eas.port.pm.invite.InviteReportEntry2Info;
 import com.kingdee.eas.port.pm.invite.InviteReportFactory;
 import com.kingdee.eas.port.pm.invite.InviteReportInfo;
+import com.kingdee.eas.port.pm.invite.judgeSolution;
 import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
@@ -52,28 +53,52 @@ public class OpenRegistrationEditUI extends AbstractOpenRegistrationEditUI
         super();
     }
     
-    @Override
     public void onLoad() throws Exception {
     	// TODO Auto-generated method stub
+    	initConpoment();
+    	super.onLoad();
+    	com.kingdee.eas.port.pm.invite.client.InviteReportEditUI.initContainerButton(this.kDContainer1, this.kdtEntry_detailPanel);
+    }
+    private void initConpoment() {
     	txtNumber.setRequired(true);
     	prmtreportName.setRequired(true);
     	txtcoefficient.setRequired(true);
+    	txtopLocation.setRequired(true);
     	prmtreportName.setDisplayFormat("$reportName$");
     	contreportNumber.setEnabled(false);
     	btnCopyLine.setVisible(false);
     	btnAddLine.setVisible(false);
     	btnInsertLine.setVisible(false);
     	btnRemoveLine.setVisible(false);
-    	super.onLoad();
-    	com.kingdee.eas.port.pm.invite.client.InviteReportEditUI.initContainerButton(this.kDContainer1, this.kdtEntry_detailPanel);
     }
-    
-    @Override
+
+    protected void verifyInput(ActionEvent e) throws Exception {
+    	// TODO Auto-generated method stub
+    	InviteReportInfo invite = (InviteReportInfo) this.prmtreportName.getValue();
+    	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, prmtreportName, "招标方案");
+    	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, txtopLocation, "开标地点");
+    	if(judgeSolution.integrate.equals(invite.getJudgeSolution())) {
+    		//综合评分时评标系数必填
+    		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, txtcoefficient, "评标系数");
+    	}
+    	//报价,工期,质量不能为空
+    	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyKDTColumnNull(this, this.kdtEntry, "quotedPrice");
+    	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyKDTColumnNull(this, this.kdtEntry, "prjPeriod");
+    	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyKDTColumnNull(this, this.kdtEntry, "quality");
+    	super.verifyInput(e);
+    }
+
     public void prmtreportName_Changed() throws Exception {
     	// TODO Auto-generated method stub
     	super.prmtreportName_Changed();
     	if(!getOprtState().equals(OprtState.VIEW)) {
         	InviteReportInfo invite = (InviteReportInfo) this.prmtreportName.getValue();
+        	if(judgeSolution.integrate.equals(invite.getJudgeSolution())) {
+        		txtcoefficient.setEnabled(true);
+        		txtcoefficient.setRequired(true);
+        	}
+        	else
+        		txtcoefficient.setEnabled(false);
         	invite = InviteReportFactory.getRemoteInstance().getInviteReportInfo(new ObjectUuidPK(invite.getId()));
         	InviteReportEntry2Collection entry2collection = invite.getEntry2(); //获取方案申报招标单位分录信息
         	IMarketSupplierStock isupplier = MarketSupplierStockFactory.getRemoteInstance();

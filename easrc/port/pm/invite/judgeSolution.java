@@ -14,7 +14,7 @@ import com.kingdee.util.enums.StringEnum;
 public class judgeSolution extends StringEnum
 {
     public static final String INTEGRATE_VALUE = "1";//alias=综合评分法
-    public static final String LOWEST_VALUE = "2";//alias=最低评标价法
+    public static final String LOWEST_VALUE = "2";//alias=最低价评标法
 
     public static final judgeSolution integrate = new judgeSolution("integrate", INTEGRATE_VALUE);
     public static final judgeSolution lowest = new judgeSolution("lowest", LOWEST_VALUE);

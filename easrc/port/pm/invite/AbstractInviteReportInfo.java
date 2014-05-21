@@ -63,17 +63,6 @@ public class AbstractInviteReportInfo extends com.kingdee.eas.xr.XRBillBaseInfo 
         return (com.kingdee.eas.port.pm.invite.InviteReportEntry1Collection)get("Entry1");
     }
     /**
-     * Object: 招标方案申报 's 项目名称 property 
-     */
-    public com.kingdee.eas.port.pm.project.PortProjectInfo getProName()
-    {
-        return (com.kingdee.eas.port.pm.project.PortProjectInfo)get("proName");
-    }
-    public void setProName(com.kingdee.eas.port.pm.project.PortProjectInfo item)
-    {
-        put("proName", item);
-    }
-    /**
      * Object:招标方案申报's 投资概算property 
      */
     public String getInviteBudget()
@@ -247,17 +236,6 @@ public class AbstractInviteReportInfo extends com.kingdee.eas.xr.XRBillBaseInfo 
         setString("reportName", item);
     }
     /**
-     * Object:招标方案申报's 立项批文property 
-     */
-    public String getProjectNumber()
-    {
-        return getString("projectNumber");
-    }
-    public void setProjectNumber(String item)
-    {
-        setString("projectNumber", item);
-    }
-    /**
      * Object: 招标方案申报 's 符合性审查模板 property 
      */
     public com.kingdee.eas.port.pm.base.EvaluationTemplateInfo getValidTemplate()
@@ -333,6 +311,28 @@ public class AbstractInviteReportInfo extends com.kingdee.eas.xr.XRBillBaseInfo 
     public void setReduLow(String item)
     {
         setString("reduLow", item);
+    }
+    /**
+     * Object: 招标方案申报 's 项目名称 property 
+     */
+    public com.kingdee.eas.basedata.assistant.ProjectInfo getProName()
+    {
+        return (com.kingdee.eas.basedata.assistant.ProjectInfo)get("proName");
+    }
+    public void setProName(com.kingdee.eas.basedata.assistant.ProjectInfo item)
+    {
+        put("proName", item);
+    }
+    /**
+     * Object:招标方案申报's 立项批文property 
+     */
+    public String getProjectNumber()
+    {
+        return getString("projectNumber");
+    }
+    public void setProjectNumber(String item)
+    {
+        setString("projectNumber", item);
     }
     public BOSObjectType getBOSType()
     {

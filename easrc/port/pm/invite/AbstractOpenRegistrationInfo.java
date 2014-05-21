@@ -102,6 +102,17 @@ public class AbstractOpenRegistrationInfo extends com.kingdee.eas.xr.XRBillBaseI
     {
         setString("coefficient", item);
     }
+    /**
+     * Object:开标登记's 是否作废property 
+     */
+    public boolean isCancel()
+    {
+        return getBoolean("cancel");
+    }
+    public void setCancel(boolean item)
+    {
+        setBoolean("cancel", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("D4333B6C");

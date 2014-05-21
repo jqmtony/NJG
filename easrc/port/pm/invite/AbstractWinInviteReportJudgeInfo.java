@@ -29,17 +29,6 @@ public class AbstractWinInviteReportJudgeInfo extends com.kingdee.eas.framework.
         put("parent", item);
     }
     /**
-     * Object:专家评委's 专家名称property 
-     */
-    public String getJudgesName()
-    {
-        return getString("judgesName");
-    }
-    public void setJudgesName(String item)
-    {
-        setString("judgesName", item);
-    }
-    /**
      * Object: 专家评委 's 部门 property 
      */
     public com.kingdee.eas.basedata.org.AdminOrgUnitInfo getOrg()
@@ -49,6 +38,17 @@ public class AbstractWinInviteReportJudgeInfo extends com.kingdee.eas.framework.
     public void setOrg(com.kingdee.eas.basedata.org.AdminOrgUnitInfo item)
     {
         put("org", item);
+    }
+    /**
+     * Object: 专家评委 's 专家姓名 property 
+     */
+    public com.kingdee.eas.port.pm.base.JudgesInfo getJudgesName()
+    {
+        return (com.kingdee.eas.port.pm.base.JudgesInfo)get("judgesName");
+    }
+    public void setJudgesName(com.kingdee.eas.port.pm.base.JudgesInfo item)
+    {
+        put("judgesName", item);
     }
     public BOSObjectType getBOSType()
     {

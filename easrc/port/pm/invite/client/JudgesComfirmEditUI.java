@@ -58,16 +58,17 @@ public class JudgesComfirmEditUI extends AbstractJudgesComfirmEditUI
     	this.txtorgUnit.setEnabled(false);
     	this.txtprjName.setEnabled(false);
     	this.contplanName.setBoundLabelText("招标方案");
-    	super.onLoad();
-    	this.kdtEntry.getColumn("telephone").getStyleAttributes().setLocked(false);
-    	this.kDContainer2.getContentPane().add(this.kdtEntry,BorderLayout.CENTER);
     	InitInvitePerson(kDContainer2);
+    	this.kDContainer2.getContentPane().add(this.kdtEntry,BorderLayout.CENTER);
     	this.kdtEntry_detailPanel.getAddNewLineButton().setText("新增分录");
     	this.kdtEntry_detailPanel.getInsertLineButton().setText("插入分录");
     	this.kdtEntry_detailPanel.getRemoveLinesButton().setText("删除分录");
     	this.kDContainer2.addButton(this.kdtEntry_detailPanel.getAddNewLineButton());
     	this.kDContainer2.addButton(this.kdtEntry_detailPanel.getInsertLineButton());
     	this.kDContainer2.addButton(this.kdtEntry_detailPanel.getRemoveLinesButton());
+    	super.onLoad();
+    	this.kdtEntry.getColumn("telephone").getStyleAttributes().setLocked(false);
+    	
     	this.setPreferredSize(new Dimension(645, 560));
 //    	InitWorkButton(this.kDContainer2);
     }
@@ -97,13 +98,18 @@ public class JudgesComfirmEditUI extends AbstractJudgesComfirmEditUI
 				    	
 							JudgesInfo person = ijudges.getJudgesInfo(new ObjectUuidPK(entryInfo.getInvitePerson().getId()));
 							row.getCell("judgeNumber").setValue(person);
-							row.getCell("juName").setValue(person.getPersonName());
+							row.getCell("judgesName").setValue(person.getPersonName());
 							
 							JudgesTreeInfo jtree = ijudgesTree.getJudgesTreeInfo(new ObjectUuidPK(person.getJudgeType().getId()));
 							row.getCell("juType").setValue(jtree.getName());
-							AdminOrgUnitInfo orginfo = iadmin.getAdminOrgUnitInfo(new ObjectUuidPK(person.getCurDep().getId()));
-							row.getCell("orgUnit").setValue(orginfo.getName());
-							row.getCell("telephone").setValue(person.getTelephone()); 
+							if(person.getCurDep() != null) {
+								AdminOrgUnitInfo orginfo = iadmin.getAdminOrgUnitInfo(new ObjectUuidPK(person.getCurDep().getId()));
+								row.getCell("orgUnit").setValue(orginfo.getName());
+								row.getCell("telephone").setValue(person.getTelephone()); 
+							} else {
+								row.getCell("orgUnit").setValue(null);
+								row.getCell("telephone").setValue(null); 
+							}
 				    	}
 					} catch (BOSException e1) {
 						// TODO Auto-generated catch block

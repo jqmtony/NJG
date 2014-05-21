@@ -94,6 +94,17 @@ public class AbstractJudgesComfirmEntryInfo extends com.kingdee.eas.framework.Co
     {
         setString("comment", item);
     }
+    /**
+     * Object:专家信息's 专家姓名property 
+     */
+    public String getJudgesName()
+    {
+        return getString("judgesName");
+    }
+    public void setJudgesName(String item)
+    {
+        setString("judgesName", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("2A348FD8");

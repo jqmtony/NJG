@@ -60,29 +60,25 @@ public abstract class AbstractJudgesComfirmEditUI extends com.kingdee.eas.xr.cli
     protected com.kingdee.bos.ctrl.swing.KDTextField txtDescription;
     protected com.kingdee.bos.ctrl.swing.KDComboBox comboBizStatus;
     protected com.kingdee.bos.ctrl.swing.KDContainer kDContainer1;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contprjName;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contNumber;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contorgUnit;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contplanNumber;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contStatus;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contdepartment;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer continviteType;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contCreateTime;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contCreator;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contAuditTime;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contAuditor;
     protected com.kingdee.bos.ctrl.swing.KDContainer kDContainer2;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contplanName;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contplanNumber;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contprjName;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contorgUnit;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer continviteType;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contcomment;
     protected com.kingdee.bos.ctrl.swing.KDScrollPane scrollPanecomment;
     protected com.kingdee.bos.ctrl.swing.KDTextArea txtcomment;
-    protected com.kingdee.bos.ctrl.swing.KDTextField txtprjName;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtNumber;
-    protected com.kingdee.bos.ctrl.swing.KDTextField txtorgUnit;
-    protected com.kingdee.bos.ctrl.swing.KDTextField txtplanNumber;
     protected com.kingdee.bos.ctrl.swing.KDComboBox comboStatus;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtdepartment;
-    protected com.kingdee.bos.ctrl.swing.KDTextField txtinviteType;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkCreateTime;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtCreator;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkAuditTime;
@@ -90,6 +86,10 @@ public abstract class AbstractJudgesComfirmEditUI extends com.kingdee.eas.xr.cli
     protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtEntry;
 	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtEntry_detailPanel = null;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtplanName;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txtplanNumber;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txtprjName;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txtorgUnit;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txtinviteType;
     protected com.kingdee.eas.port.pm.invite.JudgesComfirmInfo editData = null;
     /**
      * output class constructor
@@ -154,35 +154,35 @@ public abstract class AbstractJudgesComfirmEditUI extends com.kingdee.eas.xr.cli
         this.txtDescription = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.comboBizStatus = new com.kingdee.bos.ctrl.swing.KDComboBox();
         this.kDContainer1 = new com.kingdee.bos.ctrl.swing.KDContainer();
-        this.contprjName = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contNumber = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contorgUnit = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contplanNumber = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contStatus = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contdepartment = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.continviteType = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contCreateTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contCreator = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contAuditTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contAuditor = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.kDContainer2 = new com.kingdee.bos.ctrl.swing.KDContainer();
         this.contplanName = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contplanNumber = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contprjName = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contorgUnit = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.continviteType = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contcomment = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.scrollPanecomment = new com.kingdee.bos.ctrl.swing.KDScrollPane();
         this.txtcomment = new com.kingdee.bos.ctrl.swing.KDTextArea();
-        this.txtprjName = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
-        this.txtorgUnit = new com.kingdee.bos.ctrl.swing.KDTextField();
-        this.txtplanNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.comboStatus = new com.kingdee.bos.ctrl.swing.KDComboBox();
         this.prmtdepartment = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
-        this.txtinviteType = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.pkCreateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.prmtCreator = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.pkAuditTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.prmtAuditor = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.kdtEntry = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.prmtplanName = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.txtplanNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.txtprjName = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.txtorgUnit = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.txtinviteType = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.contLastUpdateUser.setName("contLastUpdateUser");
         this.contLastUpdateTime.setName("contLastUpdateTime");
         this.contCU.setName("contCU");
@@ -197,35 +197,35 @@ public abstract class AbstractJudgesComfirmEditUI extends com.kingdee.eas.xr.cli
         this.txtDescription.setName("txtDescription");
         this.comboBizStatus.setName("comboBizStatus");
         this.kDContainer1.setName("kDContainer1");
-        this.contprjName.setName("contprjName");
         this.contNumber.setName("contNumber");
-        this.contorgUnit.setName("contorgUnit");
-        this.contplanNumber.setName("contplanNumber");
         this.contStatus.setName("contStatus");
         this.contdepartment.setName("contdepartment");
-        this.continviteType.setName("continviteType");
         this.contCreateTime.setName("contCreateTime");
         this.contCreator.setName("contCreator");
         this.contAuditTime.setName("contAuditTime");
         this.contAuditor.setName("contAuditor");
         this.kDContainer2.setName("kDContainer2");
         this.contplanName.setName("contplanName");
+        this.contplanNumber.setName("contplanNumber");
+        this.contprjName.setName("contprjName");
+        this.contorgUnit.setName("contorgUnit");
+        this.continviteType.setName("continviteType");
         this.contcomment.setName("contcomment");
         this.scrollPanecomment.setName("scrollPanecomment");
         this.txtcomment.setName("txtcomment");
-        this.txtprjName.setName("txtprjName");
         this.txtNumber.setName("txtNumber");
-        this.txtorgUnit.setName("txtorgUnit");
-        this.txtplanNumber.setName("txtplanNumber");
         this.comboStatus.setName("comboStatus");
         this.prmtdepartment.setName("prmtdepartment");
-        this.txtinviteType.setName("txtinviteType");
         this.pkCreateTime.setName("pkCreateTime");
         this.prmtCreator.setName("prmtCreator");
         this.pkAuditTime.setName("pkAuditTime");
         this.prmtAuditor.setName("prmtAuditor");
         this.kdtEntry.setName("kdtEntry");
         this.prmtplanName.setName("prmtplanName");
+        this.txtplanNumber.setName("txtplanNumber");
+        this.txtprjName.setName("txtprjName");
+        this.txtorgUnit.setName("txtorgUnit");
+        this.txtinviteType.setName("txtinviteType");
         // CoreUI
         // contLastUpdateUser		
         this.contLastUpdateUser.setBoundLabelText(resHelper.getString("contLastUpdateUser.boundLabelText"));		
@@ -273,25 +273,10 @@ public abstract class AbstractJudgesComfirmEditUI extends com.kingdee.eas.xr.cli
         this.comboBizStatus.setVisible(false);
         // kDContainer1		
         this.kDContainer1.setTitle(resHelper.getString("kDContainer1.title"));
-        // contprjName		
-        this.contprjName.setBoundLabelText(resHelper.getString("contprjName.boundLabelText"));		
-        this.contprjName.setBoundLabelLength(100);		
-        this.contprjName.setBoundLabelUnderline(true);		
-        this.contprjName.setVisible(true);
         // contNumber		
         this.contNumber.setBoundLabelText(resHelper.getString("contNumber.boundLabelText"));		
         this.contNumber.setBoundLabelLength(100);		
         this.contNumber.setBoundLabelUnderline(true);
-        // contorgUnit		
-        this.contorgUnit.setBoundLabelText(resHelper.getString("contorgUnit.boundLabelText"));		
-        this.contorgUnit.setBoundLabelLength(100);		
-        this.contorgUnit.setBoundLabelUnderline(true);		
-        this.contorgUnit.setVisible(true);
-        // contplanNumber		
-        this.contplanNumber.setBoundLabelText(resHelper.getString("contplanNumber.boundLabelText"));		
-        this.contplanNumber.setBoundLabelLength(100);		
-        this.contplanNumber.setBoundLabelUnderline(true);		
-        this.contplanNumber.setVisible(true);
         // contStatus		
         this.contStatus.setBoundLabelText(resHelper.getString("contStatus.boundLabelText"));		
         this.contStatus.setBoundLabelLength(100);		
@@ -302,11 +287,6 @@ public abstract class AbstractJudgesComfirmEditUI extends com.kingdee.eas.xr.cli
         this.contdepartment.setBoundLabelLength(100);		
         this.contdepartment.setBoundLabelUnderline(true);		
         this.contdepartment.setVisible(true);
-        // continviteType		
-        this.continviteType.setBoundLabelText(resHelper.getString("continviteType.boundLabelText"));		
-        this.continviteType.setBoundLabelLength(100);		
-        this.continviteType.setBoundLabelUnderline(true);		
-        this.continviteType.setVisible(true);
         // contCreateTime		
         this.contCreateTime.setBoundLabelText(resHelper.getString("contCreateTime.boundLabelText"));		
         this.contCreateTime.setBoundLabelLength(100);		
@@ -329,6 +309,26 @@ public abstract class AbstractJudgesComfirmEditUI extends com.kingdee.eas.xr.cli
         this.contplanName.setBoundLabelLength(100);		
         this.contplanName.setBoundLabelUnderline(true);		
         this.contplanName.setVisible(true);
+        // contplanNumber		
+        this.contplanNumber.setBoundLabelText(resHelper.getString("contplanNumber.boundLabelText"));		
+        this.contplanNumber.setBoundLabelLength(100);		
+        this.contplanNumber.setBoundLabelUnderline(true);		
+        this.contplanNumber.setVisible(true);
+        // contprjName		
+        this.contprjName.setBoundLabelText(resHelper.getString("contprjName.boundLabelText"));		
+        this.contprjName.setBoundLabelLength(100);		
+        this.contprjName.setBoundLabelUnderline(true);		
+        this.contprjName.setVisible(true);
+        // contorgUnit		
+        this.contorgUnit.setBoundLabelText(resHelper.getString("contorgUnit.boundLabelText"));		
+        this.contorgUnit.setBoundLabelLength(100);		
+        this.contorgUnit.setBoundLabelUnderline(true);		
+        this.contorgUnit.setVisible(true);
+        // continviteType		
+        this.continviteType.setBoundLabelText(resHelper.getString("continviteType.boundLabelText"));		
+        this.continviteType.setBoundLabelLength(100);		
+        this.continviteType.setBoundLabelUnderline(true);		
+        this.continviteType.setVisible(true);
         // contcomment		
         this.contcomment.setBoundLabelText(resHelper.getString("contcomment.boundLabelText"));		
         this.contcomment.setBoundLabelLength(0);		
@@ -340,22 +340,7 @@ public abstract class AbstractJudgesComfirmEditUI extends com.kingdee.eas.xr.cli
         this.txtcomment.setVisible(true);		
         this.txtcomment.setRequired(false);		
         this.txtcomment.setMaxLength(255);
-        // txtprjName		
-        this.txtprjName.setVisible(true);		
-        this.txtprjName.setHorizontalAlignment(2);		
-        this.txtprjName.setMaxLength(80);		
-        this.txtprjName.setRequired(false);
         // txtNumber
-        // txtorgUnit		
-        this.txtorgUnit.setVisible(true);		
-        this.txtorgUnit.setHorizontalAlignment(2);		
-        this.txtorgUnit.setMaxLength(80);		
-        this.txtorgUnit.setRequired(false);
-        // txtplanNumber		
-        this.txtplanNumber.setVisible(true);		
-        this.txtplanNumber.setHorizontalAlignment(2);		
-        this.txtplanNumber.setMaxLength(80);		
-        this.txtplanNumber.setRequired(false);
         // comboStatus		
         this.comboStatus.addItems(EnumUtils.getEnumList("com.kingdee.eas.xr.app.XRBillStatusEnum").toArray());		
         this.comboStatus.setEnabled(false);
@@ -367,11 +352,6 @@ public abstract class AbstractJudgesComfirmEditUI extends com.kingdee.eas.xr.cli
         this.prmtdepartment.setEditFormat("$number$");		
         this.prmtdepartment.setCommitFormat("$number$");		
         this.prmtdepartment.setRequired(false);
-        // txtinviteType		
-        this.txtinviteType.setVisible(true);		
-        this.txtinviteType.setHorizontalAlignment(2);		
-        this.txtinviteType.setMaxLength(80);		
-        this.txtinviteType.setRequired(false);
         // pkCreateTime		
         this.pkCreateTime.setTimeEnabled(true);		
         this.pkCreateTime.setEnabled(false);
@@ -389,7 +369,7 @@ public abstract class AbstractJudgesComfirmEditUI extends com.kingdee.eas.xr.cli
         this.prmtAuditor.setDisplayFormat("$name$");		
         this.prmtAuditor.setEditFormat("$name$");
         // kdtEntry
-		String kdtEntryStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style><c:Style id=\"sCol2\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol3\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol4\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol5\"><c:Protection locked=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"0\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"judgeNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"juName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol2\" /><t:Column t:key=\"juType\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol3\" /><t:Column t:key=\"orgUnit\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol4\" /><t:Column t:key=\"telephone\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol5\" /><t:Column t:key=\"comment\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{judgeNumber}</t:Cell><t:Cell>$Resource{juName}</t:Cell><t:Cell>$Resource{juType}</t:Cell><t:Cell>$Resource{orgUnit}</t:Cell><t:Cell>$Resource{telephone}</t:Cell><t:Cell>$Resource{comment}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		String kdtEntryStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style><c:Style id=\"sCol2\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol3\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol4\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol5\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol7\"><c:Protection locked=\"true\" hidden=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"0\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"judgeNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"judgesName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"2\" t:styleID=\"sCol2\" /><t:Column t:key=\"juType\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"3\" t:styleID=\"sCol3\" /><t:Column t:key=\"orgUnit\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"4\" t:styleID=\"sCol4\" /><t:Column t:key=\"telephone\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"5\" t:styleID=\"sCol5\" /><t:Column t:key=\"comment\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"6\" /><t:Column t:key=\"juName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"7\" t:styleID=\"sCol7\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{judgeNumber}</t:Cell><t:Cell>$Resource{judgesName}</t:Cell><t:Cell>$Resource{juType}</t:Cell><t:Cell>$Resource{orgUnit}</t:Cell><t:Cell>$Resource{telephone}</t:Cell><t:Cell>$Resource{comment}</t:Cell><t:Cell>$Resource{juName}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.kdtEntry.setFormatXml(resHelper.translateString("kdtEntry",kdtEntryStrXML));
         kdtEntry.addKDTEditListener(new KDTEditAdapter() {
@@ -404,18 +384,10 @@ public abstract class AbstractJudgesComfirmEditUI extends com.kingdee.eas.xr.cli
 	});
 
 
-                this.kdtEntry.putBindContents("editData",new String[] {"seq","judgeNumber","juName","juType","orgUnit","telephone","comment"});
+                this.kdtEntry.putBindContents("editData",new String[] {"seq","judgeNumber","judgesName","juType","orgUnit","telephone","comment","juName"});
 
 
         this.kdtEntry.checkParsed();
-        KDFormattedTextField kdtEntry_seq_TextField = new KDFormattedTextField();
-        kdtEntry_seq_TextField.setName("kdtEntry_seq_TextField");
-        kdtEntry_seq_TextField.setVisible(true);
-        kdtEntry_seq_TextField.setEditable(true);
-        kdtEntry_seq_TextField.setHorizontalAlignment(2);
-        kdtEntry_seq_TextField.setDataType(0);
-        KDTDefaultCellEditor kdtEntry_seq_CellEditor = new KDTDefaultCellEditor(kdtEntry_seq_TextField);
-        this.kdtEntry.getColumn("seq").setEditor(kdtEntry_seq_CellEditor);
         final KDBizPromptBox kdtEntry_judgeNumber_PromptBox = new KDBizPromptBox();
         kdtEntry_judgeNumber_PromptBox.setQueryInfo("com.kingdee.eas.port.pm.base.app.JudgesQuery");
         kdtEntry_judgeNumber_PromptBox.setVisible(true);
@@ -445,11 +417,11 @@ public abstract class AbstractJudgesComfirmEditUI extends com.kingdee.eas.xr.cli
 			}
 		});
 					
-        KDTextField kdtEntry_juName_TextField = new KDTextField();
-        kdtEntry_juName_TextField.setName("kdtEntry_juName_TextField");
-        kdtEntry_juName_TextField.setMaxLength(80);
-        KDTDefaultCellEditor kdtEntry_juName_CellEditor = new KDTDefaultCellEditor(kdtEntry_juName_TextField);
-        this.kdtEntry.getColumn("juName").setEditor(kdtEntry_juName_CellEditor);
+        KDTextField kdtEntry_judgesName_TextField = new KDTextField();
+        kdtEntry_judgesName_TextField.setName("kdtEntry_judgesName_TextField");
+        kdtEntry_judgesName_TextField.setMaxLength(80);
+        KDTDefaultCellEditor kdtEntry_judgesName_CellEditor = new KDTDefaultCellEditor(kdtEntry_judgesName_TextField);
+        this.kdtEntry.getColumn("judgesName").setEditor(kdtEntry_judgesName_CellEditor);
         KDTextField kdtEntry_juType_TextField = new KDTextField();
         kdtEntry_juType_TextField.setName("kdtEntry_juType_TextField");
         kdtEntry_juType_TextField.setMaxLength(80);
@@ -470,6 +442,11 @@ public abstract class AbstractJudgesComfirmEditUI extends com.kingdee.eas.xr.cli
         kdtEntry_comment_TextField.setMaxLength(100);
         KDTDefaultCellEditor kdtEntry_comment_CellEditor = new KDTDefaultCellEditor(kdtEntry_comment_TextField);
         this.kdtEntry.getColumn("comment").setEditor(kdtEntry_comment_CellEditor);
+        KDTextField kdtEntry_juName_TextField = new KDTextField();
+        kdtEntry_juName_TextField.setName("kdtEntry_juName_TextField");
+        kdtEntry_juName_TextField.setMaxLength(80);
+        KDTDefaultCellEditor kdtEntry_juName_CellEditor = new KDTDefaultCellEditor(kdtEntry_juName_TextField);
+        this.kdtEntry.getColumn("juName").setEditor(kdtEntry_juName_CellEditor);
         // prmtplanName		
         this.prmtplanName.setQueryInfo("com.kingdee.eas.port.pm.invite.app.InviteReportQuery");		
         this.prmtplanName.setVisible(true);		
@@ -478,7 +455,38 @@ public abstract class AbstractJudgesComfirmEditUI extends com.kingdee.eas.xr.cli
         this.prmtplanName.setEditFormat("$number$");		
         this.prmtplanName.setCommitFormat("$number$");		
         this.prmtplanName.setRequired(false);
-        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {txtplanNumber,txtinviteType,txtprjName,txtorgUnit,prmtdepartment,prmtplanName}));
+        prmtplanName.addDataChangeListener(new DataChangeListener() {
+		public void dataChanged(DataChangeEvent e) {
+			try {
+				prmtplanName_Changed();
+			}
+			catch (Exception exc) {
+				handUIException(exc);
+			}
+		}
+	});
+
+        // txtplanNumber		
+        this.txtplanNumber.setVisible(true);		
+        this.txtplanNumber.setHorizontalAlignment(2);		
+        this.txtplanNumber.setMaxLength(80);		
+        this.txtplanNumber.setRequired(false);
+        // txtprjName		
+        this.txtprjName.setVisible(true);		
+        this.txtprjName.setHorizontalAlignment(2);		
+        this.txtprjName.setMaxLength(80);		
+        this.txtprjName.setRequired(false);
+        // txtorgUnit		
+        this.txtorgUnit.setVisible(true);		
+        this.txtorgUnit.setHorizontalAlignment(2);		
+        this.txtorgUnit.setMaxLength(80);		
+        this.txtorgUnit.setRequired(false);
+        // txtinviteType		
+        this.txtinviteType.setVisible(true);		
+        this.txtinviteType.setHorizontalAlignment(2);		
+        this.txtinviteType.setMaxLength(80);		
+        this.txtinviteType.setRequired(false);
+        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmtdepartment,prmtplanName,txtplanNumber,txtprjName,txtorgUnit,txtinviteType}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
 		registerBindings();
@@ -537,20 +545,12 @@ public abstract class AbstractJudgesComfirmEditUI extends com.kingdee.eas.xr.cli
         kDPanel1.setLayout(new KDLayout());
         kDPanel1.putClientProperty("OriginalBounds", new Rectangle(2, 2, 643, 569));        kDContainer1.setBounds(new Rectangle(21, 127, 600, 120));
         kDPanel1.add(kDContainer1, new KDLayout.Constraints(21, 127, 600, 120, 0));
-        contprjName.setBounds(new Rectangle(21, 72, 270, 19));
-        kDPanel1.add(contprjName, new KDLayout.Constraints(21, 72, 270, 19, 0));
         contNumber.setBounds(new Rectangle(21, 20, 270, 19));
         kDPanel1.add(contNumber, new KDLayout.Constraints(21, 20, 270, 19, 0));
-        contorgUnit.setBounds(new Rectangle(351, 72, 270, 19));
-        kDPanel1.add(contorgUnit, new KDLayout.Constraints(351, 72, 270, 19, 0));
-        contplanNumber.setBounds(new Rectangle(351, 46, 270, 19));
-        kDPanel1.add(contplanNumber, new KDLayout.Constraints(351, 46, 270, 19, 0));
         contStatus.setBounds(new Rectangle(351, 20, 270, 19));
         kDPanel1.add(contStatus, new KDLayout.Constraints(351, 20, 270, 19, 0));
         contdepartment.setBounds(new Rectangle(351, 98, 270, 19));
         kDPanel1.add(contdepartment, new KDLayout.Constraints(351, 98, 270, 19, 0));
-        continviteType.setBounds(new Rectangle(21, 98, 270, 19));
-        kDPanel1.add(continviteType, new KDLayout.Constraints(21, 98, 270, 19, 0));
         contCreateTime.setBounds(new Rectangle(21, 496, 270, 19));
         kDPanel1.add(contCreateTime, new KDLayout.Constraints(21, 496, 270, 19, 0));
         contCreator.setBounds(new Rectangle(21, 465, 270, 19));
@@ -563,26 +563,26 @@ public abstract class AbstractJudgesComfirmEditUI extends com.kingdee.eas.xr.cli
         kDPanel1.add(kDContainer2, new KDLayout.Constraints(23, 251, 597, 199, 0));
         contplanName.setBounds(new Rectangle(21, 46, 270, 19));
         kDPanel1.add(contplanName, new KDLayout.Constraints(21, 46, 270, 19, 0));
+        contplanNumber.setBounds(new Rectangle(351, 48, 270, 19));
+        kDPanel1.add(contplanNumber, new KDLayout.Constraints(351, 48, 270, 19, 0));
+        contprjName.setBounds(new Rectangle(21, 72, 270, 19));
+        kDPanel1.add(contprjName, new KDLayout.Constraints(21, 72, 270, 19, 0));
+        contorgUnit.setBounds(new Rectangle(351, 72, 270, 19));
+        kDPanel1.add(contorgUnit, new KDLayout.Constraints(351, 72, 270, 19, 0));
+        continviteType.setBounds(new Rectangle(21, 98, 270, 19));
+        kDPanel1.add(continviteType, new KDLayout.Constraints(21, 98, 270, 19, 0));
         //kDContainer1
 kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContainer1.getContentPane().add(contcomment, BorderLayout.CENTER);
         //contcomment
         contcomment.setBoundEditor(scrollPanecomment);
         //scrollPanecomment
         scrollPanecomment.getViewport().add(txtcomment, null);
-        //contprjName
-        contprjName.setBoundEditor(txtprjName);
         //contNumber
         contNumber.setBoundEditor(txtNumber);
-        //contorgUnit
-        contorgUnit.setBoundEditor(txtorgUnit);
-        //contplanNumber
-        contplanNumber.setBoundEditor(txtplanNumber);
         //contStatus
         contStatus.setBoundEditor(comboStatus);
         //contdepartment
         contdepartment.setBoundEditor(prmtdepartment);
-        //continviteType
-        continviteType.setBoundEditor(txtinviteType);
         //contCreateTime
         contCreateTime.setBoundEditor(pkCreateTime);
         //contCreator
@@ -596,6 +596,14 @@ kDContainer2.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
         kDContainer2.getContentPane().add(kdtEntry_detailPanel, BorderLayout.CENTER);
         //contplanName
         contplanName.setBoundEditor(prmtplanName);
+        //contplanNumber
+        contplanNumber.setBoundEditor(txtplanNumber);
+        //contprjName
+        contprjName.setBoundEditor(txtprjName);
+        //contorgUnit
+        contorgUnit.setBoundEditor(txtorgUnit);
+        //continviteType
+        continviteType.setBoundEditor(txtinviteType);
 
     }
 
@@ -776,13 +784,9 @@ kDContainer2.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
 		dataBinder.registerBinding("description", String.class, this.txtDescription, "text");
 		dataBinder.registerBinding("bizStatus", com.kingdee.eas.xr.app.XRBizActionEnum.class, this.comboBizStatus, "selectedItem");
 		dataBinder.registerBinding("comment", String.class, this.txtcomment, "text");
-		dataBinder.registerBinding("prjName", String.class, this.txtprjName, "text");
 		dataBinder.registerBinding("number", String.class, this.txtNumber, "text");
-		dataBinder.registerBinding("orgUnit", String.class, this.txtorgUnit, "text");
-		dataBinder.registerBinding("planNumber", String.class, this.txtplanNumber, "text");
 		dataBinder.registerBinding("status", com.kingdee.eas.xr.app.XRBillStatusEnum.class, this.comboStatus, "selectedItem");
 		dataBinder.registerBinding("department", com.kingdee.eas.basedata.org.AdminOrgUnitInfo.class, this.prmtdepartment, "data");
-		dataBinder.registerBinding("inviteType", String.class, this.txtinviteType, "text");
 		dataBinder.registerBinding("createTime", java.sql.Timestamp.class, this.pkCreateTime, "value");
 		dataBinder.registerBinding("creator", com.kingdee.eas.base.permission.UserInfo.class, this.prmtCreator, "data");
 		dataBinder.registerBinding("auditTime", java.sql.Timestamp.class, this.pkAuditTime, "value");
@@ -795,7 +799,12 @@ kDContainer2.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
 		dataBinder.registerBinding("Entry.orgUnit", String.class, this.kdtEntry, "orgUnit.text");
 		dataBinder.registerBinding("Entry.telephone", String.class, this.kdtEntry, "telephone.text");
 		dataBinder.registerBinding("Entry.comment", String.class, this.kdtEntry, "comment.text");
-		dataBinder.registerBinding("planName", com.kingdee.eas.port.pm.invite.InviteReportInfo.class, this.prmtplanName, "data");		
+		dataBinder.registerBinding("Entry.judgesName", String.class, this.kdtEntry, "judgesName.text");
+		dataBinder.registerBinding("planName", com.kingdee.eas.port.pm.invite.InviteReportInfo.class, this.prmtplanName, "data");
+		dataBinder.registerBinding("planNumber", String.class, this.txtplanNumber, "text");
+		dataBinder.registerBinding("prjName", String.class, this.txtprjName, "text");
+		dataBinder.registerBinding("orgUnit", String.class, this.txtorgUnit, "text");
+		dataBinder.registerBinding("inviteType", String.class, this.txtinviteType, "text");		
 	}
 	//Regiester UI State
 	private void registerUIState(){		
@@ -827,7 +836,7 @@ kDContainer2.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
     public void onShow() throws Exception
     {
         super.onShow();
-        this.txtplanNumber.requestFocusInWindow();
+        this.prmtdepartment.requestFocusInWindow();
     }
 
 	
@@ -937,13 +946,9 @@ kDContainer2.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
 		getValidateHelper().registerBindProperty("description", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("bizStatus", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("comment", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("prjName", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("number", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("orgUnit", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("planNumber", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("status", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("department", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("inviteType", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("createTime", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("creator", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("auditTime", ValidateHelper.ON_SAVE);    
@@ -956,7 +961,12 @@ kDContainer2.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
 		getValidateHelper().registerBindProperty("Entry.orgUnit", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("Entry.telephone", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("Entry.comment", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("planName", ValidateHelper.ON_SAVE);    		
+		getValidateHelper().registerBindProperty("Entry.judgesName", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("planName", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("planNumber", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("prjName", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("orgUnit", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("inviteType", ValidateHelper.ON_SAVE);    		
 	}
 
 
@@ -1000,6 +1010,28 @@ kdtEntry.getCell(rowIndex,"telephone").setValue(com.kingdee.bos.ui.face.UIRuleUt
 
 }
 
+    if ("judgeNumber".equalsIgnoreCase(kdtEntry.getColumn(colIndex).getKey())) {
+kdtEntry.getCell(rowIndex,"judgesName").setValue(com.kingdee.bos.ui.face.UIRuleUtil.getString(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)kdtEntry.getCell(rowIndex,"judgeNumber").getValue(),"personName")));
+
+}
+
+
+    }
+
+    /**
+     * output prmtplanName_Changed() method
+     */
+    public void prmtplanName_Changed() throws Exception
+    {
+        System.out.println("prmtplanName_Changed() Function is executed!");
+            txtplanNumber.setText(com.kingdee.bos.ui.face.UIRuleUtil.getString(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)prmtplanName.getData(),"number")));
+
+    txtprjName.setText(com.kingdee.bos.ui.face.UIRuleUtil.getString(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)prmtplanName.getData(),"proName.name")));
+
+    txtorgUnit.setText(com.kingdee.bos.ui.face.UIRuleUtil.getString(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)prmtplanName.getData(),"useOrg.name")));
+
+    txtinviteType.setText(com.kingdee.bos.ui.face.UIRuleUtil.getString(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)prmtplanName.getData(),"inviteType.name")));
+
 
     }
     /**
@@ -1035,10 +1067,7 @@ kdtEntry.getCell(rowIndex,"telephone").setValue(com.kingdee.bos.ui.face.UIRuleUt
         sic.add(new SelectorItemInfo("description"));
         sic.add(new SelectorItemInfo("bizStatus"));
         sic.add(new SelectorItemInfo("comment"));
-        sic.add(new SelectorItemInfo("prjName"));
         sic.add(new SelectorItemInfo("number"));
-        sic.add(new SelectorItemInfo("orgUnit"));
-        sic.add(new SelectorItemInfo("planNumber"));
         sic.add(new SelectorItemInfo("status"));
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
@@ -1049,7 +1078,6 @@ kdtEntry.getCell(rowIndex,"telephone").setValue(com.kingdee.bos.ui.face.UIRuleUt
         	sic.add(new SelectorItemInfo("department.number"));
         	sic.add(new SelectorItemInfo("department.name"));
 		}
-        sic.add(new SelectorItemInfo("inviteType"));
         sic.add(new SelectorItemInfo("createTime"));
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
@@ -1091,6 +1119,7 @@ kdtEntry.getCell(rowIndex,"telephone").setValue(com.kingdee.bos.ui.face.UIRuleUt
     	sic.add(new SelectorItemInfo("Entry.orgUnit"));
     	sic.add(new SelectorItemInfo("Entry.telephone"));
     	sic.add(new SelectorItemInfo("Entry.comment"));
+    	sic.add(new SelectorItemInfo("Entry.judgesName"));
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
 			sic.add(new SelectorItemInfo("planName.*"));
@@ -1100,6 +1129,10 @@ kdtEntry.getCell(rowIndex,"telephone").setValue(com.kingdee.bos.ui.face.UIRuleUt
         	sic.add(new SelectorItemInfo("planName.number"));
         	sic.add(new SelectorItemInfo("planName.reportName"));
 		}
+        sic.add(new SelectorItemInfo("planNumber"));
+        sic.add(new SelectorItemInfo("prjName"));
+        sic.add(new SelectorItemInfo("orgUnit"));
+        sic.add(new SelectorItemInfo("inviteType"));
         return sic;
     }        
     	

@@ -5,8 +5,15 @@ package com.kingdee.eas.port.pm.invite.client;
 
 import java.awt.event.*;
 import org.apache.log4j.Logger;
+
+import com.kingdee.bos.BOSException;
+import com.kingdee.bos.metadata.IMetaDataPK;
+import com.kingdee.bos.metadata.entity.EntityViewInfo;
+import com.kingdee.bos.metadata.entity.FilterInfo;
+import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.bos.dao.query.IQueryExecutor;
 import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.framework.*;
 
@@ -41,6 +48,30 @@ public class OpenRegistrationListUI extends AbstractOpenRegistrationListUI
     public void storeFields()
     {
         super.storeFields();
+    }
+    
+    protected IQueryExecutor getQueryExecutor(IMetaDataPK arg0,EntityViewInfo viewInfo) {
+    	EntityViewInfo newViewInfo = (EntityViewInfo) viewInfo.clone();
+    	FilterInfo filInfo = new FilterInfo();
+    	if(getUIContext().get("reportId")!=null)
+    	{
+    		filInfo.getFilterItems().add(new FilterItemInfo("reportName.id",(String)getUIContext().get("reportId")));
+    	}
+    	try 
+    	{
+			if(viewInfo.getFilter()!=null)
+			{
+				newViewInfo.getFilter().mergeFilter(filInfo, "and");
+			}
+			else
+			{
+				newViewInfo.setFilter(filInfo);
+			}
+		} 
+    	catch (BOSException e) {
+			e.printStackTrace();
+		}
+    	return super.getQueryExecutor(arg0, newViewInfo);
     }
 
     /**

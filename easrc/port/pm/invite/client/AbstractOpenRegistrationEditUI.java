@@ -73,6 +73,7 @@ public abstract class AbstractOpenRegistrationEditUI extends com.kingdee.eas.xr.
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contreportNumber;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contregName;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contcoefficient;
+    protected com.kingdee.bos.ctrl.swing.KDCheckBox chkcancel;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtreportName;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtopLocation;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkopDate;
@@ -165,6 +166,7 @@ public abstract class AbstractOpenRegistrationEditUI extends com.kingdee.eas.xr.
         this.contreportNumber = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contregName = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contcoefficient = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.chkcancel = new com.kingdee.bos.ctrl.swing.KDCheckBox();
         this.prmtreportName = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.txtopLocation = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.pkopDate = new com.kingdee.bos.ctrl.swing.KDDatePicker();
@@ -206,6 +208,7 @@ public abstract class AbstractOpenRegistrationEditUI extends com.kingdee.eas.xr.
         this.contreportNumber.setName("contreportNumber");
         this.contregName.setName("contregName");
         this.contcoefficient.setName("contcoefficient");
+        this.chkcancel.setName("chkcancel");
         this.prmtreportName.setName("prmtreportName");
         this.txtopLocation.setName("txtopLocation");
         this.pkopDate.setName("pkopDate");
@@ -329,6 +332,10 @@ public abstract class AbstractOpenRegistrationEditUI extends com.kingdee.eas.xr.
         this.contcoefficient.setBoundLabelLength(100);		
         this.contcoefficient.setBoundLabelUnderline(true);		
         this.contcoefficient.setVisible(true);
+        // chkcancel		
+        this.chkcancel.setText(resHelper.getString("chkcancel.text"));		
+        this.chkcancel.setVisible(true);		
+        this.chkcancel.setHorizontalAlignment(2);
         // prmtreportName		
         this.prmtreportName.setQueryInfo("com.kingdee.eas.port.pm.invite.app.InviteReportQuery");		
         this.prmtreportName.setEditable(true);		
@@ -378,6 +385,14 @@ public abstract class AbstractOpenRegistrationEditUI extends com.kingdee.eas.xr.
 
 
         this.kdtEntry.checkParsed();
+        KDFormattedTextField kdtEntry_seq_TextField = new KDFormattedTextField();
+        kdtEntry_seq_TextField.setName("kdtEntry_seq_TextField");
+        kdtEntry_seq_TextField.setVisible(true);
+        kdtEntry_seq_TextField.setEditable(true);
+        kdtEntry_seq_TextField.setHorizontalAlignment(2);
+        kdtEntry_seq_TextField.setDataType(0);
+        KDTDefaultCellEditor kdtEntry_seq_CellEditor = new KDTDefaultCellEditor(kdtEntry_seq_TextField);
+        this.kdtEntry.getColumn("seq").setEditor(kdtEntry_seq_CellEditor);
         final KDBizPromptBox kdtEntry_supplierName_PromptBox = new KDBizPromptBox();
         kdtEntry_supplierName_PromptBox.setQueryInfo("com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStockQuery");
         kdtEntry_supplierName_PromptBox.setVisible(true);
@@ -464,7 +479,7 @@ public abstract class AbstractOpenRegistrationEditUI extends com.kingdee.eas.xr.
         this.txtcoefficient.setHorizontalAlignment(2);		
         this.txtcoefficient.setMaxLength(100);		
         this.txtcoefficient.setRequired(false);
-        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {comboStatus,comboBizStatus,pkAuditTime,txtNumber,pkBizDate,txtDescription,prmtAuditor,prmtCreator,pkCreateTime,prmtLastUpdateUser,pkLastUpdateTime,prmtCU,txtopLocation,pkopDate,prmtreportName,pkendDate,txtreportNumber,kdtEntry,txtregName,txtcoefficient}));
+        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {comboStatus,comboBizStatus,pkAuditTime,txtNumber,pkBizDate,txtDescription,prmtAuditor,prmtCreator,pkCreateTime,prmtLastUpdateUser,pkLastUpdateTime,prmtCU,txtopLocation,pkopDate,prmtreportName,pkendDate,txtreportNumber,kdtEntry,txtregName,txtcoefficient,chkcancel}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
 		registerBindings();
@@ -533,22 +548,24 @@ public abstract class AbstractOpenRegistrationEditUI extends com.kingdee.eas.xr.
         kDPanel1.add(contNumber, new KDLayout.Constraints(24, 22, 270, 19, 0));
         contStatus.setBounds(new Rectangle(652, 73, 270, 19));
         kDPanel1.add(contStatus, new KDLayout.Constraints(652, 73, 270, 19, 0));
-        kDContainer1.setBounds(new Rectangle(12, 107, 927, 221));
-        kDPanel1.add(kDContainer1, new KDLayout.Constraints(12, 107, 927, 221, 0));
-        contCreator.setBounds(new Rectangle(24, 342, 270, 19));
-        kDPanel1.add(contCreator, new KDLayout.Constraints(24, 342, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contAuditor.setBounds(new Rectangle(652, 342, 270, 19));
-        kDPanel1.add(contAuditor, new KDLayout.Constraints(652, 342, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contAuditTime.setBounds(new Rectangle(652, 368, 270, 19));
-        kDPanel1.add(contAuditTime, new KDLayout.Constraints(652, 368, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contCreateTime.setBounds(new Rectangle(24, 368, 270, 19));
-        kDPanel1.add(contCreateTime, new KDLayout.Constraints(24, 368, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDContainer1.setBounds(new Rectangle(12, 127, 927, 221));
+        kDPanel1.add(kDContainer1, new KDLayout.Constraints(12, 127, 927, 221, 0));
+        contCreator.setBounds(new Rectangle(24, 359, 270, 19));
+        kDPanel1.add(contCreator, new KDLayout.Constraints(24, 359, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contAuditor.setBounds(new Rectangle(652, 359, 270, 19));
+        kDPanel1.add(contAuditor, new KDLayout.Constraints(652, 359, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contAuditTime.setBounds(new Rectangle(652, 385, 270, 19));
+        kDPanel1.add(contAuditTime, new KDLayout.Constraints(652, 385, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contCreateTime.setBounds(new Rectangle(24, 385, 270, 19));
+        kDPanel1.add(contCreateTime, new KDLayout.Constraints(24, 385, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contreportNumber.setBounds(new Rectangle(652, 47, 270, 19));
         kDPanel1.add(contreportNumber, new KDLayout.Constraints(652, 47, 270, 19, 0));
         contregName.setBounds(new Rectangle(338, 22, 270, 19));
         kDPanel1.add(contregName, new KDLayout.Constraints(338, 22, 270, 19, 0));
         contcoefficient.setBounds(new Rectangle(338, 73, 270, 19));
         kDPanel1.add(contcoefficient, new KDLayout.Constraints(338, 73, 270, 19, 0));
+        chkcancel.setBounds(new Rectangle(24, 100, 270, 19));
+        kDPanel1.add(chkcancel, new KDLayout.Constraints(24, 100, 270, 19, 0));
         //contreportName
         contreportName.setBoundEditor(prmtreportName);
         //contopLocation
@@ -757,6 +774,7 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
 		dataBinder.registerBinding("bizDate", java.util.Date.class, this.pkBizDate, "value");
 		dataBinder.registerBinding("description", String.class, this.txtDescription, "text");
 		dataBinder.registerBinding("bizStatus", com.kingdee.eas.xr.app.XRBizActionEnum.class, this.comboBizStatus, "selectedItem");
+		dataBinder.registerBinding("cancel", boolean.class, this.chkcancel, "selected");
 		dataBinder.registerBinding("reportName", com.kingdee.eas.port.pm.invite.InviteReportInfo.class, this.prmtreportName, "data");
 		dataBinder.registerBinding("opLocation", String.class, this.txtopLocation, "text");
 		dataBinder.registerBinding("opDate", java.util.Date.class, this.pkopDate, "value");
@@ -922,6 +940,7 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
 		getValidateHelper().registerBindProperty("bizDate", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("description", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("bizStatus", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("cancel", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("reportName", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("opLocation", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("opDate", ValidateHelper.ON_SAVE);    
@@ -1014,6 +1033,7 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
         sic.add(new SelectorItemInfo("bizDate"));
         sic.add(new SelectorItemInfo("description"));
         sic.add(new SelectorItemInfo("bizStatus"));
+        sic.add(new SelectorItemInfo("cancel"));
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
 			sic.add(new SelectorItemInfo("reportName.*"));

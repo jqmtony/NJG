@@ -567,7 +567,7 @@ public class InvitePlanListUI extends AbstractInvitePlanListUI
     public void actionAudit_actionPerformed(ActionEvent e) throws Exception
     {
 //    	UIContext context = new UIContext(this);
-////    	context.put("id", "");
+//    	context.put("id", "");
 //    	UIFactory.createUIFactory(UIFactoryName.MODEL).create(InvitePlanEditUI.class.getName(), context, null, OprtState.ADDNEW).show();
         super.actionAudit_actionPerformed(e);
     }

@@ -7,6 +7,10 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.util.HashMap;
 
 import org.apache.log4j.Logger;
 
@@ -18,13 +22,31 @@ import com.kingdee.bos.ctrl.kdf.util.render.ObjectValueRender;
 import com.kingdee.bos.ctrl.swing.KDContainer;
 import com.kingdee.bos.ctrl.swing.KDLayout;
 import com.kingdee.bos.ctrl.swing.KDTextField;
+import com.kingdee.bos.ctrl.swing.event.SelectorEvent;
+import com.kingdee.bos.ctrl.swing.event.SelectorListener;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.ui.face.UIException;
+import com.kingdee.bos.ui.face.UIFactory;
+import com.kingdee.eas.basedata.assistant.Project;
+import com.kingdee.eas.basedata.assistant.ProjectInfo;
+import com.kingdee.eas.basedata.assistant.client.ProjectEditUI;
+import com.kingdee.eas.common.client.OprtState;
+import com.kingdee.eas.common.client.UIContext;
+import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.framework.client.multiDetail.DetailPanel;
+import com.kingdee.eas.port.pm.base.EvaluationTemplate;
+import com.kingdee.eas.port.pm.base.EvaluationTemplateInfo;
+import com.kingdee.eas.port.pm.base.client.EvaluationTemplateEditUI;
+import com.kingdee.eas.port.pm.invite.judgeSolution;
+import com.kingdee.eas.port.pm.project.PortProject;
+import com.kingdee.eas.port.pm.project.PortProjectInfo;
+import com.kingdee.eas.port.pm.project.client.PortProjectEditUI;
+import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
 
 /**
  * output class name
@@ -43,6 +65,11 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI
     @Override
     public void onLoad() throws Exception {
     	// TODO Auto-generated method stub
+    	this.prmtproName.setRequired(true);
+    	this.prmtuseOrg.setRequired(true);
+    	this.prmtdevOrg.setRequired(true);;
+    	this.prmtinviteType.setRequired(true);
+    	this.prmtvalidTemplate.setRequired(true);
     	super.onLoad();
     	this.btnCopyLine.setVisible(false);
     	this.btnAddLine.setVisible(false);
@@ -52,7 +79,49 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI
     	this.contCU.setVisible(false);
     	this.contBizStatus.setVisible(false);
     	this.contDescription.setVisible(false);
-    	
+    	this.kDButton1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				if(prmtproName.getValue() == null) {
+					MsgBox.showWarning("请先选择项目名称!");
+				} else {
+					UIContext context = new UIContext(this);
+					ProjectInfo info = (ProjectInfo) prmtproName.getValue();
+			    	context.put("ID", info.getId());
+			    	try {
+			    		UIFactory.createUIFactory().create(ProjectEditUI.class.getName(), context, null, OprtState.VIEW).show();
+//						UIFactory.createUIFactory(UIFactoryName.MODEL).create(InvitePlanEditUI.class.getName(), context, null, OprtState.ADDNEW).show();
+					} catch (UIException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				}
+			}
+    	});
+    	judgeSolution.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent e) {
+				// TODO Auto-generated method stub
+				if(e.getItem().equals(com.kingdee.eas.port.pm.invite.judgeSolution.lowest)) {
+					txtrmhigh.setEnabled(false);
+					txtrmlow.setEnabled(false);
+					txtreduHigh.setEnabled(false);
+					txtreduLow.setEnabled(false);
+					txtbusinessScore.setEnabled(false);
+					txttechScore.setEnabled(false);
+					prmtevaTemplate.setEnabled(false);
+				}
+					
+				else if(e.getItem().equals(com.kingdee.eas.port.pm.invite.judgeSolution.integrate)) {
+					prmtevaTemplate.setEnabled(true);
+					txtrmhigh.setEnabled(true);
+					txtrmlow.setEnabled(true);
+					txtreduHigh.setEnabled(true);
+					txtreduLow.setEnabled(true);
+					txtbusinessScore.setEnabled(true);
+					txttechScore.setEnabled(true);
+				}
+			}
+    	});
     	EntityViewInfo view = new EntityViewInfo();
     	FilterInfo filInfo = new FilterInfo();
     	filInfo.getFilterItems().add(new FilterItemInfo("level","2",CompareType.EQUALS));
@@ -72,8 +141,6 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI
         kdtE5_judgeType_OVR.setFormat(new BizDataFormat("$name$"));
         this.kdtEntry5.getColumn("judgeType").setRenderer(kdtE5_judgeType_OVR);
         
-        this.kDPanel3.setPreferredSize(new Dimension(1000, 1015));
-//        this.kDPanel3.setSize(new Dimension(1000, 1005));
         initContainerButton(kDContainer1, kdtEntry2_detailPanel);
         initContainerButton(kDContainer2, kdtEntry5_detailPanel);
         initContainerButton(kDContainer3, kdtEntry3_detailPanel);
@@ -86,6 +153,28 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI
     	kDContainer.addButton(detail.getAddNewLineButton());
     	kDContainer.addButton(detail.getInsertLineButton());
     	kDContainer.addButton(detail.getRemoveLinesButton());
+    }
+    @Override
+    protected void verifyInput(ActionEvent e) throws Exception {
+    	// TODO Auto-generated method stub
+    	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, prmtproName, "项目信息");
+    	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, prmtuseOrg, "使用单位");
+    	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, prmtdevOrg, "建设单位");
+    	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, prmtinviteType, "招标方式");
+    	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, prmtvalidTemplate, "符合性审查模板");
+    	if(this.judgeSolution.getSelectedItem().equals(com.kingdee.eas.port.pm.invite.judgeSolution.integrate)) {
+    		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, prmtevaTemplate, "评分模板");
+    		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, txtrmhigh, "去除几个最高");
+    		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, txtrmlow, "去除几个最低");
+    		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, txtreduHigh, "高%1扣");
+    		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, txtreduLow, "低%1扣");
+    		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, txtbusinessScore, "商务分");
+    		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, txttechScore, "技术分");
+    	}
+    	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyKDTColumnNull(this, kdtEntry2, "evaEnterprise");
+    	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyKDTColumnNull(this, kdtEntry3, "invitePerson");
+    	
+    	super.verifyInput(e);
     }
     /**
      * output loadFields method

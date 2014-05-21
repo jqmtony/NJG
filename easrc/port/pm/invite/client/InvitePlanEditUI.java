@@ -4,19 +4,29 @@
 package com.kingdee.eas.port.pm.invite.client;
 
 import java.awt.event.*;
+import java.util.Set;
 
 import org.apache.log4j.Logger;
+
+import com.kingdee.bos.ContextUtils;
+import com.kingdee.bos.metadata.entity.EntityViewInfo;
+import com.kingdee.bos.metadata.entity.FilterInfo;
+import com.kingdee.bos.metadata.entity.FilterItemInfo;
+import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.IUIWindow;
 import com.kingdee.bos.ui.face.UIFactory;
 import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.eas.basedata.person.PersonInfo;
 import com.kingdee.eas.common.client.OprtState;
+import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.common.client.UIContext;
 import com.kingdee.eas.framework.*;
 import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.swing.KDTextField;
+import com.kingdee.bos.ctrl.swing.event.DataChangeEvent;
 
 /**
  * output class name
@@ -35,7 +45,11 @@ public class InvitePlanEditUI extends AbstractInvitePlanEditUI
     @Override
     public void onLoad() throws Exception {
     	// TODO Auto-generated method stub
+    	initConpoment();
     	super.onLoad();
+    	initFilter();
+    }
+    private void initConpoment() {
     	btnCopyLine.setVisible(false);
     	btnAddLine.setVisible(false);
     	btnInsertLine.setVisible(false);
@@ -44,18 +58,46 @@ public class InvitePlanEditUI extends AbstractInvitePlanEditUI
     	contCU.setVisible(false);
     	contBizDate.setVisible(false);
     	contBizStatus.setVisible(false);
-    	txtplanNumber.setRequired(true);
     	txtplanName.setRequired(true);
+    	prmtdepartment.setEnabled(false);
+    	prmtdepartment.setRequired(true);
+    	prmtresponse.setRequired(true);
+    }
+    private void initFilter() throws Exception{
+    	//根据组织过滤人员
+    	Set set = com.kingdee.eas.xr.helper.PersonXRHelper.getPersonIds(null, SysContext.getSysContext().getCurrentAdminUnit().getId().toString());
+    	EntityViewInfo viewInfo = new EntityViewInfo();
+    	FilterInfo filter = new FilterInfo();
+        filter.getFilterItems().add(new FilterItemInfo("id", set, CompareType.INCLUDE));
+        viewInfo.setFilter(filter);
+        this.prmtresponse.setEntityViewInfo(viewInfo);
+    }
+    
+    @Override
+    protected void prmtresponse_dataChanged(DataChangeEvent e) throws Exception {
+    	// TODO Auto-generated method stub
+    	super.prmtresponse_dataChanged(e);
+    	PersonInfo personInfo = (PersonInfo) this.prmtresponse.getValue();
+    	this.prmtdepartment.setValue(com.kingdee.eas.xr.helper.PersonXRHelper.getPosiMemByDeptUser(personInfo));
     }
     @Override
     protected void verifyInput(ActionEvent actionevent) throws Exception {
     	// TODO Auto-generated method stub
-    	if("".equals(txtplanNumber.getText().trim())) {
-    		MsgBox.showWarning("计划编码不能为空");
-    		SysUtil.abort();
-    	}
     	if("".equals(txtplanName.getText().trim())) {
     		MsgBox.showWarning("计划名称不能为空");
+    		SysUtil.abort();
+    	}
+    	if(prmtresponse.getValue() == null) {
+    		MsgBox.showWarning("负责人不能为空");
+    		SysUtil.abort();
+    	}
+    	if(prmtproject.getValue() == null) {
+    		MsgBox.showWarning("所属项目不能为空");
+    		SysUtil.abort();
+    	}
+    	if(editData.getStartDate() != null && editData.getEndDate() != null && editData.getStartDate().after(editData.getEndDate()))
+    	{
+    		MsgBox.showWarning("计划结束日期不能早于计划开始时间");
     		SysUtil.abort();
     	}
     	super.verifyInput(actionevent);

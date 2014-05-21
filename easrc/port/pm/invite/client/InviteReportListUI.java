@@ -5,8 +5,15 @@ package com.kingdee.eas.port.pm.invite.client;
 
 import java.awt.event.*;
 import org.apache.log4j.Logger;
+
+import com.kingdee.bos.BOSException;
+import com.kingdee.bos.metadata.IMetaDataPK;
+import com.kingdee.bos.metadata.entity.EntityViewInfo;
+import com.kingdee.bos.metadata.entity.FilterInfo;
+import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.bos.dao.query.IQueryExecutor;
 import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.framework.*;
 
@@ -30,6 +37,31 @@ public class InviteReportListUI extends AbstractInviteReportListUI
     	return UIFactoryName.NEWWIN;
     }
 
+    protected IQueryExecutor getQueryExecutor(IMetaDataPK arg0,
+    		EntityViewInfo viewInfo) {
+    	// TODO Auto-generated method stub
+    	EntityViewInfo newViewInfo = (EntityViewInfo) viewInfo.clone();
+    	FilterInfo filterInfo = new FilterInfo();
+    	if(getUIContext().get("reportId")!=null)
+    	{
+    		filterInfo.getFilterItems().add(new FilterItemInfo("id",(String)getUIContext().get("reportId")));
+    	}
+    	try 
+    	{
+			if(viewInfo.getFilter()!=null)
+			{
+				newViewInfo.getFilter().mergeFilter(filterInfo, "and");
+			}
+			else
+			{
+				newViewInfo.setFilter(filterInfo);
+			}
+		} 
+    	catch (BOSException e) {
+			e.printStackTrace();
+		}
+    	return super.getQueryExecutor(arg0, newViewInfo);
+    }
     /**
      * output storeFields method
      */

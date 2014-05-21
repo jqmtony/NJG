@@ -19,50 +19,6 @@ public class AbstractJudgesComfirmInfo extends com.kingdee.eas.xr.XRBillBaseInfo
         put("Entry", new com.kingdee.eas.port.pm.invite.JudgesComfirmEntryCollection());
     }
     /**
-     * Object:评标专家确定's 立项编码property 
-     */
-    public String getPlanNumber()
-    {
-        return getString("planNumber");
-    }
-    public void setPlanNumber(String item)
-    {
-        setString("planNumber", item);
-    }
-    /**
-     * Object:评标专家确定's 招标类型property 
-     */
-    public String getInviteType()
-    {
-        return getString("inviteType");
-    }
-    public void setInviteType(String item)
-    {
-        setString("inviteType", item);
-    }
-    /**
-     * Object:评标专家确定's 所属项目property 
-     */
-    public String getPrjName()
-    {
-        return getString("prjName");
-    }
-    public void setPrjName(String item)
-    {
-        setString("prjName", item);
-    }
-    /**
-     * Object:评标专家确定's 所属组织property 
-     */
-    public String getOrgUnit()
-    {
-        return getString("orgUnit");
-    }
-    public void setOrgUnit(String item)
-    {
-        setString("orgUnit", item);
-    }
-    /**
      * Object: 评标专家确定 's 编制部门 property 
      */
     public com.kingdee.eas.basedata.org.AdminOrgUnitInfo getDepartment()
@@ -101,6 +57,50 @@ public class AbstractJudgesComfirmInfo extends com.kingdee.eas.xr.XRBillBaseInfo
     public void setPlanName(com.kingdee.eas.port.pm.invite.InviteReportInfo item)
     {
         put("planName", item);
+    }
+    /**
+     * Object:评标专家确定's 立项编码property 
+     */
+    public String getPlanNumber()
+    {
+        return getString("planNumber");
+    }
+    public void setPlanNumber(String item)
+    {
+        setString("planNumber", item);
+    }
+    /**
+     * Object:评标专家确定's 项目名称property 
+     */
+    public String getPrjName()
+    {
+        return getString("prjName");
+    }
+    public void setPrjName(String item)
+    {
+        setString("prjName", item);
+    }
+    /**
+     * Object:评标专家确定's 所属组织property 
+     */
+    public String getOrgUnit()
+    {
+        return getString("orgUnit");
+    }
+    public void setOrgUnit(String item)
+    {
+        setString("orgUnit", item);
+    }
+    /**
+     * Object:评标专家确定's 招标方式property 
+     */
+    public String getInviteType()
+    {
+        return getString("inviteType");
+    }
+    public void setInviteType(String item)
+    {
+        setString("inviteType", item);
     }
     public BOSObjectType getBOSType()
     {

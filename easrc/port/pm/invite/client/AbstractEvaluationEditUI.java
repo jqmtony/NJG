@@ -65,16 +65,15 @@ public abstract class AbstractEvaluationEditUI extends com.kingdee.eas.xr.client
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contevaDate;
     protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtEntryValid;
 	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtEntryValid_detailPanel = null;
-    protected com.kingdee.bos.ctrl.swing.KDContainer kDContainer1;
     protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtEntryUnit;
 	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtEntryUnit_detailPanel = null;
-    protected com.kingdee.bos.ctrl.swing.KDContainer kDContainer2;
     protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtEntryScore;
 	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtEntryScore_detailPanel = null;
     protected com.kingdee.bos.ctrl.swing.KDContainer kDContainer3;
     protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtEntryTotal;
 	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtEntryTotal_detailPanel = null;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contbasePrice;
+    protected com.kingdee.bos.ctrl.swing.KDTabbedPane kDTabbedPane1;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtCreator;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkCreateTime;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtLastUpdateUser;
@@ -91,10 +90,14 @@ public abstract class AbstractEvaluationEditUI extends com.kingdee.eas.xr.client
     protected com.kingdee.bos.ctrl.swing.KDTextField txtprjName;
     protected com.kingdee.bos.ctrl.swing.KDComboBox evaSolution;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkevaDate;
-    protected com.kingdee.bos.ctrl.kdf.table.KDTable kDTable1;
-    protected com.kingdee.bos.ctrl.kdf.table.KDTable kDTable2;
     protected com.kingdee.bos.ctrl.kdf.table.KDTable kDTable3;
     protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtbasePrice;
+    protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel1;
+    protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel2;
+    protected com.kingdee.bos.ctrl.swing.KDContainer kDContainer1;
+    protected com.kingdee.bos.ctrl.kdf.table.KDTable kDTable1;
+    protected com.kingdee.bos.ctrl.swing.KDContainer kDContainer2;
+    protected com.kingdee.bos.ctrl.kdf.table.KDTable kDTable2;
     protected com.kingdee.eas.port.pm.invite.EvaluationInfo editData = null;
     /**
      * output class constructor
@@ -163,13 +166,12 @@ public abstract class AbstractEvaluationEditUI extends com.kingdee.eas.xr.client
         this.contevaSolution = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contevaDate = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.kdtEntryValid = new com.kingdee.bos.ctrl.kdf.table.KDTable();
-        this.kDContainer1 = new com.kingdee.bos.ctrl.swing.KDContainer();
         this.kdtEntryUnit = new com.kingdee.bos.ctrl.kdf.table.KDTable();
-        this.kDContainer2 = new com.kingdee.bos.ctrl.swing.KDContainer();
         this.kdtEntryScore = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.kDContainer3 = new com.kingdee.bos.ctrl.swing.KDContainer();
         this.kdtEntryTotal = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.contbasePrice = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.kDTabbedPane1 = new com.kingdee.bos.ctrl.swing.KDTabbedPane();
         this.prmtCreator = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.pkCreateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.prmtLastUpdateUser = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
@@ -186,10 +188,14 @@ public abstract class AbstractEvaluationEditUI extends com.kingdee.eas.xr.client
         this.txtprjName = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.evaSolution = new com.kingdee.bos.ctrl.swing.KDComboBox();
         this.pkevaDate = new com.kingdee.bos.ctrl.swing.KDDatePicker();
-        this.kDTable1 = new com.kingdee.bos.ctrl.kdf.table.KDTable();
-        this.kDTable2 = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.kDTable3 = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.txtbasePrice = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
+        this.kDPanel1 = new com.kingdee.bos.ctrl.swing.KDPanel();
+        this.kDPanel2 = new com.kingdee.bos.ctrl.swing.KDPanel();
+        this.kDContainer1 = new com.kingdee.bos.ctrl.swing.KDContainer();
+        this.kDTable1 = new com.kingdee.bos.ctrl.kdf.table.KDTable();
+        this.kDContainer2 = new com.kingdee.bos.ctrl.swing.KDContainer();
+        this.kDTable2 = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.kDToolBar1.setName("kDToolBar1");
         this.contCreator.setName("contCreator");
         this.contCreateTime.setName("contCreateTime");
@@ -208,13 +214,12 @@ public abstract class AbstractEvaluationEditUI extends com.kingdee.eas.xr.client
         this.contevaSolution.setName("contevaSolution");
         this.contevaDate.setName("contevaDate");
         this.kdtEntryValid.setName("kdtEntryValid");
-        this.kDContainer1.setName("kDContainer1");
         this.kdtEntryUnit.setName("kdtEntryUnit");
-        this.kDContainer2.setName("kDContainer2");
         this.kdtEntryScore.setName("kdtEntryScore");
         this.kDContainer3.setName("kDContainer3");
         this.kdtEntryTotal.setName("kdtEntryTotal");
         this.contbasePrice.setName("contbasePrice");
+        this.kDTabbedPane1.setName("kDTabbedPane1");
         this.prmtCreator.setName("prmtCreator");
         this.pkCreateTime.setName("pkCreateTime");
         this.prmtLastUpdateUser.setName("prmtLastUpdateUser");
@@ -231,10 +236,14 @@ public abstract class AbstractEvaluationEditUI extends com.kingdee.eas.xr.client
         this.txtprjName.setName("txtprjName");
         this.evaSolution.setName("evaSolution");
         this.pkevaDate.setName("pkevaDate");
-        this.kDTable1.setName("kDTable1");
-        this.kDTable2.setName("kDTable2");
         this.kDTable3.setName("kDTable3");
         this.txtbasePrice.setName("txtbasePrice");
+        this.kDPanel1.setName("kDPanel1");
+        this.kDPanel2.setName("kDPanel2");
+        this.kDContainer1.setName("kDContainer1");
+        this.kDTable1.setName("kDTable1");
+        this.kDContainer2.setName("kDContainer2");
+        this.kDTable2.setName("kDTable2");
         // CoreUI
         // kDToolBar1
         // contCreator		
@@ -317,6 +326,14 @@ public abstract class AbstractEvaluationEditUI extends com.kingdee.eas.xr.client
 
 
         this.kdtEntryValid.checkParsed();
+        KDFormattedTextField kdtEntryValid_seq_TextField = new KDFormattedTextField();
+        kdtEntryValid_seq_TextField.setName("kdtEntryValid_seq_TextField");
+        kdtEntryValid_seq_TextField.setVisible(true);
+        kdtEntryValid_seq_TextField.setEditable(true);
+        kdtEntryValid_seq_TextField.setHorizontalAlignment(2);
+        kdtEntryValid_seq_TextField.setDataType(0);
+        KDTDefaultCellEditor kdtEntryValid_seq_CellEditor = new KDTDefaultCellEditor(kdtEntryValid_seq_TextField);
+        this.kdtEntryValid.getColumn("seq").setEditor(kdtEntryValid_seq_CellEditor);
         KDTextField kdtEntryValid_judges_TextField = new KDTextField();
         kdtEntryValid_judges_TextField.setName("kdtEntryValid_judges_TextField");
         kdtEntryValid_judges_TextField.setMaxLength(100);
@@ -332,8 +349,6 @@ public abstract class AbstractEvaluationEditUI extends com.kingdee.eas.xr.client
         kdtEntryValid_valid_TextField.setMaxLength(200);
         KDTDefaultCellEditor kdtEntryValid_valid_CellEditor = new KDTDefaultCellEditor(kdtEntryValid_valid_TextField);
         this.kdtEntryValid.getColumn("valid").setEditor(kdtEntryValid_valid_CellEditor);
-        // kDContainer1		
-        this.kDContainer1.setTitle(resHelper.getString("kDContainer1.title"));
         // kdtEntryUnit
 		String kdtEntryUnitStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"enterprise\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{enterprise}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
@@ -343,13 +358,19 @@ public abstract class AbstractEvaluationEditUI extends com.kingdee.eas.xr.client
 
 
         this.kdtEntryUnit.checkParsed();
+        KDFormattedTextField kdtEntryUnit_seq_TextField = new KDFormattedTextField();
+        kdtEntryUnit_seq_TextField.setName("kdtEntryUnit_seq_TextField");
+        kdtEntryUnit_seq_TextField.setVisible(true);
+        kdtEntryUnit_seq_TextField.setEditable(true);
+        kdtEntryUnit_seq_TextField.setHorizontalAlignment(2);
+        kdtEntryUnit_seq_TextField.setDataType(0);
+        KDTDefaultCellEditor kdtEntryUnit_seq_CellEditor = new KDTDefaultCellEditor(kdtEntryUnit_seq_TextField);
+        this.kdtEntryUnit.getColumn("seq").setEditor(kdtEntryUnit_seq_CellEditor);
         KDTextField kdtEntryUnit_enterprise_TextField = new KDTextField();
         kdtEntryUnit_enterprise_TextField.setName("kdtEntryUnit_enterprise_TextField");
         kdtEntryUnit_enterprise_TextField.setMaxLength(200);
         KDTDefaultCellEditor kdtEntryUnit_enterprise_CellEditor = new KDTDefaultCellEditor(kdtEntryUnit_enterprise_TextField);
         this.kdtEntryUnit.getColumn("enterprise").setEditor(kdtEntryUnit_enterprise_CellEditor);
-        // kDContainer2		
-        this.kDContainer2.setTitle(resHelper.getString("kDContainer2.title"));
         // kdtEntryScore
 		String kdtEntryScoreStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"judges\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"indicators\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"fullScore\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"score\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{judges}</t:Cell><t:Cell>$Resource{indicators}</t:Cell><t:Cell>$Resource{fullScore}</t:Cell><t:Cell>$Resource{score}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
@@ -359,6 +380,14 @@ public abstract class AbstractEvaluationEditUI extends com.kingdee.eas.xr.client
 
 
         this.kdtEntryScore.checkParsed();
+        KDFormattedTextField kdtEntryScore_seq_TextField = new KDFormattedTextField();
+        kdtEntryScore_seq_TextField.setName("kdtEntryScore_seq_TextField");
+        kdtEntryScore_seq_TextField.setVisible(true);
+        kdtEntryScore_seq_TextField.setEditable(true);
+        kdtEntryScore_seq_TextField.setHorizontalAlignment(2);
+        kdtEntryScore_seq_TextField.setDataType(0);
+        KDTDefaultCellEditor kdtEntryScore_seq_CellEditor = new KDTDefaultCellEditor(kdtEntryScore_seq_TextField);
+        this.kdtEntryScore.getColumn("seq").setEditor(kdtEntryScore_seq_CellEditor);
         KDTextField kdtEntryScore_judges_TextField = new KDTextField();
         kdtEntryScore_judges_TextField.setName("kdtEntryScore_judges_TextField");
         kdtEntryScore_judges_TextField.setMaxLength(100);
@@ -390,6 +419,14 @@ public abstract class AbstractEvaluationEditUI extends com.kingdee.eas.xr.client
 
 
         this.kdtEntryTotal.checkParsed();
+        KDFormattedTextField kdtEntryTotal_seq_TextField = new KDFormattedTextField();
+        kdtEntryTotal_seq_TextField.setName("kdtEntryTotal_seq_TextField");
+        kdtEntryTotal_seq_TextField.setVisible(true);
+        kdtEntryTotal_seq_TextField.setEditable(true);
+        kdtEntryTotal_seq_TextField.setHorizontalAlignment(2);
+        kdtEntryTotal_seq_TextField.setDataType(0);
+        KDTDefaultCellEditor kdtEntryTotal_seq_CellEditor = new KDTDefaultCellEditor(kdtEntryTotal_seq_TextField);
+        this.kdtEntryTotal.getColumn("seq").setEditor(kdtEntryTotal_seq_CellEditor);
         KDTextField kdtEntryTotal_indicators_TextField = new KDTextField();
         kdtEntryTotal_indicators_TextField.setName("kdtEntryTotal_indicators_TextField");
         kdtEntryTotal_indicators_TextField.setMaxLength(100);
@@ -405,6 +442,7 @@ public abstract class AbstractEvaluationEditUI extends com.kingdee.eas.xr.client
         this.contbasePrice.setBoundLabelLength(100);		
         this.contbasePrice.setBoundLabelUnderline(true);		
         this.contbasePrice.setVisible(true);
+        // kDTabbedPane1
         // prmtCreator		
         this.prmtCreator.setEnabled(false);		
         this.prmtCreator.setCommitFormat("$name$");		
@@ -490,25 +528,6 @@ public abstract class AbstractEvaluationEditUI extends com.kingdee.eas.xr.client
         });
         // pkevaDate		
         this.pkevaDate.setRequired(false);
-        // kDTable1
-        this.kDTable1.addKDTEditListener(new com.kingdee.bos.ctrl.kdf.table.event.KDTEditAdapter() {
-            public void editStopped(com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent e) {
-                try {
-                    kDTable1_editStopped(e);
-                } catch(Exception exc) {
-                    handUIException(exc);
-                }
-            }
-        });
-
-        
-
-        this.kDTable1.checkParsed();
-        // kDTable2
-
-        
-
-        this.kDTable2.checkParsed();
         // kDTable3
 
         
@@ -523,6 +542,31 @@ public abstract class AbstractEvaluationEditUI extends com.kingdee.eas.xr.client
         this.txtbasePrice.setMaximumValue( new java.math.BigDecimal("1.0E18"));		
         this.txtbasePrice.setPrecision(10);		
         this.txtbasePrice.setRequired(false);
+        // kDPanel1
+        // kDPanel2
+        // kDContainer1		
+        this.kDContainer1.setTitle(resHelper.getString("kDContainer1.title"));
+        // kDTable1
+        this.kDTable1.addKDTEditListener(new com.kingdee.bos.ctrl.kdf.table.event.KDTEditAdapter() {
+            public void editStopped(com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent e) {
+                try {
+                    kDTable1_editStopped(e);
+                } catch(Exception exc) {
+                    handUIException(exc);
+                }
+            }
+        });
+
+        
+
+        this.kDTable1.checkParsed();
+        // kDContainer2		
+        this.kDContainer2.setTitle(resHelper.getString("kDContainer2.title"));
+        // kDTable2
+
+        
+
+        this.kDTable2.checkParsed();
         this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {comboStatus,comboBizStatus,pkAuditTime,txtNumber,pkBizDate,txtDescription,prmtAuditor,prmtCreator,pkCreateTime,prmtLastUpdateUser,pkLastUpdateTime,prmtCU,prmtinviteReport,txtprjName,evaSolution,pkevaDate,kdtEntryValid,kdtEntryScore,kdtEntryUnit,txtbasePrice}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
@@ -553,58 +597,56 @@ public abstract class AbstractEvaluationEditUI extends com.kingdee.eas.xr.client
         this.setBounds(new Rectangle(10, 10, 1013, 629));
         this.setLayout(new KDLayout());
         this.putClientProperty("OriginalBounds", new Rectangle(10, 10, 1013, 629));
-        contCreator.setBounds(new Rectangle(35, 579, 270, 19));
-        this.add(contCreator, new KDLayout.Constraints(35, 579, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contCreateTime.setBounds(new Rectangle(35, 605, 270, 19));
-        this.add(contCreateTime, new KDLayout.Constraints(35, 605, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contLastUpdateUser.setBounds(new Rectangle(372, 581, 270, 19));
-        this.add(contLastUpdateUser, new KDLayout.Constraints(372, 581, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contLastUpdateTime.setBounds(new Rectangle(372, 607, 270, 19));
-        this.add(contLastUpdateTime, new KDLayout.Constraints(372, 607, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contCU.setBounds(new Rectangle(303, 557, 270, 19));
-        this.add(contCU, new KDLayout.Constraints(303, 557, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contNumber.setBounds(new Rectangle(34, 13, 270, 19));
-        this.add(contNumber, new KDLayout.Constraints(34, 13, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contBizDate.setBounds(new Rectangle(12, 560, 270, 19));
-        this.add(contBizDate, new KDLayout.Constraints(12, 560, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contDescription.setBounds(new Rectangle(754, 75, 270, 19));
-        this.add(contDescription, new KDLayout.Constraints(754, 75, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contAuditor.setBounds(new Rectangle(708, 564, 270, 19));
-        this.add(contAuditor, new KDLayout.Constraints(708, 564, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contStatus.setBounds(new Rectangle(32, 61, 270, 19));
-        this.add(contStatus, new KDLayout.Constraints(32, 61, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contBizStatus.setBounds(new Rectangle(708, 611, 270, 19));
-        this.add(contBizStatus, new KDLayout.Constraints(708, 611, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contAuditTime.setBounds(new Rectangle(708, 590, 270, 19));
-        this.add(contAuditTime, new KDLayout.Constraints(708, 590, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        continviteReport.setBounds(new Rectangle(328, 13, 270, 19));
-        this.add(continviteReport, new KDLayout.Constraints(328, 13, 270, 19, 0));
-        contprjName.setBounds(new Rectangle(649, 10, 270, 19));
-        this.add(contprjName, new KDLayout.Constraints(649, 10, 270, 19, 0));
-        contevaSolution.setBounds(new Rectangle(32, 37, 270, 19));
-        this.add(contevaSolution, new KDLayout.Constraints(32, 37, 270, 19, 0));
-        contevaDate.setBounds(new Rectangle(327, 37, 270, 19));
-        this.add(contevaDate, new KDLayout.Constraints(327, 37, 270, 19, 0));
-        kdtEntryValid.setBounds(new Rectangle(765, 215, 252, 113));
+        contCreator.setBounds(new Rectangle(16, 536, 270, 19));
+        this.add(contCreator, new KDLayout.Constraints(16, 536, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contCreateTime.setBounds(new Rectangle(16, 564, 270, 19));
+        this.add(contCreateTime, new KDLayout.Constraints(16, 564, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contLastUpdateUser.setBounds(new Rectangle(369, 536, 270, 19));
+        this.add(contLastUpdateUser, new KDLayout.Constraints(369, 536, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contLastUpdateTime.setBounds(new Rectangle(369, 564, 270, 19));
+        this.add(contLastUpdateTime, new KDLayout.Constraints(369, 564, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contCU.setBounds(new Rectangle(711, 593, 270, 19));
+        this.add(contCU, new KDLayout.Constraints(711, 593, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contNumber.setBounds(new Rectangle(16, 11, 270, 19));
+        this.add(contNumber, new KDLayout.Constraints(16, 11, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contBizDate.setBounds(new Rectangle(587, 604, 270, 19));
+        this.add(contBizDate, new KDLayout.Constraints(587, 604, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contDescription.setBounds(new Rectangle(298, 604, 270, 19));
+        this.add(contDescription, new KDLayout.Constraints(298, 604, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contAuditor.setBounds(new Rectangle(722, 536, 270, 19));
+        this.add(contAuditor, new KDLayout.Constraints(722, 536, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contStatus.setBounds(new Rectangle(16, 59, 270, 19));
+        this.add(contStatus, new KDLayout.Constraints(16, 59, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contBizStatus.setBounds(new Rectangle(7, 600, 270, 19));
+        this.add(contBizStatus, new KDLayout.Constraints(7, 600, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contAuditTime.setBounds(new Rectangle(722, 564, 270, 19));
+        this.add(contAuditTime, new KDLayout.Constraints(722, 564, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        continviteReport.setBounds(new Rectangle(369, 11, 270, 19));
+        this.add(continviteReport, new KDLayout.Constraints(369, 11, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contprjName.setBounds(new Rectangle(722, 11, 270, 19));
+        this.add(contprjName, new KDLayout.Constraints(722, 11, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contevaSolution.setBounds(new Rectangle(16, 35, 270, 19));
+        this.add(contevaSolution, new KDLayout.Constraints(16, 35, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contevaDate.setBounds(new Rectangle(369, 35, 270, 19));
+        this.add(contevaDate, new KDLayout.Constraints(369, 35, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kdtEntryValid.setBounds(new Rectangle(906, 152, 252, 113));
         kdtEntryValid_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtEntryValid,new com.kingdee.eas.port.pm.invite.EvaluationEntryValidInfo(),null,false);
-        this.add(kdtEntryValid_detailPanel, new KDLayout.Constraints(765, 215, 252, 113, 0));
-        kDContainer1.setBounds(new Rectangle(32, 81, 704, 181));
-        this.add(kDContainer1, new KDLayout.Constraints(32, 81, 704, 181, 0));
-        kdtEntryUnit.setBounds(new Rectangle(765, 119, 259, 94));
+        this.add(kdtEntryValid_detailPanel, new KDLayout.Constraints(906, 152, 252, 113, 0));
+        kdtEntryUnit.setBounds(new Rectangle(906, 56, 259, 94));
         kdtEntryUnit_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtEntryUnit,new com.kingdee.eas.port.pm.invite.EvaluationEntryUnitInfo(),null,false);
-        this.add(kdtEntryUnit_detailPanel, new KDLayout.Constraints(765, 119, 259, 94, 0));
-        kDContainer2.setBounds(new Rectangle(32, 269, 703, 158));
-        this.add(kDContainer2, new KDLayout.Constraints(32, 269, 703, 158, 0));
-        kdtEntryScore.setBounds(new Rectangle(765, 334, 265, 91));
+        this.add(kdtEntryUnit_detailPanel, new KDLayout.Constraints(906, 56, 259, 94, 0));
+        kdtEntryScore.setBounds(new Rectangle(906, 271, 265, 91));
         kdtEntryScore_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtEntryScore,new com.kingdee.eas.port.pm.invite.EvaluationEntryScoreInfo(),null,false);
-        this.add(kdtEntryScore_detailPanel, new KDLayout.Constraints(765, 334, 265, 91, 0));
-        kDContainer3.setBounds(new Rectangle(32, 438, 702, 106));
-        this.add(kDContainer3, new KDLayout.Constraints(32, 438, 702, 106, 0));
-        kdtEntryTotal.setBounds(new Rectangle(765, 432, 250, 113));
+        this.add(kdtEntryScore_detailPanel, new KDLayout.Constraints(906, 271, 265, 91, 0));
+        kDContainer3.setBounds(new Rectangle(16, 352, 976, 181));
+        this.add(kDContainer3, new KDLayout.Constraints(16, 352, 976, 181, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        kdtEntryTotal.setBounds(new Rectangle(906, 369, 250, 113));
         kdtEntryTotal_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtEntryTotal,new com.kingdee.eas.port.pm.invite.EvaluationEntryTotalInfo(),null,false);
-        this.add(kdtEntryTotal_detailPanel, new KDLayout.Constraints(765, 432, 250, 113, 0));
-        contbasePrice.setBounds(new Rectangle(649, 36, 270, 19));
-        this.add(contbasePrice, new KDLayout.Constraints(649, 36, 270, 19, 0));
+        this.add(kdtEntryTotal_detailPanel, new KDLayout.Constraints(906, 369, 250, 113, 0));
+        contbasePrice.setBounds(new Rectangle(722, 35, 270, 19));
+        this.add(contbasePrice, new KDLayout.Constraints(722, 35, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        kDTabbedPane1.setBounds(new Rectangle(16, 86, 975, 260));
+        this.add(kDTabbedPane1, new KDLayout.Constraints(16, 86, 975, 260, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         //contCreator
         contCreator.setBoundEditor(prmtCreator);
         //contCreateTime
@@ -637,14 +679,25 @@ public abstract class AbstractEvaluationEditUI extends com.kingdee.eas.xr.client
         contevaSolution.setBoundEditor(evaSolution);
         //contevaDate
         contevaDate.setBoundEditor(pkevaDate);
-        //kDContainer1
-kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContainer1.getContentPane().add(kDTable1, BorderLayout.CENTER);
-        //kDContainer2
-kDContainer2.getContentPane().setLayout(new BorderLayout(0, 0));        kDContainer2.getContentPane().add(kDTable2, BorderLayout.CENTER);
         //kDContainer3
 kDContainer3.getContentPane().setLayout(new BorderLayout(0, 0));        kDContainer3.getContentPane().add(kDTable3, BorderLayout.CENTER);
         //contbasePrice
         contbasePrice.setBoundEditor(txtbasePrice);
+        //kDTabbedPane1
+        kDTabbedPane1.add(kDPanel1, resHelper.getString("kDPanel1.constraints"));
+        kDTabbedPane1.add(kDPanel2, resHelper.getString("kDPanel2.constraints"));
+        //kDPanel1
+        kDPanel1.setLayout(new KDLayout());
+        kDPanel1.putClientProperty("OriginalBounds", new Rectangle(0, 0, 974, 227));        kDContainer1.setBounds(new Rectangle(1, 2, 968, 225));
+        kDPanel1.add(kDContainer1, new KDLayout.Constraints(1, 2, 968, 225, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        //kDContainer1
+kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContainer1.getContentPane().add(kDTable1, BorderLayout.CENTER);
+        //kDPanel2
+        kDPanel2.setLayout(new KDLayout());
+        kDPanel2.putClientProperty("OriginalBounds", new Rectangle(0, 0, 974, 227));        kDContainer2.setBounds(new Rectangle(2, 3, 966, 221));
+        kDPanel2.add(kDContainer2, new KDLayout.Constraints(2, 3, 966, 221, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        //kDContainer2
+kDContainer2.getContentPane().setLayout(new BorderLayout(0, 0));        kDContainer2.getContentPane().add(kDTable2, BorderLayout.CENTER);
 
     }
 

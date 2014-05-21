@@ -64,26 +64,23 @@ public abstract class AbstractInvitePlanEditUI extends com.kingdee.eas.xr.client
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contstartDate;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contendDate;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contplanName;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contplanNumber;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contdepartment;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contresponse;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer continDate;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contproject;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contCreator;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contCreateTime;
     protected com.kingdee.bos.ctrl.swing.KDContainer kDContainer1;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contAuditor;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contAuditTime;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contproject;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtNumber;
     protected com.kingdee.bos.ctrl.swing.KDComboBox comboStatus;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkstartDate;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkendDate;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtplanName;
-    protected com.kingdee.bos.ctrl.swing.KDTextField txtplanNumber;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtdepartment;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtresponse;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkinDate;
-    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtproject;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtCreator;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkCreateTime;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contBIMUDF0009;
@@ -91,6 +88,7 @@ public abstract class AbstractInvitePlanEditUI extends com.kingdee.eas.xr.client
     protected com.kingdee.bos.ctrl.swing.KDTextArea txtBIMUDF0009;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtAuditor;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkAuditTime;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtproject;
     protected com.kingdee.eas.port.pm.invite.InvitePlanInfo editData = null;
     /**
      * output class constructor
@@ -159,26 +157,23 @@ public abstract class AbstractInvitePlanEditUI extends com.kingdee.eas.xr.client
         this.contstartDate = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contendDate = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contplanName = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contplanNumber = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contdepartment = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contresponse = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.continDate = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contproject = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contCreator = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contCreateTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.kDContainer1 = new com.kingdee.bos.ctrl.swing.KDContainer();
         this.contAuditor = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contAuditTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contproject = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.txtNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.comboStatus = new com.kingdee.bos.ctrl.swing.KDComboBox();
         this.pkstartDate = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.pkendDate = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.txtplanName = new com.kingdee.bos.ctrl.swing.KDTextField();
-        this.txtplanNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.prmtdepartment = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.prmtresponse = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.pkinDate = new com.kingdee.bos.ctrl.swing.KDDatePicker();
-        this.prmtproject = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.prmtCreator = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.pkCreateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.contBIMUDF0009 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -186,6 +181,7 @@ public abstract class AbstractInvitePlanEditUI extends com.kingdee.eas.xr.client
         this.txtBIMUDF0009 = new com.kingdee.bos.ctrl.swing.KDTextArea();
         this.prmtAuditor = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.pkAuditTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
+        this.prmtproject = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.contLastUpdateUser.setName("contLastUpdateUser");
         this.contLastUpdateTime.setName("contLastUpdateTime");
         this.contCU.setName("contCU");
@@ -204,26 +200,23 @@ public abstract class AbstractInvitePlanEditUI extends com.kingdee.eas.xr.client
         this.contstartDate.setName("contstartDate");
         this.contendDate.setName("contendDate");
         this.contplanName.setName("contplanName");
-        this.contplanNumber.setName("contplanNumber");
         this.contdepartment.setName("contdepartment");
         this.contresponse.setName("contresponse");
         this.continDate.setName("continDate");
-        this.contproject.setName("contproject");
         this.contCreator.setName("contCreator");
         this.contCreateTime.setName("contCreateTime");
         this.kDContainer1.setName("kDContainer1");
         this.contAuditor.setName("contAuditor");
         this.contAuditTime.setName("contAuditTime");
+        this.contproject.setName("contproject");
         this.txtNumber.setName("txtNumber");
         this.comboStatus.setName("comboStatus");
         this.pkstartDate.setName("pkstartDate");
         this.pkendDate.setName("pkendDate");
         this.txtplanName.setName("txtplanName");
-        this.txtplanNumber.setName("txtplanNumber");
         this.prmtdepartment.setName("prmtdepartment");
         this.prmtresponse.setName("prmtresponse");
         this.pkinDate.setName("pkinDate");
-        this.prmtproject.setName("prmtproject");
         this.prmtCreator.setName("prmtCreator");
         this.pkCreateTime.setName("pkCreateTime");
         this.contBIMUDF0009.setName("contBIMUDF0009");
@@ -231,6 +224,7 @@ public abstract class AbstractInvitePlanEditUI extends com.kingdee.eas.xr.client
         this.txtBIMUDF0009.setName("txtBIMUDF0009");
         this.prmtAuditor.setName("prmtAuditor");
         this.pkAuditTime.setName("pkAuditTime");
+        this.prmtproject.setName("prmtproject");
         // CoreUI		
         this.setPreferredSize(new Dimension(613,420));
         // contLastUpdateUser		
@@ -301,11 +295,6 @@ public abstract class AbstractInvitePlanEditUI extends com.kingdee.eas.xr.client
         this.contplanName.setBoundLabelLength(100);		
         this.contplanName.setBoundLabelUnderline(true);		
         this.contplanName.setVisible(true);
-        // contplanNumber		
-        this.contplanNumber.setBoundLabelText(resHelper.getString("contplanNumber.boundLabelText"));		
-        this.contplanNumber.setBoundLabelLength(100);		
-        this.contplanNumber.setBoundLabelUnderline(true);		
-        this.contplanNumber.setVisible(true);
         // contdepartment		
         this.contdepartment.setBoundLabelText(resHelper.getString("contdepartment.boundLabelText"));		
         this.contdepartment.setBoundLabelLength(100);		
@@ -321,11 +310,6 @@ public abstract class AbstractInvitePlanEditUI extends com.kingdee.eas.xr.client
         this.continDate.setBoundLabelLength(100);		
         this.continDate.setBoundLabelUnderline(true);		
         this.continDate.setVisible(true);
-        // contproject		
-        this.contproject.setBoundLabelText(resHelper.getString("contproject.boundLabelText"));		
-        this.contproject.setBoundLabelLength(100);		
-        this.contproject.setBoundLabelUnderline(true);		
-        this.contproject.setVisible(true);
         // contCreator		
         this.contCreator.setBoundLabelText(resHelper.getString("contCreator.boundLabelText"));		
         this.contCreator.setBoundLabelLength(100);		
@@ -345,6 +329,11 @@ public abstract class AbstractInvitePlanEditUI extends com.kingdee.eas.xr.client
         this.contAuditTime.setBoundLabelText(resHelper.getString("contAuditTime.boundLabelText"));		
         this.contAuditTime.setBoundLabelLength(100);		
         this.contAuditTime.setBoundLabelUnderline(true);
+        // contproject		
+        this.contproject.setBoundLabelText(resHelper.getString("contproject.boundLabelText"));		
+        this.contproject.setBoundLabelLength(100);		
+        this.contproject.setBoundLabelUnderline(true);		
+        this.contproject.setVisible(true);
         // txtNumber
         // comboStatus		
         this.comboStatus.addItems(EnumUtils.getEnumList("com.kingdee.eas.xr.app.XRBillStatusEnum").toArray());		
@@ -360,11 +349,6 @@ public abstract class AbstractInvitePlanEditUI extends com.kingdee.eas.xr.client
         this.txtplanName.setHorizontalAlignment(2);		
         this.txtplanName.setMaxLength(100);		
         this.txtplanName.setRequired(false);
-        // txtplanNumber		
-        this.txtplanNumber.setVisible(true);		
-        this.txtplanNumber.setHorizontalAlignment(2);		
-        this.txtplanNumber.setMaxLength(100);		
-        this.txtplanNumber.setRequired(false);
         // prmtdepartment		
         this.prmtdepartment.setQueryInfo("com.kingdee.eas.basedata.org.app.AdminItemQuery");		
         this.prmtdepartment.setVisible(true);		
@@ -381,34 +365,19 @@ public abstract class AbstractInvitePlanEditUI extends com.kingdee.eas.xr.client
         this.prmtresponse.setEditFormat("$number$");		
         this.prmtresponse.setCommitFormat("$number$");		
         this.prmtresponse.setRequired(false);
+        this.prmtresponse.addDataChangeListener(new com.kingdee.bos.ctrl.swing.event.DataChangeListener() {
+            public void dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) {
+                try {
+                    prmtresponse_dataChanged(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                }
+            }
+        });
         // pkinDate		
         this.pkinDate.setVisible(true);		
         this.pkinDate.setRequired(false);
-        // prmtproject		
-        this.prmtproject.setQueryInfo("com.kingdee.eas.port.pm.project.app.PortProjectQuery");		
-        this.prmtproject.setVisible(true);		
-        this.prmtproject.setEditable(true);		
-        this.prmtproject.setDisplayFormat("$name$");		
-        this.prmtproject.setEditFormat("$number$");		
-        this.prmtproject.setCommitFormat("$number$");		
-        this.prmtproject.setRequired(false);
-        		prmtproject.addSelectorListener(new SelectorListener() {
-			com.kingdee.eas.port.pm.project.client.PortProjectListUI prmtproject_F7ListUI = null;
-			public void willShow(SelectorEvent e) {
-				if (prmtproject_F7ListUI == null) {
-					try {
-						prmtproject_F7ListUI = new com.kingdee.eas.port.pm.project.client.PortProjectListUI();
-					} catch (Exception e1) {
-						e1.printStackTrace();
-					}
-					HashMap ctx = new HashMap();
-					ctx.put("bizUIOwner",javax.swing.SwingUtilities.getWindowAncestor(prmtproject_F7ListUI));
-					prmtproject_F7ListUI.setF7Use(true,ctx);
-					prmtproject.setSelector(prmtproject_F7ListUI);
-				}
-			}
-		});
-					
         // prmtCreator		
         this.prmtCreator.setEnabled(false);		
         this.prmtCreator.setCommitFormat("$name$");		
@@ -436,7 +405,32 @@ public abstract class AbstractInvitePlanEditUI extends com.kingdee.eas.xr.client
         // pkAuditTime		
         this.pkAuditTime.setTimeEnabled(true);		
         this.pkAuditTime.setEnabled(false);
-        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {txtplanNumber,txtplanName,pkstartDate,pkendDate,pkinDate,prmtresponse,prmtproject,prmtdepartment}));
+        // prmtproject		
+        this.prmtproject.setQueryInfo("com.kingdee.eas.basedata.assistant.app.ProjectQuery");		
+        this.prmtproject.setVisible(true);		
+        this.prmtproject.setEditable(true);		
+        this.prmtproject.setDisplayFormat("$name$");		
+        this.prmtproject.setEditFormat("$number$");		
+        this.prmtproject.setCommitFormat("$number$");		
+        this.prmtproject.setRequired(false);
+        		prmtproject.addSelectorListener(new SelectorListener() {
+			com.kingdee.eas.basedata.assistant.client.ProjectListUI prmtproject_F7ListUI = null;
+			public void willShow(SelectorEvent e) {
+				if (prmtproject_F7ListUI == null) {
+					try {
+						prmtproject_F7ListUI = new com.kingdee.eas.basedata.assistant.client.ProjectListUI();
+					} catch (Exception e1) {
+						e1.printStackTrace();
+					}
+					HashMap ctx = new HashMap();
+					ctx.put("bizUIOwner",javax.swing.SwingUtilities.getWindowAncestor(prmtproject_F7ListUI));
+					prmtproject_F7ListUI.setF7Use(true,ctx);
+					prmtproject.setSelector(prmtproject_F7ListUI);
+				}
+			}
+		});
+					
+        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {txtplanName,pkstartDate,pkendDate,pkinDate,prmtresponse,prmtdepartment,prmtproject}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
 		registerBindings();
@@ -501,18 +495,14 @@ public abstract class AbstractInvitePlanEditUI extends com.kingdee.eas.xr.client
         kDPanel1.add(contstartDate, new KDLayout.Constraints(17, 103, 270, 19, 0));
         contendDate.setBounds(new Rectangle(305, 103, 270, 19));
         kDPanel1.add(contendDate, new KDLayout.Constraints(305, 103, 270, 19, 0));
-        contplanName.setBounds(new Rectangle(305, 45, 270, 19));
-        kDPanel1.add(contplanName, new KDLayout.Constraints(305, 45, 270, 19, 0));
-        contplanNumber.setBounds(new Rectangle(17, 45, 270, 19));
-        kDPanel1.add(contplanNumber, new KDLayout.Constraints(17, 45, 270, 19, 0));
-        contdepartment.setBounds(new Rectangle(305, 74, 270, 19));
-        kDPanel1.add(contdepartment, new KDLayout.Constraints(305, 74, 270, 19, 0));
-        contresponse.setBounds(new Rectangle(17, 74, 270, 19));
-        kDPanel1.add(contresponse, new KDLayout.Constraints(17, 74, 270, 19, 0));
+        contplanName.setBounds(new Rectangle(17, 45, 270, 19));
+        kDPanel1.add(contplanName, new KDLayout.Constraints(17, 45, 270, 19, 0));
+        contdepartment.setBounds(new Rectangle(17, 74, 270, 19));
+        kDPanel1.add(contdepartment, new KDLayout.Constraints(17, 74, 270, 19, 0));
+        contresponse.setBounds(new Rectangle(305, 46, 270, 19));
+        kDPanel1.add(contresponse, new KDLayout.Constraints(305, 46, 270, 19, 0));
         continDate.setBounds(new Rectangle(17, 133, 270, 19));
         kDPanel1.add(continDate, new KDLayout.Constraints(17, 133, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contproject.setBounds(new Rectangle(305, 133, 270, 19));
-        kDPanel1.add(contproject, new KDLayout.Constraints(305, 133, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contCreator.setBounds(new Rectangle(17, 332, 270, 19));
         kDPanel1.add(contCreator, new KDLayout.Constraints(17, 332, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contCreateTime.setBounds(new Rectangle(306, 332, 270, 19));
@@ -523,6 +513,8 @@ public abstract class AbstractInvitePlanEditUI extends com.kingdee.eas.xr.client
         kDPanel1.add(contAuditor, new KDLayout.Constraints(17, 364, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contAuditTime.setBounds(new Rectangle(306, 364, 270, 19));
         kDPanel1.add(contAuditTime, new KDLayout.Constraints(306, 364, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contproject.setBounds(new Rectangle(305, 74, 270, 19));
+        kDPanel1.add(contproject, new KDLayout.Constraints(305, 74, 270, 19, 0));
         //contNumber
         contNumber.setBoundEditor(txtNumber);
         //contStatus
@@ -533,16 +525,12 @@ public abstract class AbstractInvitePlanEditUI extends com.kingdee.eas.xr.client
         contendDate.setBoundEditor(pkendDate);
         //contplanName
         contplanName.setBoundEditor(txtplanName);
-        //contplanNumber
-        contplanNumber.setBoundEditor(txtplanNumber);
         //contdepartment
         contdepartment.setBoundEditor(prmtdepartment);
         //contresponse
         contresponse.setBoundEditor(prmtresponse);
         //continDate
         continDate.setBoundEditor(pkinDate);
-        //contproject
-        contproject.setBoundEditor(prmtproject);
         //contCreator
         contCreator.setBoundEditor(prmtCreator);
         //contCreateTime
@@ -557,6 +545,8 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
         contAuditor.setBoundEditor(prmtAuditor);
         //contAuditTime
         contAuditTime.setBoundEditor(pkAuditTime);
+        //contproject
+        contproject.setBoundEditor(prmtproject);
 
     }
 
@@ -741,16 +731,15 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
 		dataBinder.registerBinding("startDate", java.util.Date.class, this.pkstartDate, "value");
 		dataBinder.registerBinding("endDate", java.util.Date.class, this.pkendDate, "value");
 		dataBinder.registerBinding("planName", String.class, this.txtplanName, "text");
-		dataBinder.registerBinding("planNumber", String.class, this.txtplanNumber, "text");
 		dataBinder.registerBinding("department", com.kingdee.eas.basedata.org.AdminOrgUnitInfo.class, this.prmtdepartment, "data");
 		dataBinder.registerBinding("response", com.kingdee.eas.basedata.person.PersonInfo.class, this.prmtresponse, "data");
 		dataBinder.registerBinding("inDate", java.util.Date.class, this.pkinDate, "value");
-		dataBinder.registerBinding("project", com.kingdee.eas.port.pm.project.PortProjectInfo.class, this.prmtproject, "data");
 		dataBinder.registerBinding("creator", com.kingdee.eas.base.permission.UserInfo.class, this.prmtCreator, "data");
 		dataBinder.registerBinding("createTime", java.sql.Timestamp.class, this.pkCreateTime, "value");
 		dataBinder.registerBinding("BIMUDF0009", String.class, this.txtBIMUDF0009, "text");
 		dataBinder.registerBinding("auditor", com.kingdee.eas.base.permission.UserInfo.class, this.prmtAuditor, "data");
-		dataBinder.registerBinding("auditTime", java.sql.Timestamp.class, this.pkAuditTime, "value");		
+		dataBinder.registerBinding("auditTime", java.sql.Timestamp.class, this.pkAuditTime, "value");
+		dataBinder.registerBinding("project", com.kingdee.eas.basedata.assistant.ProjectInfo.class, this.prmtproject, "data");		
 	}
 	//Regiester UI State
 	private void registerUIState(){		
@@ -782,7 +771,7 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
     public void onShow() throws Exception
     {
         super.onShow();
-        this.txtplanNumber.requestFocusInWindow();
+        this.txtplanName.requestFocusInWindow();
     }
 
 	
@@ -896,16 +885,15 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
 		getValidateHelper().registerBindProperty("startDate", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("endDate", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("planName", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("planNumber", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("department", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("response", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("inDate", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("project", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("creator", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("createTime", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("BIMUDF0009", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("auditor", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("auditTime", ValidateHelper.ON_SAVE);    		
+		getValidateHelper().registerBindProperty("auditTime", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("project", ValidateHelper.ON_SAVE);    		
 	}
 
 
@@ -921,6 +909,13 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
         } else if (STATUS_VIEW.equals(this.oprtState)) {
         } else if (STATUS_FINDVIEW.equals(this.oprtState)) {
         }
+    }
+
+    /**
+     * output prmtresponse_dataChanged method
+     */
+    protected void prmtresponse_dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) throws Exception
+    {
     }
 
     /**
@@ -960,7 +955,6 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
         sic.add(new SelectorItemInfo("startDate"));
         sic.add(new SelectorItemInfo("endDate"));
         sic.add(new SelectorItemInfo("planName"));
-        sic.add(new SelectorItemInfo("planNumber"));
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
 			sic.add(new SelectorItemInfo("department.*"));
@@ -982,15 +976,6 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
         sic.add(new SelectorItemInfo("inDate"));
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
-			sic.add(new SelectorItemInfo("project.*"));
-		}
-		else{
-        	sic.add(new SelectorItemInfo("project.id"));
-        	sic.add(new SelectorItemInfo("project.number"));
-        	sic.add(new SelectorItemInfo("project.name"));
-		}
-		if(selectorAll.equalsIgnoreCase("true"))
-		{
 			sic.add(new SelectorItemInfo("creator.*"));
 		}
 		else{
@@ -1010,6 +995,15 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
         	sic.add(new SelectorItemInfo("auditor.name"));
 		}
         sic.add(new SelectorItemInfo("auditTime"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("project.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("project.id"));
+        	sic.add(new SelectorItemInfo("project.number"));
+        	sic.add(new SelectorItemInfo("project.name"));
+		}
         return sic;
     }        
     	
