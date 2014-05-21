@@ -2169,6 +2169,36 @@
                 </propertyBinding>
             </propertyBindings>
         </component>
+        <component>
+            <name>btnDoCancel</name>
+            <alias>uiObject[com.kingdee.eas.port.pm.invite.client.OpenRegistrationEditUI].components.component[btnDoCancel].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>50</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>text</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.invite.client.OpenRegistrationEditUI].components.component[btnDoCancel].properties.property[text].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>action</name>
+                    <type>javax.swing.Action</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.invite.client.OpenRegistrationEditUI].components.component[btnDoCancel].properties.property[action].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="CoreUI_toolbar" />
+            </parent>
+        </component>
     </components>
     <dataObjects>
         <dataObject>
@@ -2241,8 +2271,63 @@
             <isEntryAction>false</isEntryAction>
             <batchMethodName />
         </action>
+        <action>
+            <instanceName>actionDoCancel</instanceName>
+            <className>ActionDoCancel</className>
+            <name>uiObject[com.kingdee.eas.port.pm.invite.client.OpenRegistrationEditUI].actions.action[actionDoCancel].name</name>
+            <enabled>true</enabled>
+            <actionPerformed>com.kingdee.eas.port.pm.invite.OpenRegistrationFactory.getRemoteInstance().doCancel(editData);</actionPerformed>
+            <beforeActionPerformed />
+            <afterActionPerformed />
+            <finallyActionPerformed />
+            <actionCommandKey />
+            <acceleratorKey />
+            <mnemonicKey />
+            <smallIcon>uiObject[com.kingdee.eas.port.pm.invite.client.OpenRegistrationEditUI].actions.action[actionDoCancel].smallIcon</smallIcon>
+            <shortDescription>uiObject[com.kingdee.eas.port.pm.invite.client.OpenRegistrationEditUI].actions.action[actionDoCancel].shortDescription</shortDescription>
+            <longDescription>uiObject[com.kingdee.eas.port.pm.invite.client.OpenRegistrationEditUI].actions.action[actionDoCancel].longDescription</longDescription>
+            <isBindWorkFlow>false</isBindWorkFlow>
+            <herited>false</herited>
+            <daemonRun>false</daemonRun>
+            <actionExtendProperty>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;ExtendProperty&gt;&lt;item key="canForewarn" value="true" /&gt;&lt;item key="userDefined" value="true" /&gt;&lt;item key="isObjectUpdateLock" value="false" /&gt;&lt;/ExtendProperty&gt;</actionExtendProperty>
+            <services>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root&gt;&lt;service class="com.kingdee.eas.framework.client.service.PermissionService" /&gt;&lt;service class="com.kingdee.eas.framework.client.service.ForewarnService" /&gt;&lt;/root&gt;</services>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <oprtIntent />
+            <nextUI />
+            <isUIPNavigator>false</isUIPNavigator>
+            <isBatchAction>false</isBatchAction>
+            <isEntryAction>false</isEntryAction>
+            <batchMethodName />
+        </action>
     </actions>
     <resource>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invite.client.OpenRegistrationEditUI].actions.action[actionDoCancel].longDescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invite.client.OpenRegistrationEditUI].actions.action[actionDoCancel].name">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="作废" />
+            <lang locale="zh_HK" value="作廢" />
+            <lang locale="zh_TW" value="作廢" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invite.client.OpenRegistrationEditUI].actions.action[actionDoCancel].shortDescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invite.client.OpenRegistrationEditUI].actions.action[actionDoCancel].smallIcon">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
         <rs key="uiObject[com.kingdee.eas.port.pm.invite.client.OpenRegistrationEditUI].actions.action[actionSubmit].longDescription">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="提交" />
@@ -2308,6 +2393,29 @@
             <lang locale="zh_CN" value="953,439" />
             <lang locale="zh_HK" value="953,439" />
             <lang locale="zh_TW" value="953,439" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invite.client.OpenRegistrationEditUI].components.component[btnDoCancel].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invite.client.OpenRegistrationEditUI].components.component[btnDoCancel].extendedProperty.userDefined">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invite.client.OpenRegistrationEditUI].components.component[btnDoCancel].properties.property[action].value">
+            <lang locale="en_US" value="actionDoCancel" />
+            <lang locale="zh_CN" value="actionDoCancel" />
+            <lang locale="zh_HK" value="actionDoCancel" />
+            <lang locale="zh_TW" value="actionDoCancel" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invite.client.OpenRegistrationEditUI].components.component[btnDoCancel].properties.property[text].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="作废" />
+            <lang locale="zh_HK" value="作廢" />
+            <lang locale="zh_TW" value="作廢" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.pm.invite.client.OpenRegistrationEditUI].components.component[chkcancel].alias">
             <lang locale="en_US" value="null" />
