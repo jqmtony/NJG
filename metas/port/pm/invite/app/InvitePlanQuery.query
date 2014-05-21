@@ -116,6 +116,37 @@
     </subObjects>
     <units>
         <queryField>
+            <name>number</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[number].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>19dbe509-f268-4cea-8fa6-7b6764c72623</key>
+                    <parentUnit>
+                        <key name="name" value="number" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="InvitePlan" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="number" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="InvitePlanQuery" />
+            </query>
+        </queryField>
+        <queryField>
             <name>status</name>
             <userDefined>true</userDefined>
             <formulaString />
@@ -147,28 +178,245 @@
             </query>
         </queryField>
         <queryField>
-            <name>number</name>
+            <name>planName</name>
             <userDefined>true</userDefined>
-            <formulaString />
+            <formulaString>#0</formulaString>
             <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[number].displayName</displayName>
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[planName].displayName</displayName>
             <groupType />
             <isSelector>true</isSelector>
             <isFilter>true</isFilter>
-            <isSorter>false</isSorter>
+            <isSorter>true</isSorter>
             <isParameter>false</isParameter>
             <returnType>String</returnType>
             <propertyRefs>
                 <propertyRef>
-                    <key>19dbe509-f268-4cea-8fa6-7b6764c72623</key>
+                    <key>d5f7b56b-3773-4dd2-af9f-a44800f0a9a3</key>
                     <parentUnit>
-                        <key name="name" value="number" />
+                        <key name="name" value="planName" />
                     </parentUnit>
                     <subEntity>
                         <key name="name" value="InvitePlan" />
                     </subEntity>
                     <refProperty>
-                        <key name="name" value="number" />
+                        <key name="name" value="planName" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="InvitePlanQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>project.name</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[project.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>5fcdc535-c6d7-4a5e-86be-9823775cb92a</key>
+                    <parentUnit>
+                        <key name="name" value="project.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="project" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="InvitePlanQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>response.name</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[response.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>b49567d0-9000-4b5e-b8f3-68fccc4924ea</key>
+                    <parentUnit>
+                        <key name="name" value="response.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="response" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="InvitePlanQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>department.name</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[department.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>bdc6af0c-961f-4ca2-a934-b69defff1a2c</key>
+                    <parentUnit>
+                        <key name="name" value="department.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="department" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="InvitePlanQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>startDate</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[startDate].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Date</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>55d90e92-40df-4239-8b75-ab9c91188724</key>
+                    <parentUnit>
+                        <key name="name" value="startDate" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="InvitePlan" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="startDate" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="InvitePlanQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>endDate</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[endDate].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Date</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>d96f7b32-6d34-4236-a0f8-87852a11b269</key>
+                    <parentUnit>
+                        <key name="name" value="endDate" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="InvitePlan" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="endDate" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="InvitePlanQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>inDate</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[inDate].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Date</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>991a9c40-9da1-497d-99a0-264071879dc4</key>
+                    <parentUnit>
+                        <key name="name" value="inDate" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="InvitePlan" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="inDate" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="InvitePlanQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>BIMUDF0009</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[BIMUDF0009].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>37166493-eaa1-4180-8256-841e281f4a32</key>
+                    <parentUnit>
+                        <key name="name" value="BIMUDF0009" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="InvitePlan" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="BIMUDF0009" />
                     </refProperty>
                 </propertyRef>
             </propertyRefs>
@@ -704,161 +952,6 @@
                 <key name="name" value="InvitePlanQuery" />
             </query>
         </queryField>
-        <queryField>
-            <name>planName</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[planName].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>d5f7b56b-3773-4dd2-af9f-a44800f0a9a3</key>
-                    <parentUnit>
-                        <key name="name" value="planName" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="InvitePlan" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="planName" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="InvitePlanQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>startDate</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[startDate].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>Date</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>55d90e92-40df-4239-8b75-ab9c91188724</key>
-                    <parentUnit>
-                        <key name="name" value="startDate" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="InvitePlan" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="startDate" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="InvitePlanQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>endDate</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[endDate].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>Date</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>d96f7b32-6d34-4236-a0f8-87852a11b269</key>
-                    <parentUnit>
-                        <key name="name" value="endDate" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="InvitePlan" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="endDate" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="InvitePlanQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>inDate</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[inDate].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>Date</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>991a9c40-9da1-497d-99a0-264071879dc4</key>
-                    <parentUnit>
-                        <key name="name" value="inDate" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="InvitePlan" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="inDate" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="InvitePlanQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>response.name</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[response.name].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>b49567d0-9000-4b5e-b8f3-68fccc4924ea</key>
-                    <parentUnit>
-                        <key name="name" value="response.name" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="response" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="name" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="InvitePlanQuery" />
-            </query>
-        </queryField>
         <propertyUnit>
             <name>dff87900-d288-4c48-aba3-90b0b0f321e7</name>
             <userDefined>true</userDefined>
@@ -921,37 +1014,6 @@
                 <key name="name" value="InvitePlanQuery" />
             </query>
         </propertyUnit>
-        <queryField>
-            <name>department.name</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[department.name].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>bdc6af0c-961f-4ca2-a934-b69defff1a2c</key>
-                    <parentUnit>
-                        <key name="name" value="department.name" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="department" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="name" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="InvitePlanQuery" />
-            </query>
-        </queryField>
         <propertyUnit>
             <name>0510778d-6f81-4591-a243-3160b0cc79c5</name>
             <userDefined>true</userDefined>
@@ -1014,68 +1076,6 @@
                 <key name="name" value="InvitePlanQuery" />
             </query>
         </propertyUnit>
-        <queryField>
-            <name>BIMUDF0009</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[BIMUDF0009].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>37166493-eaa1-4180-8256-841e281f4a32</key>
-                    <parentUnit>
-                        <key name="name" value="BIMUDF0009" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="InvitePlan" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="BIMUDF0009" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="InvitePlanQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>project.name</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[project.name].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>5fcdc535-c6d7-4a5e-86be-9823775cb92a</key>
-                    <parentUnit>
-                        <key name="name" value="project.name" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="project" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="name" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="InvitePlanQuery" />
-            </query>
-        </queryField>
         <propertyUnit>
             <name>451f3cf4-e41d-4ab5-bf71-1f3ef4fcabe3</name>
             <userDefined>true</userDefined>

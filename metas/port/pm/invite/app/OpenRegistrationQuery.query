@@ -116,6 +116,37 @@
     </subObjects>
     <units>
         <queryField>
+            <name>number</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[number].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>19dbe509-f268-4cea-8fa6-7b6764c72623</key>
+                    <parentUnit>
+                        <key name="name" value="number" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="OpenRegistration" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="number" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="OpenRegistrationQuery" />
+            </query>
+        </queryField>
+        <queryField>
             <name>status</name>
             <userDefined>true</userDefined>
             <formulaString />
@@ -147,28 +178,245 @@
             </query>
         </queryField>
         <queryField>
-            <name>number</name>
+            <name>regName</name>
             <userDefined>true</userDefined>
-            <formulaString />
+            <formulaString>#0</formulaString>
             <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[number].displayName</displayName>
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[regName].displayName</displayName>
             <groupType />
             <isSelector>true</isSelector>
             <isFilter>true</isFilter>
-            <isSorter>false</isSorter>
+            <isSorter>true</isSorter>
             <isParameter>false</isParameter>
             <returnType>String</returnType>
             <propertyRefs>
                 <propertyRef>
-                    <key>19dbe509-f268-4cea-8fa6-7b6764c72623</key>
+                    <key>d50f11ae-8e6d-4666-9db2-7367abe121bb</key>
                     <parentUnit>
-                        <key name="name" value="number" />
+                        <key name="name" value="regName" />
                     </parentUnit>
                     <subEntity>
                         <key name="name" value="OpenRegistration" />
                     </subEntity>
                     <refProperty>
-                        <key name="name" value="number" />
+                        <key name="name" value="regName" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="OpenRegistrationQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>reportNumber</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[reportNumber].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>bb37ac04-45dc-435a-8db6-75d1c6f37fb6</key>
+                    <parentUnit>
+                        <key name="name" value="reportNumber" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="OpenRegistration" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="reportNumber" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="OpenRegistrationQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>opLocation</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[opLocation].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>932ee561-26c9-4cc0-9f96-c1108286bf84</key>
+                    <parentUnit>
+                        <key name="name" value="opLocation" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="OpenRegistration" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="opLocation" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="OpenRegistrationQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>opDate</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[opDate].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Date</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>73774767-2165-4772-ab70-9837b3dc6fe5</key>
+                    <parentUnit>
+                        <key name="name" value="opDate" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="OpenRegistration" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="opDate" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="OpenRegistrationQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>endDate</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[endDate].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Date</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>697c9df9-0cc0-4d26-9b1c-3b44ef63dd85</key>
+                    <parentUnit>
+                        <key name="name" value="endDate" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="OpenRegistration" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="endDate" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="OpenRegistrationQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>cancel</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[cancel].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Boolean</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>abdc1e9e-10de-4bf9-81ce-86ede15143f0</key>
+                    <parentUnit>
+                        <key name="name" value="cancel" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="OpenRegistration" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="cancel" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="OpenRegistrationQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>coefficient</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[coefficient].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>cb551fb0-bf3d-42c0-ab1a-eeba3b029ce6</key>
+                    <parentUnit>
+                        <key name="name" value="coefficient" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="OpenRegistration" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="coefficient" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="OpenRegistrationQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>reportName.projectNumber</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[reportName.projectNumber].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>057cc84c-d765-4bce-be23-d55e2bfff911</key>
+                    <parentUnit>
+                        <key name="name" value="reportName.projectNumber" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="reportName" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="projectNumber" />
                     </refProperty>
                 </propertyRef>
             </propertyRefs>
@@ -386,37 +634,6 @@
                     </subEntity>
                     <refProperty>
                         <key name="name" value="auditTime" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="OpenRegistrationQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>id</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[id].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>21252636-7873-4b63-bc08-1d60f96d5bf5</key>
-                    <parentUnit>
-                        <key name="name" value="id" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="OpenRegistration" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="id" />
                     </refProperty>
                 </propertyRef>
             </propertyRefs>
@@ -673,130 +890,6 @@
                 <key name="name" value="OpenRegistrationQuery" />
             </query>
         </propertyUnit>
-        <queryField>
-            <name>CU.id</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[CU.id].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>913696cd-bc5f-416c-9e6e-887c5c0dc4cb</key>
-                    <parentUnit>
-                        <key name="name" value="CU.id" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="CU" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="id" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="OpenRegistrationQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>opLocation</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[opLocation].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>932ee561-26c9-4cc0-9f96-c1108286bf84</key>
-                    <parentUnit>
-                        <key name="name" value="opLocation" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="OpenRegistration" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="opLocation" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="OpenRegistrationQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>opDate</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[opDate].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>Date</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>73774767-2165-4772-ab70-9837b3dc6fe5</key>
-                    <parentUnit>
-                        <key name="name" value="opDate" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="OpenRegistration" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="opDate" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="OpenRegistrationQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>reportName.projectNumber</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[reportName.projectNumber].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>057cc84c-d765-4bce-be23-d55e2bfff911</key>
-                    <parentUnit>
-                        <key name="name" value="reportName.projectNumber" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="reportName" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="projectNumber" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="OpenRegistrationQuery" />
-            </query>
-        </queryField>
         <propertyUnit>
             <name>22fca833-5f13-4cfd-b892-3ce29b207e66</name>
             <userDefined>true</userDefined>
@@ -859,37 +952,6 @@
                 <key name="name" value="OpenRegistrationQuery" />
             </query>
         </propertyUnit>
-        <queryField>
-            <name>endDate</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[endDate].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>Date</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>697c9df9-0cc0-4d26-9b1c-3b44ef63dd85</key>
-                    <parentUnit>
-                        <key name="name" value="endDate" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="OpenRegistration" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="endDate" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="OpenRegistrationQuery" />
-            </query>
-        </queryField>
         <queryField>
             <name>Entry.seq</name>
             <userDefined>true</userDefined>
@@ -983,6 +1045,37 @@
                 <key name="name" value="OpenRegistrationQuery" />
             </query>
         </propertyUnit>
+        <queryField>
+            <name>Entry.contact</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[Entry.contact].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>8d17e59a-89d4-49fb-b2bf-07f78c042681</key>
+                    <parentUnit>
+                        <key name="name" value="Entry.contact" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Entry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="contact" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="OpenRegistrationQuery" />
+            </query>
+        </queryField>
         <queryField>
             <name>Entry.quality</name>
             <userDefined>true</userDefined>
@@ -1170,37 +1263,6 @@
             </query>
         </queryField>
         <queryField>
-            <name>Entry.contact</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[Entry.contact].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>8d17e59a-89d4-49fb-b2bf-07f78c042681</key>
-                    <parentUnit>
-                        <key name="name" value="Entry.contact" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="Entry" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="contact" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="OpenRegistrationQuery" />
-            </query>
-        </queryField>
-        <queryField>
             <name>Entry.telephone</name>
             <userDefined>true</userDefined>
             <formulaString>#0</formulaString>
@@ -1263,37 +1325,6 @@
             </query>
         </queryField>
         <queryField>
-            <name>reportNumber</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[reportNumber].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>bb37ac04-45dc-435a-8db6-75d1c6f37fb6</key>
-                    <parentUnit>
-                        <key name="name" value="reportNumber" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="OpenRegistration" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="reportNumber" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="OpenRegistrationQuery" />
-            </query>
-        </queryField>
-        <queryField>
             <name>Entry.supplierName.supplierName</name>
             <userDefined>true</userDefined>
             <formulaString>#0</formulaString>
@@ -1316,6 +1347,68 @@
                     </subEntity>
                     <refProperty>
                         <key name="name" value="supplierName" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="OpenRegistrationQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>id</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>21252636-7873-4b63-bc08-1d60f96d5bf5</key>
+                    <parentUnit>
+                        <key name="name" value="id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="OpenRegistration" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="OpenRegistrationQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>CU.id</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[CU.id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>913696cd-bc5f-416c-9e6e-887c5c0dc4cb</key>
+                    <parentUnit>
+                        <key name="name" value="CU.id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="CU" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
                     </refProperty>
                 </propertyRef>
             </propertyRefs>
@@ -1386,99 +1479,6 @@
                 <key name="name" value="OpenRegistrationQuery" />
             </query>
         </propertyUnit>
-        <queryField>
-            <name>regName</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[regName].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>d50f11ae-8e6d-4666-9db2-7367abe121bb</key>
-                    <parentUnit>
-                        <key name="name" value="regName" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="OpenRegistration" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="regName" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="OpenRegistrationQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>coefficient</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[coefficient].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>cb551fb0-bf3d-42c0-ab1a-eeba3b029ce6</key>
-                    <parentUnit>
-                        <key name="name" value="coefficient" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="OpenRegistration" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="coefficient" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="OpenRegistrationQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>cancel</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[cancel].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>Boolean</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>abdc1e9e-10de-4bf9-81ce-86ede15143f0</key>
-                    <parentUnit>
-                        <key name="name" value="cancel" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="OpenRegistration" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="cancel" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="OpenRegistrationQuery" />
-            </query>
-        </queryField>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>

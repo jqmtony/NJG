@@ -43,6 +43,42 @@
                 <key name="name" value="OpenRegistration" />
             </entityObjectRef>
         </operation>
+        <operation>
+            <name>doCancel</name>
+            <alias>functionObject[com.kingdee.eas.port.pm.invite.app.OpenRegistrationListUIFunction].operations.operation[doCancel].alias</alias>
+            <description>functionObject[com.kingdee.eas.port.pm.invite.app.OpenRegistrationListUIFunction].operations.operation[doCancel].description</description>
+            <reverseOperation />
+            <eventMethod>c43b4c14-31c3-452f-bfa3-e75f3f69eb4e</eventMethod>
+            <event>doCancelEvent</event>
+            <userDefined>true</userDefined>
+            <uiActionRef>
+                <id>e4154a29-f9c5-40ec-ae6e-7b9394409c4euiaf</id>
+                <uiStatus />
+                <webUIStatus />
+                <userDefined>true</userDefined>
+                <uiObjectRef>
+                    <key name="package" value="com.kingdee.eas.port.pm.invite.client" />
+                    <key name="name" value="OpenRegistrationListUI" />
+                </uiObjectRef>
+                <actionRefName>ActionDoCancel</actionRefName>
+                <webActionRefName />
+                <parameters>
+                    <parameter>
+                        <name>billID</name>
+                        <alias>functionObject[com.kingdee.eas.port.pm.invite.app.OpenRegistrationListUIFunction].operations.operation[doCancel].uiActionRef.parameters.parameter[billID].alias</alias>
+                        <description>functionObject[com.kingdee.eas.port.pm.invite.app.OpenRegistrationListUIFunction].operations.operation[doCancel].uiActionRef.parameters.parameter[billID].description</description>
+                        <direction>in</direction>
+                        <dataType>BOSUuid</dataType>
+                        <metadataRef />
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </parameters>
+            </uiActionRef>
+            <entityObjectRef>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="OpenRegistration" />
+            </entityObjectRef>
+        </operation>
     </operations>
     <resource>
         <rs key="functionObject[com.kingdee.eas.port.pm.invite.app.OpenRegistrationListUIFunction].alias">
@@ -81,6 +117,35 @@
             <lang locale="zh_TW" value="單據內碼" />
         </rs>
         <rs key="functionObject[com.kingdee.eas.port.pm.invite.app.OpenRegistrationListUIFunction].operations.operation[ActionRemove].uiActionRef.parameters.parameter[billid].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据内码" />
+            <lang locale="zh_HK" value="單據內碼" />
+            <lang locale="zh_TW" value="單據內碼" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.pm.invite.app.OpenRegistrationListUIFunction].operations.operation[doCancel].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="作废" />
+            <lang locale="zh_HK" value="作廢" />
+            <lang locale="zh_TW" value="作廢" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.pm.invite.app.OpenRegistrationListUIFunction].operations.operation[doCancel].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.pm.invite.app.OpenRegistrationListUIFunction].operations.operation[doCancel].extendedProperty.userDefined">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.pm.invite.app.OpenRegistrationListUIFunction].operations.operation[doCancel].uiActionRef.parameters.parameter[billID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据内码" />
+            <lang locale="zh_HK" value="單據內碼" />
+            <lang locale="zh_TW" value="單據內碼" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.pm.invite.app.OpenRegistrationListUIFunction].operations.operation[doCancel].uiActionRef.parameters.parameter[billID].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="单据内码" />
             <lang locale="zh_HK" value="單據內碼" />

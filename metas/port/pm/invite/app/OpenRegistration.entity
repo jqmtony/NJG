@@ -707,6 +707,32 @@
             <userDefinedLogic />
             <configured>false</configured>
         </method>
+        <method>
+            <name>doCancel</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistration].methods.method[doCancel].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistration].methods.method[doCancel].description</description>
+            <innerID>c43b4c14-31c3-452f-bfa3-e75f3f69eb4e</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistration].methods.method[doCancel].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistration].methods.method[doCancel].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.port.pm.invite.app.OpenRegistration</metadataRef>
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
     </methods>
     <isAbstract>false</isAbstract>
     <bizUnitPK>com.kingdee.eas.port.pm.invite.OpenRegistration</bizUnitPK>
@@ -1150,6 +1176,48 @@
                 </formalParameter>
             </formalParameters>
         </event>
+        <event>
+            <name>doCancelEvent</name>
+            <alias>entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistration].events.event[doCancelEvent].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistration].events.event[doCancelEvent].description</description>
+            <userDefined>true</userDefined>
+            <eventMethods>
+                <eventMethod>
+                    <name>c43b4c14-31c3-452f-bfa3-e75f3f69eb4e</name>
+                    <alias>entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistration].events.event[doCancelEvent].eventMethods.eventMethod[c43b4c14-31c3-452f-bfa3-e75f3f69eb4e].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistration].events.event[doCancelEvent].eventMethods.eventMethod[c43b4c14-31c3-452f-bfa3-e75f3f69eb4e].description</description>
+                    <entityMethodRef>
+                        <key name="name" value="doCancel" />
+                        <key name="innerID" value="c43b4c14-31c3-452f-bfa3-e75f3f69eb4e" />
+                    </entityMethodRef>
+                    <parameterMappings>
+                        <parameterMapping>
+                            <name />
+                            <alias>entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistration].events.event[doCancelEvent].eventMethods.eventMethod[c43b4c14-31c3-452f-bfa3-e75f3f69eb4e].parameterMappings.parameterMappingalias</alias>
+                            <description>entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistration].events.event[doCancelEvent].eventMethods.eventMethod[c43b4c14-31c3-452f-bfa3-e75f3f69eb4e].parameterMappings.parameterMappingdescription</description>
+                            <formalParameterInnerID>067175f8-01e0-4ccd-8604-e1f41e4d6ccbevfp</formalParameterInnerID>
+                            <actualParameterIndex>0</actualParameterIndex>
+                            <isBOPK>true</isBOPK>
+                        </parameterMapping>
+                    </parameterMappings>
+                </eventMethod>
+            </eventMethods>
+            <formalParameters>
+                <formalParameter>
+                    <innerID>067175f8-01e0-4ccd-8604-e1f41e4d6ccbevfp</innerID>
+                    <userDefined>true</userDefined>
+                    <parameter>
+                        <name>model</name>
+                        <alias>entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistration].events.event[doCancelEvent].formalParameters.formalParameter.parameter[model].alias</alias>
+                        <description>entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistration].events.event[doCancelEvent].formalParameters.formalParameter.parameter[model].description</description>
+                        <direction>in</direction>
+                        <dataType>ObjectValue</dataType>
+                        <metadataRef>com.kingdee.eas.port.pm.invite.app.OpenRegistration</metadataRef>
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </formalParameter>
+            </formalParameters>
+        </event>
     </events>
     <defaultView>
         <name />
@@ -1348,6 +1416,54 @@
             <lang locale="zh_CN" value="主键" />
             <lang locale="zh_HK" value="主鍵" />
             <lang locale="zh_TW" value="主鍵" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistration].events.event[doCancelEvent].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="作废事件" />
+            <lang locale="zh_HK" value="作廢事件" />
+            <lang locale="zh_TW" value="作廢事件" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistration].events.event[doCancelEvent].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistration].events.event[doCancelEvent].eventMethods.eventMethod[c43b4c14-31c3-452f-bfa3-e75f3f69eb4e].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistration].events.event[doCancelEvent].eventMethods.eventMethod[c43b4c14-31c3-452f-bfa3-e75f3f69eb4e].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistration].events.event[doCancelEvent].eventMethods.eventMethod[c43b4c14-31c3-452f-bfa3-e75f3f69eb4e].parameterMappings.parameterMappingalias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistration].events.event[doCancelEvent].eventMethods.eventMethod[c43b4c14-31c3-452f-bfa3-e75f3f69eb4e].parameterMappings.parameterMappingdescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistration].events.event[doCancelEvent].formalParameters.formalParameter.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistration].events.event[doCancelEvent].formalParameters.formalParameter.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistration].events.event[passAuditEvent].alias">
             <lang locale="en_US" value="null" />
@@ -1551,6 +1667,11 @@
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistration].extendedProperty.controllerBeanEx">
+            <lang locale="en_US" value="com.kingdee.eas.port.pm.invite.app.OpenRegistrationControllerBeanEx" />
+            <lang locale="zh_CN" value="com.kingdee.eas.port.pm.invite.app.OpenRegistrationControllerBeanEx" />
+            <lang locale="zh_TW" value="com.kingdee.eas.port.pm.invite.app.OpenRegistrationControllerBeanEx" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistration].extendedProperty.defaultDisplayField">
             <lang locale="en_US" value="" />
             <lang locale="zh_CN" value="" />
@@ -1717,6 +1838,30 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistration].methods.method[delete].parameters.parameter[pk].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistration].methods.method[doCancel].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="作废" />
+            <lang locale="zh_HK" value="作廢" />
+            <lang locale="zh_TW" value="作廢" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistration].methods.method[doCancel].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistration].methods.method[doCancel].parameters.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistration].methods.method[doCancel].parameters.parameter[model].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />

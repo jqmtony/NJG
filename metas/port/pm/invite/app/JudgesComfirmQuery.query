@@ -129,6 +129,37 @@
     </subObjects>
     <units>
         <queryField>
+            <name>number</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.JudgesComfirmQuery].units.queryField[number].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>19dbe509-f268-4cea-8fa6-7b6764c72623</key>
+                    <parentUnit>
+                        <key name="name" value="number" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="JudgesComfirm" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="number" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="JudgesComfirmQuery" />
+            </query>
+        </queryField>
+        <queryField>
             <name>status</name>
             <userDefined>true</userDefined>
             <formulaString />
@@ -160,28 +191,214 @@
             </query>
         </queryField>
         <queryField>
-            <name>number</name>
+            <name>planName.reportName</name>
             <userDefined>true</userDefined>
-            <formulaString />
+            <formulaString>#0</formulaString>
             <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.JudgesComfirmQuery].units.queryField[number].displayName</displayName>
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.JudgesComfirmQuery].units.queryField[planName.reportName].displayName</displayName>
             <groupType />
             <isSelector>true</isSelector>
             <isFilter>true</isFilter>
-            <isSorter>false</isSorter>
+            <isSorter>true</isSorter>
             <isParameter>false</isParameter>
             <returnType>String</returnType>
             <propertyRefs>
                 <propertyRef>
-                    <key>19dbe509-f268-4cea-8fa6-7b6764c72623</key>
+                    <key>55b4421f-d7e6-45bf-954f-604daf59dd14</key>
                     <parentUnit>
-                        <key name="name" value="number" />
+                        <key name="name" value="planName.reportName" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="planName" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="reportName" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="JudgesComfirmQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>prjName</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.JudgesComfirmQuery].units.queryField[prjName].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>8d67d128-db47-4732-87e3-a5e964e6f7b5</key>
+                    <parentUnit>
+                        <key name="name" value="prjName" />
                     </parentUnit>
                     <subEntity>
                         <key name="name" value="JudgesComfirm" />
                     </subEntity>
                     <refProperty>
-                        <key name="name" value="number" />
+                        <key name="name" value="prjName" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="JudgesComfirmQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>planNumber</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.JudgesComfirmQuery].units.queryField[planNumber].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>83f36494-c267-43e9-b609-0135333955fc</key>
+                    <parentUnit>
+                        <key name="name" value="planNumber" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="JudgesComfirm" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="planNumber" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="JudgesComfirmQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>inviteType</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.JudgesComfirmQuery].units.queryField[inviteType].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>f5ebd428-b745-43a6-a05c-b1d05eebadf8</key>
+                    <parentUnit>
+                        <key name="name" value="inviteType" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="JudgesComfirm" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="inviteType" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="JudgesComfirmQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>orgUnit</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.JudgesComfirmQuery].units.queryField[orgUnit].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>6a947f7c-ce13-4b33-952a-cf6304211b85</key>
+                    <parentUnit>
+                        <key name="name" value="orgUnit" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="JudgesComfirm" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="orgUnit" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="JudgesComfirmQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>department.name</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.JudgesComfirmQuery].units.queryField[department.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>6a02ad91-b2e5-4ce4-bf03-6a79c5b03ceb</key>
+                    <parentUnit>
+                        <key name="name" value="department.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="department" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="JudgesComfirmQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>comment</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.JudgesComfirmQuery].units.queryField[comment].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>85e3354d-3b08-48cd-bc07-f8b1821fe512</key>
+                    <parentUnit>
+                        <key name="name" value="comment" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="JudgesComfirm" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="comment" />
                     </refProperty>
                 </propertyRef>
             </propertyRefs>
@@ -717,37 +934,6 @@
                 <key name="name" value="JudgesComfirmQuery" />
             </query>
         </queryField>
-        <queryField>
-            <name>department.name</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.JudgesComfirmQuery].units.queryField[department.name].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>6a02ad91-b2e5-4ce4-bf03-6a79c5b03ceb</key>
-                    <parentUnit>
-                        <key name="name" value="department.name" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="department" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="name" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="JudgesComfirmQuery" />
-            </query>
-        </queryField>
         <propertyUnit>
             <name>beb719d0-224e-4d69-b501-8796a270d8bc</name>
             <userDefined>true</userDefined>
@@ -810,37 +996,6 @@
                 <key name="name" value="JudgesComfirmQuery" />
             </query>
         </propertyUnit>
-        <queryField>
-            <name>comment</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.JudgesComfirmQuery].units.queryField[comment].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>85e3354d-3b08-48cd-bc07-f8b1821fe512</key>
-                    <parentUnit>
-                        <key name="name" value="comment" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="JudgesComfirm" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="comment" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="JudgesComfirmQuery" />
-            </query>
-        </queryField>
         <queryField>
             <name>Entry.seq</name>
             <userDefined>true</userDefined>
@@ -1182,37 +1337,6 @@
                 <key name="name" value="JudgesComfirmQuery" />
             </query>
         </queryField>
-        <queryField>
-            <name>planName.reportName</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.JudgesComfirmQuery].units.queryField[planName.reportName].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>55b4421f-d7e6-45bf-954f-604daf59dd14</key>
-                    <parentUnit>
-                        <key name="name" value="planName.reportName" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="planName" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="reportName" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="JudgesComfirmQuery" />
-            </query>
-        </queryField>
         <propertyUnit>
             <name>0c83f9e0-e14e-4b94-8174-6a22594c3cf3</name>
             <userDefined>true</userDefined>
@@ -1275,130 +1399,6 @@
                 <key name="name" value="JudgesComfirmQuery" />
             </query>
         </propertyUnit>
-        <queryField>
-            <name>planNumber</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.JudgesComfirmQuery].units.queryField[planNumber].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>83f36494-c267-43e9-b609-0135333955fc</key>
-                    <parentUnit>
-                        <key name="name" value="planNumber" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="JudgesComfirm" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="planNumber" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="JudgesComfirmQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>prjName</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.JudgesComfirmQuery].units.queryField[prjName].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>8d67d128-db47-4732-87e3-a5e964e6f7b5</key>
-                    <parentUnit>
-                        <key name="name" value="prjName" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="JudgesComfirm" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="prjName" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="JudgesComfirmQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>orgUnit</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.JudgesComfirmQuery].units.queryField[orgUnit].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>6a947f7c-ce13-4b33-952a-cf6304211b85</key>
-                    <parentUnit>
-                        <key name="name" value="orgUnit" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="JudgesComfirm" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="orgUnit" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="JudgesComfirmQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>inviteType</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.JudgesComfirmQuery].units.queryField[inviteType].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>f5ebd428-b745-43a6-a05c-b1d05eebadf8</key>
-                    <parentUnit>
-                        <key name="name" value="inviteType" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="JudgesComfirm" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="inviteType" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="JudgesComfirmQuery" />
-            </query>
-        </queryField>
         <queryField>
             <name>Entry.judgesName</name>
             <userDefined>true</userDefined>
