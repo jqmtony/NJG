@@ -604,8 +604,8 @@ vo.put("accredResu","1");
 		});
         //kDContainer2
 kDContainer2.getContentPane().setLayout(new BorderLayout(0, 0));        kdtE2_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtE2,new com.kingdee.eas.port.pm.invest.YIPlanAccredE1E2Info(),null,false);
-        kDContainer2.getContentPane().add(kdtE2_detailPanel, BorderLayout.CENTER);
-        kDContainer2.getContentPane().add(kDLabelContainer1, BorderLayout.CENTER);
+        kDContainer2.getContentPane().add(kdtE2_detailPanel, BorderLayout.NORTH);
+        kDContainer2.getContentPane().add(kDLabelContainer1, BorderLayout.SOUTH);
         //kDLabelContainer1
         kDLabelContainer1.setBoundEditor(kDScrollPane1);
         //kDScrollPane1
