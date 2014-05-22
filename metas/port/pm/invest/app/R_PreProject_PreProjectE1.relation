@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <relationship xmlns="com.kingdee.bos.metadata">
     <package>com.kingdee.eas.port.pm.invest.app</package>
-    <name>R_PreprojectE1_AdminOrgUnit_respondDepart</name>
-    <alias>relationship[com.kingdee.eas.port.pm.invest.app.R_PreprojectE1_AdminOrgUnit_respondDepart].alias</alias>
-    <description>relationship[com.kingdee.eas.port.pm.invest.app.R_PreprojectE1_AdminOrgUnit_respondDepart].description</description>
+    <name>R_PreProject_PreProjectE1</name>
+    <alias>relationship[com.kingdee.eas.port.pm.invest.app.R_PreProject_PreProjectE1].alias</alias>
+    <description>relationship[com.kingdee.eas.port.pm.invest.app.R_PreProject_PreProjectE1].description</description>
     <userDefined>true</userDefined>
-    <type>Association</type>
+    <type>Composition</type>
     <clientCardinality>1</clientCardinality>
-    <supplierCardinality>0..1</supplierCardinality>
+    <supplierCardinality>0..*</supplierCardinality>
     <xmlNodeRelationship />
     <clientObject>
         <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
-        <key name="name" value="PreprojectE1" />
+        <key name="name" value="PreProject" />
     </clientObject>
     <supplierObject>
-        <key name="package" value="com.kingdee.eas.basedata.org.app" />
-        <key name="name" value="AdminOrgUnit" />
+        <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+        <key name="name" value="PreProjectE1" />
     </supplierObject>
     <resource>
-        <rs key="relationship[com.kingdee.eas.port.pm.invest.app.R_PreprojectE1_AdminOrgUnit_respondDepart].alias">
+        <rs key="relationship[com.kingdee.eas.port.pm.invest.app.R_PreProject_PreProjectE1].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="relationship[com.kingdee.eas.port.pm.invest.app.R_PreprojectE1_AdminOrgUnit_respondDepart].description">
+        <rs key="relationship[com.kingdee.eas.port.pm.invest.app.R_PreProject_PreProjectE1].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
