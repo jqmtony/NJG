@@ -170,28 +170,8 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 
 	protected void prmtportProject_dataChanged(DataChangeEvent e)throws Exception {
 		super.prmtportProject_dataChanged(e);
-//		if (prmtportProject.getValue() != null) {
-//			ProjectInfo info = (ProjectInfo) prmtportProject.getValue();
-//			BigDecimal budgetAmount = getLastInvestAmount(info);
-//			txtaddInvestAmount.setValue(budgetAmount);
-//		}
 	}
 
-//	public BigDecimal getLastInvestAmount(ProjectInfo info)throws BOSException {
-//		EntityViewInfo view = new EntityViewInfo();
-//		FilterInfo filter = new FilterInfo();
-//		view.setFilter(filter);
-//		filter.getFilterItems().add(new FilterItemInfo("id", info.getId()));
-//		ProjectCollection coll = ProjectFactory.getRemoteInstance().getProjectCollection(view);
-//		BigDecimal budgetAmount = new BigDecimal(0.00);
-//		for (int i = 0; i < coll.size(); i++) {
-//			ProjectInfo project = coll.get(i);
-//			budgetAmount = budgetAmount.add(project.getBudgetAmount());
-//		}
-//		// select sum(budgetAmount) from T_bas_portProject where
-//		// fid="'+info.getId()+'"
-//		return budgetAmount;
-//	}
 
 	protected void objectState_itemStateChanged(ItemEvent e) throws Exception {
 		super.objectState_itemStateChanged(e);
