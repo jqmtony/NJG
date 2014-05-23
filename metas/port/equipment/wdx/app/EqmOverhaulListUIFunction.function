@@ -43,6 +43,42 @@
                 <key name="name" value="EqmOverhaul" />
             </entityObjectRef>
         </operation>
+        <operation>
+            <name>actionFinish</name>
+            <alias>functionObject[com.kingdee.eas.port.equipment.wdx.app.EqmOverhaulListUIFunction].operations.operation[actionFinish].alias</alias>
+            <description>functionObject[com.kingdee.eas.port.equipment.wdx.app.EqmOverhaulListUIFunction].operations.operation[actionFinish].description</description>
+            <reverseOperation />
+            <eventMethod>52ad8ec5-2316-476a-9b35-0fac7ac59522</eventMethod>
+            <event>actionFinishEvent</event>
+            <userDefined>true</userDefined>
+            <uiActionRef>
+                <id>4358a31f-c8da-43b6-ae5b-6aabae7123d5uiaf</id>
+                <uiStatus />
+                <webUIStatus />
+                <userDefined>true</userDefined>
+                <uiObjectRef>
+                    <key name="package" value="com.kingdee.eas.port.equipment.wdx.client" />
+                    <key name="name" value="EqmOverhaulListUI" />
+                </uiObjectRef>
+                <actionRefName>ActionFinish</actionRefName>
+                <webActionRefName />
+                <parameters>
+                    <parameter>
+                        <name>billID</name>
+                        <alias>functionObject[com.kingdee.eas.port.equipment.wdx.app.EqmOverhaulListUIFunction].operations.operation[actionFinish].uiActionRef.parameters.parameter[billID].alias</alias>
+                        <description>functionObject[com.kingdee.eas.port.equipment.wdx.app.EqmOverhaulListUIFunction].operations.operation[actionFinish].uiActionRef.parameters.parameter[billID].description</description>
+                        <direction>in</direction>
+                        <dataType>BOSUuid</dataType>
+                        <metadataRef />
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </parameters>
+            </uiActionRef>
+            <entityObjectRef>
+                <key name="package" value="com.kingdee.eas.port.equipment.wdx.app" />
+                <key name="name" value="EqmOverhaul" />
+            </entityObjectRef>
+        </operation>
     </operations>
     <resource>
         <rs key="functionObject[com.kingdee.eas.port.equipment.wdx.app.EqmOverhaulListUIFunction].alias">
@@ -81,6 +117,35 @@
             <lang locale="zh_TW" value="單據內碼" />
         </rs>
         <rs key="functionObject[com.kingdee.eas.port.equipment.wdx.app.EqmOverhaulListUIFunction].operations.operation[ActionRemove].uiActionRef.parameters.parameter[billid].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据内码" />
+            <lang locale="zh_HK" value="單據內碼" />
+            <lang locale="zh_TW" value="單據內碼" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.wdx.app.EqmOverhaulListUIFunction].operations.operation[actionFinish].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="完工" />
+            <lang locale="zh_HK" value="完工" />
+            <lang locale="zh_TW" value="完工" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.wdx.app.EqmOverhaulListUIFunction].operations.operation[actionFinish].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.wdx.app.EqmOverhaulListUIFunction].operations.operation[actionFinish].extendedProperty.userDefined">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.wdx.app.EqmOverhaulListUIFunction].operations.operation[actionFinish].uiActionRef.parameters.parameter[billID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据内码" />
+            <lang locale="zh_HK" value="單據內碼" />
+            <lang locale="zh_TW" value="單據內碼" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.wdx.app.EqmOverhaulListUIFunction].operations.operation[actionFinish].uiActionRef.parameters.parameter[billID].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="单据内码" />
             <lang locale="zh_HK" value="單據內碼" />

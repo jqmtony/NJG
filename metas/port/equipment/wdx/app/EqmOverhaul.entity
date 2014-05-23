@@ -707,6 +707,32 @@
             <userDefinedLogic />
             <configured>false</configured>
         </method>
+        <method>
+            <name>actionFinish</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.wdx.app.EqmOverhaul].methods.method[actionFinish].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.wdx.app.EqmOverhaul].methods.method[actionFinish].description</description>
+            <innerID>52ad8ec5-2316-476a-9b35-0fac7ac59522</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.wdx.app.EqmOverhaul].methods.method[actionFinish].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.wdx.app.EqmOverhaul].methods.method[actionFinish].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.port.equipment.wdx.app.EqmOverhaul</metadataRef>
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
     </methods>
     <isAbstract>false</isAbstract>
     <bizUnitPK>com.kingdee.eas.port.equipment.wdx.EqmOverhaul</bizUnitPK>
@@ -1172,6 +1198,48 @@
                 </formalParameter>
             </formalParameters>
         </event>
+        <event>
+            <name>actionFinishEvent</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.wdx.app.EqmOverhaul].events.event[actionFinishEvent].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.wdx.app.EqmOverhaul].events.event[actionFinishEvent].description</description>
+            <userDefined>true</userDefined>
+            <eventMethods>
+                <eventMethod>
+                    <name>52ad8ec5-2316-476a-9b35-0fac7ac59522</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.wdx.app.EqmOverhaul].events.event[actionFinishEvent].eventMethods.eventMethod[52ad8ec5-2316-476a-9b35-0fac7ac59522].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.wdx.app.EqmOverhaul].events.event[actionFinishEvent].eventMethods.eventMethod[52ad8ec5-2316-476a-9b35-0fac7ac59522].description</description>
+                    <entityMethodRef>
+                        <key name="name" value="actionFinish" />
+                        <key name="innerID" value="52ad8ec5-2316-476a-9b35-0fac7ac59522" />
+                    </entityMethodRef>
+                    <parameterMappings>
+                        <parameterMapping>
+                            <name />
+                            <alias>entityObject[com.kingdee.eas.port.equipment.wdx.app.EqmOverhaul].events.event[actionFinishEvent].eventMethods.eventMethod[52ad8ec5-2316-476a-9b35-0fac7ac59522].parameterMappings.parameterMappingalias</alias>
+                            <description>entityObject[com.kingdee.eas.port.equipment.wdx.app.EqmOverhaul].events.event[actionFinishEvent].eventMethods.eventMethod[52ad8ec5-2316-476a-9b35-0fac7ac59522].parameterMappings.parameterMappingdescription</description>
+                            <formalParameterInnerID>95c486ee-0b82-47a4-82e0-ae6b7e70cdf4evfp</formalParameterInnerID>
+                            <actualParameterIndex>0</actualParameterIndex>
+                            <isBOPK>true</isBOPK>
+                        </parameterMapping>
+                    </parameterMappings>
+                </eventMethod>
+            </eventMethods>
+            <formalParameters>
+                <formalParameter>
+                    <innerID>95c486ee-0b82-47a4-82e0-ae6b7e70cdf4evfp</innerID>
+                    <userDefined>true</userDefined>
+                    <parameter>
+                        <name>model</name>
+                        <alias>entityObject[com.kingdee.eas.port.equipment.wdx.app.EqmOverhaul].events.event[actionFinishEvent].formalParameters.formalParameter.parameter[model].alias</alias>
+                        <description>entityObject[com.kingdee.eas.port.equipment.wdx.app.EqmOverhaul].events.event[actionFinishEvent].formalParameters.formalParameter.parameter[model].description</description>
+                        <direction>in</direction>
+                        <dataType>ObjectValue</dataType>
+                        <metadataRef>com.kingdee.eas.port.equipment.wdx.app.EqmOverhaul</metadataRef>
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </formalParameter>
+            </formalParameters>
+        </event>
     </events>
     <defaultView>
         <name />
@@ -1184,9 +1252,9 @@
     <resource>
         <rs key="entityObject[com.kingdee.eas.port.equipment.wdx.app.EqmOverhaul].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="设备维大修" />
-            <lang locale="zh_HK" value="設備維大修" />
-            <lang locale="zh_TW" value="設備維大修" />
+            <lang locale="zh_CN" value="大修项目实施报告" />
+            <lang locale="zh_HK" value="大修項目實施報告" />
+            <lang locale="zh_TW" value="大修項目實施報告" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.wdx.app.EqmOverhaul].defaultView.filterextendedProperty.OrgType">
             <lang locale="en_US" value="NONE" />
@@ -1272,9 +1340,57 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.wdx.app.EqmOverhaul].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="设备维大修" />
-            <lang locale="zh_HK" value="設備維大修" />
-            <lang locale="zh_TW" value="設備維大修" />
+            <lang locale="zh_CN" value="大修项目实施报告" />
+            <lang locale="zh_HK" value="大修項目實施報告" />
+            <lang locale="zh_TW" value="大修項目實施報告" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.wdx.app.EqmOverhaul].events.event[actionFinishEvent].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="完工事件" />
+            <lang locale="zh_HK" value="完工事件" />
+            <lang locale="zh_TW" value="完工事件" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.wdx.app.EqmOverhaul].events.event[actionFinishEvent].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.wdx.app.EqmOverhaul].events.event[actionFinishEvent].eventMethods.eventMethod[52ad8ec5-2316-476a-9b35-0fac7ac59522].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.wdx.app.EqmOverhaul].events.event[actionFinishEvent].eventMethods.eventMethod[52ad8ec5-2316-476a-9b35-0fac7ac59522].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.wdx.app.EqmOverhaul].events.event[actionFinishEvent].eventMethods.eventMethod[52ad8ec5-2316-476a-9b35-0fac7ac59522].parameterMappings.parameterMappingalias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.wdx.app.EqmOverhaul].events.event[actionFinishEvent].eventMethods.eventMethod[52ad8ec5-2316-476a-9b35-0fac7ac59522].parameterMappings.parameterMappingdescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.wdx.app.EqmOverhaul].events.event[actionFinishEvent].formalParameters.formalParameter.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.wdx.app.EqmOverhaul].events.event[actionFinishEvent].formalParameters.formalParameter.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.wdx.app.EqmOverhaul].events.event[auditEvent].alias">
             <lang locale="en_US" value="null" />
@@ -1574,6 +1690,11 @@
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.wdx.app.EqmOverhaul].extendedProperty.controllerBeanEx">
+            <lang locale="en_US" value="com.kingdee.eas.port.equipment.wdx.app.EqmOverhaulControllerBeanEx" />
+            <lang locale="zh_CN" value="com.kingdee.eas.port.equipment.wdx.app.EqmOverhaulControllerBeanEx" />
+            <lang locale="zh_TW" value="com.kingdee.eas.port.equipment.wdx.app.EqmOverhaulControllerBeanEx" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.wdx.app.EqmOverhaul].extendedProperty.defaultDisplayField">
             <lang locale="en_US" value="" />
             <lang locale="zh_CN" value="" />
@@ -1618,6 +1739,30 @@
         <rs key="entityObject[com.kingdee.eas.port.equipment.wdx.app.EqmOverhaul].logicalKey[id].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.wdx.app.EqmOverhaul].methods.method[actionFinish].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="完工" />
+            <lang locale="zh_HK" value="完工" />
+            <lang locale="zh_TW" value="完工" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.wdx.app.EqmOverhaul].methods.method[actionFinish].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.wdx.app.EqmOverhaul].methods.method[actionFinish].parameters.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.wdx.app.EqmOverhaul].methods.method[actionFinish].parameters.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.wdx.app.EqmOverhaul].methods.method[addnew].alias">

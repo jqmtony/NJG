@@ -20,6 +20,18 @@
             <userDefined>true</userDefined>
             <value>2</value>
         </enumValue>
+        <enumValue>
+            <name>discarded</name>
+            <alias>bizEnum[com.kingdee.eas.port.equipment.base.enumbase.sbStatusType].enumValues.enumValue[discarded].alias</alias>
+            <userDefined>true</userDefined>
+            <value>3</value>
+        </enumValue>
+        <enumValue>
+            <name>repair</name>
+            <alias>bizEnum[com.kingdee.eas.port.equipment.base.enumbase.sbStatusType].enumValues.enumValue[repair].alias</alias>
+            <userDefined>true</userDefined>
+            <value>4</value>
+        </enumValue>
     </enumValues>
     <resource>
         <rs key="bizEnum[com.kingdee.eas.port.equipment.base.enumbase.sbStatusType].alias">
@@ -34,6 +46,12 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
+        <rs key="bizEnum[com.kingdee.eas.port.equipment.base.enumbase.sbStatusType].enumValues.enumValue[discarded].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="已报废" />
+            <lang locale="zh_HK" value="已報廢" />
+            <lang locale="zh_TW" value="已報廢" />
+        </rs>
         <rs key="bizEnum[com.kingdee.eas.port.equipment.base.enumbase.sbStatusType].enumValues.enumValue[inUse].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="在用" />
@@ -45,6 +63,12 @@
             <lang locale="zh_CN" value="停用" />
             <lang locale="zh_HK" value="停用" />
             <lang locale="zh_TW" value="停用" />
+        </rs>
+        <rs key="bizEnum[com.kingdee.eas.port.equipment.base.enumbase.sbStatusType].enumValues.enumValue[repair].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="维修中" />
+            <lang locale="zh_HK" value="維修中" />
+            <lang locale="zh_TW" value="維修中" />
         </rs>
         <rs key="bizEnum[com.kingdee.eas.port.equipment.base.enumbase.sbStatusType].extendedProperty.userDefined">
             <lang locale="en_US" value="true" />
