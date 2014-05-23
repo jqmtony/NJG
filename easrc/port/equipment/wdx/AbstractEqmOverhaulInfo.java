@@ -19,7 +19,7 @@ public class AbstractEqmOverhaulInfo extends com.kingdee.eas.xr.XRBillBaseInfo i
         put("E1", new com.kingdee.eas.port.equipment.wdx.EqmOverhaulE1Collection());
     }
     /**
-     * Object: 设备维大修 's 实施单位 property 
+     * Object: 大修项目实施报告 's 实施单位 property 
      */
     public com.kingdee.eas.basedata.org.AdminOrgUnitInfo getImplementUnit()
     {
@@ -30,7 +30,7 @@ public class AbstractEqmOverhaulInfo extends com.kingdee.eas.xr.XRBillBaseInfo i
         put("implementUnit", item);
     }
     /**
-     * Object: 设备维大修 's 项目编号 property 
+     * Object: 大修项目实施报告 's 项目编号 property 
      */
     public com.kingdee.eas.basedata.assistant.ProjectInfo getProjectNumber()
     {
@@ -41,7 +41,7 @@ public class AbstractEqmOverhaulInfo extends com.kingdee.eas.xr.XRBillBaseInfo i
         put("projectNumber", item);
     }
     /**
-     * Object: 设备维大修 's 项目名称 property 
+     * Object: 大修项目实施报告 's 项目名称 property 
      */
     public com.kingdee.eas.basedata.assistant.ProjectInfo getProjectName()
     {
@@ -52,7 +52,7 @@ public class AbstractEqmOverhaulInfo extends com.kingdee.eas.xr.XRBillBaseInfo i
         put("projectName", item);
     }
     /**
-     * Object:设备维大修's 决算费用property 
+     * Object:大修项目实施报告's 决算费用property 
      */
     public java.math.BigDecimal getExpenseAccount()
     {
@@ -63,7 +63,7 @@ public class AbstractEqmOverhaulInfo extends com.kingdee.eas.xr.XRBillBaseInfo i
         setBigDecimal("expenseAccount", item);
     }
     /**
-     * Object:设备维大修's 计划费用property 
+     * Object:大修项目实施报告's 计划费用property 
      */
     public java.math.BigDecimal getPlanCost()
     {
@@ -74,7 +74,7 @@ public class AbstractEqmOverhaulInfo extends com.kingdee.eas.xr.XRBillBaseInfo i
         setBigDecimal("planCost", item);
     }
     /**
-     * Object:设备维大修's 预算费用property 
+     * Object:大修项目实施报告's 预算费用property 
      */
     public java.math.BigDecimal getEstimateCost()
     {
@@ -85,7 +85,7 @@ public class AbstractEqmOverhaulInfo extends com.kingdee.eas.xr.XRBillBaseInfo i
         setBigDecimal("estimateCost", item);
     }
     /**
-     * Object: 设备维大修 's 项目负责人 property 
+     * Object: 大修项目实施报告 's 项目负责人 property 
      */
     public com.kingdee.eas.basedata.person.PersonInfo getProjectLeader()
     {
@@ -96,7 +96,7 @@ public class AbstractEqmOverhaulInfo extends com.kingdee.eas.xr.XRBillBaseInfo i
         put("projectLeader", item);
     }
     /**
-     * Object:设备维大修's 开工日期property 
+     * Object:大修项目实施报告's 开工日期property 
      */
     public java.util.Date getStartDate()
     {
@@ -107,7 +107,7 @@ public class AbstractEqmOverhaulInfo extends com.kingdee.eas.xr.XRBillBaseInfo i
         setDate("startDate", item);
     }
     /**
-     * Object:设备维大修's 完工日期property 
+     * Object:大修项目实施报告's 完工日期property 
      */
     public java.util.Date getCompleteDate()
     {
@@ -118,7 +118,7 @@ public class AbstractEqmOverhaulInfo extends com.kingdee.eas.xr.XRBillBaseInfo i
         setDate("completeDate", item);
     }
     /**
-     * Object:设备维大修's 修理方案property 
+     * Object:大修项目实施报告's 修理方案property 
      */
     public String getRepairProgram()
     {
@@ -129,7 +129,7 @@ public class AbstractEqmOverhaulInfo extends com.kingdee.eas.xr.XRBillBaseInfo i
         setString("RepairProgram", item);
     }
     /**
-     * Object: 设备维大修 's 设备维大修 property 
+     * Object: 大修项目实施报告 's 设备维大修 property 
      */
     public com.kingdee.eas.port.equipment.wdx.EqmOverhaulE1Collection getE1()
     {

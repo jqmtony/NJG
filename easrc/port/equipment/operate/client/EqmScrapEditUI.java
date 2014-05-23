@@ -7,7 +7,11 @@ import java.awt.event.*;
 import org.apache.log4j.Logger;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.eas.framework.*;
+import com.kingdee.eas.port.equipment.base.enumbase.sbStatusType;
+import com.kingdee.eas.port.equipment.record.EquIdFactory;
+import com.kingdee.eas.port.equipment.record.EquIdInfo;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.swing.KDTextField;
 
@@ -625,13 +629,7 @@ public class EqmScrapEditUI extends AbstractEqmScrapEditUI
         super.actionNumberSign_actionPerformed(e);
     }
 
-    /**
-     * output actionAudit_actionPerformed
-     */
-    public void actionAudit_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionAudit_actionPerformed(e);
-    }
+   
 
     /**
      * output actionUnAudit_actionPerformed
@@ -684,4 +682,13 @@ public class EqmScrapEditUI extends AbstractEqmScrapEditUI
 		return txtNumber;
 	}
 
+	 /**
+     * 设备报废单审核通过之后把设备档案的状态改为已报废
+     */
+    public void actionAudit_actionPerformed(ActionEvent e) throws Exception
+    {
+        super.actionAudit_actionPerformed(e);
+        
+    }
+	
 }

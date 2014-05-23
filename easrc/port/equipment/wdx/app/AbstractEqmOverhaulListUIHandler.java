@@ -14,4 +14,9 @@ import com.kingdee.eas.framework.batchHandler.ResponseContext;
 public abstract class AbstractEqmOverhaulListUIHandler extends com.kingdee.eas.xr.app.XRBillBaseListUIHandler
 
 {
+	public void handleActionFinish(RequestContext request,ResponseContext response, Context context) throws Exception {
+		_handleActionFinish(request,response,context);
+	}
+	protected void _handleActionFinish(RequestContext request,ResponseContext response, Context context) throws Exception {
+	}
 }

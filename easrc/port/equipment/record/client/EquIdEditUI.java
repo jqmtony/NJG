@@ -34,6 +34,7 @@ import com.kingdee.eas.fi.fa.basedata.FaUseStatusInfo;
 import com.kingdee.eas.fi.fa.basedata.client.FaCatPromptBox;
 import com.kingdee.eas.fi.fa.manage.FaCurCardFactory;
 import com.kingdee.eas.fi.fa.manage.FaCurCardInfo;
+import com.kingdee.eas.port.equipment.base.enumbase.sbStatusType;
 import com.kingdee.eas.port.equipment.insurance.EquInsuranceAccidentCollection;
 import com.kingdee.eas.port.equipment.insurance.EquInsuranceAccidentFactory;
 import com.kingdee.eas.port.equipment.insurance.IEquInsuranceAccident;
@@ -60,6 +61,7 @@ import com.kingdee.eas.port.equipment.special.AnnualYearDetailEntryFactory;
 import com.kingdee.eas.port.equipment.special.IAnnualYearDetailEntry;
 import com.kingdee.eas.port.equipment.uitl.ToolHelp;
 import com.kingdee.eas.util.SysUtil;
+import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
 import com.kingdee.eas.xr.helper.ListenersXRHelper;
 
@@ -98,6 +100,8 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 	}
 
 	public void onLoad() throws Exception {
+		tzsbStatus.setEnabled(false);
+		combosbStatus.setEnabled(false);
 		super.onLoad();
 		FaCatPromptBox facatBox = new FaCatPromptBox();
 		facatBox.setACompanyOrgUnitInfo(SysContext.getSysContext()
@@ -1340,4 +1344,5 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
         	  }
 		}
 	}
+	
 }

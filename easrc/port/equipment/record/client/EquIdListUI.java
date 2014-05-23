@@ -19,6 +19,7 @@ import com.kingdee.eas.port.equipment.base.enumbase.sbStatusType;
 import com.kingdee.eas.port.equipment.record.EquIdFactory;
 import com.kingdee.eas.port.equipment.record.EquIdInfo;
 import com.kingdee.eas.port.equipment.record.IEquId;
+import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.KDTableUtil;
 
 /**
@@ -648,4 +649,10 @@ public class EquIdListUI extends AbstractEquIdListUI
     	}
     	this.refresh(e);
     }
+    
+	protected void initWorkButton() {
+		super.initWorkButton();
+		btninUse.setIcon(EASResource.getIcon("imgTbtn_turnin"));
+		btnoutUse.setIcon(EASResource.getIcon("imgTbtn_stopturnin"));
+	}
 }

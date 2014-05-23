@@ -96,7 +96,9 @@ public abstract class AbstractEqmOverhaulEditUI extends com.kingdee.eas.xr.clien
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contRepairProgram;
     protected com.kingdee.bos.ctrl.swing.KDScrollPane scrollPaneRepairProgram;
     protected com.kingdee.bos.ctrl.swing.KDTextArea txtRepairProgram;
+    protected com.kingdee.bos.ctrl.swing.KDWorkButton btnFinish;
     protected com.kingdee.eas.port.equipment.wdx.EqmOverhaulInfo editData = null;
+    protected ActionFinish actionFinish = null;
     /**
      * output class constructor
      */
@@ -146,6 +148,14 @@ public abstract class AbstractEqmOverhaulEditUI extends com.kingdee.eas.xr.clien
         actionUnAudit.putValue(ItemAction.NAME, _tempStr);
         this.actionUnAudit.setBindWorkFlow(true);
          this.actionUnAudit.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+        //actionFinish
+        this.actionFinish = new ActionFinish(this);
+        getActionManager().registerAction("actionFinish", actionFinish);
+        this.actionFinish.setExtendProperty("canForewarn", "true");
+        this.actionFinish.setExtendProperty("userDefined", "true");
+        this.actionFinish.setExtendProperty("isObjectUpdateLock", "false");
+         this.actionFinish.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+         this.actionFinish.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
         this.contCreator = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contCreateTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contLastUpdateUser = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -195,6 +205,7 @@ public abstract class AbstractEqmOverhaulEditUI extends com.kingdee.eas.xr.clien
         this.contRepairProgram = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.scrollPaneRepairProgram = new com.kingdee.bos.ctrl.swing.KDScrollPane();
         this.txtRepairProgram = new com.kingdee.bos.ctrl.swing.KDTextArea();
+        this.btnFinish = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.contCreator.setName("contCreator");
         this.contCreateTime.setName("contCreateTime");
         this.contLastUpdateUser.setName("contLastUpdateUser");
@@ -244,6 +255,7 @@ public abstract class AbstractEqmOverhaulEditUI extends com.kingdee.eas.xr.clien
         this.contRepairProgram.setName("contRepairProgram");
         this.scrollPaneRepairProgram.setName("scrollPaneRepairProgram");
         this.txtRepairProgram.setName("txtRepairProgram");
+        this.btnFinish.setName("btnFinish");
         // CoreUI
         // contCreator		
         this.contCreator.setBoundLabelText(resHelper.getString("contCreator.boundLabelText"));		
@@ -514,6 +526,9 @@ public abstract class AbstractEqmOverhaulEditUI extends com.kingdee.eas.xr.clien
         // txtRepairProgram		
         this.txtRepairProgram.setRequired(false);		
         this.txtRepairProgram.setMaxLength(500);
+        // btnFinish
+        this.btnFinish.setAction((IItemAction)ActionProxyFactory.getProxy(actionFinish, new Class[] { IItemAction.class }, getServiceContext()));		
+        this.btnFinish.setText(resHelper.getString("btnFinish.text"));
         this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmtimplementUnit,prmtCU,pkLastUpdateTime,prmtLastUpdateUser,pkCreateTime,prmtCreator,prmtAuditor,txtDescription,pkBizDate,txtNumber,pkAuditTime,comboBizStatus,comboStatus,prmtprojectNumber,prmtprojectName,txtexpenseAccount,txtplanCost,txtestimateCost,prmtprojectLeader,pkstartDate,pkcompleteDate,txtRepairProgram,kdtE1}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
@@ -770,6 +785,7 @@ public abstract class AbstractEqmOverhaulEditUI extends com.kingdee.eas.xr.clien
         this.toolBar.add(btnSubmit);
         this.toolBar.add(btnCopy);
         this.toolBar.add(btnRemove);
+        this.toolBar.add(btnFinish);
         this.toolBar.add(btnCancelCancel);
         this.toolBar.add(btnCancel);
         this.toolBar.add(btnAttachment);
@@ -1196,6 +1212,15 @@ kdtE1.getCell(rowIndex,"equType").setValue(com.kingdee.bos.ui.face.UIRuleUtil.ge
     {
         super.actionUnAudit_actionPerformed(e);
     }
+    	
+
+    /**
+     * output actionFinish_actionPerformed method
+     */
+    public void actionFinish_actionPerformed(ActionEvent e) throws Exception
+    {
+        com.kingdee.eas.port.equipment.wdx.EqmOverhaulFactory.getRemoteInstance().actionFinish(editData);
+    }
 	public RequestContext prepareActionSubmit(IItemAction itemAction) throws Exception {
 			RequestContext request = super.prepareActionSubmit(itemAction);		
 		if (request != null) {
@@ -1217,6 +1242,47 @@ kdtE1.getCell(rowIndex,"equType").setValue(com.kingdee.bos.ui.face.UIRuleUtil.ge
 	
 	public boolean isPrepareActionUnAudit() {
     	return false;
+    }
+	public RequestContext prepareActionFinish(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionFinish() {
+    	return false;
+    }
+
+    /**
+     * output ActionFinish class
+     */     
+    protected class ActionFinish extends ItemAction {     
+    
+        public ActionFinish()
+        {
+            this(null);
+        }
+
+        public ActionFinish(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            _tempStr = resHelper.getString("ActionFinish.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionFinish.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionFinish.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractEqmOverhaulEditUI.this, "ActionFinish", "actionFinish_actionPerformed", e);
+        }
     }
 
     /**

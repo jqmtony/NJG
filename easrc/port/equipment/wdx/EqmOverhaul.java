@@ -387,4 +387,17 @@ public class EqmOverhaul extends XRBillBase implements IEqmOverhaul
             throw new EJBRemoteException(err);
         }
     }
+    /**
+     *อ๊นค-User defined method
+     *@param model model
+     */
+    public void actionFinish(EqmOverhaulInfo model) throws BOSException
+    {
+        try {
+            getController().actionFinish(getContext(), model);
+        }
+        catch(RemoteException err) {
+            throw new EJBRemoteException(err);
+        }
+    }
 }

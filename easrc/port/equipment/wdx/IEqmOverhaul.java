@@ -48,4 +48,5 @@ public interface IEqmOverhaul extends IXRBillBase
     public void updateBigObject(IObjectPK pk, EqmOverhaulInfo model) throws BOSException;
     public void updatePartial(EqmOverhaulInfo model, SelectorItemCollection selector) throws BOSException, EASBizException;
     public String getBindingProperty() throws BOSException;
+    public void actionFinish(EqmOverhaulInfo model) throws BOSException;
 }

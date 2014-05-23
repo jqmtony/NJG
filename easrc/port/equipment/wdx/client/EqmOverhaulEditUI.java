@@ -4,12 +4,34 @@
 package com.kingdee.eas.port.equipment.wdx.client;
 
 import java.awt.event.*;
+import java.util.Date;
+
+import javax.swing.event.ChangeListener;
+
 import org.apache.log4j.Logger;
+
+import com.kingdee.bos.BOSException;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.eas.basedata.assistant.ProjectFactory;
+import com.kingdee.eas.basedata.assistant.ProjectInfo;
+import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.framework.*;
+import com.kingdee.eas.port.pm.invest.YearInvestPlanFactory;
+import com.kingdee.eas.port.pm.invest.YearInvestPlanInfo;
+import com.kingdee.eas.port.pm.project.PortProjectFactory;
+import com.kingdee.eas.port.pm.project.PortProjectInfo;
+import com.kingdee.eas.port.pm.projectauditsettlement.ProjectAuditSettlementFactory;
+import com.kingdee.eas.port.pm.projectauditsettlement.ProjectAuditSettlementInfo;
+import com.kingdee.eas.util.SysUtil;
+import com.kingdee.eas.util.client.EASResource;
+import com.kingdee.eas.util.client.MsgBox;
+import com.kingdee.eas.xr.app.XRBillStatusEnum;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.swing.KDTextField;
+import com.kingdee.bos.ctrl.swing.event.DataChangeEvent;
+import com.kingdee.bos.ctrl.swing.event.DataChangeListener;
 
 /**
  * output class name
@@ -684,4 +706,53 @@ public class EqmOverhaulEditUI extends AbstractEqmOverhaulEditUI
 		return null;
 	}
 
+
+	public void onLoad() throws Exception {
+		pkcompleteDate.setEnabled(false);
+		prmtprojectName.setEnabled(false);
+		txtexpenseAccount.setEnabled(false);
+		txtplanCost.setEnabled(false);
+		super.onLoad();
+		
+		prmtprojectNumber.addDataChangeListener(new DataChangeListener(){
+			public void dataChanged(DataChangeEvent e) {
+				String id = ((ProjectInfo)prmtprojectNumber.getData()).getId().toString();
+				try {
+					ProjectInfo ppInfo = ProjectFactory.getRemoteInstance().getProjectInfo(new ObjectUuidPK(id));
+					YearInvestPlanInfo yipInfo = YearInvestPlanFactory.getRemoteInstance().getYearInvestPlanInfo(new ObjectUuidPK(ppInfo.getId()));
+					if(yipInfo.getInvestAmount()!=null){
+					    txtplanCost.setValue(yipInfo.getInvestAmount());
+					}
+					ProjectAuditSettlementInfo pasInfo = ProjectAuditSettlementFactory.getRemoteInstance().getProjectAuditSettlementInfo(new ObjectUuidPK(ppInfo.getId()));
+					if(pasInfo.getFinalAmount()!=null){
+						txtexpenseAccount.setValue(pasInfo.getFinalAmount());
+					}
+				} catch (EASBizException e1) {
+					e1.printStackTrace();
+				} catch (BOSException e1) {
+					e1.printStackTrace();
+				}
+				
+			}
+		});
+		
+	}
+	
+
+	public void actionFinish_actionPerformed(ActionEvent e) throws Exception {
+		super.actionFinish_actionPerformed(e);
+		if(comboStatus.getSelectedItem().equals(XRBillStatusEnum.AUDITED)){
+			pkcompleteDate.setValue(new Date());
+			setSave(true);
+		}else{
+			MsgBox.showWarning(this, "单据未审核，不允许做完工操作！");
+			SysUtil.abort();
+		}
+	}
+	
+	protected void initWorkButton() {
+		super.initWorkButton();
+		btnFinish.setIcon(EASResource.getIcon("imgTbtn_affirm"));
+	}
+	
 }

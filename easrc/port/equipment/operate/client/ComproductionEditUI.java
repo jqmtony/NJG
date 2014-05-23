@@ -10,6 +10,7 @@ import java.awt.event.ItemListener;
 import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.EventListener;
 import java.util.HashMap;
@@ -22,7 +23,6 @@ import org.apache.log4j.Logger;
 import com.kingdee.bos.BOSException;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
 import com.kingdee.bos.ctrl.kdf.table.KDTMergeManager;
-import com.kingdee.bos.ctrl.kdf.table.KDTSortManager;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent;
 import com.kingdee.bos.ctrl.swing.KDComboBox;
@@ -995,8 +995,7 @@ public class ComproductionEditUI extends AbstractComproductionEditUI {
 				IRow.getCell("project").setValue("累计");
 				IRow.getCell("project1").setValue(cleName[i]);
 			}
-			this.prmtreportingUnit.setValue(SysContext.getSysContext()
-					.getCurrentAdminUnit());
+			this.prmtreportingUnit.setValue(SysContext.getSysContext().getCurrentAdminUnit());
 		}
 		this.kdtEntrys.getColumn("project").setWidth(30);
 		this.kdtEntrys.getColumn("project1").setWidth(180);
@@ -1122,16 +1121,8 @@ public class ComproductionEditUI extends AbstractComproductionEditUI {
 		}
 	}
 	
-	//获取上个月的耗能量 = 装卸生产能耗+辅助生产能耗+生活能耗+其他能耗
-	private void setExcessSection() throws SQLException, BOSException {
-		if (prmtreportingUnit.getData() == null || this.pkBizDate.getSqlDate() == null)
-			return;
-		String colName[] = {"samePerformance","samePeriod"} ;
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-		String yymmdd = df.format(this.pkBizDate.getSqlDate());
-		String yearMonth = String.valueOf(Integer.parseInt(yymmdd.substring(0,4)) - 1)+ "-" + yymmdd.substring(5, 7);
-		
-	}
+	
+	
 	
 	/**
 	 * zhangjuan 
@@ -1156,6 +1147,43 @@ public class ComproductionEditUI extends AbstractComproductionEditUI {
 		  BigDecimal k = UIRuleUtil.getBigDecimal(kdtEntrys.getCell(e.getRowIndex(), "fzproEnergy").getValue());//辅助生产能耗
 		  BigDecimal l = UIRuleUtil.getBigDecimal(kdtEntrys.getCell(e.getRowIndex(), "lifeEnergy").getValue());//生活能耗
 		  BigDecimal m = UIRuleUtil.getBigDecimal(kdtEntrys.getCell(e.getRowIndex(), "otherEnergy").getValue());//其他能耗
+		  BigDecimal n = h.add(k).add(l).add(m);//本月的耗量
+		  
+		//获取上个月的耗能量 = 装卸生产能耗+辅助生产能耗+生活能耗+其他能耗
+		  if (prmtreportingUnit.getData() == null || this.pkBizDate.getSqlDate() == null)
+				return;
+			SimpleDateFormat df = new SimpleDateFormat("yyyy-MM");
+			
+			Calendar calend = Calendar.getInstance();
+			calend.setTime(this.pkBizDate.getSqlDate());
+			calend.add(Calendar.MONTH, -1);
+			
+			String yymmdd = df.format(calend.getTime());
+			
+			String yearMonth = String.valueOf(yymmdd.substring(0,4)+ "-" + yymmdd.substring(5, 7));
+			StringBuffer sb = new StringBuffer();
+			sb.append("/*dialect*/select A.FSEQ,");
+			sb.append("(nvl(a.CFProEnergy,0)+nvl(a.CFFzproEnergy,0)+nvl(a.CFLifeEnergy,0)+nvl(a.CFOtherEnergy,0)) tbjc");
+			sb.append(" from CT_OPE_ComproductionEntry a");
+			sb.append(" left join CT_OPE_Comproduction b on a.fparentid = b.fid");
+			sb.append(" where a.CFProject = '本月' ");
+			sb.append("and b.CFReportingUnitID = '"+((AdminOrgUnitInfo) prmtreportingUnit.getData()).getId().toString() + "'");
+			sb.append("and to_char(b.fbizdate,'YYYY-MM')='" + yearMonth + "'");
+			sb.append("and b.cfstate = '4'");
+			IRowSet rowSet = new XRSQLBuilder().appendSql(sb.toString()).executeQuery();
+			
+			int rowindex = 0;
+			while (rowSet.next()) {
+				int column = 2;
+				for (int j = 0; j < this.kdtEntrys.getColumnCount(); j++) {
+					BigDecimal  tbjc = UIRuleUtil.getBigDecimal(rowSet.getBigDecimal("tbjc"));
+					this.kdtEntrys.getCell(rowindex, "excessSection").setValue(n.subtract(tbjc));
+					this.kdtEntrys.getCell(rowindex+11, "excessSection").setValue(n.subtract(tbjc));
+					column++;
+				}
+				rowindex++;
+			}
+			
 	}
 
 }

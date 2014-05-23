@@ -644,6 +644,26 @@ public abstract class AbstractEqmOverhaulControllerBean extends XRBillBaseContro
         }
     }
 
+    public void actionFinish(Context ctx, EqmOverhaulInfo model) throws BOSException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("52ad8ec5-2316-476a-9b35-0fac7ac59522"), new Object[]{ctx, model});
+            invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
+            _actionFinish(ctx, model);
+            }
+            invokeServiceAfter(svcCtx);
+        } catch (BOSException ex) {
+            throw ex;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected void _actionFinish(Context ctx, IObjectValue model) throws BOSException
+    {    	
+        return;
+    }
+
     public XRBillBaseCollection getXRBillBaseCollection (Context ctx) throws BOSException
     {
     	return (XRBillBaseCollection)(getEqmOverhaulCollection(ctx).cast(XRBillBaseCollection.class));

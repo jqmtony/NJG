@@ -53,4 +53,5 @@ public interface EqmOverhaulController extends XRBillBaseController
     public void updateBigObject(Context ctx, IObjectPK pk, EqmOverhaulInfo model) throws BOSException, RemoteException;
     public void updatePartial(Context ctx, EqmOverhaulInfo model, SelectorItemCollection selector) throws BOSException, EASBizException, RemoteException;
     public String getBindingProperty(Context ctx) throws BOSException, RemoteException;
+    public void actionFinish(Context ctx, EqmOverhaulInfo model) throws BOSException, RemoteException;
 }
