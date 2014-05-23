@@ -1054,55 +1054,6 @@
             </parent>
         </component>
         <component>
-            <name>contprjName</name>
-            <alias>uiObject[com.kingdee.eas.port.pm.invite.client.JudgesComfirmEditUI].components.component[contprjName].alias</alias>
-            <userDefined>true</userDefined>
-            <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
-            <isContainer>true</isContainer>
-            <constraints>21,72,270,19,0</constraints>
-            <tabIndex>0</tabIndex>
-            <herited>false</herited>
-            <bimUIObjectPK />
-            <layoutInfo>
-                <name />
-                <type>LabelContainerLayout</type>
-                <value />
-            </layoutInfo>
-            <properties>
-                <property>
-                    <name>boundLabelText</name>
-                    <type>java.lang.String</type>
-                    <value>uiObject[com.kingdee.eas.port.pm.invite.client.JudgesComfirmEditUI].components.component[contprjName].properties.property[boundLabelText].value</value>
-                    <isMultiLan>true</isMultiLan>
-                    <userDefined>true</userDefined>
-                </property>
-                <property>
-                    <name>boundLabelLength</name>
-                    <type>int</type>
-                    <value>uiObject[com.kingdee.eas.port.pm.invite.client.JudgesComfirmEditUI].components.component[contprjName].properties.property[boundLabelLength].value</value>
-                    <isMultiLan>false</isMultiLan>
-                    <userDefined>true</userDefined>
-                </property>
-                <property>
-                    <name>boundLabelUnderline</name>
-                    <type>boolean</type>
-                    <value>uiObject[com.kingdee.eas.port.pm.invite.client.JudgesComfirmEditUI].components.component[contprjName].properties.property[boundLabelUnderline].value</value>
-                    <isMultiLan>false</isMultiLan>
-                    <userDefined>true</userDefined>
-                </property>
-                <property>
-                    <name>visible</name>
-                    <type>boolean</type>
-                    <value>uiObject[com.kingdee.eas.port.pm.invite.client.JudgesComfirmEditUI].components.component[contprjName].properties.property[visible].value</value>
-                    <isMultiLan>false</isMultiLan>
-                    <userDefined>true</userDefined>
-                </property>
-            </properties>
-            <parent>
-                <key name="name" value="kDPanel1" />
-            </parent>
-        </component>
-        <component>
             <name>contorgUnit</name>
             <alias>uiObject[com.kingdee.eas.port.pm.invite.client.JudgesComfirmEditUI].components.component[contorgUnit].alias</alias>
             <userDefined>true</userDefined>
@@ -1192,6 +1143,55 @@
                     <name>visible</name>
                     <type>boolean</type>
                     <value>uiObject[com.kingdee.eas.port.pm.invite.client.JudgesComfirmEditUI].components.component[continviteType].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="kDPanel1" />
+            </parent>
+        </component>
+        <component>
+            <name>contprjName</name>
+            <alias>uiObject[com.kingdee.eas.port.pm.invite.client.JudgesComfirmEditUI].components.component[contprjName].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>21,72,270,19,0</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>boundLabelText</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.invite.client.JudgesComfirmEditUI].components.component[contprjName].properties.property[boundLabelText].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelLength</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.invite.client.JudgesComfirmEditUI].components.component[contprjName].properties.property[boundLabelLength].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelUnderline</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.invite.client.JudgesComfirmEditUI].components.component[contprjName].properties.property[boundLabelUnderline].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.invite.client.JudgesComfirmEditUI].components.component[contprjName].properties.property[visible].value</value>
                     <isMultiLan>false</isMultiLan>
                     <userDefined>true</userDefined>
                 </property>
@@ -1946,13 +1946,13 @@
                     <key name="name" value="JudgesComfirm_planNumber_RuleInfo" />
                 </baseRule>
                 <baseRule>
-                    <key name="name" value="JudgesComfirm_prjName_RuleInfo" />
-                </baseRule>
-                <baseRule>
                     <key name="name" value="JudgesComfirm_orgUnit_RuleInfo" />
                 </baseRule>
                 <baseRule>
                     <key name="name" value="JudgesComfirm_inviteType_RuleInfo" />
+                </baseRule>
+                <baseRule>
+                    <key name="name" value="JudgesComfirm_prjName_RuleInfo" />
                 </baseRule>
             </rules>
         </component>
@@ -2010,68 +2010,6 @@
                     <propertyType>java.lang.String</propertyType>
                     <bindingObject>editData</bindingObject>
                     <bindingField>planNumber</bindingField>
-                    <fieldType>String</fieldType>
-                    <accessType>2</accessType>
-                    <autoMode>false</autoMode>
-                    <herited>false</herited>
-                    <userDefined>true</userDefined>
-                </propertyBinding>
-            </propertyBindings>
-        </component>
-        <component>
-            <name>txtprjName</name>
-            <alias>uiObject[com.kingdee.eas.port.pm.invite.client.JudgesComfirmEditUI].components.component[txtprjName].alias</alias>
-            <userDefined>true</userDefined>
-            <classType>com.kingdee.bos.ctrl.swing.KDTextField</classType>
-            <isContainer>false</isContainer>
-            <constraints>3</constraints>
-            <tabIndex>26</tabIndex>
-            <herited>false</herited>
-            <bimUIObjectPK />
-            <layoutInfo>
-                <name />
-                <type>XYLayout</type>
-                <value />
-            </layoutInfo>
-            <properties>
-                <property>
-                    <name>visible</name>
-                    <type>boolean</type>
-                    <value>uiObject[com.kingdee.eas.port.pm.invite.client.JudgesComfirmEditUI].components.component[txtprjName].properties.property[visible].value</value>
-                    <isMultiLan>false</isMultiLan>
-                    <userDefined>true</userDefined>
-                </property>
-                <property>
-                    <name>horizontalAlignment</name>
-                    <type>int</type>
-                    <value>uiObject[com.kingdee.eas.port.pm.invite.client.JudgesComfirmEditUI].components.component[txtprjName].properties.property[horizontalAlignment].value</value>
-                    <isMultiLan>false</isMultiLan>
-                    <userDefined>true</userDefined>
-                </property>
-                <property>
-                    <name>maxLength</name>
-                    <type>int</type>
-                    <value>uiObject[com.kingdee.eas.port.pm.invite.client.JudgesComfirmEditUI].components.component[txtprjName].properties.property[maxLength].value</value>
-                    <isMultiLan>false</isMultiLan>
-                    <userDefined>true</userDefined>
-                </property>
-                <property>
-                    <name>required</name>
-                    <type>boolean</type>
-                    <value>uiObject[com.kingdee.eas.port.pm.invite.client.JudgesComfirmEditUI].components.component[txtprjName].properties.property[required].value</value>
-                    <isMultiLan>false</isMultiLan>
-                    <userDefined>true</userDefined>
-                </property>
-            </properties>
-            <parent>
-                <key name="name" value="contprjName" />
-            </parent>
-            <propertyBindings>
-                <propertyBinding>
-                    <propertyName>text</propertyName>
-                    <propertyType>java.lang.String</propertyType>
-                    <bindingObject>editData</bindingObject>
-                    <bindingField>prjName</bindingField>
                     <fieldType>String</fieldType>
                     <accessType>2</accessType>
                     <autoMode>false</autoMode>
@@ -2196,6 +2134,63 @@
                     <propertyType>java.lang.String</propertyType>
                     <bindingObject>editData</bindingObject>
                     <bindingField>inviteType</bindingField>
+                    <fieldType>String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
+        <component>
+            <name>txtprjName</name>
+            <alias>uiObject[com.kingdee.eas.port.pm.invite.client.JudgesComfirmEditUI].components.component[txtprjName].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDTextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>3</constraints>
+            <tabIndex>29</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.invite.client.JudgesComfirmEditUI].components.component[txtprjName].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>horizontalAlignment</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.invite.client.JudgesComfirmEditUI].components.component[txtprjName].properties.property[horizontalAlignment].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>maxLength</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.invite.client.JudgesComfirmEditUI].components.component[txtprjName].properties.property[maxLength].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>required</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.invite.client.JudgesComfirmEditUI].components.component[txtprjName].properties.property[required].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="contprjName" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>text</propertyName>
+                    <propertyType>java.lang.String</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>prjName</bindingField>
                     <fieldType>String</fieldType>
                     <accessType>2</accessType>
                     <autoMode>false</autoMode>

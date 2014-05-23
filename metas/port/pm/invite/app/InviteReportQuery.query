@@ -161,8 +161,8 @@
                 <key name="name" value="InviteReportQuery" />
             </query>
             <entityRef>
-                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
-                <key name="name" value="Project" />
+                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
+                <key name="name" value="EvaluationIndicators" />
             </entityRef>
         </subEntity>
     </subObjects>
@@ -230,37 +230,6 @@
             </query>
         </queryField>
         <queryField>
-            <name>proName.name</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.InviteReportQuery].units.queryField[proName.name].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>92c144fb-5dc0-48bd-9060-ddb11bc69426</key>
-                    <parentUnit>
-                        <key name="name" value="proName.name" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="proName" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="name" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="InviteReportQuery" />
-            </query>
-        </queryField>
-        <queryField>
             <name>reportName</name>
             <userDefined>true</userDefined>
             <formulaString>#0</formulaString>
@@ -283,37 +252,6 @@
                     </subEntity>
                     <refProperty>
                         <key name="name" value="reportName" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="InviteReportQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>projectNumber</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.InviteReportQuery].units.queryField[projectNumber].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>b352ef3b-75c9-4bec-b60b-41c83926c06c</key>
-                    <parentUnit>
-                        <key name="name" value="projectNumber" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="InviteReport" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="projectNumber" />
                     </refProperty>
                 </propertyRef>
             </propertyRefs>
@@ -1872,12 +1810,43 @@
                 <key name="name" value="InviteReportQuery" />
             </query>
         </queryField>
+        <queryField>
+            <name>proName.name</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.InviteReportQuery].units.queryField[proName.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>107b2771-394e-47a9-b078-072c55c27377</key>
+                    <parentUnit>
+                        <key name="name" value="proName.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="proName" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="InviteReportQuery" />
+            </query>
+        </queryField>
         <propertyUnit>
-            <name>01474ee5-1cf4-42b8-b9e6-c5dc686fcf82</name>
+            <name>84fcfc03-5a10-473b-99be-6234246ab7f6</name>
             <userDefined>true</userDefined>
             <formulaString />
             <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.InviteReportQuery].units.propertyUnit[01474ee5-1cf4-42b8-b9e6-c5dc686fcf82].displayName</displayName>
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.InviteReportQuery].units.propertyUnit[84fcfc03-5a10-473b-99be-6234246ab7f6].displayName</displayName>
             <groupType />
             <isSelector>false</isSelector>
             <isFilter>false</isFilter>
@@ -1886,9 +1855,9 @@
             <returnType />
             <propertyRefs>
                 <propertyRef>
-                    <key>ad630498-35d7-4895-9076-e833b8a9e08c</key>
+                    <key>343fef61-f35f-4d4b-bfff-634b0f6f51f6</key>
                     <parentUnit>
-                        <key name="name" value="01474ee5-1cf4-42b8-b9e6-c5dc686fcf82" />
+                        <key name="name" value="84fcfc03-5a10-473b-99be-6234246ab7f6" />
                     </parentUnit>
                     <subEntity>
                         <key name="name" value="InviteReport" />
@@ -1904,11 +1873,11 @@
             </query>
         </propertyUnit>
         <propertyUnit>
-            <name>34979730-19cc-41c9-a532-536d089af150</name>
+            <name>0744030d-467c-4db7-9835-d519ffd3ed29</name>
             <userDefined>true</userDefined>
             <formulaString />
             <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.InviteReportQuery].units.propertyUnit[34979730-19cc-41c9-a532-536d089af150].displayName</displayName>
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.InviteReportQuery].units.propertyUnit[0744030d-467c-4db7-9835-d519ffd3ed29].displayName</displayName>
             <groupType />
             <isSelector>false</isSelector>
             <isFilter>false</isFilter>
@@ -1917,9 +1886,9 @@
             <returnType />
             <propertyRefs>
                 <propertyRef>
-                    <key>cafd54fb-e8c6-4e71-90ef-f6508050669c</key>
+                    <key>77a2de5a-708e-46e2-9078-e7976a9c4475</key>
                     <parentUnit>
-                        <key name="name" value="34979730-19cc-41c9-a532-536d089af150" />
+                        <key name="name" value="0744030d-467c-4db7-9835-d519ffd3ed29" />
                     </parentUnit>
                     <subEntity>
                         <key name="name" value="proName" />
@@ -1934,6 +1903,37 @@
                 <key name="name" value="InviteReportQuery" />
             </query>
         </propertyUnit>
+        <queryField>
+            <name>projectNumber</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.InviteReportQuery].units.queryField[projectNumber].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>2ee7f9b5-c972-4e2c-89a0-45b929c5a536</key>
+                    <parentUnit>
+                        <key name="name" value="projectNumber" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="InviteReport" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="projectNumber" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="InviteReportQuery" />
+            </query>
+        </queryField>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -2258,7 +2258,7 @@
             </query>
         </join>
         <join>
-            <name>b6c9177c-fdb0-41d6-b220-105bfabfbc40</name>
+            <name>385a7f3a-0f38-447a-bb21-4386f116e525</name>
             <formulaString>#0</formulaString>
             <type>LEFT OUTER JOIN</type>
             <leftObject>
@@ -2269,16 +2269,16 @@
             </rightObject>
             <joinItems>
                 <joinItem>
-                    <name>06290fa1-86cf-4d4e-931c-f74d6bc327f7</name>
+                    <name>2e53890a-caff-49f1-810d-90daf3e5bcf5</name>
                     <compareType>=</compareType>
                     <leftField>
-                        <key name="name" value="01474ee5-1cf4-42b8-b9e6-c5dc686fcf82" />
+                        <key name="name" value="84fcfc03-5a10-473b-99be-6234246ab7f6" />
                     </leftField>
                     <rightField>
-                        <key name="name" value="34979730-19cc-41c9-a532-536d089af150" />
+                        <key name="name" value="0744030d-467c-4db7-9835-d519ffd3ed29" />
                     </rightField>
                     <join>
-                        <key name="name" value="b6c9177c-fdb0-41d6-b220-105bfabfbc40" />
+                        <key name="name" value="385a7f3a-0f38-447a-bb21-4386f116e525" />
                     </join>
                 </joinItem>
             </joinItems>
@@ -2388,13 +2388,13 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.InviteReportQuery].units.propertyUnit[01474ee5-1cf4-42b8-b9e6-c5dc686fcf82].displayName">
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.InviteReportQuery].units.propertyUnit[0559cc58-6ab7-42a6-9c10-fd507fa9879e].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.InviteReportQuery].units.propertyUnit[0559cc58-6ab7-42a6-9c10-fd507fa9879e].displayName">
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.InviteReportQuery].units.propertyUnit[0744030d-467c-4db7-9835-d519ffd3ed29].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -2442,12 +2442,6 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.InviteReportQuery].units.propertyUnit[34979730-19cc-41c9-a532-536d089af150].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.InviteReportQuery].units.propertyUnit[3dac2873-1177-4992-b2c6-fa17970d18cd].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -2479,6 +2473,12 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.InviteReportQuery].units.propertyUnit[5ffb10c2-9017-4af9-a5ab-adf2cfd35ac2].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.InviteReportQuery].units.propertyUnit[84fcfc03-5a10-473b-99be-6234246ab7f6].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />

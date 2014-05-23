@@ -1137,6 +1137,93 @@
             <valueType>String</valueType>
             <value>personName</value>
         </simpleExpression>
+        <groupExpression>
+            <id>cd677121-9d77-47b8-a976-735ee3cc31f5</id>
+            <parentID />
+            <source>prjName=planName.proName.name</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>bdc44193-5989-49f3-b055-404a7c8fefeb</id>
+            <parentID>cd677121-9d77-47b8-a976-735ee3cc31f5</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>dc0762ba-9c29-402d-adf1-d64177ce2539</ownerID>
+                <name>text</name>
+                <type>java.lang.String</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>dc0762ba-9c29-402d-adf1-d64177ce2539</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>txtprjName</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>1f819db1-8023-494d-92ec-8b1735094595</id>
+            <parentID>cd677121-9d77-47b8-a976-735ee3cc31f5</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>c8c5356d-47cd-489c-ab94-fdd53c2da752</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>6c0e7679-7f25-4ac2-8df1-a10b52c83929</id>
+                        <expressionID>52cb6127-1a30-4b03-a9e2-a12b8a1fc09a</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>0cd5feef-ca88-44e8-baea-14e72fa40c87</id>
+                        <expressionID>7f46505d-f82d-4586-9664-21cdabaaf08a</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>c8c5356d-47cd-489c-ab94-fdd53c2da752</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>52cb6127-1a30-4b03-a9e2-a12b8a1fc09a</id>
+            <parentID />
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>Object</valueType>
+            <value />
+            <method>
+                <ownerID>32428d0f-14d6-41cb-b456-e5747c462714</ownerID>
+                <name>getData</name>
+                <type>Object</type>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>32428d0f-14d6-41cb-b456-e5747c462714</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)prmtplanName</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>7f46505d-f82d-4586-9664-21cdabaaf08a</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>proName.name</value>
+        </simpleExpression>
     </expressions>
     <actions>
         <action>
@@ -1230,6 +1317,13 @@
             <description>ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].actions.action[Entry_judgesName_ActionInfo].description</description>
             <expressionID>3ad6ac40-45cc-46d7-a7f0-c1e6b167b329</expressionID>
         </action>
+        <action>
+            <id>5fdba208-d608-4cb8-9c31-c10d85e77c4c</id>
+            <name>JudgesComfirm_prjName_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].actions.action[JudgesComfirm_prjName_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].actions.action[JudgesComfirm_prjName_ActionInfo].description</description>
+            <expressionID>cd677121-9d77-47b8-a976-735ee3cc31f5</expressionID>
+        </action>
     </actions>
     <rules>
         <conditionRule>
@@ -1317,20 +1411,6 @@
             </actions>
         </conditionRule>
         <conditionRule>
-            <name>JudgesComfirm_prjName_RuleInfo</name>
-            <alias>ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].rules.conditionRule[JudgesComfirm_prjName_RuleInfo].alias</alias>
-            <description>ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].rules.conditionRule[JudgesComfirm_prjName_RuleInfo].description</description>
-            <ruleType>withproperty</ruleType>
-            <eventObjectName />
-            <eventType>CHANGE</eventType>
-            <eventName>CHANGE</eventName>
-            <actions>
-                <action>
-                    <key name="id" value="9f5b6377-f660-47d2-8cb4-fb6c7d89440b" />
-                </action>
-            </actions>
-        </conditionRule>
-        <conditionRule>
             <name>JudgesComfirm_orgUnit_RuleInfo</name>
             <alias>ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].rules.conditionRule[JudgesComfirm_orgUnit_RuleInfo].alias</alias>
             <description>ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].rules.conditionRule[JudgesComfirm_orgUnit_RuleInfo].description</description>
@@ -1355,6 +1435,20 @@
             <actions>
                 <action>
                     <key name="id" value="78641823-d659-4c98-8877-dd767ebdf06b" />
+                </action>
+            </actions>
+        </conditionRule>
+        <conditionRule>
+            <name>JudgesComfirm_prjName_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].rules.conditionRule[JudgesComfirm_prjName_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.pm.invite.app.JudgesComfirmRuleSet].rules.conditionRule[JudgesComfirm_prjName_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="5fdba208-d608-4cb8-9c31-c10d85e77c4c" />
                 </action>
             </actions>
         </conditionRule>

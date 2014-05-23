@@ -8,6 +8,118 @@
     <bizUnitPK>com.kingdee.eas.port.pm.invite.InvitePlan</bizUnitPK>
     <columns>
         <column>
+            <name>CFPlanName</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFPlanName].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFPlanName].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>100</length>
+            <scale>0</scale>
+            <precision>100</precision>
+        </column>
+        <column>
+            <name>CFStartDate</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFStartDate].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFStartDate].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>DATETIME</sqlType>
+            <length>8</length>
+            <scale>0</scale>
+            <precision>8</precision>
+        </column>
+        <column>
+            <name>CFEndDate</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFEndDate].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFEndDate].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>DATETIME</sqlType>
+            <length>8</length>
+            <scale>0</scale>
+            <precision>8</precision>
+        </column>
+        <column>
+            <name>CFInDate</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFInDate].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFInDate].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>DATETIME</sqlType>
+            <length>8</length>
+            <scale>0</scale>
+            <precision>8</precision>
+        </column>
+        <column>
+            <name>CFResponseID</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFResponseID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFResponseID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFDepartmentID</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFDepartmentID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFDepartmentID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFBIMUDF0009</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFBIMUDF0009].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFBIMUDF0009].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>255</length>
+            <scale>0</scale>
+            <precision>255</precision>
+        </column>
+        <column>
+            <name>CFProjectID</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFProjectID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFProjectID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
             <name>FStatus</name>
             <alias>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[FStatus].alias</alias>
             <description>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[FStatus].description</description>
@@ -58,8 +170,8 @@
             <isEncoded>false</isEncoded>
             <isNullable>true</isNullable>
             <defaultValue />
-            <sqlType>NVARCHAR</sqlType>
-            <length>80</length>
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
             <scale>0</scale>
             <precision>0</precision>
         </column>
@@ -100,8 +212,8 @@
             <isEncoded>false</isEncoded>
             <isNullable>true</isNullable>
             <defaultValue />
-            <sqlType>NVARCHAR</sqlType>
-            <length>80</length>
+            <sqlType>VARCHAR</sqlType>
+            <length>100</length>
             <scale>0</scale>
             <precision>0</precision>
         </column>
@@ -115,9 +227,9 @@
             <isNullable>true</isNullable>
             <defaultValue />
             <sqlType>INT</sqlType>
-            <length>4</length>
+            <length>1</length>
             <scale>0</scale>
-            <precision>4</precision>
+            <precision>1</precision>
         </column>
         <column>
             <name>FAuditorID</name>
@@ -142,8 +254,8 @@
             <isEncoded>false</isEncoded>
             <isNullable>true</isNullable>
             <defaultValue />
-            <sqlType>NVARCHAR</sqlType>
-            <length>80</length>
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
             <scale>0</scale>
             <precision>0</precision>
         </column>
@@ -156,8 +268,8 @@
             <isEncoded>false</isEncoded>
             <isNullable>true</isNullable>
             <defaultValue />
-            <sqlType>NVARCHAR</sqlType>
-            <length>80</length>
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
             <scale>0</scale>
             <precision>0</precision>
         </column>
@@ -239,127 +351,15 @@
             <isMultilingual>false</isMultilingual>
             <isEncoded>false</isEncoded>
             <isNullable>false</isNullable>
-            <defaultValue />
+            <defaultValue>''</defaultValue>
             <sqlType>VARCHAR</sqlType>
             <length>44</length>
             <scale>0</scale>
             <precision>44</precision>
         </column>
-        <column>
-            <name>CFPlanName</name>
-            <alias>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFPlanName].alias</alias>
-            <description>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFPlanName].description</description>
-            <userDefined>true</userDefined>
-            <isMultilingual>false</isMultilingual>
-            <isEncoded>false</isEncoded>
-            <isNullable>true</isNullable>
-            <defaultValue />
-            <sqlType>NVARCHAR</sqlType>
-            <length>100</length>
-            <scale>0</scale>
-            <precision>0</precision>
-        </column>
-        <column>
-            <name>CFStartDate</name>
-            <alias>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFStartDate].alias</alias>
-            <description>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFStartDate].description</description>
-            <userDefined>true</userDefined>
-            <isMultilingual>false</isMultilingual>
-            <isEncoded>false</isEncoded>
-            <isNullable>true</isNullable>
-            <defaultValue />
-            <sqlType>DATETIME</sqlType>
-            <length>8</length>
-            <scale>0</scale>
-            <precision>0</precision>
-        </column>
-        <column>
-            <name>CFEndDate</name>
-            <alias>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFEndDate].alias</alias>
-            <description>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFEndDate].description</description>
-            <userDefined>true</userDefined>
-            <isMultilingual>false</isMultilingual>
-            <isEncoded>false</isEncoded>
-            <isNullable>true</isNullable>
-            <defaultValue />
-            <sqlType>DATETIME</sqlType>
-            <length>8</length>
-            <scale>0</scale>
-            <precision>0</precision>
-        </column>
-        <column>
-            <name>CFInDate</name>
-            <alias>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFInDate].alias</alias>
-            <description>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFInDate].description</description>
-            <userDefined>true</userDefined>
-            <isMultilingual>false</isMultilingual>
-            <isEncoded>false</isEncoded>
-            <isNullable>true</isNullable>
-            <defaultValue />
-            <sqlType>DATETIME</sqlType>
-            <length>8</length>
-            <scale>0</scale>
-            <precision>0</precision>
-        </column>
-        <column>
-            <name>CFResponseID</name>
-            <alias>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFResponseID].alias</alias>
-            <description>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFResponseID].description</description>
-            <userDefined>true</userDefined>
-            <isMultilingual>false</isMultilingual>
-            <isEncoded>false</isEncoded>
-            <isNullable>true</isNullable>
-            <defaultValue />
-            <sqlType>VARCHAR</sqlType>
-            <length>44</length>
-            <scale>0</scale>
-            <precision>0</precision>
-        </column>
-        <column>
-            <name>CFDepartmentID</name>
-            <alias>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFDepartmentID].alias</alias>
-            <description>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFDepartmentID].description</description>
-            <userDefined>true</userDefined>
-            <isMultilingual>false</isMultilingual>
-            <isEncoded>false</isEncoded>
-            <isNullable>true</isNullable>
-            <defaultValue />
-            <sqlType>VARCHAR</sqlType>
-            <length>44</length>
-            <scale>0</scale>
-            <precision>0</precision>
-        </column>
-        <column>
-            <name>CFBIMUDF0009</name>
-            <alias>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFBIMUDF0009].alias</alias>
-            <description>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFBIMUDF0009].description</description>
-            <userDefined>true</userDefined>
-            <isMultilingual>false</isMultilingual>
-            <isEncoded>false</isEncoded>
-            <isNullable>true</isNullable>
-            <defaultValue />
-            <sqlType>NVARCHAR</sqlType>
-            <length>255</length>
-            <scale>0</scale>
-            <precision>0</precision>
-        </column>
-        <column>
-            <name>CFProjectID</name>
-            <alias>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFProjectID].alias</alias>
-            <description>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFProjectID].description</description>
-            <userDefined>true</userDefined>
-            <isMultilingual>false</isMultilingual>
-            <isEncoded>false</isEncoded>
-            <isNullable>true</isNullable>
-            <defaultValue />
-            <sqlType>VARCHAR</sqlType>
-            <length>44</length>
-            <scale>0</scale>
-            <precision>0</precision>
-        </column>
     </columns>
     <primaryKey>
-        <name>CPK_INV_InvitePg48</name>
+        <name>PK_InvitePlan</name>
         <userDefined>true</userDefined>
         <primaryKeyColumns>
             <primaryKeyColumn>
@@ -373,7 +373,7 @@
     </primaryKey>
     <foreignKeys>
         <foreignKey>
-            <name>CFK_INV_INVIPCrtg4</name>
+            <name>CFK_INV_INVIPRtr</name>
             <userDefined>true</userDefined>
             <refTable>
                 <key name="package" value="com.kingdee.eas.base.permission.app" />
@@ -392,7 +392,7 @@
             </fkColumnPairs>
         </foreignKey>
         <foreignKey>
-            <name>CFK_INV_INVIPLUUg4</name>
+            <name>CFK_INV_INVIPAstUU</name>
             <userDefined>true</userDefined>
             <refTable>
                 <key name="package" value="com.kingdee.eas.base.permission.app" />
@@ -411,7 +411,7 @@
             </fkColumnPairs>
         </foreignKey>
         <foreignKey>
-            <name>CFK_INV_INVIPCnUg4</name>
+            <name>CFK_INV_INV_Invite</name>
             <userDefined>true</userDefined>
             <refTable>
                 <key name="package" value="com.kingdee.eas.basedata.org" />
@@ -430,7 +430,7 @@
             </fkColumnPairs>
         </foreignKey>
         <foreignKey>
-            <name>CFK_INV_INVIPHndg4</name>
+            <name>CFK_INV_INVIPAndlr</name>
             <userDefined>true</userDefined>
             <refTable>
                 <key name="package" value="com.kingdee.eas.base.permission.app" />
@@ -449,7 +449,7 @@
             </fkColumnPairs>
         </foreignKey>
         <foreignKey>
-            <name>CFK_INV_INVIPAdtg4</name>
+            <name>CFK_INV_INVIPUdtr</name>
             <userDefined>true</userDefined>
             <refTable>
                 <key name="package" value="com.kingdee.eas.base.permission.app" />
@@ -468,7 +468,7 @@
             </fkColumnPairs>
         </foreignKey>
         <foreignKey>
-            <name>CFK_INV_INVIPEsp6n</name>
+            <name>CFK_INV_INVIPEspns</name>
             <userDefined>true</userDefined>
             <refTable>
                 <key name="package" value="com.kingdee.eas.basedata.person" />
@@ -487,7 +487,7 @@
             </fkColumnPairs>
         </foreignKey>
         <foreignKey>
-            <name>CFK_INV_INVIPEpr75</name>
+            <name>CFK_INV_INVIPEprtm</name>
             <userDefined>true</userDefined>
             <refTable>
                 <key name="package" value="com.kingdee.eas.basedata.org" />
@@ -506,11 +506,11 @@
             </fkColumnPairs>
         </foreignKey>
         <foreignKey>
-            <name>CFK_INV_INVIPRjc8l</name>
+            <name>CFK_INV_INVIPRjct</name>
             <userDefined>true</userDefined>
             <refTable>
-                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
-                <key name="name" value="CT_BD_Project" />
+                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
+                <key name="name" value="CT_BAS_EvaluationIndicators" />
             </refTable>
             <fkColumnPairs>
                 <fkColumnPair>
@@ -642,9 +642,9 @@
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[FAuditorID].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="审核人" />
-            <lang locale="zh_HK" value="審核人" />
-            <lang locale="zh_TW" value="審核人" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[FAuditorID].description">
             <lang locale="en_US" value="null" />
@@ -678,9 +678,9 @@
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[FControlUnitID].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="控制单元" />
-            <lang locale="zh_HK" value="控制單元" />
-            <lang locale="zh_TW" value="控制單元" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[FControlUnitID].description">
             <lang locale="en_US" value="null" />
@@ -702,9 +702,9 @@
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[FCreatorID].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="创建者" />
-            <lang locale="zh_HK" value="創建者" />
-            <lang locale="zh_TW" value="創建者" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[FCreatorID].description">
             <lang locale="en_US" value="null" />
@@ -726,9 +726,9 @@
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[FHandlerID].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="经手人" />
-            <lang locale="zh_HK" value="經手人" />
-            <lang locale="zh_TW" value="經手人" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[FHandlerID].description">
             <lang locale="en_US" value="null" />
@@ -773,9 +773,9 @@
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[FLastUpdateUserID].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="最后修改者" />
-            <lang locale="zh_HK" value="最後修改者" />
-            <lang locale="zh_TW" value="最後修改者" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[FLastUpdateUserID].description">
             <lang locale="en_US" value="null" />

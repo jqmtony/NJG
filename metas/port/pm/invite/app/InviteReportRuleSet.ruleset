@@ -354,6 +354,93 @@
             <valueType>String</valueType>
             <value>number</value>
         </simpleExpression>
+        <groupExpression>
+            <id>c9aac7e0-7d3b-4eb8-97ee-c55efd130217</id>
+            <parentID />
+            <source>projectNumber=proName.number</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>883a753a-3637-479c-a212-1eb1234b9892</id>
+            <parentID>c9aac7e0-7d3b-4eb8-97ee-c55efd130217</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>dcfc58b5-8c88-491b-90db-d04396b06899</ownerID>
+                <name>text</name>
+                <type>java.lang.String</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>dcfc58b5-8c88-491b-90db-d04396b06899</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>txtprojectNumber</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>215cd785-55b6-437c-b309-5edeb8eabfc2</id>
+            <parentID>c9aac7e0-7d3b-4eb8-97ee-c55efd130217</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>3ad969c0-1d15-4c18-a597-53aee1a959de</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>eb03ce6f-5edc-496f-9ce4-62bbb9487a0c</id>
+                        <expressionID>10effaa0-8311-4a62-bda2-5aed6398c594</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>87f9ae2d-cd67-4091-bbd3-fa4f78896785</id>
+                        <expressionID>6f78537a-b390-4e58-a759-d8ba01f47265</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>3ad969c0-1d15-4c18-a597-53aee1a959de</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>10effaa0-8311-4a62-bda2-5aed6398c594</id>
+            <parentID />
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>Object</valueType>
+            <value />
+            <method>
+                <ownerID>2a8e3272-e3d3-4155-a127-36b830ee42ef</ownerID>
+                <name>getData</name>
+                <type>Object</type>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>2a8e3272-e3d3-4155-a127-36b830ee42ef</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)prmtproName</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>6f78537a-b390-4e58-a759-d8ba01f47265</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>number</value>
+        </simpleExpression>
     </expressions>
     <actions>
         <action>
@@ -384,6 +471,13 @@
             <description>ruleSet[com.kingdee.eas.port.pm.invite.app.InviteReportRuleSet].actions.action[InviteReport_projectNumber_ActionInfo].description</description>
             <expressionID>ea5d655c-2ae9-4826-b673-b83cfb469f84</expressionID>
         </action>
+        <action>
+            <id>c7c18ce7-5965-4783-af9b-e6ef7c955dea</id>
+            <name>InviteReport_projectNumber_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.pm.invite.app.InviteReportRuleSet].actions.action[InviteReport_projectNumber_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.pm.invite.app.InviteReportRuleSet].actions.action[InviteReport_projectNumber_ActionInfo].description</description>
+            <expressionID>c9aac7e0-7d3b-4eb8-97ee-c55efd130217</expressionID>
+        </action>
     </actions>
     <rules>
         <conditionRule>
@@ -410,7 +504,7 @@
             <eventName>CHANGE</eventName>
             <actions>
                 <action>
-                    <key name="id" value="76cc1aae-2d3c-4b1f-b613-1049f3155f26" />
+                    <key name="id" value="c7c18ce7-5965-4783-af9b-e6ef7c955dea" />
                 </action>
             </actions>
         </conditionRule>
