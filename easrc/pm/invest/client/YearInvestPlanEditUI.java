@@ -13,8 +13,6 @@ import java.util.Calendar;
 import java.util.Date;
 
 import org.apache.log4j.Logger;
-import org.claros.commons.utility.Formatter;
-
 import com.kingdee.bos.ctrl.extendcontrols.BizDataFormat;
 import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
@@ -175,8 +173,6 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 		super.setFieldsNull(arg0);
 		arg0.put("status",null);
 		arg0.put("objectState",ObjectStateEnum.save);
-		arg0.put("buildType",null);
-		
 	}
 	protected void prmtportProject_dataChanged(DataChangeEvent e)throws Exception {
 		super.prmtportProject_dataChanged(e);
