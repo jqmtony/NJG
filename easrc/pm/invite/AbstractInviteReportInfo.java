@@ -315,11 +315,11 @@ public class AbstractInviteReportInfo extends com.kingdee.eas.xr.XRBillBaseInfo 
     /**
      * Object: 招标方案申报 's 项目名称 property 
      */
-    public com.kingdee.eas.port.pm.base.EvaluationIndicatorsInfo getProName()
+    public com.kingdee.eas.basedata.assistant.ProjectInfo getProName()
     {
-        return (com.kingdee.eas.port.pm.base.EvaluationIndicatorsInfo)get("proName");
+        return (com.kingdee.eas.basedata.assistant.ProjectInfo)get("proName");
     }
-    public void setProName(com.kingdee.eas.port.pm.base.EvaluationIndicatorsInfo item)
+    public void setProName(com.kingdee.eas.basedata.assistant.ProjectInfo item)
     {
         put("proName", item);
     }

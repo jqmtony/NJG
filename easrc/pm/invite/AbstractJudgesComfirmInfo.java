@@ -70,17 +70,6 @@ public class AbstractJudgesComfirmInfo extends com.kingdee.eas.xr.XRBillBaseInfo
         setString("planNumber", item);
     }
     /**
-     * Object:评标专家确定's 项目名称property 
-     */
-    public String getPrjName()
-    {
-        return getString("prjName");
-    }
-    public void setPrjName(String item)
-    {
-        setString("prjName", item);
-    }
-    /**
      * Object:评标专家确定's 所属组织property 
      */
     public String getOrgUnit()
@@ -101,6 +90,17 @@ public class AbstractJudgesComfirmInfo extends com.kingdee.eas.xr.XRBillBaseInfo
     public void setInviteType(String item)
     {
         setString("inviteType", item);
+    }
+    /**
+     * Object:评标专家确定's 项目名称property 
+     */
+    public String getPrjName()
+    {
+        return getString("prjName");
+    }
+    public void setPrjName(String item)
+    {
+        setString("prjName", item);
     }
     public BOSObjectType getBOSType()
     {

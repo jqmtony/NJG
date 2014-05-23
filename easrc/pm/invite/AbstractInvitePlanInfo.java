@@ -97,11 +97,11 @@ public class AbstractInvitePlanInfo extends com.kingdee.eas.xr.XRBillBaseInfo im
     /**
      * Object: 招标计划 's 所属项目 property 
      */
-    public com.kingdee.eas.port.pm.base.EvaluationIndicatorsInfo getProject()
+    public com.kingdee.eas.basedata.assistant.ProjectInfo getProject()
     {
-        return (com.kingdee.eas.port.pm.base.EvaluationIndicatorsInfo)get("project");
+        return (com.kingdee.eas.basedata.assistant.ProjectInfo)get("project");
     }
-    public void setProject(com.kingdee.eas.port.pm.base.EvaluationIndicatorsInfo item)
+    public void setProject(com.kingdee.eas.basedata.assistant.ProjectInfo item)
     {
         put("project", item);
     }

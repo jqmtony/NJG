@@ -22,7 +22,9 @@ import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.eas.basedata.org.AdminOrgUnitFactory;
 import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
 import com.kingdee.eas.basedata.org.IAdminOrgUnit;
+import com.kingdee.eas.basedata.org.client.f7.AdminF7;
 import com.kingdee.eas.common.EASBizException;
+import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.port.pm.base.IJudges;
 import com.kingdee.eas.port.pm.base.IJudgesTree;
 import com.kingdee.eas.port.pm.base.JudgesFactory;
@@ -69,6 +71,13 @@ public class JudgesComfirmEditUI extends AbstractJudgesComfirmEditUI
     	super.onLoad();
     	this.kdtEntry.getColumn("telephone").getStyleAttributes().setLocked(false);
     	
+    	//²¿ÃÅF7×Ö¶ÎÊ÷×´ÏÔÊ¾
+    	AdminF7 f7 = new AdminF7(this);
+ 		f7.showCheckBoxOfShowingAllOUs();
+ 		f7.setIsCUFilter(false);
+ 		f7.setRootUnitID(SysContext.getSysContext().getCurrentAdminUnit().getId().toString());
+ 		this.prmtdepartment.setSelector(f7);
+ 		
     	this.setPreferredSize(new Dimension(645, 560));
 //    	InitWorkButton(this.kDContainer2);
     }
@@ -811,7 +820,7 @@ public class JudgesComfirmEditUI extends AbstractJudgesComfirmEditUI
     {
         com.kingdee.eas.port.pm.invite.JudgesComfirmInfo objectValue = new com.kingdee.eas.port.pm.invite.JudgesComfirmInfo();
         objectValue.setCreator((com.kingdee.eas.base.permission.UserInfo)(com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentUser()));
-		
+		objectValue.setDepartment(SysContext.getSysContext().getCurrentAdminUnit());
         return objectValue;
     }
 	@Override

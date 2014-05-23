@@ -28,7 +28,10 @@ import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.UIContext;
 import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.framework.*;
+import com.kingdee.eas.port.pm.base.JudgesTreeInfo;
 import com.kingdee.eas.port.pm.invite.util.SLProjectTreeBuilder;
+import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
+import com.kingdee.eas.util.SysUtil;
 
 /**
  * output class name
@@ -58,6 +61,20 @@ public class InvitePlanListUI extends AbstractInvitePlanListUI
     	}
     }
 
+    @Override
+    protected void prepareUIContext(UIContext uiContext, ActionEvent e) {
+    	// TODO Auto-generated method stub
+    	super.prepareUIContext(uiContext, e);
+    	if(getActionFromActionEvent(e).equals(actionAddNew)) {
+			DefaultKingdeeTreeNode treeNote = (DefaultKingdeeTreeNode)this.kDTree1.getLastSelectedPathComponent();
+			if (treeNote.getUserObject() instanceof ProjectInfo) {
+				getUIContext().put("treeInfo", treeNote.getUserObject());
+			} else {
+				MsgBox.showWarning("非子节点无法新增！");
+				SysUtil.abort();
+			}
+		}
+    }
     protected String getEditUIModal() {
     	return UIFactoryName.MODEL;
     }
@@ -96,7 +113,7 @@ public class InvitePlanListUI extends AbstractInvitePlanListUI
     		if(info instanceof FullOrgUnitInfo) {
     			
     		} else if(info instanceof ProjectInfo) {
-    			filterInfo.getFilterItems().add(new FilterItemInfo("id", ((ProjectInfo) info).getId(), CompareType.EQUALS));
+    			filterInfo.getFilterItems().add(new FilterItemInfo("project.id", ((ProjectInfo) info).getId(), CompareType.EQUALS));
     		}
     		
     		try 

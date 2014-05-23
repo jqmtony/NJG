@@ -61,7 +61,7 @@ public class SLProjectTreeBuilder {
 			SysUtil.abort();
 		}
 		build(ui, prjTree, actionOnLoad, SysContext.getSysContext()
-				.getCurrentAdminUnit().getId().toString());
+				.getCurrentFIUnit().getId().toString());
 	}
 
 	public void build(CoreUI ui, KDTree projectTree, ItemAction actionOnLoad,

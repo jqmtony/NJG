@@ -530,7 +530,7 @@ public abstract class AbstractJudgesExamineEditUI extends com.kingdee.eas.xr.cli
         contcheckPerson.setBounds(new Rectangle(23, 77, 270, 19));
         kDPanel1.add(contcheckPerson, new KDLayout.Constraints(23, 77, 270, 19, 0));
         contprjName.setBounds(new Rectangle(23, 49, 270, 19));
-        kDPanel1.add(contprjName, new KDLayout.Constraints(23, 49, 270, 19, 0));
+        kDPanel1.add(contprjName, new KDLayout.Constraints(23, 49, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contNumber.setBounds(new Rectangle(22, 22, 270, 19));
         kDPanel1.add(contNumber, new KDLayout.Constraints(22, 22, 270, 19, 0));
         contevaDate.setBounds(new Rectangle(326, 77, 270, 19));

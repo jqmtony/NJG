@@ -35,10 +35,15 @@ import com.kingdee.bos.ui.face.UIFactory;
 import com.kingdee.eas.basedata.assistant.Project;
 import com.kingdee.eas.basedata.assistant.ProjectInfo;
 import com.kingdee.eas.basedata.assistant.client.ProjectEditUI;
+import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
+import com.kingdee.eas.basedata.org.OrgConstants;
+import com.kingdee.eas.basedata.org.client.f7.AdminF7;
 import com.kingdee.eas.common.client.OprtState;
+import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.common.client.UIContext;
 import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.framework.client.multiDetail.DetailPanel;
+import com.kingdee.eas.hr.emp.client.EmployeeMultiF7PromptBox;
 import com.kingdee.eas.port.pm.base.EvaluationTemplate;
 import com.kingdee.eas.port.pm.base.EvaluationTemplateInfo;
 import com.kingdee.eas.port.pm.base.client.EvaluationTemplateEditUI;
@@ -141,10 +146,32 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI
         kdtE5_judgeType_OVR.setFormat(new BizDataFormat("$name$"));
         this.kdtEntry5.getColumn("judgeType").setRenderer(kdtE5_judgeType_OVR);
         
+//        String longNumber = SysContext.getSysContext().getCurrentAdminUnit().getLongNumber();
+        AdminOrgUnitInfo admin = SysContext.getSysContext().getCurrentAdminUnit();
+//    	String sql = "select a.fid from t_bd_person a " +
+//    				 " left join T_ORG_PositionMember b " +
+//    			     " on b.FPersonID=a.fid and b.FIsPrimary='1'" +
+//    			     " left join T_ORG_Position c on c.fid=b.FPositionID" +
+//    			     " where c.FAdminOrgUnitID in (select fid from t_org_admin where flongnumber like '" + admin.getLongNumber() + "%')";
+//    	FilterInfo filter = new FilterInfo();
+//        filter.getFilterItems().add(new FilterItemInfo("id", sql, CompareType.INNER));
+		EmployeeMultiF7PromptBox person = new EmployeeMultiF7PromptBox();
+		person.setIsSingleSelect(false);
+		person.showNoPositionPerson(false);
+		if(OrgConstants.DEF_CU_ID.equals(admin.getId().toString()))
+			person.setIsShowAllAdmin(true);
+//		person.setNopositionPersonFilter(filter);
+		this.prmtapplicant.setSelector(person);
         initContainerButton(kDContainer1, kdtEntry2_detailPanel);
         initContainerButton(kDContainer2, kdtEntry5_detailPanel);
         initContainerButton(kDContainer3, kdtEntry3_detailPanel);
         initContainerButton(kDContainer4, kdtEntry1_detailPanel);
+
+        AdminF7 f7 = new AdminF7(this);
+ 		f7.showCheckBoxOfShowingAllOUs();
+ 		f7.setIsCUFilter(false);
+ 		f7.setRootUnitID(SysContext.getSysContext().getCurrentAdminUnit().getId().toString());
+ 		this.prmtuseOrg.setSelector(f7);
     }
     
     //container设置分录按钮以及分录放置模式

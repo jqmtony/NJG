@@ -4,6 +4,7 @@
 package com.kingdee.eas.port.pm.invite.client;
 
 import java.awt.event.*;
+import java.util.HashSet;
 import java.util.Set;
 
 import org.apache.log4j.Logger;
@@ -17,11 +18,20 @@ import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.IUIWindow;
 import com.kingdee.bos.ui.face.UIFactory;
 import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.eas.basedata.assistant.ProjectFactory;
+import com.kingdee.eas.basedata.assistant.ProjectInfo;
+import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
+import com.kingdee.eas.basedata.org.OrgConstants;
 import com.kingdee.eas.basedata.person.PersonInfo;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.common.client.UIContext;
 import com.kingdee.eas.framework.*;
+import com.kingdee.eas.hr.emp.client.EmployeeMultiF7PromptBox;
+import com.kingdee.eas.port.pm.base.ReviewerE1Collection;
+import com.kingdee.eas.port.pm.base.ReviewerE1Factory;
+import com.kingdee.eas.port.pm.base.ReviewerE1Info;
 import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
@@ -45,6 +55,7 @@ public class InvitePlanEditUI extends AbstractInvitePlanEditUI
     @Override
     public void onLoad() throws Exception {
     	// TODO Auto-generated method stub
+    	dataBinder.registerBinding("project", com.kingdee.eas.basedata.assistant.Project.class, this.prmtproject, "data");
     	initConpoment();
     	super.onLoad();
     	initFilter();
@@ -64,13 +75,22 @@ public class InvitePlanEditUI extends AbstractInvitePlanEditUI
     	prmtresponse.setRequired(true);
     }
     private void initFilter() throws Exception{
-    	//根据组织过滤人员
-    	Set set = com.kingdee.eas.xr.helper.PersonXRHelper.getPersonIds(null, SysContext.getSysContext().getCurrentAdminUnit().getId().toString());
-    	EntityViewInfo viewInfo = new EntityViewInfo();
-    	FilterInfo filter = new FilterInfo();
-        filter.getFilterItems().add(new FilterItemInfo("id", set, CompareType.INCLUDE));
-        viewInfo.setFilter(filter);
-        this.prmtresponse.setEntityViewInfo(viewInfo);
+    	//根据组织长编码过滤人员
+    	AdminOrgUnitInfo admiInfo = SysContext.getSysContext().getCurrentAdminUnit();
+//    	String sql = "select a.fid from t_bd_person a " +
+//    				 " left join T_ORG_PositionMember b " +
+//    			     " on b.FPersonID=a.fid and b.FIsPrimary='1'" +
+//    			     " left join T_ORG_Position c on c.fid=b.FPositionID" +
+//    			     " where c.FAdminOrgUnitID in (select fid from t_org_admin where flongnumber like '" + admiInfo.getLongNumber() + "%')";
+//    	FilterInfo filter = new FilterInfo();
+//      filter.getFilterItems().add(new FilterItemInfo("id", sql, CompareType.INNER));
+		EmployeeMultiF7PromptBox person = new EmployeeMultiF7PromptBox();
+		person.setIsSingleSelect(false);
+		person.showNoPositionPerson(false);
+		if(OrgConstants.DEF_CU_ID.equals(admiInfo.getId().toString())) 
+			person.setIsShowAllAdmin(true);
+//		person.setNopositionPersonFilter(filter);
+		this.prmtresponse.setSelector(person);
     }
     
     @Override
@@ -735,6 +755,7 @@ public class InvitePlanEditUI extends AbstractInvitePlanEditUI
         return null;
     }
 
+    
     /**
      * output createNewData method
      */
@@ -742,7 +763,10 @@ public class InvitePlanEditUI extends AbstractInvitePlanEditUI
     {
         com.kingdee.eas.port.pm.invite.InvitePlanInfo objectValue = new com.kingdee.eas.port.pm.invite.InvitePlanInfo();
         objectValue.setCreator((com.kingdee.eas.base.permission.UserInfo)(com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentUser()));
-		
+		ProjectInfo info = (ProjectInfo) getUIContext().get("treeInfo");
+		if(info != null) {
+			objectValue.setProject(info);
+		}
         return objectValue;
     }
 	@Override

@@ -326,14 +326,6 @@ public abstract class AbstractEvaluationEditUI extends com.kingdee.eas.xr.client
 
 
         this.kdtEntryValid.checkParsed();
-        KDFormattedTextField kdtEntryValid_seq_TextField = new KDFormattedTextField();
-        kdtEntryValid_seq_TextField.setName("kdtEntryValid_seq_TextField");
-        kdtEntryValid_seq_TextField.setVisible(true);
-        kdtEntryValid_seq_TextField.setEditable(true);
-        kdtEntryValid_seq_TextField.setHorizontalAlignment(2);
-        kdtEntryValid_seq_TextField.setDataType(0);
-        KDTDefaultCellEditor kdtEntryValid_seq_CellEditor = new KDTDefaultCellEditor(kdtEntryValid_seq_TextField);
-        this.kdtEntryValid.getColumn("seq").setEditor(kdtEntryValid_seq_CellEditor);
         KDTextField kdtEntryValid_judges_TextField = new KDTextField();
         kdtEntryValid_judges_TextField.setName("kdtEntryValid_judges_TextField");
         kdtEntryValid_judges_TextField.setMaxLength(100);
@@ -358,14 +350,6 @@ public abstract class AbstractEvaluationEditUI extends com.kingdee.eas.xr.client
 
 
         this.kdtEntryUnit.checkParsed();
-        KDFormattedTextField kdtEntryUnit_seq_TextField = new KDFormattedTextField();
-        kdtEntryUnit_seq_TextField.setName("kdtEntryUnit_seq_TextField");
-        kdtEntryUnit_seq_TextField.setVisible(true);
-        kdtEntryUnit_seq_TextField.setEditable(true);
-        kdtEntryUnit_seq_TextField.setHorizontalAlignment(2);
-        kdtEntryUnit_seq_TextField.setDataType(0);
-        KDTDefaultCellEditor kdtEntryUnit_seq_CellEditor = new KDTDefaultCellEditor(kdtEntryUnit_seq_TextField);
-        this.kdtEntryUnit.getColumn("seq").setEditor(kdtEntryUnit_seq_CellEditor);
         KDTextField kdtEntryUnit_enterprise_TextField = new KDTextField();
         kdtEntryUnit_enterprise_TextField.setName("kdtEntryUnit_enterprise_TextField");
         kdtEntryUnit_enterprise_TextField.setMaxLength(200);
@@ -380,14 +364,6 @@ public abstract class AbstractEvaluationEditUI extends com.kingdee.eas.xr.client
 
 
         this.kdtEntryScore.checkParsed();
-        KDFormattedTextField kdtEntryScore_seq_TextField = new KDFormattedTextField();
-        kdtEntryScore_seq_TextField.setName("kdtEntryScore_seq_TextField");
-        kdtEntryScore_seq_TextField.setVisible(true);
-        kdtEntryScore_seq_TextField.setEditable(true);
-        kdtEntryScore_seq_TextField.setHorizontalAlignment(2);
-        kdtEntryScore_seq_TextField.setDataType(0);
-        KDTDefaultCellEditor kdtEntryScore_seq_CellEditor = new KDTDefaultCellEditor(kdtEntryScore_seq_TextField);
-        this.kdtEntryScore.getColumn("seq").setEditor(kdtEntryScore_seq_CellEditor);
         KDTextField kdtEntryScore_judges_TextField = new KDTextField();
         kdtEntryScore_judges_TextField.setName("kdtEntryScore_judges_TextField");
         kdtEntryScore_judges_TextField.setMaxLength(100);
@@ -419,14 +395,6 @@ public abstract class AbstractEvaluationEditUI extends com.kingdee.eas.xr.client
 
 
         this.kdtEntryTotal.checkParsed();
-        KDFormattedTextField kdtEntryTotal_seq_TextField = new KDFormattedTextField();
-        kdtEntryTotal_seq_TextField.setName("kdtEntryTotal_seq_TextField");
-        kdtEntryTotal_seq_TextField.setVisible(true);
-        kdtEntryTotal_seq_TextField.setEditable(true);
-        kdtEntryTotal_seq_TextField.setHorizontalAlignment(2);
-        kdtEntryTotal_seq_TextField.setDataType(0);
-        KDTDefaultCellEditor kdtEntryTotal_seq_CellEditor = new KDTDefaultCellEditor(kdtEntryTotal_seq_TextField);
-        this.kdtEntryTotal.getColumn("seq").setEditor(kdtEntryTotal_seq_CellEditor);
         KDTextField kdtEntryTotal_indicators_TextField = new KDTextField();
         kdtEntryTotal_indicators_TextField.setName("kdtEntryTotal_indicators_TextField");
         kdtEntryTotal_indicators_TextField.setMaxLength(100);
