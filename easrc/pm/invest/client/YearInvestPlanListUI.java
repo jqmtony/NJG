@@ -3,14 +3,23 @@
  */
 package com.kingdee.eas.port.pm.invest.client;
 
+import java.awt.event.ActionEvent;
+
 import org.apache.log4j.Logger;
 
+import com.kingdee.bos.ctrl.kdf.table.IRow;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.common.client.UIFactoryName;
+import com.kingdee.eas.port.pm.invest.ObjectStateEnum;
+import com.kingdee.eas.port.pm.invest.YearInvestPlanFactory;
+import com.kingdee.eas.port.pm.invest.YearInvestPlanInfo;
+import com.kingdee.eas.util.SysUtil;
+import com.kingdee.eas.util.client.MsgBox;
+import com.kingdee.eas.xr.app.XRBillStatusEnum;
 
 /**
  * output class name
@@ -45,7 +54,18 @@ public class YearInvestPlanListUI extends AbstractYearInvestPlanListUI
     	filter.getFilterItems().add(new FilterItemInfo("CU.longnumber",cuNumber+"%",CompareType.LIKE));
     	return filter;
     }
-
+    public void actionEdit_actionPerformed(ActionEvent e) throws Exception {
+		int rowIndex =	this.tblMain.getSelectManager().getActiveRowIndex();
+	    IRow row = tblMain.getRow(rowIndex);
+		String id = row.getCell("id").getValue().toString();
+	    String oql = "select objectState where id='"+id+"'";
+     	YearInvestPlanInfo Info = YearInvestPlanFactory.getRemoteInstance().getYearInvestPlanInfo(oql);
+	    if(Info.getObjectState().equals(ObjectStateEnum.veto)){
+	    	MsgBox.showWarning("此项目已经被否决无法修改!");
+			SysUtil.abort();
+			}
+		super.actionEdit_actionPerformed(e);
+	}
     /**
      * output getBizInterface method
      */

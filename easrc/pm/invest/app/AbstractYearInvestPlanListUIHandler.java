@@ -11,7 +11,7 @@ import com.kingdee.eas.framework.batchHandler.ResponseContext;
 /**
  * output class name
  */
-public abstract class AbstractYearInvestPlanListUIHandler extends com.kingdee.eas.xr.app.XRBillBaseListUIHandler
+public abstract class AbstractYearInvestPlanListUIHandler extends com.kingdee.eas.framework.app.CoreUIObjectHandler
 
 {
 }

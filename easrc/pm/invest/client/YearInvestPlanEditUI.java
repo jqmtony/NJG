@@ -44,9 +44,12 @@ import com.kingdee.eas.port.pm.invest.CostTempE1Collection;
 import com.kingdee.eas.port.pm.invest.CostTempE1Info;
 import com.kingdee.eas.port.pm.invest.CostTempInfo;
 import com.kingdee.eas.port.pm.invest.ObjectStateEnum;
+import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
+import com.kingdee.eas.xr.app.XRBillStatusEnum;
 import com.kingdee.eas.xr.helper.PersonXRHelper;
+import com.kingdee.eas.xr.helper.WorkflowXRHelper;
 
 /**
  * output class name
@@ -619,9 +622,15 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 	 * output actionEdit_actionPerformed
 	 */
 	public void actionEdit_actionPerformed(ActionEvent e) throws Exception {
-		super.actionEdit_actionPerformed(e);
 		this.kDContainer1.removeAllButton();
 		initProWorkButton(this.kDContainer1, false);
+		 if(getOprtState().equals("VIEW"))
+		        checkCanEdit();
+		    if(editData.getObjectState().equals(ObjectStateEnum.veto)){
+				MsgBox.showWarning("此项目已经被否决无法修改!");
+				SysUtil.abort();
+			}
+		    super.actionEdit_actionPerformed(e);
 	}
 
 	/**
