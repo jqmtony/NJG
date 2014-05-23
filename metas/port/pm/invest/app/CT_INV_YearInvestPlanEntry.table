@@ -141,7 +141,7 @@
             <isMultilingual>false</isMultilingual>
             <isEncoded>false</isEncoded>
             <isNullable>false</isNullable>
-            <defaultValue />
+            <defaultValue>''</defaultValue>
             <sqlType>VARCHAR</sqlType>
             <length>44</length>
             <scale>0</scale>
@@ -149,7 +149,7 @@
         </column>
     </columns>
     <primaryKey>
-        <name>PK_YearInvestPlanE</name>
+        <name>PK_YearInvPlanE</name>
         <userDefined>true</userDefined>
         <primaryKeyColumns>
             <primaryKeyColumn>
@@ -161,46 +161,6 @@
             </primaryKeyColumn>
         </primaryKeyColumns>
     </primaryKey>
-    <foreignKeys>
-        <foreignKey>
-            <name>CFK_INV_INVYIPEArn</name>
-            <userDefined>true</userDefined>
-            <refTable>
-                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
-                <key name="name" value="CT_INV_YearInvestPlan" />
-            </refTable>
-            <fkColumnPairs>
-                <fkColumnPair>
-                    <sequence>0</sequence>
-                    <refColumn>
-                        <key name="name" value="FID" />
-                    </refColumn>
-                    <fkColumn>
-                        <key name="name" value="FParentID" />
-                    </fkColumn>
-                </fkColumnPair>
-            </fkColumnPairs>
-        </foreignKey>
-        <foreignKey>
-            <name>CFK_INV_INVYIPEOsT</name>
-            <userDefined>true</userDefined>
-            <refTable>
-                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
-                <key name="name" value="T_BAS_CostTypeTREE" />
-            </refTable>
-            <fkColumnPairs>
-                <fkColumnPair>
-                    <sequence>0</sequence>
-                    <refColumn>
-                        <key name="name" value="FID" />
-                    </refColumn>
-                    <fkColumn>
-                        <key name="name" value="CFCostTypeID" />
-                    </fkColumn>
-                </fkColumnPair>
-            </fkColumnPairs>
-        </foreignKey>
-    </foreignKeys>
     <resource>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YearInvestPlanEntry].alias">
             <lang locale="en_US" value="null" />
