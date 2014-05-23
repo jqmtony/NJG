@@ -11,12 +11,19 @@ import org.apache.log4j.Logger;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.eas.framework.*;
+import com.kingdee.eas.hr.emp.client.EmployeeMultiF7PromptBox;
 import com.kingdee.eas.port.pm.base.JudgesTreeInfo;
 import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
 import com.kingdee.eas.util.SysUtil;
+import com.kingdee.bos.metadata.entity.FilterInfo;
+import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.metadata.entity.SelectorItemInfo;
+import com.kingdee.bos.metadata.query.util.CompareType;
+import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
+import com.kingdee.eas.basedata.org.OrgConstants;
 import com.kingdee.eas.common.client.OprtState;
+import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.common.client.UIContext;
 
 /**
@@ -43,7 +50,24 @@ public class JudgesEditUI extends AbstractJudgesEditUI
 
     @Override
     public void onLoad() throws Exception {
-    	// TODO Auto-generated method stub
+    	//根据组织长编码过滤人员
+    	AdminOrgUnitInfo admiInfo = SysContext.getSysContext().getCurrentAdminUnit();
+//    	String sql = "select a.fid from t_bd_person a " +
+//    				 " left join T_ORG_PositionMember b " +
+//    			     " on b.FPersonID=a.fid and b.FIsPrimary='1'" +
+//    			     " left join T_ORG_Position c on c.fid=b.FPositionID" +
+//    			     " where c.FAdminOrgUnitID in (select fid from t_org_admin where flongnumber like '" + admiInfo.getLongNumber() + "%')";
+//    	FilterInfo filter = new FilterInfo();
+//        filter.getFilterItems().add(new FilterItemInfo("id", sql, CompareType.INNER));
+		EmployeeMultiF7PromptBox person = new EmployeeMultiF7PromptBox();
+		person.setIsSingleSelect(false);
+		person.showNoPositionPerson(false);
+		person.setIsShowAllAdmin(false);
+//		person.setNopositionPersonFilter(filter);
+		if(OrgConstants.DEF_CU_ID.equals(admiInfo.getId().toString()))
+			person.setIsShowAllAdmin(true);
+		this.prmtjuName.setSelector(person);
+		
     	prmtjudgeType.setEnabled(false);
     	super.onLoad();
     	kDLabelContainer2.setVisible(false);
