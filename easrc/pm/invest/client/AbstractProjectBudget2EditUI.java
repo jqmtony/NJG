@@ -254,6 +254,14 @@ public abstract class AbstractProjectBudget2EditUI extends com.kingdee.eas.xr.cl
 
 
         this.kdtE1.checkParsed();
+        KDFormattedTextField kdtE1_seq_TextField = new KDFormattedTextField();
+        kdtE1_seq_TextField.setName("kdtE1_seq_TextField");
+        kdtE1_seq_TextField.setVisible(true);
+        kdtE1_seq_TextField.setEditable(true);
+        kdtE1_seq_TextField.setHorizontalAlignment(2);
+        kdtE1_seq_TextField.setDataType(0);
+        KDTDefaultCellEditor kdtE1_seq_CellEditor = new KDTDefaultCellEditor(kdtE1_seq_TextField);
+        this.kdtE1.getColumn("seq").setEditor(kdtE1_seq_CellEditor);
         final KDBizPromptBox kdtE1_costName_PromptBox = new KDBizPromptBox();
         kdtE1_costName_PromptBox.setQueryInfo("com.kingdee.eas.port.pm.base.app.CostTypeQuery");
         kdtE1_costName_PromptBox.setVisible(true);
@@ -289,9 +297,9 @@ public abstract class AbstractProjectBudget2EditUI extends com.kingdee.eas.xr.cl
         kdtE1_total_TextField.setEditable(true);
         kdtE1_total_TextField.setHorizontalAlignment(2);
         kdtE1_total_TextField.setDataType(1);
-        	kdtE1_total_TextField.setMinimumValue(new java.math.BigDecimal("-1.0E18"));
-        	kdtE1_total_TextField.setMaximumValue(new java.math.BigDecimal("1.0E18"));
-        kdtE1_total_TextField.setPrecision(10);
+        	kdtE1_total_TextField.setMinimumValue(new java.math.BigDecimal("-1.0E26"));
+        	kdtE1_total_TextField.setMaximumValue(new java.math.BigDecimal("1.0E26"));
+        kdtE1_total_TextField.setPrecision(2);
         KDTDefaultCellEditor kdtE1_total_CellEditor = new KDTDefaultCellEditor(kdtE1_total_TextField);
         this.kdtE1.getColumn("total").setEditor(kdtE1_total_CellEditor);
         KDFormattedTextField kdtE1_constructCost_TextField = new KDFormattedTextField();
@@ -300,9 +308,9 @@ public abstract class AbstractProjectBudget2EditUI extends com.kingdee.eas.xr.cl
         kdtE1_constructCost_TextField.setEditable(true);
         kdtE1_constructCost_TextField.setHorizontalAlignment(2);
         kdtE1_constructCost_TextField.setDataType(1);
-        	kdtE1_constructCost_TextField.setMinimumValue(new java.math.BigDecimal("-1.0E18"));
-        	kdtE1_constructCost_TextField.setMaximumValue(new java.math.BigDecimal("1.0E18"));
-        kdtE1_constructCost_TextField.setPrecision(10);
+        	kdtE1_constructCost_TextField.setMinimumValue(new java.math.BigDecimal("-1.0E26"));
+        	kdtE1_constructCost_TextField.setMaximumValue(new java.math.BigDecimal("1.0E26"));
+        kdtE1_constructCost_TextField.setPrecision(2);
         KDTDefaultCellEditor kdtE1_constructCost_CellEditor = new KDTDefaultCellEditor(kdtE1_constructCost_TextField);
         this.kdtE1.getColumn("constructCost").setEditor(kdtE1_constructCost_CellEditor);
         KDFormattedTextField kdtE1_EPCost_TextField = new KDFormattedTextField();
@@ -311,9 +319,9 @@ public abstract class AbstractProjectBudget2EditUI extends com.kingdee.eas.xr.cl
         kdtE1_EPCost_TextField.setEditable(true);
         kdtE1_EPCost_TextField.setHorizontalAlignment(2);
         kdtE1_EPCost_TextField.setDataType(1);
-        	kdtE1_EPCost_TextField.setMinimumValue(new java.math.BigDecimal("-1.0E18"));
-        	kdtE1_EPCost_TextField.setMaximumValue(new java.math.BigDecimal("1.0E18"));
-        kdtE1_EPCost_TextField.setPrecision(10);
+        	kdtE1_EPCost_TextField.setMinimumValue(new java.math.BigDecimal("-1.0E26"));
+        	kdtE1_EPCost_TextField.setMaximumValue(new java.math.BigDecimal("1.0E26"));
+        kdtE1_EPCost_TextField.setPrecision(2);
         KDTDefaultCellEditor kdtE1_EPCost_CellEditor = new KDTDefaultCellEditor(kdtE1_EPCost_TextField);
         this.kdtE1.getColumn("EPCost").setEditor(kdtE1_EPCost_CellEditor);
         KDFormattedTextField kdtE1_installCost_TextField = new KDFormattedTextField();
@@ -322,9 +330,9 @@ public abstract class AbstractProjectBudget2EditUI extends com.kingdee.eas.xr.cl
         kdtE1_installCost_TextField.setEditable(true);
         kdtE1_installCost_TextField.setHorizontalAlignment(2);
         kdtE1_installCost_TextField.setDataType(1);
-        	kdtE1_installCost_TextField.setMinimumValue(new java.math.BigDecimal("-1.0E18"));
-        	kdtE1_installCost_TextField.setMaximumValue(new java.math.BigDecimal("1.0E18"));
-        kdtE1_installCost_TextField.setPrecision(10);
+        	kdtE1_installCost_TextField.setMinimumValue(new java.math.BigDecimal("-1.0E26"));
+        	kdtE1_installCost_TextField.setMaximumValue(new java.math.BigDecimal("1.0E26"));
+        kdtE1_installCost_TextField.setPrecision(2);
         KDTDefaultCellEditor kdtE1_installCost_CellEditor = new KDTDefaultCellEditor(kdtE1_installCost_TextField);
         this.kdtE1.getColumn("installCost").setEditor(kdtE1_installCost_CellEditor);
         KDFormattedTextField kdtE1_otherCost_TextField = new KDFormattedTextField();
@@ -333,9 +341,9 @@ public abstract class AbstractProjectBudget2EditUI extends com.kingdee.eas.xr.cl
         kdtE1_otherCost_TextField.setEditable(true);
         kdtE1_otherCost_TextField.setHorizontalAlignment(2);
         kdtE1_otherCost_TextField.setDataType(1);
-        	kdtE1_otherCost_TextField.setMinimumValue(new java.math.BigDecimal("-1.0E18"));
-        	kdtE1_otherCost_TextField.setMaximumValue(new java.math.BigDecimal("1.0E18"));
-        kdtE1_otherCost_TextField.setPrecision(10);
+        	kdtE1_otherCost_TextField.setMinimumValue(new java.math.BigDecimal("-1.0E26"));
+        	kdtE1_otherCost_TextField.setMaximumValue(new java.math.BigDecimal("1.0E26"));
+        kdtE1_otherCost_TextField.setPrecision(2);
         KDTDefaultCellEditor kdtE1_otherCost_CellEditor = new KDTDefaultCellEditor(kdtE1_otherCost_TextField);
         this.kdtE1.getColumn("otherCost").setEditor(kdtE1_otherCost_CellEditor);
         final KDBizPromptBox kdtE1_unit_PromptBox = new KDBizPromptBox();
@@ -356,9 +364,9 @@ public abstract class AbstractProjectBudget2EditUI extends com.kingdee.eas.xr.cl
         kdtE1_volume_TextField.setEditable(true);
         kdtE1_volume_TextField.setHorizontalAlignment(2);
         kdtE1_volume_TextField.setDataType(1);
-        	kdtE1_volume_TextField.setMinimumValue(new java.math.BigDecimal("-1.0E18"));
-        	kdtE1_volume_TextField.setMaximumValue(new java.math.BigDecimal("1.0E18"));
-        kdtE1_volume_TextField.setPrecision(10);
+        	kdtE1_volume_TextField.setMinimumValue(new java.math.BigDecimal("-1.0E26"));
+        	kdtE1_volume_TextField.setMaximumValue(new java.math.BigDecimal("1.0E26"));
+        kdtE1_volume_TextField.setPrecision(2);
         KDTDefaultCellEditor kdtE1_volume_CellEditor = new KDTDefaultCellEditor(kdtE1_volume_TextField);
         this.kdtE1.getColumn("volume").setEditor(kdtE1_volume_CellEditor);
         KDFormattedTextField kdtE1_index_TextField = new KDFormattedTextField();
@@ -367,9 +375,9 @@ public abstract class AbstractProjectBudget2EditUI extends com.kingdee.eas.xr.cl
         kdtE1_index_TextField.setEditable(true);
         kdtE1_index_TextField.setHorizontalAlignment(2);
         kdtE1_index_TextField.setDataType(1);
-        	kdtE1_index_TextField.setMinimumValue(new java.math.BigDecimal("-1.0E18"));
-        	kdtE1_index_TextField.setMaximumValue(new java.math.BigDecimal("1.0E18"));
-        kdtE1_index_TextField.setPrecision(10);
+        	kdtE1_index_TextField.setMinimumValue(new java.math.BigDecimal("-1.0E26"));
+        	kdtE1_index_TextField.setMaximumValue(new java.math.BigDecimal("1.0E26"));
+        kdtE1_index_TextField.setPrecision(2);
         KDTDefaultCellEditor kdtE1_index_CellEditor = new KDTDefaultCellEditor(kdtE1_index_TextField);
         this.kdtE1.getColumn("index").setEditor(kdtE1_index_CellEditor);
         KDFormattedTextField kdtE1_proportion_TextField = new KDFormattedTextField();

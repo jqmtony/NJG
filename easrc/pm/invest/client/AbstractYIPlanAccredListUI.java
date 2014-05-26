@@ -83,10 +83,10 @@ public abstract class AbstractYIPlanAccredListUI extends com.kingdee.eas.xr.clie
          this.actionRemove.addService(new com.kingdee.eas.framework.client.service.NetFunctionService());
          this.actionRemove.addService(new com.kingdee.eas.framework.client.service.UserMonitorService());
         // CoreUI
-		String tblMainStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol9\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol10\"><c:Protection hidden=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"accredPerson.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"E1_projectType.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"E1.projectName.projectName\" t:width=\"150\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"E1.amount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"E1.projectConclude\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"E1.contentSReq\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"E1.company.name\" t:width=\"150\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"accredType\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"E1.accredResu\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol9\" /><t:Column t:key=\"remark\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol10\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{accredPerson.name}</t:Cell><t:Cell>$Resource{E1_projectType.name}</t:Cell><t:Cell>$Resource{E1.projectName.projectName}</t:Cell><t:Cell>$Resource{E1.amount}</t:Cell><t:Cell>$Resource{E1.projectConclude}</t:Cell><t:Cell>$Resource{E1.contentSReq}</t:Cell><t:Cell>$Resource{E1.company.name}</t:Cell><t:Cell>$Resource{accredType}</t:Cell><t:Cell>$Resource{E1.accredResu}</t:Cell><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{remark}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		String tblMainStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol11\"><c:Protection hidden=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"status\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"accredType\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"CU.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"creator.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"createTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"lastUpdateUser.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"lastUpdateTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"auditor.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"accredDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"remark\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol11\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{status}</t:Cell><t:Cell>$Resource{number}</t:Cell><t:Cell>$Resource{accredType}</t:Cell><t:Cell>$Resource{CU.name}</t:Cell><t:Cell>$Resource{creator.name}</t:Cell><t:Cell>$Resource{createTime}</t:Cell><t:Cell>$Resource{lastUpdateUser.name}</t:Cell><t:Cell>$Resource{lastUpdateTime}</t:Cell><t:Cell>$Resource{auditor.name}</t:Cell><t:Cell>$Resource{accredDate}</t:Cell><t:Cell>$Resource{remark}</t:Cell><t:Cell>$Resource{id}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.tblMain.setFormatXml(resHelper.translateString("tblMain",tblMainStrXML));
-                this.tblMain.putBindContents("mainQuery",new String[] {"accredPerson.name","E1_projectType.name","E1.projectName.projectName","E1.amount","E1.projectConclude","E1.contentSReq","E1.company.name","accredType","E1.accredResu","id","remark"});
+                this.tblMain.putBindContents("mainQuery",new String[] {"status","number","accredType","CU.name","creator.name","createTime","lastUpdateUser.name","lastUpdateTime","auditor.name","accredDate","remark","id"});
 
 
         this.tblMain.checkParsed();
@@ -377,17 +377,18 @@ public abstract class AbstractYIPlanAccredListUI extends com.kingdee.eas.xr.clie
 		if(StringUtils.isEmpty(selectorAll)){
 			selectorAll = "true";
 		}
-        sic.add(new SelectorItemInfo("accredPerson.name"));
-        sic.add(new SelectorItemInfo("E1_projectType.name"));
-        sic.add(new SelectorItemInfo("E1.projectName.projectName"));
-        sic.add(new SelectorItemInfo("E1.amount"));
-        sic.add(new SelectorItemInfo("E1.projectConclude"));
-        sic.add(new SelectorItemInfo("E1.contentSReq"));
-        sic.add(new SelectorItemInfo("E1.company.name"));
+        sic.add(new SelectorItemInfo("status"));
+        sic.add(new SelectorItemInfo("number"));
         sic.add(new SelectorItemInfo("accredType"));
-        sic.add(new SelectorItemInfo("E1.accredResu"));
-        sic.add(new SelectorItemInfo("id"));
+        sic.add(new SelectorItemInfo("CU.name"));
+        sic.add(new SelectorItemInfo("creator.name"));
+        sic.add(new SelectorItemInfo("createTime"));
+        sic.add(new SelectorItemInfo("lastUpdateUser.name"));
+        sic.add(new SelectorItemInfo("lastUpdateTime"));
+        sic.add(new SelectorItemInfo("auditor.name"));
+        sic.add(new SelectorItemInfo("accredDate"));
         sic.add(new SelectorItemInfo("remark"));
+        sic.add(new SelectorItemInfo("id"));
         return sic;
     }            protected java.util.List getQuerySorterFields() 
     { 
@@ -466,7 +467,7 @@ public abstract class AbstractYIPlanAccredListUI extends com.kingdee.eas.xr.clie
      */
     public String[] getMergeColumnKeys()
     {
-        return new String[] {"accredPerson.name","E1_projectType.name","E1.projectName.projectName","E1.company.name","accredType","id","remark"};
+        return new String[] {"status","number","accredType","CU.name","creator.name","createTime","lastUpdateUser.name","lastUpdateTime","auditor.name","accredDate","remark","id"};
     }
 
 

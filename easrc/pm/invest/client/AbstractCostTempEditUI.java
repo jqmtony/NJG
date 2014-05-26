@@ -773,9 +773,11 @@ public abstract class AbstractCostTempEditUI extends com.kingdee.eas.xr.client.X
     public void kdtE1_Changed(int rowIndex,int colIndex) throws Exception
     {
             if ("costType".equalsIgnoreCase(kdtE1.getColumn(colIndex).getKey())) {
-kdtE1.getCell(rowIndex,"costNames").setValue(com.kingdee.bos.ui.face.UIRuleUtil.getString(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)kdtE1.getCell(rowIndex,"costType").getValue(),"name")));
+kdtE1.getCell(rowIndex,"costName").setValue(com.kingdee.bos.ui.face.UIRuleUtil.getString(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)kdtE1.getCell(rowIndex,"costType").getValue(),"name")));
 
-         }
+}
+
+
     }
     /**
      * output getSelectors method

@@ -18,7 +18,7 @@ public class AbstractYIPlanAccredE1E2Info extends com.kingdee.eas.framework.Core
         super(pkField);
     }
     /**
-     * Object: 第2个表体 's null property 
+     * Object: 评审信息 's null property 
      */
     public com.kingdee.eas.port.pm.invest.YIPlanAccredE1Info getParent1()
     {
@@ -29,7 +29,7 @@ public class AbstractYIPlanAccredE1E2Info extends com.kingdee.eas.framework.Core
         put("parent1", item);
     }
     /**
-     * Object: 第2个表体 's 评审部门 property 
+     * Object: 评审信息 's 评审部门 property 
      */
     public com.kingdee.eas.basedata.org.AdminOrgUnitInfo getAccredDpart()
     {
@@ -40,7 +40,7 @@ public class AbstractYIPlanAccredE1E2Info extends com.kingdee.eas.framework.Core
         put("accredDpart", item);
     }
     /**
-     * Object: 第2个表体 's 评审人员 property 
+     * Object: 评审信息 's 评审人员 property 
      */
     public com.kingdee.eas.basedata.person.PersonInfo getAccredPerson()
     {
@@ -51,7 +51,7 @@ public class AbstractYIPlanAccredE1E2Info extends com.kingdee.eas.framework.Core
         put("accredPerson", item);
     }
     /**
-     * Object:第2个表体's 意见property 
+     * Object:评审信息's 意见property 
      */
     public String getOpinion()
     {
@@ -62,18 +62,7 @@ public class AbstractYIPlanAccredE1E2Info extends com.kingdee.eas.framework.Core
         setString("opinion", item);
     }
     /**
-     * Object:第2个表体's 评审结论property 
-     */
-    public String getAccreConclu()
-    {
-        return getString("accreConclu");
-    }
-    public void setAccreConclu(String item)
-    {
-        setString("accreConclu", item);
-    }
-    /**
-     * Object:第2个表体's 备注property 
+     * Object:评审信息's 备注property 
      */
     public String getRemark()
     {
@@ -82,6 +71,19 @@ public class AbstractYIPlanAccredE1E2Info extends com.kingdee.eas.framework.Core
     public void setRemark(String item)
     {
         setString("remark", item);
+    }
+    /**
+     * Object:评审信息's 评审结论property 
+     */
+    public com.kingdee.eas.port.pm.invest.ObjectStateEnum getAccreConclu()
+    {
+        return com.kingdee.eas.port.pm.invest.ObjectStateEnum.getEnum(getString("accreConclu"));
+    }
+    public void setAccreConclu(com.kingdee.eas.port.pm.invest.ObjectStateEnum item)
+    {
+		if (item != null) {
+        setString("accreConclu", item.getValue());
+		}
     }
     public BOSObjectType getBOSType()
     {

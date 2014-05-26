@@ -19,7 +19,6 @@ import com.kingdee.eas.port.pm.invest.YearInvestPlanFactory;
 import com.kingdee.eas.port.pm.invest.YearInvestPlanInfo;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.MsgBox;
-import com.kingdee.eas.xr.app.XRBillStatusEnum;
 
 /**
  * output class name
@@ -55,7 +54,7 @@ public class YearInvestPlanListUI extends AbstractYearInvestPlanListUI
     	return filter;
     }
     public void actionEdit_actionPerformed(ActionEvent e) throws Exception {
-		int rowIndex =	this.tblMain.getSelectManager().getActiveRowIndex();
+		int rowIndex = this.tblMain.getSelectManager().getActiveRowIndex();
 	    IRow row = tblMain.getRow(rowIndex);
 		String id = row.getCell("id").getValue().toString();
 	    String oql = "select objectState where id='"+id+"'";
@@ -64,6 +63,10 @@ public class YearInvestPlanListUI extends AbstractYearInvestPlanListUI
 	    	MsgBox.showWarning("此项目已经被否决无法修改!");
 			SysUtil.abort();
 			}
+	    if(Info.getObjectState().equals(ObjectStateEnum.approval)){
+	    	MsgBox.showWarning("此项目已经立项无法修改!");
+			SysUtil.abort();
+	    }
 		super.actionEdit_actionPerformed(e);
 	}
     /**

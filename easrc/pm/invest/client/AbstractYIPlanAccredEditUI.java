@@ -366,7 +366,7 @@ public abstract class AbstractYIPlanAccredEditUI extends com.kingdee.eas.xr.clie
             }
         });
         // kdtE1
-		String kdtE1StrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /><c:NumberFormat>&amp;int</c:NumberFormat></c:Style><c:Style id=\"sCol4\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"company\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"projectType\" t:width=\"150\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"projectName\" t:width=\"150\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"amount\" t:width=\"150\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol4\" /><t:Column t:key=\"contentSReq\" t:width=\"300\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"accredResu\" t:width=\"150\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"projectConclude\" t:width=\"150\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{company}</t:Cell><t:Cell>$Resource{projectType}</t:Cell><t:Cell>$Resource{projectName}</t:Cell><t:Cell>$Resource{amount}</t:Cell><t:Cell>$Resource{contentSReq}</t:Cell><t:Cell>$Resource{accredResu}</t:Cell><t:Cell>$Resource{projectConclude}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		String kdtE1StrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /><c:NumberFormat>&amp;int</c:NumberFormat></c:Style><c:Style id=\"sCol4\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"company\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"projectType\" t:width=\"150\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"projectName\" t:width=\"150\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"amount\" t:width=\"150\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol4\" /><t:Column t:key=\"contentSReq\" t:width=\"300\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"accredResu\" t:width=\"150\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"projectConclude\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{company}</t:Cell><t:Cell>$Resource{projectType}</t:Cell><t:Cell>$Resource{projectName}</t:Cell><t:Cell>$Resource{amount}</t:Cell><t:Cell>$Resource{contentSReq}</t:Cell><t:Cell>$Resource{accredResu}</t:Cell><t:Cell>$Resource{projectConclude}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.kdtE1.setFormatXml(resHelper.translateString("kdtE1",kdtE1StrXML));
         this.kdtE1.addKDTMouseListener(new com.kingdee.bos.ctrl.kdf.table.event.KDTMouseListener() {
@@ -376,6 +376,15 @@ public abstract class AbstractYIPlanAccredEditUI extends com.kingdee.eas.xr.clie
                 } catch (Exception exc) {
                     handUIException(exc);
                 } finally {
+                }
+            }
+        });
+        this.kdtE1.addKDTEditListener(new com.kingdee.bos.ctrl.kdf.table.event.KDTEditAdapter() {
+            public void editStopped(com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent e) {
+                try {
+                    kdtE1_editStopped(e);
+                } catch(Exception exc) {
+                    handUIException(exc);
                 }
             }
         });
@@ -438,11 +447,11 @@ public abstract class AbstractYIPlanAccredEditUI extends com.kingdee.eas.xr.clie
         KDTDefaultCellEditor kdtE1_accredResu_CellEditor = new KDTDefaultCellEditor(kdtE1_accredResu_ComboBox);
         this.kdtE1.getColumn("accredResu").setEditor(kdtE1_accredResu_CellEditor);
         // kdtE2
-		String kdtE2StrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"accredDpart\" t:width=\"150\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"accredPerson\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"opinion\" t:width=\"300\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"accreConclu\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"remark\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{accredDpart}</t:Cell><t:Cell>$Resource{accredPerson}</t:Cell><t:Cell>$Resource{opinion}</t:Cell><t:Cell>$Resource{accreConclu}</t:Cell><t:Cell>$Resource{remark}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		String kdtE2StrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"accredDpart\" t:width=\"150\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"accredPerson\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"accreConclu\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"3\" /><t:Column t:key=\"opinion\" t:width=\"300\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"4\" /><t:Column t:key=\"remark\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"5\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{accredDpart}</t:Cell><t:Cell>$Resource{accredPerson}</t:Cell><t:Cell>$Resource{accreConclu}</t:Cell><t:Cell>$Resource{opinion}</t:Cell><t:Cell>$Resource{remark}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.kdtE2.setFormatXml(resHelper.translateString("kdtE2",kdtE2StrXML));
 
-                this.kdtE2.putBindContents("editData",new String[] {"E2.seq","E2.accredDpart","E2.accredPerson","E2.opinion","E2.accreConclu","E2.remark"});
+                this.kdtE2.putBindContents("editData",new String[] {"E2.seq","E2.accredDpart","E2.accredPerson","E2.accreConclu","E2.opinion","E2.remark"});
 
 
         this.kdtE2.checkParsed();
@@ -470,16 +479,17 @@ public abstract class AbstractYIPlanAccredEditUI extends com.kingdee.eas.xr.clie
         ObjectValueRender kdtE2_accredPerson_OVR = new ObjectValueRender();
         kdtE2_accredPerson_OVR.setFormat(new BizDataFormat("$name$"));
         this.kdtE2.getColumn("accredPerson").setRenderer(kdtE2_accredPerson_OVR);
+        KDComboBox kdtE2_accreConclu_ComboBox = new KDComboBox();
+        kdtE2_accreConclu_ComboBox.setName("kdtE2_accreConclu_ComboBox");
+        kdtE2_accreConclu_ComboBox.setVisible(true);
+        kdtE2_accreConclu_ComboBox.addItems(EnumUtils.getEnumList("com.kingdee.eas.port.pm.invest.ObjectStateEnum").toArray());
+        KDTDefaultCellEditor kdtE2_accreConclu_CellEditor = new KDTDefaultCellEditor(kdtE2_accreConclu_ComboBox);
+        this.kdtE2.getColumn("accreConclu").setEditor(kdtE2_accreConclu_CellEditor);
         KDTextField kdtE2_opinion_TextField = new KDTextField();
         kdtE2_opinion_TextField.setName("kdtE2_opinion_TextField");
         kdtE2_opinion_TextField.setMaxLength(255);
         KDTDefaultCellEditor kdtE2_opinion_CellEditor = new KDTDefaultCellEditor(kdtE2_opinion_TextField);
         this.kdtE2.getColumn("opinion").setEditor(kdtE2_opinion_CellEditor);
-        KDTextField kdtE2_accreConclu_TextField = new KDTextField();
-        kdtE2_accreConclu_TextField.setName("kdtE2_accreConclu_TextField");
-        kdtE2_accreConclu_TextField.setMaxLength(100);
-        KDTDefaultCellEditor kdtE2_accreConclu_CellEditor = new KDTDefaultCellEditor(kdtE2_accreConclu_TextField);
-        this.kdtE2.getColumn("accreConclu").setEditor(kdtE2_accreConclu_CellEditor);
         KDTextField kdtE2_remark_TextField = new KDTextField();
         kdtE2_remark_TextField.setName("kdtE2_remark_TextField");
         kdtE2_remark_TextField.setMaxLength(255);
@@ -496,7 +506,7 @@ public abstract class AbstractYIPlanAccredEditUI extends com.kingdee.eas.xr.clie
         this.txtremark.setHorizontalAlignment(2);		
         this.txtremark.setMaxLength(100);		
         this.txtremark.setRequired(false);
-        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {pkaccredDate,kdtE2,prmtaccredPerson,prmtCU,pkLastUpdateTime,prmtLastUpdateUser,pkCreateTime,prmtCreator,prmtAuditor,txtDescription,pkBizDate,txtNumber,pkAuditTime,comboBizStatus,comboStatus,accredType,txtremark,kdtE1}));
+        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {kdtE2,pkaccredDate,prmtaccredPerson,prmtCU,pkLastUpdateTime,prmtLastUpdateUser,pkCreateTime,prmtCreator,prmtAuditor,txtDescription,pkBizDate,txtNumber,pkAuditTime,comboBizStatus,comboStatus,accredType,txtremark,kdtE1,accredInformation}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
 		registerBindings();
@@ -605,6 +615,14 @@ vo.put("accredResu","1");
         //kDContainer2
 kDContainer2.getContentPane().setLayout(new BorderLayout(0, 0));        kdtE2_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtE2,new com.kingdee.eas.port.pm.invest.YIPlanAccredE1E2Info(),null,false);
         kDContainer2.getContentPane().add(kdtE2_detailPanel, BorderLayout.NORTH);
+		kdtE2_detailPanel.addAddListener(new com.kingdee.eas.framework.client.multiDetail.IDetailPanelListener() {
+			public void beforeEvent(com.kingdee.eas.framework.client.multiDetail.DetailPanelEvent event) throws Exception {
+				IObjectValue vo = event.getObjectValue();
+vo.put("accreConclu","1");
+			}
+			public void afterEvent(com.kingdee.eas.framework.client.multiDetail.DetailPanelEvent event) throws Exception {
+			}
+		});
         kDContainer2.getContentPane().add(kDLabelContainer1, BorderLayout.SOUTH);
         //kDLabelContainer1
         kDLabelContainer1.setBoundEditor(kDScrollPane1);
@@ -814,8 +832,8 @@ kDContainer2.getContentPane().setLayout(new BorderLayout(0, 0));        kdtE2_de
 		dataBinder.registerBinding("E1.E2.accredDpart", java.lang.Object.class, this.kdtE2, "accredDpart.text");
 		dataBinder.registerBinding("E1.E2.accredPerson", java.lang.Object.class, this.kdtE2, "accredPerson.text");
 		dataBinder.registerBinding("E1.E2.opinion", String.class, this.kdtE2, "opinion.text");
-		dataBinder.registerBinding("E1.E2.accreConclu", String.class, this.kdtE2, "accreConclu.text");
 		dataBinder.registerBinding("E1.E2.remark", String.class, this.kdtE2, "remark.text");
+		dataBinder.registerBinding("E1.E2.accreConclu", com.kingdee.util.enums.Enum.class, this.kdtE2, "accreConclu.text");
 		dataBinder.registerBinding("accredInformation", String.class, this.accredInformation, "text");
 		dataBinder.registerBinding("remark", String.class, this.txtremark, "text");		
 	}
@@ -849,7 +867,7 @@ kDContainer2.getContentPane().setLayout(new BorderLayout(0, 0));        kdtE2_de
     public void onShow() throws Exception
     {
         super.onShow();
-        this.pkaccredDate.requestFocusInWindow();
+        this.kdtE2.requestFocusInWindow();
     }
 
 	
@@ -981,8 +999,8 @@ kDContainer2.getContentPane().setLayout(new BorderLayout(0, 0));        kdtE2_de
 		getValidateHelper().registerBindProperty("E1.E2.accredDpart", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("E1.E2.accredPerson", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("E1.E2.opinion", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("E1.E2.accreConclu", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("E1.E2.remark", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("E1.E2.accreConclu", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("accredInformation", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("remark", ValidateHelper.ON_SAVE);    		
 	}
@@ -1021,6 +1039,14 @@ kDContainer2.getContentPane().setLayout(new BorderLayout(0, 0));        kdtE2_de
      */
     protected void kdtE1_tableClicked(com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent e) throws Exception
     {
+    }
+
+    /**
+     * output kdtE1_editStopped method
+     */
+    protected void kdtE1_editStopped(com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent e) throws Exception
+    {
+        //write your code here00
     }
 
     /**
@@ -1153,8 +1179,8 @@ kDContainer2.getContentPane().setLayout(new BorderLayout(0, 0));        kdtE2_de
         	sic.add(new SelectorItemInfo("E1.E2.accredPerson.number"));
 		}
     	sic.add(new SelectorItemInfo("E1.E2.opinion"));
-    	sic.add(new SelectorItemInfo("E1.E2.accreConclu"));
     	sic.add(new SelectorItemInfo("E1.E2.remark"));
+    	sic.add(new SelectorItemInfo("E1.E2.accreConclu"));
         sic.add(new SelectorItemInfo("accredInformation"));
         sic.add(new SelectorItemInfo("remark"));
         return sic;

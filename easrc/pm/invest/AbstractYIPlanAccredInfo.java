@@ -19,7 +19,7 @@ public class AbstractYIPlanAccredInfo extends com.kingdee.eas.xr.XRBillBaseInfo 
         put("E1", new com.kingdee.eas.port.pm.invest.YIPlanAccredE1Collection());
     }
     /**
-     * Object: 年度投资计划评审 's 第1个表体 property 
+     * Object: 年度投资计划评审 's 投资信息 property 
      */
     public com.kingdee.eas.port.pm.invest.YIPlanAccredE1Collection getE1()
     {

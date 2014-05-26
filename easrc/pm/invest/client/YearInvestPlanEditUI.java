@@ -13,6 +13,8 @@ import java.util.Calendar;
 import java.util.Date;
 
 import org.apache.log4j.Logger;
+
+import com.kingdee.bos.appframework.stateManage.ObjectState;
 import com.kingdee.bos.ctrl.extendcontrols.BizDataFormat;
 import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
@@ -31,6 +33,7 @@ import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.eas.base.core.fm.ClientVerifyHelper;
 import com.kingdee.eas.base.permission.UserInfo;
+import com.kingdee.eas.basedata.assistant.CurrencyInfo;
 import com.kingdee.eas.basedata.org.AdminOrgUnitCollection;
 import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
 import com.kingdee.eas.basedata.person.PersonInfo;
@@ -44,12 +47,12 @@ import com.kingdee.eas.port.pm.invest.CostTempE1Collection;
 import com.kingdee.eas.port.pm.invest.CostTempE1Info;
 import com.kingdee.eas.port.pm.invest.CostTempInfo;
 import com.kingdee.eas.port.pm.invest.ObjectStateEnum;
+import com.kingdee.eas.port.pm.invest.YearInvestPlanInfo;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
 import com.kingdee.eas.xr.app.XRBillStatusEnum;
 import com.kingdee.eas.xr.helper.PersonXRHelper;
-import com.kingdee.eas.xr.helper.WorkflowXRHelper;
 
 /**
  * output class name
@@ -630,6 +633,10 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 				MsgBox.showWarning("此项目已经被否决无法修改!");
 				SysUtil.abort();
 			}
+		    if(editData.getObjectState().equals(ObjectStateEnum.approval)){
+		    	MsgBox.showWarning("此项目已经立项无法修改!");
+				SysUtil.abort();
+		    }
 		    super.actionEdit_actionPerformed(e);
 	}
 

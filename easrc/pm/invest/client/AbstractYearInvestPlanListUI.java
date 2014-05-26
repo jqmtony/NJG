@@ -43,16 +43,16 @@ import com.kingdee.bos.appframework.uip.UINavigator;
 /**
  * output class name
  */
-public abstract class AbstractYearInvestPlanListUI extends CoreUIObject
+public abstract class AbstractYearInvestPlanListUI extends com.kingdee.eas.xr.client.XRBillBaseListUI
 {
     private static final Logger logger = CoreUIObject.getLogger(AbstractYearInvestPlanListUI.class);
-    protected ResourceBundleHelper resHelper = null;
     /**
      * output class constructor
      */
     public AbstractYearInvestPlanListUI() throws Exception
     {
         super();
+        this.defaultObjectName = "mainQuery";
         jbInit();
         
         initUIP();
@@ -65,6 +65,32 @@ public abstract class AbstractYearInvestPlanListUI extends CoreUIObject
     {
         this.resHelper = new ResourceBundleHelper(AbstractYearInvestPlanListUI.class.getName());
         this.setUITitle(resHelper.getString("this.title"));
+        mainQueryPK = new MetaDataPK("com.kingdee.eas.port.pm.invest.app", "YearInvestPlanQuery");
+        //actionRemove
+        String _tempStr = null;
+        actionRemove.setEnabled(true);
+        actionRemove.setDaemonRun(false);
+
+        actionRemove.putValue(ItemAction.ACCELERATOR_KEY, KeyStroke.getKeyStroke("ctrl D"));
+        _tempStr = resHelper.getString("ActionRemove.SHORT_DESCRIPTION");
+        actionRemove.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+        _tempStr = resHelper.getString("ActionRemove.LONG_DESCRIPTION");
+        actionRemove.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+        _tempStr = resHelper.getString("ActionRemove.NAME");
+        actionRemove.putValue(ItemAction.NAME, _tempStr);
+        this.actionRemove.setBindWorkFlow(true);
+         this.actionRemove.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+         this.actionRemove.addService(new com.kingdee.eas.framework.client.service.NetFunctionService());
+         this.actionRemove.addService(new com.kingdee.eas.framework.client.service.UserMonitorService());
+        // CoreUI
+		String tblMainStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol16\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol17\"><c:Protection hidden=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"projectName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"status\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"objectState\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"CU.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"requestOrg.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"requestPerson.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"planStartDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"planEndDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"amount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"investAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"chancedAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"addInvestAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"year\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"planType\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"address\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"CU.id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol16\" /><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol17\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{number}</t:Cell><t:Cell>$Resource{projectName}</t:Cell><t:Cell>$Resource{status}</t:Cell><t:Cell>$Resource{objectState}</t:Cell><t:Cell>$Resource{CU.name}</t:Cell><t:Cell>$Resource{requestOrg.name}</t:Cell><t:Cell>$Resource{requestPerson.name}</t:Cell><t:Cell>$Resource{planStartDate}</t:Cell><t:Cell>$Resource{planEndDate}</t:Cell><t:Cell>$Resource{amount}</t:Cell><t:Cell>$Resource{investAmount}</t:Cell><t:Cell>$Resource{chancedAmount}</t:Cell><t:Cell>$Resource{addInvestAmount}</t:Cell><t:Cell>$Resource{year}</t:Cell><t:Cell>$Resource{planType}</t:Cell><t:Cell>$Resource{address}</t:Cell><t:Cell>$Resource{CU.id}</t:Cell><t:Cell>$Resource{id}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		
+        this.tblMain.setFormatXml(resHelper.translateString("tblMain",tblMainStrXML));
+                this.tblMain.putBindContents("mainQuery",new String[] {"number","projectName","status","objectState","CU.name","requestOrg.name","requestPerson.name","planStartDate","planEndDate","amount","investAmount","chancedAmount","addInvestAmount","year","planType","address","CU.id","id"});
+
+
+        this.tblMain.checkParsed();
+        this.tblMain.getGroupManager().setGroup(true);
 		//Register control's property binding
 		registerBindings();
 		registerUIState();
@@ -72,6 +98,14 @@ public abstract class AbstractYearInvestPlanListUI extends CoreUIObject
 
     }
 
+	public com.kingdee.bos.ctrl.swing.KDToolBar[] getUIMultiToolBar(){
+		java.util.List list = new java.util.ArrayList();
+		com.kingdee.bos.ctrl.swing.KDToolBar[] bars = super.getUIMultiToolBar();
+		if (bars != null) {
+			list.addAll(java.util.Arrays.asList(bars));
+		}
+		return (com.kingdee.bos.ctrl.swing.KDToolBar[])list.toArray(new com.kingdee.bos.ctrl.swing.KDToolBar[list.size()]);
+	}
 
 
 
@@ -81,6 +115,12 @@ public abstract class AbstractYearInvestPlanListUI extends CoreUIObject
      */
     public void initUIContentLayout()
     {
+        this.setBounds(new Rectangle(10, 10, 1013, 629));
+        this.setLayout(new KDLayout());
+        this.putClientProperty("OriginalBounds", new Rectangle(10, 10, 1013, 629));
+        tblMain.setBounds(new Rectangle(10, 10, 996, 580));
+        this.add(tblMain, new KDLayout.Constraints(10, 10, 996, 580, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+
     }
 
 
@@ -89,6 +129,91 @@ public abstract class AbstractYearInvestPlanListUI extends CoreUIObject
      */
     public void initUIMenuBarLayout()
     {
+        this.menuBar.add(menuFile);
+        this.menuBar.add(menuEdit);
+        this.menuBar.add(MenuService);
+        this.menuBar.add(menuView);
+        this.menuBar.add(menuBiz);
+        this.menuBar.add(menuTool);
+        this.menuBar.add(menuWorkFlow);
+        this.menuBar.add(menuTools);
+        this.menuBar.add(menuHelp);
+        //menuFile
+        menuFile.add(menuItemAddNew);
+        menuFile.add(menuItemImportData);
+        menuFile.add(menuItemCloudFeed);
+        menuFile.add(menuItemExportData);
+        menuFile.add(menuItemCloudScreen);
+        menuFile.add(separatorFile1);
+        menuFile.add(menuItemCloudShare);
+        menuFile.add(MenuItemAttachment);
+        menuFile.add(kDSeparator1);
+        menuFile.add(kdSeparatorFWFile1);
+        menuFile.add(menuItemPageSetup);
+        menuFile.add(menuItemPrint);
+        menuFile.add(menuItemPrintPreview);
+        menuFile.add(kDSeparator2);
+        menuFile.add(menuItemExitCurrent);
+        //menuEdit
+        menuEdit.add(menuItemEdit);
+        menuEdit.add(menuItemRemove);
+        menuEdit.add(kDSeparator3);
+        menuEdit.add(menuItemCreateTo);
+        menuEdit.add(menuItemCopyTo);
+        menuEdit.add(kDSeparator4);
+        //MenuService
+        MenuService.add(MenuItemKnowStore);
+        MenuService.add(MenuItemAnwser);
+        MenuService.add(SepratorService);
+        MenuService.add(MenuItemRemoteAssist);
+        //menuView
+        menuView.add(menuItemView);
+        menuView.add(menuItemLocate);
+        menuView.add(kDSeparator5);
+        menuView.add(menuItemQuery);
+        menuView.add(menuItemRefresh);
+        menuView.add(menuItemSwitchView);
+        menuView.add(separatorView1);
+        menuView.add(menuItemTraceUp);
+        menuView.add(menuItemTraceDown);
+        menuView.add(menuItemQueryScheme);
+        menuView.add(kDSeparator6);
+        //menuBiz
+        menuBiz.add(menuItemCancelCancel);
+        menuBiz.add(menuItemCancel);
+        menuBiz.add(menuItemVoucher);
+        menuBiz.add(menuItemDelVoucher);
+        //menuTool
+        menuTool.add(menuItemSendMessage);
+        menuTool.add(menuItemCalculator);
+        menuTool.add(menuItemToolBarCustom);
+        //menuWorkFlow
+        menuWorkFlow.add(menuItemViewDoProccess);
+        menuWorkFlow.add(menuItemMultiapprove);
+        menuWorkFlow.add(menuItemWorkFlowG);
+        menuWorkFlow.add(menuItemWorkFlowList);
+        menuWorkFlow.add(separatorWF1);
+        menuWorkFlow.add(menuItemNextPerson);
+        menuWorkFlow.add(menuItemAuditResult);
+        menuWorkFlow.add(kDSeparator7);
+        menuWorkFlow.add(menuItemSendSmsMessage);
+        //menuTools
+        menuTools.add(menuMail);
+        menuTools.add(menuItemStartWorkFlow);
+        menuTools.add(menuItemPublishReport);
+        //menuMail
+        menuMail.add(menuItemToHTML);
+        menuMail.add(menuItemCopyScreen);
+        menuMail.add(menuItemToExcel);
+        //menuHelp
+        menuHelp.add(menuItemHelp);
+        menuHelp.add(kDSeparator12);
+        menuHelp.add(menuItemRegPro);
+        menuHelp.add(menuItemPersonalSite);
+        menuHelp.add(helpseparatorDiv);
+        menuHelp.add(menuitemProductval);
+        menuHelp.add(kDSeparatorProduct);
+        menuHelp.add(menuItemAbout);
 
     }
 
@@ -97,6 +222,44 @@ public abstract class AbstractYearInvestPlanListUI extends CoreUIObject
      */
     public void initUIToolBarLayout()
     {
+        this.toolBar.add(btnAddNew);
+        this.toolBar.add(btnCloud);
+        this.toolBar.add(btnView);
+        this.toolBar.add(kDSeparatorCloud);
+        this.toolBar.add(btnEdit);
+        this.toolBar.add(btnRemove);
+        this.toolBar.add(btnRefresh);
+        this.toolBar.add(btnQuery);
+        this.toolBar.add(btnLocate);
+        this.toolBar.add(btnAttachment);
+        this.toolBar.add(btnAudit);
+        this.toolBar.add(btnUnAudit);
+        this.toolBar.add(separatorFW1);
+        this.toolBar.add(btnPageSetup);
+        this.toolBar.add(btnPrint);
+        this.toolBar.add(btnPrintPreview);
+        this.toolBar.add(separatorFW2);
+        this.toolBar.add(btnCreateTo);
+        this.toolBar.add(btnCopyTo);
+        this.toolBar.add(btnQueryScheme);
+        this.toolBar.add(separatorFW3);
+        this.toolBar.add(btnTraceUp);
+        this.toolBar.add(btnTraceDown);
+        this.toolBar.add(btnWorkFlowG);
+        this.toolBar.add(btnWorkFlowList);
+        this.toolBar.add(btnSignature);
+        this.toolBar.add(btnNumberSign);
+        this.toolBar.add(btnViewSignature);
+        this.toolBar.add(separatorFW4);
+        this.toolBar.add(btnVoucher);
+        this.toolBar.add(btnDelVoucher);
+        this.toolBar.add(btnMultiapprove);
+        this.toolBar.add(btnNextPerson);
+        this.toolBar.add(btnAuditResult);
+        this.toolBar.add(btnCancel);
+        this.toolBar.add(btnCancelCancel);
+        this.toolBar.add(btnWFViewdoProccess);
+
 
     }
 
@@ -210,6 +373,28 @@ public abstract class AbstractYearInvestPlanListUI extends CoreUIObject
     public SelectorItemCollection getSelectors()
     {
         SelectorItemCollection sic = new SelectorItemCollection();
+		String selectorAll = System.getProperty("selector.all");
+		if(StringUtils.isEmpty(selectorAll)){
+			selectorAll = "true";
+		}
+        sic.add(new SelectorItemInfo("number"));
+        sic.add(new SelectorItemInfo("projectName"));
+        sic.add(new SelectorItemInfo("status"));
+        sic.add(new SelectorItemInfo("objectState"));
+        sic.add(new SelectorItemInfo("CU.name"));
+        sic.add(new SelectorItemInfo("requestOrg.name"));
+        sic.add(new SelectorItemInfo("requestPerson.name"));
+        sic.add(new SelectorItemInfo("planStartDate"));
+        sic.add(new SelectorItemInfo("planEndDate"));
+        sic.add(new SelectorItemInfo("amount"));
+        sic.add(new SelectorItemInfo("investAmount"));
+        sic.add(new SelectorItemInfo("chancedAmount"));
+        sic.add(new SelectorItemInfo("addInvestAmount"));
+        sic.add(new SelectorItemInfo("year"));
+        sic.add(new SelectorItemInfo("planType"));
+        sic.add(new SelectorItemInfo("address"));
+        sic.add(new SelectorItemInfo("CU.id"));
+        sic.add(new SelectorItemInfo("id"));
         return sic;
     }            protected java.util.List getQuerySorterFields() 
     { 
@@ -222,6 +407,26 @@ public abstract class AbstractYearInvestPlanListUI extends CoreUIObject
         pkList.add("id"); 
         return pkList;
     }
+    	
+
+    /**
+     * output actionRemove_actionPerformed method
+     */
+    public void actionRemove_actionPerformed(ActionEvent e) throws Exception
+    {
+        super.actionRemove_actionPerformed(e);
+    }
+	public RequestContext prepareActionRemove(IItemAction itemAction) throws Exception {
+			RequestContext request = super.prepareActionRemove(itemAction);		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionRemove() {
+    	return false;
+    }
 
     /**
      * output getMetaDataPK method
@@ -229,6 +434,13 @@ public abstract class AbstractYearInvestPlanListUI extends CoreUIObject
     public IMetaDataPK getMetaDataPK()
     {
         return new MetaDataPK("com.kingdee.eas.port.pm.invest.client", "YearInvestPlanListUI");
+    }
+    /**
+     * output isBindWorkFlow method
+     */
+    public boolean isBindWorkFlow()
+    {
+        return true;
     }
 
     /**
@@ -254,6 +466,14 @@ public abstract class AbstractYearInvestPlanListUI extends CoreUIObject
     {
         com.kingdee.eas.port.pm.invest.YearInvestPlanInfo objectValue = new com.kingdee.eas.port.pm.invest.YearInvestPlanInfo();		
         return objectValue;
+    }
+
+    /**
+     * output getMergeColumnKeys method
+     */
+    public String[] getMergeColumnKeys()
+    {
+        return new String[] {"number","projectName","status","objectState","CU.name","requestOrg.name","requestPerson.name","planStartDate","planEndDate","amount","investAmount","chancedAmount","addInvestAmount","year","planType","address","CU.id","id"};
     }
 
 

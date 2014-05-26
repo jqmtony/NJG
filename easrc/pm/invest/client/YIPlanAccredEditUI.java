@@ -15,9 +15,13 @@ import java.util.Set;
 import org.apache.log4j.Logger;
 
 import com.kingdee.bos.BOSException;
+import com.kingdee.bos.appframework.stateManage.ObjectState;
+import com.kingdee.bos.ctrl.kdf.table.ICell;
+import com.kingdee.bos.ctrl.kdf.table.IRow;
 import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
 import com.kingdee.bos.ctrl.kdf.table.KDTSelectBlock;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
+import com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent;
 import com.kingdee.bos.ctrl.swing.KDComboBox;
 import com.kingdee.bos.ctrl.swing.KDContainer;
@@ -25,12 +29,17 @@ import com.kingdee.bos.ctrl.swing.KDTextField;
 import com.kingdee.bos.ctrl.swing.KDWorkButton;
 import com.kingdee.bos.ctrl.swing.event.DataChangeEvent;
 import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
+import com.kingdee.bos.metadata.entity.SelectorItemCollection;
+import com.kingdee.bos.metadata.entity.SelectorItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.UIRuleUtil;
+import com.kingdee.bos.util.BOSUuid;
+import com.kingdee.eas.base.core.fm.ClientVerifyHelper;
 import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
 import com.kingdee.eas.basedata.person.PersonInfo;
 import com.kingdee.eas.common.client.OprtState;
@@ -39,10 +48,23 @@ import com.kingdee.eas.port.pm.base.ReviewerE1Collection;
 import com.kingdee.eas.port.pm.base.ReviewerE1Factory;
 import com.kingdee.eas.port.pm.base.ReviewerE1Info;
 import com.kingdee.eas.port.pm.invest.AccredTypeEnum;
+import com.kingdee.eas.port.pm.invest.IYIPlanAccredE1;
 import com.kingdee.eas.port.pm.invest.ObjectStateEnum;
+import com.kingdee.eas.port.pm.invest.YIPlanAccredCollection;
+import com.kingdee.eas.port.pm.invest.YIPlanAccredE1Collection;
 import com.kingdee.eas.port.pm.invest.YIPlanAccredE1E2Info;
+import com.kingdee.eas.port.pm.invest.YIPlanAccredE1Factory;
 import com.kingdee.eas.port.pm.invest.YIPlanAccredE1Info;
+import com.kingdee.eas.port.pm.invest.YIPlanAccredFactory;
+import com.kingdee.eas.port.pm.invest.YIPlanAccredInfo;
+import com.kingdee.eas.port.pm.invest.YearInvestPlanCollection;
+import com.kingdee.eas.port.pm.invest.YearInvestPlanFactory;
+import com.kingdee.eas.port.pm.invest.YearInvestPlanInfo;
+import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
+import com.kingdee.eas.util.client.MsgBox;
+import com.kingdee.eas.xr.app.XRBillStatusEnum;
+import com.kingdee.eas.xr.helper.ClientVerifyXRHelper;
 import com.kingdee.eas.xr.helper.PersonXRHelper;
 
 /**
@@ -96,7 +118,6 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
 		kdtE2.getColumn("accredDpart").getStyleAttributes().setLocked(true);
 		kdtE2.getColumn("accredPerson").getStyleAttributes().setLocked(true);
 		accredType.setEnabled(false);
-		
 		//当评审时，选定评审表类型
 		if(OprtState.ADDNEW.equals(getOprtState()))
 		{
@@ -132,11 +153,16 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
 		initWorkButton(this.kDContainer2, false);
 		this.kDContainer1.setTitle("投资信息");
 		this.kDContainer2.setTitle("评审信息");
-		
+	
 		KDComboBox kdtE1_accredResu_ComboBox = new KDComboBox();
         kdtE1_accredResu_ComboBox.setName("kdtE1_accredResu_ComboBox");
         kdtE1_accredResu_ComboBox.setVisible(true);
         List list = new ArrayList();
+        
+        KDComboBox kdtE2_accreConclu_ComboBox = new KDComboBox();
+        kdtE2_accreConclu_ComboBox.setName("kdtE2_accreConclu_ComboBox");
+        kdtE2_accreConclu_ComboBox.setVisible(true);
+        List listE2 = new ArrayList();
         
 		if(accredType.getSelectedItem().equals(AccredTypeEnum.trial)){
 			kDContainer2.getContentPane().removeAll();
@@ -144,8 +170,8 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
 	        list.add(ObjectStateEnum.throughAudit);
 	        list.add(ObjectStateEnum.complement);
 	        list.add(ObjectStateEnum.veto);
-	        
 		}
+		//分录投资信息”评审结果“，分录评审信息”评审结论“枚举值设为“评审通过”，“补充完善”，“否决”
 		else if(accredType.getSelectedItem().equals(AccredTypeEnum.accred))  {
 			kDContainer2.getContentPane().removeAll();
 			kDContainer2.getContentPane().add(kdtE2_detailPanel, BorderLayout.CENTER);
@@ -154,6 +180,9 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
 	        list.add(ObjectStateEnum.accredit);
 	        list.add(ObjectStateEnum.complement);
 	        list.add(ObjectStateEnum.veto);
+	        listE2.add(ObjectStateEnum.accredit);
+	        listE2.add(ObjectStateEnum.complement);
+	        listE2.add(ObjectStateEnum.veto);
 		}
 		else {
 			kDContainer2.getContentPane().removeAll();
@@ -163,11 +192,55 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
 	        list.add(ObjectStateEnum.approval);
 	        list.add(ObjectStateEnum.complement);
 	        list.add(ObjectStateEnum.veto);
+	        listE2.add(ObjectStateEnum.approval);
+	        listE2.add(ObjectStateEnum.complement);
+	        listE2.add(ObjectStateEnum.veto);
 		}
 		    kdtE1_accredResu_ComboBox.addItems(list.toArray());
 	        KDTDefaultCellEditor kdtE1_accredResu_CellEditor = new KDTDefaultCellEditor(kdtE1_accredResu_ComboBox);
 	        this.kdtE1.getColumn("accredResu").setEditor(kdtE1_accredResu_CellEditor);
 	        
+	        kdtE2_accreConclu_ComboBox.addItems(listE2.toArray());
+	        KDTDefaultCellEditor kdtE2_accreConclu_CellEditor = new KDTDefaultCellEditor(kdtE2_accreConclu_ComboBox);
+	        this.kdtE2.getColumn("accreConclu").setEditor(kdtE2_accreConclu_CellEditor);
+	        
+	}
+	/**
+	 * 分录“accredResu”列值改变时“projectConclude”列值默认带出“同意”
+	 */
+	protected void kdtE1_editStopped(KDTEditEvent e) throws Exception {
+		super.kdtE1_editStopped(e);
+		int colIndex = e.getColIndex();
+		int rowIndex = e.getRowIndex();
+		String key = kdtE1.getColumnKey(colIndex);
+		if(key.equals("accredResu")){
+			if(UIRuleUtil.getObject(this.kdtE1.getCell(rowIndex, "accredResu").getValue()).
+					equals(ObjectStateEnum.throughAudit)||UIRuleUtil.getObject(this.kdtE1.getCell(rowIndex, "accredResu").getValue()).
+					equals(ObjectStateEnum.accredit)||UIRuleUtil.getObject(this.kdtE1.getCell(rowIndex, "accredResu").getValue()).
+					equals(ObjectStateEnum.approval)){
+	        	this.kdtE1.getCell(rowIndex,"projectConclude").setValue("同意");
+	        }else{
+	        	this.kdtE1.getCell(rowIndex,"projectConclude").setValue("");
+	        }
+		}
+	}
+	/**
+	 * 校验分录列"projectConclude"值不能为空
+	 */
+	protected void verifyInput(ActionEvent e) throws Exception {
+		int rowindex= 1;
+		for (int i = 0; i < this.kdtE1.getRowCount(); i++) 
+		{
+			ClientVerifyXRHelper.verifyKDTCellNull(this, this.kdtE1, i, "accredResu");
+			ObjectStateEnum objState = (ObjectStateEnum)UIRuleUtil.getObject(this.kdtE1.getCell(i, "accredResu").getValue());
+			if(objState.equals(ObjectStateEnum.complement)||objState.equals(ObjectStateEnum.veto))
+			{
+				if(UIRuleUtil.isNull(this.kdtE1.getCell(i, "projectConclude").getValue()))
+					MsgBox.showWarning("第{"+rowindex+"}行评审结果为{"+objState.getAlias()+"}的项目结论不能为空！");SysUtil.abort();
+			}
+			rowindex+=1;
+		}
+		super.verifyInput(e);
 	}
 	
 	protected void initProWorkButton(KDContainer container, boolean flse) {
@@ -384,6 +457,7 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
     }
     protected void kdtE1_tableClicked(KDTMouseEvent e) throws Exception {
     	super.kdtE1_tableClicked(e);
+    	
     }
     /**
      * output menuItemEnterToNextRow_itemStateChanged method

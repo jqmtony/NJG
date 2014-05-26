@@ -19,7 +19,7 @@ public class AbstractYIPlanAccredE1Info extends com.kingdee.eas.framework.CoreBi
         put("E2", new com.kingdee.eas.port.pm.invest.YIPlanAccredE1E2Collection());
     }
     /**
-     * Object: 第1个表体 's null property 
+     * Object: 投资信息 's null property 
      */
     public com.kingdee.eas.port.pm.invest.YIPlanAccredInfo getParent()
     {
@@ -30,14 +30,14 @@ public class AbstractYIPlanAccredE1Info extends com.kingdee.eas.framework.CoreBi
         put("parent", item);
     }
     /**
-     * Object: 第1个表体 's 第2个表体 property 
+     * Object: 投资信息 's 评审信息 property 
      */
     public com.kingdee.eas.port.pm.invest.YIPlanAccredE1E2Collection getE2()
     {
         return (com.kingdee.eas.port.pm.invest.YIPlanAccredE1E2Collection)get("E2");
     }
     /**
-     * Object: 第1个表体 's 项目类型 property 
+     * Object: 投资信息 's 项目类型 property 
      */
     public com.kingdee.eas.port.pm.base.ProjectTypeInfo getProjectType()
     {
@@ -48,7 +48,7 @@ public class AbstractYIPlanAccredE1Info extends com.kingdee.eas.framework.CoreBi
         put("projectType", item);
     }
     /**
-     * Object:第1个表体's 投资金额property 
+     * Object:投资信息's 投资金额property 
      */
     public java.math.BigDecimal getAmount()
     {
@@ -59,7 +59,7 @@ public class AbstractYIPlanAccredE1Info extends com.kingdee.eas.framework.CoreBi
         setBigDecimal("amount", item);
     }
     /**
-     * Object:第1个表体's 项目结论property 
+     * Object:投资信息's 项目结论property 
      */
     public String getProjectConclude()
     {
@@ -70,7 +70,7 @@ public class AbstractYIPlanAccredE1Info extends com.kingdee.eas.framework.CoreBi
         setString("projectConclude", item);
     }
     /**
-     * Object:第1个表体's 内容及进度要求property 
+     * Object:投资信息's 内容及进度要求property 
      */
     public String getContentSReq()
     {
@@ -81,7 +81,7 @@ public class AbstractYIPlanAccredE1Info extends com.kingdee.eas.framework.CoreBi
         setString("contentSReq", item);
     }
     /**
-     * Object: 第1个表体 's 申报单位 property 
+     * Object: 投资信息 's 申报单位 property 
      */
     public com.kingdee.eas.basedata.org.CtrlUnitInfo getCompany()
     {
@@ -92,7 +92,7 @@ public class AbstractYIPlanAccredE1Info extends com.kingdee.eas.framework.CoreBi
         put("company", item);
     }
     /**
-     * Object:第1个表体's 评审结果property 
+     * Object:投资信息's 评审结果property 
      */
     public com.kingdee.eas.port.pm.invest.ObjectStateEnum getAccredResu()
     {
@@ -105,7 +105,7 @@ public class AbstractYIPlanAccredE1Info extends com.kingdee.eas.framework.CoreBi
 		}
     }
     /**
-     * Object: 第1个表体 's 项目名称 property 
+     * Object: 投资信息 's 项目名称 property 
      */
     public com.kingdee.eas.port.pm.invest.YearInvestPlanInfo getProjectName()
     {
