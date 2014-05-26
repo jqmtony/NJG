@@ -665,26 +665,6 @@
             </mappingField>
         </ownProperty>
         <ownProperty>
-            <name>accreConclu</name>
-            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.YIPlanAccredE1E2].properties.ownProperty[accreConclu].alias</alias>
-            <description>entityObject[com.kingdee.eas.port.pm.invest.app.YIPlanAccredE1E2].properties.ownProperty[accreConclu].description</description>
-            <userDefined>true</userDefined>
-            <configured>false</configured>
-            <dataType>String</dataType>
-            <metadataRef />
-            <isMultilingual>false</isMultilingual>
-            <isNullable>false</isNullable>
-            <formula />
-            <length>100</length>
-            <precision>0</precision>
-            <decimalDigits>0</decimalDigits>
-            <defaultValue>entityObject[com.kingdee.eas.port.pm.invest.app.YIPlanAccredE1E2].properties.ownProperty[accreConclu].defaultValue</defaultValue>
-            <displayFormat />
-            <mappingField>
-                <key name="name" value="CFAccreConclu" />
-            </mappingField>
-        </ownProperty>
-        <ownProperty>
             <name>remark</name>
             <alias>entityObject[com.kingdee.eas.port.pm.invest.app.YIPlanAccredE1E2].properties.ownProperty[remark].alias</alias>
             <description>entityObject[com.kingdee.eas.port.pm.invest.app.YIPlanAccredE1E2].properties.ownProperty[remark].description</description>
@@ -702,6 +682,26 @@
             <displayFormat />
             <mappingField>
                 <key name="name" value="CFRemark" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>accreConclu</name>
+            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.YIPlanAccredE1E2].properties.ownProperty[accreConclu].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invest.app.YIPlanAccredE1E2].properties.ownProperty[accreConclu].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>Enum</dataType>
+            <metadataRef>com.kingdee.eas.port.pm.invest.ObjectStateEnum</metadataRef>
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>80</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.port.pm.invest.app.YIPlanAccredE1E2].properties.ownProperty[accreConclu].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFAccreConclu" />
             </mappingField>
         </ownProperty>
     </properties>
@@ -725,9 +725,9 @@
     <resource>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YIPlanAccredE1E2].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="第2个表体" />
-            <lang locale="zh_HK" value="第2個表體" />
-            <lang locale="zh_TW" value="第2個表體" />
+            <lang locale="zh_CN" value="评审信息" />
+            <lang locale="zh_HK" value="評審信息" />
+            <lang locale="zh_TW" value="評審信息" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YIPlanAccredE1E2].defaultViewalias">
             <lang locale="en_US" value="null" />
@@ -1281,9 +1281,9 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YIPlanAccredE1E2].properties.ownProperty[accreConclu].defaultValue">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="save" />
+            <lang locale="zh_HK" value="save" />
+            <lang locale="zh_TW" value="save" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YIPlanAccredE1E2].properties.ownProperty[accreConclu].description">
             <lang locale="en_US" value="null" />
@@ -1297,9 +1297,14 @@
             <lang locale="zh_TW" value="50" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YIPlanAccredE1E2].properties.ownProperty[accreConclu].extendedProperty.bizDataType">
-            <lang locale="en_US" value="STRING" />
-            <lang locale="zh_CN" value="STRING" />
-            <lang locale="zh_TW" value="STRING" />
+            <lang locale="en_US" value="ENUM" />
+            <lang locale="zh_CN" value="ENUM" />
+            <lang locale="zh_TW" value="ENUM" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YIPlanAccredE1E2].properties.ownProperty[accreConclu].extendedProperty.defaultValue">
+            <lang locale="en_US" value="save" />
+            <lang locale="zh_CN" value="save" />
+            <lang locale="zh_TW" value="save" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YIPlanAccredE1E2].properties.ownProperty[accreConclu].extendedProperty.enableFieldPermission">
             <lang locale="en_US" value="false" />
