@@ -101,7 +101,7 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
     protected com.kingdee.bos.ctrl.swing.KDCheckBox chkisMainEqm;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contNumber;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contEqmCategory;
-    protected com.kingdee.bos.ctrl.swing.KDTextArea txtparent;
+    protected com.kingdee.bos.ctrl.swing.KDTextArea txtsbDescription;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtname;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtssOrgUnit;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtjhOrgUnit;
@@ -310,7 +310,7 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.chkisMainEqm = new com.kingdee.bos.ctrl.swing.KDCheckBox();
         this.contNumber = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contEqmCategory = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.txtparent = new com.kingdee.bos.ctrl.swing.KDTextArea();
+        this.txtsbDescription = new com.kingdee.bos.ctrl.swing.KDTextArea();
         this.txtname = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.prmtssOrgUnit = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.prmtjhOrgUnit = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
@@ -446,7 +446,7 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.chkisMainEqm.setName("chkisMainEqm");
         this.contNumber.setName("contNumber");
         this.contEqmCategory.setName("contEqmCategory");
-        this.txtparent.setName("txtparent");
+        this.txtsbDescription.setName("txtsbDescription");
         this.txtname.setName("txtname");
         this.prmtssOrgUnit.setName("prmtssOrgUnit");
         this.prmtjhOrgUnit.setName("prmtjhOrgUnit");
@@ -752,10 +752,10 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.contEqmCategory.setBoundLabelLength(100);		
         this.contEqmCategory.setBoundLabelUnderline(true);		
         this.contEqmCategory.setVisible(true);
-        // txtparent		
-        this.txtparent.setVisible(true);		
-        this.txtparent.setRequired(false);		
-        this.txtparent.setMaxLength(255);
+        // txtsbDescription		
+        this.txtsbDescription.setVisible(true);		
+        this.txtsbDescription.setRequired(false);		
+        this.txtsbDescription.setMaxLength(255);
         // txtname		
         this.txtname.setVisible(true);		
         this.txtname.setHorizontalAlignment(2);		
@@ -1423,7 +1423,7 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         contEqmCategory.setBounds(new Rectangle(355, 55, 270, 19));
         kDPanel8.add(contEqmCategory, new KDLayout.Constraints(355, 55, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         //consbDescription
-        consbDescription.setBoundEditor(txtparent);
+        consbDescription.setBoundEditor(txtsbDescription);
         //conname
         conname.setBoundEditor(txtname);
         //conssOrgUnit
@@ -1786,7 +1786,7 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
 		dataBinder.registerBinding("auditTime", java.sql.Timestamp.class, this.pkAuditTime, "value");
 		dataBinder.registerBinding("special", boolean.class, this.chkspecial, "selected");
 		dataBinder.registerBinding("isMainEqm", boolean.class, this.chkisMainEqm, "selected");
-		dataBinder.registerBinding("parent", com.kingdee.eas.port.equipment.record.EquIdInfo.class, this.txtparent, "text");
+		dataBinder.registerBinding("sbDescription", String.class, this.txtsbDescription, "text");
 		dataBinder.registerBinding("name", String.class, this.txtname, "text");
 		dataBinder.registerBinding("ssOrgUnit", com.kingdee.eas.basedata.org.AdminOrgUnitInfo.class, this.prmtssOrgUnit, "data");
 		dataBinder.registerBinding("jhOrgUnit", com.kingdee.eas.basedata.org.AdminOrgUnitInfo.class, this.prmtjhOrgUnit, "data");
@@ -1994,7 +1994,7 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
 		getValidateHelper().registerBindProperty("auditTime", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("special", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("isMainEqm", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("parent", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("sbDescription", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("name", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("ssOrgUnit", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("jhOrgUnit", ValidateHelper.ON_SAVE);    
@@ -2159,7 +2159,7 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
         sic.add(new SelectorItemInfo("auditTime"));
         sic.add(new SelectorItemInfo("special"));
         sic.add(new SelectorItemInfo("isMainEqm"));
-        sic.add(new SelectorItemInfo("parent"));
+        sic.add(new SelectorItemInfo("sbDescription"));
         sic.add(new SelectorItemInfo("name"));
 		if(selectorAll.equalsIgnoreCase("true"))
 		{

@@ -3,13 +3,65 @@
  */
 package com.kingdee.eas.port.equipment.special.client;
 
+import java.awt.BorderLayout;
+import java.awt.Dialog;
+import java.awt.Frame;
+import java.awt.Window;
 import java.awt.event.*;
+import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.swing.SwingUtilities;
+
 import org.apache.log4j.Logger;
+
+import com.kingdee.bos.metadata.entity.SelectorItemCollection;
+import com.kingdee.bos.metadata.entity.SelectorItemInfo;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.eas.base.permission.client.longtime.ILongTimeTask;
+import com.kingdee.eas.base.permission.client.longtime.LongTimeDialog;
+import com.kingdee.eas.basedata.org.AdminOrgUnitCollection;
+import com.kingdee.eas.basedata.org.AdminOrgUnitFactory;
+import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
+import com.kingdee.eas.basedata.org.IAdminOrgUnit;
+import com.kingdee.eas.common.client.OprtState;
+import com.kingdee.eas.fi.newrpt.client.designer.io.WizzardIO;
 import com.kingdee.eas.framework.*;
+import com.kingdee.eas.port.equipment.insurance.InsuranceCoverageE1Info;
+import com.kingdee.eas.port.equipment.record.EquIdCollection;
+import com.kingdee.eas.port.equipment.record.EquIdFactory;
+import com.kingdee.eas.port.equipment.record.EquIdInfo;
+import com.kingdee.eas.port.equipment.record.IEquId;
+import com.kingdee.eas.port.equipment.special.AnnualYearFeeEntryInfo;
+import com.kingdee.eas.port.equipment.special.AnnualYearFeeInfo;
+import com.kingdee.eas.port.equipment.special.AnnualYearPlanEntryCollection;
+import com.kingdee.eas.port.equipment.special.AnnualYearPlanEntryFactory;
+import com.kingdee.eas.port.equipment.special.AnnualYearPlanEntryInfo;
+import com.kingdee.eas.port.equipment.special.IAnnualYearPlanEntry;
+import com.kingdee.eas.util.SysUtil;
+import com.kingdee.eas.util.client.EASResource;
+import com.kingdee.eas.util.client.MsgBox;
+import com.kingdee.bos.ctrl.common.LanguageManager;
+import com.kingdee.bos.ctrl.excel.io.kds.KDSBookToBook;
+import com.kingdee.bos.ctrl.excel.model.struct.Sheet;
+import com.kingdee.bos.ctrl.kdf.export.ExportManager;
+import com.kingdee.bos.ctrl.kdf.export.KDTables2KDSBook;
+import com.kingdee.bos.ctrl.kdf.export.KDTables2KDSBookVO;
+import com.kingdee.bos.ctrl.kdf.kds.KDSBook;
+import com.kingdee.bos.ctrl.kdf.read.POIXlsReader;
+import com.kingdee.bos.ctrl.kdf.table.ICell;
+import com.kingdee.bos.ctrl.kdf.table.IRow;
+import com.kingdee.bos.ctrl.kdf.table.KDTMenuManager;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
+import com.kingdee.bos.ctrl.swing.KDFileChooser;
 import com.kingdee.bos.ctrl.swing.KDTextField;
+import com.kingdee.bos.ctrl.swing.KDWorkButton;
+import com.kingdee.bos.ctrl.swing.StringUtils;
+import com.kingdee.bos.ctrl.swing.util.SimpleFileFilter;
 
 /**
  * output class name
@@ -683,5 +735,463 @@ public class AnnualYearFeeEditUI extends AbstractAnnualYearFeeEditUI
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
 
+	public void onLoad() throws Exception {
+		 this.kdtEntry.getColumn("seq").getStyleAttributes().setHided(true);
+		super.onLoad();
+		this.kDContainer1.setTitle("设备检测费用表");
+		this.kDContainer1.getContentPane().add(kdtEntry, BorderLayout.CENTER);
+		KDWorkButton  addnewButton =kdtEntry_detailPanel.getAddNewLineButton();
+		addnewButton.setText("新增行");
+		KDWorkButton  InsertButton =kdtEntry_detailPanel.getInsertLineButton();
+		InsertButton.setText("插入行");
+		KDWorkButton RemoveButton =kdtEntry_detailPanel.getRemoveLinesButton();
+		RemoveButton.setText("删除行");
+		this.kDContainer1.addButton(addnewButton);
+		this.kDContainer1.addButton(InsertButton);
+		this.kDContainer1.addButton(RemoveButton);
+		this.kDContainer1.addButton(this.btnImportExcel);
+		this.kDContainer1.addButton(this.btnExcel);
+		
+		btnImportExcel	.setIcon(EASResource.getIcon("imgTbtn_input"));
+		btnExcel.setIcon(EASResource.getIcon("imgTbtn_output"));
+		
+	}
+	
+	public void kdtEntry_Changed(int rowIndex, int colIndex) throws Exception {
+		
+	}
+
+
+	protected void btnImportExcel_actionPerformed(ActionEvent e)throws Exception {
+		super.btnImportExcel_actionPerformed(e);
+		actionImportExcel();
+	}
+	
+	protected void btnExcel_actionPerformed(ActionEvent e) throws Exception {
+		super.btnExcel_actionPerformed(e);
+		btnExportExcel();
+	}
+	
+	private String lockCell[] = {"equipmentName","useUnit","planDate","endDate","address","companyNumber","NO","weight","checkType","beizhu"};
+	String path ="";
+	
+	    public void actionImportExcel()  {
+			path = showExcelSelectDlg(this);
+			if (path == null) {
+				return;
+			}
+			Window win = SwingUtilities.getWindowAncestor(this);
+	        LongTimeDialog dialog = null;
+	        if(win instanceof Frame){
+	        	dialog = new LongTimeDialog((Frame)win);
+	        }else if(win instanceof Dialog){
+	        	dialog = new LongTimeDialog((Dialog)win);
+	        }
+	        if(dialog==null){
+	        	dialog = new LongTimeDialog(new Frame());
+	        }
+	        dialog.setLongTimeTask(new ILongTimeTask() {
+				public void afterExec(Object arg0) throws Exception {
+					Boolean bol=(Boolean)arg0;
+					if(bol){
+						MsgBox.showInfo("导入成功！");
+					}
+				}
+				public Object exec() throws Exception {
+					boolean bol=importExcelToTable(path,kdtEntry);
+					return bol;
+				}
+	    	}
+		    );
+		    dialog.show();
+		}
+		private boolean importExcelToTable(String fileName, KDTable table) throws Exception {
+			KDSBook kdsbook = null;
+			try {
+				kdsbook = POIXlsReader.parse2(fileName);
+			} catch (Exception e) {
+				e.printStackTrace();
+				MsgBox.showWarning(this,"读EXCEL出错,EXCEl格式不匹配！");
+				return false;
+			}
+			if (kdsbook == null) {
+				return false;
+			}
+			if(KDSBookToBook.traslate(kdsbook).getSheetCount()>1){
+				MsgBox.showWarning(this,"读EXCEL出错,EXCEl Sheet数量不匹配！");
+				return false;
+			}
+			Sheet excelSheet = KDSBookToBook.traslate(kdsbook).getSheet(0);
+	    	Map e_colNameMap = new HashMap();
+			int e_maxRow = excelSheet.getMaxRowIndex();
+			int e_maxColumn = excelSheet.getMaxColIndex();
+			for (int col = 0; col <= e_maxColumn; col++) {
+				String excelColName = excelSheet.getCell(0, col, true).getText();
+				e_colNameMap.put(excelColName, new Integer(col));
+			}
+			Map kdtableHidedCell = new HashMap();
+			for (int i = 0; i < lockCell.length; i++) 
+			{
+				kdtableHidedCell.put(lockCell[i], lockCell[i]);
+			}
+			for (int col = 0; col< table.getColumnCount(); col++) {
+				if (table.getColumn(col).getStyleAttributes().isHided()||kdtableHidedCell.get(table.getColumnKey(col))!=null) {
+					continue;
+				}
+				String colName = (String) table.getHeadRow(0).getCell(col).getValue();
+				Integer colInt = (Integer) e_colNameMap.get(colName);
+				if (colInt == null) {
+					MsgBox.showWarning(this,"表头结构不一致！表格上的关键列:" + colName + "在EXCEL中没有出现！");
+					return false;
+				}
+			}
+			table.removeRows();
+			IAdminOrgUnit IAdminorgUnit = AdminOrgUnitFactory.getRemoteInstance();
+			IEquId IEquId = EquIdFactory.getRemoteInstance();
+			for (int rowIndex = 1; rowIndex <= e_maxRow; rowIndex++) {
+				IRow row = table.addRow();
+				int newrowIndex = row.getRowIndex();
+			  AnnualYearFeeEntryInfo entry = new AnnualYearFeeEntryInfo();
+				entry.setId(BOSUuid.create(entry.getBOSType()));
+				row.setUserObject(entry);
+				for (int col = 0; col < table.getColumnCount(); col++) {
+					if (table.getColumn(col).getStyleAttributes().isHided()||kdtableHidedCell.get(table.getColumnKey(col))!=null) {
+	    				continue;
+	    			}
+					ICell tblCell = row.getCell(col);
+					String colName = (String) table.getHeadRow(0).getCell(col).getValue();
+					Integer colInt = (Integer) e_colNameMap.get(colName);
+
+					if (colInt == null) {
+						continue;
+					}
+					com.kingdee.bos.ctrl.common.variant.Variant cellRawVal = excelSheet.getCell(rowIndex, colInt.intValue(), true).getValue();
+					if (com.kingdee.bos.ctrl.common.variant.Variant.isNull(cellRawVal)) {
+						continue;
+					}
+					String colValue = cellRawVal.toString();
+//					if(colName.equals("设备档案号"))
+//					{
+//						AdminOrgUnitCollection admCollection = IAdminorgUnit.getAdminOrgUnitCollection("select id,number,name where name='"+colValue+"'");
+//						AdminOrgUnitInfo admiOrgInfo = admCollection.size()>0?admCollection.get(0):null;
+//						tblCell.setValue(admiOrgInfo);
+//					}
+					
+//					else
+					IAnnualYearPlanEntry iann = AnnualYearPlanEntryFactory.getRemoteInstance();
+						if(colName.equals("设备档案号"))
+					{
+						EquIdCollection eqCollection = IEquId.getEquIdCollection("select id where tzdaNumber='"+colValue+"'");
+						EquIdInfo eqInfos = eqCollection.size()>0?eqCollection.get(0):null;
+						if(eqInfos==null){continue;}
+						EquIdInfo eqInfo = EquIdFactory.getRemoteInstance().getEquIdInfo(new ObjectUuidPK(eqInfos.getId()),getEquIDSelectors());
+						AnnualYearPlanEntryInfo ayInfo = AnnualYearPlanEntryFactory.getRemoteInstance().getAnnualYearPlanEntryInfo("select where zdaNumber = '"+eqInfo.getId()+"' ");
+						tblCell.setValue(eqInfo.getName());
+						table.getCell(newrowIndex, "zdaNumber").setValue(eqInfo);
+						kdtEntry.getCell(newrowIndex,"equipmentName").setValue(com.kingdee.bos.ui.face.UIRuleUtil.getString(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)kdtEntry.getCell(newrowIndex,"zdaNumber").getValue(),"name")));
+						kdtEntry.getCell(newrowIndex,"useUnit").setValue(com.kingdee.bos.ui.face.UIRuleUtil.getString(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)kdtEntry.getCell(newrowIndex,"zdaNumber").getValue(),"usingDept.name")));
+						kdtEntry.getCell(newrowIndex,"endDate").setValue(com.kingdee.bos.ui.face.UIRuleUtil.getDateValue(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)kdtEntry.getCell(newrowIndex,"zdaNumber").getValue(),"testDay")));
+						kdtEntry.getCell(newrowIndex,"address").setValue(com.kingdee.bos.ui.face.UIRuleUtil.getString(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)kdtEntry.getCell(newrowIndex,"zdaNumber").getValue(),"address.detailAddress")));
+						kdtEntry.getCell(newrowIndex,"NO").setValue(com.kingdee.bos.ui.face.UIRuleUtil.getString(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)kdtEntry.getCell(newrowIndex,"zdaNumber").getValue(),"model")));
+						kdtEntry.getCell(newrowIndex,"weight").setValue(com.kingdee.bos.ui.face.UIRuleUtil.getString(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)kdtEntry.getCell(newrowIndex,"zdaNumber").getValue(),"ratedWeight")));
+						kdtEntry.getCell(newrowIndex,"beizhu").setValue(com.kingdee.bos.ui.face.UIRuleUtil.getString(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)kdtEntry.getCell(newrowIndex,"zdaNumber").getValue(),"sbDescription")));
+						
+						//取年度检测计划分录的计划检验日期
+						kdtEntry.getCell(newrowIndex,"planDate").setValue(ayInfo.getPlanDate());
+						//取年度检测计划分录的用户使用编号
+						kdtEntry.getCell(newrowIndex,"companyNumber").setValue(ayInfo.getCompanyNumber());
+						//取年度检测计划分录的检验类别
+						kdtEntry.getCell(newrowIndex,"checkType").setValue(ayInfo.getCheckType());
+					}
+					else
+					{
+						tblCell.setValue(colValue);
+					}
+				}
+			}
+			return true;
+		}
+		
+		 public static String showExcelSelectDlg(CoreUIObject ui)
+         {
+			 KDFileChooser chsFile = new KDFileChooser();
+			 String XLS = "xls";
+			 String Key_File = "Key_File";
+			 SimpleFileFilter Filter_Excel = new SimpleFileFilter(XLS, (new StringBuilder("MS Excel")).append(LanguageManager.getLangMessage(Key_File, WizzardIO.class.getName(), "\u64CD\u4F5C\u5931\u8D25")).toString());
+			 chsFile.addChoosableFileFilter(Filter_Excel);
+			 int ret = chsFile.showOpenDialog(ui);
+			 if(ret != 0)
+				 SysUtil.abort();
+
+			 File file = chsFile.getSelectedFile();
+			 String fileName = file.getAbsolutePath();
+			 return fileName;
+         }
+		public void setOprtState(String oprtType) {
+			super.setOprtState(oprtType);
+			if (oprtType.equals(OprtState.VIEW)) {
+				this.lockUIForViewStatus();
+				this.btnImportExcel.setEnabled(false);
+				this.btnExcel.setEnabled(false);
+			} else {
+				this.unLockUI();
+				this.btnExcel.setEnabled(true);
+				this.btnImportExcel.setEnabled(true);
+			}
+		}
+		private File js;
+		protected void btnExportExcel() throws Exception {
+			ExportManager exportM = new ExportManager();
+	        String path = null;
+	        File tempFile = File.createTempFile("eastemp",".xls");
+	        path = tempFile.getCanonicalPath();
+
+	        for (int i = 0; i < lockCell.length; i++) 
+	        {
+	        	this.kdtEntry.getColumn(lockCell[i]).getStyleAttributes().setHided(true);
+			}
+	        
+	        KDTables2KDSBookVO[] tablesVO = new KDTables2KDSBookVO[1];
+	        tablesVO[0]=new KDTables2KDSBookVO(this.kdtEntry);
+			tablesVO[0].setTableName("设备检测费用表");
+	        KDSBook book = null;
+	        book = KDTables2KDSBook.getInstance().exportKDTablesToKDSBook(tablesVO,true,true);
+	        exportM.exportToExcel(book, path);
+	        for (int i = 0; i < lockCell.length; i++) 
+	        {
+	        	this.kdtEntry.getColumn(lockCell[i]).getStyleAttributes().setHided(false);
+			}
+			KDFileChooser fileChooser = new KDFileChooser();
+			fileChooser.setFileSelectionMode(0);
+			fileChooser.setMultiSelectionEnabled(false);
+			fileChooser.setSelectedFile(new File("设备检测费用表.xls"));
+			int result = fileChooser.showSaveDialog(this);
+			if (result == KDFileChooser.APPROVE_OPTION){
+				File dest = fileChooser.getSelectedFile();
+				try{
+					File src = new File(path);
+					if (dest.exists())
+						dest.delete();
+					src.renameTo(dest);
+					MsgBox.showInfo("导出成功！");
+					KDTMenuManager.openFileInExcel(dest.getAbsolutePath());
+				}
+				catch (Exception e3)
+				{
+					handUIException(e3);
+				}
+			}
+			tempFile.delete();
+		}
+		
+		public SelectorItemCollection getEquIDSelectors() {
+			SelectorItemCollection sic = new SelectorItemCollection();
+			String selectorAll = "false";
+			if (StringUtils.isEmpty(selectorAll)) {
+				selectorAll = "true";
+			}
+			if (selectorAll.equalsIgnoreCase("true")) {
+			} else {
+				sic.add(new SelectorItemInfo("creator.id"));
+				sic.add(new SelectorItemInfo("creator.number"));
+				sic.add(new SelectorItemInfo("creator.name"));
+			}
+			sic.add(new SelectorItemInfo("createTime"));
+			if (selectorAll.equalsIgnoreCase("true")) {
+				sic.add(new SelectorItemInfo("lastUpdateUser.*"));
+			} else {
+				sic.add(new SelectorItemInfo("lastUpdateUser.id"));
+				sic.add(new SelectorItemInfo("lastUpdateUser.number"));
+				sic.add(new SelectorItemInfo("lastUpdateUser.name"));
+			}
+			sic.add(new SelectorItemInfo("lastUpdateTime"));
+			if (selectorAll.equalsIgnoreCase("true")) {
+				sic.add(new SelectorItemInfo("CU.*"));
+			} else {
+				sic.add(new SelectorItemInfo("CU.id"));
+				sic.add(new SelectorItemInfo("CU.number"));
+				sic.add(new SelectorItemInfo("CU.name"));
+			}
+			sic.add(new SelectorItemInfo("bizDate"));
+			sic.add(new SelectorItemInfo("description"));
+			if (selectorAll.equalsIgnoreCase("true")) {
+				sic.add(new SelectorItemInfo("auditor.*"));
+			} else {
+				sic.add(new SelectorItemInfo("auditor.id"));
+				sic.add(new SelectorItemInfo("auditor.number"));
+				sic.add(new SelectorItemInfo("auditor.name"));
+			}
+			sic.add(new SelectorItemInfo("status"));
+			sic.add(new SelectorItemInfo("bizStatus"));
+			sic.add(new SelectorItemInfo("auditTime"));
+			sic.add(new SelectorItemInfo("special"));
+			sic.add(new SelectorItemInfo("isMainEqm"));
+			sic.add(new SelectorItemInfo("parent"));
+			sic.add(new SelectorItemInfo("number"));
+			sic.add(new SelectorItemInfo("name"));
+			if (selectorAll.equalsIgnoreCase("true")) {
+				sic.add(new SelectorItemInfo("ssOrgUnit.*"));
+			} else {
+				sic.add(new SelectorItemInfo("ssOrgUnit.id"));
+				sic.add(new SelectorItemInfo("ssOrgUnit.number"));
+				sic.add(new SelectorItemInfo("ssOrgUnit.name"));
+			}
+			if (selectorAll.equalsIgnoreCase("true")) {
+				sic.add(new SelectorItemInfo("jhOrgUnit.*"));
+			} else {
+				sic.add(new SelectorItemInfo("jhOrgUnit.id"));
+				sic.add(new SelectorItemInfo("jhOrgUnit.number"));
+				sic.add(new SelectorItemInfo("jhOrgUnit.name"));
+			}
+			if (selectorAll.equalsIgnoreCase("true")) {
+				sic.add(new SelectorItemInfo("wxOrgUnit.*"));
+			} else {
+				sic.add(new SelectorItemInfo("wxOrgUnit.id"));
+				sic.add(new SelectorItemInfo("wxOrgUnit.number"));
+				sic.add(new SelectorItemInfo("wxOrgUnit.name"));
+			}
+			sic.add(new SelectorItemInfo("model"));
+			sic.add(new SelectorItemInfo("size"));
+			sic.add(new SelectorItemInfo("weight"));
+			if (selectorAll.equalsIgnoreCase("true")) {
+				sic.add(new SelectorItemInfo("wxDept.*"));
+			} else {
+				sic.add(new SelectorItemInfo("wxDept.id"));
+				sic.add(new SelectorItemInfo("wxDept.number"));
+				sic.add(new SelectorItemInfo("wxDept.name"));
+			}
+			sic.add(new SelectorItemInfo("qyDate"));
+			sic.add(new SelectorItemInfo("serialNumber"));
+			sic.add(new SelectorItemInfo("sbStatus"));
+			if (selectorAll.equalsIgnoreCase("true")) {
+				sic.add(new SelectorItemInfo("unit.*"));
+			} else {
+				sic.add(new SelectorItemInfo("unit.id"));
+				sic.add(new SelectorItemInfo("unit.number"));
+				sic.add(new SelectorItemInfo("unit.name"));
+			}
+			if (selectorAll.equalsIgnoreCase("true")) {
+				sic.add(new SelectorItemInfo("eqmType.*"));
+			} else {
+				sic.add(new SelectorItemInfo("eqmType.id"));
+				sic.add(new SelectorItemInfo("eqmType.number"));
+				sic.add(new SelectorItemInfo("eqmType.name"));
+			}
+			sic.add(new SelectorItemInfo("eqmCategory"));
+			sic.add(new SelectorItemInfo("innerNumber"));
+			sic.add(new SelectorItemInfo("nowStatus"));
+			sic.add(new SelectorItemInfo("zzsShortName"));
+			sic.add(new SelectorItemInfo("dependable"));
+			if (selectorAll.equalsIgnoreCase("true")) {
+				sic.add(new SelectorItemInfo("parent.*"));
+			} else {
+				sic.add(new SelectorItemInfo("parent.id"));
+				sic.add(new SelectorItemInfo("parent.number"));
+				sic.add(new SelectorItemInfo("parent.name"));
+			}
+			sic.add(new SelectorItemInfo("address.id"));
+			sic.add(new SelectorItemInfo("address.number"));
+			sic.add(new SelectorItemInfo("address.name"));
+			sic.add(new SelectorItemInfo("address.detailAddress"));
+			sic.add(new SelectorItemInfo("location"));
+			if (selectorAll.equalsIgnoreCase("true")) {
+				sic.add(new SelectorItemInfo("usingDept.*"));
+			} else {
+				sic.add(new SelectorItemInfo("usingDept.id"));
+				sic.add(new SelectorItemInfo("usingDept.number"));
+				sic.add(new SelectorItemInfo("usingDept.name"));
+			}
+			if (selectorAll.equalsIgnoreCase("true")) {
+				sic.add(new SelectorItemInfo("resPerson.*"));
+			} else {
+				sic.add(new SelectorItemInfo("resPerson.id"));
+				sic.add(new SelectorItemInfo("resPerson.number"));
+				sic.add(new SelectorItemInfo("resPerson.name"));
+			}
+			sic.add(new SelectorItemInfo("mader"));
+			if (selectorAll.equalsIgnoreCase("true")) {
+				sic.add(new SelectorItemInfo("madedCountry.*"));
+			} else {
+				sic.add(new SelectorItemInfo("madedCountry.id"));
+				sic.add(new SelectorItemInfo("madedCountry.number"));
+				sic.add(new SelectorItemInfo("madedCountry.name"));
+			}
+			sic.add(new SelectorItemInfo("madeDate"));
+			if (selectorAll.equalsIgnoreCase("true")) {
+				sic.add(new SelectorItemInfo("supplier.*"));
+			} else {
+				sic.add(new SelectorItemInfo("supplier.id"));
+				sic.add(new SelectorItemInfo("supplier.number"));
+				sic.add(new SelectorItemInfo("supplier.name"));
+			}
+			sic.add(new SelectorItemInfo("reachedDate"));
+			if (selectorAll.equalsIgnoreCase("true")) {
+				sic.add(new SelectorItemInfo("installer.*"));
+			} else {
+				sic.add(new SelectorItemInfo("installer.id"));
+				sic.add(new SelectorItemInfo("installer.number"));
+				sic.add(new SelectorItemInfo("installer.name"));
+			}
+			if (selectorAll.equalsIgnoreCase("true")) {
+				sic.add(new SelectorItemInfo("debuger.*"));
+			} else {
+				sic.add(new SelectorItemInfo("debuger.id"));
+				sic.add(new SelectorItemInfo("debuger.number"));
+				sic.add(new SelectorItemInfo("debuger.name"));
+			}
+			sic.add(new SelectorItemInfo("checkDate"));
+			sic.add(new SelectorItemInfo("deadline"));
+			sic.add(new SelectorItemInfo("sourceUnit"));
+			sic.add(new SelectorItemInfo("portTest"));
+			sic.add(new SelectorItemInfo("cityTest"));
+			sic.add(new SelectorItemInfo("testDay"));
+			sic.add(new SelectorItemInfo("tzdaNumber"));
+			sic.add(new SelectorItemInfo("tzsbStatus"));
+			if (selectorAll.equalsIgnoreCase("true")) {
+				sic.add(new SelectorItemInfo("asset.*"));
+			} else {
+				sic.add(new SelectorItemInfo("asset.id"));
+				sic.add(new SelectorItemInfo("asset.number"));
+				sic.add(new SelectorItemInfo("asset.assetName"));
+			}
+			if (selectorAll.equalsIgnoreCase("true")) {
+				sic.add(new SelectorItemInfo("assetStatus.*"));
+			} else {
+				sic.add(new SelectorItemInfo("assetStatus.id"));
+				sic.add(new SelectorItemInfo("assetStatus.number"));
+				sic.add(new SelectorItemInfo("assetStatus.name"));
+				sic.add(new SelectorItemInfo("assetStatus.isDefault"));
+			}
+			sic.add(new SelectorItemInfo("assetValue"));
+			sic.add(new SelectorItemInfo("installCost"));
+			sic.add(new SelectorItemInfo("TechnologyPar.seq"));
+			if (selectorAll.equalsIgnoreCase("true")) {
+				sic.add(new SelectorItemInfo("TechnologyPar.*"));
+			} else {
+			}
+			sic.add(new SelectorItemInfo("TechnologyPar.parName"));
+			sic.add(new SelectorItemInfo("TechnologyPar.parValue"));
+			sic.add(new SelectorItemInfo("TechnologyPar.parInfo"));
+			sic.add(new SelectorItemInfo("SpareInfo.seq"));
+			if (selectorAll.equalsIgnoreCase("true")) {
+				sic.add(new SelectorItemInfo("SpareInfo.*"));
+			} else {
+			}
+			sic.add(new SelectorItemInfo("SpareInfo.materialName"));
+			sic.add(new SelectorItemInfo("SpareInfo.speModel"));
+			sic.add(new SelectorItemInfo("ccNumber"));
+			sic.add(new SelectorItemInfo("tzdaNumber"));
+			sic.add(new SelectorItemInfo("cityPeriod"));
+			sic.add(new SelectorItemInfo("portPeriod"));
+			sic.add(new SelectorItemInfo("code"));
+			sic.add(new SelectorItemInfo("engineNumber"));
+			sic.add(new SelectorItemInfo("carNumber"));
+			sic.add(new SelectorItemInfo("parent"));
+			sic.add(new SelectorItemInfo("ratedWeight"));
+			sic.add(new SelectorItemInfo("assetValue"));
+			sic.add(new SelectorItemInfo("sbdescription"));
+			return sic;
+		}
 }

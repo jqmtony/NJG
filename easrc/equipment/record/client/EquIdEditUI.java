@@ -473,7 +473,7 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 	}
 	
 	protected void setTzsbState(boolean state){
-		txttzdaNumber.setEnabled(state);
+//		txttzdaNumber.setEnabled(state);
 //		chkcityTest.setEnabled(state);
 //		chkportTest.setEnabled(state);
 		testDay.setEnabled(state);
@@ -1300,6 +1300,7 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 		sic.add(new SelectorItemInfo("parent"));
 		sic.add(new SelectorItemInfo("ratedWeight"));
 		sic.add(new SelectorItemInfo("assetValue"));
+		sic.add(new SelectorItemInfo("sbdescription"));
 		return sic;
 	}
 	
