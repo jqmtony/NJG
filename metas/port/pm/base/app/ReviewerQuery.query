@@ -48,32 +48,6 @@
                 <key name="name" value="User" />
             </entityRef>
         </subEntity>
-        <subEntity>
-            <name>E1</name>
-            <alias>joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].subObjects.subEntity[E1].alias</alias>
-            <userDefined>true</userDefined>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
-                <key name="name" value="ReviewerQuery" />
-            </query>
-            <entityRef>
-                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
-                <key name="name" value="ReviewerE1" />
-            </entityRef>
-        </subEntity>
-        <subEntity>
-            <name>E1_judges</name>
-            <alias>joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].subObjects.subEntity[E1_judges].alias</alias>
-            <userDefined>true</userDefined>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
-                <key name="name" value="ReviewerQuery" />
-            </query>
-            <entityRef>
-                <key name="package" value="com.kingdee.eas.basedata.person.app" />
-                <key name="name" value="Person" />
-            </entityRef>
-        </subEntity>
     </subObjects>
     <units>
         <propertyUnit>
@@ -201,11 +175,11 @@
             </query>
         </propertyUnit>
         <queryField>
-            <name>id</name>
+            <name>number</name>
             <userDefined>true</userDefined>
             <formulaString />
             <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].units.queryField[id].displayName</displayName>
+            <displayName>joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].units.queryField[number].displayName</displayName>
             <groupType />
             <isSelector>true</isSelector>
             <isFilter>true</isFilter>
@@ -216,13 +190,13 @@
                 <propertyRef>
                     <key>0</key>
                     <parentUnit>
-                        <key name="name" value="id" />
+                        <key name="name" value="number" />
                     </parentUnit>
                     <subEntity>
                         <key name="name" value="Reviewer" />
                     </subEntity>
                     <refProperty>
-                        <key name="name" value="id" />
+                        <key name="name" value="number" />
                     </refProperty>
                 </propertyRef>
             </propertyRefs>
@@ -263,37 +237,6 @@
             </query>
         </queryField>
         <queryField>
-            <name>number</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].units.queryField[number].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>0</key>
-                    <parentUnit>
-                        <key name="name" value="number" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="Reviewer" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="number" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
-                <key name="name" value="ReviewerQuery" />
-            </query>
-        </queryField>
-        <queryField>
             <name>simpleName</name>
             <userDefined>true</userDefined>
             <formulaString />
@@ -325,11 +268,11 @@
             </query>
         </queryField>
         <queryField>
-            <name>description</name>
+            <name>creator.name</name>
             <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
+            <formulaString />
             <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].units.queryField[description].displayName</displayName>
+            <displayName>joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].units.queryField[creator.name].displayName</displayName>
             <groupType />
             <isSelector>true</isSelector>
             <isFilter>true</isFilter>
@@ -340,13 +283,13 @@
                 <propertyRef>
                     <key>0</key>
                     <parentUnit>
-                        <key name="name" value="description" />
+                        <key name="name" value="creator.name" />
                     </parentUnit>
                     <subEntity>
-                        <key name="name" value="Reviewer" />
+                        <key name="name" value="creator" />
                     </subEntity>
                     <refProperty>
-                        <key name="name" value="description" />
+                        <key name="name" value="name" />
                     </refProperty>
                 </propertyRef>
             </propertyRefs>
@@ -387,11 +330,11 @@
             </query>
         </queryField>
         <queryField>
-            <name>creator.number</name>
+            <name>lastUpdateUser.name</name>
             <userDefined>true</userDefined>
             <formulaString />
             <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].units.queryField[creator.number].displayName</displayName>
+            <displayName>joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].units.queryField[lastUpdateUser.name].displayName</displayName>
             <groupType />
             <isSelector>true</isSelector>
             <isFilter>true</isFilter>
@@ -402,41 +345,10 @@
                 <propertyRef>
                     <key>0</key>
                     <parentUnit>
-                        <key name="name" value="creator.number" />
+                        <key name="name" value="lastUpdateUser.name" />
                     </parentUnit>
                     <subEntity>
-                        <key name="name" value="creator" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="number" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
-                <key name="name" value="ReviewerQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>creator.name</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].units.queryField[creator.name].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>0</key>
-                    <parentUnit>
-                        <key name="name" value="creator.name" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="creator" />
+                        <key name="name" value="lastUpdateUser" />
                     </subEntity>
                     <refProperty>
                         <key name="name" value="name" />
@@ -480,11 +392,11 @@
             </query>
         </queryField>
         <queryField>
-            <name>lastUpdateUser.number</name>
+            <name>id</name>
             <userDefined>true</userDefined>
             <formulaString />
             <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].units.queryField[lastUpdateUser.number].displayName</displayName>
+            <displayName>joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].units.queryField[id].displayName</displayName>
             <groupType />
             <isSelector>true</isSelector>
             <isFilter>true</isFilter>
@@ -495,100 +407,7 @@
                 <propertyRef>
                     <key>0</key>
                     <parentUnit>
-                        <key name="name" value="lastUpdateUser.number" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="lastUpdateUser" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="number" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
-                <key name="name" value="ReviewerQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>lastUpdateUser.name</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].units.queryField[lastUpdateUser.name].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>0</key>
-                    <parentUnit>
-                        <key name="name" value="lastUpdateUser.name" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="lastUpdateUser" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="name" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
-                <key name="name" value="ReviewerQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>E1.seq</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].units.queryField[E1.seq].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>Int</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>6efa2cee-66ae-4957-aee6-6086d85827b5</key>
-                    <parentUnit>
-                        <key name="name" value="E1.seq" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="E1" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="seq" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
-                <key name="name" value="ReviewerQuery" />
-            </query>
-        </queryField>
-        <propertyUnit>
-            <name>ad29330d-9def-4093-b281-2582d7176fc4</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].units.propertyUnit[ad29330d-9def-4093-b281-2582d7176fc4].displayName</displayName>
-            <groupType />
-            <isSelector>false</isSelector>
-            <isFilter>false</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType />
-            <propertyRefs>
-                <propertyRef>
-                    <key>0b1ddf70-1846-4015-99d3-2c2b7aed8911</key>
-                    <parentUnit>
-                        <key name="name" value="ad29330d-9def-4093-b281-2582d7176fc4" />
+                        <key name="name" value="id" />
                     </parentUnit>
                     <subEntity>
                         <key name="name" value="Reviewer" />
@@ -602,131 +421,7 @@
                 <key name="package" value="com.kingdee.eas.port.pm.base.app" />
                 <key name="name" value="ReviewerQuery" />
             </query>
-        </propertyUnit>
-        <propertyUnit>
-            <name>d42b38dc-c171-4151-bef9-8a91ab46e5a1</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].units.propertyUnit[d42b38dc-c171-4151-bef9-8a91ab46e5a1].displayName</displayName>
-            <groupType />
-            <isSelector>false</isSelector>
-            <isFilter>false</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType />
-            <propertyRefs>
-                <propertyRef>
-                    <key>c882bc5d-a54a-4dd7-93b9-6871aa3ddcb6</key>
-                    <parentUnit>
-                        <key name="name" value="d42b38dc-c171-4151-bef9-8a91ab46e5a1" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="E1" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="parent" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
-                <key name="name" value="ReviewerQuery" />
-            </query>
-        </propertyUnit>
-        <queryField>
-            <name>E1.judges.name</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].units.queryField[E1.judges.name].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>aa48fcc7-ba5b-477e-a8fa-d54079b3ef18</key>
-                    <parentUnit>
-                        <key name="name" value="E1.judges.name" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="E1_judges" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="name" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
-                <key name="name" value="ReviewerQuery" />
-            </query>
         </queryField>
-        <propertyUnit>
-            <name>f315b32a-9e6a-49a0-b30a-32f4e6f49682</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].units.propertyUnit[f315b32a-9e6a-49a0-b30a-32f4e6f49682].displayName</displayName>
-            <groupType />
-            <isSelector>false</isSelector>
-            <isFilter>false</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType />
-            <propertyRefs>
-                <propertyRef>
-                    <key>50081b50-5eb3-4ac1-a5ac-bab0d9d3157e</key>
-                    <parentUnit>
-                        <key name="name" value="f315b32a-9e6a-49a0-b30a-32f4e6f49682" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="E1" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="judges" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
-                <key name="name" value="ReviewerQuery" />
-            </query>
-        </propertyUnit>
-        <propertyUnit>
-            <name>f31a97d7-dda3-49c9-8f2f-e07dfc6d5416</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].units.propertyUnit[f31a97d7-dda3-49c9-8f2f-e07dfc6d5416].displayName</displayName>
-            <groupType />
-            <isSelector>false</isSelector>
-            <isFilter>false</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType />
-            <propertyRefs>
-                <propertyRef>
-                    <key>c376f287-90d3-49b3-80ff-3586e0206ca0</key>
-                    <parentUnit>
-                        <key name="name" value="f31a97d7-dda3-49c9-8f2f-e07dfc6d5416" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="E1_judges" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="id" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
-                <key name="name" value="ReviewerQuery" />
-            </query>
-        </propertyUnit>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -811,67 +506,7 @@
                         <key name="name" value="NewUnit3" />
                     </rightField>
                     <join>
-                        <key name="name" value="NewJoin0" />
-                    </join>
-                </joinItem>
-            </joinItems>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
-                <key name="name" value="ReviewerQuery" />
-            </query>
-        </join>
-        <join>
-            <name>1f13181d-c31e-4996-a42a-eaf6b1826dc2</name>
-            <formulaString>#0</formulaString>
-            <type>LEFT OUTER JOIN</type>
-            <leftObject>
-                <key name="name" value="Reviewer" />
-            </leftObject>
-            <rightObject>
-                <key name="name" value="E1" />
-            </rightObject>
-            <joinItems>
-                <joinItem>
-                    <name>626bcb09-2822-4f83-9564-268ae8d2101f</name>
-                    <compareType>=</compareType>
-                    <leftField>
-                        <key name="name" value="ad29330d-9def-4093-b281-2582d7176fc4" />
-                    </leftField>
-                    <rightField>
-                        <key name="name" value="d42b38dc-c171-4151-bef9-8a91ab46e5a1" />
-                    </rightField>
-                    <join>
-                        <key name="name" value="1f13181d-c31e-4996-a42a-eaf6b1826dc2" />
-                    </join>
-                </joinItem>
-            </joinItems>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
-                <key name="name" value="ReviewerQuery" />
-            </query>
-        </join>
-        <join>
-            <name>86da2196-bd76-4cae-9f46-bf4dfefc737c</name>
-            <formulaString>#0</formulaString>
-            <type>LEFT OUTER JOIN</type>
-            <leftObject>
-                <key name="name" value="E1" />
-            </leftObject>
-            <rightObject>
-                <key name="name" value="E1_judges" />
-            </rightObject>
-            <joinItems>
-                <joinItem>
-                    <name>a89950d5-8238-4963-bc78-d80851466d15</name>
-                    <compareType>=</compareType>
-                    <leftField>
-                        <key name="name" value="f315b32a-9e6a-49a0-b30a-32f4e6f49682" />
-                    </leftField>
-                    <rightField>
-                        <key name="name" value="f31a97d7-dda3-49c9-8f2f-e07dfc6d5416" />
-                    </rightField>
-                    <join>
-                        <key name="name" value="86da2196-bd76-4cae-9f46-bf4dfefc737c" />
+                        <key name="name" value="NewJoin1" />
                     </join>
                 </joinItem>
             </joinItems>
@@ -966,18 +601,6 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].subObjects.subEntity[E1].alias">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].subObjects.subEntity[E1_judges].alias">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].subObjects.subEntity[Reviewer].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -1020,67 +643,6 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].units.propertyUnit[ad29330d-9def-4093-b281-2582d7176fc4].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].units.propertyUnit[d42b38dc-c171-4151-bef9-8a91ab46e5a1].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].units.propertyUnit[f315b32a-9e6a-49a0-b30a-32f4e6f49682].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].units.propertyUnit[f31a97d7-dda3-49c9-8f2f-e07dfc6d5416].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].units.queryField[E1.judges.name].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="评审人员" />
-            <lang locale="zh_HK" value="評審人員" />
-            <lang locale="zh_TW" value="評審人員" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].units.queryField[E1.judges.name].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].units.queryField[E1.judges.name].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].units.queryField[E1.judges.name].extendedProperty.isUsingF7">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].units.queryField[E1.seq].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="单据分录序列号" />
-            <lang locale="zh_HK" value="單據分錄序列號" />
-            <lang locale="zh_TW" value="單據分錄序列號" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].units.queryField[E1.seq].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].units.queryField[E1.seq].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].units.queryField[createTime].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="创建时间" />
@@ -1114,9 +676,9 @@
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].units.queryField[creator.name].displayName">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="别名" />
-            <lang locale="zh_HK" value="別名" />
-            <lang locale="zh_TW" value="別名" />
+            <lang locale="zh_CN" value="创建人" />
+            <lang locale="zh_HK" value="創建人" />
+            <lang locale="zh_TW" value="創建人" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].units.queryField[creator.name].extendedProperty.colWidthInKDTable">
             <lang locale="en_US" value="50" />
@@ -1139,68 +701,6 @@
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].units.queryField[creator.name].extendedProperty.isVisibleForKDTable">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].units.queryField[creator.number].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="用户名" />
-            <lang locale="zh_HK" value="用戶名" />
-            <lang locale="zh_TW" value="用戶名" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].units.queryField[creator.number].extendedProperty.colWidthInKDTable">
-            <lang locale="en_US" value="50" />
-            <lang locale="zh_CN" value="50" />
-            <lang locale="zh_TW" value="50" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].units.queryField[creator.number].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="false" />
-            <lang locale="zh_CN" value="false" />
-            <lang locale="zh_TW" value="false" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].units.queryField[creator.number].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="false" />
-            <lang locale="zh_CN" value="false" />
-            <lang locale="zh_TW" value="false" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].units.queryField[creator.number].extendedProperty.isUsingF7">
-            <lang locale="en_US" value="false" />
-            <lang locale="zh_CN" value="false" />
-            <lang locale="zh_TW" value="false" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].units.queryField[creator.number].extendedProperty.isVisibleForKDTable">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].units.queryField[description].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="描述" />
-            <lang locale="zh_HK" value="描述" />
-            <lang locale="zh_TW" value="描述" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].units.queryField[description].extendedProperty.colWidthInKDTable">
-            <lang locale="en_US" value="50" />
-            <lang locale="zh_CN" value="50" />
-            <lang locale="zh_TW" value="50" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].units.queryField[description].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="false" />
-            <lang locale="zh_CN" value="false" />
-            <lang locale="zh_TW" value="false" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].units.queryField[description].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="false" />
-            <lang locale="zh_CN" value="false" />
-            <lang locale="zh_TW" value="false" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].units.queryField[description].extendedProperty.isUsingF7">
-            <lang locale="en_US" value="false" />
-            <lang locale="zh_CN" value="false" />
-            <lang locale="zh_TW" value="false" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].units.queryField[description].extendedProperty.isVisibleForKDTable">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
@@ -1268,9 +768,9 @@
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].units.queryField[lastUpdateUser.name].displayName">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="别名" />
-            <lang locale="zh_HK" value="別名" />
-            <lang locale="zh_TW" value="別名" />
+            <lang locale="zh_CN" value="最后修改人" />
+            <lang locale="zh_HK" value="最後修改人" />
+            <lang locale="zh_TW" value="最後修改人" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].units.queryField[lastUpdateUser.name].extendedProperty.colWidthInKDTable">
             <lang locale="en_US" value="50" />
@@ -1297,42 +797,11 @@
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].units.queryField[lastUpdateUser.number].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="用户名" />
-            <lang locale="zh_HK" value="用戶名" />
-            <lang locale="zh_TW" value="用戶名" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].units.queryField[lastUpdateUser.number].extendedProperty.colWidthInKDTable">
-            <lang locale="en_US" value="50" />
-            <lang locale="zh_CN" value="50" />
-            <lang locale="zh_TW" value="50" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].units.queryField[lastUpdateUser.number].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="false" />
-            <lang locale="zh_CN" value="false" />
-            <lang locale="zh_TW" value="false" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].units.queryField[lastUpdateUser.number].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="false" />
-            <lang locale="zh_CN" value="false" />
-            <lang locale="zh_TW" value="false" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].units.queryField[lastUpdateUser.number].extendedProperty.isUsingF7">
-            <lang locale="en_US" value="false" />
-            <lang locale="zh_CN" value="false" />
-            <lang locale="zh_TW" value="false" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].units.queryField[lastUpdateUser.number].extendedProperty.isVisibleForKDTable">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].units.queryField[name].displayName">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="名称" />
-            <lang locale="zh_HK" value="名稱" />
-            <lang locale="zh_TW" value="名稱" />
+            <lang locale="zh_CN" value="评审人员" />
+            <lang locale="zh_HK" value="評審人員" />
+            <lang locale="zh_TW" value="評審人員" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.ReviewerQuery].units.queryField[name].extendedProperty.colWidthInKDTable">
             <lang locale="en_US" value="50" />
