@@ -343,7 +343,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>33,35,270,19,260</constraints>
+            <constraints>32,35,270,19,260</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -569,13 +569,13 @@
             </parent>
         </component>
         <component>
-            <name>kdtEntry</name>
-            <alias>uiObject[com.kingdee.eas.port.equipment.special.client.AnnualYearFeeEditUI].components.component[kdtEntry].alias</alias>
+            <name>btnImportExcel</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.special.client.AnnualYearFeeEditUI].components.component[btnImportExcel].alias</alias>
             <userDefined>true</userDefined>
-            <classType>com.kingdee.bos.ctrl.kdf.table.KDTable</classType>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
             <isContainer>false</isContainer>
-            <constraints>29,65,951,493,15</constraints>
-            <tabIndex>17</tabIndex>
+            <constraints>674,37,22,19,0</constraints>
+            <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
             <layoutInfo>
@@ -585,9 +585,9 @@
             </layoutInfo>
             <properties>
                 <property>
-                    <name>formatXml</name>
+                    <name>text</name>
                     <type>java.lang.String</type>
-                    <value>uiObject[com.kingdee.eas.port.equipment.special.client.AnnualYearFeeEditUI].components.component[kdtEntry].properties.property[formatXml].value</value>
+                    <value>uiObject[com.kingdee.eas.port.equipment.special.client.AnnualYearFeeEditUI].components.component[btnImportExcel].properties.property[text].value</value>
                     <isMultiLan>true</isMultiLan>
                     <userDefined>true</userDefined>
                 </property>
@@ -595,222 +595,90 @@
             <parent>
                 <key name="name" value="CoreUI" />
             </parent>
-            <propertyBindings>
-                <propertyBinding>
-                    <propertyName>seq.text</propertyName>
-                    <propertyType>java.lang.Object</propertyType>
-                    <bindingObject>editData</bindingObject>
-                    <bindingField>Entry.seq</bindingField>
-                    <fieldType>int</fieldType>
-                    <accessType>2</accessType>
-                    <autoMode>false</autoMode>
+            <eventBindings>
+                <eventBinding>
+                    <name>actionPerformed</name>
+                    <eventType>java.awt.event.ActionEvent</eventType>
+                    <scene />
+                    <listenerType>java.awt.event.ActionListener</listenerType>
+                    <listenerAdapter>java.awt.event.ActionListener</listenerAdapter>
+                    <methodName>btnImportExcel_actionPerformed</methodName>
+                    <code />
+                    <isBindWorkFlow>false</isBindWorkFlow>
                     <herited>false</herited>
                     <userDefined>true</userDefined>
-                </propertyBinding>
-                <propertyBinding>
-                    <propertyName>userObject</propertyName>
-                    <propertyType>java.lang.Object</propertyType>
-                    <bindingObject>editData</bindingObject>
-                    <bindingField>Entry</bindingField>
-                    <fieldType>com.kingdee.eas.port.equipment.special.AnnualYearFeeEntryCollection</fieldType>
-                    <accessType>2</accessType>
-                    <autoMode>false</autoMode>
+                </eventBinding>
+            </eventBindings>
+        </component>
+        <component>
+            <name>btnExcel</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.special.client.AnnualYearFeeEditUI].components.component[btnExcel].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>705,41,22,19,0</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>text</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.special.client.AnnualYearFeeEditUI].components.component[btnExcel].properties.property[text].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="CoreUI" />
+            </parent>
+            <eventBindings>
+                <eventBinding>
+                    <name>actionPerformed</name>
+                    <eventType>java.awt.event.ActionEvent</eventType>
+                    <scene />
+                    <listenerType>java.awt.event.ActionListener</listenerType>
+                    <listenerAdapter>java.awt.event.ActionListener</listenerAdapter>
+                    <methodName>btnExcel_actionPerformed</methodName>
+                    <code />
+                    <isBindWorkFlow>false</isBindWorkFlow>
                     <herited>false</herited>
                     <userDefined>true</userDefined>
-                </propertyBinding>
-                <propertyBinding>
-                    <propertyName>zdaNumber.text</propertyName>
-                    <propertyType>java.lang.Object</propertyType>
-                    <bindingObject>editData</bindingObject>
-                    <bindingField>Entry.zdaNumber</bindingField>
-                    <fieldType>java.lang.Object</fieldType>
-                    <accessType>2</accessType>
-                    <autoMode>false</autoMode>
-                    <herited>false</herited>
+                </eventBinding>
+            </eventBindings>
+        </component>
+        <component>
+            <name>kDContainer1</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.special.client.AnnualYearFeeEditUI].components.component[kDContainer1].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>32,65,947,487,15</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>borderLayout1</name>
+                <type>BorderLayout</type>
+                <value>0,0</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>enableActive</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.special.client.AnnualYearFeeEditUI].components.component[kDContainer1].properties.property[enableActive].value</value>
+                    <isMultiLan>false</isMultiLan>
                     <userDefined>true</userDefined>
-                </propertyBinding>
-                <propertyBinding>
-                    <propertyName>equipmentName.text</propertyName>
-                    <propertyType>java.lang.Object</propertyType>
-                    <bindingObject>editData</bindingObject>
-                    <bindingField>Entry.equipmentName</bindingField>
-                    <fieldType>String</fieldType>
-                    <accessType>2</accessType>
-                    <autoMode>false</autoMode>
-                    <herited>false</herited>
-                    <userDefined>true</userDefined>
-                </propertyBinding>
-                <propertyBinding>
-                    <propertyName>useUnit.text</propertyName>
-                    <propertyType>java.lang.Object</propertyType>
-                    <bindingObject>editData</bindingObject>
-                    <bindingField>Entry.useUnit</bindingField>
-                    <fieldType>String</fieldType>
-                    <accessType>2</accessType>
-                    <autoMode>false</autoMode>
-                    <herited>false</herited>
-                    <userDefined>true</userDefined>
-                </propertyBinding>
-                <propertyBinding>
-                    <propertyName>planDate.text</propertyName>
-                    <propertyType>java.lang.Object</propertyType>
-                    <bindingObject>editData</bindingObject>
-                    <bindingField>Entry.planDate</bindingField>
-                    <fieldType>java.util.Date</fieldType>
-                    <accessType>2</accessType>
-                    <autoMode>false</autoMode>
-                    <herited>false</herited>
-                    <userDefined>true</userDefined>
-                </propertyBinding>
-                <propertyBinding>
-                    <propertyName>endDate.text</propertyName>
-                    <propertyType>java.lang.Object</propertyType>
-                    <bindingObject>editData</bindingObject>
-                    <bindingField>Entry.endDate</bindingField>
-                    <fieldType>java.util.Date</fieldType>
-                    <accessType>2</accessType>
-                    <autoMode>false</autoMode>
-                    <herited>false</herited>
-                    <userDefined>true</userDefined>
-                </propertyBinding>
-                <propertyBinding>
-                    <propertyName>address.text</propertyName>
-                    <propertyType>java.lang.Object</propertyType>
-                    <bindingObject>editData</bindingObject>
-                    <bindingField>Entry.address</bindingField>
-                    <fieldType>String</fieldType>
-                    <accessType>2</accessType>
-                    <autoMode>false</autoMode>
-                    <herited>false</herited>
-                    <userDefined>true</userDefined>
-                </propertyBinding>
-                <propertyBinding>
-                    <propertyName>companyNumber.text</propertyName>
-                    <propertyType>java.lang.Object</propertyType>
-                    <bindingObject>editData</bindingObject>
-                    <bindingField>Entry.companyNumber</bindingField>
-                    <fieldType>String</fieldType>
-                    <accessType>2</accessType>
-                    <autoMode>false</autoMode>
-                    <herited>false</herited>
-                    <userDefined>true</userDefined>
-                </propertyBinding>
-                <propertyBinding>
-                    <propertyName>NO.text</propertyName>
-                    <propertyType>java.lang.Object</propertyType>
-                    <bindingObject>editData</bindingObject>
-                    <bindingField>Entry.NO</bindingField>
-                    <fieldType>String</fieldType>
-                    <accessType>2</accessType>
-                    <autoMode>false</autoMode>
-                    <herited>false</herited>
-                    <userDefined>true</userDefined>
-                </propertyBinding>
-                <propertyBinding>
-                    <propertyName>weight.text</propertyName>
-                    <propertyType>java.lang.Object</propertyType>
-                    <bindingObject>editData</bindingObject>
-                    <bindingField>Entry.weight</bindingField>
-                    <fieldType>java.math.BigDecimal</fieldType>
-                    <accessType>2</accessType>
-                    <autoMode>false</autoMode>
-                    <herited>false</herited>
-                    <userDefined>true</userDefined>
-                </propertyBinding>
-                <propertyBinding>
-                    <propertyName>checkType.text</propertyName>
-                    <propertyType>java.lang.Object</propertyType>
-                    <bindingObject>editData</bindingObject>
-                    <bindingField>Entry.checkType</bindingField>
-                    <fieldType>com.kingdee.util.enums.Enum</fieldType>
-                    <accessType>2</accessType>
-                    <autoMode>false</autoMode>
-                    <herited>false</herited>
-                    <userDefined>true</userDefined>
-                </propertyBinding>
-                <propertyBinding>
-                    <propertyName>beizhu.text</propertyName>
-                    <propertyType>java.lang.Object</propertyType>
-                    <bindingObject>editData</bindingObject>
-                    <bindingField>Entry.beizhu</bindingField>
-                    <fieldType>String</fieldType>
-                    <accessType>2</accessType>
-                    <autoMode>false</autoMode>
-                    <herited>false</herited>
-                    <userDefined>true</userDefined>
-                </propertyBinding>
-                <propertyBinding>
-                    <propertyName>checkFee.text</propertyName>
-                    <propertyType>java.lang.Object</propertyType>
-                    <bindingObject>editData</bindingObject>
-                    <bindingField>Entry.checkFee</bindingField>
-                    <fieldType>java.math.BigDecimal</fieldType>
-                    <accessType>2</accessType>
-                    <autoMode>false</autoMode>
-                    <herited>false</herited>
-                    <userDefined>true</userDefined>
-                </propertyBinding>
-                <propertyBinding>
-                    <propertyName>otherFee.text</propertyName>
-                    <propertyType>java.lang.Object</propertyType>
-                    <bindingObject>editData</bindingObject>
-                    <bindingField>Entry.otherFee</bindingField>
-                    <fieldType>java.math.BigDecimal</fieldType>
-                    <accessType>2</accessType>
-                    <autoMode>false</autoMode>
-                    <herited>false</herited>
-                    <userDefined>true</userDefined>
-                </propertyBinding>
-                <propertyBinding>
-                    <propertyName>totalAmount.text</propertyName>
-                    <propertyType>java.lang.Object</propertyType>
-                    <bindingObject>editData</bindingObject>
-                    <bindingField>Entry.totalAmount</bindingField>
-                    <fieldType>java.math.BigDecimal</fieldType>
-                    <accessType>2</accessType>
-                    <autoMode>false</autoMode>
-                    <herited>false</herited>
-                    <userDefined>true</userDefined>
-                </propertyBinding>
-            </propertyBindings>
-            <rules>
-                <baseRule>
-                    <key name="name" value="Entry_equipmentName_RuleInfo" />
-                </baseRule>
-                <baseRule>
-                    <key name="name" value="Entry_code_RuleInfo" />
-                </baseRule>
-                <baseRule>
-                    <key name="name" value="Entry_useUnit_RuleInfo" />
-                </baseRule>
-                <baseRule>
-                    <key name="name" value="Entry_state_RuleInfo" />
-                </baseRule>
-                <baseRule>
-                    <key name="name" value="Entry_address_RuleInfo" />
-                </baseRule>
-                <baseRule>
-                    <key name="name" value="Entry_companyNumber_RuleInfo" />
-                </baseRule>
-                <baseRule>
-                    <key name="name" value="Entry_NO_RuleInfo" />
-                </baseRule>
-                <baseRule>
-                    <key name="name" value="Entry_engineNumber_RuleInfo" />
-                </baseRule>
-                <baseRule>
-                    <key name="name" value="Entry_carNumber_RuleInfo" />
-                </baseRule>
-                <baseRule>
-                    <key name="name" value="Entry_weight_RuleInfo" />
-                </baseRule>
-                <baseRule>
-                    <key name="name" value="Entry_useDate_RuleInfo" />
-                </baseRule>
-                <baseRule>
-                    <key name="name" value="Entry_createUnit_RuleInfo" />
-                </baseRule>
-            </rules>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="CoreUI" />
+            </parent>
         </component>
         <component>
             <name>prmtCreator</name>
@@ -1382,6 +1250,250 @@
                 </propertyBinding>
             </propertyBindings>
         </component>
+        <component>
+            <name>kdtEntry</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.special.client.AnnualYearFeeEditUI].components.component[kdtEntry].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.kdf.table.KDTable</classType>
+            <isContainer>false</isContainer>
+            <constraints>Center</constraints>
+            <tabIndex>17</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>formatXml</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.special.client.AnnualYearFeeEditUI].components.component[kdtEntry].properties.property[formatXml].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="kDContainer1" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>seq.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>Entry.seq</bindingField>
+                    <fieldType>int</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>userObject</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>Entry</bindingField>
+                    <fieldType>com.kingdee.eas.port.equipment.special.AnnualYearFeeEntryCollection</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>zdaNumber.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>Entry.zdaNumber</bindingField>
+                    <fieldType>java.lang.Object</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>equipmentName.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>Entry.equipmentName</bindingField>
+                    <fieldType>String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>useUnit.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>Entry.useUnit</bindingField>
+                    <fieldType>String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>planDate.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>Entry.planDate</bindingField>
+                    <fieldType>java.util.Date</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>endDate.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>Entry.endDate</bindingField>
+                    <fieldType>java.util.Date</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>address.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>Entry.address</bindingField>
+                    <fieldType>String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>companyNumber.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>Entry.companyNumber</bindingField>
+                    <fieldType>String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>NO.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>Entry.NO</bindingField>
+                    <fieldType>String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>weight.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>Entry.weight</bindingField>
+                    <fieldType>java.math.BigDecimal</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>checkType.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>Entry.checkType</bindingField>
+                    <fieldType>com.kingdee.util.enums.Enum</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>beizhu.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>Entry.beizhu</bindingField>
+                    <fieldType>String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>checkFee.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>Entry.checkFee</bindingField>
+                    <fieldType>java.math.BigDecimal</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>otherFee.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>Entry.otherFee</bindingField>
+                    <fieldType>java.math.BigDecimal</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>totalAmount.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>Entry.totalAmount</bindingField>
+                    <fieldType>java.math.BigDecimal</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+            <rules>
+                <baseRule>
+                    <key name="name" value="Entry_equipmentName_RuleInfo" />
+                </baseRule>
+                <baseRule>
+                    <key name="name" value="Entry_code_RuleInfo" />
+                </baseRule>
+                <baseRule>
+                    <key name="name" value="Entry_useUnit_RuleInfo" />
+                </baseRule>
+                <baseRule>
+                    <key name="name" value="Entry_state_RuleInfo" />
+                </baseRule>
+                <baseRule>
+                    <key name="name" value="Entry_address_RuleInfo" />
+                </baseRule>
+                <baseRule>
+                    <key name="name" value="Entry_companyNumber_RuleInfo" />
+                </baseRule>
+                <baseRule>
+                    <key name="name" value="Entry_NO_RuleInfo" />
+                </baseRule>
+                <baseRule>
+                    <key name="name" value="Entry_engineNumber_RuleInfo" />
+                </baseRule>
+                <baseRule>
+                    <key name="name" value="Entry_carNumber_RuleInfo" />
+                </baseRule>
+                <baseRule>
+                    <key name="name" value="Entry_weight_RuleInfo" />
+                </baseRule>
+                <baseRule>
+                    <key name="name" value="Entry_useDate_RuleInfo" />
+                </baseRule>
+                <baseRule>
+                    <key name="name" value="Entry_createUnit_RuleInfo" />
+                </baseRule>
+            </rules>
+        </component>
     </components>
     <dataObjects>
         <dataObject>
@@ -1515,6 +1627,30 @@
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.special.client.AnnualYearFeeEditUI].components.component[btnExcel].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.special.client.AnnualYearFeeEditUI].components.component[btnExcel].properties.property[text].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="导出模板" />
+            <lang locale="zh_HK" value="導出範本" />
+            <lang locale="zh_TW" value="導出範本" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.special.client.AnnualYearFeeEditUI].components.component[btnImportExcel].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.special.client.AnnualYearFeeEditUI].components.component[btnImportExcel].properties.property[text].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="导入费用明细" />
+            <lang locale="zh_HK" value="導入費用明細" />
+            <lang locale="zh_TW" value="導入費用明細" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.special.client.AnnualYearFeeEditUI].components.component[comboBizStatus].alias">
             <lang locale="en_US" value="null" />
@@ -1865,6 +2001,18 @@
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.special.client.AnnualYearFeeEditUI].components.component[contStatus].properties.property[enabled].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.special.client.AnnualYearFeeEditUI].components.component[kDContainer1].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.special.client.AnnualYearFeeEditUI].components.component[kDContainer1].properties.property[enableActive].value">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_HK" value="false" />
