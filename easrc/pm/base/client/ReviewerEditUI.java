@@ -4,10 +4,13 @@
 package com.kingdee.eas.port.pm.base.client;
 
 import java.awt.event.*;
+
 import org.apache.log4j.Logger;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.eas.framework.*;
+import com.kingdee.eas.port.pm.base.Judges;
+import com.kingdee.eas.xr.helper.ClientVerifyXRHelper.*;
 
 /**
  * output class name
@@ -43,6 +46,10 @@ public class ReviewerEditUI extends AbstractReviewerEditUI
     	kdtE1.getColumn("seq").getStyleAttributes().setHided(true);
     }
 
+    protected void verifyInput(ActionEvent e) throws Exception {
+    	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyKDTColumnNull(this, kdtE1, "judges");
+    	super.verifyInput(e);
+    }
     /**
      * output storeFields method
      */
