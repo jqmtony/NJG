@@ -14,7 +14,6 @@ import java.util.Date;
 
 import org.apache.log4j.Logger;
 
-import com.kingdee.bos.appframework.stateManage.ObjectState;
 import com.kingdee.bos.ctrl.extendcontrols.BizDataFormat;
 import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
@@ -33,7 +32,6 @@ import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.eas.base.core.fm.ClientVerifyHelper;
 import com.kingdee.eas.base.permission.UserInfo;
-import com.kingdee.eas.basedata.assistant.CurrencyInfo;
 import com.kingdee.eas.basedata.org.AdminOrgUnitCollection;
 import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
 import com.kingdee.eas.basedata.person.PersonInfo;
@@ -47,11 +45,10 @@ import com.kingdee.eas.port.pm.invest.CostTempE1Collection;
 import com.kingdee.eas.port.pm.invest.CostTempE1Info;
 import com.kingdee.eas.port.pm.invest.CostTempInfo;
 import com.kingdee.eas.port.pm.invest.ObjectStateEnum;
-import com.kingdee.eas.port.pm.invest.YearInvestPlanInfo;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
-import com.kingdee.eas.xr.app.XRBillStatusEnum;
+import com.kingdee.eas.xr.helper.ClientVerifyXRHelper;
 import com.kingdee.eas.xr.helper.PersonXRHelper;
 
 /**
@@ -77,14 +74,11 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 		pkBizDate.setEditable(false);
 		contBizDate.setEnabled(false);
 		contrequestOrg.setEnabled(false);
-		prmtportProject.setVisible(false);
-		contportProject.setVisible(false);
 		kdtEntry.getColumn("seq").getStyleAttributes().setHided(true);
 		kdtE3.setEditable(false);
 		kdtE3_detailPanel.getAddNewLineButton().setVisible(false);
 		kdtE3_detailPanel.getInsertLineButton().setVisible(false);
 		kdtE3_detailPanel.getRemoveLinesButton().setVisible(false);
-		
 		this.txtBIMUDF0027.setMaxLength(2000);
 		this.txtanalyse.setMaxLength(2000);
 		this.txtscheme.setMaxLength(2000);
@@ -103,6 +97,15 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 		ObjectValueRender kdtEntry_costType_OVR = new ObjectValueRender();
 		kdtEntry_costType_OVR.setFormat(new BizDataFormat("$E1.costType.name$"));
 		this.kdtEntry.getColumn("costType").setRenderer(kdtEntry_costType_OVR);
+		
+		if (prmtbuildType.getValue() != null) 
+		{
+			if (((BuildTypeInfo) prmtbuildType.getValue()).getName().equals("新建项目")) 
+			{
+				prmtportProject.setVisible(false);
+				contportProject.setVisible(false);
+			} 
+		}
 
 		if (getOprtState().equals(OprtState.ADDNEW)) {
 			UserInfo user = SysContext.getSysContext().getCurrentUserInfo();
@@ -157,16 +160,21 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 		super.prmtbuildType_dataChanged(e);
 		if (prmtbuildType.getValue() != null) {
 			BuildTypeInfo bdtinfo = (BuildTypeInfo) prmtbuildType.getValue();
-			if (bdtinfo.getName().equals("续建项目")) {
+			if (bdtinfo.getName().equals("续建项目")) 
+			{
 				prmtportProject.setVisible(true);
 				contportProject.setVisible(true);
-			} else {
+			} 
+			else 
+			{
 				prmtportProject.setVisible(false);
 				prmtportProject.setValue(null);
 				contportProject.setVisible(false);
 				txtaddInvestAmount.setValue(null);
 			}
-		} else {
+		} 
+		else 
+		{
 			prmtportProject.setVisible(false);
 			prmtportProject.setValue(null);
 			contportProject.setVisible(false);
@@ -221,6 +229,9 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
     	ClientVerifyHelper.verifyEmpty(this, this.pkplanEndDate);
     	ClientVerifyHelper.verifyEmpty(this, this.pkBizDate);
     	SimpleDateFormat Formatter = new SimpleDateFormat("yyyy-MM-dd");
+    	if(((BuildTypeInfo) prmtbuildType.getValue()).getName().equals("续建项目")){
+    		ClientVerifyHelper.verifyEmpty(this, this.prmtportProject);
+    	}
     	if(!Formatter.format(this.pkplanStartDate.getSqlDate()).equals(Formatter.format(this.pkBizDate.getSqlDate())))
     	{	
     		if(this.pkplanStartDate.getSqlDate().before(this.pkBizDate.getSqlDate())){

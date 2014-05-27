@@ -44,6 +44,7 @@ import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
 import com.kingdee.eas.basedata.person.PersonInfo;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.hr.emp.client.EmployeeMultiF7PromptBox;
+import com.kingdee.eas.mm.basedata.OprStatusEnum;
 import com.kingdee.eas.port.pm.base.ReviewerE1Collection;
 import com.kingdee.eas.port.pm.base.ReviewerE1Factory;
 import com.kingdee.eas.port.pm.base.ReviewerE1Info;
@@ -213,6 +214,7 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
 		int colIndex = e.getColIndex();
 		int rowIndex = e.getRowIndex();
 		String key = kdtE1.getColumnKey(colIndex);
+		if(this.kdtE1.getCell(rowIndex, "accredResu").getValue()!=null){
 		if(key.equals("accredResu")){
 			if(UIRuleUtil.getObject(this.kdtE1.getCell(rowIndex, "accredResu").getValue()).
 					equals(ObjectStateEnum.throughAudit)||UIRuleUtil.getObject(this.kdtE1.getCell(rowIndex, "accredResu").getValue()).
@@ -223,6 +225,7 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
 	        	this.kdtE1.getCell(rowIndex,"projectConclude").setValue("");
 	        }
 		}
+	  }
 	}
 	/**
 	 * 校验分录列"projectConclude"值不能为空
@@ -236,7 +239,9 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
 			if(objState.equals(ObjectStateEnum.complement)||objState.equals(ObjectStateEnum.veto))
 			{
 				if(UIRuleUtil.isNull(this.kdtE1.getCell(i, "projectConclude").getValue()))
+				{
 					MsgBox.showWarning("第{"+rowindex+"}行评审结果为{"+objState.getAlias()+"}的项目结论不能为空！");SysUtil.abort();
+				}
 			}
 			rowindex+=1;
 		}
@@ -244,6 +249,7 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
 	}
 	
 	protected void initProWorkButton(KDContainer container, boolean flse) {
+		KDWorkButton btnApprove = new KDWorkButton();
 		KDWorkButton btnperson = new KDWorkButton();
 		KDWorkButton btnAddRowinfo = new KDWorkButton();
 		KDWorkButton btnInsertRowinfo = new KDWorkButton();
@@ -252,6 +258,7 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
 		btnInsertRowinfo.setEnabled((OprtState.EDIT.equals(getOprtState()) || OprtState.ADDNEW.equals(getOprtState())) ? true : false);
 		btnDeleteRowinfo.setEnabled((OprtState.EDIT.equals(getOprtState()) || OprtState.ADDNEW.equals(getOprtState())) ? true : false);
 		btnperson.setEnabled((OprtState.EDIT.equals(getOprtState()) || OprtState.ADDNEW.equals(getOprtState())) ? true : false);
+		btnApprove.setEnabled((OprtState.EDIT.equals(getOprtState()))||OprtState.ADDNEW.equals(getOprtState()) ? true : false);
 		
 		btnperson.setIcon(EASResource.getIcon("imgTbtn_addline"));
 		container.addButton(btnperson);
@@ -307,8 +314,28 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
 		});
 		
 		if(accredType.getSelectedItem().equals(AccredTypeEnum.trial)){
-			btnperson.setEnabled(false);
+			btnperson.setVisible(false);
 		}
+		
+		btnApprove.setIcon(EASResource.getIcon("imgTbtn_addline"));
+		container.addButton(btnApprove);
+		btnApprove.setText("批量批准");
+		btnApprove.setSize(new Dimension(140, 19));
+		btnApprove.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent e) {
+				boolean flag = MsgBox.isYes(MsgBox.showConfirm2( "是否确认批量批准"));
+				if(flag)
+				for (int i = 0; i < kdtE1.getRowCount(); i++) {
+					kdtE1.getCell(i, "accredResu").setValue(ObjectStateEnum.approval);
+					kdtE1.getCell(i,"projectConclude").setValue("同意");
+				}
+			}
+		});
+		
+		if(!accredType.getSelectedItem().equals(AccredTypeEnum.approve)){
+			btnApprove.setVisible(false);
+		}
+		
 		
 		btnAddRowinfo.setIcon(EASResource.getIcon("imgTbtn_addline"));
 		container.addButton(btnAddRowinfo);
@@ -352,7 +379,9 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
 			}
 		});
 	}
-	
+	/**
+	 * 第一分录评审人按钮，使第二分录选到评审人员信息
+	 */
 	private void setKdtE2Person(Object obj[],int rowIndex)
 	{
 		YIPlanAccredE1Info enrtry1= (YIPlanAccredE1Info) kdtE1.getRow(rowIndex).getUserObject();
