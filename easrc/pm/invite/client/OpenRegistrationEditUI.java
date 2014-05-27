@@ -9,10 +9,16 @@ import java.math.BigDecimal;
 import java.util.Arrays;
 
 import org.apache.log4j.Logger;
+
+import com.kingdee.bos.metadata.entity.EntityViewInfo;
+import com.kingdee.bos.metadata.entity.FilterInfo;
+import com.kingdee.bos.metadata.entity.FilterItemInfo;
+import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.UIFactory;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.eas.basedata.assistant.ProjectInfo;
 import com.kingdee.eas.basedata.master.cssp.ISupplier;
 import com.kingdee.eas.basedata.master.cssp.SupplierFactory;
 import com.kingdee.eas.common.client.OprtState;
@@ -58,6 +64,14 @@ public class OpenRegistrationEditUI extends AbstractOpenRegistrationEditUI
     	// TODO Auto-generated method stub
     	initConpoment();
     	super.onLoad();
+    	ProjectInfo info = (ProjectInfo) getUIContext().get("treeInfo");
+    	if(info != null) {
+    		EntityViewInfo evi = new EntityViewInfo();
+    		FilterInfo filter = new FilterInfo();
+    		evi.setFilter(filter);
+    		filter.getFilterItems().add(new FilterItemInfo("proName.longnumber", info.getLongNumber()+"%", CompareType.LIKE));
+    		prmtreportName.setEntityViewInfo(evi);
+		}
     	com.kingdee.eas.port.pm.invite.client.InviteReportEditUI.initContainerButton(this.kDContainer1, this.kdtEntry_detailPanel);
     }
     private void initConpoment() {

@@ -46,6 +46,9 @@ import com.kingdee.bos.appframework.uip.UINavigator;
 public abstract class AbstractOpenRegistrationListUI extends com.kingdee.eas.xr.client.XRBillBaseListUI
 {
     private static final Logger logger = CoreUIObject.getLogger(AbstractOpenRegistrationListUI.class);
+    protected com.kingdee.bos.ctrl.swing.KDSplitPane kDSplitPane1;
+    protected com.kingdee.bos.ctrl.swing.KDTreeView kDTreeView1;
+    protected com.kingdee.bos.ctrl.swing.KDTree kDTree1;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnDoCancel;
     protected ActionDoCancel actionDoCancel = null;
     /**
@@ -92,7 +95,13 @@ public abstract class AbstractOpenRegistrationListUI extends com.kingdee.eas.xr.
         this.actionDoCancel.setExtendProperty("isObjectUpdateLock", "false");
          this.actionDoCancel.addService(new com.kingdee.eas.framework.client.service.PermissionService());
          this.actionDoCancel.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
+        this.kDSplitPane1 = new com.kingdee.bos.ctrl.swing.KDSplitPane();
+        this.kDTreeView1 = new com.kingdee.bos.ctrl.swing.KDTreeView();
+        this.kDTree1 = new com.kingdee.bos.ctrl.swing.KDTree();
         this.btnDoCancel = new com.kingdee.bos.ctrl.swing.KDWorkButton();
+        this.kDSplitPane1.setName("kDSplitPane1");
+        this.kDTreeView1.setName("kDTreeView1");
+        this.kDTree1.setName("kDTree1");
         this.btnDoCancel.setName("btnDoCancel");
         // CoreUI
 		String tblMainStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol28\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol29\"><c:Protection hidden=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"status\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"regName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"reportNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"opLocation\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"opDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"endDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"cancel\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"coefficient\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"reportName.projectNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"bizDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"creator.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"createTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"lastUpdateUser.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"lastUpdateTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"auditor.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"auditTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.contact\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.quality\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.payDeposit\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.deposit\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.quotedPrice\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.directions\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.comment\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.telephone\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.prjPeriod\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.supplierName.supplierName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol28\" /><t:Column t:key=\"CU.id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol29\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{number}</t:Cell><t:Cell>$Resource{status}</t:Cell><t:Cell>$Resource{regName}</t:Cell><t:Cell>$Resource{reportNumber}</t:Cell><t:Cell>$Resource{opLocation}</t:Cell><t:Cell>$Resource{opDate}</t:Cell><t:Cell>$Resource{endDate}</t:Cell><t:Cell>$Resource{cancel}</t:Cell><t:Cell>$Resource{coefficient}</t:Cell><t:Cell>$Resource{reportName.projectNumber}</t:Cell><t:Cell>$Resource{bizDate}</t:Cell><t:Cell>$Resource{creator.name}</t:Cell><t:Cell>$Resource{createTime}</t:Cell><t:Cell>$Resource{lastUpdateUser.name}</t:Cell><t:Cell>$Resource{lastUpdateTime}</t:Cell><t:Cell>$Resource{auditor.name}</t:Cell><t:Cell>$Resource{auditTime}</t:Cell><t:Cell>$Resource{Entry.seq}</t:Cell><t:Cell>$Resource{Entry.contact}</t:Cell><t:Cell>$Resource{Entry.quality}</t:Cell><t:Cell>$Resource{Entry.payDeposit}</t:Cell><t:Cell>$Resource{Entry.deposit}</t:Cell><t:Cell>$Resource{Entry.quotedPrice}</t:Cell><t:Cell>$Resource{Entry.directions}</t:Cell><t:Cell>$Resource{Entry.comment}</t:Cell><t:Cell>$Resource{Entry.telephone}</t:Cell><t:Cell>$Resource{Entry.prjPeriod}</t:Cell><t:Cell>$Resource{Entry.supplierName.supplierName}</t:Cell><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{CU.id}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
@@ -103,6 +112,20 @@ public abstract class AbstractOpenRegistrationListUI extends com.kingdee.eas.xr.
 
         this.tblMain.checkParsed();
         this.tblMain.getGroupManager().setGroup(true);
+        // kDSplitPane1		
+        this.kDSplitPane1.setDividerLocation(250);
+        // kDTreeView1
+        // kDTree1
+        this.kDTree1.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
+            public void valueChanged(javax.swing.event.TreeSelectionEvent e) {
+                try {
+                    kDTree1_valueChanged(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                }
+            }
+        });
         // btnDoCancel
         this.btnDoCancel.setAction((IItemAction)ActionProxyFactory.getProxy(actionDoCancel, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnDoCancel.setText(resHelper.getString("btnDoCancel.text"));
@@ -133,8 +156,13 @@ public abstract class AbstractOpenRegistrationListUI extends com.kingdee.eas.xr.
         this.setBounds(new Rectangle(10, 10, 1013, 629));
         this.setLayout(new KDLayout());
         this.putClientProperty("OriginalBounds", new Rectangle(10, 10, 1013, 629));
-        tblMain.setBounds(new Rectangle(10, 10, 996, 580));
-        this.add(tblMain, new KDLayout.Constraints(10, 10, 996, 580, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDSplitPane1.setBounds(new Rectangle(5, 4, 1001, 620));
+        this.add(kDSplitPane1, new KDLayout.Constraints(5, 4, 1001, 620, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        //kDSplitPane1
+        kDSplitPane1.add(tblMain, "right");
+        kDSplitPane1.add(kDTreeView1, "left");
+        //kDTreeView1
+        kDTreeView1.setTree(kDTree1);
 
     }
 
@@ -376,6 +404,13 @@ public abstract class AbstractOpenRegistrationListUI extends com.kingdee.eas.xr.
     public void setOprtState(String oprtType)
     {
         super.setOprtState(oprtType);
+    }
+
+    /**
+     * output kDTree1_valueChanged method
+     */
+    protected void kDTree1_valueChanged(javax.swing.event.TreeSelectionEvent e) throws Exception
+    {
     }
 
 	public SelectorItemCollection getBOTPSelectors() {

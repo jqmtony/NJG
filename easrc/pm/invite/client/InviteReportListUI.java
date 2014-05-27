@@ -4,6 +4,14 @@
 package com.kingdee.eas.port.pm.invite.client;
 
 import java.awt.event.*;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+
+import javax.swing.event.TreeSelectionEvent;
+import javax.swing.tree.TreeNode;
+
 import org.apache.log4j.Logger;
 
 import com.kingdee.bos.BOSException;
@@ -11,11 +19,27 @@ import com.kingdee.bos.metadata.IMetaDataPK;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
+import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.ctrl.swing.tree.DefaultKingdeeTreeNode;
 import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.dao.query.IQueryExecutor;
+import com.kingdee.bos.framework.cache.ActionCache;
+import com.kingdee.eas.base.permission.PermissionFactory;
+import com.kingdee.eas.basedata.assistant.IProject;
+import com.kingdee.eas.basedata.assistant.ProjectCollection;
+import com.kingdee.eas.basedata.assistant.ProjectFactory;
+import com.kingdee.eas.basedata.assistant.ProjectInfo;
+import com.kingdee.eas.basedata.org.OrgStructureInfo;
+import com.kingdee.eas.basedata.org.OrgType;
+import com.kingdee.eas.common.client.SysContext;
+import com.kingdee.eas.common.client.UIContext;
 import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.framework.*;
+import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
+import com.kingdee.eas.util.SysUtil;
+import com.kingdee.eas.xr.helper.common.PortProjectTreeBuilder;
 
 /**
  * output class name
@@ -31,24 +55,123 @@ public class InviteReportListUI extends AbstractInviteReportListUI
     {
         super();
     }
+    
+    @Override
+    public void onLoad() throws Exception {
+    	// TODO Auto-generated method stub
+    	super.onLoad();
+    	buildProjectTree();
+    	if(this.kDTree1.getRowCount()>0){
+    		this.kDTree1.setSelectionRow(0);
+    		this.kDTree1.expandAllNodes(true, (TreeNode) this.kDTree1.getModel().getRoot());
+    	}
+    	if(getUIContext().get("reportId") != null)
+    		kDTreeView1.setVisible(false);
+    }
+    protected Set authorizedOrgs = null;
+    public void buildProjectTree() throws Exception {
+
+    	PortProjectTreeBuilder projectTreeBuilder = new PortProjectTreeBuilder();
+
+		projectTreeBuilder.build(this, kDTree1, actionOnLoad);
+		
+		authorizedOrgs = (Set)ActionCache.get("FDCBillListUIHandler.authorizedOrgs");
+		if(authorizedOrgs==null){
+			authorizedOrgs = new HashSet();
+			Map orgs = PermissionFactory.getRemoteInstance().getAuthorizedOrgs(
+					 new ObjectUuidPK(SysContext.getSysContext().getCurrentUserInfo().getId()),
+			            OrgType.CostCenter, 
+			            null,  null, null);
+			if(orgs!=null){
+				Set orgSet = orgs.keySet();
+				Iterator it = orgSet.iterator();
+				while(it.hasNext()){
+					authorizedOrgs.add(it.next());
+				}
+			}		
+		}
+		
+	}
     @Override
     protected String getEditUIModal() {
     	// TODO Auto-generated method stub
     	return UIFactoryName.NEWWIN;
     }
-
-    protected IQueryExecutor getQueryExecutor(IMetaDataPK arg0,
-    		EntityViewInfo viewInfo) {
+    
+    @Override
+    protected void prepareUIContext(UIContext uiContext, ActionEvent e) {
     	// TODO Auto-generated method stub
-    	EntityViewInfo newViewInfo = (EntityViewInfo) viewInfo.clone();
+    	super.prepareUIContext(uiContext, e);
+    	if(getActionFromActionEvent(e).equals(actionAddNew)) {
+			DefaultKingdeeTreeNode treeNote = (DefaultKingdeeTreeNode)this.kDTree1.getLastSelectedPathComponent();
+			if (treeNote.getUserObject() instanceof ProjectInfo) {
+				getUIContext().put("treeInfo", treeNote.getUserObject());
+			} else {
+				MsgBox.showWarning("非子节点无法新增！");
+				SysUtil.abort();
+			}
+		}
+    }
+    
+    protected void kDTree1_valueChanged(TreeSelectionEvent e) throws Exception {
+    	super.kDTree1_valueChanged(e);
+    	refresh(null);
+    }
+    /**
+     * 获取当前项目以及子项目的单据id
+     */
+    protected Set<String> getProjectIdSet(ProjectInfo project) throws Exception {
+    	Set<String> idset = new HashSet<String>();
+		idset.add(project.getId().toString());
+		EntityViewInfo entityView = new EntityViewInfo();
+		FilterInfo filter = new FilterInfo();
+		filter.getFilterItems().add(new FilterItemInfo("longNumber", project.getLongNumber() + "%", CompareType.LIKE));
+		entityView.setFilter(filter);
+		IProject iproject = ProjectFactory.getRemoteInstance();
+		ProjectCollection projectColl = iproject.getProjectCollection(entityView);
+		for(int i = 0; i < projectColl.size(); i++) {
+			ProjectInfo info = projectColl.get(i);
+			idset.add(info.getId().toString());
+		}	
+		return idset;
+    }
+    
+    @Override
+    protected boolean isIgnoreCUFilter() {
+    	// TODO Auto-generated method stub
+    	return true;
+    }
+    protected IQueryExecutor getQueryExecutor(IMetaDataPK arg0,
+    		EntityViewInfo entityViewInfo) {
+    	// TODO Auto-generated method stub
+    	EntityViewInfo newViewInfo = (EntityViewInfo) entityViewInfo.clone();
     	FilterInfo filterInfo = new FilterInfo();
+    	DefaultKingdeeTreeNode treeNode = (DefaultKingdeeTreeNode)this.kDTree1.getLastSelectedPathComponent();
     	if(getUIContext().get("reportId")!=null)
     	{
     		filterInfo.getFilterItems().add(new FilterItemInfo("id",(String)getUIContext().get("reportId")));
     	}
+    	if(treeNode!=null)
+    	{
+    		if(treeNode !=null && treeNode.getUserObject() instanceof OrgStructureInfo){
+    			OrgStructureInfo orgInfo = (OrgStructureInfo) treeNode.getUserObject();
+    			filterInfo.getFilterItems().add(new FilterItemInfo("proName.company.longnumber", orgInfo.getLongNumber()+"%", CompareType.LIKE));
+    		} else if(treeNode.getUserObject()instanceof ProjectInfo) {
+    			ProjectInfo project = (ProjectInfo) treeNode.getUserObject();
+//    			try {
+//					Set<String> idset = getProjectIdSet(project);
+//					filterInfo.getFilterItems().add(new FilterItemInfo("proName.id", project.getLongNumber()+"%", CompareType.LIKE));
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+    			filterInfo.getFilterItems().add(new FilterItemInfo("proName.longnumber", project.getLongNumber()+"%", CompareType.LIKE));
+    		} else {
+    			filterInfo.getFilterItems().add(new FilterItemInfo("id", "null"));
+			}
+    	}
     	try 
     	{
-			if(viewInfo.getFilter()!=null)
+			if(entityViewInfo.getFilter()!=null)
 			{
 				newViewInfo.getFilter().mergeFilter(filterInfo, "and");
 			}

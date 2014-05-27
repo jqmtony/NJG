@@ -7,10 +7,12 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.math.BigDecimal;
+import java.util.HashMap;
 
 import org.apache.log4j.Logger;
 
 import com.kingdee.bos.ContextUtils;
+import com.kingdee.bos.ctrl.kdf.table.IColumn;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.swing.KDScrollPane;
@@ -19,18 +21,28 @@ import com.kingdee.bos.ctrl.swing.KDTextField;
 import com.kingdee.bos.ctrl.swing.event.DataChangeEvent;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.bos.metadata.entity.EntityViewInfo;
+import com.kingdee.bos.metadata.entity.FilterInfo;
+import com.kingdee.bos.metadata.entity.FilterItemInfo;
+import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.eas.base.uiframe.client.UIFactoryHelper;
+import com.kingdee.eas.basedata.assistant.ProjectInfo;
 import com.kingdee.eas.basedata.org.AdminOrgUnitFactory;
 import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.UIContext;
+import com.kingdee.eas.ep.client.editor.kdtable.KDTTableView;
 import com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockFactory;
 import com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockInfo;
 import com.kingdee.eas.port.pm.base.InviteTypeFactory;
 import com.kingdee.eas.port.pm.base.JudgesFactory;
 import com.kingdee.eas.port.pm.base.JudgesInfo;
 import com.kingdee.eas.port.pm.invite.EvaluationCollection;
+import com.kingdee.eas.port.pm.invite.EvaluationEntryTotalCollection;
+import com.kingdee.eas.port.pm.invite.EvaluationEntryTotalInfo;
+import com.kingdee.eas.port.pm.invite.EvaluationEntryUnitCollection;
+import com.kingdee.eas.port.pm.invite.EvaluationEntryUnitInfo;
 import com.kingdee.eas.port.pm.invite.EvaluationFactory;
 import com.kingdee.eas.port.pm.invite.EvaluationInfo;
 import com.kingdee.eas.port.pm.invite.InviteReport;
@@ -71,7 +83,15 @@ public class WinInviteReportEditUI extends AbstractWinInviteReportEditUI
     	prmtinviteType.setEnabled(false);
     	evaSolution.setEnabled(false);
     	super.onLoad();
-    	prmtinviteReport.setDisplayFormat("$reportName$");	
+    	prmtinviteReport.setDisplayFormat("$reportName$");
+    	ProjectInfo info = (ProjectInfo) getUIContext().get("treeInfo");
+    	if(info != null) {
+    		EntityViewInfo evi = new EntityViewInfo();
+    		FilterInfo filter = new FilterInfo();
+    		evi.setFilter(filter);
+    		filter.getFilterItems().add(new FilterItemInfo("proName.longnumber", info.getLongNumber()+"%", CompareType.LIKE));
+    		prmtinviteReport.setEntityViewInfo(evi);
+		}
     }
     @Override
     protected void prmtinviteReport_dataChanged(DataChangeEvent e)
@@ -101,6 +121,55 @@ public class WinInviteReportEditUI extends AbstractWinInviteReportEditUI
     	EvaluationCollection evaColl = EvaluationFactory.getRemoteInstance().getEvaluationCollection(oql);
     	EvaluationInfo evaInfo = evaColl.get(0);
     	this.pkevaDate.setValue(evaInfo.getEvaDate() == null ? null : evaInfo.getEvaDate());
+    	EvaluationEntryUnitCollection enterpriseColl = evaInfo.getEntryUnit();
+    	EvaluationEntryTotalCollection totalColl = evaInfo.getEntryTotal();
+    	
+        KDTable kdtable = new KDTable();
+        kdtable.addHeadRow(0);
+    	IColumn col = kdtable.addColumn();
+		col.setKey("enterprise");
+		col.getStyleAttributes().setLocked(true);
+		kdtable.getHeadRow(0).getCell("enterprise").setValue("投标单位");
+    	//构建表头投标单位
+		for(int i = 0; i < enterpriseColl.size(); i++) {
+			EvaluationEntryUnitInfo info = enterpriseColl.get(i);
+			col = kdtable.addColumn();
+			col.setKey("Unit"+i);
+			kdtable.getHeadRow(0).getCell("Unit"+i).setValue(info.getEnterprise());
+		}
+		
+		IRow row = kdtable.addRow();
+		row.getCell("enterprise").setValue("投标报价");
+		row = kdtable.addRow();
+		row.getCell("enterprise").setValue("符合性结果");
+		row = kdtable.addRow();
+		row.getCell("enterprise").setValue("技术标得分");
+		row = kdtable.addRow();
+		row.getCell("enterprise").setValue("商务标得分");
+		row = kdtable.addRow();
+		row.getCell("enterprise").setValue("总分");
+		row = kdtable.addRow();
+		row.getCell("enterprise").setValue("排名");
+    	
+		int line = 0;
+		for(int i = 0; i < totalColl.size(); i += enterpriseColl.size()) {
+			IRow rowAdd = kdtable.getRow(line++);
+			for(int j = i; j < enterpriseColl.size() + i; j++) {
+				EvaluationEntryTotalInfo info = totalColl.get(j);
+				rowAdd.getCell("enterprise").setValue(info.getIndicators());
+    			rowAdd.getCell(j-i+1).setValue(info.getResult());
+			}
+		}		
+	    IRow rowTotal = kdtable.getRow(5);
+	    System.out.println(totalColl.size());
+	    for(int i = 0; i < kdtable.getRowCount(); i++) {
+	    	IRow rowT = kdtable.getRow(i);
+	    	for(int j = 0; j < kdtable.getColumnCount(); j++) {
+	    		System.out.print(rowT.getCell(j).getValue() + "   ");
+	    	}
+	    	System.out.println();
+	    }
+		
     	//投标单位分录
     	this.kdtUnit.removeRows();
     	OpenRegistrationEntryCollection opRegEntryColl = openRegInfo.getEntry();
@@ -112,6 +181,10 @@ public class WinInviteReportEditUI extends AbstractWinInviteReportEditUI
     		rowAdd.getCell("unitName").setValue(supplier);
     		rowAdd.getCell("quality").setValue(opRegEntryInfo.getQuality());
     		rowAdd.getCell("inviteAmount").setValue(new BigDecimal(opRegEntryInfo.getQuotedPrice()));
+    		if(rowTotal.getCell(i+1).getValue() != null) {
+	    		if(rowTotal.getCell(i+1).getValue().toString().equals("1"))
+	    			rowAdd.getCell("win").setValue(true);
+    		}
     	}
     	//过滤专家确定
     	this.kdtJudges.removeRows();
@@ -133,7 +206,6 @@ public class WinInviteReportEditUI extends AbstractWinInviteReportEditUI
 	    		rowAdd.getCell("org").setValue(null);
     		}
     	}
-    	
     	//加载开标登记的列表界面,重载开标登记列表界面的getQueryExecutor方法
     	while(this.kDTabbedPane1.getTabCount()-1 >= 2)
     		this.kDTabbedPane1.removeTabAt(this.kDTabbedPane1.getTabCount()-1);

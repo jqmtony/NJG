@@ -4,11 +4,39 @@
 package com.kingdee.eas.port.pm.invite.client;
 
 import java.awt.event.*;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+
+import javax.swing.event.TreeSelectionEvent;
+import javax.swing.tree.TreeNode;
+
 import org.apache.log4j.Logger;
+
+import com.kingdee.bos.BOSException;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.ctrl.swing.tree.DefaultKingdeeTreeNode;
 import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.bos.dao.query.IQueryExecutor;
+import com.kingdee.bos.framework.cache.ActionCache;
+import com.kingdee.bos.metadata.IMetaDataPK;
+import com.kingdee.bos.metadata.entity.EntityViewInfo;
+import com.kingdee.bos.metadata.entity.FilterInfo;
+import com.kingdee.bos.metadata.entity.FilterItemInfo;
+import com.kingdee.bos.metadata.query.util.CompareType;
+import com.kingdee.eas.base.permission.PermissionFactory;
+import com.kingdee.eas.basedata.assistant.ProjectInfo;
+import com.kingdee.eas.basedata.org.OrgStructureInfo;
+import com.kingdee.eas.basedata.org.OrgType;
+import com.kingdee.eas.common.client.SysContext;
+import com.kingdee.eas.common.client.UIContext;
 import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.framework.*;
+import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
+import com.kingdee.eas.util.SysUtil;
+import com.kingdee.eas.xr.helper.common.PortProjectTreeBuilder;
 
 /**
  * output class name
@@ -29,6 +57,97 @@ public class JudgesComfirmListUI extends AbstractJudgesComfirmListUI
     protected String getEditUIModal() {
     	// TODO Auto-generated method stub
     	return UIFactoryName.MODEL;
+    }
+    
+    @Override
+    protected void prepareUIContext(UIContext uiContext, ActionEvent e) {
+    	// TODO Auto-generated method stub
+    	super.prepareUIContext(uiContext, e);
+    	if(getActionFromActionEvent(e).equals(actionAddNew)) {
+			DefaultKingdeeTreeNode treeNote = (DefaultKingdeeTreeNode)this.kDTree1.getLastSelectedPathComponent();
+			if (treeNote.getUserObject() instanceof ProjectInfo) {
+				getUIContext().put("treeInfo", treeNote.getUserObject());
+			} else {
+				MsgBox.showWarning("非子节点无法新增！");
+				SysUtil.abort();
+			}
+		}
+    }
+    @Override
+    public void onLoad() throws Exception {
+    	// TODO Auto-generated method stub
+    	super.onLoad();
+    	buildProjectTree();
+    	if(this.kDTree1.getRowCount()>0){
+    		this.kDTree1.setSelectionRow(0);
+    		this.kDTree1.expandAllNodes(true, (TreeNode) this.kDTree1.getModel().getRoot());
+    	}
+    }
+    protected Set authorizedOrgs = null;
+    public void buildProjectTree() throws Exception {
+
+    	PortProjectTreeBuilder projectTreeBuilder = new PortProjectTreeBuilder();
+
+		projectTreeBuilder.build(this, kDTree1, actionOnLoad);
+		
+		authorizedOrgs = (Set)ActionCache.get("FDCBillListUIHandler.authorizedOrgs");
+		if(authorizedOrgs==null){
+			authorizedOrgs = new HashSet();
+			Map orgs = PermissionFactory.getRemoteInstance().getAuthorizedOrgs(
+					 new ObjectUuidPK(SysContext.getSysContext().getCurrentUserInfo().getId()),
+			            OrgType.CostCenter, 
+			            null,  null, null);
+			if(orgs!=null){
+				Set orgSet = orgs.keySet();
+				Iterator it = orgSet.iterator();
+				while(it.hasNext()){
+					authorizedOrgs.add(it.next());
+				}
+			}		
+		}
+	}
+    protected void kDTree1_valueChanged(TreeSelectionEvent e) throws Exception {
+    	super.kDTree1_valueChanged(e);
+    	refresh(null);
+    }
+    
+    @Override
+    protected boolean isIgnoreCUFilter() {
+    	// TODO Auto-generated method stub
+    	return true;
+    }
+    protected IQueryExecutor getQueryExecutor(IMetaDataPK arg0,EntityViewInfo entityViewInfo) {
+    	EntityViewInfo newEntityViewInfo = (EntityViewInfo) entityViewInfo.clone();
+    	FilterInfo filterInfo = new FilterInfo();
+    	DefaultKingdeeTreeNode treeNode = (DefaultKingdeeTreeNode)this.kDTree1.getLastSelectedPathComponent();
+    	if(treeNode!=null)
+    	{
+    		if(treeNode !=null && treeNode.getUserObject() instanceof OrgStructureInfo){
+    			OrgStructureInfo orgInfo = (OrgStructureInfo) treeNode.getUserObject();
+				filterInfo.getFilterItems().add(new FilterItemInfo("planName.proName.Company.longnumber", orgInfo.getLongNumber()+"%", CompareType.LIKE));
+
+    		} else if(treeNode.getUserObject() instanceof ProjectInfo) {
+    			ProjectInfo project = (ProjectInfo) treeNode.getUserObject();
+    			filterInfo.getFilterItems().add(new FilterItemInfo("planName.proName.longNumber", project.getLongNumber() + "%", CompareType.LIKE));
+    		} else {
+    			filterInfo.getFilterItems().add(new FilterItemInfo("id", "null"));
+			}   		
+    	}
+    	try 
+    	{
+			if(entityViewInfo.getFilter()!=null)
+			{
+				newEntityViewInfo.getFilter().mergeFilter(filterInfo, "and");
+			}
+			else
+			{
+				newEntityViewInfo.setFilter(filterInfo);
+			}
+		} 
+    	catch (BOSException e) {
+			e.printStackTrace();
+		}
+    	return super.getQueryExecutor(arg0, newEntityViewInfo);
     }
     /**
      * output storeFields method

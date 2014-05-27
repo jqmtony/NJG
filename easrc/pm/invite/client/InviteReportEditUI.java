@@ -843,7 +843,10 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI
     {
         com.kingdee.eas.port.pm.invite.InviteReportInfo objectValue = new com.kingdee.eas.port.pm.invite.InviteReportInfo();
         objectValue.setCreator((com.kingdee.eas.base.permission.UserInfo)(com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentUser()));
-		
+        ProjectInfo info = (ProjectInfo) getUIContext().get("treeInfo");
+		if(info != null) {
+			objectValue.setProName(info);
+		}
         return objectValue;
     }
 	@Override

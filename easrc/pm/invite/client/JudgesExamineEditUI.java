@@ -19,6 +19,7 @@ import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.eas.basedata.assistant.ProjectInfo;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.framework.*;
 import com.kingdee.eas.port.pm.base.ExamineIndicatorsCollection;
@@ -35,6 +36,8 @@ import com.kingdee.eas.port.pm.invite.JudgesComfirmEntryCollection;
 import com.kingdee.eas.port.pm.invite.JudgesComfirmEntryInfo;
 import com.kingdee.eas.port.pm.invite.JudgesComfirmFactory;
 import com.kingdee.eas.port.pm.invite.JudgesComfirmInfo;
+import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
+import com.kingdee.eas.util.SysUtil;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.swing.KDTextField;
@@ -96,12 +99,19 @@ public class JudgesExamineEditUI extends AbstractJudgesExamineEditUI
         		this.kdtEntryIndicators.getMergeManager().mergeBlock(start, 1, end, 1);
         	}
     	}
+    	ProjectInfo info = (ProjectInfo) getUIContext().get("treeInfo");
+    	if(info != null) {
+    		EntityViewInfo evi = new EntityViewInfo();
+    		FilterInfo filter = new FilterInfo();
+    		evi.setFilter(filter);
+    		filter.getFilterItems().add(new FilterItemInfo("proName.longnumber", info.getLongNumber()+"%", CompareType.LIKE));
+			prmtreportName.setEntityViewInfo(evi);
+		}
     	com.kingdee.eas.port.pm.invite.client.InviteReportEditUI.initContainerButton(this.kDContainer1, this.kdtEntryIndicators_detailPanel);
     }
     @Override
     protected void prmtreportName_dataChanged(DataChangeEvent e)
     		throws Exception {
-    	// TODO Auto-generated method stub
     	super.prmtreportName_dataChanged(e);
     	InviteReportInfo reportInfo = (InviteReportInfo) this.prmtreportName.getValue(); 
     	reportInfo = InviteReportFactory.getRemoteInstance().getInviteReportInfo(new ObjectUuidPK(reportInfo.getId()));

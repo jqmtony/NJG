@@ -18,7 +18,12 @@ import com.kingdee.bos.ctrl.swing.KDTextField;
 import com.kingdee.bos.ctrl.swing.KDWorkButton;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.bos.metadata.entity.EntityViewInfo;
+import com.kingdee.bos.metadata.entity.FilterInfo;
+import com.kingdee.bos.metadata.entity.FilterItemInfo;
+import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.eas.basedata.assistant.ProjectInfo;
 import com.kingdee.eas.basedata.org.AdminOrgUnitFactory;
 import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
 import com.kingdee.eas.basedata.org.IAdminOrgUnit;
@@ -79,6 +84,16 @@ public class JudgesComfirmEditUI extends AbstractJudgesComfirmEditUI
  		this.prmtdepartment.setSelector(f7);
  		
     	this.setPreferredSize(new Dimension(645, 560));
+    	
+    	//过滤项目下对应的招标方案
+    	ProjectInfo info = (ProjectInfo) getUIContext().get("treeInfo");
+    	if(info != null) {
+    		EntityViewInfo evi = new EntityViewInfo();
+    		FilterInfo filter = new FilterInfo();
+    		evi.setFilter(filter);
+    		filter.getFilterItems().add(new FilterItemInfo("proName.longnumber", info.getLongNumber()+"%", CompareType.LIKE));
+			prmtplanName.setEntityViewInfo(evi);
+		}
 //    	InitWorkButton(this.kDContainer2);
     }
     

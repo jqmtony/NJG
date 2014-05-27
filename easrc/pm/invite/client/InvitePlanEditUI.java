@@ -84,6 +84,7 @@ public class InvitePlanEditUI extends AbstractInvitePlanEditUI
 //    			     " where c.FAdminOrgUnitID in (select fid from t_org_admin where flongnumber like '" + admiInfo.getLongNumber() + "%')";
 //    	FilterInfo filter = new FilterInfo();
 //      filter.getFilterItems().add(new FilterItemInfo("id", sql, CompareType.INNER));
+    	//树状显示人员
 		EmployeeMultiF7PromptBox person = new EmployeeMultiF7PromptBox();
 		person.setIsSingleSelect(false);
 		person.showNoPositionPerson(false);
@@ -118,6 +119,16 @@ public class InvitePlanEditUI extends AbstractInvitePlanEditUI
     	if(editData.getStartDate() != null && editData.getEndDate() != null && editData.getStartDate().after(editData.getEndDate()))
     	{
     		MsgBox.showWarning("计划结束日期不能早于计划开始时间");
+    		SysUtil.abort();
+    	}
+    	if(editData.getStartDate() != null && editData.getEndDate() != null && editData.getInDate().before(editData.getStartDate()))
+    	{
+    		MsgBox.showWarning("进场日期不能早于计划开始时间");
+    		SysUtil.abort();
+    	}
+    	if(editData.getStartDate() != null && editData.getEndDate() != null && editData.getInDate().after(editData.getEndDate()))
+    	{
+    		MsgBox.showWarning("进场日期不能晚于计划结束时间");
     		SysUtil.abort();
     	}
     	super.verifyInput(actionevent);

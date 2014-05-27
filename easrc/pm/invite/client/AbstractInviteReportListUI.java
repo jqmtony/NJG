@@ -46,6 +46,9 @@ import com.kingdee.bos.appframework.uip.UINavigator;
 public abstract class AbstractInviteReportListUI extends com.kingdee.eas.xr.client.XRBillBaseListUI
 {
     private static final Logger logger = CoreUIObject.getLogger(AbstractInviteReportListUI.class);
+    protected com.kingdee.bos.ctrl.swing.KDSplitPane kDSplitPane1;
+    protected com.kingdee.bos.ctrl.swing.KDTreeView kDTreeView1;
+    protected com.kingdee.bos.ctrl.swing.KDTree kDTree1;
     /**
      * output class constructor
      */
@@ -82,6 +85,12 @@ public abstract class AbstractInviteReportListUI extends com.kingdee.eas.xr.clie
          this.actionRemove.addService(new com.kingdee.eas.framework.client.service.PermissionService());
          this.actionRemove.addService(new com.kingdee.eas.framework.client.service.NetFunctionService());
          this.actionRemove.addService(new com.kingdee.eas.framework.client.service.UserMonitorService());
+        this.kDSplitPane1 = new com.kingdee.bos.ctrl.swing.KDSplitPane();
+        this.kDTreeView1 = new com.kingdee.bos.ctrl.swing.KDTreeView();
+        this.kDTree1 = new com.kingdee.bos.ctrl.swing.KDTree();
+        this.kDSplitPane1.setName("kDSplitPane1");
+        this.kDTreeView1.setName("kDTreeView1");
+        this.kDTree1.setName("kDTree1");
         // CoreUI
 		String tblMainStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol32\"><c:Protection hidden=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"status\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"reportName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"devOrg.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"useOrg.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"BIMUDF0004\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"inviteBudget\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"inviteDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"openDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"subDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"applicant.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"audDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"paperFee\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"bidBond\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"inviteType.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"judgeSolution\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"proSite\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"evaTemplate.templateName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"validTemplate.templateName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"rmhigh\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"rmlow\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"businessScore\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"techScore\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"reduHigh\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"reduLow\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"bizDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"creator.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"createTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"lastUpdateUser.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"lastUpdateTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"auditor.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"auditTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol32\" /><t:Column t:key=\"proName.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"projectNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{number}</t:Cell><t:Cell>$Resource{status}</t:Cell><t:Cell>$Resource{reportName}</t:Cell><t:Cell>$Resource{devOrg.name}</t:Cell><t:Cell>$Resource{useOrg.name}</t:Cell><t:Cell>$Resource{BIMUDF0004}</t:Cell><t:Cell>$Resource{inviteBudget}</t:Cell><t:Cell>$Resource{inviteDate}</t:Cell><t:Cell>$Resource{openDate}</t:Cell><t:Cell>$Resource{subDate}</t:Cell><t:Cell>$Resource{applicant.name}</t:Cell><t:Cell>$Resource{audDate}</t:Cell><t:Cell>$Resource{paperFee}</t:Cell><t:Cell>$Resource{bidBond}</t:Cell><t:Cell>$Resource{inviteType.name}</t:Cell><t:Cell>$Resource{judgeSolution}</t:Cell><t:Cell>$Resource{proSite}</t:Cell><t:Cell>$Resource{evaTemplate.templateName}</t:Cell><t:Cell>$Resource{validTemplate.templateName}</t:Cell><t:Cell>$Resource{rmhigh}</t:Cell><t:Cell>$Resource{rmlow}</t:Cell><t:Cell>$Resource{businessScore}</t:Cell><t:Cell>$Resource{techScore}</t:Cell><t:Cell>$Resource{reduHigh}</t:Cell><t:Cell>$Resource{reduLow}</t:Cell><t:Cell>$Resource{bizDate}</t:Cell><t:Cell>$Resource{creator.name}</t:Cell><t:Cell>$Resource{createTime}</t:Cell><t:Cell>$Resource{lastUpdateUser.name}</t:Cell><t:Cell>$Resource{lastUpdateTime}</t:Cell><t:Cell>$Resource{auditor.name}</t:Cell><t:Cell>$Resource{auditTime}</t:Cell><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{proName.name}</t:Cell><t:Cell>$Resource{projectNumber}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
@@ -91,6 +100,20 @@ public abstract class AbstractInviteReportListUI extends com.kingdee.eas.xr.clie
 
         this.tblMain.checkParsed();
         this.tblMain.getGroupManager().setGroup(true);
+        // kDSplitPane1		
+        this.kDSplitPane1.setDividerLocation(250);
+        // kDTreeView1
+        // kDTree1
+        this.kDTree1.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
+            public void valueChanged(javax.swing.event.TreeSelectionEvent e) {
+                try {
+                    kDTree1_valueChanged(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                }
+            }
+        });
 		//Register control's property binding
 		registerBindings();
 		registerUIState();
@@ -118,8 +141,13 @@ public abstract class AbstractInviteReportListUI extends com.kingdee.eas.xr.clie
         this.setBounds(new Rectangle(10, 10, 1013, 629));
         this.setLayout(new KDLayout());
         this.putClientProperty("OriginalBounds", new Rectangle(10, 10, 1013, 629));
-        tblMain.setBounds(new Rectangle(10, 10, 996, 580));
-        this.add(tblMain, new KDLayout.Constraints(10, 10, 996, 580, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDSplitPane1.setBounds(new Rectangle(2, 0, 1002, 620));
+        this.add(kDSplitPane1, new KDLayout.Constraints(2, 0, 1002, 620, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        //kDSplitPane1
+        kDSplitPane1.add(tblMain, "right");
+        kDSplitPane1.add(kDTreeView1, "left");
+        //kDTreeView1
+        kDTreeView1.setTree(kDTree1);
 
     }
 
@@ -360,6 +388,13 @@ public abstract class AbstractInviteReportListUI extends com.kingdee.eas.xr.clie
     public void setOprtState(String oprtType)
     {
         super.setOprtState(oprtType);
+    }
+
+    /**
+     * output kDTree1_valueChanged method
+     */
+    protected void kDTree1_valueChanged(javax.swing.event.TreeSelectionEvent e) throws Exception
+    {
     }
 
 	public SelectorItemCollection getBOTPSelectors() {

@@ -27,6 +27,7 @@ import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.eas.basedata.assistant.ProjectInfo;
 import com.kingdee.eas.common.client.UIContext;
 import com.kingdee.eas.framework.*;
 import com.kingdee.eas.port.markesupplier.subill.IMarketSupplierStock;
@@ -81,6 +82,14 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
     	// TODO Auto-generated method stub
     	initConpomentAttr();
     	super.onLoad();
+    	ProjectInfo info = (ProjectInfo) getUIContext().get("treeInfo");
+    	if(info != null) {
+    		EntityViewInfo evi = new EntityViewInfo();
+    		FilterInfo filter = new FilterInfo();
+    		evi.setFilter(filter);
+    		filter.getFilterItems().add(new FilterItemInfo("proName.longnumber", info.getLongNumber()+"%", CompareType.LIKE));
+    		prmtinviteReport.setEntityViewInfo(evi);
+		}
     }
     private void initConpomentAttr() {
     	this.kdtEntryScore.setVisible(false);
@@ -1059,52 +1068,53 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
      */
     public void actionSubmit_actionPerformed(ActionEvent e) throws Exception
     {
-    	this.kdtEntryUnit.removeRows();
-        this.kdtEntryValid.removeRows();
-        
-        InviteReportInfo reportInfo = (InviteReportInfo) this.prmtinviteReport.getValue();
-    	IInviteReport iinviteReport = InviteReportFactory.getRemoteInstance();
-    	reportInfo = iinviteReport.getInviteReportInfo(new ObjectUuidPK(reportInfo.getId()));//招标方案完整信息
-    	//获取符合性审查模板
-		EvaluationTemplateInfo evaTmpInfo = reportInfo.getValidTemplate();
-		evaTmpInfo = EvaluationTemplateFactory.getRemoteInstance().getEvaluationTemplateInfo(new ObjectUuidPK(evaTmpInfo.getId()));
-		EvaluationTemplateEntryCollection evaEntryColl = evaTmpInfo.getEntry();//审查模板分录
-		int count = evaEntryColl.size();
-		//自动 得出评审结果
-		for(int c = 2; c < this.kDTable1.getColumnCount(); c++) {
-			for(int r = 0; r < this.kDTable1.getRowCount(); r += count + 1) {
-				int invalid = 0;
-				for(int i = r; i < r+count; i++) {
-					if(kDTable1.getRow(i).getCell(c).getValue().equals(false))
-						invalid++;
-				}
-				if(invalid > 0) 
-					kDTable1.getRow(r+count).getCell(c).setValue(false);
-				else
-					kDTable1.getRow(r+count).getCell(c).setValue(true);
-			}
-		}
-		
-        for(int i = 0; i < this.kDTable1.getRowCount(); i++) {
-    		IRow row = this.kDTable1.getRow(i);
-    		IRow rowAdd = this.kdtEntryValid.addRow();
-    		//保存评委,以及指标信息
-    		rowAdd.getCell("judges").setValue(row.getCell("Judges").getValue());
-    		rowAdd.getCell("indicators").setValue(row.getCell("Indicator").getValue());
-    		
-    		//保存每一行分数信息
-    		ArrayList<String> validList = new ArrayList<String>();
-    		for(int j = 2; j < this.kDTable1.getColumnCount(); j++) {
-    			validList.add(row.getCell(j).getValue().equals(true) ? "1" : "0");
-    		}  		
-    		rowAdd.getCell("valid").setValue(validList);
-    	}
-    	//保存投标单位信息
-    	for(int i = 2; i < this.kDTable1.getColumnCount(); i++) {
-    		IRow headRow = this.kDTable1.getHeadRow(0);
-    		IRow rowAdd = this.kdtEntryUnit.addRow();
-    		rowAdd.getCell("enterprise").setValue(headRow.getCell(i).getValue());
-    	}
+//    	this.kdtEntryUnit.removeRows();
+//        this.kdtEntryValid.removeRows();
+//        
+//        InviteReportInfo reportInfo = (InviteReportInfo) this.prmtinviteReport.getValue();
+//    	IInviteReport iinviteReport = InviteReportFactory.getRemoteInstance();
+//    	reportInfo = iinviteReport.getInviteReportInfo(new ObjectUuidPK(reportInfo.getId()));//招标方案完整信息
+//    	//获取符合性审查模板
+//		EvaluationTemplateInfo evaTmpInfo = reportInfo.getValidTemplate();
+//		evaTmpInfo = EvaluationTemplateFactory.getRemoteInstance().getEvaluationTemplateInfo(new ObjectUuidPK(evaTmpInfo.getId()));
+//		EvaluationTemplateEntryCollection evaEntryColl = evaTmpInfo.getEntry();//审查模板分录
+//		int count = evaEntryColl.size();
+//		//自动 得出评审结果
+//		for(int c = 2; c < this.kDTable1.getColumnCount(); c++) {
+//			for(int r = 0; r < this.kDTable1.getRowCount(); r += count + 1) {
+//				int invalid = 0;
+//				for(int i = r; i < r+count; i++) {
+//					if(kDTable1.getRow(i).getCell(c).getValue().equals(false))
+//						invalid++;
+//				}
+//				if(invalid > 0) 
+//					kDTable1.getRow(r+count).getCell(c).setValue(false);
+//				else
+//					kDTable1.getRow(r+count).getCell(c).setValue(true);
+//			}
+//		}
+//		
+//        for(int i = 0; i < this.kDTable1.getRowCount(); i++) {
+//    		IRow row = this.kDTable1.getRow(i);
+//    		IRow rowAdd = this.kdtEntryValid.addRow();
+//    		//保存评委,以及指标信息
+//    		rowAdd.getCell("judges").setValue(row.getCell("Judges").getValue());
+//    		rowAdd.getCell("indicators").setValue(row.getCell("Indicator").getValue());
+//    		
+//    		//保存每一行分数信息
+//    		ArrayList<String> validList = new ArrayList<String>();
+//    		for(int j = 2; j < this.kDTable1.getColumnCount(); j++) {
+//    			validList.add(row.getCell(j).getValue().equals(true) ? "1" : "0");
+//    		}  		
+//    		rowAdd.getCell("valid").setValue(validList);
+//    	}
+//    	//保存投标单位信息
+//    	for(int i = 2; i < this.kDTable1.getColumnCount(); i++) {
+//    		IRow headRow = this.kDTable1.getHeadRow(0);
+//    		IRow rowAdd = this.kdtEntryUnit.addRow();
+//    		rowAdd.getCell("enterprise").setValue(headRow.getCell(i).getValue());
+//    	}
+    	actionSave_actionPerformed(e);
         super.actionSubmit_actionPerformed(e);
     }
 
