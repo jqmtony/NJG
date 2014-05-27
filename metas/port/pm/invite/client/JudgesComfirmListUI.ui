@@ -33,12 +33,40 @@
             </layoutInfo>
         </component>
         <component>
+            <name>kDSplitPane1</name>
+            <alias>uiObject[com.kingdee.eas.port.pm.invite.client.JudgesComfirmListUI].components.component[kDSplitPane1].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDSplitPane</classType>
+            <isContainer>true</isContainer>
+            <constraints>3,4,1003,618,15</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>SplitLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>dividerLocation</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.invite.client.JudgesComfirmListUI].components.component[kDSplitPane1].properties.property[dividerLocation].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="CoreUI" />
+            </parent>
+        </component>
+        <component>
             <name>tblMain</name>
             <alias>uiObject[com.kingdee.eas.port.pm.invite.client.JudgesComfirmListUI].components.component[tblMain].alias</alias>
             <userDefined>false</userDefined>
             <classType>com.kingdee.bos.ctrl.kdf.table.KDTable</classType>
             <isContainer>false</isContainer>
-            <constraints>10,10,996,580,325</constraints>
+            <constraints>right</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -51,6 +79,9 @@
                     <userDefined>false</userDefined>
                 </property>
             </properties>
+            <parent>
+                <key name="name" value="kDSplitPane1" />
+            </parent>
             <propertyBindings>
                 <propertyBinding>
                     <propertyName>number.text</propertyName>
@@ -340,6 +371,58 @@
                 </propertyBinding>
             </propertyBindings>
         </component>
+        <component>
+            <name>kDTreeView1</name>
+            <alias>uiObject[com.kingdee.eas.port.pm.invite.client.JudgesComfirmListUI].components.component[kDTreeView1].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDTreeView</classType>
+            <isContainer>true</isContainer>
+            <constraints>left</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>TreeViewLayout</type>
+                <value />
+            </layoutInfo>
+            <parent>
+                <key name="name" value="kDSplitPane1" />
+            </parent>
+        </component>
+        <component>
+            <name>kDTree1</name>
+            <alias>uiObject[com.kingdee.eas.port.pm.invite.client.JudgesComfirmListUI].components.component[kDTree1].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDTree</classType>
+            <isContainer>false</isContainer>
+            <constraints>2</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <parent>
+                <key name="name" value="kDTreeView1" />
+            </parent>
+            <eventBindings>
+                <eventBinding>
+                    <name>valueChanged</name>
+                    <eventType>javax.swing.event.TreeSelectionEvent</eventType>
+                    <scene />
+                    <listenerType>javax.swing.event.TreeSelectionListener</listenerType>
+                    <listenerAdapter>javax.swing.event.TreeSelectionListener</listenerAdapter>
+                    <methodName>kDTree1_valueChanged</methodName>
+                    <code />
+                    <isBindWorkFlow>false</isBindWorkFlow>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </eventBinding>
+            </eventBindings>
+        </component>
     </components>
     <dataObjects>
         <dataObject>
@@ -414,6 +497,30 @@
             <lang locale="zh_TW" value="評標專家確定" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.pm.invite.client.JudgesComfirmListUI].components.component[CoreUI].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invite.client.JudgesComfirmListUI].components.component[kDSplitPane1].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invite.client.JudgesComfirmListUI].components.component[kDSplitPane1].properties.property[dividerLocation].value">
+            <lang locale="en_US" value="250" />
+            <lang locale="zh_CN" value="250" />
+            <lang locale="zh_HK" value="250" />
+            <lang locale="zh_TW" value="250" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invite.client.JudgesComfirmListUI].components.component[kDTree1].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invite.client.JudgesComfirmListUI].components.component[kDTreeView1].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
