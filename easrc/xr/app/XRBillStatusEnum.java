@@ -26,6 +26,8 @@ public class XRBillStatusEnum extends IntEnum
     public static final int CLOSED_VALUE = 7;//alias=关闭
     public static final int COMPLETE_VALUE = 8;//alias=完工
     public static final int FINISH_VALUE = 90;//alias=完成
+    public static final int EXECUTION_VALUE = 10;//alias=已执行
+    public static final int RECTIFICATION_VALUE = 11;//alias=已整改
 
     public static final XRBillStatusEnum VERSION = new XRBillStatusEnum("VERSION", VERSION_VALUE);
     public static final XRBillStatusEnum ALTERING = new XRBillStatusEnum("ALTERING", ALTERING_VALUE);
@@ -40,6 +42,8 @@ public class XRBillStatusEnum extends IntEnum
     public static final XRBillStatusEnum CLOSED = new XRBillStatusEnum("CLOSED", CLOSED_VALUE);
     public static final XRBillStatusEnum COMPLETE = new XRBillStatusEnum("COMPLETE", COMPLETE_VALUE);
     public static final XRBillStatusEnum FINISH = new XRBillStatusEnum("FINISH", FINISH_VALUE);
+    public static final XRBillStatusEnum EXECUTION = new XRBillStatusEnum("EXECUTION", EXECUTION_VALUE);
+    public static final XRBillStatusEnum RECTIFICATION = new XRBillStatusEnum("RECTIFICATION", RECTIFICATION_VALUE);
 
     /**
      * construct function
