@@ -18,6 +18,7 @@ import com.kingdee.eas.basedata.assistant.ProjectFactory;
 import com.kingdee.eas.basedata.assistant.ProjectInfo;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.framework.*;
+import com.kingdee.eas.port.equipment.wdx.IEqmOverhaul;
 import com.kingdee.eas.port.pm.invest.YearInvestPlanFactory;
 import com.kingdee.eas.port.pm.invest.YearInvestPlanInfo;
 import com.kingdee.eas.port.pm.project.PortProjectFactory;
@@ -27,6 +28,7 @@ import com.kingdee.eas.port.pm.projectauditsettlement.ProjectAuditSettlementInfo
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
+import com.kingdee.eas.xr.IXRBillBase;
 import com.kingdee.eas.xr.app.XRBillStatusEnum;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.swing.KDTextField;
@@ -735,15 +737,25 @@ public class EqmOverhaulEditUI extends AbstractEqmOverhaulEditUI
 				
 			}
 		});
-		
+		if(comboStatus.getSelectedItem().equals(XRBillStatusEnum.COMPLETE)){
+			actionFinish.setEnabled(false);
+		}
 	}
 	
 
 	public void actionFinish_actionPerformed(ActionEvent e) throws Exception {
 		super.actionFinish_actionPerformed(e);
 		if(comboStatus.getSelectedItem().equals(XRBillStatusEnum.AUDITED)){
-			pkcompleteDate.setValue(new Date());
-			setSave(true);
+			storeFields();
+			this.editData.setCompleteDate(SysUtil.getAppServerTime(null));
+			this.editData.setStatus(XRBillStatusEnum.COMPLETE);
+			IEqmOverhaul iXRBillBase = (IEqmOverhaul)getBizInterface();
+			ObjectUuidPK pk = new ObjectUuidPK(editData.getId());
+	        iXRBillBase.update(pk, editData);
+	        setDataObject(getValue(pk));
+	        loadFields();
+			actionFinish.setEnabled(false);
+			setSaved(true);
 		}else{
 			MsgBox.showWarning(this, "单据未审核，不允许做完工操作！");
 			SysUtil.abort();
@@ -753,6 +765,21 @@ public class EqmOverhaulEditUI extends AbstractEqmOverhaulEditUI
 	protected void initWorkButton() {
 		super.initWorkButton();
 		btnFinish.setIcon(EASResource.getIcon("imgTbtn_affirm"));
+	}
+	
+	protected void initDataStatus() {
+		super.initDataStatus();
+		if(comboStatus.getSelectedItem().equals(XRBillStatusEnum.COMPLETE)){
+			actionFinish.setEnabled(false);
+			actionEdit.setEnabled(false);
+			actionRemove.setEnabled(false);
+		}
+		else
+		{
+			actionFinish.setEnabled(true);
+			actionEdit.setEnabled(true);
+			actionRemove.setEnabled(true);
+		}
 	}
 	
 }

@@ -4,10 +4,21 @@
 package com.kingdee.eas.port.equipment.insurance.client;
 
 import java.awt.event.*;
+import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
+
 import org.apache.log4j.Logger;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
+import com.kingdee.eas.basedata.org.CtrlUnitInfo;
+import com.kingdee.eas.common.client.OprtState;
+import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.framework.*;
+import com.kingdee.eas.port.equipment.record.EquIdInfo;
+import com.kingdee.eas.xr.helper.XRSQLBuilder;
+import com.kingdee.jdbc.rowset.IRowSet;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.swing.KDTextField;
 
@@ -32,6 +43,8 @@ public class InsuranceDeclarationStateEditUI extends AbstractInsuranceDeclaratio
     {
         super.loadFields();
     }
+    
+   
 
     /**
      * output storeFields method
@@ -683,5 +696,46 @@ public class InsuranceDeclarationStateEditUI extends AbstractInsuranceDeclaratio
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	 public void onLoad() throws Exception {
+    	 this.kdtE1.getColumn("seq").getStyleAttributes().setHided(true);
+    	 txttotalAmountInsured.setEnabled(false);
+    	super.onLoad();
+    	if (OprtState.ADDNEW.equals(getOprtState())) {
+    		this.prmtCU.setValue(SysContext.getSysContext().getCurrentCtrlUnit());
+    	}
+    }
+    
+
+    public void kdtE1_Changed(int rowIndex, int colIndex) throws Exception {
+    	super.kdtE1_Changed(rowIndex, colIndex);
+    	if (prmtCU.getData() == null || this.pkyear.getSqlDate() == null ||  this.kdtE1.getCell(rowIndex, "equNumber").getValue() ==null)
+			return;
+    	txttotalAmountInsured.setValue(UIRuleUtil.sum(kdtE1, "insuredValue"));
+    	if(!"equNumber".equals(this.kdtE1.getColumnKey(colIndex))){return;}
+		
+    	SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+		String yymmdd = df.format(this.pkyear.getSqlDate());
+		String yearMonth = String.valueOf(Integer.parseInt(yymmdd.substring(0,4)) - 1);
+		
+		StringBuffer sb = new StringBuffer();
+		sb.append("/*dialect*/select  a.CFInsuredValue amount");
+		sb.append(" from CT_INS_InsuranceDSE1 a");
+		sb.append(" left join CT_INS_InsuranceDS b on a.fparentid = b.fid");
+		sb.append(" left join CT_REC_EquId c on a.CFEquNumberID = c.fid");
+		sb.append(" left join T_ORG_Admin d on b.fcontrolunitid = d.fid");
+		sb.append(" where d.fid = '"+((CtrlUnitInfo) prmtCU.getData()).getId().toString()+"'");
+		sb.append(" and a.CFEquNumberID = '"+((EquIdInfo)this.kdtE1.getCell(rowIndex, "equNumber").getValue()).getId().toString()+"'");
+		sb.append(" and to_char(b.cfyear,'YYYY') = '"+yearMonth+"'");
+		sb.append(" and b.fstatus = '4'");
+
+		IRowSet rowSet = new XRSQLBuilder().appendSql(sb.toString()).executeQuery();
+	
+		while (rowSet.next()) {
+			BigDecimal  amount = UIRuleUtil.getBigDecimal(rowSet.getBigDecimal("amount"));
+			this.kdtE1.getCell(rowIndex, "insuredValue").setValue(amount);
+		}
+		txttotalAmountInsured.setValue(UIRuleUtil.sum(kdtE1, "insuredValue"));
+    }
 
 }

@@ -53,10 +53,16 @@ public class EqmIOEditUI extends AbstractEqmIOEditUI
 			return;
 		}
 		EquIdInfo eqmInfo = (EquIdInfo)prmteqmNumber.getValue();
-		AdminOrgUnitInfo ssOrgUnit = AdminOrgUnitFactory.getRemoteInstance().getAdminOrgUnitInfo(new ObjectUuidPK(eqmInfo.getSsOrgUnit().getId()));
-		AdminOrgUnitInfo usingDept = AdminOrgUnitFactory.getRemoteInstance().getAdminOrgUnitInfo(new ObjectUuidPK(eqmInfo.getUsingDept().getId()));
-		prmtoutOrgUnit.setValue(ssOrgUnit);
-		prmtoldUseingDept.setValue(usingDept);
+		if(eqmInfo.getSsOrgUnit()!=null)
+		{
+			AdminOrgUnitInfo ssOrgUnit = AdminOrgUnitFactory.getRemoteInstance().getAdminOrgUnitInfo(new ObjectUuidPK(eqmInfo.getSsOrgUnit().getId()));
+			prmtoutOrgUnit.setValue(ssOrgUnit);
+		}
+		if(eqmInfo.getUsingDept()!=null)
+		{
+			AdminOrgUnitInfo usingDept = AdminOrgUnitFactory.getRemoteInstance().getAdminOrgUnitInfo(new ObjectUuidPK(eqmInfo.getUsingDept().getId()));
+			prmtoldUseingDept.setValue(usingDept);
+		}
 	}
 	/**
      * output btnAddLine_actionPerformed method

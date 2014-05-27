@@ -3,13 +3,54 @@
  */
 package com.kingdee.eas.port.equipment.insurance.client;
 
-import java.awt.event.*;
+import java.awt.BorderLayout;
+import java.awt.Dialog;
+import java.awt.Frame;
+import java.awt.Window;
+import java.awt.event.ActionEvent;
+import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.swing.SwingUtilities;
+
 import org.apache.log4j.Logger;
-import com.kingdee.bos.ui.face.CoreUIObject;
-import com.kingdee.bos.dao.IObjectValue;
-import com.kingdee.eas.framework.*;
+
+import com.kingdee.bos.ctrl.common.LanguageManager;
+import com.kingdee.bos.ctrl.excel.io.kds.KDSBookToBook;
+import com.kingdee.bos.ctrl.excel.model.struct.Sheet;
+import com.kingdee.bos.ctrl.kdf.export.ExportManager;
+import com.kingdee.bos.ctrl.kdf.export.KDTables2KDSBook;
+import com.kingdee.bos.ctrl.kdf.export.KDTables2KDSBookVO;
+import com.kingdee.bos.ctrl.kdf.kds.KDSBook;
+import com.kingdee.bos.ctrl.kdf.read.POIXlsReader;
+import com.kingdee.bos.ctrl.kdf.table.ICell;
+import com.kingdee.bos.ctrl.kdf.table.IRow;
+import com.kingdee.bos.ctrl.kdf.table.KDTMenuManager;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
+import com.kingdee.bos.ctrl.swing.KDFileChooser;
 import com.kingdee.bos.ctrl.swing.KDTextField;
+import com.kingdee.bos.ctrl.swing.KDWorkButton;
+import com.kingdee.bos.ctrl.swing.util.SimpleFileFilter;
+import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.util.BOSUuid;
+import com.kingdee.eas.base.permission.client.longtime.ILongTimeTask;
+import com.kingdee.eas.base.permission.client.longtime.LongTimeDialog;
+import com.kingdee.eas.basedata.org.AdminOrgUnitCollection;
+import com.kingdee.eas.basedata.org.AdminOrgUnitFactory;
+import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
+import com.kingdee.eas.basedata.org.IAdminOrgUnit;
+import com.kingdee.eas.common.client.OprtState;
+import com.kingdee.eas.fi.newrpt.client.designer.io.WizzardIO;
+import com.kingdee.eas.port.equipment.insurance.InsuranceCoverageE1Info;
+import com.kingdee.eas.port.equipment.record.EquIdCollection;
+import com.kingdee.eas.port.equipment.record.EquIdFactory;
+import com.kingdee.eas.port.equipment.record.EquIdInfo;
+import com.kingdee.eas.port.equipment.record.IEquId;
+import com.kingdee.eas.util.SysUtil;
+import com.kingdee.eas.util.client.EASResource;
+import com.kingdee.eas.util.client.MsgBox;
 
 /**
  * output class name
@@ -684,4 +725,241 @@ public class InsuranceCoverageEditUI extends AbstractInsuranceCoverageEditUI
 		return null;
 	}
 
+
+	public void onLoad() throws Exception {
+		 this.kdtE1.getColumn("seq").getStyleAttributes().setHided(true);
+		super.onLoad();
+		
+		this.kDContainer1.setTitle("保险投保明细");
+		this.kDContainer1.getContentPane().add(kdtE1, BorderLayout.CENTER);
+		KDWorkButton  addnewButton =kdtE1_detailPanel.getAddNewLineButton();
+		addnewButton.setText("新增行");
+		KDWorkButton  InsertButton =kdtE1_detailPanel.getInsertLineButton();
+		InsertButton.setText("插入行");
+		KDWorkButton RemoveButton =kdtE1_detailPanel.getRemoveLinesButton();
+		RemoveButton.setText("删除行");
+		this.kDContainer1.addButton(addnewButton);
+		this.kDContainer1.addButton(InsertButton);
+		this.kDContainer1.addButton(RemoveButton);
+		this.kDContainer1.addButton(this.btnImportExcel);
+		this.kDContainer1.addButton(this.btnExcel);
+		
+		btnImportExcel	.setIcon(EASResource.getIcon("imgTbtn_input"));
+		btnExcel.setIcon(EASResource.getIcon("imgTbtn_output"));
+		
+		this.btnExportExcel.setVisible(false);
+		this.kDInsuranceDetail.setVisible(false);
+		
+		
+	}
+	
+	protected void btnExcel_actionPerformed(ActionEvent e) throws Exception {
+		super.btnExcel_actionPerformed(e);
+		btnExportExcel();
+	}
+	
+	protected void btnImportExcel_actionPerformed(ActionEvent e)throws Exception {
+		super.btnImportExcel_actionPerformed(e);
+		actionImportExcel();
+	}
+	
+	private String lockCell[] = {"equNumber","equType","specModel","factoryUseDate","makeUnit","tonnage"};
+	String path ="";
+	
+	    public void actionImportExcel()  {
+			path = showExcelSelectDlg(this);
+			if (path == null) {
+				return;
+			}
+			Window win = SwingUtilities.getWindowAncestor(this);
+	        LongTimeDialog dialog = null;
+	        if(win instanceof Frame){
+	        	dialog = new LongTimeDialog((Frame)win);
+	        }else if(win instanceof Dialog){
+	        	dialog = new LongTimeDialog((Dialog)win);
+	        }
+	        if(dialog==null){
+	        	dialog = new LongTimeDialog(new Frame());
+	        }
+	        dialog.setLongTimeTask(new ILongTimeTask() {
+				public void afterExec(Object arg0) throws Exception {
+					Boolean bol=(Boolean)arg0;
+					if(bol){
+						MsgBox.showInfo("导入成功！");
+					}
+				}
+				public Object exec() throws Exception {
+					boolean bol=importExcelToTable(path,kdtE1);
+					return bol;
+				}
+	    	}
+		    );
+		    dialog.show();
+		}
+		private boolean importExcelToTable(String fileName, KDTable table) throws Exception {
+			KDSBook kdsbook = null;
+			try {
+				kdsbook = POIXlsReader.parse2(fileName);
+			} catch (Exception e) {
+				e.printStackTrace();
+				MsgBox.showWarning(this,"读EXCEL出错,EXCEl格式不匹配！");
+				return false;
+			}
+			if (kdsbook == null) {
+				return false;
+			}
+			if(KDSBookToBook.traslate(kdsbook).getSheetCount()>1){
+				MsgBox.showWarning(this,"读EXCEL出错,EXCEl Sheet数量不匹配！");
+				return false;
+			}
+			Sheet excelSheet = KDSBookToBook.traslate(kdsbook).getSheet(0);
+	    	Map e_colNameMap = new HashMap();
+			int e_maxRow = excelSheet.getMaxRowIndex();
+			int e_maxColumn = excelSheet.getMaxColIndex();
+			for (int col = 0; col <= e_maxColumn; col++) {
+				String excelColName = excelSheet.getCell(0, col, true).getText();
+				e_colNameMap.put(excelColName, new Integer(col));
+			}
+			Map kdtableHidedCell = new HashMap();
+			for (int i = 0; i < lockCell.length; i++) 
+			{
+				kdtableHidedCell.put(lockCell[i], lockCell[i]);
+			}
+			for (int col = 0; col< table.getColumnCount(); col++) {
+				if (table.getColumn(col).getStyleAttributes().isHided()||kdtableHidedCell.get(table.getColumnKey(col))!=null) {
+					continue;
+				}
+				String colName = (String) table.getHeadRow(0).getCell(col).getValue();
+				Integer colInt = (Integer) e_colNameMap.get(colName);
+				if (colInt == null) {
+					MsgBox.showWarning(this,"表头结构不一致！表格上的关键列:" + colName + "在EXCEL中没有出现！");
+					return false;
+				}
+			}
+			table.removeRows();
+			IAdminOrgUnit IAdminorgUnit = AdminOrgUnitFactory.getRemoteInstance();
+			IEquId IEquId = EquIdFactory.getRemoteInstance();
+			for (int rowIndex = 1; rowIndex <= e_maxRow; rowIndex++) {
+				IRow row = table.addRow();
+				int newrowIndex = row.getRowIndex();
+				InsuranceCoverageE1Info entry = new InsuranceCoverageE1Info();
+				entry.setId(BOSUuid.create(entry.getBOSType()));
+				row.setUserObject(entry);
+				for (int col = 0; col < table.getColumnCount(); col++) {
+					if (table.getColumn(col).getStyleAttributes().isHided()||kdtableHidedCell.get(table.getColumnKey(col))!=null) {
+	    				continue;
+	    			}
+					ICell tblCell = row.getCell(col);
+					String colName = (String) table.getHeadRow(0).getCell(col).getValue();
+					Integer colInt = (Integer) e_colNameMap.get(colName);
+
+					if (colInt == null) {
+						continue;
+					}
+					com.kingdee.bos.ctrl.common.variant.Variant cellRawVal = excelSheet.getCell(rowIndex, colInt.intValue(), true).getValue();
+					if (com.kingdee.bos.ctrl.common.variant.Variant.isNull(cellRawVal)) {
+						continue;
+					}
+					String colValue = cellRawVal.toString();
+					if(colName.equals("使用单位"))
+					{
+						AdminOrgUnitCollection admCollection = IAdminorgUnit.getAdminOrgUnitCollection("select id,number,name where name='"+colValue+"'");
+						AdminOrgUnitInfo admiOrgInfo = admCollection.size()>0?admCollection.get(0):null;
+						tblCell.setValue(admiOrgInfo);
+					}
+					else if(colName.equals("设备名称"))
+					{
+						EquIdCollection eqCollection = IEquId.getEquIdCollection("where name='"+colValue+"'");
+						EquIdInfo eqInfo = eqCollection.size()>0?eqCollection.get(0):null;
+						if(eqInfo==null){continue;}
+						tblCell.setValue(eqInfo.getName());
+						table.getCell(newrowIndex, "equNumber").setValue(eqInfo);
+						kdtE1.getCell(newrowIndex,"equType").setValue(com.kingdee.bos.ui.face.UIRuleUtil.getString(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)kdtE1.getCell(newrowIndex,"equNumber").getValue(),"eqmType.name")));
+						kdtE1.getCell(newrowIndex,"equName").setValue(com.kingdee.bos.ui.face.UIRuleUtil.getString(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)kdtE1.getCell(newrowIndex,"equNumber").getValue(),"name")));
+						kdtE1.getCell(newrowIndex,"specModel").setValue(com.kingdee.bos.ui.face.UIRuleUtil.getString(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)kdtE1.getCell(newrowIndex,"equNumber").getValue(),"model")));
+						kdtE1.getCell(newrowIndex,"factoryUseDate").setValue(com.kingdee.bos.ui.face.UIRuleUtil.getDateValue(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)kdtE1.getCell(newrowIndex,"equNumber").getValue(),"qyDate")));
+						kdtE1.getCell(newrowIndex,"makeUnit").setValue(com.kingdee.bos.ui.face.UIRuleUtil.getString(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)kdtE1.getCell(newrowIndex,"equNumber").getValue(),"mader")));
+						kdtE1.getCell(newrowIndex,"tonnage").setValue(com.kingdee.bos.ui.face.UIRuleUtil.getString(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)kdtE1.getCell(newrowIndex,"equNumber").getValue(),"weight")));
+					}
+					else
+					{
+						tblCell.setValue(colValue);
+					}
+				}
+			}
+			return true;
+		}
+		
+		 public static String showExcelSelectDlg(CoreUIObject ui)
+         {
+			 KDFileChooser chsFile = new KDFileChooser();
+			 String XLS = "xls";
+			 String Key_File = "Key_File";
+			 SimpleFileFilter Filter_Excel = new SimpleFileFilter(XLS, (new StringBuilder("MS Excel")).append(LanguageManager.getLangMessage(Key_File, WizzardIO.class.getName(), "\u64CD\u4F5C\u5931\u8D25")).toString());
+			 chsFile.addChoosableFileFilter(Filter_Excel);
+			 int ret = chsFile.showOpenDialog(ui);
+			 if(ret != 0)
+				 SysUtil.abort();
+
+			 File file = chsFile.getSelectedFile();
+			 String fileName = file.getAbsolutePath();
+			 return fileName;
+         }
+		public void setOprtState(String oprtType) {
+			super.setOprtState(oprtType);
+			if (oprtType.equals(OprtState.VIEW)) {
+				this.lockUIForViewStatus();
+				this.btnImportExcel.setEnabled(false);
+				this.btnExcel.setEnabled(false);
+			} else {
+				this.unLockUI();
+				this.btnExcel.setEnabled(true);
+				this.btnImportExcel.setEnabled(true);
+			}
+		}
+		private File js;
+		protected void btnExportExcel() throws Exception {
+			ExportManager exportM = new ExportManager();
+	        String path = null;
+	        File tempFile = File.createTempFile("eastemp",".xls");
+	        path = tempFile.getCanonicalPath();
+
+	        for (int i = 0; i < lockCell.length; i++) 
+	        {
+	        	this.kdtE1.getColumn(lockCell[i]).getStyleAttributes().setHided(true);
+			}
+	        
+	        KDTables2KDSBookVO[] tablesVO = new KDTables2KDSBookVO[1];
+	        tablesVO[0]=new KDTables2KDSBookVO(this.kdtE1);
+			tablesVO[0].setTableName("保险投保明细");
+	        KDSBook book = null;
+	        book = KDTables2KDSBook.getInstance().exportKDTablesToKDSBook(tablesVO,true,true);
+	        exportM.exportToExcel(book, path);
+	        for (int i = 0; i < lockCell.length; i++) 
+	        {
+	        	this.kdtE1.getColumn(lockCell[i]).getStyleAttributes().setHided(false);
+			}
+			KDFileChooser fileChooser = new KDFileChooser();
+			fileChooser.setFileSelectionMode(0);
+			fileChooser.setMultiSelectionEnabled(false);
+			fileChooser.setSelectedFile(new File("保险投保明细.xls"));
+			int result = fileChooser.showSaveDialog(this);
+			if (result == KDFileChooser.APPROVE_OPTION){
+				File dest = fileChooser.getSelectedFile();
+				try{
+					File src = new File(path);
+					if (dest.exists())
+						dest.delete();
+					src.renameTo(dest);
+					MsgBox.showInfo("导出成功！");
+					KDTMenuManager.openFileInExcel(dest.getAbsolutePath());
+				}
+				catch (Exception e3)
+				{
+					handUIException(e3);
+				}
+			}
+			tempFile.delete();
+		}
+	
 }

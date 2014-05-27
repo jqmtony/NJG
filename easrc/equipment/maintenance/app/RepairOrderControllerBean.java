@@ -18,12 +18,16 @@ import com.kingdee.bos.service.ServiceContext;
 import com.kingdee.bos.service.IServiceContext;
 
 import java.lang.String;
+
+import com.kingdee.eas.base.codingrule.CodingRuleManagerFactory;
 import com.kingdee.eas.common.EASBizException;
+import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.dao.IObjectPK;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.metadata.entity.SorterItemCollection;
 import com.kingdee.eas.framework.CoreBaseCollection;
+import com.kingdee.eas.util.app.ContextUtil;
 import com.kingdee.eas.xr.XRBillBaseCollection;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.eas.xr.app.XRBillBaseControllerBean;
@@ -32,9 +36,50 @@ import com.kingdee.eas.framework.CoreBaseInfo;
 import com.kingdee.eas.port.equipment.maintenance.RepairOrderCollection;
 import com.kingdee.eas.framework.ObjectBaseCollection;
 import com.kingdee.eas.port.equipment.maintenance.RepairOrderInfo;
+import com.kingdee.eas.port.equipment.wdx.EqmOverhaulInfo;
+import com.kingdee.util.UuidException;
 
 public class RepairOrderControllerBean extends AbstractRepairOrderControllerBean
 {
     private static Logger logger =
         Logger.getLogger("com.kingdee.eas.port.equipment.maintenance.app.RepairOrderControllerBean");
+    
+    protected IObjectPK _save(Context ctx, IObjectValue model)throws BOSException, EASBizException {
+    	RepairOrderInfo aXRBillBaseInfo = (RepairOrderInfo)model;
+    	 aXRBillBaseInfo.setNumber(getAutoCode(ctx, aXRBillBaseInfo));
+    	return super._save(ctx, aXRBillBaseInfo);
+    }
+    
+    protected void _submit(Context ctx, IObjectPK pk, IObjectValue model)throws BOSException, EASBizException {
+    	RepairOrderInfo aXRBillBaseInfo = (RepairOrderInfo)model;
+   	 aXRBillBaseInfo.setNumber(getAutoCode(ctx, aXRBillBaseInfo));
+    	super._submit(ctx, pk, model);
+    }
+    
+	
+	/** 获取编码规则生成的编码 
+     * @throws UuidException 
+     * @throws BOSException 
+     * @throws EASBizException */
+	public static String getAutoCode(Context ctx ,IObjectValue objValue) throws EASBizException, BOSException, UuidException {
+		    String NumberCode = "";
+		    String companyId;
+			com.kingdee.eas.base.codingrule.ICodingRuleManager codeRuleMgr = null;
+			if(ctx==null){
+				companyId = SysContext.getSysContext().getCurrentFIUnit().getId().toString();
+				codeRuleMgr = CodingRuleManagerFactory.getRemoteInstance();
+			}else{
+				companyId = ContextUtil.getCurrentFIUnit(ctx).getId().toString();
+				codeRuleMgr = CodingRuleManagerFactory.getLocalInstance(ctx);
+			}
+
+			if (codeRuleMgr.isExist(objValue, companyId)) {
+				if (codeRuleMgr.isUseIntermitNumber(objValue, companyId)) {
+					NumberCode = codeRuleMgr.readNumber(objValue, companyId);
+				} else {
+					NumberCode = codeRuleMgr.getNumber(objValue, companyId);
+				}
+			}
+		return NumberCode;
+	}
 }

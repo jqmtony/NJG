@@ -684,4 +684,8 @@ public class AnnualYearPlanEditUI extends AbstractAnnualYearPlanEditUI
 		return null;
 	}
 
+	public void onLoad() throws Exception {
+		 this.kdtEntry.getColumn("seq").getStyleAttributes().setHided(true);
+		super.onLoad();
+	}
 }

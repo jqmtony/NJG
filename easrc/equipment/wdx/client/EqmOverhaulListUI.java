@@ -3,11 +3,17 @@
  */
 package com.kingdee.eas.port.equipment.wdx.client;
 
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.util.ArrayList;
+
 import org.apache.log4j.Logger;
+
 import com.kingdee.bos.ui.face.CoreUIObject;
-import com.kingdee.bos.dao.IObjectValue;
-import com.kingdee.eas.framework.*;
+import com.kingdee.eas.port.equipment.wdx.EqmOverhaulInfo;
+import com.kingdee.eas.port.equipment.wdx.IEqmOverhaul;
+import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
+import com.kingdee.eas.util.SysUtil;
+import com.kingdee.eas.xr.app.XRBillStatusEnum;
 
 /**
  * output class name
@@ -301,7 +307,21 @@ public class EqmOverhaulListUI extends AbstractEqmOverhaulListUI
      */
     public void actionEdit_actionPerformed(ActionEvent e) throws Exception
     {
+    	checkEdit();
         super.actionEdit_actionPerformed(e);
+    }
+    
+    private void checkEdit() throws Exception{
+    	checkSelected();
+    	ArrayList<String> arrayList = this.getSelectedIdValues();
+    	IEqmOverhaul IEqmOverhaul = (IEqmOverhaul)getBizInterface();
+    	for (int i = 0; i < arrayList.size(); i++) {
+    		EqmOverhaulInfo info =  IEqmOverhaul.getEqmOverhaulInfo("select id ,status where id='"+arrayList.get(i)+"'");
+    		if(info.getStatus().equals(XRBillStatusEnum.COMPLETE))
+    		{
+    			MsgBox.showWarning("所选单据已经完工，不能修改、删除、审核、反审核！");SysUtil.abort();
+    		}
+    	}
     }
 
     /**
@@ -309,7 +329,26 @@ public class EqmOverhaulListUI extends AbstractEqmOverhaulListUI
      */
     public void actionRemove_actionPerformed(ActionEvent e) throws Exception
     {
+    	checkEdit();
         super.actionRemove_actionPerformed(e);
+    }
+    
+    /**
+     * output actionAudit_actionPerformed
+     */
+    public void actionAudit_actionPerformed(ActionEvent e) throws Exception
+    {
+    	checkEdit();
+        super.actionAudit_actionPerformed(e);
+    }
+
+    /**
+     * output actionUnAudit_actionPerformed
+     */
+    public void actionUnAudit_actionPerformed(ActionEvent e) throws Exception
+    {
+    	checkEdit();
+        super.actionUnAudit_actionPerformed(e);
     }
 
     /**
@@ -552,21 +591,7 @@ public class EqmOverhaulListUI extends AbstractEqmOverhaulListUI
         super.actionNumberSign_actionPerformed(e);
     }
 
-    /**
-     * output actionAudit_actionPerformed
-     */
-    public void actionAudit_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionAudit_actionPerformed(e);
-    }
-
-    /**
-     * output actionUnAudit_actionPerformed
-     */
-    public void actionUnAudit_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionUnAudit_actionPerformed(e);
-    }
+   
 
     /**
      * output getBizInterface method
