@@ -6,7 +6,7 @@
     <description>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].description</description>
     <userDefined>true</userDefined>
     <reportDataSource />
-    <bizUnitPK>com.kingdee.eas.port.pm.invite.OpenRegistration</bizUnitPK>
+    <bizUnitPK />
     <connectionProvider />
     <subObjects>
         <subEntity>
@@ -23,21 +23,21 @@
             </entityRef>
         </subEntity>
         <subEntity>
-            <name>auditor</name>
-            <alias>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].subObjects.subEntity[auditor].alias</alias>
+            <name>reportName</name>
+            <alias>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].subObjects.subEntity[reportName].alias</alias>
             <userDefined>true</userDefined>
             <query>
                 <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
                 <key name="name" value="OpenRegistrationQuery" />
             </query>
             <entityRef>
-                <key name="package" value="com.kingdee.eas.base.permission.app" />
-                <key name="name" value="User" />
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="InviteReport" />
             </entityRef>
         </subEntity>
         <subEntity>
-            <name>lastUpdateUser</name>
-            <alias>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].subObjects.subEntity[lastUpdateUser].alias</alias>
+            <name>auditor</name>
+            <alias>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].subObjects.subEntity[auditor].alias</alias>
             <userDefined>true</userDefined>
             <query>
                 <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
@@ -62,59 +62,268 @@
             </entityRef>
         </subEntity>
         <subEntity>
-            <name>CU</name>
-            <alias>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].subObjects.subEntity[CU].alias</alias>
+            <name>lastUpdateUser</name>
+            <alias>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].subObjects.subEntity[lastUpdateUser].alias</alias>
             <userDefined>true</userDefined>
             <query>
                 <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
                 <key name="name" value="OpenRegistrationQuery" />
             </query>
             <entityRef>
-                <key name="package" value="com.kingdee.eas.basedata.org.app" />
-                <key name="name" value="CtrlUnit" />
-            </entityRef>
-        </subEntity>
-        <subEntity>
-            <name>reportName</name>
-            <alias>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].subObjects.subEntity[reportName].alias</alias>
-            <userDefined>true</userDefined>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="OpenRegistrationQuery" />
-            </query>
-            <entityRef>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="InviteReport" />
-            </entityRef>
-        </subEntity>
-        <subEntity>
-            <name>Entry</name>
-            <alias>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].subObjects.subEntity[Entry].alias</alias>
-            <userDefined>true</userDefined>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="OpenRegistrationQuery" />
-            </query>
-            <entityRef>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="OpenRegistrationEntry" />
-            </entityRef>
-        </subEntity>
-        <subEntity>
-            <name>Entry_supplierName</name>
-            <alias>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].subObjects.subEntity[Entry_supplierName].alias</alias>
-            <userDefined>true</userDefined>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="OpenRegistrationQuery" />
-            </query>
-            <entityRef>
-                <key name="package" value="com.kingdee.eas.port.markesupplier.subill.app" />
-                <key name="name" value="MarketSupplierStock" />
+                <key name="package" value="com.kingdee.eas.base.permission.app" />
+                <key name="name" value="User" />
             </entityRef>
         </subEntity>
     </subObjects>
     <units>
+        <propertyUnit>
+            <name>00467a1c-d675-4e25-b40d-e7112a62ac48</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.propertyUnit[00467a1c-d675-4e25-b40d-e7112a62ac48].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>b5962d44-08c6-407e-8de2-33e242a9b688</key>
+                    <parentUnit>
+                        <key name="name" value="00467a1c-d675-4e25-b40d-e7112a62ac48" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="OpenRegistration" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="lastUpdateUser" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="OpenRegistrationQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>b28622dc-b3ea-48a8-8eba-b65db8621db6</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.propertyUnit[b28622dc-b3ea-48a8-8eba-b65db8621db6].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>a96c0720-84ca-4430-ad93-8e1cf7019fcd</key>
+                    <parentUnit>
+                        <key name="name" value="b28622dc-b3ea-48a8-8eba-b65db8621db6" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="lastUpdateUser" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="OpenRegistrationQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>ef0ca922-1e1f-4f1c-87f8-94936f677832</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.propertyUnit[ef0ca922-1e1f-4f1c-87f8-94936f677832].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>884459cc-9d5b-4edd-94fa-4c0527566ca9</key>
+                    <parentUnit>
+                        <key name="name" value="ef0ca922-1e1f-4f1c-87f8-94936f677832" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="OpenRegistration" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="creator" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="OpenRegistrationQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>4b2b73e9-d983-4ce0-8f7d-e8815215e57a</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.propertyUnit[4b2b73e9-d983-4ce0-8f7d-e8815215e57a].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>b946b2b4-8904-410b-b950-989ada557b42</key>
+                    <parentUnit>
+                        <key name="name" value="4b2b73e9-d983-4ce0-8f7d-e8815215e57a" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="creator" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="OpenRegistrationQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>2e2fbc35-3fbf-4248-ae54-fa8810ec8620</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.propertyUnit[2e2fbc35-3fbf-4248-ae54-fa8810ec8620].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>e6476e17-e799-459b-b2ae-242582af210a</key>
+                    <parentUnit>
+                        <key name="name" value="2e2fbc35-3fbf-4248-ae54-fa8810ec8620" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="OpenRegistration" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="auditor" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="OpenRegistrationQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>67b94063-a803-4197-8090-356bb4f2f291</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.propertyUnit[67b94063-a803-4197-8090-356bb4f2f291].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0fea612c-4250-45f3-92c0-e2be84e802aa</key>
+                    <parentUnit>
+                        <key name="name" value="67b94063-a803-4197-8090-356bb4f2f291" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="auditor" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="OpenRegistrationQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>292c17d2-52f9-4319-b54b-23b773b2523b</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.propertyUnit[292c17d2-52f9-4319-b54b-23b773b2523b].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>3b38cf8e-6bda-4f18-a881-bc310a4a059f</key>
+                    <parentUnit>
+                        <key name="name" value="292c17d2-52f9-4319-b54b-23b773b2523b" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="OpenRegistration" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="reportName" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="OpenRegistrationQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>f2177d0a-f69d-4c27-b84e-32270322a5d9</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.propertyUnit[f2177d0a-f69d-4c27-b84e-32270322a5d9].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>722dfc8a-e9a1-465c-8599-b3977193f5e7</key>
+                    <parentUnit>
+                        <key name="name" value="f2177d0a-f69d-4c27-b84e-32270322a5d9" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="reportName" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="OpenRegistrationQuery" />
+            </query>
+        </propertyUnit>
         <queryField>
             <name>number</name>
             <userDefined>true</userDefined>
@@ -129,7 +338,7 @@
             <returnType>String</returnType>
             <propertyRefs>
                 <propertyRef>
-                    <key>19dbe509-f268-4cea-8fa6-7b6764c72623</key>
+                    <key>1f107dcd-a303-4b3a-913b-5dd2139d058d</key>
                     <parentUnit>
                         <key name="name" value="number" />
                     </parentUnit>
@@ -160,7 +369,7 @@
             <returnType>Int</returnType>
             <propertyRefs>
                 <propertyRef>
-                    <key>538d4f61-cd00-40af-a241-ff4504ba65d2</key>
+                    <key>3e3bd37f-2de7-42d9-8e7d-8636e2e338c4</key>
                     <parentUnit>
                         <key name="name" value="status" />
                     </parentUnit>
@@ -180,18 +389,18 @@
         <queryField>
             <name>regName</name>
             <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
+            <formulaString />
             <constString />
             <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[regName].displayName</displayName>
             <groupType />
             <isSelector>true</isSelector>
             <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
+            <isSorter>false</isSorter>
             <isParameter>false</isParameter>
             <returnType>String</returnType>
             <propertyRefs>
                 <propertyRef>
-                    <key>d50f11ae-8e6d-4666-9db2-7367abe121bb</key>
+                    <key>8f6b670e-2615-46a4-b0d9-cfbaa26fdec9</key>
                     <parentUnit>
                         <key name="name" value="regName" />
                     </parentUnit>
@@ -209,20 +418,51 @@
             </query>
         </queryField>
         <queryField>
+            <name>reportName.reportName</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[reportName.reportName].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>705ca476-1e9e-4ae1-90d6-98e04e722d5b</key>
+                    <parentUnit>
+                        <key name="name" value="reportName.reportName" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="reportName" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="reportName" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="OpenRegistrationQuery" />
+            </query>
+        </queryField>
+        <queryField>
             <name>reportNumber</name>
             <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
+            <formulaString />
             <constString />
             <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[reportNumber].displayName</displayName>
             <groupType />
             <isSelector>true</isSelector>
             <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
+            <isSorter>false</isSorter>
             <isParameter>false</isParameter>
             <returnType>String</returnType>
             <propertyRefs>
                 <propertyRef>
-                    <key>bb37ac04-45dc-435a-8db6-75d1c6f37fb6</key>
+                    <key>f1cf5b40-5412-4e7d-8d3d-3eb45a1c857b</key>
                     <parentUnit>
                         <key name="name" value="reportNumber" />
                     </parentUnit>
@@ -242,18 +482,18 @@
         <queryField>
             <name>opLocation</name>
             <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
+            <formulaString />
             <constString />
             <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[opLocation].displayName</displayName>
             <groupType />
             <isSelector>true</isSelector>
             <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
+            <isSorter>false</isSorter>
             <isParameter>false</isParameter>
             <returnType>String</returnType>
             <propertyRefs>
                 <propertyRef>
-                    <key>932ee561-26c9-4cc0-9f96-c1108286bf84</key>
+                    <key>bb662fc8-809a-4997-8049-a8a3166ec0c7</key>
                     <parentUnit>
                         <key name="name" value="opLocation" />
                     </parentUnit>
@@ -273,18 +513,18 @@
         <queryField>
             <name>opDate</name>
             <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
+            <formulaString />
             <constString />
             <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[opDate].displayName</displayName>
             <groupType />
             <isSelector>true</isSelector>
             <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
+            <isSorter>false</isSorter>
             <isParameter>false</isParameter>
             <returnType>Date</returnType>
             <propertyRefs>
                 <propertyRef>
-                    <key>73774767-2165-4772-ab70-9837b3dc6fe5</key>
+                    <key>a1e1165f-1653-4bef-b922-1829c0f746d2</key>
                     <parentUnit>
                         <key name="name" value="opDate" />
                     </parentUnit>
@@ -304,18 +544,18 @@
         <queryField>
             <name>endDate</name>
             <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
+            <formulaString />
             <constString />
             <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[endDate].displayName</displayName>
             <groupType />
             <isSelector>true</isSelector>
             <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
+            <isSorter>false</isSorter>
             <isParameter>false</isParameter>
             <returnType>Date</returnType>
             <propertyRefs>
                 <propertyRef>
-                    <key>697c9df9-0cc0-4d26-9b1c-3b44ef63dd85</key>
+                    <key>17039bc8-9a3b-48ec-a23d-bfc4a05b69e6</key>
                     <parentUnit>
                         <key name="name" value="endDate" />
                     </parentUnit>
@@ -324,37 +564,6 @@
                     </subEntity>
                     <refProperty>
                         <key name="name" value="endDate" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="OpenRegistrationQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>cancel</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[cancel].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>Boolean</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>abdc1e9e-10de-4bf9-81ce-86ede15143f0</key>
-                    <parentUnit>
-                        <key name="name" value="cancel" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="OpenRegistration" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="cancel" />
                     </refProperty>
                 </propertyRef>
             </propertyRefs>
@@ -366,88 +575,26 @@
         <queryField>
             <name>coefficient</name>
             <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
+            <formulaString />
             <constString />
             <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[coefficient].displayName</displayName>
             <groupType />
             <isSelector>true</isSelector>
             <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>cb551fb0-bf3d-42c0-ab1a-eeba3b029ce6</key>
-                    <parentUnit>
-                        <key name="name" value="coefficient" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="OpenRegistration" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="coefficient" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="OpenRegistrationQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>reportName.projectNumber</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[reportName.projectNumber].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>057cc84c-d765-4bce-be23-d55e2bfff911</key>
-                    <parentUnit>
-                        <key name="name" value="reportName.projectNumber" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="reportName" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="projectNumber" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="OpenRegistrationQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>bizDate</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[bizDate].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
             <isSorter>false</isSorter>
             <isParameter>false</isParameter>
-            <returnType>Date</returnType>
+            <returnType>String</returnType>
             <propertyRefs>
                 <propertyRef>
-                    <key>cb7f731a-431c-49a5-b7d5-381c3ffbc29c</key>
+                    <key>28215a49-01b8-47ab-9e30-cc4906046203</key>
                     <parentUnit>
-                        <key name="name" value="bizDate" />
+                        <key name="name" value="coefficient" />
                     </parentUnit>
                     <subEntity>
                         <key name="name" value="OpenRegistration" />
                     </subEntity>
                     <refProperty>
-                        <key name="name" value="bizDate" />
+                        <key name="name" value="coefficient" />
                     </refProperty>
                 </propertyRef>
             </propertyRefs>
@@ -470,7 +617,7 @@
             <returnType>String</returnType>
             <propertyRefs>
                 <propertyRef>
-                    <key>7adc4c92-9787-486e-ba95-3db724e75b36</key>
+                    <key>3b85bb6e-0dbd-423d-9b30-16e06876c93a</key>
                     <parentUnit>
                         <key name="name" value="creator.name" />
                     </parentUnit>
@@ -496,12 +643,12 @@
             <groupType />
             <isSelector>true</isSelector>
             <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
+            <isSorter>false</isSorter>
             <isParameter>false</isParameter>
             <returnType>Timestamp</returnType>
             <propertyRefs>
                 <propertyRef>
-                    <key>49ba5ef1-f78b-4df1-9e0a-dfb8ea209208</key>
+                    <key>026e4ad1-316d-480d-9939-3cb8d6bb7675</key>
                     <parentUnit>
                         <key name="name" value="createTime" />
                     </parentUnit>
@@ -532,7 +679,7 @@
             <returnType>String</returnType>
             <propertyRefs>
                 <propertyRef>
-                    <key>978ac494-6508-4912-86d0-4d934ca8fb6f</key>
+                    <key>8ac1a41d-6f5f-4d4b-b904-c848eae76e5f</key>
                     <parentUnit>
                         <key name="name" value="lastUpdateUser.name" />
                     </parentUnit>
@@ -563,7 +710,7 @@
             <returnType>Timestamp</returnType>
             <propertyRefs>
                 <propertyRef>
-                    <key>fed2a620-b4f9-4320-86d0-ad1a98a04ce9</key>
+                    <key>e65d5c42-84cf-418d-880e-bc7e2216bcf1</key>
                     <parentUnit>
                         <key name="name" value="lastUpdateTime" />
                     </parentUnit>
@@ -594,7 +741,7 @@
             <returnType>String</returnType>
             <propertyRefs>
                 <propertyRef>
-                    <key>62e79ba2-0ff2-44e1-9435-6498d0029bd2</key>
+                    <key>46a38027-2c25-4e7e-9b99-f8d71f5b78c8</key>
                     <parentUnit>
                         <key name="name" value="auditor.name" />
                     </parentUnit>
@@ -625,7 +772,7 @@
             <returnType>Timestamp</returnType>
             <propertyRefs>
                 <propertyRef>
-                    <key>60bee6c4-14c8-4937-b5c6-052285fd7ad2</key>
+                    <key>2bb90e6c-df71-4e2f-8897-a8e3c9d1ab0c</key>
                     <parentUnit>
                         <key name="name" value="auditTime" />
                     </parentUnit>
@@ -634,719 +781,6 @@
                     </subEntity>
                     <refProperty>
                         <key name="name" value="auditTime" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="OpenRegistrationQuery" />
-            </query>
-        </queryField>
-        <propertyUnit>
-            <name>5ffb10c2-9017-4af9-a5ab-adf2cfd35ac2</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.propertyUnit[5ffb10c2-9017-4af9-a5ab-adf2cfd35ac2].displayName</displayName>
-            <groupType />
-            <isSelector>false</isSelector>
-            <isFilter>false</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>d44abb48-c7be-4c98-bab7-c129da3c1658</key>
-                    <parentUnit>
-                        <key name="name" value="5ffb10c2-9017-4af9-a5ab-adf2cfd35ac2" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="OpenRegistration" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="auditor" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="OpenRegistrationQuery" />
-            </query>
-        </propertyUnit>
-        <propertyUnit>
-            <name>1e677688-0a37-405c-b842-4cbc1777feb8</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.propertyUnit[1e677688-0a37-405c-b842-4cbc1777feb8].displayName</displayName>
-            <groupType />
-            <isSelector>false</isSelector>
-            <isFilter>false</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>daa653cc-8c66-4864-822c-9d8dc88b0657</key>
-                    <parentUnit>
-                        <key name="name" value="1e677688-0a37-405c-b842-4cbc1777feb8" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="auditor" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="id" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="OpenRegistrationQuery" />
-            </query>
-        </propertyUnit>
-        <propertyUnit>
-            <name>4d2ea50d-87b6-4764-8511-ad9d75aa377a</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.propertyUnit[4d2ea50d-87b6-4764-8511-ad9d75aa377a].displayName</displayName>
-            <groupType />
-            <isSelector>false</isSelector>
-            <isFilter>false</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>a15f96e0-b011-4ba2-918d-eae540539b4a</key>
-                    <parentUnit>
-                        <key name="name" value="4d2ea50d-87b6-4764-8511-ad9d75aa377a" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="OpenRegistration" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="lastUpdateUser" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="OpenRegistrationQuery" />
-            </query>
-        </propertyUnit>
-        <propertyUnit>
-            <name>1616fe90-d3db-4e68-841c-68e3da457f4a</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.propertyUnit[1616fe90-d3db-4e68-841c-68e3da457f4a].displayName</displayName>
-            <groupType />
-            <isSelector>false</isSelector>
-            <isFilter>false</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>9888e17a-1ee9-4a33-85d6-a4baa8a48cf4</key>
-                    <parentUnit>
-                        <key name="name" value="1616fe90-d3db-4e68-841c-68e3da457f4a" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="lastUpdateUser" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="id" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="OpenRegistrationQuery" />
-            </query>
-        </propertyUnit>
-        <propertyUnit>
-            <name>e2d4e712-e3ae-494f-ac8e-5908534f9998</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.propertyUnit[e2d4e712-e3ae-494f-ac8e-5908534f9998].displayName</displayName>
-            <groupType />
-            <isSelector>false</isSelector>
-            <isFilter>false</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>484cba99-61fc-4e13-a963-57ab22c6c7eb</key>
-                    <parentUnit>
-                        <key name="name" value="e2d4e712-e3ae-494f-ac8e-5908534f9998" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="OpenRegistration" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="creator" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="OpenRegistrationQuery" />
-            </query>
-        </propertyUnit>
-        <propertyUnit>
-            <name>f231c185-16de-45db-a775-a716e2c6fa35</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.propertyUnit[f231c185-16de-45db-a775-a716e2c6fa35].displayName</displayName>
-            <groupType />
-            <isSelector>false</isSelector>
-            <isFilter>false</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>e6167aea-3925-4565-98cf-2993cf436083</key>
-                    <parentUnit>
-                        <key name="name" value="f231c185-16de-45db-a775-a716e2c6fa35" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="creator" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="id" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="OpenRegistrationQuery" />
-            </query>
-        </propertyUnit>
-        <propertyUnit>
-            <name>254e050a-a59f-4caa-adcc-505b3f65c9d0</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.propertyUnit[254e050a-a59f-4caa-adcc-505b3f65c9d0].displayName</displayName>
-            <groupType />
-            <isSelector>false</isSelector>
-            <isFilter>false</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>9590a1ca-62a4-4417-beb9-e77c36cb9afe</key>
-                    <parentUnit>
-                        <key name="name" value="254e050a-a59f-4caa-adcc-505b3f65c9d0" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="OpenRegistration" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="CU" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="OpenRegistrationQuery" />
-            </query>
-        </propertyUnit>
-        <propertyUnit>
-            <name>00a866a6-64e1-4f3f-a034-5740ab0d31ec</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.propertyUnit[00a866a6-64e1-4f3f-a034-5740ab0d31ec].displayName</displayName>
-            <groupType />
-            <isSelector>false</isSelector>
-            <isFilter>false</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType />
-            <propertyRefs>
-                <propertyRef>
-                    <key>9e9f7277-b57c-4e90-82ad-d2dccb799ddd</key>
-                    <parentUnit>
-                        <key name="name" value="00a866a6-64e1-4f3f-a034-5740ab0d31ec" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="CU" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="id" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="OpenRegistrationQuery" />
-            </query>
-        </propertyUnit>
-        <propertyUnit>
-            <name>22fca833-5f13-4cfd-b892-3ce29b207e66</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.propertyUnit[22fca833-5f13-4cfd-b892-3ce29b207e66].displayName</displayName>
-            <groupType />
-            <isSelector>false</isSelector>
-            <isFilter>false</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType />
-            <propertyRefs>
-                <propertyRef>
-                    <key>f9158164-513c-42ed-b72c-5a8d2ad826b8</key>
-                    <parentUnit>
-                        <key name="name" value="22fca833-5f13-4cfd-b892-3ce29b207e66" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="OpenRegistration" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="reportName" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="OpenRegistrationQuery" />
-            </query>
-        </propertyUnit>
-        <propertyUnit>
-            <name>69bc6e75-8876-4fae-a7ae-8e237840fb5b</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.propertyUnit[69bc6e75-8876-4fae-a7ae-8e237840fb5b].displayName</displayName>
-            <groupType />
-            <isSelector>false</isSelector>
-            <isFilter>false</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType />
-            <propertyRefs>
-                <propertyRef>
-                    <key>a437f038-f679-46ee-956a-3c4e226b2e5c</key>
-                    <parentUnit>
-                        <key name="name" value="69bc6e75-8876-4fae-a7ae-8e237840fb5b" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="reportName" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="id" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="OpenRegistrationQuery" />
-            </query>
-        </propertyUnit>
-        <queryField>
-            <name>Entry.seq</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[Entry.seq].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>Int</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>bb792377-5897-41b7-b12e-b701a462ee80</key>
-                    <parentUnit>
-                        <key name="name" value="Entry.seq" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="Entry" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="seq" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="OpenRegistrationQuery" />
-            </query>
-        </queryField>
-        <propertyUnit>
-            <name>fcf2249f-2637-4499-8fd3-1168b0b6949d</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.propertyUnit[fcf2249f-2637-4499-8fd3-1168b0b6949d].displayName</displayName>
-            <groupType />
-            <isSelector>false</isSelector>
-            <isFilter>false</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType />
-            <propertyRefs>
-                <propertyRef>
-                    <key>84122c4d-e22e-42f2-a0b2-9cedf158ace0</key>
-                    <parentUnit>
-                        <key name="name" value="fcf2249f-2637-4499-8fd3-1168b0b6949d" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="OpenRegistration" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="id" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="OpenRegistrationQuery" />
-            </query>
-        </propertyUnit>
-        <propertyUnit>
-            <name>8cd1e06b-b441-4c5a-834f-7df42e792a94</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.propertyUnit[8cd1e06b-b441-4c5a-834f-7df42e792a94].displayName</displayName>
-            <groupType />
-            <isSelector>false</isSelector>
-            <isFilter>false</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType />
-            <propertyRefs>
-                <propertyRef>
-                    <key>b47c1844-a893-4cd6-b5d7-713894777850</key>
-                    <parentUnit>
-                        <key name="name" value="8cd1e06b-b441-4c5a-834f-7df42e792a94" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="Entry" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="parent" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="OpenRegistrationQuery" />
-            </query>
-        </propertyUnit>
-        <queryField>
-            <name>Entry.contact</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[Entry.contact].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>8d17e59a-89d4-49fb-b2bf-07f78c042681</key>
-                    <parentUnit>
-                        <key name="name" value="Entry.contact" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="Entry" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="contact" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="OpenRegistrationQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>Entry.quality</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[Entry.quality].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>939617a5-eced-4974-abae-aaeb9c1414e1</key>
-                    <parentUnit>
-                        <key name="name" value="Entry.quality" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="Entry" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="quality" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="OpenRegistrationQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>Entry.payDeposit</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[Entry.payDeposit].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>Boolean</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>017e4d39-027e-4498-aa4f-94b917496ac6</key>
-                    <parentUnit>
-                        <key name="name" value="Entry.payDeposit" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="Entry" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="payDeposit" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="OpenRegistrationQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>Entry.deposit</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[Entry.deposit].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>168fd0e5-253c-4d2f-b169-1b2647c84c47</key>
-                    <parentUnit>
-                        <key name="name" value="Entry.deposit" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="Entry" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="deposit" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="OpenRegistrationQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>Entry.quotedPrice</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[Entry.quotedPrice].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>298d25a7-3e58-4dfc-ab83-3e74952cb19f</key>
-                    <parentUnit>
-                        <key name="name" value="Entry.quotedPrice" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="Entry" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="quotedPrice" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="OpenRegistrationQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>Entry.directions</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[Entry.directions].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>6c462bc8-1281-43e1-a1f6-0a332524df26</key>
-                    <parentUnit>
-                        <key name="name" value="Entry.directions" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="Entry" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="directions" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="OpenRegistrationQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>Entry.comment</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[Entry.comment].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>6c04f6b7-b245-4b2f-8f7e-a4f04b1a4060</key>
-                    <parentUnit>
-                        <key name="name" value="Entry.comment" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="Entry" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="comment" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="OpenRegistrationQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>Entry.telephone</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[Entry.telephone].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>1c9e2ea3-613d-4686-83e3-82b68f383b6c</key>
-                    <parentUnit>
-                        <key name="name" value="Entry.telephone" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="Entry" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="telephone" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="OpenRegistrationQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>Entry.prjPeriod</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[Entry.prjPeriod].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>11f15064-828b-49eb-87aa-ad0d4973eb62</key>
-                    <parentUnit>
-                        <key name="name" value="Entry.prjPeriod" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="Entry" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="prjPeriod" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="OpenRegistrationQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>Entry.supplierName.supplierName</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[Entry.supplierName.supplierName].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>6b6bb2b4-6d43-4c94-ba9b-3f6f6ff059ba</key>
-                    <parentUnit>
-                        <key name="name" value="Entry.supplierName.supplierName" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="Entry_supplierName" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="supplierName" />
                     </refProperty>
                 </propertyRef>
             </propertyRefs>
@@ -1369,7 +803,7 @@
             <returnType>String</returnType>
             <propertyRefs>
                 <propertyRef>
-                    <key>21252636-7873-4b63-bc08-1d60f96d5bf5</key>
+                    <key>2e856815-b0c2-4c44-ab65-6b4e46790921</key>
                     <parentUnit>
                         <key name="name" value="id" />
                     </parentUnit>
@@ -1386,99 +820,6 @@
                 <key name="name" value="OpenRegistrationQuery" />
             </query>
         </queryField>
-        <queryField>
-            <name>CU.id</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[CU.id].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>913696cd-bc5f-416c-9e6e-887c5c0dc4cb</key>
-                    <parentUnit>
-                        <key name="name" value="CU.id" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="CU" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="id" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="OpenRegistrationQuery" />
-            </query>
-        </queryField>
-        <propertyUnit>
-            <name>6d72b723-ed15-4c2d-8eb0-bc3583a5443a</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.propertyUnit[6d72b723-ed15-4c2d-8eb0-bc3583a5443a].displayName</displayName>
-            <groupType />
-            <isSelector>false</isSelector>
-            <isFilter>false</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType />
-            <propertyRefs>
-                <propertyRef>
-                    <key>efb9ba9e-7deb-4cbe-a03a-332c7821e109</key>
-                    <parentUnit>
-                        <key name="name" value="6d72b723-ed15-4c2d-8eb0-bc3583a5443a" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="Entry" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="supplierName" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="OpenRegistrationQuery" />
-            </query>
-        </propertyUnit>
-        <propertyUnit>
-            <name>9389b75c-5adf-4411-96c7-ceee7ffdbc37</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.propertyUnit[9389b75c-5adf-4411-96c7-ceee7ffdbc37].displayName</displayName>
-            <groupType />
-            <isSelector>false</isSelector>
-            <isFilter>false</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType />
-            <propertyRefs>
-                <propertyRef>
-                    <key>1010d45e-39ea-4197-9193-18c889d7c2be</key>
-                    <parentUnit>
-                        <key name="name" value="9389b75c-5adf-4411-96c7-ceee7ffdbc37" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="Entry_supplierName" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="id" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="OpenRegistrationQuery" />
-            </query>
-        </propertyUnit>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -1488,142 +829,15 @@
             <key name="name" value="OpenRegistrationQuery" />
         </query>
     </defaultFilter>
-    <defaultSorters>
-        <querySorterItem>
-            <propertyName>createTime</propertyName>
-            <sortType>DESC</sortType>
-            <userDefined>true</userDefined>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="OpenRegistrationQuery" />
-            </query>
-            <configured>false</configured>
-        </querySorterItem>
-    </defaultSorters>
+    <queryPK>
+        <name>QueryPK</name>
+        <alias>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].queryPK[QueryPK].alias</alias>
+        <description>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].queryPK[QueryPK].description</description>
+    </queryPK>
     <isDistinct>false</isDistinct>
     <joins>
         <join>
-            <name>29847dab-b3b8-4368-93ca-87f8bb379b46</name>
-            <formulaString>#0</formulaString>
-            <type>LEFT OUTER JOIN</type>
-            <leftObject>
-                <key name="name" value="OpenRegistration" />
-            </leftObject>
-            <rightObject>
-                <key name="name" value="auditor" />
-            </rightObject>
-            <joinItems>
-                <joinItem>
-                    <name>296ebf95-b4de-49c2-a3dc-ea70caaf4160</name>
-                    <compareType>=</compareType>
-                    <leftField>
-                        <key name="name" value="5ffb10c2-9017-4af9-a5ab-adf2cfd35ac2" />
-                    </leftField>
-                    <rightField>
-                        <key name="name" value="1e677688-0a37-405c-b842-4cbc1777feb8" />
-                    </rightField>
-                    <join>
-                        <key name="name" value="29847dab-b3b8-4368-93ca-87f8bb379b46" />
-                    </join>
-                </joinItem>
-            </joinItems>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="OpenRegistrationQuery" />
-            </query>
-        </join>
-        <join>
-            <name>69827004-67eb-4202-bb1d-d69e02503fb4</name>
-            <formulaString>#0</formulaString>
-            <type>LEFT OUTER JOIN</type>
-            <leftObject>
-                <key name="name" value="OpenRegistration" />
-            </leftObject>
-            <rightObject>
-                <key name="name" value="lastUpdateUser" />
-            </rightObject>
-            <joinItems>
-                <joinItem>
-                    <name>7a2a2f5d-ff01-4dea-aac4-667f7a4de13c</name>
-                    <compareType>=</compareType>
-                    <leftField>
-                        <key name="name" value="4d2ea50d-87b6-4764-8511-ad9d75aa377a" />
-                    </leftField>
-                    <rightField>
-                        <key name="name" value="1616fe90-d3db-4e68-841c-68e3da457f4a" />
-                    </rightField>
-                    <join>
-                        <key name="name" value="69827004-67eb-4202-bb1d-d69e02503fb4" />
-                    </join>
-                </joinItem>
-            </joinItems>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="OpenRegistrationQuery" />
-            </query>
-        </join>
-        <join>
-            <name>736d74bc-27e6-4a40-85bc-5e59e61fb692</name>
-            <formulaString>#0</formulaString>
-            <type>LEFT OUTER JOIN</type>
-            <leftObject>
-                <key name="name" value="OpenRegistration" />
-            </leftObject>
-            <rightObject>
-                <key name="name" value="creator" />
-            </rightObject>
-            <joinItems>
-                <joinItem>
-                    <name>38978d75-8822-4238-ad3b-223abe1055e6</name>
-                    <compareType>=</compareType>
-                    <leftField>
-                        <key name="name" value="e2d4e712-e3ae-494f-ac8e-5908534f9998" />
-                    </leftField>
-                    <rightField>
-                        <key name="name" value="f231c185-16de-45db-a775-a716e2c6fa35" />
-                    </rightField>
-                    <join>
-                        <key name="name" value="736d74bc-27e6-4a40-85bc-5e59e61fb692" />
-                    </join>
-                </joinItem>
-            </joinItems>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="OpenRegistrationQuery" />
-            </query>
-        </join>
-        <join>
-            <name>68f642a1-e453-4708-ac64-b9c74c74c11d</name>
-            <formulaString>#0</formulaString>
-            <type>LEFT OUTER JOIN</type>
-            <leftObject>
-                <key name="name" value="OpenRegistration" />
-            </leftObject>
-            <rightObject>
-                <key name="name" value="CU" />
-            </rightObject>
-            <joinItems>
-                <joinItem>
-                    <name>53eba324-783d-4280-907a-af62529e234f</name>
-                    <compareType>=</compareType>
-                    <leftField>
-                        <key name="name" value="254e050a-a59f-4caa-adcc-505b3f65c9d0" />
-                    </leftField>
-                    <rightField>
-                        <key name="name" value="00a866a6-64e1-4f3f-a034-5740ab0d31ec" />
-                    </rightField>
-                    <join>
-                        <key name="name" value="68f642a1-e453-4708-ac64-b9c74c74c11d" />
-                    </join>
-                </joinItem>
-            </joinItems>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="OpenRegistrationQuery" />
-            </query>
-        </join>
-        <join>
-            <name>ea191d6f-9226-43b6-a9ea-d08a03fd728d</name>
+            <name>2a230703-a861-4a8a-beef-bb6b163e5e39</name>
             <formulaString>#0</formulaString>
             <type>LEFT OUTER JOIN</type>
             <leftObject>
@@ -1634,16 +848,16 @@
             </rightObject>
             <joinItems>
                 <joinItem>
-                    <name>e2d0bb0e-b979-4e53-b533-850b4e58c1c2</name>
+                    <name>b8563280-5716-4b1f-986f-a1e69e025e0a</name>
                     <compareType>=</compareType>
                     <leftField>
-                        <key name="name" value="22fca833-5f13-4cfd-b892-3ce29b207e66" />
+                        <key name="name" value="292c17d2-52f9-4319-b54b-23b773b2523b" />
                     </leftField>
                     <rightField>
-                        <key name="name" value="69bc6e75-8876-4fae-a7ae-8e237840fb5b" />
+                        <key name="name" value="f2177d0a-f69d-4c27-b84e-32270322a5d9" />
                     </rightField>
                     <join>
-                        <key name="name" value="ea191d6f-9226-43b6-a9ea-d08a03fd728d" />
+                        <key name="name" value="2a230703-a861-4a8a-beef-bb6b163e5e39" />
                     </join>
                 </joinItem>
             </joinItems>
@@ -1653,27 +867,27 @@
             </query>
         </join>
         <join>
-            <name>25ee8559-0114-4648-9971-863b0a7ab5dd</name>
+            <name>43d043a7-d0a1-4d74-b736-e457e713884c</name>
             <formulaString>#0</formulaString>
             <type>LEFT OUTER JOIN</type>
             <leftObject>
                 <key name="name" value="OpenRegistration" />
             </leftObject>
             <rightObject>
-                <key name="name" value="Entry" />
+                <key name="name" value="auditor" />
             </rightObject>
             <joinItems>
                 <joinItem>
-                    <name>77fb9ece-f1bc-4f92-b6df-e630b48d0800</name>
+                    <name>5edbc352-a25a-4d22-8b0a-95c2e23bb059</name>
                     <compareType>=</compareType>
                     <leftField>
-                        <key name="name" value="fcf2249f-2637-4499-8fd3-1168b0b6949d" />
+                        <key name="name" value="2e2fbc35-3fbf-4248-ae54-fa8810ec8620" />
                     </leftField>
                     <rightField>
-                        <key name="name" value="8cd1e06b-b441-4c5a-834f-7df42e792a94" />
+                        <key name="name" value="67b94063-a803-4197-8090-356bb4f2f291" />
                     </rightField>
                     <join>
-                        <key name="name" value="25ee8559-0114-4648-9971-863b0a7ab5dd" />
+                        <key name="name" value="43d043a7-d0a1-4d74-b736-e457e713884c" />
                     </join>
                 </joinItem>
             </joinItems>
@@ -1683,27 +897,57 @@
             </query>
         </join>
         <join>
-            <name>0fcb1380-24d9-4ca9-9346-ceeea6cee3be</name>
+            <name>a151c667-84a7-4f0e-92f2-9113a468bddc</name>
             <formulaString>#0</formulaString>
             <type>LEFT OUTER JOIN</type>
             <leftObject>
-                <key name="name" value="Entry" />
+                <key name="name" value="OpenRegistration" />
             </leftObject>
             <rightObject>
-                <key name="name" value="Entry_supplierName" />
+                <key name="name" value="creator" />
             </rightObject>
             <joinItems>
                 <joinItem>
-                    <name>8922f7b4-57e8-4eaa-9194-622262b8ee56</name>
+                    <name>0a82b080-952e-4dbb-bf13-d27fe9604895</name>
                     <compareType>=</compareType>
                     <leftField>
-                        <key name="name" value="6d72b723-ed15-4c2d-8eb0-bc3583a5443a" />
+                        <key name="name" value="ef0ca922-1e1f-4f1c-87f8-94936f677832" />
                     </leftField>
                     <rightField>
-                        <key name="name" value="9389b75c-5adf-4411-96c7-ceee7ffdbc37" />
+                        <key name="name" value="4b2b73e9-d983-4ce0-8f7d-e8815215e57a" />
                     </rightField>
                     <join>
-                        <key name="name" value="0fcb1380-24d9-4ca9-9346-ceeea6cee3be" />
+                        <key name="name" value="a151c667-84a7-4f0e-92f2-9113a468bddc" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="OpenRegistrationQuery" />
+            </query>
+        </join>
+        <join>
+            <name>65d63919-f147-49c1-aefe-e47485674fe4</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="OpenRegistration" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="lastUpdateUser" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>f36153fe-974c-47de-a9fc-446398c46198</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="00467a1c-d675-4e25-b40d-e7112a62ac48" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="b28622dc-b3ea-48a8-8eba-b65db8621db6" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="65d63919-f147-49c1-aefe-e47485674fe4" />
                     </join>
                 </joinItem>
             </joinItems>
@@ -1716,44 +960,23 @@
     <resource>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="开标登记" />
-            <lang locale="zh_HK" value="開標登記" />
-            <lang locale="zh_TW" value="開標登記" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].defaultSorters.querySorterItemextendedProperty.f7WindowTitle">
-            <lang locale="en_US" value="XR业务单据模版" />
-            <lang locale="zh_CN" value="XR业务单据模版" />
-            <lang locale="zh_TW" value="XR业务单据模版" />
+            <lang locale="zh_CN" value="开标登记查询" />
+            <lang locale="zh_HK" value="開標登記查詢" />
+            <lang locale="zh_TW" value="開標登記查詢" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="基础单据Query" />
-            <lang locale="zh_HK" value="基礎單據Query" />
-            <lang locale="zh_TW" value="基礎單據Query" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].extendedProperty.F7WindowTitle">
-            <lang locale="en_US" value="com.kingdee.eas.port.pm.invite.client.InviteResource.OpenRegistrationQueryF7WindowTitle" />
-            <lang locale="zh_CN" value="com.kingdee.eas.port.pm.invite.client.InviteResource.OpenRegistrationQueryF7WindowTitle" />
-            <lang locale="zh_TW" value="com.kingdee.eas.port.pm.invite.client.InviteResource.OpenRegistrationQueryF7WindowTitle" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].extendedProperty.f7WindowTitle">
-            <lang locale="en_US" value="开标登记" />
-            <lang locale="zh_CN" value="开标登记" />
-            <lang locale="zh_TW" value="开标登记" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].subObjects.subEntity[CU].alias">
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].queryPK[QueryPK].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].subObjects.subEntity[Entry].alias">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].subObjects.subEntity[Entry_supplierName].alias">
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].queryPK[QueryPK].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -1789,276 +1012,53 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.propertyUnit[00a866a6-64e1-4f3f-a034-5740ab0d31ec].displayName">
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.propertyUnit[00467a1c-d675-4e25-b40d-e7112a62ac48].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.propertyUnit[1616fe90-d3db-4e68-841c-68e3da457f4a].displayName">
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.propertyUnit[292c17d2-52f9-4319-b54b-23b773b2523b].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.propertyUnit[1e677688-0a37-405c-b842-4cbc1777feb8].displayName">
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.propertyUnit[2e2fbc35-3fbf-4248-ae54-fa8810ec8620].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.propertyUnit[22fca833-5f13-4cfd-b892-3ce29b207e66].displayName">
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.propertyUnit[4b2b73e9-d983-4ce0-8f7d-e8815215e57a].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.propertyUnit[254e050a-a59f-4caa-adcc-505b3f65c9d0].displayName">
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.propertyUnit[67b94063-a803-4197-8090-356bb4f2f291].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.propertyUnit[4d2ea50d-87b6-4764-8511-ad9d75aa377a].displayName">
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.propertyUnit[b28622dc-b3ea-48a8-8eba-b65db8621db6].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.propertyUnit[5ffb10c2-9017-4af9-a5ab-adf2cfd35ac2].displayName">
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.propertyUnit[ef0ca922-1e1f-4f1c-87f8-94936f677832].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.propertyUnit[69bc6e75-8876-4fae-a7ae-8e237840fb5b].displayName">
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.propertyUnit[f2177d0a-f69d-4c27-b84e-32270322a5d9].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.propertyUnit[6d72b723-ed15-4c2d-8eb0-bc3583a5443a].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.propertyUnit[8cd1e06b-b441-4c5a-834f-7df42e792a94].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.propertyUnit[9389b75c-5adf-4411-96c7-ceee7ffdbc37].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.propertyUnit[e2d4e712-e3ae-494f-ac8e-5908534f9998].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.propertyUnit[f231c185-16de-45db-a775-a716e2c6fa35].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.propertyUnit[fcf2249f-2637-4499-8fd3-1168b0b6949d].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[CU.id].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="ID" />
-            <lang locale="zh_HK" value="ID" />
-            <lang locale="zh_TW" value="ID" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[Entry.comment].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="备注" />
-            <lang locale="zh_HK" value="備註" />
-            <lang locale="zh_TW" value="備註" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[Entry.comment].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[Entry.comment].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[Entry.contact].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="联系人" />
-            <lang locale="zh_HK" value="聯繫人" />
-            <lang locale="zh_TW" value="聯繫人" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[Entry.contact].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[Entry.contact].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[Entry.deposit].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="投标保证金" />
-            <lang locale="zh_HK" value="投標保證金" />
-            <lang locale="zh_TW" value="投標保證金" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[Entry.deposit].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[Entry.deposit].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[Entry.directions].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="报价说明" />
-            <lang locale="zh_HK" value="報價說明" />
-            <lang locale="zh_TW" value="報價說明" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[Entry.directions].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[Entry.directions].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[Entry.payDeposit].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="是否已交投标保证金" />
-            <lang locale="zh_HK" value="是否已交投標保證金" />
-            <lang locale="zh_TW" value="是否已交投標保證金" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[Entry.payDeposit].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[Entry.payDeposit].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[Entry.prjPeriod].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="工期(天)" />
-            <lang locale="zh_HK" value="工期(天)" />
-            <lang locale="zh_TW" value="工期(天)" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[Entry.prjPeriod].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[Entry.prjPeriod].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[Entry.quality].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="质量" />
-            <lang locale="zh_HK" value="質量" />
-            <lang locale="zh_TW" value="質量" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[Entry.quality].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[Entry.quality].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[Entry.quotedPrice].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="投标报价" />
-            <lang locale="zh_HK" value="投標報價" />
-            <lang locale="zh_TW" value="投標報價" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[Entry.quotedPrice].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[Entry.quotedPrice].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[Entry.seq].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="单据分录序列号" />
-            <lang locale="zh_HK" value="單據分錄序列號" />
-            <lang locale="zh_TW" value="單據分錄序列號" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[Entry.seq].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[Entry.seq].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[Entry.supplierName.supplierName].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="供应商名称" />
-            <lang locale="zh_HK" value="供應商名稱" />
-            <lang locale="zh_TW" value="供應商名稱" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[Entry.supplierName.supplierName].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[Entry.supplierName.supplierName].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[Entry.supplierName.supplierName].extendedProperty.isUsingF7">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[Entry.telephone].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="电话号码" />
-            <lang locale="zh_HK" value="電話號碼" />
-            <lang locale="zh_TW" value="電話號碼" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[Entry.telephone].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[Entry.telephone].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[auditTime].displayName">
             <lang locale="en_US" value="null" />
@@ -2066,58 +1066,11 @@
             <lang locale="zh_HK" value="審核時間" />
             <lang locale="zh_TW" value="審核時間" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[auditTime].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[auditTime].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[auditor.name].displayName">
             <lang locale="en_US" value="用户别名" />
             <lang locale="zh_CN" value="审核人" />
             <lang locale="zh_HK" value="審核人" />
             <lang locale="zh_TW" value="審核人" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[auditor.name].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[bizDate].displayName">
-            <lang locale="en_US" value="" />
-            <lang locale="zh_CN" value="业务日期" />
-            <lang locale="zh_HK" value="業務日期" />
-            <lang locale="zh_TW" value="業務日期" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[bizDate].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[bizDate].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[cancel].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="是否作废" />
-            <lang locale="zh_HK" value="是否作廢" />
-            <lang locale="zh_TW" value="是否作廢" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[cancel].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[cancel].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[coefficient].displayName">
             <lang locale="en_US" value="null" />
@@ -2125,73 +1078,23 @@
             <lang locale="zh_HK" value="評標基準係數X" />
             <lang locale="zh_TW" value="評標基準係數X" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[coefficient].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[coefficient].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[createTime].displayName">
             <lang locale="en_US" value="createTime" />
-            <lang locale="zh_CN" value="制单时间" />
-            <lang locale="zh_HK" value="制單時間" />
-            <lang locale="zh_TW" value="制單時間" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[createTime].extendedProperty.colWidthInKDTable">
-            <lang locale="en_US" value="50" />
-            <lang locale="zh_CN" value="50" />
-            <lang locale="zh_TW" value="50" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[createTime].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[createTime].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[createTime].extendedProperty.isDynCommonQuery">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[createTime].extendedProperty.isUsingF7">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
+            <lang locale="zh_CN" value="创建时间" />
+            <lang locale="zh_HK" value="創建時間" />
+            <lang locale="zh_TW" value="創建時間" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[creator.name].displayName">
             <lang locale="en_US" value="用户别名" />
-            <lang locale="zh_CN" value="制单人" />
-            <lang locale="zh_HK" value="制單人" />
-            <lang locale="zh_TW" value="制單人" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[creator.name].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
+            <lang locale="zh_CN" value="创建人" />
+            <lang locale="zh_HK" value="創建人" />
+            <lang locale="zh_TW" value="創建人" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[endDate].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="截标开标时间" />
             <lang locale="zh_HK" value="截標開標時間" />
             <lang locale="zh_TW" value="截標開標時間" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[endDate].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[endDate].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[id].displayName">
             <lang locale="en_US" value="null" />
@@ -2205,26 +1108,11 @@
             <lang locale="zh_HK" value="最後修改時間" />
             <lang locale="zh_TW" value="最後修改時間" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[lastUpdateTime].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[lastUpdateTime].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[lastUpdateUser.name].displayName">
             <lang locale="en_US" value="用户别名" />
             <lang locale="zh_CN" value="最后修改人" />
             <lang locale="zh_HK" value="最後修改人" />
             <lang locale="zh_TW" value="最後修改人" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[lastUpdateUser.name].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[number].displayName">
             <lang locale="en_US" value="null" />
@@ -2232,31 +1120,11 @@
             <lang locale="zh_HK" value="單據編號" />
             <lang locale="zh_TW" value="單據編號" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[number].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[number].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[opDate].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="开标时间" />
             <lang locale="zh_HK" value="開標時間" />
             <lang locale="zh_TW" value="開標時間" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[opDate].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[opDate].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[opLocation].displayName">
             <lang locale="en_US" value="null" />
@@ -2264,52 +1132,17 @@
             <lang locale="zh_HK" value="開標地點" />
             <lang locale="zh_TW" value="開標地點" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[opLocation].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[opLocation].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[regName].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="开标登记名称" />
             <lang locale="zh_HK" value="開標登記名稱" />
             <lang locale="zh_TW" value="開標登記名稱" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[regName].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[regName].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[reportName.projectNumber].displayName">
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[reportName.reportName].displayName">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="招标方案" />
-            <lang locale="zh_HK" value="招標方案" />
-            <lang locale="zh_TW" value="招標方案" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[reportName.projectNumber].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[reportName.projectNumber].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[reportName.projectNumber].extendedProperty.isUsingF7">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
+            <lang locale="zh_CN" value="招标方案名称" />
+            <lang locale="zh_HK" value="招標方案名稱" />
+            <lang locale="zh_TW" value="招標方案名稱" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[reportNumber].displayName">
             <lang locale="en_US" value="null" />
@@ -2317,31 +1150,11 @@
             <lang locale="zh_HK" value="招標編碼" />
             <lang locale="zh_TW" value="招標編碼" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[reportNumber].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[reportNumber].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[status].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="单据状态" />
             <lang locale="zh_HK" value="單據狀態" />
             <lang locale="zh_TW" value="單據狀態" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[status].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[status].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
         </rs>
     </resource>
 </joinQuery>
