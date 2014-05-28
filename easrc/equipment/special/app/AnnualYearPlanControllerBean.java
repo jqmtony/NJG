@@ -75,24 +75,20 @@ public class AnnualYearPlanControllerBean extends AbstractAnnualYearPlanControll
 		    
 		    protected void _unAudit(Context ctx, IObjectPK pk) throws BOSException,EASBizException {
 		    	AnnualYearPlanInfo aXRBillBaseInfo =  getAnnualYearPlanInfo(ctx, pk);
-				for (int j = 0; j < aXRBillBaseInfo.getEntry().size(); j++) {
-					checktranFormBill(ctx,aXRBillBaseInfo.getEntry().get(j).getId().toString());
-				}
+					checktranFormBill(ctx,aXRBillBaseInfo.getId().toString());
 		    	super._unAudit(ctx, pk);
 		    }
 
 			protected void _unAudit(Context ctx, IObjectPK[] pks) throws BOSException, EASBizException {
 				for(int i=0;i<pks.length;i++){
 					AnnualYearPlanInfo aXRBillBaseInfo =  getAnnualYearPlanInfo(ctx, pks[i]);
-					for (int j = 0; j < aXRBillBaseInfo.getEntry().size(); j++) {
-						checktranFormBill(ctx,aXRBillBaseInfo.getEntry().get(j).getId().toString());
-					}
+						checktranFormBill(ctx,aXRBillBaseInfo.getId().toString());
 				}
 				super._unAudit(ctx, pks);
 			}
 		    
-			private void checktranFormBill(Context ctx,String entryId) throws EASBizException, BOSException{
-				if(AnnualYearDetailFactory.getLocalInstance(ctx).exists("where SourceBillID='"+entryId+"'"))
+			private void checktranFormBill(Context ctx,String Id) throws EASBizException, BOSException{
+				if(AnnualYearDetailFactory.getLocalInstance(ctx).exists("where SourceBillID='"+Id+"'"))
 				{
 					throw new EASBizException(new NumericExceptionSubItem("100","所选单据已有下游单据，不允许反审核！"));
 				}

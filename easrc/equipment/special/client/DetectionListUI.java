@@ -1,36 +1,27 @@
 /**
  * output package name
  */
-package com.kingdee.eas.port.equipment.maintenance.client;
+package com.kingdee.eas.port.equipment.special.client;
 
 import java.awt.event.*;
 import org.apache.log4j.Logger;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.eas.framework.*;
-import com.kingdee.bos.ctrl.kdf.table.KDTable;
-import com.kingdee.bos.ctrl.swing.KDTextField;
 
 /**
  * output class name
  */
-public class MonMainPlanEditUI extends AbstractMonMainPlanEditUI
+public class DetectionListUI extends AbstractDetectionListUI
 {
-    private static final Logger logger = CoreUIObject.getLogger(MonMainPlanEditUI.class);
+    private static final Logger logger = CoreUIObject.getLogger(DetectionListUI.class);
     
     /**
      * output class constructor
      */
-    public MonMainPlanEditUI() throws Exception
+    public DetectionListUI() throws Exception
     {
         super();
-    }
-    /**
-     * output loadFields method
-     */
-    public void loadFields()
-    {
-        super.loadFields();
     }
 
     /**
@@ -42,19 +33,27 @@ public class MonMainPlanEditUI extends AbstractMonMainPlanEditUI
     }
 
     /**
-     * output btnAddLine_actionPerformed method
+     * output tblMain_tableClicked method
      */
-    protected void btnAddLine_actionPerformed(java.awt.event.ActionEvent e) throws Exception
+    protected void tblMain_tableClicked(com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent e) throws Exception
     {
-        super.btnAddLine_actionPerformed(e);
+        super.tblMain_tableClicked(e);
     }
 
     /**
-     * output menuItemEnterToNextRow_itemStateChanged method
+     * output tblMain_tableSelectChanged method
      */
-    protected void menuItemEnterToNextRow_itemStateChanged(java.awt.event.ItemEvent e) throws Exception
+    protected void tblMain_tableSelectChanged(com.kingdee.bos.ctrl.kdf.table.event.KDTSelectEvent e) throws Exception
     {
-        super.menuItemEnterToNextRow_itemStateChanged(e);
+        super.tblMain_tableSelectChanged(e);
+    }
+
+    /**
+     * output menuItemImportData_actionPerformed method
+     */
+    protected void menuItemImportData_actionPerformed(java.awt.event.ActionEvent e) throws Exception
+    {
+        super.menuItemImportData_actionPerformed(e);
     }
 
     /**
@@ -282,99 +281,19 @@ public class MonMainPlanEditUI extends AbstractMonMainPlanEditUI
     }
 
     /**
-     * output actionSave_actionPerformed
-     */
-    public void actionSave_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionSave_actionPerformed(e);
-    }
-
-    /**
-     * output actionSubmit_actionPerformed
-     */
-    public void actionSubmit_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionSubmit_actionPerformed(e);
-    }
-
-    /**
-     * output actionCancel_actionPerformed
-     */
-    public void actionCancel_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionCancel_actionPerformed(e);
-    }
-
-    /**
-     * output actionCancelCancel_actionPerformed
-     */
-    public void actionCancelCancel_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionCancelCancel_actionPerformed(e);
-    }
-
-    /**
-     * output actionFirst_actionPerformed
-     */
-    public void actionFirst_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionFirst_actionPerformed(e);
-    }
-
-    /**
-     * output actionPre_actionPerformed
-     */
-    public void actionPre_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionPre_actionPerformed(e);
-    }
-
-    /**
-     * output actionNext_actionPerformed
-     */
-    public void actionNext_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionNext_actionPerformed(e);
-    }
-
-    /**
-     * output actionLast_actionPerformed
-     */
-    public void actionLast_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionLast_actionPerformed(e);
-    }
-
-    /**
-     * output actionPrint_actionPerformed
-     */
-    public void actionPrint_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionPrint_actionPerformed(e);
-    }
-
-    /**
-     * output actionPrintPreview_actionPerformed
-     */
-    public void actionPrintPreview_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionPrintPreview_actionPerformed(e);
-    }
-
-    /**
-     * output actionCopy_actionPerformed
-     */
-    public void actionCopy_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionCopy_actionPerformed(e);
-    }
-
-    /**
      * output actionAddNew_actionPerformed
      */
     public void actionAddNew_actionPerformed(ActionEvent e) throws Exception
     {
         super.actionAddNew_actionPerformed(e);
+    }
+
+    /**
+     * output actionView_actionPerformed
+     */
+    public void actionView_actionPerformed(ActionEvent e) throws Exception
+    {
+        super.actionView_actionPerformed(e);
     }
 
     /**
@@ -394,6 +313,54 @@ public class MonMainPlanEditUI extends AbstractMonMainPlanEditUI
     }
 
     /**
+     * output actionRefresh_actionPerformed
+     */
+    public void actionRefresh_actionPerformed(ActionEvent e) throws Exception
+    {
+        super.actionRefresh_actionPerformed(e);
+    }
+
+    /**
+     * output actionPrint_actionPerformed
+     */
+    public void actionPrint_actionPerformed(ActionEvent e) throws Exception
+    {
+        super.actionPrint_actionPerformed(e);
+    }
+
+    /**
+     * output actionPrintPreview_actionPerformed
+     */
+    public void actionPrintPreview_actionPerformed(ActionEvent e) throws Exception
+    {
+        super.actionPrintPreview_actionPerformed(e);
+    }
+
+    /**
+     * output actionLocate_actionPerformed
+     */
+    public void actionLocate_actionPerformed(ActionEvent e) throws Exception
+    {
+        super.actionLocate_actionPerformed(e);
+    }
+
+    /**
+     * output actionQuery_actionPerformed
+     */
+    public void actionQuery_actionPerformed(ActionEvent e) throws Exception
+    {
+        super.actionQuery_actionPerformed(e);
+    }
+
+    /**
+     * output actionImportData_actionPerformed
+     */
+    public void actionImportData_actionPerformed(ActionEvent e) throws Exception
+    {
+        super.actionImportData_actionPerformed(e);
+    }
+
+    /**
      * output actionAttachment_actionPerformed
      */
     public void actionAttachment_actionPerformed(ActionEvent e) throws Exception
@@ -402,83 +369,75 @@ public class MonMainPlanEditUI extends AbstractMonMainPlanEditUI
     }
 
     /**
-     * output actionSubmitOption_actionPerformed
+     * output actionExportData_actionPerformed
      */
-    public void actionSubmitOption_actionPerformed(ActionEvent e) throws Exception
+    public void actionExportData_actionPerformed(ActionEvent e) throws Exception
     {
-        super.actionSubmitOption_actionPerformed(e);
+        super.actionExportData_actionPerformed(e);
     }
 
     /**
-     * output actionReset_actionPerformed
+     * output actionToExcel_actionPerformed
      */
-    public void actionReset_actionPerformed(ActionEvent e) throws Exception
+    public void actionToExcel_actionPerformed(ActionEvent e) throws Exception
     {
-        super.actionReset_actionPerformed(e);
+        super.actionToExcel_actionPerformed(e);
     }
 
     /**
-     * output actionMsgFormat_actionPerformed
+     * output actionStartWorkFlow_actionPerformed
      */
-    public void actionMsgFormat_actionPerformed(ActionEvent e) throws Exception
+    public void actionStartWorkFlow_actionPerformed(ActionEvent e) throws Exception
     {
-        super.actionMsgFormat_actionPerformed(e);
+        super.actionStartWorkFlow_actionPerformed(e);
     }
 
     /**
-     * output actionAddLine_actionPerformed
+     * output actionPublishReport_actionPerformed
      */
-    public void actionAddLine_actionPerformed(ActionEvent e) throws Exception
+    public void actionPublishReport_actionPerformed(ActionEvent e) throws Exception
     {
-        super.actionAddLine_actionPerformed(e);
+        super.actionPublishReport_actionPerformed(e);
     }
 
     /**
-     * output actionCopyLine_actionPerformed
+     * output actionCancel_actionPerformed
      */
-    public void actionCopyLine_actionPerformed(ActionEvent e) throws Exception
+    public void actionCancel_actionPerformed(ActionEvent e) throws Exception
     {
-        super.actionCopyLine_actionPerformed(e);
+        super.actionCancel_actionPerformed(e);
     }
 
     /**
-     * output actionInsertLine_actionPerformed
+     * output actionCancelCancel_actionPerformed
      */
-    public void actionInsertLine_actionPerformed(ActionEvent e) throws Exception
+    public void actionCancelCancel_actionPerformed(ActionEvent e) throws Exception
     {
-        super.actionInsertLine_actionPerformed(e);
+        super.actionCancelCancel_actionPerformed(e);
     }
 
     /**
-     * output actionRemoveLine_actionPerformed
+     * output actionQueryScheme_actionPerformed
      */
-    public void actionRemoveLine_actionPerformed(ActionEvent e) throws Exception
+    public void actionQueryScheme_actionPerformed(ActionEvent e) throws Exception
     {
-        super.actionRemoveLine_actionPerformed(e);
+        super.actionQueryScheme_actionPerformed(e);
     }
 
     /**
-     * output actionCreateFrom_actionPerformed
+     * output actionCreateTo_actionPerformed
      */
-    public void actionCreateFrom_actionPerformed(ActionEvent e) throws Exception
+    public void actionCreateTo_actionPerformed(ActionEvent e) throws Exception
     {
-        super.actionCreateFrom_actionPerformed(e);
+        super.actionCreateTo_actionPerformed(e);
     }
 
     /**
-     * output actionCopyFrom_actionPerformed
+     * output actionCopyTo_actionPerformed
      */
-    public void actionCopyFrom_actionPerformed(ActionEvent e) throws Exception
+    public void actionCopyTo_actionPerformed(ActionEvent e) throws Exception
     {
-        super.actionCopyFrom_actionPerformed(e);
-    }
-
-    /**
-     * output actionAuditResult_actionPerformed
-     */
-    public void actionAuditResult_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionAuditResult_actionPerformed(e);
+        super.actionCopyTo_actionPerformed(e);
     }
 
     /**
@@ -498,11 +457,27 @@ public class MonMainPlanEditUI extends AbstractMonMainPlanEditUI
     }
 
     /**
-     * output actionViewSubmitProccess_actionPerformed
+     * output actionVoucher_actionPerformed
      */
-    public void actionViewSubmitProccess_actionPerformed(ActionEvent e) throws Exception
+    public void actionVoucher_actionPerformed(ActionEvent e) throws Exception
     {
-        super.actionViewSubmitProccess_actionPerformed(e);
+        super.actionVoucher_actionPerformed(e);
+    }
+
+    /**
+     * output actionDelVoucher_actionPerformed
+     */
+    public void actionDelVoucher_actionPerformed(ActionEvent e) throws Exception
+    {
+        super.actionDelVoucher_actionPerformed(e);
+    }
+
+    /**
+     * output actionAuditResult_actionPerformed
+     */
+    public void actionAuditResult_actionPerformed(ActionEvent e) throws Exception
+    {
+        super.actionAuditResult_actionPerformed(e);
     }
 
     /**
@@ -530,30 +505,6 @@ public class MonMainPlanEditUI extends AbstractMonMainPlanEditUI
     }
 
     /**
-     * output actionStartWorkFlow_actionPerformed
-     */
-    public void actionStartWorkFlow_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionStartWorkFlow_actionPerformed(e);
-    }
-
-    /**
-     * output actionVoucher_actionPerformed
-     */
-    public void actionVoucher_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionVoucher_actionPerformed(e);
-    }
-
-    /**
-     * output actionDelVoucher_actionPerformed
-     */
-    public void actionDelVoucher_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionDelVoucher_actionPerformed(e);
-    }
-
-    /**
      * output actionWorkFlowG_actionPerformed
      */
     public void actionWorkFlowG_actionPerformed(ActionEvent e) throws Exception
@@ -562,19 +513,11 @@ public class MonMainPlanEditUI extends AbstractMonMainPlanEditUI
     }
 
     /**
-     * output actionCreateTo_actionPerformed
+     * output actionSendSmsMessage_actionPerformed
      */
-    public void actionCreateTo_actionPerformed(ActionEvent e) throws Exception
+    public void actionSendSmsMessage_actionPerformed(ActionEvent e) throws Exception
     {
-        super.actionCreateTo_actionPerformed(e);
-    }
-
-    /**
-     * output actionSendingMessage_actionPerformed
-     */
-    public void actionSendingMessage_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionSendingMessage_actionPerformed(e);
+        super.actionSendSmsMessage_actionPerformed(e);
     }
 
     /**
@@ -594,27 +537,11 @@ public class MonMainPlanEditUI extends AbstractMonMainPlanEditUI
     }
 
     /**
-     * output actionViewSignature_actionPerformed
+     * output actoinViewSignature_actionPerformed
      */
-    public void actionViewSignature_actionPerformed(ActionEvent e) throws Exception
+    public void actoinViewSignature_actionPerformed(ActionEvent e) throws Exception
     {
-        super.actionViewSignature_actionPerformed(e);
-    }
-
-    /**
-     * output actionSendMail_actionPerformed
-     */
-    public void actionSendMail_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionSendMail_actionPerformed(e);
-    }
-
-    /**
-     * output actionLocate_actionPerformed
-     */
-    public void actionLocate_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionLocate_actionPerformed(e);
+        super.actoinViewSignature_actionPerformed(e);
     }
 
     /**
@@ -646,16 +573,7 @@ public class MonMainPlanEditUI extends AbstractMonMainPlanEditUI
      */
     protected com.kingdee.eas.framework.ICoreBase getBizInterface() throws Exception
     {
-        return com.kingdee.eas.port.equipment.maintenance.MonMainPlanFactory.getRemoteInstance();
-    }
-
-    /**
-     * output createNewDetailData method
-     */
-    protected IObjectValue createNewDetailData(KDTable table)
-    {
-		
-        return null;
+        return com.kingdee.eas.port.equipment.special.DetectionFactory.getRemoteInstance();
     }
 
     /**
@@ -663,29 +581,9 @@ public class MonMainPlanEditUI extends AbstractMonMainPlanEditUI
      */
     protected com.kingdee.bos.dao.IObjectValue createNewData()
     {
-        com.kingdee.eas.port.equipment.maintenance.MonMainPlanInfo objectValue = new com.kingdee.eas.port.equipment.maintenance.MonMainPlanInfo();
-        objectValue.setCreator((com.kingdee.eas.base.permission.UserInfo)(com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentUser()));
+        com.kingdee.eas.port.equipment.special.DetectionInfo objectValue = new com.kingdee.eas.port.equipment.special.DetectionInfo();
 		
         return objectValue;
     }
-	@Override
-	protected void attachListeners() {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	protected void detachListeners() {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	protected KDTextField getNumberCtrl() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
-	public void onLoad() throws Exception {
-		this.kdtE1.getColumn("seq").getStyleAttributes().setHided(true);
-		super.onLoad();
-	}
 }

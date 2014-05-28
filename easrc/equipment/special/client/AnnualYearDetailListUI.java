@@ -4,10 +4,22 @@
 package com.kingdee.eas.port.equipment.special.client;
 
 import java.awt.event.*;
+
 import org.apache.log4j.Logger;
+
+import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.eas.framework.*;
+import com.kingdee.eas.port.equipment.operate.ComproductionInfo;
+import com.kingdee.eas.port.equipment.special.AnnualYearDetailInfo;
+import com.kingdee.eas.port.equipment.special.IAnnualYearDetail;
+import com.kingdee.eas.util.SysUtil;
+import com.kingdee.eas.util.client.EASResource;
+import com.kingdee.eas.util.client.MsgBox;
+import com.kingdee.eas.xr.app.XRBillStatusEnum;
 
 /**
  * output class name
@@ -296,21 +308,9 @@ public class AnnualYearDetailListUI extends AbstractAnnualYearDetailListUI
         super.actionView_actionPerformed(e);
     }
 
-    /**
-     * output actionEdit_actionPerformed
-     */
-    public void actionEdit_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionEdit_actionPerformed(e);
-    }
+  
 
-    /**
-     * output actionRemove_actionPerformed
-     */
-    public void actionRemove_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionRemove_actionPerformed(e);
-    }
+    
 
     /**
      * output actionRefresh_actionPerformed
@@ -560,13 +560,7 @@ public class AnnualYearDetailListUI extends AbstractAnnualYearDetailListUI
         super.actionAudit_actionPerformed(e);
     }
 
-    /**
-     * output actionUnAudit_actionPerformed
-     */
-    public void actionUnAudit_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionUnAudit_actionPerformed(e);
-    }
+   
 
     /**
      * output getBizInterface method
@@ -585,5 +579,131 @@ public class AnnualYearDetailListUI extends AbstractAnnualYearDetailListUI
 		
         return objectValue;
     }
+    /**
+     * 删除
+     */
+    public void actionRemove_actionPerformed(ActionEvent e) throws Exception
+    {
+    	
+    	 checkSelected();
+         String billID = getSelectedKeyValue();
+         if(billID == null)
+             return;
+         ObjectUuidPK pk = new ObjectUuidPK(BOSUuid.read(billID));
+         SelectorItemCollection sc = new SelectorItemCollection();
+         Object o = getBizInterface().getValue(pk, sc);
+         AnnualYearDetailInfo ayInfo = (AnnualYearDetailInfo)o;
+         if(ayInfo.getStatus()== XRBillStatusEnum.RELEASED){
+       	  MsgBox.showInfo("此单据已下达，不能删除!");
+   			SysUtil.abort();
+         }
+        super.actionRemove_actionPerformed(e);
+  	 
+    }
+    
+    /**
+     * 修改
+     */
+    public void actionEdit_actionPerformed(ActionEvent e) throws Exception
+    {
+    	
+    	  checkSelected();
+          String billID = getSelectedKeyValue();
+          if(billID == null)
+              return;
+          ObjectUuidPK pk = new ObjectUuidPK(BOSUuid.read(billID));
+          SelectorItemCollection sc = new SelectorItemCollection();
+          Object o = getBizInterface().getValue(pk, sc);
+          AnnualYearDetailInfo ayInfo = (AnnualYearDetailInfo)o;
+          if(ayInfo.getStatus()== XRBillStatusEnum.RELEASED){
+        	  MsgBox.showInfo("此单据已下达，不能修改!");
+    			SysUtil.abort();
+          }
+        super.actionEdit_actionPerformed(e);
+  	
+    }
 
+    protected void initWorkButton()
+    {
+        super.initWorkButton();
+        btnIssued.setIcon(EASResource.getIcon("imgTbtn_makeknown"));
+        btnUnIssued.setIcon(EASResource.getIcon("imgTbtn_fmakeknown"));
+    }
+ 
+    //下达
+    protected void btnIssued_actionPerformed(ActionEvent e) throws Exception {
+    	super.btnIssued_actionPerformed(e);
+  	  checkSelected();
+      String billID = getSelectedKeyValue();
+      if(billID == null)
+          return;
+      ObjectUuidPK pk = new ObjectUuidPK(BOSUuid.read(billID));
+      SelectorItemCollection sc = new SelectorItemCollection();
+      Object o = getBizInterface().getValue(pk, sc);
+      AnnualYearDetailInfo ayInfo = (AnnualYearDetailInfo)o;
+      
+	      if(ayInfo.getStatus()== XRBillStatusEnum.AUDITED){
+	    	  ayInfo.setStatus(XRBillStatusEnum.RELEASED);
+	    	((IAnnualYearDetail)getBillInterface()).update(new ObjectUuidPK(ayInfo.getId()), ayInfo);
+	    
+	    	  refresh(e);
+	    	  return;
+	      }else if(ayInfo.getStatus()== XRBillStatusEnum.RELEASED){
+	    	  MsgBox.showInfo("此单据已下达!");
+				SysUtil.abort();
+	      }else{
+	    	  MsgBox.showInfo("此单据没有审核，不允许下达!");
+				SysUtil.abort();
+	      }
+	      
+    	
+    }
+    
+    //反下达
+    protected void btnUnIssued_actionPerformed(ActionEvent e) throws Exception {
+    	super.btnUnIssued_actionPerformed(e);
+    	checkSelected();
+        String billID = getSelectedKeyValue();
+        if(billID == null)
+            return;
+        ObjectUuidPK pk = new ObjectUuidPK(BOSUuid.read(billID));
+        SelectorItemCollection sc = new SelectorItemCollection();
+        Object o = getBizInterface().getValue(pk, sc);
+        AnnualYearDetailInfo ayInfo = (AnnualYearDetailInfo)o;
+        if(ayInfo.getStatus()== XRBillStatusEnum.RELEASED){
+	    	  ayInfo.setStatus(XRBillStatusEnum.AUDITED);
+	    	  ((IAnnualYearDetail)getBillInterface()).update(new ObjectUuidPK(ayInfo.getId()), ayInfo);
+	    	  refresh(e);
+	    	  return;
+	      }else{
+	    	  MsgBox.showInfo("此单据没有下达，不允许反下达!");
+				SysUtil.abort();
+	      }
+        
+    }
+    
+    public void onLoad() throws Exception {
+    	super.onLoad();
+    	
+    	this.tblMain.getGroupManager().setGroup(false);
+    }
+    /**
+     * 反审核
+     */
+    public void actionUnAudit_actionPerformed(ActionEvent e) throws Exception
+    {
+        super.actionUnAudit_actionPerformed(e);
+        String billID = getSelectedKeyValue();
+        if(billID == null)
+            return;
+        ObjectUuidPK pk = new ObjectUuidPK(BOSUuid.read(billID));
+        SelectorItemCollection sc = new SelectorItemCollection();
+        Object o = getBizInterface().getValue(pk, sc);
+        AnnualYearDetailInfo ayInfo = (AnnualYearDetailInfo)o;
+        if(ayInfo.getStatus()== XRBillStatusEnum.RELEASED){
+        	MsgBox.showInfo("此单据已下达，不允许反审核!");
+			SysUtil.abort();
+        }
+    }
+    
 }

@@ -9,6 +9,7 @@ import java.awt.Frame;
 import java.awt.Window;
 import java.awt.event.*;
 import java.io.File;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -756,7 +757,8 @@ public class AnnualYearFeeEditUI extends AbstractAnnualYearFeeEditUI
 		
 		btnImportExcel	.setIcon(EASResource.getIcon("imgTbtn_input"));
 		btnExcel.setIcon(EASResource.getIcon("imgTbtn_output"));
-		
+		pkBizDate.setEnabled(false);
+		this.pkBizDate.setValue(new Date());
 	}
 	
 	public void kdtEntry_Changed(int rowIndex, int colIndex) throws Exception {

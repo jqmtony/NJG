@@ -72,6 +72,8 @@ public abstract class AbstractAnnualYearDetailEditUI extends com.kingdee.eas.xr.
     protected com.kingdee.bos.ctrl.swing.KDComboBox comboStatus;
     protected com.kingdee.bos.ctrl.swing.KDComboBox comboBizStatus;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkAuditTime;
+    protected com.kingdee.bos.ctrl.swing.KDWorkButton btnIssued;
+    protected com.kingdee.bos.ctrl.swing.KDWorkButton btnUnIssued;
     protected com.kingdee.eas.port.equipment.special.AnnualYearDetailInfo editData = null;
     /**
      * output class constructor
@@ -147,6 +149,8 @@ public abstract class AbstractAnnualYearDetailEditUI extends com.kingdee.eas.xr.
         this.comboStatus = new com.kingdee.bos.ctrl.swing.KDComboBox();
         this.comboBizStatus = new com.kingdee.bos.ctrl.swing.KDComboBox();
         this.pkAuditTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
+        this.btnIssued = new com.kingdee.bos.ctrl.swing.KDWorkButton();
+        this.btnUnIssued = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.contCreator.setName("contCreator");
         this.contCreateTime.setName("contCreateTime");
         this.contLastUpdateUser.setName("contLastUpdateUser");
@@ -172,6 +176,8 @@ public abstract class AbstractAnnualYearDetailEditUI extends com.kingdee.eas.xr.
         this.comboStatus.setName("comboStatus");
         this.comboBizStatus.setName("comboBizStatus");
         this.pkAuditTime.setName("pkAuditTime");
+        this.btnIssued.setName("btnIssued");
+        this.btnUnIssued.setName("btnUnIssued");
         // CoreUI
         // contCreator		
         this.contCreator.setBoundLabelText(resHelper.getString("contCreator.boundLabelText"));		
@@ -394,6 +400,34 @@ public abstract class AbstractAnnualYearDetailEditUI extends com.kingdee.eas.xr.
         // pkAuditTime		
         this.pkAuditTime.setTimeEnabled(true);		
         this.pkAuditTime.setEnabled(false);
+        // btnIssued		
+        this.btnIssued.setText(resHelper.getString("btnIssued.text"));
+        this.btnIssued.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+                beforeActionPerformed(e);
+                try {
+                    btnIssued_actionPerformed(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                    afterActionPerformed(e);
+                }
+            }
+        });
+        // btnUnIssued		
+        this.btnUnIssued.setText(resHelper.getString("btnUnIssued.text"));
+        this.btnUnIssued.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+                beforeActionPerformed(e);
+                try {
+                    btnUnIssued_actionPerformed(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                    afterActionPerformed(e);
+                }
+            }
+        });
         this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmtCU,pkLastUpdateTime,prmtLastUpdateUser,pkCreateTime,prmtCreator,prmtAuditor,txtDescription,pkBizDate,txtNumber,pkAuditTime,comboBizStatus,comboStatus,kdtEntry}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
@@ -617,6 +651,8 @@ vo.put("result","10");
         this.toolBar.add(btnUnAudit);
         this.toolBar.add(separatorFW1);
         this.toolBar.add(btnPageSetup);
+        this.toolBar.add(btnIssued);
+        this.toolBar.add(btnUnIssued);
         this.toolBar.add(btnPrint);
         this.toolBar.add(btnPrintPreview);
         this.toolBar.add(separatorFW2);
@@ -872,6 +908,21 @@ vo.put("result","10");
         } else if (STATUS_VIEW.equals(this.oprtState)) {
         } else if (STATUS_FINDVIEW.equals(this.oprtState)) {
         }
+    }
+
+    /**
+     * output btnIssued_actionPerformed method
+     */
+    protected void btnIssued_actionPerformed(java.awt.event.ActionEvent e) throws Exception
+    {
+        //write your code here
+    }
+
+    /**
+     * output btnUnIssued_actionPerformed method
+     */
+    protected void btnUnIssued_actionPerformed(java.awt.event.ActionEvent e) throws Exception
+    {
     }
 
 

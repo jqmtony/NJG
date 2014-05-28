@@ -6,8 +6,15 @@ package com.kingdee.eas.port.equipment.special.client;
 import java.awt.event.*;
 import org.apache.log4j.Logger;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.framework.*;
+import com.kingdee.eas.util.SysUtil;
+import com.kingdee.eas.util.client.MsgBox;
+import com.kingdee.eas.xr.IXRBillBase;
+import com.kingdee.eas.xr.helper.WorkflowXRHelper;
 
 /**
  * output class name
@@ -560,13 +567,7 @@ public class AnnualYearPlanListUI extends AbstractAnnualYearPlanListUI
         super.actionAudit_actionPerformed(e);
     }
 
-    /**
-     * output actionUnAudit_actionPerformed
-     */
-    public void actionUnAudit_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionUnAudit_actionPerformed(e);
-    }
+   
 
     /**
      * output getBizInterface method
@@ -585,5 +586,12 @@ public class AnnualYearPlanListUI extends AbstractAnnualYearPlanListUI
 		
         return objectValue;
     }
-
+    /**
+     * output actionUnAudit_actionPerformed
+     */
+    public void actionUnAudit_actionPerformed(ActionEvent e) throws Exception
+    {
+        super.actionUnAudit_actionPerformed(e);
+  
+    }
 }

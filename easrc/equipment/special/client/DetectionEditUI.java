@@ -3,34 +3,36 @@
  */
 package com.kingdee.eas.port.equipment.special.client;
 
-import java.awt.event.*;
+import java.awt.BorderLayout;
+import java.awt.Rectangle;
+import java.awt.event.ActionEvent;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
 
 import org.apache.log4j.Logger;
-import com.kingdee.bos.ui.face.CoreUIObject;
-import com.kingdee.bos.dao.IObjectValue;
-import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
-import com.kingdee.eas.framework.*;
-import com.kingdee.eas.port.equipment.operate.ComproductionInfo;
-import com.kingdee.eas.port.equipment.special.AnnualYearDetailInfo;
-import com.kingdee.eas.port.equipment.special.IAnnualYearDetail;
-import com.kingdee.eas.util.SysUtil;
-import com.kingdee.eas.util.client.EASResource;
-import com.kingdee.eas.util.client.MsgBox;
-import com.kingdee.eas.xr.app.XRBillStatusEnum;
+
+import com.kingdee.bos.ctrl.kdf.table.IRow;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
+import com.kingdee.bos.ctrl.swing.KDLayout;
 import com.kingdee.bos.ctrl.swing.KDTextField;
+import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.eas.fi.fa.basedata.FaCatFactory;
+import com.kingdee.eas.xr.helper.XRSQLBuilder;
+import com.kingdee.jdbc.rowset.IRowSet;
 
 /**
  * output class name
  */
-public class AnnualYearDetailEditUI extends AbstractAnnualYearDetailEditUI
+public class DetectionEditUI extends AbstractDetectionEditUI
 {
-    private static final Logger logger = CoreUIObject.getLogger(AnnualYearDetailEditUI.class);
+    private static final Logger logger = CoreUIObject.getLogger(DetectionEditUI.class);
     
     /**
      * output class constructor
      */
-    public AnnualYearDetailEditUI() throws Exception
+    public DetectionEditUI() throws Exception
     {
         super();
     }
@@ -386,7 +388,21 @@ public class AnnualYearDetailEditUI extends AbstractAnnualYearDetailEditUI
         super.actionAddNew_actionPerformed(e);
     }
 
-   
+    /**
+     * output actionEdit_actionPerformed
+     */
+    public void actionEdit_actionPerformed(ActionEvent e) throws Exception
+    {
+        super.actionEdit_actionPerformed(e);
+    }
+
+    /**
+     * output actionRemove_actionPerformed
+     */
+    public void actionRemove_actionPerformed(ActionEvent e) throws Exception
+    {
+        super.actionRemove_actionPerformed(e);
+    }
 
     /**
      * output actionAttachment_actionPerformed
@@ -620,14 +636,28 @@ public class AnnualYearDetailEditUI extends AbstractAnnualYearDetailEditUI
         super.actionNumberSign_actionPerformed(e);
     }
 
-   
+    /**
+     * output actionAudit_actionPerformed
+     */
+    public void actionAudit_actionPerformed(ActionEvent e) throws Exception
+    {
+        super.actionAudit_actionPerformed(e);
+    }
+
+    /**
+     * output actionUnAudit_actionPerformed
+     */
+    public void actionUnAudit_actionPerformed(ActionEvent e) throws Exception
+    {
+        super.actionUnAudit_actionPerformed(e);
+    }
 
     /**
      * output getBizInterface method
      */
     protected com.kingdee.eas.framework.ICoreBase getBizInterface() throws Exception
     {
-        return com.kingdee.eas.port.equipment.special.AnnualYearDetailFactory.getRemoteInstance();
+        return com.kingdee.eas.port.equipment.special.DetectionFactory.getRemoteInstance();
     }
 
     /**
@@ -644,7 +674,7 @@ public class AnnualYearDetailEditUI extends AbstractAnnualYearDetailEditUI
      */
     protected com.kingdee.bos.dao.IObjectValue createNewData()
     {
-        com.kingdee.eas.port.equipment.special.AnnualYearDetailInfo objectValue = new com.kingdee.eas.port.equipment.special.AnnualYearDetailInfo();
+        com.kingdee.eas.port.equipment.special.DetectionInfo objectValue = new com.kingdee.eas.port.equipment.special.DetectionInfo();
         objectValue.setCreator((com.kingdee.eas.base.permission.UserInfo)(com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentUser()));
 		
         return objectValue;
@@ -664,144 +694,119 @@ public class AnnualYearDetailEditUI extends AbstractAnnualYearDetailEditUI
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	  protected void initWorkButton()
-	    {
-	        super.initWorkButton();
-	        btnIssued.setIcon(EASResource.getIcon("imgTbtn_makeknown"));
-	        btnUnIssued.setIcon(EASResource.getIcon("imgTbtn_fmakeknown"));
-	    }
-
+	
+	String cleName[] = { "厂车", "起重", " 电梯" , "压力管道", "压力容器" };
+	
 	public void onLoad() throws Exception {
-		txtNumber.setEnabled(false);
-		this.kdtEntry.getColumn("seq").getStyleAttributes().setHided(true);
+		 this.kdtE1.getColumn("seq").getStyleAttributes().setHided(true);
+		 this.kdtE2.getColumn("seq").getStyleAttributes().setHided(true);
 		super.onLoad();
-		btnIssued.setEnabled(false);
-		btnUnIssued.setEnabled(false);
-		if(editData.getStatus().equals(XRBillStatusEnum.AUDITED)){
-			btnIssued.setEnabled(true);
+		this.kDContainer1.setTitle("实际检测明细");
+		this.kDContainer1.getContentPane().add(kdtE2, BorderLayout.CENTER);
+//		KDWorkButton  addnewButton =kdtE2_detailPanel.getAddNewLineButton();
+//		addnewButton.setText("新增行");
+//		KDWorkButton  InsertButton =kdtE2_detailPanel.getInsertLineButton();
+//		InsertButton.setText("插入行");
+//		KDWorkButton RemoveButton =kdtE2_detailPanel.getRemoveLinesButton();
+//		RemoveButton.setText("删除行");
+//		this.kDContainer1.addButton(addnewButton);
+//		this.kDContainer1.addButton(InsertButton);
+//		this.kDContainer1.addButton(RemoveButton);
+		
+		this.kdtE1.getColumn("qualifiedRate1").getStyleAttributes().setNumberFormat("#,##0.00 ");
+		this.kdtE1.getColumn("qualifiedRate2").getStyleAttributes().setNumberFormat("#,##0.00 ");
+		
+		kdtE1_detailPanel.setVisible(false);
+		kdtE1.setBounds(new Rectangle(33, 66, 944, 215));
+		kdtE1_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel) com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtE1,new com.kingdee.eas.port.equipment.operate.ComproductionEntryInfo(),null, false);
+		this.add(kdtE1, new KDLayout.Constraints(33, 66, 944, 215,KDLayout.Constraints.ANCHOR_TOP| KDLayout.Constraints.ANCHOR_BOTTOM| KDLayout.Constraints.ANCHOR_LEFT| KDLayout.Constraints.ANCHOR_RIGHT));
+		
+		Set<String> catMap = new HashSet<String>();
+		IRowSet rowset = new XRSQLBuilder().appendSql(getCatType()).executeQuery();
+		while(rowset.next())
+		{
+			catMap.add(rowset.getString("catId"));
 		}
-		if(editData.getStatus().equals(XRBillStatusEnum.RELEASED)){
-		    btnUnIssued.setEnabled(true);
-		}
-	}
-	
-	//下达
-	protected void btnIssued_actionPerformed(ActionEvent e) throws Exception {
-		super.btnIssued_actionPerformed(e);
-		if(editData.getStatus().equals(XRBillStatusEnum.AUDITED)){
-			storeFields();
-			editData.setStatus(XRBillStatusEnum.RELEASED);
-			((IAnnualYearDetail)getBillInterface()).update(new ObjectUuidPK(editData.getId()), editData);
-			btnUnIssued.setEnabled(true);
-			btnIssued.setEnabled(false);
-			btnUnAudit.setEnabled(false);
-			ObjectUuidPK pk = new ObjectUuidPK(editData.getId());
-			setDataObject(getValue(pk));
-			loadFields();
-			setSaved(true);
-		}else{
-			MsgBox.showInfo("此单据未审核，不允许下达!");
-			SysUtil.abort();
-		}
-	}
-	
-	//反下达
-	protected void btnUnIssued_actionPerformed(ActionEvent e) throws Exception {
-		super.btnUnIssued_actionPerformed(e);
-		if(editData.getStatus().equals(XRBillStatusEnum.RELEASED)){
-			
-	
-			storeFields();
-			editData.setStatus(XRBillStatusEnum.AUDITED);
-			((IAnnualYearDetail)getBillInterface()).update(new ObjectUuidPK(editData.getId()), editData);
-			
-			
-			btnUnIssued.setEnabled(false);
-			btnIssued.setEnabled(true);
-			btnUnIssued.setEnabled(true);
-			ObjectUuidPK pk = new ObjectUuidPK(editData.getId());
-			setDataObject(getValue(pk));
-			loadFields();
-			setSaved(true);
-		}else{
-			MsgBox.showInfo("此单据未下达，不允许反下达!");
-			SysUtil.abort();
-		}
-	}
-	 /**
-     * 审核
-     */
-    public void actionAudit_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionAudit_actionPerformed(e);
-        btnIssued.setEnabled(true);
-        
-    }
+		
+		this.kdtE1.removeRows();
+		
+		IRowSet newrowset = null;
+		Iterator itertor = catMap.iterator();
+		
+		while(itertor.hasNext())
+		{
+			String id = (String) itertor.next();
+			//市检
+			String oql10 = getsql("10",editData.getId().toString(),id);
+			//港检
+			String oql20 = getsql("20",editData.getId().toString(),id);
+			IRow row = this.kdtE1.addRow();
+			String oql = "select id,name,number where id='"+id+"'";
+			row.getCell("deviceType1").setValue(FaCatFactory.getRemoteInstance().getFaCatCollection(oql).get(0).getName());
+			//市检
+			newrowset = new XRSQLBuilder().appendSql(oql10).executeQuery();
+			while(newrowset.next())
+			{
+				row.getCell("planNumber1").setValue(newrowset.getString("计划数"));
+				row.getCell("actualNumber1").setValue(newrowset.getString("实际数"));
+				row.getCell("qualifiedNumber1").setValue(newrowset.getString("合格数"));
+				row.getCell("qualifiedRate1").setValue(newrowset.getString("合格率"));
+			}
 
-    /**
-     * 反审核
-     */
-    public void actionUnAudit_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionUnAudit_actionPerformed(e);
-        btnIssued.setEnabled(false);
-    	if(editData.getStatus().equals(XRBillStatusEnum.RELEASED)){
-    		MsgBox.showInfo("此单据已下达，不允许反审核!");
-			SysUtil.abort();
-    	}
-        
-    }
-    
-    /**
-     * 修改
-     */
-    public void actionEdit_actionPerformed(ActionEvent e) throws Exception
-    {
-    	if(editData.getStatus().equals(XRBillStatusEnum.RELEASED)){
-    		MsgBox.showInfo("此单据已下达，不允许修改!");
-			SysUtil.abort();
-    	}
-        super.actionEdit_actionPerformed(e);
-    }
-
-    /**
-     * 删除
-     */
-    public void actionRemove_actionPerformed(ActionEvent e) throws Exception
-    {
-    	if(editData.getStatus().equals(XRBillStatusEnum.RELEASED)){
-    		MsgBox.showInfo("此单据已下达，不允许删除!");
-			SysUtil.abort();
-    	}
-        super.actionRemove_actionPerformed(e);
-    }
-    
-    protected void initDataStatus() {
-    	super.initDataStatus();
-    	AnnualYearDetailInfo info = (AnnualYearDetailInfo) dataBinder.getValueObject();
-    	if ("ADDNEW".equals(getOprtState())) {
-    		btnIssued.setEnabled(false);
-    		btnUnIssued.setEnabled(false);
-    	}else if ("EDIT".equals(getOprtState())) {
-    		btnIssued.setEnabled(false);
-    		btnUnIssued.setEnabled(false);
-    	}else
-    	if(info.getStatus() != null&& info.getStatus() == XRBillStatusEnum.TEMPORARILYSAVED){
-    		btnIssued.setEnabled(false);
-    		btnUnIssued.setEnabled(false);
-    	}else
-    	if(info.getStatus() != null&& info.getStatus() == XRBillStatusEnum.SUBMITED){
-    		btnIssued.setEnabled(false);
-    		btnUnIssued.setEnabled(false);
-    	}else
-    	if(info.getStatus() != null&& info.getStatus() == XRBillStatusEnum.AUDITED){
-			btnIssued.setEnabled(true);
-			btnUnIssued.setEnabled(false);
-		}else
-		if(info.getStatus() != null&& info.getStatus() == XRBillStatusEnum.RELEASED){
-		    btnUnIssued.setEnabled(true);
-			btnIssued.setEnabled(false);
+			//港检
+			newrowset = new XRSQLBuilder().appendSql(oql20).executeQuery();
+			while(newrowset.next())
+			{
+				row.getCell("planNumber2").setValue(newrowset.getString("计划数"));
+				row.getCell("actualNumber2").setValue(newrowset.getString("实际数"));
+				row.getCell("qualifiedNumber2").setValue(newrowset.getString("合格数"));
+				row.getCell("qualifiedRate2").setValue(newrowset.getString("合格率"));
+			}
 		}
-    }
+	}
+	
+	/**
+	 * 
+	 * @param type
+	 * type =10 是市检，20是港检
+	 * @return
+	 */
+	private String getsql(String type,String editId,String typeID){
+		StringBuffer sb = new StringBuffer();
+		sb.append("/*dialect*/select d.fname_l2 设备类型,nvl(count(b.fid), 0) 计划数, nvl(sj.实际数, 0) 实际数,nvl(hg.合格数, 0) 合格数, ");
+		sb.append("  (case when nvl(sj.实际数, 0) = '0' then 0 when nvl(sj.实际数, 0) <> '0' then nvl(hg.合格数, 0) / nvl(sj.实际数, 0) * 100 end )合格率");
+		sb.append("  from CT_SPE_Detection a");
+		sb.append("  left join CT_SPE_DetectionE2 b on a.fid = b.fparentid");
+		sb.append("  left join CT_REC_EquId c on b.cfzdanumberid = c.fid");
+		sb.append("  left join T_FA_Cat d on d.fid = c.cfeqmtypeid");
+		sb.append("  left join (select d.fid catID, count(b.fid) 实际数");
+		sb.append("  from CT_SPE_Detection a");
+		sb.append("  left join CT_SPE_DetectionE2 b on a.fid = b.fparentid");
+		sb.append("  left join CT_REC_EquId c on b.cfzdanumberid = c.fid");
+		sb.append("  left join T_FA_Cat d on d.fid = c.cfeqmtypeid");
+		sb.append("  where CFCheck = '1'");
+		sb.append("  and CFTestCategory = '"+type+"'");
+		sb.append("  and a.fid = '"+editId+"'");
+		sb.append("  group by d.fid) sj on sj.catID = d.fid");
+		sb.append("  left join (select d.fid catID, count(b.fid) 合格数");
+		sb.append("  from CT_SPE_Detection a");
+		sb.append("  left join CT_SPE_DetectionE2 b on a.fid = b.fparentid");
+		sb.append("  left join CT_REC_EquId c on b.cfzdanumberid = c.fid");
+		sb.append("  left join T_FA_Cat d on d.fid = c.cfeqmtypeid");
+		sb.append("  where CFTestResults = '10'");
+		sb.append("  and a.fid =  '"+editId+"'");
+		sb.append("  and CFTestCategory = '"+type+"'");
+		sb.append("  group by d.fid) hg on hg.catID = d.fid");
+		sb.append("  where a.fid =  '"+editId+"'");
+		sb.append("  and CFTestCategory = '"+type+"'");
+		sb.append("  and d.fid = '"+typeID+"'");
+		sb.append("  group by d.fid, d.fname_l2, sj.实际数, hg.合格数");
+		return sb.toString();
+	}
+	
+	private String getCatType(){
+		String sql = "select d.fid catId,d.fname_l2 catName from CT_SPE_Detection a  left join CT_SPE_DetectionE2 b on a.fid = b.fparentid  left join CT_REC_EquId c on b.cfzdanumberid = c.fid  left join T_FA_Cat d on d.fid = c.cfeqmtypeid  group by d.fid,d.fname_l2";
+		return sql;
+	}
+
 }

@@ -55,7 +55,7 @@ public class AnnualYearDetailControllerBean extends AbstractAnnualYearDetailCont
     	super._submit(ctx, pk, model);
     }
     
-	
+    
 	/** 获取编码规则生成的编码 
      * @throws UuidException 
      * @throws BOSException 

@@ -43,15 +43,13 @@ import com.kingdee.bos.appframework.uip.UINavigator;
 /**
  * output class name
  */
-public abstract class AbstractAnnualYearDetailListUI extends com.kingdee.eas.xr.client.XRBillBaseListUI
+public abstract class AbstractDetectionListUI extends com.kingdee.eas.xr.client.XRBillBaseListUI
 {
-    private static final Logger logger = CoreUIObject.getLogger(AbstractAnnualYearDetailListUI.class);
-    protected com.kingdee.bos.ctrl.swing.KDWorkButton btnIssued;
-    protected com.kingdee.bos.ctrl.swing.KDWorkButton btnUnIssued;
+    private static final Logger logger = CoreUIObject.getLogger(AbstractDetectionListUI.class);
     /**
      * output class constructor
      */
-    public AbstractAnnualYearDetailListUI() throws Exception
+    public AbstractDetectionListUI() throws Exception
     {
         super();
         this.defaultObjectName = "mainQuery";
@@ -65,9 +63,9 @@ public abstract class AbstractAnnualYearDetailListUI extends com.kingdee.eas.xr.
      */
     private void jbInit() throws Exception
     {
-        this.resHelper = new ResourceBundleHelper(AbstractAnnualYearDetailListUI.class.getName());
+        this.resHelper = new ResourceBundleHelper(AbstractDetectionListUI.class.getName());
         this.setUITitle(resHelper.getString("this.title"));
-        mainQueryPK = new MetaDataPK("com.kingdee.eas.port.equipment.special.app", "AnnualYearDetailQuery");
+        mainQueryPK = new MetaDataPK("com.kingdee.eas.port.equipment.special.app", "DetectionQuery");
         //actionRemove
         String _tempStr = null;
         actionRemove.setEnabled(true);
@@ -84,47 +82,15 @@ public abstract class AbstractAnnualYearDetailListUI extends com.kingdee.eas.xr.
          this.actionRemove.addService(new com.kingdee.eas.framework.client.service.PermissionService());
          this.actionRemove.addService(new com.kingdee.eas.framework.client.service.NetFunctionService());
          this.actionRemove.addService(new com.kingdee.eas.framework.client.service.UserMonitorService());
-        this.btnIssued = new com.kingdee.bos.ctrl.swing.KDWorkButton();
-        this.btnUnIssued = new com.kingdee.bos.ctrl.swing.KDWorkButton();
-        this.btnIssued.setName("btnIssued");
-        this.btnUnIssued.setName("btnUnIssued");
         // CoreUI
-		String tblMainStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol9\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol10\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol11\"><c:Protection hidden=\"true\" /><c:NumberFormat>&amp;int</c:NumberFormat></c:Style><c:Style id=\"sCol16\"><c:NumberFormat>&amp;date</c:NumberFormat></c:Style><c:Style id=\"sCol17\"><c:NumberFormat>&amp;date</c:NumberFormat></c:Style><c:Style id=\"sCol24\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol25\"><c:NumberFormat>&amp;date</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"status\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"bizDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"creator.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"createTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"lastUpdateUser.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"lastUpdateTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"auditor.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"auditTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol9\" /><t:Column t:key=\"CU.id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol10\" /><t:Column t:key=\"Entry.seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol11\" /><t:Column t:key=\"Entry.zdaNumber.tzdaNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.equipmentName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.code\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.useUnit\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.planDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol16\" /><t:Column t:key=\"Entry.endDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol17\" /><t:Column t:key=\"Entry.state\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.address\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.companyNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.NO\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.engineNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.carNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.weight\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol24\" /><t:Column t:key=\"Entry.useDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol25\" /><t:Column t:key=\"Entry.createUnit\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.checkType\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.check\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.result\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.beizhu\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{status}</t:Cell><t:Cell>$Resource{number}</t:Cell><t:Cell>$Resource{bizDate}</t:Cell><t:Cell>$Resource{creator.name}</t:Cell><t:Cell>$Resource{createTime}</t:Cell><t:Cell>$Resource{lastUpdateUser.name}</t:Cell><t:Cell>$Resource{lastUpdateTime}</t:Cell><t:Cell>$Resource{auditor.name}</t:Cell><t:Cell>$Resource{auditTime}</t:Cell><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{CU.id}</t:Cell><t:Cell>$Resource{Entry.seq}</t:Cell><t:Cell>$Resource{Entry.zdaNumber.tzdaNumber}</t:Cell><t:Cell>$Resource{Entry.equipmentName}</t:Cell><t:Cell>$Resource{Entry.code}</t:Cell><t:Cell>$Resource{Entry.useUnit}</t:Cell><t:Cell>$Resource{Entry.planDate}</t:Cell><t:Cell>$Resource{Entry.endDate}</t:Cell><t:Cell>$Resource{Entry.state}</t:Cell><t:Cell>$Resource{Entry.address}</t:Cell><t:Cell>$Resource{Entry.companyNumber}</t:Cell><t:Cell>$Resource{Entry.NO}</t:Cell><t:Cell>$Resource{Entry.engineNumber}</t:Cell><t:Cell>$Resource{Entry.carNumber}</t:Cell><t:Cell>$Resource{Entry.weight}</t:Cell><t:Cell>$Resource{Entry.useDate}</t:Cell><t:Cell>$Resource{Entry.createUnit}</t:Cell><t:Cell>$Resource{Entry.checkType}</t:Cell><t:Cell>$Resource{Entry.check}</t:Cell><t:Cell>$Resource{Entry.result}</t:Cell><t:Cell>$Resource{Entry.beizhu}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		String tblMainStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol9\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol10\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol11\"><c:Protection hidden=\"true\" /><c:NumberFormat>&amp;int</c:NumberFormat></c:Style><c:Style id=\"sCol12\"><c:NumberFormat>&amp;date</c:NumberFormat></c:Style><c:Style id=\"sCol14\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol15\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol16\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol17\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol18\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol19\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol20\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol21\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"status\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"bizDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"creator.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"createTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"lastUpdateUser.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"lastUpdateTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"auditor.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"auditTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol9\" /><t:Column t:key=\"CU.id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol10\" /><t:Column t:key=\"E1.seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol11\" /><t:Column t:key=\"actualDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol12\" /><t:Column t:key=\"E1.deviceType.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"E1.planNumber1\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol14\" /><t:Column t:key=\"E1.actualNumber1\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol15\" /><t:Column t:key=\"E1.qualifiedNumber1\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol16\" /><t:Column t:key=\"E1.qualifiedRate1\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol17\" /><t:Column t:key=\"E1.planNumber2\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol18\" /><t:Column t:key=\"E1.actualNumber2\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol19\" /><t:Column t:key=\"E1.qualifiedNumber2\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol20\" /><t:Column t:key=\"E1.qualifiedRate2\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol21\" /><t:Column t:key=\"E1.deviceType1\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{status}</t:Cell><t:Cell>$Resource{number}</t:Cell><t:Cell>$Resource{bizDate}</t:Cell><t:Cell>$Resource{creator.name}</t:Cell><t:Cell>$Resource{createTime}</t:Cell><t:Cell>$Resource{lastUpdateUser.name}</t:Cell><t:Cell>$Resource{lastUpdateTime}</t:Cell><t:Cell>$Resource{auditor.name}</t:Cell><t:Cell>$Resource{auditTime}</t:Cell><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{CU.id}</t:Cell><t:Cell>$Resource{E1.seq}</t:Cell><t:Cell>$Resource{actualDate}</t:Cell><t:Cell>$Resource{E1.deviceType.name}</t:Cell><t:Cell>$Resource{E1.planNumber1}</t:Cell><t:Cell>$Resource{E1.actualNumber1}</t:Cell><t:Cell>$Resource{E1.qualifiedNumber1}</t:Cell><t:Cell>$Resource{E1.qualifiedRate1}</t:Cell><t:Cell>$Resource{E1.planNumber2}</t:Cell><t:Cell>$Resource{E1.actualNumber2}</t:Cell><t:Cell>$Resource{E1.qualifiedNumber2}</t:Cell><t:Cell>$Resource{E1.qualifiedRate2}</t:Cell><t:Cell>$Resource{E1.deviceType1}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.tblMain.setFormatXml(resHelper.translateString("tblMain",tblMainStrXML));
-                this.tblMain.putBindContents("mainQuery",new String[] {"status","number","bizDate","creator.name","createTime","lastUpdateUser.name","lastUpdateTime","auditor.name","auditTime","id","CU.id","Entry.seq","Entry.zdaNumber.tzdaNumber","Entry.equipmentName","Entry.code","Entry.useUnit","Entry.planDate","Entry.endDate","Entry.state","Entry.address","Entry.companyNumber","Entry.NO","Entry.engineNumber","Entry.carNumber","Entry.weight","Entry.useDate","Entry.createUnit","Entry.checkType","Entry.check","Entry.result","Entry.beizhu"});
+                this.tblMain.putBindContents("mainQuery",new String[] {"status","number","bizDate","creator.name","createTime","lastUpdateUser.name","lastUpdateTime","auditor.name","auditTime","id","CU.id","E1.seq","actualDate","E1.deviceType.name","E1.planNumber1","E1.actualNumber1","E1.qualifiedNumber1","E1.qualifiedRate1","E1.planNumber2","E1.actualNumber2","E1.qualifiedNumber2","E1.qualifiedRate2","E1.deviceType1"});
 
 
         this.tblMain.checkParsed();
         this.tblMain.getGroupManager().setGroup(true);
-        // btnIssued		
-        this.btnIssued.setText(resHelper.getString("btnIssued.text"));
-        this.btnIssued.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent e) {
-                beforeActionPerformed(e);
-                try {
-                    btnIssued_actionPerformed(e);
-                } catch (Exception exc) {
-                    handUIException(exc);
-                } finally {
-                    afterActionPerformed(e);
-                }
-            }
-        });
-        // btnUnIssued		
-        this.btnUnIssued.setText(resHelper.getString("btnUnIssued.text"));
-        this.btnUnIssued.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent e) {
-                beforeActionPerformed(e);
-                try {
-                    btnUnIssued_actionPerformed(e);
-                } catch (Exception exc) {
-                    handUIException(exc);
-                } finally {
-                    afterActionPerformed(e);
-                }
-            }
-        });
 		//Register control's property binding
 		registerBindings();
 		registerUIState();
@@ -262,8 +228,6 @@ public abstract class AbstractAnnualYearDetailListUI extends com.kingdee.eas.xr.
         this.toolBar.add(kDSeparatorCloud);
         this.toolBar.add(btnEdit);
         this.toolBar.add(btnRemove);
-        this.toolBar.add(btnIssued);
-        this.toolBar.add(btnUnIssued);
         this.toolBar.add(btnRefresh);
         this.toolBar.add(btnQuery);
         this.toolBar.add(btnLocate);
@@ -306,7 +270,7 @@ public abstract class AbstractAnnualYearDetailListUI extends com.kingdee.eas.xr.
 	private void registerUIState(){		
 	}
 	public String getUIHandlerClassName() {
-	    return "com.kingdee.eas.port.equipment.special.app.AnnualYearDetailListUIHandler";
+	    return "com.kingdee.eas.port.equipment.special.app.DetectionListUIHandler";
 	}
 	public IUIActionPostman prepareInit() {
 		IUIActionPostman clientHanlder = super.prepareInit();
@@ -398,20 +362,6 @@ public abstract class AbstractAnnualYearDetailListUI extends com.kingdee.eas.xr.
         super.setOprtState(oprtType);
     }
 
-    /**
-     * output btnIssued_actionPerformed method
-     */
-    protected void btnIssued_actionPerformed(java.awt.event.ActionEvent e) throws Exception
-    {
-    }
-
-    /**
-     * output btnUnIssued_actionPerformed method
-     */
-    protected void btnUnIssued_actionPerformed(java.awt.event.ActionEvent e) throws Exception
-    {
-    }
-
 	public SelectorItemCollection getBOTPSelectors() {
 			SelectorItemCollection sic = new SelectorItemCollection();
 			return sic;
@@ -438,26 +388,18 @@ public abstract class AbstractAnnualYearDetailListUI extends com.kingdee.eas.xr.
         sic.add(new SelectorItemInfo("auditTime"));
         sic.add(new SelectorItemInfo("id"));
         sic.add(new SelectorItemInfo("CU.id"));
-        sic.add(new SelectorItemInfo("Entry.seq"));
-        sic.add(new SelectorItemInfo("Entry.zdaNumber.tzdaNumber"));
-        sic.add(new SelectorItemInfo("Entry.equipmentName"));
-        sic.add(new SelectorItemInfo("Entry.code"));
-        sic.add(new SelectorItemInfo("Entry.useUnit"));
-        sic.add(new SelectorItemInfo("Entry.planDate"));
-        sic.add(new SelectorItemInfo("Entry.endDate"));
-        sic.add(new SelectorItemInfo("Entry.state"));
-        sic.add(new SelectorItemInfo("Entry.address"));
-        sic.add(new SelectorItemInfo("Entry.companyNumber"));
-        sic.add(new SelectorItemInfo("Entry.NO"));
-        sic.add(new SelectorItemInfo("Entry.engineNumber"));
-        sic.add(new SelectorItemInfo("Entry.carNumber"));
-        sic.add(new SelectorItemInfo("Entry.weight"));
-        sic.add(new SelectorItemInfo("Entry.useDate"));
-        sic.add(new SelectorItemInfo("Entry.createUnit"));
-        sic.add(new SelectorItemInfo("Entry.checkType"));
-        sic.add(new SelectorItemInfo("Entry.beizhu"));
-        sic.add(new SelectorItemInfo("Entry.check"));
-        sic.add(new SelectorItemInfo("Entry.result"));
+        sic.add(new SelectorItemInfo("E1.seq"));
+        sic.add(new SelectorItemInfo("actualDate"));
+        sic.add(new SelectorItemInfo("E1.deviceType.name"));
+        sic.add(new SelectorItemInfo("E1.planNumber1"));
+        sic.add(new SelectorItemInfo("E1.actualNumber1"));
+        sic.add(new SelectorItemInfo("E1.qualifiedNumber1"));
+        sic.add(new SelectorItemInfo("E1.qualifiedRate1"));
+        sic.add(new SelectorItemInfo("E1.planNumber2"));
+        sic.add(new SelectorItemInfo("E1.actualNumber2"));
+        sic.add(new SelectorItemInfo("E1.qualifiedNumber2"));
+        sic.add(new SelectorItemInfo("E1.qualifiedRate2"));
+        sic.add(new SelectorItemInfo("E1.deviceType1"));
         return sic;
     }            protected java.util.List getQuerySorterFields() 
     { 
@@ -492,7 +434,7 @@ public abstract class AbstractAnnualYearDetailListUI extends com.kingdee.eas.xr.
      */
     public IMetaDataPK getMetaDataPK()
     {
-        return new MetaDataPK("com.kingdee.eas.port.equipment.special.client", "AnnualYearDetailListUI");
+        return new MetaDataPK("com.kingdee.eas.port.equipment.special.client", "DetectionListUI");
     }
     /**
      * output isBindWorkFlow method
@@ -507,7 +449,7 @@ public abstract class AbstractAnnualYearDetailListUI extends com.kingdee.eas.xr.
      */
     protected String getEditUIName()
     {
-        return com.kingdee.eas.port.equipment.special.client.AnnualYearDetailEditUI.class.getName();
+        return com.kingdee.eas.port.equipment.special.client.DetectionEditUI.class.getName();
     }
 
     /**
@@ -515,7 +457,7 @@ public abstract class AbstractAnnualYearDetailListUI extends com.kingdee.eas.xr.
      */
     protected com.kingdee.eas.framework.ICoreBase getBizInterface() throws Exception
     {
-        return com.kingdee.eas.port.equipment.special.AnnualYearDetailFactory.getRemoteInstance();
+        return com.kingdee.eas.port.equipment.special.DetectionFactory.getRemoteInstance();
     }
 
     /**
@@ -523,7 +465,7 @@ public abstract class AbstractAnnualYearDetailListUI extends com.kingdee.eas.xr.
      */
     protected IObjectValue createNewData()
     {
-        com.kingdee.eas.port.equipment.special.AnnualYearDetailInfo objectValue = new com.kingdee.eas.port.equipment.special.AnnualYearDetailInfo();		
+        com.kingdee.eas.port.equipment.special.DetectionInfo objectValue = new com.kingdee.eas.port.equipment.special.DetectionInfo();		
         return objectValue;
     }
 
@@ -532,16 +474,16 @@ public abstract class AbstractAnnualYearDetailListUI extends com.kingdee.eas.xr.
      */
     public String[] getMergeColumnKeys()
     {
-        return new String[] {"status","number","bizDate","creator.name","createTime","lastUpdateUser.name","lastUpdateTime","auditor.name","auditTime","id","CU.id","Entry.zdaNumber.tzdaNumber"};
+        return new String[] {"status","number","bizDate","creator.name","createTime","lastUpdateUser.name","lastUpdateTime","auditor.name","auditTime","id","CU.id","actualDate","E1.deviceType.name"};
     }
 
 
 
 	protected String getTDFileName() {
-    	return "/bim/port/equipment/special/AnnualYearDetail";
+    	return "/bim/port/equipment/special/Detection";
 	}
     protected IMetaDataPK getTDQueryPK() {
-    	return new MetaDataPK("com.kingdee.eas.port.equipment.special.app.AnnualYearDetailQuery");
+    	return new MetaDataPK("com.kingdee.eas.port.equipment.special.app.DetectionQuery");
 	}
 
 }
