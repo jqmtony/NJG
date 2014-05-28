@@ -244,7 +244,8 @@ public abstract class AbstractEvaluationEditUI extends com.kingdee.eas.xr.client
         this.kDTable1.setName("kDTable1");
         this.kDContainer2.setName("kDContainer2");
         this.kDTable2.setName("kDTable2");
-        // CoreUI
+        // CoreUI		
+        this.setPreferredSize(new Dimension(1013,629));
         // kDToolBar1
         // contCreator		
         this.contCreator.setBoundLabelText(resHelper.getString("contCreator.boundLabelText"));		

@@ -107,8 +107,17 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
     	this.txtbasePrice.setEnabled(false);
     	this.evaSolution.setEnabled(false);
     	this.txtprjName.setEnabled(false);
+    	this.pkevaDate.setRequired(true);
+    	this.prmtinviteReport.setRequired(true);
     }
     
+    @Override
+    protected void verifyInput(ActionEvent e) throws Exception {
+    	// TODO Auto-generated method stub
+    	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, prmtinviteReport, "招标方案");
+    	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, pkevaDate, "评标日期");
+    	super.verifyInput(e);
+    }
     public void prmtinviteReport_Changed() throws Exception {
     	// TODO Auto-generated method stub
     	super.prmtinviteReport_Changed();
@@ -163,6 +172,7 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
     		this.kDTable1.getHeadRow(0).getCell("Judges").setValue("评委");
     		col = this.kDTable1.addColumn();
     		col.setKey("Indicator");
+    		col.setWidth(150);
     		col.getStyleAttributes().setLocked(true);
     		this.kDTable1.getHeadRow(0).getCell("Indicator").setValue("评审指标");
     		//构建表头公司名称
@@ -177,6 +187,7 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
     			supplierInfo = isupplier.getMarketSupplierStockInfo(new ObjectUuidPK(supplierInfo.getId()));
     			col = this.kDTable1.addColumn();
     			col.setKey("Unit"+i);
+    			col.setWidth(220);
     			col.setEditor(valid_CellEditor);
     			this.kDTable1.getHeadRow(0).getCell("Unit"+i).setValue(supplierInfo.getSupplierName());
     		}
@@ -224,6 +235,7 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
         		this.kDTable2.getHeadRow(0).getCell("Judges").setValue("评委");
         		column = this.kDTable2.addColumn();
         		column.setKey("Indicator");
+        		column.setWidth(150);
         		column.getStyleAttributes().setLocked(true);
         		this.kDTable2.getHeadRow(0).getCell("Indicator").setValue("评审指标");
         		column = this.kDTable2.addColumn();
@@ -251,6 +263,7 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
         			supplierInfo = isupplier.getMarketSupplierStockInfo(new ObjectUuidPK(supplierInfo.getId()));
         			column = this.kDTable2.addColumn();
         			column.setKey("Unit"+i);
+        			column.setWidth(220);
         			column.setEditor(CellEditor);
         			this.kDTable2.getHeadRow(0).getCell("Unit"+i).setValue(supplierInfo.getSupplierName());
         		}
@@ -291,6 +304,7 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
     		this.kDTable3.addHeadRow(0);
     		col = this.kDTable3.addColumn();
     		col.setKey("enterprise");
+    		col.setWidth(150);
     		col.getStyleAttributes().setLocked(true);
     		this.kDTable3.getHeadRow(0).getCell("enterprise").setValue("投标单位");
     		//构建表头公司名称
@@ -300,6 +314,7 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
     			supplierInfo = isupplier.getMarketSupplierStockInfo(new ObjectUuidPK(supplierInfo.getId()));
     			col = this.kDTable3.addColumn();
     			col.setKey("Unit"+i);
+    			col.setWidth(220);
     			this.kDTable3.getHeadRow(0).getCell("Unit"+i).setValue(supplierInfo.getSupplierName());
     		}
     		IRow row = this.kDTable3.addRow();
@@ -375,6 +390,7 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
     		this.kDTable1.getHeadRow(0).getCell("Judges").setValue("评委");
     		col = this.kDTable1.addColumn();
     		col.setKey("Indicator");
+    		col.setWidth(150);
     		col.getStyleAttributes().setLocked(true);
     		this.kDTable1.getHeadRow(0).getCell("Indicator").setValue("评审指标");
     		//构建表头投标单位
@@ -382,6 +398,7 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
     			IRow row = this.kdtEntryUnit.getRow(i);
     			col = this.kDTable1.addColumn();
     			col.setKey("Unit"+i);
+    			col.setWidth(220);
     			this.kDTable1.getHeadRow(0).getCell("Unit"+i).setValue(row.getCell("enterprise").getValue());
     		}
     		//设置单元格为checkBox
@@ -439,6 +456,7 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
         		this.kDTable2.getHeadRow(0).getCell("Judges").setValue("评委");
         		column = this.kDTable2.addColumn();
         		column.setKey("Indicator");
+        		column.setWidth(150);
         		column.getStyleAttributes().setLocked(true);
         		this.kDTable2.getHeadRow(0).getCell("Indicator").setValue("评审指标");
         		column = this.kDTable2.addColumn();
@@ -450,6 +468,7 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
         			IRow row = this.kdtEntryUnit.getRow(i);
         			col = this.kDTable2.addColumn();
         			col.setKey("Unit"+i);
+        			col.setWidth(220);
         			this.kDTable2.getHeadRow(0).getCell("Unit"+i).setValue(row.getCell("enterprise").getValue());
         		}
         	
@@ -486,6 +505,7 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
     		this.kDTable3.addHeadRow(0);
     		col = this.kDTable3.addColumn();
     		col.setKey("enterprise");
+    		col.setWidth(150);
     		col.getStyleAttributes().setLocked(true);
     		this.kDTable3.getHeadRow(0).getCell("enterprise").setValue("投标单位");
 
@@ -494,6 +514,7 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
     			IRow row = this.kdtEntryUnit.getRow(i);
     			col = this.kDTable3.addColumn();
     			col.setKey("Unit"+i);
+    			col.setWidth(220);
     			this.kDTable3.getHeadRow(0).getCell("Unit"+i).setValue(row.getCell("enterprise").getValue());
     		}
     		

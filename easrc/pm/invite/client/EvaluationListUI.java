@@ -32,6 +32,7 @@ import com.kingdee.eas.basedata.org.OrgStructureInfo;
 import com.kingdee.eas.basedata.org.OrgType;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.common.client.UIContext;
+import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.framework.*;
 import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
 import com.kingdee.eas.util.SysUtil;
@@ -50,6 +51,12 @@ public class EvaluationListUI extends AbstractEvaluationListUI
     public EvaluationListUI() throws Exception
     {
         super();
+    }
+    
+    @Override
+    protected String getEditUIModal() {
+    	// TODO Auto-generated method stub
+    	return UIFactoryName.NEWWIN;
     }
 
     @Override

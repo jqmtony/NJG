@@ -22,6 +22,7 @@ import com.kingdee.eas.basedata.assistant.ProjectInfo;
 import com.kingdee.eas.basedata.master.cssp.ISupplier;
 import com.kingdee.eas.basedata.master.cssp.SupplierFactory;
 import com.kingdee.eas.common.client.OprtState;
+import com.kingdee.eas.fm.ecore.app.bean.node.RegnInfo;
 import com.kingdee.eas.framework.*;
 import com.kingdee.eas.port.markesupplier.subill.IMarketSupplierStock;
 import com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockEntryPersonCollection;
@@ -77,6 +78,8 @@ public class OpenRegistrationEditUI extends AbstractOpenRegistrationEditUI
     private void initConpoment() {
     	chkcancel.setEnabled(false);
     	txtNumber.setRequired(true);
+    	txtregName.setRequired(true);
+    	pkopDate.setRequired(true);
     	prmtreportName.setRequired(true);
     	txtcoefficient.setRequired(true);
     	txtopLocation.setRequired(true);
@@ -91,11 +94,27 @@ public class OpenRegistrationEditUI extends AbstractOpenRegistrationEditUI
     protected void verifyInput(ActionEvent e) throws Exception {
     	// TODO Auto-generated method stub
     	InviteReportInfo invite = (InviteReportInfo) this.prmtreportName.getValue();
+    	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, txtregName, "开标登记名称");
     	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, prmtreportName, "招标方案");
     	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, txtopLocation, "开标地点");
+    	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, pkopDate, "开标时间");
     	if(judgeSolution.integrate.equals(invite.getJudgeSolution())) {
     		//综合评分时评标系数必填
     		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, txtcoefficient, "评标系数");
+    		BigDecimal coffient = new BigDecimal(txtcoefficient.getText());
+    		if(coffient.compareTo(new BigDecimal(0.9)) < 0 || coffient.compareTo(new BigDecimal(1.0)) > 0) {
+    			MsgBox.showWarning("评标系数大于等于0.9小于等于1!!");
+    			SysUtil.abort();
+    		}
+    	}
+    	
+    	for(int i = 0; i < this.kdtEntry.getRowCount(); i++) {
+    		IRow row = this.kdtEntry.getRow(i);
+    		if(row.getCell("payDeposit").getValue().equals(true))
+    			if(row.getCell("deposit").getValue() == null) {
+    				MsgBox.showWarning("已勾选是否已交投标保证金，保证金金额不能为空!");
+    				SysUtil.abort();
+    			}
     	}
     	//报价,工期,质量不能为空
     	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyKDTColumnNull(this, this.kdtEntry, "quotedPrice");

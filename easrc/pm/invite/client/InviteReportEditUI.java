@@ -72,6 +72,13 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI
     @Override
     public void onLoad() throws Exception {
     	// TODO Auto-generated method stub
+    	txtrmhigh.setRequired(true);
+		txtrmlow.setRequired(true);
+		txtreduHigh.setRequired(true);
+		txtreduLow.setRequired(true);
+		txtbusinessScore.setRequired(true);
+		txttechScore.setRequired(true);
+    	this.txtreportName.setRequired(true);
     	this.prmtproName.setRequired(true);
     	this.prmtuseOrg.setRequired(true);
     	this.prmtdevOrg.setEnabled(false);
@@ -196,6 +203,7 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI
     @Override
     protected void verifyInput(ActionEvent e) throws Exception {
     	// TODO Auto-generated method stub
+    	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, txtreportName, "招标方案申报名称");
     	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, prmtproName, "项目信息");
     	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, prmtuseOrg, "使用单位");
     	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, prmtinviteType, "招标方式");
