@@ -37,6 +37,11 @@
             <value>i18nResource[com.kingdee.eas.port.equipment.special.client.SpecialResource].resourceItems.resourceItem[RegulationsQueryF7WindowTitle].value</value>
             <userDefined>true</userDefined>
         </resourceItem>
+        <resourceItem>
+            <name>DetectionQueryF7WindowTitle</name>
+            <value>i18nResource[com.kingdee.eas.port.equipment.special.client.SpecialResource].resourceItems.resourceItem[DetectionQueryF7WindowTitle].value</value>
+            <userDefined>true</userDefined>
+        </resourceItem>
     </resourceItems>
     <resource>
         <rs key="i18nResource[com.kingdee.eas.port.equipment.special.client.SpecialResource].alias">
@@ -68,6 +73,12 @@
             <lang locale="zh_CN" value="年度检测计划" />
             <lang locale="zh_HK" value="年度檢測計畫" />
             <lang locale="zh_TW" value="年度檢測計畫" />
+        </rs>
+        <rs key="i18nResource[com.kingdee.eas.port.equipment.special.client.SpecialResource].resourceItems.resourceItem[DetectionQueryF7WindowTitle].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="设备检测小结" />
+            <lang locale="zh_HK" value="設備檢測小結" />
+            <lang locale="zh_TW" value="設備檢測小結" />
         </rs>
         <rs key="i18nResource[com.kingdee.eas.port.equipment.special.client.SpecialResource].resourceItems.resourceItem[OverhaulNoticeQueryF7WindowTitle].value">
             <lang locale="en_US" value="null" />
