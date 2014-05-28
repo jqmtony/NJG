@@ -10,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.math.BigDecimal;
 import java.util.HashMap;
 
 import org.apache.log4j.Logger;
@@ -52,6 +53,7 @@ import com.kingdee.eas.port.pm.project.PortProject;
 import com.kingdee.eas.port.pm.project.PortProjectInfo;
 import com.kingdee.eas.port.pm.project.client.PortProjectEditUI;
 import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
+import com.kingdee.eas.util.SysUtil;
 
 /**
  * output class name
@@ -72,9 +74,13 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI
     	// TODO Auto-generated method stub
     	this.prmtproName.setRequired(true);
     	this.prmtuseOrg.setRequired(true);
-    	this.prmtdevOrg.setRequired(true);;
+    	this.prmtdevOrg.setEnabled(false);
     	this.prmtinviteType.setRequired(true);
     	this.prmtvalidTemplate.setRequired(true);
+    	this.kDContainer4.setVisible(false);
+    	this.contprojectNumber.setVisible(false);
+    	this.contdevOrg.setVisible(false);
+    	this.contproSite.setVisible(false);
     	super.onLoad();
     	this.btnCopyLine.setVisible(false);
     	this.btnAddLine.setVisible(false);
@@ -114,8 +120,7 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI
 					txtbusinessScore.setEnabled(false);
 					txttechScore.setEnabled(false);
 					prmtevaTemplate.setEnabled(false);
-				}
-					
+				}	
 				else if(e.getItem().equals(com.kingdee.eas.port.pm.invite.judgeSolution.integrate)) {
 					prmtevaTemplate.setEnabled(true);
 					txtrmhigh.setEnabled(true);
@@ -124,6 +129,12 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI
 					txtreduLow.setEnabled(true);
 					txtbusinessScore.setEnabled(true);
 					txttechScore.setEnabled(true);
+					txtrmhigh.setRequired(true);
+					txtrmlow.setRequired(true);
+					txtreduHigh.setRequired(true);
+					txtreduLow.setRequired(true);
+					txtbusinessScore.setRequired(true);
+					txttechScore.setRequired(true);
 				}
 			}
     	});
@@ -146,7 +157,7 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI
         kdtE5_judgeType_OVR.setFormat(new BizDataFormat("$name$"));
         this.kdtEntry5.getColumn("judgeType").setRenderer(kdtE5_judgeType_OVR);
         
-//        String longNumber = SysContext.getSysContext().getCurrentAdminUnit().getLongNumber();
+//      String longNumber = SysContext.getSysContext().getCurrentAdminUnit().getLongNumber();
         AdminOrgUnitInfo admin = SysContext.getSysContext().getCurrentAdminUnit();
 //    	String sql = "select a.fid from t_bd_person a " +
 //    				 " left join T_ORG_PositionMember b " +
@@ -166,6 +177,7 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI
         initContainerButton(kDContainer2, kdtEntry5_detailPanel);
         initContainerButton(kDContainer3, kdtEntry3_detailPanel);
         initContainerButton(kDContainer4, kdtEntry1_detailPanel);
+        initContainerButton(kDContainer5, kdtEntry4_detailPanel);
 
         AdminF7 f7 = new AdminF7(this);
  		f7.showCheckBoxOfShowingAllOUs();
@@ -186,7 +198,6 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI
     	// TODO Auto-generated method stub
     	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, prmtproName, "项目信息");
     	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, prmtuseOrg, "使用单位");
-    	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, prmtdevOrg, "建设单位");
     	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, prmtinviteType, "招标方式");
     	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, prmtvalidTemplate, "符合性审查模板");
     	if(this.judgeSolution.getSelectedItem().equals(com.kingdee.eas.port.pm.invite.judgeSolution.integrate)) {
@@ -197,6 +208,11 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI
     		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, txtreduLow, "低%1扣");
     		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, txtbusinessScore, "商务分");
     		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, txttechScore, "技术分");
+    		BigDecimal business = new BigDecimal(txtbusinessScore.getText());
+    		if(business.add(new BigDecimal(txttechScore.getText())).compareTo(new BigDecimal(100)) != 0) {
+    			MsgBox.showWarning("商务分,技术分总和不等于100,请修改!!");
+    			SysUtil.abort();
+    		}
     	}
     	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyKDTColumnNull(this, kdtEntry2, "evaEnterprise");
     	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyKDTColumnNull(this, kdtEntry3, "invitePerson");
@@ -844,6 +860,7 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI
         com.kingdee.eas.port.pm.invite.InviteReportInfo objectValue = new com.kingdee.eas.port.pm.invite.InviteReportInfo();
         objectValue.setCreator((com.kingdee.eas.base.permission.UserInfo)(com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentUser()));
         ProjectInfo info = (ProjectInfo) getUIContext().get("treeInfo");
+        System.out.println("hello " + info.toString());
 		if(info != null) {
 			objectValue.setProName(info);
 		}

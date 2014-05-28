@@ -46,7 +46,6 @@ import com.kingdee.bos.appframework.uip.UINavigator;
 public abstract class AbstractInviteReportEditUI extends com.kingdee.eas.xr.client.XRBillBaseEditUI
 {
     private static final Logger logger = CoreUIObject.getLogger(AbstractInviteReportEditUI.class);
-    protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel4;
     protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel5;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contAuditor;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contAuditTime;
@@ -59,8 +58,10 @@ public abstract class AbstractInviteReportEditUI extends com.kingdee.eas.xr.clie
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contBizDate;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contDescription;
     protected com.kingdee.bos.ctrl.swing.KDTabbedPane kDTabbedPane1;
-    protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtEntry4;
-	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtEntry4_detailPanel = null;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contprojectNumber;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contdevOrg;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contproSite;
+    protected com.kingdee.bos.ctrl.swing.KDContainer kDContainer4;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contrmhigh;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contrmlow;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contbusinessScore;
@@ -83,39 +84,13 @@ public abstract class AbstractInviteReportEditUI extends com.kingdee.eas.xr.clie
     protected com.kingdee.bos.ctrl.swing.KDComboBox comboBizStatus;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkBizDate;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtDescription;
-    protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel3;
     protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel6;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contreportName;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contproSite;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contuseOrg;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contNumber;
-    protected com.kingdee.bos.ctrl.swing.KDButton kDButton1;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contdevOrg;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contStatus;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contBIMUDF0004;
-    protected com.kingdee.bos.ctrl.swing.KDContainer kDContainer4;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contproName;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contprojectNumber;
-    protected com.kingdee.bos.ctrl.swing.KDTextField txtreportName;
-    protected com.kingdee.bos.ctrl.swing.KDTextField txtproSite;
-    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtuseOrg;
-    protected com.kingdee.bos.ctrl.swing.KDTextField txtNumber;
-    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtdevOrg;
-    protected com.kingdee.bos.ctrl.swing.KDComboBox comboStatus;
-    protected com.kingdee.bos.ctrl.swing.KDScrollPane scrollPaneBIMUDF0004;
-    protected com.kingdee.bos.ctrl.swing.KDTextArea txtBIMUDF0004;
-    protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtEntry1;
-	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtEntry1_detailPanel = null;
-    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtproName;
-    protected com.kingdee.bos.ctrl.swing.KDTextField txtprojectNumber;
+    protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel1;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer continviteBudget;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contopenDate;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contaudDate;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contapplicant;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contpaperFee;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contbidBond;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer continviteDate;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contsubDate;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer continviteType;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contjudgeSolution;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contevaTemplate;
@@ -123,14 +98,21 @@ public abstract class AbstractInviteReportEditUI extends com.kingdee.eas.xr.clie
     protected com.kingdee.bos.ctrl.swing.KDContainer kDContainer1;
     protected com.kingdee.bos.ctrl.swing.KDContainer kDContainer3;
     protected com.kingdee.bos.ctrl.swing.KDContainer kDContainer2;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer continviteDate;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contsubDate;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contopenDate;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contBIMUDF0004;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contNumber;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contreportName;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contproName;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contuseOrg;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contStatus;
+    protected com.kingdee.bos.ctrl.swing.KDButton kDButton1;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtinviteBudget;
-    protected com.kingdee.bos.ctrl.swing.KDDatePicker pkopenDate;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkaudDate;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtapplicant;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtpaperFee;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtbidBond;
-    protected com.kingdee.bos.ctrl.swing.KDDatePicker pkinviteDate;
-    protected com.kingdee.bos.ctrl.swing.KDDatePicker pksubDate;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtinviteType;
     protected com.kingdee.bos.ctrl.swing.KDComboBox judgeSolution;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtevaTemplate;
@@ -141,6 +123,24 @@ public abstract class AbstractInviteReportEditUI extends com.kingdee.eas.xr.clie
 	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtEntry3_detailPanel = null;
     protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtEntry5;
 	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtEntry5_detailPanel = null;
+    protected com.kingdee.bos.ctrl.swing.KDDatePicker pkinviteDate;
+    protected com.kingdee.bos.ctrl.swing.KDDatePicker pksubDate;
+    protected com.kingdee.bos.ctrl.swing.KDDatePicker pkopenDate;
+    protected com.kingdee.bos.ctrl.swing.KDScrollPane scrollPaneBIMUDF0004;
+    protected com.kingdee.bos.ctrl.swing.KDTextArea txtBIMUDF0004;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txtNumber;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txtreportName;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtproName;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtuseOrg;
+    protected com.kingdee.bos.ctrl.swing.KDComboBox comboStatus;
+    protected com.kingdee.bos.ctrl.swing.KDContainer kDContainer5;
+    protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtEntry4;
+	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtEntry4_detailPanel = null;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txtprojectNumber;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtdevOrg;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txtproSite;
+    protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtEntry1;
+	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtEntry1_detailPanel = null;
     protected com.kingdee.eas.port.pm.invite.InviteReportInfo editData = null;
     /**
      * output class constructor
@@ -191,7 +191,6 @@ public abstract class AbstractInviteReportEditUI extends com.kingdee.eas.xr.clie
         actionUnAudit.putValue(ItemAction.NAME, _tempStr);
         this.actionUnAudit.setBindWorkFlow(true);
          this.actionUnAudit.addService(new com.kingdee.eas.framework.client.service.PermissionService());
-        this.kDPanel4 = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.kDPanel5 = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.contAuditor = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contAuditTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -204,7 +203,10 @@ public abstract class AbstractInviteReportEditUI extends com.kingdee.eas.xr.clie
         this.contBizDate = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contDescription = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.kDTabbedPane1 = new com.kingdee.bos.ctrl.swing.KDTabbedPane();
-        this.kdtEntry4 = new com.kingdee.bos.ctrl.kdf.table.KDTable();
+        this.contprojectNumber = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contdevOrg = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contproSite = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.kDContainer4 = new com.kingdee.bos.ctrl.swing.KDContainer();
         this.contrmhigh = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contrmlow = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contbusinessScore = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -227,38 +229,13 @@ public abstract class AbstractInviteReportEditUI extends com.kingdee.eas.xr.clie
         this.comboBizStatus = new com.kingdee.bos.ctrl.swing.KDComboBox();
         this.pkBizDate = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.txtDescription = new com.kingdee.bos.ctrl.swing.KDTextField();
-        this.kDPanel3 = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.kDPanel6 = new com.kingdee.bos.ctrl.swing.KDPanel();
-        this.contreportName = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contproSite = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contuseOrg = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contNumber = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.kDButton1 = new com.kingdee.bos.ctrl.swing.KDButton();
-        this.contdevOrg = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contStatus = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contBIMUDF0004 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.kDContainer4 = new com.kingdee.bos.ctrl.swing.KDContainer();
-        this.contproName = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contprojectNumber = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.txtreportName = new com.kingdee.bos.ctrl.swing.KDTextField();
-        this.txtproSite = new com.kingdee.bos.ctrl.swing.KDTextField();
-        this.prmtuseOrg = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
-        this.txtNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
-        this.prmtdevOrg = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
-        this.comboStatus = new com.kingdee.bos.ctrl.swing.KDComboBox();
-        this.scrollPaneBIMUDF0004 = new com.kingdee.bos.ctrl.swing.KDScrollPane();
-        this.txtBIMUDF0004 = new com.kingdee.bos.ctrl.swing.KDTextArea();
-        this.kdtEntry1 = new com.kingdee.bos.ctrl.kdf.table.KDTable();
-        this.prmtproName = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
-        this.txtprojectNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.kDPanel1 = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.continviteBudget = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contopenDate = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contaudDate = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contapplicant = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contpaperFee = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contbidBond = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.continviteDate = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contsubDate = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.continviteType = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contjudgeSolution = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contevaTemplate = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -266,14 +243,21 @@ public abstract class AbstractInviteReportEditUI extends com.kingdee.eas.xr.clie
         this.kDContainer1 = new com.kingdee.bos.ctrl.swing.KDContainer();
         this.kDContainer3 = new com.kingdee.bos.ctrl.swing.KDContainer();
         this.kDContainer2 = new com.kingdee.bos.ctrl.swing.KDContainer();
+        this.continviteDate = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contsubDate = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contopenDate = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contBIMUDF0004 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contNumber = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contreportName = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contproName = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contuseOrg = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contStatus = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.kDButton1 = new com.kingdee.bos.ctrl.swing.KDButton();
         this.txtinviteBudget = new com.kingdee.bos.ctrl.swing.KDTextField();
-        this.pkopenDate = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.pkaudDate = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.prmtapplicant = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.txtpaperFee = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtbidBond = new com.kingdee.bos.ctrl.swing.KDTextField();
-        this.pkinviteDate = new com.kingdee.bos.ctrl.swing.KDDatePicker();
-        this.pksubDate = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.prmtinviteType = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.judgeSolution = new com.kingdee.bos.ctrl.swing.KDComboBox();
         this.prmtevaTemplate = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
@@ -281,7 +265,22 @@ public abstract class AbstractInviteReportEditUI extends com.kingdee.eas.xr.clie
         this.kdtEntry2 = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.kdtEntry3 = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.kdtEntry5 = new com.kingdee.bos.ctrl.kdf.table.KDTable();
-        this.kDPanel4.setName("kDPanel4");
+        this.pkinviteDate = new com.kingdee.bos.ctrl.swing.KDDatePicker();
+        this.pksubDate = new com.kingdee.bos.ctrl.swing.KDDatePicker();
+        this.pkopenDate = new com.kingdee.bos.ctrl.swing.KDDatePicker();
+        this.scrollPaneBIMUDF0004 = new com.kingdee.bos.ctrl.swing.KDScrollPane();
+        this.txtBIMUDF0004 = new com.kingdee.bos.ctrl.swing.KDTextArea();
+        this.txtNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.txtreportName = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.prmtproName = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.prmtuseOrg = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.comboStatus = new com.kingdee.bos.ctrl.swing.KDComboBox();
+        this.kDContainer5 = new com.kingdee.bos.ctrl.swing.KDContainer();
+        this.kdtEntry4 = new com.kingdee.bos.ctrl.kdf.table.KDTable();
+        this.txtprojectNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.prmtdevOrg = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.txtproSite = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.kdtEntry1 = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.kDPanel5.setName("kDPanel5");
         this.contAuditor.setName("contAuditor");
         this.contAuditTime.setName("contAuditTime");
@@ -294,7 +293,10 @@ public abstract class AbstractInviteReportEditUI extends com.kingdee.eas.xr.clie
         this.contBizDate.setName("contBizDate");
         this.contDescription.setName("contDescription");
         this.kDTabbedPane1.setName("kDTabbedPane1");
-        this.kdtEntry4.setName("kdtEntry4");
+        this.contprojectNumber.setName("contprojectNumber");
+        this.contdevOrg.setName("contdevOrg");
+        this.contproSite.setName("contproSite");
+        this.kDContainer4.setName("kDContainer4");
         this.contrmhigh.setName("contrmhigh");
         this.contrmlow.setName("contrmlow");
         this.contbusinessScore.setName("contbusinessScore");
@@ -317,38 +319,13 @@ public abstract class AbstractInviteReportEditUI extends com.kingdee.eas.xr.clie
         this.comboBizStatus.setName("comboBizStatus");
         this.pkBizDate.setName("pkBizDate");
         this.txtDescription.setName("txtDescription");
-        this.kDPanel3.setName("kDPanel3");
         this.kDPanel6.setName("kDPanel6");
-        this.contreportName.setName("contreportName");
-        this.contproSite.setName("contproSite");
-        this.contuseOrg.setName("contuseOrg");
-        this.contNumber.setName("contNumber");
-        this.kDButton1.setName("kDButton1");
-        this.contdevOrg.setName("contdevOrg");
-        this.contStatus.setName("contStatus");
-        this.contBIMUDF0004.setName("contBIMUDF0004");
-        this.kDContainer4.setName("kDContainer4");
-        this.contproName.setName("contproName");
-        this.contprojectNumber.setName("contprojectNumber");
-        this.txtreportName.setName("txtreportName");
-        this.txtproSite.setName("txtproSite");
-        this.prmtuseOrg.setName("prmtuseOrg");
-        this.txtNumber.setName("txtNumber");
-        this.prmtdevOrg.setName("prmtdevOrg");
-        this.comboStatus.setName("comboStatus");
-        this.scrollPaneBIMUDF0004.setName("scrollPaneBIMUDF0004");
-        this.txtBIMUDF0004.setName("txtBIMUDF0004");
-        this.kdtEntry1.setName("kdtEntry1");
-        this.prmtproName.setName("prmtproName");
-        this.txtprojectNumber.setName("txtprojectNumber");
+        this.kDPanel1.setName("kDPanel1");
         this.continviteBudget.setName("continviteBudget");
-        this.contopenDate.setName("contopenDate");
         this.contaudDate.setName("contaudDate");
         this.contapplicant.setName("contapplicant");
         this.contpaperFee.setName("contpaperFee");
         this.contbidBond.setName("contbidBond");
-        this.continviteDate.setName("continviteDate");
-        this.contsubDate.setName("contsubDate");
         this.continviteType.setName("continviteType");
         this.contjudgeSolution.setName("contjudgeSolution");
         this.contevaTemplate.setName("contevaTemplate");
@@ -356,14 +333,21 @@ public abstract class AbstractInviteReportEditUI extends com.kingdee.eas.xr.clie
         this.kDContainer1.setName("kDContainer1");
         this.kDContainer3.setName("kDContainer3");
         this.kDContainer2.setName("kDContainer2");
+        this.continviteDate.setName("continviteDate");
+        this.contsubDate.setName("contsubDate");
+        this.contopenDate.setName("contopenDate");
+        this.contBIMUDF0004.setName("contBIMUDF0004");
+        this.contNumber.setName("contNumber");
+        this.contreportName.setName("contreportName");
+        this.contproName.setName("contproName");
+        this.contuseOrg.setName("contuseOrg");
+        this.contStatus.setName("contStatus");
+        this.kDButton1.setName("kDButton1");
         this.txtinviteBudget.setName("txtinviteBudget");
-        this.pkopenDate.setName("pkopenDate");
         this.pkaudDate.setName("pkaudDate");
         this.prmtapplicant.setName("prmtapplicant");
         this.txtpaperFee.setName("txtpaperFee");
         this.txtbidBond.setName("txtbidBond");
-        this.pkinviteDate.setName("pkinviteDate");
-        this.pksubDate.setName("pksubDate");
         this.prmtinviteType.setName("prmtinviteType");
         this.judgeSolution.setName("judgeSolution");
         this.prmtevaTemplate.setName("prmtevaTemplate");
@@ -371,11 +355,25 @@ public abstract class AbstractInviteReportEditUI extends com.kingdee.eas.xr.clie
         this.kdtEntry2.setName("kdtEntry2");
         this.kdtEntry3.setName("kdtEntry3");
         this.kdtEntry5.setName("kdtEntry5");
+        this.pkinviteDate.setName("pkinviteDate");
+        this.pksubDate.setName("pksubDate");
+        this.pkopenDate.setName("pkopenDate");
+        this.scrollPaneBIMUDF0004.setName("scrollPaneBIMUDF0004");
+        this.txtBIMUDF0004.setName("txtBIMUDF0004");
+        this.txtNumber.setName("txtNumber");
+        this.txtreportName.setName("txtreportName");
+        this.prmtproName.setName("prmtproName");
+        this.prmtuseOrg.setName("prmtuseOrg");
+        this.comboStatus.setName("comboStatus");
+        this.kDContainer5.setName("kDContainer5");
+        this.kdtEntry4.setName("kdtEntry4");
+        this.txtprojectNumber.setName("txtprojectNumber");
+        this.prmtdevOrg.setName("prmtdevOrg");
+        this.txtproSite.setName("txtproSite");
+        this.kdtEntry1.setName("kdtEntry1");
         // CoreUI		
         this.setPreferredSize(new Dimension(1010,629));		
         this.setBorder(null);
-        // kDPanel4		
-        this.kDPanel4.setBorder(new TitledBorder(BorderFactory.createEtchedBorder(new Color(255,255,255),new Color(148,145,140)), resHelper.getString("kDPanel4.border.title")));
         // kDPanel5		
         this.kDPanel5.setBorder(new TitledBorder(BorderFactory.createEtchedBorder(new Color(255,255,255),new Color(148,145,140)), resHelper.getString("kDPanel5.border.title")));
         // contAuditor		
@@ -421,15 +419,24 @@ public abstract class AbstractInviteReportEditUI extends com.kingdee.eas.xr.clie
         this.contDescription.setBoundLabelLength(100);		
         this.contDescription.setBoundLabelUnderline(true);
         // kDTabbedPane1
-        // kdtEntry4
-		String kdtEntry4StrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
-		
-        this.kdtEntry4.setFormatXml(resHelper.translateString("kdtEntry4",kdtEntry4StrXML));
-
-                this.kdtEntry4.putBindContents("editData",new String[] {"seq"});
-
-
-        this.kdtEntry4.checkParsed();
+        // contprojectNumber		
+        this.contprojectNumber.setBoundLabelText(resHelper.getString("contprojectNumber.boundLabelText"));		
+        this.contprojectNumber.setBoundLabelLength(100);		
+        this.contprojectNumber.setBoundLabelUnderline(true);		
+        this.contprojectNumber.setVisible(true);
+        // contdevOrg		
+        this.contdevOrg.setBoundLabelText(resHelper.getString("contdevOrg.boundLabelText"));		
+        this.contdevOrg.setBoundLabelLength(100);		
+        this.contdevOrg.setBoundLabelUnderline(true);		
+        this.contdevOrg.setVisible(true);
+        // contproSite		
+        this.contproSite.setBoundLabelText(resHelper.getString("contproSite.boundLabelText"));		
+        this.contproSite.setBoundLabelLength(100);		
+        this.contproSite.setBoundLabelUnderline(true);		
+        this.contproSite.setVisible(true);
+        // kDContainer4		
+        this.kDContainer4.setTitle(resHelper.getString("kDContainer4.title"));		
+        this.kDContainer4.setEnableActive(false);
         // contrmhigh		
         this.contrmhigh.setBoundLabelText(resHelper.getString("contrmhigh.boundLabelText"));		
         this.contrmhigh.setBoundLabelLength(100);		
@@ -521,133 +528,13 @@ public abstract class AbstractInviteReportEditUI extends com.kingdee.eas.xr.clie
         this.comboBizStatus.setEnabled(false);
         // pkBizDate
         // txtDescription
-        // kDPanel3		
-        this.kDPanel3.setBorder(null);
         // kDPanel6
-        // contreportName		
-        this.contreportName.setBoundLabelText(resHelper.getString("contreportName.boundLabelText"));		
-        this.contreportName.setBoundLabelLength(100);		
-        this.contreportName.setBoundLabelUnderline(true);		
-        this.contreportName.setVisible(true);
-        // contproSite		
-        this.contproSite.setBoundLabelText(resHelper.getString("contproSite.boundLabelText"));		
-        this.contproSite.setBoundLabelLength(100);		
-        this.contproSite.setBoundLabelUnderline(true);		
-        this.contproSite.setVisible(true);
-        // contuseOrg		
-        this.contuseOrg.setBoundLabelText(resHelper.getString("contuseOrg.boundLabelText"));		
-        this.contuseOrg.setBoundLabelLength(100);		
-        this.contuseOrg.setBoundLabelUnderline(true);		
-        this.contuseOrg.setVisible(true);
-        // contNumber		
-        this.contNumber.setBoundLabelText(resHelper.getString("contNumber.boundLabelText"));		
-        this.contNumber.setBoundLabelLength(100);		
-        this.contNumber.setBoundLabelUnderline(true);
-        // kDButton1		
-        this.kDButton1.setText(resHelper.getString("kDButton1.text"));
-        // contdevOrg		
-        this.contdevOrg.setBoundLabelText(resHelper.getString("contdevOrg.boundLabelText"));		
-        this.contdevOrg.setBoundLabelLength(100);		
-        this.contdevOrg.setBoundLabelUnderline(true);		
-        this.contdevOrg.setVisible(true);
-        // contStatus		
-        this.contStatus.setBoundLabelText(resHelper.getString("contStatus.boundLabelText"));		
-        this.contStatus.setBoundLabelLength(100);		
-        this.contStatus.setBoundLabelUnderline(true);		
-        this.contStatus.setEnabled(false);
-        // contBIMUDF0004		
-        this.contBIMUDF0004.setBoundLabelText(resHelper.getString("contBIMUDF0004.boundLabelText"));		
-        this.contBIMUDF0004.setBoundLabelLength(16);		
-        this.contBIMUDF0004.setBoundLabelUnderline(true);		
-        this.contBIMUDF0004.setVisible(true);		
-        this.contBIMUDF0004.setBoundLabelAlignment(8);
-        // kDContainer4		
-        this.kDContainer4.setTitle(resHelper.getString("kDContainer4.title"));		
-        this.kDContainer4.setEnableActive(false);
-        // contproName		
-        this.contproName.setBoundLabelText(resHelper.getString("contproName.boundLabelText"));		
-        this.contproName.setBoundLabelLength(100);		
-        this.contproName.setBoundLabelUnderline(true);		
-        this.contproName.setVisible(true);
-        // contprojectNumber		
-        this.contprojectNumber.setBoundLabelText(resHelper.getString("contprojectNumber.boundLabelText"));		
-        this.contprojectNumber.setBoundLabelLength(100);		
-        this.contprojectNumber.setBoundLabelUnderline(true);		
-        this.contprojectNumber.setVisible(true);
-        // txtreportName		
-        this.txtreportName.setVisible(true);		
-        this.txtreportName.setHorizontalAlignment(2);		
-        this.txtreportName.setMaxLength(100);		
-        this.txtreportName.setRequired(false);
-        // txtproSite		
-        this.txtproSite.setHorizontalAlignment(2);		
-        this.txtproSite.setMaxLength(100);		
-        this.txtproSite.setRequired(false);
-        // prmtuseOrg		
-        this.prmtuseOrg.setQueryInfo("com.kingdee.eas.basedata.org.app.AdminItemQuery");		
-        this.prmtuseOrg.setEditable(true);		
-        this.prmtuseOrg.setDisplayFormat("$name$");		
-        this.prmtuseOrg.setEditFormat("$number$");		
-        this.prmtuseOrg.setCommitFormat("$number$");		
-        this.prmtuseOrg.setRequired(false);
-        // txtNumber
-        // prmtdevOrg		
-        this.prmtdevOrg.setQueryInfo("com.kingdee.eas.basedata.org.app.AdminItemQuery");		
-        this.prmtdevOrg.setEditable(true);		
-        this.prmtdevOrg.setDisplayFormat("$name$");		
-        this.prmtdevOrg.setEditFormat("$number$");		
-        this.prmtdevOrg.setCommitFormat("$number$");		
-        this.prmtdevOrg.setRequired(false);
-        // comboStatus		
-        this.comboStatus.addItems(EnumUtils.getEnumList("com.kingdee.eas.xr.app.XRBillStatusEnum").toArray());		
-        this.comboStatus.setEnabled(false);
-        // scrollPaneBIMUDF0004
-        // txtBIMUDF0004		
-        this.txtBIMUDF0004.setRequired(false);		
-        this.txtBIMUDF0004.setMaxLength(255);
-        // kdtEntry1
-		String kdtEntry1StrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
-		
-        this.kdtEntry1.setFormatXml(resHelper.translateString("kdtEntry1",kdtEntry1StrXML));
-
-                this.kdtEntry1.putBindContents("editData",new String[] {"seq"});
-
-
-        this.kdtEntry1.checkParsed();
-        // prmtproName		
-        this.prmtproName.setQueryInfo("com.kingdee.eas.basedata.assistant.app.ProjectQuery");		
-        this.prmtproName.setVisible(true);		
-        this.prmtproName.setEditable(true);		
-        this.prmtproName.setDisplayFormat("$name$");		
-        this.prmtproName.setEditFormat("$number$");		
-        this.prmtproName.setCommitFormat("$number$");		
-        this.prmtproName.setRequired(false);
-        prmtproName.addDataChangeListener(new DataChangeListener() {
-		public void dataChanged(DataChangeEvent e) {
-			try {
-				prmtproName_Changed();
-			}
-			catch (Exception exc) {
-				handUIException(exc);
-			}
-		}
-	});
-
-        // txtprojectNumber		
-        this.txtprojectNumber.setVisible(true);		
-        this.txtprojectNumber.setHorizontalAlignment(2);		
-        this.txtprojectNumber.setMaxLength(80);		
-        this.txtprojectNumber.setRequired(false);
+        // kDPanel1
         // continviteBudget		
         this.continviteBudget.setBoundLabelText(resHelper.getString("continviteBudget.boundLabelText"));		
         this.continviteBudget.setBoundLabelLength(100);		
         this.continviteBudget.setBoundLabelUnderline(true);		
         this.continviteBudget.setVisible(true);
-        // contopenDate		
-        this.contopenDate.setBoundLabelText(resHelper.getString("contopenDate.boundLabelText"));		
-        this.contopenDate.setBoundLabelLength(100);		
-        this.contopenDate.setBoundLabelUnderline(true);		
-        this.contopenDate.setVisible(true);
         // contaudDate		
         this.contaudDate.setBoundLabelText(resHelper.getString("contaudDate.boundLabelText"));		
         this.contaudDate.setBoundLabelLength(100);		
@@ -668,16 +555,6 @@ public abstract class AbstractInviteReportEditUI extends com.kingdee.eas.xr.clie
         this.contbidBond.setBoundLabelLength(100);		
         this.contbidBond.setBoundLabelUnderline(true);		
         this.contbidBond.setVisible(true);
-        // continviteDate		
-        this.continviteDate.setBoundLabelText(resHelper.getString("continviteDate.boundLabelText"));		
-        this.continviteDate.setBoundLabelLength(100);		
-        this.continviteDate.setBoundLabelUnderline(true);		
-        this.continviteDate.setVisible(true);
-        // contsubDate		
-        this.contsubDate.setBoundLabelText(resHelper.getString("contsubDate.boundLabelText"));		
-        this.contsubDate.setBoundLabelLength(100);		
-        this.contsubDate.setBoundLabelUnderline(true);		
-        this.contsubDate.setVisible(true);
         // continviteType		
         this.continviteType.setBoundLabelText(resHelper.getString("continviteType.boundLabelText"));		
         this.continviteType.setBoundLabelLength(100);		
@@ -707,12 +584,57 @@ public abstract class AbstractInviteReportEditUI extends com.kingdee.eas.xr.clie
         // kDContainer2		
         this.kDContainer2.setTitle(resHelper.getString("kDContainer2.title"));		
         this.kDContainer2.setEnableActive(false);
+        // continviteDate		
+        this.continviteDate.setBoundLabelText(resHelper.getString("continviteDate.boundLabelText"));		
+        this.continviteDate.setBoundLabelLength(100);		
+        this.continviteDate.setBoundLabelUnderline(true);		
+        this.continviteDate.setVisible(true);
+        // contsubDate		
+        this.contsubDate.setBoundLabelText(resHelper.getString("contsubDate.boundLabelText"));		
+        this.contsubDate.setBoundLabelLength(100);		
+        this.contsubDate.setBoundLabelUnderline(true);		
+        this.contsubDate.setVisible(true);
+        // contopenDate		
+        this.contopenDate.setBoundLabelText(resHelper.getString("contopenDate.boundLabelText"));		
+        this.contopenDate.setBoundLabelLength(100);		
+        this.contopenDate.setBoundLabelUnderline(true);		
+        this.contopenDate.setVisible(true);
+        // contBIMUDF0004		
+        this.contBIMUDF0004.setBoundLabelText(resHelper.getString("contBIMUDF0004.boundLabelText"));		
+        this.contBIMUDF0004.setBoundLabelLength(16);		
+        this.contBIMUDF0004.setBoundLabelUnderline(true);		
+        this.contBIMUDF0004.setVisible(true);		
+        this.contBIMUDF0004.setBoundLabelAlignment(8);
+        // contNumber		
+        this.contNumber.setBoundLabelText(resHelper.getString("contNumber.boundLabelText"));		
+        this.contNumber.setBoundLabelLength(100);		
+        this.contNumber.setBoundLabelUnderline(true);
+        // contreportName		
+        this.contreportName.setBoundLabelText(resHelper.getString("contreportName.boundLabelText"));		
+        this.contreportName.setBoundLabelLength(100);		
+        this.contreportName.setBoundLabelUnderline(true);		
+        this.contreportName.setVisible(true);
+        // contproName		
+        this.contproName.setBoundLabelText(resHelper.getString("contproName.boundLabelText"));		
+        this.contproName.setBoundLabelLength(100);		
+        this.contproName.setBoundLabelUnderline(true);		
+        this.contproName.setVisible(true);
+        // contuseOrg		
+        this.contuseOrg.setBoundLabelText(resHelper.getString("contuseOrg.boundLabelText"));		
+        this.contuseOrg.setBoundLabelLength(100);		
+        this.contuseOrg.setBoundLabelUnderline(true);		
+        this.contuseOrg.setVisible(true);
+        // contStatus		
+        this.contStatus.setBoundLabelText(resHelper.getString("contStatus.boundLabelText"));		
+        this.contStatus.setBoundLabelLength(100);		
+        this.contStatus.setBoundLabelUnderline(true);		
+        this.contStatus.setEnabled(false);
+        // kDButton1		
+        this.kDButton1.setText(resHelper.getString("kDButton1.text"));
         // txtinviteBudget		
         this.txtinviteBudget.setHorizontalAlignment(2);		
         this.txtinviteBudget.setMaxLength(100);		
         this.txtinviteBudget.setRequired(false);
-        // pkopenDate		
-        this.pkopenDate.setRequired(false);
         // pkaudDate		
         this.pkaudDate.setRequired(false);
         // prmtapplicant		
@@ -730,10 +652,6 @@ public abstract class AbstractInviteReportEditUI extends com.kingdee.eas.xr.clie
         this.txtbidBond.setHorizontalAlignment(2);		
         this.txtbidBond.setMaxLength(100);		
         this.txtbidBond.setRequired(false);
-        // pkinviteDate		
-        this.pkinviteDate.setRequired(false);
-        // pksubDate		
-        this.pksubDate.setRequired(false);
         // prmtinviteType		
         this.prmtinviteType.setQueryInfo("com.kingdee.eas.port.pm.base.app.InviteTypeQuery");		
         this.prmtinviteType.setEditable(true);		
@@ -794,7 +712,7 @@ public abstract class AbstractInviteReportEditUI extends com.kingdee.eas.xr.clie
 		});
 					
         // kdtEntry2
-		String kdtEntry2StrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"evaEnterprise\" t:width=\"166\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"comment\" t:width=\"250\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{evaEnterprise}</t:Cell><t:Cell>$Resource{comment}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		String kdtEntry2StrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"evaEnterprise\" t:width=\"220\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"comment\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{evaEnterprise}</t:Cell><t:Cell>$Resource{comment}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.kdtEntry2.setFormatXml(resHelper.translateString("kdtEntry2",kdtEntry2StrXML));
 
@@ -896,6 +814,86 @@ public abstract class AbstractInviteReportEditUI extends com.kingdee.eas.xr.clie
         kdtEntry5_amount_TextField.setMaxLength(100);
         KDTDefaultCellEditor kdtEntry5_amount_CellEditor = new KDTDefaultCellEditor(kdtEntry5_amount_TextField);
         this.kdtEntry5.getColumn("amount").setEditor(kdtEntry5_amount_CellEditor);
+        // pkinviteDate		
+        this.pkinviteDate.setRequired(false);
+        // pksubDate		
+        this.pksubDate.setRequired(false);
+        // pkopenDate		
+        this.pkopenDate.setRequired(false);
+        // scrollPaneBIMUDF0004
+        // txtBIMUDF0004		
+        this.txtBIMUDF0004.setRequired(false);		
+        this.txtBIMUDF0004.setMaxLength(255);
+        // txtNumber
+        // txtreportName		
+        this.txtreportName.setVisible(true);		
+        this.txtreportName.setHorizontalAlignment(2);		
+        this.txtreportName.setMaxLength(100);		
+        this.txtreportName.setRequired(false);
+        // prmtproName		
+        this.prmtproName.setQueryInfo("com.kingdee.eas.basedata.assistant.app.ProjectQuery");		
+        this.prmtproName.setVisible(true);		
+        this.prmtproName.setEditable(true);		
+        this.prmtproName.setDisplayFormat("$name$");		
+        this.prmtproName.setEditFormat("$number$");		
+        this.prmtproName.setCommitFormat("$number$");		
+        this.prmtproName.setRequired(false);
+        prmtproName.addDataChangeListener(new DataChangeListener() {
+		public void dataChanged(DataChangeEvent e) {
+			try {
+				prmtproName_Changed();
+			}
+			catch (Exception exc) {
+				handUIException(exc);
+			}
+		}
+	});
+
+        // prmtuseOrg		
+        this.prmtuseOrg.setQueryInfo("com.kingdee.eas.basedata.org.app.AdminItemQuery");		
+        this.prmtuseOrg.setEditable(true);		
+        this.prmtuseOrg.setDisplayFormat("$name$");		
+        this.prmtuseOrg.setEditFormat("$number$");		
+        this.prmtuseOrg.setCommitFormat("$number$");		
+        this.prmtuseOrg.setRequired(false);
+        // comboStatus		
+        this.comboStatus.addItems(EnumUtils.getEnumList("com.kingdee.eas.xr.app.XRBillStatusEnum").toArray());		
+        this.comboStatus.setEnabled(false);
+        // kDContainer5
+        // kdtEntry4
+		String kdtEntry4StrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		
+        this.kdtEntry4.setFormatXml(resHelper.translateString("kdtEntry4",kdtEntry4StrXML));
+
+                this.kdtEntry4.putBindContents("editData",new String[] {"seq"});
+
+
+        this.kdtEntry4.checkParsed();
+        // txtprojectNumber		
+        this.txtprojectNumber.setVisible(true);		
+        this.txtprojectNumber.setHorizontalAlignment(2);		
+        this.txtprojectNumber.setMaxLength(80);		
+        this.txtprojectNumber.setRequired(false);
+        // prmtdevOrg		
+        this.prmtdevOrg.setQueryInfo("com.kingdee.eas.basedata.org.app.AdminItemQuery");		
+        this.prmtdevOrg.setEditable(true);		
+        this.prmtdevOrg.setDisplayFormat("$name$");		
+        this.prmtdevOrg.setEditFormat("$number$");		
+        this.prmtdevOrg.setCommitFormat("$number$");		
+        this.prmtdevOrg.setRequired(false);
+        // txtproSite		
+        this.txtproSite.setHorizontalAlignment(2);		
+        this.txtproSite.setMaxLength(100);		
+        this.txtproSite.setRequired(false);
+        // kdtEntry1
+		String kdtEntry1StrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		
+        this.kdtEntry1.setFormatXml(resHelper.translateString("kdtEntry1",kdtEntry1StrXML));
+
+                this.kdtEntry1.putBindContents("editData",new String[] {"seq"});
+
+
+        this.kdtEntry1.checkParsed();
         this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {txtBIMUDF0004,comboStatus,comboBizStatus,pkAuditTime,txtNumber,pkBizDate,txtDescription,prmtAuditor,prmtCreator,pkCreateTime,prmtLastUpdateUser,pkLastUpdateTime,prmtCU,prmtdevOrg,prmtuseOrg,txtinviteBudget,prmtinviteType,pkinviteDate,pkopenDate,pksubDate,prmtapplicant,pkaudDate,txtpaperFee,txtbidBond,judgeSolution,txtproSite,prmtevaTemplate,kdtEntry3,kdtEntry2,kdtEntry1,kdtEntry5,kdtEntry4,txtreportName,prmtvalidTemplate,txtrmhigh,txtrmlow,txtbusinessScore,txttechScore,txtreduHigh,txtreduLow,prmtproName,txtprojectNumber}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
@@ -922,25 +920,23 @@ public abstract class AbstractInviteReportEditUI extends com.kingdee.eas.xr.clie
      */
     public void initUIContentLayout()
     {
-        this.setBounds(new Rectangle(10, 10, 1025, 629));
+        this.setBounds(new Rectangle(10, 10, 1026, 629));
         this.setLayout(new KDLayout());
-        this.putClientProperty("OriginalBounds", new Rectangle(10, 10, 1025, 629));
-        kDPanel4.setBounds(new Rectangle(5, 304, 1018, 151));
-        this.add(kDPanel4, new KDLayout.Constraints(5, 304, 1018, 151, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        kDPanel5.setBounds(new Rectangle(5, 459, 1017, 88));
-        this.add(kDPanel5, new KDLayout.Constraints(5, 459, 1017, 88, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contAuditor.setBounds(new Rectangle(713, 558, 270, 19));
-        this.add(contAuditor, new KDLayout.Constraints(713, 558, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contAuditTime.setBounds(new Rectangle(713, 581, 270, 19));
-        this.add(contAuditTime, new KDLayout.Constraints(713, 581, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contLastUpdateUser.setBounds(new Rectangle(366, 558, 270, 19));
-        this.add(contLastUpdateUser, new KDLayout.Constraints(366, 558, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contLastUpdateTime.setBounds(new Rectangle(366, 581, 270, 19));
-        this.add(contLastUpdateTime, new KDLayout.Constraints(366, 581, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contCreator.setBounds(new Rectangle(19, 558, 270, 19));
-        this.add(contCreator, new KDLayout.Constraints(19, 558, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contCreateTime.setBounds(new Rectangle(19, 581, 270, 19));
-        this.add(contCreateTime, new KDLayout.Constraints(19, 581, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        this.putClientProperty("OriginalBounds", new Rectangle(10, 10, 1026, 629));
+        kDPanel5.setBounds(new Rectangle(5, 458, 1017, 97));
+        this.add(kDPanel5, new KDLayout.Constraints(5, 458, 1017, 97, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contAuditor.setBounds(new Rectangle(752, 565, 270, 19));
+        this.add(contAuditor, new KDLayout.Constraints(752, 565, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contAuditTime.setBounds(new Rectangle(752, 588, 270, 19));
+        this.add(contAuditTime, new KDLayout.Constraints(752, 588, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contLastUpdateUser.setBounds(new Rectangle(380, 565, 270, 19));
+        this.add(contLastUpdateUser, new KDLayout.Constraints(380, 565, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contLastUpdateTime.setBounds(new Rectangle(380, 588, 270, 19));
+        this.add(contLastUpdateTime, new KDLayout.Constraints(380, 588, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contCreator.setBounds(new Rectangle(9, 565, 270, 19));
+        this.add(contCreator, new KDLayout.Constraints(9, 565, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contCreateTime.setBounds(new Rectangle(9, 588, 270, 19));
+        this.add(contCreateTime, new KDLayout.Constraints(9, 588, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contCU.setBounds(new Rectangle(20, 633, 270, 19));
         this.add(contCU, new KDLayout.Constraints(20, 633, 270, 19, 0));
         contBizStatus.setBounds(new Rectangle(20, 640, 270, 19));
@@ -949,27 +945,30 @@ public abstract class AbstractInviteReportEditUI extends com.kingdee.eas.xr.clie
         this.add(contBizDate, new KDLayout.Constraints(23, 668, 270, 19, 0));
         contDescription.setBounds(new Rectangle(23, 693, 270, 19));
         this.add(contDescription, new KDLayout.Constraints(23, 693, 270, 19, 0));
-        kDTabbedPane1.setBounds(new Rectangle(3, 2, 1019, 297));
-        this.add(kDTabbedPane1, new KDLayout.Constraints(3, 2, 1019, 297, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        //kDPanel4
-        kDPanel4.setLayout(new KDLayout());
-        kDPanel4.putClientProperty("OriginalBounds", new Rectangle(5, 304, 1018, 151));        kdtEntry4.setBounds(new Rectangle(31, 16, 837, 122));
-        kdtEntry4_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtEntry4,new com.kingdee.eas.port.pm.invite.InviteReportEntry4Info(),null,false);
-        kDPanel4.add(kdtEntry4_detailPanel, new KDLayout.Constraints(31, 16, 837, 122, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        kDTabbedPane1.setBounds(new Rectangle(3, 4, 1019, 449));
+        this.add(kDTabbedPane1, new KDLayout.Constraints(3, 4, 1019, 449, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        contprojectNumber.setBounds(new Rectangle(1056, 470, 270, 19));
+        this.add(contprojectNumber, new KDLayout.Constraints(1056, 470, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contdevOrg.setBounds(new Rectangle(1056, 486, 270, 19));
+        this.add(contdevOrg, new KDLayout.Constraints(1056, 486, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contproSite.setBounds(new Rectangle(1056, 497, 270, 19));
+        this.add(contproSite, new KDLayout.Constraints(1056, 497, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDContainer4.setBounds(new Rectangle(1057, 398, 88, 73));
+        this.add(kDContainer4, new KDLayout.Constraints(1057, 398, 88, 73, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         //kDPanel5
         kDPanel5.setLayout(new KDLayout());
-        kDPanel5.putClientProperty("OriginalBounds", new Rectangle(5, 459, 1017, 88));        contrmhigh.setBounds(new Rectangle(25, 20, 270, 19));
-        kDPanel5.add(contrmhigh, new KDLayout.Constraints(25, 20, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contrmlow.setBounds(new Rectangle(357, 20, 270, 19));
-        kDPanel5.add(contrmlow, new KDLayout.Constraints(357, 20, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contbusinessScore.setBounds(new Rectangle(357, 46, 270, 19));
-        kDPanel5.add(contbusinessScore, new KDLayout.Constraints(357, 46, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        conttechScore.setBounds(new Rectangle(690, 46, 270, 19));
-        kDPanel5.add(conttechScore, new KDLayout.Constraints(690, 46, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contreduHigh.setBounds(new Rectangle(690, 20, 270, 19));
-        kDPanel5.add(contreduHigh, new KDLayout.Constraints(690, 20, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contreduLow.setBounds(new Rectangle(25, 46, 270, 19));
-        kDPanel5.add(contreduLow, new KDLayout.Constraints(25, 46, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDPanel5.putClientProperty("OriginalBounds", new Rectangle(5, 458, 1017, 97));        contrmhigh.setBounds(new Rectangle(25, 19, 270, 19));
+        kDPanel5.add(contrmhigh, new KDLayout.Constraints(25, 19, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contrmlow.setBounds(new Rectangle(371, 19, 270, 19));
+        kDPanel5.add(contrmlow, new KDLayout.Constraints(371, 19, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contbusinessScore.setBounds(new Rectangle(371, 54, 270, 19));
+        kDPanel5.add(contbusinessScore, new KDLayout.Constraints(371, 54, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        conttechScore.setBounds(new Rectangle(718, 54, 270, 19));
+        kDPanel5.add(conttechScore, new KDLayout.Constraints(718, 54, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contreduHigh.setBounds(new Rectangle(718, 19, 270, 19));
+        kDPanel5.add(contreduHigh, new KDLayout.Constraints(718, 19, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contreduLow.setBounds(new Rectangle(25, 54, 270, 19));
+        kDPanel5.add(contreduLow, new KDLayout.Constraints(25, 54, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         //contrmhigh
         contrmhigh.setBoundEditor(txtrmhigh);
         //contrmlow
@@ -1003,91 +1002,56 @@ public abstract class AbstractInviteReportEditUI extends com.kingdee.eas.xr.clie
         //contDescription
         contDescription.setBoundEditor(txtDescription);
         //kDTabbedPane1
-        kDTabbedPane1.add(kDPanel3, resHelper.getString("kDPanel3.constraints"));
         kDTabbedPane1.add(kDPanel6, resHelper.getString("kDPanel6.constraints"));
-        //kDPanel3
-        kDPanel3.setLayout(new KDLayout());
-        kDPanel3.putClientProperty("OriginalBounds", new Rectangle(0, 0, 1018, 264));        contreportName.setBounds(new Rectangle(7, 45, 270, 19));
-        kDPanel3.add(contreportName, new KDLayout.Constraints(7, 45, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contproSite.setBounds(new Rectangle(364, 75, 270, 19));
-        kDPanel3.add(contproSite, new KDLayout.Constraints(364, 75, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contuseOrg.setBounds(new Rectangle(364, 45, 270, 19));
-        kDPanel3.add(contuseOrg, new KDLayout.Constraints(364, 45, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contNumber.setBounds(new Rectangle(7, 15, 270, 19));
-        kDPanel3.add(contNumber, new KDLayout.Constraints(7, 15, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        kDButton1.setBounds(new Rectangle(722, 15, 133, 21));
-        kDPanel3.add(kDButton1, new KDLayout.Constraints(722, 15, 133, 21, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contdevOrg.setBounds(new Rectangle(722, 46, 270, 19));
-        kDPanel3.add(contdevOrg, new KDLayout.Constraints(722, 46, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contStatus.setBounds(new Rectangle(722, 75, 270, 19));
-        kDPanel3.add(contStatus, new KDLayout.Constraints(722, 75, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contBIMUDF0004.setBounds(new Rectangle(4, 112, 505, 146));
-        kDPanel3.add(contBIMUDF0004, new KDLayout.Constraints(4, 112, 505, 146, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        kDContainer4.setBounds(new Rectangle(528, 112, 464, 146));
-        kDPanel3.add(kDContainer4, new KDLayout.Constraints(528, 112, 464, 146, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contproName.setBounds(new Rectangle(364, 15, 270, 19));
-        kDPanel3.add(contproName, new KDLayout.Constraints(364, 15, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contprojectNumber.setBounds(new Rectangle(7, 75, 270, 19));
-        kDPanel3.add(contprojectNumber, new KDLayout.Constraints(7, 75, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        //contreportName
-        contreportName.setBoundEditor(txtreportName);
-        //contproSite
-        contproSite.setBoundEditor(txtproSite);
-        //contuseOrg
-        contuseOrg.setBoundEditor(prmtuseOrg);
-        //contNumber
-        contNumber.setBoundEditor(txtNumber);
-        //contdevOrg
-        contdevOrg.setBoundEditor(prmtdevOrg);
-        //contStatus
-        contStatus.setBoundEditor(comboStatus);
-        //contBIMUDF0004
-        contBIMUDF0004.setBoundEditor(scrollPaneBIMUDF0004);
-        //scrollPaneBIMUDF0004
-        scrollPaneBIMUDF0004.getViewport().add(txtBIMUDF0004, null);
-        //kDContainer4
-kDContainer4.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry1_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtEntry1,new com.kingdee.eas.port.pm.invite.InviteReportEntry1Info(),null,false);
-        kDContainer4.getContentPane().add(kdtEntry1_detailPanel, BorderLayout.CENTER);
-        //contproName
-        contproName.setBoundEditor(prmtproName);
-        //contprojectNumber
-        contprojectNumber.setBoundEditor(txtprojectNumber);
+        kDTabbedPane1.add(kDPanel1, resHelper.getString("kDPanel1.constraints"));
         //kDPanel6
         kDPanel6.setLayout(new KDLayout());
-        kDPanel6.putClientProperty("OriginalBounds", new Rectangle(0, 0, 1018, 264));        continviteBudget.setBounds(new Rectangle(8, 4, 270, 19));
-        kDPanel6.add(continviteBudget, new KDLayout.Constraints(8, 4, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contopenDate.setBounds(new Rectangle(8, 25, 270, 19));
-        kDPanel6.add(contopenDate, new KDLayout.Constraints(8, 25, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contaudDate.setBounds(new Rectangle(8, 46, 270, 19));
-        kDPanel6.add(contaudDate, new KDLayout.Constraints(8, 46, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contapplicant.setBounds(new Rectangle(8, 67, 270, 19));
-        kDPanel6.add(contapplicant, new KDLayout.Constraints(8, 67, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contpaperFee.setBounds(new Rectangle(8, 88, 270, 19));
-        kDPanel6.add(contpaperFee, new KDLayout.Constraints(8, 88, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contbidBond.setBounds(new Rectangle(8, 111, 270, 19));
-        kDPanel6.add(contbidBond, new KDLayout.Constraints(8, 111, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        continviteDate.setBounds(new Rectangle(293, 4, 270, 19));
-        kDPanel6.add(continviteDate, new KDLayout.Constraints(293, 4, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contsubDate.setBounds(new Rectangle(293, 25, 270, 19));
-        kDPanel6.add(contsubDate, new KDLayout.Constraints(293, 25, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        continviteType.setBounds(new Rectangle(293, 46, 270, 19));
-        kDPanel6.add(continviteType, new KDLayout.Constraints(293, 46, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contjudgeSolution.setBounds(new Rectangle(293, 67, 270, 19));
-        kDPanel6.add(contjudgeSolution, new KDLayout.Constraints(293, 67, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contevaTemplate.setBounds(new Rectangle(293, 88, 270, 19));
-        kDPanel6.add(contevaTemplate, new KDLayout.Constraints(293, 88, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contvalidTemplate.setBounds(new Rectangle(293, 111, 270, 19));
-        kDPanel6.add(contvalidTemplate, new KDLayout.Constraints(293, 111, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        kDContainer1.setBounds(new Rectangle(582, 4, 421, 123));
-        kDPanel6.add(kDContainer1, new KDLayout.Constraints(582, 4, 421, 123, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        kDContainer3.setBounds(new Rectangle(6, 135, 558, 126));
-        kDPanel6.add(kDContainer3, new KDLayout.Constraints(6, 135, 558, 126, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        kDContainer2.setBounds(new Rectangle(582, 135, 419, 126));
-        kDPanel6.add(kDContainer2, new KDLayout.Constraints(582, 135, 419, 126, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        kDPanel6.putClientProperty("OriginalBounds", new Rectangle(0, 0, 1018, 416));        continviteBudget.setBounds(new Rectangle(8, 31, 270, 19));
+        kDPanel6.add(continviteBudget, new KDLayout.Constraints(8, 31, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contaudDate.setBounds(new Rectangle(295, 97, 270, 19));
+        kDPanel6.add(contaudDate, new KDLayout.Constraints(295, 97, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contapplicant.setBounds(new Rectangle(8, 75, 270, 19));
+        kDPanel6.add(contapplicant, new KDLayout.Constraints(8, 75, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contpaperFee.setBounds(new Rectangle(8, 120, 270, 19));
+        kDPanel6.add(contpaperFee, new KDLayout.Constraints(8, 120, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contbidBond.setBounds(new Rectangle(582, 97, 270, 19));
+        kDPanel6.add(contbidBond, new KDLayout.Constraints(582, 97, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        continviteType.setBounds(new Rectangle(295, 31, 270, 19));
+        kDPanel6.add(continviteType, new KDLayout.Constraints(295, 31, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contjudgeSolution.setBounds(new Rectangle(582, 31, 270, 19));
+        kDPanel6.add(contjudgeSolution, new KDLayout.Constraints(582, 31, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contevaTemplate.setBounds(new Rectangle(295, 53, 270, 19));
+        kDPanel6.add(contevaTemplate, new KDLayout.Constraints(295, 53, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contvalidTemplate.setBounds(new Rectangle(8, 53, 270, 19));
+        kDPanel6.add(contvalidTemplate, new KDLayout.Constraints(8, 53, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDContainer1.setBounds(new Rectangle(582, 145, 421, 141));
+        kDPanel6.add(kDContainer1, new KDLayout.Constraints(582, 145, 421, 141, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        kDContainer3.setBounds(new Rectangle(8, 267, 558, 140));
+        kDPanel6.add(kDContainer3, new KDLayout.Constraints(8, 267, 558, 140, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDContainer2.setBounds(new Rectangle(582, 297, 421, 110));
+        kDPanel6.add(kDContainer2, new KDLayout.Constraints(582, 297, 421, 110, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        continviteDate.setBounds(new Rectangle(295, 75, 270, 19));
+        kDPanel6.add(continviteDate, new KDLayout.Constraints(295, 75, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contsubDate.setBounds(new Rectangle(582, 75, 270, 19));
+        kDPanel6.add(contsubDate, new KDLayout.Constraints(582, 75, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contopenDate.setBounds(new Rectangle(8, 97, 270, 19));
+        kDPanel6.add(contopenDate, new KDLayout.Constraints(8, 97, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contBIMUDF0004.setBounds(new Rectangle(8, 145, 558, 117));
+        kDPanel6.add(contBIMUDF0004, new KDLayout.Constraints(8, 145, 558, 117, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contNumber.setBounds(new Rectangle(8, 9, 270, 19));
+        kDPanel6.add(contNumber, new KDLayout.Constraints(8, 9, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contreportName.setBounds(new Rectangle(295, 9, 270, 19));
+        kDPanel6.add(contreportName, new KDLayout.Constraints(295, 9, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contproName.setBounds(new Rectangle(582, 9, 270, 19));
+        kDPanel6.add(contproName, new KDLayout.Constraints(582, 9, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contuseOrg.setBounds(new Rectangle(582, 53, 270, 19));
+        kDPanel6.add(contuseOrg, new KDLayout.Constraints(582, 53, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contStatus.setBounds(new Rectangle(295, 120, 270, 19));
+        kDPanel6.add(contStatus, new KDLayout.Constraints(295, 120, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDButton1.setBounds(new Rectangle(871, 9, 133, 21));
+        kDPanel6.add(kDButton1, new KDLayout.Constraints(871, 9, 133, 21, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         //continviteBudget
         continviteBudget.setBoundEditor(txtinviteBudget);
-        //contopenDate
-        contopenDate.setBoundEditor(pkopenDate);
         //contaudDate
         contaudDate.setBoundEditor(pkaudDate);
         //contapplicant
@@ -1096,10 +1060,6 @@ kDContainer4.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
         contpaperFee.setBoundEditor(txtpaperFee);
         //contbidBond
         contbidBond.setBoundEditor(txtbidBond);
-        //continviteDate
-        continviteDate.setBoundEditor(pkinviteDate);
-        //contsubDate
-        contsubDate.setBoundEditor(pksubDate);
         //continviteType
         continviteType.setBoundEditor(prmtinviteType);
         //contjudgeSolution
@@ -1116,7 +1076,43 @@ kDContainer3.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
         kDContainer3.getContentPane().add(kdtEntry3_detailPanel, BorderLayout.CENTER);
         //kDContainer2
 kDContainer2.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry5_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtEntry5,new com.kingdee.eas.port.pm.invite.InviteReportEntry5Info(),null,false);
-        kDContainer2.getContentPane().add(kdtEntry5_detailPanel, BorderLayout.NORTH);
+        kDContainer2.getContentPane().add(kdtEntry5_detailPanel, BorderLayout.CENTER);
+        //continviteDate
+        continviteDate.setBoundEditor(pkinviteDate);
+        //contsubDate
+        contsubDate.setBoundEditor(pksubDate);
+        //contopenDate
+        contopenDate.setBoundEditor(pkopenDate);
+        //contBIMUDF0004
+        contBIMUDF0004.setBoundEditor(scrollPaneBIMUDF0004);
+        //scrollPaneBIMUDF0004
+        scrollPaneBIMUDF0004.getViewport().add(txtBIMUDF0004, null);
+        //contNumber
+        contNumber.setBoundEditor(txtNumber);
+        //contreportName
+        contreportName.setBoundEditor(txtreportName);
+        //contproName
+        contproName.setBoundEditor(prmtproName);
+        //contuseOrg
+        contuseOrg.setBoundEditor(prmtuseOrg);
+        //contStatus
+        contStatus.setBoundEditor(comboStatus);
+        //kDPanel1
+        kDPanel1.setLayout(new KDLayout());
+        kDPanel1.putClientProperty("OriginalBounds", new Rectangle(0, 0, 1018, 416));        kDContainer5.setBounds(new Rectangle(4, 4, 1006, 237));
+        kDPanel1.add(kDContainer5, new KDLayout.Constraints(4, 4, 1006, 237, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        //kDContainer5
+kDContainer5.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry4_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtEntry4,new com.kingdee.eas.port.pm.invite.InviteReportEntry4Info(),null,false);
+        kDContainer5.getContentPane().add(kdtEntry4_detailPanel, BorderLayout.CENTER);
+        //contprojectNumber
+        contprojectNumber.setBoundEditor(txtprojectNumber);
+        //contdevOrg
+        contdevOrg.setBoundEditor(prmtdevOrg);
+        //contproSite
+        contproSite.setBoundEditor(txtproSite);
+        //kDContainer4
+kDContainer4.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry1_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtEntry1,new com.kingdee.eas.port.pm.invite.InviteReportEntry1Info(),null,false);
+        kDContainer4.getContentPane().add(kdtEntry1_detailPanel, BorderLayout.CENTER);
 
     }
 
@@ -1290,8 +1286,6 @@ kDContainer2.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
 
 	//Regiester control's property binding.
 	private void registerBindings(){
-		dataBinder.registerBinding("Entry4.seq", int.class, this.kdtEntry4, "seq.text");
-		dataBinder.registerBinding("Entry4", com.kingdee.eas.port.pm.invite.InviteReportEntry4Info.class, this.kdtEntry4, "userObject");
 		dataBinder.registerBinding("rmhigh", String.class, this.txtrmhigh, "text");
 		dataBinder.registerBinding("rmlow", String.class, this.txtrmlow, "text");
 		dataBinder.registerBinding("businessScore", String.class, this.txtbusinessScore, "text");
@@ -1308,25 +1302,11 @@ kDContainer2.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
 		dataBinder.registerBinding("bizStatus", com.kingdee.eas.xr.app.XRBizActionEnum.class, this.comboBizStatus, "selectedItem");
 		dataBinder.registerBinding("bizDate", java.util.Date.class, this.pkBizDate, "value");
 		dataBinder.registerBinding("description", String.class, this.txtDescription, "text");
-		dataBinder.registerBinding("reportName", String.class, this.txtreportName, "text");
-		dataBinder.registerBinding("proSite", String.class, this.txtproSite, "text");
-		dataBinder.registerBinding("useOrg", com.kingdee.eas.basedata.org.AdminOrgUnitInfo.class, this.prmtuseOrg, "data");
-		dataBinder.registerBinding("number", String.class, this.txtNumber, "text");
-		dataBinder.registerBinding("devOrg", com.kingdee.eas.basedata.org.AdminOrgUnitInfo.class, this.prmtdevOrg, "data");
-		dataBinder.registerBinding("status", com.kingdee.eas.xr.app.XRBillStatusEnum.class, this.comboStatus, "selectedItem");
-		dataBinder.registerBinding("BIMUDF0004", String.class, this.txtBIMUDF0004, "text");
-		dataBinder.registerBinding("Entry1.seq", int.class, this.kdtEntry1, "seq.text");
-		dataBinder.registerBinding("Entry1", com.kingdee.eas.port.pm.invite.InviteReportEntry1Info.class, this.kdtEntry1, "userObject");
-		dataBinder.registerBinding("proName", com.kingdee.eas.port.pm.base.EvaluationIndicatorsInfo.class, this.prmtproName, "data");
-		dataBinder.registerBinding("projectNumber", String.class, this.txtprojectNumber, "text");
 		dataBinder.registerBinding("inviteBudget", String.class, this.txtinviteBudget, "text");
-		dataBinder.registerBinding("openDate", java.util.Date.class, this.pkopenDate, "value");
 		dataBinder.registerBinding("audDate", java.util.Date.class, this.pkaudDate, "value");
 		dataBinder.registerBinding("applicant", com.kingdee.eas.basedata.person.PersonInfo.class, this.prmtapplicant, "data");
 		dataBinder.registerBinding("paperFee", String.class, this.txtpaperFee, "text");
 		dataBinder.registerBinding("bidBond", String.class, this.txtbidBond, "text");
-		dataBinder.registerBinding("inviteDate", java.util.Date.class, this.pkinviteDate, "value");
-		dataBinder.registerBinding("subDate", java.util.Date.class, this.pksubDate, "value");
 		dataBinder.registerBinding("inviteType", com.kingdee.eas.port.pm.base.InviteTypeInfo.class, this.prmtinviteType, "data");
 		dataBinder.registerBinding("judgeSolution", com.kingdee.eas.port.pm.invite.judgeSolution.class, this.judgeSolution, "selectedItem");
 		dataBinder.registerBinding("evaTemplate", com.kingdee.eas.port.pm.base.EvaluationTemplateInfo.class, this.prmtevaTemplate, "data");
@@ -1344,7 +1324,23 @@ kDContainer2.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
 		dataBinder.registerBinding("Entry5.seq", int.class, this.kdtEntry5, "seq.text");
 		dataBinder.registerBinding("Entry5", com.kingdee.eas.port.pm.invite.InviteReportEntry5Info.class, this.kdtEntry5, "userObject");
 		dataBinder.registerBinding("Entry5.amount", String.class, this.kdtEntry5, "amount.text");
-		dataBinder.registerBinding("Entry5.judgeType", java.lang.Object.class, this.kdtEntry5, "judgeType.text");		
+		dataBinder.registerBinding("Entry5.judgeType", java.lang.Object.class, this.kdtEntry5, "judgeType.text");
+		dataBinder.registerBinding("inviteDate", java.util.Date.class, this.pkinviteDate, "value");
+		dataBinder.registerBinding("subDate", java.util.Date.class, this.pksubDate, "value");
+		dataBinder.registerBinding("openDate", java.util.Date.class, this.pkopenDate, "value");
+		dataBinder.registerBinding("BIMUDF0004", String.class, this.txtBIMUDF0004, "text");
+		dataBinder.registerBinding("number", String.class, this.txtNumber, "text");
+		dataBinder.registerBinding("reportName", String.class, this.txtreportName, "text");
+		dataBinder.registerBinding("proName", com.kingdee.eas.port.pm.base.EvaluationIndicatorsInfo.class, this.prmtproName, "data");
+		dataBinder.registerBinding("useOrg", com.kingdee.eas.basedata.org.AdminOrgUnitInfo.class, this.prmtuseOrg, "data");
+		dataBinder.registerBinding("status", com.kingdee.eas.xr.app.XRBillStatusEnum.class, this.comboStatus, "selectedItem");
+		dataBinder.registerBinding("Entry4.seq", int.class, this.kdtEntry4, "seq.text");
+		dataBinder.registerBinding("Entry4", com.kingdee.eas.port.pm.invite.InviteReportEntry4Info.class, this.kdtEntry4, "userObject");
+		dataBinder.registerBinding("projectNumber", String.class, this.txtprojectNumber, "text");
+		dataBinder.registerBinding("devOrg", com.kingdee.eas.basedata.org.AdminOrgUnitInfo.class, this.prmtdevOrg, "data");
+		dataBinder.registerBinding("proSite", String.class, this.txtproSite, "text");
+		dataBinder.registerBinding("Entry1.seq", int.class, this.kdtEntry1, "seq.text");
+		dataBinder.registerBinding("Entry1", com.kingdee.eas.port.pm.invite.InviteReportEntry1Info.class, this.kdtEntry1, "userObject");		
 	}
 	//Regiester UI State
 	private void registerUIState(){		
@@ -1479,8 +1475,6 @@ kDContainer2.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
 	 */
 	protected void registerValidator() {
     	getValidateHelper().setCustomValidator( getValidator() );
-		getValidateHelper().registerBindProperty("Entry4.seq", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("Entry4", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("rmhigh", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("rmlow", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("businessScore", ValidateHelper.ON_SAVE);    
@@ -1497,25 +1491,11 @@ kDContainer2.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
 		getValidateHelper().registerBindProperty("bizStatus", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("bizDate", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("description", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("reportName", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("proSite", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("useOrg", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("number", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("devOrg", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("status", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("BIMUDF0004", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("Entry1.seq", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("Entry1", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("proName", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("projectNumber", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("inviteBudget", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("openDate", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("audDate", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("applicant", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("paperFee", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("bidBond", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("inviteDate", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("subDate", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("inviteType", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("judgeSolution", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("evaTemplate", ValidateHelper.ON_SAVE);    
@@ -1533,7 +1513,23 @@ kDContainer2.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
 		getValidateHelper().registerBindProperty("Entry5.seq", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("Entry5", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("Entry5.amount", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("Entry5.judgeType", ValidateHelper.ON_SAVE);    		
+		getValidateHelper().registerBindProperty("Entry5.judgeType", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("inviteDate", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("subDate", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("openDate", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("BIMUDF0004", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("number", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("reportName", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("proName", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("useOrg", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("status", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("Entry4.seq", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("Entry4", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("projectNumber", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("devOrg", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("proSite", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("Entry1.seq", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("Entry1", ValidateHelper.ON_SAVE);    		
 	}
 
 
@@ -1553,17 +1549,6 @@ kDContainer2.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
 
 
     /**
-     * output prmtproName_Changed() method
-     */
-    public void prmtproName_Changed() throws Exception
-    {
-        System.out.println("prmtproName_Changed() Function is executed!");
-            txtprojectNumber.setText(com.kingdee.bos.ui.face.UIRuleUtil.getString(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)prmtproName.getData(),"number")));
-
-
-    }
-
-    /**
      * output kdtEntry3_Changed(int rowIndex,int colIndex) method
      */
     public void kdtEntry3_Changed(int rowIndex,int colIndex) throws Exception
@@ -1572,6 +1557,17 @@ kDContainer2.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
 kdtEntry3.getCell(rowIndex,"department").setValue(com.kingdee.bos.ui.face.UIRuleUtil.getString(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)kdtEntry3.getCell(rowIndex,"invitePerson").getValue(),"curDep.name")));
 
 }
+
+
+    }
+
+    /**
+     * output prmtproName_Changed() method
+     */
+    public void prmtproName_Changed() throws Exception
+    {
+        System.out.println("prmtproName_Changed() Function is executed!");
+            txtprojectNumber.setText(com.kingdee.bos.ui.face.UIRuleUtil.getString(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)prmtproName.getData(),"number")));
 
 
     }
@@ -1584,13 +1580,6 @@ kdtEntry3.getCell(rowIndex,"department").setValue(com.kingdee.bos.ui.face.UIRule
 		String selectorAll = System.getProperty("selector.all");
 		if(StringUtils.isEmpty(selectorAll)){
 			selectorAll = "true";
-		}
-    	sic.add(new SelectorItemInfo("Entry4.seq"));
-		if(selectorAll.equalsIgnoreCase("true"))
-		{
-			sic.add(new SelectorItemInfo("Entry4.*"));
-		}
-		else{
 		}
         sic.add(new SelectorItemInfo("rmhigh"));
         sic.add(new SelectorItemInfo("rmlow"));
@@ -1640,48 +1629,7 @@ kdtEntry3.getCell(rowIndex,"department").setValue(com.kingdee.bos.ui.face.UIRule
         sic.add(new SelectorItemInfo("bizStatus"));
         sic.add(new SelectorItemInfo("bizDate"));
         sic.add(new SelectorItemInfo("description"));
-        sic.add(new SelectorItemInfo("reportName"));
-        sic.add(new SelectorItemInfo("proSite"));
-		if(selectorAll.equalsIgnoreCase("true"))
-		{
-			sic.add(new SelectorItemInfo("useOrg.*"));
-		}
-		else{
-        	sic.add(new SelectorItemInfo("useOrg.id"));
-        	sic.add(new SelectorItemInfo("useOrg.number"));
-        	sic.add(new SelectorItemInfo("useOrg.name"));
-		}
-        sic.add(new SelectorItemInfo("number"));
-		if(selectorAll.equalsIgnoreCase("true"))
-		{
-			sic.add(new SelectorItemInfo("devOrg.*"));
-		}
-		else{
-        	sic.add(new SelectorItemInfo("devOrg.id"));
-        	sic.add(new SelectorItemInfo("devOrg.number"));
-        	sic.add(new SelectorItemInfo("devOrg.name"));
-		}
-        sic.add(new SelectorItemInfo("status"));
-        sic.add(new SelectorItemInfo("BIMUDF0004"));
-    	sic.add(new SelectorItemInfo("Entry1.seq"));
-		if(selectorAll.equalsIgnoreCase("true"))
-		{
-			sic.add(new SelectorItemInfo("Entry1.*"));
-		}
-		else{
-		}
-		if(selectorAll.equalsIgnoreCase("true"))
-		{
-			sic.add(new SelectorItemInfo("proName.*"));
-		}
-		else{
-        	sic.add(new SelectorItemInfo("proName.id"));
-        	sic.add(new SelectorItemInfo("proName.number"));
-        	sic.add(new SelectorItemInfo("proName.name"));
-		}
-        sic.add(new SelectorItemInfo("projectNumber"));
         sic.add(new SelectorItemInfo("inviteBudget"));
-        sic.add(new SelectorItemInfo("openDate"));
         sic.add(new SelectorItemInfo("audDate"));
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
@@ -1694,8 +1642,6 @@ kdtEntry3.getCell(rowIndex,"department").setValue(com.kingdee.bos.ui.face.UIRule
 		}
         sic.add(new SelectorItemInfo("paperFee"));
         sic.add(new SelectorItemInfo("bidBond"));
-        sic.add(new SelectorItemInfo("inviteDate"));
-        sic.add(new SelectorItemInfo("subDate"));
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
 			sic.add(new SelectorItemInfo("inviteType.*"));
@@ -1779,6 +1725,56 @@ kdtEntry3.getCell(rowIndex,"department").setValue(com.kingdee.bos.ui.face.UIRule
 	    	sic.add(new SelectorItemInfo("Entry5.judgeType.id"));
 			sic.add(new SelectorItemInfo("Entry5.judgeType.name"));
         	sic.add(new SelectorItemInfo("Entry5.judgeType.number"));
+		}
+        sic.add(new SelectorItemInfo("inviteDate"));
+        sic.add(new SelectorItemInfo("subDate"));
+        sic.add(new SelectorItemInfo("openDate"));
+        sic.add(new SelectorItemInfo("BIMUDF0004"));
+        sic.add(new SelectorItemInfo("number"));
+        sic.add(new SelectorItemInfo("reportName"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("proName.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("proName.id"));
+        	sic.add(new SelectorItemInfo("proName.number"));
+        	sic.add(new SelectorItemInfo("proName.name"));
+		}
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("useOrg.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("useOrg.id"));
+        	sic.add(new SelectorItemInfo("useOrg.number"));
+        	sic.add(new SelectorItemInfo("useOrg.name"));
+		}
+        sic.add(new SelectorItemInfo("status"));
+    	sic.add(new SelectorItemInfo("Entry4.seq"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("Entry4.*"));
+		}
+		else{
+		}
+        sic.add(new SelectorItemInfo("projectNumber"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("devOrg.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("devOrg.id"));
+        	sic.add(new SelectorItemInfo("devOrg.number"));
+        	sic.add(new SelectorItemInfo("devOrg.name"));
+		}
+        sic.add(new SelectorItemInfo("proSite"));
+    	sic.add(new SelectorItemInfo("Entry1.seq"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("Entry1.*"));
+		}
+		else{
 		}
         return sic;
     }        
@@ -1877,7 +1873,7 @@ kdtEntry3.getCell(rowIndex,"department").setValue(com.kingdee.bos.ui.face.UIRule
      * output getDetailTable method
      */
     protected KDTable getDetailTable() {
-        return kdtEntry4;
+        return kdtEntry2;
 	}
     /**
      * output applyDefaultValue method
