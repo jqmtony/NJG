@@ -8,6 +8,9 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+
 import org.apache.log4j.Logger;
 
 import com.kingdee.bos.BOSException;
@@ -38,6 +41,7 @@ import com.kingdee.eas.port.pm.base.JudgesTreeFactory;
 import com.kingdee.eas.port.pm.base.JudgesTreeInfo;
 import com.kingdee.eas.port.pm.invite.InviteReportEntry3Collection;
 import com.kingdee.eas.port.pm.invite.InviteReportEntry3Info;
+import com.kingdee.eas.port.pm.invite.InviteReportEntry5Collection;
 import com.kingdee.eas.port.pm.invite.InviteReportInfo;
 import com.kingdee.eas.util.client.EASResource;
 
@@ -97,6 +101,18 @@ public class JudgesComfirmEditUI extends AbstractJudgesComfirmEditUI
 //    	InitWorkButton(this.kDContainer2);
     }
     
+    @Override
+    protected void verifyInput(ActionEvent e) throws Exception {
+    	// TODO Auto-generated method stub
+    	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, prmtplanName, "招标方案");
+    	InviteReportInfo reportInfo = (InviteReportInfo) this.prmtplanName.getValue();
+    	InviteReportEntry5Collection judgeColl = reportInfo.getEntry5();
+    	//校验专家信息是否与招标方案申报中的相符合
+    	if(this.kdtEntry.getRowCount() > 0 && judgeColl.size() > 0) {
+    		
+    	}
+    	super.verifyInput(e);
+    }
     //专家信息分录添加引入招标成员组按钮
     private void InitInvitePerson(KDContainer kDContainer) {
     	KDWorkButton invitePerson = new KDWorkButton();
