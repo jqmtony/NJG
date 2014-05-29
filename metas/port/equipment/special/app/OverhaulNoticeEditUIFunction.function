@@ -115,6 +115,114 @@
                 <key name="name" value="OverhaulNotice" />
             </entityObjectRef>
         </operation>
+        <operation>
+            <name>actitonConRect</name>
+            <alias>functionObject[com.kingdee.eas.port.equipment.special.app.OverhaulNoticeEditUIFunction].operations.operation[actitonConRect].alias</alias>
+            <description>functionObject[com.kingdee.eas.port.equipment.special.app.OverhaulNoticeEditUIFunction].operations.operation[actitonConRect].description</description>
+            <reverseOperation />
+            <eventMethod>c48fa8a9-bc24-47f7-a89c-147ad218079d</eventMethod>
+            <event>actitonConRectEvent</event>
+            <userDefined>true</userDefined>
+            <uiActionRef>
+                <id>2568c83a-0f02-4761-87ac-adc1568cec78uiaf</id>
+                <uiStatus>EDIT</uiStatus>
+                <webUIStatus />
+                <userDefined>true</userDefined>
+                <uiObjectRef>
+                    <key name="package" value="com.kingdee.eas.port.equipment.special.client" />
+                    <key name="name" value="OverhaulNoticeEditUI" />
+                </uiObjectRef>
+                <actionRefName>ActionActitonConRect</actionRefName>
+                <webActionRefName />
+                <parameters>
+                    <parameter>
+                        <name>billID</name>
+                        <alias>functionObject[com.kingdee.eas.port.equipment.special.app.OverhaulNoticeEditUIFunction].operations.operation[actitonConRect].uiActionRef.parameters.parameter[billID].alias</alias>
+                        <description>functionObject[com.kingdee.eas.port.equipment.special.app.OverhaulNoticeEditUIFunction].operations.operation[actitonConRect].uiActionRef.parameters.parameter[billID].description</description>
+                        <direction>in</direction>
+                        <dataType>BOSUuid</dataType>
+                        <metadataRef />
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </parameters>
+            </uiActionRef>
+            <entityObjectRef>
+                <key name="package" value="com.kingdee.eas.port.equipment.special.app" />
+                <key name="name" value="OverhaulNotice" />
+            </entityObjectRef>
+        </operation>
+        <operation>
+            <name>unConRet</name>
+            <alias>functionObject[com.kingdee.eas.port.equipment.special.app.OverhaulNoticeEditUIFunction].operations.operation[unConRet].alias</alias>
+            <description>functionObject[com.kingdee.eas.port.equipment.special.app.OverhaulNoticeEditUIFunction].operations.operation[unConRet].description</description>
+            <reverseOperation />
+            <eventMethod>030e9f03-63b1-4b1d-a06c-c02d3eee021b</eventMethod>
+            <event>unConRetEvent</event>
+            <userDefined>true</userDefined>
+            <uiActionRef>
+                <id>7a29fbc5-a424-497d-8fd8-46d8c7f01689uiaf</id>
+                <uiStatus>EDIT</uiStatus>
+                <webUIStatus />
+                <userDefined>true</userDefined>
+                <uiObjectRef>
+                    <key name="package" value="com.kingdee.eas.port.equipment.special.client" />
+                    <key name="name" value="OverhaulNoticeEditUI" />
+                </uiObjectRef>
+                <actionRefName>ActionUnConRet</actionRefName>
+                <webActionRefName />
+                <parameters>
+                    <parameter>
+                        <name>billID</name>
+                        <alias>functionObject[com.kingdee.eas.port.equipment.special.app.OverhaulNoticeEditUIFunction].operations.operation[unConRet].uiActionRef.parameters.parameter[billID].alias</alias>
+                        <description>functionObject[com.kingdee.eas.port.equipment.special.app.OverhaulNoticeEditUIFunction].operations.operation[unConRet].uiActionRef.parameters.parameter[billID].description</description>
+                        <direction>in</direction>
+                        <dataType>BOSUuid</dataType>
+                        <metadataRef />
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </parameters>
+            </uiActionRef>
+            <entityObjectRef>
+                <key name="package" value="com.kingdee.eas.port.equipment.special.app" />
+                <key name="name" value="OverhaulNotice" />
+            </entityObjectRef>
+        </operation>
+        <operation>
+            <name>feedInfor</name>
+            <alias>functionObject[com.kingdee.eas.port.equipment.special.app.OverhaulNoticeEditUIFunction].operations.operation[feedInfor].alias</alias>
+            <description>functionObject[com.kingdee.eas.port.equipment.special.app.OverhaulNoticeEditUIFunction].operations.operation[feedInfor].description</description>
+            <reverseOperation />
+            <eventMethod>7d5e4746-5a42-492f-82e0-fe3d8159a752</eventMethod>
+            <event>feedInforEvent</event>
+            <userDefined>true</userDefined>
+            <uiActionRef>
+                <id>3f535e9d-da8e-4d9a-9859-f7f93d45fbd9uiaf</id>
+                <uiStatus>EDIT</uiStatus>
+                <webUIStatus />
+                <userDefined>true</userDefined>
+                <uiObjectRef>
+                    <key name="package" value="com.kingdee.eas.port.equipment.special.client" />
+                    <key name="name" value="OverhaulNoticeEditUI" />
+                </uiObjectRef>
+                <actionRefName>ActionFeedInfor</actionRefName>
+                <webActionRefName />
+                <parameters>
+                    <parameter>
+                        <name>billID</name>
+                        <alias>functionObject[com.kingdee.eas.port.equipment.special.app.OverhaulNoticeEditUIFunction].operations.operation[feedInfor].uiActionRef.parameters.parameter[billID].alias</alias>
+                        <description>functionObject[com.kingdee.eas.port.equipment.special.app.OverhaulNoticeEditUIFunction].operations.operation[feedInfor].uiActionRef.parameters.parameter[billID].description</description>
+                        <direction>in</direction>
+                        <dataType>BOSUuid</dataType>
+                        <metadataRef />
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </parameters>
+            </uiActionRef>
+            <entityObjectRef>
+                <key name="package" value="com.kingdee.eas.port.equipment.special.app" />
+                <key name="name" value="OverhaulNotice" />
+            </entityObjectRef>
+        </operation>
     </operations>
     <resource>
         <rs key="functionObject[com.kingdee.eas.port.equipment.special.app.OverhaulNoticeEditUIFunction].alias">
@@ -211,6 +319,93 @@
             <lang locale="zh_TW" value="單據內碼" />
         </rs>
         <rs key="functionObject[com.kingdee.eas.port.equipment.special.app.OverhaulNoticeEditUIFunction].operations.operation[ActionUnAudit].uiActionRef.parameters.parameter[billID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据内码" />
+            <lang locale="zh_HK" value="單據內碼" />
+            <lang locale="zh_TW" value="單據內碼" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.special.app.OverhaulNoticeEditUIFunction].operations.operation[actitonConRect].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="确认整改" />
+            <lang locale="zh_HK" value="確認整改" />
+            <lang locale="zh_TW" value="確認整改" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.special.app.OverhaulNoticeEditUIFunction].operations.operation[actitonConRect].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.special.app.OverhaulNoticeEditUIFunction].operations.operation[actitonConRect].extendedProperty.userDefined">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.special.app.OverhaulNoticeEditUIFunction].operations.operation[actitonConRect].uiActionRef.parameters.parameter[billID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据内码" />
+            <lang locale="zh_HK" value="單據內碼" />
+            <lang locale="zh_TW" value="單據內碼" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.special.app.OverhaulNoticeEditUIFunction].operations.operation[actitonConRect].uiActionRef.parameters.parameter[billID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据内码" />
+            <lang locale="zh_HK" value="單據內碼" />
+            <lang locale="zh_TW" value="單據內碼" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.special.app.OverhaulNoticeEditUIFunction].operations.operation[feedInfor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="录入整改反馈信息" />
+            <lang locale="zh_HK" value="錄入整改反饋信息" />
+            <lang locale="zh_TW" value="錄入整改反饋信息" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.special.app.OverhaulNoticeEditUIFunction].operations.operation[feedInfor].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.special.app.OverhaulNoticeEditUIFunction].operations.operation[feedInfor].extendedProperty.userDefined">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.special.app.OverhaulNoticeEditUIFunction].operations.operation[feedInfor].uiActionRef.parameters.parameter[billID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据内码" />
+            <lang locale="zh_HK" value="單據內碼" />
+            <lang locale="zh_TW" value="單據內碼" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.special.app.OverhaulNoticeEditUIFunction].operations.operation[feedInfor].uiActionRef.parameters.parameter[billID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据内码" />
+            <lang locale="zh_HK" value="單據內碼" />
+            <lang locale="zh_TW" value="單據內碼" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.special.app.OverhaulNoticeEditUIFunction].operations.operation[unConRet].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="反确认整改" />
+            <lang locale="zh_HK" value="反確認整改" />
+            <lang locale="zh_TW" value="反確認整改" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.special.app.OverhaulNoticeEditUIFunction].operations.operation[unConRet].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.special.app.OverhaulNoticeEditUIFunction].operations.operation[unConRet].extendedProperty.userDefined">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.special.app.OverhaulNoticeEditUIFunction].operations.operation[unConRet].uiActionRef.parameters.parameter[billID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据内码" />
+            <lang locale="zh_HK" value="單據內碼" />
+            <lang locale="zh_TW" value="單據內碼" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.special.app.OverhaulNoticeEditUIFunction].operations.operation[unConRet].uiActionRef.parameters.parameter[billID].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="单据内码" />
             <lang locale="zh_HK" value="單據內碼" />

@@ -187,6 +187,78 @@
                 <key name="name" value="EquId" />
             </entityObjectRef>
         </operation>
+        <operation>
+            <name>actionRegistChange</name>
+            <alias>functionObject[com.kingdee.eas.port.equipment.record.app.EquIdEditUIFunction].operations.operation[actionRegistChange].alias</alias>
+            <description>functionObject[com.kingdee.eas.port.equipment.record.app.EquIdEditUIFunction].operations.operation[actionRegistChange].description</description>
+            <reverseOperation />
+            <eventMethod>53c255bc-2bf0-4af0-a22c-59d1b4d11402</eventMethod>
+            <event>actionRegistChangeEvent</event>
+            <userDefined>true</userDefined>
+            <uiActionRef>
+                <id>ea3ec61e-5150-436a-9c6a-0602dcdbd993uiaf</id>
+                <uiStatus>EDIT</uiStatus>
+                <webUIStatus />
+                <userDefined>true</userDefined>
+                <uiObjectRef>
+                    <key name="package" value="com.kingdee.eas.port.equipment.record.client" />
+                    <key name="name" value="EquIdEditUI" />
+                </uiObjectRef>
+                <actionRefName>ActionRegistChange</actionRefName>
+                <webActionRefName />
+                <parameters>
+                    <parameter>
+                        <name>billID</name>
+                        <alias>functionObject[com.kingdee.eas.port.equipment.record.app.EquIdEditUIFunction].operations.operation[actionRegistChange].uiActionRef.parameters.parameter[billID].alias</alias>
+                        <description>functionObject[com.kingdee.eas.port.equipment.record.app.EquIdEditUIFunction].operations.operation[actionRegistChange].uiActionRef.parameters.parameter[billID].description</description>
+                        <direction>in</direction>
+                        <dataType>BOSUuid</dataType>
+                        <metadataRef />
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </parameters>
+            </uiActionRef>
+            <entityObjectRef>
+                <key name="package" value="com.kingdee.eas.port.equipment.record.app" />
+                <key name="name" value="EquId" />
+            </entityObjectRef>
+        </operation>
+        <operation>
+            <name>excel</name>
+            <alias>functionObject[com.kingdee.eas.port.equipment.record.app.EquIdEditUIFunction].operations.operation[excel].alias</alias>
+            <description>functionObject[com.kingdee.eas.port.equipment.record.app.EquIdEditUIFunction].operations.operation[excel].description</description>
+            <reverseOperation />
+            <eventMethod>82518433-2bbe-475f-b19c-486caceecb99</eventMethod>
+            <event>excelEvent</event>
+            <userDefined>true</userDefined>
+            <uiActionRef>
+                <id>8860c0e6-3404-424c-9de8-e2c068e1a257uiaf</id>
+                <uiStatus>EDIT</uiStatus>
+                <webUIStatus />
+                <userDefined>true</userDefined>
+                <uiObjectRef>
+                    <key name="package" value="com.kingdee.eas.port.equipment.record.client" />
+                    <key name="name" value="EquIdEditUI" />
+                </uiObjectRef>
+                <actionRefName>ActionExcel</actionRefName>
+                <webActionRefName />
+                <parameters>
+                    <parameter>
+                        <name>billID</name>
+                        <alias>functionObject[com.kingdee.eas.port.equipment.record.app.EquIdEditUIFunction].operations.operation[excel].uiActionRef.parameters.parameter[billID].alias</alias>
+                        <description>functionObject[com.kingdee.eas.port.equipment.record.app.EquIdEditUIFunction].operations.operation[excel].uiActionRef.parameters.parameter[billID].description</description>
+                        <direction>in</direction>
+                        <dataType>BOSUuid</dataType>
+                        <metadataRef />
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </parameters>
+            </uiActionRef>
+            <entityObjectRef>
+                <key name="package" value="com.kingdee.eas.port.equipment.record.app" />
+                <key name="name" value="EquId" />
+            </entityObjectRef>
+        </operation>
     </operations>
     <resource>
         <rs key="functionObject[com.kingdee.eas.port.equipment.record.app.EquIdEditUIFunction].alias">
@@ -283,6 +355,64 @@
             <lang locale="zh_TW" value="單據內碼" />
         </rs>
         <rs key="functionObject[com.kingdee.eas.port.equipment.record.app.EquIdEditUIFunction].operations.operation[ActionUnAudit].uiActionRef.parameters.parameter[billID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据内码" />
+            <lang locale="zh_HK" value="單據內碼" />
+            <lang locale="zh_TW" value="單據內碼" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.record.app.EquIdEditUIFunction].operations.operation[actionRegistChange].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="变更登记" />
+            <lang locale="zh_HK" value="變更登記" />
+            <lang locale="zh_TW" value="變更登記" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.record.app.EquIdEditUIFunction].operations.operation[actionRegistChange].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.record.app.EquIdEditUIFunction].operations.operation[actionRegistChange].extendedProperty.userDefined">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.record.app.EquIdEditUIFunction].operations.operation[actionRegistChange].uiActionRef.parameters.parameter[billID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据内码" />
+            <lang locale="zh_HK" value="單據內碼" />
+            <lang locale="zh_TW" value="單據內碼" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.record.app.EquIdEditUIFunction].operations.operation[actionRegistChange].uiActionRef.parameters.parameter[billID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据内码" />
+            <lang locale="zh_HK" value="單據內碼" />
+            <lang locale="zh_TW" value="單據內碼" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.record.app.EquIdEditUIFunction].operations.operation[excel].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="Excel引入" />
+            <lang locale="zh_HK" value="Excel引入" />
+            <lang locale="zh_TW" value="Excel引入" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.record.app.EquIdEditUIFunction].operations.operation[excel].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.record.app.EquIdEditUIFunction].operations.operation[excel].extendedProperty.userDefined">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.record.app.EquIdEditUIFunction].operations.operation[excel].uiActionRef.parameters.parameter[billID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据内码" />
+            <lang locale="zh_HK" value="單據內碼" />
+            <lang locale="zh_TW" value="單據內碼" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.record.app.EquIdEditUIFunction].operations.operation[excel].uiActionRef.parameters.parameter[billID].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="单据内码" />
             <lang locale="zh_HK" value="單據內碼" />

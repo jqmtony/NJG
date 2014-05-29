@@ -5783,7 +5783,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>699,13,270,19,137</constraints>
+            <constraints>355,55,270,19,385</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -6126,7 +6126,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>355,55,270,19,385</constraints>
+            <constraints>699,55,147,19,385</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -6175,7 +6175,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>699,55,270,19,137</constraints>
+            <constraints>851,55,118,19,137</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -6224,7 +6224,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>11,55,270,19,261</constraints>
+            <constraints>699,13,270,19,137</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -6268,13 +6268,62 @@
             </parent>
         </component>
         <component>
+            <name>conttextDate1</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[conttextDate1].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>11,55,270,19,261</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>boundLabelText</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[conttextDate1].properties.property[boundLabelText].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelLength</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[conttextDate1].properties.property[boundLabelLength].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelUnderline</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[conttextDate1].properties.property[boundLabelUnderline].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[conttextDate1].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="kDPanel11" />
+            </parent>
+        </component>
+        <component>
             <name>testDay</name>
             <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[testDay].alias</alias>
             <userDefined>true</userDefined>
-            <classType>com.kingdee.bos.ctrl.swing.KDTimePicker</classType>
+            <classType>com.kingdee.bos.ctrl.swing.KDDatePicker</classType>
             <isContainer>false</isContainer>
             <constraints>7</constraints>
-            <tabIndex>66</tabIndex>
+            <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
             <layoutInfo>
@@ -6282,15 +6331,6 @@
                 <type>XYLayout</type>
                 <value />
             </layoutInfo>
-            <properties>
-                <property>
-                    <name>visible</name>
-                    <type>boolean</type>
-                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[testDay].properties.property[visible].value</value>
-                    <isMultiLan>false</isMultiLan>
-                    <userDefined>true</userDefined>
-                </property>
-            </properties>
             <parent>
                 <key name="name" value="conttestDay" />
             </parent>
@@ -6300,8 +6340,8 @@
                     <propertyType>java.lang.Object</propertyType>
                     <bindingObject>editData</bindingObject>
                     <bindingField>testDay</bindingField>
-                    <fieldType>java.sql.Time</fieldType>
-                    <accessType>2</accessType>
+                    <fieldType>java.util.Date</fieldType>
+                    <accessType />
                     <autoMode>false</autoMode>
                     <herited>false</herited>
                     <userDefined>true</userDefined>
@@ -6957,6 +6997,54 @@
                     <bindingObject>editData</bindingObject>
                     <bindingField>ratedWeight</bindingField>
                     <fieldType>java.math.BigDecimal</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
+        <component>
+            <name>pktextDate1</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[pktextDate1].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDDatePicker</classType>
+            <isContainer>false</isContainer>
+            <constraints>7</constraints>
+            <tabIndex>78</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[pktextDate1].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>required</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[pktextDate1].properties.property[required].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="conttextDate1" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>value</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>textDate1</bindingField>
+                    <fieldType>java.util.Date</fieldType>
                     <accessType>2</accessType>
                     <autoMode>false</autoMode>
                     <herited>false</herited>
@@ -7693,6 +7781,564 @@
                 </propertyBinding>
             </propertyBindings>
         </component>
+        <component>
+            <name>btnEdit</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnEdit].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>2</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>kDSeparatorCloud</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDSeparatorCloud].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDSeparator</classType>
+            <isContainer>false</isContainer>
+            <constraints>3</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnSave</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnSave].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>4</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnReset</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnReset].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>5</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnSubmit</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnSubmit].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>6</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnCopy</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnCopy].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>7</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnRemove</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnRemove].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>8</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnCancelCancel</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnCancelCancel].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>9</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnCancel</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnCancel].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>10</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnAttachment</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnAttachment].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>11</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnAudit</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnAudit].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>12</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnUnAudit</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnUnAudit].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>13</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnRegistChange</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnRegistChange].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>14</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>text</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnRegistChange].properties.property[text].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>action</name>
+                    <type>javax.swing.Action</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnRegistChange].properties.property[action].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="CoreUI_toolbar" />
+            </parent>
+        </component>
+        <component>
+            <name>separatorFW1</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[separatorFW1].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>javax.swing.JToolBar.Separator</classType>
+            <isContainer>false</isContainer>
+            <constraints>15</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnPageSetup</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnPageSetup].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>16</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnPrint</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnPrint].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>17</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnPrintPreview</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnPrintPreview].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>18</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>separatorFW2</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[separatorFW2].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>javax.swing.JToolBar.Separator</classType>
+            <isContainer>false</isContainer>
+            <constraints>19</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnFirst</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnFirst].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>20</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnPre</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnPre].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>21</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnNext</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnNext].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>22</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnLast</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnLast].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>23</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>separatorFW3</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[separatorFW3].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>javax.swing.JToolBar.Separator</classType>
+            <isContainer>false</isContainer>
+            <constraints>24</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnTraceUp</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnTraceUp].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>25</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnTraceDown</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnTraceDown].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>26</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnWorkFlowG</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnWorkFlowG].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>27</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnSignature</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnSignature].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>28</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnNumberSign</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnNumberSign].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>29</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnViewSignature</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnViewSignature].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>30</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>separatorFW4</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[separatorFW4].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>javax.swing.JPopupMenu.Separator</classType>
+            <isContainer>false</isContainer>
+            <constraints>31</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>separatorFW7</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[separatorFW7].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>javax.swing.JToolBar.Separator</classType>
+            <isContainer>false</isContainer>
+            <constraints>32</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnCreateFrom</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnCreateFrom].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>33</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnCopyFrom</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnCopyFrom].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>34</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnCreateTo</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnCreateTo].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>35</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>separatorFW5</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[separatorFW5].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>javax.swing.JPopupMenu.Separator</classType>
+            <isContainer>false</isContainer>
+            <constraints>36</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>separatorFW8</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[separatorFW8].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>javax.swing.JToolBar.Separator</classType>
+            <isContainer>false</isContainer>
+            <constraints>37</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnAddLine</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnAddLine].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>38</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnCopyLine</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnCopyLine].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>39</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnInsertLine</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnInsertLine].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>40</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnRemoveLine</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnRemoveLine].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>41</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>separatorFW6</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[separatorFW6].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>javax.swing.JPopupMenu.Separator</classType>
+            <isContainer>false</isContainer>
+            <constraints>42</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>separatorFW9</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[separatorFW9].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>javax.swing.JToolBar.Separator</classType>
+            <isContainer>false</isContainer>
+            <constraints>43</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnVoucher</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnVoucher].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>44</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnDelVoucher</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnDelVoucher].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>45</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnAuditResult</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnAuditResult].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>46</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnMultiapprove</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnMultiapprove].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>47</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnWFViewdoProccess</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnWFViewdoProccess].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>48</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnWFViewSubmitProccess</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnWFViewSubmitProccess].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>49</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnNextPerson</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnNextPerson].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>50</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
     </components>
     <dataObjects>
         <dataObject>
@@ -7827,8 +8473,96 @@
             <isEntryAction>false</isEntryAction>
             <batchMethodName />
         </action>
+        <action>
+            <instanceName>actionRegistChange</instanceName>
+            <className>ActionRegistChange</className>
+            <name>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].actions.action[actionRegistChange].name</name>
+            <enabled>true</enabled>
+            <actionPerformed>com.kingdee.eas.port.equipment.record.EquIdFactory.getRemoteInstance().actionRegistChange(editData);</actionPerformed>
+            <beforeActionPerformed />
+            <afterActionPerformed />
+            <finallyActionPerformed />
+            <actionCommandKey />
+            <acceleratorKey />
+            <mnemonicKey />
+            <smallIcon>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].actions.action[actionRegistChange].smallIcon</smallIcon>
+            <shortDescription>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].actions.action[actionRegistChange].shortDescription</shortDescription>
+            <longDescription>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].actions.action[actionRegistChange].longDescription</longDescription>
+            <isBindWorkFlow>false</isBindWorkFlow>
+            <herited>false</herited>
+            <daemonRun>false</daemonRun>
+            <actionExtendProperty>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;ExtendProperty&gt;&lt;item key="canForewarn" value="true" /&gt;&lt;item key="userDefined" value="true" /&gt;&lt;item key="isObjectUpdateLock" value="false" /&gt;&lt;/ExtendProperty&gt;</actionExtendProperty>
+            <services>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root&gt;&lt;service class="com.kingdee.eas.framework.client.service.PermissionService" /&gt;&lt;service class="com.kingdee.eas.framework.client.service.ForewarnService" /&gt;&lt;/root&gt;</services>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <oprtIntent />
+            <nextUI />
+            <isUIPNavigator>false</isUIPNavigator>
+            <isBatchAction>false</isBatchAction>
+            <isEntryAction>false</isEntryAction>
+            <batchMethodName />
+        </action>
+        <action>
+            <instanceName>actionExcel</instanceName>
+            <className>ActionExcel</className>
+            <name>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].actions.action[actionExcel].name</name>
+            <enabled>true</enabled>
+            <actionPerformed>com.kingdee.eas.port.equipment.record.EquIdFactory.getRemoteInstance().excel(editData);</actionPerformed>
+            <beforeActionPerformed />
+            <afterActionPerformed />
+            <finallyActionPerformed />
+            <actionCommandKey />
+            <acceleratorKey />
+            <mnemonicKey />
+            <smallIcon>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].actions.action[actionExcel].smallIcon</smallIcon>
+            <shortDescription>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].actions.action[actionExcel].shortDescription</shortDescription>
+            <longDescription>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].actions.action[actionExcel].longDescription</longDescription>
+            <isBindWorkFlow>false</isBindWorkFlow>
+            <herited>false</herited>
+            <daemonRun>false</daemonRun>
+            <actionExtendProperty>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;ExtendProperty&gt;&lt;item key="canForewarn" value="true" /&gt;&lt;item key="userDefined" value="true" /&gt;&lt;item key="isObjectUpdateLock" value="false" /&gt;&lt;/ExtendProperty&gt;
+</actionExtendProperty>
+            <services>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root&gt;&lt;service class="com.kingdee.eas.framework.client.service.PermissionService" /&gt;&lt;service class="com.kingdee.eas.framework.client.service.ForewarnService" /&gt;&lt;/root&gt;
+</services>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <oprtIntent />
+            <nextUI />
+            <isUIPNavigator>false</isUIPNavigator>
+            <isBatchAction>false</isBatchAction>
+            <isEntryAction>false</isEntryAction>
+            <batchMethodName />
+        </action>
     </actions>
     <resource>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].actions.action[actionExcel].longDescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].actions.action[actionExcel].name">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="Excel引入" />
+            <lang locale="zh_HK" value="Excel引入" />
+            <lang locale="zh_TW" value="Excel引入" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].actions.action[actionExcel].shortDescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].actions.action[actionExcel].smallIcon">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].actions.action[actionInUse].longDescription">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -7872,6 +8606,30 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].actions.action[actionOutUse].smallIcon">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].actions.action[actionRegistChange].longDescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].actions.action[actionRegistChange].name">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="变更登记" />
+            <lang locale="zh_HK" value="變更登記" />
+            <lang locale="zh_TW" value="變更登記" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].actions.action[actionRegistChange].shortDescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].actions.action[actionRegistChange].smallIcon">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -7932,6 +8690,252 @@
             <lang locale="zh_TW" value="設備檔案" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[CoreUI].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnAddLine].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnAttachment].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnAuditResult].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnAudit].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnCancelCancel].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnCancel].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnCopyFrom].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnCopyLine].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnCopy].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnCreateFrom].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnCreateTo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnDelVoucher].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnEdit].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnFirst].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnInsertLine].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnLast].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnMultiapprove].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnNextPerson].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnNext].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnNumberSign].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnPageSetup].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnPre].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnPrintPreview].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnPrint].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnRegistChange].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnRegistChange].properties.property[action].value">
+            <lang locale="en_US" value="actionRegistChange" />
+            <lang locale="zh_CN" value="actionRegistChange" />
+            <lang locale="zh_HK" value="actionRegistChange" />
+            <lang locale="zh_TW" value="actionRegistChange" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnRegistChange].properties.property[text].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="变更登记" />
+            <lang locale="zh_HK" value="變更登記" />
+            <lang locale="zh_TW" value="變更登記" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnRemoveLine].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnRemove].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnReset].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnSave].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnSignature].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnSubmit].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnTraceDown].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnTraceUp].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnUnAudit].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnViewSignature].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnVoucher].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnWFViewSubmitProccess].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnWFViewdoProccess].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[btnWorkFlowG].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -9341,10 +10345,10 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contcarNumber].properties.property[boundLabelLength].value">
-            <lang locale="en_US" value="100" />
-            <lang locale="zh_CN" value="100" />
-            <lang locale="zh_HK" value="100" />
-            <lang locale="zh_TW" value="100" />
+            <lang locale="en_US" value="40" />
+            <lang locale="zh_CN" value="40" />
+            <lang locale="zh_HK" value="40" />
+            <lang locale="zh_TW" value="40" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contcarNumber].properties.property[boundLabelText].value">
             <lang locale="en_US" value="null" />
@@ -9431,10 +10435,10 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contengineNumber].properties.property[boundLabelLength].value">
-            <lang locale="en_US" value="100" />
-            <lang locale="zh_CN" value="100" />
-            <lang locale="zh_HK" value="100" />
-            <lang locale="zh_TW" value="100" />
+            <lang locale="en_US" value="60" />
+            <lang locale="zh_CN" value="60" />
+            <lang locale="zh_HK" value="60" />
+            <lang locale="zh_TW" value="60" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contengineNumber].properties.property[boundLabelText].value">
             <lang locale="en_US" value="null" />
@@ -9648,9 +10652,9 @@
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[conttestDay].properties.property[boundLabelText].value">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="到期检测日期" />
-            <lang locale="zh_HK" value="到期檢測日期" />
-            <lang locale="zh_TW" value="到期檢測日期" />
+            <lang locale="zh_CN" value="港检到期检测日期" />
+            <lang locale="zh_HK" value="港檢到期檢測日期" />
+            <lang locale="zh_TW" value="港檢到期檢測日期" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[conttestDay].properties.property[boundLabelUnderline].value">
             <lang locale="en_US" value="true" />
@@ -9659,6 +10663,36 @@
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[conttestDay].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[conttextDate1].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[conttextDate1].properties.property[boundLabelLength].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[conttextDate1].properties.property[boundLabelText].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="市检到期检测日期" />
+            <lang locale="zh_HK" value="市檢到期檢測日期" />
+            <lang locale="zh_TW" value="市檢到期檢測日期" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[conttextDate1].properties.property[boundLabelUnderline].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[conttextDate1].properties.property[visible].value">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_HK" value="true" />
@@ -10030,6 +11064,12 @@
             <lang locale="zh_HK" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &lt;Border&gt;&lt;Type&gt;6&lt;/Type&gt;&lt;Name&gt;Custom&lt;/Name&gt;&lt;CustomType&gt;62&lt;/CustomType&gt;&lt;Title&gt;常規數據&lt;/Title&gt;&lt;Options&gt;&lt;Width&gt;0&lt;/Width&gt;&lt;HighlightOuter R=&quot;255&quot; G=&quot;255&quot; B=&quot;255&quot; /&gt;&lt;ShadowOuter R=&quot;148&quot; G=&quot;145&quot; B=&quot;140&quot; /&gt;&lt;/Options&gt;&lt;/Border&gt; " />
             <lang locale="zh_TW" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &lt;Border&gt;&lt;Type&gt;6&lt;/Type&gt;&lt;Name&gt;Custom&lt;/Name&gt;&lt;CustomType&gt;62&lt;/CustomType&gt;&lt;Title&gt;常規數據&lt;/Title&gt;&lt;Options&gt;&lt;Width&gt;0&lt;/Width&gt;&lt;HighlightOuter R=&quot;255&quot; G=&quot;255&quot; B=&quot;255&quot; /&gt;&lt;ShadowOuter R=&quot;148&quot; G=&quot;145&quot; B=&quot;140&quot; /&gt;&lt;/Options&gt;&lt;/Border&gt; " />
         </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDSeparatorCloud].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDTabbedPane1].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -10215,6 +11255,29 @@
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[pkreachedDate].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[pktextDate1].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="市检到期检测日期" />
+            <lang locale="zh_HK" value="市檢到期檢測日期" />
+            <lang locale="zh_TW" value="市檢到期檢測日期" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[pktextDate1].extendedProperty.addedByBIM">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[pktextDate1].properties.property[required].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[pktextDate1].properties.property[visible].value">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_HK" value="true" />
@@ -11155,17 +12218,65 @@
             <lang locale="zh_HK" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[separatorFW1].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[separatorFW2].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[separatorFW3].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[separatorFW4].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[separatorFW5].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[separatorFW6].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[separatorFW7].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[separatorFW8].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[separatorFW9].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[testDay].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="到期检测日期" />
             <lang locale="zh_HK" value="到期檢測日期" />
             <lang locale="zh_TW" value="到期檢測日期" />
-        </rs>
-        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[testDay].properties.property[visible].value">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_HK" value="true" />
-            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtDescription].alias">
             <lang locale="en_US" value="null" />
@@ -11792,9 +12903,9 @@
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtsbDescription].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="备注" />
+            <lang locale="zh_HK" value="備註" />
+            <lang locale="zh_TW" value="備註" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtsbDescription].properties.property[maxLength].value">
             <lang locale="en_US" value="255" />

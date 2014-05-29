@@ -1849,6 +1849,37 @@
                 <key name="name" value="EquIdQuery" />
             </query>
         </queryField>
+        <queryField>
+            <name>textDate1</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.record.app.EquIdQuery].units.queryField[textDate1].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Date</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>e54dfc4a-34d2-454c-a06a-68285b814899</key>
+                    <parentUnit>
+                        <key name="name" value="textDate1" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="EquId" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="textDate1" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.record.app" />
+                <key name="name" value="EquIdQuery" />
+            </query>
+        </queryField>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -2886,6 +2917,22 @@
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.record.app.EquIdQuery].units.queryField[special].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.record.app.EquIdQuery].units.queryField[textDate1].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="市检到期检测日期" />
+            <lang locale="zh_HK" value="市檢到期檢測日期" />
+            <lang locale="zh_TW" value="市檢到期檢測日期" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.record.app.EquIdQuery].units.queryField[textDate1].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.record.app.EquIdQuery].units.queryField[textDate1].extendedProperty.isCommonQuerySorter">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />

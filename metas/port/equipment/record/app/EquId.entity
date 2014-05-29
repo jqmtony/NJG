@@ -759,6 +759,58 @@
             </parameters>
             <configured>false</configured>
         </method>
+        <method>
+            <name>actionRegistChange</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].methods.method[actionRegistChange].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].methods.method[actionRegistChange].description</description>
+            <innerID>53c255bc-2bf0-4af0-a22c-59d1b4d11402</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].methods.method[actionRegistChange].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].methods.method[actionRegistChange].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.port.equipment.record.app.EquId</metadataRef>
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>excel</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].methods.method[excel].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].methods.method[excel].description</description>
+            <innerID>82518433-2bbe-475f-b19c-486caceecb99</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].methods.method[excel].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].methods.method[excel].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.port.equipment.record.app.EquId</metadataRef>
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
     </methods>
     <isAbstract>false</isAbstract>
     <bizUnitPK>com.kingdee.eas.port.equipment.record.EquId</bizUnitPK>
@@ -1575,7 +1627,7 @@
             <description>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[testDay].description</description>
             <userDefined>true</userDefined>
             <configured>false</configured>
-            <dataType>Time</dataType>
+            <dataType>Date</dataType>
             <metadataRef />
             <isMultilingual>false</isMultilingual>
             <isNullable>false</isNullable>
@@ -1871,6 +1923,26 @@
                 <key name="name" value="CFRatedWeight" />
             </mappingField>
         </ownProperty>
+        <ownProperty>
+            <name>textDate1</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[textDate1].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[textDate1].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>Date</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>8</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[textDate1].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFTextDate1" />
+            </mappingField>
+        </ownProperty>
     </properties>
     <logicalKey>
         <name>id</name>
@@ -1969,6 +2041,90 @@
                 </formalParameter>
             </formalParameters>
         </event>
+        <event>
+            <name>actionRegistChangeEvent</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[actionRegistChangeEvent].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[actionRegistChangeEvent].description</description>
+            <userDefined>true</userDefined>
+            <eventMethods>
+                <eventMethod>
+                    <name>53c255bc-2bf0-4af0-a22c-59d1b4d11402</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[actionRegistChangeEvent].eventMethods.eventMethod[53c255bc-2bf0-4af0-a22c-59d1b4d11402].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[actionRegistChangeEvent].eventMethods.eventMethod[53c255bc-2bf0-4af0-a22c-59d1b4d11402].description</description>
+                    <entityMethodRef>
+                        <key name="name" value="actionRegistChange" />
+                        <key name="innerID" value="53c255bc-2bf0-4af0-a22c-59d1b4d11402" />
+                    </entityMethodRef>
+                    <parameterMappings>
+                        <parameterMapping>
+                            <name />
+                            <alias>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[actionRegistChangeEvent].eventMethods.eventMethod[53c255bc-2bf0-4af0-a22c-59d1b4d11402].parameterMappings.parameterMappingalias</alias>
+                            <description>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[actionRegistChangeEvent].eventMethods.eventMethod[53c255bc-2bf0-4af0-a22c-59d1b4d11402].parameterMappings.parameterMappingdescription</description>
+                            <formalParameterInnerID>854d7606-d2ed-4210-89bf-5a23f14ca0eeevfp</formalParameterInnerID>
+                            <actualParameterIndex>0</actualParameterIndex>
+                            <isBOPK>true</isBOPK>
+                        </parameterMapping>
+                    </parameterMappings>
+                </eventMethod>
+            </eventMethods>
+            <formalParameters>
+                <formalParameter>
+                    <innerID>854d7606-d2ed-4210-89bf-5a23f14ca0eeevfp</innerID>
+                    <userDefined>true</userDefined>
+                    <parameter>
+                        <name>model</name>
+                        <alias>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[actionRegistChangeEvent].formalParameters.formalParameter.parameter[model].alias</alias>
+                        <description>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[actionRegistChangeEvent].formalParameters.formalParameter.parameter[model].description</description>
+                        <direction>in</direction>
+                        <dataType>ObjectValue</dataType>
+                        <metadataRef>com.kingdee.eas.port.equipment.record.app.EquId</metadataRef>
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </formalParameter>
+            </formalParameters>
+        </event>
+        <event>
+            <name>excelEvent</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[excelEvent].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[excelEvent].description</description>
+            <userDefined>true</userDefined>
+            <eventMethods>
+                <eventMethod>
+                    <name>82518433-2bbe-475f-b19c-486caceecb99</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[excelEvent].eventMethods.eventMethod[82518433-2bbe-475f-b19c-486caceecb99].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[excelEvent].eventMethods.eventMethod[82518433-2bbe-475f-b19c-486caceecb99].description</description>
+                    <entityMethodRef>
+                        <key name="name" value="excel" />
+                        <key name="innerID" value="82518433-2bbe-475f-b19c-486caceecb99" />
+                    </entityMethodRef>
+                    <parameterMappings>
+                        <parameterMapping>
+                            <name />
+                            <alias>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[excelEvent].eventMethods.eventMethod[82518433-2bbe-475f-b19c-486caceecb99].parameterMappings.parameterMappingalias</alias>
+                            <description>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[excelEvent].eventMethods.eventMethod[82518433-2bbe-475f-b19c-486caceecb99].parameterMappings.parameterMappingdescription</description>
+                            <formalParameterInnerID>fda22048-64ad-4154-87ed-f9dad97918f5evfp</formalParameterInnerID>
+                            <actualParameterIndex>0</actualParameterIndex>
+                            <isBOPK>true</isBOPK>
+                        </parameterMapping>
+                    </parameterMappings>
+                </eventMethod>
+            </eventMethods>
+            <formalParameters>
+                <formalParameter>
+                    <innerID>fda22048-64ad-4154-87ed-f9dad97918f5evfp</innerID>
+                    <userDefined>true</userDefined>
+                    <parameter>
+                        <name>model</name>
+                        <alias>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[excelEvent].formalParameters.formalParameter.parameter[model].alias</alias>
+                        <description>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[excelEvent].formalParameters.formalParameter.parameter[model].description</description>
+                        <direction>in</direction>
+                        <dataType>ObjectValue</dataType>
+                        <metadataRef>com.kingdee.eas.port.equipment.record.app.EquId</metadataRef>
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </formalParameter>
+            </formalParameters>
+        </event>
     </events>
     <defaultView>
         <name />
@@ -2044,6 +2200,102 @@
             <lang locale="zh_CN" value="记录设备的详细的静态信息和动态信息" />
             <lang locale="zh_HK" value="記錄設備的詳細的靜態信息和動態信息" />
             <lang locale="zh_TW" value="記錄設備的詳細的靜態信息和動態信息" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[actionRegistChangeEvent].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="变更登记事件" />
+            <lang locale="zh_HK" value="變更登記事件" />
+            <lang locale="zh_TW" value="變更登記事件" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[actionRegistChangeEvent].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[actionRegistChangeEvent].eventMethods.eventMethod[53c255bc-2bf0-4af0-a22c-59d1b4d11402].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[actionRegistChangeEvent].eventMethods.eventMethod[53c255bc-2bf0-4af0-a22c-59d1b4d11402].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[actionRegistChangeEvent].eventMethods.eventMethod[53c255bc-2bf0-4af0-a22c-59d1b4d11402].parameterMappings.parameterMappingalias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[actionRegistChangeEvent].eventMethods.eventMethod[53c255bc-2bf0-4af0-a22c-59d1b4d11402].parameterMappings.parameterMappingdescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[actionRegistChangeEvent].formalParameters.formalParameter.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[actionRegistChangeEvent].formalParameters.formalParameter.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[excelEvent].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="Excel引入事件" />
+            <lang locale="zh_HK" value="Excel引入事件" />
+            <lang locale="zh_TW" value="Excel引入事件" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[excelEvent].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[excelEvent].eventMethods.eventMethod[82518433-2bbe-475f-b19c-486caceecb99].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[excelEvent].eventMethods.eventMethod[82518433-2bbe-475f-b19c-486caceecb99].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[excelEvent].eventMethods.eventMethod[82518433-2bbe-475f-b19c-486caceecb99].parameterMappings.parameterMappingalias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[excelEvent].eventMethods.eventMethod[82518433-2bbe-475f-b19c-486caceecb99].parameterMappings.parameterMappingdescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[excelEvent].formalParameters.formalParameter.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[excelEvent].formalParameters.formalParameter.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[inUseEvent].alias">
             <lang locale="en_US" value="null" />
@@ -2253,6 +2505,30 @@
             <lang locale="zh_CN" value="com.kingdee.eas.port.equipment.record.client.EquIdListUI" />
             <lang locale="zh_TW" value="com.kingdee.eas.port.equipment.record.client.EquIdListUI" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].methods.method[actionRegistChange].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="变更登记" />
+            <lang locale="zh_HK" value="變更登記" />
+            <lang locale="zh_TW" value="變更登記" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].methods.method[actionRegistChange].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].methods.method[actionRegistChange].parameters.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].methods.method[actionRegistChange].parameters.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].methods.method[addnew].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -2368,6 +2644,30 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].methods.method[delete].parameters.parameter[pk].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].methods.method[excel].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="Excel引入" />
+            <lang locale="zh_HK" value="Excel引入" />
+            <lang locale="zh_TW" value="Excel引入" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].methods.method[excel].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].methods.method[excel].parameters.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].methods.method[excel].parameters.parameter[model].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -6022,8 +6322,7 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[testDay].defaultValue">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[testDay].description">
@@ -6073,6 +6372,69 @@
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[testDay].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[textDate1].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="市检到期检测日期" />
+            <lang locale="zh_HK" value="市檢到期檢測日期" />
+            <lang locale="zh_TW" value="市檢到期檢測日期" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[textDate1].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[textDate1].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="市检到期检测日期" />
+            <lang locale="zh_HK" value="市檢到期檢測日期" />
+            <lang locale="zh_TW" value="市檢到期檢測日期" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[textDate1].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[textDate1].extendedProperty.bizDataType">
+            <lang locale="en_US" value="DATE" />
+            <lang locale="zh_CN" value="DATE" />
+            <lang locale="zh_TW" value="DATE" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[textDate1].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[textDate1].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[textDate1].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[textDate1].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[textDate1].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[textDate1].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[textDate1].extendedProperty.isVisibleForKDTable">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
