@@ -109,7 +109,7 @@ public abstract class AbstractExamineIndicatorsEditUI extends com.kingdee.eas.fr
         this.txtName.setName("txtName");
         this.txtNumber.setName("txtNumber");
         // CoreUI		
-        this.setPreferredSize(new Dimension(321,300));		
+        this.setPreferredSize(new Dimension(500,300));		
         this.btnPrint.setVisible(false);		
         this.btnPrintPreview.setVisible(false);		
         this.menuItemPrint.setVisible(false);		
@@ -185,23 +185,23 @@ public abstract class AbstractExamineIndicatorsEditUI extends com.kingdee.eas.fr
      */
     public void initUIContentLayout()
     {
-        this.setBounds(new Rectangle(0, 0, 321, 300));
+        this.setBounds(new Rectangle(0, 0, 500, 300));
         this.setLayout(new KDLayout());
-        this.putClientProperty("OriginalBounds", new Rectangle(0, 0, 321, 300));
-        kDPanel1.setBounds(new Rectangle(6, 5, 313, 288));
-        this.add(kDPanel1, new KDLayout.Constraints(6, 5, 313, 288, 0));
+        this.putClientProperty("OriginalBounds", new Rectangle(0, 0, 500, 300));
+        kDPanel1.setBounds(new Rectangle(6, 5, 487, 288));
+        this.add(kDPanel1, new KDLayout.Constraints(6, 5, 487, 288, 0));
         //kDPanel1
-        kDPanel1.setLayout(null);        contexamineIndicator.setBounds(new Rectangle(19, 78, 270, 100));
+        kDPanel1.setLayout(null);        contexamineIndicator.setBounds(new Rectangle(101, 78, 270, 100));
         kDPanel1.add(contexamineIndicator, null);
-        contexamCategory.setBounds(new Rectangle(19, 12, 270, 19));
+        contexamCategory.setBounds(new Rectangle(101, 12, 270, 19));
         kDPanel1.add(contexamCategory, null);
-        kDLabelContainer4.setBounds(new Rectangle(19, 225, 270, 19));
+        kDLabelContainer4.setBounds(new Rectangle(101, 225, 270, 19));
         kDPanel1.add(kDLabelContainer4, null);
-        kDLabelContainer3.setBounds(new Rectangle(19, 192, 270, 19));
+        kDLabelContainer3.setBounds(new Rectangle(101, 192, 270, 19));
         kDPanel1.add(kDLabelContainer3, null);
-        kDLabelContainer2.setBounds(new Rectangle(19, 258, 270, 19));
+        kDLabelContainer2.setBounds(new Rectangle(101, 258, 270, 19));
         kDPanel1.add(kDLabelContainer2, null);
-        kDLabelContainer1.setBounds(new Rectangle(19, 45, 270, 19));
+        kDLabelContainer1.setBounds(new Rectangle(101, 45, 270, 19));
         kDPanel1.add(kDLabelContainer1, null);
         //contexamineIndicator
         contexamineIndicator.setBoundEditor(scrollPaneexamineIndicator);

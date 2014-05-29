@@ -39,6 +39,12 @@ public class ExamineIndicatorsEditUI extends AbstractExamineIndicatorsEditUI
     	this.txtexamineIndicator.setRequired(true);
     	this.txtexamCategory.setEnabled(false);
     	this.kDLabelContainer2.setVisible(false);
+    	btnNext.setVisible(false);
+    	btnPre.setVisible(false);
+    	btnFirst.setVisible(false);
+    	btnLast.setVisible(false);
+    	btnCancel.setEnabled(true);
+    	btnCancelCancel.setEnabled(true);
     	super.onLoad();
     }
     
