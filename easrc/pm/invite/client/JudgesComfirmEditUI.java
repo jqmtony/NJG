@@ -7,6 +7,9 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -39,10 +42,15 @@ import com.kingdee.eas.port.pm.base.JudgesFactory;
 import com.kingdee.eas.port.pm.base.JudgesInfo;
 import com.kingdee.eas.port.pm.base.JudgesTreeFactory;
 import com.kingdee.eas.port.pm.base.JudgesTreeInfo;
+import com.kingdee.eas.port.pm.invite.IInviteReportEntry5;
 import com.kingdee.eas.port.pm.invite.InviteReportEntry3Collection;
 import com.kingdee.eas.port.pm.invite.InviteReportEntry3Info;
 import com.kingdee.eas.port.pm.invite.InviteReportEntry5Collection;
+import com.kingdee.eas.port.pm.invite.InviteReportEntry5Factory;
+import com.kingdee.eas.port.pm.invite.InviteReportEntry5Info;
 import com.kingdee.eas.port.pm.invite.InviteReportInfo;
+import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
+import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
 
 /**
@@ -107,9 +115,39 @@ public class JudgesComfirmEditUI extends AbstractJudgesComfirmEditUI
     	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, prmtplanName, "招标方案");
     	InviteReportInfo reportInfo = (InviteReportInfo) this.prmtplanName.getValue();
     	InviteReportEntry5Collection judgeColl = reportInfo.getEntry5();
+    	
     	//校验专家信息是否与招标方案申报中的相符合
     	if(this.kdtEntry.getRowCount() > 0 && judgeColl.size() > 0) {
+    		IInviteReportEntry5 ientry5 = InviteReportEntry5Factory.getRemoteInstance();
+    		IJudgesTree ijudge = JudgesTreeFactory.getRemoteInstance();
+    		HashMap<String, Integer> numberMap = new HashMap<String, Integer>();
+    		StringBuilder sb = new StringBuilder();
+        	for(int i = 0; i < judgeColl.size(); i++) {
+        		InviteReportEntry5Info entryInfo = judgeColl.get(i);
+        		entryInfo = ientry5.getInviteReportEntry5Info(new ObjectUuidPK(entryInfo.getId()));
+        		JudgesTreeInfo type = entryInfo.getJudgeType();
+        		type = ijudge.getJudgesTreeInfo(new ObjectUuidPK(type.getId()));
+        		numberMap.put(type.getName(), Integer.valueOf(entryInfo.getAmount()));
+        		sb.append(type.getName() + ": " + entryInfo.getAmount() + "人\n");
+        	}
+    		Set<String> set = numberMap.keySet();
+    		HashMap<String, Integer> perMap = new HashMap<String, Integer>();
+    		for(String s : set) {
+    			int count = 0;
+    			for(int i = 0; i < this.kdtEntry.getRowCount(); i++) {
+    				IRow row = this.kdtEntry.getRow(i);
+    				if(s.compareTo(row.getCell("juType").getValue().toString()) == 0)
+    					count++;
+    			}
+    			perMap.put(s, count);
+    		}
     		
+    		for(String s : set) {
+    			if(perMap.get(s).compareTo(numberMap.get(s)) != 0) {
+    				MsgBox.showWarning("专家构成与招标方案申报不符合!!请检查!!\n" + sb.toString());
+    				SysUtil.abort();
+    			}
+    		}
     	}
     	super.verifyInput(e);
     }

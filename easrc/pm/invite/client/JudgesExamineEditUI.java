@@ -29,6 +29,9 @@ import com.kingdee.eas.port.pm.base.ExamineIndicatorsTreeCollection;
 import com.kingdee.eas.port.pm.base.ExamineIndicatorsTreeFactory;
 import com.kingdee.eas.port.pm.base.ExamineIndicatorsTreeInfo;
 import com.kingdee.eas.port.pm.base.IExamineIndicators;
+import com.kingdee.eas.port.pm.invite.EvaluationCollection;
+import com.kingdee.eas.port.pm.invite.EvaluationFactory;
+import com.kingdee.eas.port.pm.invite.EvaluationInfo;
 import com.kingdee.eas.port.pm.invite.InviteReportFactory;
 import com.kingdee.eas.port.pm.invite.InviteReportInfo;
 import com.kingdee.eas.port.pm.invite.JudgesComfirmCollection;
@@ -66,7 +69,11 @@ public class JudgesExamineEditUI extends AbstractJudgesExamineEditUI
     	btnAddNew.setVisible(false);
     	txtprjName.setEnabled(false);
     	txtprjOrg.setEnabled(false);
-	
+    	
+    	prmtreportName.setRequired(true);
+    	prmtinvitePerson.setRequired(true);
+    	prmtjudgeName.setRequired(true);
+    	pkevaDate.setRequired(true);
     	super.onLoad();
     	if(getOprtState().equals(OprtState.ADDNEW)) {
     		String oqls = "order by number asc";
@@ -93,7 +100,7 @@ public class JudgesExamineEditUI extends AbstractJudgesExamineEditUI
         			ExamineIndicatorsInfo info = exiColl.get(j);
         			IRow rowadd = this.kdtEntryIndicators.addRow();
         			rowadd.getCell("examCategory").setValue(info.getExamCategory());
-        			rowadd.getCell("examIndicators").setValue(info.getName());
+        			rowadd.getCell("examIndicators").setValue(info.getExamineIndicator());
         		}
         		
         		this.kdtEntryIndicators.getMergeManager().mergeBlock(start, 1, end, 1);
@@ -129,8 +136,16 @@ public class JudgesExamineEditUI extends AbstractJudgesExamineEditUI
     	filter.getFilterItems().add(new FilterItemInfo("id", idSet, CompareType.INCLUDE));
     	evi.setFilter(filter);
     	this.prmtjudgeName.setEntityViewInfo(evi);
+    	
+    	oql = "where inviteReport.id='" + reportInfo.getId() + "'";
+    	EvaluationCollection evaColl = EvaluationFactory.getRemoteInstance().getEvaluationCollection(oql);
+    	if(evaColl.size() > 0) {
+    		EvaluationInfo evaInfo = evaColl.get(0);
+    		this.pkevaDate.setValue(evaInfo.getEvaDate());
+    	}
     }
     
+    //设置表格融合
     private void showUI() throws Exception{
     	String oqls = "order by number asc";
 		ExamineIndicatorsTreeCollection eitColl = ExamineIndicatorsTreeFactory.getRemoteInstance().getExamineIndicatorsTreeCollection(oqls);//类别集合
@@ -146,6 +161,16 @@ public class JudgesExamineEditUI extends AbstractJudgesExamineEditUI
     		start = end + 1;
     	}
 	}
+    
+    @Override
+    protected void verifyInput(ActionEvent actionevent) throws Exception {
+    	// TODO Auto-generated method stub
+    	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, prmtreportName, "招标方案");
+    	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, prmtjudgeName, "被考核专家");
+    	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, prmtinvitePerson, "招标办监督人员");
+    	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, pkevaDate, "评标日期");
+    	super.verifyInput(actionevent);
+    }
     /**
      * output loadFields method
      */
