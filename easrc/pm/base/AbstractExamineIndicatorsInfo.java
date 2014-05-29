@@ -39,6 +39,17 @@ public class AbstractExamineIndicatorsInfo extends com.kingdee.eas.framework.Dat
     {
         setString("examCategory", item);
     }
+    /**
+     * Object:考核指标's 考核指标property 
+     */
+    public String getExamineIndicator()
+    {
+        return getString("examineIndicator");
+    }
+    public void setExamineIndicator(String item)
+    {
+        setString("examineIndicator", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("85126C64");

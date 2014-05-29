@@ -46,16 +46,20 @@ import com.kingdee.bos.appframework.uip.UINavigator;
 public abstract class AbstractExamineIndicatorsEditUI extends com.kingdee.eas.framework.client.EditUI
 {
     private static final Logger logger = CoreUIObject.getLogger(AbstractExamineIndicatorsEditUI.class);
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer1;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer2;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer3;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer4;
+    protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel1;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contexamineIndicator;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contexamCategory;
-    protected com.kingdee.bos.ctrl.swing.KDTextField txtNumber;
-    protected com.kingdee.bos.ctrl.extendcontrols.KDBizMultiLangBox txtName;
-    protected com.kingdee.bos.ctrl.swing.KDTextField txtSimpleName;
-    protected com.kingdee.bos.ctrl.extendcontrols.KDBizMultiLangBox txtDescription;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer4;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer3;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer2;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer1;
+    protected com.kingdee.bos.ctrl.swing.KDScrollPane scrollPaneexamineIndicator;
+    protected com.kingdee.bos.ctrl.swing.KDTextArea txtexamineIndicator;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtexamCategory;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizMultiLangBox txtDescription;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txtSimpleName;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizMultiLangBox txtName;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txtNumber;
     protected com.kingdee.eas.port.pm.base.ExamineIndicatorsInfo editData = null;
     /**
      * output class constructor
@@ -76,65 +80,85 @@ public abstract class AbstractExamineIndicatorsEditUI extends com.kingdee.eas.fr
     {
         this.resHelper = new ResourceBundleHelper(AbstractExamineIndicatorsEditUI.class.getName());
         this.setUITitle(resHelper.getString("this.title"));
-        this.kDLabelContainer1 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.kDLabelContainer2 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.kDLabelContainer3 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.kDLabelContainer4 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.kDPanel1 = new com.kingdee.bos.ctrl.swing.KDPanel();
+        this.contexamineIndicator = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contexamCategory = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.txtNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
-        this.txtName = new com.kingdee.bos.ctrl.extendcontrols.KDBizMultiLangBox();
-        this.txtSimpleName = new com.kingdee.bos.ctrl.swing.KDTextField();
-        this.txtDescription = new com.kingdee.bos.ctrl.extendcontrols.KDBizMultiLangBox();
+        this.kDLabelContainer4 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.kDLabelContainer3 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.kDLabelContainer2 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.kDLabelContainer1 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.scrollPaneexamineIndicator = new com.kingdee.bos.ctrl.swing.KDScrollPane();
+        this.txtexamineIndicator = new com.kingdee.bos.ctrl.swing.KDTextArea();
         this.txtexamCategory = new com.kingdee.bos.ctrl.swing.KDTextField();
-        this.kDLabelContainer1.setName("kDLabelContainer1");
-        this.kDLabelContainer2.setName("kDLabelContainer2");
-        this.kDLabelContainer3.setName("kDLabelContainer3");
-        this.kDLabelContainer4.setName("kDLabelContainer4");
+        this.txtDescription = new com.kingdee.bos.ctrl.extendcontrols.KDBizMultiLangBox();
+        this.txtSimpleName = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.txtName = new com.kingdee.bos.ctrl.extendcontrols.KDBizMultiLangBox();
+        this.txtNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.kDPanel1.setName("kDPanel1");
+        this.contexamineIndicator.setName("contexamineIndicator");
         this.contexamCategory.setName("contexamCategory");
-        this.txtNumber.setName("txtNumber");
-        this.txtName.setName("txtName");
-        this.txtSimpleName.setName("txtSimpleName");
-        this.txtDescription.setName("txtDescription");
+        this.kDLabelContainer4.setName("kDLabelContainer4");
+        this.kDLabelContainer3.setName("kDLabelContainer3");
+        this.kDLabelContainer2.setName("kDLabelContainer2");
+        this.kDLabelContainer1.setName("kDLabelContainer1");
+        this.scrollPaneexamineIndicator.setName("scrollPaneexamineIndicator");
+        this.txtexamineIndicator.setName("txtexamineIndicator");
         this.txtexamCategory.setName("txtexamCategory");
+        this.txtDescription.setName("txtDescription");
+        this.txtSimpleName.setName("txtSimpleName");
+        this.txtName.setName("txtName");
+        this.txtNumber.setName("txtNumber");
         // CoreUI		
+        this.setPreferredSize(new Dimension(321,300));		
         this.btnPrint.setVisible(false);		
         this.btnPrintPreview.setVisible(false);		
         this.menuItemPrint.setVisible(false);		
         this.menuItemPrintPreview.setVisible(false);
-        // kDLabelContainer1		
-        this.kDLabelContainer1.setBoundLabelText(resHelper.getString("kDLabelContainer1.boundLabelText"));		
-        this.kDLabelContainer1.setBoundLabelLength(100);		
-        this.kDLabelContainer1.setBoundLabelUnderline(true);
-        // kDLabelContainer2		
-        this.kDLabelContainer2.setBoundLabelText(resHelper.getString("kDLabelContainer2.boundLabelText"));		
-        this.kDLabelContainer2.setBoundLabelLength(100);		
-        this.kDLabelContainer2.setBoundLabelUnderline(true);
-        // kDLabelContainer3		
-        this.kDLabelContainer3.setBoundLabelText(resHelper.getString("kDLabelContainer3.boundLabelText"));		
-        this.kDLabelContainer3.setBoundLabelLength(100);		
-        this.kDLabelContainer3.setBoundLabelUnderline(true);
+        // kDPanel1
+        // contexamineIndicator		
+        this.contexamineIndicator.setBoundLabelText(resHelper.getString("contexamineIndicator.boundLabelText"));		
+        this.contexamineIndicator.setBoundLabelLength(100);		
+        this.contexamineIndicator.setBoundLabelUnderline(true);		
+        this.contexamineIndicator.setVisible(true);
+        // contexamCategory		
+        this.contexamCategory.setBoundLabelText(resHelper.getString("contexamCategory.boundLabelText"));		
+        this.contexamCategory.setBoundLabelLength(100);		
+        this.contexamCategory.setBoundLabelUnderline(true);		
+        this.contexamCategory.setVisible(true);
         // kDLabelContainer4		
         this.kDLabelContainer4.setBoundLabelText(resHelper.getString("kDLabelContainer4.boundLabelText"));		
         this.kDLabelContainer4.setBoundLabelLength(100);		
         this.kDLabelContainer4.setBoundLabelUnderline(true);		
         this.kDLabelContainer4.setBoundLabelAlignment(7);		
         this.kDLabelContainer4.setVisible(true);
-        // contexamCategory		
-        this.contexamCategory.setBoundLabelText(resHelper.getString("contexamCategory.boundLabelText"));		
-        this.contexamCategory.setBoundLabelLength(100);		
-        this.contexamCategory.setBoundLabelUnderline(true);		
-        this.contexamCategory.setVisible(true);
-        // txtNumber		
-        this.txtNumber.setMaxLength(80);
-        // txtName
-        // txtSimpleName		
-        this.txtSimpleName.setMaxLength(80);
-        // txtDescription
+        // kDLabelContainer3		
+        this.kDLabelContainer3.setBoundLabelText(resHelper.getString("kDLabelContainer3.boundLabelText"));		
+        this.kDLabelContainer3.setBoundLabelLength(100);		
+        this.kDLabelContainer3.setBoundLabelUnderline(true);
+        // kDLabelContainer2		
+        this.kDLabelContainer2.setBoundLabelText(resHelper.getString("kDLabelContainer2.boundLabelText"));		
+        this.kDLabelContainer2.setBoundLabelLength(100);		
+        this.kDLabelContainer2.setBoundLabelUnderline(true);
+        // kDLabelContainer1		
+        this.kDLabelContainer1.setBoundLabelText(resHelper.getString("kDLabelContainer1.boundLabelText"));		
+        this.kDLabelContainer1.setBoundLabelLength(100);		
+        this.kDLabelContainer1.setBoundLabelUnderline(true);
+        // scrollPaneexamineIndicator
+        // txtexamineIndicator		
+        this.txtexamineIndicator.setVisible(true);		
+        this.txtexamineIndicator.setRequired(false);		
+        this.txtexamineIndicator.setMaxLength(255);
         // txtexamCategory		
         this.txtexamCategory.setVisible(true);		
         this.txtexamCategory.setHorizontalAlignment(2);		
         this.txtexamCategory.setMaxLength(100);		
         this.txtexamCategory.setRequired(false);
+        // txtDescription
+        // txtSimpleName		
+        this.txtSimpleName.setMaxLength(80);
+        // txtName
+        // txtNumber		
+        this.txtNumber.setMaxLength(80);
         this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {txtexamCategory}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
@@ -161,28 +185,38 @@ public abstract class AbstractExamineIndicatorsEditUI extends com.kingdee.eas.fr
      */
     public void initUIContentLayout()
     {
-        this.setBounds(new Rectangle(0, 0, 1013, 629));
-        this.setLayout(null);
-        kDLabelContainer1.setBounds(new Rectangle(99, 95, 270, 19));
-        this.add(kDLabelContainer1, null);
-        kDLabelContainer2.setBounds(new Rectangle(99, 132, 270, 19));
-        this.add(kDLabelContainer2, null);
-        kDLabelContainer3.setBounds(new Rectangle(99, 169, 270, 19));
-        this.add(kDLabelContainer3, null);
-        kDLabelContainer4.setBounds(new Rectangle(99, 206, 270, 19));
-        this.add(kDLabelContainer4, null);
-        contexamCategory.setBounds(new Rectangle(99, 57, 270, 19));
-        this.add(contexamCategory, null);
-        //kDLabelContainer1
-        kDLabelContainer1.setBoundEditor(txtNumber);
-        //kDLabelContainer2
-        kDLabelContainer2.setBoundEditor(txtName);
-        //kDLabelContainer3
-        kDLabelContainer3.setBoundEditor(txtSimpleName);
-        //kDLabelContainer4
-        kDLabelContainer4.setBoundEditor(txtDescription);
+        this.setBounds(new Rectangle(0, 0, 321, 300));
+        this.setLayout(new KDLayout());
+        this.putClientProperty("OriginalBounds", new Rectangle(0, 0, 321, 300));
+        kDPanel1.setBounds(new Rectangle(6, 5, 313, 288));
+        this.add(kDPanel1, new KDLayout.Constraints(6, 5, 313, 288, 0));
+        //kDPanel1
+        kDPanel1.setLayout(null);        contexamineIndicator.setBounds(new Rectangle(19, 78, 270, 100));
+        kDPanel1.add(contexamineIndicator, null);
+        contexamCategory.setBounds(new Rectangle(19, 12, 270, 19));
+        kDPanel1.add(contexamCategory, null);
+        kDLabelContainer4.setBounds(new Rectangle(19, 225, 270, 19));
+        kDPanel1.add(kDLabelContainer4, null);
+        kDLabelContainer3.setBounds(new Rectangle(19, 192, 270, 19));
+        kDPanel1.add(kDLabelContainer3, null);
+        kDLabelContainer2.setBounds(new Rectangle(19, 258, 270, 19));
+        kDPanel1.add(kDLabelContainer2, null);
+        kDLabelContainer1.setBounds(new Rectangle(19, 45, 270, 19));
+        kDPanel1.add(kDLabelContainer1, null);
+        //contexamineIndicator
+        contexamineIndicator.setBoundEditor(scrollPaneexamineIndicator);
+        //scrollPaneexamineIndicator
+        scrollPaneexamineIndicator.getViewport().add(txtexamineIndicator, null);
         //contexamCategory
         contexamCategory.setBoundEditor(txtexamCategory);
+        //kDLabelContainer4
+        kDLabelContainer4.setBoundEditor(txtDescription);
+        //kDLabelContainer3
+        kDLabelContainer3.setBoundEditor(txtSimpleName);
+        //kDLabelContainer2
+        kDLabelContainer2.setBoundEditor(txtName);
+        //kDLabelContainer1
+        kDLabelContainer1.setBoundEditor(txtNumber);
 
     }
 
@@ -292,11 +326,12 @@ public abstract class AbstractExamineIndicatorsEditUI extends com.kingdee.eas.fr
 
 	//Regiester control's property binding.
 	private void registerBindings(){
-		dataBinder.registerBinding("number", String.class, this.txtNumber, "text");
-		dataBinder.registerBinding("name", String.class, this.txtName, "_multiLangItem");
-		dataBinder.registerBinding("simpleName", String.class, this.txtSimpleName, "text");
+		dataBinder.registerBinding("examineIndicator", String.class, this.txtexamineIndicator, "text");
+		dataBinder.registerBinding("examCategory", String.class, this.txtexamCategory, "text");
 		dataBinder.registerBinding("description", String.class, this.txtDescription, "_multiLangItem");
-		dataBinder.registerBinding("examCategory", String.class, this.txtexamCategory, "text");		
+		dataBinder.registerBinding("simpleName", String.class, this.txtSimpleName, "text");
+		dataBinder.registerBinding("name", String.class, this.txtName, "_multiLangItem");
+		dataBinder.registerBinding("number", String.class, this.txtNumber, "text");		
 	}
 	//Regiester UI State
 	private void registerUIState(){
@@ -443,11 +478,12 @@ public abstract class AbstractExamineIndicatorsEditUI extends com.kingdee.eas.fr
 	 */
 	protected void registerValidator() {
     	getValidateHelper().setCustomValidator( getValidator() );
-		getValidateHelper().registerBindProperty("number", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("name", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("simpleName", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("examineIndicator", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("examCategory", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("description", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("examCategory", ValidateHelper.ON_SAVE);    		
+		getValidateHelper().registerBindProperty("simpleName", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("name", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("number", ValidateHelper.ON_SAVE);    		
 	}
 
 
@@ -486,11 +522,12 @@ public abstract class AbstractExamineIndicatorsEditUI extends com.kingdee.eas.fr
 		if(StringUtils.isEmpty(selectorAll)){
 			selectorAll = "true";
 		}
-        sic.add(new SelectorItemInfo("number"));
-        sic.add(new SelectorItemInfo("name"));
-        sic.add(new SelectorItemInfo("simpleName"));
-        sic.add(new SelectorItemInfo("description"));
+        sic.add(new SelectorItemInfo("examineIndicator"));
         sic.add(new SelectorItemInfo("examCategory"));
+        sic.add(new SelectorItemInfo("description"));
+        sic.add(new SelectorItemInfo("simpleName"));
+        sic.add(new SelectorItemInfo("name"));
+        sic.add(new SelectorItemInfo("number"));
         return sic;
     }        
 

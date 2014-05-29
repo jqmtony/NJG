@@ -22,6 +22,7 @@ import com.kingdee.bos.metadata.entity.SelectorItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
 import com.kingdee.eas.basedata.org.OrgConstants;
+import com.kingdee.eas.basedata.org.client.f7.AdminF7;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.common.client.UIContext;
@@ -69,6 +70,10 @@ public class JudgesEditUI extends AbstractJudgesEditUI
 		this.prmtjuName.setSelector(person);
 		
     	prmtjudgeType.setEnabled(false);
+    	btnNext.setVisible(false);
+    	btnPre.setVisible(false);
+    	btnFirst.setVisible(false);
+    	btnLast.setVisible(false);
     	super.onLoad();
     	kDLabelContainer2.setVisible(false);
     	kDLabelContainer3.setVisible(false);
@@ -88,6 +93,12 @@ public class JudgesEditUI extends AbstractJudgesEditUI
     		contjuName.setVisible(true);
         	txtpersonName.setVisible(false);
     	}
+    	
+    	AdminF7 f7 = new AdminF7(this);
+  		f7.showCheckBoxOfShowingAllOUs();
+  		f7.setIsCUFilter(false);
+  		f7.setRootUnitID(SysContext.getSysContext().getCurrentAdminUnit().getId().toString());
+  		this.prmtcurDep.setSelector(f7);
     }
     
     @Override

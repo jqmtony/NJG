@@ -46,6 +46,10 @@ public class EvaluationTemplateEditUI extends AbstractEvaluationTemplateEditUI
     	// TODO Auto-generated method stub
     	
     	prmttemplateType.setEnabled(false);
+    	btnNext.setVisible(false);
+    	btnPre.setVisible(false);
+    	btnFirst.setVisible(false);
+    	btnLast.setVisible(false);
     	super.onLoad();
     	this.txtNumber.setRequired(true);
     	this.txttemplateName.setRequired(true);

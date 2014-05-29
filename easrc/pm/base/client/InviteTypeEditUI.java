@@ -23,6 +23,18 @@ public class InviteTypeEditUI extends AbstractInviteTypeEditUI
     {
         super();
     }
+    
+    @Override
+    public void onLoad() throws Exception {
+    	// TODO Auto-generated method stub
+    	btnCancel.setEnabled(true);
+    	btnCancelCancel.setEnabled(true);
+    	btnNext.setVisible(false);
+    	btnPre.setVisible(false);
+    	btnFirst.setVisible(false);
+    	btnLast.setVisible(false);
+    	super.onLoad();
+    }
     /**
      * output loadFields method
      */

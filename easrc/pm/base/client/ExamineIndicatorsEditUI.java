@@ -4,12 +4,15 @@
 package com.kingdee.eas.port.pm.base.client;
 
 import java.awt.event.*;
+
 import org.apache.log4j.Logger;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.eas.framework.*;
 import com.kingdee.eas.port.pm.base.EvaluationIndicatorsTreeInfo;
 import com.kingdee.eas.port.pm.base.ExamineIndicatorsTreeInfo;
+import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
+import com.kingdee.eas.util.SysUtil;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.metadata.entity.SelectorItemInfo;
@@ -33,10 +36,21 @@ public class ExamineIndicatorsEditUI extends AbstractExamineIndicatorsEditUI
     @Override
     public void onLoad() throws Exception {
     	// TODO Auto-generated method stub
+    	this.txtexamineIndicator.setRequired(true);
     	this.txtexamCategory.setEnabled(false);
+    	this.kDLabelContainer2.setVisible(false);
     	super.onLoad();
     }
     
+    @Override
+    protected void verifyInput(ActionEvent actionevent) throws Exception {
+    	// TODO Auto-generated method stub
+    	if(txtexamineIndicator.getText().equals("")) {
+    		MsgBox.showWarning("考核指标不能为空!!");
+    		SysUtil.abort();
+    	}
+    	super.verifyInput(actionevent);
+    }
     /**
      * output loadFields method
      */

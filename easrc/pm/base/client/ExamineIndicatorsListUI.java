@@ -18,6 +18,7 @@ import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.metadata.entity.SelectorItemInfo;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.UIContext;
+import com.kingdee.eas.common.client.UIFactoryName;
 
 /**
  * output class name
@@ -34,6 +35,11 @@ public class ExamineIndicatorsListUI extends AbstractExamineIndicatorsListUI
         super();
     }
 
+    @Override
+    protected String getEditUIModal() {
+    	// TODO Auto-generated method stub
+    	return UIFactoryName.MODEL;
+    }
     @Override
     protected void prepareUIContext(UIContext uiContext, ActionEvent e) {
     	// TODO Auto-generated method stub

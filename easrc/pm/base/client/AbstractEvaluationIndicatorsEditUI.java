@@ -46,19 +46,20 @@ import com.kingdee.bos.appframework.uip.UINavigator;
 public abstract class AbstractEvaluationIndicatorsEditUI extends com.kingdee.eas.framework.client.EditUI
 {
     private static final Logger logger = CoreUIObject.getLogger(AbstractEvaluationIndicatorsEditUI.class);
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer1;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer2;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer3;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer4;
-    protected com.kingdee.bos.ctrl.swing.KDCheckBox chkuse;
+    protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel1;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contevalType;
+    protected com.kingdee.bos.ctrl.swing.KDCheckBox chkuse;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer4;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer2;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contindicatorDep;
-    protected com.kingdee.bos.ctrl.swing.KDTextField txtNumber;
-    protected com.kingdee.bos.ctrl.extendcontrols.KDBizMultiLangBox txtName;
-    protected com.kingdee.bos.ctrl.swing.KDTextField txtSimpleName;
-    protected com.kingdee.bos.ctrl.extendcontrols.KDBizMultiLangBox txtDescription;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer3;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer1;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtevalType;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizMultiLangBox txtDescription;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizMultiLangBox txtName;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtindicatorDep;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txtSimpleName;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txtNumber;
     protected com.kingdee.eas.port.pm.base.EvaluationIndicatorsInfo editData = null;
     /**
      * output class constructor
@@ -79,85 +80,89 @@ public abstract class AbstractEvaluationIndicatorsEditUI extends com.kingdee.eas
     {
         this.resHelper = new ResourceBundleHelper(AbstractEvaluationIndicatorsEditUI.class.getName());
         this.setUITitle(resHelper.getString("this.title"));
-        this.kDLabelContainer1 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.kDLabelContainer2 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.kDLabelContainer3 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.kDLabelContainer4 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.chkuse = new com.kingdee.bos.ctrl.swing.KDCheckBox();
+        this.kDPanel1 = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.contevalType = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.chkuse = new com.kingdee.bos.ctrl.swing.KDCheckBox();
+        this.kDLabelContainer4 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.kDLabelContainer2 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contindicatorDep = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.txtNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
-        this.txtName = new com.kingdee.bos.ctrl.extendcontrols.KDBizMultiLangBox();
-        this.txtSimpleName = new com.kingdee.bos.ctrl.swing.KDTextField();
-        this.txtDescription = new com.kingdee.bos.ctrl.extendcontrols.KDBizMultiLangBox();
+        this.kDLabelContainer3 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.kDLabelContainer1 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.txtevalType = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.txtDescription = new com.kingdee.bos.ctrl.extendcontrols.KDBizMultiLangBox();
+        this.txtName = new com.kingdee.bos.ctrl.extendcontrols.KDBizMultiLangBox();
         this.txtindicatorDep = new com.kingdee.bos.ctrl.swing.KDTextField();
-        this.kDLabelContainer1.setName("kDLabelContainer1");
-        this.kDLabelContainer2.setName("kDLabelContainer2");
-        this.kDLabelContainer3.setName("kDLabelContainer3");
-        this.kDLabelContainer4.setName("kDLabelContainer4");
-        this.chkuse.setName("chkuse");
+        this.txtSimpleName = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.txtNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.kDPanel1.setName("kDPanel1");
         this.contevalType.setName("contevalType");
+        this.chkuse.setName("chkuse");
+        this.kDLabelContainer4.setName("kDLabelContainer4");
+        this.kDLabelContainer2.setName("kDLabelContainer2");
         this.contindicatorDep.setName("contindicatorDep");
-        this.txtNumber.setName("txtNumber");
-        this.txtName.setName("txtName");
-        this.txtSimpleName.setName("txtSimpleName");
-        this.txtDescription.setName("txtDescription");
+        this.kDLabelContainer3.setName("kDLabelContainer3");
+        this.kDLabelContainer1.setName("kDLabelContainer1");
         this.txtevalType.setName("txtevalType");
+        this.txtDescription.setName("txtDescription");
+        this.txtName.setName("txtName");
         this.txtindicatorDep.setName("txtindicatorDep");
+        this.txtSimpleName.setName("txtSimpleName");
+        this.txtNumber.setName("txtNumber");
         // CoreUI		
+        this.setPreferredSize(new Dimension(631,192));		
         this.btnPrint.setVisible(false);		
         this.btnPrintPreview.setVisible(false);		
         this.menuItemPrint.setVisible(false);		
         this.menuItemPrintPreview.setVisible(false);
-        // kDLabelContainer1		
-        this.kDLabelContainer1.setBoundLabelText(resHelper.getString("kDLabelContainer1.boundLabelText"));		
-        this.kDLabelContainer1.setBoundLabelLength(100);		
-        this.kDLabelContainer1.setBoundLabelUnderline(true);
-        // kDLabelContainer2		
-        this.kDLabelContainer2.setBoundLabelText(resHelper.getString("kDLabelContainer2.boundLabelText"));		
-        this.kDLabelContainer2.setBoundLabelLength(100);		
-        this.kDLabelContainer2.setBoundLabelUnderline(true);
-        // kDLabelContainer3		
-        this.kDLabelContainer3.setBoundLabelText(resHelper.getString("kDLabelContainer3.boundLabelText"));		
-        this.kDLabelContainer3.setBoundLabelLength(100);		
-        this.kDLabelContainer3.setBoundLabelUnderline(true);
+        // kDPanel1
+        // contevalType		
+        this.contevalType.setBoundLabelText(resHelper.getString("contevalType.boundLabelText"));		
+        this.contevalType.setBoundLabelLength(100);		
+        this.contevalType.setBoundLabelUnderline(true);		
+        this.contevalType.setVisible(true);
+        // chkuse		
+        this.chkuse.setText(resHelper.getString("chkuse.text"));		
+        this.chkuse.setVisible(true);		
+        this.chkuse.setHorizontalAlignment(2);
         // kDLabelContainer4		
         this.kDLabelContainer4.setBoundLabelText(resHelper.getString("kDLabelContainer4.boundLabelText"));		
         this.kDLabelContainer4.setBoundLabelLength(100);		
         this.kDLabelContainer4.setBoundLabelUnderline(true);		
         this.kDLabelContainer4.setBoundLabelAlignment(7);		
         this.kDLabelContainer4.setVisible(true);
-        // chkuse		
-        this.chkuse.setText(resHelper.getString("chkuse.text"));		
-        this.chkuse.setVisible(true);		
-        this.chkuse.setHorizontalAlignment(2);
-        // contevalType		
-        this.contevalType.setBoundLabelText(resHelper.getString("contevalType.boundLabelText"));		
-        this.contevalType.setBoundLabelLength(100);		
-        this.contevalType.setBoundLabelUnderline(true);		
-        this.contevalType.setVisible(true);
+        // kDLabelContainer2		
+        this.kDLabelContainer2.setBoundLabelText(resHelper.getString("kDLabelContainer2.boundLabelText"));		
+        this.kDLabelContainer2.setBoundLabelLength(100);		
+        this.kDLabelContainer2.setBoundLabelUnderline(true);
         // contindicatorDep		
         this.contindicatorDep.setBoundLabelText(resHelper.getString("contindicatorDep.boundLabelText"));		
         this.contindicatorDep.setBoundLabelLength(100);		
         this.contindicatorDep.setBoundLabelUnderline(true);		
         this.contindicatorDep.setVisible(true);
-        // txtNumber		
-        this.txtNumber.setMaxLength(80);
-        // txtName
-        // txtSimpleName		
-        this.txtSimpleName.setMaxLength(80);
-        // txtDescription
+        // kDLabelContainer3		
+        this.kDLabelContainer3.setBoundLabelText(resHelper.getString("kDLabelContainer3.boundLabelText"));		
+        this.kDLabelContainer3.setBoundLabelLength(100);		
+        this.kDLabelContainer3.setBoundLabelUnderline(true);
+        // kDLabelContainer1		
+        this.kDLabelContainer1.setBoundLabelText(resHelper.getString("kDLabelContainer1.boundLabelText"));		
+        this.kDLabelContainer1.setBoundLabelLength(100);		
+        this.kDLabelContainer1.setBoundLabelUnderline(true);
         // txtevalType		
         this.txtevalType.setVisible(true);		
         this.txtevalType.setHorizontalAlignment(2);		
         this.txtevalType.setMaxLength(100);		
         this.txtevalType.setRequired(false);
+        // txtDescription
+        // txtName
         // txtindicatorDep		
         this.txtindicatorDep.setVisible(true);		
         this.txtindicatorDep.setHorizontalAlignment(2);		
         this.txtindicatorDep.setMaxLength(100);		
         this.txtindicatorDep.setRequired(false);
+        // txtSimpleName		
+        this.txtSimpleName.setMaxLength(80);
+        // txtNumber		
+        this.txtNumber.setMaxLength(80);
         this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {chkuse,txtevalType,txtindicatorDep}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
@@ -184,34 +189,38 @@ public abstract class AbstractEvaluationIndicatorsEditUI extends com.kingdee.eas
      */
     public void initUIContentLayout()
     {
-        this.setBounds(new Rectangle(0, 0, 1013, 629));
-        this.setLayout(null);
-        kDLabelContainer1.setBounds(new Rectangle(430, 43, 270, 19));
-        this.add(kDLabelContainer1, null);
-        kDLabelContainer2.setBounds(new Rectangle(99, 81, 270, 19));
-        this.add(kDLabelContainer2, null);
-        kDLabelContainer3.setBounds(new Rectangle(430, 120, 270, 19));
-        this.add(kDLabelContainer3, null);
-        kDLabelContainer4.setBounds(new Rectangle(99, 120, 270, 19));
-        this.add(kDLabelContainer4, null);
-        chkuse.setBounds(new Rectangle(99, 162, 270, 19));
-        this.add(chkuse, null);
-        contevalType.setBounds(new Rectangle(99, 43, 270, 19));
-        this.add(contevalType, null);
-        contindicatorDep.setBounds(new Rectangle(430, 81, 270, 19));
-        this.add(contindicatorDep, null);
-        //kDLabelContainer1
-        kDLabelContainer1.setBoundEditor(txtNumber);
-        //kDLabelContainer2
-        kDLabelContainer2.setBoundEditor(txtName);
-        //kDLabelContainer3
-        kDLabelContainer3.setBoundEditor(txtSimpleName);
-        //kDLabelContainer4
-        kDLabelContainer4.setBoundEditor(txtDescription);
+        this.setBounds(new Rectangle(0, 0, 631, 192));
+        this.setLayout(new KDLayout());
+        this.putClientProperty("OriginalBounds", new Rectangle(0, 0, 631, 192));
+        kDPanel1.setBounds(new Rectangle(4, 4, 623, 183));
+        this.add(kDPanel1, new KDLayout.Constraints(4, 4, 623, 183, 0));
+        //kDPanel1
+        kDPanel1.setLayout(null);        contevalType.setBounds(new Rectangle(21, 20, 270, 19));
+        kDPanel1.add(contevalType, null);
+        chkuse.setBounds(new Rectangle(21, 139, 270, 19));
+        kDPanel1.add(chkuse, null);
+        kDLabelContainer4.setBounds(new Rectangle(21, 97, 270, 19));
+        kDPanel1.add(kDLabelContainer4, null);
+        kDLabelContainer2.setBounds(new Rectangle(21, 58, 270, 19));
+        kDPanel1.add(kDLabelContainer2, null);
+        contindicatorDep.setBounds(new Rectangle(326, 58, 270, 19));
+        kDPanel1.add(contindicatorDep, null);
+        kDLabelContainer3.setBounds(new Rectangle(326, 97, 270, 19));
+        kDPanel1.add(kDLabelContainer3, null);
+        kDLabelContainer1.setBounds(new Rectangle(326, 20, 270, 19));
+        kDPanel1.add(kDLabelContainer1, null);
         //contevalType
         contevalType.setBoundEditor(txtevalType);
+        //kDLabelContainer4
+        kDLabelContainer4.setBoundEditor(txtDescription);
+        //kDLabelContainer2
+        kDLabelContainer2.setBoundEditor(txtName);
         //contindicatorDep
         contindicatorDep.setBoundEditor(txtindicatorDep);
+        //kDLabelContainer3
+        kDLabelContainer3.setBoundEditor(txtSimpleName);
+        //kDLabelContainer1
+        kDLabelContainer1.setBoundEditor(txtNumber);
 
     }
 
@@ -322,12 +331,12 @@ public abstract class AbstractEvaluationIndicatorsEditUI extends com.kingdee.eas
 	//Regiester control's property binding.
 	private void registerBindings(){
 		dataBinder.registerBinding("use", boolean.class, this.chkuse, "selected");
-		dataBinder.registerBinding("number", String.class, this.txtNumber, "text");
-		dataBinder.registerBinding("name", String.class, this.txtName, "_multiLangItem");
-		dataBinder.registerBinding("simpleName", String.class, this.txtSimpleName, "text");
-		dataBinder.registerBinding("description", String.class, this.txtDescription, "_multiLangItem");
 		dataBinder.registerBinding("evalType", String.class, this.txtevalType, "text");
-		dataBinder.registerBinding("indicatorDep", String.class, this.txtindicatorDep, "text");		
+		dataBinder.registerBinding("description", String.class, this.txtDescription, "_multiLangItem");
+		dataBinder.registerBinding("name", String.class, this.txtName, "_multiLangItem");
+		dataBinder.registerBinding("indicatorDep", String.class, this.txtindicatorDep, "text");
+		dataBinder.registerBinding("simpleName", String.class, this.txtSimpleName, "text");
+		dataBinder.registerBinding("number", String.class, this.txtNumber, "text");		
 	}
 	//Regiester UI State
 	private void registerUIState(){
@@ -475,12 +484,12 @@ public abstract class AbstractEvaluationIndicatorsEditUI extends com.kingdee.eas
 	protected void registerValidator() {
     	getValidateHelper().setCustomValidator( getValidator() );
 		getValidateHelper().registerBindProperty("use", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("number", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("name", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("simpleName", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("description", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("evalType", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("indicatorDep", ValidateHelper.ON_SAVE);    		
+		getValidateHelper().registerBindProperty("description", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("name", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("indicatorDep", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("simpleName", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("number", ValidateHelper.ON_SAVE);    		
 	}
 
 
@@ -520,12 +529,12 @@ public abstract class AbstractEvaluationIndicatorsEditUI extends com.kingdee.eas
 			selectorAll = "true";
 		}
         sic.add(new SelectorItemInfo("use"));
-        sic.add(new SelectorItemInfo("number"));
-        sic.add(new SelectorItemInfo("name"));
-        sic.add(new SelectorItemInfo("simpleName"));
-        sic.add(new SelectorItemInfo("description"));
         sic.add(new SelectorItemInfo("evalType"));
+        sic.add(new SelectorItemInfo("description"));
+        sic.add(new SelectorItemInfo("name"));
         sic.add(new SelectorItemInfo("indicatorDep"));
+        sic.add(new SelectorItemInfo("simpleName"));
+        sic.add(new SelectorItemInfo("number"));
         return sic;
     }        
 

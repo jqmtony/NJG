@@ -4,6 +4,7 @@
 package com.kingdee.eas.port.pm.base.client;
 
 import java.awt.event.*;
+
 import org.apache.log4j.Logger;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.dao.IObjectValue;
@@ -37,12 +38,19 @@ public class EvaluationIndicatorsEditUI extends AbstractEvaluationIndicatorsEdit
     
     @Override
     public void onLoad() throws Exception {
-    	// TODO Auto-generated method stub
     	txtevalType.setEnabled(false);
+    	btnNext.setVisible(false);
+    	btnPre.setVisible(false);
+    	btnFirst.setVisible(false);
+    	btnLast.setVisible(false);
     	super.onLoad();
     	btnCancelCancel.setEnabled(true);
         btnCancel.setEnabled(true);
     	chkuse.setVisible(false);
+    }
+    @Override
+    protected void verifyInput(ActionEvent actionevent) throws Exception {
+    	super.verifyInput(actionevent);
     }
     /**
      * output loadFields method
