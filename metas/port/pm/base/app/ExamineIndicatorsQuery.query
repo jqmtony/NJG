@@ -590,6 +590,37 @@
                 <key name="name" value="ExamineIndicatorsQuery" />
             </query>
         </queryField>
+        <queryField>
+            <name>examineIndicator</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.base.app.ExamineIndicatorsQuery].units.queryField[examineIndicator].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>9e37a129-fa39-4f50-af65-8da8b30d284d</key>
+                    <parentUnit>
+                        <key name="name" value="examineIndicator" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ExamineIndicators" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="examineIndicator" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
+                <key name="name" value="ExamineIndicatorsQuery" />
+            </query>
+        </queryField>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -927,6 +958,22 @@
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.ExamineIndicatorsQuery].units.queryField[examCategory].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.ExamineIndicatorsQuery].units.queryField[examineIndicator].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="考核指标" />
+            <lang locale="zh_HK" value="考核指標" />
+            <lang locale="zh_TW" value="考核指標" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.ExamineIndicatorsQuery].units.queryField[examineIndicator].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.ExamineIndicatorsQuery].units.queryField[examineIndicator].extendedProperty.isCommonQuerySorter">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />

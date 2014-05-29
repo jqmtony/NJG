@@ -26,23 +26,56 @@
             <userDefined>false</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDPanel</classType>
             <isContainer>true</isContainer>
-            <constraints>0,0,1013,629</constraints>
-            <tabIndex>0</tabIndex>
-            <herited>false</herited>
-            <bimUIObjectPK />
-        </component>
-        <component>
-            <name>kDLabelContainer1</name>
-            <alias>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[kDLabelContainer1].alias</alias>
-            <userDefined>true</userDefined>
-            <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
-            <isContainer>true</isContainer>
-            <constraints>430,43,270,19</constraints>
+            <constraints>0,0,631,192</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
             <layoutInfo>
-                <name>labelContainerLayout1</name>
+                <name>kDLayout1</name>
+                <type>KDLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>preferredSize</name>
+                    <type>java.awt.Dimension</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[CoreUI].properties.property[preferredSize].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+        </component>
+        <component>
+            <name>kDPanel1</name>
+            <alias>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[kDPanel1].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDPanel</classType>
+            <isContainer>true</isContainer>
+            <constraints>4,4,623,183,0</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <parent>
+                <key name="name" value="CoreUI" />
+            </parent>
+        </component>
+        <component>
+            <name>contevalType</name>
+            <alias>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[contevalType].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>21,20,270,19</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
                 <type>LabelContainerLayout</type>
                 <value />
             </layoutInfo>
@@ -50,112 +83,90 @@
                 <property>
                     <name>boundLabelText</name>
                     <type>java.lang.String</type>
-                    <value>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[kDLabelContainer1].properties.property[boundLabelText].value</value>
+                    <value>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[contevalType].properties.property[boundLabelText].value</value>
                     <isMultiLan>true</isMultiLan>
                     <userDefined>true</userDefined>
                 </property>
                 <property>
                     <name>boundLabelLength</name>
                     <type>int</type>
-                    <value>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[kDLabelContainer1].properties.property[boundLabelLength].value</value>
+                    <value>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[contevalType].properties.property[boundLabelLength].value</value>
                     <isMultiLan>false</isMultiLan>
                     <userDefined>true</userDefined>
                 </property>
                 <property>
                     <name>boundLabelUnderline</name>
                     <type>boolean</type>
-                    <value>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[kDLabelContainer1].properties.property[boundLabelUnderline].value</value>
+                    <value>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[contevalType].properties.property[boundLabelUnderline].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[contevalType].properties.property[visible].value</value>
                     <isMultiLan>false</isMultiLan>
                     <userDefined>true</userDefined>
                 </property>
             </properties>
             <parent>
-                <key name="name" value="CoreUI" />
+                <key name="name" value="kDPanel1" />
             </parent>
         </component>
         <component>
-            <name>kDLabelContainer2</name>
-            <alias>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[kDLabelContainer2].alias</alias>
+            <name>chkuse</name>
+            <alias>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[chkuse].alias</alias>
             <userDefined>true</userDefined>
-            <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
-            <isContainer>true</isContainer>
-            <constraints>99,81,270,19</constraints>
-            <tabIndex>0</tabIndex>
+            <classType>com.kingdee.bos.ctrl.swing.KDCheckBox</classType>
+            <isContainer>false</isContainer>
+            <constraints>21,139,270,19</constraints>
+            <tabIndex>11</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
             <layoutInfo>
-                <name>labelContainerLayout2</name>
-                <type>LabelContainerLayout</type>
+                <name />
+                <type>XYLayout</type>
                 <value />
             </layoutInfo>
             <properties>
                 <property>
-                    <name>boundLabelText</name>
+                    <name>text</name>
                     <type>java.lang.String</type>
-                    <value>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[kDLabelContainer2].properties.property[boundLabelText].value</value>
+                    <value>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[chkuse].properties.property[text].value</value>
                     <isMultiLan>true</isMultiLan>
                     <userDefined>true</userDefined>
                 </property>
                 <property>
-                    <name>boundLabelLength</name>
-                    <type>int</type>
-                    <value>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[kDLabelContainer2].properties.property[boundLabelLength].value</value>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[chkuse].properties.property[visible].value</value>
                     <isMultiLan>false</isMultiLan>
                     <userDefined>true</userDefined>
                 </property>
                 <property>
-                    <name>boundLabelUnderline</name>
-                    <type>boolean</type>
-                    <value>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[kDLabelContainer2].properties.property[boundLabelUnderline].value</value>
+                    <name>horizontalAlignment</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[chkuse].properties.property[horizontalAlignment].value</value>
                     <isMultiLan>false</isMultiLan>
                     <userDefined>true</userDefined>
                 </property>
             </properties>
             <parent>
-                <key name="name" value="CoreUI" />
+                <key name="name" value="kDPanel1" />
             </parent>
-        </component>
-        <component>
-            <name>kDLabelContainer3</name>
-            <alias>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[kDLabelContainer3].alias</alias>
-            <userDefined>true</userDefined>
-            <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
-            <isContainer>true</isContainer>
-            <constraints>430,120,270,19</constraints>
-            <tabIndex>0</tabIndex>
-            <herited>false</herited>
-            <bimUIObjectPK />
-            <layoutInfo>
-                <name>labelContainerLayout3</name>
-                <type>LabelContainerLayout</type>
-                <value />
-            </layoutInfo>
-            <properties>
-                <property>
-                    <name>boundLabelText</name>
-                    <type>java.lang.String</type>
-                    <value>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[kDLabelContainer3].properties.property[boundLabelText].value</value>
-                    <isMultiLan>true</isMultiLan>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>selected</propertyName>
+                    <propertyType>boolean</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>use</bindingField>
+                    <fieldType>boolean</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
                     <userDefined>true</userDefined>
-                </property>
-                <property>
-                    <name>boundLabelLength</name>
-                    <type>int</type>
-                    <value>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[kDLabelContainer3].properties.property[boundLabelLength].value</value>
-                    <isMultiLan>false</isMultiLan>
-                    <userDefined>true</userDefined>
-                </property>
-                <property>
-                    <name>boundLabelUnderline</name>
-                    <type>boolean</type>
-                    <value>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[kDLabelContainer3].properties.property[boundLabelUnderline].value</value>
-                    <isMultiLan>false</isMultiLan>
-                    <userDefined>true</userDefined>
-                </property>
-            </properties>
-            <parent>
-                <key name="name" value="CoreUI" />
-            </parent>
+                </propertyBinding>
+            </propertyBindings>
         </component>
         <component>
             <name>kDLabelContainer4</name>
@@ -163,7 +174,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>99,120,270,19</constraints>
+            <constraints>21,97,270,19</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -210,71 +221,21 @@
                 </property>
             </properties>
             <parent>
-                <key name="name" value="CoreUI" />
+                <key name="name" value="kDPanel1" />
             </parent>
         </component>
         <component>
-            <name>chkuse</name>
-            <alias>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[chkuse].alias</alias>
-            <userDefined>true</userDefined>
-            <classType>com.kingdee.bos.ctrl.swing.KDCheckBox</classType>
-            <isContainer>false</isContainer>
-            <constraints>99,162,270,19</constraints>
-            <tabIndex>11</tabIndex>
-            <herited>false</herited>
-            <bimUIObjectPK />
-            <properties>
-                <property>
-                    <name>text</name>
-                    <type>java.lang.String</type>
-                    <value>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[chkuse].properties.property[text].value</value>
-                    <isMultiLan>true</isMultiLan>
-                    <userDefined>true</userDefined>
-                </property>
-                <property>
-                    <name>visible</name>
-                    <type>boolean</type>
-                    <value>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[chkuse].properties.property[visible].value</value>
-                    <isMultiLan>false</isMultiLan>
-                    <userDefined>true</userDefined>
-                </property>
-                <property>
-                    <name>horizontalAlignment</name>
-                    <type>int</type>
-                    <value>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[chkuse].properties.property[horizontalAlignment].value</value>
-                    <isMultiLan>false</isMultiLan>
-                    <userDefined>true</userDefined>
-                </property>
-            </properties>
-            <parent>
-                <key name="name" value="CoreUI" />
-            </parent>
-            <propertyBindings>
-                <propertyBinding>
-                    <propertyName>selected</propertyName>
-                    <propertyType>boolean</propertyType>
-                    <bindingObject>editData</bindingObject>
-                    <bindingField>use</bindingField>
-                    <fieldType>boolean</fieldType>
-                    <accessType>2</accessType>
-                    <autoMode>false</autoMode>
-                    <herited>false</herited>
-                    <userDefined>true</userDefined>
-                </propertyBinding>
-            </propertyBindings>
-        </component>
-        <component>
-            <name>contevalType</name>
-            <alias>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[contevalType].alias</alias>
+            <name>kDLabelContainer2</name>
+            <alias>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[kDLabelContainer2].alias</alias>
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>99,43,270,19</constraints>
+            <constraints>21,58,270,19</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
             <layoutInfo>
-                <name />
+                <name>labelContainerLayout2</name>
                 <type>LabelContainerLayout</type>
                 <value />
             </layoutInfo>
@@ -282,34 +243,27 @@
                 <property>
                     <name>boundLabelText</name>
                     <type>java.lang.String</type>
-                    <value>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[contevalType].properties.property[boundLabelText].value</value>
+                    <value>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[kDLabelContainer2].properties.property[boundLabelText].value</value>
                     <isMultiLan>true</isMultiLan>
                     <userDefined>true</userDefined>
                 </property>
                 <property>
                     <name>boundLabelLength</name>
                     <type>int</type>
-                    <value>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[contevalType].properties.property[boundLabelLength].value</value>
+                    <value>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[kDLabelContainer2].properties.property[boundLabelLength].value</value>
                     <isMultiLan>false</isMultiLan>
                     <userDefined>true</userDefined>
                 </property>
                 <property>
                     <name>boundLabelUnderline</name>
                     <type>boolean</type>
-                    <value>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[contevalType].properties.property[boundLabelUnderline].value</value>
-                    <isMultiLan>false</isMultiLan>
-                    <userDefined>true</userDefined>
-                </property>
-                <property>
-                    <name>visible</name>
-                    <type>boolean</type>
-                    <value>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[contevalType].properties.property[visible].value</value>
+                    <value>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[kDLabelContainer2].properties.property[boundLabelUnderline].value</value>
                     <isMultiLan>false</isMultiLan>
                     <userDefined>true</userDefined>
                 </property>
             </properties>
             <parent>
-                <key name="name" value="CoreUI" />
+                <key name="name" value="kDPanel1" />
             </parent>
         </component>
         <component>
@@ -318,7 +272,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>430,81,270,19</constraints>
+            <constraints>326,58,270,19</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -358,14 +312,160 @@
                 </property>
             </properties>
             <parent>
-                <key name="name" value="CoreUI" />
+                <key name="name" value="kDPanel1" />
             </parent>
         </component>
         <component>
-            <name>txtNumber</name>
-            <alias>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[txtNumber].alias</alias>
+            <name>kDLabelContainer3</name>
+            <alias>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[kDLabelContainer3].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>326,97,270,19</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>labelContainerLayout3</name>
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>boundLabelText</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[kDLabelContainer3].properties.property[boundLabelText].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelLength</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[kDLabelContainer3].properties.property[boundLabelLength].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelUnderline</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[kDLabelContainer3].properties.property[boundLabelUnderline].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="kDPanel1" />
+            </parent>
+        </component>
+        <component>
+            <name>kDLabelContainer1</name>
+            <alias>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[kDLabelContainer1].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>326,20,270,19</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>labelContainerLayout1</name>
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>boundLabelText</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[kDLabelContainer1].properties.property[boundLabelText].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelLength</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[kDLabelContainer1].properties.property[boundLabelLength].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelUnderline</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[kDLabelContainer1].properties.property[boundLabelUnderline].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="kDPanel1" />
+            </parent>
+        </component>
+        <component>
+            <name>txtevalType</name>
+            <alias>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[txtevalType].alias</alias>
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDTextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>3</constraints>
+            <tabIndex>12</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[txtevalType].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>horizontalAlignment</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[txtevalType].properties.property[horizontalAlignment].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>maxLength</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[txtevalType].properties.property[maxLength].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>required</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[txtevalType].properties.property[required].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="contevalType" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>text</propertyName>
+                    <propertyType>java.lang.String</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>evalType</bindingField>
+                    <fieldType>String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
+        <component>
+            <name>txtDescription</name>
+            <alias>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[txtDescription].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.extendcontrols.KDBizMultiLangBox</classType>
             <isContainer>false</isContainer>
             <constraints>7</constraints>
             <tabIndex>0</tabIndex>
@@ -376,24 +476,15 @@
                 <type>XYLayout</type>
                 <value />
             </layoutInfo>
-            <properties>
-                <property>
-                    <name>maxLength</name>
-                    <type>int</type>
-                    <value>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[txtNumber].properties.property[maxLength].value</value>
-                    <isMultiLan>false</isMultiLan>
-                    <userDefined>true</userDefined>
-                </property>
-            </properties>
             <parent>
-                <key name="name" value="kDLabelContainer1" />
+                <key name="name" value="kDLabelContainer4" />
             </parent>
             <propertyBindings>
                 <propertyBinding>
-                    <propertyName>text</propertyName>
-                    <propertyType>java.lang.String</propertyType>
+                    <propertyName>_multiLangItem</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
                     <bindingObject>editData</bindingObject>
-                    <bindingField>number</bindingField>
+                    <bindingField>description</bindingField>
                     <fieldType>String</fieldType>
                     <accessType>2</accessType>
                     <autoMode>false</autoMode>
@@ -426,6 +517,68 @@
                     <propertyType>java.lang.Object</propertyType>
                     <bindingObject>editData</bindingObject>
                     <bindingField>name</bindingField>
+                    <fieldType>String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
+        <component>
+            <name>txtindicatorDep</name>
+            <alias>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[txtindicatorDep].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDTextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>3</constraints>
+            <tabIndex>13</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[txtindicatorDep].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>horizontalAlignment</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[txtindicatorDep].properties.property[horizontalAlignment].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>maxLength</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[txtindicatorDep].properties.property[maxLength].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>required</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[txtindicatorDep].properties.property[required].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="contindicatorDep" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>text</propertyName>
+                    <propertyType>java.lang.String</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>indicatorDep</bindingField>
                     <fieldType>String</fieldType>
                     <accessType>2</accessType>
                     <autoMode>false</autoMode>
@@ -476,10 +629,10 @@
             </propertyBindings>
         </component>
         <component>
-            <name>txtDescription</name>
-            <alias>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[txtDescription].alias</alias>
+            <name>txtNumber</name>
+            <alias>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[txtNumber].alias</alias>
             <userDefined>true</userDefined>
-            <classType>com.kingdee.bos.ctrl.extendcontrols.KDBizMultiLangBox</classType>
+            <classType>com.kingdee.bos.ctrl.swing.KDTextField</classType>
             <isContainer>false</isContainer>
             <constraints>7</constraints>
             <tabIndex>0</tabIndex>
@@ -490,129 +643,24 @@
                 <type>XYLayout</type>
                 <value />
             </layoutInfo>
-            <parent>
-                <key name="name" value="kDLabelContainer4" />
-            </parent>
-            <propertyBindings>
-                <propertyBinding>
-                    <propertyName>_multiLangItem</propertyName>
-                    <propertyType>java.lang.Object</propertyType>
-                    <bindingObject>editData</bindingObject>
-                    <bindingField>description</bindingField>
-                    <fieldType>String</fieldType>
-                    <accessType>2</accessType>
-                    <autoMode>false</autoMode>
-                    <herited>false</herited>
-                    <userDefined>true</userDefined>
-                </propertyBinding>
-            </propertyBindings>
-        </component>
-        <component>
-            <name>txtevalType</name>
-            <alias>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[txtevalType].alias</alias>
-            <userDefined>true</userDefined>
-            <classType>com.kingdee.bos.ctrl.swing.KDTextField</classType>
-            <isContainer>false</isContainer>
-            <constraints>3</constraints>
-            <tabIndex>12</tabIndex>
-            <herited>false</herited>
-            <bimUIObjectPK />
             <properties>
-                <property>
-                    <name>visible</name>
-                    <type>boolean</type>
-                    <value>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[txtevalType].properties.property[visible].value</value>
-                    <isMultiLan>false</isMultiLan>
-                    <userDefined>true</userDefined>
-                </property>
-                <property>
-                    <name>horizontalAlignment</name>
-                    <type>int</type>
-                    <value>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[txtevalType].properties.property[horizontalAlignment].value</value>
-                    <isMultiLan>false</isMultiLan>
-                    <userDefined>true</userDefined>
-                </property>
                 <property>
                     <name>maxLength</name>
                     <type>int</type>
-                    <value>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[txtevalType].properties.property[maxLength].value</value>
-                    <isMultiLan>false</isMultiLan>
-                    <userDefined>true</userDefined>
-                </property>
-                <property>
-                    <name>required</name>
-                    <type>boolean</type>
-                    <value>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[txtevalType].properties.property[required].value</value>
+                    <value>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[txtNumber].properties.property[maxLength].value</value>
                     <isMultiLan>false</isMultiLan>
                     <userDefined>true</userDefined>
                 </property>
             </properties>
             <parent>
-                <key name="name" value="contevalType" />
+                <key name="name" value="kDLabelContainer1" />
             </parent>
             <propertyBindings>
                 <propertyBinding>
                     <propertyName>text</propertyName>
                     <propertyType>java.lang.String</propertyType>
                     <bindingObject>editData</bindingObject>
-                    <bindingField>evalType</bindingField>
-                    <fieldType>String</fieldType>
-                    <accessType>2</accessType>
-                    <autoMode>false</autoMode>
-                    <herited>false</herited>
-                    <userDefined>true</userDefined>
-                </propertyBinding>
-            </propertyBindings>
-        </component>
-        <component>
-            <name>txtindicatorDep</name>
-            <alias>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[txtindicatorDep].alias</alias>
-            <userDefined>true</userDefined>
-            <classType>com.kingdee.bos.ctrl.swing.KDTextField</classType>
-            <isContainer>false</isContainer>
-            <constraints>3</constraints>
-            <tabIndex>13</tabIndex>
-            <herited>false</herited>
-            <bimUIObjectPK />
-            <properties>
-                <property>
-                    <name>visible</name>
-                    <type>boolean</type>
-                    <value>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[txtindicatorDep].properties.property[visible].value</value>
-                    <isMultiLan>false</isMultiLan>
-                    <userDefined>true</userDefined>
-                </property>
-                <property>
-                    <name>horizontalAlignment</name>
-                    <type>int</type>
-                    <value>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[txtindicatorDep].properties.property[horizontalAlignment].value</value>
-                    <isMultiLan>false</isMultiLan>
-                    <userDefined>true</userDefined>
-                </property>
-                <property>
-                    <name>maxLength</name>
-                    <type>int</type>
-                    <value>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[txtindicatorDep].properties.property[maxLength].value</value>
-                    <isMultiLan>false</isMultiLan>
-                    <userDefined>true</userDefined>
-                </property>
-                <property>
-                    <name>required</name>
-                    <type>boolean</type>
-                    <value>uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[txtindicatorDep].properties.property[required].value</value>
-                    <isMultiLan>false</isMultiLan>
-                    <userDefined>true</userDefined>
-                </property>
-            </properties>
-            <parent>
-                <key name="name" value="contindicatorDep" />
-            </parent>
-            <propertyBindings>
-                <propertyBinding>
-                    <propertyName>text</propertyName>
-                    <propertyType>java.lang.String</propertyType>
-                    <bindingObject>editData</bindingObject>
-                    <bindingField>indicatorDep</bindingField>
+                    <bindingField>number</bindingField>
                     <fieldType>String</fieldType>
                     <accessType>2</accessType>
                     <autoMode>false</autoMode>
@@ -843,6 +891,12 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[CoreUI].properties.property[preferredSize].value">
+            <lang locale="en_US" value="631,192" />
+            <lang locale="zh_CN" value="631,192" />
+            <lang locale="zh_HK" value="631,192" />
+            <lang locale="zh_TW" value="631,192" />
+        </rs>
         <rs key="uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[btnPrintPreview].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -1058,6 +1112,12 @@
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_HK" value="true" />
             <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[kDPanel1].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.pm.base.client.EvaluationIndicatorsEditUI].components.component[menuItemPrintPreview].alias">
             <lang locale="en_US" value="null" />
