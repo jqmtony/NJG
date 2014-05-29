@@ -77,12 +77,8 @@ public abstract class AbstractPreProjectEditUI extends com.kingdee.eas.xr.client
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmttempName;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtprojectName;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnSubmitTwo;
-    protected com.kingdee.bos.ctrl.swing.KDWorkButton btnWorkCouldReport;
-    protected com.kingdee.bos.ctrl.swing.KDWorkButton btnPreliminaryDesignReport;
     protected com.kingdee.eas.port.pm.invest.PreProjectInfo editData = null;
     protected actionSubmitTwo actionSubmitTwo = null;
-    protected ActionWorkCouldReport actionWorkCouldReport = null;
-    protected ActionPreliminaryDesignReport actionPreliminaryDesignReport = null;
     /**
      * output class constructor
      */
@@ -136,14 +132,6 @@ public abstract class AbstractPreProjectEditUI extends com.kingdee.eas.xr.client
         this.actionSubmitTwo = new actionSubmitTwo(this);
         getActionManager().registerAction("actionSubmitTwo", actionSubmitTwo);
          this.actionSubmitTwo.addService(new com.kingdee.eas.framework.client.service.PermissionService());
-        //actionWorkCouldReport
-        this.actionWorkCouldReport = new ActionWorkCouldReport(this);
-        getActionManager().registerAction("actionWorkCouldReport", actionWorkCouldReport);
-         this.actionWorkCouldReport.addService(new com.kingdee.eas.framework.client.service.PermissionService());
-        //actionPreliminaryDesignReport
-        this.actionPreliminaryDesignReport = new ActionPreliminaryDesignReport(this);
-        getActionManager().registerAction("actionPreliminaryDesignReport", actionPreliminaryDesignReport);
-         this.actionPreliminaryDesignReport.addService(new com.kingdee.eas.framework.client.service.PermissionService());
         this.contCreator = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contCreateTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contLastUpdateUser = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -174,8 +162,6 @@ public abstract class AbstractPreProjectEditUI extends com.kingdee.eas.xr.client
         this.prmttempName = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.prmtprojectName = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.btnSubmitTwo = new com.kingdee.bos.ctrl.swing.KDWorkButton();
-        this.btnWorkCouldReport = new com.kingdee.bos.ctrl.swing.KDWorkButton();
-        this.btnPreliminaryDesignReport = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.contCreator.setName("contCreator");
         this.contCreateTime.setName("contCreateTime");
         this.contLastUpdateUser.setName("contLastUpdateUser");
@@ -206,8 +192,6 @@ public abstract class AbstractPreProjectEditUI extends com.kingdee.eas.xr.client
         this.prmttempName.setName("prmttempName");
         this.prmtprojectName.setName("prmtprojectName");
         this.btnSubmitTwo.setName("btnSubmitTwo");
-        this.btnWorkCouldReport.setName("btnWorkCouldReport");
-        this.btnPreliminaryDesignReport.setName("btnPreliminaryDesignReport");
         // CoreUI
         // contCreator		
         this.contCreator.setBoundLabelText(resHelper.getString("contCreator.boundLabelText"));		
@@ -274,6 +258,15 @@ public abstract class AbstractPreProjectEditUI extends com.kingdee.eas.xr.client
 		String kdtE1StrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /><c:NumberFormat>&amp;int</c:NumberFormat></c:Style><c:Style id=\"sCol3\"><c:NumberFormat>&amp;date</c:NumberFormat></c:Style><c:Style id=\"sCol4\"><c:NumberFormat>&amp;date</c:NumberFormat></c:Style><c:Style id=\"sCol5\"><c:NumberFormat>&amp;date</c:NumberFormat></c:Style><c:Style id=\"sCol6\"><c:NumberFormat>&amp;date</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"preWorkContent\" t:width=\"300\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"workReq\" t:width=\"300\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"planStartTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol3\" /><t:Column t:key=\"planCompTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol4\" /><t:Column t:key=\"actualPlanTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol5\" /><t:Column t:key=\"actualCompTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol6\" /><t:Column t:key=\"respondDepart\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"coDepart\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"hostPerson\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"remark\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{preWorkContent}</t:Cell><t:Cell>$Resource{workReq}</t:Cell><t:Cell>$Resource{planStartTime}</t:Cell><t:Cell>$Resource{planCompTime}</t:Cell><t:Cell>$Resource{actualPlanTime}</t:Cell><t:Cell>$Resource{actualCompTime}</t:Cell><t:Cell>$Resource{respondDepart}</t:Cell><t:Cell>$Resource{coDepart}</t:Cell><t:Cell>$Resource{hostPerson}</t:Cell><t:Cell>$Resource{remark}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.kdtE1.setFormatXml(resHelper.translateString("kdtE1",kdtE1StrXML));
+        this.kdtE1.addKDTEditListener(new com.kingdee.bos.ctrl.kdf.table.event.KDTEditAdapter() {
+            public void editStopped(com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent e) {
+                try {
+                    kdtE1_editStopped(e);
+                } catch(Exception exc) {
+                    handUIException(exc);
+                }
+            }
+        });
 
                 this.kdtE1.putBindContents("editData",new String[] {"seq","preWorkContent","workReq","planStartTime","planCompTime","actualPlanTime","actualCompTime","respondDepart","coDepart","hostPerson","remark"});
 
@@ -419,16 +412,6 @@ public abstract class AbstractPreProjectEditUI extends com.kingdee.eas.xr.client
         this.btnSubmitTwo.setAction((IItemAction)ActionProxyFactory.getProxy(actionSubmitTwo, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnSubmitTwo.setText(resHelper.getString("btnSubmitTwo.text"));		
         this.btnSubmitTwo.setIcon(com.kingdee.eas.util.client.EASResource.getIcon("imgTbtn_subjectsetting"));
-        // btnWorkCouldReport
-        this.btnWorkCouldReport.setAction((IItemAction)ActionProxyFactory.getProxy(actionWorkCouldReport, new Class[] { IItemAction.class }, getServiceContext()));		
-        this.btnWorkCouldReport.setText(resHelper.getString("btnWorkCouldReport.text"));		
-        this.btnWorkCouldReport.setToolTipText(resHelper.getString("btnWorkCouldReport.toolTipText"));		
-        this.btnWorkCouldReport.setIcon(com.kingdee.eas.util.client.EASResource.getIcon("imgTbtn_allotpart"));
-        // btnPreliminaryDesignReport
-        this.btnPreliminaryDesignReport.setAction((IItemAction)ActionProxyFactory.getProxy(actionPreliminaryDesignReport, new Class[] { IItemAction.class }, getServiceContext()));		
-        this.btnPreliminaryDesignReport.setText(resHelper.getString("btnPreliminaryDesignReport.text"));		
-        this.btnPreliminaryDesignReport.setToolTipText(resHelper.getString("btnPreliminaryDesignReport.toolTipText"));		
-        this.btnPreliminaryDesignReport.setIcon(com.kingdee.eas.util.client.EASResource.getIcon("imgTbtn_allotmultipart"));
         this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmttempName,prmtprojectName,prmtCU,pkLastUpdateTime,prmtLastUpdateUser,pkCreateTime,kdtE1,prmtCreator,prmtAuditor,txtDescription,pkBizDate,txtNumber,pkAuditTime,comboBizStatus,comboStatus}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
@@ -685,8 +668,6 @@ public abstract class AbstractPreProjectEditUI extends com.kingdee.eas.xr.client
         this.toolBar.add(btnWFViewSubmitProccess);
         this.toolBar.add(btnNextPerson);
         this.toolBar.add(btnSubmitTwo);
-        this.toolBar.add(btnWorkCouldReport);
-        this.toolBar.add(btnPreliminaryDesignReport);
 
 
     }
@@ -897,6 +878,14 @@ public abstract class AbstractPreProjectEditUI extends com.kingdee.eas.xr.client
     }
 
     /**
+     * output kdtE1_editStopped method
+     */
+    protected void kdtE1_editStopped(com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent e) throws Exception
+    {
+        //write your code here00
+    }
+
+    /**
      * output prmttempName_dataChanged method
      */
     protected void prmttempName_dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) throws Exception
@@ -1045,22 +1034,6 @@ public abstract class AbstractPreProjectEditUI extends com.kingdee.eas.xr.client
     public void actionSubmitTwo_actionPerformed(ActionEvent e) throws Exception
     {
     }
-    	
-
-    /**
-     * output actionWorkCouldReport_actionPerformed method
-     */
-    public void actionWorkCouldReport_actionPerformed(ActionEvent e) throws Exception
-    {
-    }
-    	
-
-    /**
-     * output actionPreliminaryDesignReport_actionPerformed method
-     */
-    public void actionPreliminaryDesignReport_actionPerformed(ActionEvent e) throws Exception
-    {
-    }
 	public RequestContext prepareActionSubmit(IItemAction itemAction) throws Exception {
 			RequestContext request = super.prepareActionSubmit(itemAction);		
 		if (request != null) {
@@ -1094,28 +1067,6 @@ public abstract class AbstractPreProjectEditUI extends com.kingdee.eas.xr.client
 	public boolean isPrepareactionSubmitTwo() {
     	return false;
     }
-	public RequestContext prepareActionWorkCouldReport(IItemAction itemAction) throws Exception {
-			RequestContext request = new RequestContext();		
-		if (request != null) {
-    		request.setClassName(getUIHandlerClassName());
-		}
-		return request;
-    }
-	
-	public boolean isPrepareActionWorkCouldReport() {
-    	return false;
-    }
-	public RequestContext prepareActionPreliminaryDesignReport(IItemAction itemAction) throws Exception {
-			RequestContext request = new RequestContext();		
-		if (request != null) {
-    		request.setClassName(getUIHandlerClassName());
-		}
-		return request;
-    }
-	
-	public boolean isPrepareActionPreliminaryDesignReport() {
-    	return false;
-    }
 
     /**
      * output actionSubmitTwo class
@@ -1145,66 +1096,6 @@ public abstract class AbstractPreProjectEditUI extends com.kingdee.eas.xr.client
         {
         	getUIContext().put("ORG.PK", getOrgPK(this));
             innerActionPerformed("eas", AbstractPreProjectEditUI.this, "actionSubmitTwo", "actionSubmitTwo_actionPerformed", e);
-        }
-    }
-
-    /**
-     * output ActionWorkCouldReport class
-     */     
-    protected class ActionWorkCouldReport extends ItemAction {     
-    
-        public ActionWorkCouldReport()
-        {
-            this(null);
-        }
-
-        public ActionWorkCouldReport(IUIObject uiObject)
-        {     
-		super(uiObject);     
-        
-            String _tempStr = null;
-            _tempStr = resHelper.getString("ActionWorkCouldReport.SHORT_DESCRIPTION");
-            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
-            _tempStr = resHelper.getString("ActionWorkCouldReport.LONG_DESCRIPTION");
-            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
-            _tempStr = resHelper.getString("ActionWorkCouldReport.NAME");
-            this.putValue(ItemAction.NAME, _tempStr);
-        }
-
-        public void actionPerformed(ActionEvent e)
-        {
-        	getUIContext().put("ORG.PK", getOrgPK(this));
-            innerActionPerformed("eas", AbstractPreProjectEditUI.this, "ActionWorkCouldReport", "actionWorkCouldReport_actionPerformed", e);
-        }
-    }
-
-    /**
-     * output ActionPreliminaryDesignReport class
-     */     
-    protected class ActionPreliminaryDesignReport extends ItemAction {     
-    
-        public ActionPreliminaryDesignReport()
-        {
-            this(null);
-        }
-
-        public ActionPreliminaryDesignReport(IUIObject uiObject)
-        {     
-		super(uiObject);     
-        
-            String _tempStr = null;
-            _tempStr = resHelper.getString("ActionPreliminaryDesignReport.SHORT_DESCRIPTION");
-            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
-            _tempStr = resHelper.getString("ActionPreliminaryDesignReport.LONG_DESCRIPTION");
-            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
-            _tempStr = resHelper.getString("ActionPreliminaryDesignReport.NAME");
-            this.putValue(ItemAction.NAME, _tempStr);
-        }
-
-        public void actionPerformed(ActionEvent e)
-        {
-        	getUIContext().put("ORG.PK", getOrgPK(this));
-            innerActionPerformed("eas", AbstractPreProjectEditUI.this, "ActionPreliminaryDesignReport", "actionPreliminaryDesignReport_actionPerformed", e);
         }
     }
 

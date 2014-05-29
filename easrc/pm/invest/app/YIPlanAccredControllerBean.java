@@ -59,48 +59,18 @@ public class YIPlanAccredControllerBean extends AbstractYIPlanAccredControllerBe
 			}
     		if(accredType.equals(AccredTypeEnum.trial)){ 
     			for (int i = 0; i <coll.size(); i++) {
-					YIPlanAccredE1Info yipInfo = coll.get(i);
-					BOSUuid yipid =yipInfo.getProjectName().getId();
-		    		YearInvestPlanInfo planInfo = YearInvestPlan.getYearInvestPlanInfo(new ObjectUuidPK(yipid));
-//		    		planInfo.setObjectState(ObjectStateEnum.throughAudit);
-		    		YearInvestPlanE3Info e3Info = new YearInvestPlanE3Info();
-		    		e3Info.setReviewStage(Info.getAccredType());
-		    		e3Info.setAccredConclusion(yipInfo.getProjectConclude());
-		    		e3Info.setReviewTime(Info.getAccredDate());
-		    		planInfo.getE3().add(e3Info);
-		    		YearInvestPlan.update(new ObjectUuidPK(yipid), planInfo);
+    				creatProjectAudit(ctx,Info);
 			 }
     			
     	 }
     	 else if(accredType.equals(AccredTypeEnum.accred)){ 
     			for (int i = 0; i <coll.size(); i++) {
-					YIPlanAccredE1Info yipInfo = coll.get(i);
-					BOSUuid yipid =yipInfo.getProjectName().getId();
-		    		YearInvestPlanInfo planInfo = YearInvestPlan.getYearInvestPlanInfo(new ObjectUuidPK(yipid));
-//		    		planInfo.setObjectState(ObjectStateEnum.accredit);
-		    		YearInvestPlanE3Info e3Info = new YearInvestPlanE3Info();
-		    		e3Info.setReviewStage(Info.getAccredType());
-		    		e3Info.setAccredConclusion(yipInfo.getProjectConclude());
-		    		e3Info.setReviewTime(Info.getAccredDate());
-		    		planInfo.getE3().add(e3Info);
-		    		YearInvestPlan.update(new ObjectUuidPK(yipid), planInfo);
-			 
+    				creatProjectAudit(ctx,Info);
 			   }
     	 }
     		else{ 
     			for (int i = 0; i <coll.size(); i++) {
-					YIPlanAccredE1Info yipInfo = coll.get(i);
-					BOSUuid yipid =yipInfo.getProjectName().getId();
-		    		YearInvestPlanInfo planInfo = YearInvestPlan.getYearInvestPlanInfo(new ObjectUuidPK(yipid));
-//		    		planInfo.setObjectState(ObjectStateEnum.approval);
-		    		YearInvestPlanE3Info e3Info = new YearInvestPlanE3Info();
-		    		e3Info.setReviewStage(Info.getAccredType());
-		    		e3Info.setAccredConclusion(yipInfo.getProjectConclude());
-		    		e3Info.setReviewTime(Info.getAccredDate());
-		    		planInfo.getE3().add(e3Info);
-		    		YearInvestPlan.update(new ObjectUuidPK(yipid), planInfo);
-			 
-			   
+    				creatProjectAudit(ctx,Info);			 
 			   }
     		}
      }
@@ -256,5 +226,25 @@ public class YIPlanAccredControllerBean extends AbstractYIPlanAccredControllerBe
     		}
 		}
     }
+    
+    private void creatProjectAudit(Context ctx,YIPlanAccredInfo Info) throws BOSException, EASBizException 
+    {
+    	IYearInvestPlan YearInvestPlan = YearInvestPlanFactory.getLocalInstance(ctx);
+    	YIPlanAccredE1Collection coll =Info.getE1();
+    	for (int i = 0; i <coll.size(); i++) 
+    	{
+    		YIPlanAccredE1Info yipInfo = coll.get(i);
+		    BOSUuid yipid =yipInfo.getProjectName().getId();
+		    YearInvestPlanInfo planInfo = YearInvestPlan.getYearInvestPlanInfo(new ObjectUuidPK(yipid));
+//		    planInfo.setObjectState(ObjectStateEnum.throughAudit);
+		    YearInvestPlanE3Info e3Info = new YearInvestPlanE3Info();
+		    e3Info.setReviewStage(Info.getAccredType());
+		    e3Info.setAccredConclusion(yipInfo.getProjectConclude());
+		    e3Info.setReviewTime(Info.getAccredDate());
+		    planInfo.getE3().add(e3Info);
+		    YearInvestPlan.update(new ObjectUuidPK(yipid), planInfo);
+    	}
+    	
+    }   
     
 }

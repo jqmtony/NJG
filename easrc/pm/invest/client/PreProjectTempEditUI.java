@@ -8,8 +8,12 @@ import java.util.Date;
 
 import org.apache.log4j.Logger;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.eas.framework.*;
+import com.kingdee.eas.util.SysUtil;
+import com.kingdee.eas.util.client.MsgBox;
+import com.kingdee.eas.xr.helper.ClientVerifyXRHelper;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.swing.KDTextField;
 
@@ -49,6 +53,21 @@ public class PreProjectTempEditUI extends AbstractPreProjectTempEditUI
     	super.onLoad();
     	txtNumber.setEditable(false);
     }
+    
+    protected void verifyInput(ActionEvent e) throws Exception {
+    	super.verifyInput(e);
+    	if (kdtE1.getRowCount()<1) 
+    	{
+			MsgBox.showInfo("分录中没数据，请检查！");
+			SysUtil.abort();
+		}
+		for (int i = 0; i < kdtE1.getRowCount(); i++) 
+		{
+			ClientVerifyXRHelper.verifyKDTCellNull(this, this.kdtE1, i, "preWorkContent");
+			ClientVerifyXRHelper.verifyKDTCellNull(this, this.kdtE1, i, "respondDepart");
+		}
+	}
+    
     /**
      * output btnAddLine_actionPerformed method
      */

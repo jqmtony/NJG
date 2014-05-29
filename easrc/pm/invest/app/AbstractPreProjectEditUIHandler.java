@@ -19,14 +19,4 @@ public abstract class AbstractPreProjectEditUIHandler extends com.kingdee.eas.xr
 	}
 	protected void _handleactionSubmitTwo(RequestContext request,ResponseContext response, Context context) throws Exception {
 	}
-	public void handleActionWorkCouldReport(RequestContext request,ResponseContext response, Context context) throws Exception {
-		_handleActionWorkCouldReport(request,response,context);
-	}
-	protected void _handleActionWorkCouldReport(RequestContext request,ResponseContext response, Context context) throws Exception {
-	}
-	public void handleActionPreliminaryDesignReport(RequestContext request,ResponseContext response, Context context) throws Exception {
-		_handleActionPreliminaryDesignReport(request,response,context);
-	}
-	protected void _handleActionPreliminaryDesignReport(RequestContext request,ResponseContext response, Context context) throws Exception {
-	}
 }

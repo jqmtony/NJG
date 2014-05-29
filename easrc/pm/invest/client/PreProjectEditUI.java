@@ -15,6 +15,7 @@ import com.kingdee.bos.BOSException;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
 import com.kingdee.bos.ctrl.kdf.table.KDTStyleConstants;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
+import com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent;
 import com.kingdee.bos.ctrl.swing.KDTextField;
 import com.kingdee.bos.ctrl.swing.KDWorkButton;
@@ -34,22 +35,25 @@ import com.kingdee.eas.base.attachment.BoAttchAssoFactory;
 import com.kingdee.eas.base.attachment.client.AttachmentUIContextInfo;
 import com.kingdee.eas.base.attachment.common.AttachmentClientManager;
 import com.kingdee.eas.base.attachment.common.AttachmentManagerFactory;
+import com.kingdee.eas.basedata.assistant.ProjectInfo;
 import com.kingdee.eas.basedata.org.AdminOrgUnitFactory;
 import com.kingdee.eas.basedata.org.IAdminOrgUnit;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.OprtState;
-import com.kingdee.eas.port.pm.base.IProjectType;
-import com.kingdee.eas.port.pm.base.ProjectTypeFactory;
-import com.kingdee.eas.port.pm.base.ProjectTypeInfo;
 import com.kingdee.eas.port.pm.invest.PreProjectE1Info;
 import com.kingdee.eas.port.pm.invest.PreProjectFactory;
+import com.kingdee.eas.port.pm.invest.PreProjectInfo;
 import com.kingdee.eas.port.pm.invest.PreProjectTempE1Collection;
 import com.kingdee.eas.port.pm.invest.PreProjectTempE1Info;
 import com.kingdee.eas.port.pm.invest.PreProjectTempInfo;
-import com.kingdee.eas.port.pm.invest.YearInvestPlanInfo;
+import com.kingdee.eas.port.pm.invest.ProjectBudget2Collection;
+import com.kingdee.eas.port.pm.invest.ProjectBudget2Factory;
+import com.kingdee.eas.port.pm.invest.ProjectEstimateCollection;
+import com.kingdee.eas.port.pm.invest.ProjectEstimateFactory;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
+import com.kingdee.eas.xr.app.XRBillStatusEnum;
 import com.kingdee.eas.xr.helper.ClientVerifyXRHelper;
 
 /**
@@ -60,7 +64,7 @@ public class PreProjectEditUI extends AbstractPreProjectEditUI
     private static final Logger logger = CoreUIObject.getLogger(PreProjectEditUI.class);
     
     /**
-     * output class constructor
+     * output class constructorR
      */
     public PreProjectEditUI() throws Exception
     {
@@ -110,6 +114,12 @@ public class PreProjectEditUI extends AbstractPreProjectEditUI
 		kdtE1.getColumn("seq").getStyleAttributes().setHided(true);
 		this.actionSubmitTwo.setEnabled(true);
 		this.btnSubmitTwo.setEnabled(true);
+		//对项目名称进行过滤项目类型为“基本建设”的项目
+	    FilterInfo filter = new FilterInfo();
+		filter.getFilterItems().add(new FilterItemInfo("NJGprojectType.name","基本建设",com.kingdee.bos.metadata.query.util.CompareType.EQUALS));
+		EntityViewInfo view = new EntityViewInfo();
+		view.setFilter(filter);
+		this.prmtprojectName.setEntityViewInfo(view);
 		
 		if(getUIContext().get("WorkReport")!=null)
 		{
@@ -232,6 +242,7 @@ public class PreProjectEditUI extends AbstractPreProjectEditUI
 		for (int i = 0; i < kdtE1.getRowCount(); i++) {
 			ClientVerifyXRHelper.verifyKDTCellNull(this, this.kdtE1, i, "planStartTime");
 			ClientVerifyXRHelper.verifyKDTCellNull(this, this.kdtE1, i, "planCompTime");
+			ClientVerifyXRHelper.verifyKDTCellNull(this, this.kdtE1, i, "respondDepart");
 			ClientVerifyXRHelper.verifyKDTCellNull(this, this.kdtE1, i, "hostPerson");
 			if(UIRuleUtil.getDateValue(kdtE1.getCell(i,"planStartTime").getValue()).after(UIRuleUtil.getDateValue(kdtE1.getCell(i,"planCompTime").getValue()))){
 				MsgBox.showWarning("计划开始时间不能晚于计划完成时间");
@@ -272,14 +283,61 @@ public class PreProjectEditUI extends AbstractPreProjectEditUI
     	}
     }
     
+    protected void kdtE1_editStopped(KDTEditEvent e) throws Exception {
+    	super.kdtE1_editStopped(e);
+    	int colIndex = e.getColIndex();
+		int rowIndex = e.getRowIndex();
+		String key = kdtE1.getColumnKey(colIndex);
+		
+		if(key.equals("actualPlanTime")||key.equals("actualCompTime"))
+		{
+			IRow row = kdtE1.getRow(rowIndex);
+			String s = row.getCell("preWorkContent").getValue().toString().trim();
+			if(s.compareTo("工可报告") == 0)
+			{
+				ProjectInfo preInfo = (ProjectInfo) prmtprojectName.getValue();
+				FilterInfo filter = new FilterInfo();
+				filter.getFilterItems().add(new FilterItemInfo("projectName.id",preInfo.getId().toString()));
+				EntityViewInfo view = new EntityViewInfo();
+				view.setFilter(filter);
+				ProjectEstimateCollection procol = ProjectEstimateFactory.getRemoteInstance().getProjectEstimateCollection(view);
+				if(procol.size()>0){
+					if(!procol.get(0).getStatus().equals(XRBillStatusEnum.AUDITED)){
+						this.kdtE1.getCell(rowIndex, "actualPlanTime").setValue(null);
+						this.kdtE1.getCell(rowIndex, "actualCompTime").setValue(null);
+					}
+				}else{
+					this.kdtE1.getCell(rowIndex, "actualPlanTime").setValue(null);
+					this.kdtE1.getCell(rowIndex, "actualCompTime").setValue(null);
+				}
+			}
+			
+			if(this.kdtE1.getCell(rowIndex, "preWorkContent").getValue().equals("初步设计"))
+			{
+				ProjectInfo preInfo = (ProjectInfo) prmtprojectName.getValue();
+				FilterInfo filter = new FilterInfo();
+				filter.getFilterItems().add(new FilterItemInfo("projectName.id",preInfo.getId().toString()));
+				EntityViewInfo view = new EntityViewInfo();
+				view.setFilter(filter);
+				ProjectBudget2Collection procol = ProjectBudget2Factory.getRemoteInstance().getProjectBudget2Collection(view);
+				if(procol.size()>0){
+					if(!procol.get(0).getStatus().equals(XRBillStatusEnum.AUDITED)){
+						this.kdtE1.getCell(rowIndex, "actualPlanTime").setValue(null);
+						this.kdtE1.getCell(rowIndex, "actualCompTime").setValue(null);
+					}
+				}else{
+					this.kdtE1.getCell(rowIndex, "actualPlanTime").setValue(null);
+					this.kdtE1.getCell(rowIndex, "actualCompTime").setValue(null);
+				}
+			}
+		}
+    	
+    }
+    
     public void actionSubmitTwo_actionPerformed(ActionEvent e) throws Exception {
     	super.actionSubmitTwo_actionPerformed(e);
     	storeFields();
-    	//设置分录的必输项 传的是分录的名称，后面是字段名称
-    	for (int i = 0; i < kdtE1.getRowCount(); i++) {
-			ClientVerifyXRHelper.verifyKDTCellNull(this, this.kdtE1, i, "actualPlanTime");
-			ClientVerifyXRHelper.verifyKDTCellNull(this, this.kdtE1, i, "actualCompTime");
-		}
+    	
     	PreProjectFactory.getRemoteInstance().update(new ObjectUuidPK(editData.getId()), editData);
     	MsgBox.showInfo("保存成功！");
     	setOprtState("VIEW");
