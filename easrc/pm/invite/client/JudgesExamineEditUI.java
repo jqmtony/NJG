@@ -76,7 +76,7 @@ public class JudgesExamineEditUI extends AbstractJudgesExamineEditUI
     	pkevaDate.setRequired(true);
     	super.onLoad();
     	if(getOprtState().equals(OprtState.ADDNEW)) {
-    		String oqls = "order by number asc";
+    		String oqls = "select * desc order by number asc";
     		ExamineIndicatorsTreeCollection eitColl = ExamineIndicatorsTreeFactory.getRemoteInstance().getExamineIndicatorsTreeCollection(oqls);//类别集合
         	IExamineIndicators iexamine = ExamineIndicatorsFactory.getRemoteInstance();
 //        	EntityViewInfo evi = new EntityViewInfo();
