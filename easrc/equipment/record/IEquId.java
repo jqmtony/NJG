@@ -50,4 +50,6 @@ public interface IEquId extends IXRBillBase
     public String getBindingProperty() throws BOSException;
     public void inUse(EquIdInfo model) throws BOSException;
     public void outUse(EquIdInfo model) throws BOSException;
+    public void actionRegistChange(EquIdInfo model) throws BOSException;
+    public void excel(EquIdInfo model) throws BOSException;
 }

@@ -24,15 +24,19 @@ import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.dao.IObjectPK;
+import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.metadata.entity.SorterItemCollection;
 import com.kingdee.eas.framework.CoreBaseCollection;
 import com.kingdee.eas.util.app.ContextUtil;
 import com.kingdee.eas.xr.XRBillBaseCollection;
+import com.kingdee.eas.xr.XRBillBaseInfo;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.eas.xr.app.XRBillBaseControllerBean;
 import com.kingdee.eas.framework.CoreBillBaseCollection;
 import com.kingdee.eas.framework.CoreBaseInfo;
+import com.kingdee.eas.port.equipment.maintenance.MonMainPlanE1Factory;
+import com.kingdee.eas.port.equipment.maintenance.MonMainPlanE1Info;
 import com.kingdee.eas.port.equipment.maintenance.RepairOrderCollection;
 import com.kingdee.eas.framework.ObjectBaseCollection;
 import com.kingdee.eas.port.equipment.maintenance.RepairOrderInfo;
@@ -82,4 +86,26 @@ public class RepairOrderControllerBean extends AbstractRepairOrderControllerBean
 			}
 		return NumberCode;
 	}
+	
+  
+		protected void _audit(Context ctx, IObjectPK pk) throws BOSException,EASBizException {
+			super._audit(ctx, pk);
+			RepairOrderInfo roInfo = getRepairOrderInfo(ctx, pk);
+				if(roInfo.getSourceBillId() != null){
+					MonMainPlanE1Info mmeInfo = MonMainPlanE1Factory.getLocalInstance(ctx).getMonMainPlanE1Info(new ObjectUuidPK(roInfo.getSourceBillId()));
+					mmeInfo.setActualCompleteT(roInfo.getTransferTime());
+					MonMainPlanE1Factory.getLocalInstance(ctx).update((new ObjectUuidPK(mmeInfo.getId())),mmeInfo);
+				}
+			
+		}
+		
+		protected void _unAudit(Context ctx, IObjectPK pk) throws BOSException,EASBizException {
+			super._unAudit(ctx, pk);
+			RepairOrderInfo roInfo = getRepairOrderInfo(ctx, pk);
+			if(roInfo.getSourceBillId() != null){
+				MonMainPlanE1Info mmeInfo = MonMainPlanE1Factory.getLocalInstance(ctx).getMonMainPlanE1Info(new ObjectUuidPK(roInfo.getSourceBillId()));
+				mmeInfo.setActualCompleteT(null);
+				MonMainPlanE1Factory.getLocalInstance(ctx).update((new ObjectUuidPK(mmeInfo.getId())),mmeInfo);
+			}
+		}
 }

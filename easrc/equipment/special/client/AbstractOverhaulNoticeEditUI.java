@@ -84,7 +84,12 @@ public abstract class AbstractOverhaulNoticeEditUI extends com.kingdee.eas.xr.cl
     protected com.kingdee.bos.ctrl.swing.KDScrollPane scrollPanefeedback;
     protected com.kingdee.bos.ctrl.swing.KDTextArea txtfeedback;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkbackDate;
+    protected com.kingdee.bos.ctrl.swing.KDWorkButton btnConRect;
+    protected com.kingdee.bos.ctrl.swing.KDWorkButton btnUnConRet;
     protected com.kingdee.eas.port.equipment.special.OverhaulNoticeInfo editData = null;
+    protected ActionActitonConRect actionActitonConRect = null;
+    protected ActionUnConRet actionUnConRet = null;
+    protected ActionFeedInfor actionFeedInfor = null;
     /**
      * output class constructor
      */
@@ -134,6 +139,30 @@ public abstract class AbstractOverhaulNoticeEditUI extends com.kingdee.eas.xr.cl
         actionUnAudit.putValue(ItemAction.NAME, _tempStr);
         this.actionUnAudit.setBindWorkFlow(true);
          this.actionUnAudit.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+        //actionActitonConRect
+        this.actionActitonConRect = new ActionActitonConRect(this);
+        getActionManager().registerAction("actionActitonConRect", actionActitonConRect);
+        this.actionActitonConRect.setExtendProperty("canForewarn", "true");
+        this.actionActitonConRect.setExtendProperty("userDefined", "true");
+        this.actionActitonConRect.setExtendProperty("isObjectUpdateLock", "false");
+         this.actionActitonConRect.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+         this.actionActitonConRect.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
+        //actionUnConRet
+        this.actionUnConRet = new ActionUnConRet(this);
+        getActionManager().registerAction("actionUnConRet", actionUnConRet);
+        this.actionUnConRet.setExtendProperty("canForewarn", "true");
+        this.actionUnConRet.setExtendProperty("userDefined", "true");
+        this.actionUnConRet.setExtendProperty("isObjectUpdateLock", "false");
+         this.actionUnConRet.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+         this.actionUnConRet.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
+        //actionFeedInfor
+        this.actionFeedInfor = new ActionFeedInfor(this);
+        getActionManager().registerAction("actionFeedInfor", actionFeedInfor);
+        this.actionFeedInfor.setExtendProperty("canForewarn", "true");
+        this.actionFeedInfor.setExtendProperty("userDefined", "true");
+        this.actionFeedInfor.setExtendProperty("isObjectUpdateLock", "false");
+         this.actionFeedInfor.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+         this.actionFeedInfor.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
         this.contCreator = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contCreateTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contLastUpdateUser = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -171,6 +200,8 @@ public abstract class AbstractOverhaulNoticeEditUI extends com.kingdee.eas.xr.cl
         this.scrollPanefeedback = new com.kingdee.bos.ctrl.swing.KDScrollPane();
         this.txtfeedback = new com.kingdee.bos.ctrl.swing.KDTextArea();
         this.pkbackDate = new com.kingdee.bos.ctrl.swing.KDDatePicker();
+        this.btnConRect = new com.kingdee.bos.ctrl.swing.KDWorkButton();
+        this.btnUnConRet = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.contCreator.setName("contCreator");
         this.contCreateTime.setName("contCreateTime");
         this.contLastUpdateUser.setName("contLastUpdateUser");
@@ -208,6 +239,8 @@ public abstract class AbstractOverhaulNoticeEditUI extends com.kingdee.eas.xr.cl
         this.scrollPanefeedback.setName("scrollPanefeedback");
         this.txtfeedback.setName("txtfeedback");
         this.pkbackDate.setName("pkbackDate");
+        this.btnConRect.setName("btnConRect");
+        this.btnUnConRet.setName("btnUnConRet");
         // CoreUI
         // contCreator		
         this.contCreator.setBoundLabelText(resHelper.getString("contCreator.boundLabelText"));		
@@ -281,6 +314,14 @@ public abstract class AbstractOverhaulNoticeEditUI extends com.kingdee.eas.xr.cl
 
 
         this.kdtEntry.checkParsed();
+        KDFormattedTextField kdtEntry_seq_TextField = new KDFormattedTextField();
+        kdtEntry_seq_TextField.setName("kdtEntry_seq_TextField");
+        kdtEntry_seq_TextField.setVisible(true);
+        kdtEntry_seq_TextField.setEditable(true);
+        kdtEntry_seq_TextField.setHorizontalAlignment(2);
+        kdtEntry_seq_TextField.setDataType(0);
+        KDTDefaultCellEditor kdtEntry_seq_CellEditor = new KDTDefaultCellEditor(kdtEntry_seq_TextField);
+        this.kdtEntry.getColumn("seq").setEditor(kdtEntry_seq_CellEditor);
         final KDBizPromptBox kdtEntry_zdaNumber_PromptBox = new KDBizPromptBox();
         kdtEntry_zdaNumber_PromptBox.setQueryInfo("com.kingdee.eas.port.equipment.record.app.EquIdQuery");
         kdtEntry_zdaNumber_PromptBox.setVisible(true);
@@ -417,6 +458,12 @@ public abstract class AbstractOverhaulNoticeEditUI extends com.kingdee.eas.xr.cl
         // pkbackDate		
         this.pkbackDate.setVisible(true);		
         this.pkbackDate.setRequired(false);
+        // btnConRect
+        this.btnConRect.setAction((IItemAction)ActionProxyFactory.getProxy(actionActitonConRect, new Class[] { IItemAction.class }, getServiceContext()));		
+        this.btnConRect.setText(resHelper.getString("btnConRect.text"));
+        // btnUnConRet
+        this.btnUnConRet.setAction((IItemAction)ActionProxyFactory.getProxy(actionUnConRet, new Class[] { IItemAction.class }, getServiceContext()));		
+        this.btnUnConRet.setText(resHelper.getString("btnUnConRet.text"));
 		//Register control's property binding
 		registerBindings();
 		registerUIState();
@@ -650,6 +697,8 @@ public abstract class AbstractOverhaulNoticeEditUI extends com.kingdee.eas.xr.cl
         this.toolBar.add(btnAttachment);
         this.toolBar.add(btnAudit);
         this.toolBar.add(btnUnAudit);
+        this.toolBar.add(btnConRect);
+        this.toolBar.add(btnUnConRet);
         this.toolBar.add(separatorFW1);
         this.toolBar.add(btnPageSetup);
         this.toolBar.add(btnPrint);
@@ -1004,6 +1053,33 @@ kdtEntry.getCell(rowIndex,"equipmentName").setValue(com.kingdee.bos.ui.face.UIRu
     {
         super.actionUnAudit_actionPerformed(e);
     }
+    	
+
+    /**
+     * output actionActitonConRect_actionPerformed method
+     */
+    public void actionActitonConRect_actionPerformed(ActionEvent e) throws Exception
+    {
+        com.kingdee.eas.port.equipment.special.OverhaulNoticeFactory.getRemoteInstance().actitonConRect(editData);
+    }
+    	
+
+    /**
+     * output actionUnConRet_actionPerformed method
+     */
+    public void actionUnConRet_actionPerformed(ActionEvent e) throws Exception
+    {
+        com.kingdee.eas.port.equipment.special.OverhaulNoticeFactory.getRemoteInstance().unConRet(editData);
+    }
+    	
+
+    /**
+     * output actionFeedInfor_actionPerformed method
+     */
+    public void actionFeedInfor_actionPerformed(ActionEvent e) throws Exception
+    {
+        com.kingdee.eas.port.equipment.special.OverhaulNoticeFactory.getRemoteInstance().feedInfor(editData);
+    }
 	public RequestContext prepareActionSubmit(IItemAction itemAction) throws Exception {
 			RequestContext request = super.prepareActionSubmit(itemAction);		
 		if (request != null) {
@@ -1025,6 +1101,129 @@ kdtEntry.getCell(rowIndex,"equipmentName").setValue(com.kingdee.bos.ui.face.UIRu
 	
 	public boolean isPrepareActionUnAudit() {
     	return false;
+    }
+	public RequestContext prepareActionActitonConRect(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionActitonConRect() {
+    	return false;
+    }
+	public RequestContext prepareActionUnConRet(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionUnConRet() {
+    	return false;
+    }
+	public RequestContext prepareActionFeedInfor(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionFeedInfor() {
+    	return false;
+    }
+
+    /**
+     * output ActionActitonConRect class
+     */     
+    protected class ActionActitonConRect extends ItemAction {     
+    
+        public ActionActitonConRect()
+        {
+            this(null);
+        }
+
+        public ActionActitonConRect(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            _tempStr = resHelper.getString("ActionActitonConRect.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionActitonConRect.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionActitonConRect.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractOverhaulNoticeEditUI.this, "ActionActitonConRect", "actionActitonConRect_actionPerformed", e);
+        }
+    }
+
+    /**
+     * output ActionUnConRet class
+     */     
+    protected class ActionUnConRet extends ItemAction {     
+    
+        public ActionUnConRet()
+        {
+            this(null);
+        }
+
+        public ActionUnConRet(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            _tempStr = resHelper.getString("ActionUnConRet.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionUnConRet.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionUnConRet.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractOverhaulNoticeEditUI.this, "ActionUnConRet", "actionUnConRet_actionPerformed", e);
+        }
+    }
+
+    /**
+     * output ActionFeedInfor class
+     */     
+    protected class ActionFeedInfor extends ItemAction {     
+    
+        public ActionFeedInfor()
+        {
+            this(null);
+        }
+
+        public ActionFeedInfor(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            _tempStr = resHelper.getString("ActionFeedInfor.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionFeedInfor.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionFeedInfor.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractOverhaulNoticeEditUI.this, "ActionFeedInfor", "actionFeedInfor_actionPerformed", e);
+        }
     }
 
     /**

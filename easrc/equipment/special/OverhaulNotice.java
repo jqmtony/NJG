@@ -387,4 +387,43 @@ public class OverhaulNotice extends XRBillBase implements IOverhaulNotice
             throw new EJBRemoteException(err);
         }
     }
+    /**
+     *确认整改-User defined method
+     *@param model model
+     */
+    public void actitonConRect(OverhaulNoticeInfo model) throws BOSException
+    {
+        try {
+            getController().actitonConRect(getContext(), model);
+        }
+        catch(RemoteException err) {
+            throw new EJBRemoteException(err);
+        }
+    }
+    /**
+     *反确认整改-User defined method
+     *@param model model
+     */
+    public void unConRet(OverhaulNoticeInfo model) throws BOSException
+    {
+        try {
+            getController().unConRet(getContext(), model);
+        }
+        catch(RemoteException err) {
+            throw new EJBRemoteException(err);
+        }
+    }
+    /**
+     *录入整改反馈信息-User defined method
+     *@param model model
+     */
+    public void feedInfor(OverhaulNoticeInfo model) throws BOSException
+    {
+        try {
+            getController().feedInfor(getContext(), model);
+        }
+        catch(RemoteException err) {
+            throw new EJBRemoteException(err);
+        }
+    }
 }

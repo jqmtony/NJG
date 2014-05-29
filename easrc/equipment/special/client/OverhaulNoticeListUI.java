@@ -4,10 +4,12 @@
 package com.kingdee.eas.port.equipment.special.client;
 
 import java.awt.event.*;
+
 import org.apache.log4j.Logger;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.eas.framework.*;
+import com.kingdee.eas.util.client.EASResource;
 
 /**
  * output class name
@@ -586,4 +588,13 @@ public class OverhaulNoticeListUI extends AbstractOverhaulNoticeListUI
         return objectValue;
     }
 
+    protected void initWorkButton()
+    {
+        super.initWorkButton();
+        btnFeedInfor.setIcon(EASResource.getIcon("imgTbtn_readin"));
+    }
+    
+    public void actionFeedInfor_actionPerformed(ActionEvent e) throws Exception {
+    	super.actionFeedInfor_actionPerformed(e);
+    }
 }

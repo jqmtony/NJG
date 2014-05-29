@@ -19,6 +19,9 @@ import com.kingdee.eas.port.equipment.base.enumbase.sbStatusType;
 import com.kingdee.eas.port.equipment.record.EquIdFactory;
 import com.kingdee.eas.port.equipment.record.EquIdInfo;
 import com.kingdee.eas.port.equipment.record.IEquId;
+import com.kingdee.eas.tools.datatask.DatataskMode;
+import com.kingdee.eas.tools.datatask.DatataskParameter;
+import com.kingdee.eas.tools.datatask.client.DatataskCaller;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.KDTableUtil;
 
@@ -654,5 +657,18 @@ public class EquIdListUI extends AbstractEquIdListUI
 		super.initWorkButton();
 		btninUse.setIcon(EASResource.getIcon("imgTbtn_turnin"));
 		btnoutUse.setIcon(EASResource.getIcon("imgTbtn_stopturnin"));
+		btnExcel.setIcon(EASResource.getIcon("imgTbtn_input"));
+	}
+	
+	public void actionExcel_actionPerformed(ActionEvent e) throws Exception {
+		DatataskCaller task = new DatataskCaller();
+        task.setParentComponent(this);
+        DatataskParameter param = new DatataskParameter();
+        String solutionName = "eas.custom.007";
+        param.solutionName = solutionName;
+        ArrayList paramList = new ArrayList();
+        paramList.add(param);
+        task.invoke(paramList, DatataskMode.UPDATE, true);
+        this.refresh(null);
 	}
 }

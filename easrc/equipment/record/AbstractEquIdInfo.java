@@ -513,13 +513,13 @@ public class AbstractEquIdInfo extends com.kingdee.eas.xr.XRBillBaseInfo impleme
     /**
      * Object:设备档案's 到期检测日期property 
      */
-    public java.sql.Time getTestDay()
+    public java.util.Date getTestDay()
     {
-        return getTime("testDay");
+        return getDate("testDay");
     }
-    public void setTestDay(java.sql.Time item)
+    public void setTestDay(java.util.Date item)
     {
-        setTime("testDay", item);
+        setDate("testDay", item);
     }
     /**
      * Object:设备档案's 设备档案号property 
@@ -687,6 +687,17 @@ public class AbstractEquIdInfo extends com.kingdee.eas.xr.XRBillBaseInfo impleme
     public void setRatedWeight(java.math.BigDecimal item)
     {
         setBigDecimal("ratedWeight", item);
+    }
+    /**
+     * Object:设备档案's 市检到期检测日期property 
+     */
+    public java.util.Date getTextDate1()
+    {
+        return getDate("textDate1");
+    }
+    public void setTextDate1(java.util.Date item)
+    {
+        setDate("textDate1", item);
     }
     public BOSObjectType getBOSType()
     {

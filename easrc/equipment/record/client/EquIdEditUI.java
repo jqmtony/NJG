@@ -5,6 +5,7 @@ package com.kingdee.eas.port.equipment.record.client;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Vector;
 
@@ -25,8 +26,13 @@ import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.metadata.entity.SelectorItemInfo;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.ui.face.IUIWindow;
+import com.kingdee.bos.ui.face.UIFactory;
 import com.kingdee.eas.common.EASBizException;
+import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
+import com.kingdee.eas.common.client.UIContext;
+import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.fi.fa.basedata.FaCatFactory;
 import com.kingdee.eas.fi.fa.basedata.FaCatInfo;
 import com.kingdee.eas.fi.fa.basedata.FaUseStatusFactory;
@@ -34,16 +40,12 @@ import com.kingdee.eas.fi.fa.basedata.FaUseStatusInfo;
 import com.kingdee.eas.fi.fa.basedata.client.FaCatPromptBox;
 import com.kingdee.eas.fi.fa.manage.FaCurCardFactory;
 import com.kingdee.eas.fi.fa.manage.FaCurCardInfo;
-import com.kingdee.eas.port.equipment.base.enumbase.sbStatusType;
 import com.kingdee.eas.port.equipment.insurance.EquInsuranceAccidentCollection;
 import com.kingdee.eas.port.equipment.insurance.EquInsuranceAccidentFactory;
 import com.kingdee.eas.port.equipment.insurance.IEquInsuranceAccident;
-import com.kingdee.eas.port.equipment.insurance.IInsuranceCoverage;
 import com.kingdee.eas.port.equipment.insurance.IInsuranceCoverageE1;
-import com.kingdee.eas.port.equipment.insurance.InsuranceCoverageCollection;
 import com.kingdee.eas.port.equipment.insurance.InsuranceCoverageE1Collection;
 import com.kingdee.eas.port.equipment.insurance.InsuranceCoverageE1Factory;
-import com.kingdee.eas.port.equipment.insurance.InsuranceCoverageFactory;
 import com.kingdee.eas.port.equipment.maintenance.IRepairOrder;
 import com.kingdee.eas.port.equipment.maintenance.RepairOrderCollection;
 import com.kingdee.eas.port.equipment.maintenance.RepairOrderFactory;
@@ -59,7 +61,11 @@ import com.kingdee.eas.port.equipment.operate.IEqmScrap;
 import com.kingdee.eas.port.equipment.special.AnnualYearDetailEntryCollection;
 import com.kingdee.eas.port.equipment.special.AnnualYearDetailEntryFactory;
 import com.kingdee.eas.port.equipment.special.IAnnualYearDetailEntry;
+import com.kingdee.eas.port.equipment.special.client.SpecialChangeEditUI;
 import com.kingdee.eas.port.equipment.uitl.ToolHelp;
+import com.kingdee.eas.tools.datatask.DatataskMode;
+import com.kingdee.eas.tools.datatask.DatataskParameter;
+import com.kingdee.eas.tools.datatask.client.DatataskCaller;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
@@ -1301,6 +1307,7 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 		sic.add(new SelectorItemInfo("ratedWeight"));
 		sic.add(new SelectorItemInfo("assetValue"));
 		sic.add(new SelectorItemInfo("sbdescription"));
+		sic.add(new SelectorItemInfo("textDate1"));
 		return sic;
 	}
 	
@@ -1338,12 +1345,32 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 	protected void verifyInput(ActionEvent e) throws Exception {
 		super.verifyInput(e);
           if(editData.getSourceBillId()!=null){
-//        	  FaCardInfo fcInfo = FaCardFactory.getRemoteInstance().getFaCardInfo(new ObjectUuidPK(editData.getSourceBillId()))  ;
         	  FaCurCardInfo fccInfo = FaCurCardFactory.getRemoteInstance().getFaCurCardInfo(new ObjectUuidPK(editData.getSourceBillId().toString()));
-        	  if(fccInfo.getAssetCat().getId() !=null || prmttype.getValue() !=null){
-        	     
+        	  if(fccInfo.getAssetCat().getId() !=null && ((FaCatInfo)prmttype.getData()).getId()!=null){
+        	     if(fccInfo.getAssetCat().getId() != ((FaCatInfo)prmttype.getData()).getId()){
+        	    	 MsgBox.showWarning("固定资产卡片类型与设备类型不一致！");
+     				SysUtil.abort();
+        	     }
         	  }
 		}
 	}
 	
+	public void actionRegistChange_actionPerformed(ActionEvent e)throws Exception {
+		super.actionRegistChange_actionPerformed(e);
+		IUIWindow uiWindow = null;
+		UIContext context = new UIContext(this);
+		context.put("EquID", editData.getId().toString());
+		uiWindow = UIFactory.createUIFactory(UIFactoryName.MODEL).create(SpecialChangeEditUI.class.getName(), context, null, OprtState.ADDNEW);
+		uiWindow.show(); 
+	}
+	
+	  protected void initWorkButton()
+	    {
+	        super.initWorkButton();
+	        btnRegistChange.setIcon(EASResource.getIcon("imgTbtn_assetchange"));
+	    }
+	  
+	public void actionExcel_actionPerformed(ActionEvent e) throws Exception {
+
+	}
 }

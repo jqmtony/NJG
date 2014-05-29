@@ -53,4 +53,7 @@ public interface OverhaulNoticeController extends XRBillBaseController
     public void updateBigObject(Context ctx, IObjectPK pk, OverhaulNoticeInfo model) throws BOSException, RemoteException;
     public void updatePartial(Context ctx, OverhaulNoticeInfo model, SelectorItemCollection selector) throws BOSException, EASBizException, RemoteException;
     public String getBindingProperty(Context ctx) throws BOSException, RemoteException;
+    public void actitonConRect(Context ctx, OverhaulNoticeInfo model) throws BOSException, RemoteException;
+    public void unConRet(Context ctx, OverhaulNoticeInfo model) throws BOSException, RemoteException;
+    public void feedInfor(Context ctx, OverhaulNoticeInfo model) throws BOSException, RemoteException;
 }

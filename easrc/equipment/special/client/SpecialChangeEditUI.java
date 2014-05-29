@@ -3,13 +3,19 @@
  */
 package com.kingdee.eas.port.equipment.special.client;
 
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+
 import org.apache.log4j.Logger;
-import com.kingdee.bos.ui.face.CoreUIObject;
-import com.kingdee.bos.dao.IObjectValue;
-import com.kingdee.eas.framework.*;
+
+import com.kingdee.bos.ctrl.kdf.table.IRow;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.swing.KDTextField;
+import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.eas.common.client.OprtState;
+import com.kingdee.eas.port.equipment.record.EquIdFactory;
+import com.kingdee.eas.port.equipment.record.EquIdInfo;
 
 /**
  * output class name
@@ -684,4 +690,33 @@ public class SpecialChangeEditUI extends AbstractSpecialChangeEditUI
 		return null;
 	}
 
+	public void onLoad() throws Exception {
+		this.kdtEntry.getColumn("seq").getStyleAttributes().setHided(true);
+		super.onLoad();
+		this.kdtEntry_detailPanel.setTitle("设备信息");
+		this.kdtEntry_detailPanel.getAddNewLineButton().setVisible(false);
+		this.kdtEntry_detailPanel.getInsertLineButton().setVisible(false);
+		this.kdtEntry_detailPanel.getRemoveLinesButton().setVisible(false);
+		
+		if(getUIContext().get("EquID")!=null)
+		{
+			String id = (String)getUIContext().get("EquID");
+			editData.setSourceBillId(id);
+			
+			IRow row = this.kdtEntry.addRow();
+			
+			EquIdInfo equIdInfo = EquIdFactory.getRemoteInstance().getEquIdInfo(new ObjectUuidPK(id));
+			
+			row.getCell("zdaNumber").setValue(equIdInfo);
+			row.getCell("equipmentName").setValue(equIdInfo.getName());
+			row.getCell("productNumber").setValue(equIdInfo.getInnerNumber());
+			row.getCell("oldNumber").setValue(equIdInfo.getCode());
+		}
+		
+		if(OprtState.ADDNEW.equals(getOprtState())&&getUIContext().get("EquID")==null)
+		{
+			this.kdtEntry.addRow();
+		}
+		
+	}
 }

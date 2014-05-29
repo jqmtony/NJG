@@ -4,10 +4,12 @@
 package com.kingdee.eas.port.equipment.special.client;
 
 import java.awt.event.*;
+
 import org.apache.log4j.Logger;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.eas.framework.*;
+import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.swing.KDTextField;
 
@@ -682,6 +684,28 @@ public class OverhaulNoticeEditUI extends AbstractOverhaulNoticeEditUI
 	protected KDTextField getNumberCtrl() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	public void onLoad() throws Exception {
+		this.kdtEntry.getColumn("seq").getStyleAttributes().setHided(true);
+		super.onLoad();
+	}
+	
+	 protected void initWorkButton()
+	    {
+	        super.initWorkButton();
+	        btnConRect.setIcon(EASResource.getIcon("imgTbtn_affirm"));
+	        btnUnConRet.setIcon(EASResource.getIcon("imgTbtn_faffirm"));
+	    }
+	
+	//确认整改
+	public void actionActitonConRect_actionPerformed(ActionEvent e)throws Exception {
+		super.actionActitonConRect_actionPerformed(e);
+	}
+	
+	//反确认整改
+	public void actionUnConRet_actionPerformed(ActionEvent e) throws Exception {
+		super.actionUnConRet_actionPerformed(e);
 	}
 
 }

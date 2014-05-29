@@ -644,6 +644,66 @@ public abstract class AbstractOverhaulNoticeControllerBean extends XRBillBaseCon
         }
     }
 
+    public void actitonConRect(Context ctx, OverhaulNoticeInfo model) throws BOSException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("c48fa8a9-bc24-47f7-a89c-147ad218079d"), new Object[]{ctx, model});
+            invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
+            _actitonConRect(ctx, model);
+            }
+            invokeServiceAfter(svcCtx);
+        } catch (BOSException ex) {
+            throw ex;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected void _actitonConRect(Context ctx, IObjectValue model) throws BOSException
+    {    	
+        return;
+    }
+
+    public void unConRet(Context ctx, OverhaulNoticeInfo model) throws BOSException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("030e9f03-63b1-4b1d-a06c-c02d3eee021b"), new Object[]{ctx, model});
+            invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
+            _unConRet(ctx, model);
+            }
+            invokeServiceAfter(svcCtx);
+        } catch (BOSException ex) {
+            throw ex;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected void _unConRet(Context ctx, IObjectValue model) throws BOSException
+    {    	
+        return;
+    }
+
+    public void feedInfor(Context ctx, OverhaulNoticeInfo model) throws BOSException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("7d5e4746-5a42-492f-82e0-fe3d8159a752"), new Object[]{ctx, model});
+            invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
+            _feedInfor(ctx, model);
+            }
+            invokeServiceAfter(svcCtx);
+        } catch (BOSException ex) {
+            throw ex;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected void _feedInfor(Context ctx, IObjectValue model) throws BOSException
+    {    	
+        return;
+    }
+
     public XRBillBaseCollection getXRBillBaseCollection (Context ctx) throws BOSException
     {
     	return (XRBillBaseCollection)(getOverhaulNoticeCollection(ctx).cast(XRBillBaseCollection.class));

@@ -48,4 +48,7 @@ public interface IOverhaulNotice extends IXRBillBase
     public void updateBigObject(IObjectPK pk, OverhaulNoticeInfo model) throws BOSException;
     public void updatePartial(OverhaulNoticeInfo model, SelectorItemCollection selector) throws BOSException, EASBizException;
     public String getBindingProperty() throws BOSException;
+    public void actitonConRect(OverhaulNoticeInfo model) throws BOSException;
+    public void unConRet(OverhaulNoticeInfo model) throws BOSException;
+    public void feedInfor(OverhaulNoticeInfo model) throws BOSException;
 }

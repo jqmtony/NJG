@@ -684,6 +684,46 @@ public abstract class AbstractEquIdControllerBean extends XRBillBaseControllerBe
         return;
     }
 
+    public void actionRegistChange(Context ctx, EquIdInfo model) throws BOSException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("53c255bc-2bf0-4af0-a22c-59d1b4d11402"), new Object[]{ctx, model});
+            invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
+            _actionRegistChange(ctx, model);
+            }
+            invokeServiceAfter(svcCtx);
+        } catch (BOSException ex) {
+            throw ex;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected void _actionRegistChange(Context ctx, IObjectValue model) throws BOSException
+    {    	
+        return;
+    }
+
+    public void excel(Context ctx, EquIdInfo model) throws BOSException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("82518433-2bbe-475f-b19c-486caceecb99"), new Object[]{ctx, model});
+            invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
+            _excel(ctx, model);
+            }
+            invokeServiceAfter(svcCtx);
+        } catch (BOSException ex) {
+            throw ex;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected void _excel(Context ctx, IObjectValue model) throws BOSException
+    {    	
+        return;
+    }
+
     public XRBillBaseCollection getXRBillBaseCollection (Context ctx) throws BOSException
     {
     	return (XRBillBaseCollection)(getEquIdCollection(ctx).cast(XRBillBaseCollection.class));

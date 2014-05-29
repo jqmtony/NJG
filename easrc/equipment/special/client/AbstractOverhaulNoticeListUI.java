@@ -46,6 +46,10 @@ import com.kingdee.bos.appframework.uip.UINavigator;
 public abstract class AbstractOverhaulNoticeListUI extends com.kingdee.eas.xr.client.XRBillBaseListUI
 {
     private static final Logger logger = CoreUIObject.getLogger(AbstractOverhaulNoticeListUI.class);
+    protected com.kingdee.bos.ctrl.swing.KDWorkButton btnFeedInfor;
+    protected ActionActitonConRect actionActitonConRect = null;
+    protected ActionUnConRet actionUnConRet = null;
+    protected ActionFeedInfor actionFeedInfor = null;
     /**
      * output class constructor
      */
@@ -82,6 +86,32 @@ public abstract class AbstractOverhaulNoticeListUI extends com.kingdee.eas.xr.cl
          this.actionRemove.addService(new com.kingdee.eas.framework.client.service.PermissionService());
          this.actionRemove.addService(new com.kingdee.eas.framework.client.service.NetFunctionService());
          this.actionRemove.addService(new com.kingdee.eas.framework.client.service.UserMonitorService());
+        //actionActitonConRect
+        this.actionActitonConRect = new ActionActitonConRect(this);
+        getActionManager().registerAction("actionActitonConRect", actionActitonConRect);
+        this.actionActitonConRect.setExtendProperty("canForewarn", "true");
+        this.actionActitonConRect.setExtendProperty("userDefined", "true");
+        this.actionActitonConRect.setExtendProperty("isObjectUpdateLock", "false");
+         this.actionActitonConRect.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+         this.actionActitonConRect.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
+        //actionUnConRet
+        this.actionUnConRet = new ActionUnConRet(this);
+        getActionManager().registerAction("actionUnConRet", actionUnConRet);
+        this.actionUnConRet.setExtendProperty("canForewarn", "true");
+        this.actionUnConRet.setExtendProperty("userDefined", "true");
+        this.actionUnConRet.setExtendProperty("isObjectUpdateLock", "false");
+         this.actionUnConRet.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+         this.actionUnConRet.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
+        //actionFeedInfor
+        this.actionFeedInfor = new ActionFeedInfor(this);
+        getActionManager().registerAction("actionFeedInfor", actionFeedInfor);
+        this.actionFeedInfor.setExtendProperty("canForewarn", "true");
+        this.actionFeedInfor.setExtendProperty("userDefined", "true");
+        this.actionFeedInfor.setExtendProperty("isObjectUpdateLock", "false");
+         this.actionFeedInfor.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+         this.actionFeedInfor.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
+        this.btnFeedInfor = new com.kingdee.bos.ctrl.swing.KDWorkButton();
+        this.btnFeedInfor.setName("btnFeedInfor");
         // CoreUI
 		String tblMainStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol9\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol10\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol11\"><c:Protection hidden=\"true\" /><c:NumberFormat>&amp;int</c:NumberFormat></c:Style><c:Style id=\"sCol17\"><c:NumberFormat>&amp;date</c:NumberFormat></c:Style><c:Style id=\"sCol18\"><c:NumberFormat>&amp;date</c:NumberFormat></c:Style><c:Style id=\"sCol21\"><c:NumberFormat>&amp;date</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"status\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"bizDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"creator.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"createTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"lastUpdateUser.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"lastUpdateTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"auditor.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"auditTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol9\" /><t:Column t:key=\"CU.id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol10\" /><t:Column t:key=\"Entry.seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol11\" /><t:Column t:key=\"Entry.zdaNumber.tzdaNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.equipmentName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.noCheckItem.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.checkContent\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.beizhu\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"noticeDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol17\" /><t:Column t:key=\"planFinishDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol18\" /><t:Column t:key=\"requestContent\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"feedback\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"backDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol21\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{status}</t:Cell><t:Cell>$Resource{number}</t:Cell><t:Cell>$Resource{bizDate}</t:Cell><t:Cell>$Resource{creator.name}</t:Cell><t:Cell>$Resource{createTime}</t:Cell><t:Cell>$Resource{lastUpdateUser.name}</t:Cell><t:Cell>$Resource{lastUpdateTime}</t:Cell><t:Cell>$Resource{auditor.name}</t:Cell><t:Cell>$Resource{auditTime}</t:Cell><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{CU.id}</t:Cell><t:Cell>$Resource{Entry.seq}</t:Cell><t:Cell>$Resource{Entry.zdaNumber.tzdaNumber}</t:Cell><t:Cell>$Resource{Entry.equipmentName}</t:Cell><t:Cell>$Resource{Entry.noCheckItem.name}</t:Cell><t:Cell>$Resource{Entry.checkContent}</t:Cell><t:Cell>$Resource{Entry.beizhu}</t:Cell><t:Cell>$Resource{noticeDate}</t:Cell><t:Cell>$Resource{planFinishDate}</t:Cell><t:Cell>$Resource{requestContent}</t:Cell><t:Cell>$Resource{feedback}</t:Cell><t:Cell>$Resource{backDate}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
@@ -91,6 +121,9 @@ public abstract class AbstractOverhaulNoticeListUI extends com.kingdee.eas.xr.cl
 
         this.tblMain.checkParsed();
         this.tblMain.getGroupManager().setGroup(true);
+        // btnFeedInfor
+        this.btnFeedInfor.setAction((IItemAction)ActionProxyFactory.getProxy(actionFeedInfor, new Class[] { IItemAction.class }, getServiceContext()));		
+        this.btnFeedInfor.setText(resHelper.getString("btnFeedInfor.text"));
 		//Register control's property binding
 		registerBindings();
 		registerUIState();
@@ -234,6 +267,7 @@ public abstract class AbstractOverhaulNoticeListUI extends com.kingdee.eas.xr.cl
         this.toolBar.add(btnAttachment);
         this.toolBar.add(btnAudit);
         this.toolBar.add(btnUnAudit);
+        this.toolBar.add(btnFeedInfor);
         this.toolBar.add(separatorFW1);
         this.toolBar.add(btnPageSetup);
         this.toolBar.add(btnPrint);
@@ -416,6 +450,39 @@ public abstract class AbstractOverhaulNoticeListUI extends com.kingdee.eas.xr.cl
     {
         super.actionRemove_actionPerformed(e);
     }
+    	
+
+    /**
+     * output actionActitonConRect_actionPerformed method
+     */
+    public void actionActitonConRect_actionPerformed(ActionEvent e) throws Exception
+    {
+        if (getSelectedKeyValue() == null) return;
+com.kingdee.eas.port.equipment.special.OverhaulNoticeInfo editData = (com.kingdee.eas.port.equipment.special.OverhaulNoticeInfo)getBizInterface().getValue(new com.kingdee.bos.dao.ormapping.ObjectUuidPK(BOSUuid.read(getSelectedKeyValue())));
+com.kingdee.eas.port.equipment.special.OverhaulNoticeFactory.getRemoteInstance().actitonConRect(editData);
+    }
+    	
+
+    /**
+     * output actionUnConRet_actionPerformed method
+     */
+    public void actionUnConRet_actionPerformed(ActionEvent e) throws Exception
+    {
+        if (getSelectedKeyValue() == null) return;
+com.kingdee.eas.port.equipment.special.OverhaulNoticeInfo editData = (com.kingdee.eas.port.equipment.special.OverhaulNoticeInfo)getBizInterface().getValue(new com.kingdee.bos.dao.ormapping.ObjectUuidPK(BOSUuid.read(getSelectedKeyValue())));
+com.kingdee.eas.port.equipment.special.OverhaulNoticeFactory.getRemoteInstance().unConRet(editData);
+    }
+    	
+
+    /**
+     * output actionFeedInfor_actionPerformed method
+     */
+    public void actionFeedInfor_actionPerformed(ActionEvent e) throws Exception
+    {
+        if (getSelectedKeyValue() == null) return;
+com.kingdee.eas.port.equipment.special.OverhaulNoticeInfo editData = (com.kingdee.eas.port.equipment.special.OverhaulNoticeInfo)getBizInterface().getValue(new com.kingdee.bos.dao.ormapping.ObjectUuidPK(BOSUuid.read(getSelectedKeyValue())));
+com.kingdee.eas.port.equipment.special.OverhaulNoticeFactory.getRemoteInstance().feedInfor(editData);
+    }
 	public RequestContext prepareActionRemove(IItemAction itemAction) throws Exception {
 			RequestContext request = super.prepareActionRemove(itemAction);		
 		if (request != null) {
@@ -426,6 +493,129 @@ public abstract class AbstractOverhaulNoticeListUI extends com.kingdee.eas.xr.cl
 	
 	public boolean isPrepareActionRemove() {
     	return false;
+    }
+	public RequestContext prepareActionActitonConRect(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionActitonConRect() {
+    	return false;
+    }
+	public RequestContext prepareActionUnConRet(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionUnConRet() {
+    	return false;
+    }
+	public RequestContext prepareActionFeedInfor(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionFeedInfor() {
+    	return false;
+    }
+
+    /**
+     * output ActionActitonConRect class
+     */     
+    protected class ActionActitonConRect extends ItemAction {     
+    
+        public ActionActitonConRect()
+        {
+            this(null);
+        }
+
+        public ActionActitonConRect(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            _tempStr = resHelper.getString("ActionActitonConRect.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionActitonConRect.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionActitonConRect.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractOverhaulNoticeListUI.this, "ActionActitonConRect", "actionActitonConRect_actionPerformed", e);
+        }
+    }
+
+    /**
+     * output ActionUnConRet class
+     */     
+    protected class ActionUnConRet extends ItemAction {     
+    
+        public ActionUnConRet()
+        {
+            this(null);
+        }
+
+        public ActionUnConRet(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            _tempStr = resHelper.getString("ActionUnConRet.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionUnConRet.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionUnConRet.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractOverhaulNoticeListUI.this, "ActionUnConRet", "actionUnConRet_actionPerformed", e);
+        }
+    }
+
+    /**
+     * output ActionFeedInfor class
+     */     
+    protected class ActionFeedInfor extends ItemAction {     
+    
+        public ActionFeedInfor()
+        {
+            this(null);
+        }
+
+        public ActionFeedInfor(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            _tempStr = resHelper.getString("ActionFeedInfor.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionFeedInfor.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionFeedInfor.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractOverhaulNoticeListUI.this, "ActionFeedInfor", "actionFeedInfor_actionPerformed", e);
+        }
     }
 
     /**
