@@ -217,6 +217,34 @@
             <scale>0</scale>
             <precision>0</precision>
         </column>
+        <column>
+            <name>CFTypeID</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.base.app.CT_BAS_SpecialCheckItem].columns.column[CFTypeID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.base.app.CT_BAS_SpecialCheckItem].columns.column[CFTypeID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFRemake</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.base.app.CT_BAS_SpecialCheckItem].columns.column[CFRemake].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.base.app.CT_BAS_SpecialCheckItem].columns.column[CFRemake].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>255</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
     </columns>
     <primaryKey>
         <name>CPK_BAS_SpxlCII1bu</name>
@@ -289,166 +317,239 @@
                 </fkColumnPair>
             </fkColumnPairs>
         </foreignKey>
+        <foreignKey>
+            <name>CFK_BAS_BASSCIYp7f</name>
+            <userDefined>true</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.port.equipment.base.app" />
+                <key name="name" value="T_BAS_EqmTypeTREE" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="CFTypeID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
     </foreignKeys>
     <resource>
         <rs key="dataTable[com.kingdee.eas.port.equipment.base.app.CT_BAS_SpecialCheckItem].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="特种设备检测项目" />
-            <lang locale="zh_TW" value="基礎資料範本" />
+            <lang locale="zh_HK" value="特種設備檢測項目" />
+            <lang locale="zh_TW" value="特種設備檢測項目" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.base.app.CT_BAS_SpecialCheckItem].columns.column[CFRemake].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="说明" />
+            <lang locale="zh_HK" value="說明" />
+            <lang locale="zh_TW" value="說明" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.base.app.CT_BAS_SpecialCheckItem].columns.column[CFRemake].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="文本" />
+            <lang locale="zh_HK" value="文本" />
+            <lang locale="zh_TW" value="文本" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.base.app.CT_BAS_SpecialCheckItem].columns.column[CFTypeID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="设备类别" />
+            <lang locale="zh_HK" value="設備類別" />
+            <lang locale="zh_TW" value="設備類別" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.base.app.CT_BAS_SpecialCheckItem].columns.column[CFTypeID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="设备类别" />
+            <lang locale="zh_HK" value="設備類別" />
+            <lang locale="zh_TW" value="設備類別" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.base.app.CT_BAS_SpecialCheckItem].columns.column[FControlUnitID].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="控制单元" />
+            <lang locale="zh_HK" value="控制單元" />
             <lang locale="zh_TW" value="控制單元" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.base.app.CT_BAS_SpecialCheckItem].columns.column[FControlUnitID].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="控制单元" />
+            <lang locale="zh_HK" value="控制單元" />
             <lang locale="zh_TW" value="控制單元" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.base.app.CT_BAS_SpecialCheckItem].columns.column[FCreateTime].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="创建时间" />
+            <lang locale="zh_HK" value="創建時間" />
+            <lang locale="zh_TW" value="創建時間" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.base.app.CT_BAS_SpecialCheckItem].columns.column[FCreateTime].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="创建时间" />
+            <lang locale="zh_HK" value="創建時間" />
+            <lang locale="zh_TW" value="創建時間" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.base.app.CT_BAS_SpecialCheckItem].columns.column[FCreatorID].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="创建者" />
+            <lang locale="zh_HK" value="創建者" />
+            <lang locale="zh_TW" value="創建者" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.base.app.CT_BAS_SpecialCheckItem].columns.column[FCreatorID].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="创建者" />
+            <lang locale="zh_HK" value="創建者" />
+            <lang locale="zh_TW" value="創建者" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.base.app.CT_BAS_SpecialCheckItem].columns.column[FDescription].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="描述" />
+            <lang locale="zh_HK" value="描述" />
+            <lang locale="zh_TW" value="描述" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.base.app.CT_BAS_SpecialCheckItem].columns.column[FDescription].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="描述" />
+            <lang locale="zh_HK" value="描述" />
+            <lang locale="zh_TW" value="描述" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.base.app.CT_BAS_SpecialCheckItem].columns.column[FDisplayName].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="显示名称" />
+            <lang locale="zh_HK" value="顯示名稱" />
             <lang locale="zh_TW" value="顯示名稱" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.base.app.CT_BAS_SpecialCheckItem].columns.column[FDisplayName].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="显示打印时使用的长名称" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="顯示列印時使用的長名稱" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.base.app.CT_BAS_SpecialCheckItem].columns.column[FID].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.base.app.CT_BAS_SpecialCheckItem].columns.column[FID].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.base.app.CT_BAS_SpecialCheckItem].columns.column[FIsLeaf].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="是否叶子节点" />
+            <lang locale="zh_HK" value="是否葉子節點" />
+            <lang locale="zh_TW" value="是否葉子節點" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.base.app.CT_BAS_SpecialCheckItem].columns.column[FIsLeaf].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="是否叶子节点" />
+            <lang locale="zh_HK" value="是否葉子節點" />
+            <lang locale="zh_TW" value="是否葉子節點" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.base.app.CT_BAS_SpecialCheckItem].columns.column[FLastUpdateTime].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="最后修改时间" />
+            <lang locale="zh_HK" value="最後修改時間" />
+            <lang locale="zh_TW" value="最後修改時間" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.base.app.CT_BAS_SpecialCheckItem].columns.column[FLastUpdateTime].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="最后修改时间" />
+            <lang locale="zh_HK" value="最後修改時間" />
+            <lang locale="zh_TW" value="最後修改時間" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.base.app.CT_BAS_SpecialCheckItem].columns.column[FLastUpdateUserID].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="最后修改者" />
+            <lang locale="zh_HK" value="最後修改者" />
+            <lang locale="zh_TW" value="最後修改者" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.base.app.CT_BAS_SpecialCheckItem].columns.column[FLastUpdateUserID].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="最后修改者" />
+            <lang locale="zh_HK" value="最後修改者" />
+            <lang locale="zh_TW" value="最後修改者" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.base.app.CT_BAS_SpecialCheckItem].columns.column[FLevel].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="级次" />
+            <lang locale="zh_HK" value="級次" />
+            <lang locale="zh_TW" value="級次" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.base.app.CT_BAS_SpecialCheckItem].columns.column[FLevel].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="级次" />
+            <lang locale="zh_HK" value="級次" />
+            <lang locale="zh_TW" value="級次" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.base.app.CT_BAS_SpecialCheckItem].columns.column[FLongNumber].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="长编码" />
+            <lang locale="zh_HK" value="長編碼" />
+            <lang locale="zh_TW" value="長編碼" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.base.app.CT_BAS_SpecialCheckItem].columns.column[FLongNumber].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="长编码" />
+            <lang locale="zh_HK" value="長編碼" />
+            <lang locale="zh_TW" value="長編碼" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.base.app.CT_BAS_SpecialCheckItem].columns.column[FName].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="名称" />
+            <lang locale="zh_HK" value="名稱" />
+            <lang locale="zh_TW" value="名稱" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.base.app.CT_BAS_SpecialCheckItem].columns.column[FName].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="名称" />
+            <lang locale="zh_HK" value="名稱" />
+            <lang locale="zh_TW" value="名稱" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.base.app.CT_BAS_SpecialCheckItem].columns.column[FNumber].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="编码" />
+            <lang locale="zh_HK" value="編碼" />
+            <lang locale="zh_TW" value="編碼" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.base.app.CT_BAS_SpecialCheckItem].columns.column[FNumber].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="编码" />
+            <lang locale="zh_HK" value="編碼" />
+            <lang locale="zh_TW" value="編碼" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.base.app.CT_BAS_SpecialCheckItem].columns.column[FParentID].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="FParentID" />
-            <lang locale="zh_TW" value="FParentID" />
+            <lang locale="zh_CN" value="父节点" />
+            <lang locale="zh_HK" value="父節點" />
+            <lang locale="zh_TW" value="父節點" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.base.app.CT_BAS_SpecialCheckItem].columns.column[FParentID].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="FParentID" />
-            <lang locale="zh_TW" value="FParentID" />
+            <lang locale="zh_CN" value="父节点" />
+            <lang locale="zh_HK" value="父節點" />
+            <lang locale="zh_TW" value="父節點" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.base.app.CT_BAS_SpecialCheckItem].columns.column[FSimpleName].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="简称" />
+            <lang locale="zh_HK" value="簡稱" />
+            <lang locale="zh_TW" value="簡稱" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.base.app.CT_BAS_SpecialCheckItem].columns.column[FSimpleName].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="简称" />
+            <lang locale="zh_HK" value="簡稱" />
+            <lang locale="zh_TW" value="簡稱" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.base.app.CT_BAS_SpecialCheckItem].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="基础资料模板" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="基礎資料範本" />
         </rs>
     </resource>

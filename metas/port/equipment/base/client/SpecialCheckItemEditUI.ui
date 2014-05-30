@@ -23,10 +23,10 @@
         <component>
             <name>CoreUI</name>
             <alias>uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[CoreUI].alias</alias>
-            <userDefined>true</userDefined>
+            <userDefined>false</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDPanel</classType>
             <isContainer>true</isContainer>
-            <constraints>0,0,1013,629</constraints>
+            <constraints>0,0,330,294</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -37,7 +37,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>52,63,270,19</constraints>
+            <constraints>26,56,270,19</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -79,7 +79,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>53,27,270,19</constraints>
+            <constraints>27,20,270,19</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -121,7 +121,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>52,100,270,19</constraints>
+            <constraints>230,177,270,19</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -152,6 +152,13 @@
                     <isMultiLan>false</isMultiLan>
                     <userDefined>true</userDefined>
                 </property>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[kDLabelContainer3].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
             </properties>
             <parent>
                 <key name="name" value="CoreUI" />
@@ -163,7 +170,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>52,140,270,19</constraints>
+            <constraints>238,204,270,19</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -205,6 +212,111 @@
                     <name>visible</name>
                     <type>boolean</type>
                     <value>uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[kDLabelContainer4].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="CoreUI" />
+            </parent>
+        </component>
+        <component>
+            <name>conttype</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[conttype].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>26,97,270,19</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>boundLabelText</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[conttype].properties.property[boundLabelText].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelLength</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[conttype].properties.property[boundLabelLength].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelUnderline</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[conttype].properties.property[boundLabelUnderline].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[conttype].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="CoreUI" />
+            </parent>
+        </component>
+        <component>
+            <name>contremake</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[contremake].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>26,119,270,154</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>boundLabelText</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[contremake].properties.property[boundLabelText].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelLength</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[contremake].properties.property[boundLabelLength].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelUnderline</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[contremake].properties.property[boundLabelUnderline].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[contremake].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelAlignment</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[contremake].properties.property[boundLabelAlignment].value</value>
                     <isMultiLan>false</isMultiLan>
                     <userDefined>true</userDefined>
                 </property>
@@ -292,6 +404,15 @@
                 <type>XYLayout</type>
                 <value />
             </layoutInfo>
+            <properties>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[txtSimpleName].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
             <parent>
                 <key name="name" value="kDLabelContainer3" />
             </parent>
@@ -324,6 +445,15 @@
                 <type>XYLayout</type>
                 <value />
             </layoutInfo>
+            <properties>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[txtDescription].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
             <parent>
                 <key name="name" value="kDLabelContainer4" />
             </parent>
@@ -342,9 +472,175 @@
             </propertyBindings>
         </component>
         <component>
+            <name>prmttype</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[prmttype].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox</classType>
+            <isContainer>false</isContainer>
+            <constraints>7</constraints>
+            <tabIndex>15</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>queryInfo</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[prmttype].properties.property[queryInfo].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[prmttype].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>editable</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[prmttype].properties.property[editable].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>displayFormat</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[prmttype].properties.property[displayFormat].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>editFormat</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[prmttype].properties.property[editFormat].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>commitFormat</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[prmttype].properties.property[commitFormat].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>required</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[prmttype].properties.property[required].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="conttype" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>data</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>type</bindingField>
+                    <fieldType>com.kingdee.eas.port.equipment.base.EqmTypeTreeInfo</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+            <eventBindings>
+                <eventBinding>
+                    <name>dataChanged</name>
+                    <eventType>com.kingdee.bos.ctrl.swing.event.DataChangeEvent</eventType>
+                    <scene />
+                    <listenerType>com.kingdee.bos.ctrl.swing.event.DataChangeListener</listenerType>
+                    <listenerAdapter>com.kingdee.bos.ctrl.swing.event.DataChangeListener</listenerAdapter>
+                    <methodName>prmttype_dataChanged</methodName>
+                    <code />
+                    <isBindWorkFlow>false</isBindWorkFlow>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </eventBinding>
+            </eventBindings>
+        </component>
+        <component>
+            <name>scrollPaneremake</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[scrollPaneremake].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDScrollPane</classType>
+            <isContainer>true</isContainer>
+            <constraints>7</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>SameGridLayout</type>
+                <value>1,1,0,0,0,0</value>
+            </layoutInfo>
+            <parent>
+                <key name="name" value="contremake" />
+            </parent>
+        </component>
+        <component>
+            <name>txtremake</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[txtremake].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDTextArea</classType>
+            <isContainer>false</isContainer>
+            <constraints>0,0,1,1</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[txtremake].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>required</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[txtremake].properties.property[required].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>maxLength</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[txtremake].properties.property[maxLength].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="scrollPaneremake" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>text</propertyName>
+                    <propertyType>java.lang.String</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>remake</bindingField>
+                    <fieldType>String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
+        <component>
             <name>btnPrint</name>
             <alias>uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[btnPrint].alias</alias>
-            <userDefined>true</userDefined>
+            <userDefined>false</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
             <isContainer>false</isContainer>
             <constraints />
@@ -364,7 +660,7 @@
         <component>
             <name>btnPrintPreview</name>
             <alias>uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[btnPrintPreview].alias</alias>
-            <userDefined>true</userDefined>
+            <userDefined>false</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
             <isContainer>false</isContainer>
             <constraints />
@@ -384,7 +680,7 @@
         <component>
             <name>menuItemPrint</name>
             <alias>uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[menuItemPrint].alias</alias>
-            <userDefined>true</userDefined>
+            <userDefined>false</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDMenuItem</classType>
             <isContainer>false</isContainer>
             <constraints />
@@ -397,14 +693,14 @@
                     <type>boolean</type>
                     <value>uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[menuItemPrint].properties.property[visible].value</value>
                     <isMultiLan>false</isMultiLan>
-                    <userDefined>true</userDefined>
+                    <userDefined>false</userDefined>
                 </property>
             </properties>
         </component>
         <component>
             <name>menuItemPrintPreview</name>
             <alias>uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[menuItemPrintPreview].alias</alias>
-            <userDefined>true</userDefined>
+            <userDefined>false</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDMenuItem</classType>
             <isContainer>false</isContainer>
             <constraints />
@@ -417,7 +713,7 @@
                     <type>boolean</type>
                     <value>uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[menuItemPrintPreview].properties.property[visible].value</value>
                     <isMultiLan>false</isMultiLan>
-                    <userDefined>true</userDefined>
+                    <userDefined>false</userDefined>
                 </property>
             </properties>
         </component>
@@ -428,7 +724,7 @@
             <type>com.kingdee.eas.port.equipment.base.app.SpecialCheckItem</type>
             <objectType>enty</objectType>
             <herited>true</herited>
-            <userDefined>true</userDefined>
+            <userDefined>false</userDefined>
         </dataObject>
     </dataObjects>
     <statuses>
@@ -554,166 +850,361 @@
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="特种设备检测项目" />
-            <lang locale="zh_TW" value="基礎資料範本介面" />
+            <lang locale="zh_HK" value="特種設備檢測項目" />
+            <lang locale="zh_TW" value="特種設備檢測項目" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[CoreUI].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[btnPrintPreview].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[btnPrintPreview].properties.property[visible].value">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[btnPrint].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[btnPrint].properties.property[visible].value">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[contremake].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[contremake].properties.property[boundLabelAlignment].value">
+            <lang locale="en_US" value="8" />
+            <lang locale="zh_CN" value="8" />
+            <lang locale="zh_HK" value="8" />
+            <lang locale="zh_TW" value="8" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[contremake].properties.property[boundLabelLength].value">
+            <lang locale="en_US" value="16" />
+            <lang locale="zh_CN" value="16" />
+            <lang locale="zh_HK" value="16" />
+            <lang locale="zh_TW" value="16" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[contremake].properties.property[boundLabelText].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="说明" />
+            <lang locale="zh_HK" value="說明" />
+            <lang locale="zh_TW" value="說明" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[contremake].properties.property[boundLabelUnderline].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[contremake].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[conttype].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[conttype].properties.property[boundLabelLength].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[conttype].properties.property[boundLabelText].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="设备类别" />
+            <lang locale="zh_HK" value="設備類別" />
+            <lang locale="zh_TW" value="設備類別" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[conttype].properties.property[boundLabelUnderline].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[conttype].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[kDLabelContainer1].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[kDLabelContainer1].properties.property[boundLabelLength].value">
             <lang locale="en_US" value="100" />
             <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
             <lang locale="zh_TW" value="100" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[kDLabelContainer1].properties.property[boundLabelText].value">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="名称:" />
+            <lang locale="zh_HK" value="名稱:" />
             <lang locale="zh_TW" value="名稱:" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[kDLabelContainer1].properties.property[boundLabelUnderline].value">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[kDLabelContainer2].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[kDLabelContainer2].properties.property[boundLabelLength].value">
             <lang locale="en_US" value="100" />
             <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
             <lang locale="zh_TW" value="100" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[kDLabelContainer2].properties.property[boundLabelText].value">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="编码:" />
+            <lang locale="zh_HK" value="編碼:" />
             <lang locale="zh_TW" value="編碼:" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[kDLabelContainer2].properties.property[boundLabelUnderline].value">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[kDLabelContainer3].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[kDLabelContainer3].properties.property[boundLabelLength].value">
             <lang locale="en_US" value="100" />
             <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
             <lang locale="zh_TW" value="100" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[kDLabelContainer3].properties.property[boundLabelText].value">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="简称:" />
+            <lang locale="zh_HK" value="簡稱:" />
             <lang locale="zh_TW" value="簡稱:" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[kDLabelContainer3].properties.property[boundLabelUnderline].value">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
             <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[kDLabelContainer3].properties.property[visible].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[kDLabelContainer4].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[kDLabelContainer4].properties.property[boundLabelAlignment].value">
             <lang locale="en_US" value="7" />
             <lang locale="zh_CN" value="7" />
+            <lang locale="zh_HK" value="7" />
             <lang locale="zh_TW" value="7" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[kDLabelContainer4].properties.property[boundLabelLength].value">
             <lang locale="en_US" value="100" />
             <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
             <lang locale="zh_TW" value="100" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[kDLabelContainer4].properties.property[boundLabelText].value">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="描述:" />
+            <lang locale="zh_HK" value="描述:" />
             <lang locale="zh_TW" value="描述:" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[kDLabelContainer4].properties.property[boundLabelUnderline].value">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[kDLabelContainer4].properties.property[visible].value">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[menuItemPrintPreview].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[menuItemPrintPreview].properties.property[visible].value">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[menuItemPrint].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[menuItemPrint].properties.property[visible].value">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[prmttype].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="设备类别" />
+            <lang locale="zh_HK" value="設備類別" />
+            <lang locale="zh_TW" value="設備類別" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[prmttype].properties.property[commitFormat].value">
+            <lang locale="en_US" value="$number$" />
+            <lang locale="zh_CN" value="$number$" />
+            <lang locale="zh_HK" value="$number$" />
+            <lang locale="zh_TW" value="$number$" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[prmttype].properties.property[displayFormat].value">
+            <lang locale="en_US" value="$name$" />
+            <lang locale="zh_CN" value="$name$" />
+            <lang locale="zh_HK" value="$name$" />
+            <lang locale="zh_TW" value="$name$" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[prmttype].properties.property[editFormat].value">
+            <lang locale="en_US" value="$number$" />
+            <lang locale="zh_CN" value="$number$" />
+            <lang locale="zh_HK" value="$number$" />
+            <lang locale="zh_TW" value="$number$" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[prmttype].properties.property[editable].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[prmttype].properties.property[queryInfo].value">
+            <lang locale="en_US" value="com.kingdee.eas.fi.fa.basedata.FaCatQuery" />
+            <lang locale="zh_CN" value="com.kingdee.eas.fi.fa.basedata.FaCatQuery" />
+            <lang locale="zh_HK" value="com.kingdee.eas.fi.fa.basedata.FaCatQuery" />
+            <lang locale="zh_TW" value="com.kingdee.eas.fi.fa.basedata.FaCatQuery" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[prmttype].properties.property[required].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[prmttype].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[scrollPaneremake].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[txtDescription].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="描述" />
+            <lang locale="zh_HK" value="描述" />
+            <lang locale="zh_TW" value="描述" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[txtDescription].properties.property[visible].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[txtName].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="名称" />
+            <lang locale="zh_HK" value="名稱" />
+            <lang locale="zh_TW" value="名稱" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[txtNumber].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="编码" />
+            <lang locale="zh_HK" value="編碼" />
+            <lang locale="zh_TW" value="編碼" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[txtSimpleName].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="简称" />
+            <lang locale="zh_HK" value="簡稱" />
+            <lang locale="zh_TW" value="簡稱" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[txtSimpleName].properties.property[visible].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[txtremake].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="说明" />
+            <lang locale="zh_HK" value="說明" />
+            <lang locale="zh_TW" value="說明" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[txtremake].properties.property[maxLength].value">
+            <lang locale="en_US" value="255" />
+            <lang locale="zh_CN" value="255" />
+            <lang locale="zh_HK" value="255" />
+            <lang locale="zh_TW" value="255" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[txtremake].properties.property[required].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].components.component[txtremake].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].extendedProperty.bimTemplateType">
@@ -739,37 +1230,44 @@
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].statuses.status[ADDNEW].alias">
             <lang locale="en_US" value="AddNew" />
             <lang locale="zh_CN" value="AddNew" />
+            <lang locale="zh_HK" value="AddNew" />
             <lang locale="zh_TW" value="AddNew" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].statuses.status[ADDNEW].description">
             <lang locale="en_US" value="AddNew" />
             <lang locale="zh_CN" value="AddNew" />
+            <lang locale="zh_HK" value="AddNew" />
             <lang locale="zh_TW" value="AddNew" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].statuses.status[EDIT].alias">
             <lang locale="en_US" value="EDIT" />
             <lang locale="zh_CN" value="EDIT" />
+            <lang locale="zh_HK" value="EDIT" />
             <lang locale="zh_TW" value="EDIT" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].statuses.status[EDIT].description">
             <lang locale="en_US" value="EDIT" />
             <lang locale="zh_CN" value="EDIT" />
+            <lang locale="zh_HK" value="EDIT" />
             <lang locale="zh_TW" value="EDIT" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].statuses.status[VIEW].alias">
             <lang locale="en_US" value="View" />
             <lang locale="zh_CN" value="View" />
+            <lang locale="zh_HK" value="View" />
             <lang locale="zh_TW" value="View" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].statuses.status[VIEW].description">
             <lang locale="en_US" value="View" />
             <lang locale="zh_CN" value="View" />
+            <lang locale="zh_HK" value="View" />
             <lang locale="zh_TW" value="View" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.SpecialCheckItemEditUI].title">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="特种设备检测项目" />
-            <lang locale="zh_TW" value="基礎資料範本" />
+            <lang locale="zh_HK" value="特種設備檢測項目" />
+            <lang locale="zh_TW" value="特種設備檢測項目" />
         </rs>
     </resource>
 </uiObject>

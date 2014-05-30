@@ -48,6 +48,19 @@
                 <key name="name" value="User" />
             </entityRef>
         </subEntity>
+        <subEntity>
+            <name>type</name>
+            <alias>joinQuery[com.kingdee.eas.port.equipment.base.app.SpecialCheckItemQuery].subObjects.subEntity[type].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.base.app" />
+                <key name="name" value="SpecialCheckItemQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fi.fa.basedata.app" />
+                <key name="name" value="FaCat" />
+            </entityRef>
+        </subEntity>
     </subObjects>
     <units>
         <propertyUnit>
@@ -608,6 +621,130 @@
                 <key name="name" value="SpecialCheckItemQuery" />
             </query>
         </queryField>
+        <propertyUnit>
+            <name>7ed385ee-db80-4563-8665-d2a8086bd043</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.base.app.SpecialCheckItemQuery].units.propertyUnit[7ed385ee-db80-4563-8665-d2a8086bd043].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>1d1f0b3b-eda0-4b56-8655-98ba96ff9e9d</key>
+                    <parentUnit>
+                        <key name="name" value="7ed385ee-db80-4563-8665-d2a8086bd043" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="SpecialCheckItem" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="type" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.base.app" />
+                <key name="name" value="SpecialCheckItemQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>a84b1c55-7d24-4645-abeb-39e80a4ca05e</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.base.app.SpecialCheckItemQuery].units.propertyUnit[a84b1c55-7d24-4645-abeb-39e80a4ca05e].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>99688c58-ceb1-48f8-bc7f-243f0aa20378</key>
+                    <parentUnit>
+                        <key name="name" value="a84b1c55-7d24-4645-abeb-39e80a4ca05e" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="type" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.base.app" />
+                <key name="name" value="SpecialCheckItemQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>type.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.base.app.SpecialCheckItemQuery].units.queryField[type.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>93b5ec80-9671-44af-ac10-7a471538000c</key>
+                    <parentUnit>
+                        <key name="name" value="type.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="type" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.base.app" />
+                <key name="name" value="SpecialCheckItemQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>remake</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.base.app.SpecialCheckItemQuery].units.queryField[remake].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>13543a74-52ec-4bf3-a185-86b8f16f50d4</key>
+                    <parentUnit>
+                        <key name="name" value="remake" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="SpecialCheckItem" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="remake" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.base.app" />
+                <key name="name" value="SpecialCheckItemQuery" />
+            </query>
+        </queryField>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -680,7 +817,37 @@
                         <key name="name" value="NewUnit3" />
                     </rightField>
                     <join>
-                        <key name="name" value="NewJoin0" />
+                        <key name="name" value="NewJoin1" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.base.app" />
+                <key name="name" value="SpecialCheckItemQuery" />
+            </query>
+        </join>
+        <join>
+            <name>95983cc2-3d68-4973-a5bc-964e79564a06</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="SpecialCheckItem" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="type" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>90b2bf4b-f84c-4176-85a4-4a48a50d46c3</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="7ed385ee-db80-4563-8665-d2a8086bd043" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="a84b1c55-7d24-4645-abeb-39e80a4ca05e" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="95983cc2-3d68-4973-a5bc-964e79564a06" />
                     </join>
                 </joinItem>
             </joinItems>
@@ -694,11 +861,13 @@
         <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.SpecialCheckItemQuery].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="特种设备检测项目" />
-            <lang locale="zh_TW" value="基礎資料基礎範本" />
+            <lang locale="zh_HK" value="特種設備檢測項目" />
+            <lang locale="zh_TW" value="特種設備檢測項目" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.SpecialCheckItemQuery].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="基础资料基础模板" />
+            <lang locale="zh_HK" value="基礎資料基礎範本" />
             <lang locale="zh_TW" value="基礎資料基礎範本" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.SpecialCheckItemQuery].extendedProperty.ColWidthInKDTable">
@@ -744,51 +913,79 @@
         <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.SpecialCheckItemQuery].queryPK[QueryPK].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.SpecialCheckItemQuery].queryPK[QueryPK].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.SpecialCheckItemQuery].subObjects.subEntity[SpecialCheckItem].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.SpecialCheckItemQuery].subObjects.subEntity[creator].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.SpecialCheckItemQuery].subObjects.subEntity[lastUpdateUser].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.SpecialCheckItemQuery].subObjects.subEntity[type].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.SpecialCheckItemQuery].units.propertyUnit[7ed385ee-db80-4563-8665-d2a8086bd043].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.SpecialCheckItemQuery].units.propertyUnit[NewUnit0].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.SpecialCheckItemQuery].units.propertyUnit[NewUnit1].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.SpecialCheckItemQuery].units.propertyUnit[NewUnit2].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.SpecialCheckItemQuery].units.propertyUnit[NewUnit3].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.SpecialCheckItemQuery].units.propertyUnit[a84b1c55-7d24-4645-abeb-39e80a4ca05e].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.SpecialCheckItemQuery].units.queryField[createTime].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="创建时间" />
+            <lang locale="zh_HK" value="創建時間" />
             <lang locale="zh_TW" value="創建時間" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.SpecialCheckItemQuery].units.queryField[createTime].extendedProperty.colWidthInKDTable">
@@ -819,6 +1016,7 @@
         <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.SpecialCheckItemQuery].units.queryField[creator.name].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="别名" />
+            <lang locale="zh_HK" value="別名" />
             <lang locale="zh_TW" value="別名" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.SpecialCheckItemQuery].units.queryField[creator.name].extendedProperty.colWidthInKDTable">
@@ -849,6 +1047,7 @@
         <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.SpecialCheckItemQuery].units.queryField[creator.number].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="用户名" />
+            <lang locale="zh_HK" value="用戶名" />
             <lang locale="zh_TW" value="用戶名" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.SpecialCheckItemQuery].units.queryField[creator.number].extendedProperty.colWidthInKDTable">
@@ -879,6 +1078,7 @@
         <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.SpecialCheckItemQuery].units.queryField[description].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="描述" />
+            <lang locale="zh_HK" value="描述" />
             <lang locale="zh_TW" value="描述" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.SpecialCheckItemQuery].units.queryField[description].extendedProperty.colWidthInKDTable">
@@ -909,6 +1109,7 @@
         <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.SpecialCheckItemQuery].units.queryField[id].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.SpecialCheckItemQuery].units.queryField[id].extendedProperty.colWidthInKDTable">
@@ -939,6 +1140,7 @@
         <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.SpecialCheckItemQuery].units.queryField[isLeaf].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="是否叶子节点" />
+            <lang locale="zh_HK" value="是否葉子節點" />
             <lang locale="zh_TW" value="是否葉子節點" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.SpecialCheckItemQuery].units.queryField[isLeaf].extendedProperty.colWidthInKDTable">
@@ -969,6 +1171,7 @@
         <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.SpecialCheckItemQuery].units.queryField[lastUpdateTime].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="最后修改时间" />
+            <lang locale="zh_HK" value="最後修改時間" />
             <lang locale="zh_TW" value="最後修改時間" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.SpecialCheckItemQuery].units.queryField[lastUpdateTime].extendedProperty.colWidthInKDTable">
@@ -999,6 +1202,7 @@
         <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.SpecialCheckItemQuery].units.queryField[lastUpdateUser.name].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="别名" />
+            <lang locale="zh_HK" value="別名" />
             <lang locale="zh_TW" value="別名" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.SpecialCheckItemQuery].units.queryField[lastUpdateUser.name].extendedProperty.colWidthInKDTable">
@@ -1029,6 +1233,7 @@
         <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.SpecialCheckItemQuery].units.queryField[lastUpdateUser.number].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="用户名" />
+            <lang locale="zh_HK" value="用戶名" />
             <lang locale="zh_TW" value="用戶名" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.SpecialCheckItemQuery].units.queryField[lastUpdateUser.number].extendedProperty.colWidthInKDTable">
@@ -1059,6 +1264,7 @@
         <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.SpecialCheckItemQuery].units.queryField[level].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="级次" />
+            <lang locale="zh_HK" value="級次" />
             <lang locale="zh_TW" value="級次" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.SpecialCheckItemQuery].units.queryField[level].extendedProperty.colWidthInKDTable">
@@ -1089,6 +1295,7 @@
         <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.SpecialCheckItemQuery].units.queryField[longNumber].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="长编码" />
+            <lang locale="zh_HK" value="長編碼" />
             <lang locale="zh_TW" value="長編碼" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.SpecialCheckItemQuery].units.queryField[longNumber].extendedProperty.colWidthInKDTable">
@@ -1119,6 +1326,7 @@
         <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.SpecialCheckItemQuery].units.queryField[name].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="名称" />
+            <lang locale="zh_HK" value="名稱" />
             <lang locale="zh_TW" value="名稱" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.SpecialCheckItemQuery].units.queryField[name].extendedProperty.colWidthInKDTable">
@@ -1149,6 +1357,7 @@
         <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.SpecialCheckItemQuery].units.queryField[number].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="编码" />
+            <lang locale="zh_HK" value="編碼" />
             <lang locale="zh_TW" value="編碼" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.SpecialCheckItemQuery].units.queryField[number].extendedProperty.colWidthInKDTable">
@@ -1176,9 +1385,26 @@
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.SpecialCheckItemQuery].units.queryField[remake].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="说明" />
+            <lang locale="zh_HK" value="說明" />
+            <lang locale="zh_TW" value="說明" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.SpecialCheckItemQuery].units.queryField[remake].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.SpecialCheckItemQuery].units.queryField[remake].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.SpecialCheckItemQuery].units.queryField[simpleName].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="简称" />
+            <lang locale="zh_HK" value="簡稱" />
             <lang locale="zh_TW" value="簡稱" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.SpecialCheckItemQuery].units.queryField[simpleName].extendedProperty.colWidthInKDTable">
@@ -1202,6 +1428,22 @@
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.SpecialCheckItemQuery].units.queryField[simpleName].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.SpecialCheckItemQuery].units.queryField[type.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="名称" />
+            <lang locale="zh_HK" value="名稱" />
+            <lang locale="zh_TW" value="名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.SpecialCheckItemQuery].units.queryField[type.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.base.app.SpecialCheckItemQuery].units.queryField[type.name].extendedProperty.isCommonQuerySorter">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />

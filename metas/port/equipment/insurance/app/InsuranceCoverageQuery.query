@@ -1536,6 +1536,37 @@
                 <key name="name" value="InsuranceCoverageQuery" />
             </query>
         </queryField>
+        <queryField>
+            <name>xianzhongID</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageQuery].units.queryField[xianzhongID].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>8bef89cd-18dc-47a4-afc8-964627a59808</key>
+                    <parentUnit>
+                        <key name="name" value="xianzhongID" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="InsuranceCoverage" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="xianzhongID" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.insurance.app" />
+                <key name="name" value="InsuranceCoverageQuery" />
+            </query>
+        </queryField>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -2438,6 +2469,22 @@
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageQuery].units.queryField[status].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageQuery].units.queryField[xianzhongID].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="险种ID" />
+            <lang locale="zh_HK" value="險種ID" />
+            <lang locale="zh_TW" value="險種ID" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageQuery].units.queryField[xianzhongID].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageQuery].units.queryField[xianzhongID].extendedProperty.isCommonQuerySorter">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
