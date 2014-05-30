@@ -58,6 +58,17 @@ public class AbstractInsuranceCoverageInfo extends com.kingdee.eas.xr.XRBillBase
     {
         return (com.kingdee.eas.port.equipment.insurance.InsuranceCoverageE1Collection)get("E1");
     }
+    /**
+     * Object:保险投保明细表's 险种IDproperty 
+     */
+    public String getXianzhongID()
+    {
+        return getString("xianzhongID");
+    }
+    public void setXianzhongID(String item)
+    {
+        setString("xianzhongID", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("46F6E919");

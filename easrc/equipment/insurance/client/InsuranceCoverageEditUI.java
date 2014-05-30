@@ -16,6 +16,7 @@ import javax.swing.SwingUtilities;
 
 import org.apache.log4j.Logger;
 
+import com.kingdee.bos.BOSException;
 import com.kingdee.bos.ctrl.common.LanguageManager;
 import com.kingdee.bos.ctrl.excel.io.kds.KDSBookToBook;
 import com.kingdee.bos.ctrl.excel.model.struct.Sheet;
@@ -34,6 +35,7 @@ import com.kingdee.bos.ctrl.swing.KDWorkButton;
 import com.kingdee.bos.ctrl.swing.util.SimpleFileFilter;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.eas.base.permission.client.longtime.ILongTimeTask;
 import com.kingdee.eas.base.permission.client.longtime.LongTimeDialog;
@@ -41,8 +43,12 @@ import com.kingdee.eas.basedata.org.AdminOrgUnitCollection;
 import com.kingdee.eas.basedata.org.AdminOrgUnitFactory;
 import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
 import com.kingdee.eas.basedata.org.IAdminOrgUnit;
+import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.fi.newrpt.client.designer.io.WizzardIO;
+import com.kingdee.eas.port.equipment.base.IInsurance;
+import com.kingdee.eas.port.equipment.base.InsuranceFactory;
+import com.kingdee.eas.port.equipment.base.InsuranceInfo;
 import com.kingdee.eas.port.equipment.insurance.InsuranceCoverageE1Info;
 import com.kingdee.eas.port.equipment.record.EquIdCollection;
 import com.kingdee.eas.port.equipment.record.EquIdFactory;
@@ -71,7 +77,33 @@ public class InsuranceCoverageEditUI extends AbstractInsuranceCoverageEditUI
      */
     public void loadFields()
     {
+    	txtxianzhongID.setEnabled(false);
+    	txtxianzhongID.setVisible(false);
         super.loadFields();
+        
+this.prmtinsurance.setEnabledMultiSelection(true);
+		
+		
+		if(UIRuleUtil.isNotNull(this.txtxianzhongID.getText()))
+        {
+        	String spicId[] = (this.txtxianzhongID.getText().trim()).split("&");
+        	try {
+        		IInsurance IInsurance = InsuranceFactory.getRemoteInstance();
+        		
+        		InsuranceInfo objValue[] = new InsuranceInfo[spicId.length];
+        		
+				for (int i = 0; i < spicId.length; i++) 
+				{
+					String oql ="select id,name,number where id='"+spicId[i]+"'";
+					objValue[i] = IInsurance.getInsuranceInfo(oql);
+				}
+				this.prmtinsurance.setValue(objValue);
+			} catch (BOSException e) {
+				e.printStackTrace();
+			} catch (EASBizException e) {
+				e.printStackTrace();
+			}
+        }
     }
 
     /**
@@ -79,6 +111,28 @@ public class InsuranceCoverageEditUI extends AbstractInsuranceCoverageEditUI
      */
     public void storeFields()
     {
+    	if(this.prmtinsurance.getValue()!=null)
+    	{
+    		StringBuffer sb = new StringBuffer();
+    		if(this.prmtinsurance.getValue() instanceof Object[])
+    		{
+    			Object obj[] = (Object[]) this.prmtinsurance.getValue();
+    			for (int i = 0; i < obj.length; i++) 
+    			{
+					if(sb!=null&&!"".equals(sb.toString().trim()))
+						sb.append("&").append(((InsuranceInfo)obj[i]).getId().toString());
+					else
+						sb.append(((InsuranceInfo)obj[i]).getId().toString());
+				}
+    		}
+    		else
+    		{
+    			sb = new StringBuffer();
+    			sb.append(((InsuranceInfo)this.prmtinsurance.getValue()).getId().toString());
+    		}
+    		
+    		this.txtxianzhongID.setText(sb.toString());
+    	}
         super.storeFields();
     }
 
@@ -749,7 +803,7 @@ public class InsuranceCoverageEditUI extends AbstractInsuranceCoverageEditUI
 		
 		this.btnExportExcel.setVisible(false);
 		this.kDInsuranceDetail.setVisible(false);
-		
+		this.prmtinsurance.setEnabledMultiSelection(true);
 		
 	}
 	

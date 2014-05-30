@@ -502,8 +502,8 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 			return;
 		}
 		FaCatInfo facat = (FaCatInfo) prmttype.getValue();
-		if (facat.getLevel() != 2) {
-			MsgBox.showWarning("只能选择级次为2的数据！");
+		if (!facat.isIsLeaf()) {
+			MsgBox.showWarning("只能选择最末级节点！");
 			prmttype.setValue(null);
 			txtEqmCategory.setText("");
 			SysUtil.abort();

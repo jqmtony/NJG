@@ -53,4 +53,7 @@ public interface AnnualYearDetailController extends XRBillBaseController
     public void updateBigObject(Context ctx, IObjectPK pk, AnnualYearDetailInfo model) throws BOSException, RemoteException;
     public void updatePartial(Context ctx, AnnualYearDetailInfo model, SelectorItemCollection selector) throws BOSException, EASBizException, RemoteException;
     public String getBindingProperty(Context ctx) throws BOSException, RemoteException;
+    public void entry(Context ctx, AnnualYearDetailInfo model) throws BOSException, RemoteException;
+    public void confirmation(Context ctx, AnnualYearDetailInfo model) throws BOSException, RemoteException;
+    public void unConfirmation(Context ctx, AnnualYearDetailInfo model) throws BOSException, RemoteException;
 }

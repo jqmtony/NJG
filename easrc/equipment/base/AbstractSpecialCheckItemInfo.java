@@ -28,6 +28,28 @@ public class AbstractSpecialCheckItemInfo extends com.kingdee.eas.framework.Tree
     {
         put("parent", item);
     }
+    /**
+     * Object: 特种设备检测项目 's 设备类别 property 
+     */
+    public com.kingdee.eas.fi.fa.basedata.FaCatInfo getType()
+    {
+        return (com.kingdee.eas.fi.fa.basedata.FaCatInfo)get("type");
+    }
+    public void setType(com.kingdee.eas.fi.fa.basedata.FaCatInfo item)
+    {
+        put("type", item);
+    }
+    /**
+     * Object:特种设备检测项目's 说明property 
+     */
+    public String getRemake()
+    {
+        return getString("remake");
+    }
+    public void setRemake(String item)
+    {
+        setString("remake", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("77774DC4");

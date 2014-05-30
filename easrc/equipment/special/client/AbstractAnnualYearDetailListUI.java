@@ -48,6 +48,10 @@ public abstract class AbstractAnnualYearDetailListUI extends com.kingdee.eas.xr.
     private static final Logger logger = CoreUIObject.getLogger(AbstractAnnualYearDetailListUI.class);
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnIssued;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnUnIssued;
+    protected com.kingdee.bos.ctrl.swing.KDWorkButton btnEntry;
+    protected ActionEntry actionEntry = null;
+    protected ActionConfirmation actionConfirmation = null;
+    protected ActionUnConfirmation actionUnConfirmation = null;
     /**
      * output class constructor
      */
@@ -84,10 +88,36 @@ public abstract class AbstractAnnualYearDetailListUI extends com.kingdee.eas.xr.
          this.actionRemove.addService(new com.kingdee.eas.framework.client.service.PermissionService());
          this.actionRemove.addService(new com.kingdee.eas.framework.client.service.NetFunctionService());
          this.actionRemove.addService(new com.kingdee.eas.framework.client.service.UserMonitorService());
+        //actionEntry
+        this.actionEntry = new ActionEntry(this);
+        getActionManager().registerAction("actionEntry", actionEntry);
+        this.actionEntry.setExtendProperty("canForewarn", "true");
+        this.actionEntry.setExtendProperty("userDefined", "true");
+        this.actionEntry.setExtendProperty("isObjectUpdateLock", "false");
+         this.actionEntry.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+         this.actionEntry.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
+        //actionConfirmation
+        this.actionConfirmation = new ActionConfirmation(this);
+        getActionManager().registerAction("actionConfirmation", actionConfirmation);
+        this.actionConfirmation.setExtendProperty("canForewarn", "true");
+        this.actionConfirmation.setExtendProperty("userDefined", "true");
+        this.actionConfirmation.setExtendProperty("isObjectUpdateLock", "false");
+         this.actionConfirmation.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+         this.actionConfirmation.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
+        //actionUnConfirmation
+        this.actionUnConfirmation = new ActionUnConfirmation(this);
+        getActionManager().registerAction("actionUnConfirmation", actionUnConfirmation);
+        this.actionUnConfirmation.setExtendProperty("canForewarn", "true");
+        this.actionUnConfirmation.setExtendProperty("userDefined", "true");
+        this.actionUnConfirmation.setExtendProperty("isObjectUpdateLock", "false");
+         this.actionUnConfirmation.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+         this.actionUnConfirmation.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
         this.btnIssued = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btnUnIssued = new com.kingdee.bos.ctrl.swing.KDWorkButton();
+        this.btnEntry = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btnIssued.setName("btnIssued");
         this.btnUnIssued.setName("btnUnIssued");
+        this.btnEntry.setName("btnEntry");
         // CoreUI
 		String tblMainStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol9\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol10\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol11\"><c:Protection hidden=\"true\" /><c:NumberFormat>&amp;int</c:NumberFormat></c:Style><c:Style id=\"sCol16\"><c:NumberFormat>&amp;date</c:NumberFormat></c:Style><c:Style id=\"sCol17\"><c:NumberFormat>&amp;date</c:NumberFormat></c:Style><c:Style id=\"sCol24\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol25\"><c:NumberFormat>&amp;date</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"status\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"bizDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"creator.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"createTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"lastUpdateUser.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"lastUpdateTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"auditor.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"auditTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol9\" /><t:Column t:key=\"CU.id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol10\" /><t:Column t:key=\"Entry.seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol11\" /><t:Column t:key=\"Entry.zdaNumber.tzdaNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.equipmentName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.code\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.useUnit\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.planDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol16\" /><t:Column t:key=\"Entry.endDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol17\" /><t:Column t:key=\"Entry.state\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.address\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.companyNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.NO\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.engineNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.carNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.weight\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol24\" /><t:Column t:key=\"Entry.useDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol25\" /><t:Column t:key=\"Entry.createUnit\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.checkType\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.check\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.result\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.beizhu\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{status}</t:Cell><t:Cell>$Resource{number}</t:Cell><t:Cell>$Resource{bizDate}</t:Cell><t:Cell>$Resource{creator.name}</t:Cell><t:Cell>$Resource{createTime}</t:Cell><t:Cell>$Resource{lastUpdateUser.name}</t:Cell><t:Cell>$Resource{lastUpdateTime}</t:Cell><t:Cell>$Resource{auditor.name}</t:Cell><t:Cell>$Resource{auditTime}</t:Cell><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{CU.id}</t:Cell><t:Cell>$Resource{Entry.seq}</t:Cell><t:Cell>$Resource{Entry.zdaNumber.tzdaNumber}</t:Cell><t:Cell>$Resource{Entry.equipmentName}</t:Cell><t:Cell>$Resource{Entry.code}</t:Cell><t:Cell>$Resource{Entry.useUnit}</t:Cell><t:Cell>$Resource{Entry.planDate}</t:Cell><t:Cell>$Resource{Entry.endDate}</t:Cell><t:Cell>$Resource{Entry.state}</t:Cell><t:Cell>$Resource{Entry.address}</t:Cell><t:Cell>$Resource{Entry.companyNumber}</t:Cell><t:Cell>$Resource{Entry.NO}</t:Cell><t:Cell>$Resource{Entry.engineNumber}</t:Cell><t:Cell>$Resource{Entry.carNumber}</t:Cell><t:Cell>$Resource{Entry.weight}</t:Cell><t:Cell>$Resource{Entry.useDate}</t:Cell><t:Cell>$Resource{Entry.createUnit}</t:Cell><t:Cell>$Resource{Entry.checkType}</t:Cell><t:Cell>$Resource{Entry.check}</t:Cell><t:Cell>$Resource{Entry.result}</t:Cell><t:Cell>$Resource{Entry.beizhu}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
@@ -125,6 +155,9 @@ public abstract class AbstractAnnualYearDetailListUI extends com.kingdee.eas.xr.
                 }
             }
         });
+        // btnEntry
+        this.btnEntry.setAction((IItemAction)ActionProxyFactory.getProxy(actionEntry, new Class[] { IItemAction.class }, getServiceContext()));		
+        this.btnEntry.setText(resHelper.getString("btnEntry.text"));
 		//Register control's property binding
 		registerBindings();
 		registerUIState();
@@ -264,6 +297,7 @@ public abstract class AbstractAnnualYearDetailListUI extends com.kingdee.eas.xr.
         this.toolBar.add(btnRemove);
         this.toolBar.add(btnIssued);
         this.toolBar.add(btnUnIssued);
+        this.toolBar.add(btnEntry);
         this.toolBar.add(btnRefresh);
         this.toolBar.add(btnQuery);
         this.toolBar.add(btnLocate);
@@ -475,6 +509,39 @@ public abstract class AbstractAnnualYearDetailListUI extends com.kingdee.eas.xr.
     {
         super.actionRemove_actionPerformed(e);
     }
+    	
+
+    /**
+     * output actionEntry_actionPerformed method
+     */
+    public void actionEntry_actionPerformed(ActionEvent e) throws Exception
+    {
+        if (getSelectedKeyValue() == null) return;
+com.kingdee.eas.port.equipment.special.AnnualYearDetailInfo editData = (com.kingdee.eas.port.equipment.special.AnnualYearDetailInfo)getBizInterface().getValue(new com.kingdee.bos.dao.ormapping.ObjectUuidPK(BOSUuid.read(getSelectedKeyValue())));
+com.kingdee.eas.port.equipment.special.AnnualYearDetailFactory.getRemoteInstance().entry(editData);
+    }
+    	
+
+    /**
+     * output actionConfirmation_actionPerformed method
+     */
+    public void actionConfirmation_actionPerformed(ActionEvent e) throws Exception
+    {
+        if (getSelectedKeyValue() == null) return;
+com.kingdee.eas.port.equipment.special.AnnualYearDetailInfo editData = (com.kingdee.eas.port.equipment.special.AnnualYearDetailInfo)getBizInterface().getValue(new com.kingdee.bos.dao.ormapping.ObjectUuidPK(BOSUuid.read(getSelectedKeyValue())));
+com.kingdee.eas.port.equipment.special.AnnualYearDetailFactory.getRemoteInstance().confirmation(editData);
+    }
+    	
+
+    /**
+     * output actionUnConfirmation_actionPerformed method
+     */
+    public void actionUnConfirmation_actionPerformed(ActionEvent e) throws Exception
+    {
+        if (getSelectedKeyValue() == null) return;
+com.kingdee.eas.port.equipment.special.AnnualYearDetailInfo editData = (com.kingdee.eas.port.equipment.special.AnnualYearDetailInfo)getBizInterface().getValue(new com.kingdee.bos.dao.ormapping.ObjectUuidPK(BOSUuid.read(getSelectedKeyValue())));
+com.kingdee.eas.port.equipment.special.AnnualYearDetailFactory.getRemoteInstance().unConfirmation(editData);
+    }
 	public RequestContext prepareActionRemove(IItemAction itemAction) throws Exception {
 			RequestContext request = super.prepareActionRemove(itemAction);		
 		if (request != null) {
@@ -485,6 +552,129 @@ public abstract class AbstractAnnualYearDetailListUI extends com.kingdee.eas.xr.
 	
 	public boolean isPrepareActionRemove() {
     	return false;
+    }
+	public RequestContext prepareActionEntry(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionEntry() {
+    	return false;
+    }
+	public RequestContext prepareActionConfirmation(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionConfirmation() {
+    	return false;
+    }
+	public RequestContext prepareActionUnConfirmation(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionUnConfirmation() {
+    	return false;
+    }
+
+    /**
+     * output ActionEntry class
+     */     
+    protected class ActionEntry extends ItemAction {     
+    
+        public ActionEntry()
+        {
+            this(null);
+        }
+
+        public ActionEntry(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            _tempStr = resHelper.getString("ActionEntry.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionEntry.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionEntry.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractAnnualYearDetailListUI.this, "ActionEntry", "actionEntry_actionPerformed", e);
+        }
+    }
+
+    /**
+     * output ActionConfirmation class
+     */     
+    protected class ActionConfirmation extends ItemAction {     
+    
+        public ActionConfirmation()
+        {
+            this(null);
+        }
+
+        public ActionConfirmation(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            _tempStr = resHelper.getString("ActionConfirmation.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionConfirmation.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionConfirmation.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractAnnualYearDetailListUI.this, "ActionConfirmation", "actionConfirmation_actionPerformed", e);
+        }
+    }
+
+    /**
+     * output ActionUnConfirmation class
+     */     
+    protected class ActionUnConfirmation extends ItemAction {     
+    
+        public ActionUnConfirmation()
+        {
+            this(null);
+        }
+
+        public ActionUnConfirmation(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            _tempStr = resHelper.getString("ActionUnConfirmation.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionUnConfirmation.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionUnConfirmation.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractAnnualYearDetailListUI.this, "ActionUnConfirmation", "actionUnConfirmation_actionPerformed", e);
+        }
     }
 
     /**

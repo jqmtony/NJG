@@ -6,10 +6,24 @@ package com.kingdee.eas.port.equipment.special.client;
 import java.awt.event.*;
 
 import org.apache.log4j.Logger;
+
+import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.ui.face.IUIWindow;
+import com.kingdee.bos.ui.face.UIFactory;
+import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.eas.common.client.OprtState;
+import com.kingdee.eas.common.client.UIContext;
+import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.framework.*;
+import com.kingdee.eas.port.equipment.special.AnnualYearDetailInfo;
+import com.kingdee.eas.port.equipment.special.OverhaulNoticeInfo;
+import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
+import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
+import com.kingdee.eas.xr.app.XRBillStatusEnum;
 
 /**
  * output class name
@@ -595,6 +609,27 @@ public class OverhaulNoticeListUI extends AbstractOverhaulNoticeListUI
     }
     
     public void actionFeedInfor_actionPerformed(ActionEvent e) throws Exception {
-    	super.actionFeedInfor_actionPerformed(e);
+    	checkSelected();
+    	String billID = getSelectedKeyValue();
+        ObjectUuidPK pk = new ObjectUuidPK(BOSUuid.read(billID));
+        Object o = getBizInterface().getValue(pk);
+        OverhaulNoticeInfo onInfo = (OverhaulNoticeInfo)o;
+	    if(onInfo.getStatus().equals(XRBillStatusEnum.AUDITED)||onInfo.getStatus().equals(XRBillStatusEnum.RECTIFICATION)){
+	    	IUIWindow uiWindow = null;
+			UIContext context = new UIContext(this);
+			context.put("ID", billID);
+			context.put("FeedInfor", billID);
+			String oprstate = "";
+			if(onInfo.getStatus().equals(XRBillStatusEnum.AUDITED))
+				oprstate=OprtState.EDIT;
+			else
+				oprstate=OprtState.VIEW;
+			uiWindow = UIFactory.createUIFactory(UIFactoryName.MODEL).create(OverhaulNoticeEditUI.class.getName(), context, null, oprstate);
+			uiWindow.show(); 
+	    }
+	    else
+	    {
+	    	MsgBox.showWarning("单据不是已审批或者已整改状态!");SysUtil.abort();
+	    }
     }
 }

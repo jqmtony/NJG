@@ -6,11 +6,19 @@ package com.kingdee.eas.port.equipment.base.client;
 import java.awt.event.*;
 import org.apache.log4j.Logger;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.ctrl.swing.event.DataChangeEvent;
 import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.eas.fi.fa.basedata.FaCatFactory;
+import com.kingdee.eas.fi.fa.basedata.FaCatInfo;
+import com.kingdee.eas.fi.fa.basedata.client.FaCatPromptBox;
 import com.kingdee.eas.framework.*;
+import com.kingdee.eas.util.SysUtil;
+import com.kingdee.eas.util.client.MsgBox;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.metadata.entity.SelectorItemInfo;
 import com.kingdee.eas.common.client.OprtState;
+import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.common.client.UIContext;
 
 /**
@@ -43,6 +51,26 @@ public class SpecialCheckItemEditUI extends AbstractSpecialCheckItemEditUI
         super.storeFields();
     }
 
+    public void onLoad() throws Exception {
+    	super.onLoad();
+    	
+    	FaCatPromptBox facatBox = new FaCatPromptBox();
+		facatBox.setACompanyOrgUnitInfo(SysContext.getSysContext()
+				.getCurrentFIUnit());
+		this.prmttype.setSelector(facatBox);
+    }
+    
+    protected void prmttype_dataChanged(DataChangeEvent e) throws Exception {
+    	if (prmttype.getValue() == null) {
+			return;
+		}
+		FaCatInfo facat = (FaCatInfo) prmttype.getValue();
+		if (!facat.isIsLeaf()) {
+			MsgBox.showWarning("只能选择最末级节点！");
+			prmttype.setValue(null);
+			SysUtil.abort();
+		} 
+    }
     /**
      * output actionPageSetup_actionPerformed
      */

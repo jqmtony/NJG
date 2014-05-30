@@ -66,6 +66,7 @@ public abstract class AbstractInsuranceCoverageEditUI extends com.kingdee.eas.xr
     protected com.kingdee.bos.ctrl.swing.KDButton btnExportExcel;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnImportExcel;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnExcel;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contxianzhongID;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtCreator;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkCreateTime;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtLastUpdateUser;
@@ -83,6 +84,8 @@ public abstract class AbstractInsuranceCoverageEditUI extends com.kingdee.eas.xr
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtinsuranceCompany;
     protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtE1;
 	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtE1_detailPanel = null;
+    protected com.kingdee.bos.ctrl.swing.KDScrollPane scrollPanexianzhongID;
+    protected com.kingdee.bos.ctrl.swing.KDTextArea txtxianzhongID;
     protected com.kingdee.eas.port.equipment.insurance.InsuranceCoverageInfo editData = null;
     /**
      * output class constructor
@@ -153,6 +156,7 @@ public abstract class AbstractInsuranceCoverageEditUI extends com.kingdee.eas.xr
         this.btnExportExcel = new com.kingdee.bos.ctrl.swing.KDButton();
         this.btnImportExcel = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btnExcel = new com.kingdee.bos.ctrl.swing.KDWorkButton();
+        this.contxianzhongID = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.prmtCreator = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.pkCreateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.prmtLastUpdateUser = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
@@ -169,6 +173,8 @@ public abstract class AbstractInsuranceCoverageEditUI extends com.kingdee.eas.xr
         this.prmtinsurance = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.prmtinsuranceCompany = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.kdtE1 = new com.kingdee.bos.ctrl.kdf.table.KDTable();
+        this.scrollPanexianzhongID = new com.kingdee.bos.ctrl.swing.KDScrollPane();
+        this.txtxianzhongID = new com.kingdee.bos.ctrl.swing.KDTextArea();
         this.contCreator.setName("contCreator");
         this.contCreateTime.setName("contCreateTime");
         this.contLastUpdateUser.setName("contLastUpdateUser");
@@ -189,6 +195,7 @@ public abstract class AbstractInsuranceCoverageEditUI extends com.kingdee.eas.xr
         this.btnExportExcel.setName("btnExportExcel");
         this.btnImportExcel.setName("btnImportExcel");
         this.btnExcel.setName("btnExcel");
+        this.contxianzhongID.setName("contxianzhongID");
         this.prmtCreator.setName("prmtCreator");
         this.pkCreateTime.setName("pkCreateTime");
         this.prmtLastUpdateUser.setName("prmtLastUpdateUser");
@@ -205,6 +212,8 @@ public abstract class AbstractInsuranceCoverageEditUI extends com.kingdee.eas.xr
         this.prmtinsurance.setName("prmtinsurance");
         this.prmtinsuranceCompany.setName("prmtinsuranceCompany");
         this.kdtE1.setName("kdtE1");
+        this.scrollPanexianzhongID.setName("scrollPanexianzhongID");
+        this.txtxianzhongID.setName("txtxianzhongID");
         // CoreUI
         // contCreator		
         this.contCreator.setBoundLabelText(resHelper.getString("contCreator.boundLabelText"));		
@@ -321,6 +330,11 @@ public abstract class AbstractInsuranceCoverageEditUI extends com.kingdee.eas.xr
                 }
             }
         });
+        // contxianzhongID		
+        this.contxianzhongID.setBoundLabelText(resHelper.getString("contxianzhongID.boundLabelText"));		
+        this.contxianzhongID.setBoundLabelLength(100);		
+        this.contxianzhongID.setBoundLabelUnderline(true);		
+        this.contxianzhongID.setVisible(true);
         // prmtCreator		
         this.prmtCreator.setEnabled(false);		
         this.prmtCreator.setCommitFormat("$name$");		
@@ -399,6 +413,14 @@ public abstract class AbstractInsuranceCoverageEditUI extends com.kingdee.eas.xr
 
 
         this.kdtE1.checkParsed();
+        KDFormattedTextField kdtE1_seq_TextField = new KDFormattedTextField();
+        kdtE1_seq_TextField.setName("kdtE1_seq_TextField");
+        kdtE1_seq_TextField.setVisible(true);
+        kdtE1_seq_TextField.setEditable(true);
+        kdtE1_seq_TextField.setHorizontalAlignment(2);
+        kdtE1_seq_TextField.setDataType(0);
+        KDTDefaultCellEditor kdtE1_seq_CellEditor = new KDTDefaultCellEditor(kdtE1_seq_TextField);
+        this.kdtE1.getColumn("seq").setEditor(kdtE1_seq_CellEditor);
         final KDBizPromptBox kdtE1_useUnit_PromptBox = new KDBizPromptBox();
         kdtE1_useUnit_PromptBox.setQueryInfo("com.kingdee.eas.basedata.org.app.AdminItemQuery");
         kdtE1_useUnit_PromptBox.setVisible(true);
@@ -492,6 +514,11 @@ public abstract class AbstractInsuranceCoverageEditUI extends com.kingdee.eas.xr
         kdtE1_remark_TextField.setMaxLength(100);
         KDTDefaultCellEditor kdtE1_remark_CellEditor = new KDTDefaultCellEditor(kdtE1_remark_TextField);
         this.kdtE1.getColumn("remark").setEditor(kdtE1_remark_CellEditor);
+        // scrollPanexianzhongID
+        // txtxianzhongID		
+        this.txtxianzhongID.setVisible(true);		
+        this.txtxianzhongID.setRequired(false);		
+        this.txtxianzhongID.setMaxLength(500);
         this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {txtyear,prmtinsurance,prmtinsuranceCompany,kdtE1,prmtCU,pkLastUpdateTime,prmtLastUpdateUser,pkCreateTime,prmtCreator,prmtAuditor,txtDescription,pkBizDate,txtNumber,pkAuditTime,comboBizStatus,comboStatus}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
@@ -561,6 +588,8 @@ public abstract class AbstractInsuranceCoverageEditUI extends com.kingdee.eas.xr
         this.add(btnImportExcel, new KDLayout.Constraints(566, 52, 22, 19, 0));
         btnExcel.setBounds(new Rectangle(656, 59, 22, 19));
         this.add(btnExcel, new KDLayout.Constraints(656, 59, 22, 19, 0));
+        contxianzhongID.setBounds(new Rectangle(286, 482, 270, 19));
+        this.add(contxianzhongID, new KDLayout.Constraints(286, 482, 270, 19, 0));
         //contCreator
         contCreator.setBoundEditor(prmtCreator);
         //contCreateTime
@@ -594,6 +623,10 @@ public abstract class AbstractInsuranceCoverageEditUI extends com.kingdee.eas.xr
         //kDContainer1
 kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kdtE1_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtE1,new com.kingdee.eas.port.equipment.insurance.InsuranceCoverageE1Info(),null,false);
         kDContainer1.getContentPane().add(kdtE1_detailPanel, BorderLayout.CENTER);
+        //contxianzhongID
+        contxianzhongID.setBoundEditor(scrollPanexianzhongID);
+        //scrollPanexianzhongID
+        scrollPanexianzhongID.getViewport().add(txtxianzhongID, null);
 
     }
 
@@ -795,7 +828,8 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kdtE1_de
 		dataBinder.registerBinding("E1.originalValue", java.math.BigDecimal.class, this.kdtE1, "originalValue.text");
 		dataBinder.registerBinding("E1.presentValue", java.math.BigDecimal.class, this.kdtE1, "presentValue.text");
 		dataBinder.registerBinding("E1.insuranceAmount", java.math.BigDecimal.class, this.kdtE1, "insuranceAmount.text");
-		dataBinder.registerBinding("E1.remark", String.class, this.kdtE1, "remark.text");		
+		dataBinder.registerBinding("E1.remark", String.class, this.kdtE1, "remark.text");
+		dataBinder.registerBinding("xianzhongID", String.class, this.txtxianzhongID, "text");		
 	}
 	//Regiester UI State
 	private void registerUIState(){		
@@ -958,7 +992,8 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kdtE1_de
 		getValidateHelper().registerBindProperty("E1.originalValue", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("E1.presentValue", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("E1.insuranceAmount", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("E1.remark", ValidateHelper.ON_SAVE);    		
+		getValidateHelper().registerBindProperty("E1.remark", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("xianzhongID", ValidateHelper.ON_SAVE);    		
 	}
 
 
@@ -1146,6 +1181,7 @@ kdtE1.getCell(rowIndex,"tonnage").setValue(com.kingdee.bos.ui.face.UIRuleUtil.ge
     	sic.add(new SelectorItemInfo("E1.presentValue"));
     	sic.add(new SelectorItemInfo("E1.insuranceAmount"));
     	sic.add(new SelectorItemInfo("E1.remark"));
+        sic.add(new SelectorItemInfo("xianzhongID"));
         return sic;
     }        
     	

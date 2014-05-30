@@ -644,6 +644,66 @@ public abstract class AbstractAnnualYearDetailControllerBean extends XRBillBaseC
         }
     }
 
+    public void entry(Context ctx, AnnualYearDetailInfo model) throws BOSException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("8140c06d-8326-4285-ad15-425978c3bffa"), new Object[]{ctx, model});
+            invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
+            _entry(ctx, model);
+            }
+            invokeServiceAfter(svcCtx);
+        } catch (BOSException ex) {
+            throw ex;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected void _entry(Context ctx, IObjectValue model) throws BOSException
+    {    	
+        return;
+    }
+
+    public void confirmation(Context ctx, AnnualYearDetailInfo model) throws BOSException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("359ff3a0-6376-4daf-831a-cdc09882cb2a"), new Object[]{ctx, model});
+            invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
+            _confirmation(ctx, model);
+            }
+            invokeServiceAfter(svcCtx);
+        } catch (BOSException ex) {
+            throw ex;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected void _confirmation(Context ctx, IObjectValue model) throws BOSException
+    {    	
+        return;
+    }
+
+    public void unConfirmation(Context ctx, AnnualYearDetailInfo model) throws BOSException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("3d0b05ad-8d98-4ef0-9019-702b950d3723"), new Object[]{ctx, model});
+            invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
+            _unConfirmation(ctx, model);
+            }
+            invokeServiceAfter(svcCtx);
+        } catch (BOSException ex) {
+            throw ex;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected void _unConfirmation(Context ctx, IObjectValue model) throws BOSException
+    {    	
+        return;
+    }
+
     public XRBillBaseCollection getXRBillBaseCollection (Context ctx) throws BOSException
     {
     	return (XRBillBaseCollection)(getAnnualYearDetailCollection(ctx).cast(XRBillBaseCollection.class));

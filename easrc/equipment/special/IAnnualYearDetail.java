@@ -48,4 +48,7 @@ public interface IAnnualYearDetail extends IXRBillBase
     public void updateBigObject(IObjectPK pk, AnnualYearDetailInfo model) throws BOSException;
     public void updatePartial(AnnualYearDetailInfo model, SelectorItemCollection selector) throws BOSException, EASBizException;
     public String getBindingProperty() throws BOSException;
+    public void entry(AnnualYearDetailInfo model) throws BOSException;
+    public void confirmation(AnnualYearDetailInfo model) throws BOSException;
+    public void unConfirmation(AnnualYearDetailInfo model) throws BOSException;
 }

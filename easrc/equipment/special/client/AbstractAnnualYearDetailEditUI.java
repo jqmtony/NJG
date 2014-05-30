@@ -74,7 +74,12 @@ public abstract class AbstractAnnualYearDetailEditUI extends com.kingdee.eas.xr.
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkAuditTime;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnIssued;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnUnIssued;
+    protected com.kingdee.bos.ctrl.swing.KDWorkButton btnConfirmation;
+    protected com.kingdee.bos.ctrl.swing.KDWorkButton btnUnConfirmation;
     protected com.kingdee.eas.port.equipment.special.AnnualYearDetailInfo editData = null;
+    protected ActionEntry actionEntry = null;
+    protected ActionConfirmation actionConfirmation = null;
+    protected ActionUnConfirmation actionUnConfirmation = null;
     /**
      * output class constructor
      */
@@ -124,6 +129,30 @@ public abstract class AbstractAnnualYearDetailEditUI extends com.kingdee.eas.xr.
         actionUnAudit.putValue(ItemAction.NAME, _tempStr);
         this.actionUnAudit.setBindWorkFlow(true);
          this.actionUnAudit.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+        //actionEntry
+        this.actionEntry = new ActionEntry(this);
+        getActionManager().registerAction("actionEntry", actionEntry);
+        this.actionEntry.setExtendProperty("canForewarn", "true");
+        this.actionEntry.setExtendProperty("userDefined", "true");
+        this.actionEntry.setExtendProperty("isObjectUpdateLock", "false");
+         this.actionEntry.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+         this.actionEntry.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
+        //actionConfirmation
+        this.actionConfirmation = new ActionConfirmation(this);
+        getActionManager().registerAction("actionConfirmation", actionConfirmation);
+        this.actionConfirmation.setExtendProperty("canForewarn", "true");
+        this.actionConfirmation.setExtendProperty("userDefined", "true");
+        this.actionConfirmation.setExtendProperty("isObjectUpdateLock", "false");
+         this.actionConfirmation.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+         this.actionConfirmation.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
+        //actionUnConfirmation
+        this.actionUnConfirmation = new ActionUnConfirmation(this);
+        getActionManager().registerAction("actionUnConfirmation", actionUnConfirmation);
+        this.actionUnConfirmation.setExtendProperty("canForewarn", "true");
+        this.actionUnConfirmation.setExtendProperty("userDefined", "true");
+        this.actionUnConfirmation.setExtendProperty("isObjectUpdateLock", "false");
+         this.actionUnConfirmation.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+         this.actionUnConfirmation.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
         this.contCreator = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contCreateTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contLastUpdateUser = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -151,6 +180,8 @@ public abstract class AbstractAnnualYearDetailEditUI extends com.kingdee.eas.xr.
         this.pkAuditTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.btnIssued = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btnUnIssued = new com.kingdee.bos.ctrl.swing.KDWorkButton();
+        this.btnConfirmation = new com.kingdee.bos.ctrl.swing.KDWorkButton();
+        this.btnUnConfirmation = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.contCreator.setName("contCreator");
         this.contCreateTime.setName("contCreateTime");
         this.contLastUpdateUser.setName("contLastUpdateUser");
@@ -178,6 +209,8 @@ public abstract class AbstractAnnualYearDetailEditUI extends com.kingdee.eas.xr.
         this.pkAuditTime.setName("pkAuditTime");
         this.btnIssued.setName("btnIssued");
         this.btnUnIssued.setName("btnUnIssued");
+        this.btnConfirmation.setName("btnConfirmation");
+        this.btnUnConfirmation.setName("btnUnConfirmation");
         // CoreUI
         // contCreator		
         this.contCreator.setBoundLabelText(resHelper.getString("contCreator.boundLabelText"));		
@@ -428,6 +461,12 @@ public abstract class AbstractAnnualYearDetailEditUI extends com.kingdee.eas.xr.
                 }
             }
         });
+        // btnConfirmation
+        this.btnConfirmation.setAction((IItemAction)ActionProxyFactory.getProxy(actionConfirmation, new Class[] { IItemAction.class }, getServiceContext()));		
+        this.btnConfirmation.setText(resHelper.getString("btnConfirmation.text"));
+        // btnUnConfirmation
+        this.btnUnConfirmation.setAction((IItemAction)ActionProxyFactory.getProxy(actionUnConfirmation, new Class[] { IItemAction.class }, getServiceContext()));		
+        this.btnUnConfirmation.setText(resHelper.getString("btnUnConfirmation.text"));
         this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmtCU,pkLastUpdateTime,prmtLastUpdateUser,pkCreateTime,prmtCreator,prmtAuditor,txtDescription,pkBizDate,txtNumber,pkAuditTime,comboBizStatus,comboStatus,kdtEntry}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
@@ -653,6 +692,8 @@ vo.put("result","10");
         this.toolBar.add(btnPageSetup);
         this.toolBar.add(btnIssued);
         this.toolBar.add(btnUnIssued);
+        this.toolBar.add(btnConfirmation);
+        this.toolBar.add(btnUnConfirmation);
         this.toolBar.add(btnPrint);
         this.toolBar.add(btnPrintPreview);
         this.toolBar.add(separatorFW2);
@@ -1102,6 +1143,33 @@ kdtEntry.getCell(rowIndex,"createUnit").setValue(com.kingdee.bos.ui.face.UIRuleU
     {
         super.actionUnAudit_actionPerformed(e);
     }
+    	
+
+    /**
+     * output actionEntry_actionPerformed method
+     */
+    public void actionEntry_actionPerformed(ActionEvent e) throws Exception
+    {
+        com.kingdee.eas.port.equipment.special.AnnualYearDetailFactory.getRemoteInstance().entry(editData);
+    }
+    	
+
+    /**
+     * output actionConfirmation_actionPerformed method
+     */
+    public void actionConfirmation_actionPerformed(ActionEvent e) throws Exception
+    {
+        com.kingdee.eas.port.equipment.special.AnnualYearDetailFactory.getRemoteInstance().confirmation(editData);
+    }
+    	
+
+    /**
+     * output actionUnConfirmation_actionPerformed method
+     */
+    public void actionUnConfirmation_actionPerformed(ActionEvent e) throws Exception
+    {
+        com.kingdee.eas.port.equipment.special.AnnualYearDetailFactory.getRemoteInstance().unConfirmation(editData);
+    }
 	public RequestContext prepareActionSubmit(IItemAction itemAction) throws Exception {
 			RequestContext request = super.prepareActionSubmit(itemAction);		
 		if (request != null) {
@@ -1123,6 +1191,129 @@ kdtEntry.getCell(rowIndex,"createUnit").setValue(com.kingdee.bos.ui.face.UIRuleU
 	
 	public boolean isPrepareActionUnAudit() {
     	return false;
+    }
+	public RequestContext prepareActionEntry(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionEntry() {
+    	return false;
+    }
+	public RequestContext prepareActionConfirmation(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionConfirmation() {
+    	return false;
+    }
+	public RequestContext prepareActionUnConfirmation(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionUnConfirmation() {
+    	return false;
+    }
+
+    /**
+     * output ActionEntry class
+     */     
+    protected class ActionEntry extends ItemAction {     
+    
+        public ActionEntry()
+        {
+            this(null);
+        }
+
+        public ActionEntry(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            _tempStr = resHelper.getString("ActionEntry.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionEntry.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionEntry.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractAnnualYearDetailEditUI.this, "ActionEntry", "actionEntry_actionPerformed", e);
+        }
+    }
+
+    /**
+     * output ActionConfirmation class
+     */     
+    protected class ActionConfirmation extends ItemAction {     
+    
+        public ActionConfirmation()
+        {
+            this(null);
+        }
+
+        public ActionConfirmation(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            _tempStr = resHelper.getString("ActionConfirmation.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionConfirmation.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionConfirmation.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractAnnualYearDetailEditUI.this, "ActionConfirmation", "actionConfirmation_actionPerformed", e);
+        }
+    }
+
+    /**
+     * output ActionUnConfirmation class
+     */     
+    protected class ActionUnConfirmation extends ItemAction {     
+    
+        public ActionUnConfirmation()
+        {
+            this(null);
+        }
+
+        public ActionUnConfirmation(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            _tempStr = resHelper.getString("ActionUnConfirmation.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionUnConfirmation.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionUnConfirmation.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractAnnualYearDetailEditUI.this, "ActionUnConfirmation", "actionUnConfirmation_actionPerformed", e);
+        }
     }
 
     /**

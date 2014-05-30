@@ -8,8 +8,12 @@ import java.awt.event.*;
 import org.apache.log4j.Logger;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.eas.framework.*;
+import com.kingdee.eas.port.equipment.special.OverhaulNoticeFactory;
+import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
 import com.kingdee.eas.util.client.EASResource;
+import com.kingdee.eas.xr.app.XRBillStatusEnum;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.swing.KDTextField;
 
@@ -688,7 +692,45 @@ public class OverhaulNoticeEditUI extends AbstractOverhaulNoticeEditUI
 	
 	public void onLoad() throws Exception {
 		this.kdtEntry.getColumn("seq").getStyleAttributes().setHided(true);
+		if(getUIContext().get("FeedInfor")!=null)
+		{
+			pkBizDate.setEnabled(false);
+			txtNumber.setEnabled(false);
+			pknoticeDate.setEnabled(false);
+			pkplanFinishDate.setEnabled(false);
+			comboStatus.setEnabled(false);
+			txtDescription.setEnabled(false);
+			txtrequestContent.setEnabled(false);
+		}
 		super.onLoad();
+		if(getUIContext().get("FeedInfor")!=null)
+		{
+			this.toolBar.removeAll();
+			this.toolBar.add(btnAddNew);
+			this.toolBar.add(btnConRect);
+			this.toolBar.add(btnUnConRet);
+			
+			this.kdtEntry.setEnabled(false);
+			this.kdtEntry_detailPanel.getAddNewLineButton().setEnabled(false);
+			this.kdtEntry_detailPanel.getInsertLineButton().setEnabled(false);
+			this.kdtEntry_detailPanel.getRemoveLinesButton().setEnabled(false);			
+			btnAddNew.setVisible(false);
+			
+			if(editData.getStatus().equals(XRBillStatusEnum.AUDITED)){
+				btnConRect.setEnabled(true);
+				btnUnConRet.setEnabled(false);
+			}
+			else if(editData.getStatus().equals(XRBillStatusEnum.RECTIFICATION))
+			{
+				btnConRect.setEnabled(false);
+				btnUnConRet.setEnabled(true);
+			}
+			
+		}
+		else{
+			btnConRect.setVisible(false);
+			btnUnConRet.setVisible(false);
+		}
 	}
 	
 	 protected void initWorkButton()
@@ -701,11 +743,39 @@ public class OverhaulNoticeEditUI extends AbstractOverhaulNoticeEditUI
 	//确认整改
 	public void actionActitonConRect_actionPerformed(ActionEvent e)throws Exception {
 		super.actionActitonConRect_actionPerformed(e);
+		
+		storeFields();
+		editData.setStatus(XRBillStatusEnum.RECTIFICATION);
+		OverhaulNoticeFactory.getRemoteInstance().update(new ObjectUuidPK(editData.getId()), editData);
+		MsgBox.showInfo("确认整改成功！");
+		this.setOprtState("VIEW");
+		loadData();
+		
+		btnConRect.setEnabled(false);
+        btnUnConRet.setEnabled(true);
+        
+        setSaved(true);
 	}
 	
 	//反确认整改
 	public void actionUnConRet_actionPerformed(ActionEvent e) throws Exception {
 		super.actionUnConRet_actionPerformed(e);
+		storeFields();
+		editData.setStatus(XRBillStatusEnum.AUDITED);
+		OverhaulNoticeFactory.getRemoteInstance().update(new ObjectUuidPK(editData.getId()), editData);
+		
+		this.setOprtState("EDIT");
+		loadData();
+		unLockUI();
+		MsgBox.showInfo("反整改成功！");
+		
+		btnConRect.setEnabled(true);
+        btnUnConRet.setEnabled(false);
+        
+        this.kdtEntry_detailPanel.getAddNewLineButton().setEnabled(false);
+		this.kdtEntry_detailPanel.getInsertLineButton().setEnabled(false);
+		this.kdtEntry_detailPanel.getRemoveLinesButton().setEnabled(false);
+        setSaved(true);
 	}
 
 }

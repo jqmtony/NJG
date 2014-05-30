@@ -11,8 +11,10 @@ import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.eas.framework.*;
 import com.kingdee.eas.port.equipment.operate.ComproductionInfo;
+import com.kingdee.eas.port.equipment.special.AnnualYearDetailFactory;
 import com.kingdee.eas.port.equipment.special.AnnualYearDetailInfo;
 import com.kingdee.eas.port.equipment.special.IAnnualYearDetail;
+import com.kingdee.eas.port.equipment.special.OverhaulNoticeFactory;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
@@ -670,11 +672,19 @@ public class AnnualYearDetailEditUI extends AbstractAnnualYearDetailEditUI
 	        super.initWorkButton();
 	        btnIssued.setIcon(EASResource.getIcon("imgTbtn_makeknown"));
 	        btnUnIssued.setIcon(EASResource.getIcon("imgTbtn_fmakeknown"));
+	        btnConfirmation.setIcon(EASResource.getIcon("imgTbtn_affirm"));
+	        btnUnConfirmation.setIcon(EASResource.getIcon("imgTbtn_faffirm"));
 	    }
 
 	public void onLoad() throws Exception {
 		txtNumber.setEnabled(false);
 		this.kdtEntry.getColumn("seq").getStyleAttributes().setHided(true);
+		if(getUIContext().get("FeedInfor")!=null)
+		{
+			txtNumber.setEnabled(false);
+			comboStatus.setEnabled(false);
+			txtDescription.setEnabled(false);
+		}
 		super.onLoad();
 		btnIssued.setEnabled(false);
 		btnUnIssued.setEnabled(false);
@@ -684,6 +694,94 @@ public class AnnualYearDetailEditUI extends AbstractAnnualYearDetailEditUI
 		if(editData.getStatus().equals(XRBillStatusEnum.RELEASED)){
 		    btnUnIssued.setEnabled(true);
 		}
+		if(getUIContext().get("FeedInfor")!=null)
+		{
+			this.toolBar.removeAll();
+			this.toolBar.add(btnAddNew);
+			this.toolBar.add(btnConfirmation);
+			this.toolBar.add(btnUnConfirmation);
+			
+			this.toolBar.add(btnUnIssued);
+			this.toolBar.add(btnIssued);
+			this.toolBar.add(btnAudit);
+			this.toolBar.add(btnUnAudit);
+			
+			btnUnIssued.setVisible(false);
+			btnIssued.setVisible(false);
+			btnAudit.setVisible(false);
+			btnUnAudit.setVisible(false);
+			
+			this.kdtEntry.getColumn("zdaNumber").getStyleAttributes().setLocked(true);
+			this.kdtEntry.getColumn("planDate").getStyleAttributes().setLocked(true);
+			this.kdtEntry.getColumn("endDate").getStyleAttributes().setLocked(true);
+			this.kdtEntry.getColumn("checkType").getStyleAttributes().setLocked(true);
+			this.kdtEntry.getColumn("beizhu").getStyleAttributes().setLocked(true);
+		
+			
+			this.kdtEntry_detailPanel.getAddNewLineButton().setEnabled(false);
+			this.kdtEntry_detailPanel.getInsertLineButton().setEnabled(false);
+			this.kdtEntry_detailPanel.getRemoveLinesButton().setEnabled(false);			
+			btnAddNew.setVisible(false);
+			
+			if(editData.getStatus().equals(XRBillStatusEnum.RELEASED)){
+				btnConfirmation.setEnabled(true);
+				btnUnConfirmation.setEnabled(false);
+			}
+			else if(editData.getStatus().equals(XRBillStatusEnum.EXECUTION))
+			{
+				btnConfirmation.setEnabled(false);
+				btnUnConfirmation.setEnabled(true);
+			}
+			
+		}
+		else{
+			btnConfirmation.setVisible(false);
+			btnUnConfirmation.setVisible(false);
+		}
+	}
+	
+	
+	//确认检测信息
+	public void actionConfirmation_actionPerformed(ActionEvent e)throws Exception {
+		super.actionConfirmation_actionPerformed(e);
+		storeFields();
+		editData.setStatus(XRBillStatusEnum.EXECUTION);
+	    AnnualYearDetailFactory.getRemoteInstance().update(new ObjectUuidPK(editData.getId()), editData);
+		MsgBox.showInfo("确认检测信息成功！");
+		this.setOprtState("VIEW");
+		loadData();
+		
+		btnConfirmation.setEnabled(false);
+		btnUnConfirmation.setEnabled(true);
+        
+        setSaved(true);
+	}
+	
+	//反确认检测信息
+	public void actionUnConfirmation_actionPerformed(ActionEvent e)throws Exception {
+		super.actionUnConfirmation_actionPerformed(e);
+		storeFields();
+		editData.setStatus(XRBillStatusEnum.RELEASED);
+		AnnualYearDetailFactory.getRemoteInstance().update(new ObjectUuidPK(editData.getId()), editData);
+		
+		this.setOprtState("EDIT");
+		loadData();
+		unLockUI();
+		MsgBox.showInfo("反确认检测信息成功！");
+		
+		btnConfirmation.setEnabled(true);
+		btnUnConfirmation.setEnabled(false);
+//		
+//		btnUnIssued.setVisible(true);
+//		btnUnIssued.setEnabled(true);
+//		btnIssued.setVisible(true);
+//		btnAudit.setVisible(true);
+//		btnUnAudit.setVisible(true);
+        
+        this.kdtEntry_detailPanel.getAddNewLineButton().setEnabled(false);
+		this.kdtEntry_detailPanel.getInsertLineButton().setEnabled(false);
+		this.kdtEntry_detailPanel.getRemoveLinesButton().setEnabled(false);
+        setSaved(true);
 	}
 	
 	//下达
@@ -719,7 +817,6 @@ public class AnnualYearDetailEditUI extends AbstractAnnualYearDetailEditUI
 			
 			btnUnIssued.setEnabled(false);
 			btnIssued.setEnabled(true);
-			btnUnIssued.setEnabled(true);
 			ObjectUuidPK pk = new ObjectUuidPK(editData.getId());
 			setDataObject(getValue(pk));
 			loadFields();

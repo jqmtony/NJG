@@ -50,10 +50,15 @@ public abstract class AbstractSpecialCheckItemEditUI extends com.kingdee.eas.fra
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer2;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer3;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer4;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer conttype;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contremake;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizMultiLangBox txtName;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtNumber;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtSimpleName;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizMultiLangBox txtDescription;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmttype;
+    protected com.kingdee.bos.ctrl.swing.KDScrollPane scrollPaneremake;
+    protected com.kingdee.bos.ctrl.swing.KDTextArea txtremake;
     protected com.kingdee.eas.port.equipment.base.SpecialCheckItemInfo editData = null;
     /**
      * output class constructor
@@ -78,18 +83,28 @@ public abstract class AbstractSpecialCheckItemEditUI extends com.kingdee.eas.fra
         this.kDLabelContainer2 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.kDLabelContainer3 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.kDLabelContainer4 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.conttype = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contremake = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.txtName = new com.kingdee.bos.ctrl.extendcontrols.KDBizMultiLangBox();
         this.txtNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtSimpleName = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtDescription = new com.kingdee.bos.ctrl.extendcontrols.KDBizMultiLangBox();
+        this.prmttype = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.scrollPaneremake = new com.kingdee.bos.ctrl.swing.KDScrollPane();
+        this.txtremake = new com.kingdee.bos.ctrl.swing.KDTextArea();
         this.kDLabelContainer1.setName("kDLabelContainer1");
         this.kDLabelContainer2.setName("kDLabelContainer2");
         this.kDLabelContainer3.setName("kDLabelContainer3");
         this.kDLabelContainer4.setName("kDLabelContainer4");
+        this.conttype.setName("conttype");
+        this.contremake.setName("contremake");
         this.txtName.setName("txtName");
         this.txtNumber.setName("txtNumber");
         this.txtSimpleName.setName("txtSimpleName");
         this.txtDescription.setName("txtDescription");
+        this.prmttype.setName("prmttype");
+        this.scrollPaneremake.setName("scrollPaneremake");
+        this.txtremake.setName("txtremake");
         // CoreUI		
         this.btnPrint.setVisible(false);		
         this.btnPrintPreview.setVisible(false);		
@@ -106,17 +121,56 @@ public abstract class AbstractSpecialCheckItemEditUI extends com.kingdee.eas.fra
         // kDLabelContainer3		
         this.kDLabelContainer3.setBoundLabelText(resHelper.getString("kDLabelContainer3.boundLabelText"));		
         this.kDLabelContainer3.setBoundLabelLength(100);		
-        this.kDLabelContainer3.setBoundLabelUnderline(true);
+        this.kDLabelContainer3.setBoundLabelUnderline(true);		
+        this.kDLabelContainer3.setVisible(false);
         // kDLabelContainer4		
         this.kDLabelContainer4.setBoundLabelText(resHelper.getString("kDLabelContainer4.boundLabelText"));		
         this.kDLabelContainer4.setBoundLabelLength(100);		
         this.kDLabelContainer4.setBoundLabelUnderline(true);		
         this.kDLabelContainer4.setBoundLabelAlignment(7);		
-        this.kDLabelContainer4.setVisible(true);
+        this.kDLabelContainer4.setVisible(false);
+        // conttype		
+        this.conttype.setBoundLabelText(resHelper.getString("conttype.boundLabelText"));		
+        this.conttype.setBoundLabelLength(100);		
+        this.conttype.setBoundLabelUnderline(true);		
+        this.conttype.setVisible(true);
+        // contremake		
+        this.contremake.setBoundLabelText(resHelper.getString("contremake.boundLabelText"));		
+        this.contremake.setBoundLabelLength(16);		
+        this.contremake.setBoundLabelUnderline(true);		
+        this.contremake.setVisible(true);		
+        this.contremake.setBoundLabelAlignment(8);
         // txtName
         // txtNumber
-        // txtSimpleName
-        // txtDescription
+        // txtSimpleName		
+        this.txtSimpleName.setVisible(false);
+        // txtDescription		
+        this.txtDescription.setVisible(false);
+        // prmttype		
+        this.prmttype.setQueryInfo("com.kingdee.eas.fi.fa.basedata.FaCatQuery");		
+        this.prmttype.setVisible(true);		
+        this.prmttype.setEditable(true);		
+        this.prmttype.setDisplayFormat("$name$");		
+        this.prmttype.setEditFormat("$number$");		
+        this.prmttype.setCommitFormat("$number$");		
+        this.prmttype.setRequired(false);
+        this.prmttype.addDataChangeListener(new com.kingdee.bos.ctrl.swing.event.DataChangeListener() {
+            public void dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) {
+                try {
+                    prmttype_dataChanged(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                }
+            }
+        });
+        // scrollPaneremake
+        // txtremake		
+        this.txtremake.setVisible(true);		
+        this.txtremake.setRequired(false);		
+        this.txtremake.setMaxLength(255);
+        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmttype}));
+        this.setFocusCycleRoot(true);
 		//Register control's property binding
 		registerBindings();
 		registerUIState();
@@ -141,16 +195,20 @@ public abstract class AbstractSpecialCheckItemEditUI extends com.kingdee.eas.fra
      */
     public void initUIContentLayout()
     {
-        this.setBounds(new Rectangle(0, 0, 1013, 629));
+        this.setBounds(new Rectangle(0, 0, 330, 294));
         this.setLayout(null);
-        kDLabelContainer1.setBounds(new Rectangle(52, 63, 270, 19));
+        kDLabelContainer1.setBounds(new Rectangle(26, 56, 270, 19));
         this.add(kDLabelContainer1, null);
-        kDLabelContainer2.setBounds(new Rectangle(53, 27, 270, 19));
+        kDLabelContainer2.setBounds(new Rectangle(27, 20, 270, 19));
         this.add(kDLabelContainer2, null);
-        kDLabelContainer3.setBounds(new Rectangle(52, 100, 270, 19));
+        kDLabelContainer3.setBounds(new Rectangle(230, 177, 270, 19));
         this.add(kDLabelContainer3, null);
-        kDLabelContainer4.setBounds(new Rectangle(52, 140, 270, 19));
+        kDLabelContainer4.setBounds(new Rectangle(238, 204, 270, 19));
         this.add(kDLabelContainer4, null);
+        conttype.setBounds(new Rectangle(26, 97, 270, 19));
+        this.add(conttype, null);
+        contremake.setBounds(new Rectangle(26, 119, 270, 154));
+        this.add(contremake, null);
         //kDLabelContainer1
         kDLabelContainer1.setBoundEditor(txtName);
         //kDLabelContainer2
@@ -159,6 +217,12 @@ public abstract class AbstractSpecialCheckItemEditUI extends com.kingdee.eas.fra
         kDLabelContainer3.setBoundEditor(txtSimpleName);
         //kDLabelContainer4
         kDLabelContainer4.setBoundEditor(txtDescription);
+        //conttype
+        conttype.setBoundEditor(prmttype);
+        //contremake
+        contremake.setBoundEditor(scrollPaneremake);
+        //scrollPaneremake
+        scrollPaneremake.getViewport().add(txtremake, null);
 
     }
 
@@ -271,7 +335,9 @@ public abstract class AbstractSpecialCheckItemEditUI extends com.kingdee.eas.fra
 		dataBinder.registerBinding("name", String.class, this.txtName, "_multiLangItem");
 		dataBinder.registerBinding("number", String.class, this.txtNumber, "text");
 		dataBinder.registerBinding("simpleName", String.class, this.txtSimpleName, "text");
-		dataBinder.registerBinding("description", String.class, this.txtDescription, "_multiLangItem");		
+		dataBinder.registerBinding("description", String.class, this.txtDescription, "_multiLangItem");
+		dataBinder.registerBinding("type", com.kingdee.eas.port.equipment.base.EqmTypeTreeInfo.class, this.prmttype, "data");
+		dataBinder.registerBinding("remake", String.class, this.txtremake, "text");		
 	}
 	//Regiester UI State
 	private void registerUIState(){
@@ -309,6 +375,14 @@ public abstract class AbstractSpecialCheckItemEditUI extends com.kingdee.eas.fra
     }
 
 
+    /**
+     * output onShow method
+     */
+    public void onShow() throws Exception
+    {
+        super.onShow();
+        this.prmttype.requestFocusInWindow();
+    }
 
 	
 	
@@ -413,7 +487,9 @@ public abstract class AbstractSpecialCheckItemEditUI extends com.kingdee.eas.fra
 		getValidateHelper().registerBindProperty("name", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("number", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("simpleName", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("description", ValidateHelper.ON_SAVE);    		
+		getValidateHelper().registerBindProperty("description", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("type", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("remake", ValidateHelper.ON_SAVE);    		
 	}
 
 
@@ -443,6 +519,13 @@ public abstract class AbstractSpecialCheckItemEditUI extends com.kingdee.eas.fra
     }
 
     /**
+     * output prmttype_dataChanged method
+     */
+    protected void prmttype_dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) throws Exception
+    {
+    }
+
+    /**
      * output getSelectors method
      */
     public SelectorItemCollection getSelectors()
@@ -456,6 +539,16 @@ public abstract class AbstractSpecialCheckItemEditUI extends com.kingdee.eas.fra
         sic.add(new SelectorItemInfo("number"));
         sic.add(new SelectorItemInfo("simpleName"));
         sic.add(new SelectorItemInfo("description"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("type.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("type.id"));
+        	sic.add(new SelectorItemInfo("type.number"));
+        	sic.add(new SelectorItemInfo("type.name"));
+		}
+        sic.add(new SelectorItemInfo("remake"));
         return sic;
     }        
 

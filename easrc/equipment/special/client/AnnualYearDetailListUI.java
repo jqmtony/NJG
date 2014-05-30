@@ -9,13 +9,19 @@ import org.apache.log4j.Logger;
 
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.ui.face.IUIWindow;
+import com.kingdee.bos.ui.face.UIFactory;
 import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.eas.common.client.OprtState;
+import com.kingdee.eas.common.client.UIContext;
+import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.framework.*;
 import com.kingdee.eas.port.equipment.operate.ComproductionInfo;
 import com.kingdee.eas.port.equipment.special.AnnualYearDetailInfo;
 import com.kingdee.eas.port.equipment.special.IAnnualYearDetail;
+import com.kingdee.eas.port.equipment.special.OverhaulNoticeInfo;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
@@ -628,7 +634,34 @@ public class AnnualYearDetailListUI extends AbstractAnnualYearDetailListUI
         super.initWorkButton();
         btnIssued.setIcon(EASResource.getIcon("imgTbtn_makeknown"));
         btnUnIssued.setIcon(EASResource.getIcon("imgTbtn_fmakeknown"));
+        btnEntry.setIcon(EASResource.getIcon("imgTbtn_readin"));
     }
+    
+    public void actionEntry_actionPerformed(ActionEvent e) throws Exception {
+    	checkSelected();
+    	String billID = getSelectedKeyValue();
+        ObjectUuidPK pk = new ObjectUuidPK(BOSUuid.read(billID));
+        Object o = getBizInterface().getValue(pk);
+        AnnualYearDetailInfo onInfo = (AnnualYearDetailInfo)o;
+        if(onInfo.getStatus().equals(XRBillStatusEnum.RELEASED)||onInfo.getStatus().equals(XRBillStatusEnum.EXECUTION)){
+	    	IUIWindow uiWindow = null;
+			UIContext context = new UIContext(this);
+			context.put("ID", billID);
+			context.put("FeedInfor", billID);
+			String oprstate = "";
+			if(onInfo.getStatus().equals(XRBillStatusEnum.RELEASED))
+				oprstate=OprtState.EDIT;
+			else
+				oprstate=OprtState.VIEW;
+			uiWindow = UIFactory.createUIFactory(UIFactoryName.MODEL).create(AnnualYearDetailEditUI.class.getName(), context, null, oprstate);
+			uiWindow.show(); 
+	    }
+	    else
+	    {
+	    	MsgBox.showWarning("单据不是已下达或者已执行状态!");SysUtil.abort();
+	    }
+    }
+    
  
     //下达
     protected void btnIssued_actionPerformed(ActionEvent e) throws Exception {
