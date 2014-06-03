@@ -426,4 +426,8 @@ public class RegulationsEditUI extends AbstractRegulationsEditUI
         return objectValue;
     }
 
+    public void onLoad() throws Exception {
+    	 this.kdtEntry.getColumn("seq").getStyleAttributes().setHided(true);
+    	super.onLoad();
+    }
 }

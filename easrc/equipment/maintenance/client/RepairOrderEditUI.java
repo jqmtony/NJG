@@ -684,4 +684,8 @@ public class RepairOrderEditUI extends AbstractRepairOrderEditUI
 		return null;
 	}
 
+	public void onLoad() throws Exception {
+		this.kdtE1.getColumn("seq").getStyleAttributes().setHided(true);
+		super.onLoad();
+	}
 }

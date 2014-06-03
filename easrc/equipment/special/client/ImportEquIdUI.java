@@ -297,6 +297,7 @@ public class ImportEquIdUI extends AbstractImportEquIdUI
 			filterInfo.getFilterItems().add(new FilterItemInfo("id",getUIContext().get("equID"),CompareType.NOTINCLUDE));
 		if(getUIContext().get("yearPlan")!=null)
 			filterInfo.getFilterItems().add(new FilterItemInfo("special","1",CompareType.EQUALS));
+		    filterInfo.getFilterItems().add(new FilterItemInfo("sbStatus","3",CompareType.NOTEQUALS));
 		
 		try {
 			if(viewInfo.getFilter()!=null)

@@ -714,6 +714,7 @@ public class EqmOverhaulEditUI extends AbstractEqmOverhaulEditUI
 		prmtprojectName.setEnabled(false);
 		txtexpenseAccount.setEnabled(false);
 		txtplanCost.setEnabled(false);
+		 this.kdtE1.getColumn("seq").getStyleAttributes().setHided(true);
 		super.onLoad();
 		
 		prmtprojectNumber.addDataChangeListener(new DataChangeListener(){

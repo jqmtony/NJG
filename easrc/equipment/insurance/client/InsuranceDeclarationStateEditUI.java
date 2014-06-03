@@ -8,17 +8,30 @@ import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 
 import org.apache.log4j.Logger;
+
+import com.kingdee.bos.metadata.entity.EntityViewInfo;
+import com.kingdee.bos.metadata.entity.FilterInfo;
+import com.kingdee.bos.metadata.entity.FilterItemInfo;
+import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
 import com.kingdee.eas.basedata.org.CtrlUnitInfo;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.framework.*;
+import com.kingdee.eas.port.equipment.base.enumbase.sbStatusType;
+import com.kingdee.eas.port.equipment.record.EquIdFactory;
 import com.kingdee.eas.port.equipment.record.EquIdInfo;
+import com.kingdee.eas.util.SysUtil;
+import com.kingdee.eas.util.client.MsgBox;
+import com.kingdee.eas.xr.app.XRBillStatusEnum;
 import com.kingdee.eas.xr.helper.XRSQLBuilder;
 import com.kingdee.jdbc.rowset.IRowSet;
+import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
+import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.swing.KDTextField;
 
@@ -704,13 +717,32 @@ public class InsuranceDeclarationStateEditUI extends AbstractInsuranceDeclaratio
     	if (OprtState.ADDNEW.equals(getOprtState())) {
     		this.prmtCU.setValue(SysContext.getSysContext().getCurrentCtrlUnit());
     	}
+    	//过滤不是已报废的设备
+    	 KDBizPromptBox kdtE1_equNumber_PromptBox = new KDBizPromptBox();
+         kdtE1_equNumber_PromptBox.setQueryInfo("com.kingdee.eas.port.equipment.record.app.EquIdQuery");
+         kdtE1_equNumber_PromptBox.setVisible(true);
+         kdtE1_equNumber_PromptBox.setEditable(true);
+         kdtE1_equNumber_PromptBox.setDisplayFormat("$number$");
+         kdtE1_equNumber_PromptBox.setEditFormat("$number$");
+         kdtE1_equNumber_PromptBox.setCommitFormat("$number$");
+    	 EntityViewInfo evi = new EntityViewInfo();
+ 		 FilterInfo filter = new FilterInfo();
+ 		 filter.getFilterItems().add(new FilterItemInfo("sbStatus","3",CompareType.NOTEQUALS));
+ 		 evi.setFilter(filter);
+ 		kdtE1_equNumber_PromptBox.setEntityViewInfo(evi);
+ 		 KDTDefaultCellEditor kdtEntry_feeType_CellEditor = new KDTDefaultCellEditor(kdtE1_equNumber_PromptBox);
+ 		 kdtE1.getColumn("equNumber").setEditor(kdtEntry_feeType_CellEditor);
     }
     
 
+	 //根据设备编号，带出上年投保价值，可修改
     public void kdtE1_Changed(int rowIndex, int colIndex) throws Exception {
     	super.kdtE1_Changed(rowIndex, colIndex);
     	if (prmtCU.getData() == null || this.pkyear.getSqlDate() == null ||  this.kdtE1.getCell(rowIndex, "equNumber").getValue() ==null)
 			return;
+    	
+
+    	
     	txttotalAmountInsured.setValue(UIRuleUtil.sum(kdtE1, "insuredValue"));
     	if(!"equNumber".equals(this.kdtE1.getColumnKey(colIndex))){return;}
 		
@@ -736,6 +768,8 @@ public class InsuranceDeclarationStateEditUI extends AbstractInsuranceDeclaratio
 			this.kdtE1.getCell(rowIndex, "insuredValue").setValue(amount);
 		}
 		txttotalAmountInsured.setValue(UIRuleUtil.sum(kdtE1, "insuredValue"));
+		
+		
     }
 
 }

@@ -12,6 +12,8 @@ import org.apache.log4j.Logger;
 import com.kingdee.bos.ctrl.kdf.table.KDTSelectBlock;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.metadata.entity.FilterInfo;
+import com.kingdee.bos.metadata.entity.FilterItemInfo;
+import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.IUIWindow;
 import com.kingdee.bos.ui.face.UIFactory;
@@ -621,10 +623,21 @@ public class EquIdListUI extends AbstractEquIdListUI
 		}
     }
     
+//    //»•≥˝CU∏Ù¿Î
+//	protected boolean isIgnoreCUFilter() {
+//		return true;
+//	}
+//	
     public void onLoad() throws Exception {
     	super.onLoad();
     	this.btnImportFacard.setEnabled(true);
     	this.btnImportFacard.setIcon(EASResource.getIcon("imgTbtn_importcyclostyle"));
+//    	FilterInfo filter = new FilterInfo();
+//    	if (SysContext.getSysContext().getCurrentCtrlUnit() != null) {
+//    		filter.getFilterItems().add(new FilterItemInfo("ssOrgUnit.id", SysContext.getSysContext().getCurrentCtrlUnit().getId().toString(),CompareType.EQUALS));
+//    	}
+//    	
+//    	
     }
     
     /**
@@ -690,4 +703,7 @@ public class EquIdListUI extends AbstractEquIdListUI
 		uiWindow = UIFactory.createUIFactory(UIFactoryName.MODEL).create(ImportFaCardUI.class.getName(), context, null, OprtState.ADDNEW);
 		uiWindow.show(); 
 	}
+
+	
+
 }

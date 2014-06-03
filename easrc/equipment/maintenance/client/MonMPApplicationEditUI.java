@@ -5,9 +5,17 @@ package com.kingdee.eas.port.equipment.maintenance.client;
 
 import java.awt.event.*;
 import org.apache.log4j.Logger;
+
+import com.kingdee.bos.metadata.entity.EntityViewInfo;
+import com.kingdee.bos.metadata.entity.FilterInfo;
+import com.kingdee.bos.metadata.entity.FilterItemInfo;
+import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.eas.framework.*;
+import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
+import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.swing.KDTextField;
 
@@ -684,4 +692,33 @@ public class MonMPApplicationEditUI extends AbstractMonMPApplicationEditUI
 		return null;
 	}
 
+	public void onLoad() throws Exception {
+		 this.kdtE1.getColumn("seq").getStyleAttributes().setHided(true);
+		 txtplanTotalCost.setEnabled(false);
+		super.onLoad();
+		//过滤不是已报废的设备
+   	 KDBizPromptBox kdtE1_equNumber_PromptBox = new KDBizPromptBox();
+        kdtE1_equNumber_PromptBox.setQueryInfo("com.kingdee.eas.port.equipment.record.app.EquIdQuery");
+        kdtE1_equNumber_PromptBox.setVisible(true);
+        kdtE1_equNumber_PromptBox.setEditable(true);
+        kdtE1_equNumber_PromptBox.setDisplayFormat("$number$");
+        kdtE1_equNumber_PromptBox.setEditFormat("$number$");
+        kdtE1_equNumber_PromptBox.setCommitFormat("$number$");
+   	 EntityViewInfo evi = new EntityViewInfo();
+		 FilterInfo filter = new FilterInfo();
+		 filter.getFilterItems().add(new FilterItemInfo("sbStatus","3",CompareType.NOTEQUALS));
+		 evi.setFilter(filter);
+		kdtE1_equNumber_PromptBox.setEntityViewInfo(evi);
+		 KDTDefaultCellEditor kdtEntry_feeType_CellEditor = new KDTDefaultCellEditor(kdtE1_equNumber_PromptBox);
+		 kdtE1.getColumn("equNumber").setEditor(kdtEntry_feeType_CellEditor);
+		
+	}
+	
+	public void kdtE1_Changed(int rowIndex, int colIndex) throws Exception {
+		super.kdtE1_Changed(rowIndex, colIndex);
+		if(  this.kdtE1.getCell(rowIndex, "planCost").getValue() !=null ){
+			txtplanTotalCost.setValue(UIRuleUtil.sum(kdtE1, "planCost"));
+		}
+		
+	}
 }

@@ -43,8 +43,8 @@ public class EumUseRecordEditUI extends AbstractEumUseRecordEditUI {
 		super();
 	}
 
-	@Override
 	public void onLoad() throws Exception {
+		 this.kdtEqmUse.getColumn("seq").getStyleAttributes().setHided(true);
 		super.onLoad();
 		if(getOprtState().equals(OprtState.ADDNEW)){
 
@@ -694,5 +694,7 @@ public class EumUseRecordEditUI extends AbstractEumUseRecordEditUI {
 		// TODO Auto-generated method stub
 		return txtNumber;
 	}
+	
+	
 
 }

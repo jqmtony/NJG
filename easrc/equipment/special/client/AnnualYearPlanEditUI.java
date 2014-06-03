@@ -704,9 +704,9 @@ public class AnnualYearPlanEditUI extends AbstractAnnualYearPlanEditUI
 	{
 		this.kDContainer1.getContentPane().add(kdtEntry, BorderLayout.CENTER);
 		KDWorkButton  addnewButton =kdtEntry_detailPanel.getAddNewLineButton();
-		addnewButton.setText("加入计划");
+		addnewButton.setText("批量选择特种设备");
 		KDWorkButton RemoveButton =kdtEntry_detailPanel.getRemoveLinesButton();
-		RemoveButton.setText("删除计划");
+		RemoveButton.setText("删除特种设备");
 		this.kDContainer1.addButton(addnewButton);
 		this.kDContainer1.addButton(RemoveButton);
 		
