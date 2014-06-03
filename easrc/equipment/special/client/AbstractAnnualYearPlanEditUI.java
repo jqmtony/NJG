@@ -58,8 +58,7 @@ public abstract class AbstractAnnualYearPlanEditUI extends com.kingdee.eas.xr.cl
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contStatus;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contBizStatus;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contAuditTime;
-    protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtEntry;
-	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtEntry_detailPanel = null;
+    protected com.kingdee.bos.ctrl.swing.KDContainer kDContainer1;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtCreator;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkCreateTime;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtLastUpdateUser;
@@ -72,6 +71,8 @@ public abstract class AbstractAnnualYearPlanEditUI extends com.kingdee.eas.xr.cl
     protected com.kingdee.bos.ctrl.swing.KDComboBox comboStatus;
     protected com.kingdee.bos.ctrl.swing.KDComboBox comboBizStatus;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkAuditTime;
+    protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtEntry;
+	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtEntry_detailPanel = null;
     protected com.kingdee.eas.port.equipment.special.AnnualYearPlanInfo editData = null;
     /**
      * output class constructor
@@ -134,7 +135,7 @@ public abstract class AbstractAnnualYearPlanEditUI extends com.kingdee.eas.xr.cl
         this.contStatus = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contBizStatus = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contAuditTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.kdtEntry = new com.kingdee.bos.ctrl.kdf.table.KDTable();
+        this.kDContainer1 = new com.kingdee.bos.ctrl.swing.KDContainer();
         this.prmtCreator = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.pkCreateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.prmtLastUpdateUser = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
@@ -147,6 +148,7 @@ public abstract class AbstractAnnualYearPlanEditUI extends com.kingdee.eas.xr.cl
         this.comboStatus = new com.kingdee.bos.ctrl.swing.KDComboBox();
         this.comboBizStatus = new com.kingdee.bos.ctrl.swing.KDComboBox();
         this.pkAuditTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
+        this.kdtEntry = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.contCreator.setName("contCreator");
         this.contCreateTime.setName("contCreateTime");
         this.contLastUpdateUser.setName("contLastUpdateUser");
@@ -159,7 +161,7 @@ public abstract class AbstractAnnualYearPlanEditUI extends com.kingdee.eas.xr.cl
         this.contStatus.setName("contStatus");
         this.contBizStatus.setName("contBizStatus");
         this.contAuditTime.setName("contAuditTime");
-        this.kdtEntry.setName("kdtEntry");
+        this.kDContainer1.setName("kDContainer1");
         this.prmtCreator.setName("prmtCreator");
         this.pkCreateTime.setName("pkCreateTime");
         this.prmtLastUpdateUser.setName("prmtLastUpdateUser");
@@ -172,6 +174,7 @@ public abstract class AbstractAnnualYearPlanEditUI extends com.kingdee.eas.xr.cl
         this.comboStatus.setName("comboStatus");
         this.comboBizStatus.setName("comboBizStatus");
         this.pkAuditTime.setName("pkAuditTime");
+        this.kdtEntry.setName("kdtEntry");
         // CoreUI
         // contCreator		
         this.contCreator.setBoundLabelText(resHelper.getString("contCreator.boundLabelText"));		
@@ -225,8 +228,47 @@ public abstract class AbstractAnnualYearPlanEditUI extends com.kingdee.eas.xr.cl
         this.contAuditTime.setBoundLabelText(resHelper.getString("contAuditTime.boundLabelText"));		
         this.contAuditTime.setBoundLabelLength(100);		
         this.contAuditTime.setBoundLabelUnderline(true);
+        // kDContainer1		
+        this.kDContainer1.setEnableActive(false);		
+        this.kDContainer1.setTitle(resHelper.getString("kDContainer1.title"));
+        // prmtCreator		
+        this.prmtCreator.setEnabled(false);		
+        this.prmtCreator.setCommitFormat("$name$");		
+        this.prmtCreator.setEditFormat("$name$");		
+        this.prmtCreator.setDisplayFormat("$name$");
+        // pkCreateTime		
+        this.pkCreateTime.setTimeEnabled(true);		
+        this.pkCreateTime.setEnabled(false);
+        // prmtLastUpdateUser		
+        this.prmtLastUpdateUser.setEnabled(false);		
+        this.prmtLastUpdateUser.setDisplayFormat("$name$");		
+        this.prmtLastUpdateUser.setEditFormat("$name$");		
+        this.prmtLastUpdateUser.setCommitFormat("$name$");
+        // pkLastUpdateTime		
+        this.pkLastUpdateTime.setTimeEnabled(true);		
+        this.pkLastUpdateTime.setEnabled(false);
+        // prmtCU		
+        this.prmtCU.setEnabled(false);
+        // txtNumber
+        // pkBizDate
+        // txtDescription
+        // prmtAuditor		
+        this.prmtAuditor.setEnabled(false);		
+        this.prmtAuditor.setCommitFormat("$name$");		
+        this.prmtAuditor.setDisplayFormat("$name$");		
+        this.prmtAuditor.setEditFormat("$name$");
+        // comboStatus		
+        this.comboStatus.addItems(EnumUtils.getEnumList("com.kingdee.eas.xr.app.XRBillStatusEnum").toArray());		
+        this.comboStatus.setEnabled(false);
+        // comboBizStatus		
+        this.comboBizStatus.addItems(EnumUtils.getEnumList("com.kingdee.eas.xr.app.XRBizActionEnum").toArray());		
+        this.comboBizStatus.setEnabled(false);		
+        this.comboBizStatus.setVisible(false);
+        // pkAuditTime		
+        this.pkAuditTime.setTimeEnabled(true);		
+        this.pkAuditTime.setEnabled(false);
         // kdtEntry
-		String kdtEntryStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style><c:Style id=\"sCol2\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol3\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol4\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol5\"><c:NumberFormat>&amp;date</c:NumberFormat></c:Style><c:Style id=\"sCol6\"><c:NumberFormat>&amp;date</c:NumberFormat></c:Style><c:Style id=\"sCol7\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol8\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol9\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol10\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol11\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol12\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol13\"><c:Protection locked=\"true\" /><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol14\"><c:Protection locked=\"true\" /><c:NumberFormat>&amp;date</c:NumberFormat></c:Style><c:Style id=\"sCol15\"><c:Protection locked=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"zdaNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"equipmentName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol2\" /><t:Column t:key=\"code\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol3\" /><t:Column t:key=\"useUnit\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol4\" /><t:Column t:key=\"planDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol5\" /><t:Column t:key=\"endDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol6\" /><t:Column t:key=\"state\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol7\" /><t:Column t:key=\"address\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol8\" /><t:Column t:key=\"companyNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol9\" /><t:Column t:key=\"NO\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol10\" /><t:Column t:key=\"engineNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol11\" /><t:Column t:key=\"carNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol12\" /><t:Column t:key=\"weight\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol13\" /><t:Column t:key=\"useDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol14\" /><t:Column t:key=\"createUnit\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol15\" /><t:Column t:key=\"checkType\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"beizhu\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{zdaNumber}</t:Cell><t:Cell>$Resource{equipmentName}</t:Cell><t:Cell>$Resource{code}</t:Cell><t:Cell>$Resource{useUnit}</t:Cell><t:Cell>$Resource{planDate}</t:Cell><t:Cell>$Resource{endDate}</t:Cell><t:Cell>$Resource{state}</t:Cell><t:Cell>$Resource{address}</t:Cell><t:Cell>$Resource{companyNumber}</t:Cell><t:Cell>$Resource{NO}</t:Cell><t:Cell>$Resource{engineNumber}</t:Cell><t:Cell>$Resource{carNumber}</t:Cell><t:Cell>$Resource{weight}</t:Cell><t:Cell>$Resource{useDate}</t:Cell><t:Cell>$Resource{createUnit}</t:Cell><t:Cell>$Resource{checkType}</t:Cell><t:Cell>$Resource{beizhu}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		String kdtEntryStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /><c:NumberFormat>&amp;int</c:NumberFormat></c:Style><c:Style id=\"sCol2\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol3\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol4\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol5\"><c:NumberFormat>&amp;date</c:NumberFormat></c:Style><c:Style id=\"sCol6\"><c:NumberFormat>&amp;date</c:NumberFormat></c:Style><c:Style id=\"sCol7\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol8\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol9\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol10\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol11\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol12\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol13\"><c:Protection locked=\"true\" /><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol14\"><c:Protection locked=\"true\" /><c:NumberFormat>&amp;date</c:NumberFormat></c:Style><c:Style id=\"sCol15\"><c:Protection locked=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"zdaNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"equipmentName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol2\" /><t:Column t:key=\"code\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol3\" /><t:Column t:key=\"useUnit\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol4\" /><t:Column t:key=\"planDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol5\" /><t:Column t:key=\"endDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol6\" /><t:Column t:key=\"state\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol7\" /><t:Column t:key=\"address\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol8\" /><t:Column t:key=\"companyNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol9\" /><t:Column t:key=\"NO\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol10\" /><t:Column t:key=\"engineNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol11\" /><t:Column t:key=\"carNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol12\" /><t:Column t:key=\"weight\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol13\" /><t:Column t:key=\"useDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol14\" /><t:Column t:key=\"createUnit\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol15\" /><t:Column t:key=\"checkType\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"beizhu\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{zdaNumber}</t:Cell><t:Cell>$Resource{equipmentName}</t:Cell><t:Cell>$Resource{code}</t:Cell><t:Cell>$Resource{useUnit}</t:Cell><t:Cell>$Resource{planDate}</t:Cell><t:Cell>$Resource{endDate}</t:Cell><t:Cell>$Resource{state}</t:Cell><t:Cell>$Resource{address}</t:Cell><t:Cell>$Resource{companyNumber}</t:Cell><t:Cell>$Resource{NO}</t:Cell><t:Cell>$Resource{engineNumber}</t:Cell><t:Cell>$Resource{carNumber}</t:Cell><t:Cell>$Resource{weight}</t:Cell><t:Cell>$Resource{useDate}</t:Cell><t:Cell>$Resource{createUnit}</t:Cell><t:Cell>$Resource{checkType}</t:Cell><t:Cell>$Resource{beizhu}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.kdtEntry.setFormatXml(resHelper.translateString("kdtEntry",kdtEntryStrXML));
         kdtEntry.addKDTEditListener(new KDTEditAdapter() {
@@ -348,42 +390,6 @@ public abstract class AbstractAnnualYearPlanEditUI extends com.kingdee.eas.xr.cl
         kdtEntry_beizhu_TextField.setMaxLength(100);
         KDTDefaultCellEditor kdtEntry_beizhu_CellEditor = new KDTDefaultCellEditor(kdtEntry_beizhu_TextField);
         this.kdtEntry.getColumn("beizhu").setEditor(kdtEntry_beizhu_CellEditor);
-        // prmtCreator		
-        this.prmtCreator.setEnabled(false);		
-        this.prmtCreator.setCommitFormat("$name$");		
-        this.prmtCreator.setEditFormat("$name$");		
-        this.prmtCreator.setDisplayFormat("$name$");
-        // pkCreateTime		
-        this.pkCreateTime.setTimeEnabled(true);		
-        this.pkCreateTime.setEnabled(false);
-        // prmtLastUpdateUser		
-        this.prmtLastUpdateUser.setEnabled(false);		
-        this.prmtLastUpdateUser.setDisplayFormat("$name$");		
-        this.prmtLastUpdateUser.setEditFormat("$name$");		
-        this.prmtLastUpdateUser.setCommitFormat("$name$");
-        // pkLastUpdateTime		
-        this.pkLastUpdateTime.setTimeEnabled(true);		
-        this.pkLastUpdateTime.setEnabled(false);
-        // prmtCU		
-        this.prmtCU.setEnabled(false);
-        // txtNumber
-        // pkBizDate
-        // txtDescription
-        // prmtAuditor		
-        this.prmtAuditor.setEnabled(false);		
-        this.prmtAuditor.setCommitFormat("$name$");		
-        this.prmtAuditor.setDisplayFormat("$name$");		
-        this.prmtAuditor.setEditFormat("$name$");
-        // comboStatus		
-        this.comboStatus.addItems(EnumUtils.getEnumList("com.kingdee.eas.xr.app.XRBillStatusEnum").toArray());		
-        this.comboStatus.setEnabled(false);
-        // comboBizStatus		
-        this.comboBizStatus.addItems(EnumUtils.getEnumList("com.kingdee.eas.xr.app.XRBizActionEnum").toArray());		
-        this.comboBizStatus.setEnabled(false);		
-        this.comboBizStatus.setVisible(false);
-        // pkAuditTime		
-        this.pkAuditTime.setTimeEnabled(true);		
-        this.pkAuditTime.setEnabled(false);
         this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmtCU,pkLastUpdateTime,prmtLastUpdateUser,pkCreateTime,prmtCreator,prmtAuditor,txtDescription,pkBizDate,txtNumber,pkAuditTime,comboBizStatus,comboStatus,kdtEntry}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
@@ -437,18 +443,8 @@ public abstract class AbstractAnnualYearPlanEditUI extends com.kingdee.eas.xr.cl
         this.add(contBizStatus, new KDLayout.Constraints(708, 611, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contAuditTime.setBounds(new Rectangle(708, 590, 270, 19));
         this.add(contAuditTime, new KDLayout.Constraints(708, 590, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        kdtEntry.setBounds(new Rectangle(29, 65, 951, 493));
-        kdtEntry_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtEntry,new com.kingdee.eas.port.equipment.special.AnnualYearPlanEntryInfo(),null,false);
-        this.add(kdtEntry_detailPanel, new KDLayout.Constraints(29, 65, 951, 493, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-		kdtEntry_detailPanel.addAddListener(new com.kingdee.eas.framework.client.multiDetail.IDetailPanelListener() {
-			public void beforeEvent(com.kingdee.eas.framework.client.multiDetail.DetailPanelEvent event) throws Exception {
-				IObjectValue vo = event.getObjectValue();
-vo.put("state","1");
-vo.put("checkType","10");
-			}
-			public void afterEvent(com.kingdee.eas.framework.client.multiDetail.DetailPanelEvent event) throws Exception {
-			}
-		});
+        kDContainer1.setBounds(new Rectangle(8, 60, 998, 494));
+        this.add(kDContainer1, new KDLayout.Constraints(8, 60, 998, 494, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         //contCreator
         contCreator.setBoundEditor(prmtCreator);
         //contCreateTime
@@ -473,6 +469,18 @@ vo.put("checkType","10");
         contBizStatus.setBoundEditor(comboBizStatus);
         //contAuditTime
         contAuditTime.setBoundEditor(pkAuditTime);
+        //kDContainer1
+kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtEntry,new com.kingdee.eas.port.equipment.special.AnnualYearPlanEntryInfo(),null,false);
+        kDContainer1.getContentPane().add(kdtEntry_detailPanel, BorderLayout.CENTER);
+		kdtEntry_detailPanel.addAddListener(new com.kingdee.eas.framework.client.multiDetail.IDetailPanelListener() {
+			public void beforeEvent(com.kingdee.eas.framework.client.multiDetail.DetailPanelEvent event) throws Exception {
+				IObjectValue vo = event.getObjectValue();
+vo.put("state","1");
+vo.put("checkType","10");
+			}
+			public void afterEvent(com.kingdee.eas.framework.client.multiDetail.DetailPanelEvent event) throws Exception {
+			}
+		});
 
     }
 
@@ -646,6 +654,18 @@ vo.put("checkType","10");
 
 	//Regiester control's property binding.
 	private void registerBindings(){
+		dataBinder.registerBinding("creator", com.kingdee.eas.base.permission.UserInfo.class, this.prmtCreator, "data");
+		dataBinder.registerBinding("createTime", java.sql.Timestamp.class, this.pkCreateTime, "value");
+		dataBinder.registerBinding("lastUpdateUser", com.kingdee.eas.base.permission.UserInfo.class, this.prmtLastUpdateUser, "data");
+		dataBinder.registerBinding("lastUpdateTime", java.sql.Timestamp.class, this.pkLastUpdateTime, "value");
+		dataBinder.registerBinding("CU", com.kingdee.eas.basedata.org.CtrlUnitInfo.class, this.prmtCU, "data");
+		dataBinder.registerBinding("number", String.class, this.txtNumber, "text");
+		dataBinder.registerBinding("bizDate", java.util.Date.class, this.pkBizDate, "value");
+		dataBinder.registerBinding("description", String.class, this.txtDescription, "text");
+		dataBinder.registerBinding("auditor", com.kingdee.eas.base.permission.UserInfo.class, this.prmtAuditor, "data");
+		dataBinder.registerBinding("status", com.kingdee.eas.xr.app.XRBillStatusEnum.class, this.comboStatus, "selectedItem");
+		dataBinder.registerBinding("bizStatus", com.kingdee.eas.xr.app.XRBizActionEnum.class, this.comboBizStatus, "selectedItem");
+		dataBinder.registerBinding("auditTime", java.sql.Timestamp.class, this.pkAuditTime, "value");
 		dataBinder.registerBinding("Entry.seq", int.class, this.kdtEntry, "seq.text");
 		dataBinder.registerBinding("Entry", com.kingdee.eas.port.equipment.special.AnnualYearPlanEntryInfo.class, this.kdtEntry, "userObject");
 		dataBinder.registerBinding("Entry.zdaNumber", java.lang.Object.class, this.kdtEntry, "zdaNumber.text");
@@ -664,19 +684,7 @@ vo.put("checkType","10");
 		dataBinder.registerBinding("Entry.useDate", java.util.Date.class, this.kdtEntry, "useDate.text");
 		dataBinder.registerBinding("Entry.createUnit", String.class, this.kdtEntry, "createUnit.text");
 		dataBinder.registerBinding("Entry.checkType", com.kingdee.util.enums.Enum.class, this.kdtEntry, "checkType.text");
-		dataBinder.registerBinding("Entry.beizhu", String.class, this.kdtEntry, "beizhu.text");
-		dataBinder.registerBinding("creator", com.kingdee.eas.base.permission.UserInfo.class, this.prmtCreator, "data");
-		dataBinder.registerBinding("createTime", java.sql.Timestamp.class, this.pkCreateTime, "value");
-		dataBinder.registerBinding("lastUpdateUser", com.kingdee.eas.base.permission.UserInfo.class, this.prmtLastUpdateUser, "data");
-		dataBinder.registerBinding("lastUpdateTime", java.sql.Timestamp.class, this.pkLastUpdateTime, "value");
-		dataBinder.registerBinding("CU", com.kingdee.eas.basedata.org.CtrlUnitInfo.class, this.prmtCU, "data");
-		dataBinder.registerBinding("number", String.class, this.txtNumber, "text");
-		dataBinder.registerBinding("bizDate", java.util.Date.class, this.pkBizDate, "value");
-		dataBinder.registerBinding("description", String.class, this.txtDescription, "text");
-		dataBinder.registerBinding("auditor", com.kingdee.eas.base.permission.UserInfo.class, this.prmtAuditor, "data");
-		dataBinder.registerBinding("status", com.kingdee.eas.xr.app.XRBillStatusEnum.class, this.comboStatus, "selectedItem");
-		dataBinder.registerBinding("bizStatus", com.kingdee.eas.xr.app.XRBizActionEnum.class, this.comboBizStatus, "selectedItem");
-		dataBinder.registerBinding("auditTime", java.sql.Timestamp.class, this.pkAuditTime, "value");		
+		dataBinder.registerBinding("Entry.beizhu", String.class, this.kdtEntry, "beizhu.text");		
 	}
 	//Regiester UI State
 	private void registerUIState(){		
@@ -811,6 +819,18 @@ vo.put("checkType","10");
 	 */
 	protected void registerValidator() {
     	getValidateHelper().setCustomValidator( getValidator() );
+		getValidateHelper().registerBindProperty("creator", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("createTime", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("lastUpdateUser", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("lastUpdateTime", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("CU", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("number", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("bizDate", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("description", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("auditor", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("status", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("bizStatus", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("auditTime", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("Entry.seq", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("Entry", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("Entry.zdaNumber", ValidateHelper.ON_SAVE);    
@@ -829,19 +849,7 @@ vo.put("checkType","10");
 		getValidateHelper().registerBindProperty("Entry.useDate", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("Entry.createUnit", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("Entry.checkType", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("Entry.beizhu", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("creator", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("createTime", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("lastUpdateUser", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("lastUpdateTime", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("CU", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("number", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("bizDate", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("description", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("auditor", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("status", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("bizStatus", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("auditTime", ValidateHelper.ON_SAVE);    		
+		getValidateHelper().registerBindProperty("Entry.beizhu", ValidateHelper.ON_SAVE);    		
 	}
 
 
@@ -937,39 +945,6 @@ kdtEntry.getCell(rowIndex,"createUnit").setValue(com.kingdee.bos.ui.face.UIRuleU
 		if(StringUtils.isEmpty(selectorAll)){
 			selectorAll = "true";
 		}
-    	sic.add(new SelectorItemInfo("Entry.seq"));
-		if(selectorAll.equalsIgnoreCase("true"))
-		{
-			sic.add(new SelectorItemInfo("Entry.*"));
-		}
-		else{
-		}
-		if(selectorAll.equalsIgnoreCase("true"))
-		{
-			sic.add(new SelectorItemInfo("Entry.zdaNumber.*"));
-		}
-		else{
-	    	sic.add(new SelectorItemInfo("Entry.zdaNumber.id"));
-			sic.add(new SelectorItemInfo("Entry.zdaNumber.tzdaNumber"));
-			sic.add(new SelectorItemInfo("Entry.zdaNumber.name"));
-        	sic.add(new SelectorItemInfo("Entry.zdaNumber.number"));
-		}
-    	sic.add(new SelectorItemInfo("Entry.equipmentName"));
-    	sic.add(new SelectorItemInfo("Entry.code"));
-    	sic.add(new SelectorItemInfo("Entry.useUnit"));
-    	sic.add(new SelectorItemInfo("Entry.planDate"));
-    	sic.add(new SelectorItemInfo("Entry.endDate"));
-    	sic.add(new SelectorItemInfo("Entry.state"));
-    	sic.add(new SelectorItemInfo("Entry.address"));
-    	sic.add(new SelectorItemInfo("Entry.companyNumber"));
-    	sic.add(new SelectorItemInfo("Entry.NO"));
-    	sic.add(new SelectorItemInfo("Entry.engineNumber"));
-    	sic.add(new SelectorItemInfo("Entry.carNumber"));
-    	sic.add(new SelectorItemInfo("Entry.weight"));
-    	sic.add(new SelectorItemInfo("Entry.useDate"));
-    	sic.add(new SelectorItemInfo("Entry.createUnit"));
-    	sic.add(new SelectorItemInfo("Entry.checkType"));
-    	sic.add(new SelectorItemInfo("Entry.beizhu"));
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
 			sic.add(new SelectorItemInfo("creator.*"));
@@ -1014,6 +989,39 @@ kdtEntry.getCell(rowIndex,"createUnit").setValue(com.kingdee.bos.ui.face.UIRuleU
         sic.add(new SelectorItemInfo("status"));
         sic.add(new SelectorItemInfo("bizStatus"));
         sic.add(new SelectorItemInfo("auditTime"));
+    	sic.add(new SelectorItemInfo("Entry.seq"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("Entry.*"));
+		}
+		else{
+		}
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("Entry.zdaNumber.*"));
+		}
+		else{
+	    	sic.add(new SelectorItemInfo("Entry.zdaNumber.id"));
+			sic.add(new SelectorItemInfo("Entry.zdaNumber.tzdaNumber"));
+			sic.add(new SelectorItemInfo("Entry.zdaNumber.name"));
+        	sic.add(new SelectorItemInfo("Entry.zdaNumber.number"));
+		}
+    	sic.add(new SelectorItemInfo("Entry.equipmentName"));
+    	sic.add(new SelectorItemInfo("Entry.code"));
+    	sic.add(new SelectorItemInfo("Entry.useUnit"));
+    	sic.add(new SelectorItemInfo("Entry.planDate"));
+    	sic.add(new SelectorItemInfo("Entry.endDate"));
+    	sic.add(new SelectorItemInfo("Entry.state"));
+    	sic.add(new SelectorItemInfo("Entry.address"));
+    	sic.add(new SelectorItemInfo("Entry.companyNumber"));
+    	sic.add(new SelectorItemInfo("Entry.NO"));
+    	sic.add(new SelectorItemInfo("Entry.engineNumber"));
+    	sic.add(new SelectorItemInfo("Entry.carNumber"));
+    	sic.add(new SelectorItemInfo("Entry.weight"));
+    	sic.add(new SelectorItemInfo("Entry.useDate"));
+    	sic.add(new SelectorItemInfo("Entry.createUnit"));
+    	sic.add(new SelectorItemInfo("Entry.checkType"));
+    	sic.add(new SelectorItemInfo("Entry.beizhu"));
         return sic;
     }        
     	

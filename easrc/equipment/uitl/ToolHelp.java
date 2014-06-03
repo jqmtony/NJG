@@ -10,6 +10,7 @@ import com.kingdee.bos.BOSException;
 import com.kingdee.bos.Context;
 import com.kingdee.bos.ctrl.kdf.table.ICell;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
+import com.kingdee.bos.ctrl.kdf.table.KDTMergeManager;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.kdf.table.foot.KDTFootManager;
 import com.kingdee.bos.ctrl.swing.KDPanel;
@@ -26,6 +27,7 @@ import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.IUIFactory;
 import com.kingdee.bos.ui.face.IUIWindow;
 import com.kingdee.bos.ui.face.UIFactory;
+import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.eas.base.btp.BTPManagerFactory;
 import com.kingdee.eas.base.btp.BTPTransformResult;
 import com.kingdee.eas.base.btp.IBTPManager;
@@ -40,6 +42,7 @@ import com.kingdee.eas.framework.CoreBillBaseCollection;
 import com.kingdee.eas.framework.CoreBillBaseInfo;
 import com.kingdee.eas.framework.client.CoreUI;
 import com.kingdee.eas.framework.client.multiDetail.DetailPanel;
+import com.kingdee.eas.port.equipment.record.EquIdInfo;
 import com.kingdee.eas.util.app.ContextUtil;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.KDTableUtil;
@@ -222,5 +225,37 @@ public class ToolHelp {
     	int selectRows[] = KDTableUtil.getSelectedRows(tblMain);
 		return selectRows;
     }
+    
+    /**
+     * 不合格整改通知单融合
+     * @param table
+     * @param columnName
+     * @param colIndex
+     */
+    public static void mergeThemeRow(KDTable table, String columnName) {
+		String theme = "";
+		String lastTheme = "";
+		int colIndex = table.getColumnIndex(columnName);
+		int nameIndex = table.getColumnIndex("equipmentName");
+		KDTMergeManager mm = table.getMergeManager();
+		int rowIndx = 0;
+		int endIndx = 0;
+		for (int i = 0; i < table.getRowCount(); i++) {
+			endIndx = i;
+			theme = UIRuleUtil.isNotNull(table.getRow(i).getCell(columnName).getValue())?
+					((EquIdInfo)table.getRow(i).getCell(columnName).getValue()).getId().toString():""; // 当前主题
+			if (i > 0) {
+				lastTheme = UIRuleUtil.isNotNull(table.getRow(i - 1).getCell(columnName).getValue())?
+						((EquIdInfo)table.getRow(i - 1).getCell(columnName).getValue()).getId().toString():""; // 上一主题
+				if (!theme.equals(lastTheme)) { // 获取当前主题 与 上一主题 不相同，所在的行号
+					mm.mergeBlock(rowIndx, colIndex, endIndx - 1, colIndex); // 将最后相同的主题融合
+					mm.mergeBlock(rowIndx, nameIndex, endIndx - 1, nameIndex); // 将最后相同的主题融合
+					rowIndx = endIndx;
+				}
+			}
+		}
+		mm.mergeBlock(rowIndx, colIndex, endIndx, colIndex); // 将最后相同的主题融合
+		mm.mergeBlock(rowIndx, nameIndex, endIndx, nameIndex); // 将最后相同的主题融合
+	}
 
 }

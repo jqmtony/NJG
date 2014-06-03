@@ -13,12 +13,18 @@ import com.kingdee.bos.ctrl.kdf.table.KDTSelectBlock;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.ui.face.IUIWindow;
+import com.kingdee.bos.ui.face.UIFactory;
+import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
+import com.kingdee.eas.common.client.UIContext;
 import com.kingdee.eas.common.client.UIFactoryName;
+import com.kingdee.eas.port.equipment.base.client.ImportFaCardUI;
 import com.kingdee.eas.port.equipment.base.enumbase.sbStatusType;
 import com.kingdee.eas.port.equipment.record.EquIdFactory;
 import com.kingdee.eas.port.equipment.record.EquIdInfo;
 import com.kingdee.eas.port.equipment.record.IEquId;
+import com.kingdee.eas.port.equipment.special.client.SpecialChangeEditUI;
 import com.kingdee.eas.tools.datatask.DatataskMode;
 import com.kingdee.eas.tools.datatask.DatataskParameter;
 import com.kingdee.eas.tools.datatask.client.DatataskCaller;
@@ -615,6 +621,12 @@ public class EquIdListUI extends AbstractEquIdListUI
 		}
     }
     
+    public void onLoad() throws Exception {
+    	super.onLoad();
+    	this.btnImportFacard.setEnabled(true);
+    	this.btnImportFacard.setIcon(EASResource.getIcon("imgTbtn_importcyclostyle"));
+    }
+    
     /**
      * zhangjuan
      * 2014.5.15
@@ -670,5 +682,12 @@ public class EquIdListUI extends AbstractEquIdListUI
         paramList.add(param);
         task.invoke(paramList, DatataskMode.UPDATE, true);
         this.refresh(null);
+	}
+	
+	public void actionImportFacard_actionPerformed(ActionEvent e)throws Exception {
+		IUIWindow uiWindow = null;
+		UIContext context = new UIContext(this);
+		uiWindow = UIFactory.createUIFactory(UIFactoryName.MODEL).create(ImportFaCardUI.class.getName(), context, null, OprtState.ADDNEW);
+		uiWindow.show(); 
 	}
 }

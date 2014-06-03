@@ -58,13 +58,12 @@ public abstract class AbstractOverhaulNoticeEditUI extends com.kingdee.eas.xr.cl
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contStatus;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contBizStatus;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contAuditTime;
-    protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtEntry;
-	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtEntry_detailPanel = null;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contnoticeDate;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contplanFinishDate;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contrequestContent;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contfeedback;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contbackDate;
+    protected com.kingdee.bos.ctrl.swing.KDContainer kDContainer1;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtCreator;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkCreateTime;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtLastUpdateUser;
@@ -84,6 +83,8 @@ public abstract class AbstractOverhaulNoticeEditUI extends com.kingdee.eas.xr.cl
     protected com.kingdee.bos.ctrl.swing.KDScrollPane scrollPanefeedback;
     protected com.kingdee.bos.ctrl.swing.KDTextArea txtfeedback;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkbackDate;
+    protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtEntry;
+	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtEntry_detailPanel = null;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnConRect;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnUnConRet;
     protected com.kingdee.eas.port.equipment.special.OverhaulNoticeInfo editData = null;
@@ -175,12 +176,12 @@ public abstract class AbstractOverhaulNoticeEditUI extends com.kingdee.eas.xr.cl
         this.contStatus = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contBizStatus = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contAuditTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.kdtEntry = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.contnoticeDate = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contplanFinishDate = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contrequestContent = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contfeedback = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contbackDate = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.kDContainer1 = new com.kingdee.bos.ctrl.swing.KDContainer();
         this.prmtCreator = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.pkCreateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.prmtLastUpdateUser = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
@@ -200,6 +201,7 @@ public abstract class AbstractOverhaulNoticeEditUI extends com.kingdee.eas.xr.cl
         this.scrollPanefeedback = new com.kingdee.bos.ctrl.swing.KDScrollPane();
         this.txtfeedback = new com.kingdee.bos.ctrl.swing.KDTextArea();
         this.pkbackDate = new com.kingdee.bos.ctrl.swing.KDDatePicker();
+        this.kdtEntry = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.btnConRect = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btnUnConRet = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.contCreator.setName("contCreator");
@@ -214,12 +216,12 @@ public abstract class AbstractOverhaulNoticeEditUI extends com.kingdee.eas.xr.cl
         this.contStatus.setName("contStatus");
         this.contBizStatus.setName("contBizStatus");
         this.contAuditTime.setName("contAuditTime");
-        this.kdtEntry.setName("kdtEntry");
         this.contnoticeDate.setName("contnoticeDate");
         this.contplanFinishDate.setName("contplanFinishDate");
         this.contrequestContent.setName("contrequestContent");
         this.contfeedback.setName("contfeedback");
         this.contbackDate.setName("contbackDate");
+        this.kDContainer1.setName("kDContainer1");
         this.prmtCreator.setName("prmtCreator");
         this.pkCreateTime.setName("pkCreateTime");
         this.prmtLastUpdateUser.setName("prmtLastUpdateUser");
@@ -239,6 +241,7 @@ public abstract class AbstractOverhaulNoticeEditUI extends com.kingdee.eas.xr.cl
         this.scrollPanefeedback.setName("scrollPanefeedback");
         this.txtfeedback.setName("txtfeedback");
         this.pkbackDate.setName("pkbackDate");
+        this.kdtEntry.setName("kdtEntry");
         this.btnConRect.setName("btnConRect");
         this.btnUnConRet.setName("btnUnConRet");
         // CoreUI
@@ -294,6 +297,89 @@ public abstract class AbstractOverhaulNoticeEditUI extends com.kingdee.eas.xr.cl
         this.contAuditTime.setBoundLabelText(resHelper.getString("contAuditTime.boundLabelText"));		
         this.contAuditTime.setBoundLabelLength(100);		
         this.contAuditTime.setBoundLabelUnderline(true);
+        // contnoticeDate		
+        this.contnoticeDate.setBoundLabelText(resHelper.getString("contnoticeDate.boundLabelText"));		
+        this.contnoticeDate.setBoundLabelLength(100);		
+        this.contnoticeDate.setBoundLabelUnderline(true);		
+        this.contnoticeDate.setVisible(true);
+        // contplanFinishDate		
+        this.contplanFinishDate.setBoundLabelText(resHelper.getString("contplanFinishDate.boundLabelText"));		
+        this.contplanFinishDate.setBoundLabelLength(100);		
+        this.contplanFinishDate.setBoundLabelUnderline(true);		
+        this.contplanFinishDate.setVisible(true);
+        // contrequestContent		
+        this.contrequestContent.setBoundLabelText(resHelper.getString("contrequestContent.boundLabelText"));		
+        this.contrequestContent.setBoundLabelLength(100);		
+        this.contrequestContent.setBoundLabelUnderline(true);		
+        this.contrequestContent.setVisible(true);
+        // contfeedback		
+        this.contfeedback.setBoundLabelText(resHelper.getString("contfeedback.boundLabelText"));		
+        this.contfeedback.setBoundLabelLength(100);		
+        this.contfeedback.setBoundLabelUnderline(true);		
+        this.contfeedback.setVisible(true);
+        // contbackDate		
+        this.contbackDate.setBoundLabelText(resHelper.getString("contbackDate.boundLabelText"));		
+        this.contbackDate.setBoundLabelLength(100);		
+        this.contbackDate.setBoundLabelUnderline(true);		
+        this.contbackDate.setVisible(true);
+        // kDContainer1		
+        this.kDContainer1.setEnableActive(false);		
+        this.kDContainer1.setTitle(resHelper.getString("kDContainer1.title"));
+        // prmtCreator		
+        this.prmtCreator.setEnabled(false);		
+        this.prmtCreator.setCommitFormat("$name$");		
+        this.prmtCreator.setEditFormat("$name$");		
+        this.prmtCreator.setDisplayFormat("$name$");
+        // pkCreateTime		
+        this.pkCreateTime.setTimeEnabled(true);		
+        this.pkCreateTime.setEnabled(false);
+        // prmtLastUpdateUser		
+        this.prmtLastUpdateUser.setEnabled(false);		
+        this.prmtLastUpdateUser.setDisplayFormat("$name$");		
+        this.prmtLastUpdateUser.setEditFormat("$name$");		
+        this.prmtLastUpdateUser.setCommitFormat("$name$");
+        // pkLastUpdateTime		
+        this.pkLastUpdateTime.setTimeEnabled(true);		
+        this.pkLastUpdateTime.setEnabled(false);
+        // prmtCU		
+        this.prmtCU.setEnabled(false);
+        // txtNumber
+        // pkBizDate
+        // txtDescription
+        // prmtAuditor		
+        this.prmtAuditor.setEnabled(false);		
+        this.prmtAuditor.setCommitFormat("$name$");		
+        this.prmtAuditor.setDisplayFormat("$name$");		
+        this.prmtAuditor.setEditFormat("$name$");
+        // comboStatus		
+        this.comboStatus.addItems(EnumUtils.getEnumList("com.kingdee.eas.xr.app.XRBillStatusEnum").toArray());		
+        this.comboStatus.setEnabled(false);
+        // comboBizStatus		
+        this.comboBizStatus.addItems(EnumUtils.getEnumList("com.kingdee.eas.xr.app.XRBizActionEnum").toArray());		
+        this.comboBizStatus.setEnabled(false);		
+        this.comboBizStatus.setVisible(false);
+        // pkAuditTime		
+        this.pkAuditTime.setTimeEnabled(true);		
+        this.pkAuditTime.setEnabled(false);
+        // pknoticeDate		
+        this.pknoticeDate.setVisible(true);		
+        this.pknoticeDate.setRequired(false);
+        // pkplanFinishDate		
+        this.pkplanFinishDate.setVisible(true);		
+        this.pkplanFinishDate.setRequired(false);
+        // scrollPanerequestContent
+        // txtrequestContent		
+        this.txtrequestContent.setVisible(true);		
+        this.txtrequestContent.setRequired(false);		
+        this.txtrequestContent.setMaxLength(255);
+        // scrollPanefeedback
+        // txtfeedback		
+        this.txtfeedback.setVisible(true);		
+        this.txtfeedback.setRequired(false);		
+        this.txtfeedback.setMaxLength(1000);
+        // pkbackDate		
+        this.pkbackDate.setVisible(true);		
+        this.pkbackDate.setRequired(false);
         // kdtEntry
 		String kdtEntryStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style><c:Style id=\"sCol2\"><c:Protection locked=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"zdaNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"equipmentName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol2\" /><t:Column t:key=\"noCheckItem\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"checkContent\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"beizhu\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{zdaNumber}</t:Cell><t:Cell>$Resource{equipmentName}</t:Cell><t:Cell>$Resource{noCheckItem}</t:Cell><t:Cell>$Resource{checkContent}</t:Cell><t:Cell>$Resource{beizhu}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
@@ -314,14 +400,6 @@ public abstract class AbstractOverhaulNoticeEditUI extends com.kingdee.eas.xr.cl
 
 
         this.kdtEntry.checkParsed();
-        KDFormattedTextField kdtEntry_seq_TextField = new KDFormattedTextField();
-        kdtEntry_seq_TextField.setName("kdtEntry_seq_TextField");
-        kdtEntry_seq_TextField.setVisible(true);
-        kdtEntry_seq_TextField.setEditable(true);
-        kdtEntry_seq_TextField.setHorizontalAlignment(2);
-        kdtEntry_seq_TextField.setDataType(0);
-        KDTDefaultCellEditor kdtEntry_seq_CellEditor = new KDTDefaultCellEditor(kdtEntry_seq_TextField);
-        this.kdtEntry.getColumn("seq").setEditor(kdtEntry_seq_CellEditor);
         final KDBizPromptBox kdtEntry_zdaNumber_PromptBox = new KDBizPromptBox();
         kdtEntry_zdaNumber_PromptBox.setQueryInfo("com.kingdee.eas.port.equipment.record.app.EquIdQuery");
         kdtEntry_zdaNumber_PromptBox.setVisible(true);
@@ -378,86 +456,6 @@ public abstract class AbstractOverhaulNoticeEditUI extends com.kingdee.eas.xr.cl
         kdtEntry_beizhu_TextField.setMaxLength(100);
         KDTDefaultCellEditor kdtEntry_beizhu_CellEditor = new KDTDefaultCellEditor(kdtEntry_beizhu_TextField);
         this.kdtEntry.getColumn("beizhu").setEditor(kdtEntry_beizhu_CellEditor);
-        // contnoticeDate		
-        this.contnoticeDate.setBoundLabelText(resHelper.getString("contnoticeDate.boundLabelText"));		
-        this.contnoticeDate.setBoundLabelLength(100);		
-        this.contnoticeDate.setBoundLabelUnderline(true);		
-        this.contnoticeDate.setVisible(true);
-        // contplanFinishDate		
-        this.contplanFinishDate.setBoundLabelText(resHelper.getString("contplanFinishDate.boundLabelText"));		
-        this.contplanFinishDate.setBoundLabelLength(100);		
-        this.contplanFinishDate.setBoundLabelUnderline(true);		
-        this.contplanFinishDate.setVisible(true);
-        // contrequestContent		
-        this.contrequestContent.setBoundLabelText(resHelper.getString("contrequestContent.boundLabelText"));		
-        this.contrequestContent.setBoundLabelLength(100);		
-        this.contrequestContent.setBoundLabelUnderline(true);		
-        this.contrequestContent.setVisible(true);
-        // contfeedback		
-        this.contfeedback.setBoundLabelText(resHelper.getString("contfeedback.boundLabelText"));		
-        this.contfeedback.setBoundLabelLength(100);		
-        this.contfeedback.setBoundLabelUnderline(true);		
-        this.contfeedback.setVisible(true);
-        // contbackDate		
-        this.contbackDate.setBoundLabelText(resHelper.getString("contbackDate.boundLabelText"));		
-        this.contbackDate.setBoundLabelLength(100);		
-        this.contbackDate.setBoundLabelUnderline(true);		
-        this.contbackDate.setVisible(true);
-        // prmtCreator		
-        this.prmtCreator.setEnabled(false);		
-        this.prmtCreator.setCommitFormat("$name$");		
-        this.prmtCreator.setEditFormat("$name$");		
-        this.prmtCreator.setDisplayFormat("$name$");
-        // pkCreateTime		
-        this.pkCreateTime.setTimeEnabled(true);		
-        this.pkCreateTime.setEnabled(false);
-        // prmtLastUpdateUser		
-        this.prmtLastUpdateUser.setEnabled(false);		
-        this.prmtLastUpdateUser.setDisplayFormat("$name$");		
-        this.prmtLastUpdateUser.setEditFormat("$name$");		
-        this.prmtLastUpdateUser.setCommitFormat("$name$");
-        // pkLastUpdateTime		
-        this.pkLastUpdateTime.setTimeEnabled(true);		
-        this.pkLastUpdateTime.setEnabled(false);
-        // prmtCU		
-        this.prmtCU.setEnabled(false);
-        // txtNumber
-        // pkBizDate
-        // txtDescription
-        // prmtAuditor		
-        this.prmtAuditor.setEnabled(false);		
-        this.prmtAuditor.setCommitFormat("$name$");		
-        this.prmtAuditor.setDisplayFormat("$name$");		
-        this.prmtAuditor.setEditFormat("$name$");
-        // comboStatus		
-        this.comboStatus.addItems(EnumUtils.getEnumList("com.kingdee.eas.xr.app.XRBillStatusEnum").toArray());		
-        this.comboStatus.setEnabled(false);
-        // comboBizStatus		
-        this.comboBizStatus.addItems(EnumUtils.getEnumList("com.kingdee.eas.xr.app.XRBizActionEnum").toArray());		
-        this.comboBizStatus.setEnabled(false);		
-        this.comboBizStatus.setVisible(false);
-        // pkAuditTime		
-        this.pkAuditTime.setTimeEnabled(true);		
-        this.pkAuditTime.setEnabled(false);
-        // pknoticeDate		
-        this.pknoticeDate.setVisible(true);		
-        this.pknoticeDate.setRequired(false);
-        // pkplanFinishDate		
-        this.pkplanFinishDate.setVisible(true);		
-        this.pkplanFinishDate.setRequired(false);
-        // scrollPanerequestContent
-        // txtrequestContent		
-        this.txtrequestContent.setVisible(true);		
-        this.txtrequestContent.setRequired(false);		
-        this.txtrequestContent.setMaxLength(255);
-        // scrollPanefeedback
-        // txtfeedback		
-        this.txtfeedback.setVisible(true);		
-        this.txtfeedback.setRequired(false);		
-        this.txtfeedback.setMaxLength(1000);
-        // pkbackDate		
-        this.pkbackDate.setVisible(true);		
-        this.pkbackDate.setRequired(false);
         // btnConRect
         this.btnConRect.setAction((IItemAction)ActionProxyFactory.getProxy(actionActitonConRect, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnConRect.setText(resHelper.getString("btnConRect.text"));
@@ -515,9 +513,6 @@ public abstract class AbstractOverhaulNoticeEditUI extends com.kingdee.eas.xr.cl
         this.add(contBizStatus, new KDLayout.Constraints(708, 611, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contAuditTime.setBounds(new Rectangle(708, 590, 270, 19));
         this.add(contAuditTime, new KDLayout.Constraints(708, 590, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        kdtEntry.setBounds(new Rectangle(16, 88, 978, 304));
-        kdtEntry_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtEntry,new com.kingdee.eas.port.equipment.special.OverhaulNoticeEntryInfo(),null,false);
-        this.add(kdtEntry_detailPanel, new KDLayout.Constraints(16, 88, 978, 304, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         contnoticeDate.setBounds(new Rectangle(16, 35, 270, 19));
         this.add(contnoticeDate, new KDLayout.Constraints(16, 35, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contplanFinishDate.setBounds(new Rectangle(369, 35, 270, 19));
@@ -528,6 +523,8 @@ public abstract class AbstractOverhaulNoticeEditUI extends com.kingdee.eas.xr.cl
         this.add(contfeedback, new KDLayout.Constraints(17, 487, 975, 71, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contbackDate.setBounds(new Rectangle(17, 464, 270, 19));
         this.add(contbackDate, new KDLayout.Constraints(17, 464, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDContainer1.setBounds(new Rectangle(16, 86, 958, 298));
+        this.add(kDContainer1, new KDLayout.Constraints(16, 86, 958, 298, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         //contCreator
         contCreator.setBoundEditor(prmtCreator);
         //contCreateTime
@@ -566,6 +563,9 @@ public abstract class AbstractOverhaulNoticeEditUI extends com.kingdee.eas.xr.cl
         scrollPanefeedback.getViewport().add(txtfeedback, null);
         //contbackDate
         contbackDate.setBoundEditor(pkbackDate);
+        //kDContainer1
+kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtEntry,new com.kingdee.eas.port.equipment.special.OverhaulNoticeEntryInfo(),null,false);
+        kDContainer1.getContentPane().add(kdtEntry_detailPanel, BorderLayout.CENTER);
 
     }
 
@@ -741,13 +741,6 @@ public abstract class AbstractOverhaulNoticeEditUI extends com.kingdee.eas.xr.cl
 
 	//Regiester control's property binding.
 	private void registerBindings(){
-		dataBinder.registerBinding("Entry.seq", int.class, this.kdtEntry, "seq.text");
-		dataBinder.registerBinding("Entry", com.kingdee.eas.port.equipment.special.OverhaulNoticeEntryInfo.class, this.kdtEntry, "userObject");
-		dataBinder.registerBinding("Entry.zdaNumber", java.lang.Object.class, this.kdtEntry, "zdaNumber.text");
-		dataBinder.registerBinding("Entry.equipmentName", String.class, this.kdtEntry, "equipmentName.text");
-		dataBinder.registerBinding("Entry.noCheckItem", java.lang.Object.class, this.kdtEntry, "noCheckItem.text");
-		dataBinder.registerBinding("Entry.checkContent", String.class, this.kdtEntry, "checkContent.text");
-		dataBinder.registerBinding("Entry.beizhu", String.class, this.kdtEntry, "beizhu.text");
 		dataBinder.registerBinding("creator", com.kingdee.eas.base.permission.UserInfo.class, this.prmtCreator, "data");
 		dataBinder.registerBinding("createTime", java.sql.Timestamp.class, this.pkCreateTime, "value");
 		dataBinder.registerBinding("lastUpdateUser", com.kingdee.eas.base.permission.UserInfo.class, this.prmtLastUpdateUser, "data");
@@ -764,7 +757,14 @@ public abstract class AbstractOverhaulNoticeEditUI extends com.kingdee.eas.xr.cl
 		dataBinder.registerBinding("planFinishDate", java.util.Date.class, this.pkplanFinishDate, "value");
 		dataBinder.registerBinding("requestContent", String.class, this.txtrequestContent, "text");
 		dataBinder.registerBinding("feedback", String.class, this.txtfeedback, "text");
-		dataBinder.registerBinding("backDate", java.util.Date.class, this.pkbackDate, "value");		
+		dataBinder.registerBinding("backDate", java.util.Date.class, this.pkbackDate, "value");
+		dataBinder.registerBinding("Entry.seq", int.class, this.kdtEntry, "seq.text");
+		dataBinder.registerBinding("Entry", com.kingdee.eas.port.equipment.special.OverhaulNoticeEntryInfo.class, this.kdtEntry, "userObject");
+		dataBinder.registerBinding("Entry.zdaNumber", java.lang.Object.class, this.kdtEntry, "zdaNumber.text");
+		dataBinder.registerBinding("Entry.equipmentName", String.class, this.kdtEntry, "equipmentName.text");
+		dataBinder.registerBinding("Entry.noCheckItem", java.lang.Object.class, this.kdtEntry, "noCheckItem.text");
+		dataBinder.registerBinding("Entry.checkContent", String.class, this.kdtEntry, "checkContent.text");
+		dataBinder.registerBinding("Entry.beizhu", String.class, this.kdtEntry, "beizhu.text");		
 	}
 	//Regiester UI State
 	private void registerUIState(){		
@@ -891,13 +891,6 @@ public abstract class AbstractOverhaulNoticeEditUI extends com.kingdee.eas.xr.cl
 	 */
 	protected void registerValidator() {
     	getValidateHelper().setCustomValidator( getValidator() );
-		getValidateHelper().registerBindProperty("Entry.seq", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("Entry", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("Entry.zdaNumber", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("Entry.equipmentName", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("Entry.noCheckItem", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("Entry.checkContent", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("Entry.beizhu", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("creator", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("createTime", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("lastUpdateUser", ValidateHelper.ON_SAVE);    
@@ -914,7 +907,14 @@ public abstract class AbstractOverhaulNoticeEditUI extends com.kingdee.eas.xr.cl
 		getValidateHelper().registerBindProperty("planFinishDate", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("requestContent", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("feedback", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("backDate", ValidateHelper.ON_SAVE);    		
+		getValidateHelper().registerBindProperty("backDate", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("Entry.seq", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("Entry", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("Entry.zdaNumber", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("Entry.equipmentName", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("Entry.noCheckItem", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("Entry.checkContent", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("Entry.beizhu", ValidateHelper.ON_SAVE);    		
 	}
 
 
@@ -955,35 +955,6 @@ kdtEntry.getCell(rowIndex,"equipmentName").setValue(com.kingdee.bos.ui.face.UIRu
 		if(StringUtils.isEmpty(selectorAll)){
 			selectorAll = "true";
 		}
-    	sic.add(new SelectorItemInfo("Entry.seq"));
-		if(selectorAll.equalsIgnoreCase("true"))
-		{
-			sic.add(new SelectorItemInfo("Entry.*"));
-		}
-		else{
-		}
-		if(selectorAll.equalsIgnoreCase("true"))
-		{
-			sic.add(new SelectorItemInfo("Entry.zdaNumber.*"));
-		}
-		else{
-	    	sic.add(new SelectorItemInfo("Entry.zdaNumber.id"));
-			sic.add(new SelectorItemInfo("Entry.zdaNumber.tzdaNumber"));
-			sic.add(new SelectorItemInfo("Entry.zdaNumber.name"));
-        	sic.add(new SelectorItemInfo("Entry.zdaNumber.number"));
-		}
-    	sic.add(new SelectorItemInfo("Entry.equipmentName"));
-		if(selectorAll.equalsIgnoreCase("true"))
-		{
-			sic.add(new SelectorItemInfo("Entry.noCheckItem.*"));
-		}
-		else{
-	    	sic.add(new SelectorItemInfo("Entry.noCheckItem.id"));
-			sic.add(new SelectorItemInfo("Entry.noCheckItem.name"));
-        	sic.add(new SelectorItemInfo("Entry.noCheckItem.number"));
-		}
-    	sic.add(new SelectorItemInfo("Entry.checkContent"));
-    	sic.add(new SelectorItemInfo("Entry.beizhu"));
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
 			sic.add(new SelectorItemInfo("creator.*"));
@@ -1033,6 +1004,35 @@ kdtEntry.getCell(rowIndex,"equipmentName").setValue(com.kingdee.bos.ui.face.UIRu
         sic.add(new SelectorItemInfo("requestContent"));
         sic.add(new SelectorItemInfo("feedback"));
         sic.add(new SelectorItemInfo("backDate"));
+    	sic.add(new SelectorItemInfo("Entry.seq"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("Entry.*"));
+		}
+		else{
+		}
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("Entry.zdaNumber.*"));
+		}
+		else{
+	    	sic.add(new SelectorItemInfo("Entry.zdaNumber.id"));
+			sic.add(new SelectorItemInfo("Entry.zdaNumber.tzdaNumber"));
+			sic.add(new SelectorItemInfo("Entry.zdaNumber.name"));
+        	sic.add(new SelectorItemInfo("Entry.zdaNumber.number"));
+		}
+    	sic.add(new SelectorItemInfo("Entry.equipmentName"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("Entry.noCheckItem.*"));
+		}
+		else{
+	    	sic.add(new SelectorItemInfo("Entry.noCheckItem.id"));
+			sic.add(new SelectorItemInfo("Entry.noCheckItem.name"));
+        	sic.add(new SelectorItemInfo("Entry.noCheckItem.number"));
+		}
+    	sic.add(new SelectorItemInfo("Entry.checkContent"));
+    	sic.add(new SelectorItemInfo("Entry.beizhu"));
         return sic;
     }        
     	

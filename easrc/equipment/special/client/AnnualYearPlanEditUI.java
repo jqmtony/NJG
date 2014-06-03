@@ -3,13 +3,27 @@
  */
 package com.kingdee.eas.port.equipment.special.client;
 
+import java.awt.BorderLayout;
 import java.awt.event.*;
+import java.util.HashSet;
+import java.util.Set;
+
 import org.apache.log4j.Logger;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.ui.face.IUIWindow;
+import com.kingdee.bos.ui.face.UIException;
+import com.kingdee.bos.ui.face.UIFactory;
+import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.eas.common.client.OprtState;
+import com.kingdee.eas.common.client.UIContext;
+import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.framework.*;
+import com.kingdee.eas.port.equipment.base.client.ImportFaCardUI;
+import com.kingdee.eas.port.equipment.record.EquIdInfo;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.swing.KDTextField;
+import com.kingdee.bos.ctrl.swing.KDWorkButton;
 
 /**
  * output class name
@@ -668,24 +682,61 @@ public class AnnualYearPlanEditUI extends AbstractAnnualYearPlanEditUI
 		
         return objectValue;
     }
-	@Override
 	protected void attachListeners() {
-		// TODO Auto-generated method stub
 		
 	}
-	@Override
 	protected void detachListeners() {
-		// TODO Auto-generated method stub
 		
 	}
-	@Override
 	protected KDTextField getNumberCtrl() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	public void onLoad() throws Exception {
 		 this.kdtEntry.getColumn("seq").getStyleAttributes().setHided(true);
 		super.onLoad();
+		
+		InitWorkButtons();
+		
 	}
+	
+	private void InitWorkButtons()
+	{
+		this.kDContainer1.getContentPane().add(kdtEntry, BorderLayout.CENTER);
+		KDWorkButton  addnewButton =kdtEntry_detailPanel.getAddNewLineButton();
+		addnewButton.setText("加入计划");
+		KDWorkButton RemoveButton =kdtEntry_detailPanel.getRemoveLinesButton();
+		RemoveButton.setText("删除计划");
+		this.kDContainer1.addButton(addnewButton);
+		this.kDContainer1.addButton(RemoveButton);
+		
+		if(addnewButton.getActionListeners()[0]!=null)
+			addnewButton.removeActionListener(addnewButton.getActionListeners()[0]);
+		
+		addnewButton.addActionListener(new ActionListener(){
+
+			public void actionPerformed(ActionEvent e) {
+				try {
+					IUIWindow uiWindow = null;
+					UIContext context = new UIContext(this);
+					
+					Set<String>  set = new HashSet<String>();
+					for (int i = 0; i <kdtEntry.getRowCount(); i++) 
+					{
+						if(UIRuleUtil.isNotNull(kdtEntry.getCell(i, "zdaNumber").getValue()))
+							set.add(((EquIdInfo)kdtEntry.getCell(i, "zdaNumber").getValue()).getId().toString());
+					}
+					context.put("kdtable", kdtEntry);
+					context.put("equID", set);
+					context.put("yearPlan", set);
+					uiWindow = UIFactory.createUIFactory(UIFactoryName.MODEL).create(ImportEquIdUI.class.getName(), context, null, OprtState.ADDNEW);
+					uiWindow.show(); 
+				} catch (UIException e1) {
+					e1.printStackTrace();
+				}
+			}
+			
+		});
+	}
+	
 }

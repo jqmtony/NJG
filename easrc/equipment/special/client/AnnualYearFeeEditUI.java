@@ -852,6 +852,7 @@ public class AnnualYearFeeEditUI extends AbstractAnnualYearFeeEditUI
 			table.removeRows();
 			IAdminOrgUnit IAdminorgUnit = AdminOrgUnitFactory.getRemoteInstance();
 			IEquId IEquId = EquIdFactory.getRemoteInstance();
+			IAnnualYearPlanEntry iPlanentry = AnnualYearPlanEntryFactory.getRemoteInstance();
 			for (int rowIndex = 1; rowIndex <= e_maxRow; rowIndex++) {
 				IRow row = table.addRow();
 				int newrowIndex = row.getRowIndex();
@@ -889,7 +890,6 @@ public class AnnualYearFeeEditUI extends AbstractAnnualYearFeeEditUI
 						EquIdInfo eqInfos = eqCollection.size()>0?eqCollection.get(0):null;
 						if(eqInfos==null){continue;}
 						EquIdInfo eqInfo = EquIdFactory.getRemoteInstance().getEquIdInfo(new ObjectUuidPK(eqInfos.getId()),getEquIDSelectors());
-						AnnualYearPlanEntryInfo ayInfo = AnnualYearPlanEntryFactory.getRemoteInstance().getAnnualYearPlanEntryInfo("select where zdaNumber = '"+eqInfo.getId()+"' ");
 						tblCell.setValue(eqInfo.getName());
 						table.getCell(newrowIndex, "zdaNumber").setValue(eqInfo);
 						kdtEntry.getCell(newrowIndex,"equipmentName").setValue(com.kingdee.bos.ui.face.UIRuleUtil.getString(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)kdtEntry.getCell(newrowIndex,"zdaNumber").getValue(),"name")));
@@ -900,12 +900,18 @@ public class AnnualYearFeeEditUI extends AbstractAnnualYearFeeEditUI
 						kdtEntry.getCell(newrowIndex,"weight").setValue(com.kingdee.bos.ui.face.UIRuleUtil.getString(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)kdtEntry.getCell(newrowIndex,"zdaNumber").getValue(),"ratedWeight")));
 						kdtEntry.getCell(newrowIndex,"beizhu").setValue(com.kingdee.bos.ui.face.UIRuleUtil.getString(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)kdtEntry.getCell(newrowIndex,"zdaNumber").getValue(),"sbDescription")));
 						
-						//取年度检测计划分录的计划检验日期
-						kdtEntry.getCell(newrowIndex,"planDate").setValue(ayInfo.getPlanDate());
-						//取年度检测计划分录的用户使用编号
-						kdtEntry.getCell(newrowIndex,"companyNumber").setValue(ayInfo.getCompanyNumber());
-						//取年度检测计划分录的检验类别
-						kdtEntry.getCell(newrowIndex,"checkType").setValue(ayInfo.getCheckType());
+						String oql = "where zdaNumber = '"+eqInfo.getId()+"' ";
+						if(iPlanentry.exists(oql))
+						{
+							AnnualYearPlanEntryCollection yearPlanEntryCollection = iPlanentry.getAnnualYearPlanEntryCollection(oql);
+							AnnualYearPlanEntryInfo ayInfo = yearPlanEntryCollection.get(0);
+							//取年度检测计划分录的计划检验日期
+							kdtEntry.getCell(newrowIndex,"planDate").setValue(ayInfo.getPlanDate());
+							//取年度检测计划分录的用户使用编号
+							kdtEntry.getCell(newrowIndex,"companyNumber").setValue(ayInfo.getCompanyNumber());
+							//取年度检测计划分录的检验类别
+							kdtEntry.getCell(newrowIndex,"checkType").setValue(ayInfo.getCheckType());
+						}
 					}
 					else
 					{

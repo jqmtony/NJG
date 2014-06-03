@@ -3,19 +3,32 @@
  */
 package com.kingdee.eas.port.equipment.special.client;
 
+import java.awt.BorderLayout;
 import java.awt.event.*;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.apache.log4j.Logger;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.ui.face.IUIWindow;
+import com.kingdee.bos.ui.face.UIException;
+import com.kingdee.bos.ui.face.UIFactory;
+import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.eas.common.client.OprtState;
+import com.kingdee.eas.common.client.UIContext;
+import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.framework.*;
+import com.kingdee.eas.port.equipment.record.EquIdInfo;
 import com.kingdee.eas.port.equipment.special.OverhaulNoticeFactory;
+import com.kingdee.eas.port.equipment.uitl.ToolHelp;
 import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.xr.app.XRBillStatusEnum;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.swing.KDTextField;
+import com.kingdee.bos.ctrl.swing.KDWorkButton;
 
 /**
  * output class name
@@ -37,6 +50,7 @@ public class OverhaulNoticeEditUI extends AbstractOverhaulNoticeEditUI
     public void loadFields()
     {
         super.loadFields();
+        ToolHelp.mergeThemeRow(this.kdtEntry, "zdaNumber");
     }
 
     /**
@@ -731,6 +745,8 @@ public class OverhaulNoticeEditUI extends AbstractOverhaulNoticeEditUI
 			btnConRect.setVisible(false);
 			btnUnConRet.setVisible(false);
 		}
+		
+		InitWorkButtons();
 	}
 	
 	 protected void initWorkButton()
@@ -776,6 +792,44 @@ public class OverhaulNoticeEditUI extends AbstractOverhaulNoticeEditUI
 		this.kdtEntry_detailPanel.getInsertLineButton().setEnabled(false);
 		this.kdtEntry_detailPanel.getRemoveLinesButton().setEnabled(false);
         setSaved(true);
+	}
+	
+	private void InitWorkButtons()
+	{
+		this.kDContainer1.getContentPane().add(kdtEntry, BorderLayout.CENTER);
+		KDWorkButton  addnewButton =kdtEntry_detailPanel.getAddNewLineButton();
+		addnewButton.setText("新增行");
+		KDWorkButton RemoveButton =kdtEntry_detailPanel.getRemoveLinesButton();
+		RemoveButton.setText("删除行");
+		this.kDContainer1.addButton(addnewButton);
+		this.kDContainer1.addButton(RemoveButton);
+		
+		if(addnewButton.getActionListeners()[0]!=null)
+			addnewButton.removeActionListener(addnewButton.getActionListeners()[0]);
+		
+		addnewButton.addActionListener(new ActionListener(){
+
+			public void actionPerformed(ActionEvent e) {
+				try {
+					IUIWindow uiWindow = null;
+					UIContext context = new UIContext(this);
+					
+					Set<String>  set = new HashSet<String>();
+					for (int i = 0; i <kdtEntry.getRowCount(); i++) 
+					{
+						if(UIRuleUtil.isNotNull(kdtEntry.getCell(i, "zdaNumber").getValue()))
+							set.add(((EquIdInfo)kdtEntry.getCell(i, "zdaNumber").getValue()).getId().toString());
+					}
+					context.put("kdtable", kdtEntry);
+					context.put("equID", set);
+					uiWindow = UIFactory.createUIFactory(UIFactoryName.MODEL).create(ImportEquIdUI.class.getName(), context, null, OprtState.ADDNEW);
+					uiWindow.show(); 
+				} catch (UIException e1) {
+					e1.printStackTrace();
+				}
+			}
+			
+		});
 	}
 
 }

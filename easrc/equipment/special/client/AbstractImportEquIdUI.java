@@ -1,7 +1,7 @@
 /**
  * output package name
  */
-package com.kingdee.eas.port.equipment.record.client;
+package com.kingdee.eas.port.equipment.special.client;
 
 import org.apache.log4j.*;
 
@@ -43,9 +43,10 @@ import com.kingdee.bos.appframework.uip.UINavigator;
 /**
  * output class name
  */
-public abstract class AbstractEquIdListUI extends com.kingdee.eas.xr.client.XRBillBaseListUI
+public abstract class AbstractImportEquIdUI extends com.kingdee.eas.xr.client.XRBillBaseListUI
 {
-    private static final Logger logger = CoreUIObject.getLogger(AbstractEquIdListUI.class);
+    private static final Logger logger = CoreUIObject.getLogger(AbstractImportEquIdUI.class);
+    protected com.kingdee.bos.ctrl.swing.KDContainer kDContainer1;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btninUse;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnoutUse;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnExcel;
@@ -58,7 +59,7 @@ public abstract class AbstractEquIdListUI extends com.kingdee.eas.xr.client.XRBi
     /**
      * output class constructor
      */
-    public AbstractEquIdListUI() throws Exception
+    public AbstractImportEquIdUI() throws Exception
     {
         super();
         this.defaultObjectName = "mainQuery";
@@ -72,9 +73,9 @@ public abstract class AbstractEquIdListUI extends com.kingdee.eas.xr.client.XRBi
      */
     private void jbInit() throws Exception
     {
-        this.resHelper = new ResourceBundleHelper(AbstractEquIdListUI.class.getName());
+        this.resHelper = new ResourceBundleHelper(AbstractImportEquIdUI.class.getName());
         this.setUITitle(resHelper.getString("this.title"));
-        mainQueryPK = new MetaDataPK("com.kingdee.eas.port.equipment.record.app", "EquIdQuery");
+        mainQueryPK = new MetaDataPK("com.kingdee.eas.port.equipment.special.app", "ImportEquIdQuery");
         //actionRemove
         String _tempStr = null;
         actionRemove.setEnabled(true);
@@ -127,23 +128,27 @@ public abstract class AbstractEquIdListUI extends com.kingdee.eas.xr.client.XRBi
         this.actionImportFacard = new actionImportFacard(this);
         getActionManager().registerAction("actionImportFacard", actionImportFacard);
          this.actionImportFacard.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+        this.kDContainer1 = new com.kingdee.bos.ctrl.swing.KDContainer();
         this.btninUse = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btnoutUse = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btnExcel = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btnImportFacard = new com.kingdee.bos.ctrl.swing.KDWorkButton();
+        this.kDContainer1.setName("kDContainer1");
         this.btninUse.setName("btninUse");
         this.btnoutUse.setName("btnoutUse");
         this.btnExcel.setName("btnExcel");
         this.btnImportFacard.setName("btnImportFacard");
-        // CoreUI
-		String tblMainStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol17\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol18\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol22\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol23\"><c:NumberFormat>&amp;date</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"model\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"size\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"weight\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"qyDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"serialNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"sbStatus\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"special\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"ccNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"tzdaNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"tzsbStatus\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"assetValue\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"EqmCategory\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"wxOrgUnit.id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"specialType.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"cityPeriod\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol17\" /><t:Column t:key=\"portPeriod\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol18\" /><t:Column t:key=\"code\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"engineNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"carNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"ratedWeight\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol22\" /><t:Column t:key=\"textDate1\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol23\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{name}</t:Cell><t:Cell>$Resource{model}</t:Cell><t:Cell>$Resource{size}</t:Cell><t:Cell>$Resource{weight}</t:Cell><t:Cell>$Resource{qyDate}</t:Cell><t:Cell>$Resource{serialNumber}</t:Cell><t:Cell>$Resource{sbStatus}</t:Cell><t:Cell>$Resource{special}</t:Cell><t:Cell>$Resource{ccNumber}</t:Cell><t:Cell>$Resource{tzdaNumber}</t:Cell><t:Cell>$Resource{tzsbStatus}</t:Cell><t:Cell>$Resource{assetValue}</t:Cell><t:Cell>$Resource{EqmCategory}</t:Cell><t:Cell>$Resource{number}</t:Cell><t:Cell>$Resource{wxOrgUnit.id}</t:Cell><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{specialType.name}</t:Cell><t:Cell>$Resource{cityPeriod}</t:Cell><t:Cell>$Resource{portPeriod}</t:Cell><t:Cell>$Resource{code}</t:Cell><t:Cell>$Resource{engineNumber}</t:Cell><t:Cell>$Resource{carNumber}</t:Cell><t:Cell>$Resource{ratedWeight}</t:Cell><t:Cell>$Resource{textDate1}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+        // CoreUI		
+        this.setPreferredSize(new Dimension(777,400));
+		String tblMainStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol10\"><c:Protection hidden=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"textDate1\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"CU.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"qyDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"special\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"tzdaNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"EqmCategory\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"specialType.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"code\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol10\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{number}</t:Cell><t:Cell>$Resource{name}</t:Cell><t:Cell>$Resource{textDate1}</t:Cell><t:Cell>$Resource{CU.name}</t:Cell><t:Cell>$Resource{qyDate}</t:Cell><t:Cell>$Resource{special}</t:Cell><t:Cell>$Resource{tzdaNumber}</t:Cell><t:Cell>$Resource{EqmCategory}</t:Cell><t:Cell>$Resource{specialType.name}</t:Cell><t:Cell>$Resource{code}</t:Cell><t:Cell>$Resource{id}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.tblMain.setFormatXml(resHelper.translateString("tblMain",tblMainStrXML));
-                this.tblMain.putBindContents("mainQuery",new String[] {"name","model","size","weight","qyDate","serialNumber","sbStatus","special","ccNumber","tzdaNumber","tzsbStatus","assetValue","EqmCategory","number","wxOrgUnit.id","id","specialType.name","cityPeriod","portPeriod","code","engineNumber","carNumber","ratedWeight","textDate1"});
+                this.tblMain.putBindContents("mainQuery",new String[] {"number","name","textDate1","CU.name","qyDate","special","tzdaNumber","EqmCategory","specialType.name","code","id"});
 
 
-        this.tblMain.checkParsed();
-        this.tblMain.getGroupManager().setGroup(true);
+        // kDContainer1		
+        this.kDContainer1.setEnableActive(false);		
+        this.kDContainer1.setTitle(resHelper.getString("kDContainer1.title"));
         // btninUse
         this.btninUse.setAction((IItemAction)ActionProxyFactory.getProxy(actionInUse, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btninUse.setText(resHelper.getString("btninUse.text"));		
@@ -182,11 +187,13 @@ public abstract class AbstractEquIdListUI extends com.kingdee.eas.xr.client.XRBi
      */
     public void initUIContentLayout()
     {
-        this.setBounds(new Rectangle(10, 10, 1013, 629));
+        this.setBounds(new Rectangle(10, 10, 777, 400));
         this.setLayout(new KDLayout());
-        this.putClientProperty("OriginalBounds", new Rectangle(10, 10, 1013, 629));
-        tblMain.setBounds(new Rectangle(10, 10, 996, 580));
-        this.add(tblMain, new KDLayout.Constraints(10, 10, 996, 580, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        this.putClientProperty("OriginalBounds", new Rectangle(10, 10, 777, 400));
+        kDContainer1.setBounds(new Rectangle(5, 5, 768, 392));
+        this.add(kDContainer1, new KDLayout.Constraints(5, 5, 768, 392, 0));
+        //kDContainer1
+kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContainer1.getContentPane().add(tblMain, BorderLayout.CENTER);
 
     }
 
@@ -341,7 +348,7 @@ public abstract class AbstractEquIdListUI extends com.kingdee.eas.xr.client.XRBi
 	private void registerUIState(){		
 	}
 	public String getUIHandlerClassName() {
-	    return "com.kingdee.eas.port.equipment.record.app.EquIdListUIHandler";
+	    return "com.kingdee.eas.port.equipment.special.app.ImportEquIdUIHandler";
 	}
 	public IUIActionPostman prepareInit() {
 		IUIActionPostman clientHanlder = super.prepareInit();
@@ -372,33 +379,6 @@ public abstract class AbstractEquIdListUI extends com.kingdee.eas.xr.client.XRBi
     {
         IObjectValue ov = dataObject;        	    	
         super.setDataObject(ov);
-    }
-	protected void Remove() throws Exception {
-    	IObjectValue editData = getBizInterface().getValue(new com.kingdee.bos.dao.ormapping.ObjectUuidPK(BOSUuid.read(getSelectedKeyValue())));
-    	super.Remove();
-    	recycleNumberByOrg(editData,"",editData.getString("number"));
-    }
-    protected void recycleNumberByOrg(IObjectValue editData,String orgType,String number) {
-        if (!StringUtils.isEmpty(number))
-        {
-            try {
-            	String companyID = null;            
-				com.kingdee.eas.base.codingrule.ICodingRuleManager iCodingRuleManager = com.kingdee.eas.base.codingrule.CodingRuleManagerFactory.getRemoteInstance();
-				if(!com.kingdee.util.StringUtils.isEmpty(orgType) && !"NONE".equalsIgnoreCase(orgType) && com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentOrgUnit(com.kingdee.eas.basedata.org.OrgType.getEnum(orgType))!=null) {
-					companyID =com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentOrgUnit(com.kingdee.eas.basedata.org.OrgType.getEnum(orgType)).getString("id");
-				}
-				else if (com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentOrgUnit() != null) {
-					companyID = ((com.kingdee.eas.basedata.org.OrgUnitInfo)com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentOrgUnit()).getString("id");
-            	}				
-				if (!StringUtils.isEmpty(companyID) && iCodingRuleManager.isExist(editData, companyID) && iCodingRuleManager.isUseIntermitNumber(editData, companyID)) {
-					iCodingRuleManager.recycleNumber(editData,companyID,number);					
-				}
-            }
-            catch (Exception e)
-            {
-                handUIException(e);
-            }
-        }
     }
 
     /**
@@ -433,11 +413,6 @@ public abstract class AbstractEquIdListUI extends com.kingdee.eas.xr.client.XRBi
         super.setOprtState(oprtType);
     }
 
-	public SelectorItemCollection getBOTPSelectors() {
-			SelectorItemCollection sic = new SelectorItemCollection();
-			return sic;
-	}
-
     /**
      * output getSelectors method
      */
@@ -448,42 +423,19 @@ public abstract class AbstractEquIdListUI extends com.kingdee.eas.xr.client.XRBi
 		if(StringUtils.isEmpty(selectorAll)){
 			selectorAll = "true";
 		}
-        sic.add(new SelectorItemInfo("name"));
-        sic.add(new SelectorItemInfo("model"));
-        sic.add(new SelectorItemInfo("size"));
-        sic.add(new SelectorItemInfo("weight"));
-        sic.add(new SelectorItemInfo("qyDate"));
-        sic.add(new SelectorItemInfo("serialNumber"));
-        sic.add(new SelectorItemInfo("sbStatus"));
-        sic.add(new SelectorItemInfo("special"));
-        sic.add(new SelectorItemInfo("ccNumber"));
-        sic.add(new SelectorItemInfo("tzdaNumber"));
-        sic.add(new SelectorItemInfo("tzsbStatus"));
-        sic.add(new SelectorItemInfo("assetValue"));
-        sic.add(new SelectorItemInfo("EqmCategory"));
         sic.add(new SelectorItemInfo("number"));
-        sic.add(new SelectorItemInfo("wxOrgUnit.id"));
-        sic.add(new SelectorItemInfo("id"));
-        sic.add(new SelectorItemInfo("specialType.name"));
-        sic.add(new SelectorItemInfo("cityPeriod"));
-        sic.add(new SelectorItemInfo("portPeriod"));
-        sic.add(new SelectorItemInfo("code"));
-        sic.add(new SelectorItemInfo("engineNumber"));
-        sic.add(new SelectorItemInfo("carNumber"));
-        sic.add(new SelectorItemInfo("ratedWeight"));
+        sic.add(new SelectorItemInfo("name"));
         sic.add(new SelectorItemInfo("textDate1"));
+        sic.add(new SelectorItemInfo("CU.name"));
+        sic.add(new SelectorItemInfo("qyDate"));
+        sic.add(new SelectorItemInfo("special"));
+        sic.add(new SelectorItemInfo("tzdaNumber"));
+        sic.add(new SelectorItemInfo("EqmCategory"));
+        sic.add(new SelectorItemInfo("specialType.name"));
+        sic.add(new SelectorItemInfo("code"));
+        sic.add(new SelectorItemInfo("id"));
         return sic;
-    }            protected java.util.List getQuerySorterFields() 
-    { 
-        java.util.List sorterFieldList = new ArrayList(); 
-        return sorterFieldList; 
-    } 
-    protected java.util.List getQueryPKFields() 
-    { 
-        java.util.List pkList = new ArrayList(); 
-        pkList.add("id"); 
-        return pkList;
-    }
+    }        
     	
 
     /**
@@ -638,7 +590,7 @@ com.kingdee.eas.port.equipment.record.EquIdFactory.getRemoteInstance().excel(edi
         public void actionPerformed(ActionEvent e)
         {
         	getUIContext().put("ORG.PK", getOrgPK(this));
-            innerActionPerformed("eas", AbstractEquIdListUI.this, "ActionInUse", "actionInUse_actionPerformed", e);
+            innerActionPerformed("eas", AbstractImportEquIdUI.this, "ActionInUse", "actionInUse_actionPerformed", e);
         }
     }
 
@@ -668,7 +620,7 @@ com.kingdee.eas.port.equipment.record.EquIdFactory.getRemoteInstance().excel(edi
         public void actionPerformed(ActionEvent e)
         {
         	getUIContext().put("ORG.PK", getOrgPK(this));
-            innerActionPerformed("eas", AbstractEquIdListUI.this, "ActionOutUse", "actionOutUse_actionPerformed", e);
+            innerActionPerformed("eas", AbstractImportEquIdUI.this, "ActionOutUse", "actionOutUse_actionPerformed", e);
         }
     }
 
@@ -698,7 +650,7 @@ com.kingdee.eas.port.equipment.record.EquIdFactory.getRemoteInstance().excel(edi
         public void actionPerformed(ActionEvent e)
         {
         	getUIContext().put("ORG.PK", getOrgPK(this));
-            innerActionPerformed("eas", AbstractEquIdListUI.this, "ActionRegistChange", "actionRegistChange_actionPerformed", e);
+            innerActionPerformed("eas", AbstractImportEquIdUI.this, "ActionRegistChange", "actionRegistChange_actionPerformed", e);
         }
     }
 
@@ -728,7 +680,7 @@ com.kingdee.eas.port.equipment.record.EquIdFactory.getRemoteInstance().excel(edi
         public void actionPerformed(ActionEvent e)
         {
         	getUIContext().put("ORG.PK", getOrgPK(this));
-            innerActionPerformed("eas", AbstractEquIdListUI.this, "ActionExcel", "actionExcel_actionPerformed", e);
+            innerActionPerformed("eas", AbstractImportEquIdUI.this, "ActionExcel", "actionExcel_actionPerformed", e);
         }
     }
 
@@ -759,7 +711,7 @@ com.kingdee.eas.port.equipment.record.EquIdFactory.getRemoteInstance().excel(edi
         public void actionPerformed(ActionEvent e)
         {
         	getUIContext().put("ORG.PK", getOrgPK(this));
-            innerActionPerformed("eas", AbstractEquIdListUI.this, "actionImportFacard", "actionImportFacard_actionPerformed", e);
+            innerActionPerformed("eas", AbstractImportEquIdUI.this, "actionImportFacard", "actionImportFacard_actionPerformed", e);
         }
     }
 
@@ -768,7 +720,7 @@ com.kingdee.eas.port.equipment.record.EquIdFactory.getRemoteInstance().excel(edi
      */
     public IMetaDataPK getMetaDataPK()
     {
-        return new MetaDataPK("com.kingdee.eas.port.equipment.record.client", "EquIdListUI");
+        return new MetaDataPK("com.kingdee.eas.port.equipment.special.client", "ImportEquIdUI");
     }
     /**
      * output isBindWorkFlow method
@@ -803,21 +755,7 @@ com.kingdee.eas.port.equipment.record.EquIdFactory.getRemoteInstance().excel(edi
         return objectValue;
     }
 
-    /**
-     * output getMergeColumnKeys method
-     */
-    public String[] getMergeColumnKeys()
-    {
-        return new String[] {"name","model","size","weight","qyDate","serialNumber","sbStatus","special","ccNumber","tzdaNumber","tzsbStatus","assetValue","EqmCategory","number","wxOrgUnit.id","id","specialType.name","cityPeriod","portPeriod","code","engineNumber","carNumber","ratedWeight","textDate1"};
-    }
 
 
-
-	protected String getTDFileName() {
-    	return "/bim/port/equipment/record/EquId";
-	}
-    protected IMetaDataPK getTDQueryPK() {
-    	return new MetaDataPK("com.kingdee.eas.port.equipment.record.app.EquIdQuery");
-	}
 
 }
