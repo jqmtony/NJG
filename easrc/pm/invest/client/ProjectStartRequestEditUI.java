@@ -3,13 +3,35 @@
  */
 package com.kingdee.eas.port.pm.invest.client;
 
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.util.Date;
+
 import org.apache.log4j.Logger;
-import com.kingdee.bos.ui.face.CoreUIObject;
-import com.kingdee.bos.dao.IObjectValue;
-import com.kingdee.eas.framework.*;
+
+import com.kingdee.bos.ctrl.kdf.table.IRow;
+import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
+import com.kingdee.bos.ctrl.swing.KDCheckBox;
+import com.kingdee.bos.ctrl.swing.KDDatePicker;
 import com.kingdee.bos.ctrl.swing.KDTextField;
+import com.kingdee.bos.ctrl.swing.event.DataChangeEvent;
+import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.bos.metadata.entity.EntityViewInfo;
+import com.kingdee.bos.metadata.entity.FilterInfo;
+import com.kingdee.bos.metadata.entity.FilterItemInfo;
+import com.kingdee.bos.metadata.query.util.CompareType;
+import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.eas.basedata.assistant.ProjectInfo;
+import com.kingdee.eas.port.pm.base.CostTypeFactory;
+import com.kingdee.eas.port.pm.base.ICostType;
+import com.kingdee.eas.port.pm.invest.ProjectBudget2Collection;
+import com.kingdee.eas.port.pm.invest.ProjectBudget2E1Collection;
+import com.kingdee.eas.port.pm.invest.ProjectBudget2E1Info;
+import com.kingdee.eas.port.pm.invest.ProjectBudget2Factory;
+import com.kingdee.eas.port.pm.invest.ProjectBudget2Info;
+import com.kingdee.eas.util.SysUtil;
+import com.kingdee.eas.util.client.MsgBox;
 
 /**
  * output class name
@@ -41,6 +63,67 @@ public class ProjectStartRequestEditUI extends AbstractProjectStartRequestEditUI
         super.storeFields();
     }
 
+    public void onLoad() throws Exception {
+    	super.onLoad();
+    	
+    	KDDatePicker kdtE1_startDate_DatePicker = new KDDatePicker();
+        kdtE1_startDate_DatePicker.setName("kdtE1_startDate_DatePicker");
+        kdtE1_startDate_DatePicker.setVisible(true);
+        kdtE1_startDate_DatePicker.setEditable(true);
+        KDTDefaultCellEditor kdtE1_startDate_CellEditor = new KDTDefaultCellEditor(kdtE1_startDate_DatePicker);
+        
+        this.kdtE1.getColumn("startDate").setEditor(kdtE1_startDate_CellEditor);
+        this.kdtE1.getColumn("inviteDate").setEditor(kdtE1_startDate_CellEditor);
+        this.kdtE1.getColumn("buildDate").setEditor(kdtE1_startDate_CellEditor);
+        this.kdtE1.getColumn("finishDate").setEditor(kdtE1_startDate_CellEditor);
+        this.kdtE1.getColumn("endDate").setEditor(kdtE1_startDate_CellEditor);
+        
+        KDCheckBox kdtE1_unitProject_CheckBox = new KDCheckBox();
+        kdtE1_unitProject_CheckBox.setName("kdtE1_unitProject_CheckBox");
+        kdtE1_unitProject_CheckBox.setVisible(true);
+        kdtE1_unitProject_CheckBox.setEditable(true);
+        KDTDefaultCellEditor kdtE1_unitProject_CellEditor = new KDTDefaultCellEditor(kdtE1_unitProject_CheckBox);
+        this.kdtE1.getColumn("unitProject").setEditor(kdtE1_unitProject_CellEditor);
+        
+        String oql = "select a.fid from T_BD_Project a left join CT_INV_ProjectBudget2 b on b.CFProjectNameID=a.fid where b.fstatus='4'";
+        FilterInfo filter = new FilterInfo();
+		filter.getFilterItems().add(new FilterItemInfo("id",oql,CompareType.INNER));
+		EntityViewInfo view = new EntityViewInfo();
+		view.setFilter(filter);
+		this.prmtprojectName.setEntityViewInfo(view);
+    }
+    
+    protected void prmtprojectName_dataChanged(DataChangeEvent e)throws Exception {
+    	super.prmtprojectName_dataChanged(e);
+    	if(prmtprojectName.getValue()!=null)
+    	{
+    		this.kdtE1.removeRows();
+    		ProjectInfo Info = (ProjectInfo) prmtprojectName.getValue();
+    		
+    		FilterInfo filter = new FilterInfo();
+    		filter.getFilterItems().add(new FilterItemInfo("projectName.id",Info.getId(),CompareType.EQUALS));
+    		filter.getFilterItems().add(new FilterItemInfo("status","4",CompareType.EQUALS));
+    		EntityViewInfo view = new EntityViewInfo();
+    		view.setFilter(filter);
+    		ProjectBudget2Collection pbcol = ProjectBudget2Factory.getRemoteInstance().getProjectBudget2Collection(view);
+    		ICostType IcosType =CostTypeFactory.getRemoteInstance();
+    		ProjectBudget2Info pbInfo = pbcol.get(0);
+    		ProjectBudget2E1Collection pbe1col = pbInfo.getE1();
+    		for (int i = 0; i < pbe1col.size(); i++) {
+				ProjectBudget2E1Info e1Info = pbe1col.get(i);
+				IRow row = this.kdtE1.addRow(i);
+				if(e1Info.getCostName()!=null)
+				{
+					row.getCell("budgetName").setValue(IcosType.getCostTypeInfo(new ObjectUuidPK(e1Info.getCostName().getId())));
+				}
+				if(e1Info.getTotal()!=null)
+				{
+					row.getCell("budgetAmount").setValue(e1Info.getTotal());
+				}
+			}
+    	}
+    }
+    
     /**
      * output btnAddLine_actionPerformed method
      */
@@ -665,7 +748,7 @@ public class ProjectStartRequestEditUI extends AbstractProjectStartRequestEditUI
     {
         com.kingdee.eas.port.pm.invest.ProjectStartRequestInfo objectValue = new com.kingdee.eas.port.pm.invest.ProjectStartRequestInfo();
         objectValue.setCreator((com.kingdee.eas.base.permission.UserInfo)(com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentUser()));
-		
+		objectValue.setBizDate(new Date());
         return objectValue;
     }
 	protected void attachListeners() {

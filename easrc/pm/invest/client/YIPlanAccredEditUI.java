@@ -214,9 +214,11 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
 		int colIndex = e.getColIndex();
 		int rowIndex = e.getRowIndex();
 		String key = kdtE1.getColumnKey(colIndex);
-		if(this.kdtE1.getCell(rowIndex, "accredResu").getValue()!=null){
-		if(key.equals("accredResu")){
-			if(UIRuleUtil.getObject(this.kdtE1.getCell(rowIndex, "accredResu").getValue()).
+		if(this.kdtE1.getCell(rowIndex, "accredResu").getValue()!=null)
+		{
+			if(key.equals("accredResu"))
+			{
+				if(UIRuleUtil.getObject(this.kdtE1.getCell(rowIndex, "accredResu").getValue()).
 					equals(ObjectStateEnum.throughAudit)||UIRuleUtil.getObject(this.kdtE1.getCell(rowIndex, "accredResu").getValue()).
 					equals(ObjectStateEnum.accredit)||UIRuleUtil.getObject(this.kdtE1.getCell(rowIndex, "accredResu").getValue()).
 					equals(ObjectStateEnum.approval)){
@@ -227,6 +229,27 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
 		}
 	  }
 	}
+	protected void kdtE2_editStopped(KDTEditEvent e) throws Exception {
+		super.kdtE2_editStopped(e);
+		int colIndex = e.getColIndex();
+		int rowIndex = e.getRowIndex();
+		String key = kdtE2.getColumnKey(colIndex);
+		if(this.kdtE2.getCell(rowIndex, "accreConclu").getValue()!=null)
+		{
+			if(key.equals("accreConclu"))
+			{
+				if(UIRuleUtil.getObject(this.kdtE2.getCell(rowIndex, "accreConclu").getValue()).
+						equals(ObjectStateEnum.throughAudit)||UIRuleUtil.getObject(this.kdtE2.getCell(rowIndex, "accreConclu").getValue()).
+						equals(ObjectStateEnum.accredit)||UIRuleUtil.getObject(this.kdtE2.getCell(rowIndex, "accreConclu").getValue()).
+						equals(ObjectStateEnum.approval)){
+		        	this.kdtE2.getCell(rowIndex,"opinion").setValue("同意");
+		        }else{
+		        	this.kdtE2.getCell(rowIndex,"opinion").setValue("");
+		        }
+			}
+		}
+	}
+
 	/**
 	 * 校验分录列"projectConclude"值不能为空
 	 */
@@ -241,6 +264,20 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
 				if(UIRuleUtil.isNull(this.kdtE1.getCell(i, "projectConclude").getValue()))
 				{
 					MsgBox.showWarning("第{"+rowindex+"}行评审结果为{"+objState.getAlias()+"}的项目结论不能为空！");SysUtil.abort();
+				}
+			}
+			rowindex+=1;
+		}
+		
+		for (int j = 0; j < this.kdtE2.getRowCount(); j++) 
+		{
+			ClientVerifyXRHelper.verifyKDTCellNull(this, this.kdtE2, j, "accreConclu");
+			ObjectStateEnum objState = (ObjectStateEnum)UIRuleUtil.getObject(this.kdtE2.getCell(j, "accreConclu").getValue());
+			if(objState.equals(ObjectStateEnum.complement)||objState.equals(ObjectStateEnum.veto))
+			{
+				if(UIRuleUtil.isNull(this.kdtE2.getCell(j, "opinion").getValue()))
+				{
+					MsgBox.showWarning("第{"+rowindex+"}行评审结论为{"+objState.getAlias()+"}的意见不能为空！");SysUtil.abort();
 				}
 			}
 			rowindex+=1;

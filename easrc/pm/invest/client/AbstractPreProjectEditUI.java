@@ -255,7 +255,7 @@ public abstract class AbstractPreProjectEditUI extends com.kingdee.eas.xr.client
         this.contprojectName.setBoundLabelUnderline(true);		
         this.contprojectName.setVisible(true);
         // kdtE1
-		String kdtE1StrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /><c:NumberFormat>&amp;int</c:NumberFormat></c:Style><c:Style id=\"sCol3\"><c:NumberFormat>&amp;date</c:NumberFormat></c:Style><c:Style id=\"sCol4\"><c:NumberFormat>&amp;date</c:NumberFormat></c:Style><c:Style id=\"sCol5\"><c:NumberFormat>&amp;date</c:NumberFormat></c:Style><c:Style id=\"sCol6\"><c:NumberFormat>&amp;date</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"preWorkContent\" t:width=\"300\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"workReq\" t:width=\"300\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"planStartTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol3\" /><t:Column t:key=\"planCompTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol4\" /><t:Column t:key=\"actualPlanTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol5\" /><t:Column t:key=\"actualCompTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol6\" /><t:Column t:key=\"respondDepart\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"coDepart\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"hostPerson\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"remark\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{preWorkContent}</t:Cell><t:Cell>$Resource{workReq}</t:Cell><t:Cell>$Resource{planStartTime}</t:Cell><t:Cell>$Resource{planCompTime}</t:Cell><t:Cell>$Resource{actualPlanTime}</t:Cell><t:Cell>$Resource{actualCompTime}</t:Cell><t:Cell>$Resource{respondDepart}</t:Cell><t:Cell>$Resource{coDepart}</t:Cell><t:Cell>$Resource{hostPerson}</t:Cell><t:Cell>$Resource{remark}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		String kdtE1StrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /><c:NumberFormat>&amp;int</c:NumberFormat></c:Style><c:Style id=\"sCol3\"><c:NumberFormat>&amp;date</c:NumberFormat></c:Style><c:Style id=\"sCol4\"><c:NumberFormat>&amp;date</c:NumberFormat></c:Style><c:Style id=\"sCol5\"><c:NumberFormat>&amp;date</c:NumberFormat></c:Style><c:Style id=\"sCol6\"><c:NumberFormat>&amp;date</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"preWorkContent\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"workReq\" t:width=\"300\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"planStartTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol3\" /><t:Column t:key=\"planCompTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol4\" /><t:Column t:key=\"actualPlanTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol5\" /><t:Column t:key=\"actualCompTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol6\" /><t:Column t:key=\"hostPerson\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"7\" /><t:Column t:key=\"respondDepart\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"8\" /><t:Column t:key=\"coDepart\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"9\" /><t:Column t:key=\"remark\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{preWorkContent}</t:Cell><t:Cell>$Resource{workReq}</t:Cell><t:Cell>$Resource{planStartTime}</t:Cell><t:Cell>$Resource{planCompTime}</t:Cell><t:Cell>$Resource{actualPlanTime}</t:Cell><t:Cell>$Resource{actualCompTime}</t:Cell><t:Cell>$Resource{hostPerson}</t:Cell><t:Cell>$Resource{respondDepart}</t:Cell><t:Cell>$Resource{coDepart}</t:Cell><t:Cell>$Resource{remark}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.kdtE1.setFormatXml(resHelper.translateString("kdtE1",kdtE1StrXML));
         this.kdtE1.addKDTEditListener(new com.kingdee.bos.ctrl.kdf.table.event.KDTEditAdapter() {
@@ -268,7 +268,7 @@ public abstract class AbstractPreProjectEditUI extends com.kingdee.eas.xr.client
             }
         });
 
-                this.kdtE1.putBindContents("editData",new String[] {"seq","preWorkContent","workReq","planStartTime","planCompTime","actualPlanTime","actualCompTime","respondDepart","coDepart","hostPerson","remark"});
+                this.kdtE1.putBindContents("editData",new String[] {"seq","preWorkContent","workReq","planStartTime","planCompTime","actualPlanTime","actualCompTime","hostPerson","respondDepart","coDepart","remark"});
 
 
         this.kdtE1.checkParsed();
@@ -306,6 +306,18 @@ public abstract class AbstractPreProjectEditUI extends com.kingdee.eas.xr.client
         kdtE1_actualCompTime_DatePicker.setEditable(true);
         KDTDefaultCellEditor kdtE1_actualCompTime_CellEditor = new KDTDefaultCellEditor(kdtE1_actualCompTime_DatePicker);
         this.kdtE1.getColumn("actualCompTime").setEditor(kdtE1_actualCompTime_CellEditor);
+        final KDBizPromptBox kdtE1_hostPerson_PromptBox = new KDBizPromptBox();
+        kdtE1_hostPerson_PromptBox.setQueryInfo("com.kingdee.eas.basedata.person.app.PersonQuery");
+        kdtE1_hostPerson_PromptBox.setVisible(true);
+        kdtE1_hostPerson_PromptBox.setEditable(true);
+        kdtE1_hostPerson_PromptBox.setDisplayFormat("$number$");
+        kdtE1_hostPerson_PromptBox.setEditFormat("$number$");
+        kdtE1_hostPerson_PromptBox.setCommitFormat("$number$");
+        KDTDefaultCellEditor kdtE1_hostPerson_CellEditor = new KDTDefaultCellEditor(kdtE1_hostPerson_PromptBox);
+        this.kdtE1.getColumn("hostPerson").setEditor(kdtE1_hostPerson_CellEditor);
+        ObjectValueRender kdtE1_hostPerson_OVR = new ObjectValueRender();
+        kdtE1_hostPerson_OVR.setFormat(new BizDataFormat("$name$"));
+        this.kdtE1.getColumn("hostPerson").setRenderer(kdtE1_hostPerson_OVR);
         final KDBizPromptBox kdtE1_respondDepart_PromptBox = new KDBizPromptBox();
         kdtE1_respondDepart_PromptBox.setQueryInfo("com.kingdee.eas.basedata.org.app.AdminItemQuery");
         kdtE1_respondDepart_PromptBox.setVisible(true);
@@ -330,18 +342,6 @@ public abstract class AbstractPreProjectEditUI extends com.kingdee.eas.xr.client
         ObjectValueRender kdtE1_coDepart_OVR = new ObjectValueRender();
         kdtE1_coDepart_OVR.setFormat(new BizDataFormat("$name$"));
         this.kdtE1.getColumn("coDepart").setRenderer(kdtE1_coDepart_OVR);
-        final KDBizPromptBox kdtE1_hostPerson_PromptBox = new KDBizPromptBox();
-        kdtE1_hostPerson_PromptBox.setQueryInfo("com.kingdee.eas.basedata.person.app.PersonQuery");
-        kdtE1_hostPerson_PromptBox.setVisible(true);
-        kdtE1_hostPerson_PromptBox.setEditable(true);
-        kdtE1_hostPerson_PromptBox.setDisplayFormat("$number$");
-        kdtE1_hostPerson_PromptBox.setEditFormat("$number$");
-        kdtE1_hostPerson_PromptBox.setCommitFormat("$number$");
-        KDTDefaultCellEditor kdtE1_hostPerson_CellEditor = new KDTDefaultCellEditor(kdtE1_hostPerson_PromptBox);
-        this.kdtE1.getColumn("hostPerson").setEditor(kdtE1_hostPerson_CellEditor);
-        ObjectValueRender kdtE1_hostPerson_OVR = new ObjectValueRender();
-        kdtE1_hostPerson_OVR.setFormat(new BizDataFormat("$name$"));
-        this.kdtE1.getColumn("hostPerson").setRenderer(kdtE1_hostPerson_OVR);
         KDTextArea kdtE1_remark_TextArea = new KDTextArea();
         kdtE1_remark_TextArea.setName("kdtE1_remark_TextArea");
         kdtE1_remark_TextArea.setMaxLength(255);
@@ -438,40 +438,40 @@ public abstract class AbstractPreProjectEditUI extends com.kingdee.eas.xr.client
      */
     public void initUIContentLayout()
     {
-        this.setBounds(new Rectangle(10, 10, 1013, 341));
+        this.setBounds(new Rectangle(10, 10, 1013, 629));
         this.setLayout(new KDLayout());
-        this.putClientProperty("OriginalBounds", new Rectangle(10, 10, 1013, 341));
-        contCreator.setBounds(new Rectangle(10, 250, 270, 19));
-        this.add(contCreator, new KDLayout.Constraints(10, 250, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contCreateTime.setBounds(new Rectangle(10, 274, 270, 19));
-        this.add(contCreateTime, new KDLayout.Constraints(10, 274, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contLastUpdateUser.setBounds(new Rectangle(372, 250, 270, 19));
-        this.add(contLastUpdateUser, new KDLayout.Constraints(372, 250, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contLastUpdateTime.setBounds(new Rectangle(372, 274, 270, 19));
-        this.add(contLastUpdateTime, new KDLayout.Constraints(372, 274, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        this.putClientProperty("OriginalBounds", new Rectangle(10, 10, 1013, 629));
+        contCreator.setBounds(new Rectangle(10, 545, 270, 19));
+        this.add(contCreator, new KDLayout.Constraints(10, 545, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contCreateTime.setBounds(new Rectangle(10, 569, 270, 19));
+        this.add(contCreateTime, new KDLayout.Constraints(10, 569, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contLastUpdateUser.setBounds(new Rectangle(372, 545, 270, 19));
+        this.add(contLastUpdateUser, new KDLayout.Constraints(372, 545, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contLastUpdateTime.setBounds(new Rectangle(372, 569, 270, 19));
+        this.add(contLastUpdateTime, new KDLayout.Constraints(372, 569, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contCU.setBounds(new Rectangle(372, 10, 270, 19));
         this.add(contCU, new KDLayout.Constraints(372, 10, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contNumber.setBounds(new Rectangle(10, 10, 270, 19));
         this.add(contNumber, new KDLayout.Constraints(10, 10, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contBizDate.setBounds(new Rectangle(735, 34, 270, 19));
         this.add(contBizDate, new KDLayout.Constraints(735, 34, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contDescription.setBounds(new Rectangle(10, 298, 270, 19));
-        this.add(contDescription, new KDLayout.Constraints(10, 298, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contAuditor.setBounds(new Rectangle(735, 250, 270, 19));
-        this.add(contAuditor, new KDLayout.Constraints(735, 250, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contDescription.setBounds(new Rectangle(684, 606, 8, 19));
+        this.add(contDescription, new KDLayout.Constraints(684, 606, 8, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contAuditor.setBounds(new Rectangle(735, 545, 270, 19));
+        this.add(contAuditor, new KDLayout.Constraints(735, 545, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contStatus.setBounds(new Rectangle(735, 10, 270, 19));
         this.add(contStatus, new KDLayout.Constraints(735, 10, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contBizStatus.setBounds(new Rectangle(372, 298, 270, 19));
-        this.add(contBizStatus, new KDLayout.Constraints(372, 298, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contAuditTime.setBounds(new Rectangle(735, 274, 270, 19));
-        this.add(contAuditTime, new KDLayout.Constraints(735, 274, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contBizStatus.setBounds(new Rectangle(669, 604, 8, 19));
+        this.add(contBizStatus, new KDLayout.Constraints(669, 604, 8, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contAuditTime.setBounds(new Rectangle(735, 569, 270, 19));
+        this.add(contAuditTime, new KDLayout.Constraints(735, 569, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         conttempName.setBounds(new Rectangle(10, 34, 270, 19));
         this.add(conttempName, new KDLayout.Constraints(10, 34, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contprojectName.setBounds(new Rectangle(372, 34, 270, 19));
         this.add(contprojectName, new KDLayout.Constraints(372, 34, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        kdtE1.setBounds(new Rectangle(10, 58, 933, 170));
+        kdtE1.setBounds(new Rectangle(10, 58, 990, 462));
         kdtE1_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtE1,new com.kingdee.eas.port.pm.invest.PreProjectE1Info(),null,false);
-        this.add(kdtE1_detailPanel, new KDLayout.Constraints(10, 58, 933, 170, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        this.add(kdtE1_detailPanel, new KDLayout.Constraints(10, 58, 990, 462, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         //contCreator
         contCreator.setBoundEditor(prmtCreator);
         //contCreateTime

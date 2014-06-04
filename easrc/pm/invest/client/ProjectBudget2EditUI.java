@@ -6,6 +6,7 @@ package com.kingdee.eas.port.pm.invest.client;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.math.BigDecimal;
+import java.util.Date;
 
 import org.apache.log4j.Logger;
 
@@ -25,7 +26,6 @@ import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.eas.basedata.assistant.IMeasureUnit;
 import com.kingdee.eas.basedata.assistant.MeasureUnitFactory;
 import com.kingdee.eas.basedata.assistant.ProjectInfo;
-import com.kingdee.eas.port.pm.base.CostType;
 import com.kingdee.eas.port.pm.base.CostTypeFactory;
 import com.kingdee.eas.port.pm.base.CostTypeTreeFactory;
 import com.kingdee.eas.port.pm.base.ICostType;
@@ -36,6 +36,7 @@ import com.kingdee.eas.port.pm.invest.ProjectEstimateE1Info;
 import com.kingdee.eas.port.pm.invest.ProjectEstimateFactory;
 import com.kingdee.eas.port.pm.invest.ProjectEstimateInfo;
 import com.kingdee.eas.util.client.MsgBox;
+import com.kingdee.eas.xr.app.XRBillStatusEnum;
 
 /**
  * output class name
@@ -69,21 +70,56 @@ public class ProjectBudget2EditUI extends AbstractProjectBudget2EditUI
 		contBizStatus.setVisible(false);
 		comboBizStatus.setVisible(false);
 		kdtE1.getColumn("seq").getStyleAttributes().setHided(true);
-    };
+		
+		FilterInfo filter = new FilterInfo();
+		filter.getFilterItems().add(new FilterItemInfo("NJGprojectType.name","基本建设",com.kingdee.bos.metadata.query.util.CompareType.EQUALS));
+//		filter.getFilterItems().add(new FilterItemInfo("Status",XRBillStatusEnum.AUDITED));
+		EntityViewInfo view = new EntityViewInfo();
+		view.setFilter(filter);
+		this.prmtprojectName.setEntityViewInfo(view);
+		
+    }
     public void storeFields()
     {
         super.storeFields();
     }
     protected void verifyInput(ActionEvent actionevent) throws Exception {
-    	BigDecimal proportionCount = new BigDecimal(UIRuleUtil.sum(this.kdtE1,"proportion"));
+    	BigDecimal proportionCount = com.kingdee.eas.xr.helper.TableXRHelper.getColumnValueSum(this.kdtE1,"proportion");
     	if(proportionCount.compareTo(new BigDecimal(100.00))!=0){
     		MsgBox.showWarning("请确定占总投资总和为100%！");abort();
     	}
-    	BigDecimal totalCount = new BigDecimal(UIRuleUtil.sum(this.kdtE1,"total"));
+    	BigDecimal totalCount = com.kingdee.eas.xr.helper.TableXRHelper.getColumnValueSum(this.kdtE1,"total");
     	BigDecimal estimateCost =this.txtestimateCost.getBigDecimalValue();
     	if(estimateCost.compareTo(totalCount)!=0){
     		MsgBox.showWarning("请确定概算金额等于合计总金额！");abort();
     	}
+    	
+    	if (editData.getNumber() == null) {
+            try {
+            	String companyID = null;
+				if(!com.kingdee.util.StringUtils.isEmpty("NONE") && !"NONE".equalsIgnoreCase("NONE") && com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentOrgUnit(com.kingdee.eas.basedata.org.OrgType.getEnum("NONE"))!=null) {
+					companyID = com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentOrgUnit(com.kingdee.eas.basedata.org.OrgType.getEnum("NONE")).getString("id");
+				}
+				else if (com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentOrgUnit() != null) {
+					companyID = ((com.kingdee.eas.basedata.org.OrgUnitInfo)com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentOrgUnit()).getString("id");
+            	}
+				com.kingdee.eas.base.codingrule.ICodingRuleManager iCodingRuleManager = com.kingdee.eas.base.codingrule.CodingRuleManagerFactory.getRemoteInstance();
+		        if (iCodingRuleManager.isExist(editData, companyID)) {
+		            editData.setNumber(iCodingRuleManager.getNumber(editData,companyID));
+	                txtNumber.setEnabled(false);
+		        }
+            }
+            catch (Exception e) {
+                handUIException(e);
+                this.oldData = editData;
+                com.kingdee.eas.util.SysUtil.abort();
+            } 
+        } 
+        else {
+            if (editData.getNumber().trim().length() > 0) {
+                txtNumber.setText(editData.getNumber());
+            }
+        }
     	super.verifyInput(actionevent);
     }
     
@@ -265,7 +301,16 @@ public class ProjectBudget2EditUI extends AbstractProjectBudget2EditUI
                   }
           });
     }
-
+    
+    public boolean checkBeforeWindowClosing() {
+    	if(editData.getId()==null)
+    		recycleNumberByOrg(editData, "NONE", this.txtNumber.getText().trim());
+    	
+    	return super.checkBeforeWindowClosing();
+    }
+    protected void setAutoNumberByOrg(String orgType) {
+    	super.setAutoNumberByOrg(orgType);
+    }
     /**
      * output btnAddLine_actionPerformed method
      */
@@ -890,22 +935,16 @@ public class ProjectBudget2EditUI extends AbstractProjectBudget2EditUI
     {
         com.kingdee.eas.port.pm.invest.ProjectBudget2Info objectValue = new com.kingdee.eas.port.pm.invest.ProjectBudget2Info();
         objectValue.setCreator((com.kingdee.eas.base.permission.UserInfo)(com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentUser()));
-		
+		objectValue.setBizDate(new Date());
         return objectValue;
     }
-	@Override
 	protected void attachListeners() {
-		// TODO Auto-generated method stub
 		
 	}
-	@Override
 	protected void detachListeners() {
-		// TODO Auto-generated method stub
 		
 	}
-	@Override
 	protected KDTextField getNumberCtrl() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

@@ -21,18 +21,19 @@ import com.kingdee.bos.ctrl.swing.KDTextField;
 import com.kingdee.bos.ctrl.swing.event.DataChangeEvent;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.bos.metadata.entity.EntityViewInfo;
+import com.kingdee.bos.metadata.entity.FilterInfo;
+import com.kingdee.bos.metadata.entity.FilterItemInfo;
+import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.UIRuleUtil;
-import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.port.pm.base.CostTypeTreeFactory;
 import com.kingdee.eas.port.pm.base.ICostType;
 import com.kingdee.eas.port.pm.base.ICostTypeTree;
 import com.kingdee.eas.port.pm.invest.CostTempE1Collection;
 import com.kingdee.eas.port.pm.invest.CostTempE1Info;
 import com.kingdee.eas.port.pm.invest.CostTempInfo;
-import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
-
 /**
  * output class name
  */
@@ -81,17 +82,23 @@ public class ProjectEstimateEditUI extends AbstractProjectEstimateEditUI
 		kdtE1_costType_OVR.setFormat(new BizDataFormat("$E1.costType.name$"));
 		this.kdtE1.getColumn("costType").setRenderer(kdtE1_costType_OVR);
 		
+		FilterInfo filter = new FilterInfo();
+		filter.getFilterItems().add(new FilterItemInfo("NJGprojectType.name","基本建设",com.kingdee.bos.metadata.query.util.CompareType.EQUALS));
+		EntityViewInfo view = new EntityViewInfo();
+		view.setFilter(filter);
+		this.prmtprojectName.setEntityViewInfo(view);
+		
     }
     public void storeFields()
     {
         super.storeFields();
     }
     protected void verifyInput(ActionEvent actionevent) throws Exception {
-    	BigDecimal proportionCount = new BigDecimal(UIRuleUtil.sum(this.kdtE1,"proportion"));
+    	BigDecimal proportionCount = com.kingdee.eas.xr.helper.TableXRHelper.getColumnValueSum(this.kdtE1,"proportion");
     	 if(proportionCount.compareTo(new BigDecimal(100.00))!=0){
-    		MsgBox.showWarning("请确定占总投资总和为100%！");abort();
+    		MsgBox.showWarning("请确定占总投资总和为100！");abort();
     	} 
-    	BigDecimal totalCount = new BigDecimal(UIRuleUtil.sum(this.kdtE1,"total"));
+    	BigDecimal totalCount = com.kingdee.eas.xr.helper.TableXRHelper.getColumnValueSum(this.kdtE1,"total");
     	BigDecimal esamount =this.txtestimateAmount.getBigDecimalValue();
     	if(esamount.compareTo(totalCount)!=0){
     		MsgBox.showWarning("请确定估算金额等于合计总金额！");abort();

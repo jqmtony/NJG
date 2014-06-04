@@ -18,17 +18,6 @@ public class AbstractProjectStartRequestInfo extends com.kingdee.eas.xr.XRBillBa
         super(pkField);
     }
     /**
-     * Object: 项目启动申请 's 项目名称 property 
-     */
-    public com.kingdee.eas.port.pm.project.PortProjectInfo getProjectName()
-    {
-        return (com.kingdee.eas.port.pm.project.PortProjectInfo)get("projectName");
-    }
-    public void setProjectName(com.kingdee.eas.port.pm.project.PortProjectInfo item)
-    {
-        put("projectName", item);
-    }
-    /**
      * Object:项目启动申请's 实施方案property 
      */
     public String getScheme()
@@ -38,6 +27,17 @@ public class AbstractProjectStartRequestInfo extends com.kingdee.eas.xr.XRBillBa
     public void setScheme(String item)
     {
         setString("scheme", item);
+    }
+    /**
+     * Object: 项目启动申请 's 项目名称 property 
+     */
+    public com.kingdee.eas.basedata.assistant.ProjectInfo getProjectName()
+    {
+        return (com.kingdee.eas.basedata.assistant.ProjectInfo)get("projectName");
+    }
+    public void setProjectName(com.kingdee.eas.basedata.assistant.ProjectInfo item)
+    {
+        put("projectName", item);
     }
     public BOSObjectType getBOSType()
     {

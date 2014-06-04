@@ -42,7 +42,6 @@ import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.port.pm.invest.PreProjectE1Info;
 import com.kingdee.eas.port.pm.invest.PreProjectFactory;
-import com.kingdee.eas.port.pm.invest.PreProjectInfo;
 import com.kingdee.eas.port.pm.invest.PreProjectTempE1Collection;
 import com.kingdee.eas.port.pm.invest.PreProjectTempE1Info;
 import com.kingdee.eas.port.pm.invest.PreProjectTempInfo;
@@ -55,6 +54,7 @@ import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
 import com.kingdee.eas.xr.app.XRBillStatusEnum;
 import com.kingdee.eas.xr.helper.ClientVerifyXRHelper;
+import com.kingdee.eas.xr.helper.DateXRHelper;
 
 /**
  * output class name
@@ -235,6 +235,8 @@ public class PreProjectEditUI extends AbstractPreProjectEditUI
     }
     protected void verifyInput(ActionEvent e) throws Exception {
     	super.verifyInput(e);
+    	ClientVerifyXRHelper.verifyNull(this, this.prmtprojectName, "项目名称");
+    	ClientVerifyXRHelper.verifyNull(this, this.prmttempName, "模板名称");
     	if (kdtE1.getRowCount()<1) {
 			MsgBox.showInfo("分录中没数据，请检查！");
 			SysUtil.abort();
@@ -244,7 +246,8 @@ public class PreProjectEditUI extends AbstractPreProjectEditUI
 			ClientVerifyXRHelper.verifyKDTCellNull(this, this.kdtE1, i, "planCompTime");
 			ClientVerifyXRHelper.verifyKDTCellNull(this, this.kdtE1, i, "respondDepart");
 			ClientVerifyXRHelper.verifyKDTCellNull(this, this.kdtE1, i, "hostPerson");
-			if(UIRuleUtil.getDateValue(kdtE1.getCell(i,"planStartTime").getValue()).after(UIRuleUtil.getDateValue(kdtE1.getCell(i,"planCompTime").getValue()))){
+			if(DateXRHelper.formatDate((Date) this.kdtE1.getCell(i,"planStartTime" ).getValue()).
+					compareTo(DateXRHelper.formatDate((Date)kdtE1.getCell(i,"planCompTime").getValue()))>0){
 				MsgBox.showWarning("计划开始时间不能晚于计划完成时间");
 				SysUtil.abort();
 			}
@@ -289,43 +292,53 @@ public class PreProjectEditUI extends AbstractPreProjectEditUI
 		int rowIndex = e.getRowIndex();
 		String key = kdtE1.getColumnKey(colIndex);
 		
+		ProjectInfo preInfo = (ProjectInfo) prmtprojectName.getValue();
+		FilterInfo filter = new FilterInfo();
+		filter.getFilterItems().add(new FilterItemInfo("projectName.id",preInfo.getId().toString()));
+		EntityViewInfo view = new EntityViewInfo();
+		view.setFilter(filter);
+		
 		if(key.equals("actualPlanTime")||key.equals("actualCompTime"))
 		{
-			IRow row = kdtE1.getRow(rowIndex);
-			String s = row.getCell("preWorkContent").getValue().toString().trim();
-			if(s.compareTo("工可报告") == 0)
+			for (int i = 0; i <this.kdtE1.getRowCount(); i++) {
+				if(UIRuleUtil.getDateValue(kdtE1.getCell(i,"actualPlanTime").getValue())!=null&&UIRuleUtil.getDateValue(kdtE1.getCell(i,"actualCompTime").getValue())!=null)
+					if(DateXRHelper.formatDate((Date) this.kdtE1.getCell(i,"actualPlanTime" ).getValue()).
+							compareTo(DateXRHelper.formatDate((Date)kdtE1.getCell(i,"actualCompTime").getValue()))>0)
+				{
+					MsgBox.showWarning("实际开始时间不能晚于实际完成时间");
+					SysUtil.abort();
+				}
+			}
+			if(this.kdtE1.getCell(rowIndex, "preWorkContent").getValue().equals("工可报告"))
 			{
-				ProjectInfo preInfo = (ProjectInfo) prmtprojectName.getValue();
-				FilterInfo filter = new FilterInfo();
-				filter.getFilterItems().add(new FilterItemInfo("projectName.id",preInfo.getId().toString()));
-				EntityViewInfo view = new EntityViewInfo();
-				view.setFilter(filter);
+				
 				ProjectEstimateCollection procol = ProjectEstimateFactory.getRemoteInstance().getProjectEstimateCollection(view);
-				if(procol.size()>0){
-					if(!procol.get(0).getStatus().equals(XRBillStatusEnum.AUDITED)){
+				if(procol.size()>0)
+				{
+					if(!procol.get(0).getStatus().equals(XRBillStatusEnum.AUDITED))
+					{
 						this.kdtE1.getCell(rowIndex, "actualPlanTime").setValue(null);
 						this.kdtE1.getCell(rowIndex, "actualCompTime").setValue(null);
+						
 					}
-				}else{
+				}else
+				{
 					this.kdtE1.getCell(rowIndex, "actualPlanTime").setValue(null);
 					this.kdtE1.getCell(rowIndex, "actualCompTime").setValue(null);
 				}
 			}
-			
-			if(this.kdtE1.getCell(rowIndex, "preWorkContent").getValue().equals("初步设计"))
+			else if(this.kdtE1.getCell(rowIndex, "preWorkContent").getValue().equals("初步设计"))
 			{
-				ProjectInfo preInfo = (ProjectInfo) prmtprojectName.getValue();
-				FilterInfo filter = new FilterInfo();
-				filter.getFilterItems().add(new FilterItemInfo("projectName.id",preInfo.getId().toString()));
-				EntityViewInfo view = new EntityViewInfo();
-				view.setFilter(filter);
-				ProjectBudget2Collection procol = ProjectBudget2Factory.getRemoteInstance().getProjectBudget2Collection(view);
-				if(procol.size()>0){
-					if(!procol.get(0).getStatus().equals(XRBillStatusEnum.AUDITED)){
+				ProjectBudget2Collection probcol = ProjectBudget2Factory.getRemoteInstance().getProjectBudget2Collection(view);
+				if(probcol.size()>0)
+				{
+					if(!probcol.get(0).getStatus().equals(XRBillStatusEnum.AUDITED))
+					{
 						this.kdtE1.getCell(rowIndex, "actualPlanTime").setValue(null);
 						this.kdtE1.getCell(rowIndex, "actualCompTime").setValue(null);
 					}
-				}else{
+				}else
+				{
 					this.kdtE1.getCell(rowIndex, "actualPlanTime").setValue(null);
 					this.kdtE1.getCell(rowIndex, "actualCompTime").setValue(null);
 				}
@@ -337,7 +350,6 @@ public class PreProjectEditUI extends AbstractPreProjectEditUI
     public void actionSubmitTwo_actionPerformed(ActionEvent e) throws Exception {
     	super.actionSubmitTwo_actionPerformed(e);
     	storeFields();
-    	
     	PreProjectFactory.getRemoteInstance().update(new ObjectUuidPK(editData.getId()), editData);
     	MsgBox.showInfo("保存成功！");
     	setOprtState("VIEW");
