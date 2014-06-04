@@ -1357,6 +1357,10 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 	
 	public void actionRegistChange_actionPerformed(ActionEvent e)throws Exception {
 		super.actionRegistChange_actionPerformed(e);
+		if(chkspecial.getSelected() ==16){
+			 MsgBox.showWarning("特种设备才能变更！");
+				SysUtil.abort();
+		}
 		IUIWindow uiWindow = null;
 		UIContext context = new UIContext(this);
 		context.put("EquID", editData.getId().toString());

@@ -19,10 +19,15 @@ import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.eas.basedata.org.AdminOrgUnitFactory;
+import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.port.equipment.record.EquIdFactory;
 import com.kingdee.eas.port.equipment.record.EquIdInfo;
+import com.kingdee.eas.port.equipment.special.client.AbstractImportEquIdUI.ActionRegistChange;
+import com.kingdee.eas.xr.helper.XRSQLBuilder;
+import com.kingdee.jdbc.rowset.IRowSet;
 
 /**
  * output class name
@@ -741,6 +746,56 @@ public class SpecialChangeEditUI extends AbstractSpecialChangeEditUI
 			kdtE1_equNumber_PromptBox.setEntityViewInfo(evi);
 			 KDTDefaultCellEditor kdtEntry_feeType_CellEditor = new KDTDefaultCellEditor(kdtE1_equNumber_PromptBox);
 			 kdtEntry.getColumn("zdaNumber").setEditor(kdtEntry_feeType_CellEditor);
-		
+			 
+			 if(OprtState.ADDNEW.equals(getOprtState())&&getUIContext().get("EquID")!=null)
+			 {
+				 String equID = (String) getUIContext().get("EquID");
+				 StringBuffer sb = new StringBuffer();
+				 sb.append("/*dialect*/select * from (");
+				 sb.append(" select a.CFNewUseUnitID unitID,a.CFNewUnitCode code,a.fcontrolunitID,a.faudittime ,b.CFZdaNumberID");
+				 sb.append("  from CT_SPE_SpecialChange a");
+				 sb.append("  left join  CT_SPE_SpecialChangeEntry b on a.fid = b.fparentid");
+				 sb.append("  where a.fcontrolunitID = '"+id+"'");
+				 sb.append("  and b.CFZdaNumberID='"+equID+"'");
+				 sb.append("  order by a.faudittime DESC)");
+				 sb.append("  where ROWNUM = '1'");
+				 
+				 IRowSet rowSet = new XRSQLBuilder().appendSql(sb.toString()).executeQuery();
+				 while (rowSet.next()) {
+					 String id1 = rowSet.getString("unitID");
+					 AdminOrgUnitInfo aoInfo = AdminOrgUnitFactory.getRemoteInstance().getAdminOrgUnitInfo(new ObjectUuidPK(id1));
+					 prmtoldUseUnit.setValue(aoInfo);
+					 txtoldUnitCode.setText(rowSet.getString("code"));
+					 
+				 }
+			 }
 	}
+	
+	public void kdtEntry_Changed(int rowIndex, int colIndex) throws Exception {
+		super.kdtEntry_Changed(rowIndex, colIndex);
+		if(getUIContext().get("EquID")==null && kdtEntry.getCell(rowIndex, "zdaNumber").getValue() !=null){
+			String id = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
+			String equID = (String) getUIContext().get("EquID");
+			 StringBuffer sb = new StringBuffer();
+			 sb.append("/*dialect*/select * from (");
+			 sb.append(" select a.CFNewUseUnitID unitID,a.CFNewUnitCode code,a.fcontrolunitID,a.faudittime ,b.CFZdaNumberID");
+			 sb.append("  from CT_SPE_SpecialChange a");
+			 sb.append("  left join  CT_SPE_SpecialChangeEntry b on a.fid = b.fparentid");
+			 sb.append("  where a.fcontrolunitID = '"+id+"'");
+			 sb.append("  and b.CFZdaNumberID='"+equID+"'");
+			 sb.append("  order by a.faudittime DESC)");
+			 sb.append("  where ROWNUM = '1'");
+			 
+			 IRowSet rowSet = new XRSQLBuilder().appendSql(sb.toString()).executeQuery();
+			 while (rowSet.next()) {
+				 String id1 = rowSet.getString("unitID");
+				 AdminOrgUnitInfo aoInfo = AdminOrgUnitFactory.getRemoteInstance().getAdminOrgUnitInfo(new ObjectUuidPK(id1));
+				 prmtoldUseUnit.setValue(aoInfo.getName());
+				 txtoldUnitCode.setText(rowSet.getString("code"));
+				 
+			 }
+		}
+	}
+	
+	
 }
