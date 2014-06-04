@@ -4,6 +4,8 @@
 package com.kingdee.eas.port.equipment.operate.client;
 
 import java.awt.event.ActionEvent;
+import java.math.BigDecimal;
+import java.util.Date;
 
 import org.apache.log4j.Logger;
 
@@ -21,6 +23,8 @@ import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.metadata.entity.SelectorItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.ui.face.UIRuleUtil;
+import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.fi.fa.basedata.FaCatFactory;
@@ -31,6 +35,8 @@ import com.kingdee.eas.port.equipment.base.enumbase.sbStatusType;
 import com.kingdee.eas.port.equipment.record.EquIdCollection;
 import com.kingdee.eas.port.equipment.record.EquIdFactory;
 import com.kingdee.eas.port.equipment.record.EquIdInfo;
+import com.kingdee.eas.xr.helper.XRSQLBuilder;
+import com.kingdee.jdbc.rowset.IRowSet;
 
 /**
  * output class name
@@ -48,9 +54,11 @@ public class EumUseRecordEditUI extends AbstractEumUseRecordEditUI {
 
 	public void onLoad() throws Exception {
 		 this.kdtEqmUse.getColumn("seq").getStyleAttributes().setHided(true);
+		 prmtUseOrgUnit.setEnabled(false);
 		super.onLoad();
 		if(getOprtState().equals(OprtState.ADDNEW)){
-
+			pkBizDate.setValue(new Date());
+			prmtstaPerson.setValue(com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentUserInfo().getPerson());
 			FilterInfo filter = new FilterInfo();
 			EntityViewInfo view = new EntityViewInfo();
 			view.setFilter(filter);
@@ -68,6 +76,27 @@ public class EumUseRecordEditUI extends AbstractEumUseRecordEditUI {
 				row.getCell("eqmType").setValue(eqmcat);
 				row.getCell("eqmCategory").setValue(info.getEqmCategory());
 //				System.out.println(info.getName()+"=============>"+eqmcat);
+			}
+			this.prmtUseOrgUnit.setValue(SysContext.getSysContext().getCurrentAdminUnit());
+			
+			String id = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
+			StringBuffer sb = new StringBuffer();
+			
+			sb.append("/*dialect*/select");
+			sb.append(" a.cfname 设备名称,b.fname_l2 设备类型,a.CFEqmCategory 设备类别,a.CFModel 规格型号");
+			sb.append(" from CT_REC_EquId a");
+			sb.append(" left join T_FA_Cat b on a.CFEqmTypeID = b.fid");
+			sb.append(" where a.cfsbstatus <>'3'");
+			sb.append(" and a.CFIsMainEqm = '1'");
+			sb.append(" and a.CFSsOrgUnitID = '"+id+"'");
+			IRowSet rowSet = new XRSQLBuilder().appendSql(sb.toString()).executeQuery();
+			this.kdtEqmUse.removeRows();
+			while (rowSet.next()) {
+				IRow row = this.kdtEqmUse.addRow();
+				row.getCell("eqmName").setValue(rowSet.getString("设备名称"));
+				row.getCell("modelType").setValue(rowSet.getString("规格型号"));
+				row.getCell("eqmCategory").setValue(rowSet.getString("设备类别"));
+				row.getCell("eqmType").setValue(rowSet.getString("设备类型"));
 			}
 		}
 	}
