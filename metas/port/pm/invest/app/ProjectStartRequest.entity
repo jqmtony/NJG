@@ -719,20 +719,6 @@
         <key name="name" value="CT_INV_ProjectStartRequest" />
     </table>
     <properties>
-        <linkProperty>
-            <name>projectName</name>
-            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectStartRequest].properties.linkProperty[projectName].alias</alias>
-            <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectStartRequest].properties.linkProperty[projectName].description</description>
-            <userDefined>true</userDefined>
-            <configured>false</configured>
-            <mappingField>
-                <key name="name" value="CFProjectNameID" />
-            </mappingField>
-            <relationship>
-                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
-                <key name="name" value="R_ProjectStartRequest_PortProject_projectName" />
-            </relationship>
-        </linkProperty>
         <ownProperty>
             <name>scheme</name>
             <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectStartRequest].properties.ownProperty[scheme].alias</alias>
@@ -753,6 +739,20 @@
                 <key name="name" value="CFScheme" />
             </mappingField>
         </ownProperty>
+        <linkProperty>
+            <name>projectName</name>
+            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectStartRequest].properties.linkProperty[projectName].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectStartRequest].properties.linkProperty[projectName].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <mappingField>
+                <key name="name" value="CFProjectNameID" />
+            </mappingField>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="R_ProjectStartRequest_Project_projectName" />
+            </relationship>
+        </linkProperty>
     </properties>
     <logicalKey>
         <name>id</name>

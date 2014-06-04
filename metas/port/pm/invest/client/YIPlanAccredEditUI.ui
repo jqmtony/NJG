@@ -1756,9 +1756,7 @@
                     <listenerType>com.kingdee.bos.ctrl.kdf.table.event.KDTEditListener</listenerType>
                     <listenerAdapter>com.kingdee.bos.ctrl.kdf.table.event.KDTEditAdapter</listenerAdapter>
                     <methodName>kdtE1_editStopped</methodName>
-                    <code>
-      //write your code here00
-</code>
+                    <code>//write your code here00</code>
                     <isBindWorkFlow>false</isBindWorkFlow>
                     <herited>false</herited>
                     <userDefined>true</userDefined>
@@ -1871,6 +1869,22 @@
                     <userDefined>true</userDefined>
                 </propertyBinding>
             </propertyBindings>
+            <eventBindings>
+                <eventBinding>
+                    <name>editStopped</name>
+                    <eventType>com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent</eventType>
+                    <scene />
+                    <listenerType>com.kingdee.bos.ctrl.kdf.table.event.KDTEditListener</listenerType>
+                    <listenerAdapter>com.kingdee.bos.ctrl.kdf.table.event.KDTEditAdapter</listenerAdapter>
+                    <methodName>kdtE2_editStopped</methodName>
+                    <code>
+      //write your code here00
+</code>
+                    <isBindWorkFlow>false</isBindWorkFlow>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </eventBinding>
+            </eventBindings>
         </component>
         <component>
             <name>kDLabelContainer1</name>
