@@ -739,6 +739,7 @@ public class SpecialChangeEditUI extends AbstractSpecialChangeEditUI
 	        kdtE1_equNumber_PromptBox.setCommitFormat("$number$");
 	   	 EntityViewInfo evi = new EntityViewInfo();
 			 FilterInfo filter = new FilterInfo();
+			 filter.getFilterItems().add(new FilterItemInfo("special","1",CompareType.EQUALS));
 			 filter.getFilterItems().add(new FilterItemInfo("sbStatus","3",CompareType.NOTEQUALS));
 			 String id = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
 	 		 filter.getFilterItems().add(new FilterItemInfo("ssOrgUnit.id",id ,CompareType.EQUALS));
@@ -775,7 +776,7 @@ public class SpecialChangeEditUI extends AbstractSpecialChangeEditUI
 		super.kdtEntry_Changed(rowIndex, colIndex);
 		if(getUIContext().get("EquID")==null && kdtEntry.getCell(rowIndex, "zdaNumber").getValue() !=null){
 			String id = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
-			String equID = (String) getUIContext().get("EquID");
+			String equID =((EquIdInfo)kdtEntry.getCell(rowIndex, "zdaNumber").getValue()).getId().toString() ;
 			 StringBuffer sb = new StringBuffer();
 			 sb.append("/*dialect*/select * from (");
 			 sb.append(" select a.CFNewUseUnitID unitID,a.CFNewUnitCode code,a.fcontrolunitID,a.faudittime ,b.CFZdaNumberID");
@@ -790,7 +791,7 @@ public class SpecialChangeEditUI extends AbstractSpecialChangeEditUI
 			 while (rowSet.next()) {
 				 String id1 = rowSet.getString("unitID");
 				 AdminOrgUnitInfo aoInfo = AdminOrgUnitFactory.getRemoteInstance().getAdminOrgUnitInfo(new ObjectUuidPK(id1));
-				 prmtoldUseUnit.setValue(aoInfo.getName());
+				 prmtoldUseUnit.setValue(aoInfo);
 				 txtoldUnitCode.setText(rowSet.getString("code"));
 				 
 			 }
