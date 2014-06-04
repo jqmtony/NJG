@@ -9,14 +9,19 @@ import java.util.Iterator;
 
 import org.apache.log4j.Logger;
 
+import com.kingdee.bos.BOSException;
 import com.kingdee.bos.ctrl.kdf.table.KDTSelectBlock;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.bos.dao.query.IQueryExecutor;
+import com.kingdee.bos.metadata.IMetaDataPK;
+import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.IUIWindow;
 import com.kingdee.bos.ui.face.UIFactory;
+import com.kingdee.eas.basedata.org.OrgConstants;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.common.client.UIContext;
@@ -615,29 +620,44 @@ public class EquIdListUI extends AbstractEquIdListUI
     }
 
     protected FilterInfo getDefaultFilterForQuery() {
-    	String id = SysContext.getSysContext().getCurrentAdminUnit().getId().toString();
-    	if(EquIdEditUI.Coll_CU_ID.equals(id)){
-    		return null;
-    	}else {			
-    		return super.getDefaultFilterForQuery();
-		}
+    	return super.getDefaultFilterForQuery();
     }
     
-//    //去除CU隔离
-//	protected boolean isIgnoreCUFilter() {
-//		return true;
-//	}
-//	
+    //去除CU隔离
+	protected boolean isIgnoreCUFilter() {
+		return true;
+	}
+	
+	//根据所属组织隔离设备档案
+	protected IQueryExecutor getQueryExecutor(IMetaDataPK arg0,EntityViewInfo arg1) {
+		EntityViewInfo viewInfo = (EntityViewInfo)arg1.clone();
+		FilterInfo filInfo = new FilterInfo();
+		String id = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
+		filInfo.getFilterItems().add(new FilterItemInfo("ssOrgUnit.id",id ,CompareType.EQUALS));
+		if(viewInfo.getFilter()!=null)
+	    	{
+	    
+					try {
+						viewInfo.getFilter().mergeFilter(filInfo, "and");
+					} catch (BOSException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+			
+	    	}
+	    	else
+	    	{
+	    		viewInfo.setFilter(filInfo);
+	    	}
+		if(OrgConstants.DEF_CU_ID.equals(id))
+			viewInfo = new EntityViewInfo();
+		return super.getQueryExecutor(arg0, viewInfo);
+	}
+	
     public void onLoad() throws Exception {
     	super.onLoad();
     	this.btnImportFacard.setEnabled(true);
-    	this.btnImportFacard.setIcon(EASResource.getIcon("imgTbtn_importcyclostyle"));
-//    	FilterInfo filter = new FilterInfo();
-//    	if (SysContext.getSysContext().getCurrentCtrlUnit() != null) {
-//    		filter.getFilterItems().add(new FilterItemInfo("ssOrgUnit.id", SysContext.getSysContext().getCurrentCtrlUnit().getId().toString(),CompareType.EQUALS));
-//    	}
-//    	
-//    	
+    	this.btnImportFacard.setIcon(EASResource.getIcon("imgTbtn_importcyclostyle"));    	  	
     }
     
     /**

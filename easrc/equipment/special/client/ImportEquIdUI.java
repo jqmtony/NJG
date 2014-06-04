@@ -35,6 +35,7 @@ import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.eas.base.permission.client.longtime.ILongTimeTask;
 import com.kingdee.eas.base.permission.client.longtime.LongTimeDialog;
+import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.port.equipment.base.ISpecialCheckItem;
 import com.kingdee.eas.port.equipment.base.SpecialCheckItemCollection;
 import com.kingdee.eas.port.equipment.base.SpecialCheckItemFactory;
@@ -71,14 +72,7 @@ public class ImportEquIdUI extends AbstractImportEquIdUI
 		
 		super.onLoad();
 		
-		IColumn Icolumn = this.tblMain.addColumn(0);
-		Icolumn.setKey("selectAll");
-		this.tblMain.getHeadRow(0).getCell("selectAll").setValue("ȫѡ");
 		this.tblMain.getColumn("selectAll").getStyleAttributes().setLocked(false);
-		
-		KDCheckBox tblMain_selectAll_kdcheck = new KDCheckBox();
-		tblMain_selectAll_kdcheck.setVisible(true);
-		this.tblMain.getColumn("selectAll").setEditor(new KDTDefaultCellEditor(tblMain_selectAll_kdcheck));
 		
 		InitWorkButton();
 		
@@ -297,7 +291,10 @@ public class ImportEquIdUI extends AbstractImportEquIdUI
 			filterInfo.getFilterItems().add(new FilterItemInfo("id",getUIContext().get("equID"),CompareType.NOTINCLUDE));
 		if(getUIContext().get("yearPlan")!=null)
 			filterInfo.getFilterItems().add(new FilterItemInfo("special","1",CompareType.EQUALS));
-		    filterInfo.getFilterItems().add(new FilterItemInfo("sbStatus","3",CompareType.NOTEQUALS));
+		
+		filterInfo.getFilterItems().add(new FilterItemInfo("sbStatus","3",CompareType.NOTEQUALS));
+		String id = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
+		filterInfo.getFilterItems().add(new FilterItemInfo("ssOrgUnit.id",id ,CompareType.EQUALS));
 		
 		try {
 			if(viewInfo.getFilter()!=null)

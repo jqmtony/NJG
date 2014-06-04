@@ -701,17 +701,10 @@ public class DetectionEditUI extends AbstractDetectionEditUI
 		 this.kdtE1.getColumn("seq").getStyleAttributes().setHided(true);
 		 this.kdtE2.getColumn("seq").getStyleAttributes().setHided(true);
 		super.onLoad();
+		actionAddNew.setVisible(false);
+		actionAddNew.setEnabled(false);
 		this.kDContainer1.setTitle("实际检测明细");
 		this.kDContainer1.getContentPane().add(kdtE2, BorderLayout.CENTER);
-//		KDWorkButton  addnewButton =kdtE2_detailPanel.getAddNewLineButton();
-//		addnewButton.setText("新增行");
-//		KDWorkButton  InsertButton =kdtE2_detailPanel.getInsertLineButton();
-//		InsertButton.setText("插入行");
-//		KDWorkButton RemoveButton =kdtE2_detailPanel.getRemoveLinesButton();
-//		RemoveButton.setText("删除行");
-//		this.kDContainer1.addButton(addnewButton);
-//		this.kDContainer1.addButton(InsertButton);
-//		this.kDContainer1.addButton(RemoveButton);
 		
 		this.kdtE1.getColumn("qualifiedRate1").getStyleAttributes().setNumberFormat("#,##0.00 ");
 		this.kdtE1.getColumn("qualifiedRate2").getStyleAttributes().setNumberFormat("#,##0.00 ");

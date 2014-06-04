@@ -17,8 +17,12 @@ import javax.swing.SwingUtilities;
 
 import org.apache.log4j.Logger;
 
+import com.kingdee.bos.metadata.entity.EntityViewInfo;
+import com.kingdee.bos.metadata.entity.FilterInfo;
+import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.metadata.entity.SelectorItemInfo;
+import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.bos.dao.IObjectValue;
@@ -30,6 +34,7 @@ import com.kingdee.eas.basedata.org.AdminOrgUnitFactory;
 import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
 import com.kingdee.eas.basedata.org.IAdminOrgUnit;
 import com.kingdee.eas.common.client.OprtState;
+import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.fi.newrpt.client.designer.io.WizzardIO;
 import com.kingdee.eas.framework.*;
 import com.kingdee.eas.port.equipment.insurance.InsuranceCoverageE1Info;
@@ -49,6 +54,7 @@ import com.kingdee.eas.util.client.MsgBox;
 import com.kingdee.bos.ctrl.common.LanguageManager;
 import com.kingdee.bos.ctrl.excel.io.kds.KDSBookToBook;
 import com.kingdee.bos.ctrl.excel.model.struct.Sheet;
+import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
 import com.kingdee.bos.ctrl.kdf.export.ExportManager;
 import com.kingdee.bos.ctrl.kdf.export.KDTables2KDSBook;
 import com.kingdee.bos.ctrl.kdf.export.KDTables2KDSBookVO;
@@ -56,6 +62,7 @@ import com.kingdee.bos.ctrl.kdf.kds.KDSBook;
 import com.kingdee.bos.ctrl.kdf.read.POIXlsReader;
 import com.kingdee.bos.ctrl.kdf.table.ICell;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
+import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
 import com.kingdee.bos.ctrl.kdf.table.KDTMenuManager;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.swing.KDFileChooser;
@@ -759,6 +766,23 @@ public class AnnualYearFeeEditUI extends AbstractAnnualYearFeeEditUI
 		btnExcel.setIcon(EASResource.getIcon("imgTbtn_output"));
 		pkBizDate.setEnabled(false);
 		this.pkBizDate.setValue(new Date());
+		
+		 KDBizPromptBox kdtE1_equNumber_PromptBox = new KDBizPromptBox();
+	        kdtE1_equNumber_PromptBox.setQueryInfo("com.kingdee.eas.port.equipment.record.app.EquIdQuery");
+	        kdtE1_equNumber_PromptBox.setVisible(true);
+	        kdtE1_equNumber_PromptBox.setEditable(true);
+	        kdtE1_equNumber_PromptBox.setDisplayFormat("$number$");
+	        kdtE1_equNumber_PromptBox.setEditFormat("$number$");
+	        kdtE1_equNumber_PromptBox.setCommitFormat("$number$");
+	   	 EntityViewInfo evi = new EntityViewInfo();
+			 FilterInfo filter = new FilterInfo();
+			 filter.getFilterItems().add(new FilterItemInfo("sbStatus","3",CompareType.NOTEQUALS));
+			 String id = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
+	 		 filter.getFilterItems().add(new FilterItemInfo("ssOrgUnit.id",id ,CompareType.EQUALS));
+			 evi.setFilter(filter);
+			kdtE1_equNumber_PromptBox.setEntityViewInfo(evi);
+			 KDTDefaultCellEditor kdtEntry_feeType_CellEditor = new KDTDefaultCellEditor(kdtE1_equNumber_PromptBox);
+			 kdtEntry.getColumn("zdaNumber").setEditor(kdtEntry_feeType_CellEditor);
 	}
 	
 	public void kdtEntry_Changed(int rowIndex, int colIndex) throws Exception {

@@ -48,18 +48,9 @@ public class ImportFaCardUI extends AbstractImportFaCardUI{
 	}
 	
 	public void onLoad() throws Exception {
-		
-		
 		super.onLoad();
 		
-		IColumn Icolumn = this.tblMain.addColumn(1);
-		Icolumn.setKey("selectAll");
-		this.tblMain.getHeadRow(0).getCell("selectAll").setValue("ȫѡ");
 		this.tblMain.getColumn("selectAll").getStyleAttributes().setLocked(false);
-		
-		KDCheckBox tblMain_selectAll_kdcheck = new KDCheckBox();
-		tblMain_selectAll_kdcheck.setVisible(true);
-		this.tblMain.getColumn("selectAll").setEditor(new KDTDefaultCellEditor(tblMain_selectAll_kdcheck));
 		
 		InitWorkButton();
 		
@@ -86,6 +77,11 @@ public class ImportFaCardUI extends AbstractImportFaCardUI{
                 }
             }
         });
+	}
+	
+	protected void execQuery() {
+		super.execQuery();
+		
 	}
 	
 	private void InitWorkButton()

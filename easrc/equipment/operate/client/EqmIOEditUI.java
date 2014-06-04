@@ -5,11 +5,17 @@ package com.kingdee.eas.port.equipment.operate.client;
 
 import java.awt.event.*;
 import org.apache.log4j.Logger;
+
+import com.kingdee.bos.metadata.entity.EntityViewInfo;
+import com.kingdee.bos.metadata.entity.FilterInfo;
+import com.kingdee.bos.metadata.entity.FilterItemInfo;
+import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.eas.basedata.org.AdminOrgUnitFactory;
 import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
+import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.framework.*;
 import com.kingdee.eas.port.equipment.record.EquIdInfo;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
@@ -707,4 +713,14 @@ public class EqmIOEditUI extends AbstractEqmIOEditUI
 		return txtNumber;
 	}
 
+	//添加设备按所属组织过滤
+	public void onLoad() throws Exception {
+		super.onLoad();
+		 EntityViewInfo evi = new EntityViewInfo();
+		 FilterInfo filter = new FilterInfo();
+		 String id = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
+		 filter.getFilterItems().add(new FilterItemInfo("ssOrgUnit.id",id ,CompareType.EQUALS));
+		 evi.setFilter(filter);
+		prmteqmNumber.setEntityViewInfo(evi);
+	}
 }

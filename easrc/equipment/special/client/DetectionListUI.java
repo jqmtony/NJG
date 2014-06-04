@@ -586,4 +586,9 @@ public class DetectionListUI extends AbstractDetectionListUI
         return objectValue;
     }
 
+    public void onLoad() throws Exception {
+    	super.onLoad();
+    	actionAddNew.setVisible(false);
+		actionAddNew.setEnabled(false);
+    }
 }

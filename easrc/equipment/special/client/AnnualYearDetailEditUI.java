@@ -6,9 +6,15 @@ package com.kingdee.eas.port.equipment.special.client;
 import java.awt.event.*;
 
 import org.apache.log4j.Logger;
+
+import com.kingdee.bos.metadata.entity.EntityViewInfo;
+import com.kingdee.bos.metadata.entity.FilterInfo;
+import com.kingdee.bos.metadata.entity.FilterItemInfo;
+import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.framework.*;
 import com.kingdee.eas.port.equipment.operate.ComproductionInfo;
 import com.kingdee.eas.port.equipment.special.AnnualYearDetailFactory;
@@ -19,6 +25,8 @@ import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
 import com.kingdee.eas.xr.app.XRBillStatusEnum;
+import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
+import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.swing.KDTextField;
 
@@ -738,6 +746,23 @@ public class AnnualYearDetailEditUI extends AbstractAnnualYearDetailEditUI
 			btnConfirmation.setVisible(false);
 			btnUnConfirmation.setVisible(false);
 		}
+		
+		 KDBizPromptBox kdtE1_equNumber_PromptBox = new KDBizPromptBox();
+	        kdtE1_equNumber_PromptBox.setQueryInfo("com.kingdee.eas.port.equipment.record.app.EquIdQuery");
+	        kdtE1_equNumber_PromptBox.setVisible(true);
+	        kdtE1_equNumber_PromptBox.setEditable(true);
+	        kdtE1_equNumber_PromptBox.setDisplayFormat("$number$");
+	        kdtE1_equNumber_PromptBox.setEditFormat("$number$");
+	        kdtE1_equNumber_PromptBox.setCommitFormat("$number$");
+	   	 EntityViewInfo evi = new EntityViewInfo();
+			 FilterInfo filter = new FilterInfo();
+			 filter.getFilterItems().add(new FilterItemInfo("sbStatus","3",CompareType.NOTEQUALS));
+			 String id = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
+	 		 filter.getFilterItems().add(new FilterItemInfo("ssOrgUnit.id",id ,CompareType.EQUALS));
+			 evi.setFilter(filter);
+			kdtE1_equNumber_PromptBox.setEntityViewInfo(evi);
+			 KDTDefaultCellEditor kdtEntry_feeType_CellEditor = new KDTDefaultCellEditor(kdtE1_equNumber_PromptBox);
+			 kdtEntry.getColumn("zdaNumber").setEditor(kdtEntry_feeType_CellEditor);
 	}
 	
 	

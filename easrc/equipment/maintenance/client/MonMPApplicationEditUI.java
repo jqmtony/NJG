@@ -13,6 +13,7 @@ import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.framework.*;
 import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
 import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
@@ -707,6 +708,8 @@ public class MonMPApplicationEditUI extends AbstractMonMPApplicationEditUI
    	 EntityViewInfo evi = new EntityViewInfo();
 		 FilterInfo filter = new FilterInfo();
 		 filter.getFilterItems().add(new FilterItemInfo("sbStatus","3",CompareType.NOTEQUALS));
+		 String id = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
+ 		 filter.getFilterItems().add(new FilterItemInfo("ssOrgUnit.id",id ,CompareType.EQUALS));
 		 evi.setFilter(filter);
 		kdtE1_equNumber_PromptBox.setEntityViewInfo(evi);
 		 KDTDefaultCellEditor kdtEntry_feeType_CellEditor = new KDTDefaultCellEditor(kdtE1_equNumber_PromptBox);

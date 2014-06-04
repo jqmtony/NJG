@@ -7,7 +7,9 @@ import java.awt.event.ActionEvent;
 
 import org.apache.log4j.Logger;
 
+import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
+import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.swing.KDTextField;
 import com.kingdee.bos.dao.IObjectValue;
@@ -17,6 +19,7 @@ import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.metadata.entity.SelectorItemInfo;
+import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
@@ -67,7 +70,6 @@ public class EumUseRecordEditUI extends AbstractEumUseRecordEditUI {
 //				System.out.println(info.getName()+"=============>"+eqmcat);
 			}
 		}
-		
 	}
 
 	/**
@@ -694,6 +696,7 @@ public class EumUseRecordEditUI extends AbstractEumUseRecordEditUI {
 		// TODO Auto-generated method stub
 		return txtNumber;
 	}
+	
 	
 	
 

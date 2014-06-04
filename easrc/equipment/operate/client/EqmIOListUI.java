@@ -583,27 +583,7 @@ public class EqmIOListUI extends AbstractEqmIOListUI
         return com.kingdee.eas.port.equipment.operate.EqmIOFactory.getRemoteInstance();
     }
     
-//    protected IQueryExecutor getQueryExecutor(IMetaDataPK arg0,EntityViewInfo arg1) {
-//    	EntityViewInfo viewInfo = (EntityViewInfo)arg1.clone();
-//    	FilterInfo filInfo = new FilterInfo();
-//    	
-//    	filInfo.getFilterItems().add(new FilterItemInfo("",""));
-//    	
-//    	if(viewInfo.getFilter()!=null)
-//    	{
-//    		try {
-//				viewInfo.getFilter().mergeFilter(filInfo, "and");
-//			} catch (BOSException e) {
-//				e.printStackTrace();
-//			}
-//    	}
-//    	else
-//    	{
-//    		viewInfo.setFilter(filInfo);
-//    	}
-//    	
-//    	return super.getQueryExecutor(arg0, viewInfo);
-//    }
+
 
     /**
      * output createNewData method
