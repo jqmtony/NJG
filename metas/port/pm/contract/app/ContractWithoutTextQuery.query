@@ -83,8 +83,8 @@
                 <key name="name" value="ContractWithoutTextQuery" />
             </query>
             <entityRef>
-                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
-                <key name="name" value="CurProject" />
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="Project" />
             </entityRef>
         </subEntity>
         <subEntity>
@@ -1714,68 +1714,6 @@
                 <key name="name" value="ContractWithoutTextQuery" />
             </query>
         </queryField>
-        <propertyUnit>
-            <name>NewUni20</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.contract.app.ContractWithoutTextQuery].units.propertyUnit[NewUni20].displayName</displayName>
-            <groupType />
-            <isSelector>false</isSelector>
-            <isFilter>false</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType />
-            <propertyRefs>
-                <propertyRef>
-                    <key>0</key>
-                    <parentUnit>
-                        <key name="name" value="NewUni20" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="curProject" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="fullOrgUnit" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.contract.app" />
-                <key name="name" value="ContractWithoutTextQuery" />
-            </query>
-        </propertyUnit>
-        <propertyUnit>
-            <name>NewUni21</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.contract.app.ContractWithoutTextQuery].units.propertyUnit[NewUni21].displayName</displayName>
-            <groupType />
-            <isSelector>false</isSelector>
-            <isFilter>false</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType />
-            <propertyRefs>
-                <propertyRef>
-                    <key>0</key>
-                    <parentUnit>
-                        <key name="name" value="NewUni21" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="fullOrgUnit" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="id" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.contract.app" />
-                <key name="name" value="ContractWithoutTextQuery" />
-            </query>
-        </propertyUnit>
         <queryField>
             <name>bank</name>
             <userDefined>true</userDefined>
@@ -2675,6 +2613,68 @@
                 <key name="name" value="ContractWithoutTextQuery" />
             </query>
         </queryField>
+        <propertyUnit>
+            <name>4c48ec12-007c-457f-b774-f6360594ef2c</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.contract.app.ContractWithoutTextQuery].units.propertyUnit[4c48ec12-007c-457f-b774-f6360594ef2c].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>050f61e3-3b91-4ae7-981f-46983d5b450f</key>
+                    <parentUnit>
+                        <key name="name" value="4c48ec12-007c-457f-b774-f6360594ef2c" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="curProject" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="company" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.contract.app" />
+                <key name="name" value="ContractWithoutTextQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>2f163334-0380-4303-9d4a-adbe31cc90c2</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.contract.app.ContractWithoutTextQuery].units.propertyUnit[2f163334-0380-4303-9d4a-adbe31cc90c2].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="2f163334-0380-4303-9d4a-adbe31cc90c2" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="fullOrgUnit" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.contract.app" />
+                <key name="name" value="ContractWithoutTextQuery" />
+            </query>
+        </propertyUnit>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -2963,10 +2963,10 @@
                     <name>0</name>
                     <compareType>=</compareType>
                     <leftField>
-                        <key name="name" value="NewUni20" />
+                        <key name="name" value="4c48ec12-007c-457f-b774-f6360594ef2c" />
                     </leftField>
                     <rightField>
-                        <key name="name" value="NewUni21" />
+                        <key name="name" value="2f163334-0380-4303-9d4a-adbe31cc90c2" />
                     </rightField>
                     <join>
                         <key name="name" value="NewJoi10" />
@@ -3379,7 +3379,19 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.contract.app.ContractWithoutTextQuery].units.propertyUnit[2f163334-0380-4303-9d4a-adbe31cc90c2].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.contract.app.ContractWithoutTextQuery].units.propertyUnit[3c9c8ef6-f8c3-484e-bcb0-0b1b821b65d0].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.contract.app.ContractWithoutTextQuery].units.propertyUnit[4c48ec12-007c-457f-b774-f6360594ef2c].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -3458,18 +3470,6 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.contract.app.ContractWithoutTextQuery].units.propertyUnit[NewUni19].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.contract.app.ContractWithoutTextQuery].units.propertyUnit[NewUni20].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.contract.app.ContractWithoutTextQuery].units.propertyUnit[NewUni21].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
