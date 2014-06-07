@@ -70,7 +70,7 @@ AbstractContractWithoutTextListUI {
 	 * output getEditUIName method
 	 */
 	protected String getEditUIName() {
-		return com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI.class
+		return ContractWithoutTextEditUI.class
 				.getName();
 	}
 
@@ -79,7 +79,7 @@ AbstractContractWithoutTextListUI {
 	 */
 	protected com.kingdee.eas.framework.ICoreBase getBizInterface()
 			throws Exception {
-		return com.kingdee.eas.fdc.contract.ContractWithoutTextFactory
+		return ContractWithoutTextFactory
 				.getRemoteInstance();
 	}
 
@@ -87,7 +87,7 @@ AbstractContractWithoutTextListUI {
 	 * output createNewData method
 	 */
 	protected com.kingdee.bos.dao.IObjectValue createNewData() {
-		com.kingdee.eas.fdc.contract.ContractWithoutTextInfo objectValue = new com.kingdee.eas.fdc.contract.ContractWithoutTextInfo();
+		ContractWithoutTextInfo objectValue = new ContractWithoutTextInfo();
 		return objectValue;
 	}
 	/**

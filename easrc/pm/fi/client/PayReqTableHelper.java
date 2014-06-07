@@ -1109,15 +1109,15 @@ public final class PayReqTableHelper {
 
 		ContractChangeBillInfo billInfo;
 		//变更金额累计=未结算变更+已结算变更
-		for (Iterator iter = collection.iterator(); iter.hasNext();)
-		{
-			billInfo = (ContractChangeBillInfo) iter.next();
-			if(billInfo.isHasSettled()){
-				amount = amount.add(FDCHelper.toBigDecimal(billInfo.getBalanceAmount()));
-			}else{
-				amount = amount.add(FDCHelper.toBigDecimal(billInfo.getAmount()));
-			}
-		}
+//		for (Iterator iter = collection.iterator(); iter.hasNext();)
+//		{
+//			billInfo = (ContractChangeBillInfo) iter.next();
+//			if(billInfo.isHasSettled()){
+//				amount = amount.add(FDCHelper.toBigDecimal(billInfo.getBalanceAmount()));
+//			}else{
+//				amount = amount.add(FDCHelper.toBigDecimal(billInfo.getAmount()));
+//			}
+//		}
 		
 		editData.setChangeAmt(amount);
 		if (isUpdateCell) {
@@ -1195,47 +1195,47 @@ public final class PayReqTableHelper {
 				compenseInfo = (CompensationBillInfo) iter.next();
 				compenseAmt = compenseAmt.add(FDCHelper.toBigDecimal(compenseInfo.getAmount()));
 			}*/
-			//奖励
-			BigDecimal guerdonAmt=FDCHelper.ZERO;
-			BigDecimal guerdonOriginalAmt=FDCHelper.ZERO;
-			BigDecimal compenseAmt=FDCHelper.ZERO;
-			BigDecimal compenseOriginalAmt=FDCHelper.ZERO;
-			BigDecimal deductAmt=FDCHelper.ZERO;
-			BigDecimal deductOriginalAmt=FDCHelper.ZERO;
-			FDCSQLBuilder builder=new FDCSQLBuilder();
-			builder.appendSql("select sum(famount) as amount,sum(foriginalamount) as originalamount from T_CON_GuerdonBill where  fcontractid =? AND fstate = ? AND fisGuerdoned = 1");
-			builder.addParam(contractBill.getId().toString());
-			builder.addParam(FDCBillStateEnum.AUDITTED_VALUE);
-			IRowSet rowSet = builder.executeQuery();
-			if(rowSet.size()==1){
-				rowSet.next();
-				guerdonAmt=FDCHelper.toBigDecimal(rowSet.getBigDecimal("amount"));
-				guerdonOriginalAmt=FDCHelper.toBigDecimal(rowSet.getBigDecimal("originalamount"));
-			}
-			
-			//违约
-			builder.clear();
-			builder.appendSql("select sum(famount) as amount,sum(foriginalamount) as originalamount from T_CON_CompensationBill where  fcontractid =? AND fstate = ? AND fisCompensated = 1");
-			builder.addParam(contractBill.getId().toString());
-			builder.addParam(FDCBillStateEnum.AUDITTED_VALUE);
-			rowSet = builder.executeQuery();
-			if(rowSet.size()==1){
-				rowSet.next();
-				compenseAmt=FDCHelper.toBigDecimal(rowSet.getBigDecimal("amount"));
-				compenseOriginalAmt=FDCHelper.toBigDecimal(rowSet.getBigDecimal("originalamount"));
-			}
-			
-			//扣款
-			builder.clear();
-			builder.appendSql("select sum(famount) as amount,sum(foriginalamount) as originalamount from T_CON_DeductOfPayReqBill " +
-					"where fpayRequestBillId in (select fid from T_CON_PayRequestBill where fcontractid=?)");
-			builder.addParam(contractBill.getId().toString());
-			rowSet = builder.executeQuery();
-			if(rowSet.size()==1){
-				rowSet.next();
-				deductAmt=FDCHelper.toBigDecimal(rowSet.getBigDecimal("amount"));
-				deductOriginalAmt=FDCHelper.toBigDecimal(rowSet.getBigDecimal("originalamount"));
-			}
+//			//奖励
+//			BigDecimal guerdonAmt=FDCHelper.ZERO;
+//			BigDecimal guerdonOriginalAmt=FDCHelper.ZERO;
+//			BigDecimal compenseAmt=FDCHelper.ZERO;
+//			BigDecimal compenseOriginalAmt=FDCHelper.ZERO;
+//			BigDecimal deductAmt=FDCHelper.ZERO;
+//			BigDecimal deductOriginalAmt=FDCHelper.ZERO;
+//			FDCSQLBuilder builder=new FDCSQLBuilder();
+//			builder.appendSql("select sum(famount) as amount,sum(foriginalamount) as originalamount from T_CON_GuerdonBill where  fcontractid =? AND fstate = ? AND fisGuerdoned = 1");
+//			builder.addParam(contractBill.getId().toString());
+//			builder.addParam(FDCBillStateEnum.AUDITTED_VALUE);
+//			IRowSet rowSet = builder.executeQuery();
+//			if(rowSet.size()==1){
+//				rowSet.next();
+//				guerdonAmt=FDCHelper.toBigDecimal(rowSet.getBigDecimal("amount"));
+//				guerdonOriginalAmt=FDCHelper.toBigDecimal(rowSet.getBigDecimal("originalamount"));
+//			}
+//			
+//			//违约
+//			builder.clear();
+//			builder.appendSql("select sum(famount) as amount,sum(foriginalamount) as originalamount from T_CON_CompensationBill where  fcontractid =? AND fstate = ? AND fisCompensated = 1");
+//			builder.addParam(contractBill.getId().toString());
+//			builder.addParam(FDCBillStateEnum.AUDITTED_VALUE);
+//			rowSet = builder.executeQuery();
+//			if(rowSet.size()==1){
+//				rowSet.next();
+//				compenseAmt=FDCHelper.toBigDecimal(rowSet.getBigDecimal("amount"));
+//				compenseOriginalAmt=FDCHelper.toBigDecimal(rowSet.getBigDecimal("originalamount"));
+//			}
+//			
+//			//扣款
+//			builder.clear();
+//			builder.appendSql("select sum(famount) as amount,sum(foriginalamount) as originalamount from T_CON_DeductOfPayReqBill " +
+//					"where fpayRequestBillId in (select fid from T_CON_PayRequestBill where fcontractid=?)");
+//			builder.addParam(contractBill.getId().toString());
+//			rowSet = builder.executeQuery();
+//			if(rowSet.size()==1){
+//				rowSet.next();
+//				deductAmt=FDCHelper.toBigDecimal(rowSet.getBigDecimal("amount"));
+//				deductOriginalAmt=FDCHelper.toBigDecimal(rowSet.getBigDecimal("originalamount"));
+//			}
 			
 			/*
 			 * 万科最新要求,未结算的合同最新造价=合同金额+变更金额+奖励-索赔,扣款(已被申请单关联的) 

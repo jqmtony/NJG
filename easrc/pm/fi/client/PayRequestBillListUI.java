@@ -75,13 +75,7 @@ import com.kingdee.eas.fdc.basedata.client.FDCClientUtils;
 import com.kingdee.eas.fdc.basedata.client.FDCMsgBox;
 import com.kingdee.eas.fdc.basedata.client.FDCSplitClientHelper;
 import com.kingdee.eas.fdc.basedata.client.FDCTableHelper;
-import com.kingdee.eas.fdc.contract.ContractBillFactory;
-import com.kingdee.eas.fdc.contract.ContractBillInfo;
 import com.kingdee.eas.fdc.contract.FDCUtils;
-import com.kingdee.eas.fdc.contract.PayReqUtils;
-import com.kingdee.eas.fdc.contract.PayRequestBillCollection;
-import com.kingdee.eas.fdc.contract.PayRequestBillFactory;
-import com.kingdee.eas.fdc.contract.PayRequestBillInfo;
 import com.kingdee.eas.fdc.contract.client.ContractClientUtils;
 import com.kingdee.eas.fdc.contract.client.ContractListBaseUI;
 import com.kingdee.eas.fdc.contract.client.PayRequestBillContants;
@@ -99,8 +93,13 @@ import com.kingdee.eas.framework.ICoreBillBase;
 import com.kingdee.eas.framework.TreeBaseInfo;
 import com.kingdee.eas.framework.client.ListUiHelper;
 import com.kingdee.eas.framework.client.tree.KDTreeNode;
+import com.kingdee.eas.port.pm.contract.ContractBillFactory;
+import com.kingdee.eas.port.pm.contract.ContractBillInfo;
 import com.kingdee.eas.port.pm.contract.client.AbstractContractWithoutTextListUI;
 import com.kingdee.eas.port.pm.contract.client.ContractBillListUI;
+import com.kingdee.eas.port.pm.fi.PayRequestBillCollection;
+import com.kingdee.eas.port.pm.fi.PayRequestBillFactory;
+import com.kingdee.eas.port.pm.fi.PayRequestBillInfo;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
@@ -402,9 +401,9 @@ public class PayRequestBillListUI extends AbstractPayRequestBillListUI {
 	 * output actionAddNew_actionPerformed
 	 */
 	public void actionAddNew_actionPerformed(ActionEvent e) throws Exception {
-		checkSelected(getMainTable());
-		checkContractSplitState();
-		checkParamForAddNew();
+//		checkSelected(getMainTable());
+//		checkContractSplitState();
+//		checkParamForAddNew();
 		super.actionAddNew_actionPerformed(e);
 	}
 
@@ -837,14 +836,14 @@ public class PayRequestBillListUI extends AbstractPayRequestBillListUI {
 	 * output getEditUIName method
 	 */
 	protected String getEditUIName() {
-		return com.kingdee.eas.fdc.contract.client.PayRequestBillEditUI.class.getName();
+		return PayRequestBillEditUI.class.getName();
 	}
 
 	/**
 	 * output getBizInterface method
 	 */
 	protected com.kingdee.eas.framework.ICoreBase getBizInterface() throws Exception {
-		return com.kingdee.eas.fdc.contract.PayRequestBillFactory.getRemoteInstance();
+		return PayRequestBillFactory.getRemoteInstance();
 	}
 
 	/**
@@ -858,7 +857,7 @@ public class PayRequestBillListUI extends AbstractPayRequestBillListUI {
 	 * output createNewData method
 	 */
 	protected com.kingdee.bos.dao.IObjectValue createNewData() {
-		com.kingdee.eas.fdc.contract.PayRequestBillInfo objectValue = new com.kingdee.eas.fdc.contract.PayRequestBillInfo();
+		PayRequestBillInfo objectValue = new PayRequestBillInfo();
 		return objectValue;
 	}
 

@@ -3803,14 +3803,14 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI implement
 	 * output getEditUIName method
 	 */
 	protected String getEditUIName() {
-		return com.kingdee.eas.fdc.contract.client.PayRequestBillEditUI.class.getName();
+		return PayRequestBillEditUI.class.getName();
 	}
 
 	/**
 	 * output getBizInterface method
 	 */
 	protected com.kingdee.eas.framework.ICoreBase getBizInterface() throws Exception {
-		return com.kingdee.eas.fdc.contract.PayRequestBillFactory.getRemoteInstance();
+		return PayRequestBillFactory.getRemoteInstance();
 	}
 
 	/**
@@ -3825,7 +3825,7 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI implement
 	 */
 	protected IObjectValue createNewDetailData(KDTable table) {
 
-		return new com.kingdee.eas.fdc.contract.PayRequestBillEntryInfo();
+		return new PayRequestBillEntryInfo();
 	}
 
 	/**

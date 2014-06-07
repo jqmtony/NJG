@@ -71,6 +71,7 @@ import com.kingdee.eas.base.param.ParamControlFactory;
 import com.kingdee.eas.base.param.util.ParamManager;
 import com.kingdee.eas.basedata.assistant.CurrencyInfo;
 import com.kingdee.eas.basedata.assistant.ExchangeRateInfo;
+import com.kingdee.eas.basedata.assistant.ProjectFactory;
 import com.kingdee.eas.basedata.assistant.ProjectInfo;
 import com.kingdee.eas.basedata.assistant.SettlementTypeInfo;
 import com.kingdee.eas.basedata.master.account.AccountViewInfo;
@@ -99,7 +100,6 @@ import com.kingdee.eas.fdc.basedata.ContractTypeCollection;
 import com.kingdee.eas.fdc.basedata.ContractTypeFactory;
 import com.kingdee.eas.fdc.basedata.ContractTypeInfo;
 import com.kingdee.eas.fdc.basedata.CostSplitStateEnum;
-import com.kingdee.eas.fdc.basedata.CurProjectFactory;
 import com.kingdee.eas.fdc.basedata.CurProjectInfo;
 import com.kingdee.eas.fdc.basedata.FDCBasedataException;
 import com.kingdee.eas.fdc.basedata.FDCBillInfo;
@@ -179,8 +179,7 @@ import com.kingdee.jdbc.rowset.IRowSet;
  */
 public class ContractWithoutTextEditUI extends
 		AbstractContractWithoutTextEditUI {
-	private static final Logger logger = CoreUIObject
-			.getLogger(ContractWithoutTextEditUI.class);
+	private static final Logger logger = CoreUIObject.getLogger(ContractWithoutTextEditUI.class);
 	
 	//	是否第一次加载,用来控制表格的加载显示
 	private boolean isFirstLoad=true;
@@ -245,7 +244,7 @@ public class ContractWithoutTextEditUI extends
 	
 	public void onShow() throws Exception {
 		super.onShow();
-		
+		chkCostsplit.setVisible(false);
 		setFocus();
 		txtPaymentRequestBillNumber.setRequired(false);
 		txtPaymentRequestBillNumber.setEditable(false);
@@ -271,8 +270,7 @@ public class ContractWithoutTextEditUI extends
 	 * output getEditUIName method
 	 */
 	protected String getEditUIName() {
-		return com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI.class
-				.getName();
+		return ContractWithoutTextEditUI.class.getName();
 	}
 
 	/**
@@ -1264,7 +1262,7 @@ public class ContractWithoutTextEditUI extends
 		
 		}
 		
-		String cuId = editData.getCU().getId().toString();	
+		String cuId = orgUnitInfo.getId().toString();	
 		FDCClientUtils.setRespDeptF7(prmtuseDepartment, this, canSelecOtherOrgPerson() ? null :cuId);
 		//初始化供应商F7
 		FDCClientUtils.initSupplierF7(this, prmtrealSupplier, cuId);
@@ -2429,26 +2427,26 @@ public class ContractWithoutTextEditUI extends
 			
 			SelectorItemCollection selectors = new SelectorItemCollection();
 			selectors.add("projectStatus");
-			CurProjectInfo curProjectInfo = null;
+			ProjectInfo curProjectInfo = null;
 			try {
-				curProjectInfo = CurProjectFactory.getRemoteInstance().getCurProjectInfo(new ObjectUuidPK(id), selectors);
+				curProjectInfo = ProjectFactory.getRemoteInstance().getProjectInfo(new ObjectUuidPK(id), selectors);
 				
 			
 			}catch (Exception ex) {
 				handUIException(ex);
 			}
 			
-			if(curProjectInfo.getProjectStatus() != null) {
-				String closedState = ProjectStatusInfo.closeID;
-				String transferState = ProjectStatusInfo.transferID;
-				String projStateId = curProjectInfo.getProjectStatus().getId().toString();
-				if(projStateId != null && (projStateId.equals(closedState)||projStateId.equals(transferState))) {
-					if(chkCostsplit.isSelected()) {
-						MsgBox.showWarning(this, "该合同所在的工程项目已经处于关闭或中转状态，不能进入动态成本，请取消\"进入动态成本\"的选择再保存/提交");
-						SysUtil.abort();
-					}
-				}
-			}
+//			if(curProjectInfo.getProjectStatus() != null) {
+//				String closedState = ProjectStatusInfo.closeID;
+//				String transferState = ProjectStatusInfo.transferID;
+//				String projStateId = curProjectInfo.getProjectStatus().getId().toString();
+//				if(projStateId != null && (projStateId.equals(closedState)||projStateId.equals(transferState))) {
+//					if(chkCostsplit.isSelected()) {
+//						MsgBox.showWarning(this, "该合同所在的工程项目已经处于关闭或中转状态，不能进入动态成本，请取消\"进入动态成本\"的选择再保存/提交");
+//						SysUtil.abort();
+//					}
+//				}
+//			}
 		}
 	}
 	
@@ -3181,9 +3179,9 @@ public class ContractWithoutTextEditUI extends
 	 * 描述：业务日期发生变化后需要传递到UIContext，通过UIContext在传递到计划项目F7
 	 */
 	protected void pkbookedDate_dataChanged(DataChangeEvent e) throws Exception {
-		this.getUIContext().put("bookedDate", this.pkbookedDate.getSqlDate());
+//		this.getUIContext().put("bookedDate", this.pkbookedDate.getSqlDate());
 		Calendar cal = Calendar.getInstance();
-		cal.setTime((Date) pkbookedDate.getValue());
+//		cal.setTime((Date) pkbookedDate.getValue());
 		int year = cal.get(Calendar.YEAR);
 		int month = cal.get(Calendar.MONTH) + 1;
 		prmtPlanProject.setDisplayFormat("$payMattersName$ " + year + "年" + month + "月 无合同计划");
