@@ -8,10 +8,16 @@ import java.util.ArrayList;
 
 import org.apache.log4j.Logger;
 
+import com.kingdee.bos.BOSException;
+import com.kingdee.bos.metadata.IMetaDataPK;
 import com.kingdee.bos.metadata.data.SortType;
+import com.kingdee.bos.metadata.entity.EntityViewInfo;
+import com.kingdee.bos.metadata.entity.FilterInfo;
+import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.metadata.entity.SorterItemCollection;
 import com.kingdee.bos.metadata.entity.SorterItemInfo;
+import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
@@ -20,8 +26,11 @@ import com.kingdee.bos.dao.IObjectPK;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectStringPK;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.bos.dao.query.IQueryExecutor;
 import com.kingdee.eas.auto4s.vip.util.UIFactoryName;
+import com.kingdee.eas.basedata.org.OrgConstants;
 import com.kingdee.eas.common.EASBizException;
+import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.framework.*;
 import com.kingdee.eas.port.equipment.operate.ComproductionInfo;
 import com.kingdee.eas.port.equipment.operate.IComproduction;
@@ -842,4 +851,31 @@ protected void checkCanEdit(ComproductionInfo billInfo)
 {
     ((IComproduction)getBizInterface()).passAudit(pk, null);
 }
+    
+  //根据填报单位隔离公司产能表
+	protected IQueryExecutor getQueryExecutor(IMetaDataPK arg0,EntityViewInfo arg1) {
+		EntityViewInfo viewInfo = (EntityViewInfo)arg1.clone();
+		FilterInfo filInfo = new FilterInfo();
+		String id = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
+		filInfo.getFilterItems().add(new FilterItemInfo("reportingUnit.id",id ,CompareType.EQUALS));
+		if(viewInfo.getFilter()!=null)
+	    	{
+	    
+					try {
+						viewInfo.getFilter().mergeFilter(filInfo, "and");
+					} catch (BOSException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+			
+	    	}
+	    	else
+	    	{
+	    		viewInfo.setFilter(filInfo);
+	    	}
+		if(OrgConstants.DEF_CU_ID.equals(id))
+			viewInfo = new EntityViewInfo();
+		return super.getQueryExecutor(arg0, viewInfo);
+	}
+	
 }

@@ -195,6 +195,11 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 
 
 	}
+	 protected void initWorkButton()
+	    {
+	        super.initWorkButton();
+	        btnRegistChange.setIcon(EASResource.getIcon("imgTbtn_assetchange"));
+	    }
 	
 	//实现功能：下拉按钮弹窗展现历史相关联设备修理单单据。
 	private void upRepairOrder(){
@@ -1368,11 +1373,7 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 		uiWindow.show(); 
 	}
 	
-	  protected void initWorkButton()
-	    {
-	        super.initWorkButton();
-	        btnRegistChange.setIcon(EASResource.getIcon("imgTbtn_assetchange"));
-	    }
+	 
 	  
 	public void actionExcel_actionPerformed(ActionEvent e) throws Exception {
 

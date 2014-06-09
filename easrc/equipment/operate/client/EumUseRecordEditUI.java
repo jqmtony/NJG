@@ -58,12 +58,13 @@ public class EumUseRecordEditUI extends AbstractEumUseRecordEditUI {
 		super.onLoad();
 		if(getOprtState().equals(OprtState.ADDNEW)){
 			pkBizDate.setValue(new Date());
+			//获取当前的登录人，除了User用户之外。
 			prmtstaPerson.setValue(com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentUserInfo().getPerson());
 			FilterInfo filter = new FilterInfo();
 			EntityViewInfo view = new EntityViewInfo();
 			view.setFilter(filter);
 			filter.getFilterItems().add(new FilterItemInfo("tzsbStatus",sbStatusType.INUSE_VALUE));
-			filter.getFilterItems().add(new FilterItemInfo("ssOrgUnit",SysContext.getSysContext().getCurrentCtrlUnit().getId()));
+			filter.getFilterItems().add(new FilterItemInfo("ssOrgUnit",SysContext.getSysContext().getCurrentCtrlUnit().getId(),CompareType.EQUALS));
 			EquIdCollection coll = EquIdFactory.getRemoteInstance().getEquIdCollection(view);
 			IFaCat ifacat = FaCatFactory.getRemoteInstance();
 			for (int i = 0; i < coll.size(); i++) {

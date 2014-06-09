@@ -35,8 +35,10 @@ import com.kingdee.eas.port.equipment.special.client.SpecialChangeEditUI;
 import com.kingdee.eas.tools.datatask.DatataskMode;
 import com.kingdee.eas.tools.datatask.DatataskParameter;
 import com.kingdee.eas.tools.datatask.client.DatataskCaller;
+import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.KDTableUtil;
+import com.kingdee.eas.util.client.MsgBox;
 
 /**
  * output class name
@@ -673,6 +675,10 @@ public class EquIdListUI extends AbstractEquIdListUI
     	for (int i = 0; i < selecRow.length; i++) 
     	{
     		EquIdInfo conInfo = conntion.getEquIdInfo(new ObjectUuidPK(tblMain.getRow(i).getCell("id").getValue().toString()));
+    		if(conInfo.getSbStatus().equals(sbStatusType.inUse)){
+    			MsgBox.showWarning("当前所选设备已是在用状态！");
+				SysUtil.abort();
+    		}
     		conInfo.setSbStatus(sbStatusType.inUse);
 			conntion.update(new ObjectUuidPK(conInfo.getId()), conInfo)  ;
     	}
@@ -692,6 +698,10 @@ public class EquIdListUI extends AbstractEquIdListUI
     	for (int i = 0; i < selecRow.length; i++) 
     	{
     		EquIdInfo conInfo = conntion.getEquIdInfo(new ObjectUuidPK(tblMain.getRow(i).getCell("id").getValue().toString()));
+    		if(conInfo.getSbStatus().equals(sbStatusType.notUse)){
+    			MsgBox.showWarning("当前所选设备已是停用状态！");
+				SysUtil.abort();
+    		}
     		conInfo.setSbStatus(sbStatusType.notUse);
 			conntion.update(new ObjectUuidPK(conInfo.getId()), conInfo)  ;
     	}

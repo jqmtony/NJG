@@ -28,6 +28,7 @@ import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.eas.base.permission.client.longtime.ILongTimeTask;
 import com.kingdee.eas.base.permission.client.longtime.LongTimeDialog;
+import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.fi.fa.manage.FaCurCardFactory;
 import com.kingdee.eas.framework.CoreBillBaseCollection;
 import com.kingdee.eas.port.equipment.uitl.ToolHelp;
@@ -215,7 +216,8 @@ public class ImportFaCardUI extends AbstractImportFaCardUI{
 		EntityViewInfo viewInfo = (EntityViewInfo)view.clone();
 		FilterInfo filterInfo = new FilterInfo();
 		filterInfo.getFilterItems().add(new FilterItemInfo("id",getExcludeSourceBillID(),CompareType.NOTINNER));
-		
+		String id = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
+		filterInfo.getFilterItems().add(new FilterItemInfo("company.id",id,CompareType.EQUALS));
 		try {
 			if(viewInfo.getFilter()!=null)
 				viewInfo.getFilter().mergeFilter(filterInfo, "and");
