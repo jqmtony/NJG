@@ -96,6 +96,17 @@ public class AbstractProjectAuditSettlementInfo extends com.kingdee.eas.xr.XRBil
     {
         setString("remark", item);
     }
+    /**
+     * Object: 项目审计决算 's 项目单位 property 
+     */
+    public com.kingdee.eas.basedata.org.CompanyOrgUnitInfo getEnterprise()
+    {
+        return (com.kingdee.eas.basedata.org.CompanyOrgUnitInfo)get("enterprise");
+    }
+    public void setEnterprise(com.kingdee.eas.basedata.org.CompanyOrgUnitInfo item)
+    {
+        put("enterprise", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("0016A052");

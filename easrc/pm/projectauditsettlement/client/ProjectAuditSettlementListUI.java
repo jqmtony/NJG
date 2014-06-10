@@ -7,6 +7,7 @@ import java.awt.event.*;
 import org.apache.log4j.Logger;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.framework.*;
 
 /**
@@ -24,6 +25,17 @@ public class ProjectAuditSettlementListUI extends AbstractProjectAuditSettlement
         super();
     }
 
+    @Override
+    public void onLoad() throws Exception {
+    	// TODO Auto-generated method stub
+    	super.onLoad();
+    }
+    
+    @Override
+    protected String getEditUIModal() {
+    	// TODO Auto-generated method stub
+    	return UIFactoryName.MODEL;
+    }
     /**
      * output storeFields method
      */

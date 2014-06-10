@@ -65,6 +65,7 @@ public abstract class AbstractProjectAuditSettlementEditUI extends com.kingdee.e
     protected com.kingdee.bos.ctrl.swing.KDCheckBox chkaudit;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contfinalAmount;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contremark;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contenterprise;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtCreator;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkCreateTime;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtLastUpdateUser;
@@ -84,6 +85,7 @@ public abstract class AbstractProjectAuditSettlementEditUI extends com.kingdee.e
     protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtfinalAmount;
     protected com.kingdee.bos.ctrl.swing.KDScrollPane scrollPaneremark;
     protected com.kingdee.bos.ctrl.swing.KDTextArea txtremark;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtenterprise;
     protected com.kingdee.eas.port.pm.projectauditsettlement.ProjectAuditSettlementInfo editData = null;
     /**
      * output class constructor
@@ -153,6 +155,7 @@ public abstract class AbstractProjectAuditSettlementEditUI extends com.kingdee.e
         this.chkaudit = new com.kingdee.bos.ctrl.swing.KDCheckBox();
         this.contfinalAmount = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contremark = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contenterprise = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.prmtCreator = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.pkCreateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.prmtLastUpdateUser = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
@@ -172,6 +175,7 @@ public abstract class AbstractProjectAuditSettlementEditUI extends com.kingdee.e
         this.txtfinalAmount = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
         this.scrollPaneremark = new com.kingdee.bos.ctrl.swing.KDScrollPane();
         this.txtremark = new com.kingdee.bos.ctrl.swing.KDTextArea();
+        this.prmtenterprise = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.contCreator.setName("contCreator");
         this.contCreateTime.setName("contCreateTime");
         this.contLastUpdateUser.setName("contLastUpdateUser");
@@ -191,6 +195,7 @@ public abstract class AbstractProjectAuditSettlementEditUI extends com.kingdee.e
         this.chkaudit.setName("chkaudit");
         this.contfinalAmount.setName("contfinalAmount");
         this.contremark.setName("contremark");
+        this.contenterprise.setName("contenterprise");
         this.prmtCreator.setName("prmtCreator");
         this.pkCreateTime.setName("pkCreateTime");
         this.prmtLastUpdateUser.setName("prmtLastUpdateUser");
@@ -210,6 +215,7 @@ public abstract class AbstractProjectAuditSettlementEditUI extends com.kingdee.e
         this.txtfinalAmount.setName("txtfinalAmount");
         this.scrollPaneremark.setName("scrollPaneremark");
         this.txtremark.setName("txtremark");
+        this.prmtenterprise.setName("prmtenterprise");
         // CoreUI
         // contCreator		
         this.contCreator.setBoundLabelText(resHelper.getString("contCreator.boundLabelText"));		
@@ -296,6 +302,11 @@ public abstract class AbstractProjectAuditSettlementEditUI extends com.kingdee.e
         this.contremark.setBoundLabelLength(100);		
         this.contremark.setBoundLabelUnderline(true);		
         this.contremark.setVisible(true);
+        // contenterprise		
+        this.contenterprise.setBoundLabelText(resHelper.getString("contenterprise.boundLabelText"));		
+        this.contenterprise.setBoundLabelLength(100);		
+        this.contenterprise.setBoundLabelUnderline(true);		
+        this.contenterprise.setVisible(true);
         // prmtCreator		
         this.prmtCreator.setEnabled(false);		
         this.prmtCreator.setCommitFormat("$name$");		
@@ -387,7 +398,15 @@ public abstract class AbstractProjectAuditSettlementEditUI extends com.kingdee.e
         this.txtremark.setVisible(true);		
         this.txtremark.setRequired(false);		
         this.txtremark.setMaxLength(500);
-        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmtprojectName,projectType,txtprojectAmount,txtgroupAmount,chkaudit,txtfinalAmount,txtremark}));
+        // prmtenterprise		
+        this.prmtenterprise.setQueryInfo("com.kingdee.eas.basedata.org.app.CompanyOrgUnitQuery");		
+        this.prmtenterprise.setVisible(true);		
+        this.prmtenterprise.setEditable(true);		
+        this.prmtenterprise.setDisplayFormat("$name$");		
+        this.prmtenterprise.setEditFormat("$number$");		
+        this.prmtenterprise.setCommitFormat("$number$");		
+        this.prmtenterprise.setRequired(false);
+        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmtprojectName,projectType,txtprojectAmount,txtgroupAmount,chkaudit,txtfinalAmount,txtremark,prmtenterprise}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
 		registerBindings();
@@ -413,47 +432,49 @@ public abstract class AbstractProjectAuditSettlementEditUI extends com.kingdee.e
      */
     public void initUIContentLayout()
     {
-        this.setBounds(new Rectangle(10, 10, 1013, 317));
+        this.setBounds(new Rectangle(10, 10, 955, 317));
         this.setLayout(new KDLayout());
-        this.putClientProperty("OriginalBounds", new Rectangle(10, 10, 1013, 317));
+        this.putClientProperty("OriginalBounds", new Rectangle(10, 10, 955, 317));
         contCreator.setBounds(new Rectangle(10, 226, 270, 19));
-        this.add(contCreator, new KDLayout.Constraints(10, 226, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        this.add(contCreator, new KDLayout.Constraints(10, 226, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contCreateTime.setBounds(new Rectangle(10, 250, 270, 19));
-        this.add(contCreateTime, new KDLayout.Constraints(10, 250, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        this.add(contCreateTime, new KDLayout.Constraints(10, 250, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contLastUpdateUser.setBounds(new Rectangle(341, 226, 270, 19));
-        this.add(contLastUpdateUser, new KDLayout.Constraints(341, 226, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        this.add(contLastUpdateUser, new KDLayout.Constraints(341, 226, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contLastUpdateTime.setBounds(new Rectangle(341, 250, 270, 19));
-        this.add(contLastUpdateTime, new KDLayout.Constraints(341, 250, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        contCU.setBounds(new Rectangle(341, 10, 270, 19));
-        this.add(contCU, new KDLayout.Constraints(341, 10, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        this.add(contLastUpdateTime, new KDLayout.Constraints(341, 250, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contCU.setBounds(new Rectangle(672, 10, 270, 19));
+        this.add(contCU, new KDLayout.Constraints(672, 10, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contNumber.setBounds(new Rectangle(10, 10, 270, 19));
-        this.add(contNumber, new KDLayout.Constraints(10, 10, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        contBizDate.setBounds(new Rectangle(672, 34, 270, 19));
-        this.add(contBizDate, new KDLayout.Constraints(672, 34, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        this.add(contNumber, new KDLayout.Constraints(10, 10, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contBizDate.setBounds(new Rectangle(341, 34, 270, 19));
+        this.add(contBizDate, new KDLayout.Constraints(341, 34, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contDescription.setBounds(new Rectangle(10, 274, 270, 19));
         this.add(contDescription, new KDLayout.Constraints(10, 274, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         contAuditor.setBounds(new Rectangle(672, 226, 270, 19));
-        this.add(contAuditor, new KDLayout.Constraints(672, 226, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        contStatus.setBounds(new Rectangle(672, 10, 270, 19));
-        this.add(contStatus, new KDLayout.Constraints(672, 10, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        this.add(contAuditor, new KDLayout.Constraints(672, 226, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contStatus.setBounds(new Rectangle(341, 58, 270, 19));
+        this.add(contStatus, new KDLayout.Constraints(341, 58, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contBizStatus.setBounds(new Rectangle(341, 274, 270, 19));
         this.add(contBizStatus, new KDLayout.Constraints(341, 274, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         contAuditTime.setBounds(new Rectangle(672, 250, 270, 19));
-        this.add(contAuditTime, new KDLayout.Constraints(672, 250, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        contprojectName.setBounds(new Rectangle(10, 34, 270, 19));
-        this.add(contprojectName, new KDLayout.Constraints(10, 34, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        contprojectType.setBounds(new Rectangle(341, 34, 270, 19));
-        this.add(contprojectType, new KDLayout.Constraints(341, 34, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        contprojectAmount.setBounds(new Rectangle(10, 58, 270, 19));
-        this.add(contprojectAmount, new KDLayout.Constraints(10, 58, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        contgroupAmount.setBounds(new Rectangle(341, 58, 270, 19));
-        this.add(contgroupAmount, new KDLayout.Constraints(341, 58, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        this.add(contAuditTime, new KDLayout.Constraints(672, 250, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contprojectName.setBounds(new Rectangle(341, 10, 270, 19));
+        this.add(contprojectName, new KDLayout.Constraints(341, 10, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contprojectType.setBounds(new Rectangle(10, 34, 270, 19));
+        this.add(contprojectType, new KDLayout.Constraints(10, 34, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contprojectAmount.setBounds(new Rectangle(672, 34, 270, 19));
+        this.add(contprojectAmount, new KDLayout.Constraints(672, 34, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contgroupAmount.setBounds(new Rectangle(10, 58, 270, 19));
+        this.add(contgroupAmount, new KDLayout.Constraints(10, 58, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         chkaudit.setBounds(new Rectangle(672, 58, 270, 19));
-        this.add(chkaudit, new KDLayout.Constraints(672, 58, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        this.add(chkaudit, new KDLayout.Constraints(672, 58, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contfinalAmount.setBounds(new Rectangle(10, 82, 270, 19));
-        this.add(contfinalAmount, new KDLayout.Constraints(10, 82, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        this.add(contfinalAmount, new KDLayout.Constraints(10, 82, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contremark.setBounds(new Rectangle(10, 106, 931, 114));
-        this.add(contremark, new KDLayout.Constraints(10, 106, 931, 114, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        this.add(contremark, new KDLayout.Constraints(10, 106, 931, 114, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contenterprise.setBounds(new Rectangle(672, 274, 270, 19));
+        this.add(contenterprise, new KDLayout.Constraints(672, 274, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         //contCreator
         contCreator.setBoundEditor(prmtCreator);
         //contCreateTime
@@ -492,6 +513,8 @@ public abstract class AbstractProjectAuditSettlementEditUI extends com.kingdee.e
         contremark.setBoundEditor(scrollPaneremark);
         //scrollPaneremark
         scrollPaneremark.getViewport().add(txtremark, null);
+        //contenterprise
+        contenterprise.setBoundEditor(prmtenterprise);
 
     }
 
@@ -683,7 +706,8 @@ public abstract class AbstractProjectAuditSettlementEditUI extends com.kingdee.e
 		dataBinder.registerBinding("projectAmount", java.math.BigDecimal.class, this.txtprojectAmount, "value");
 		dataBinder.registerBinding("groupAmount", java.math.BigDecimal.class, this.txtgroupAmount, "value");
 		dataBinder.registerBinding("finalAmount", java.math.BigDecimal.class, this.txtfinalAmount, "value");
-		dataBinder.registerBinding("remark", String.class, this.txtremark, "text");		
+		dataBinder.registerBinding("remark", String.class, this.txtremark, "text");
+		dataBinder.registerBinding("enterprise", com.kingdee.eas.basedata.org.CompanyOrgUnitInfo.class, this.prmtenterprise, "data");		
 	}
 	//Regiester UI State
 	private void registerUIState(){		
@@ -836,7 +860,8 @@ public abstract class AbstractProjectAuditSettlementEditUI extends com.kingdee.e
 		getValidateHelper().registerBindProperty("projectAmount", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("groupAmount", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("finalAmount", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("remark", ValidateHelper.ON_SAVE);    		
+		getValidateHelper().registerBindProperty("remark", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("enterprise", ValidateHelper.ON_SAVE);    		
 	}
 
 
@@ -934,6 +959,15 @@ public abstract class AbstractProjectAuditSettlementEditUI extends com.kingdee.e
         sic.add(new SelectorItemInfo("groupAmount"));
         sic.add(new SelectorItemInfo("finalAmount"));
         sic.add(new SelectorItemInfo("remark"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("enterprise.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("enterprise.id"));
+        	sic.add(new SelectorItemInfo("enterprise.number"));
+        	sic.add(new SelectorItemInfo("enterprise.name"));
+		}
         return sic;
     }        
     	
