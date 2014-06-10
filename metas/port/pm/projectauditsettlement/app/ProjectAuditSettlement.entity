@@ -853,6 +853,20 @@
                 <key name="name" value="CFRemark" />
             </mappingField>
         </ownProperty>
+        <linkProperty>
+            <name>enterprise</name>
+            <alias>entityObject[com.kingdee.eas.port.pm.projectauditsettlement.app.ProjectAuditSettlement].properties.linkProperty[enterprise].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.projectauditsettlement.app.ProjectAuditSettlement].properties.linkProperty[enterprise].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <mappingField>
+                <key name="name" value="CFEnterpriseID" />
+            </mappingField>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.port.pm.projectauditsettlement.app" />
+                <key name="name" value="R_ProjectAuditSettlement_CompanyOrgUnit_enterprise" />
+            </relationship>
+        </linkProperty>
     </properties>
     <logicalKey>
         <name>id</name>
@@ -2016,6 +2030,58 @@
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.projectauditsettlement.app.ProjectAuditSettlement].properties.linkProperty[enterprise].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目单位" />
+            <lang locale="zh_HK" value="項目單位" />
+            <lang locale="zh_TW" value="項目單位" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.projectauditsettlement.app.ProjectAuditSettlement].properties.linkProperty[enterprise].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目单位" />
+            <lang locale="zh_HK" value="項目單位" />
+            <lang locale="zh_TW" value="項目單位" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.projectauditsettlement.app.ProjectAuditSettlement].properties.linkProperty[enterprise].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.projectauditsettlement.app.ProjectAuditSettlement].properties.linkProperty[enterprise].extendedProperty.dataField">
+            <lang locale="en_US" value="name" />
+            <lang locale="zh_CN" value="name" />
+            <lang locale="zh_TW" value="name" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.projectauditsettlement.app.ProjectAuditSettlement].properties.linkProperty[enterprise].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.projectauditsettlement.app.ProjectAuditSettlement].properties.linkProperty[enterprise].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.projectauditsettlement.app.ProjectAuditSettlement].properties.linkProperty[enterprise].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.projectauditsettlement.app.ProjectAuditSettlement].properties.linkProperty[enterprise].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.projectauditsettlement.app.ProjectAuditSettlement].properties.linkProperty[enterprise].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.projectauditsettlement.app.ProjectAuditSettlement].properties.linkProperty[enterprise].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.projectauditsettlement.app.ProjectAuditSettlement].properties.linkProperty[projectName].alias">
             <lang locale="en_US" value="null" />
