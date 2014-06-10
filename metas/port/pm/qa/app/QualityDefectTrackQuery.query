@@ -127,32 +127,6 @@
             </entityRef>
         </subEntity>
         <subEntity>
-            <name>questionType</name>
-            <alias>joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].subObjects.subEntity[questionType].alias</alias>
-            <userDefined>true</userDefined>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
-                <key name="name" value="QualityDefectTrackQuery" />
-            </query>
-            <entityRef>
-                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
-                <key name="name" value="QuestionTypeTtee" />
-            </entityRef>
-        </subEntity>
-        <subEntity>
-            <name>questionName</name>
-            <alias>joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].subObjects.subEntity[questionName].alias</alias>
-            <userDefined>true</userDefined>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
-                <key name="name" value="QualityDefectTrackQuery" />
-            </query>
-            <entityRef>
-                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
-                <key name="name" value="QuestionType" />
-            </entityRef>
-        </subEntity>
-        <subEntity>
             <name>E1</name>
             <alias>joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].subObjects.subEntity[E1].alias</alias>
             <userDefined>true</userDefined>
@@ -179,51 +153,20 @@
             </entityRef>
         </subEntity>
         <subEntity>
-            <name>contract</name>
-            <alias>joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].subObjects.subEntity[contract].alias</alias>
+            <name>questionType</name>
+            <alias>joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].subObjects.subEntity[questionType].alias</alias>
             <userDefined>true</userDefined>
             <query>
                 <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
                 <key name="name" value="QualityDefectTrackQuery" />
             </query>
             <entityRef>
-                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
-                <key name="name" value="CostTemp" />
+                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
+                <key name="name" value="QuestionType" />
             </entityRef>
         </subEntity>
     </subObjects>
     <units>
-        <queryField>
-            <name>status</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[status].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>Int</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>538d4f61-cd00-40af-a241-ff4504ba65d2</key>
-                    <parentUnit>
-                        <key name="name" value="status" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="QualityDefectTrack" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="status" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
-                <key name="name" value="QualityDefectTrackQuery" />
-            </query>
-        </queryField>
         <queryField>
             <name>number</name>
             <userDefined>true</userDefined>
@@ -256,245 +199,28 @@
             </query>
         </queryField>
         <queryField>
-            <name>bizDate</name>
+            <name>status</name>
             <userDefined>true</userDefined>
             <formulaString />
             <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[bizDate].displayName</displayName>
+            <displayName>joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[status].displayName</displayName>
             <groupType />
             <isSelector>true</isSelector>
             <isFilter>true</isFilter>
             <isSorter>false</isSorter>
             <isParameter>false</isParameter>
-            <returnType>Date</returnType>
+            <returnType>Int</returnType>
             <propertyRefs>
                 <propertyRef>
-                    <key>cb7f731a-431c-49a5-b7d5-381c3ffbc29c</key>
+                    <key>538d4f61-cd00-40af-a241-ff4504ba65d2</key>
                     <parentUnit>
-                        <key name="name" value="bizDate" />
+                        <key name="name" value="status" />
                     </parentUnit>
                     <subEntity>
                         <key name="name" value="QualityDefectTrack" />
                     </subEntity>
                     <refProperty>
-                        <key name="name" value="bizDate" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
-                <key name="name" value="QualityDefectTrackQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>creator.name</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[creator.name].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>7adc4c92-9787-486e-ba95-3db724e75b36</key>
-                    <parentUnit>
-                        <key name="name" value="creator.name" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="creator" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="name" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
-                <key name="name" value="QualityDefectTrackQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>createTime</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[createTime].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>Timestamp</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>49ba5ef1-f78b-4df1-9e0a-dfb8ea209208</key>
-                    <parentUnit>
-                        <key name="name" value="createTime" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="QualityDefectTrack" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="createTime" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
-                <key name="name" value="QualityDefectTrackQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>lastUpdateUser.name</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[lastUpdateUser.name].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>978ac494-6508-4912-86d0-4d934ca8fb6f</key>
-                    <parentUnit>
-                        <key name="name" value="lastUpdateUser.name" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="lastUpdateUser" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="name" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
-                <key name="name" value="QualityDefectTrackQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>lastUpdateTime</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[lastUpdateTime].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>Timestamp</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>fed2a620-b4f9-4320-86d0-ad1a98a04ce9</key>
-                    <parentUnit>
-                        <key name="name" value="lastUpdateTime" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="QualityDefectTrack" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="lastUpdateTime" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
-                <key name="name" value="QualityDefectTrackQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>auditor.name</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[auditor.name].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>62e79ba2-0ff2-44e1-9435-6498d0029bd2</key>
-                    <parentUnit>
-                        <key name="name" value="auditor.name" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="auditor" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="name" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
-                <key name="name" value="QualityDefectTrackQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>auditTime</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[auditTime].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>Timestamp</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>60bee6c4-14c8-4937-b5c6-052285fd7ad2</key>
-                    <parentUnit>
-                        <key name="name" value="auditTime" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="QualityDefectTrack" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="auditTime" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
-                <key name="name" value="QualityDefectTrackQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>id</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[id].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>21252636-7873-4b63-bc08-1d60f96d5bf5</key>
-                    <parentUnit>
-                        <key name="name" value="id" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="QualityDefectTrack" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="id" />
+                        <key name="name" value="status" />
                     </refProperty>
                 </propertyRef>
             </propertyRefs>
@@ -752,37 +478,6 @@
             </query>
         </propertyUnit>
         <queryField>
-            <name>CU.id</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[CU.id].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>913696cd-bc5f-416c-9e6e-887c5c0dc4cb</key>
-                    <parentUnit>
-                        <key name="name" value="CU.id" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="CU" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="id" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
-                <key name="name" value="QualityDefectTrackQuery" />
-            </query>
-        </queryField>
-        <queryField>
             <name>projectName.name</name>
             <userDefined>true</userDefined>
             <formulaString>#0</formulaString>
@@ -875,6 +570,99 @@
                 <key name="name" value="QualityDefectTrackQuery" />
             </query>
         </propertyUnit>
+        <queryField>
+            <name>questionName</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[questionName].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>7d0a90ac-b2cf-4d38-abda-0e49c76f1371</key>
+                    <parentUnit>
+                        <key name="name" value="questionName" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="QualityDefectTrack" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="questionName" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
+                <key name="name" value="QualityDefectTrackQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>questionType.name</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[questionType.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>1dbcbf18-5e8c-44f3-922b-17d91389d139</key>
+                    <parentUnit>
+                        <key name="name" value="questionType.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="questionType" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
+                <key name="name" value="QualityDefectTrackQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>economicLoss</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[economicLoss].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>7a65ac94-f6b3-4d8c-83e7-669b8d5189bf</key>
+                    <parentUnit>
+                        <key name="name" value="economicLoss" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="QualityDefectTrack" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="economicLoss" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
+                <key name="name" value="QualityDefectTrackQuery" />
+            </query>
+        </queryField>
         <queryField>
             <name>personMake.name</name>
             <userDefined>true</userDefined>
@@ -1155,192 +943,6 @@
             </query>
         </propertyUnit>
         <queryField>
-            <name>questionType.name</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[questionType.name].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>b202a075-ae3f-4382-8033-1748afe8036a</key>
-                    <parentUnit>
-                        <key name="name" value="questionType.name" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="questionType" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="name" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
-                <key name="name" value="QualityDefectTrackQuery" />
-            </query>
-        </queryField>
-        <propertyUnit>
-            <name>d4184a7a-675b-4aab-ad00-7325b8b44948</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.propertyUnit[d4184a7a-675b-4aab-ad00-7325b8b44948].displayName</displayName>
-            <groupType />
-            <isSelector>false</isSelector>
-            <isFilter>false</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType />
-            <propertyRefs>
-                <propertyRef>
-                    <key>fa923da8-228d-43b2-a8df-385355b14f08</key>
-                    <parentUnit>
-                        <key name="name" value="d4184a7a-675b-4aab-ad00-7325b8b44948" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="QualityDefectTrack" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="questionType" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
-                <key name="name" value="QualityDefectTrackQuery" />
-            </query>
-        </propertyUnit>
-        <propertyUnit>
-            <name>31218d37-a00c-4ae5-835f-9abfdf0c3e78</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.propertyUnit[31218d37-a00c-4ae5-835f-9abfdf0c3e78].displayName</displayName>
-            <groupType />
-            <isSelector>false</isSelector>
-            <isFilter>false</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType />
-            <propertyRefs>
-                <propertyRef>
-                    <key>59ebc16d-a7f8-43c9-83c6-c46b5dcfed73</key>
-                    <parentUnit>
-                        <key name="name" value="31218d37-a00c-4ae5-835f-9abfdf0c3e78" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="questionType" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="id" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
-                <key name="name" value="QualityDefectTrackQuery" />
-            </query>
-        </propertyUnit>
-        <queryField>
-            <name>questionName.name</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[questionName.name].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>f5b0013f-5bd6-4a84-a6f2-4a58ac47933b</key>
-                    <parentUnit>
-                        <key name="name" value="questionName.name" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="questionName" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="name" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
-                <key name="name" value="QualityDefectTrackQuery" />
-            </query>
-        </queryField>
-        <propertyUnit>
-            <name>66681b5f-762a-4687-8950-5a333e39ca0c</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.propertyUnit[66681b5f-762a-4687-8950-5a333e39ca0c].displayName</displayName>
-            <groupType />
-            <isSelector>false</isSelector>
-            <isFilter>false</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType />
-            <propertyRefs>
-                <propertyRef>
-                    <key>7931ae1b-17df-4ffe-aa8f-7c6b64c24ad2</key>
-                    <parentUnit>
-                        <key name="name" value="66681b5f-762a-4687-8950-5a333e39ca0c" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="QualityDefectTrack" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="questionName" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
-                <key name="name" value="QualityDefectTrackQuery" />
-            </query>
-        </propertyUnit>
-        <propertyUnit>
-            <name>9ff41335-ceec-441e-a874-edae4842944a</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.propertyUnit[9ff41335-ceec-441e-a874-edae4842944a].displayName</displayName>
-            <groupType />
-            <isSelector>false</isSelector>
-            <isFilter>false</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType />
-            <propertyRefs>
-                <propertyRef>
-                    <key>b04e17dc-3241-4501-ae91-65862560dd59</key>
-                    <parentUnit>
-                        <key name="name" value="9ff41335-ceec-441e-a874-edae4842944a" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="questionName" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="id" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
-                <key name="name" value="QualityDefectTrackQuery" />
-            </query>
-        </propertyUnit>
-        <queryField>
             <name>impactNote</name>
             <userDefined>true</userDefined>
             <formulaString>#0</formulaString>
@@ -1464,68 +1066,6 @@
                 <key name="name" value="QualityDefectTrackQuery" />
             </query>
         </queryField>
-        <queryField>
-            <name>economicLoss</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[economicLoss].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>Number</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>7a65ac94-f6b3-4d8c-83e7-669b8d5189bf</key>
-                    <parentUnit>
-                        <key name="name" value="economicLoss" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="QualityDefectTrack" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="economicLoss" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
-                <key name="name" value="QualityDefectTrackQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>E1.seq</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[E1.seq].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>Int</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>9ec64ef0-77ec-4555-90a8-876dbd2cea1d</key>
-                    <parentUnit>
-                        <key name="name" value="E1.seq" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="E1" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="seq" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
-                <key name="name" value="QualityDefectTrackQuery" />
-            </query>
-        </queryField>
         <propertyUnit>
             <name>d0e9530b-cb58-49ac-880e-e77492a1dec7</name>
             <userDefined>true</userDefined>
@@ -1588,68 +1128,6 @@
                 <key name="name" value="QualityDefectTrackQuery" />
             </query>
         </propertyUnit>
-        <queryField>
-            <name>E1.mainRespond</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[E1.mainRespond].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>10f7c8e0-8f4f-4e5c-b6d0-c3fc9b4a7f00</key>
-                    <parentUnit>
-                        <key name="name" value="E1.mainRespond" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="E1" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="mainRespond" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
-                <key name="name" value="QualityDefectTrackQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>E1.supplier.name</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[E1.supplier.name].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>5444e12a-7c64-4c36-b892-0d4f8a3cbbf9</key>
-                    <parentUnit>
-                        <key name="name" value="E1.supplier.name" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="E1_supplier" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="name" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
-                <key name="name" value="QualityDefectTrackQuery" />
-            </query>
-        </queryField>
         <propertyUnit>
             <name>2d11ca0d-939d-4744-9d2b-c4067f97acdd</name>
             <userDefined>true</userDefined>
@@ -1712,74 +1190,12 @@
                 <key name="name" value="QualityDefectTrackQuery" />
             </query>
         </propertyUnit>
-        <queryField>
-            <name>E1.description</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[E1.description].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>1d72224c-98c7-475b-a333-d37e7aaa5297</key>
-                    <parentUnit>
-                        <key name="name" value="E1.description" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="E1" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="description" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
-                <key name="name" value="QualityDefectTrackQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>contract.tempName</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[contract.tempName].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>ae2e3896-552b-4e50-aa83-3d72fcd409ac</key>
-                    <parentUnit>
-                        <key name="name" value="contract.tempName" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="contract" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="tempName" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
-                <key name="name" value="QualityDefectTrackQuery" />
-            </query>
-        </queryField>
         <propertyUnit>
-            <name>a01cc8db-2bb3-477b-b897-eed54edb0e6e</name>
+            <name>d2442916-3b25-4656-9f3f-3fcd807fd58b</name>
             <userDefined>true</userDefined>
             <formulaString />
             <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.propertyUnit[a01cc8db-2bb3-477b-b897-eed54edb0e6e].displayName</displayName>
+            <displayName>joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.propertyUnit[d2442916-3b25-4656-9f3f-3fcd807fd58b].displayName</displayName>
             <groupType />
             <isSelector>false</isSelector>
             <isFilter>false</isFilter>
@@ -1788,15 +1204,15 @@
             <returnType />
             <propertyRefs>
                 <propertyRef>
-                    <key>de4680ce-320b-4fef-aa5f-950022e7fd8c</key>
+                    <key>b191594b-eac4-4694-8dd0-5bf2d0e41eec</key>
                     <parentUnit>
-                        <key name="name" value="a01cc8db-2bb3-477b-b897-eed54edb0e6e" />
+                        <key name="name" value="d2442916-3b25-4656-9f3f-3fcd807fd58b" />
                     </parentUnit>
                     <subEntity>
                         <key name="name" value="QualityDefectTrack" />
                     </subEntity>
                     <refProperty>
-                        <key name="name" value="contract" />
+                        <key name="name" value="questionType" />
                     </refProperty>
                 </propertyRef>
             </propertyRefs>
@@ -1806,11 +1222,11 @@
             </query>
         </propertyUnit>
         <propertyUnit>
-            <name>71f219d6-b3f4-42e1-ae12-9fd759d80295</name>
+            <name>9e3b4f1d-92ed-4467-8190-12528d341650</name>
             <userDefined>true</userDefined>
             <formulaString />
             <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.propertyUnit[71f219d6-b3f4-42e1-ae12-9fd759d80295].displayName</displayName>
+            <displayName>joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.propertyUnit[9e3b4f1d-92ed-4467-8190-12528d341650].displayName</displayName>
             <groupType />
             <isSelector>false</isSelector>
             <isFilter>false</isFilter>
@@ -1819,12 +1235,12 @@
             <returnType />
             <propertyRefs>
                 <propertyRef>
-                    <key>b6972c31-ced8-4c6e-aa4b-355eaf4a378f</key>
+                    <key>cfdfb35b-f828-4c10-8035-e0f8e1d6f867</key>
                     <parentUnit>
-                        <key name="name" value="71f219d6-b3f4-42e1-ae12-9fd759d80295" />
+                        <key name="name" value="9e3b4f1d-92ed-4467-8190-12528d341650" />
                     </parentUnit>
                     <subEntity>
-                        <key name="name" value="contract" />
+                        <key name="name" value="questionType" />
                     </subEntity>
                     <refProperty>
                         <key name="name" value="id" />
@@ -1836,6 +1252,254 @@
                 <key name="name" value="QualityDefectTrackQuery" />
             </query>
         </propertyUnit>
+        <queryField>
+            <name>creator.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[creator.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>7adc4c92-9787-486e-ba95-3db724e75b36</key>
+                    <parentUnit>
+                        <key name="name" value="creator.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="creator" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
+                <key name="name" value="QualityDefectTrackQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>createTime</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[createTime].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Timestamp</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>49ba5ef1-f78b-4df1-9e0a-dfb8ea209208</key>
+                    <parentUnit>
+                        <key name="name" value="createTime" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="QualityDefectTrack" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="createTime" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
+                <key name="name" value="QualityDefectTrackQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>lastUpdateUser.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[lastUpdateUser.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>978ac494-6508-4912-86d0-4d934ca8fb6f</key>
+                    <parentUnit>
+                        <key name="name" value="lastUpdateUser.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="lastUpdateUser" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
+                <key name="name" value="QualityDefectTrackQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>lastUpdateTime</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[lastUpdateTime].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Timestamp</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>fed2a620-b4f9-4320-86d0-ad1a98a04ce9</key>
+                    <parentUnit>
+                        <key name="name" value="lastUpdateTime" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="QualityDefectTrack" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="lastUpdateTime" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
+                <key name="name" value="QualityDefectTrackQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>auditor.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[auditor.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>62e79ba2-0ff2-44e1-9435-6498d0029bd2</key>
+                    <parentUnit>
+                        <key name="name" value="auditor.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="auditor" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
+                <key name="name" value="QualityDefectTrackQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>auditTime</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[auditTime].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Timestamp</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>60bee6c4-14c8-4937-b5c6-052285fd7ad2</key>
+                    <parentUnit>
+                        <key name="name" value="auditTime" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="QualityDefectTrack" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="auditTime" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
+                <key name="name" value="QualityDefectTrackQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>CU.id</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[CU.id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>913696cd-bc5f-416c-9e6e-887c5c0dc4cb</key>
+                    <parentUnit>
+                        <key name="name" value="CU.id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="CU" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
+                <key name="name" value="QualityDefectTrackQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>id</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>21252636-7873-4b63-bc08-1d60f96d5bf5</key>
+                    <parentUnit>
+                        <key name="name" value="id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="QualityDefectTrack" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
+                <key name="name" value="QualityDefectTrackQuery" />
+            </query>
+        </queryField>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -2100,66 +1764,6 @@
             </query>
         </join>
         <join>
-            <name>82f9a04b-51fd-4807-9d73-c174f1ad432c</name>
-            <formulaString>#0</formulaString>
-            <type>LEFT OUTER JOIN</type>
-            <leftObject>
-                <key name="name" value="QualityDefectTrack" />
-            </leftObject>
-            <rightObject>
-                <key name="name" value="questionType" />
-            </rightObject>
-            <joinItems>
-                <joinItem>
-                    <name>b39d19dd-2cd7-4fea-8058-bf7b75d2d7f0</name>
-                    <compareType>=</compareType>
-                    <leftField>
-                        <key name="name" value="d4184a7a-675b-4aab-ad00-7325b8b44948" />
-                    </leftField>
-                    <rightField>
-                        <key name="name" value="31218d37-a00c-4ae5-835f-9abfdf0c3e78" />
-                    </rightField>
-                    <join>
-                        <key name="name" value="82f9a04b-51fd-4807-9d73-c174f1ad432c" />
-                    </join>
-                </joinItem>
-            </joinItems>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
-                <key name="name" value="QualityDefectTrackQuery" />
-            </query>
-        </join>
-        <join>
-            <name>3e12245f-dd91-4477-ae8f-44bcb1772273</name>
-            <formulaString>#0</formulaString>
-            <type>LEFT OUTER JOIN</type>
-            <leftObject>
-                <key name="name" value="QualityDefectTrack" />
-            </leftObject>
-            <rightObject>
-                <key name="name" value="questionName" />
-            </rightObject>
-            <joinItems>
-                <joinItem>
-                    <name>74e9e48b-f75a-4009-886f-91308ca08a09</name>
-                    <compareType>=</compareType>
-                    <leftField>
-                        <key name="name" value="66681b5f-762a-4687-8950-5a333e39ca0c" />
-                    </leftField>
-                    <rightField>
-                        <key name="name" value="9ff41335-ceec-441e-a874-edae4842944a" />
-                    </rightField>
-                    <join>
-                        <key name="name" value="3e12245f-dd91-4477-ae8f-44bcb1772273" />
-                    </join>
-                </joinItem>
-            </joinItems>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
-                <key name="name" value="QualityDefectTrackQuery" />
-            </query>
-        </join>
-        <join>
             <name>efc26eff-7585-492d-b586-93d635be7ff1</name>
             <formulaString>#0</formulaString>
             <type>LEFT OUTER JOIN</type>
@@ -2220,27 +1824,27 @@
             </query>
         </join>
         <join>
-            <name>d888d00e-b42d-46f8-a444-1eb8da04fa45</name>
+            <name>40f99dc8-bcc5-431d-b770-ec1f26d9781d</name>
             <formulaString>#0</formulaString>
             <type>LEFT OUTER JOIN</type>
             <leftObject>
                 <key name="name" value="QualityDefectTrack" />
             </leftObject>
             <rightObject>
-                <key name="name" value="contract" />
+                <key name="name" value="questionType" />
             </rightObject>
             <joinItems>
                 <joinItem>
-                    <name>39757bc5-3b65-4d3d-b5f9-cbae8deed9c5</name>
+                    <name>022858cd-697b-498b-a499-cd4278096d81</name>
                     <compareType>=</compareType>
                     <leftField>
-                        <key name="name" value="a01cc8db-2bb3-477b-b897-eed54edb0e6e" />
+                        <key name="name" value="d2442916-3b25-4656-9f3f-3fcd807fd58b" />
                     </leftField>
                     <rightField>
-                        <key name="name" value="71f219d6-b3f4-42e1-ae12-9fd759d80295" />
+                        <key name="name" value="9e3b4f1d-92ed-4467-8190-12528d341650" />
                     </rightField>
                     <join>
-                        <key name="name" value="d888d00e-b42d-46f8-a444-1eb8da04fa45" />
+                        <key name="name" value="40f99dc8-bcc5-431d-b770-ec1f26d9781d" />
                     </join>
                 </joinItem>
             </joinItems>
@@ -2308,12 +1912,6 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].subObjects.subEntity[contract].alias">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].subObjects.subEntity[creator].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -2339,12 +1937,6 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].subObjects.subEntity[projectName].alias">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].subObjects.subEntity[questionName].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -2410,12 +2002,6 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.propertyUnit[31218d37-a00c-4ae5-835f-9abfdf0c3e78].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.propertyUnit[483acf93-cfd6-41f8-8da6-725fa41499e4].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -2434,19 +2020,7 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.propertyUnit[66681b5f-762a-4687-8950-5a333e39ca0c].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.propertyUnit[70958a14-05a0-4d60-b963-64046f0daa38].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.propertyUnit[71f219d6-b3f4-42e1-ae12-9fd759d80295].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -2458,13 +2032,7 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.propertyUnit[9ff41335-ceec-441e-a874-edae4842944a].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.propertyUnit[a01cc8db-2bb3-477b-b897-eed54edb0e6e].displayName">
+        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.propertyUnit[9e3b4f1d-92ed-4467-8190-12528d341650].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -2488,7 +2056,7 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.propertyUnit[d4184a7a-675b-4aab-ad00-7325b8b44948].displayName">
+        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.propertyUnit[d2442916-3b25-4656-9f3f-3fcd807fd58b].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -2524,75 +2092,6 @@
             <lang locale="zh_HK" value="ID" />
             <lang locale="zh_TW" value="ID" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[E1.description].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="说明" />
-            <lang locale="zh_HK" value="說明" />
-            <lang locale="zh_TW" value="說明" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[E1.description].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[E1.description].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[E1.mainRespond].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="主要责任" />
-            <lang locale="zh_HK" value="主要責任" />
-            <lang locale="zh_TW" value="主要責任" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[E1.mainRespond].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[E1.mainRespond].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[E1.seq].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="单据分录序列号" />
-            <lang locale="zh_HK" value="單據分錄序列號" />
-            <lang locale="zh_TW" value="單據分錄序列號" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[E1.seq].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[E1.seq].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[E1.supplier.name].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="供应商" />
-            <lang locale="zh_HK" value="供應商" />
-            <lang locale="zh_TW" value="供應商" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[E1.supplier.name].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[E1.supplier.name].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[E1.supplier.name].extendedProperty.isUsingF7">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[auditTime].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="审核时间" />
@@ -2616,43 +2115,6 @@
             <lang locale="zh_TW" value="審核人" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[auditor.name].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[bizDate].displayName">
-            <lang locale="en_US" value="" />
-            <lang locale="zh_CN" value="业务日期" />
-            <lang locale="zh_HK" value="業務日期" />
-            <lang locale="zh_TW" value="業務日期" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[bizDate].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[bizDate].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[contract.tempName].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="合同" />
-            <lang locale="zh_HK" value="合同" />
-            <lang locale="zh_TW" value="合同" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[contract.tempName].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[contract.tempName].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[contract.tempName].extendedProperty.isUsingF7">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
@@ -2859,23 +2321,18 @@
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[questionName.name].displayName">
+        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[questionName].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="问题名称" />
             <lang locale="zh_HK" value="問題名稱" />
             <lang locale="zh_TW" value="問題名稱" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[questionName.name].extendedProperty.isCommonQueryFilter">
+        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[questionName].extendedProperty.isCommonQueryFilter">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[questionName.name].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[questionName.name].extendedProperty.isUsingF7">
+        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery].units.queryField[questionName].extendedProperty.isCommonQuerySorter">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />

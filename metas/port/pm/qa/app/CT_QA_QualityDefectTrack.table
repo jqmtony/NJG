@@ -239,7 +239,7 @@
             <isMultilingual>false</isMultilingual>
             <isEncoded>false</isEncoded>
             <isNullable>false</isNullable>
-            <defaultValue />
+            <defaultValue>''</defaultValue>
             <sqlType>VARCHAR</sqlType>
             <length>44</length>
             <scale>0</scale>
@@ -291,34 +291,6 @@
             <name>CFRespondDepartID</name>
             <alias>dataTable[com.kingdee.eas.port.pm.qa.app.CT_QA_QualityDefectTrack].columns.column[CFRespondDepartID].alias</alias>
             <description>dataTable[com.kingdee.eas.port.pm.qa.app.CT_QA_QualityDefectTrack].columns.column[CFRespondDepartID].description</description>
-            <userDefined>true</userDefined>
-            <isMultilingual>false</isMultilingual>
-            <isEncoded>false</isEncoded>
-            <isNullable>true</isNullable>
-            <defaultValue />
-            <sqlType>VARCHAR</sqlType>
-            <length>44</length>
-            <scale>0</scale>
-            <precision>0</precision>
-        </column>
-        <column>
-            <name>CFQuestionTypeID</name>
-            <alias>dataTable[com.kingdee.eas.port.pm.qa.app.CT_QA_QualityDefectTrack].columns.column[CFQuestionTypeID].alias</alias>
-            <description>dataTable[com.kingdee.eas.port.pm.qa.app.CT_QA_QualityDefectTrack].columns.column[CFQuestionTypeID].description</description>
-            <userDefined>true</userDefined>
-            <isMultilingual>false</isMultilingual>
-            <isEncoded>false</isEncoded>
-            <isNullable>true</isNullable>
-            <defaultValue />
-            <sqlType>VARCHAR</sqlType>
-            <length>44</length>
-            <scale>0</scale>
-            <precision>0</precision>
-        </column>
-        <column>
-            <name>CFQuestionNameID</name>
-            <alias>dataTable[com.kingdee.eas.port.pm.qa.app.CT_QA_QualityDefectTrack].columns.column[CFQuestionNameID].alias</alias>
-            <description>dataTable[com.kingdee.eas.port.pm.qa.app.CT_QA_QualityDefectTrack].columns.column[CFQuestionNameID].description</description>
             <userDefined>true</userDefined>
             <isMultilingual>false</isMultilingual>
             <isEncoded>false</isEncoded>
@@ -400,9 +372,9 @@
             <precision>28</precision>
         </column>
         <column>
-            <name>CFContractID</name>
-            <alias>dataTable[com.kingdee.eas.port.pm.qa.app.CT_QA_QualityDefectTrack].columns.column[CFContractID].alias</alias>
-            <description>dataTable[com.kingdee.eas.port.pm.qa.app.CT_QA_QualityDefectTrack].columns.column[CFContractID].description</description>
+            <name>CFQuestionTypeID</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.qa.app.CT_QA_QualityDefectTrack].columns.column[CFQuestionTypeID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.qa.app.CT_QA_QualityDefectTrack].columns.column[CFQuestionTypeID].description</description>
             <userDefined>true</userDefined>
             <isMultilingual>false</isMultilingual>
             <isEncoded>false</isEncoded>
@@ -410,6 +382,20 @@
             <defaultValue />
             <sqlType>VARCHAR</sqlType>
             <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFQuestionName</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.qa.app.CT_QA_QualityDefectTrack].columns.column[CFQuestionName].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.qa.app.CT_QA_QualityDefectTrack].columns.column[CFQuestionName].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>100</length>
             <scale>0</scale>
             <precision>0</precision>
         </column>
@@ -600,11 +586,11 @@
             </fkColumnPairs>
         </foreignKey>
         <foreignKey>
-            <name>CFK_QA_QAQDTUsxnt6</name>
+            <name>CFK_QA_QAQDTUsxncs</name>
             <userDefined>true</userDefined>
             <refTable>
                 <key name="package" value="com.kingdee.eas.port.pm.base.app" />
-                <key name="name" value="CT_BAS_QuestionTypeTtee" />
+                <key name="name" value="CT_BAS_QuestionType" />
             </refTable>
             <fkColumnPairs>
                 <fkColumnPair>
@@ -618,44 +604,6 @@
                 </fkColumnPair>
             </fkColumnPairs>
         </foreignKey>
-        <foreignKey>
-            <name>CFK_QA_QAQDTUsxn1i</name>
-            <userDefined>true</userDefined>
-            <refTable>
-                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
-                <key name="name" value="CT_BAS_QuestionType" />
-            </refTable>
-            <fkColumnPairs>
-                <fkColumnPair>
-                    <sequence>0</sequence>
-                    <refColumn>
-                        <key name="name" value="FID" />
-                    </refColumn>
-                    <fkColumn>
-                        <key name="name" value="CFQuestionNameID" />
-                    </fkColumn>
-                </fkColumnPair>
-            </fkColumnPairs>
-        </foreignKey>
-        <foreignKey>
-            <name>CFK_QA_QAQDTOntrn1</name>
-            <userDefined>true</userDefined>
-            <refTable>
-                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
-                <key name="name" value="CT_INV_CostTemp" />
-            </refTable>
-            <fkColumnPairs>
-                <fkColumnPair>
-                    <sequence>0</sequence>
-                    <refColumn>
-                        <key name="name" value="FID" />
-                    </refColumn>
-                    <fkColumn>
-                        <key name="name" value="CFContractID" />
-                    </fkColumn>
-                </fkColumnPair>
-            </fkColumnPairs>
-        </foreignKey>
     </foreignKeys>
     <resource>
         <rs key="dataTable[com.kingdee.eas.port.pm.qa.app.CT_QA_QualityDefectTrack].alias">
@@ -663,18 +611,6 @@
             <lang locale="zh_CN" value="质量缺陷跟踪" />
             <lang locale="zh_HK" value="質量缺陷跟蹤" />
             <lang locale="zh_TW" value="質量缺陷跟蹤" />
-        </rs>
-        <rs key="dataTable[com.kingdee.eas.port.pm.qa.app.CT_QA_QualityDefectTrack].columns.column[CFContractID].alias">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="合同" />
-            <lang locale="zh_HK" value="合同" />
-            <lang locale="zh_TW" value="合同" />
-        </rs>
-        <rs key="dataTable[com.kingdee.eas.port.pm.qa.app.CT_QA_QualityDefectTrack].columns.column[CFContractID].description">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="合同" />
-            <lang locale="zh_HK" value="合同" />
-            <lang locale="zh_TW" value="合同" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.qa.app.CT_QA_QualityDefectTrack].columns.column[CFEconomicLoss].alias">
             <lang locale="en_US" value="null" />
@@ -748,13 +684,13 @@
             <lang locale="zh_HK" value="問題說明" />
             <lang locale="zh_TW" value="問題說明" />
         </rs>
-        <rs key="dataTable[com.kingdee.eas.port.pm.qa.app.CT_QA_QualityDefectTrack].columns.column[CFQuestionNameID].alias">
+        <rs key="dataTable[com.kingdee.eas.port.pm.qa.app.CT_QA_QualityDefectTrack].columns.column[CFQuestionName].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="问题名称" />
             <lang locale="zh_HK" value="問題名稱" />
             <lang locale="zh_TW" value="問題名稱" />
         </rs>
-        <rs key="dataTable[com.kingdee.eas.port.pm.qa.app.CT_QA_QualityDefectTrack].columns.column[CFQuestionNameID].description">
+        <rs key="dataTable[com.kingdee.eas.port.pm.qa.app.CT_QA_QualityDefectTrack].columns.column[CFQuestionName].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="问题名称" />
             <lang locale="zh_HK" value="問題名稱" />

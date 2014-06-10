@@ -775,34 +775,6 @@
                 <key name="name" value="R_QualityDefectTrack_AdminOrgUnit_respondDepart" />
             </relationship>
         </linkProperty>
-        <linkProperty>
-            <name>questionType</name>
-            <alias>entityObject[com.kingdee.eas.port.pm.qa.app.QualityDefectTrack].properties.linkProperty[questionType].alias</alias>
-            <description>entityObject[com.kingdee.eas.port.pm.qa.app.QualityDefectTrack].properties.linkProperty[questionType].description</description>
-            <userDefined>true</userDefined>
-            <configured>false</configured>
-            <mappingField>
-                <key name="name" value="CFQuestionTypeID" />
-            </mappingField>
-            <relationship>
-                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
-                <key name="name" value="R_QualityDefectTrack_QuestionTypeTtee_questionType" />
-            </relationship>
-        </linkProperty>
-        <linkProperty>
-            <name>questionName</name>
-            <alias>entityObject[com.kingdee.eas.port.pm.qa.app.QualityDefectTrack].properties.linkProperty[questionName].alias</alias>
-            <description>entityObject[com.kingdee.eas.port.pm.qa.app.QualityDefectTrack].properties.linkProperty[questionName].description</description>
-            <userDefined>true</userDefined>
-            <configured>false</configured>
-            <mappingField>
-                <key name="name" value="CFQuestionNameID" />
-            </mappingField>
-            <relationship>
-                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
-                <key name="name" value="R_QualityDefectTrack_QuestionType_questionName" />
-            </relationship>
-        </linkProperty>
         <ownProperty>
             <name>impactNote</name>
             <alias>entityObject[com.kingdee.eas.port.pm.qa.app.QualityDefectTrack].properties.ownProperty[impactNote].alias</alias>
@@ -915,19 +887,39 @@
             </relationship>
         </linkProperty>
         <linkProperty>
-            <name>contract</name>
-            <alias>entityObject[com.kingdee.eas.port.pm.qa.app.QualityDefectTrack].properties.linkProperty[contract].alias</alias>
-            <description>entityObject[com.kingdee.eas.port.pm.qa.app.QualityDefectTrack].properties.linkProperty[contract].description</description>
+            <name>questionType</name>
+            <alias>entityObject[com.kingdee.eas.port.pm.qa.app.QualityDefectTrack].properties.linkProperty[questionType].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.qa.app.QualityDefectTrack].properties.linkProperty[questionType].description</description>
             <userDefined>true</userDefined>
             <configured>false</configured>
             <mappingField>
-                <key name="name" value="CFContractID" />
+                <key name="name" value="CFQuestionTypeID" />
             </mappingField>
             <relationship>
                 <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
-                <key name="name" value="R_QualityDefectTrack_CostTemp_contract" />
+                <key name="name" value="R_QualityDefectTrack_QuestionType_questionType" />
             </relationship>
         </linkProperty>
+        <ownProperty>
+            <name>questionName</name>
+            <alias>entityObject[com.kingdee.eas.port.pm.qa.app.QualityDefectTrack].properties.ownProperty[questionName].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.qa.app.QualityDefectTrack].properties.ownProperty[questionName].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>String</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>100</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.port.pm.qa.app.QualityDefectTrack].properties.ownProperty[questionName].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFQuestionName" />
+            </mappingField>
+        </ownProperty>
     </properties>
     <logicalKey>
         <name>id</name>
@@ -1615,6 +1607,11 @@
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.qa.app.QualityDefectTrack].extendedProperty.genBusinessImplCode">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.qa.app.QualityDefectTrack].extendedProperty.isParamObject">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
@@ -2108,58 +2105,6 @@
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="entityObject[com.kingdee.eas.port.pm.qa.app.QualityDefectTrack].properties.linkProperty[contract].alias">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="合同" />
-            <lang locale="zh_HK" value="合同" />
-            <lang locale="zh_TW" value="合同" />
-        </rs>
-        <rs key="entityObject[com.kingdee.eas.port.pm.qa.app.QualityDefectTrack].properties.linkProperty[contract].description">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="合同" />
-            <lang locale="zh_HK" value="合同" />
-            <lang locale="zh_TW" value="合同" />
-        </rs>
-        <rs key="entityObject[com.kingdee.eas.port.pm.qa.app.QualityDefectTrack].properties.linkProperty[contract].extendedProperty.ColWidthInKDTable">
-            <lang locale="en_US" value="50" />
-            <lang locale="zh_CN" value="50" />
-            <lang locale="zh_TW" value="50" />
-        </rs>
-        <rs key="entityObject[com.kingdee.eas.port.pm.qa.app.QualityDefectTrack].properties.linkProperty[contract].extendedProperty.dataField">
-            <lang locale="en_US" value="tempName" />
-            <lang locale="zh_CN" value="tempName" />
-            <lang locale="zh_TW" value="tempName" />
-        </rs>
-        <rs key="entityObject[com.kingdee.eas.port.pm.qa.app.QualityDefectTrack].properties.linkProperty[contract].extendedProperty.isForGrouping">
-            <lang locale="en_US" value="false" />
-            <lang locale="zh_CN" value="false" />
-            <lang locale="zh_TW" value="false" />
-        </rs>
-        <rs key="entityObject[com.kingdee.eas.port.pm.qa.app.QualityDefectTrack].properties.linkProperty[contract].extendedProperty.isForMapping">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="entityObject[com.kingdee.eas.port.pm.qa.app.QualityDefectTrack].properties.linkProperty[contract].extendedProperty.isForMatching">
-            <lang locale="en_US" value="false" />
-            <lang locale="zh_CN" value="false" />
-            <lang locale="zh_TW" value="false" />
-        </rs>
-        <rs key="entityObject[com.kingdee.eas.port.pm.qa.app.QualityDefectTrack].properties.linkProperty[contract].extendedProperty.isForWrittenBack">
-            <lang locale="en_US" value="false" />
-            <lang locale="zh_CN" value="false" />
-            <lang locale="zh_TW" value="false" />
-        </rs>
-        <rs key="entityObject[com.kingdee.eas.port.pm.qa.app.QualityDefectTrack].properties.linkProperty[contract].extendedProperty.isInCode">
-            <lang locale="en_US" value="false" />
-            <lang locale="zh_CN" value="false" />
-            <lang locale="zh_TW" value="false" />
-        </rs>
-        <rs key="entityObject[com.kingdee.eas.port.pm.qa.app.QualityDefectTrack].properties.linkProperty[contract].extendedProperty.isVisibleForKDTable">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.qa.app.QualityDefectTrack].properties.linkProperty[personImplement].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="落实人" />
@@ -2312,58 +2257,6 @@
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.qa.app.QualityDefectTrack].properties.linkProperty[projectName].extendedProperty.isVisibleForKDTable">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="entityObject[com.kingdee.eas.port.pm.qa.app.QualityDefectTrack].properties.linkProperty[questionName].alias">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="问题名称" />
-            <lang locale="zh_HK" value="問題名稱" />
-            <lang locale="zh_TW" value="問題名稱" />
-        </rs>
-        <rs key="entityObject[com.kingdee.eas.port.pm.qa.app.QualityDefectTrack].properties.linkProperty[questionName].description">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="问题名称" />
-            <lang locale="zh_HK" value="問題名稱" />
-            <lang locale="zh_TW" value="問題名稱" />
-        </rs>
-        <rs key="entityObject[com.kingdee.eas.port.pm.qa.app.QualityDefectTrack].properties.linkProperty[questionName].extendedProperty.ColWidthInKDTable">
-            <lang locale="en_US" value="50" />
-            <lang locale="zh_CN" value="50" />
-            <lang locale="zh_TW" value="50" />
-        </rs>
-        <rs key="entityObject[com.kingdee.eas.port.pm.qa.app.QualityDefectTrack].properties.linkProperty[questionName].extendedProperty.dataField">
-            <lang locale="en_US" value="name" />
-            <lang locale="zh_CN" value="name" />
-            <lang locale="zh_TW" value="name" />
-        </rs>
-        <rs key="entityObject[com.kingdee.eas.port.pm.qa.app.QualityDefectTrack].properties.linkProperty[questionName].extendedProperty.isForGrouping">
-            <lang locale="en_US" value="false" />
-            <lang locale="zh_CN" value="false" />
-            <lang locale="zh_TW" value="false" />
-        </rs>
-        <rs key="entityObject[com.kingdee.eas.port.pm.qa.app.QualityDefectTrack].properties.linkProperty[questionName].extendedProperty.isForMapping">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="entityObject[com.kingdee.eas.port.pm.qa.app.QualityDefectTrack].properties.linkProperty[questionName].extendedProperty.isForMatching">
-            <lang locale="en_US" value="false" />
-            <lang locale="zh_CN" value="false" />
-            <lang locale="zh_TW" value="false" />
-        </rs>
-        <rs key="entityObject[com.kingdee.eas.port.pm.qa.app.QualityDefectTrack].properties.linkProperty[questionName].extendedProperty.isForWrittenBack">
-            <lang locale="en_US" value="false" />
-            <lang locale="zh_CN" value="false" />
-            <lang locale="zh_TW" value="false" />
-        </rs>
-        <rs key="entityObject[com.kingdee.eas.port.pm.qa.app.QualityDefectTrack].properties.linkProperty[questionName].extendedProperty.isInCode">
-            <lang locale="en_US" value="false" />
-            <lang locale="zh_CN" value="false" />
-            <lang locale="zh_TW" value="false" />
-        </rs>
-        <rs key="entityObject[com.kingdee.eas.port.pm.qa.app.QualityDefectTrack].properties.linkProperty[questionName].extendedProperty.isVisibleForKDTable">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
@@ -2657,6 +2550,69 @@
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.qa.app.QualityDefectTrack].properties.ownProperty[questionDescription].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.qa.app.QualityDefectTrack].properties.ownProperty[questionName].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="问题名称" />
+            <lang locale="zh_HK" value="問題名稱" />
+            <lang locale="zh_TW" value="問題名稱" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.qa.app.QualityDefectTrack].properties.ownProperty[questionName].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.qa.app.QualityDefectTrack].properties.ownProperty[questionName].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="问题名称" />
+            <lang locale="zh_HK" value="問題名稱" />
+            <lang locale="zh_TW" value="問題名稱" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.qa.app.QualityDefectTrack].properties.ownProperty[questionName].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.qa.app.QualityDefectTrack].properties.ownProperty[questionName].extendedProperty.bizDataType">
+            <lang locale="en_US" value="STRING" />
+            <lang locale="zh_CN" value="STRING" />
+            <lang locale="zh_TW" value="STRING" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.qa.app.QualityDefectTrack].properties.ownProperty[questionName].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.qa.app.QualityDefectTrack].properties.ownProperty[questionName].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.qa.app.QualityDefectTrack].properties.ownProperty[questionName].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.qa.app.QualityDefectTrack].properties.ownProperty[questionName].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.qa.app.QualityDefectTrack].properties.ownProperty[questionName].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.qa.app.QualityDefectTrack].properties.ownProperty[questionName].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.qa.app.QualityDefectTrack].properties.ownProperty[questionName].extendedProperty.isVisibleForKDTable">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
