@@ -3,6 +3,8 @@ package com.kingdee.eas.port.pm.acceptance.app;
 import org.apache.log4j.Logger;
 import javax.ejb.*;
 import java.rmi.RemoteException;
+import java.sql.SQLException;
+
 import com.kingdee.bos.*;
 import com.kingdee.bos.util.BOSObjectType;
 import com.kingdee.bos.metadata.IMetaDataPK;
@@ -21,6 +23,8 @@ import java.lang.String;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.dao.IObjectPK;
+import com.kingdee.eas.port.pm.acceptance.CompleteAcceptE1Collection;
+import com.kingdee.eas.port.pm.acceptance.CompleteAcceptE1Info;
 import com.kingdee.eas.port.pm.acceptance.CompleteAcceptInfo;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.metadata.entity.SorterItemCollection;
