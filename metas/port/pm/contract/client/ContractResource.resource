@@ -27,6 +27,11 @@
             <value>i18nResource[com.kingdee.eas.port.pm.contract.client.ContractResource].resourceItems.resourceItem[ContractWithoutTextQueryF7WindowTitle].value</value>
             <userDefined>true</userDefined>
         </resourceItem>
+        <resourceItem>
+            <name>ContractChangeBillQueryF7WindowTitle</name>
+            <value>i18nResource[com.kingdee.eas.port.pm.contract.client.ContractResource].resourceItems.resourceItem[ContractChangeBillQueryF7WindowTitle].value</value>
+            <userDefined>true</userDefined>
+        </resourceItem>
     </resourceItems>
     <resource>
         <rs key="i18nResource[com.kingdee.eas.port.pm.contract.client.ContractResource].alias">
@@ -46,6 +51,12 @@
             <lang locale="zh_CN" value="项目合同" />
             <lang locale="zh_HK" value="項目合同" />
             <lang locale="zh_TW" value="項目合同" />
+        </rs>
+        <rs key="i18nResource[com.kingdee.eas.port.pm.contract.client.ContractResource].resourceItems.resourceItem[ContractChangeBillQueryF7WindowTitle].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合同变更签证确认" />
+            <lang locale="zh_HK" value="合同變更簽證確認" />
+            <lang locale="zh_TW" value="合同變更簽證確認" />
         </rs>
         <rs key="i18nResource[com.kingdee.eas.port.pm.contract.client.ContractResource].resourceItems.resourceItem[ContractChangeSettleBillQueryF7WindowTitle].value">
             <lang locale="en_US" value="null" />
