@@ -66,7 +66,6 @@ public abstract class AbstractProgrammingTemplateListUI extends com.kingdee.eas.
      */
     private void jbInit() throws Exception
     {
-    	
         this.resHelper = new ResourceBundleHelper(AbstractProgrammingTemplateListUI.class.getName());
         this.setUITitle(resHelper.getString("this.title"));
         mainQueryPK = new MetaDataPK("com.kingdee.eas.port.pm.invest.investplan.app", "ProgrammingTemplateQuery");

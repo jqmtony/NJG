@@ -32,6 +32,7 @@ import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.eas.base.core.fm.ClientVerifyHelper;
 import com.kingdee.eas.base.permission.UserInfo;
+import com.kingdee.eas.basedata.assistant.ProjectInfo;
 import com.kingdee.eas.basedata.org.AdminOrgUnitCollection;
 import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
 import com.kingdee.eas.basedata.person.PersonInfo;
@@ -190,6 +191,8 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 	}
 	protected void prmtportProject_dataChanged(DataChangeEvent e)throws Exception {
 		super.prmtportProject_dataChanged(e);
+		ProjectInfo info = (ProjectInfo) prmtportProject.getValue();
+		
 	}
 
 
@@ -635,21 +638,6 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 	/**
 	 * output actionEdit_actionPerformed
 	 */
-	public void actionEdit_actionPerformed(ActionEvent e) throws Exception {
-		this.kDContainer1.removeAllButton();
-		initProWorkButton(this.kDContainer1, false);
-		 if(getOprtState().equals("VIEW"))
-		        checkCanEdit();
-		    if(editData.getObjectState().equals(ObjectStateEnum.veto)){
-				MsgBox.showWarning("此项目已经被否决无法修改!");
-				SysUtil.abort();
-			}
-		    if(editData.getObjectState().equals(ObjectStateEnum.approval)){
-		    	MsgBox.showWarning("此项目已经立项无法修改!");
-				SysUtil.abort();
-		    }
-		    super.actionEdit_actionPerformed(e);
-	}
 
 	/**
 	 * output actionRemove_actionPerformed

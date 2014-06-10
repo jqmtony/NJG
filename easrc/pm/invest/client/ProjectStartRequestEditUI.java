@@ -22,6 +22,7 @@ import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.eas.base.core.fm.ClientVerifyHelper;
 import com.kingdee.eas.basedata.assistant.ProjectInfo;
 import com.kingdee.eas.port.pm.base.CostTypeFactory;
 import com.kingdee.eas.port.pm.base.ICostType;
@@ -32,6 +33,7 @@ import com.kingdee.eas.port.pm.invest.ProjectBudget2Factory;
 import com.kingdee.eas.port.pm.invest.ProjectBudget2Info;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.MsgBox;
+import com.kingdee.eas.xr.helper.ClientVerifyXRHelper;
 
 /**
  * output class name

@@ -30,13 +30,14 @@ import com.kingdee.eas.port.pm.base.CostTypeFactory;
 import com.kingdee.eas.port.pm.base.CostTypeTreeFactory;
 import com.kingdee.eas.port.pm.base.ICostType;
 import com.kingdee.eas.port.pm.base.ICostTypeTree;
+import com.kingdee.eas.port.pm.invest.ProjectBudget2Factory;
 import com.kingdee.eas.port.pm.invest.ProjectEstimateCollection;
 import com.kingdee.eas.port.pm.invest.ProjectEstimateE1Collection;
 import com.kingdee.eas.port.pm.invest.ProjectEstimateE1Info;
 import com.kingdee.eas.port.pm.invest.ProjectEstimateFactory;
 import com.kingdee.eas.port.pm.invest.ProjectEstimateInfo;
+import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.MsgBox;
-import com.kingdee.eas.xr.app.XRBillStatusEnum;
 
 /**
  * output class name
@@ -190,6 +191,21 @@ public class ProjectBudget2EditUI extends AbstractProjectBudget2EditUI
      */
     protected void prmtprojectName_dataChanged(DataChangeEvent e)throws Exception {
     	super.prmtprojectName_dataChanged(e);
+    	
+    	if(prmtprojectName.getValue()==null)
+    		return;
+    	ProjectInfo ptinfo = (ProjectInfo) prmtprojectName.getValue();
+    	String oql = "";
+    	if(editData.getId()==null)
+    		oql= " select id where projectName.id = '"+ptinfo.getId().toString()+"'";
+    	else
+    		oql= " select id where projectName.id = '"+ptinfo.getId().toString()+"' and id<>'"+editData.getId().toString()+"'";
+    	if(ProjectBudget2Factory.getRemoteInstance().exists(oql))
+    	{
+    		MsgBox.showWarning("当前项目已经有项目概算单据，请重新选择！");
+    		prmtprojectName.setValue(null);SysUtil.abort();
+    	}
+    	
     	if(prmtprojectName.getValue()!=null){
     		this.kdtE1.removeRows();
     		ProjectInfo info = (ProjectInfo)prmtprojectName.getValue();
@@ -302,15 +318,16 @@ public class ProjectBudget2EditUI extends AbstractProjectBudget2EditUI
           });
     }
     
-    public boolean checkBeforeWindowClosing() {
-    	if(editData.getId()==null)
-    		recycleNumberByOrg(editData, "NONE", this.txtNumber.getText().trim());
-    	
-    	return super.checkBeforeWindowClosing();
-    }
-    protected void setAutoNumberByOrg(String orgType) {
-    	super.setAutoNumberByOrg(orgType);
-    }
+//    public boolean checkBeforeWindowClosing() {
+//    	if(editData.getId()==null)
+//    	{
+//    		recycleNumberByOrg(editData, "NONE", this.txtNumber.getText().trim());
+//    	}
+//    	return super.checkBeforeWindowClosing();
+//    }
+//    protected void setAutoNumberByOrg(String orgType) {
+//    	super.setAutoNumberByOrg(orgType);
+//    }
     /**
      * output btnAddLine_actionPerformed method
      */

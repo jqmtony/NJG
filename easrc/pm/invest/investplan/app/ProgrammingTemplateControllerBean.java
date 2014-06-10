@@ -1,38 +1,26 @@
 package com.kingdee.eas.port.pm.invest.investplan.app;
 
 import org.apache.log4j.Logger;
-import javax.ejb.*;
-import java.rmi.RemoteException;
-import com.kingdee.bos.*;
-import com.kingdee.bos.util.BOSObjectType;
-import com.kingdee.bos.metadata.IMetaDataPK;
-import com.kingdee.bos.metadata.rule.RuleExecutor;
-import com.kingdee.bos.metadata.MetaDataPK;
-//import com.kingdee.bos.metadata.entity.EntityViewInfo;
-import com.kingdee.bos.framework.ejb.AbstractEntityControllerBean;
-import com.kingdee.bos.framework.ejb.AbstractBizControllerBean;
-//import com.kingdee.bos.dao.IObjectPK;
-import com.kingdee.bos.dao.IObjectValue;
-import com.kingdee.bos.dao.IObjectCollection;
-import com.kingdee.bos.service.ServiceContext;
-import com.kingdee.bos.service.IServiceContext;
 
-import java.lang.String;
-import com.kingdee.bos.metadata.entity.EntityViewInfo;
+import com.kingdee.bos.BOSException;
+import com.kingdee.bos.Context;
+import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.eas.common.EASBizException;
-import com.kingdee.bos.dao.IObjectPK;
-import com.kingdee.eas.port.pm.invest.investplan.ProgrammingTemplateCollection;
-import com.kingdee.eas.port.pm.invest.investplan.ProgrammingTemplateInfo;
-import com.kingdee.bos.metadata.entity.SelectorItemCollection;
-import com.kingdee.eas.framework.CoreBaseCollection;
-import com.kingdee.eas.fdc.basedata.FDCDataBaseCollection;
-import com.kingdee.eas.fdc.basedata.app.FDCDataBaseControllerBean;
-import com.kingdee.eas.framework.CoreBaseInfo;
-import com.kingdee.eas.framework.ObjectBaseCollection;
-import com.kingdee.eas.framework.DataBaseCollection;
 
 public class ProgrammingTemplateControllerBean extends AbstractProgrammingTemplateControllerBean
 {
     private static Logger logger =
-        Logger.getLogger("com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingTemplateControllerBean");
+        Logger.getLogger("com.kingdee.eas.fdc.contract.programming.app.ProgrammingTemplateControllerBean");
+
+	protected void _copy(Context ctx) throws BOSException {
+		logger.assertLog(true, "复制功能");
+	}
+	
+	protected void _checkNameBlank(Context ctx, IObjectValue model) throws BOSException, EASBizException {
+		//因名称缩进显示，调用基类校验时，不通过的话会把缩进效果去除所以覆盖掉基类方法、校验由前台完成
+	}
+	
+	 protected void _checkNameDup(Context ctx , IObjectValue model) throws BOSException , EASBizException {
+		//因名称缩进显示，调用基类校验时，不通过的话会把缩进效果去除所以覆盖掉基类方法、校验由前台完成
+     }
 }

@@ -254,14 +254,6 @@ public abstract class AbstractProjectBudget2EditUI extends com.kingdee.eas.xr.cl
 
 
         this.kdtE1.checkParsed();
-        KDFormattedTextField kdtE1_seq_TextField = new KDFormattedTextField();
-        kdtE1_seq_TextField.setName("kdtE1_seq_TextField");
-        kdtE1_seq_TextField.setVisible(true);
-        kdtE1_seq_TextField.setEditable(true);
-        kdtE1_seq_TextField.setHorizontalAlignment(2);
-        kdtE1_seq_TextField.setDataType(0);
-        KDTDefaultCellEditor kdtE1_seq_CellEditor = new KDTDefaultCellEditor(kdtE1_seq_TextField);
-        this.kdtE1.getColumn("seq").setEditor(kdtE1_seq_CellEditor);
         final KDBizPromptBox kdtE1_costName_PromptBox = new KDBizPromptBox();
         kdtE1_costName_PromptBox.setQueryInfo("com.kingdee.eas.port.pm.base.app.CostTypeQuery");
         kdtE1_costName_PromptBox.setVisible(true);
@@ -499,8 +491,8 @@ public abstract class AbstractProjectBudget2EditUI extends com.kingdee.eas.xr.cl
         this.add(contLastUpdateUser, new KDLayout.Constraints(342, 442, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contLastUpdateTime.setBounds(new Rectangle(342, 470, 270, 19));
         this.add(contLastUpdateTime, new KDLayout.Constraints(342, 470, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contCU.setBounds(new Rectangle(672, 10, 270, 19));
-        this.add(contCU, new KDLayout.Constraints(672, 10, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contCU.setBounds(new Rectangle(341, 10, 270, 19));
+        this.add(contCU, new KDLayout.Constraints(341, 10, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contNumber.setBounds(new Rectangle(10, 10, 270, 19));
         this.add(contNumber, new KDLayout.Constraints(10, 10, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contBizDate.setBounds(new Rectangle(672, 34, 270, 19));
@@ -509,8 +501,8 @@ public abstract class AbstractProjectBudget2EditUI extends com.kingdee.eas.xr.cl
         this.add(contDescription, new KDLayout.Constraints(342, 498, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contAuditor.setBounds(new Rectangle(674, 442, 270, 19));
         this.add(contAuditor, new KDLayout.Constraints(674, 442, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contStatus.setBounds(new Rectangle(341, 10, 270, 19));
-        this.add(contStatus, new KDLayout.Constraints(341, 10, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contStatus.setBounds(new Rectangle(672, 10, 270, 19));
+        this.add(contStatus, new KDLayout.Constraints(672, 10, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contBizStatus.setBounds(new Rectangle(12, 499, 270, 19));
         this.add(contBizStatus, new KDLayout.Constraints(12, 499, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contAuditTime.setBounds(new Rectangle(674, 470, 270, 19));

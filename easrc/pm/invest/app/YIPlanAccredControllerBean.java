@@ -74,7 +74,9 @@ public class YIPlanAccredControllerBean extends AbstractYIPlanAccredControllerBe
 			   }
     		}
      }
-    
+    /**
+     * 反审核
+     */
     protected void _unAudit(Context ctx, IObjectPK pk) throws BOSException,EASBizException {//反审核
     	super._unAudit(ctx, pk);
     	YIPlanAccredInfo Info = getYIPlanAccredInfo(ctx, pk);
@@ -136,8 +138,10 @@ public class YIPlanAccredControllerBean extends AbstractYIPlanAccredControllerBe
 			   }
     		}
     }
-    
-    protected void _unAudit(Context ctx, IObjectPK[] pks) throws BOSException,EASBizException {//批量反审核
+    /**
+     * 批量反审核
+     */
+    protected void _unAudit(Context ctx, IObjectPK[] pks) throws BOSException,EASBizException {
     	super._unAudit(ctx, pks);
     	IProject Iproject = ProjectFactory.getLocalInstance(ctx);
     	for (int g = 0; g < pks.length; g++) 
@@ -188,7 +192,13 @@ public class YIPlanAccredControllerBean extends AbstractYIPlanAccredControllerBe
     protected void _delete(Context ctx, IObjectPK pk) throws BOSException,EASBizException {
     	super._delete(ctx, pk);
     }
- 
+ /**
+  * 项目已立项反写到基础资料
+  * @param ctx
+  * @param Info
+  * @throws BOSException
+  * @throws EASBizException
+  */
     private void creatProjectBase(Context ctx,YIPlanAccredInfo Info) throws BOSException, EASBizException
     {
     	IProject Iproject = ProjectFactory.getLocalInstance(ctx);
@@ -226,7 +236,13 @@ public class YIPlanAccredControllerBean extends AbstractYIPlanAccredControllerBe
     		}
 		}
     }
-    
+    /**
+     * 审核时
+     * @param ctx
+     * @param Info
+     * @throws BOSException
+     * @throws EASBizException
+     */
     private void creatProjectAudit(Context ctx,YIPlanAccredInfo Info) throws BOSException, EASBizException 
     {
     	IYearInvestPlan YearInvestPlan = YearInvestPlanFactory.getLocalInstance(ctx);

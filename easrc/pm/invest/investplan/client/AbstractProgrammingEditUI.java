@@ -446,19 +446,29 @@ public abstract class AbstractProgrammingEditUI extends com.kingdee.eas.fdc.base
 
 
         this.kdtEntries.checkParsed();
+        KDTextField kdtEntries_longNumber_TextField = new KDTextField();
+        kdtEntries_longNumber_TextField.setName("kdtEntries_longNumber_TextField");
+        kdtEntries_longNumber_TextField.setMaxLength(80);
+        KDTDefaultCellEditor kdtEntries_longNumber_CellEditor = new KDTDefaultCellEditor(kdtEntries_longNumber_TextField);
+        this.kdtEntries.getColumn("longNumber").setEditor(kdtEntries_longNumber_CellEditor);
+        KDTextField kdtEntries_name_TextField = new KDTextField();
+        kdtEntries_name_TextField.setName("kdtEntries_name_TextField");
+        kdtEntries_name_TextField.setMaxLength(255);
+        KDTDefaultCellEditor kdtEntries_name_CellEditor = new KDTDefaultCellEditor(kdtEntries_name_TextField);
+        this.kdtEntries.getColumn("name").setEditor(kdtEntries_name_CellEditor);
         KDTextField kdtEntries_costAccount_TextField = new KDTextField();
         kdtEntries_costAccount_TextField.setName("kdtEntries_costAccount_TextField");
-        kdtEntries_costAccount_TextField.setMaxLength(1024);
+        kdtEntries_costAccount_TextField.setMaxLength(512);
         KDTDefaultCellEditor kdtEntries_costAccount_CellEditor = new KDTDefaultCellEditor(kdtEntries_costAccount_TextField);
         this.kdtEntries.getColumn("costAccount").setEditor(kdtEntries_costAccount_CellEditor);
         KDTextField kdtEntries_workContent_TextField = new KDTextField();
         kdtEntries_workContent_TextField.setName("kdtEntries_workContent_TextField");
-        kdtEntries_workContent_TextField.setMaxLength(1024);
+        kdtEntries_workContent_TextField.setMaxLength(512);
         KDTDefaultCellEditor kdtEntries_workContent_CellEditor = new KDTDefaultCellEditor(kdtEntries_workContent_TextField);
         this.kdtEntries.getColumn("workContent").setEditor(kdtEntries_workContent_CellEditor);
         KDTextField kdtEntries_supMaterial_TextField = new KDTextField();
         kdtEntries_supMaterial_TextField.setName("kdtEntries_supMaterial_TextField");
-        kdtEntries_supMaterial_TextField.setMaxLength(1024);
+        kdtEntries_supMaterial_TextField.setMaxLength(512);
         KDTDefaultCellEditor kdtEntries_supMaterial_CellEditor = new KDTDefaultCellEditor(kdtEntries_supMaterial_TextField);
         this.kdtEntries.getColumn("supMaterial").setEditor(kdtEntries_supMaterial_CellEditor);
         KDCheckBox kdtEntries_isInvite_CheckBox = new KDCheckBox();
@@ -587,6 +597,11 @@ public abstract class AbstractProgrammingEditUI extends com.kingdee.eas.fdc.base
         kdtEntries_soldPerSquare_TextField.setPrecision(8);
         KDTDefaultCellEditor kdtEntries_soldPerSquare_CellEditor = new KDTDefaultCellEditor(kdtEntries_soldPerSquare_TextField);
         this.kdtEntries.getColumn("soldPerSquare").setEditor(kdtEntries_soldPerSquare_CellEditor);
+        KDTextField kdtEntries_number_TextField = new KDTextField();
+        kdtEntries_number_TextField.setName("kdtEntries_number_TextField");
+        kdtEntries_number_TextField.setMaxLength(80);
+        KDTDefaultCellEditor kdtEntries_number_CellEditor = new KDTDefaultCellEditor(kdtEntries_number_TextField);
+        this.kdtEntries.getColumn("number").setEditor(kdtEntries_number_CellEditor);
         KDFormattedTextField kdtEntries_citeVersion_TextField = new KDFormattedTextField();
         kdtEntries_citeVersion_TextField.setName("kdtEntries_citeVersion_TextField");
         kdtEntries_citeVersion_TextField.setVisible(true);
@@ -595,6 +610,11 @@ public abstract class AbstractProgrammingEditUI extends com.kingdee.eas.fdc.base
         kdtEntries_citeVersion_TextField.setDataType(0);
         KDTDefaultCellEditor kdtEntries_citeVersion_CellEditor = new KDTDefaultCellEditor(kdtEntries_citeVersion_TextField);
         this.kdtEntries.getColumn("citeVersion").setEditor(kdtEntries_citeVersion_CellEditor);
+        KDTextField kdtEntries_headNumber_TextField = new KDTextField();
+        kdtEntries_headNumber_TextField.setName("kdtEntries_headNumber_TextField");
+        kdtEntries_headNumber_TextField.setMaxLength(80);
+        KDTDefaultCellEditor kdtEntries_headNumber_CellEditor = new KDTDefaultCellEditor(kdtEntries_headNumber_TextField);
+        this.kdtEntries.getColumn("headNumber").setEditor(kdtEntries_headNumber_CellEditor);
         KDFormattedTextField kdtEntries_sortNumber_TextField = new KDFormattedTextField();
         kdtEntries_sortNumber_TextField.setName("kdtEntries_sortNumber_TextField");
         kdtEntries_sortNumber_TextField.setVisible(true);

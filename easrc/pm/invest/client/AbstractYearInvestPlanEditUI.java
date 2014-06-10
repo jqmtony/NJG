@@ -919,7 +919,7 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
         contplanEndDate.setBounds(new Rectangle(354, 163, 270, 19));
         kDPanel1.add(contplanEndDate, new KDLayout.Constraints(354, 163, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contrequestPerson.setBounds(new Rectangle(13, 57, 270, 19));
-        kDPanel1.add(contrequestPerson, new KDLayout.Constraints(13, 57, 270, 19, 0));
+        kDPanel1.add(contrequestPerson, new KDLayout.Constraints(13, 57, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contrequestOrg.setBounds(new Rectangle(354, 57, 270, 19));
         kDPanel1.add(contrequestOrg, new KDLayout.Constraints(354, 57, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contprojectType.setBounds(new Rectangle(696, 83, 270, 19));
@@ -931,7 +931,7 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
         contchancedAmount.setBounds(new Rectangle(696, 109, 270, 19));
         kDPanel1.add(contchancedAmount, new KDLayout.Constraints(696, 109, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contBIMUDF0027.setBounds(new Rectangle(14, 215, 957, 63));
-        kDPanel1.add(contBIMUDF0027, new KDLayout.Constraints(14, 215, 957, 63, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        kDPanel1.add(contBIMUDF0027, new KDLayout.Constraints(14, 215, 957, 63, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contaddress.setBounds(new Rectangle(13, 191, 611, 19));
         kDPanel1.add(contaddress, new KDLayout.Constraints(13, 191, 611, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contplanType.setBounds(new Rectangle(354, 31, 270, 19));
@@ -943,7 +943,7 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
         contCU.setBounds(new Rectangle(696, 57, 270, 19));
         kDPanel1.add(contCU, new KDLayout.Constraints(696, 57, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         kDContainer1.setBounds(new Rectangle(13, 304, 957, 223));
-        kDPanel1.add(kDContainer1, new KDLayout.Constraints(13, 304, 957, 223, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        kDPanel1.add(kDContainer1, new KDLayout.Constraints(13, 304, 957, 223, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         contcostTemp.setBounds(new Rectangle(13, 282, 270, 19));
         kDPanel1.add(contcostTemp, new KDLayout.Constraints(13, 282, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         continvestAmount.setBounds(new Rectangle(13, 83, 270, 19));

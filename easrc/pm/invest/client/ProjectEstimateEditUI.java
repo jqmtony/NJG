@@ -27,13 +27,23 @@ import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.UIRuleUtil;
+import com.kingdee.eas.basedata.assistant.IProject;
+import com.kingdee.eas.basedata.assistant.ProjectFactory;
+import com.kingdee.eas.basedata.assistant.ProjectInfo;
+import com.kingdee.eas.common.EASBizException;
+import com.kingdee.eas.common.client.OprtState;
+import com.kingdee.eas.framework.CoreBaseInfo;
 import com.kingdee.eas.port.pm.base.CostTypeTreeFactory;
 import com.kingdee.eas.port.pm.base.ICostType;
 import com.kingdee.eas.port.pm.base.ICostTypeTree;
 import com.kingdee.eas.port.pm.invest.CostTempE1Collection;
 import com.kingdee.eas.port.pm.invest.CostTempE1Info;
 import com.kingdee.eas.port.pm.invest.CostTempInfo;
+import com.kingdee.eas.port.pm.invest.ProjectEstimateFactory;
+import com.kingdee.eas.port.pm.invest.uitls.F7ProjectDialog;
+import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.MsgBox;
+import com.kingdee.util.NumericExceptionSubItem;
 /**
  * output class name
  */
@@ -53,7 +63,9 @@ public class ProjectEstimateEditUI extends AbstractProjectEstimateEditUI
      */
     public void loadFields()
     {
+    	this.detachListeners();
         super.loadFields();
+        this.attachListeners();
     }
 
     /**
@@ -84,10 +96,15 @@ public class ProjectEstimateEditUI extends AbstractProjectEstimateEditUI
 		
 		FilterInfo filter = new FilterInfo();
 		filter.getFilterItems().add(new FilterItemInfo("NJGprojectType.name","基本建设",com.kingdee.bos.metadata.query.util.CompareType.EQUALS));
-		EntityViewInfo view = new EntityViewInfo();
-		view.setFilter(filter);
-		this.prmtprojectName.setEntityViewInfo(view);
+//		EntityViewInfo view = new EntityViewInfo();
+//		view.setFilter(filter);
+//		this.prmtprojectName.setEntityViewInfo(view);
 		
+		F7ProjectDialog f7Projs = new F7ProjectDialog(this.prmtprojectName);
+		f7Projs.setMit(false);
+		f7Projs.setFilterInfo(filter);
+		
+		this.prmtprojectName.setSelector(f7Projs);
     }
     public void storeFields()
     {
@@ -126,6 +143,23 @@ public class ProjectEstimateEditUI extends AbstractProjectEstimateEditUI
 			}
     	}
 	}
+    
+    protected void prmtprojectName_dataChanged(DataChangeEvent e)throws Exception {
+    	super.prmtprojectName_dataChanged(e);
+    	if(prmtprojectName.getValue()==null)
+    		return;
+    	ProjectInfo info = (ProjectInfo) prmtprojectName.getValue();
+    	String oql = "";
+    	if(editData.getId()==null)
+    		oql= " select id where projectName.id = '"+info.getId().toString()+"'";
+    	else
+    		oql= " select id where projectName.id = '"+info.getId().toString()+"' and id<>'"+editData.getId().toString()+"'";
+    	if(ProjectEstimateFactory.getRemoteInstance().exists(oql))
+    	{
+    		MsgBox.showWarning("当前项目已经有项目估算单据，请重新选择！");
+    		prmtprojectName.setValue(null);SysUtil.abort();
+    	}
+    }
     
     /**
      * output kdtE1_editStopped method
@@ -890,10 +924,10 @@ public class ProjectEstimateEditUI extends AbstractProjectEstimateEditUI
         return objectValue;
     }
 	protected void attachListeners() {
-		
+		addDataChangeListener(this.prmtprojectName);
 	}
 	protected void detachListeners() {
-		
+		removeDataChangeListener(this.prmtprojectName);
 	}
 	protected KDTextField getNumberCtrl() {
 		return null;
