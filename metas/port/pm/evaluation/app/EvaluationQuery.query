@@ -103,37 +103,6 @@
     </subObjects>
     <units>
         <queryField>
-            <name>status</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.evaluation.app.EvaluationQuery].units.queryField[status].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>Int</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>538d4f61-cd00-40af-a241-ff4504ba65d2</key>
-                    <parentUnit>
-                        <key name="name" value="status" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="Evaluation" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="status" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.evaluation.app" />
-                <key name="name" value="EvaluationQuery" />
-            </query>
-        </queryField>
-        <queryField>
             <name>number</name>
             <userDefined>true</userDefined>
             <formulaString />
@@ -165,245 +134,28 @@
             </query>
         </queryField>
         <queryField>
-            <name>bizDate</name>
+            <name>status</name>
             <userDefined>true</userDefined>
             <formulaString />
             <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.evaluation.app.EvaluationQuery].units.queryField[bizDate].displayName</displayName>
+            <displayName>joinQuery[com.kingdee.eas.port.pm.evaluation.app.EvaluationQuery].units.queryField[status].displayName</displayName>
             <groupType />
             <isSelector>true</isSelector>
             <isFilter>true</isFilter>
             <isSorter>false</isSorter>
             <isParameter>false</isParameter>
-            <returnType>Date</returnType>
+            <returnType>Int</returnType>
             <propertyRefs>
                 <propertyRef>
-                    <key>cb7f731a-431c-49a5-b7d5-381c3ffbc29c</key>
+                    <key>538d4f61-cd00-40af-a241-ff4504ba65d2</key>
                     <parentUnit>
-                        <key name="name" value="bizDate" />
+                        <key name="name" value="status" />
                     </parentUnit>
                     <subEntity>
                         <key name="name" value="Evaluation" />
                     </subEntity>
                     <refProperty>
-                        <key name="name" value="bizDate" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.evaluation.app" />
-                <key name="name" value="EvaluationQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>creator.name</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.evaluation.app.EvaluationQuery].units.queryField[creator.name].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>7adc4c92-9787-486e-ba95-3db724e75b36</key>
-                    <parentUnit>
-                        <key name="name" value="creator.name" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="creator" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="name" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.evaluation.app" />
-                <key name="name" value="EvaluationQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>createTime</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.evaluation.app.EvaluationQuery].units.queryField[createTime].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>Timestamp</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>49ba5ef1-f78b-4df1-9e0a-dfb8ea209208</key>
-                    <parentUnit>
-                        <key name="name" value="createTime" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="Evaluation" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="createTime" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.evaluation.app" />
-                <key name="name" value="EvaluationQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>lastUpdateUser.name</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.evaluation.app.EvaluationQuery].units.queryField[lastUpdateUser.name].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>978ac494-6508-4912-86d0-4d934ca8fb6f</key>
-                    <parentUnit>
-                        <key name="name" value="lastUpdateUser.name" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="lastUpdateUser" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="name" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.evaluation.app" />
-                <key name="name" value="EvaluationQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>lastUpdateTime</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.evaluation.app.EvaluationQuery].units.queryField[lastUpdateTime].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>Timestamp</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>fed2a620-b4f9-4320-86d0-ad1a98a04ce9</key>
-                    <parentUnit>
-                        <key name="name" value="lastUpdateTime" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="Evaluation" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="lastUpdateTime" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.evaluation.app" />
-                <key name="name" value="EvaluationQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>auditor.name</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.evaluation.app.EvaluationQuery].units.queryField[auditor.name].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>62e79ba2-0ff2-44e1-9435-6498d0029bd2</key>
-                    <parentUnit>
-                        <key name="name" value="auditor.name" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="auditor" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="name" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.evaluation.app" />
-                <key name="name" value="EvaluationQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>auditTime</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.evaluation.app.EvaluationQuery].units.queryField[auditTime].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>Timestamp</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>60bee6c4-14c8-4937-b5c6-052285fd7ad2</key>
-                    <parentUnit>
-                        <key name="name" value="auditTime" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="Evaluation" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="auditTime" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.evaluation.app" />
-                <key name="name" value="EvaluationQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>id</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.evaluation.app.EvaluationQuery].units.queryField[id].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>21252636-7873-4b63-bc08-1d60f96d5bf5</key>
-                    <parentUnit>
-                        <key name="name" value="id" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="Evaluation" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="id" />
+                        <key name="name" value="status" />
                     </refProperty>
                 </propertyRef>
             </propertyRefs>
@@ -660,68 +412,6 @@
                 <key name="name" value="EvaluationQuery" />
             </query>
         </propertyUnit>
-        <queryField>
-            <name>CU.id</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.evaluation.app.EvaluationQuery].units.queryField[CU.id].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>913696cd-bc5f-416c-9e6e-887c5c0dc4cb</key>
-                    <parentUnit>
-                        <key name="name" value="CU.id" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="CU" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="id" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.evaluation.app" />
-                <key name="name" value="EvaluationQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>E1.seq</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.evaluation.app.EvaluationQuery].units.queryField[E1.seq].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>Int</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>64e1f341-2cc4-4c3e-bbdd-70388725d74e</key>
-                    <parentUnit>
-                        <key name="name" value="E1.seq" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="E1" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="seq" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.evaluation.app" />
-                <key name="name" value="EvaluationQuery" />
-            </query>
-        </queryField>
         <propertyUnit>
             <name>c8616565-86de-49cd-9592-8aecc0e1d1be</name>
             <userDefined>true</userDefined>
@@ -878,28 +568,28 @@
             </query>
         </propertyUnit>
         <queryField>
-            <name>E1.apIndex</name>
+            <name>bizDate</name>
             <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
+            <formulaString />
             <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.evaluation.app.EvaluationQuery].units.queryField[E1.apIndex].displayName</displayName>
+            <displayName>joinQuery[com.kingdee.eas.port.pm.evaluation.app.EvaluationQuery].units.queryField[bizDate].displayName</displayName>
             <groupType />
             <isSelector>true</isSelector>
             <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
+            <isSorter>false</isSorter>
             <isParameter>false</isParameter>
-            <returnType>String</returnType>
+            <returnType>Date</returnType>
             <propertyRefs>
                 <propertyRef>
-                    <key>ebdb5d21-e204-4ac4-9059-92da68e9b6fb</key>
+                    <key>cb7f731a-431c-49a5-b7d5-381c3ffbc29c</key>
                     <parentUnit>
-                        <key name="name" value="E1.apIndex" />
+                        <key name="name" value="bizDate" />
                     </parentUnit>
                     <subEntity>
-                        <key name="name" value="E1" />
+                        <key name="name" value="Evaluation" />
                     </subEntity>
                     <refProperty>
-                        <key name="name" value="apIndex" />
+                        <key name="name" value="bizDate" />
                     </refProperty>
                 </propertyRef>
             </propertyRefs>
@@ -909,28 +599,28 @@
             </query>
         </queryField>
         <queryField>
-            <name>E1.rate</name>
+            <name>creator.name</name>
             <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
+            <formulaString />
             <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.evaluation.app.EvaluationQuery].units.queryField[E1.rate].displayName</displayName>
+            <displayName>joinQuery[com.kingdee.eas.port.pm.evaluation.app.EvaluationQuery].units.queryField[creator.name].displayName</displayName>
             <groupType />
             <isSelector>true</isSelector>
             <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
+            <isSorter>false</isSorter>
             <isParameter>false</isParameter>
             <returnType>String</returnType>
             <propertyRefs>
                 <propertyRef>
-                    <key>985c5e27-6ac9-40d7-9e8f-d65b9addbac0</key>
+                    <key>7adc4c92-9787-486e-ba95-3db724e75b36</key>
                     <parentUnit>
-                        <key name="name" value="E1.rate" />
+                        <key name="name" value="creator.name" />
                     </parentUnit>
                     <subEntity>
-                        <key name="name" value="E1" />
+                        <key name="name" value="creator" />
                     </subEntity>
                     <refProperty>
-                        <key name="name" value="rate" />
+                        <key name="name" value="name" />
                     </refProperty>
                 </propertyRef>
             </propertyRefs>
@@ -940,28 +630,214 @@
             </query>
         </queryField>
         <queryField>
-            <name>E1.projectImportance</name>
+            <name>createTime</name>
             <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
+            <formulaString />
             <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.evaluation.app.EvaluationQuery].units.queryField[E1.projectImportance].displayName</displayName>
+            <displayName>joinQuery[com.kingdee.eas.port.pm.evaluation.app.EvaluationQuery].units.queryField[createTime].displayName</displayName>
             <groupType />
             <isSelector>true</isSelector>
             <isFilter>true</isFilter>
             <isSorter>true</isSorter>
             <isParameter>false</isParameter>
+            <returnType>Timestamp</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>49ba5ef1-f78b-4df1-9e0a-dfb8ea209208</key>
+                    <parentUnit>
+                        <key name="name" value="createTime" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Evaluation" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="createTime" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.evaluation.app" />
+                <key name="name" value="EvaluationQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>lastUpdateUser.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.evaluation.app.EvaluationQuery].units.queryField[lastUpdateUser.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
             <returnType>String</returnType>
             <propertyRefs>
                 <propertyRef>
-                    <key>42dbd79c-0aae-426f-8fc5-ed7bae08163b</key>
+                    <key>978ac494-6508-4912-86d0-4d934ca8fb6f</key>
                     <parentUnit>
-                        <key name="name" value="E1.projectImportance" />
+                        <key name="name" value="lastUpdateUser.name" />
                     </parentUnit>
                     <subEntity>
-                        <key name="name" value="E1" />
+                        <key name="name" value="lastUpdateUser" />
                     </subEntity>
                     <refProperty>
-                        <key name="name" value="projectImportance" />
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.evaluation.app" />
+                <key name="name" value="EvaluationQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>lastUpdateTime</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.evaluation.app.EvaluationQuery].units.queryField[lastUpdateTime].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Timestamp</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>fed2a620-b4f9-4320-86d0-ad1a98a04ce9</key>
+                    <parentUnit>
+                        <key name="name" value="lastUpdateTime" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Evaluation" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="lastUpdateTime" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.evaluation.app" />
+                <key name="name" value="EvaluationQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>auditor.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.evaluation.app.EvaluationQuery].units.queryField[auditor.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>62e79ba2-0ff2-44e1-9435-6498d0029bd2</key>
+                    <parentUnit>
+                        <key name="name" value="auditor.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="auditor" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.evaluation.app" />
+                <key name="name" value="EvaluationQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>auditTime</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.evaluation.app.EvaluationQuery].units.queryField[auditTime].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Timestamp</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>60bee6c4-14c8-4937-b5c6-052285fd7ad2</key>
+                    <parentUnit>
+                        <key name="name" value="auditTime" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Evaluation" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="auditTime" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.evaluation.app" />
+                <key name="name" value="EvaluationQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>id</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.evaluation.app.EvaluationQuery].units.queryField[id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>21252636-7873-4b63-bc08-1d60f96d5bf5</key>
+                    <parentUnit>
+                        <key name="name" value="id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Evaluation" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.evaluation.app" />
+                <key name="name" value="EvaluationQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>CU.id</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.evaluation.app.EvaluationQuery].units.queryField[CU.id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>913696cd-bc5f-416c-9e6e-887c5c0dc4cb</key>
+                    <parentUnit>
+                        <key name="name" value="CU.id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="CU" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
                     </refProperty>
                 </propertyRef>
             </propertyRefs>
@@ -1321,70 +1197,6 @@
             <lang locale="zh_CN" value="ID" />
             <lang locale="zh_HK" value="ID" />
             <lang locale="zh_TW" value="ID" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.evaluation.app.EvaluationQuery].units.queryField[E1.apIndex].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="评定项目指标" />
-            <lang locale="zh_HK" value="評定項目指標" />
-            <lang locale="zh_TW" value="評定項目指標" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.evaluation.app.EvaluationQuery].units.queryField[E1.apIndex].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.evaluation.app.EvaluationQuery].units.queryField[E1.apIndex].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.evaluation.app.EvaluationQuery].units.queryField[E1.projectImportance].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="项目相关重要性" />
-            <lang locale="zh_HK" value="項目相關重要性" />
-            <lang locale="zh_TW" value="項目相關重要性" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.evaluation.app.EvaluationQuery].units.queryField[E1.projectImportance].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.evaluation.app.EvaluationQuery].units.queryField[E1.projectImportance].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.evaluation.app.EvaluationQuery].units.queryField[E1.rate].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="评定等级" />
-            <lang locale="zh_HK" value="評定等級" />
-            <lang locale="zh_TW" value="評定等級" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.evaluation.app.EvaluationQuery].units.queryField[E1.rate].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.evaluation.app.EvaluationQuery].units.queryField[E1.rate].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.evaluation.app.EvaluationQuery].units.queryField[E1.seq].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="单据分录序列号" />
-            <lang locale="zh_HK" value="單據分錄序列號" />
-            <lang locale="zh_TW" value="單據分錄序列號" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.evaluation.app.EvaluationQuery].units.queryField[E1.seq].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.evaluation.app.EvaluationQuery].units.queryField[E1.seq].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.evaluation.app.EvaluationQuery].units.queryField[auditTime].displayName">
             <lang locale="en_US" value="null" />
