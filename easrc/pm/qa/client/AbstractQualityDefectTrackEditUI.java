@@ -62,8 +62,6 @@ public abstract class AbstractQualityDefectTrackEditUI extends com.kingdee.eas.x
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contpersonMake;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contpersonImplement;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contrespondDepart;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contquestionType;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contquestionName;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contimpactNote;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contquestionDescription;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contreasonAnalysis;
@@ -72,7 +70,8 @@ public abstract class AbstractQualityDefectTrackEditUI extends com.kingdee.eas.x
     protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtE1;
 	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtE1_detailPanel = null;
     protected com.kingdee.bos.ctrl.swing.KDCheckBox kDCheckBox1;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contcontract;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contquestionType;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contquestionName;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtCreator;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkCreateTime;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtLastUpdateUser;
@@ -89,8 +88,6 @@ public abstract class AbstractQualityDefectTrackEditUI extends com.kingdee.eas.x
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtpersonMake;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtpersonImplement;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtrespondDepart;
-    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtquestionType;
-    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtquestionName;
     protected com.kingdee.bos.ctrl.swing.KDScrollPane scrollPaneimpactNote;
     protected com.kingdee.bos.ctrl.swing.KDTextArea txtimpactNote;
     protected com.kingdee.bos.ctrl.swing.KDScrollPane scrollPanequestionDescription;
@@ -100,7 +97,8 @@ public abstract class AbstractQualityDefectTrackEditUI extends com.kingdee.eas.x
     protected com.kingdee.bos.ctrl.swing.KDScrollPane scrollPanesolution;
     protected com.kingdee.bos.ctrl.swing.KDTextArea txtsolution;
     protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txteconomicLoss;
-    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtcontract;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtquestionType;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txtquestionName;
     protected com.kingdee.eas.port.pm.qa.QualityDefectTrackInfo editData = null;
     /**
      * output class constructor
@@ -167,8 +165,6 @@ public abstract class AbstractQualityDefectTrackEditUI extends com.kingdee.eas.x
         this.contpersonMake = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contpersonImplement = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contrespondDepart = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contquestionType = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contquestionName = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contimpactNote = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contquestionDescription = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contreasonAnalysis = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -176,7 +172,8 @@ public abstract class AbstractQualityDefectTrackEditUI extends com.kingdee.eas.x
         this.conteconomicLoss = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.kdtE1 = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.kDCheckBox1 = new com.kingdee.bos.ctrl.swing.KDCheckBox();
-        this.contcontract = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contquestionType = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contquestionName = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.prmtCreator = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.pkCreateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.prmtLastUpdateUser = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
@@ -193,8 +190,6 @@ public abstract class AbstractQualityDefectTrackEditUI extends com.kingdee.eas.x
         this.prmtpersonMake = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.prmtpersonImplement = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.prmtrespondDepart = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
-        this.prmtquestionType = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
-        this.prmtquestionName = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.scrollPaneimpactNote = new com.kingdee.bos.ctrl.swing.KDScrollPane();
         this.txtimpactNote = new com.kingdee.bos.ctrl.swing.KDTextArea();
         this.scrollPanequestionDescription = new com.kingdee.bos.ctrl.swing.KDScrollPane();
@@ -204,7 +199,8 @@ public abstract class AbstractQualityDefectTrackEditUI extends com.kingdee.eas.x
         this.scrollPanesolution = new com.kingdee.bos.ctrl.swing.KDScrollPane();
         this.txtsolution = new com.kingdee.bos.ctrl.swing.KDTextArea();
         this.txteconomicLoss = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
-        this.prmtcontract = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.prmtquestionType = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.txtquestionName = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.contCreator.setName("contCreator");
         this.contCreateTime.setName("contCreateTime");
         this.contLastUpdateUser.setName("contLastUpdateUser");
@@ -221,8 +217,6 @@ public abstract class AbstractQualityDefectTrackEditUI extends com.kingdee.eas.x
         this.contpersonMake.setName("contpersonMake");
         this.contpersonImplement.setName("contpersonImplement");
         this.contrespondDepart.setName("contrespondDepart");
-        this.contquestionType.setName("contquestionType");
-        this.contquestionName.setName("contquestionName");
         this.contimpactNote.setName("contimpactNote");
         this.contquestionDescription.setName("contquestionDescription");
         this.contreasonAnalysis.setName("contreasonAnalysis");
@@ -230,7 +224,8 @@ public abstract class AbstractQualityDefectTrackEditUI extends com.kingdee.eas.x
         this.conteconomicLoss.setName("conteconomicLoss");
         this.kdtE1.setName("kdtE1");
         this.kDCheckBox1.setName("kDCheckBox1");
-        this.contcontract.setName("contcontract");
+        this.contquestionType.setName("contquestionType");
+        this.contquestionName.setName("contquestionName");
         this.prmtCreator.setName("prmtCreator");
         this.pkCreateTime.setName("pkCreateTime");
         this.prmtLastUpdateUser.setName("prmtLastUpdateUser");
@@ -247,8 +242,6 @@ public abstract class AbstractQualityDefectTrackEditUI extends com.kingdee.eas.x
         this.prmtpersonMake.setName("prmtpersonMake");
         this.prmtpersonImplement.setName("prmtpersonImplement");
         this.prmtrespondDepart.setName("prmtrespondDepart");
-        this.prmtquestionType.setName("prmtquestionType");
-        this.prmtquestionName.setName("prmtquestionName");
         this.scrollPaneimpactNote.setName("scrollPaneimpactNote");
         this.txtimpactNote.setName("txtimpactNote");
         this.scrollPanequestionDescription.setName("scrollPanequestionDescription");
@@ -258,7 +251,8 @@ public abstract class AbstractQualityDefectTrackEditUI extends com.kingdee.eas.x
         this.scrollPanesolution.setName("scrollPanesolution");
         this.txtsolution.setName("txtsolution");
         this.txteconomicLoss.setName("txteconomicLoss");
-        this.prmtcontract.setName("prmtcontract");
+        this.prmtquestionType.setName("prmtquestionType");
+        this.txtquestionName.setName("txtquestionName");
         // CoreUI
         // contCreator		
         this.contCreator.setBoundLabelText(resHelper.getString("contCreator.boundLabelText"));		
@@ -331,16 +325,6 @@ public abstract class AbstractQualityDefectTrackEditUI extends com.kingdee.eas.x
         this.contrespondDepart.setBoundLabelLength(100);		
         this.contrespondDepart.setBoundLabelUnderline(true);		
         this.contrespondDepart.setVisible(true);
-        // contquestionType		
-        this.contquestionType.setBoundLabelText(resHelper.getString("contquestionType.boundLabelText"));		
-        this.contquestionType.setBoundLabelLength(100);		
-        this.contquestionType.setBoundLabelUnderline(true);		
-        this.contquestionType.setVisible(true);
-        // contquestionName		
-        this.contquestionName.setBoundLabelText(resHelper.getString("contquestionName.boundLabelText"));		
-        this.contquestionName.setBoundLabelLength(100);		
-        this.contquestionName.setBoundLabelUnderline(true);		
-        this.contquestionName.setVisible(true);
         // contimpactNote		
         this.contimpactNote.setBoundLabelText(resHelper.getString("contimpactNote.boundLabelText"));		
         this.contimpactNote.setBoundLabelLength(16);		
@@ -379,14 +363,6 @@ public abstract class AbstractQualityDefectTrackEditUI extends com.kingdee.eas.x
 
 
         this.kdtE1.checkParsed();
-        KDFormattedTextField kdtE1_seq_TextField = new KDFormattedTextField();
-        kdtE1_seq_TextField.setName("kdtE1_seq_TextField");
-        kdtE1_seq_TextField.setVisible(true);
-        kdtE1_seq_TextField.setEditable(true);
-        kdtE1_seq_TextField.setHorizontalAlignment(2);
-        kdtE1_seq_TextField.setDataType(0);
-        KDTDefaultCellEditor kdtE1_seq_CellEditor = new KDTDefaultCellEditor(kdtE1_seq_TextField);
-        this.kdtE1.getColumn("seq").setEditor(kdtE1_seq_CellEditor);
         KDTextField kdtE1_mainRespond_TextField = new KDTextField();
         kdtE1_mainRespond_TextField.setName("kdtE1_mainRespond_TextField");
         kdtE1_mainRespond_TextField.setMaxLength(100);
@@ -411,11 +387,16 @@ public abstract class AbstractQualityDefectTrackEditUI extends com.kingdee.eas.x
         this.kdtE1.getColumn("description").setEditor(kdtE1_description_CellEditor);
         // kDCheckBox1		
         this.kDCheckBox1.setText(resHelper.getString("kDCheckBox1.text"));
-        // contcontract		
-        this.contcontract.setBoundLabelText(resHelper.getString("contcontract.boundLabelText"));		
-        this.contcontract.setBoundLabelLength(100);		
-        this.contcontract.setBoundLabelUnderline(true);		
-        this.contcontract.setVisible(true);
+        // contquestionType		
+        this.contquestionType.setBoundLabelText(resHelper.getString("contquestionType.boundLabelText"));		
+        this.contquestionType.setBoundLabelLength(100);		
+        this.contquestionType.setBoundLabelUnderline(true);		
+        this.contquestionType.setVisible(true);
+        // contquestionName		
+        this.contquestionName.setBoundLabelText(resHelper.getString("contquestionName.boundLabelText"));		
+        this.contquestionName.setBoundLabelLength(100);		
+        this.contquestionName.setBoundLabelUnderline(true);		
+        this.contquestionName.setVisible(true);
         // prmtCreator		
         this.prmtCreator.setEnabled(false);		
         this.prmtCreator.setCommitFormat("$name$");		
@@ -484,39 +465,6 @@ public abstract class AbstractQualityDefectTrackEditUI extends com.kingdee.eas.x
         this.prmtrespondDepart.setEditFormat("$number$");		
         this.prmtrespondDepart.setCommitFormat("$number$");		
         this.prmtrespondDepart.setRequired(false);
-        // prmtquestionType		
-        this.prmtquestionType.setQueryInfo("com.kingdee.eas.port.pm.base.app.QuestionTypeTteeQuery");		
-        this.prmtquestionType.setVisible(true);		
-        this.prmtquestionType.setEditable(true);		
-        this.prmtquestionType.setDisplayFormat("$name$");		
-        this.prmtquestionType.setEditFormat("$number$");		
-        this.prmtquestionType.setCommitFormat("$number$");		
-        this.prmtquestionType.setRequired(false);
-        		prmtquestionType.addSelectorListener(new SelectorListener() {
-			com.kingdee.eas.port.pm.base.client.QuestionTypeTteeListUI prmtquestionType_F7ListUI = null;
-			public void willShow(SelectorEvent e) {
-				if (prmtquestionType_F7ListUI == null) {
-					try {
-						prmtquestionType_F7ListUI = new com.kingdee.eas.port.pm.base.client.QuestionTypeTteeListUI();
-					} catch (Exception e1) {
-						e1.printStackTrace();
-					}
-					HashMap ctx = new HashMap();
-					ctx.put("bizUIOwner",javax.swing.SwingUtilities.getWindowAncestor(prmtquestionType_F7ListUI));
-					prmtquestionType_F7ListUI.setF7Use(true,ctx);
-					prmtquestionType.setSelector(prmtquestionType_F7ListUI);
-				}
-			}
-		});
-					
-        // prmtquestionName		
-        this.prmtquestionName.setQueryInfo("com.kingdee.eas.port.pm.base.app.QuestionTypeQuery");		
-        this.prmtquestionName.setVisible(true);		
-        this.prmtquestionName.setEditable(true);		
-        this.prmtquestionName.setDisplayFormat("$name$");		
-        this.prmtquestionName.setEditFormat("$number$");		
-        this.prmtquestionName.setCommitFormat("$number$");		
-        this.prmtquestionName.setRequired(false);
         // scrollPaneimpactNote
         // txtimpactNote		
         this.txtimpactNote.setVisible(true);		
@@ -546,15 +494,20 @@ public abstract class AbstractQualityDefectTrackEditUI extends com.kingdee.eas.x
         this.txteconomicLoss.setMaximumValue( new java.math.BigDecimal("1.0E26"));		
         this.txteconomicLoss.setPrecision(2);		
         this.txteconomicLoss.setRequired(false);
-        // prmtcontract		
-        this.prmtcontract.setQueryInfo("com.kingdee.eas.port.pm.invest.app.CostTempQuery");		
-        this.prmtcontract.setVisible(true);		
-        this.prmtcontract.setEditable(true);		
-        this.prmtcontract.setDisplayFormat("$tempName$");		
-        this.prmtcontract.setEditFormat("$number$");		
-        this.prmtcontract.setCommitFormat("$number$");		
-        this.prmtcontract.setRequired(false);
-        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmtprojectName,prmtpersonMake,prmtpersonImplement,prmtrespondDepart,prmtquestionType,prmtquestionName,txtquestionDescription,txtimpactNote,txtreasonAnalysis,txtsolution,txteconomicLoss,prmtcontract}));
+        // prmtquestionType		
+        this.prmtquestionType.setQueryInfo("com.kingdee.eas.port.pm.base.app.QuestionTypeQuery");		
+        this.prmtquestionType.setVisible(true);		
+        this.prmtquestionType.setEditable(true);		
+        this.prmtquestionType.setDisplayFormat("$name$");		
+        this.prmtquestionType.setEditFormat("$number$");		
+        this.prmtquestionType.setCommitFormat("$number$");		
+        this.prmtquestionType.setRequired(false);
+        // txtquestionName		
+        this.txtquestionName.setVisible(true);		
+        this.txtquestionName.setHorizontalAlignment(2);		
+        this.txtquestionName.setMaxLength(100);		
+        this.txtquestionName.setRequired(false);
+        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmtprojectName,prmtpersonMake,prmtpersonImplement,prmtrespondDepart,txtquestionDescription,txtimpactNote,txtreasonAnalysis,txtsolution,txteconomicLoss,prmtquestionType,txtquestionName}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
 		registerBindings();
@@ -580,62 +533,60 @@ public abstract class AbstractQualityDefectTrackEditUI extends com.kingdee.eas.x
      */
     public void initUIContentLayout()
     {
-        this.setBounds(new Rectangle(10, 10, 1013, 749));
+        this.setBounds(new Rectangle(10, 10, 1013, 629));
         this.setLayout(new KDLayout());
-        this.putClientProperty("OriginalBounds", new Rectangle(10, 10, 1013, 749));
-        contCreator.setBounds(new Rectangle(10, 658, 270, 19));
-        this.add(contCreator, new KDLayout.Constraints(10, 658, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        contCreateTime.setBounds(new Rectangle(10, 682, 270, 19));
-        this.add(contCreateTime, new KDLayout.Constraints(10, 682, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        contLastUpdateUser.setBounds(new Rectangle(341, 658, 270, 19));
-        this.add(contLastUpdateUser, new KDLayout.Constraints(341, 658, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        contLastUpdateTime.setBounds(new Rectangle(341, 682, 270, 19));
-        this.add(contLastUpdateTime, new KDLayout.Constraints(341, 682, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        contCU.setBounds(new Rectangle(370, 10, 270, 19));
-        this.add(contCU, new KDLayout.Constraints(370, 10, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        contNumber.setBounds(new Rectangle(10, 10, 270, 19));
-        this.add(contNumber, new KDLayout.Constraints(10, 10, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        contBizDate.setBounds(new Rectangle(370, 83, 270, 19));
-        this.add(contBizDate, new KDLayout.Constraints(370, 83, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        contDescription.setBounds(new Rectangle(10, 706, 270, 19));
-        this.add(contDescription, new KDLayout.Constraints(10, 706, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        contAuditor.setBounds(new Rectangle(672, 658, 270, 19));
-        this.add(contAuditor, new KDLayout.Constraints(672, 658, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        contStatus.setBounds(new Rectangle(731, 10, 270, 19));
-        this.add(contStatus, new KDLayout.Constraints(731, 10, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        contBizStatus.setBounds(new Rectangle(341, 706, 270, 19));
-        this.add(contBizStatus, new KDLayout.Constraints(341, 706, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        contAuditTime.setBounds(new Rectangle(672, 682, 270, 19));
-        this.add(contAuditTime, new KDLayout.Constraints(672, 682, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        contprojectName.setBounds(new Rectangle(10, 34, 270, 19));
-        this.add(contprojectName, new KDLayout.Constraints(10, 34, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        contpersonMake.setBounds(new Rectangle(10, 58, 270, 19));
-        this.add(contpersonMake, new KDLayout.Constraints(10, 58, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        contpersonImplement.setBounds(new Rectangle(370, 58, 270, 19));
-        this.add(contpersonImplement, new KDLayout.Constraints(370, 58, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        contrespondDepart.setBounds(new Rectangle(731, 58, 270, 19));
-        this.add(contrespondDepart, new KDLayout.Constraints(731, 58, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        contquestionType.setBounds(new Rectangle(731, 34, 270, 19));
-        this.add(contquestionType, new KDLayout.Constraints(731, 34, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        contquestionName.setBounds(new Rectangle(370, 34, 270, 19));
-        this.add(contquestionName, new KDLayout.Constraints(370, 34, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        contimpactNote.setBounds(new Rectangle(597, 115, 404, 132));
-        this.add(contimpactNote, new KDLayout.Constraints(597, 115, 404, 132, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        contquestionDescription.setBounds(new Rectangle(10, 115, 404, 132));
-        this.add(contquestionDescription, new KDLayout.Constraints(10, 115, 404, 132, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        contreasonAnalysis.setBounds(new Rectangle(10, 260, 404, 132));
-        this.add(contreasonAnalysis, new KDLayout.Constraints(10, 260, 404, 132, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        contsolution.setBounds(new Rectangle(597, 260, 404, 132));
-        this.add(contsolution, new KDLayout.Constraints(597, 260, 404, 132, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        conteconomicLoss.setBounds(new Rectangle(7, 425, 270, 19));
-        this.add(conteconomicLoss, new KDLayout.Constraints(7, 425, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        kdtE1.setBounds(new Rectangle(7, 454, 991, 170));
+        this.putClientProperty("OriginalBounds", new Rectangle(10, 10, 1013, 629));
+        contCreator.setBounds(new Rectangle(10, 569, 270, 19));
+        this.add(contCreator, new KDLayout.Constraints(10, 569, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contCreateTime.setBounds(new Rectangle(10, 593, 270, 19));
+        this.add(contCreateTime, new KDLayout.Constraints(10, 593, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contLastUpdateUser.setBounds(new Rectangle(370, 569, 270, 19));
+        this.add(contLastUpdateUser, new KDLayout.Constraints(370, 569, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contLastUpdateTime.setBounds(new Rectangle(370, 593, 270, 19));
+        this.add(contLastUpdateTime, new KDLayout.Constraints(370, 593, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contCU.setBounds(new Rectangle(370, 8, 270, 19));
+        this.add(contCU, new KDLayout.Constraints(370, 8, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contNumber.setBounds(new Rectangle(10, 8, 270, 19));
+        this.add(contNumber, new KDLayout.Constraints(10, 8, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contBizDate.setBounds(new Rectangle(370, 77, 270, 19));
+        this.add(contBizDate, new KDLayout.Constraints(370, 77, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contDescription.setBounds(new Rectangle(13, 619, 270, 19));
+        this.add(contDescription, new KDLayout.Constraints(13, 619, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        contAuditor.setBounds(new Rectangle(731, 569, 270, 19));
+        this.add(contAuditor, new KDLayout.Constraints(731, 569, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contStatus.setBounds(new Rectangle(731, 8, 270, 19));
+        this.add(contStatus, new KDLayout.Constraints(731, 8, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contBizStatus.setBounds(new Rectangle(345, 620, 270, 19));
+        this.add(contBizStatus, new KDLayout.Constraints(345, 620, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        contAuditTime.setBounds(new Rectangle(731, 593, 270, 19));
+        this.add(contAuditTime, new KDLayout.Constraints(731, 593, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contprojectName.setBounds(new Rectangle(10, 31, 270, 19));
+        this.add(contprojectName, new KDLayout.Constraints(10, 31, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contpersonMake.setBounds(new Rectangle(10, 54, 270, 19));
+        this.add(contpersonMake, new KDLayout.Constraints(10, 54, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contpersonImplement.setBounds(new Rectangle(370, 54, 270, 19));
+        this.add(contpersonImplement, new KDLayout.Constraints(370, 54, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contrespondDepart.setBounds(new Rectangle(731, 54, 270, 19));
+        this.add(contrespondDepart, new KDLayout.Constraints(731, 54, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contimpactNote.setBounds(new Rectangle(513, 104, 488, 121));
+        this.add(contimpactNote, new KDLayout.Constraints(513, 104, 488, 121, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contquestionDescription.setBounds(new Rectangle(10, 104, 488, 121));
+        this.add(contquestionDescription, new KDLayout.Constraints(10, 104, 488, 121, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contreasonAnalysis.setBounds(new Rectangle(10, 234, 488, 121));
+        this.add(contreasonAnalysis, new KDLayout.Constraints(10, 234, 488, 121, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contsolution.setBounds(new Rectangle(513, 234, 488, 121));
+        this.add(contsolution, new KDLayout.Constraints(513, 234, 488, 121, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        conteconomicLoss.setBounds(new Rectangle(10, 362, 270, 19));
+        this.add(conteconomicLoss, new KDLayout.Constraints(10, 362, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kdtE1.setBounds(new Rectangle(7, 391, 991, 170));
         kdtE1_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtE1,new com.kingdee.eas.port.pm.qa.QualityDefectTrackE1Info(),null,false);
-        this.add(kdtE1_detailPanel, new KDLayout.Constraints(7, 454, 991, 170, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        kDCheckBox1.setBounds(new Rectangle(7, 402, 140, 19));
-        this.add(kDCheckBox1, new KDLayout.Constraints(7, 402, 140, 19, 0));
-        contcontract.setBounds(new Rectangle(10, 84, 270, 19));
-        this.add(contcontract, new KDLayout.Constraints(10, 84, 270, 19, 0));
+        this.add(kdtE1_detailPanel, new KDLayout.Constraints(7, 391, 991, 170, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        kDCheckBox1.setBounds(new Rectangle(324, 362, 140, 19));
+        this.add(kDCheckBox1, new KDLayout.Constraints(324, 362, 140, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contquestionType.setBounds(new Rectangle(731, 31, 270, 19));
+        this.add(contquestionType, new KDLayout.Constraints(731, 31, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contquestionName.setBounds(new Rectangle(370, 31, 270, 19));
+        this.add(contquestionName, new KDLayout.Constraints(370, 31, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         //contCreator
         contCreator.setBoundEditor(prmtCreator);
         //contCreateTime
@@ -668,10 +619,6 @@ public abstract class AbstractQualityDefectTrackEditUI extends com.kingdee.eas.x
         contpersonImplement.setBoundEditor(prmtpersonImplement);
         //contrespondDepart
         contrespondDepart.setBoundEditor(prmtrespondDepart);
-        //contquestionType
-        contquestionType.setBoundEditor(prmtquestionType);
-        //contquestionName
-        contquestionName.setBoundEditor(prmtquestionName);
         //contimpactNote
         contimpactNote.setBoundEditor(scrollPaneimpactNote);
         //scrollPaneimpactNote
@@ -690,8 +637,10 @@ public abstract class AbstractQualityDefectTrackEditUI extends com.kingdee.eas.x
         scrollPanesolution.getViewport().add(txtsolution, null);
         //conteconomicLoss
         conteconomicLoss.setBoundEditor(txteconomicLoss);
-        //contcontract
-        contcontract.setBoundEditor(prmtcontract);
+        //contquestionType
+        contquestionType.setBoundEditor(prmtquestionType);
+        //contquestionName
+        contquestionName.setBoundEditor(txtquestionName);
 
     }
 
@@ -886,14 +835,13 @@ public abstract class AbstractQualityDefectTrackEditUI extends com.kingdee.eas.x
 		dataBinder.registerBinding("personMake", com.kingdee.eas.basedata.person.PersonInfo.class, this.prmtpersonMake, "data");
 		dataBinder.registerBinding("personImplement", com.kingdee.eas.basedata.person.PersonInfo.class, this.prmtpersonImplement, "data");
 		dataBinder.registerBinding("respondDepart", com.kingdee.eas.basedata.org.AdminOrgUnitInfo.class, this.prmtrespondDepart, "data");
-		dataBinder.registerBinding("questionType", com.kingdee.eas.port.pm.base.QuestionTypeTteeInfo.class, this.prmtquestionType, "data");
-		dataBinder.registerBinding("questionName", com.kingdee.eas.port.pm.base.QuestionTypeInfo.class, this.prmtquestionName, "data");
 		dataBinder.registerBinding("impactNote", String.class, this.txtimpactNote, "text");
 		dataBinder.registerBinding("questionDescription", String.class, this.txtquestionDescription, "text");
 		dataBinder.registerBinding("reasonAnalysis", String.class, this.txtreasonAnalysis, "text");
 		dataBinder.registerBinding("solution", String.class, this.txtsolution, "text");
 		dataBinder.registerBinding("economicLoss", java.math.BigDecimal.class, this.txteconomicLoss, "value");
-		dataBinder.registerBinding("contract", com.kingdee.eas.port.pm.invest.CostTempInfo.class, this.prmtcontract, "data");		
+		dataBinder.registerBinding("questionType", com.kingdee.eas.port.pm.base.QuestionTypeInfo.class, this.prmtquestionType, "data");
+		dataBinder.registerBinding("questionName", String.class, this.txtquestionName, "text");		
 	}
 	//Regiester UI State
 	private void registerUIState(){		
@@ -1049,14 +997,13 @@ public abstract class AbstractQualityDefectTrackEditUI extends com.kingdee.eas.x
 		getValidateHelper().registerBindProperty("personMake", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("personImplement", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("respondDepart", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("questionType", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("questionName", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("impactNote", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("questionDescription", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("reasonAnalysis", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("solution", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("economicLoss", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("contract", ValidateHelper.ON_SAVE);    		
+		getValidateHelper().registerBindProperty("questionType", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("questionName", ValidateHelper.ON_SAVE);    		
 	}
 
 
@@ -1182,6 +1129,11 @@ public abstract class AbstractQualityDefectTrackEditUI extends com.kingdee.eas.x
         	sic.add(new SelectorItemInfo("respondDepart.number"));
         	sic.add(new SelectorItemInfo("respondDepart.name"));
 		}
+        sic.add(new SelectorItemInfo("impactNote"));
+        sic.add(new SelectorItemInfo("questionDescription"));
+        sic.add(new SelectorItemInfo("reasonAnalysis"));
+        sic.add(new SelectorItemInfo("solution"));
+        sic.add(new SelectorItemInfo("economicLoss"));
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
 			sic.add(new SelectorItemInfo("questionType.*"));
@@ -1191,29 +1143,7 @@ public abstract class AbstractQualityDefectTrackEditUI extends com.kingdee.eas.x
         	sic.add(new SelectorItemInfo("questionType.number"));
         	sic.add(new SelectorItemInfo("questionType.name"));
 		}
-		if(selectorAll.equalsIgnoreCase("true"))
-		{
-			sic.add(new SelectorItemInfo("questionName.*"));
-		}
-		else{
-        	sic.add(new SelectorItemInfo("questionName.id"));
-        	sic.add(new SelectorItemInfo("questionName.number"));
-        	sic.add(new SelectorItemInfo("questionName.name"));
-		}
-        sic.add(new SelectorItemInfo("impactNote"));
-        sic.add(new SelectorItemInfo("questionDescription"));
-        sic.add(new SelectorItemInfo("reasonAnalysis"));
-        sic.add(new SelectorItemInfo("solution"));
-        sic.add(new SelectorItemInfo("economicLoss"));
-		if(selectorAll.equalsIgnoreCase("true"))
-		{
-			sic.add(new SelectorItemInfo("contract.*"));
-		}
-		else{
-        	sic.add(new SelectorItemInfo("contract.id"));
-        	sic.add(new SelectorItemInfo("contract.number"));
-        	sic.add(new SelectorItemInfo("contract.tempName"));
-		}
+        sic.add(new SelectorItemInfo("questionName"));
         return sic;
     }        
     	

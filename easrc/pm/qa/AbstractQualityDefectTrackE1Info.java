@@ -29,7 +29,7 @@ public class AbstractQualityDefectTrackE1Info extends com.kingdee.eas.framework.
         put("parent", item);
     }
     /**
-     * Object:缺陷跟踪's 主要责任property 
+     * Object:缺陷跟踪's 是否主要责任property 
      */
     public String getMainRespond()
     {

@@ -63,28 +63,6 @@ public class AbstractQualityDefectTrackInfo extends com.kingdee.eas.xr.XRBillBas
         put("respondDepart", item);
     }
     /**
-     * Object: 质量缺陷跟踪 's 问题类型 property 
-     */
-    public com.kingdee.eas.port.pm.base.QuestionTypeTteeInfo getQuestionType()
-    {
-        return (com.kingdee.eas.port.pm.base.QuestionTypeTteeInfo)get("questionType");
-    }
-    public void setQuestionType(com.kingdee.eas.port.pm.base.QuestionTypeTteeInfo item)
-    {
-        put("questionType", item);
-    }
-    /**
-     * Object: 质量缺陷跟踪 's 问题名称 property 
-     */
-    public com.kingdee.eas.port.pm.base.QuestionTypeInfo getQuestionName()
-    {
-        return (com.kingdee.eas.port.pm.base.QuestionTypeInfo)get("questionName");
-    }
-    public void setQuestionName(com.kingdee.eas.port.pm.base.QuestionTypeInfo item)
-    {
-        put("questionName", item);
-    }
-    /**
      * Object:质量缺陷跟踪's 影响情况说明property 
      */
     public String getImpactNote()
@@ -147,15 +125,26 @@ public class AbstractQualityDefectTrackInfo extends com.kingdee.eas.xr.XRBillBas
         return (com.kingdee.eas.port.pm.qa.QualityDefectTrackE1Collection)get("E1");
     }
     /**
-     * Object: 质量缺陷跟踪 's 合同 property 
+     * Object: 质量缺陷跟踪 's 问题类型 property 
      */
-    public com.kingdee.eas.port.pm.invest.CostTempInfo getContract()
+    public com.kingdee.eas.port.pm.base.QuestionTypeInfo getQuestionType()
     {
-        return (com.kingdee.eas.port.pm.invest.CostTempInfo)get("contract");
+        return (com.kingdee.eas.port.pm.base.QuestionTypeInfo)get("questionType");
     }
-    public void setContract(com.kingdee.eas.port.pm.invest.CostTempInfo item)
+    public void setQuestionType(com.kingdee.eas.port.pm.base.QuestionTypeInfo item)
     {
-        put("contract", item);
+        put("questionType", item);
+    }
+    /**
+     * Object:质量缺陷跟踪's 问题名称property 
+     */
+    public String getQuestionName()
+    {
+        return getString("questionName");
+    }
+    public void setQuestionName(String item)
+    {
+        setString("questionName", item);
     }
     public BOSObjectType getBOSType()
     {
