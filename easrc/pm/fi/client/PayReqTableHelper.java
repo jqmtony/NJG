@@ -2099,67 +2099,67 @@ public final class PayReqTableHelper {
 	 * @throws Exception
 	 */
 	void reloadPartAConfmValue(PayRequestBillInfo editData,BigDecimal amount) throws Exception{
-//		if(!PayReqUtils.isContractBill(editData.getContractId())){
-//    		return;
-//    	}
-		if(amount == null){
-			amount = FDCHelper.ZERO;
-		}
-		if(amount.compareTo(FDCHelper.ZERO)==1){
-			amount = FDCHelper.ZERO;
-			((ICell)bindCellMap.get("payPartAMatlAmt")).setValue(amount);
-		}
-//    	if(amount!=null){
-//    		((ICell) bindCellMap.get("payPartAMatlAmt")).setValue(amount);
-//    	}else{
-    		//进行刷新操作从数据库内取
-    		amount=FDCHelper.ZERO;
-    		BigDecimal originalamount = FDCHelper.ZERO;
-    		BigDecimal lstPaidAmt = FDCHelper.ZERO;
-    		BigDecimal lstReqAmt = FDCHelper.ZERO;
-    		BigDecimal allReqAmt = FDCHelper.ZERO;
-    		EntityViewInfo view=new EntityViewInfo();
-    		FilterInfo filter=new FilterInfo();
-    		filter.appendFilterItem("payRequestBill.contractId", editData.getContractId());
-    		view.setFilter(filter);
-    		//TODO 再加一个时间过滤
-    		Timestamp createTime = editData.getCreateTime();
-    		filter.getFilterItems().add(new FilterItemInfo("payRequestBill.createTime",createTime,CompareType.LESS_EQUALS));
-    		
-    		PartAConfmOfPayReqBillCollection c = PartAConfmOfPayReqBillFactory.getRemoteInstance().getPartAConfmOfPayReqBillCollection(view);
-    		for(int i=0;i<c.size();i++){
-    			PartAConfmOfPayReqBillInfo info = c.get(i);
-    			if(info.getAmount()!=null){
-    				if(info.getPayRequestBill().getId().equals(editData.getId())){
-    					amount=amount.add(FDCHelper.toBigDecimal(info.getAmount()));
-    					//2009-2-8 甲供扣款原币 应累加
-    					originalamount = originalamount.add(FDCHelper.toBigDecimal(info.getOriginalAmount()));
-//    					originalamount = FDCHelper.toBigDecimal(info.getOriginalAmount());
-    				}else{
-	    				if(info.isHasPaid()){
-	    					lstPaidAmt=info.getAmount().add(lstPaidAmt);
-	    				}
-	    				lstReqAmt=info.getAmount().add(lstReqAmt);
-    				}
-    			}
-    		} 
-    		allReqAmt = amount.add(lstReqAmt);
-    		if(lstPaidAmt.compareTo(FDCHelper.ZERO)==0){
-    			lstPaidAmt = null;
-    		}
-    		if(originalamount.compareTo(FDCHelper.ZERO)==0){
-    			originalamount = null;
-    		}
-    		if(lstReqAmt.compareTo(FDCHelper.ZERO)==0){
-    			lstReqAmt = null;
-    		}
-    		((ICell)bindCellMap.get("LstAMatlAllPaidAmt")).setValue(lstPaidAmt);
-    		((ICell)bindCellMap.get("lstAMatlAllReqAmt")).setValue(lstReqAmt);
-    		((ICell)bindCellMap.get("payPartAMatlAmt")).setValue(amount);
-    		((ICell)bindCellMap.get("payPartAMatlOriAmt")).setValue(originalamount);
-    		((ICell)bindCellMap.get("payPartAMatlAllReqAmt")).setValue(allReqAmt);
-    		((ICell)bindCellMap.get("payPartAMatlAllPaidAmt")).setValue(lstPaidAmt);
-//    	}
+////		if(!PayReqUtils.isContractBill(editData.getContractId())){
+////    		return;
+////    	}
+//		if(amount == null){
+//			amount = FDCHelper.ZERO;
+//		}
+//		if(amount.compareTo(FDCHelper.ZERO)==1){
+//			amount = FDCHelper.ZERO;
+//			((ICell)bindCellMap.get("payPartAMatlAmt")).setValue(amount);
+//		}
+////    	if(amount!=null){
+////    		((ICell) bindCellMap.get("payPartAMatlAmt")).setValue(amount);
+////    	}else{
+//    		//进行刷新操作从数据库内取
+//    		amount=FDCHelper.ZERO;
+//    		BigDecimal originalamount = FDCHelper.ZERO;
+//    		BigDecimal lstPaidAmt = FDCHelper.ZERO;
+//    		BigDecimal lstReqAmt = FDCHelper.ZERO;
+//    		BigDecimal allReqAmt = FDCHelper.ZERO;
+//    		EntityViewInfo view=new EntityViewInfo();
+//    		FilterInfo filter=new FilterInfo();
+//    		filter.appendFilterItem("payRequestBill.contractId", editData.getContractId());
+//    		view.setFilter(filter);
+//    		//TODO 再加一个时间过滤
+//    		Timestamp createTime = editData.getCreateTime();
+//    		filter.getFilterItems().add(new FilterItemInfo("payRequestBill.createTime",createTime,CompareType.LESS_EQUALS));
+//    		
+//    		PartAConfmOfPayReqBillCollection c = PartAConfmOfPayReqBillFactory.getRemoteInstance().getPartAConfmOfPayReqBillCollection(view);
+//    		for(int i=0;i<c.size();i++){
+//    			PartAConfmOfPayReqBillInfo info = c.get(i);
+//    			if(info.getAmount()!=null){
+//    				if(info.getPayRequestBill().getId().equals(editData.getId())){
+//    					amount=amount.add(FDCHelper.toBigDecimal(info.getAmount()));
+//    					//2009-2-8 甲供扣款原币 应累加
+//    					originalamount = originalamount.add(FDCHelper.toBigDecimal(info.getOriginalAmount()));
+////    					originalamount = FDCHelper.toBigDecimal(info.getOriginalAmount());
+//    				}else{
+//	    				if(info.isHasPaid()){
+//	    					lstPaidAmt=info.getAmount().add(lstPaidAmt);
+//	    				}
+//	    				lstReqAmt=info.getAmount().add(lstReqAmt);
+//    				}
+//    			}
+//    		} 
+//    		allReqAmt = amount.add(lstReqAmt);
+//    		if(lstPaidAmt.compareTo(FDCHelper.ZERO)==0){
+//    			lstPaidAmt = null;
+//    		}
+//    		if(originalamount.compareTo(FDCHelper.ZERO)==0){
+//    			originalamount = null;
+//    		}
+//    		if(lstReqAmt.compareTo(FDCHelper.ZERO)==0){
+//    			lstReqAmt = null;
+//    		}
+//    		((ICell)bindCellMap.get("LstAMatlAllPaidAmt")).setValue(lstPaidAmt);
+//    		((ICell)bindCellMap.get("lstAMatlAllReqAmt")).setValue(lstReqAmt);
+//    		((ICell)bindCellMap.get("payPartAMatlAmt")).setValue(amount);
+//    		((ICell)bindCellMap.get("payPartAMatlOriAmt")).setValue(originalamount);
+//    		((ICell)bindCellMap.get("payPartAMatlAllReqAmt")).setValue(allReqAmt);
+//    		((ICell)bindCellMap.get("payPartAMatlAllPaidAmt")).setValue(lstPaidAmt);
+////    	}
 	}
 	
 	/**
@@ -2171,66 +2171,66 @@ public final class PayReqTableHelper {
 	 */
 	void updatePartAConfmValue(PayRequestBillInfo objectValue, String contractBillId,
 			PartAConfmOfPayReqBillCollection partAConfmOfPayReqBillCollection) throws BOSException {
-
-		if(partAConfmOfPayReqBillCollection==null){
-			return;
-		}
-		BigDecimal amount=FDCHelper.ZERO;
-		BigDecimal originalamount=FDCHelper.ZERO;
-		BigDecimal lstPaidAmt=FDCHelper.ZERO;
-		BigDecimal lstReqAmt=FDCHelper.ZERO;
-		for(int i=0;i<partAConfmOfPayReqBillCollection.size();i++){
-			PartAConfmOfPayReqBillInfo info = partAConfmOfPayReqBillCollection.get(i);
-			if(info.getAmount()!=null){
-				if(info.isHasPaid()){
-					lstPaidAmt=info.getAmount().add(lstPaidAmt);
-				}
-				lstReqAmt=info.getAmount().add(lstReqAmt);
-			}
-		}
-		
-		if(bindCellMap.get("payPartAMatlAmt")!=null){
-			((ICell)bindCellMap.get("LstAMatlAllPaidAmt")).setValue(lstPaidAmt);
-    		((ICell)bindCellMap.get("lstAMatlAllReqAmt")).setValue(lstReqAmt);
-    		((ICell)bindCellMap.get("payPartAMatlAmt")).setValue(amount);
-    		((ICell)bindCellMap.get("payPartAMatlOriAmt")).setValue(originalamount);
-    		((ICell)bindCellMap.get("payPartAMatlAllReqAmt")).setValue(lstReqAmt);
-    		((ICell)bindCellMap.get("payPartAMatlAllPaidAmt")).setValue(lstPaidAmt);
-		}
+//
+//		if(partAConfmOfPayReqBillCollection==null){
+//			return;
+//		}
+//		BigDecimal amount=FDCHelper.ZERO;
+//		BigDecimal originalamount=FDCHelper.ZERO;
+//		BigDecimal lstPaidAmt=FDCHelper.ZERO;
+//		BigDecimal lstReqAmt=FDCHelper.ZERO;
+//		for(int i=0;i<partAConfmOfPayReqBillCollection.size();i++){
+//			PartAConfmOfPayReqBillInfo info = partAConfmOfPayReqBillCollection.get(i);
+//			if(info.getAmount()!=null){
+//				if(info.isHasPaid()){
+//					lstPaidAmt=info.getAmount().add(lstPaidAmt);
+//				}
+//				lstReqAmt=info.getAmount().add(lstReqAmt);
+//			}
+//		}
+//		
+//		if(bindCellMap.get("payPartAMatlAmt")!=null){
+//			((ICell)bindCellMap.get("LstAMatlAllPaidAmt")).setValue(lstPaidAmt);
+//    		((ICell)bindCellMap.get("lstAMatlAllReqAmt")).setValue(lstReqAmt);
+//    		((ICell)bindCellMap.get("payPartAMatlAmt")).setValue(amount);
+//    		((ICell)bindCellMap.get("payPartAMatlOriAmt")).setValue(originalamount);
+//    		((ICell)bindCellMap.get("payPartAMatlAllReqAmt")).setValue(lstReqAmt);
+//    		((ICell)bindCellMap.get("payPartAMatlAllPaidAmt")).setValue(lstPaidAmt);
+//		}
 	}
 	protected void setBeforeAction() {
 
-		table.setBeforeAction(new BeforeActionListener() {
-			public void beforeAction(BeforeActionEvent e) {
-				if (BeforeActionEvent.ACTION_DELETE == e.getType()) {
-					for (int i = 0; i < table.getSelectManager().size(); i++) {
-						KDTSelectBlock block = table.getSelectManager()
-								.get(i);
-						for (int rowIndex = block.getBeginRow(); rowIndex <= block
-								.getEndRow(); rowIndex++) {
-							for (int colIndex = block.getBeginCol(); colIndex <= block
-									.getEndCol(); colIndex++) {
-								//非合同内工程款Cell,或非编辑状态时撤销事件
-								if((colIndex!=editUI.columnIndex||rowIndex!=editUI.rowIndex) ||table.getCell(rowIndex, colIndex).getStyleAttributes().isLocked()){
-									e.setCancel(true);
-									continue;
-								}
-								KDTEditEvent event = new KDTEditEvent(
-										table, null, null, rowIndex,
-										colIndex, true, 1);
-								try {
-									editUI.kdtEntrys_editStopped(event);
-								} catch (Exception e1) {
-									handUIException(e1);
-								}
-							}
-						}
-					}
-				}else if(BeforeActionEvent.ACTION_PASTE==e.getType()){
-					table.putClientProperty("ACTION_PASTE", "ACTION_PASTE");
-				}
-			}
-		});
+//		table.setBeforeAction(new BeforeActionListener() {
+//			public void beforeAction(BeforeActionEvent e) {
+//				if (BeforeActionEvent.ACTION_DELETE == e.getType()) {
+//					for (int i = 0; i < table.getSelectManager().size(); i++) {
+//						KDTSelectBlock block = table.getSelectManager()
+//								.get(i);
+//						for (int rowIndex = block.getBeginRow(); rowIndex <= block
+//								.getEndRow(); rowIndex++) {
+//							for (int colIndex = block.getBeginCol(); colIndex <= block
+//									.getEndCol(); colIndex++) {
+//								//非合同内工程款Cell,或非编辑状态时撤销事件
+//								if((colIndex!=editUI.columnIndex||rowIndex!=editUI.rowIndex) ||table.getCell(rowIndex, colIndex).getStyleAttributes().isLocked()){
+//									e.setCancel(true);
+//									continue;
+//								}
+//								KDTEditEvent event = new KDTEditEvent(
+//										table, null, null, rowIndex,
+//										colIndex, true, 1);
+//								try {
+//									editUI.kdtEntrys_editStopped(event);
+//								} catch (Exception e1) {
+//									handUIException(e1);
+//								}
+//							}
+//						}
+//					}
+//				}else if(BeforeActionEvent.ACTION_PASTE==e.getType()){
+//					table.putClientProperty("ACTION_PASTE", "ACTION_PASTE");
+//				}
+//			}
+//		});
 		
 		table.setAfterAction(new BeforeActionListener() {
 			public void beforeAction(BeforeActionEvent e) {

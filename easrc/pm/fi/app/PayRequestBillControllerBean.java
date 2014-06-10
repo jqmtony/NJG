@@ -71,7 +71,6 @@ import com.kingdee.eas.fdc.contract.CompensationOfPayReqBillFactory;
 import com.kingdee.eas.fdc.contract.CompensationOfPayReqBillInfo;
 import com.kingdee.eas.fdc.contract.ContractBaseDataCollection;
 import com.kingdee.eas.fdc.contract.ContractBaseDataFactory;
-import com.kingdee.eas.fdc.contract.ContractChangeBillFactory;
 import com.kingdee.eas.fdc.contract.ContractCostSplitEntryCollection;
 import com.kingdee.eas.fdc.contract.ContractCostSplitEntryInfo;
 import com.kingdee.eas.fdc.contract.ContractException;
@@ -96,14 +95,11 @@ import com.kingdee.eas.fdc.contract.PartAConfmOfPayReqBillFactory;
 import com.kingdee.eas.fdc.contract.PartAOfPayReqBillCollection;
 import com.kingdee.eas.fdc.contract.PartAOfPayReqBillFactory;
 import com.kingdee.eas.fdc.contract.PartAOfPayReqBillInfo;
-import com.kingdee.eas.fdc.contract.PayRequestBillConfirmEntryFactory;
-import com.kingdee.eas.fdc.contract.PayRequestBillConfirmEntryInfo;
 import com.kingdee.eas.fdc.contract.PayRequestBillException;
 import com.kingdee.eas.fdc.finance.DeductBillEntryCollection;
 import com.kingdee.eas.fdc.finance.DeductBillEntryFactory;
 import com.kingdee.eas.fdc.finance.DeductBillEntryInfo;
 import com.kingdee.eas.fdc.finance.FDCBudgetAcctFacadeFactory;
-import com.kingdee.eas.fdc.finance.FDCBudgetConstants;
 import com.kingdee.eas.fdc.finance.FDCBudgetPeriodInfo;
 import com.kingdee.eas.fdc.finance.FDCPaymentBillHelper;
 import com.kingdee.eas.fdc.finance.FDCPaymentBillInfo;
@@ -133,7 +129,6 @@ import com.kingdee.eas.port.pm.contract.ContractWithoutTextFactory;
 import com.kingdee.eas.port.pm.contract.ContractWithoutTextInfo;
 import com.kingdee.eas.port.pm.fi.PayRequestBillBgEntryInfo;
 import com.kingdee.eas.port.pm.fi.PayRequestBillCollection;
-import com.kingdee.eas.port.pm.fi.PayRequestBillConfirmEntryCollection;
 import com.kingdee.eas.port.pm.fi.PayRequestBillEntryFactory;
 import com.kingdee.eas.port.pm.fi.PayRequestBillFactory;
 import com.kingdee.eas.port.pm.fi.PayRequestBillInfo;
@@ -934,8 +929,8 @@ public class PayRequestBillControllerBean extends AbstractPayRequestBillControll
 			updateSelector = new SelectorItemCollection();
 			updateSelector.add("id");
 			updateSelector.add("hasApplied");
-			PartAConfmOfPayReqBillCollection partAConfmOfPayReqBillCollection = PartAConfmOfPayReqBillFactory.getLocalInstance(ctx).getPartAConfmOfPayReqBillCollection(view);
-			PartAConfmOfPayReqBillFactory.getLocalInstance(ctx).delete(filter);
+//			PartAConfmOfPayReqBillCollection partAConfmOfPayReqBillCollection = PartAConfmOfPayReqBillFactory.getLocalInstance(ctx).getPartAConfmOfPayReqBillCollection(view);
+//			PartAConfmOfPayReqBillFactory.getLocalInstance(ctx).delete(filter);
 //		}
 	}
 	protected void _delete(Context ctx, IObjectPK[] arrayPK) throws BOSException, EASBizException

@@ -847,9 +847,9 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI implement
 		// 付款申请单对应的违约金
 		compensationOfPayReqBillCollection = (CompensationOfPayReqBillCollection) initData.get("CompensationOfPayReqBillCollection");
 		// 付款申请单对应的甲供材扣款
-		partAOfPayReqBillCollection = (PartAOfPayReqBillCollection) initData.get("PartAOfPayReqBillCollection");
+//		partAOfPayReqBillCollection = (PartAOfPayReqBillCollection) initData.get("PartAOfPayReqBillCollection");
 		// 付款申请单对应的甲供材确认单金额
-		partAConfmOfPayReqBillCollection = (PartAConfmOfPayReqBillCollection) initData.get("PartAConfmOfPayReqBillCollection");
+//		partAConfmOfPayReqBillCollection = (PartAConfmOfPayReqBillCollection) initData.get("PartAConfmOfPayReqBillCollection");
 		// 扣款类型
 		deductTypeCollection = (DeductTypeCollection) initData.get("DeductTypeCollection");
 		// 工程项目对应的成本中心
@@ -1066,7 +1066,7 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI implement
 		}
 		fillAttachmnetList();
 		tableHelper = new PayReqTableHelper(this);
-		kdtEntrys = tableHelper.createPayRequetBillTable(deductTypeCollection);
+//		kdtEntrys = tableHelper.createPayRequetBillTable(deductTypeCollection);
 		kdtEntrys.addKDTEditListener(new KDTEditAdapter() {
 			// 编辑结束后
 			public void editStopped(KDTEditEvent e) {
@@ -1117,7 +1117,7 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI implement
 
 		getDetailTable().getScriptManager().setAutoRun(true);
 		kdtEntrys.getScriptManager().runAll();
-		this.tableHelper.setBeforeAction();
+//		this.tableHelper.setBeforeAction();
 		// 累计发票金额
 		txtInvoiceAmt.setPrecision(2);
 		txtInvoiceAmt.setSupportedEmpty(true);
@@ -1215,15 +1215,15 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI implement
 		DataChangeEvent e = new DataChangeEvent(pkpayDate, this.editData.getPayDate(), null);
 		pkpayDate_dataChanged(e);
 
-		if (!fdcBudgetParam.isBgSysCtrl()) {
-			actionViewMbgBalance.setVisible(false);
-			this.menuItemViewMbgBalance.setVisible(false);
-			actionViewMbgBalance.setEnabled(false);
-		} else {
-			actionViewMbgBalance.setVisible(true);
-			this.menuItemViewMbgBalance.setVisible(true);
-			actionViewMbgBalance.setEnabled(true);
-		}
+//		if (!fdcBudgetParam.isBgSysCtrl()) {
+//			actionViewMbgBalance.setVisible(false);
+//			this.menuItemViewMbgBalance.setVisible(false);
+//			actionViewMbgBalance.setEnabled(false);
+//		} else {
+//			actionViewMbgBalance.setVisible(true);
+//			this.menuItemViewMbgBalance.setVisible(true);
+//			actionViewMbgBalance.setEnabled(true);
+//		}
 
 		ExtendParser parserCity = new ExtendParser(prmtDesc);
 		prmtDesc.setCommitParser(parserCity);
@@ -1257,7 +1257,7 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI implement
 		/**
 		 * 系统参数设置为真的时候，隐藏进度付款比例和本期完工工程量金额
 		 */
-		if (fdcBudgetParam.isAcctCtrl() && contractBill != null && contractBill.isIsCoseSplit()) {
+		if ( contractBill != null && contractBill.isIsCoseSplit()) {
 			// 关联签定与待签定改进
 			actionAssociateAcctPay.setVisible(false);
 			actionAssociateAcctPay.setEnabled(false);
@@ -1812,7 +1812,7 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI implement
 		int month = cal.get(Calendar.MONTH) + 1;
 
 		FDCSQLBuilder _builder = new FDCSQLBuilder();
-		_builder.appendSql(" select sum(famount) payAmount from T_CON_PayRequestBill where fstate in('2SUBMITTED','3AUDITTING','4AUDITTED') and fhasClosed=0 and famount is not null");
+		_builder.appendSql(" select sum(famount) payAmount from CT_FI_PayRequestBill where fstate in('2SUBMITTED','3AUDITTING','4AUDITTED') and fhasClosed=0 and famount is not null");
 		_builder.appendSql(" and fid not in(select ffdcPayReqID from t_cas_paymentbill where fbillstatus=15 and fcontractbillid='" + contractId + "') and FContractId='" + contractId + "'");
 		_builder.appendSql(" and year(fbookedDate)='" + year + "' and month(fbookedDate)='" + month + "'");
 		if (id != null) {
@@ -1855,7 +1855,7 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI implement
 		}
 
 		_builder = new FDCSQLBuilder();
-		_builder.appendSql(" select sum(entry.frequestAmount-isnull(entry.factPayAmount,0))payAmount from T_CON_PayRequestBill bill left join T_CON_PayRequestBillBgEntry entry on entry.fheadid=bill.fid ");
+		_builder.appendSql(" select sum(entry.frequestAmount-isnull(entry.factPayAmount,0))payAmount from CT_FI_PayRequestBill bill left join CT_FI_PayRequestBillBgEntry entry on entry.fheadid=bill.fid ");
 		_builder.appendSql(" left join T_BG_BgItem bgItem on bgItem.fid=entry.fbgitemid ");
 		_builder.appendSql(" where bill.fisBgControl=1 and bill.FCostedDeptId='" + ((CostCenterOrgUnitInfo) this.prmtCostedDept.getValue()).getId().toString() + "' and bgItem.fnumber in(" + bgComItem+")");
 		if (isFromWorkFlow) {
@@ -2104,57 +2104,57 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI implement
 	}
 
 	private void initPrmtPlanUnCon() throws BOSException {
-		if (prmtPlanHasCon.getValue() != null) {
-			contPlanHasCon.setVisible(true);
-			contPlanUnCon.setVisible(false);
-		} else if (prmtPlanUnCon.getValue() != null) {
-			contPlanHasCon.setVisible(false);
-			contPlanUnCon.setVisible(true);
-		}
-
-		SelectorItemCollection sic = new SelectorItemCollection();
-		sic.add("id");
-		sic.add("unConName");
-		sic.add("parent.id");
-		sic.add("parent.number");
-		sic.add("parent.name");
-		sic.add("parent.year");
-		sic.add("parent.month");
-		sic.add("parent.deptment.name");
-		prmtPlanUnCon.setSelectorCollection(sic);
-
-		Date bookDate = (Date) pkbookedDate.getValue();
-		Date firstDay = BudgetViewUtils.getFirstDay(bookDate);
-		Date lastDay = BudgetViewUtils.getLastDay(bookDate);
-		FDCSQLBuilder sql = new FDCSQLBuilder();
-		sql.appendSql(" select DISTINCT uc.FID as fid from T_FNC_FDCDepConPayPlanUC as uc ");
-		sql.appendSql(" left join T_FNC_FDCDepConPayPlanBill as head on head.FID = uc.FParentId ");
-		sql.appendSql(" left join T_FNC_FDCDepConPayPlanUE as ue on ue.FParentId = uc.FID ");
-		sql.appendSql(" where (head.FState = '4AUDITTED' or head.FState = '10PUBLISH') ");
-		sql.appendSql(" and uc.FProjectID = ");
-		sql.appendParam(editData.getCurProject().getId().toString());
-		sql.appendSql(" and ue.FMonth >= ");
-		sql.appendParam(firstDay);
-		sql.appendSql(" and ue.FMonth <= ");
-		sql.appendParam(lastDay);
-		IRowSet rs = sql.executeQuery();
-		Set ids = new HashSet();
-		try {
-			while (rs.next()) {
-				ids.add(rs.getString("fid"));
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		EntityViewInfo view = new EntityViewInfo();
-		FilterInfo filter = new FilterInfo();
-		if (ids.size() < 1) {
-			filter.getFilterItems().add(new FilterItemInfo("id", "11"));
-		} else {
-			filter.getFilterItems().add(new FilterItemInfo("id", ids, CompareType.INCLUDE));
-		}
-		view.setFilter(filter);
-		prmtPlanUnCon.setEntityViewInfo(view);
+//		if (prmtPlanHasCon.getValue() != null) {
+//			contPlanHasCon.setVisible(true);
+//			contPlanUnCon.setVisible(false);
+//		} else if (prmtPlanUnCon.getValue() != null) {
+//			contPlanHasCon.setVisible(false);
+//			contPlanUnCon.setVisible(true);
+//		}
+//
+//		SelectorItemCollection sic = new SelectorItemCollection();
+//		sic.add("id");
+//		sic.add("unConName");
+//		sic.add("parent.id");
+//		sic.add("parent.number");
+//		sic.add("parent.name");
+//		sic.add("parent.year");
+//		sic.add("parent.month");
+//		sic.add("parent.deptment.name");
+//		prmtPlanUnCon.setSelectorCollection(sic);
+//
+//		Date bookDate = (Date) pkbookedDate.getValue();
+//		Date firstDay = BudgetViewUtils.getFirstDay(bookDate);
+//		Date lastDay = BudgetViewUtils.getLastDay(bookDate);
+//		FDCSQLBuilder sql = new FDCSQLBuilder();
+//		sql.appendSql(" select DISTINCT uc.FID as fid from T_FNC_FDCDepConPayPlanUC as uc ");
+//		sql.appendSql(" left join T_FNC_FDCDepConPayPlanBill as head on head.FID = uc.FParentId ");
+//		sql.appendSql(" left join T_FNC_FDCDepConPayPlanUE as ue on ue.FParentId = uc.FID ");
+//		sql.appendSql(" where (head.FState = '4AUDITTED' or head.FState = '10PUBLISH') ");
+//		sql.appendSql(" and uc.FProjectID = ");
+//		sql.appendParam(editData.getCurProject().getId().toString());
+//		sql.appendSql(" and ue.FMonth >= ");
+//		sql.appendParam(firstDay);
+//		sql.appendSql(" and ue.FMonth <= ");
+//		sql.appendParam(lastDay);
+//		IRowSet rs = sql.executeQuery();
+//		Set ids = new HashSet();
+//		try {
+//			while (rs.next()) {
+//				ids.add(rs.getString("fid"));
+//			}
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+//		EntityViewInfo view = new EntityViewInfo();
+//		FilterInfo filter = new FilterInfo();
+//		if (ids.size() < 1) {
+//			filter.getFilterItems().add(new FilterItemInfo("id", "11"));
+//		} else {
+//			filter.getFilterItems().add(new FilterItemInfo("id", ids, CompareType.INCLUDE));
+//		}
+//		view.setFilter(filter);
+//		prmtPlanUnCon.setEntityViewInfo(view);
 	}
 
 	/**
@@ -2861,7 +2861,7 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI implement
 		FDCSQLBuilder builder = new FDCSQLBuilder();
 		if (contractBill.isHasSettled()) {
 			BigDecimal settAmtSubtractGuarante = FDCHelper.ZERO;// 合同结算价-保修金
-			builder.appendSql("select (fsettleprice-fqualityGuarante) as amount from t_con_contractsettlementbill where fcontractbillid=?");
+			builder.appendSql("select (fsettleprice-fqualityGuarante) as amount from ct_con_contractsettlementbill where fcontractbillid=?");
 			builder.addParam(this.editData.getContractId());
 			IRowSet rowSet;
 			try {
@@ -2881,7 +2881,7 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI implement
 			builder.clear();
 			builder.appendSql("select sum(合同实付款) as 合同实付款  from  \n ");
 			builder.appendSql("( \n ");
-			builder.appendSql("(select req.FProjectPriceInContract as 合同实付款 from T_Con_PayRequestBill req \n ");
+			builder.appendSql("(select req.FProjectPriceInContract as 合同实付款 from CT_FI_PayRequestBill req \n ");
 			builder.appendSql("inner join t_fdc_paymentType pType on req.fpaymenttype = pType.fid \n ");
 			builder.appendSql("and req.FContractId=? and req.FHasClosed=0 \n ");
 			builder.addParam(this.editData.getContractId());
@@ -2890,7 +2890,7 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI implement
 			builder.addParam(PaymentTypeInfo.settlementID);
 			builder.appendSql("union all\n ");
 			builder.appendSql("(select pay.FProjectPriceInContract as 合同实付款 from T_CAS_PaymentBill pay \n  ");
-			builder.appendSql("inner join T_Con_PayRequestbill req on pay.FFdcPayReqID=req.FID \n ");
+			builder.appendSql("inner join CT_FI_PayRequestBill req on pay.FFdcPayReqID=req.FID \n ");
 			builder.appendSql("inner  join t_fdc_paymentType payType on payType.fid = pay.FFdcPayTypeID \n ");
 			builder.appendSql("and pay.FContractBillId=req.FContractId \n ");
 			builder.appendSql("and req.FContractId=? and req.FHasClosed=1 \n ");
@@ -2924,7 +2924,7 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI implement
 			BigDecimal changeAmt = FDCHelper.ZERO;
 			builder.clear();
 			builder.appendSql("select FContractBillID,sum(fchangeAmount) as changeAmount from ( ");
-			builder.appendSql("select FContractBillID,FBalanceAmount as fchangeAmount from T_CON_ContractChangeBill ");
+			builder.appendSql("select FContractBillID,FBalanceAmount as fchangeAmount from cT_CON_ContractChangeBill ");
 			builder.appendSql("where FHasSettled=1 and ");
 			builder.appendSql("FContractBillID=?");
 			builder.addParam(this.editData.getContractId());
@@ -3098,7 +3098,7 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI implement
 				editData.setCostAmount(contractBill.getSettleAmt());
 				FDCSQLBuilder builder = new FDCSQLBuilder();
 				builder.clear();
-				builder.appendSql("select fqualityGuarante as amount from t_con_contractsettlementbill where fcontractbillid=");
+				builder.appendSql("select fqualityGuarante as amount from ct_con_contractSettlementbill where fcontractbillid=");
 				builder.appendParam(editData.getContractId());
 				IRowSet rowSet = builder.executeQuery();
 				if (rowSet.size() == 1) {
@@ -3539,7 +3539,7 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI implement
 		if (isAutoComplete && !isSeparate) {
 			// 已完工自动100%,且非工程量模式时,考虑实付金额与申请金额不等情况时 by hpw 2009-12-14
 			FDCSQLBuilder builder = new FDCSQLBuilder();
-			builder.appendSql("update t_con_payrequestbill set fcompleteprjamt=(select sum(flocalamount) from t_cas_paymentbill where t_con_payrequestbill.fid=ffdcpayreqid) where fid=? ");
+			builder.appendSql("update CT_FI_PayRequestBill set fcompleteprjamt=(select sum(flocalamount) from t_cas_paymentbill where CT_FI_PayRequestBill.fid=ffdcpayreqid) where fid=? ");
 			builder.addParam(editData.getId().toString());
 			builder.execute();
 		}
@@ -3616,7 +3616,7 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI implement
 
 		totalpayAmountLocal = FDCHelper.add(payAmtLocal, noPayAmtLocal);
 		_builder.clear();
-		_builder.appendSql("select fpayPercForWarn from t_con_contractbill where fid=");
+		_builder.appendSql("select fpayPercForWarn from ct_con_contractbill where fid=");
 		_builder.appendParam(this.editData.getContractId());
 		final IRowSet rowSet = _builder.executeQuery();
 		BigDecimal payRate = FDCHelper.ZERO;
@@ -3672,7 +3672,7 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI implement
 		if (isAutoComplete && !isSeparate) {
 			// 已完工自动100%,且非工程量模式时,考虑实付金额与申请金额不等情况时 by hpw 2009-12-14
 			FDCSQLBuilder builder = new FDCSQLBuilder();
-			builder.appendSql("update t_con_payrequestbill set fcompleteprjamt=fprojectpriceincontract where fid=? ");
+			builder.appendSql("update CT_FI_PayRequestBill set fcompleteprjamt=fprojectpriceincontract where fid=? ");
 			builder.addParam(editData.getId().toString());
 			builder.execute();
 		}
@@ -4040,14 +4040,14 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI implement
 			// 调整款项选择并保存重新取数和数据库一致，去掉选择,提交新增时集合与数据库数据不一致，应再重新取一次 by hpw
 			// 2009-08-1
 			this.fetchInitData();
-			tableHelper.updateDynamicValue(objectValue, contractBill, contractChangeBillCollection, paymentBillCollection);
-			tableHelper.updateGuerdonValue(objectValue, contractBillId, guerdonOfPayReqBillCollection, guerdonBillCollection);
-			tableHelper.updateCompensationValue(objectValue, contractBillId, compensationOfPayReqBillCollection);
-			if (partAParam) {
-				tableHelper.updatePartAValue(editData, contractBillId, partAOfPayReqBillCollection);
-			} else {
-				tableHelper.updatePartAConfmValue(editData, contractBillId, partAConfmOfPayReqBillCollection);
-			}
+//			tableHelper.updateDynamicValue(objectValue, contractBill, contractChangeBillCollection, paymentBillCollection);
+//			tableHelper.updateGuerdonValue(objectValue, contractBillId, guerdonOfPayReqBillCollection, guerdonBillCollection);
+//			tableHelper.updateCompensationValue(objectValue, contractBillId, compensationOfPayReqBillCollection);
+//			if (partAParam) {
+//				tableHelper.updatePartAValue(editData, contractBillId, partAOfPayReqBillCollection);
+//			} else {
+//				tableHelper.updatePartAConfmValue(editData, contractBillId, partAConfmOfPayReqBillCollection);
+//			}
 			if (/* STATUS_ADDNEW.equals(getOprtState()) && */editData != null && !FDCBillStateEnum.AUDITTED.equals(editData.getState())) {
 				reloadDynamicValue();
 			}
@@ -4482,7 +4482,7 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI implement
 				BigDecimal payAmount=FDCHelper.ZERO;
 				FDCSQLBuilder builder = new FDCSQLBuilder();
 				if(this.contractBill.isHasSettled()){
-					builder.appendSql("select (fsettleprice-fqualityGuarante) as amount from t_con_contractsettlementbill where fcontractbillid='"+this.contractBill.getId().toString()+"' ");
+					builder.appendSql("select (fsettleprice-fqualityGuarante) as amount from ct_con_contractSettlementbill where fcontractbillid='"+this.contractBill.getId().toString()+"' ");
 					IRowSet rowSet = builder.executeQuery();
 					if (rowSet.size() == 1) {
 						rowSet.next();
@@ -4492,7 +4492,7 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI implement
 					amount=FDCHelper.subtract(this.contractBill.getAmount(), this.contractBill.getGrtAmount());
 				}
 				builder.clear();
-				builder.appendSql("select sum(famount) as payAmount from T_CON_PayRequestBill where FContractId='"+this.contractBill.getId().toString()+"' ");
+				builder.appendSql("select sum(famount) as payAmount from CT_FI_PayRequestBill where FContractId='"+this.contractBill.getId().toString()+"' ");
 				if(this.editData.getId()!=null){
 					builder.appendSql("and fid!='"+this.editData.getId().toString()+"'");
 				}
@@ -5243,9 +5243,9 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI implement
 				&& billInfo.getPaymentType().getPayType().getId().toString().equals(PaymentTypeInfo.settlementID)) {
 			builder.clear();
 			if (isBaseCurrency) {
-				builder.appendSql("select (fsettleprice-fqualityGuarante) as amount from t_con_contractsettlementbill where fcontractbillid=");
+				builder.appendSql("select (fsettleprice-fqualityGuarante) as amount from ct_con_contractSettlementbill where fcontractbillid=");
 			} else {
-				builder.appendSql("select foriginalamount*(1-isnull(fqualityGuaranteRate,0)/100) as amount from t_con_contractsettlementbill where fcontractbillid=");
+				builder.appendSql("select foriginalamount*(1-isnull(fqualityGuaranteRate,0)/100) as amount from ct_con_contractSettlementbill where fcontractbillid=");
 			}
 			builder.appendParam(billInfo.getContractId());
 			builder.appendSql(" and FIsFinalSettle = 1 ");
@@ -5275,12 +5275,12 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI implement
 		} else if (billInfo.getPaymentType() != null && billInfo.getPaymentType().getPayType() != null && billInfo.getPaymentType().getPayType().getId().toString().equals(PaymentTypeInfo.keepID)) {
 			builder.clear();
 			if (isBaseCurrency) {
-				builder.appendSql("select fqualityGuarante as amount from t_con_contractsettlementbill where fcontractbillid=");
+				builder.appendSql("select fqualityGuarante as amount from ct_con_contractSettlementbill where fcontractbillid=");
 			} else {
 				/********
 				 * 取原币的保修金金额
 				 */
-				builder.appendSql("select foriginalamount*isnull(fqualityGuaranteRate,0)/100 as amount from t_con_contractsettlementbill where fcontractbillid=");
+				builder.appendSql("select foriginalamount*isnull(fqualityGuaranteRate,0)/100 as amount from ct_con_contractSettlementbill where fcontractbillid=");
 			}
 
 			builder.appendParam(billInfo.getContractId());
@@ -5341,7 +5341,7 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI implement
 				// .appendSql(
 				// "select (famount * fpayPercForWarn)/100 as fsumamt,famount as amount,fpayPercForWarn from t_con_contractbill where fid="
 				// );
-				builder.appendSql("select fpayPercForWarn from t_con_contractbill where fid=");
+				builder.appendSql("select fpayPercForWarn from ct_con_contractbill where fid=");
 
 				builder.appendParam(billInfo.getContractId());
 				final IRowSet rowSet = builder.executeQuery();
@@ -5723,67 +5723,67 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI implement
 	 * 业务日期改变，取对应的合同滚动计划
 	 */
 	protected void pkbookedDate_dataChanged(DataChangeEvent e) throws Exception {
-		StringBuffer format = new StringBuffer();
-		Date bookDate = (Date) pkbookedDate.getValue();
-		Calendar cal = Calendar.getInstance();
-		cal.setTime(bookDate);
-		format.append("$contractName$ ");
-		format.append(cal.get(Calendar.YEAR));
-		format.append("年");
-		format.append(cal.get(Calendar.MONTH) + 1);
-		format.append("月付款计划");
-		prmtPlanHasCon.setDisplayFormat(format.toString());
-		initPrmtPlanUnCon();
-
-		if (STATUS_ADDNEW.equals(getOprtState()) || STATUS_EDIT.equals(getOprtState())) {
-			String con = editData.getContractId();
-			FDCSQLBuilder builder = new FDCSQLBuilder();
-			builder.appendSql("select con.FID as id,con.FContractID as conID,con.FContractName as conName from T_FNC_FDCDepConPayPlanContract as con ");
-			builder.appendSql("left join T_FNC_FDCDepConPayPlanCE as cone on cone.FParentC = con.FID ");
-			builder.appendSql("left join T_FNC_FDCDepConPayPlanBill as head on head.FID = con.FHeadID ");
-			builder.appendSql("where (head.FState = '4AUDITTED' or head.FState = '10PUBLISH') ");
-			builder.appendSql(" and con.FContractID = ");
-			builder.appendParam(con);
-			builder.appendSql(" and cone.FMonth >= ");
-			builder.appendParam(BudgetViewUtils.getFirstDay(bookDate));
-			builder.appendSql(" and cone.FMonth <= ");
-			builder.appendParam(BudgetViewUtils.getLastDay(bookDate));
-			IRowSet rowSet = builder.executeQuery();
-			if (rowSet != null && rowSet.size() >= 1) {
-				rowSet.next();
-				String id = rowSet.getString("id");
-				SelectorItemCollection sic = new SelectorItemCollection();
-				sic.add("id");
-				sic.add("contract.id");
-				sic.add("contractName");
-				sic.add("head.deptment.name");
-				sic.add("head.year");
-				sic.add("head.month");
-				FDCDepConPayPlanContractInfo info = FDCDepConPayPlanContractFactory.getRemoteInstance().getFDCDepConPayPlanContractInfo(new ObjectUuidPK(id), sic);
-				prmtPlanHasCon.setValue(info);
-				contPlanHasCon.setVisible(true);
-				prmtPlanHasCon.setEnabled(false);
-				contPlanUnCon.setVisible(false);
-				if (!"不控制".equals(CONTROLPAYREQUEST)) {
-					prmtPlanHasCon.setRequired(true);
-					prmtPlanUnCon.setRequired(false);
-				}
-			} else {
-				contPlanHasCon.setVisible(false);
-				// contPlanUnCon.setVisible(true);
-				if (!"不控制".equals(CONTROLPAYREQUEST)) {
-					prmtPlanHasCon.setRequired(false);
-					prmtPlanUnCon.setRequired(true);
-				}
-			}
-		}
-
-		if (!isCostSplitContract) {
-			prmtPlanHasCon.setRequired(false);
-			prmtPlanUnCon.setRequired(false);
-		}
-		// getBgAmount();
-		getPayPlanValue();
+//		StringBuffer format = new StringBuffer();
+//		Date bookDate = (Date) pkbookedDate.getValue();
+//		Calendar cal = Calendar.getInstance();
+//		cal.setTime(bookDate);
+//		format.append("$contractName$ ");
+//		format.append(cal.get(Calendar.YEAR));
+//		format.append("年");
+//		format.append(cal.get(Calendar.MONTH) + 1);
+//		format.append("月付款计划");
+//		prmtPlanHasCon.setDisplayFormat(format.toString());
+//		initPrmtPlanUnCon();
+//
+//		if (STATUS_ADDNEW.equals(getOprtState()) || STATUS_EDIT.equals(getOprtState())) {
+//			String con = editData.getContractId();
+//			FDCSQLBuilder builder = new FDCSQLBuilder();
+//			builder.appendSql("select con.FID as id,con.FContractID as conID,con.FContractName as conName from T_FNC_FDCDepConPayPlanContract as con ");
+//			builder.appendSql("left join T_FNC_FDCDepConPayPlanCE as cone on cone.FParentC = con.FID ");
+//			builder.appendSql("left join T_FNC_FDCDepConPayPlanBill as head on head.FID = con.FHeadID ");
+//			builder.appendSql("where (head.FState = '4AUDITTED' or head.FState = '10PUBLISH') ");
+//			builder.appendSql(" and con.FContractID = ");
+//			builder.appendParam(con);
+//			builder.appendSql(" and cone.FMonth >= ");
+//			builder.appendParam(BudgetViewUtils.getFirstDay(bookDate));
+//			builder.appendSql(" and cone.FMonth <= ");
+//			builder.appendParam(BudgetViewUtils.getLastDay(bookDate));
+//			IRowSet rowSet = builder.executeQuery();
+//			if (rowSet != null && rowSet.size() >= 1) {
+//				rowSet.next();
+//				String id = rowSet.getString("id");
+//				SelectorItemCollection sic = new SelectorItemCollection();
+//				sic.add("id");
+//				sic.add("contract.id");
+//				sic.add("contractName");
+//				sic.add("head.deptment.name");
+//				sic.add("head.year");
+//				sic.add("head.month");
+//				FDCDepConPayPlanContractInfo info = FDCDepConPayPlanContractFactory.getRemoteInstance().getFDCDepConPayPlanContractInfo(new ObjectUuidPK(id), sic);
+//				prmtPlanHasCon.setValue(info);
+//				contPlanHasCon.setVisible(true);
+//				prmtPlanHasCon.setEnabled(false);
+//				contPlanUnCon.setVisible(false);
+//				if (!"不控制".equals(CONTROLPAYREQUEST)) {
+//					prmtPlanHasCon.setRequired(true);
+//					prmtPlanUnCon.setRequired(false);
+//				}
+//			} else {
+//				contPlanHasCon.setVisible(false);
+//				// contPlanUnCon.setVisible(true);
+//				if (!"不控制".equals(CONTROLPAYREQUEST)) {
+//					prmtPlanHasCon.setRequired(false);
+//					prmtPlanUnCon.setRequired(true);
+//				}
+//			}
+//		}
+//
+//		if (!isCostSplitContract) {
+//			prmtPlanHasCon.setRequired(false);
+//			prmtPlanUnCon.setRequired(false);
+//		}
+//		// getBgAmount();
+//		getPayPlanValue();
 	}
 
 	protected void pkpayDate_dataChanged(DataChangeEvent e) throws Exception {
@@ -5845,17 +5845,17 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI implement
 				// date.setDate(cal.getMaximum(Calendar.DAY_OF_MONTH));
 
 				build.appendParam(endTime);
-				IRowSet rowSet = build.executeQuery();
-				if (rowSet.size() > 0) {
-					rowSet.next();
-					planAmt = rowSet.getBigDecimal("FPayAmount");
-					tableHelper.setCellValue(PayRequestBillContants.CURPLANNEDPAYMENT, planAmt);
-				} else {
-					// 付款计划不存在时，本期欠付款为空
-					tableHelper.setCellValue(PayRequestBillContants.CURPLANNEDPAYMENT, null);
-					tableHelper.setCellValue(PayRequestBillContants.CURBACKPAY, null);
-					return;
-				}
+//				IRowSet rowSet = build.executeQuery();
+//				if (rowSet.size() > 0) {
+//					rowSet.next();
+//					planAmt = rowSet.getBigDecimal("FPayAmount");
+//					tableHelper.setCellValue(PayRequestBillContants.CURPLANNEDPAYMENT, planAmt);
+//				} else {
+//					// 付款计划不存在时，本期欠付款为空
+//					tableHelper.setCellValue(PayRequestBillContants.CURPLANNEDPAYMENT, null);
+//					tableHelper.setCellValue(PayRequestBillContants.CURBACKPAY, null);
+//					return;
+//				}
 
 			}
 		}
@@ -5906,7 +5906,7 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI implement
 		endTime = new Timestamp(date.getTime());
 		BigDecimal totalpayAmount = FDCHelper.ZERO;
 		FDCSQLBuilder builder = new FDCSQLBuilder();
-		builder.appendSql("select sum(pr.famount) as amount  from T_CON_PayRequestBill pr where pr.fstate='4AUDITTED' " + "	and fcontractid=");
+		builder.appendSql("select sum(pr.famount) as amount  from CT_FI_PayRequestBill pr where pr.fstate='4AUDITTED' " + "	and fcontractid=");
 		builder.appendParam(contractId);
 		if (editData.getId() != null) {
 			thisBillid = editData.getId().toString();
@@ -7618,7 +7618,7 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI implement
 		builderFloatFund.appendSql(" req.FHasClosed as reqC, ");
 		builderFloatFund.appendSql(" pay.FAmount as payA, ");
 		builderFloatFund.appendSql(" pay.FBillStatus as payS ");
-		builderFloatFund.appendSql(" from T_CON_PayRequestBill as req ");
+		builderFloatFund.appendSql(" from CT_FI_PayRequestBill as req ");
 		builderFloatFund.appendSql(" left join T_CAS_PaymentBill as pay ");
 		builderFloatFund.appendSql(" on pay.FFdcPayReqID = req.FID ");
 		builderFloatFund.appendSql(" where req.FState in ");
