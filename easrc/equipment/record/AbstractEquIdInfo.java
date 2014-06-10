@@ -699,6 +699,28 @@ public class AbstractEquIdInfo extends com.kingdee.eas.xr.XRBillBaseInfo impleme
     {
         setDate("textDate1", item);
     }
+    /**
+     * Object:设备档案's 市检计划property 
+     */
+    public java.util.Date getDayone()
+    {
+        return getDate("dayone");
+    }
+    public void setDayone(java.util.Date item)
+    {
+        setDate("dayone", item);
+    }
+    /**
+     * Object:设备档案's 港检计划property 
+     */
+    public java.util.Date getDaytow()
+    {
+        return getDate("daytow");
+    }
+    public void setDaytow(java.util.Date item)
+    {
+        setDate("daytow", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("0ED4BEC2");

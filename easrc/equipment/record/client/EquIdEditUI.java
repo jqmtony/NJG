@@ -193,7 +193,11 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 		
 		this.toolBar.add(kdworkButton,8);
 
-
+//		if(chkspecial.getSelected() == 16){
+//			kDPanel11.setEnabled(true);	
+//		}else if(chkspecial.getSelected() == 32){
+//			kDPanel11.setEnabled(false);	
+//		}
 	}
 	 protected void initWorkButton()
 	    {
@@ -481,6 +485,9 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 		}else {
 			setTzsbState(false);
 		}
+//		if(chkspecial.getSelected() == 16){
+//			
+//		}
 	}
 	
 	protected void setTzsbState(boolean state){
@@ -1378,4 +1385,6 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 	public void actionExcel_actionPerformed(ActionEvent e) throws Exception {
 
 	}
+	
+	
 }

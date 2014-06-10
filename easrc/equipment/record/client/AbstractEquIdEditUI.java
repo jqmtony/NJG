@@ -61,6 +61,8 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
     protected com.kingdee.bos.ctrl.swing.KDButtonGroup kDButtonGroup2;
     protected com.kingdee.bos.ctrl.swing.KDButtonGroup kDButtonGroup3;
     protected com.kingdee.bos.ctrl.swing.KDTabbedPane kDTabbedPane1;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contdayone;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contdaytow;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtCreator;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkCreateTime;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtLastUpdateUser;
@@ -189,6 +191,8 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
 	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtTechnologyPar_detailPanel = null;
     protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtSpareInfo;
 	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtSpareInfo_detailPanel = null;
+    protected com.kingdee.bos.ctrl.swing.KDDatePicker pkdayone;
+    protected com.kingdee.bos.ctrl.swing.KDDatePicker pkdaytow;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnRegistChange;
     protected com.kingdee.eas.port.equipment.record.EquIdInfo editData = null;
     protected ActionInUse actionInUse = null;
@@ -291,6 +295,8 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.kDButtonGroup2 = new com.kingdee.bos.ctrl.swing.KDButtonGroup();
         this.kDButtonGroup3 = new com.kingdee.bos.ctrl.swing.KDButtonGroup();
         this.kDTabbedPane1 = new com.kingdee.bos.ctrl.swing.KDTabbedPane();
+        this.contdayone = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contdaytow = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.prmtCreator = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.pkCreateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.prmtLastUpdateUser = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
@@ -417,6 +423,8 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.txtinstallCost = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
         this.kdtTechnologyPar = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.kdtSpareInfo = new com.kingdee.bos.ctrl.kdf.table.KDTable();
+        this.pkdayone = new com.kingdee.bos.ctrl.swing.KDDatePicker();
+        this.pkdaytow = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.btnRegistChange = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.contCreator.setName("contCreator");
         this.contCreateTime.setName("contCreateTime");
@@ -430,6 +438,8 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.contBizStatus.setName("contBizStatus");
         this.contAuditTime.setName("contAuditTime");
         this.kDTabbedPane1.setName("kDTabbedPane1");
+        this.contdayone.setName("contdayone");
+        this.contdaytow.setName("contdaytow");
         this.prmtCreator.setName("prmtCreator");
         this.pkCreateTime.setName("pkCreateTime");
         this.prmtLastUpdateUser.setName("prmtLastUpdateUser");
@@ -556,6 +566,8 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.txtinstallCost.setName("txtinstallCost");
         this.kdtTechnologyPar.setName("kdtTechnologyPar");
         this.kdtSpareInfo.setName("kdtSpareInfo");
+        this.pkdayone.setName("pkdayone");
+        this.pkdaytow.setName("pkdaytow");
         this.btnRegistChange.setName("btnRegistChange");
         // CoreUI
         // contCreator		
@@ -615,6 +627,16 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         // kDButtonGroup2
         // kDButtonGroup3
         // kDTabbedPane1
+        // contdayone		
+        this.contdayone.setBoundLabelText(resHelper.getString("contdayone.boundLabelText"));		
+        this.contdayone.setBoundLabelLength(100);		
+        this.contdayone.setBoundLabelUnderline(true);		
+        this.contdayone.setVisible(false);
+        // contdaytow		
+        this.contdaytow.setBoundLabelText(resHelper.getString("contdaytow.boundLabelText"));		
+        this.contdaytow.setBoundLabelLength(100);		
+        this.contdaytow.setBoundLabelUnderline(true);		
+        this.contdaytow.setVisible(false);
         // prmtCreator		
         this.prmtCreator.setEnabled(false);		
         this.prmtCreator.setCommitFormat("$name$");		
@@ -1321,10 +1343,18 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         kdtSpareInfo_speModel_TextField.setMaxLength(100);
         KDTDefaultCellEditor kdtSpareInfo_speModel_CellEditor = new KDTDefaultCellEditor(kdtSpareInfo_speModel_TextField);
         this.kdtSpareInfo.getColumn("speModel").setEditor(kdtSpareInfo_speModel_CellEditor);
+        // pkdayone		
+        this.pkdayone.setVisible(false);		
+        this.pkdayone.setRequired(false);		
+        this.pkdayone.setEnabled(false);
+        // pkdaytow		
+        this.pkdaytow.setVisible(false);		
+        this.pkdaytow.setRequired(false);		
+        this.pkdaytow.setEnabled(false);
         // btnRegistChange
         this.btnRegistChange.setAction((IItemAction)ActionProxyFactory.getProxy(actionRegistChange, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnRegistChange.setText(resHelper.getString("btnRegistChange.text"));
-        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmtCU,pkLastUpdateTime,prmtLastUpdateUser,pkCreateTime,prmtCreator,prmtAuditor,txtDescription,pkBizDate,pkAuditTime,comboBizStatus,comboStatus,kdtTechnologyPar,combosbStatus,txtinnerNumber,combonowStatus,txtzzsShortName,chkcityTest,chkportTest,txttzdaNumber,tzsbStatus,prmtasset,prmtassetStatus,txtassetValue,txtinstallCost,chkisMainEqm,txtEqmCategory,pktextDate1}));
+        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmtCU,pkLastUpdateTime,prmtLastUpdateUser,pkCreateTime,prmtCreator,prmtAuditor,txtDescription,pkBizDate,pkAuditTime,comboBizStatus,comboStatus,kdtTechnologyPar,combosbStatus,txtinnerNumber,combonowStatus,txtzzsShortName,chkcityTest,chkportTest,txttzdaNumber,tzsbStatus,prmtasset,prmtassetStatus,txtassetValue,txtinstallCost,chkisMainEqm,txtEqmCategory,pktextDate1,pkdayone,pkdaytow}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
 		registerBindings();
@@ -1377,6 +1407,10 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.add(contAuditTime, new KDLayout.Constraints(713, 577, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         kDTabbedPane1.setBounds(new Rectangle(8, 4, 993, 569));
         this.add(kDTabbedPane1, new KDLayout.Constraints(8, 4, 993, 569, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        contdayone.setBounds(new Rectangle(298, 649, 270, 19));
+        this.add(contdayone, new KDLayout.Constraints(298, 649, 270, 19, 0));
+        contdaytow.setBounds(new Rectangle(175, 642, 270, 19));
+        this.add(contdaytow, new KDLayout.Constraints(175, 642, 270, 19, 0));
         //contCreator
         contCreator.setBoundEditor(prmtCreator);
         //contCreateTime
@@ -1641,6 +1675,10 @@ kDPanel6.setLayout(new BorderLayout(0, 0));        kdtTechnologyPar_detailPanel 
         //kDPanel7
 kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtSpareInfo,new com.kingdee.eas.port.equipment.record.EquIdSpareInfoInfo(),null,false);
         kDPanel7.add(kdtSpareInfo_detailPanel, BorderLayout.CENTER);
+        //contdayone
+        contdayone.setBoundEditor(pkdayone);
+        //contdaytow
+        contdaytow.setBoundEditor(pkdaytow);
 
     }
 
@@ -1889,7 +1927,9 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
 		dataBinder.registerBinding("SpareInfo.seq", int.class, this.kdtSpareInfo, "seq.text");
 		dataBinder.registerBinding("SpareInfo", com.kingdee.eas.port.equipment.record.EquIdSpareInfoInfo.class, this.kdtSpareInfo, "userObject");
 		dataBinder.registerBinding("SpareInfo.materialName", String.class, this.kdtSpareInfo, "materialName.text");
-		dataBinder.registerBinding("SpareInfo.speModel", String.class, this.kdtSpareInfo, "speModel.text");		
+		dataBinder.registerBinding("SpareInfo.speModel", String.class, this.kdtSpareInfo, "speModel.text");
+		dataBinder.registerBinding("dayone", java.util.Date.class, this.pkdayone, "value");
+		dataBinder.registerBinding("daytow", java.util.Date.class, this.pkdaytow, "value");		
 	}
 	//Regiester UI State
 	private void registerUIState(){		
@@ -2098,7 +2138,9 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
 		getValidateHelper().registerBindProperty("SpareInfo.seq", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("SpareInfo", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("SpareInfo.materialName", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("SpareInfo.speModel", ValidateHelper.ON_SAVE);    		
+		getValidateHelper().registerBindProperty("SpareInfo.speModel", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("dayone", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("daytow", ValidateHelper.ON_SAVE);    		
 	}
 
 
@@ -2412,6 +2454,8 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
 		}
     	sic.add(new SelectorItemInfo("SpareInfo.materialName"));
     	sic.add(new SelectorItemInfo("SpareInfo.speModel"));
+        sic.add(new SelectorItemInfo("dayone"));
+        sic.add(new SelectorItemInfo("daytow"));
         return sic;
     }        
     	

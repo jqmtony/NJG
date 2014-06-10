@@ -4,6 +4,8 @@
 package com.kingdee.eas.port.equipment.operate.client;
 
 import java.awt.event.*;
+import java.util.Date;
+
 import org.apache.log4j.Logger;
 
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
@@ -13,6 +15,9 @@ import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.eas.basedata.org.AdminOrgUnitFactory;
+import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
+import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.framework.*;
 import com.kingdee.eas.port.equipment.base.enumbase.sbStatusType;
@@ -691,7 +696,14 @@ public class EqmScrapEditUI extends AbstractEqmScrapEditUI
 	}
 
 	public void onLoad() throws Exception {
+		txteqmName.setEnabled(false);
+		prmtssOrgUnit.setEnabled(false);
+		prmtusedDept.setEnabled(false);
+		contBizStatus.setVisible(false);
 		super.onLoad();
+		if(getOprtState().equals(OprtState.ADDNEW)){
+	    	pkBizDate.setValue(new Date());
+		}
 		 EntityViewInfo evi = new EntityViewInfo();
 		 FilterInfo filter = new FilterInfo();
 		 String id = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
@@ -699,6 +711,27 @@ public class EqmScrapEditUI extends AbstractEqmScrapEditUI
 		 evi.setFilter(filter);
 		prmteqmNumber.setEntityViewInfo(evi);
 
+	}
+	
+	public void prmteqmNumber_Changed() throws Exception {
+		super.prmteqmNumber_Changed();
+		if(prmteqmNumber.getValue() != null){
+			String id = ((EquIdInfo)prmteqmNumber.getData()).getId().toString();
+			EquIdInfo edInfo = EquIdFactory.getRemoteInstance().getEquIdInfo(new ObjectUuidPK(id));
+			if(edInfo.getName() != null){
+				txteqmName.setText(edInfo.getName());
+			}
+			if(edInfo.getSsOrgUnit()!=null){
+			    String id1 = ((AdminOrgUnitInfo)edInfo.getSsOrgUnit()).getId().toString();
+			    AdminOrgUnitInfo aoInfo =  AdminOrgUnitFactory.getRemoteInstance().getAdminOrgUnitInfo(new ObjectUuidPK(id1));
+			    prmtssOrgUnit.setValue(aoInfo);
+			}
+			if(edInfo.getUsingDept()!=null){
+				  String id2 = ((AdminOrgUnitInfo)edInfo.getSsOrgUnit()).getId().toString();
+				  AdminOrgUnitInfo aoInfo =  AdminOrgUnitFactory.getRemoteInstance().getAdminOrgUnitInfo(new ObjectUuidPK(id2));
+				  prmtusedDept.setValue(aoInfo);
+			}
+		}
 	}
 	
 }

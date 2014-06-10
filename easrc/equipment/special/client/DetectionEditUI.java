@@ -636,21 +636,7 @@ public class DetectionEditUI extends AbstractDetectionEditUI
         super.actionNumberSign_actionPerformed(e);
     }
 
-    /**
-     * output actionAudit_actionPerformed
-     */
-    public void actionAudit_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionAudit_actionPerformed(e);
-    }
-
-    /**
-     * output actionUnAudit_actionPerformed
-     */
-    public void actionUnAudit_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionUnAudit_actionPerformed(e);
-    }
+   
 
     /**
      * output getBizInterface method
@@ -757,6 +743,65 @@ public class DetectionEditUI extends AbstractDetectionEditUI
 			}
 		}
 	}
+	
+	
+	 /**
+     * output actionAudit_actionPerformed
+     */
+    public void actionAudit_actionPerformed(ActionEvent e) throws Exception
+    {
+        super.actionAudit_actionPerformed(e);
+    	Set<String> catMap = new HashSet<String>();
+		IRowSet rowset = new XRSQLBuilder().appendSql(getCatType()).executeQuery();
+		while(rowset.next())
+		{
+			catMap.add(rowset.getString("catId"));
+		}
+		
+		this.kdtE1.removeRows();
+		
+		IRowSet newrowset = null;
+		Iterator itertor = catMap.iterator();
+		
+		while(itertor.hasNext())
+		{
+			String id = (String) itertor.next();
+			//市检
+			String oql10 = getsql("10",editData.getId().toString(),id);
+			//港检
+			String oql20 = getsql("20",editData.getId().toString(),id);
+			IRow row = this.kdtE1.addRow();
+			String oql = "select id,name,number where id='"+id+"'";
+			row.getCell("deviceType1").setValue(FaCatFactory.getRemoteInstance().getFaCatCollection(oql).get(0).getName());
+			//市检
+			newrowset = new XRSQLBuilder().appendSql(oql10).executeQuery();
+			while(newrowset.next())
+			{
+				row.getCell("planNumber1").setValue(newrowset.getString("计划数"));
+				row.getCell("actualNumber1").setValue(newrowset.getString("实际数"));
+				row.getCell("qualifiedNumber1").setValue(newrowset.getString("合格数"));
+				row.getCell("qualifiedRate1").setValue(newrowset.getString("合格率"));
+			}
+
+			//港检
+			newrowset = new XRSQLBuilder().appendSql(oql20).executeQuery();
+			while(newrowset.next())
+			{
+				row.getCell("planNumber2").setValue(newrowset.getString("计划数"));
+				row.getCell("actualNumber2").setValue(newrowset.getString("实际数"));
+				row.getCell("qualifiedNumber2").setValue(newrowset.getString("合格数"));
+				row.getCell("qualifiedRate2").setValue(newrowset.getString("合格率"));
+			}
+		}
+    }
+
+    /**
+     * output actionUnAudit_actionPerformed
+     */
+    public void actionUnAudit_actionPerformed(ActionEvent e) throws Exception
+    {
+        super.actionUnAudit_actionPerformed(e);
+    }
 	
 	/**
 	 * 

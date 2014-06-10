@@ -5,6 +5,7 @@ package com.kingdee.eas.port.equipment.special.client;
 
 import java.awt.BorderLayout;
 import java.awt.event.*;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,6 +17,7 @@ import com.kingdee.bos.ui.face.UIFactory;
 import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.eas.common.client.OprtState;
+import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.common.client.UIContext;
 import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.framework.*;
@@ -695,7 +697,10 @@ public class AnnualYearPlanEditUI extends AbstractAnnualYearPlanEditUI
 	public void onLoad() throws Exception {
 		 this.kdtEntry.getColumn("seq").getStyleAttributes().setHided(true);
 		super.onLoad();
-		
+		if(getOprtState().equals(OprtState.ADDNEW)){
+		  pkBizDate.setValue(new Date());
+		  prmtCU.setValue(SysContext.getSysContext().getCurrentCtrlUnit());
+		}
 		InitWorkButtons();
 		
 	}

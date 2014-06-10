@@ -56,7 +56,7 @@ public class EqmIOControllerBean extends AbstractEqmIOControllerBean
     			edInfo.setSsOrgUnit(eoInfo.getInOrgUnit());
         		edInfo.setUsingDept(eoInfo.getUseingOrgUnit());
     		}
-    		
+    		EquIdFactory.getLocalInstance(ctx).update(new ObjectUuidPK(edInfo.getId()), edInfo);
     	}
     }
     
@@ -72,7 +72,7 @@ public class EqmIOControllerBean extends AbstractEqmIOControllerBean
     			edInfo.setSsOrgUnit(eoInfo.getOutOrgUnit());
         		edInfo.setUsingDept(eoInfo.getOldUseingDept());
     		}
-    		
+    		EquIdFactory.getLocalInstance(ctx).update(new ObjectUuidPK(edInfo.getId()), edInfo);
     	}
     }
 }

@@ -715,6 +715,9 @@ public class EqmIOEditUI extends AbstractEqmIOEditUI
 
 	//添加设备按所属组织过滤
 	public void onLoad() throws Exception {
+		txteqmName.setEnabled(false);
+		prmtoutOrgUnit.setEnabled(false);
+		prmtoldUseingDept.setEnabled(false);
 		super.onLoad();
 		 EntityViewInfo evi = new EntityViewInfo();
 		 FilterInfo filter = new FilterInfo();

@@ -217,8 +217,7 @@ public abstract class AbstractEumUseRecordEditUI extends com.kingdee.eas.xr.clie
         this.contNumber.setBoundLabelText(resHelper.getString("contNumber.boundLabelText"));		
         this.contNumber.setBoundLabelLength(100);		
         this.contNumber.setBoundLabelUnderline(true);		
-        this.contNumber.setEnabled(false);		
-        this.contNumber.setVisible(false);
+        this.contNumber.setEnabled(false);
         // contBizDate		
         this.contBizDate.setBoundLabelText(resHelper.getString("contBizDate.boundLabelText"));		
         this.contBizDate.setBoundLabelLength(100);		
@@ -443,7 +442,6 @@ public abstract class AbstractEumUseRecordEditUI extends com.kingdee.eas.xr.clie
         this.prmtCU.setEnabled(false);		
         this.prmtCU.setVisible(false);
         // txtNumber		
-        this.txtNumber.setVisible(false);		
         this.txtNumber.setEnabled(false);
         // pkBizDate
         // txtDescription		
@@ -525,8 +523,8 @@ public abstract class AbstractEumUseRecordEditUI extends com.kingdee.eas.xr.clie
         this.add(contLastUpdateTime, new KDLayout.Constraints(372, 487, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contCU.setBounds(new Rectangle(719, 596, 270, 19));
         this.add(contCU, new KDLayout.Constraints(719, 596, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contNumber.setBounds(new Rectangle(38, 592, 270, 19));
-        this.add(contNumber, new KDLayout.Constraints(38, 592, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contNumber.setBounds(new Rectangle(39, 13, 270, 19));
+        this.add(contNumber, new KDLayout.Constraints(39, 13, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contBizDate.setBounds(new Rectangle(371, 13, 270, 19));
         this.add(contBizDate, new KDLayout.Constraints(371, 13, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contDescription.setBounds(new Rectangle(373, 617, 270, 19));
@@ -552,10 +550,10 @@ vo.put("CostType","1");
 		});
         contstaPerson.setBounds(new Rectangle(702, 13, 270, 19));
         this.add(contstaPerson, new KDLayout.Constraints(702, 13, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contUseOrgUnit.setBounds(new Rectangle(40, 13, 270, 19));
-        this.add(contUseOrgUnit, new KDLayout.Constraints(40, 13, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contreportTime.setBounds(new Rectangle(39, 42, 270, 19));
-        this.add(contreportTime, new KDLayout.Constraints(39, 42, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contUseOrgUnit.setBounds(new Rectangle(39, 45, 270, 19));
+        this.add(contUseOrgUnit, new KDLayout.Constraints(39, 45, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contreportTime.setBounds(new Rectangle(371, 45, 270, 19));
+        this.add(contreportTime, new KDLayout.Constraints(371, 45, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         //contCreator
         contCreator.setBoundEditor(prmtCreator);
         //contCreateTime

@@ -429,5 +429,7 @@ public class RegulationsEditUI extends AbstractRegulationsEditUI
     public void onLoad() throws Exception {
     	 this.kdtEntry.getColumn("seq").getStyleAttributes().setHided(true);
     	super.onLoad();
+    	btnAttachment.setEnabled(true);
+    	btnAttachment.setVisible(true);
     }
 }

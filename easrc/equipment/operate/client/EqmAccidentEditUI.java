@@ -4,6 +4,8 @@
 package com.kingdee.eas.port.equipment.operate.client;
 
 import java.awt.event.*;
+import java.util.Date;
+
 import org.apache.log4j.Logger;
 
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
@@ -11,9 +13,18 @@ import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.eas.basedata.org.AdminOrgUnitFactory;
+import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
+import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.framework.*;
+import com.kingdee.eas.port.equipment.record.EquIdFactory;
+import com.kingdee.eas.port.equipment.record.EquIdInfo;
+import com.kingdee.eas.util.SysUtil;
+import com.kingdee.eas.util.client.MsgBox;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.swing.KDTextField;
 
@@ -691,12 +702,60 @@ public class EqmAccidentEditUI extends AbstractEqmAccidentEditUI
 	}
 
 	public void onLoad() throws Exception {
+		txteqmNumner.setEnabled(false);
+		txteqmType.setEnabled(false);
+		txteqmModelType.setEnabled(false);
+		txteqmAdress.setEnabled(false);
+		prmtuseingDept.setEnabled(false);
+		prmtssOrgUnit.setEnabled(false);
 		super.onLoad();
-		 EntityViewInfo evi = new EntityViewInfo();
+		if(getOprtState().equals(OprtState.ADDNEW)){
+			pkBizDate.setValue(new Date());
+			pkhappenDate.setValue(new Date());
+			pkendDate.setValue(new Date());
+			prmtinputPerson.setValue(com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentUserInfo().getPerson());
+		}
+		EntityViewInfo evi = new EntityViewInfo();
 		 FilterInfo filter = new FilterInfo();
 		 String id = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
 		 filter.getFilterItems().add(new FilterItemInfo("ssOrgUnit.id",id ,CompareType.EQUALS));
 		 evi.setFilter(filter);
 		prmteqmName.setEntityViewInfo(evi);
+	}
+
+	protected void verifyInput(ActionEvent e) throws Exception {
+		if(UIRuleUtil.isNull(this.pkendDate.getValue()))
+		{
+			MsgBox.showInfo("事故发生日期不能为空！");
+			SysUtil.abort();
+		}
+		if(UIRuleUtil.isNull(this.pkendDate.getValue()))
+		{
+			MsgBox.showInfo("事故结束日期不能为空！");
+			SysUtil.abort();
+		}
+		if(pkendDate.getSqlDate().before(pkhappenDate.getSqlDate())){
+			MsgBox.showInfo("事故发生日期不能晚于事故结束日期！");
+			SysUtil.abort();
+		}
+		super.verifyInput(e);
+	}
+	public void prmteqmName_Changed() throws Exception {
+		super.prmteqmName_Changed();
+		if(prmteqmName.getValue() != null){
+			String id = ((EquIdInfo)prmteqmName.getData()).getId().toString();
+			EquIdInfo edInfo = EquIdFactory.getRemoteInstance().getEquIdInfo(new ObjectUuidPK(id));
+			if(edInfo.getSsOrgUnit()!=null){
+			    String id1 = ((AdminOrgUnitInfo)edInfo.getSsOrgUnit()).getId().toString();
+			    AdminOrgUnitInfo aoInfo =  AdminOrgUnitFactory.getRemoteInstance().getAdminOrgUnitInfo(new ObjectUuidPK(id1));
+			    prmtssOrgUnit.setValue(aoInfo);
+			}
+			if(edInfo.getUsingDept()!=null){
+				  String id2 = ((AdminOrgUnitInfo)edInfo.getSsOrgUnit()).getId().toString();
+				  AdminOrgUnitInfo aoInfo =  AdminOrgUnitFactory.getRemoteInstance().getAdminOrgUnitInfo(new ObjectUuidPK(id2));
+				  prmtuseingDept.setValue(aoInfo);
+			}
+		}
+		
 	}
 }
