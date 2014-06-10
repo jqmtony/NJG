@@ -22,6 +22,11 @@
             <value>i18nResource[com.kingdee.eas.port.pm.invest.investplan.client.InvestplanResource].resourceItems.resourceItem[ProgrammingQueryF7WindowTitle].value</value>
             <userDefined>true</userDefined>
         </resourceItem>
+        <resourceItem>
+            <name>ContractProgrammingQueryF7WindowTitle</name>
+            <value>i18nResource[com.kingdee.eas.port.pm.invest.investplan.client.InvestplanResource].resourceItems.resourceItem[ContractProgrammingQueryF7WindowTitle].value</value>
+            <userDefined>true</userDefined>
+        </resourceItem>
     </resourceItems>
     <resource>
         <rs key="i18nResource[com.kingdee.eas.port.pm.invest.investplan.client.InvestplanResource].alias">
@@ -35,6 +40,12 @@
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="i18nResource[com.kingdee.eas.port.pm.invest.investplan.client.InvestplanResource].resourceItems.resourceItem[ContractProgrammingQueryF7WindowTitle].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="投资规划明细" />
+            <lang locale="zh_HK" value="投資規劃明細" />
+            <lang locale="zh_TW" value="投資規劃明細" />
         </rs>
         <rs key="i18nResource[com.kingdee.eas.port.pm.invest.investplan.client.InvestplanResource].resourceItems.resourceItem[InvestPlanModelQueryF7WindowTitle].value">
             <lang locale="en_US" value="null" />
