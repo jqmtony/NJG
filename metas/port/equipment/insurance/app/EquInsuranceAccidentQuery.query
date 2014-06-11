@@ -1244,6 +1244,37 @@
                 <key name="name" value="EquInsuranceAccidentQuery" />
             </query>
         </queryField>
+        <queryField>
+            <name>xianzhongID</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.insurance.app.EquInsuranceAccidentQuery].units.queryField[xianzhongID].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>aff0f61e-d15f-4bd7-892f-f18367910283</key>
+                    <parentUnit>
+                        <key name="name" value="xianzhongID" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="EquInsuranceAccident" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="xianzhongID" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.insurance.app" />
+                <key name="name" value="EquInsuranceAccidentQuery" />
+            </query>
+        </queryField>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -2002,6 +2033,22 @@
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.insurance.app.EquInsuranceAccidentQuery].units.queryField[status].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.insurance.app.EquInsuranceAccidentQuery].units.queryField[xianzhongID].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="险种ID" />
+            <lang locale="zh_HK" value="險種ID" />
+            <lang locale="zh_TW" value="險種ID" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.insurance.app.EquInsuranceAccidentQuery].units.queryField[xianzhongID].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.insurance.app.EquInsuranceAccidentQuery].units.queryField[xianzhongID].extendedProperty.isCommonQuerySorter">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
