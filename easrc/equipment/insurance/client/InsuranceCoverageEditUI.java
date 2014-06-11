@@ -9,6 +9,9 @@ import java.awt.Frame;
 import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -126,6 +129,8 @@ this.prmtinsurance.setEnabledMultiSelection(true);
     			Object obj[] = (Object[]) this.prmtinsurance.getValue();
     			for (int i = 0; i < obj.length; i++) 
     			{
+    				if((InsuranceInfo)obj[i]==null)
+    					continue;
 					if(sb!=null&&!"".equals(sb.toString().trim()))
 						sb.append("&").append(((InsuranceInfo)obj[i]).getId().toString());
 					else
@@ -828,6 +833,14 @@ this.prmtinsurance.setEnabledMultiSelection(true);
 			kdtE1_equNumber_PromptBox.setEntityViewInfo(evi);
 			 KDTDefaultCellEditor kdtEntry_feeType_CellEditor = new KDTDefaultCellEditor(kdtE1_equNumber_PromptBox);
 			 kdtE1.getColumn("equNumber").setEditor(kdtEntry_feeType_CellEditor);
+			 
+				if(getOprtState().equals(OprtState.ADDNEW)){
+					Calendar  calendar  =  Calendar.getInstance();  
+		            calendar.setTime(SysUtil.getAppServerTime(null));  
+		            pkBizDate.setValue(calendar.getTime());
+		            txtyear.setValue(calendar.get(Calendar.YEAR));
+		            prmtCU.setValue(SysContext.getSysContext().getCurrentCtrlUnit());
+				}
 	}
 	
 	protected void btnExcel_actionPerformed(ActionEvent e) throws Exception {

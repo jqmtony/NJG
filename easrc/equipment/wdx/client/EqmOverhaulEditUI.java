@@ -20,12 +20,16 @@ import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.eas.basedata.assistant.ProjectFactory;
 import com.kingdee.eas.basedata.assistant.ProjectInfo;
+import com.kingdee.eas.basedata.person.PersonFactory;
+import com.kingdee.eas.basedata.person.PersonInfo;
 import com.kingdee.eas.common.EASBizException;
+import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.framework.*;
 import com.kingdee.eas.port.equipment.wdx.IEqmOverhaul;
 import com.kingdee.eas.port.pm.invest.YearInvestPlanFactory;
 import com.kingdee.eas.port.pm.invest.YearInvestPlanInfo;
+import com.kingdee.eas.port.pm.invest.uitls.F7ProjectDialog;
 import com.kingdee.eas.port.pm.project.PortProjectFactory;
 import com.kingdee.eas.port.pm.project.PortProjectInfo;
 import com.kingdee.eas.port.pm.projectauditsettlement.ProjectAuditSettlementFactory;
@@ -721,22 +725,44 @@ public class EqmOverhaulEditUI extends AbstractEqmOverhaulEditUI
 		prmtprojectName.setEnabled(false);
 		txtexpenseAccount.setEnabled(false);
 		txtplanCost.setEnabled(false);
+		prmtprojectLeader.setEnabled(false);
 		 this.kdtE1.getColumn("seq").getStyleAttributes().setHided(true);
 		super.onLoad();
+		
+		this.prmtprojectNumber.setSelector(new F7ProjectDialog(this.prmtprojectNumber));
 		
 		prmtprojectNumber.addDataChangeListener(new DataChangeListener(){
 			public void dataChanged(DataChangeEvent e) {
 				String id = ((ProjectInfo)prmtprojectNumber.getData()).getId().toString();
 				try {
 					ProjectInfo ppInfo = ProjectFactory.getRemoteInstance().getProjectInfo(new ObjectUuidPK(id));
-					YearInvestPlanInfo yipInfo = YearInvestPlanFactory.getRemoteInstance().getYearInvestPlanInfo(new ObjectUuidPK(ppInfo.getId()));
-					if(yipInfo.getInvestAmount()!=null){
-					    txtplanCost.setValue(yipInfo.getInvestAmount());
+					if(ppInfo.getNJGyearInvest() !=null){
+						String id2 = ((YearInvestPlanInfo)ppInfo.getNJGyearInvest()).getId().toString();
+						YearInvestPlanInfo yipInfo = YearInvestPlanFactory.getRemoteInstance().getYearInvestPlanInfo(new ObjectUuidPK(id2));
+						if(yipInfo.getInvestAmount()!=null){
+						    txtplanCost.setValue(yipInfo.getInvestAmount());//计划费用取之项目管理投资管理年度投资计划的项目投资总金额
+						}else{
+							txtplanCost.setValue(null);
+						}
+					}else{
+						txtplanCost.setValue(null);
 					}
-					ProjectAuditSettlementInfo pasInfo = ProjectAuditSettlementFactory.getRemoteInstance().getProjectAuditSettlementInfo(new ObjectUuidPK(ppInfo.getId()));
-					if(pasInfo.getFinalAmount()!=null){
-						txtexpenseAccount.setValue(pasInfo.getFinalAmount());
+					String oql = " where projectName.id ='"+id+"' order by createTime desc ";
+					if(ProjectAuditSettlementFactory.getRemoteInstance().exists(oql))
+					{
+						ProjectAuditSettlementInfo pasInfo = ProjectAuditSettlementFactory.getRemoteInstance().getProjectAuditSettlementCollection(oql).get(0);
+						if(pasInfo.getFinalAmount()!=null){
+							txtexpenseAccount.setValue(pasInfo.getFinalAmount());//决算费用取之项目管理项目审计决算的终审金额
+						}
 					}
+						prmtprojectName.setValue(ppInfo);
+						if(ppInfo.getPrjManager()!=null)
+						{
+							String id1 = ((PersonInfo)ppInfo.getPrjManager()).getId().toString();
+							PersonInfo psInfo = PersonFactory.getRemoteInstance().getPersonInfo(new ObjectUuidPK(id1));
+							prmtprojectLeader.setValue(psInfo);
+						}
+					
 				} catch (EASBizException e1) {
 					e1.printStackTrace();
 				} catch (BOSException e1) {
@@ -765,6 +791,12 @@ public class EqmOverhaulEditUI extends AbstractEqmOverhaulEditUI
 			kdtE1_equNumber_PromptBox.setEntityViewInfo(evi);
 			 KDTDefaultCellEditor kdtEntry_feeType_CellEditor = new KDTDefaultCellEditor(kdtE1_equNumber_PromptBox);
 			 kdtE1.getColumn("equNumber").setEditor(kdtEntry_feeType_CellEditor);
+			 
+			 if(getOprtState().equals(OprtState.ADDNEW)){
+				 pkBizDate.setValue(new Date());
+				 prmtCU.setValue(SysContext.getSysContext().getCurrentCtrlUnit());
+			 }
+			 
 	}
 	
 

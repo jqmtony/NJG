@@ -4,16 +4,35 @@
 package com.kingdee.eas.port.equipment.insurance.client;
 
 import java.awt.event.*;
+import java.util.Date;
+
 import org.apache.log4j.Logger;
 
+import com.kingdee.bos.BOSException;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.eas.basedata.org.AdminOrgUnitFactory;
+import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
+import com.kingdee.eas.common.EASBizException;
+import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.framework.*;
+import com.kingdee.eas.port.equipment.base.IInsurance;
+import com.kingdee.eas.port.equipment.base.InsuranceCompanyFactory;
+import com.kingdee.eas.port.equipment.base.InsuranceCompanyInfo;
+import com.kingdee.eas.port.equipment.base.InsuranceFactory;
+import com.kingdee.eas.port.equipment.base.InsuranceInfo;
+import com.kingdee.eas.port.equipment.insurance.InsuranceCoverageFactory;
+import com.kingdee.eas.port.equipment.insurance.InsuranceCoverageInfo;
+import com.kingdee.eas.port.equipment.record.EquIdInfo;
+import com.kingdee.eas.xr.helper.XRSQLBuilder;
+import com.kingdee.jdbc.rowset.IRowSet;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.swing.KDTextField;
 
@@ -36,7 +55,32 @@ public class EquInsuranceAccidentEditUI extends AbstractEquInsuranceAccidentEdit
      */
     public void loadFields()
     {
+    	txtxianzhongID.setEnabled(false);
+    	txtxianzhongID.setVisible(false);
         super.loadFields();
+this.prmtinsurance.setEnabledMultiSelection(true);
+		
+		
+		if(UIRuleUtil.isNotNull(this.txtxianzhongID.getText()))
+        {
+        	String spicId[] = (this.txtxianzhongID.getText().trim()).split("&");
+        	try {
+        		IInsurance IInsurance = InsuranceFactory.getRemoteInstance();
+        		
+        		InsuranceInfo objValue[] = new InsuranceInfo[spicId.length];
+        		
+				for (int i = 0; i < spicId.length; i++) 
+				{
+					String oql ="select id,name,number where id='"+spicId[i]+"'";
+					objValue[i] = IInsurance.getInsuranceInfo(oql);
+				}
+				this.prmtinsurance.setValue(objValue);
+			} catch (BOSException e) {
+				e.printStackTrace();
+			} catch (EASBizException e) {
+				e.printStackTrace();
+			}
+        }
     }
 
     /**
@@ -44,6 +88,30 @@ public class EquInsuranceAccidentEditUI extends AbstractEquInsuranceAccidentEdit
      */
     public void storeFields()
     {
+    	if(this.prmtinsurance.getValue()!=null)
+    	{
+    		StringBuffer sb = new StringBuffer();
+    		if(this.prmtinsurance.getValue() instanceof Object[])
+    		{
+    			Object obj[] = (Object[]) this.prmtinsurance.getValue();
+    			for (int i = 0; i < obj.length; i++) 
+    			{
+    				if((InsuranceInfo)obj[i]==null)
+    					continue;
+					if(sb!=null&&!"".equals(sb.toString().trim()))
+						sb.append("&").append(((InsuranceInfo)obj[i]).getId().toString());
+					else
+						sb.append(((InsuranceInfo)obj[i]).getId().toString());
+				}
+    		}
+    		else
+    		{
+    			sb = new StringBuffer();
+    			sb.append(((InsuranceInfo)this.prmtinsurance.getValue()).getId().toString());
+    		}
+    		
+    		this.txtxianzhongID.setText(sb.toString());
+    	}
         super.storeFields();
     }
 
@@ -691,6 +759,10 @@ public class EquInsuranceAccidentEditUI extends AbstractEquInsuranceAccidentEdit
 	}
 
 	public void onLoad() throws Exception {
+		prmtpolicyNumber.setEnabled(false);
+		prmtinsuranceCompany.setEnabled(false);
+		prmtinsurance.setEnabled(false);
+		txtequName.setEnabled(false);
 		super.onLoad();
 		 EntityViewInfo evi = new EntityViewInfo();
 		 FilterInfo filter = new FilterInfo();
@@ -698,5 +770,61 @@ public class EquInsuranceAccidentEditUI extends AbstractEquInsuranceAccidentEdit
 		 filter.getFilterItems().add(new FilterItemInfo("ssOrgUnit.id",id ,CompareType.EQUALS));
 		 evi.setFilter(filter);
 		 prmtequNumber.setEntityViewInfo(evi);
+		 if(getOprtState().equals(OprtState.ADDNEW)){
+			 pkBizDate.setValue(new Date());
+			 pklossDate.setValue(new Date());
+			 prmtCU.setValue(SysContext.getSysContext().getCurrentCtrlUnit());
+		 }
 	}
+	
+	public void prmtequNumber_Changed() throws Exception {
+		super.prmtequNumber_Changed();
+		if(prmtequNumber.getValue() != null){
+			String id = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
+			String equID =((EquIdInfo)prmtequNumber.getData()).getId().toString() ;	
+			 StringBuffer sb = new StringBuffer();
+			 sb.append("/*dialect*/select * from(");
+			 sb.append(" select b.faudittime,b.fid,a.CFEquNumberID,b.CFInsurancecompany,b.fnumber,b.cfxianzhongid");
+			 sb.append("  from CT_INS_InsuranceCoverageE1 a");
+			 sb.append("  left join CT_INS_InsuranceCoverage b on a.FParentID = b.fid");
+			 sb.append("  where b.FStatus = '4'");
+			 sb.append("  and a.CFEquNumberID = '"+equID+"'");
+			 sb.append("  and b.fcontrolunitid = '"+id+"'");
+			 sb.append("  order by b.faudittime DESC)");
+			 sb.append("  where ROWNUM = '1'");
+			 IRowSet rowSet = new XRSQLBuilder().appendSql(sb.toString()).executeQuery();
+			 while (rowSet.next()) {
+				 String id1 = rowSet.getString("fid");//保险投保明细表ID
+				 String id2 = rowSet.getString("CFInsurancecompany");//保险公司ID
+				 String id3 = rowSet.getString("cfxianzhongid");//险种
+				 InsuranceCoverageInfo icInfo = InsuranceCoverageFactory.getRemoteInstance().getInsuranceCoverageInfo(new ObjectUuidPK(id1));
+				 prmtpolicyNumber.setValue(icInfo);
+				 InsuranceCompanyInfo iscInfo = InsuranceCompanyFactory.getRemoteInstance().getInsuranceCompanyInfo(new ObjectUuidPK(id2));
+				 prmtinsuranceCompany.setValue(iscInfo);
+				 txtxianzhongID.setText(id3);
+					if(UIRuleUtil.isNotNull(this.txtxianzhongID.getText()))
+			        {
+			        	String spicId[] = (this.txtxianzhongID.getText().trim()).split("&");
+			        	try {
+			        		IInsurance IInsurance = InsuranceFactory.getRemoteInstance();
+			        		
+			        		InsuranceInfo objValue[] = new InsuranceInfo[spicId.length];
+			        		
+							for (int i = 0; i < spicId.length; i++) 
+							{
+								String oql ="select id,name,number where id='"+spicId[i]+"'";
+								objValue[i] = IInsurance.getInsuranceInfo(oql);
+							}
+							this.prmtinsurance.setValue(objValue);
+						} catch (BOSException e) {
+							e.printStackTrace();
+						} catch (EASBizException e) {
+							e.printStackTrace();
+						}
+			        }
+				 
+			 }
+		}
+	}
+	
 }

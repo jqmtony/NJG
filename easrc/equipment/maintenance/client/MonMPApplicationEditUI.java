@@ -4,6 +4,9 @@
 package com.kingdee.eas.port.equipment.maintenance.client;
 
 import java.awt.event.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.apache.log4j.Logger;
 
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
@@ -13,8 +16,11 @@ import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.framework.*;
+import com.kingdee.eas.util.SysUtil;
+import com.kingdee.eas.util.client.MsgBox;
 import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
 import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
@@ -714,6 +720,11 @@ public class MonMPApplicationEditUI extends AbstractMonMPApplicationEditUI
 		kdtE1_equNumber_PromptBox.setEntityViewInfo(evi);
 		 KDTDefaultCellEditor kdtEntry_feeType_CellEditor = new KDTDefaultCellEditor(kdtE1_equNumber_PromptBox);
 		 kdtE1.getColumn("equNumber").setEditor(kdtEntry_feeType_CellEditor);
+			if(getOprtState().equals(OprtState.ADDNEW)){
+				pkBizDate.setValue(new Date());
+				prmtpreparer.setValue(com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentUserInfo().getPerson());
+				prmtCU.setValue(SysContext.getSysContext().getCurrentCtrlUnit());
+			}
 		
 	}
 	
@@ -721,7 +732,30 @@ public class MonMPApplicationEditUI extends AbstractMonMPApplicationEditUI
 		super.kdtE1_Changed(rowIndex, colIndex);
 		if(  this.kdtE1.getCell(rowIndex, "planCost").getValue() !=null ){
 			txtplanTotalCost.setValue(UIRuleUtil.sum(kdtE1, "planCost"));
+		   }
 		}
-		
+	
+	protected void verifyInput(ActionEvent e) throws Exception {
+		super.verifyInput(e);
+		for (int i = 0; i < this.kdtE1.getRowCount(); i++) {
+			if(UIRuleUtil.isNull(this.kdtE1.getCell(i, "planStartTime").getValue()))
+			{
+				MsgBox.showInfo("分录的计划开工时间不能为空！");
+				SysUtil.abort();
+			}
+			if(UIRuleUtil.isNull(this.kdtE1.getCell(i, "planCompleteT").getValue()))
+			{
+				MsgBox.showInfo("分录的计划完工时间不能为空！");
+				SysUtil.abort();
+			}
+			if(this.kdtE1.getCell(i, "planStartTime").getValue() !=null && this.kdtE1.getCell(i, "planCompleteT").getValue() !=null){
+				Date date1 =  (Date) this.kdtE1.getCell(i, "planStartTime").getValue();
+				Date date2 = (Date) this.kdtE1.getCell(i, "planCompleteT").getValue();
+					if(date2.before(date1)){
+						MsgBox.showInfo("分录的计划开工时间不能晚于计划完工时间！");
+						SysUtil.abort();
+					}
+			}
+		}
 	}
 }

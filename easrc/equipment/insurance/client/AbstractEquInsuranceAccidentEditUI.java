@@ -67,6 +67,7 @@ public abstract class AbstractEquInsuranceAccidentEditUI extends com.kingdee.eas
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contexpectedLoss;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contclaimAmount;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contdescriptionIncident;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contxianzhongID;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtCreator;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkCreateTime;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtLastUpdateUser;
@@ -89,6 +90,8 @@ public abstract class AbstractEquInsuranceAccidentEditUI extends com.kingdee.eas
     protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtclaimAmount;
     protected com.kingdee.bos.ctrl.swing.KDScrollPane scrollPanedescriptionIncident;
     protected com.kingdee.bos.ctrl.swing.KDTextArea txtdescriptionIncident;
+    protected com.kingdee.bos.ctrl.swing.KDScrollPane scrollPanexianzhongID;
+    protected com.kingdee.bos.ctrl.swing.KDTextArea txtxianzhongID;
     protected com.kingdee.eas.port.equipment.insurance.EquInsuranceAccidentInfo editData = null;
     /**
      * output class constructor
@@ -160,6 +163,7 @@ public abstract class AbstractEquInsuranceAccidentEditUI extends com.kingdee.eas
         this.contexpectedLoss = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contclaimAmount = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contdescriptionIncident = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contxianzhongID = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.prmtCreator = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.pkCreateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.prmtLastUpdateUser = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
@@ -182,6 +186,8 @@ public abstract class AbstractEquInsuranceAccidentEditUI extends com.kingdee.eas
         this.txtclaimAmount = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
         this.scrollPanedescriptionIncident = new com.kingdee.bos.ctrl.swing.KDScrollPane();
         this.txtdescriptionIncident = new com.kingdee.bos.ctrl.swing.KDTextArea();
+        this.scrollPanexianzhongID = new com.kingdee.bos.ctrl.swing.KDScrollPane();
+        this.txtxianzhongID = new com.kingdee.bos.ctrl.swing.KDTextArea();
         this.contCreator.setName("contCreator");
         this.contCreateTime.setName("contCreateTime");
         this.contLastUpdateUser.setName("contLastUpdateUser");
@@ -203,6 +209,7 @@ public abstract class AbstractEquInsuranceAccidentEditUI extends com.kingdee.eas
         this.contexpectedLoss.setName("contexpectedLoss");
         this.contclaimAmount.setName("contclaimAmount");
         this.contdescriptionIncident.setName("contdescriptionIncident");
+        this.contxianzhongID.setName("contxianzhongID");
         this.prmtCreator.setName("prmtCreator");
         this.pkCreateTime.setName("pkCreateTime");
         this.prmtLastUpdateUser.setName("prmtLastUpdateUser");
@@ -225,6 +232,8 @@ public abstract class AbstractEquInsuranceAccidentEditUI extends com.kingdee.eas
         this.txtclaimAmount.setName("txtclaimAmount");
         this.scrollPanedescriptionIncident.setName("scrollPanedescriptionIncident");
         this.txtdescriptionIncident.setName("txtdescriptionIncident");
+        this.scrollPanexianzhongID.setName("scrollPanexianzhongID");
+        this.txtxianzhongID.setName("txtxianzhongID");
         // CoreUI
         // contCreator		
         this.contCreator.setBoundLabelText(resHelper.getString("contCreator.boundLabelText"));		
@@ -325,6 +334,12 @@ public abstract class AbstractEquInsuranceAccidentEditUI extends com.kingdee.eas
         this.contdescriptionIncident.setBoundLabelLength(100);		
         this.contdescriptionIncident.setBoundLabelUnderline(true);		
         this.contdescriptionIncident.setVisible(true);
+        // contxianzhongID		
+        this.contxianzhongID.setBoundLabelText(resHelper.getString("contxianzhongID.boundLabelText"));		
+        this.contxianzhongID.setBoundLabelLength(100);		
+        this.contxianzhongID.setBoundLabelUnderline(true);		
+        this.contxianzhongID.setVisible(false);		
+        this.contxianzhongID.setEnabled(false);
         // prmtCreator		
         this.prmtCreator.setEnabled(false);		
         this.prmtCreator.setCommitFormat("$name$");		
@@ -435,7 +450,13 @@ public abstract class AbstractEquInsuranceAccidentEditUI extends com.kingdee.eas
         this.txtdescriptionIncident.setVisible(true);		
         this.txtdescriptionIncident.setRequired(false);		
         this.txtdescriptionIncident.setMaxLength(255);
-        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmtequNumber,txtequName,prmtinsuranceCompany,prmtpolicyNumber,prmtinsurance,pklossDate,txtexpectedLoss,txtclaimAmount,txtdescriptionIncident}));
+        // scrollPanexianzhongID
+        // txtxianzhongID		
+        this.txtxianzhongID.setVisible(false);		
+        this.txtxianzhongID.setRequired(false);		
+        this.txtxianzhongID.setMaxLength(500);		
+        this.txtxianzhongID.setEnabled(false);
+        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmtequNumber,txtequName,prmtinsuranceCompany,prmtpolicyNumber,prmtinsurance,pklossDate,txtexpectedLoss,txtclaimAmount,txtdescriptionIncident,txtxianzhongID}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
 		registerBindings();
@@ -506,6 +527,8 @@ public abstract class AbstractEquInsuranceAccidentEditUI extends com.kingdee.eas
         this.add(contclaimAmount, new KDLayout.Constraints(672, 82, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contdescriptionIncident.setBounds(new Rectangle(10, 106, 931, 97));
         this.add(contdescriptionIncident, new KDLayout.Constraints(10, 106, 931, 97, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contxianzhongID.setBounds(new Rectangle(312, 291, 270, 19));
+        this.add(contxianzhongID, new KDLayout.Constraints(312, 291, 270, 19, 0));
         //contCreator
         contCreator.setBoundEditor(prmtCreator);
         //contCreateTime
@@ -550,6 +573,10 @@ public abstract class AbstractEquInsuranceAccidentEditUI extends com.kingdee.eas
         contdescriptionIncident.setBoundEditor(scrollPanedescriptionIncident);
         //scrollPanedescriptionIncident
         scrollPanedescriptionIncident.getViewport().add(txtdescriptionIncident, null);
+        //contxianzhongID
+        contxianzhongID.setBoundEditor(scrollPanexianzhongID);
+        //scrollPanexianzhongID
+        scrollPanexianzhongID.getViewport().add(txtxianzhongID, null);
 
     }
 
@@ -743,7 +770,8 @@ public abstract class AbstractEquInsuranceAccidentEditUI extends com.kingdee.eas
 		dataBinder.registerBinding("lossDate", java.util.Date.class, this.pklossDate, "value");
 		dataBinder.registerBinding("expectedLoss", java.math.BigDecimal.class, this.txtexpectedLoss, "value");
 		dataBinder.registerBinding("claimAmount", java.math.BigDecimal.class, this.txtclaimAmount, "value");
-		dataBinder.registerBinding("descriptionIncident", String.class, this.txtdescriptionIncident, "text");		
+		dataBinder.registerBinding("descriptionIncident", String.class, this.txtdescriptionIncident, "text");
+		dataBinder.registerBinding("xianzhongID", String.class, this.txtxianzhongID, "text");		
 	}
 	//Regiester UI State
 	private void registerUIState(){		
@@ -898,7 +926,8 @@ public abstract class AbstractEquInsuranceAccidentEditUI extends com.kingdee.eas
 		getValidateHelper().registerBindProperty("lossDate", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("expectedLoss", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("claimAmount", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("descriptionIncident", ValidateHelper.ON_SAVE);    		
+		getValidateHelper().registerBindProperty("descriptionIncident", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("xianzhongID", ValidateHelper.ON_SAVE);    		
 	}
 
 
@@ -1021,6 +1050,7 @@ public abstract class AbstractEquInsuranceAccidentEditUI extends com.kingdee.eas
         sic.add(new SelectorItemInfo("expectedLoss"));
         sic.add(new SelectorItemInfo("claimAmount"));
         sic.add(new SelectorItemInfo("descriptionIncident"));
+        sic.add(new SelectorItemInfo("xianzhongID"));
         return sic;
     }        
     	

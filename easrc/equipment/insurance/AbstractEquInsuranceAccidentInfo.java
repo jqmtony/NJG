@@ -116,6 +116,17 @@ public class AbstractEquInsuranceAccidentInfo extends com.kingdee.eas.xr.XRBillB
     {
         setString("descriptionIncident", item);
     }
+    /**
+     * Object:设备保险事故记录's 险种IDproperty 
+     */
+    public String getXianzhongID()
+    {
+        return getString("xianzhongID");
+    }
+    public void setXianzhongID(String item)
+    {
+        setString("xianzhongID", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("85931329");
