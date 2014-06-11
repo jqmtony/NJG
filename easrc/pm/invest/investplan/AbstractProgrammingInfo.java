@@ -1,10 +1,9 @@
 package com.kingdee.eas.port.pm.invest.investplan;
 
 import java.io.Serializable;
-import com.kingdee.bos.dao.AbstractObjectValue;
-import java.util.Locale;
-import com.kingdee.util.TypeConversionUtils;
+
 import com.kingdee.bos.util.BOSObjectType;
+import com.kingdee.eas.basedata.assistant.ProjectInfo;
 
 
 public class AbstractProgrammingInfo extends com.kingdee.eas.fdc.basedata.FDCBillInfo implements Serializable 
@@ -44,11 +43,11 @@ public class AbstractProgrammingInfo extends com.kingdee.eas.fdc.basedata.FDCBil
     /**
      * Object: 投资规划 's 工程项目 property 
      */
-    public com.kingdee.eas.fdc.basedata.CurProjectInfo getProject()
+    public ProjectInfo getProject()
     {
-        return (com.kingdee.eas.fdc.basedata.CurProjectInfo)get("project");
+        return (ProjectInfo)get("project");
     }
-    public void setProject(com.kingdee.eas.fdc.basedata.CurProjectInfo item)
+    public void setProject(ProjectInfo item)
     {
         put("project", item);
     }

@@ -66,9 +66,9 @@ public class AbstractProgrammingTemplateEntireInfo extends com.kingdee.eas.frame
     /**
      * Object: 合约框架 's 上级框架合约 property 
      */
-    public ProgrammingTemplateEntireInfo getHead()
+    public com.kingdee.eas.port.pm.invest.investplan.ProgrammingTemplateEntireInfo getHead()
     {
-        return (ProgrammingTemplateEntireInfo)get("head");
+        return (com.kingdee.eas.port.pm.invest.investplan.ProgrammingTemplateEntireInfo)get("head");
     }
     public void setHead(com.kingdee.eas.port.pm.invest.investplan.ProgrammingTemplateEntireInfo item)
     {
