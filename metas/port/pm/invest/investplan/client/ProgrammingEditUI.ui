@@ -1600,22 +1600,6 @@
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
-            <properties>
-                <property>
-                    <name>visible</name>
-                    <type>boolean</type>
-                    <value>uiObject[com.kingdee.eas.port.pm.invest.investplan.client.ProgrammingEditUI].components.component[btnAddNew].properties.property[visible].value</value>
-                    <isMultiLan>false</isMultiLan>
-                    <userDefined>true</userDefined>
-                </property>
-                <property>
-                    <name>enabled</name>
-                    <type>boolean</type>
-                    <value>uiObject[com.kingdee.eas.port.pm.invest.investplan.client.ProgrammingEditUI].components.component[btnAddNew].properties.property[enabled].value</value>
-                    <isMultiLan>false</isMultiLan>
-                    <userDefined>true</userDefined>
-                </property>
-            </properties>
         </component>
         <component>
             <name>btnEdit</name>
@@ -3176,6 +3160,39 @@
             <batchMethodName />
         </action>
         <action>
+            <instanceName>actionAddNew</instanceName>
+            <className>ActionAddNew</className>
+            <name>uiObject[com.kingdee.eas.port.pm.invest.investplan.client.ProgrammingEditUI].actions.action[actionAddNew].name</name>
+            <enabled>true</enabled>
+            <actionPerformed>
+         super.actionAddNew_actionPerformed(e);
+         //write your code here00
+</actionPerformed>
+            <beforeActionPerformed />
+            <afterActionPerformed />
+            <finallyActionPerformed />
+            <actionCommandKey />
+            <acceleratorKey>ctrl N</acceleratorKey>
+            <mnemonicKey />
+            <smallIcon>uiObject[com.kingdee.eas.port.pm.invest.investplan.client.ProgrammingEditUI].actions.action[actionAddNew].smallIcon</smallIcon>
+            <shortDescription>uiObject[com.kingdee.eas.port.pm.invest.investplan.client.ProgrammingEditUI].actions.action[actionAddNew].shortDescription</shortDescription>
+            <longDescription>uiObject[com.kingdee.eas.port.pm.invest.investplan.client.ProgrammingEditUI].actions.action[actionAddNew].longDescription</longDescription>
+            <isBindWorkFlow>false</isBindWorkFlow>
+            <herited>true</herited>
+            <daemonRun>false</daemonRun>
+            <actionExtendProperty />
+            <services>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root&gt;&lt;service class="com.kingdee.eas.framework.client.service.PermissionService" /&gt;&lt;service class="com.kingdee.eas.framework.client.service.NetFunctionService" /&gt;&lt;service class="com.kingdee.eas.framework.client.service.UserMonitorService" /&gt;&lt;/root&gt;</services>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <oprtIntent />
+            <nextUI />
+            <isUIPNavigator>false</isUIPNavigator>
+            <isBatchAction>false</isBatchAction>
+            <isEntryAction>false</isEntryAction>
+            <batchMethodName />
+        </action>
+        <action>
             <instanceName>actionImport</instanceName>
             <className>ActionImport</className>
             <name>uiObject[com.kingdee.eas.port.pm.invest.investplan.client.ProgrammingEditUI].actions.action[actionImport].name</name>
@@ -3447,6 +3464,30 @@
         </action>
     </actions>
     <resource>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invest.investplan.client.ProgrammingEditUI].actions.action[actionAddNew].longDescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="新增" />
+            <lang locale="zh_HK" value="新增" />
+            <lang locale="zh_TW" value="新增" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invest.investplan.client.ProgrammingEditUI].actions.action[actionAddNew].name">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="新增" />
+            <lang locale="zh_HK" value="新增" />
+            <lang locale="zh_TW" value="新增" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invest.investplan.client.ProgrammingEditUI].actions.action[actionAddNew].shortDescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="新增" />
+            <lang locale="zh_HK" value="新增" />
+            <lang locale="zh_TW" value="新增" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invest.investplan.client.ProgrammingEditUI].actions.action[actionAddNew].smallIcon">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
         <rs key="uiObject[com.kingdee.eas.port.pm.invest.investplan.client.ProgrammingEditUI].actions.action[actionComAddRow].longDescription">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -3746,18 +3787,6 @@
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
-        </rs>
-        <rs key="uiObject[com.kingdee.eas.port.pm.invest.investplan.client.ProgrammingEditUI].components.component[btnAddNew].properties.property[enabled].value">
-            <lang locale="en_US" value="false" />
-            <lang locale="zh_CN" value="false" />
-            <lang locale="zh_HK" value="false" />
-            <lang locale="zh_TW" value="false" />
-        </rs>
-        <rs key="uiObject[com.kingdee.eas.port.pm.invest.investplan.client.ProgrammingEditUI].components.component[btnAddNew].properties.property[visible].value">
-            <lang locale="en_US" value="false" />
-            <lang locale="zh_CN" value="false" />
-            <lang locale="zh_HK" value="false" />
-            <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.pm.invest.investplan.client.ProgrammingEditUI].components.component[btnAttachment].alias">
             <lang locale="en_US" value="null" />

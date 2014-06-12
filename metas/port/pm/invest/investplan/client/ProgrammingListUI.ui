@@ -943,10 +943,43 @@
             <type>com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingQuery</type>
             <objectType>jqye</objectType>
             <herited>true</herited>
-            <userDefined>true</userDefined>
+            <userDefined>false</userDefined>
         </dataObject>
     </dataObjects>
     <actions>
+        <action>
+            <instanceName>actionAddNew</instanceName>
+            <className>ActionAddNew</className>
+            <name>uiObject[com.kingdee.eas.port.pm.invest.investplan.client.ProgrammingListUI].actions.action[actionAddNew].name</name>
+            <enabled>true</enabled>
+            <actionPerformed>
+         super.actionAddNew_actionPerformed(e);
+         //write your code hereoo
+</actionPerformed>
+            <beforeActionPerformed />
+            <afterActionPerformed />
+            <finallyActionPerformed />
+            <actionCommandKey />
+            <acceleratorKey>ctrl N</acceleratorKey>
+            <mnemonicKey />
+            <smallIcon>uiObject[com.kingdee.eas.port.pm.invest.investplan.client.ProgrammingListUI].actions.action[actionAddNew].smallIcon</smallIcon>
+            <shortDescription>uiObject[com.kingdee.eas.port.pm.invest.investplan.client.ProgrammingListUI].actions.action[actionAddNew].shortDescription</shortDescription>
+            <longDescription>uiObject[com.kingdee.eas.port.pm.invest.investplan.client.ProgrammingListUI].actions.action[actionAddNew].longDescription</longDescription>
+            <isBindWorkFlow>false</isBindWorkFlow>
+            <herited>true</herited>
+            <daemonRun>false</daemonRun>
+            <actionExtendProperty />
+            <services>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root&gt;&lt;service class="com.kingdee.eas.framework.client.service.PermissionService" /&gt;&lt;service class="com.kingdee.eas.framework.client.service.NetFunctionService" /&gt;&lt;service class="com.kingdee.eas.framework.client.service.UserMonitorService" /&gt;&lt;/root&gt;</services>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <oprtIntent>ADDNEW</oprtIntent>
+            <nextUI />
+            <isUIPNavigator>true</isUIPNavigator>
+            <isBatchAction>false</isBatchAction>
+            <isEntryAction>false</isEntryAction>
+            <batchMethodName />
+        </action>
         <action>
             <instanceName>actionRemove</instanceName>
             <className>ActionRemove</className>
@@ -968,7 +1001,7 @@
             <actionExtendProperty />
             <services>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;root&gt;&lt;service class="com.kingdee.eas.framework.client.service.PermissionService" /&gt;&lt;service class="com.kingdee.eas.framework.client.service.NetFunctionService" /&gt;&lt;service class="com.kingdee.eas.framework.client.service.UserMonitorService" /&gt;&lt;/root&gt;</services>
-            <userDefined>true</userDefined>
+            <userDefined>false</userDefined>
             <userDefinedLogic />
             <oprtIntent />
             <nextUI />
@@ -1069,6 +1102,30 @@
         </action>
     </actions>
     <resource>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invest.investplan.client.ProgrammingListUI].actions.action[actionAddNew].longDescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="新增" />
+            <lang locale="zh_HK" value="新增" />
+            <lang locale="zh_TW" value="新增" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invest.investplan.client.ProgrammingListUI].actions.action[actionAddNew].name">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="新增" />
+            <lang locale="zh_HK" value="新增" />
+            <lang locale="zh_TW" value="新增" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invest.investplan.client.ProgrammingListUI].actions.action[actionAddNew].shortDescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="新增" />
+            <lang locale="zh_HK" value="新增" />
+            <lang locale="zh_TW" value="新增" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invest.investplan.client.ProgrammingListUI].actions.action[actionAddNew].smallIcon">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
         <rs key="uiObject[com.kingdee.eas.port.pm.invest.investplan.client.ProgrammingListUI].actions.action[actionAudit].longDescription">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />

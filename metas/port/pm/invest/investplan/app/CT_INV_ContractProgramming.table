@@ -365,7 +365,7 @@
             <isMultilingual>false</isMultilingual>
             <isEncoded>false</isEncoded>
             <isNullable>false</isNullable>
-            <defaultValue />
+            <defaultValue>''</defaultValue>
             <sqlType>VARCHAR</sqlType>
             <length>44</length>
             <scale>0</scale>
@@ -415,7 +415,7 @@
         </column>
     </columns>
     <primaryKey>
-        <name>CPK_INV_CntrctP0rd</name>
+        <name>CPK_INV_CntrcP0rd</name>
         <userDefined>true</userDefined>
         <primaryKeyColumns>
             <primaryKeyColumn>
@@ -431,7 +431,8 @@
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ContractProgramming].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="投资规划明细" />
-            <lang locale="zh_TW" value="合約規劃" />
+            <lang locale="zh_HK" value="投資規劃明細" />
+            <lang locale="zh_TW" value="投資規劃明細" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ContractProgramming].columns.column[FAmount].alias">
             <lang locale="en_US" value="null" />
@@ -446,6 +447,7 @@
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ContractProgramming].columns.column[FAuditTime].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ContractProgramming].columns.column[FAuditTime].description">
@@ -456,71 +458,85 @@
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ContractProgramming].columns.column[FAuditorID].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ContractProgramming].columns.column[FAuditorID].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="审核人" />
+            <lang locale="zh_HK" value="審核人" />
             <lang locale="zh_TW" value="審核人" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ContractProgramming].columns.column[FBizDate].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ContractProgramming].columns.column[FBizDate].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="业务日期" />
+            <lang locale="zh_HK" value="業務日期" />
             <lang locale="zh_TW" value="業務日期" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ContractProgramming].columns.column[FBookedDate].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ContractProgramming].columns.column[FBookedDate].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="该日期用来计算所在的期间" />
+            <lang locale="zh_HK" value="該日期用來計算所在的期間" />
             <lang locale="zh_TW" value="該日期用來計算所在的期間" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ContractProgramming].columns.column[FControlUnitID].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ContractProgramming].columns.column[FControlUnitID].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="控制单元" />
+            <lang locale="zh_HK" value="控制單元" />
             <lang locale="zh_TW" value="控制單元" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ContractProgramming].columns.column[FCreateTime].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ContractProgramming].columns.column[FCreateTime].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="创建时间" />
+            <lang locale="zh_HK" value="創建時間" />
             <lang locale="zh_TW" value="創建時間" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ContractProgramming].columns.column[FCreatorID].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ContractProgramming].columns.column[FCreatorID].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="创建者" />
+            <lang locale="zh_HK" value="創建者" />
             <lang locale="zh_TW" value="創建者" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ContractProgramming].columns.column[FCurProjectID].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ContractProgramming].columns.column[FCurProjectID].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="工程项目" />
+            <lang locale="zh_HK" value="工程項目" />
             <lang locale="zh_TW" value="工程項目" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ContractProgramming].columns.column[FDescription].alias">
@@ -531,11 +547,13 @@
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ContractProgramming].columns.column[FDescription].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="参考信息" />
+            <lang locale="zh_HK" value="參考信息" />
             <lang locale="zh_TW" value="參考信息" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ContractProgramming].columns.column[FEdition].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="版本" />
+            <lang locale="zh_HK" value="版本" />
             <lang locale="zh_TW" value="版本" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ContractProgramming].columns.column[FEdition].description">
@@ -546,26 +564,31 @@
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ContractProgramming].columns.column[FHandlerID].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ContractProgramming].columns.column[FHandlerID].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="经手人" />
+            <lang locale="zh_HK" value="經手人" />
             <lang locale="zh_TW" value="經手人" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ContractProgramming].columns.column[FHasEffected].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ContractProgramming].columns.column[FHasEffected].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="是否曾经生效" />
+            <lang locale="zh_HK" value="是否曾經生效" />
             <lang locale="zh_TW" value="是否曾經生效" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ContractProgramming].columns.column[FID].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ContractProgramming].columns.column[FID].description">
@@ -576,6 +599,7 @@
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ContractProgramming].columns.column[FIsFinal].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="是否最新版本" />
+            <lang locale="zh_HK" value="是否最新版本" />
             <lang locale="zh_TW" value="是否最新版本" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ContractProgramming].columns.column[FIsFinal].description">
@@ -586,11 +610,13 @@
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ContractProgramming].columns.column[FIsImagePay].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ContractProgramming].columns.column[FIsImagePay].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="是否按形象进度付款" />
+            <lang locale="zh_HK" value="是否按形象進度付款" />
             <lang locale="zh_TW" value="是否按形象進度付款" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ContractProgramming].columns.column[FIsLastVersion].alias">
@@ -606,31 +632,37 @@
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ContractProgramming].columns.column[FIsRespite].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ContractProgramming].columns.column[FIsRespite].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="是否暂缓" />
+            <lang locale="zh_HK" value="是否暫緩" />
             <lang locale="zh_TW" value="是否暫緩" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ContractProgramming].columns.column[FLastUpdateTime].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ContractProgramming].columns.column[FLastUpdateTime].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="最后修改时间" />
+            <lang locale="zh_HK" value="最後修改時間" />
             <lang locale="zh_TW" value="最後修改時間" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ContractProgramming].columns.column[FLastUpdateUserID].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ContractProgramming].columns.column[FLastUpdateUserID].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="最后修改者" />
+            <lang locale="zh_HK" value="最後修改者" />
             <lang locale="zh_TW" value="最後修改者" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ContractProgramming].columns.column[FName].alias">
@@ -651,6 +683,7 @@
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ContractProgramming].columns.column[FNumber].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="单据编号" />
+            <lang locale="zh_HK" value="單據編號" />
             <lang locale="zh_TW" value="單據編號" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ContractProgramming].columns.column[FOrgUnitID].alias">
@@ -676,6 +709,7 @@
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ContractProgramming].columns.column[FPeriodId].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ContractProgramming].columns.column[FPeriodId].description">
@@ -686,11 +720,13 @@
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ContractProgramming].columns.column[FProgrammingMoney].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ContractProgramming].columns.column[FProgrammingMoney].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="（表头）规划金额" />
+            <lang locale="zh_HK" value="（表頭）規劃金額" />
             <lang locale="zh_TW" value="（表頭）規劃金額" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ContractProgramming].columns.column[FSourceBillID].alias">
@@ -701,6 +737,7 @@
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ContractProgramming].columns.column[FSourceBillID].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="原始单据ID" />
+            <lang locale="zh_HK" value="原始單據ID" />
             <lang locale="zh_TW" value="原始單據ID" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ContractProgramming].columns.column[FSourceFunction].alias">
@@ -711,21 +748,25 @@
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ContractProgramming].columns.column[FSourceFunction].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="来源功能" />
+            <lang locale="zh_HK" value="來源功能" />
             <lang locale="zh_TW" value="來源功能" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ContractProgramming].columns.column[FState].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ContractProgramming].columns.column[FState].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ContractProgramming].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="合约规划" />
+            <lang locale="zh_HK" value="合約規劃" />
             <lang locale="zh_TW" value="合約規劃" />
         </rs>
     </resource>
