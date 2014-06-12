@@ -86,7 +86,6 @@ import com.kingdee.eas.fdc.basedata.ApportionTypeInfo;
 import com.kingdee.eas.fdc.basedata.ContractTypeInfo;
 import com.kingdee.eas.fdc.basedata.CostAccountFactory;
 import com.kingdee.eas.fdc.basedata.CostAccountInfo;
-import com.kingdee.eas.fdc.basedata.CurProjectInfo;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
 import com.kingdee.eas.fdc.basedata.FDCHelper;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
@@ -105,7 +104,6 @@ import com.kingdee.eas.fdc.contract.programming.ProgrammingContractEconomyInfo;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractFactory;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingException;
-import com.kingdee.eas.fdc.contract.programming.client.CreateProTableRow;
 import com.kingdee.eas.fdc.contract.programming.client.LimitedTextDocument;
 import com.kingdee.eas.fdc.contract.programming.client.ProgrammingContractEditUI;
 import com.kingdee.eas.fdc.contract.programming.client.ProgrammingExportUI;
@@ -120,6 +118,7 @@ import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryCollection;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryInfo;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingFactory;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingInfo;
+import com.kingdee.eas.port.pm.invest.uitls.CreateProTableRow;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
@@ -715,7 +714,7 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 		FilterInfo filter=new FilterInfo();
 		if(this.editData.getProject()==null){
 			Object node = getUIContext().get("treeSelectedObj");
-	    	filter.getFilterItems().add(new FilterItemInfo("project.id",((CurProjectInfo)node).getId().toString()));
+	    	filter.getFilterItems().add(new FilterItemInfo("project.id",((ProjectInfo)node).getId().toString()));
 		}else{
 			filter.getFilterItems().add(new FilterItemInfo("project.id",this.editData.getProject().getId().toString()));
 		}
@@ -1507,7 +1506,7 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 		ProgrammingContractInfo rowObject = (ProgrammingContractInfo) kdtEntries.getRow(rowIndex).getUserObject();
 		setContractToEditData(rowIndex, rowObject);
 		ProgrammingContractCollection pcCollection = getPCCollection();
-		CurProjectInfo project = (CurProjectInfo) this.getUIContext().get("treeSelectedObj");
+		ProjectInfo project = (ProjectInfo) this.getUIContext().get("treeSelectedObj");
 		uiContext.put("programmingContract", rowObject);// 规划合约
 		uiContext.put("pcCollection", pcCollection);// 规划合约集合
 		uiContext.put("project", project);// 工程项目
@@ -2114,7 +2113,7 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 		ProgrammingContractInfo rowObject = (ProgrammingContractInfo) kdtEntries.getRow(rowIndex).getUserObject();
 		setContractToEditData(rowIndex, rowObject);
 		ProgrammingContractCollection pcCollection = getPCCollection();
-		CurProjectInfo project = (CurProjectInfo) this.getUIContext().get("treeSelectedObj");
+		ProjectInfo project = (ProjectInfo) this.getUIContext().get("treeSelectedObj");
 		uiContext.put("programmingContract", rowObject);// 规划合约
 		uiContext.put("pcCollection", pcCollection);// 规划合约集合
 		uiContext.put("project", project);// 工程项目

@@ -444,7 +444,6 @@ public abstract class AbstractInviteReportListUI extends com.kingdee.eas.xr.clie
     }            protected java.util.List getQuerySorterFields() 
     { 
         java.util.List sorterFieldList = new ArrayList(); 
-        sorterFieldList.add("createTime"); 
         return sorterFieldList; 
     } 
 

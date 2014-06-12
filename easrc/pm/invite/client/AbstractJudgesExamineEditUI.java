@@ -353,6 +353,14 @@ public abstract class AbstractJudgesExamineEditUI extends com.kingdee.eas.xr.cli
 
 
         this.kdtEntryIndicators.checkParsed();
+        KDFormattedTextField kdtEntryIndicators_seq_TextField = new KDFormattedTextField();
+        kdtEntryIndicators_seq_TextField.setName("kdtEntryIndicators_seq_TextField");
+        kdtEntryIndicators_seq_TextField.setVisible(true);
+        kdtEntryIndicators_seq_TextField.setEditable(true);
+        kdtEntryIndicators_seq_TextField.setHorizontalAlignment(2);
+        kdtEntryIndicators_seq_TextField.setDataType(0);
+        KDTDefaultCellEditor kdtEntryIndicators_seq_CellEditor = new KDTDefaultCellEditor(kdtEntryIndicators_seq_TextField);
+        this.kdtEntryIndicators.getColumn("seq").setEditor(kdtEntryIndicators_seq_CellEditor);
         KDTextField kdtEntryIndicators_examCategory_TextField = new KDTextField();
         kdtEntryIndicators_examCategory_TextField.setName("kdtEntryIndicators_examCategory_TextField");
         kdtEntryIndicators_examCategory_TextField.setMaxLength(100);
@@ -391,6 +399,22 @@ public abstract class AbstractJudgesExamineEditUI extends com.kingdee.eas.xr.cli
         this.prmtjudgeName.setEditFormat("$number$");		
         this.prmtjudgeName.setCommitFormat("$number$");		
         this.prmtjudgeName.setRequired(false);
+        		prmtjudgeName.addSelectorListener(new SelectorListener() {
+			com.kingdee.eas.port.pm.base.client.JudgesListUI prmtjudgeName_F7ListUI = null;
+			public void willShow(SelectorEvent e) {
+				if (prmtjudgeName_F7ListUI == null) {
+					try {
+						prmtjudgeName_F7ListUI = new com.kingdee.eas.port.pm.base.client.JudgesListUI();
+					} catch (Exception e1) {
+						e1.printStackTrace();
+					}
+					HashMap ctx = new HashMap();
+					ctx.put("bizUIOwner",javax.swing.SwingUtilities.getWindowAncestor(prmtjudgeName_F7ListUI));
+					prmtjudgeName_F7ListUI.setF7Use(true,ctx);
+					prmtjudgeName.setSelector(prmtjudgeName_F7ListUI);
+				}
+			}
+		});
 					
         this.prmtjudgeName.addDataChangeListener(new com.kingdee.bos.ctrl.swing.event.DataChangeListener() {
             public void dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) {

@@ -131,6 +131,20 @@ public abstract class AbstractProgrammingEditUI extends com.kingdee.eas.fdc.base
          this.actionSubmit.addService(new com.kingdee.eas.framework.client.service.NetFunctionService());
          this.actionSubmit.addService(new com.kingdee.eas.framework.client.service.UserMonitorService());
          this.actionSubmit.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
+        //actionAddNew
+        actionAddNew.setEnabled(true);
+        actionAddNew.setDaemonRun(false);
+
+        actionAddNew.putValue(ItemAction.ACCELERATOR_KEY, KeyStroke.getKeyStroke("ctrl N"));
+        _tempStr = resHelper.getString("ActionAddNew.SHORT_DESCRIPTION");
+        actionAddNew.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+        _tempStr = resHelper.getString("ActionAddNew.LONG_DESCRIPTION");
+        actionAddNew.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+        _tempStr = resHelper.getString("ActionAddNew.NAME");
+        actionAddNew.putValue(ItemAction.NAME, _tempStr);
+         this.actionAddNew.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+         this.actionAddNew.addService(new com.kingdee.eas.framework.client.service.NetFunctionService());
+         this.actionAddNew.addService(new com.kingdee.eas.framework.client.service.UserMonitorService());
         //actionImport
         this.actionImport = new ActionImport(this);
         getActionManager().registerAction("actionImport", actionImport);
@@ -244,8 +258,6 @@ public abstract class AbstractProgrammingEditUI extends com.kingdee.eas.fdc.base
         this.menuItemImport.setName("menuItemImport");
         this.menuItemExport.setName("menuItemExport");
         // CoreUI		
-        this.btnAddNew.setVisible(false);		
-        this.btnAddNew.setEnabled(false);		
         this.btnSubmit.setText(resHelper.getString("btnSubmit.text"));		
         this.btnSubmit.setToolTipText(resHelper.getString("btnSubmit.toolTipText"));		
         this.btnCopy.setVisible(false);		
@@ -446,16 +458,6 @@ public abstract class AbstractProgrammingEditUI extends com.kingdee.eas.fdc.base
 
 
         this.kdtEntries.checkParsed();
-        KDTextField kdtEntries_longNumber_TextField = new KDTextField();
-        kdtEntries_longNumber_TextField.setName("kdtEntries_longNumber_TextField");
-        kdtEntries_longNumber_TextField.setMaxLength(80);
-        KDTDefaultCellEditor kdtEntries_longNumber_CellEditor = new KDTDefaultCellEditor(kdtEntries_longNumber_TextField);
-        this.kdtEntries.getColumn("longNumber").setEditor(kdtEntries_longNumber_CellEditor);
-        KDTextField kdtEntries_name_TextField = new KDTextField();
-        kdtEntries_name_TextField.setName("kdtEntries_name_TextField");
-        kdtEntries_name_TextField.setMaxLength(255);
-        KDTDefaultCellEditor kdtEntries_name_CellEditor = new KDTDefaultCellEditor(kdtEntries_name_TextField);
-        this.kdtEntries.getColumn("name").setEditor(kdtEntries_name_CellEditor);
         KDTextField kdtEntries_costAccount_TextField = new KDTextField();
         kdtEntries_costAccount_TextField.setName("kdtEntries_costAccount_TextField");
         kdtEntries_costAccount_TextField.setMaxLength(512);
@@ -597,11 +599,6 @@ public abstract class AbstractProgrammingEditUI extends com.kingdee.eas.fdc.base
         kdtEntries_soldPerSquare_TextField.setPrecision(8);
         KDTDefaultCellEditor kdtEntries_soldPerSquare_CellEditor = new KDTDefaultCellEditor(kdtEntries_soldPerSquare_TextField);
         this.kdtEntries.getColumn("soldPerSquare").setEditor(kdtEntries_soldPerSquare_CellEditor);
-        KDTextField kdtEntries_number_TextField = new KDTextField();
-        kdtEntries_number_TextField.setName("kdtEntries_number_TextField");
-        kdtEntries_number_TextField.setMaxLength(80);
-        KDTDefaultCellEditor kdtEntries_number_CellEditor = new KDTDefaultCellEditor(kdtEntries_number_TextField);
-        this.kdtEntries.getColumn("number").setEditor(kdtEntries_number_CellEditor);
         KDFormattedTextField kdtEntries_citeVersion_TextField = new KDFormattedTextField();
         kdtEntries_citeVersion_TextField.setName("kdtEntries_citeVersion_TextField");
         kdtEntries_citeVersion_TextField.setVisible(true);
@@ -610,11 +607,6 @@ public abstract class AbstractProgrammingEditUI extends com.kingdee.eas.fdc.base
         kdtEntries_citeVersion_TextField.setDataType(0);
         KDTDefaultCellEditor kdtEntries_citeVersion_CellEditor = new KDTDefaultCellEditor(kdtEntries_citeVersion_TextField);
         this.kdtEntries.getColumn("citeVersion").setEditor(kdtEntries_citeVersion_CellEditor);
-        KDTextField kdtEntries_headNumber_TextField = new KDTextField();
-        kdtEntries_headNumber_TextField.setName("kdtEntries_headNumber_TextField");
-        kdtEntries_headNumber_TextField.setMaxLength(80);
-        KDTDefaultCellEditor kdtEntries_headNumber_CellEditor = new KDTDefaultCellEditor(kdtEntries_headNumber_TextField);
-        this.kdtEntries.getColumn("headNumber").setEditor(kdtEntries_headNumber_CellEditor);
         KDFormattedTextField kdtEntries_sortNumber_TextField = new KDFormattedTextField();
         kdtEntries_sortNumber_TextField.setName("kdtEntries_sortNumber_TextField");
         kdtEntries_sortNumber_TextField.setVisible(true);
@@ -1343,6 +1335,16 @@ pnlCostAccount.setLayout(new BorderLayout(0, 0));        pnlCostAccount.add(kdtC
     	
 
     /**
+     * output actionAddNew_actionPerformed method
+     */
+    public void actionAddNew_actionPerformed(ActionEvent e) throws Exception
+    {
+        super.actionAddNew_actionPerformed(e);
+         //write your code here00
+    }
+    	
+
+    /**
      * output actionImport_actionPerformed method
      */
     public void actionImport_actionPerformed(ActionEvent e) throws Exception
@@ -1421,6 +1423,17 @@ pnlCostAccount.setLayout(new BorderLayout(0, 0));        pnlCostAccount.add(kdtC
     }
 	
 	public boolean isPrepareActionSubmit() {
+    	return false;
+    }
+	public RequestContext prepareActionAddNew(IItemAction itemAction) throws Exception {
+			RequestContext request = super.prepareActionAddNew(itemAction);		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionAddNew() {
     	return false;
     }
 	public RequestContext prepareActionImport(IItemAction itemAction) throws Exception {

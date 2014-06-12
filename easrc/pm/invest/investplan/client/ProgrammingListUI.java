@@ -44,13 +44,14 @@ import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.common.client.UIContext;
 import com.kingdee.eas.common.client.UIFactoryName;
-import com.kingdee.eas.fdc.basedata.CurProjectInfo;
+import com.kingdee.eas.basedata.assistant.ProjectInfo;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
 import com.kingdee.eas.fdc.basedata.FDCHelper;
 import com.kingdee.eas.fdc.basedata.client.FDCClientUtils;
 import com.kingdee.eas.fdc.basedata.client.FDCMsgBox;
 import com.kingdee.eas.fdc.basedata.client.ProjectTreeBuilder;
 import com.kingdee.eas.fdc.contract.FDCUtils;
+import com.kingdee.eas.framework.AbstractCoreBaseInfo;
 import com.kingdee.eas.framework.CoreBaseInfo;
 import com.kingdee.eas.framework.ICoreBase;
 import com.kingdee.eas.port.pm.invest.investplan.IProgramming;
@@ -136,28 +137,28 @@ public class ProgrammingListUI extends AbstractProgrammingListUI
     }
     
     protected void treeSelectChange() throws Exception {
-		DefaultKingdeeTreeNode projectNode  = (DefaultKingdeeTreeNode) treeProject.getLastSelectedPathComponent();
-		Object project  = null;
-		if(projectNode!=null) {
-			project = projectNode.getUserObject();
-			if (project instanceof CurProjectInfo) {
-				actionAddNew.setEnabled(true);
-				kDContainer1.setTitle(((CurProjectInfo) project).getDisplayName());
-			} else {
-				actionAddNew.setEnabled(false);
-				kDContainer1.setTitle(null);
-			}
-		}
-		
-		mainQuery.setFilter(getTreeSelectFilter(project));
-		SorterItemCollection sorter = mainQuery.getSorter();
-    	sorter.clear();
-//    	SorterItemInfo sorterName = new SorterItemInfo("name");
-    	SorterItemInfo sorterVsersion = new SorterItemInfo("version");
-    	sorterVsersion.setSortType(SortType.DESCEND);
-//    	sorter.add(sorterName);
-    	sorter.add(sorterVsersion);
-		execQuery();
+//		DefaultKingdeeTreeNode projectNode  = (DefaultKingdeeTreeNode) treeProject.getLastSelectedPathComponent();
+//		Object project  = null;
+//		if(projectNode!=null) {
+//			project = projectNode.getUserObject();
+//			if (project instanceof ProjectInfo) {
+//				actionAddNew.setEnabled(true);
+//				kDContainer1.setTitle(((ProjectInfo) project).getDisplayName());
+//			} else {
+//				actionAddNew.setEnabled(false);
+//				kDContainer1.setTitle(null);
+//			}
+//		}
+//		
+//		mainQuery.setFilter(getTreeSelectFilter(project));
+//		SorterItemCollection sorter = mainQuery.getSorter();
+//    	sorter.clear();
+////    	SorterItemInfo sorterName = new SorterItemInfo("name");
+//    	SorterItemInfo sorterVsersion = new SorterItemInfo("version");
+//    	sorterVsersion.setSortType(SortType.DESCEND);
+////    	sorter.add(sorterName);
+//    	sorter.add(sorterVsersion);
+//		execQuery();
     }
     
 	public void buildProjectTree() throws Exception {
@@ -192,7 +193,7 @@ public class ProgrammingListUI extends AbstractProgrammingListUI
 		if (projectNode != null && projectNode instanceof CoreBaseInfo) {
 			CoreBaseInfo projTreeNodeInfo = (CoreBaseInfo) projectNode;
 			String id = projTreeNodeInfo.getId().toString();
-			filterItems.add(new FilterItemInfo("project.id", projTreeNodeInfo instanceof CurProjectInfo ? id : ""));
+			filterItems.add(new FilterItemInfo("project.id", projTreeNodeInfo instanceof ProjectInfo ? id : ""));
 		}
 		return filter;
 	}
@@ -332,7 +333,7 @@ public class ProgrammingListUI extends AbstractProgrammingListUI
 		DefaultKingdeeTreeNode node  = (DefaultKingdeeTreeNode) treeProject.getLastSelectedPathComponent();
 		if (node != null) {
 			Object obj = node.getUserObject();
-			if (obj instanceof CurProjectInfo) {
+			if (obj instanceof ProjectInfo) {
 				uiContext.put("treeSelectedObj", obj);
 			}
 		}
@@ -342,18 +343,18 @@ public class ProgrammingListUI extends AbstractProgrammingListUI
 	public void actionAddNew_actionPerformed(ActionEvent e) throws Exception {
 		
 		DefaultKingdeeTreeNode node  = (DefaultKingdeeTreeNode) treeProject.getLastSelectedPathComponent();
-		FDCClientUtils.checkSelectProj(this, node);
+//		FDCClientUtils.checkSelectProj(this, node);
 //		if (node == null) {
 //			throw new EASBizException(new NumericExceptionSubItem("1", "请选择工程项目"));
 //		}
-//		
+		
 		Object obj = node.getUserObject();
-//		if (!(obj instanceof CurProjectInfo)) {
+//		if (!(obj instanceof ProjectInfo)) {
 //			throw new EASBizException(new NumericExceptionSubItem("1", "请选择工程项目"));
 //		}
 //		
 		
-		String proId = ((CurProjectInfo) obj).getId().toString();
+		String proId =  ((AbstractCoreBaseInfo) obj).getId().toString();
 		boolean isExist = getBizInterface().exists("where project = '".concat(proId).concat("'"));
 		if (isExist) {
 			throw new EASBizException(new NumericExceptionSubItem("1", "此工程项目下已存在合约框架\n不允许再新增"));

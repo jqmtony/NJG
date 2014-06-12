@@ -426,6 +426,14 @@ public abstract class AbstractWinInviteReportEditUI extends com.kingdee.eas.xr.c
 
 
         this.kdtUnit.checkParsed();
+        KDFormattedTextField kdtUnit_seq_TextField = new KDFormattedTextField();
+        kdtUnit_seq_TextField.setName("kdtUnit_seq_TextField");
+        kdtUnit_seq_TextField.setVisible(true);
+        kdtUnit_seq_TextField.setEditable(true);
+        kdtUnit_seq_TextField.setHorizontalAlignment(2);
+        kdtUnit_seq_TextField.setDataType(0);
+        KDTDefaultCellEditor kdtUnit_seq_CellEditor = new KDTDefaultCellEditor(kdtUnit_seq_TextField);
+        this.kdtUnit.getColumn("seq").setEditor(kdtUnit_seq_CellEditor);
         final KDBizPromptBox kdtUnit_unitName_PromptBox = new KDBizPromptBox();
         kdtUnit_unitName_PromptBox.setQueryInfo("com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStockQuery");
         kdtUnit_unitName_PromptBox.setVisible(true);
@@ -485,6 +493,14 @@ public abstract class AbstractWinInviteReportEditUI extends com.kingdee.eas.xr.c
 
 
         this.kdtJudges.checkParsed();
+        KDFormattedTextField kdtJudges_seq_TextField = new KDFormattedTextField();
+        kdtJudges_seq_TextField.setName("kdtJudges_seq_TextField");
+        kdtJudges_seq_TextField.setVisible(true);
+        kdtJudges_seq_TextField.setEditable(true);
+        kdtJudges_seq_TextField.setHorizontalAlignment(2);
+        kdtJudges_seq_TextField.setDataType(0);
+        KDTDefaultCellEditor kdtJudges_seq_CellEditor = new KDTDefaultCellEditor(kdtJudges_seq_TextField);
+        this.kdtJudges.getColumn("seq").setEditor(kdtJudges_seq_CellEditor);
         final KDBizPromptBox kdtJudges_judgesName_PromptBox = new KDBizPromptBox();
         kdtJudges_judgesName_PromptBox.setQueryInfo("com.kingdee.eas.port.pm.base.app.JudgesQuery");
         kdtJudges_judgesName_PromptBox.setVisible(true);

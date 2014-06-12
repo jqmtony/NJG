@@ -448,10 +448,13 @@ public abstract class AbstractOpenRegistrationListUI extends com.kingdee.eas.xr.
     }            protected java.util.List getQuerySorterFields() 
     { 
         java.util.List sorterFieldList = new ArrayList(); 
-        sorterFieldList.add("createTime"); 
         return sorterFieldList; 
     } 
-
+    protected java.util.List getQueryPKFields() 
+    { 
+        java.util.List pkList = new ArrayList(); 
+        return pkList;
+    }
     	
 
     /**

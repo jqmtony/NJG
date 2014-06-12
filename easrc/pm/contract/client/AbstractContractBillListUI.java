@@ -735,7 +735,10 @@ contContrList.getContentPane().setLayout(new BorderLayout(0, 0));        contCon
     }            protected java.util.List getQuerySorterFields() 
     { 
         java.util.List sorterFieldList = new ArrayList(); 
+        sorterFieldList.add("curProject.name"); 
+        sorterFieldList.add("contractType.name"); 
         sorterFieldList.add("number"); 
+        sorterFieldList.add("signDate"); 
         return sorterFieldList; 
     } 
     protected java.util.List getQueryPKFields() 
@@ -1485,7 +1488,7 @@ contContrList.getContentPane().setLayout(new BorderLayout(0, 0));        contCon
      */
     public String[] getMergeColumnKeys()
     {
-        return new String[] {"id","number"};
+        return new String[] {"id","bookedDate","period","state","hasSettle","contractType.name","number","name","currency.name","srcAmount","exRate","partB.name","contractSource","signDate","respPerson","respDept","landDeveloper.name","partC.name","costProperty","contractPropert","curProject.id","curProject.name","isArchived","orgUnit.name","curProject.displayName","currency.id","currency.precision","auditor","auditTime","creator.name","createTime","isRespite"};
     }
 
 
@@ -1495,6 +1498,10 @@ contContrList.getContentPane().setLayout(new BorderLayout(0, 0));        contCon
 	}
     protected IMetaDataPK getTDQueryPK() {
     	return new MetaDataPK("com.kingdee.eas.port.pm.contract.app.ContractBillQuery");
-	}
+	}        
+				protected boolean isFootVisible() {
+			return true;
+		}
+
 
 }

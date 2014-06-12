@@ -234,11 +234,21 @@ public abstract class AbstractProgrammingTemplateEditUI extends com.kingdee.eas.
 
 
         this.kdtEntires.checkParsed();
+        KDTextField kdtEntires_name_TextField = new KDTextField();
+        kdtEntires_name_TextField.setName("kdtEntires_name_TextField");
+        kdtEntires_name_TextField.setMaxLength(255);
+        KDTDefaultCellEditor kdtEntires_name_CellEditor = new KDTDefaultCellEditor(kdtEntires_name_TextField);
+        this.kdtEntires.getColumn("name").setEditor(kdtEntires_name_CellEditor);
         KDTextField kdtEntires_attachment_TextField = new KDTextField();
         kdtEntires_attachment_TextField.setName("kdtEntires_attachment_TextField");
         kdtEntires_attachment_TextField.setMaxLength(255);
         KDTDefaultCellEditor kdtEntires_attachment_CellEditor = new KDTDefaultCellEditor(kdtEntires_attachment_TextField);
         this.kdtEntires.getColumn("attachment").setEditor(kdtEntires_attachment_CellEditor);
+        KDTextField kdtEntires_remark_TextField = new KDTextField();
+        kdtEntires_remark_TextField.setName("kdtEntires_remark_TextField");
+        kdtEntires_remark_TextField.setMaxLength(255);
+        KDTDefaultCellEditor kdtEntires_remark_CellEditor = new KDTDefaultCellEditor(kdtEntires_remark_TextField);
+        this.kdtEntires.getColumn("remark").setEditor(kdtEntires_remark_CellEditor);
         KDFormattedTextField kdtEntires_sortNumber_TextField = new KDFormattedTextField();
         kdtEntires_sortNumber_TextField.setName("kdtEntires_sortNumber_TextField");
         kdtEntires_sortNumber_TextField.setVisible(true);

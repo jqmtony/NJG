@@ -778,7 +778,7 @@ contContrList.getContentPane().setLayout(new BorderLayout(0, 0));        contCon
      */
     public String[] getMergeColumnKeys()
     {
-        return new String[] {"id","bookedDate","period.number","state","number","billName","contractType","contract.name","currency","originalAmount","amount","useDeptment","signDate","isInvoice","currency.id","currency.precision","creator","createTime","auditor","auditTime"};
+        return new String[] {"id","bookedDate","period.number","state","number","billName","contractType","currency","originalAmount","amount","useDeptment","signDate","isInvoice","currency.id","currency.precision","creator","createTime","auditor","auditTime"};
     }
 
 

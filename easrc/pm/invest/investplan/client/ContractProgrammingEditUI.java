@@ -3,298 +3,147 @@
  */
 package com.kingdee.eas.port.pm.invest.investplan.client;
 
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.math.BigDecimal;
+import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+
 import org.apache.log4j.Logger;
-import com.kingdee.bos.ui.face.CoreUIObject;
-import com.kingdee.bos.dao.IObjectValue;
-import com.kingdee.eas.framework.*;
+
+import com.kingdee.bos.BOSException;
+import com.kingdee.bos.ctrl.extendcontrols.BizDataFormat;
+import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
+import com.kingdee.bos.ctrl.kdf.table.IRow;
+import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
+import com.kingdee.bos.ctrl.kdf.table.event.BeforeActionEvent;
+import com.kingdee.bos.ctrl.kdf.table.event.BeforeActionListener;
+import com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent;
+import com.kingdee.bos.ctrl.kdf.util.render.ObjectValueRender;
+import com.kingdee.bos.ctrl.swing.KDFormattedTextField;
 import com.kingdee.bos.ctrl.swing.KDTextField;
+import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.bos.metadata.entity.EntityViewInfo;
+import com.kingdee.bos.metadata.entity.FilterInfo;
+import com.kingdee.bos.metadata.entity.FilterItemInfo;
+import com.kingdee.bos.metadata.entity.SelectorItemCollection;
+import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.util.BOSUuid;
+import com.kingdee.eas.base.codingrule.CodingRuleException;
+import com.kingdee.eas.basedata.assistant.ProjectFactory;
+import com.kingdee.eas.basedata.assistant.ProjectInfo;
+import com.kingdee.eas.common.EASBizException;
+import com.kingdee.eas.common.client.SysContext;
+import com.kingdee.eas.fdc.basedata.CostAccountInfo;
+import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
+import com.kingdee.eas.fdc.basedata.FDCHelper;
+import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
+import com.kingdee.eas.fdc.basedata.client.FDCClientHelper;
+import com.kingdee.eas.fdc.contract.ContractWithProgramFactory;
+import com.kingdee.eas.fdc.contract.client.CostAccountPromptBox;
+import com.kingdee.eas.framework.ICoreBase;
+import com.kingdee.eas.port.pm.invest.investplan.ContractProgrammingEntryCollection;
+import com.kingdee.eas.port.pm.invest.investplan.ContractProgrammingEntryFactory;
+import com.kingdee.eas.port.pm.invest.investplan.ContractProgrammingEntryInfo;
+import com.kingdee.eas.port.pm.invest.investplan.ContractProgrammingFactory;
+import com.kingdee.eas.port.pm.invest.investplan.ContractProgrammingInfo;
+import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
+import com.kingdee.jdbc.rowset.IRowSet;
 
 /**
- * output class name
+ * 合约规划 序时薄
  */
 public class ContractProgrammingEditUI extends AbstractContractProgrammingEditUI
 {
     private static final Logger logger = CoreUIObject.getLogger(ContractProgrammingEditUI.class);
-    
-    /**
-     * output class constructor
-     */
+    //因为修订合约规划然后保存后 会再调用一次loadfields() 这时会造成 分录又被加载一次 所以搞个变量控制下
+    private boolean isLoadEmend=true;
+  
     public ContractProgrammingEditUI() throws Exception
     {
         super();
     }
-    /**
-     * output loadFields method
-     */
-    public void loadFields()
-    {
-        super.loadFields();
+    
+    public void loadFields() {    	
+    	super.loadFields();
+    	//因为需求改成 只要还没审批 每次都需要取最新的目标成本 所以只能用代码搞定了。。
+    	if(editData.getState()==null ||!editData.getState().equals(FDCBillStateEnum.AUDITTED)){
+	    	if(kdtEntry.getRowCount()>0){
+	    		for(int i=0;i<kdtEntry.getRowCount();i++){
+	    			IRow row=kdtEntry.getRow(i);
+	    			CostAccountInfo newInfo =(CostAccountInfo)row.getCell("costAccount").getValue();
+	    			if(newInfo != null){
+	    				initEntryData(newInfo,row);
+	    			}
+	    		}
+	    	}
+    	}
+    	//修订状态时    
+    	//修订时也要带出最新目标成本。。。。2010.1.22
+    	if(isLoadEmend && getUIContext().get("isEmend")!=null && getUIContext().get("isEmend").toString().equals("yes")){
+    		
+    		EntityViewInfo view=new EntityViewInfo();
+    		SelectorItemCollection sic = new SelectorItemCollection();
+    		sic.add("parent.curProject.id");
+    		sic.add("parent.curProject.*");
+    		sic.add("costAccount.id");
+    		sic.add("costAccount.*");
+    		sic.add("programmingMoney");
+    		sic.add("aimCostMoney");
+    		sic.add("costAccountName");
+    		sic.add("prjLongNumber");
+    		sic.add("prjDisplayName");
+    		view.setSelector(sic);
+    		FilterInfo filter=new FilterInfo();
+    		filter.getFilterItems().add(new FilterItemInfo("parent.isFinal",Boolean.TRUE));
+    		filter.getFilterItems().add(new FilterItemInfo("parent.number",editData.getNumber()));
+    		view.setFilter(filter);
+    		try {
+				ContractProgrammingEntryCollection coll=ContractProgrammingEntryFactory.getRemoteInstance().getContractProgrammingEntryCollection(view);
+				for(Iterator it=coll.iterator();it.hasNext();){
+					ContractProgrammingEntryInfo info=(ContractProgrammingEntryInfo)it.next();
+					this.prmtCurProject.setValue(info.getParent().getCurProject());
+					IRow row=kdtEntry.addRow();
+					row.getCell("costAccount").setValue(info.getCostAccount());
+					row.getCell("programmingMoney").setValue(info.getProgrammingMoney());
+					row.getCell("id").setValue(info.getId().toString());
+					initEntryData(info.getCostAccount(),row);
+				}
+    		} catch (BOSException e) {
+				e.printStackTrace();
+			}
+    	}
     }
 
-    /**
-     * output storeFields method
-     */
-    public void storeFields()
-    {
-        super.storeFields();
+    public void actionAddLine_actionPerformed(ActionEvent e) throws Exception {
+    	this.kdtEntry.addRow();
     }
-
-    /**
-     * output btnAddLine_actionPerformed method
-     */
-    protected void btnAddLine_actionPerformed(java.awt.event.ActionEvent e) throws Exception
-    {
-        super.btnAddLine_actionPerformed(e);
+    
+    public void actionInsertLine_actionPerformed(ActionEvent e)
+    		throws Exception {
+    	int index = kdtEntry.getSelectManager().getActiveRowIndex();
+		if (index < 0) {
+			kdtEntry.addRow();
+		} else {
+			kdtEntry.addRow(index);
+		}
     }
-
-    /**
-     * output menuItemEnterToNextRow_itemStateChanged method
-     */
-    protected void menuItemEnterToNextRow_itemStateChanged(java.awt.event.ItemEvent e) throws Exception
-    {
-        super.menuItemEnterToNextRow_itemStateChanged(e);
-    }
-
-    /**
-     * output kdtEntry_editStopped method
-     */
-    protected void kdtEntry_editStopped(com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent e) throws Exception
-    {
-        super.kdtEntry_editStopped(e);
-    }
-
-    /**
-     * output actionPageSetup_actionPerformed
-     */
-    public void actionPageSetup_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionPageSetup_actionPerformed(e);
-    }
-
-    /**
-     * output actionExitCurrent_actionPerformed
-     */
-    public void actionExitCurrent_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionExitCurrent_actionPerformed(e);
-    }
-
-    /**
-     * output actionHelp_actionPerformed
-     */
-    public void actionHelp_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionHelp_actionPerformed(e);
-    }
-
-    /**
-     * output actionAbout_actionPerformed
-     */
-    public void actionAbout_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionAbout_actionPerformed(e);
-    }
-
-    /**
-     * output actionOnLoad_actionPerformed
-     */
-    public void actionOnLoad_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionOnLoad_actionPerformed(e);
-    }
-
-    /**
-     * output actionSendMessage_actionPerformed
-     */
-    public void actionSendMessage_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionSendMessage_actionPerformed(e);
-    }
-
-    /**
-     * output actionCalculator_actionPerformed
-     */
-    public void actionCalculator_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionCalculator_actionPerformed(e);
-    }
-
-    /**
-     * output actionExport_actionPerformed
-     */
-    public void actionExport_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionExport_actionPerformed(e);
-    }
-
-    /**
-     * output actionExportSelected_actionPerformed
-     */
-    public void actionExportSelected_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionExportSelected_actionPerformed(e);
-    }
-
-    /**
-     * output actionRegProduct_actionPerformed
-     */
-    public void actionRegProduct_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionRegProduct_actionPerformed(e);
-    }
-
-    /**
-     * output actionPersonalSite_actionPerformed
-     */
-    public void actionPersonalSite_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionPersonalSite_actionPerformed(e);
-    }
-
-    /**
-     * output actionProcductVal_actionPerformed
-     */
-    public void actionProcductVal_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionProcductVal_actionPerformed(e);
-    }
-
-    /**
-     * output actionExportSave_actionPerformed
-     */
-    public void actionExportSave_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionExportSave_actionPerformed(e);
-    }
-
-    /**
-     * output actionExportSelectedSave_actionPerformed
-     */
-    public void actionExportSelectedSave_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionExportSelectedSave_actionPerformed(e);
-    }
-
-    /**
-     * output actionKnowStore_actionPerformed
-     */
-    public void actionKnowStore_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionKnowStore_actionPerformed(e);
-    }
-
-    /**
-     * output actionAnswer_actionPerformed
-     */
-    public void actionAnswer_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionAnswer_actionPerformed(e);
-    }
-
-    /**
-     * output actionRemoteAssist_actionPerformed
-     */
-    public void actionRemoteAssist_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionRemoteAssist_actionPerformed(e);
-    }
-
-    /**
-     * output actionPopupCopy_actionPerformed
-     */
-    public void actionPopupCopy_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionPopupCopy_actionPerformed(e);
-    }
-
-    /**
-     * output actionHTMLForMail_actionPerformed
-     */
-    public void actionHTMLForMail_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionHTMLForMail_actionPerformed(e);
-    }
-
-    /**
-     * output actionExcelForMail_actionPerformed
-     */
-    public void actionExcelForMail_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionExcelForMail_actionPerformed(e);
-    }
-
-    /**
-     * output actionHTMLForRpt_actionPerformed
-     */
-    public void actionHTMLForRpt_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionHTMLForRpt_actionPerformed(e);
-    }
-
-    /**
-     * output actionExcelForRpt_actionPerformed
-     */
-    public void actionExcelForRpt_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionExcelForRpt_actionPerformed(e);
-    }
-
-    /**
-     * output actionLinkForRpt_actionPerformed
-     */
-    public void actionLinkForRpt_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionLinkForRpt_actionPerformed(e);
-    }
-
-    /**
-     * output actionPopupPaste_actionPerformed
-     */
-    public void actionPopupPaste_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionPopupPaste_actionPerformed(e);
-    }
-
-    /**
-     * output actionToolBarCustom_actionPerformed
-     */
-    public void actionToolBarCustom_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionToolBarCustom_actionPerformed(e);
-    }
-
-    /**
-     * output actionCloudFeed_actionPerformed
-     */
-    public void actionCloudFeed_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionCloudFeed_actionPerformed(e);
-    }
-
-    /**
-     * output actionCloudShare_actionPerformed
-     */
-    public void actionCloudShare_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionCloudShare_actionPerformed(e);
-    }
-
-    /**
-     * output actionCloudScreen_actionPerformed
-     */
-    public void actionCloudScreen_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionCloudScreen_actionPerformed(e);
-    }
-
-    /**
-     * output actionSave_actionPerformed
-     */
-    public void actionSave_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionSave_actionPerformed(e);
+    
+    public void actionRemoveLine_actionPerformed(ActionEvent e)
+    		throws Exception {
+    	int index = kdtEntry.getSelectManager().getActiveRowIndex();
+		if (index >= 0) {
+			kdtEntry.removeRow(index);
+			setProgrammingMoney();
+		}
+		else{
+			MsgBox.showWarning("请选择要删除的行！");
+		}
     }
 
     /**
@@ -302,396 +151,445 @@ public class ContractProgrammingEditUI extends AbstractContractProgrammingEditUI
      */
     public void actionSubmit_actionPerformed(ActionEvent e) throws Exception
     {
+//    	//提交时 更新其他版本为 非最大版本
+//    	if(getUIContext().get("isEmend")!=null && getUIContext().get("isEmend").toString().equals("yes")){
+//    		FDCSQLBuilder builder=new FDCSQLBuilder();
+//    		builder.appendSql("update t_con_contractprogramming set fislastversion=0 where fnumber=? ");
+//    		builder.addParam(editData.getNumber());
+//    		builder.execute();
+//    		builder.clear();
+//    	}
+    	
+    	// 保存时需要重新计算
+    	setProgrammingMoney();
+    	
+    	isLoadEmend=false;//在修订提交后 调用loadfields时 不在加载分录
         super.actionSubmit_actionPerformed(e);
+        if(STATUS_ADDNEW.equals(getOprtState())){
+	        this.txtName.setEnabled(true);
+			this.txtNumber.setEnabled(true);
+        }
     }
 
-    /**
-     * output actionCancel_actionPerformed
-     */
-    public void actionCancel_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionCancel_actionPerformed(e);
+    public void actionSave_actionPerformed(ActionEvent e) throws Exception {
+//    	//保存时 更新其他版本为 非最大版本
+//    	if(getUIContext().get("isEmend")!=null && getUIContext().get("isEmend").toString().equals("yes")){
+//    		FDCSQLBuilder builder=new FDCSQLBuilder();
+//    		builder.appendSql("update t_con_contractprogramming set fislastversion=0 where fnumber=? ");
+//    		builder.addParam(editData.getNumber());
+//    		builder.execute();
+//    		builder.clear();
+//    	}
+    	// 保存时重新计算
+    	setProgrammingMoney();
+    	
+    	isLoadEmend=false;//在修订保存后 调用loadfields时 不在加载分录
+    	super.actionSave_actionPerformed(e);
+    	
     }
-
-    /**
-     * output actionCancelCancel_actionPerformed
-     */
-    public void actionCancelCancel_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionCancelCancel_actionPerformed(e);
-    }
-
-    /**
-     * output actionFirst_actionPerformed
-     */
-    public void actionFirst_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionFirst_actionPerformed(e);
-    }
-
-    /**
-     * output actionPre_actionPerformed
-     */
-    public void actionPre_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionPre_actionPerformed(e);
-    }
-
-    /**
-     * output actionNext_actionPerformed
-     */
-    public void actionNext_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionNext_actionPerformed(e);
-    }
-
-    /**
-     * output actionLast_actionPerformed
-     */
-    public void actionLast_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionLast_actionPerformed(e);
-    }
-
-    /**
-     * output actionPrint_actionPerformed
-     */
-    public void actionPrint_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionPrint_actionPerformed(e);
-    }
-
-    /**
-     * output actionPrintPreview_actionPerformed
-     */
-    public void actionPrintPreview_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionPrintPreview_actionPerformed(e);
-    }
-
-    /**
-     * output actionCopy_actionPerformed
-     */
-    public void actionCopy_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionCopy_actionPerformed(e);
-    }
-
-    /**
-     * output actionAddNew_actionPerformed
-     */
+    
     public void actionAddNew_actionPerformed(ActionEvent e) throws Exception
     {
         super.actionAddNew_actionPerformed(e);
+        this.txtName.setEnabled(true);
+		this.txtNumber.setEnabled(true);
+		kdtEntry.setEnabled(true);
     }
-
-    /**
-     * output actionEdit_actionPerformed
-     */
+    
+	/**
+	 *  这里检查 合约规划是否关联了 合同 任务等 
+	 *  如果关联了则给出提示然后中断修改、删除操作。
+	 */
+	private void checkEditOrRemove() throws Exception{
+		String id=this.editData.getId().toString();
+		FilterInfo filter=new FilterInfo();
+		filter.getFilterItems().add(new FilterItemInfo("programming",id));
+		if(ContractWithProgramFactory.getRemoteInstance().exists(filter)){
+			MsgBox.showError("合约规划已被合同引用！");
+			abort();
+		}
+	}
+	public SelectorItemCollection getSelectors() {
+		SelectorItemCollection sic=super.getSelectors();
+		sic.add("state");
+		sic.add("edition");
+		sic.add("isFinal");
+		sic.add("isLastVersion");
+		return sic;
+	}
     public void actionEdit_actionPerformed(ActionEvent e) throws Exception
     {
+//    	checkEditOrRemove();
+//    	if(!this.editData.isIsFinal()){
+//    		MsgBox.showError("只能修改最新版本合约规划！");
+//    		abort();
+//    	}
         super.actionEdit_actionPerformed(e);
+        if(editData.getEdition().compareTo(new BigDecimal("1.0"))>0){
+    		this.txtName.setEnabled(false);
+    		this.txtNumber.setEnabled(false);
+    	}
+        kdtEntry.setEnabled(true);
     }
 
-    /**
-     * output actionRemove_actionPerformed
-     */
     public void actionRemove_actionPerformed(ActionEvent e) throws Exception
     {
+//    	checkEditOrRemove();
+//    	if(!this.editData.isIsFinal()){
+//    		MsgBox.showError("只能删除最新版本合约规划！");
+//    		abort();
+//    	}
         super.actionRemove_actionPerformed(e);
     }
 
-    /**
-     * output actionAttachment_actionPerformed
-     */
-    public void actionAttachment_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionAttachment_actionPerformed(e);
-    }
-
-    /**
-     * output actionSubmitOption_actionPerformed
-     */
-    public void actionSubmitOption_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionSubmitOption_actionPerformed(e);
-    }
-
-    /**
-     * output actionReset_actionPerformed
-     */
-    public void actionReset_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionReset_actionPerformed(e);
-    }
-
-    /**
-     * output actionMsgFormat_actionPerformed
-     */
-    public void actionMsgFormat_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionMsgFormat_actionPerformed(e);
-    }
-
-    /**
-     * output actionAddLine_actionPerformed
-     */
-    public void actionAddLine_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionAddLine_actionPerformed(e);
-    }
-
-    /**
-     * output actionCopyLine_actionPerformed
-     */
-    public void actionCopyLine_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionCopyLine_actionPerformed(e);
-    }
-
-    /**
-     * output actionInsertLine_actionPerformed
-     */
-    public void actionInsertLine_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionInsertLine_actionPerformed(e);
-    }
-
-    /**
-     * output actionRemoveLine_actionPerformed
-     */
-    public void actionRemoveLine_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionRemoveLine_actionPerformed(e);
-    }
-
-    /**
-     * output actionCreateFrom_actionPerformed
-     */
-    public void actionCreateFrom_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionCreateFrom_actionPerformed(e);
-    }
-
-    /**
-     * output actionCopyFrom_actionPerformed
-     */
-    public void actionCopyFrom_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionCopyFrom_actionPerformed(e);
-    }
-
-    /**
-     * output actionAuditResult_actionPerformed
-     */
-    public void actionAuditResult_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionAuditResult_actionPerformed(e);
-    }
-
-    /**
-     * output actionTraceUp_actionPerformed
-     */
-    public void actionTraceUp_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionTraceUp_actionPerformed(e);
-    }
-
-    /**
-     * output actionTraceDown_actionPerformed
-     */
-    public void actionTraceDown_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionTraceDown_actionPerformed(e);
-    }
-
-    /**
-     * output actionViewSubmitProccess_actionPerformed
-     */
-    public void actionViewSubmitProccess_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionViewSubmitProccess_actionPerformed(e);
-    }
-
-    /**
-     * output actionViewDoProccess_actionPerformed
-     */
-    public void actionViewDoProccess_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionViewDoProccess_actionPerformed(e);
-    }
-
-    /**
-     * output actionMultiapprove_actionPerformed
-     */
-    public void actionMultiapprove_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionMultiapprove_actionPerformed(e);
-    }
-
-    /**
-     * output actionNextPerson_actionPerformed
-     */
-    public void actionNextPerson_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionNextPerson_actionPerformed(e);
-    }
-
-    /**
-     * output actionStartWorkFlow_actionPerformed
-     */
-    public void actionStartWorkFlow_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionStartWorkFlow_actionPerformed(e);
-    }
-
-    /**
-     * output actionVoucher_actionPerformed
-     */
-    public void actionVoucher_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionVoucher_actionPerformed(e);
-    }
-
-    /**
-     * output actionDelVoucher_actionPerformed
-     */
-    public void actionDelVoucher_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionDelVoucher_actionPerformed(e);
-    }
-
-    /**
-     * output actionWorkFlowG_actionPerformed
-     */
-    public void actionWorkFlowG_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionWorkFlowG_actionPerformed(e);
-    }
-
-    /**
-     * output actionCreateTo_actionPerformed
-     */
-    public void actionCreateTo_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionCreateTo_actionPerformed(e);
-    }
-
-    /**
-     * output actionSendingMessage_actionPerformed
-     */
-    public void actionSendingMessage_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionSendingMessage_actionPerformed(e);
-    }
-
-    /**
-     * output actionSignature_actionPerformed
-     */
-    public void actionSignature_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionSignature_actionPerformed(e);
-    }
-
-    /**
-     * output actionWorkflowList_actionPerformed
-     */
-    public void actionWorkflowList_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionWorkflowList_actionPerformed(e);
-    }
-
-    /**
-     * output actionViewSignature_actionPerformed
-     */
-    public void actionViewSignature_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionViewSignature_actionPerformed(e);
-    }
-
-    /**
-     * output actionSendMail_actionPerformed
-     */
-    public void actionSendMail_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionSendMail_actionPerformed(e);
-    }
-
-    /**
-     * output actionLocate_actionPerformed
-     */
-    public void actionLocate_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionLocate_actionPerformed(e);
-    }
-
-    /**
-     * output actionNumberSign_actionPerformed
-     */
-    public void actionNumberSign_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionNumberSign_actionPerformed(e);
-    }
-
-    /**
-     * output actionAudit_actionPerformed
-     */
-    public void actionAudit_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionAudit_actionPerformed(e);
-    }
-
-    /**
-     * output actionUnAudit_actionPerformed
-     */
-    public void actionUnAudit_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionUnAudit_actionPerformed(e);
-    }
-
-    /**
-     * output actionAttamentCtrl_actionPerformed
-     */
-    public void actionAttamentCtrl_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionAttamentCtrl_actionPerformed(e);
-    }
-
-    /**
-     * output getBizInterface method
-     */
-    protected com.kingdee.eas.framework.ICoreBase getBizInterface() throws Exception
-    {
-        return com.kingdee.eas.port.pm.invest.investplan.ContractProgrammingFactory.getRemoteInstance();
-    }
-
-    /**
-     * output createNewDetailData method
-     */
-    protected IObjectValue createNewDetailData(KDTable table)
-    {
-		
-        return null;
-    }
-
-    /**
-     * output createNewData method
-     */
-    protected com.kingdee.bos.dao.IObjectValue createNewData()
-    {
-        com.kingdee.eas.port.pm.invest.investplan.ContractProgrammingInfo objectValue = new com.kingdee.eas.port.pm.invest.investplan.ContractProgrammingInfo();
-        objectValue.setCreator((com.kingdee.eas.base.permission.UserInfo)(com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentUser()));
-		
-        return objectValue;
-    }
 	protected void attachListeners() {
 		
 	}
+
 	protected void detachListeners() {
 		
 	}
-	protected KDTextField getNumberCtrl() {
-		return null;
+
+	protected ICoreBase getBizInterface() throws Exception {		
+		return ContractProgrammingFactory.getRemoteInstance();
+	}
+
+	protected KDTable getDetailTable() {		
+		return this.kdtEntry;
+	}
+
+	protected KDTextField getNumberCtrl() {		
+		return txtNumber;
+	}
+	
+	protected IObjectValue createNewData() {		
+		ContractProgrammingInfo info = new ContractProgrammingInfo();
+		BOSUuid projId = (BOSUuid) getUIContext().get("projectId");
+		if(projId == null){
+			projId = editData.getCurProject().getId();
+		}
+		try {
+			ProjectInfo prjInfo = ProjectFactory.getRemoteInstance().getProjectInfo(new ObjectUuidPK(projId));
+			info.setCurProject(prjInfo);
+		} catch (EASBizException e) {
+			e.printStackTrace();
+		} catch (BOSException e) {
+			e.printStackTrace();
+		}
+		info.setCreator(SysContext.getSysContext().getCurrentUserInfo());
+		info.setCreateTime(new Timestamp(new Date().getTime()));
+		if(getUIContext().get("isEmend")==null){
+			info.setEdition(new BigDecimal("1.00"));			
+		}
+		info.setIsFinal(false);
+		info.setIsLastVersion(true);
+		return info;
+	}
+	//添加判断  当修订时 不调用编码规则
+	protected void handleCodingRule() throws BOSException, CodingRuleException,
+			EASBizException {
+		if(getUIContext().get("isEmend")!=null && getUIContext().get("isEmend").toString().equals("yes")){
+			return;
+		}
+		super.handleCodingRule();
+	}
+	
+	public void onLoad() throws Exception {
+		kdtEntry.checkParsed();
+		super.onLoad();
+		initButton();
+		//分录成本科目F7
+		CostAccountPromptBox selector=new CostAccountPromptBox(this);
+		KDBizPromptBox prmtCostAccount=new KDBizPromptBox(){
+			protected String valueToString(Object o) {
+				String str=null;
+				if (o != null && o instanceof CostAccountInfo) {
+					str=((CostAccountInfo)o).getLongNumber().replace('!', '.');
+				}
+				return str;
+			}
+		};
+		prmtCostAccount.setSelector(selector);
+		
+//		prmtCostAccount.setQueryInfo("com.kingdee.eas.fdc.basedata.app.CostAccountQuery");
+		prmtCostAccount.setDisplayFormat("$longNumber$");
+		prmtCostAccount.setEditFormat("$longNumber$");
+		prmtCostAccount.setCommitFormat("$longNumber$");
+		
+		KDTDefaultCellEditor caEditor = new KDTDefaultCellEditor(prmtCostAccount);
+		//分录单元格状态 设置
+		kdtEntry.getColumn("costAccount").setEditor(caEditor);
+		kdtEntry.getColumn("costAccount").setRequired(true);
+		kdtEntry.getColumn("costAccountName").getStyleAttributes().setLocked(true);
+		kdtEntry.getColumn("aimcost").getStyleAttributes().setLocked(true);
+		kdtEntry.getColumn("prjLongNumber").getStyleAttributes().setLocked(true);
+		kdtEntry.getColumn("prjDisplayName").getStyleAttributes().setLocked(true);
+		//分录规划金额
+		kdtEntry.getColumn("programmingMoney").setRequired(true);		
+		KDFormattedTextField valueText=new KDFormattedTextField();
+		valueText.setHorizontalAlignment(FDCClientHelper.NUMBERTEXTFIELD_ALIGNMENT);
+		valueText.setDataType(KDFormattedTextField.BIGDECIMAL_TYPE);
+		valueText.setMinimumValue(FDCHelper.ZERO);
+		valueText.setSupportedEmpty(true);
+		valueText.setPrecision(2);
+		KDTDefaultCellEditor valueTextEditor = new KDTDefaultCellEditor(valueText);
+		kdtEntry.getColumn("programmingMoney").setEditor(valueTextEditor);
+		//设置F7显示、编辑时的格式
+		class CellTextRenderImpl extends ObjectValueRender {
+			public String getText(Object obj) {
+				if(obj == null)
+					return null;
+				if(obj instanceof CostAccountInfo)
+				{
+					if(((CostAccountInfo)obj).getLongNumber()==null){
+						return null;
+					}
+					return ((CostAccountInfo)obj).getLongNumber().replace('!', '.');
+				}
+				return defaultObjectName;
+			}
+		}
+		CellTextRenderImpl render = new CellTextRenderImpl();
+		render.setFormat(new BizDataFormat("$longNumber$"));
+		kdtEntry.getColumn("costAccount").setRenderer(render);
+		if(isLoadEmend && getUIContext().get("isEmend")!=null && getUIContext().get("isEmend").toString().equals("yes")){
+			chkMenuItemSubmitAndAddNew.setSelected(false);
+		}
+		
+		//设置分录的 delete键事件
+		kdtEntry.setBeforeAction(new BeforeActionListener() {
+			public void beforeAction(BeforeActionEvent e) {
+				if (BeforeActionEvent.ACTION_DELETE == e.getType()) {
+					KDTEditEvent event = new KDTEditEvent(
+							kdtEntry, null, null,kdtEntry.getSelectManager().getActiveRowIndex(),
+							kdtEntry.getSelectManager().getActiveColumnIndex(), true, 1);
+					try {
+						kdtEntry_editStopped(event);
+					} catch (Exception e1) {
+						
+					}
+					
+				}
+			}
+		});
+	}
+	//选择成本科目带出 科目名称和 目标成本
+	private void initEntryData(CostAccountInfo newInfo,IRow row){		
+		row.getCell("costAccountName").setValue(newInfo.getName());
+		FDCSQLBuilder builder=new FDCSQLBuilder();
+		builder.appendSql(" select sum(entry.FCostAmount) costAmount from T_AIM_CostEntry as entry ");
+		builder.appendSql(" inner join T_AIM_AimCost a on entry.fheadid=a.fid ");
+		builder.appendSql(" where entry.FCostAccountID=? and a.FIsLastVersion=1 ");
+		builder.addParam(newInfo.getId().toString());
+		try {
+			IRowSet rs=builder.executeQuery();
+			if(rs!=null && rs.next()){
+				if(rs.getBigDecimal("costAmount")==null){
+					MsgBox.showError("该成本科目还没有目标成本！");
+					row.getCell("costAccount").setValue(null);
+					row.getCell("costAccountName").setValue(null);
+					row.getCell("programmingMoney").setValue(null);
+					row.getCell("aimcost").setValue(null);
+					row.getCell("prjLongNumber").setValue(null);
+					row.getCell("prjDisplayName").setValue(null);
+					return;
+				}
+				row.getCell("aimcost").setValue(rs.getBigDecimal("costAmount"));
+			}
+		} catch (BOSException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		builder.clear();
+		builder.appendSql(" select prj.flongnumber longNumber,prj.fdisplayname_l2 displayName from T_FDC_CurProject prj ");
+		builder.appendSql(" inner join T_FDC_CostAccount cost on cost.FCurProject=prj.fid ");
+		builder.appendSql(" where cost.fid=? ");
+		builder.addParam(newInfo.getId().toString());
+		try {
+			IRowSet rs=builder.executeQuery();
+			if(rs!=null && rs.next()){
+				row.getCell("prjLongNumber").setValue(rs.getString("longNumber").replace('!', '.'));
+				row.getCell("prjDisplayName").setValue(rs.getString("displayName"));
+			}
+		} catch (BOSException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void onShow() throws Exception {
+		super.onShow();
+		this.actionAudit.setVisible(false);
+		this.actionUnAudit.setVisible(false);
+		//修订状态时
+    	if(getUIContext().get("isEmend")!=null && getUIContext().get("isEmend").toString().equals("yes")){
+    		this.txtName.setEnabled(false);
+    		this.txtNumber.setEnabled(false);
+    	}
+    	if(getOprtState().equals(STATUS_EDIT)){
+    		if(editData.getEdition().compareTo(new BigDecimal("1.0"))>0){
+        		this.txtName.setEnabled(false);
+        		this.txtNumber.setEnabled(false);
+        	}
+    	}
+    	if(getOprtState().equals(STATUS_VIEW)){
+    		kdtEntry.setEnabled(false);
+    	}
+	}
+	
+	private void initButton(){		
+		this.actionSubmit.setVisible(true);
+		this.actionAuditResult.setVisible(false);
+		this.menuTable1.removeAll();
+		this.menuTable1.add(this.menuItemAddLine);		
+		this.menuTable1.add(this.menuItemInsertLine);
+		this.menuTable1.add(this.menuItemRemoveLine);
+		
+		if(FDCBillStateEnum.SUBMITTED.equals(editData.getState()))
+			actionSave.setEnabled(false);
+	}
+	
+	protected void kdtEntry_editStopped(KDTEditEvent e) throws Exception {
+		if(e.getColIndex()==this.kdtEntry.getColumnIndex("costAccount")){
+			//选择没有改变直接返回
+			if(e.getOldValue()!=null && e.getValue()!=null){
+				CostAccountInfo oldInfo=(CostAccountInfo)e.getOldValue();
+				CostAccountInfo newInfo=(CostAccountInfo)e.getValue();
+				if(oldInfo.getId().toString().equals(newInfo.getId().toString())){
+					return;
+				}
+			}
+			if(e.getValue()!=null){
+				CostAccountInfo newInfo=(CostAccountInfo)e.getValue();
+				int index=kdtEntry.getSelectManager().getActiveRowIndex();
+				IRow row=kdtEntry.getRow(index);
+				initEntryData(newInfo,row);
+			}
+			if(e.getValue()==null){
+				int index=kdtEntry.getSelectManager().getActiveRowIndex();
+				IRow row=kdtEntry.getRow(index);
+				row.getCell("costAccount").setValue(null);
+				row.getCell("costAccountName").setValue(null);
+				row.getCell("programmingMoney").setValue(null);
+				row.getCell("aimcost").setValue(null);
+				row.getCell("prjLongNumber").setValue(null);
+				row.getCell("prjDisplayName").setValue(null);
+			}
+		}
+		else if(e.getColIndex()==this.kdtEntry.getColumnIndex("programmingMoney")){
+			setProgrammingMoney();
+		}
+	}
+	
+	private void setProgrammingMoney(){
+		BigDecimal programmingMoney=FDCHelper.ZERO;
+		for(int i=0;i<kdtEntry.getRowCount();i++){
+			if(kdtEntry.getCell(i, "programmingMoney").getValue()==null){
+				continue;
+			}
+			BigDecimal money=FDCHelper.toBigDecimal(kdtEntry.getCell(i, "programmingMoney").getValue());
+			programmingMoney=programmingMoney.add(money);
+		}
+		if(programmingMoney.compareTo(FDCHelper.ZERO)!=0){
+			this.txtProgrammingMoney.setValue(programmingMoney);
+		}
+	}
+	
+	protected void verifyInput(ActionEvent e) throws Exception {
+		super.verifyInput(e);
+    	if(this.txtName.getText()==null || this.txtName.getText().trim().length()==0){
+    		MsgBox.showWarning("合约规划名称不能为空!");
+    		abort();
+    	}
+		if(kdtEntry.getRowCount()>0){
+			Set set=new HashSet();
+			for(int i=0;i<kdtEntry.getRowCount();i++){
+				if(kdtEntry.getCell(i, "costAccount").getValue()==null){
+					MsgBox.showError("第"+(i+1)+"行没有选择成本科目！");
+					abort();
+				}
+				else{
+					CostAccountInfo info = (CostAccountInfo)kdtEntry.getCell(i, "costAccount").getValue();
+					if(!set.add(info.getId().toString())){
+						MsgBox.showError("同一成本科目不能重复录入规划金额！");
+						abort();
+					}
+				}
+				if(kdtEntry.getCell(i, "aimcost").getValue()==null){
+					MsgBox.showError("第"+(i+1)+"行的成本科目没有对应目标成本！");
+					abort();
+				}				
+				else{
+					if(kdtEntry.getCell(i, "programmingMoney").getValue()!=null){
+						BigDecimal programmingMoney=FDCHelper.toBigDecimal(kdtEntry.getCell(i, "programmingMoney").getValue());
+						BigDecimal aimCost=FDCHelper.toBigDecimal(kdtEntry.getCell(i, "aimcost").getValue());
+						if(programmingMoney.compareTo(FDCHelper.ZERO)<=0){
+							MsgBox.showError("第"+(i+1)+"行录入的规划金额小于或等于零！");
+							abort();
+						}
+						if(aimCost.compareTo(programmingMoney)<0){
+							MsgBox.showError("第"+(i+1)+"行录入的规划金额大于目标成本！");
+							abort();
+						}
+					}
+					else{
+						MsgBox.showError("第"+(i+1)+"行没有录入规划金额！");
+						abort();
+					}
+				}
+				// 需求变更为可对同一科目进行多次规划 所以 新加 验证 对同一科目的规划金额累加 不能超过目标成本
+				BigDecimal money=FDCHelper.ZERO;
+				IRow row=kdtEntry.getRow(i);
+    			CostAccountInfo newInfo =(CostAccountInfo)row.getCell("costAccount").getValue();
+    			//这里为了区分 新增、修订和修改  
+    			if(row.getCell("id").getValue()==null){
+					FDCSQLBuilder builder=new FDCSQLBuilder();
+					builder.appendSql(" select sum(entry.FProgrammingMoney) money from T_CON_ContractProgrammingEntry entry ");
+					builder.appendSql(" inner join T_CON_ContractProgramming parent on entry.FParentID=parent.fid  ");
+					builder.appendSql(" where entry.fprjLongNumber=? and entry.FCostAccountID=? and parent.FIsLastVersion=1 ");				
+					builder.addParam(row.getCell("prjLongNumber").getValue().toString());
+					builder.addParam(newInfo.getId().toString());
+					IRowSet rs=builder.executeQuery();
+					if(rs.next()){
+						if(rs.getBigDecimal("money")!=null){
+							money=money.add(rs.getBigDecimal("money"));
+						}
+					}
+				}
+    			else{
+    				FDCSQLBuilder builder=new FDCSQLBuilder();
+					builder.appendSql(" select sum(entry.FProgrammingMoney) money from T_CON_ContractProgrammingEntry entry ");
+					builder.appendSql(" inner join T_CON_ContractProgramming parent on entry.FParentID=parent.fid  ");
+					builder.appendSql(" where entry.fprjLongNumber=? and entry.FCostAccountID=? and parent.FIsLastVersion=1 and entry.fid<>? ");				
+					builder.addParam(row.getCell("prjLongNumber").getValue().toString());
+					builder.addParam(newInfo.getId().toString());
+					builder.addParam(row.getCell("id").getValue().toString());
+					IRowSet rs=builder.executeQuery();
+					if(rs.next()){
+						if(rs.getBigDecimal("money")!=null){
+							money=money.add(rs.getBigDecimal("money"));
+						}
+					}					
+    			}
+				BigDecimal aimCost=FDCHelper.toBigDecimal(row.getCell("aimcost").getValue());
+				BigDecimal programmingMoney=FDCHelper.toBigDecimal(row.getCell("programmingMoney").getValue());
+				money=money.add(programmingMoney);
+				if(money.compareTo(aimCost)>0){
+					MsgBox.showError("在同一工程项目下科目"+newInfo.getName()+"的累计规划金额不能超过目标成本！");
+					abort();
+				}
+				//如果是修订状态  验证完了 应该把分录的ID 替换成新的
+				if(getUIContext().get("isEmend")!=null && getUIContext().get("isEmend").toString().equals("yes")){
+					row.getCell("id").setValue(BOSUuid.create("21118986"));
+				}
+			}
+		}
+		else{
+			MsgBox.showError("请添加成本科目分录！");
+			abort();
+		}
 	}
 
 }

@@ -76,8 +76,22 @@ public abstract class AbstractProgrammingListUI extends com.kingdee.eas.fdc.base
         this.resHelper = new ResourceBundleHelper(AbstractProgrammingListUI.class.getName());
         this.setUITitle(resHelper.getString("this.title"));
         mainQueryPK = new MetaDataPK("com.kingdee.eas.port.pm.invest.investplan.app", "ProgrammingQuery");
-        //actionRemove
+        //actionAddNew
         String _tempStr = null;
+        actionAddNew.setEnabled(true);
+        actionAddNew.setDaemonRun(false);
+
+        actionAddNew.putValue(ItemAction.ACCELERATOR_KEY, KeyStroke.getKeyStroke("ctrl N"));
+        _tempStr = resHelper.getString("ActionAddNew.SHORT_DESCRIPTION");
+        actionAddNew.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+        _tempStr = resHelper.getString("ActionAddNew.LONG_DESCRIPTION");
+        actionAddNew.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+        _tempStr = resHelper.getString("ActionAddNew.NAME");
+        actionAddNew.putValue(ItemAction.NAME, _tempStr);
+         this.actionAddNew.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+         this.actionAddNew.addService(new com.kingdee.eas.framework.client.service.NetFunctionService());
+         this.actionAddNew.addService(new com.kingdee.eas.framework.client.service.UserMonitorService());
+        //actionRemove
         actionRemove.setEnabled(true);
         actionRemove.setDaemonRun(false);
 
@@ -505,6 +519,16 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
     	
 
     /**
+     * output actionAddNew_actionPerformed method
+     */
+    public void actionAddNew_actionPerformed(ActionEvent e) throws Exception
+    {
+        super.actionAddNew_actionPerformed(e);
+         //write your code hereoo
+    }
+    	
+
+    /**
      * output actionRemove_actionPerformed method
      */
     public void actionRemove_actionPerformed(ActionEvent e) throws Exception
@@ -534,6 +558,17 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
      */
     public void actionUnAudit_actionPerformed(ActionEvent e) throws Exception
     {
+    }
+	public RequestContext prepareActionAddNew(IItemAction itemAction) throws Exception {
+			RequestContext request = super.prepareActionAddNew(itemAction);		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionAddNew() {
+    	return false;
     }
 	public RequestContext prepareActionRemove(IItemAction itemAction) throws Exception {
 			RequestContext request = super.prepareActionRemove(itemAction);		

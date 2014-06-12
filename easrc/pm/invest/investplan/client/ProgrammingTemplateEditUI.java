@@ -66,27 +66,19 @@ import com.kingdee.eas.fdc.basedata.CostAccountFactory;
 import com.kingdee.eas.fdc.basedata.CostAccountInfo;
 import com.kingdee.eas.fdc.basedata.FDCHelper;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
-import com.kingdee.eas.fdc.basedata.PaymentTypeFactory;
-import com.kingdee.eas.fdc.basedata.PaymentTypeInfo;
 import com.kingdee.eas.fdc.basedata.client.ContractTypePromptSelector;
 import com.kingdee.eas.fdc.basedata.client.FDCMsgBox;
 import com.kingdee.eas.fdc.basedata.client.FDCUIWeightWorker;
 import com.kingdee.eas.fdc.basedata.client.IFDCWork;
 import com.kingdee.eas.fdc.contract.client.CostAccountPromptBox;
-import com.kingdee.eas.fdc.contract.programming.PTECostCollection;
-import com.kingdee.eas.fdc.contract.programming.PTECostFactory;
-import com.kingdee.eas.fdc.contract.programming.PTECostInfo;
-import com.kingdee.eas.fdc.contract.programming.PTEEnonomyCollection;
-import com.kingdee.eas.fdc.contract.programming.PTEEnonomyFactory;
-import com.kingdee.eas.fdc.contract.programming.PTEEnonomyInfo;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingException;
 import com.kingdee.eas.fdc.contract.programming.client.LimitedTextDocument;
-import com.kingdee.eas.fdc.contract.programming.client.PTEEditUI;
 import com.kingdee.eas.framework.IFWEntityStruct;
 import com.kingdee.eas.mm.control.client.TableCellComparator;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingTemplateEntireCollection;
-import com.kingdee.eas.port.pm.invest.investplan.ProgrammingTemplateEntireFactory;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingTemplateEntireInfo;
+import com.kingdee.eas.port.pm.invest.investplan.ProgrammingTemplateEntirePteCostCollection;
+import com.kingdee.eas.port.pm.invest.investplan.ProgrammingTemplateEntirePteCostInfo;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingTemplateFactory;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingTemplateInfo;
 import com.kingdee.eas.port.pm.invest.uitls.CreateTableRow;
@@ -170,6 +162,7 @@ public class ProgrammingTemplateEditUI extends AbstractProgrammingTemplateEditUI
     	setSmallBtnEnable();
     	setMouseClick();
     	paneBIZLayerControl9.remove(pnlSubject);
+    	this.kdtEntires.getColumn("costAccount").getStyleAttributes().setHided(true);
 	}
 
 	private void cellAttachment() {
@@ -899,9 +892,9 @@ public class ProgrammingTemplateEditUI extends AbstractProgrammingTemplateEditUI
 //    	{
 //    		ProgrammingTemplateEntireInfo info = col.get(i);
 //    		info.setAttachment(null);
-//    		PTECostCollection  costCol = info.getPteCost();
+//    		ProgrammingTemplateEntirePteCostCollection  costCol = info.getPteCost();
 //    		for(int j = 0 ; j < costCol.size() ; j++){
-//    			PTECostInfo pteInfo = costCol.get(j);
+//    			ProgrammingTemplateEntirePteCostInfo pteInfo = costCol.get(j);
 //    			if(pteInfo.getCostAccount() != null){
 //    				CostAccountInfo costAccountInfo = pteInfo.getCostAccount();
 //    				if(!costAccountInfo.isIsEnabled()){
@@ -1023,11 +1016,11 @@ public class ProgrammingTemplateEditUI extends AbstractProgrammingTemplateEditUI
 //			if(rowObject.getId() != null){
 //	    		FilterInfo filter = new FilterInfo();
 //				filter.getFilterItems().add(new FilterItemInfo("parent" , rowObject.getId().toString() , CompareType.EQUALS));
-//				PTECostFactory.getRemoteInstance().delete(filter);
+//				ProgrammingTemplateEntirePteCostFactory.getRemoteInstance().delete(filter);
 //				for (int j = 0; j < rowObject.getPteCost().size(); j++) {
-//					PTECostInfo info = rowObject.getPteCost().get(j);
+//					ProgrammingTemplateEntirePteCostInfo info = rowObject.getPteCost().get(j);
 //					info.setParent(rowObject);
-//					PTECostFactory.getRemoteInstance().save(info);
+//					ProgrammingTemplateEntirePteCostFactory.getRemoteInstance().save(info);
 //				}
 //				rowObject.getPteCost().clear();
 //				PTEEnonomyFactory.getRemoteInstance().delete(filter);
@@ -1303,7 +1296,7 @@ public class ProgrammingTemplateEditUI extends AbstractProgrammingTemplateEditUI
 	
 	private String getProF7DisplayPercent(Object o) {
 //		ProgrammingTemplateEntireInfo info = (ProgrammingTemplateEntireInfo) o;
-//		PTECostCollection pteCol = info.getPteCost();
+//		ProgrammingTemplateEntirePteCostCollection pteCol = info.getPteCost();
 //		if (pteCol.size() > 0) {
 //			StringBuffer br = new StringBuffer();
 //			for (int j = 0; j < pteCol.size(); j++) {
@@ -1446,7 +1439,7 @@ public class ProgrammingTemplateEditUI extends AbstractProgrammingTemplateEditUI
 	 */
 	protected void setCostAccountToEditData(int rowIndex , ProgrammingTemplateEntireInfo rowObject){
 //		Object cost = kdtEntires.getCell(rowIndex, "costAccount").getValue();
-//		PTECostCollection pteCost = rowObject.getPteCost();
+//		ProgrammingTemplateEntirePteCostCollection pteCost = rowObject.getPteCost();
 //		if(cost instanceof Object[]){
 //			Object[] list = (Object[])cost;
 //			
@@ -1455,7 +1448,7 @@ public class ProgrammingTemplateEditUI extends AbstractProgrammingTemplateEditUI
 //			}else{
 //				for(int i = 0 ; i < list.length ; i++){
 //					CostAccountInfo costInfo = (CostAccountInfo)list[i];
-//					PTECostInfo info = new PTECostInfo();
+//					ProgrammingTemplateEntirePteCostInfo info = new ProgrammingTemplateEntirePteCostInfo();
 //					info.setCostAccount(costInfo);
 //					pteCost.add(info);
 //				}
@@ -1465,10 +1458,10 @@ public class ProgrammingTemplateEditUI extends AbstractProgrammingTemplateEditUI
 //			kdtEntires.getCell(rowIndex, "costAccount").setValue(rowObject);
 	}
 
-	private void setCoatAccountToPTECol(PTECostCollection pteCost, Object[] list) {
+	private void setCoatAccountToPTECol(ProgrammingTemplateEntirePteCostCollection pteCost, Object[] list) {
 		ArrayList sameList = new ArrayList();
 		for(int i = 0 ; i < pteCost.size() ; i++){
-			PTECostInfo pteCostInfo = pteCost.get(i);
+			ProgrammingTemplateEntirePteCostInfo pteCostInfo = pteCost.get(i);
 			boolean isSame = false;
 			for(int j = 0 ; j < list.length ; j++){
 				CostAccountInfo costInfo = (CostAccountInfo)list[j];
@@ -1483,7 +1476,7 @@ public class ProgrammingTemplateEditUI extends AbstractProgrammingTemplateEditUI
 		}
 		
 		for(int i = 0 ; i < sameList.size() ; i++){
-			pteCost.remove(((PTECostInfo)sameList.get(i)));
+			pteCost.remove(((ProgrammingTemplateEntirePteCostInfo)sameList.get(i)));
 		}
 		
 		for(int i = 0 ; i < list.length ; i++){
@@ -1491,18 +1484,18 @@ public class ProgrammingTemplateEditUI extends AbstractProgrammingTemplateEditUI
 			if(pteCost.size() > 0){
 				boolean isSame = false;
 				for(int j = 0 ; j < pteCost.size() ; j++){
-					PTECostInfo pteCostInfo = pteCost.get(j);
+					ProgrammingTemplateEntirePteCostInfo pteCostInfo = pteCost.get(j);
 					if(pteCostInfo.getCostAccount().equals(costInfo)){
 						isSame = true;
 					}
 				}
 				if(!isSame){
-					PTECostInfo info = new PTECostInfo();
+					ProgrammingTemplateEntirePteCostInfo info = new ProgrammingTemplateEntirePteCostInfo();
 					info.setCostAccount(costInfo);
 					pteCost.add(info);
 				}
 			}else{
-				PTECostInfo info = new PTECostInfo();
+				ProgrammingTemplateEntirePteCostInfo info = new ProgrammingTemplateEntirePteCostInfo();
 				info.setCostAccount(costInfo);
 				pteCost.add(info);
 			}
@@ -1591,13 +1584,13 @@ public class ProgrammingTemplateEditUI extends AbstractProgrammingTemplateEditUI
 //				FilterInfo filter = new FilterInfo();
 //				filter.getFilterItems().add(new FilterItemInfo("parent" , rowObject.getId().toString() , CompareType.EQUALS));
 //				view.setFilter(filter);
-//				PTECostCollection col = PTECostFactory.getRemoteInstance().getPTECostCollection(view);
+//				ProgrammingTemplateEntirePteCostCollection col = ProgrammingTemplateEntirePteCostFactory.getRemoteInstance().getProgrammingTemplateEntirePteCostCollection(view);
 //				PTEEnonomyCollection pteEC = PTEEnonomyFactory.getRemoteInstance().getPTEEnonomyCollection(view);
 //
 //				int size = col.size();
 //				Object[] costValue = new Object[size];
 //				for(int j = 0 ; j < size ; j++){
-//					PTECostInfo pteInfo = col.get(j);
+//					ProgrammingTemplateEntirePteCostInfo pteInfo = col.get(j);
 //					if(pteInfo != null){
 //						if(pteInfo.getCostAccount() != null){
 //							costValue[j] = CostAccountFactory.getRemoteInstance().getCostAccountInfo(new ObjectUuidPK(pteInfo.getCostAccount().getId()));
@@ -1668,7 +1661,7 @@ public class ProgrammingTemplateEditUI extends AbstractProgrammingTemplateEditUI
 //		if(cost instanceof ProgrammingTemplateEntireInfo){
 //			ProgrammingTemplateEntireInfo rowObject = (ProgrammingTemplateEntireInfo)kdtEntires.getRow(i).getUserObject();
 //			if (rowObject != null) {
-//				PTECostCollection pteCol = rowObject.getPteCost();
+//				ProgrammingTemplateEntirePteCostCollection pteCol = rowObject.getPteCost();
 //				if (pteCol.size() > 0) {
 //					addRowForCost(proName, oldName, pteCol);
 //				}
@@ -1676,10 +1669,10 @@ public class ProgrammingTemplateEditUI extends AbstractProgrammingTemplateEditUI
 //		}
 	}
 
-	private void addRowForCost(String proName, String oldName, PTECostCollection pteCol) {
+	private void addRowForCost(String proName, String oldName, ProgrammingTemplateEntirePteCostCollection pteCol) {
 		for (int i = 0; i < pteCol.size(); i++) {
 			boolean isHas = false;
-			PTECostInfo info = pteCol.get(i);
+			ProgrammingTemplateEntirePteCostInfo info = pteCol.get(i);
 			if (info.getContractScale() != null) {
 				if (info.getContractScale().compareTo(new BigDecimal(0)) > 0
 						&& info.getContractScale().compareTo(new BigDecimal(100)) < 0) {

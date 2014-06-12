@@ -10,7 +10,7 @@ import com.kingdee.eas.common.EASBizException;
 public class ProgrammingTemplateControllerBean extends AbstractProgrammingTemplateControllerBean
 {
     private static Logger logger =
-        Logger.getLogger("com.kingdee.eas.fdc.contract.programming.app.ProgrammingTemplateControllerBean");
+        Logger.getLogger("com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingTemplateControllerBean");
 
 	protected void _copy(Context ctx) throws BOSException {
 		logger.assertLog(true, "¸´ÖÆ¹¦ÄÜ");

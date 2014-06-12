@@ -206,7 +206,7 @@ public class ProgrammingTemplateListUI extends AbstractProgrammingTemplateListUI
         	return;
         }
         refresh(null);
-        MsgBox.showInfo("合约框架禁用成功！");
+        MsgBox.showInfo("投资规划框架禁用成功！");
     }
 
     /**
@@ -223,7 +223,7 @@ public class ProgrammingTemplateListUI extends AbstractProgrammingTemplateListUI
         	return;
         }
          refresh(null);
-         MsgBox.showInfo("合约框架启用成功！");
+         MsgBox.showInfo("投资规划框架启用成功！");
     }
 
     /**
