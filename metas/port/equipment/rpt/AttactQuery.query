@@ -1,0 +1,1280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<joinQuery xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.port.equipment.rpt</package>
+    <name>AttactQuery</name>
+    <alias>joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].alias</alias>
+    <description>joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].description</description>
+    <userDefined>true</userDefined>
+    <reportDataSource />
+    <bizUnitPK />
+    <connectionProvider />
+    <subObjects>
+        <subEntity>
+            <name>BoAttchAsso</name>
+            <alias>joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].subObjects.subEntity[BoAttchAsso].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="AttactQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.base.attachment.app" />
+                <key name="name" value="BoAttchAsso" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>attachment</name>
+            <alias>joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].subObjects.subEntity[attachment].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="AttactQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.base.attachment.app" />
+                <key name="name" value="Attachment" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>CU</name>
+            <alias>joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].subObjects.subEntity[CU].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="AttactQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.basedata.org.app" />
+                <key name="name" value="CtrlUnit" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>creator</name>
+            <alias>joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].subObjects.subEntity[creator].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="AttactQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.base.permission.app" />
+                <key name="name" value="User" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>lastUpdateUser</name>
+            <alias>joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].subObjects.subEntity[lastUpdateUser].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="AttactQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.base.permission.app" />
+                <key name="name" value="User" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>RegulationsEntry</name>
+            <alias>joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].subObjects.subEntity[RegulationsEntry].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="AttactQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.port.equipment.special.app" />
+                <key name="name" value="RegulationsEntry" />
+            </entityRef>
+        </subEntity>
+    </subObjects>
+    <units>
+        <propertyUnit>
+            <name>270332e9-d83f-45cd-b206-ccfabfde6252</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.propertyUnit[270332e9-d83f-45cd-b206-ccfabfde6252].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>76b5e884-390a-4196-8c91-401cf207e99d</key>
+                    <parentUnit>
+                        <key name="name" value="270332e9-d83f-45cd-b206-ccfabfde6252" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="BoAttchAsso" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="attachment" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="AttactQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>62485e7d-8f13-4893-b398-0a67c5592e48</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.propertyUnit[62485e7d-8f13-4893-b398-0a67c5592e48].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>14da41fa-64e2-413b-b409-19708f9ad0d3</key>
+                    <parentUnit>
+                        <key name="name" value="62485e7d-8f13-4893-b398-0a67c5592e48" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="attachment" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="AttactQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>1720ce78-fb4e-468a-b9d9-f3b4aa819b31</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.propertyUnit[1720ce78-fb4e-468a-b9d9-f3b4aa819b31].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>199f011c-f2c8-4fb9-a861-e0596d5ce2eb</key>
+                    <parentUnit>
+                        <key name="name" value="1720ce78-fb4e-468a-b9d9-f3b4aa819b31" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="attachment" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="CU" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="AttactQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>c4b29d0d-e533-4cb3-9b60-3cff18b5781e</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.propertyUnit[c4b29d0d-e533-4cb3-9b60-3cff18b5781e].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0cb4ef4a-3970-4fce-923d-1023405f5ee8</key>
+                    <parentUnit>
+                        <key name="name" value="c4b29d0d-e533-4cb3-9b60-3cff18b5781e" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="CU" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="AttactQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>c94e835f-001a-4ee0-8063-33fe47bde1e2</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.propertyUnit[c94e835f-001a-4ee0-8063-33fe47bde1e2].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>3cc136be-6d6e-42f4-9553-37553f3c0d94</key>
+                    <parentUnit>
+                        <key name="name" value="c94e835f-001a-4ee0-8063-33fe47bde1e2" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="attachment" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="creator" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="AttactQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>1a48f955-02ef-4beb-9c81-05e25cee266c</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.propertyUnit[1a48f955-02ef-4beb-9c81-05e25cee266c].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>9d090716-83a9-4be9-bfbe-065d152bdce6</key>
+                    <parentUnit>
+                        <key name="name" value="1a48f955-02ef-4beb-9c81-05e25cee266c" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="creator" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="AttactQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>c4e247a8-2e3a-4bbb-8d24-c7dcd99315f9</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.propertyUnit[c4e247a8-2e3a-4bbb-8d24-c7dcd99315f9].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>b5a0f25f-f5d9-43db-9e7d-8a3a6a64d9df</key>
+                    <parentUnit>
+                        <key name="name" value="c4e247a8-2e3a-4bbb-8d24-c7dcd99315f9" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="attachment" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="lastUpdateUser" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="AttactQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>c2768160-a2a5-41ab-84ef-06c7c21b60ff</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.propertyUnit[c2768160-a2a5-41ab-84ef-06c7c21b60ff].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>4ec494d6-5188-47c5-83e0-80895119694a</key>
+                    <parentUnit>
+                        <key name="name" value="c2768160-a2a5-41ab-84ef-06c7c21b60ff" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="lastUpdateUser" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="AttactQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>id</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.queryField[id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>eedbf5e8-efab-4a65-8ac3-2228e430da8f</key>
+                    <parentUnit>
+                        <key name="name" value="id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="BoAttchAsso" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="AttactQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>boID</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.queryField[boID].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>474e047a-8bb4-43d2-8166-d899202cf3f1</key>
+                    <parentUnit>
+                        <key name="name" value="boID" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="BoAttchAsso" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="boID" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="AttactQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>attachment.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.queryField[attachment.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>f7854dce-33da-4732-96d6-2cde6339f8b6</key>
+                    <parentUnit>
+                        <key name="name" value="attachment.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="attachment" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="AttactQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>attachment.number</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.queryField[attachment.number].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>31d1e7c4-cc69-4eff-89bb-c8be6b83048a</key>
+                    <parentUnit>
+                        <key name="name" value="attachment.number" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="attachment" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="number" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="AttactQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>attachment.type</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.queryField[attachment.type].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>61923925-72b4-4b4a-ab38-bb42fc80699d</key>
+                    <parentUnit>
+                        <key name="name" value="attachment.type" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="attachment" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="type" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="AttactQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>attachment.size</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.queryField[attachment.size].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>570cb140-f3b3-4ca4-9c51-0bdbadf52d73</key>
+                    <parentUnit>
+                        <key name="name" value="attachment.size" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="attachment" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="size" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="AttactQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>CU.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.queryField[CU.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>98a1e0ed-6e28-40bb-98fd-02c10de661ec</key>
+                    <parentUnit>
+                        <key name="name" value="CU.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="CU" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="AttactQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>creator.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.queryField[creator.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>4a4fb125-34ec-4526-83f3-4a6c67acbdcf</key>
+                    <parentUnit>
+                        <key name="name" value="creator.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="creator" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="AttactQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>attachment.createTime</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.queryField[attachment.createTime].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Timestamp</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>a52b572a-9f4a-44ed-baa5-9d23fd6531bb</key>
+                    <parentUnit>
+                        <key name="name" value="attachment.createTime" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="attachment" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="createTime" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="AttactQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>lastUpdateUser.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.queryField[lastUpdateUser.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>72898eaa-1098-4c8f-a443-f89ef5fb3bee</key>
+                    <parentUnit>
+                        <key name="name" value="lastUpdateUser.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="lastUpdateUser" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="AttactQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>b01a5213-bb96-4a51-afbe-58c37e3d5993</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.propertyUnit[b01a5213-bb96-4a51-afbe-58c37e3d5993].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>7039d644-aa1a-44fa-b615-dd14ba7cedec</key>
+                    <parentUnit>
+                        <key name="name" value="b01a5213-bb96-4a51-afbe-58c37e3d5993" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="BoAttchAsso" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="boID" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="AttactQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>e5583ef1-7dc5-46a5-a326-e1138d775ff3</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.propertyUnit[e5583ef1-7dc5-46a5-a326-e1138d775ff3].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>5517a200-da5c-440c-9164-bd1aee28e581</key>
+                    <parentUnit>
+                        <key name="name" value="e5583ef1-7dc5-46a5-a326-e1138d775ff3" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RegulationsEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="AttactQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>RegulationsEntry.id</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.queryField[RegulationsEntry.id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>7c7ae573-9c45-45d0-9d3f-81e58e239589</key>
+                    <parentUnit>
+                        <key name="name" value="RegulationsEntry.id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RegulationsEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="AttactQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>attachment.id</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.queryField[attachment.id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>1df80336-b4ce-4f53-840f-11dfcdeb47fe</key>
+                    <parentUnit>
+                        <key name="name" value="attachment.id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="attachment" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="AttactQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>attachment.storageType</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.queryField[attachment.storageType].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0fcf358e-4793-4749-b0b5-99a2b7dea70e</key>
+                    <parentUnit>
+                        <key name="name" value="attachment.storageType" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="attachment" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="storageType" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="AttactQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>attachment.permission</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.queryField[attachment.permission].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>af84c90a-0e4f-488d-a5b3-24959ba2d17d</key>
+                    <parentUnit>
+                        <key name="name" value="attachment.permission" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="attachment" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="permission" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="AttactQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>attachment.description</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.queryField[attachment.description].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>81373f2e-9760-435d-8a43-80b24b27a0c1</key>
+                    <parentUnit>
+                        <key name="name" value="attachment.description" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="attachment" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="description" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="AttactQuery" />
+            </query>
+        </queryField>
+    </units>
+    <defaultFilter>
+        <name>defaultFilter</name>
+        <formulaString />
+        <query>
+            <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+            <key name="name" value="AttactQuery" />
+        </query>
+    </defaultFilter>
+    <isDistinct>false</isDistinct>
+    <joins>
+        <join>
+            <name>3ffde219-c3c8-46a3-a4f4-b95521378dd0</name>
+            <formulaString>#0</formulaString>
+            <type>RIGHT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="BoAttchAsso" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="attachment" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>52add9ab-03f0-4aaa-a64b-186aec63d1c4</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="270332e9-d83f-45cd-b206-ccfabfde6252" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="62485e7d-8f13-4893-b398-0a67c5592e48" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="3ffde219-c3c8-46a3-a4f4-b95521378dd0" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="AttactQuery" />
+            </query>
+        </join>
+        <join>
+            <name>8e2edb7e-8e4e-4e63-bc8e-77073794a05d</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="attachment" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="CU" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>95c9c72b-e501-4586-97ca-dc3620c60ac5</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="1720ce78-fb4e-468a-b9d9-f3b4aa819b31" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="c4b29d0d-e533-4cb3-9b60-3cff18b5781e" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="8e2edb7e-8e4e-4e63-bc8e-77073794a05d" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="AttactQuery" />
+            </query>
+        </join>
+        <join>
+            <name>44008c23-e337-4c82-b513-3cd2fe22eeb3</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="attachment" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="creator" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>08b144a5-7472-4b2c-98d9-8ade1f329f94</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="c94e835f-001a-4ee0-8063-33fe47bde1e2" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="1a48f955-02ef-4beb-9c81-05e25cee266c" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="44008c23-e337-4c82-b513-3cd2fe22eeb3" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="AttactQuery" />
+            </query>
+        </join>
+        <join>
+            <name>8d0d418f-a607-429a-be43-a2390a33be7a</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="attachment" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="lastUpdateUser" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>beed2d6b-c966-42e7-b4ea-e4aefc2c3c30</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="c4e247a8-2e3a-4bbb-8d24-c7dcd99315f9" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="c2768160-a2a5-41ab-84ef-06c7c21b60ff" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="8d0d418f-a607-429a-be43-a2390a33be7a" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="AttactQuery" />
+            </query>
+        </join>
+        <join>
+            <name>4aee58d1-1ce6-42a7-868e-3c0667bc454e</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="BoAttchAsso" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="RegulationsEntry" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>fe942f57-a0b0-456b-8c2e-d3e69ffb5bc5</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="b01a5213-bb96-4a51-afbe-58c37e3d5993" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="e5583ef1-7dc5-46a5-a326-e1138d775ff3" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="4aee58d1-1ce6-42a7-868e-3c0667bc454e" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="AttactQuery" />
+            </query>
+        </join>
+    </joins>
+    <resource>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="附件查询" />
+            <lang locale="zh_HK" value="附件查詢" />
+            <lang locale="zh_TW" value="附件查詢" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].subObjects.subEntity[BoAttchAsso].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].subObjects.subEntity[CU].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].subObjects.subEntity[RegulationsEntry].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].subObjects.subEntity[attachment].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].subObjects.subEntity[creator].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].subObjects.subEntity[lastUpdateUser].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.propertyUnit[1720ce78-fb4e-468a-b9d9-f3b4aa819b31].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.propertyUnit[1a48f955-02ef-4beb-9c81-05e25cee266c].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.propertyUnit[270332e9-d83f-45cd-b206-ccfabfde6252].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.propertyUnit[62485e7d-8f13-4893-b398-0a67c5592e48].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.propertyUnit[b01a5213-bb96-4a51-afbe-58c37e3d5993].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.propertyUnit[c2768160-a2a5-41ab-84ef-06c7c21b60ff].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.propertyUnit[c4b29d0d-e533-4cb3-9b60-3cff18b5781e].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.propertyUnit[c4e247a8-2e3a-4bbb-8d24-c7dcd99315f9].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.propertyUnit[c94e835f-001a-4ee0-8063-33fe47bde1e2].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.propertyUnit[e5583ef1-7dc5-46a5-a326-e1138d775ff3].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.queryField[CU.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="上传组织" />
+            <lang locale="zh_HK" value="上傳組織" />
+            <lang locale="zh_TW" value="上傳組織" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.queryField[CU.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.queryField[CU.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.queryField[RegulationsEntry.id].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="ID" />
+            <lang locale="zh_HK" value="ID" />
+            <lang locale="zh_TW" value="ID" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.queryField[attachment.createTime].displayName">
+            <lang locale="en_US" value="createTime" />
+            <lang locale="zh_CN" value="上传时间" />
+            <lang locale="zh_HK" value="上傳時間" />
+            <lang locale="zh_TW" value="上傳時間" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.queryField[attachment.createTime].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.queryField[attachment.createTime].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.queryField[attachment.description].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="描述" />
+            <lang locale="zh_HK" value="描述" />
+            <lang locale="zh_TW" value="描述" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.queryField[attachment.id].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="ID" />
+            <lang locale="zh_HK" value="ID" />
+            <lang locale="zh_TW" value="ID" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.queryField[attachment.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="附件名称" />
+            <lang locale="zh_HK" value="附件名稱" />
+            <lang locale="zh_TW" value="附件名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.queryField[attachment.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.queryField[attachment.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.queryField[attachment.number].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="附件编码" />
+            <lang locale="zh_HK" value="附件編碼" />
+            <lang locale="zh_TW" value="附件編碼" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.queryField[attachment.permission].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="附件权限" />
+            <lang locale="zh_HK" value="附件許可權" />
+            <lang locale="zh_TW" value="附件許可權" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.queryField[attachment.size].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="大小" />
+            <lang locale="zh_HK" value="大小" />
+            <lang locale="zh_TW" value="大小" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.queryField[attachment.storageType].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="附件存储方式" />
+            <lang locale="zh_HK" value="附件存儲方式" />
+            <lang locale="zh_TW" value="附件存儲方式" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.queryField[attachment.type].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="类型" />
+            <lang locale="zh_HK" value="類型" />
+            <lang locale="zh_TW" value="類型" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.queryField[attachment.type].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.queryField[attachment.type].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.queryField[boID].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="业务id" />
+            <lang locale="zh_HK" value="業務id" />
+            <lang locale="zh_TW" value="業務id" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.queryField[creator.name].displayName">
+            <lang locale="en_US" value="用户别名" />
+            <lang locale="zh_CN" value="上传人" />
+            <lang locale="zh_HK" value="上傳人" />
+            <lang locale="zh_TW" value="上傳人" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.queryField[creator.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.queryField[creator.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.queryField[id].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="唯一标识" />
+            <lang locale="zh_HK" value="唯一標識" />
+            <lang locale="zh_TW" value="唯一標識" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.queryField[lastUpdateUser.name].displayName">
+            <lang locale="en_US" value="用户别名" />
+            <lang locale="zh_CN" value="最后修改人" />
+            <lang locale="zh_HK" value="最後修改人" />
+            <lang locale="zh_TW" value="最後修改人" />
+        </rs>
+    </resource>
+</joinQuery>
+
