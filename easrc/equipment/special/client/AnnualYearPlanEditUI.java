@@ -696,6 +696,9 @@ public class AnnualYearPlanEditUI extends AbstractAnnualYearPlanEditUI
 
 	public void onLoad() throws Exception {
 		 this.kdtEntry.getColumn("seq").getStyleAttributes().setHided(true);
+		 this.kdtEntry.getColumn("checkType").getStyleAttributes().setLocked(true);
+		 this.kdtEntry.getColumn("planDate").getStyleAttributes().setLocked(true);
+		 this.kdtEntry.getColumn("endDate").getStyleAttributes().setLocked(true);
 		super.onLoad();
 		if(getOprtState().equals(OprtState.ADDNEW)){
 		  pkBizDate.setValue(new Date());

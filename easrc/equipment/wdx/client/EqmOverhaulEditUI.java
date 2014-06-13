@@ -20,12 +20,16 @@ import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.eas.basedata.assistant.ProjectFactory;
 import com.kingdee.eas.basedata.assistant.ProjectInfo;
+import com.kingdee.eas.basedata.org.AdminOrgUnitFactory;
+import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
 import com.kingdee.eas.basedata.person.PersonFactory;
 import com.kingdee.eas.basedata.person.PersonInfo;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.framework.*;
+import com.kingdee.eas.port.equipment.record.EquIdFactory;
+import com.kingdee.eas.port.equipment.record.EquIdInfo;
 import com.kingdee.eas.port.equipment.wdx.IEqmOverhaul;
 import com.kingdee.eas.port.pm.invest.YearInvestPlanFactory;
 import com.kingdee.eas.port.pm.invest.YearInvestPlanInfo;
@@ -839,4 +843,14 @@ public class EqmOverhaulEditUI extends AbstractEqmOverhaulEditUI
 		}
 	}
 	
+	public void kdtE1_Changed(int rowIndex, int colIndex) throws Exception {
+		super.kdtE1_Changed(rowIndex, colIndex);
+		if(this.kdtE1.getCell(rowIndex, "equNumber").getValue()!=null){
+			String id = ((EquIdInfo)this.kdtE1.getCell(rowIndex, "equNumber").getValue()).getId().toString();
+			EquIdInfo edInfo = EquIdFactory.getRemoteInstance().getEquIdInfo(new ObjectUuidPK(id));
+			String id1 = ((AdminOrgUnitInfo)edInfo.getUsingDept()).getId().toString();
+			AdminOrgUnitInfo aoInfo = AdminOrgUnitFactory.getRemoteInstance().getAdminOrgUnitInfo(new ObjectUuidPK(id1));
+			this.kdtE1.getCell(rowIndex, "useDepart").setValue(aoInfo);
+		}
+	}
 }

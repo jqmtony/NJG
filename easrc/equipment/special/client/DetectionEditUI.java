@@ -6,6 +6,7 @@ package com.kingdee.eas.port.equipment.special.client;
 import java.awt.BorderLayout;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
@@ -18,6 +19,8 @@ import com.kingdee.bos.ctrl.swing.KDLayout;
 import com.kingdee.bos.ctrl.swing.KDTextField;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.eas.common.client.OprtState;
+import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.fi.fa.basedata.FaCatFactory;
 import com.kingdee.eas.xr.helper.XRSQLBuilder;
 import com.kingdee.jdbc.rowset.IRowSet;
@@ -687,6 +690,10 @@ public class DetectionEditUI extends AbstractDetectionEditUI
 		 this.kdtE1.getColumn("seq").getStyleAttributes().setHided(true);
 		 this.kdtE2.getColumn("seq").getStyleAttributes().setHided(true);
 		super.onLoad();
+		if(getOprtState().equals(OprtState.ADDNEW)){
+			this.pkBizDate.setValue(new Date());
+			prmtCU.setValue(SysContext.getSysContext().getCurrentCtrlUnit());
+		 }
 		actionAddNew.setVisible(false);
 		actionAddNew.setEnabled(false);
 		this.kDContainer1.setTitle("Êµ¼Ê¼ì²âÃ÷Ï¸");
@@ -843,7 +850,8 @@ public class DetectionEditUI extends AbstractDetectionEditUI
 	}
 	
 	private String getCatType(){
-		String sql = "select d.fid catId,d.fname_l2 catName from CT_SPE_Detection a  left join CT_SPE_DetectionE2 b on a.fid = b.fparentid  left join CT_REC_EquId c on b.cfzdanumberid = c.fid  left join T_FA_Cat d on d.fid = c.cfeqmtypeid  group by d.fid,d.fname_l2";
+		String sql = "select d.fid catId,d.fname_l2 catName from CT_SPE_Detection a  left join CT_SPE_DetectionE2 b on a.fid = b.fparentid  left join CT_REC_EquId c on b.cfzdanumberid = c.fid  left join T_FA_Cat d on d.fid = c.cfeqmtypeid  " +
+				" where a.fid='"+editData.getId()+"' group by d.fid,d.fname_l2";
 		return sql;
 	}
 

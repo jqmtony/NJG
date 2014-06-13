@@ -4,6 +4,7 @@
 package com.kingdee.eas.port.equipment.special.client;
 
 import java.awt.event.ActionEvent;
+import java.util.Date;
 
 import org.apache.log4j.Logger;
 
@@ -49,6 +50,8 @@ public class SpecialChangeEditUI extends AbstractSpecialChangeEditUI
     public void loadFields()
     {
         super.loadFields();
+        prmtoldUseUnit.setEnabled(false);
+		txtoldUnitCode.setEnabled(false);
     }
 
     /**
@@ -705,6 +708,11 @@ public class SpecialChangeEditUI extends AbstractSpecialChangeEditUI
 	public void onLoad() throws Exception {
 		this.kdtEntry.getColumn("seq").getStyleAttributes().setHided(true);
 		super.onLoad();
+		
+		if(getOprtState().equals(OprtState.ADDNEW)){
+			  pkBizDate.setValue(new Date());
+			  prmtCU.setValue(SysContext.getSysContext().getCurrentCtrlUnit());
+			}
 		this.kdtEntry_detailPanel.setTitle("设备信息");
 		this.kdtEntry_detailPanel.getAddNewLineButton().setVisible(false);
 		this.kdtEntry_detailPanel.getInsertLineButton().setVisible(false);

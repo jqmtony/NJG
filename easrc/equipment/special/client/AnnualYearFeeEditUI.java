@@ -9,6 +9,7 @@ import java.awt.Frame;
 import java.awt.Window;
 import java.awt.event.*;
 import java.io.File;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -24,6 +25,7 @@ import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.metadata.entity.SelectorItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
@@ -764,8 +766,6 @@ public class AnnualYearFeeEditUI extends AbstractAnnualYearFeeEditUI
 		
 		btnImportExcel	.setIcon(EASResource.getIcon("imgTbtn_input"));
 		btnExcel.setIcon(EASResource.getIcon("imgTbtn_output"));
-		pkBizDate.setEnabled(false);
-		this.pkBizDate.setValue(new Date());
 		
 		 KDBizPromptBox kdtE1_equNumber_PromptBox = new KDBizPromptBox();
 	        kdtE1_equNumber_PromptBox.setQueryInfo("com.kingdee.eas.port.equipment.record.app.EquIdQuery");
@@ -783,12 +783,24 @@ public class AnnualYearFeeEditUI extends AbstractAnnualYearFeeEditUI
 			kdtE1_equNumber_PromptBox.setEntityViewInfo(evi);
 			 KDTDefaultCellEditor kdtEntry_feeType_CellEditor = new KDTDefaultCellEditor(kdtE1_equNumber_PromptBox);
 			 kdtEntry.getColumn("zdaNumber").setEditor(kdtEntry_feeType_CellEditor);
+			 
+			if(getOprtState().equals(OprtState.ADDNEW)){
+				this.pkBizDate.setValue(new Date());
+				 prmtCU.setValue(SysContext.getSysContext().getCurrentCtrlUnit());
+			 }
 	}
 	
 	public void kdtEntry_Changed(int rowIndex, int colIndex) throws Exception {
-		
+		super.kdtEntry_Changed(rowIndex, colIndex);
+		for(int i = 0;i<kdtEntry.getRowCount();i++){
+			if(kdtEntry.getCell(i, "checkFee").getValue() !=null && kdtEntry.getCell(i, "otherFee").getValue() !=null){
+				BigDecimal a = UIRuleUtil.getBigDecimal(kdtEntry.getCell(i, "checkFee").getValue());
+				BigDecimal b = UIRuleUtil.getBigDecimal(kdtEntry.getCell(i, "otherFee").getValue());
+				BigDecimal c = a.add(b);
+				kdtEntry.getCell(i, "totalAmount").setValue(c);
+			}
+		}
 	}
-
 
 	protected void btnImportExcel_actionPerformed(ActionEvent e)throws Exception {
 		super.btnImportExcel_actionPerformed(e);

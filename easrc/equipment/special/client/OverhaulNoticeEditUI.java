@@ -9,6 +9,11 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.apache.log4j.Logger;
+
+import com.kingdee.bos.metadata.entity.EntityViewInfo;
+import com.kingdee.bos.metadata.entity.FilterInfo;
+import com.kingdee.bos.metadata.entity.FilterItemInfo;
+import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.IUIWindow;
 import com.kingdee.bos.ui.face.UIException;
@@ -17,15 +22,25 @@ import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.eas.common.client.OprtState;
+import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.common.client.UIContext;
 import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.framework.*;
+import com.kingdee.eas.port.equipment.base.ISpecialCheckItem;
+import com.kingdee.eas.port.equipment.base.SpecialCheckItemCollection;
+import com.kingdee.eas.port.equipment.base.SpecialCheckItemFactory;
+import com.kingdee.eas.port.equipment.record.EquIdFactory;
 import com.kingdee.eas.port.equipment.record.EquIdInfo;
+import com.kingdee.eas.port.equipment.record.IEquId;
 import com.kingdee.eas.port.equipment.special.OverhaulNoticeFactory;
 import com.kingdee.eas.port.equipment.uitl.ToolHelp;
 import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
+import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.xr.app.XRBillStatusEnum;
+import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
+import com.kingdee.bos.ctrl.kdf.table.IRow;
+import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.swing.KDTextField;
 import com.kingdee.bos.ctrl.swing.KDWorkButton;
@@ -747,6 +762,25 @@ public class OverhaulNoticeEditUI extends AbstractOverhaulNoticeEditUI
 		}
 		
 		InitWorkButtons();
+		
+		 KDBizPromptBox kdtE1_equNumber_PromptBox = new KDBizPromptBox();
+	        kdtE1_equNumber_PromptBox.setQueryInfo("com.kingdee.eas.port.equipment.record.app.EquIdQuery");
+	        kdtE1_equNumber_PromptBox.setVisible(true);
+	        kdtE1_equNumber_PromptBox.setEditable(true);
+	        kdtE1_equNumber_PromptBox.setDisplayFormat("$number$");
+	        kdtE1_equNumber_PromptBox.setEditFormat("$number$");
+	        kdtE1_equNumber_PromptBox.setCommitFormat("$number$");
+	   	    EntityViewInfo evi = new EntityViewInfo();
+			 FilterInfo filter = new FilterInfo();
+			 filter.getFilterItems().add(new FilterItemInfo("sbStatus","3",CompareType.NOTEQUALS));
+			 String id = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
+	 		 filter.getFilterItems().add(new FilterItemInfo("ssOrgUnit.id",id ,CompareType.EQUALS));
+			 evi.setFilter(filter);
+			kdtE1_equNumber_PromptBox.setEntityViewInfo(evi);
+			 KDTDefaultCellEditor kdtEntry_feeType_CellEditor = new KDTDefaultCellEditor(kdtE1_equNumber_PromptBox);
+			 kdtEntry.getColumn("zdaNumber").setEditor(kdtEntry_feeType_CellEditor);
+			 
+			
 	}
 	
 	 protected void initWorkButton()

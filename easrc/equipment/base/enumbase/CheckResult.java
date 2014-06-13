@@ -13,9 +13,11 @@ import com.kingdee.util.enums.StringEnum;
  */
 public class CheckResult extends StringEnum
 {
+    public static final String NULL_VALUE = "0";//alias=
     public static final String OK_VALUE = "10";//alias=合格
     public static final String NO_VALUE = "20";//alias=不合格
 
+    public static final CheckResult NULL = new CheckResult("NULL", NULL_VALUE);
     public static final CheckResult OK = new CheckResult("OK", OK_VALUE);
     public static final CheckResult NO = new CheckResult("NO", NO_VALUE);
 

@@ -5,6 +5,8 @@ package com.kingdee.eas.port.equipment.special.client;
 
 import java.awt.event.*;
 import org.apache.log4j.Logger;
+
+import com.ibm.db2.jcc.am.on;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.bos.dao.IObjectValue;
@@ -594,4 +596,10 @@ public class AnnualYearPlanListUI extends AbstractAnnualYearPlanListUI
         super.actionUnAudit_actionPerformed(e);
   
     }
+    
+//    public void onLoad() throws Exception {
+//    	super.onLoad();
+//    	this.tblMain.getGroupManager().setGroup(false);
+//    }
+//   
 }

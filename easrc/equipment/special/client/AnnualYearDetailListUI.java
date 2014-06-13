@@ -715,11 +715,11 @@ public class AnnualYearDetailListUI extends AbstractAnnualYearDetailListUI
         
     }
     
-    public void onLoad() throws Exception {
-    	super.onLoad();
-    	
-    	this.tblMain.getGroupManager().setGroup(false);
-    }
+//    public void onLoad() throws Exception {
+//    	super.onLoad();
+//    	
+//    	this.tblMain.getGroupManager().setGroup(false);
+//    }
     /**
      * ∑¥…Û∫À
      */

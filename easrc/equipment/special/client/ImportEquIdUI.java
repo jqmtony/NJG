@@ -23,6 +23,7 @@ import com.kingdee.bos.ctrl.kdf.table.event.KDTDataFillListener;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTDataRequestEvent;
 import com.kingdee.bos.ctrl.swing.KDCheckBox;
 import com.kingdee.bos.ctrl.swing.KDWorkButton;
+import com.kingdee.bos.dao.DataAccessException;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.dao.query.IQueryExecutor;
@@ -39,6 +40,7 @@ import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.port.equipment.base.ISpecialCheckItem;
 import com.kingdee.eas.port.equipment.base.SpecialCheckItemCollection;
 import com.kingdee.eas.port.equipment.base.SpecialCheckItemFactory;
+import com.kingdee.eas.port.equipment.base.enumbase.CheckType;
 import com.kingdee.eas.port.equipment.record.EquIdFactory;
 import com.kingdee.eas.port.equipment.record.EquIdInfo;
 import com.kingdee.eas.port.equipment.record.IEquId;
@@ -199,18 +201,19 @@ public class ImportEquIdUI extends AbstractImportEquIdUI
 			
 			if(getUIContext().get("yearPlan")!=null)
 			{
-				row.getCell("equipmentName").setValue(UIRuleUtil.getString(UIRuleUtil.getProperty((IObjectValue)row.getCell("zdaNumber").getValue(),"name")));
-				row.getCell("code").setValue(UIRuleUtil.getString(UIRuleUtil.getProperty((IObjectValue)row.getCell("zdaNumber").getValue(),"code")));
-				row.getCell("useUnit").setValue(UIRuleUtil.getString(UIRuleUtil.getProperty((IObjectValue)row.getCell("zdaNumber").getValue(),"usingDept.name")));
-				row.getCell("state").setValue(UIRuleUtil.getString(UIRuleUtil.getProperty((IObjectValue)row.getCell("zdaNumber").getValue(),"tzsbStatus")));
-				row.getCell("address").setValue(UIRuleUtil.getString(UIRuleUtil.getProperty((IObjectValue)row.getCell("zdaNumber").getValue(),"address.name")));
-				row.getCell("companyNumber").setValue(UIRuleUtil.getString(UIRuleUtil.getProperty((IObjectValue)row.getCell("zdaNumber").getValue(),"innerNumber")));
-				row.getCell("NO").setValue(UIRuleUtil.getString(UIRuleUtil.getProperty((IObjectValue)row.getCell("zdaNumber").getValue(),"model")));
-				row.getCell("engineNumber").setValue(UIRuleUtil.getString(UIRuleUtil.getProperty((IObjectValue)row.getCell("zdaNumber").getValue(),"engineNumber")));
-				row.getCell("carNumber").setValue(UIRuleUtil.getString(UIRuleUtil.getProperty((IObjectValue)row.getCell("zdaNumber").getValue(),"carNumber")));
-				row.getCell("weight").setValue(UIRuleUtil.getString(UIRuleUtil.getProperty((IObjectValue)row.getCell("zdaNumber").getValue(),"ratedWeight")));
-				row.getCell("useDate").setValue(UIRuleUtil.getString(UIRuleUtil.getProperty((IObjectValue)row.getCell("zdaNumber").getValue(),"qyDate")));
-				row.getCell("createUnit").setValue(UIRuleUtil.getString(UIRuleUtil.getProperty((IObjectValue)row.getCell("zdaNumber").getValue(),"mader")));
+				if(equIdInfo.isCityTest()&&equIdInfo.isPortTest()){
+					InitEntry(row, equIdInfo, CheckType.city);
+					row = kdtable.addRow();
+					row.getCell("zdaNumber").setValue(equIdInfo);
+					InitEntry(row, equIdInfo, CheckType.port);
+				}
+				else
+				{
+					if(equIdInfo.isCityTest())
+						InitEntry(row, equIdInfo, CheckType.city);
+					if(equIdInfo.isPortTest())
+						InitEntry(row, equIdInfo, CheckType.port);
+				}
 			}
 			else
 			{
@@ -253,6 +256,38 @@ public class ImportEquIdUI extends AbstractImportEquIdUI
 		
 		
 		com.kingdee.eas.util.client.MsgBox.showWarning("本次成功加入{"+selectIndex+"}条设备！");
+	}
+	
+	private void InitEntry(IRow row,EquIdInfo equIdInfo,CheckType checktype) throws DataAccessException, BOSException
+	{
+		row.getCell("equipmentName").setValue(UIRuleUtil.getString(UIRuleUtil.getProperty((IObjectValue)row.getCell("zdaNumber").getValue(),"name")));
+		row.getCell("code").setValue(UIRuleUtil.getString(UIRuleUtil.getProperty((IObjectValue)row.getCell("zdaNumber").getValue(),"code")));
+		row.getCell("useUnit").setValue(UIRuleUtil.getString(UIRuleUtil.getProperty((IObjectValue)row.getCell("zdaNumber").getValue(),"usingDept.name")));
+		row.getCell("state").setValue(UIRuleUtil.getString(UIRuleUtil.getProperty((IObjectValue)row.getCell("zdaNumber").getValue(),"tzsbStatus")));
+		row.getCell("address").setValue(UIRuleUtil.getString(UIRuleUtil.getProperty((IObjectValue)row.getCell("zdaNumber").getValue(),"address.name")));
+		row.getCell("companyNumber").setValue(UIRuleUtil.getString(UIRuleUtil.getProperty((IObjectValue)row.getCell("zdaNumber").getValue(),"innerNumber")));
+		row.getCell("NO").setValue(UIRuleUtil.getString(UIRuleUtil.getProperty((IObjectValue)row.getCell("zdaNumber").getValue(),"model")));
+		row.getCell("engineNumber").setValue(UIRuleUtil.getString(UIRuleUtil.getProperty((IObjectValue)row.getCell("zdaNumber").getValue(),"engineNumber")));
+		row.getCell("carNumber").setValue(UIRuleUtil.getString(UIRuleUtil.getProperty((IObjectValue)row.getCell("zdaNumber").getValue(),"carNumber")));
+		row.getCell("weight").setValue(UIRuleUtil.getString(UIRuleUtil.getProperty((IObjectValue)row.getCell("zdaNumber").getValue(),"ratedWeight")));
+		row.getCell("useDate").setValue(UIRuleUtil.getString(UIRuleUtil.getProperty((IObjectValue)row.getCell("zdaNumber").getValue(),"qyDate")));
+		row.getCell("createUnit").setValue(UIRuleUtil.getString(UIRuleUtil.getProperty((IObjectValue)row.getCell("zdaNumber").getValue(),"mader")));
+		row.getCell("checkType").setValue(checktype);
+		if(checktype.equals(checktype.city)&&equIdInfo.getDayone() !=null){
+			row.getCell("planDate").setValue(equIdInfo.getDayone());
+		}
+		if(checktype.equals(checktype.city)&&equIdInfo.getTextDate1() !=null){
+			row.getCell("endDate").setValue(equIdInfo.getTextDate1());
+		}
+		if(checktype.equals(checktype.port)&& equIdInfo.getDaytow() !=null){
+			row.getCell("planDate").setValue(equIdInfo.getDaytow());
+		}
+		if(checktype.equals(checktype.port)&& equIdInfo.getTestDay() !=null){
+			row.getCell("endDate").setValue(equIdInfo.getTestDay());
+		}
+		
+		
+		
 	}
 	
 	private void actionSelectAll()

@@ -61,8 +61,6 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
     protected com.kingdee.bos.ctrl.swing.KDButtonGroup kDButtonGroup2;
     protected com.kingdee.bos.ctrl.swing.KDButtonGroup kDButtonGroup3;
     protected com.kingdee.bos.ctrl.swing.KDTabbedPane kDTabbedPane1;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contdayone;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contdaytow;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtCreator;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkCreateTime;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtLastUpdateUser;
@@ -128,11 +126,13 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer conlocation;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer conusingDept;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer conresPerson;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contdaytow;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtparent;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtaddress;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtlocation;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtusingDept;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtresPerson;
+    protected com.kingdee.bos.ctrl.swing.KDDatePicker pkdaytow;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer conmader;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer conmadedCountry;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer conmadeDate;
@@ -144,6 +144,7 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer concheckDate;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer condeadline;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer consourceUnit;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contdayone;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtmader;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtmadedCountry;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkmadeDate;
@@ -155,6 +156,7 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkcheckDate;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkdeadline;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtsourceUnit;
+    protected com.kingdee.bos.ctrl.swing.KDDatePicker pkdayone;
     protected com.kingdee.bos.ctrl.swing.KDCheckBox chkportTest;
     protected com.kingdee.bos.ctrl.swing.KDCheckBox chkcityTest;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer conttestDay;
@@ -191,8 +193,6 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
 	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtTechnologyPar_detailPanel = null;
     protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtSpareInfo;
 	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtSpareInfo_detailPanel = null;
-    protected com.kingdee.bos.ctrl.swing.KDDatePicker pkdayone;
-    protected com.kingdee.bos.ctrl.swing.KDDatePicker pkdaytow;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnRegistChange;
     protected com.kingdee.eas.port.equipment.record.EquIdInfo editData = null;
     protected ActionInUse actionInUse = null;
@@ -295,8 +295,6 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.kDButtonGroup2 = new com.kingdee.bos.ctrl.swing.KDButtonGroup();
         this.kDButtonGroup3 = new com.kingdee.bos.ctrl.swing.KDButtonGroup();
         this.kDTabbedPane1 = new com.kingdee.bos.ctrl.swing.KDTabbedPane();
-        this.contdayone = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contdaytow = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.prmtCreator = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.pkCreateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.prmtLastUpdateUser = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
@@ -362,11 +360,13 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.conlocation = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.conusingDept = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.conresPerson = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contdaytow = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.prmtparent = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.prmtaddress = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.txtlocation = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.prmtusingDept = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.prmtresPerson = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.pkdaytow = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.conmader = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.conmadedCountry = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.conmadeDate = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -378,6 +378,7 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.concheckDate = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.condeadline = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.consourceUnit = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contdayone = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.txtmader = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.prmtmadedCountry = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.pkmadeDate = new com.kingdee.bos.ctrl.swing.KDDatePicker();
@@ -389,6 +390,7 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.pkcheckDate = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.pkdeadline = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.txtsourceUnit = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.pkdayone = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.chkportTest = new com.kingdee.bos.ctrl.swing.KDCheckBox();
         this.chkcityTest = new com.kingdee.bos.ctrl.swing.KDCheckBox();
         this.conttestDay = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -423,8 +425,6 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.txtinstallCost = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
         this.kdtTechnologyPar = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.kdtSpareInfo = new com.kingdee.bos.ctrl.kdf.table.KDTable();
-        this.pkdayone = new com.kingdee.bos.ctrl.swing.KDDatePicker();
-        this.pkdaytow = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.btnRegistChange = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.contCreator.setName("contCreator");
         this.contCreateTime.setName("contCreateTime");
@@ -438,8 +438,6 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.contBizStatus.setName("contBizStatus");
         this.contAuditTime.setName("contAuditTime");
         this.kDTabbedPane1.setName("kDTabbedPane1");
-        this.contdayone.setName("contdayone");
-        this.contdaytow.setName("contdaytow");
         this.prmtCreator.setName("prmtCreator");
         this.pkCreateTime.setName("pkCreateTime");
         this.prmtLastUpdateUser.setName("prmtLastUpdateUser");
@@ -505,11 +503,13 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.conlocation.setName("conlocation");
         this.conusingDept.setName("conusingDept");
         this.conresPerson.setName("conresPerson");
+        this.contdaytow.setName("contdaytow");
         this.prmtparent.setName("prmtparent");
         this.prmtaddress.setName("prmtaddress");
         this.txtlocation.setName("txtlocation");
         this.prmtusingDept.setName("prmtusingDept");
         this.prmtresPerson.setName("prmtresPerson");
+        this.pkdaytow.setName("pkdaytow");
         this.conmader.setName("conmader");
         this.conmadedCountry.setName("conmadedCountry");
         this.conmadeDate.setName("conmadeDate");
@@ -521,6 +521,7 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.concheckDate.setName("concheckDate");
         this.condeadline.setName("condeadline");
         this.consourceUnit.setName("consourceUnit");
+        this.contdayone.setName("contdayone");
         this.txtmader.setName("txtmader");
         this.prmtmadedCountry.setName("prmtmadedCountry");
         this.pkmadeDate.setName("pkmadeDate");
@@ -532,6 +533,7 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.pkcheckDate.setName("pkcheckDate");
         this.pkdeadline.setName("pkdeadline");
         this.txtsourceUnit.setName("txtsourceUnit");
+        this.pkdayone.setName("pkdayone");
         this.chkportTest.setName("chkportTest");
         this.chkcityTest.setName("chkcityTest");
         this.conttestDay.setName("conttestDay");
@@ -566,8 +568,6 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.txtinstallCost.setName("txtinstallCost");
         this.kdtTechnologyPar.setName("kdtTechnologyPar");
         this.kdtSpareInfo.setName("kdtSpareInfo");
-        this.pkdayone.setName("pkdayone");
-        this.pkdaytow.setName("pkdaytow");
         this.btnRegistChange.setName("btnRegistChange");
         // CoreUI
         // contCreator		
@@ -627,16 +627,6 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         // kDButtonGroup2
         // kDButtonGroup3
         // kDTabbedPane1
-        // contdayone		
-        this.contdayone.setBoundLabelText(resHelper.getString("contdayone.boundLabelText"));		
-        this.contdayone.setBoundLabelLength(100);		
-        this.contdayone.setBoundLabelUnderline(true);		
-        this.contdayone.setVisible(false);
-        // contdaytow		
-        this.contdaytow.setBoundLabelText(resHelper.getString("contdaytow.boundLabelText"));		
-        this.contdaytow.setBoundLabelLength(100);		
-        this.contdaytow.setBoundLabelUnderline(true);		
-        this.contdaytow.setVisible(false);
         // prmtCreator		
         this.prmtCreator.setEnabled(false);		
         this.prmtCreator.setCommitFormat("$name$");		
@@ -957,6 +947,10 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.conresPerson.setBoundLabelLength(100);		
         this.conresPerson.setBoundLabelUnderline(true);		
         this.conresPerson.setVisible(true);
+        // contdaytow		
+        this.contdaytow.setBoundLabelText(resHelper.getString("contdaytow.boundLabelText"));		
+        this.contdaytow.setBoundLabelLength(100);		
+        this.contdaytow.setBoundLabelUnderline(true);
         // prmtparent		
         this.prmtparent.setQueryInfo("com.kingdee.eas.port.equipment.record.app.EquIdQuery");		
         this.prmtparent.setVisible(true);		
@@ -994,6 +988,9 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.prmtresPerson.setEditFormat("$number$");		
         this.prmtresPerson.setCommitFormat("$number$");		
         this.prmtresPerson.setRequired(false);
+        // pkdaytow		
+        this.pkdaytow.setRequired(false);		
+        this.pkdaytow.setEnabled(false);
         // conmader		
         this.conmader.setBoundLabelText(resHelper.getString("conmader.boundLabelText"));		
         this.conmader.setBoundLabelLength(100);		
@@ -1049,6 +1046,10 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.consourceUnit.setBoundLabelLength(100);		
         this.consourceUnit.setBoundLabelUnderline(true);		
         this.consourceUnit.setVisible(true);
+        // contdayone		
+        this.contdayone.setBoundLabelText(resHelper.getString("contdayone.boundLabelText"));		
+        this.contdayone.setBoundLabelLength(100);		
+        this.contdayone.setBoundLabelUnderline(true);
         // txtmader		
         this.txtmader.setVisible(true);		
         this.txtmader.setHorizontalAlignment(2);		
@@ -1108,6 +1109,9 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.txtsourceUnit.setHorizontalAlignment(2);		
         this.txtsourceUnit.setMaxLength(100);		
         this.txtsourceUnit.setRequired(false);
+        // pkdayone		
+        this.pkdayone.setRequired(false);		
+        this.pkdayone.setEnabled(false);
         // chkportTest		
         this.chkportTest.setText(resHelper.getString("chkportTest.text"));		
         this.chkportTest.setVisible(true);		
@@ -1198,6 +1202,16 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.txtcityPeriod.setMaximumValue( new java.math.BigDecimal("1.0E27"));		
         this.txtcityPeriod.setPrecision(1);		
         this.txtcityPeriod.setRequired(false);
+        this.txtcityPeriod.addDataChangeListener(new com.kingdee.bos.ctrl.swing.event.DataChangeListener() {
+            public void dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) {
+                try {
+                    txtcityPeriod_dataChanged(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                }
+            }
+        });
         // txtportPeriod		
         this.txtportPeriod.setVisible(true);		
         this.txtportPeriod.setHorizontalAlignment(2);		
@@ -1207,6 +1221,16 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.txtportPeriod.setMaximumValue( new java.math.BigDecimal("1.0E27"));		
         this.txtportPeriod.setPrecision(1);		
         this.txtportPeriod.setRequired(false);
+        this.txtportPeriod.addDataChangeListener(new com.kingdee.bos.ctrl.swing.event.DataChangeListener() {
+            public void dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) {
+                try {
+                    txtportPeriod_dataChanged(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                }
+            }
+        });
         // txtcode		
         this.txtcode.setVisible(true);		
         this.txtcode.setHorizontalAlignment(2);		
@@ -1343,14 +1367,6 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         kdtSpareInfo_speModel_TextField.setMaxLength(100);
         KDTDefaultCellEditor kdtSpareInfo_speModel_CellEditor = new KDTDefaultCellEditor(kdtSpareInfo_speModel_TextField);
         this.kdtSpareInfo.getColumn("speModel").setEditor(kdtSpareInfo_speModel_CellEditor);
-        // pkdayone		
-        this.pkdayone.setVisible(false);		
-        this.pkdayone.setRequired(false);		
-        this.pkdayone.setEnabled(false);
-        // pkdaytow		
-        this.pkdaytow.setVisible(false);		
-        this.pkdaytow.setRequired(false);		
-        this.pkdaytow.setEnabled(false);
         // btnRegistChange
         this.btnRegistChange.setAction((IItemAction)ActionProxyFactory.getProxy(actionRegistChange, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnRegistChange.setText(resHelper.getString("btnRegistChange.text"));
@@ -1407,10 +1423,6 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.add(contAuditTime, new KDLayout.Constraints(713, 577, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         kDTabbedPane1.setBounds(new Rectangle(8, 4, 993, 569));
         this.add(kDTabbedPane1, new KDLayout.Constraints(8, 4, 993, 569, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        contdayone.setBounds(new Rectangle(298, 649, 270, 19));
-        this.add(contdayone, new KDLayout.Constraints(298, 649, 270, 19, 0));
-        contdaytow.setBounds(new Rectangle(175, 642, 270, 19));
-        this.add(contdaytow, new KDLayout.Constraints(175, 642, 270, 19, 0));
         //contCreator
         contCreator.setBoundEditor(prmtCreator);
         //contCreateTime
@@ -1545,6 +1557,8 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         kDPanel2.add(conusingDept, new KDLayout.Constraints(355, 35, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         conresPerson.setBounds(new Rectangle(699, 35, 270, 19));
         kDPanel2.add(conresPerson, new KDLayout.Constraints(699, 35, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contdaytow.setBounds(new Rectangle(441, 11, 270, 19));
+        kDPanel2.add(contdaytow, new KDLayout.Constraints(441, 11, 270, 19, 0));
         //conparent
         conparent.setBoundEditor(prmtparent);
         //conaddress
@@ -1555,6 +1569,8 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         conusingDept.setBoundEditor(prmtusingDept);
         //conresPerson
         conresPerson.setBoundEditor(prmtresPerson);
+        //contdaytow
+        contdaytow.setBoundEditor(pkdaytow);
         //kDPanel10
         kDPanel10.setLayout(new KDLayout());
         kDPanel10.putClientProperty("OriginalBounds", new Rectangle(2, 260, 983, 116));        conmader.setBounds(new Rectangle(11, 15, 270, 19));
@@ -1579,6 +1595,8 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         kDPanel10.add(condeadline, new KDLayout.Constraints(11, 78, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         consourceUnit.setBounds(new Rectangle(355, 78, 270, 19));
         kDPanel10.add(consourceUnit, new KDLayout.Constraints(355, 78, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contdayone.setBounds(new Rectangle(660, 75, 270, 19));
+        kDPanel10.add(contdayone, new KDLayout.Constraints(660, 75, 270, 19, 0));
         //conmader
         conmader.setBoundEditor(txtmader);
         //conmadedCountry
@@ -1601,6 +1619,8 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         condeadline.setBoundEditor(pkdeadline);
         //consourceUnit
         consourceUnit.setBoundEditor(txtsourceUnit);
+        //contdayone
+        contdayone.setBoundEditor(pkdayone);
         //kDPanel11
         kDPanel11.setLayout(new KDLayout());
         kDPanel11.putClientProperty("OriginalBounds", new Rectangle(2, 380, 983, 93));        chkportTest.setBounds(new Rectangle(286, 34, 65, 19));
@@ -1675,10 +1695,6 @@ kDPanel6.setLayout(new BorderLayout(0, 0));        kdtTechnologyPar_detailPanel 
         //kDPanel7
 kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtSpareInfo,new com.kingdee.eas.port.equipment.record.EquIdSpareInfoInfo(),null,false);
         kDPanel7.add(kdtSpareInfo_detailPanel, BorderLayout.CENTER);
-        //contdayone
-        contdayone.setBoundEditor(pkdayone);
-        //contdaytow
-        contdaytow.setBoundEditor(pkdaytow);
 
     }
 
@@ -1891,6 +1907,7 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
 		dataBinder.registerBinding("location", String.class, this.txtlocation, "text");
 		dataBinder.registerBinding("usingDept", com.kingdee.eas.basedata.org.AdminOrgUnitInfo.class, this.prmtusingDept, "data");
 		dataBinder.registerBinding("resPerson", com.kingdee.eas.basedata.person.PersonInfo.class, this.prmtresPerson, "data");
+		dataBinder.registerBinding("daytow", java.util.Date.class, this.pkdaytow, "value");
 		dataBinder.registerBinding("mader", String.class, this.txtmader, "text");
 		dataBinder.registerBinding("madedCountry", com.kingdee.eas.basedata.assistant.CountryInfo.class, this.prmtmadedCountry, "data");
 		dataBinder.registerBinding("madeDate", java.util.Date.class, this.pkmadeDate, "value");
@@ -1902,6 +1919,7 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
 		dataBinder.registerBinding("checkDate", java.util.Date.class, this.pkcheckDate, "value");
 		dataBinder.registerBinding("deadline", java.util.Date.class, this.pkdeadline, "value");
 		dataBinder.registerBinding("sourceUnit", String.class, this.txtsourceUnit, "text");
+		dataBinder.registerBinding("dayone", java.util.Date.class, this.pkdayone, "value");
 		dataBinder.registerBinding("portTest", boolean.class, this.chkportTest, "selected");
 		dataBinder.registerBinding("cityTest", boolean.class, this.chkcityTest, "selected");
 		dataBinder.registerBinding("testDay", java.util.Date.class, this.testDay, "value");
@@ -1927,9 +1945,7 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
 		dataBinder.registerBinding("SpareInfo.seq", int.class, this.kdtSpareInfo, "seq.text");
 		dataBinder.registerBinding("SpareInfo", com.kingdee.eas.port.equipment.record.EquIdSpareInfoInfo.class, this.kdtSpareInfo, "userObject");
 		dataBinder.registerBinding("SpareInfo.materialName", String.class, this.kdtSpareInfo, "materialName.text");
-		dataBinder.registerBinding("SpareInfo.speModel", String.class, this.kdtSpareInfo, "speModel.text");
-		dataBinder.registerBinding("dayone", java.util.Date.class, this.pkdayone, "value");
-		dataBinder.registerBinding("daytow", java.util.Date.class, this.pkdaytow, "value");		
+		dataBinder.registerBinding("SpareInfo.speModel", String.class, this.kdtSpareInfo, "speModel.text");		
 	}
 	//Regiester UI State
 	private void registerUIState(){		
@@ -2102,6 +2118,7 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
 		getValidateHelper().registerBindProperty("location", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("usingDept", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("resPerson", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("daytow", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("mader", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("madedCountry", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("madeDate", ValidateHelper.ON_SAVE);    
@@ -2113,6 +2130,7 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
 		getValidateHelper().registerBindProperty("checkDate", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("deadline", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("sourceUnit", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("dayone", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("portTest", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("cityTest", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("testDay", ValidateHelper.ON_SAVE);    
@@ -2138,9 +2156,7 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
 		getValidateHelper().registerBindProperty("SpareInfo.seq", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("SpareInfo", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("SpareInfo.materialName", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("SpareInfo.speModel", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("dayone", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("daytow", ValidateHelper.ON_SAVE);    		
+		getValidateHelper().registerBindProperty("SpareInfo.speModel", ValidateHelper.ON_SAVE);    		
 	}
 
 
@@ -2169,6 +2185,20 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
      * output prmttype_dataChanged method
      */
     protected void prmttype_dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) throws Exception
+    {
+    }
+
+    /**
+     * output txtcityPeriod_dataChanged method
+     */
+    protected void txtcityPeriod_dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) throws Exception
+    {
+    }
+
+    /**
+     * output txtportPeriod_dataChanged method
+     */
+    protected void txtportPeriod_dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) throws Exception
     {
     }
 
@@ -2351,6 +2381,7 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
         	sic.add(new SelectorItemInfo("resPerson.number"));
         	sic.add(new SelectorItemInfo("resPerson.name"));
 		}
+        sic.add(new SelectorItemInfo("daytow"));
         sic.add(new SelectorItemInfo("mader"));
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
@@ -2394,6 +2425,7 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
         sic.add(new SelectorItemInfo("checkDate"));
         sic.add(new SelectorItemInfo("deadline"));
         sic.add(new SelectorItemInfo("sourceUnit"));
+        sic.add(new SelectorItemInfo("dayone"));
         sic.add(new SelectorItemInfo("portTest"));
         sic.add(new SelectorItemInfo("cityTest"));
         sic.add(new SelectorItemInfo("testDay"));
@@ -2454,8 +2486,6 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
 		}
     	sic.add(new SelectorItemInfo("SpareInfo.materialName"));
     	sic.add(new SelectorItemInfo("SpareInfo.speModel"));
-        sic.add(new SelectorItemInfo("dayone"));
-        sic.add(new SelectorItemInfo("daytow"));
         return sic;
     }        
     	

@@ -5,7 +5,10 @@ package com.kingdee.eas.port.equipment.record.client;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.EventListener;
 import java.util.HashMap;
 import java.util.Vector;
 
@@ -16,11 +19,13 @@ import org.apache.log4j.Logger;
 import com.kingdee.bos.BOSException;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.swing.KDCheckBox;
+import com.kingdee.bos.ctrl.swing.KDFormattedTextField;
 import com.kingdee.bos.ctrl.swing.KDMenuItem;
 import com.kingdee.bos.ctrl.swing.KDTextField;
 import com.kingdee.bos.ctrl.swing.KDWorkButton;
 import com.kingdee.bos.ctrl.swing.StringUtils;
 import com.kingdee.bos.ctrl.swing.event.DataChangeEvent;
+import com.kingdee.bos.ctrl.swing.event.DataChangeListener;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
@@ -96,6 +101,8 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 		super.loadFields();
 		attachListeners();
 		tzsbStatus.setEnabled(true);
+		pktextDate1.setEnabled(true);
+		
 	}
 
 	/**
@@ -108,12 +115,27 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 	public void onLoad() throws Exception {
 		tzsbStatus.setEnabled(false);
 		combosbStatus.setEnabled(false);
+		pktextDate1.setEnabled(false);
+		testDay.setEnabled(false);
+
+		if(chkcityTest.getSelected() == 32){
+			txtcityPeriod.setEnabled(true);
+		}else{
+			txtcityPeriod.setEnabled(false);
+			txtcityPeriod.setValue(null);
+		}
+		if(chkportTest.getSelected() == 32){
+			txtportPeriod.setEnabled(true);
+		}else{
+			txtportPeriod.setEnabled(false);
+			txtportPeriod.setValue(null);
+		}
 		super.onLoad();
 		FaCatPromptBox facatBox = new FaCatPromptBox();
 		facatBox.setACompanyOrgUnitInfo(SysContext.getSysContext()
 				.getCurrentFIUnit());
 		this.prmttype.setSelector(facatBox);
-		
+	
 		setTzsbState(false);
 		
 		
@@ -198,7 +220,64 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 //		}else if(chkspecial.getSelected() == 32){
 //			kDPanel11.setEnabled(false);	
 //		}
+		txtcityPeriod.setEnabled(false);
+		txtportPeriod.setEnabled(false);
+		//市检布尔
+		chkcityTest.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				if(chkcityTest.getSelected() == 32){
+					txtcityPeriod.setEnabled(true);
+				}else{
+					txtcityPeriod.setEnabled(false);
+					txtcityPeriod.setValue(null);
+				}
+			}
+		});
+		//港检布尔
+		chkportTest.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				if(chkportTest.getSelected() == 32){
+					txtportPeriod.setEnabled(true);
+				}else{
+					txtportPeriod.setEnabled(false);
+					txtportPeriod.setValue(null);
+				}
+			}
+		});
+	
 	}
+	
+	//市检值改变事件
+	protected void txtcityPeriod_dataChanged(DataChangeEvent e)
+			throws Exception {
+		super.txtcityPeriod_dataChanged(e);
+			if(pktextDate1.getValue() !=null && txtcityPeriod.getBigDecimalValue() !=null){
+					Calendar ca = Calendar.getInstance();
+					ca.setTime(this.pktextDate1.getSqlDate());
+					ca.add(Calendar.YEAR,txtcityPeriod.getBigIntegerValue().intValue());
+					pkdayone.setValue(ca.getTime());
+						if(pkdayone.getValue() !=null){
+							pktextDate1.setValue(pkdayone.getValue());
+						}
+			}
+		
+	}
+	
+	//港检值改变事件
+	protected void txtportPeriod_dataChanged(DataChangeEvent e)
+			throws Exception {
+		super.txtportPeriod_dataChanged(e);
+		if(testDay.getValue() !=null && txtportPeriod.getBigDecimalValue() !=null){
+			Calendar ca = Calendar.getInstance();
+			ca.setTime(this.testDay.getSqlDate());
+			ca.add(Calendar.YEAR,txtportPeriod.getBigIntegerValue().intValue());
+			pkdaytow.setValue(ca.getTime());
+				if(pkdaytow.getValue() !=null){
+					testDay.setValue(pkdaytow.getValue());
+				}
+	}
+	}
+	
 	 protected void initWorkButton()
 	    {
 	        super.initWorkButton();
@@ -1320,6 +1399,8 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 		sic.add(new SelectorItemInfo("assetValue"));
 		sic.add(new SelectorItemInfo("sbdescription"));
 		sic.add(new SelectorItemInfo("textDate1"));
+		sic.add(new SelectorItemInfo("daytow"));
+		sic.add(new SelectorItemInfo("dayone"));
 		return sic;
 	}
 	
