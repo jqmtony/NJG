@@ -324,7 +324,7 @@ public class ImportEquIdUI extends AbstractImportEquIdUI
 		FilterInfo filterInfo = new FilterInfo();
 		if(getUIContext().get("equID")!=null&&((Set)getUIContext().get("equID")).size()>0)
 			filterInfo.getFilterItems().add(new FilterItemInfo("id",getUIContext().get("equID"),CompareType.NOTINCLUDE));
-		if(getUIContext().get("yearPlan")!=null)
+//		if(getUIContext().get("yearPlan")!=null)
 			filterInfo.getFilterItems().add(new FilterItemInfo("special","1",CompareType.EQUALS));
 		
 		filterInfo.getFilterItems().add(new FilterItemInfo("sbStatus","3",CompareType.NOTEQUALS));

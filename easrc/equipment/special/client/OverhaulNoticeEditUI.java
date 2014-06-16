@@ -5,6 +5,7 @@ package com.kingdee.eas.port.equipment.special.client;
 
 import java.awt.BorderLayout;
 import java.awt.event.*;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -779,7 +780,10 @@ public class OverhaulNoticeEditUI extends AbstractOverhaulNoticeEditUI
 			kdtE1_equNumber_PromptBox.setEntityViewInfo(evi);
 			 KDTDefaultCellEditor kdtEntry_feeType_CellEditor = new KDTDefaultCellEditor(kdtE1_equNumber_PromptBox);
 			 kdtEntry.getColumn("zdaNumber").setEditor(kdtEntry_feeType_CellEditor);
-			 
+				if(getOprtState().equals(OprtState.ADDNEW)){
+					  pknoticeDate.setValue(new Date());
+					  prmtCU.setValue(SysContext.getSysContext().getCurrentCtrlUnit());
+					}
 			
 	}
 	
