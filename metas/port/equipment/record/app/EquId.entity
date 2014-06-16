@@ -811,6 +811,32 @@
             </parameters>
             <configured>false</configured>
         </method>
+        <method>
+            <name>excelFoced</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].methods.method[excelFoced].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].methods.method[excelFoced].description</description>
+            <innerID>21564225-5d78-4ef9-93dd-13f12fe0d55e</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].methods.method[excelFoced].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].methods.method[excelFoced].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.port.equipment.record.app.EquId</metadataRef>
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
     </methods>
     <isAbstract>false</isAbstract>
     <bizUnitPK>com.kingdee.eas.port.equipment.record.EquId</bizUnitPK>
@@ -2165,6 +2191,48 @@
                 </formalParameter>
             </formalParameters>
         </event>
+        <event>
+            <name>excelFocedEvent</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[excelFocedEvent].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[excelFocedEvent].description</description>
+            <userDefined>true</userDefined>
+            <eventMethods>
+                <eventMethod>
+                    <name>21564225-5d78-4ef9-93dd-13f12fe0d55e</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[excelFocedEvent].eventMethods.eventMethod[21564225-5d78-4ef9-93dd-13f12fe0d55e].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[excelFocedEvent].eventMethods.eventMethod[21564225-5d78-4ef9-93dd-13f12fe0d55e].description</description>
+                    <entityMethodRef>
+                        <key name="name" value="excelFoced" />
+                        <key name="innerID" value="21564225-5d78-4ef9-93dd-13f12fe0d55e" />
+                    </entityMethodRef>
+                    <parameterMappings>
+                        <parameterMapping>
+                            <name />
+                            <alias>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[excelFocedEvent].eventMethods.eventMethod[21564225-5d78-4ef9-93dd-13f12fe0d55e].parameterMappings.parameterMappingalias</alias>
+                            <description>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[excelFocedEvent].eventMethods.eventMethod[21564225-5d78-4ef9-93dd-13f12fe0d55e].parameterMappings.parameterMappingdescription</description>
+                            <formalParameterInnerID>ae2d7924-3c6b-46d1-87f5-c66b3346ec5aevfp</formalParameterInnerID>
+                            <actualParameterIndex>0</actualParameterIndex>
+                            <isBOPK>true</isBOPK>
+                        </parameterMapping>
+                    </parameterMappings>
+                </eventMethod>
+            </eventMethods>
+            <formalParameters>
+                <formalParameter>
+                    <innerID>ae2d7924-3c6b-46d1-87f5-c66b3346ec5aevfp</innerID>
+                    <userDefined>true</userDefined>
+                    <parameter>
+                        <name>model</name>
+                        <alias>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[excelFocedEvent].formalParameters.formalParameter.parameter[model].alias</alias>
+                        <description>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[excelFocedEvent].formalParameters.formalParameter.parameter[model].description</description>
+                        <direction>in</direction>
+                        <dataType>ObjectValue</dataType>
+                        <metadataRef>com.kingdee.eas.port.equipment.record.app.EquId</metadataRef>
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </formalParameter>
+            </formalParameters>
+        </event>
     </events>
     <defaultView>
         <name />
@@ -2332,6 +2400,54 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[excelEvent].formalParameters.formalParameter.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[excelFocedEvent].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="导出模板事件" />
+            <lang locale="zh_HK" value="導出範本事件" />
+            <lang locale="zh_TW" value="導出範本事件" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[excelFocedEvent].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[excelFocedEvent].eventMethods.eventMethod[21564225-5d78-4ef9-93dd-13f12fe0d55e].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[excelFocedEvent].eventMethods.eventMethod[21564225-5d78-4ef9-93dd-13f12fe0d55e].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[excelFocedEvent].eventMethods.eventMethod[21564225-5d78-4ef9-93dd-13f12fe0d55e].parameterMappings.parameterMappingalias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[excelFocedEvent].eventMethods.eventMethod[21564225-5d78-4ef9-93dd-13f12fe0d55e].parameterMappings.parameterMappingdescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[excelFocedEvent].formalParameters.formalParameter.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[excelFocedEvent].formalParameters.formalParameter.parameter[model].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -2684,6 +2800,30 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].methods.method[delete].parameters.parameter[pk].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].methods.method[excelFoced].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="导出模板" />
+            <lang locale="zh_HK" value="導出範本" />
+            <lang locale="zh_TW" value="導出範本" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].methods.method[excelFoced].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].methods.method[excelFoced].parameters.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].methods.method[excelFoced].parameters.parameter[model].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
