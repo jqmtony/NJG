@@ -737,6 +737,7 @@ public class EqmOverhaulEditUI extends AbstractEqmOverhaulEditUI
 		
 		prmtprojectNumber.addDataChangeListener(new DataChangeListener(){
 			public void dataChanged(DataChangeEvent e) {
+				if(prmtprojectNumber.getValue() != null){
 				String id = ((ProjectInfo)prmtprojectNumber.getData()).getId().toString();
 				try {
 					ProjectInfo ppInfo = ProjectFactory.getRemoteInstance().getProjectInfo(new ObjectUuidPK(id));
@@ -757,7 +758,11 @@ public class EqmOverhaulEditUI extends AbstractEqmOverhaulEditUI
 						ProjectAuditSettlementInfo pasInfo = ProjectAuditSettlementFactory.getRemoteInstance().getProjectAuditSettlementCollection(oql).get(0);
 						if(pasInfo.getFinalAmount()!=null){
 							txtexpenseAccount.setValue(pasInfo.getFinalAmount());//决算费用取之项目管理项目审计决算的终审金额
+						}else{
+							txtexpenseAccount.setValue(null);
 						}
+					}else{
+						txtexpenseAccount.setValue(null);
 					}
 						prmtprojectName.setValue(ppInfo);
 						if(ppInfo.getPrjManager()!=null)
@@ -765,6 +770,8 @@ public class EqmOverhaulEditUI extends AbstractEqmOverhaulEditUI
 							String id1 = ((PersonInfo)ppInfo.getPrjManager()).getId().toString();
 							PersonInfo psInfo = PersonFactory.getRemoteInstance().getPersonInfo(new ObjectUuidPK(id1));
 							prmtprojectLeader.setValue(psInfo);
+						}else{
+							prmtprojectLeader.setValue(null);
 						}
 					
 				} catch (EASBizException e1) {
@@ -773,6 +780,12 @@ public class EqmOverhaulEditUI extends AbstractEqmOverhaulEditUI
 					e1.printStackTrace();
 				}
 				
+		    	}else{
+		    		txtplanCost.setValue(null);
+		    		txtexpenseAccount.setValue(null);
+		    		prmtprojectLeader.setValue(null);
+		    		prmtprojectName.setValue(null);
+		    	}
 			}
 		});
 		if(comboStatus.getSelectedItem().equals(XRBillStatusEnum.COMPLETE)){

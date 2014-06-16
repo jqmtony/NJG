@@ -4,6 +4,8 @@
 package com.kingdee.eas.port.equipment.maintenance.client;
 
 import java.awt.event.*;
+import java.util.Date;
+
 import org.apache.log4j.Logger;
 
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
@@ -12,6 +14,7 @@ import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.framework.*;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
@@ -699,5 +702,9 @@ public class RepairOrderEditUI extends AbstractRepairOrderEditUI
 		 filter.getFilterItems().add(new FilterItemInfo("ssOrgUnit.id",id ,CompareType.EQUALS));
 		 evi.setFilter(filter);
 		 prmtequName.setEntityViewInfo(evi);
+		 if(getOprtState().equals(OprtState.ADDNEW)){
+			 pkBizDate.setValue(new Date());
+			 prmtCU.setValue(SysContext.getSysContext().getCurrentCtrlUnit());
+		 }
 	}
 }

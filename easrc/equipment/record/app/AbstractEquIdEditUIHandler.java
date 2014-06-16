@@ -34,4 +34,9 @@ public abstract class AbstractEquIdEditUIHandler extends com.kingdee.eas.xr.app.
 	}
 	protected void _handleActionExcel(RequestContext request,ResponseContext response, Context context) throws Exception {
 	}
+	public void handleActionExcelFoced(RequestContext request,ResponseContext response, Context context) throws Exception {
+		_handleActionExcelFoced(request,response,context);
+	}
+	protected void _handleActionExcelFoced(RequestContext request,ResponseContext response, Context context) throws Exception {
+	}
 }

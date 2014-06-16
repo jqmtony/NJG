@@ -93,7 +93,12 @@ public class RepairOrderControllerBean extends AbstractRepairOrderControllerBean
 			RepairOrderInfo roInfo = getRepairOrderInfo(ctx, pk);
 				if(roInfo.getSourceBillId() != null){
 					MonMainPlanE1Info mmeInfo = MonMainPlanE1Factory.getLocalInstance(ctx).getMonMainPlanE1Info(new ObjectUuidPK(roInfo.getSourceBillId()));
-					mmeInfo.setActualCompleteT(roInfo.getTransferTime());
+					if(roInfo.getTransferTime()!=null){
+						mmeInfo.setActualCompleteT(roInfo.getTransferTime());
+					}
+					if(roInfo.getAcceptSituation() !=null){
+						mmeInfo.setComplete(roInfo.getAcceptSituation());
+					}
 					MonMainPlanE1Factory.getLocalInstance(ctx).update((new ObjectUuidPK(mmeInfo.getId())),mmeInfo);
 				}
 			

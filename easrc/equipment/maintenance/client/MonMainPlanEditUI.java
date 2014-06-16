@@ -4,6 +4,8 @@
 package com.kingdee.eas.port.equipment.maintenance.client;
 
 import java.awt.event.*;
+import java.util.Date;
+
 import org.apache.log4j.Logger;
 
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
@@ -12,6 +14,7 @@ import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.framework.*;
 import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
@@ -39,6 +42,7 @@ public class MonMainPlanEditUI extends AbstractMonMainPlanEditUI
     public void loadFields()
     {
         super.loadFields();
+        txtplanTotalCost.setEnabled(false);
     }
 
     /**
@@ -711,5 +715,9 @@ public class MonMainPlanEditUI extends AbstractMonMainPlanEditUI
 			kdtE1_equNumber_PromptBox.setEntityViewInfo(evi);
 			 KDTDefaultCellEditor kdtEntry_feeType_CellEditor = new KDTDefaultCellEditor(kdtE1_equNumber_PromptBox);
 			 kdtE1.getColumn("equNumber").setEditor(kdtEntry_feeType_CellEditor);
+			 if(getOprtState().equals(OprtState.ADDNEW)){
+				 pkBizDate.setValue(new Date());
+				 prmtCU.setValue(SysContext.getSysContext().getCurrentCtrlUnit());
+			 }
 	}
 }

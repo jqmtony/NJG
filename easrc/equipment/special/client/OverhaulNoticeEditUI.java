@@ -4,13 +4,23 @@
 package com.kingdee.eas.port.equipment.special.client;
 
 import java.awt.BorderLayout;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 import org.apache.log4j.Logger;
 
+import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
+import com.kingdee.bos.ctrl.kdf.table.IRow;
+import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
+import com.kingdee.bos.ctrl.kdf.table.KDTable;
+import com.kingdee.bos.ctrl.swing.KDTextField;
+import com.kingdee.bos.ctrl.swing.KDWorkButton;
+import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
@@ -20,31 +30,22 @@ import com.kingdee.bos.ui.face.IUIWindow;
 import com.kingdee.bos.ui.face.UIException;
 import com.kingdee.bos.ui.face.UIFactory;
 import com.kingdee.bos.ui.face.UIRuleUtil;
-import com.kingdee.bos.dao.IObjectValue;
-import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.common.client.UIContext;
 import com.kingdee.eas.common.client.UIFactoryName;
-import com.kingdee.eas.framework.*;
 import com.kingdee.eas.port.equipment.base.ISpecialCheckItem;
 import com.kingdee.eas.port.equipment.base.SpecialCheckItemCollection;
 import com.kingdee.eas.port.equipment.base.SpecialCheckItemFactory;
+import com.kingdee.eas.port.equipment.base.enumbase.CheckType;
 import com.kingdee.eas.port.equipment.record.EquIdFactory;
 import com.kingdee.eas.port.equipment.record.EquIdInfo;
 import com.kingdee.eas.port.equipment.record.IEquId;
 import com.kingdee.eas.port.equipment.special.OverhaulNoticeFactory;
 import com.kingdee.eas.port.equipment.uitl.ToolHelp;
 import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
-import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.xr.app.XRBillStatusEnum;
-import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
-import com.kingdee.bos.ctrl.kdf.table.IRow;
-import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
-import com.kingdee.bos.ctrl.kdf.table.KDTable;
-import com.kingdee.bos.ctrl.swing.KDTextField;
-import com.kingdee.bos.ctrl.swing.KDWorkButton;
 
 /**
  * output class name
@@ -52,6 +53,7 @@ import com.kingdee.bos.ctrl.swing.KDWorkButton;
 public class OverhaulNoticeEditUI extends AbstractOverhaulNoticeEditUI
 {
     private static final Logger logger = CoreUIObject.getLogger(OverhaulNoticeEditUI.class);
+
     
     /**
      * output class constructor
@@ -720,8 +722,59 @@ public class OverhaulNoticeEditUI extends AbstractOverhaulNoticeEditUI
 		return null;
 	}
 	
+	
+	private void toBotp() throws Exception
+	{
+		Set set = new HashSet();
+		for (int i = 0; i <kdtEntry.getRowCount(); i++) 
+			if(UIRuleUtil.isNotNull(this.kdtEntry.getCell(i, "zdaNumber").getValue()))
+				set.add(((EquIdInfo)this.kdtEntry.getCell(i, "zdaNumber").getValue()).getId().toString());
+		
+		this.kdtEntry.removeRows();
+		Iterator Iterator = set.iterator();
+		ISpecialCheckItem Ispecial = SpecialCheckItemFactory.getRemoteInstance();
+		IEquId IequId = EquIdFactory.getRemoteInstance();
+		while(Iterator.hasNext())
+		{
+			String selectId = Iterator.next().toString();
+			IRow row = this.kdtEntry.addRow();
+			
+			EquIdInfo equIdInfo = IequId.getEquIdInfo(new ObjectUuidPK(selectId));
+			
+			row.getCell("zdaNumber").setValue(equIdInfo);
+
+			String equName = UIRuleUtil.getString(UIRuleUtil.getProperty((IObjectValue)row.getCell("zdaNumber").getValue(),"name"));
+			row.getCell("equipmentName").setValue(equName);
+			
+			if(equIdInfo.getEqmType()!=null)
+			{
+				String oql = "select id,name,number where type.id='"+equIdInfo.getEqmType().getId()+"'";
+				SpecialCheckItemCollection specialCheckItemCollection = Ispecial.getSpecialCheckItemCollection(oql);
+				for (int j = 0; j < specialCheckItemCollection.size(); j++) 
+				{
+					if(j==0)
+					{
+						row.getCell("noCheckItem").setValue(specialCheckItemCollection.get(j));
+					}
+					else
+					{
+						IRow itemrow = this.kdtEntry.addRow();
+						itemrow.getCell("zdaNumber").setValue(equIdInfo);
+						itemrow.getCell("equipmentName").setValue(equName);
+						itemrow.getCell("noCheckItem").setValue(specialCheckItemCollection.get(j));
+					}
+				}
+			}
+		}
+		ToolHelp.mergeThemeRow( this.kdtEntry, "zdaNumber");
+	}
+	
 	public void onLoad() throws Exception {
 		this.kdtEntry.getColumn("seq").getStyleAttributes().setHided(true);
+		this.kdtEntry.getColumn("zdaNumber").getStyleAttributes().setLocked(true);
+		this.kdtEntry.getColumn("equipmentName").getStyleAttributes().setLocked(true);
+		this.kdtEntry.getColumn("noCheckItem").getStyleAttributes().setLocked(true);
+		
 		if(getUIContext().get("FeedInfor")!=null)
 		{
 			pkBizDate.setEnabled(false);
@@ -783,8 +836,8 @@ public class OverhaulNoticeEditUI extends AbstractOverhaulNoticeEditUI
 				if(getOprtState().equals(OprtState.ADDNEW)){
 					  pknoticeDate.setValue(new Date());
 					  prmtCU.setValue(SysContext.getSysContext().getCurrentCtrlUnit());
+					  toBotp();
 					}
-			
 	}
 	
 	 protected void initWorkButton()
@@ -837,14 +890,14 @@ public class OverhaulNoticeEditUI extends AbstractOverhaulNoticeEditUI
 		this.kDContainer1.getContentPane().add(kdtEntry, BorderLayout.CENTER);
 		KDWorkButton  addnewButton =kdtEntry_detailPanel.getAddNewLineButton();
 		addnewButton.setText("新增行");
+		addnewButton.setVisible(false);
 		KDWorkButton RemoveButton =kdtEntry_detailPanel.getRemoveLinesButton();
 		RemoveButton.setText("删除行");
+		RemoveButton.setVisible(false);
 		this.kDContainer1.addButton(addnewButton);
 		this.kDContainer1.addButton(RemoveButton);
-		
 		if(addnewButton.getActionListeners()[0]!=null)
 			addnewButton.removeActionListener(addnewButton.getActionListeners()[0]);
-		
 		addnewButton.addActionListener(new ActionListener(){
 
 			public void actionPerformed(ActionEvent e) {

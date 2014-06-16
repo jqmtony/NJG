@@ -49,12 +49,14 @@ public abstract class AbstractEquIdListUI extends com.kingdee.eas.xr.client.XRBi
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btninUse;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnoutUse;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnExcel;
+    protected com.kingdee.bos.ctrl.swing.KDWorkButton btnExcelFoced;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnImportFacard;
     protected ActionInUse actionInUse = null;
     protected ActionOutUse actionOutUse = null;
     protected ActionRegistChange actionRegistChange = null;
     protected ActionExcel actionExcel = null;
     protected actionImportFacard actionImportFacard = null;
+    protected ActionExcelFoced actionExcelFoced = null;
     /**
      * output class constructor
      */
@@ -127,13 +129,23 @@ public abstract class AbstractEquIdListUI extends com.kingdee.eas.xr.client.XRBi
         this.actionImportFacard = new actionImportFacard(this);
         getActionManager().registerAction("actionImportFacard", actionImportFacard);
          this.actionImportFacard.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+        //actionExcelFoced
+        this.actionExcelFoced = new ActionExcelFoced(this);
+        getActionManager().registerAction("actionExcelFoced", actionExcelFoced);
+        this.actionExcelFoced.setExtendProperty("canForewarn", "true");
+        this.actionExcelFoced.setExtendProperty("userDefined", "true");
+        this.actionExcelFoced.setExtendProperty("isObjectUpdateLock", "false");
+         this.actionExcelFoced.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+         this.actionExcelFoced.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
         this.btninUse = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btnoutUse = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btnExcel = new com.kingdee.bos.ctrl.swing.KDWorkButton();
+        this.btnExcelFoced = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btnImportFacard = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btninUse.setName("btninUse");
         this.btnoutUse.setName("btnoutUse");
         this.btnExcel.setName("btnExcel");
+        this.btnExcelFoced.setName("btnExcelFoced");
         this.btnImportFacard.setName("btnImportFacard");
         // CoreUI
 		String tblMainStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol14\"><c:Protection locked=\"true\" hidden=\"true\" /></c:Style><c:Style id=\"sCol15\"><c:Protection locked=\"true\" hidden=\"true\" /></c:Style><c:Style id=\"sCol17\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol18\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol22\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol23\"><c:NumberFormat>&amp;date</c:NumberFormat></c:Style><c:Style id=\"sCol24\"><c:Protection hidden=\"true\" /><c:NumberFormat>&amp;date</c:NumberFormat></c:Style><c:Style id=\"sCol25\"><c:Protection hidden=\"true\" /><c:NumberFormat>&amp;date</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"model\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"size\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"weight\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"qyDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"serialNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"sbStatus\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"special\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"ccNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"tzdaNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"tzsbStatus\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"assetValue\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"EqmCategory\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"wxOrgUnit.id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol14\" /><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol15\" /><t:Column t:key=\"specialType.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"cityPeriod\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol17\" /><t:Column t:key=\"portPeriod\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol18\" /><t:Column t:key=\"code\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"engineNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"carNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"ratedWeight\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol22\" /><t:Column t:key=\"textDate1\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol23\" /><t:Column t:key=\"dayone\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol24\" /><t:Column t:key=\"daytow\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol25\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{name}</t:Cell><t:Cell>$Resource{model}</t:Cell><t:Cell>$Resource{size}</t:Cell><t:Cell>$Resource{weight}</t:Cell><t:Cell>$Resource{qyDate}</t:Cell><t:Cell>$Resource{serialNumber}</t:Cell><t:Cell>$Resource{sbStatus}</t:Cell><t:Cell>$Resource{special}</t:Cell><t:Cell>$Resource{ccNumber}</t:Cell><t:Cell>$Resource{tzdaNumber}</t:Cell><t:Cell>$Resource{tzsbStatus}</t:Cell><t:Cell>$Resource{assetValue}</t:Cell><t:Cell>$Resource{EqmCategory}</t:Cell><t:Cell>$Resource{number}</t:Cell><t:Cell>$Resource{wxOrgUnit.id}</t:Cell><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{specialType.name}</t:Cell><t:Cell>$Resource{cityPeriod}</t:Cell><t:Cell>$Resource{portPeriod}</t:Cell><t:Cell>$Resource{code}</t:Cell><t:Cell>$Resource{engineNumber}</t:Cell><t:Cell>$Resource{carNumber}</t:Cell><t:Cell>$Resource{ratedWeight}</t:Cell><t:Cell>$Resource{textDate1}</t:Cell><t:Cell>$Resource{dayone}</t:Cell><t:Cell>$Resource{daytow}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
@@ -155,6 +167,9 @@ public abstract class AbstractEquIdListUI extends com.kingdee.eas.xr.client.XRBi
         // btnExcel
         this.btnExcel.setAction((IItemAction)ActionProxyFactory.getProxy(actionExcel, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnExcel.setText(resHelper.getString("btnExcel.text"));
+        // btnExcelFoced
+        this.btnExcelFoced.setAction((IItemAction)ActionProxyFactory.getProxy(actionExcelFoced, new Class[] { IItemAction.class }, getServiceContext()));		
+        this.btnExcelFoced.setText(resHelper.getString("btnExcelFoced.text"));
         // btnImportFacard
         this.btnImportFacard.setAction((IItemAction)ActionProxyFactory.getProxy(actionImportFacard, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnImportFacard.setText(resHelper.getString("btnImportFacard.text"));
@@ -299,6 +314,7 @@ public abstract class AbstractEquIdListUI extends com.kingdee.eas.xr.client.XRBi
         this.toolBar.add(btninUse);
         this.toolBar.add(btnoutUse);
         this.toolBar.add(btnExcel);
+        this.toolBar.add(btnExcelFoced);
         this.toolBar.add(btnImportFacard);
         this.toolBar.add(btnQuery);
         this.toolBar.add(btnLocate);
@@ -547,6 +563,17 @@ com.kingdee.eas.port.equipment.record.EquIdFactory.getRemoteInstance().excel(edi
     public void actionImportFacard_actionPerformed(ActionEvent e) throws Exception
     {
     }
+    	
+
+    /**
+     * output actionExcelFoced_actionPerformed method
+     */
+    public void actionExcelFoced_actionPerformed(ActionEvent e) throws Exception
+    {
+        if (getSelectedKeyValue() == null) return;
+com.kingdee.eas.port.equipment.record.EquIdInfo editData = (com.kingdee.eas.port.equipment.record.EquIdInfo)getBizInterface().getValue(new com.kingdee.bos.dao.ormapping.ObjectUuidPK(BOSUuid.read(getSelectedKeyValue())));
+com.kingdee.eas.port.equipment.record.EquIdFactory.getRemoteInstance().excelFoced(editData);
+    }
 	public RequestContext prepareActionRemove(IItemAction itemAction) throws Exception {
 			RequestContext request = super.prepareActionRemove(itemAction);		
 		if (request != null) {
@@ -611,6 +638,17 @@ com.kingdee.eas.port.equipment.record.EquIdFactory.getRemoteInstance().excel(edi
     }
 	
 	public boolean isPrepareactionImportFacard() {
+    	return false;
+    }
+	public RequestContext prepareActionExcelFoced(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionExcelFoced() {
     	return false;
     }
 
@@ -762,6 +800,36 @@ com.kingdee.eas.port.equipment.record.EquIdFactory.getRemoteInstance().excel(edi
         {
         	getUIContext().put("ORG.PK", getOrgPK(this));
             innerActionPerformed("eas", AbstractEquIdListUI.this, "actionImportFacard", "actionImportFacard_actionPerformed", e);
+        }
+    }
+
+    /**
+     * output ActionExcelFoced class
+     */     
+    protected class ActionExcelFoced extends ItemAction {     
+    
+        public ActionExcelFoced()
+        {
+            this(null);
+        }
+
+        public ActionExcelFoced(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            _tempStr = resHelper.getString("ActionExcelFoced.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionExcelFoced.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionExcelFoced.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractEquIdListUI.this, "ActionExcelFoced", "actionExcelFoced_actionPerformed", e);
         }
     }
 

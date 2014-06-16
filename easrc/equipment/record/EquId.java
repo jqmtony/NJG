@@ -439,4 +439,17 @@ public class EquId extends XRBillBase implements IEquId
             throw new EJBRemoteException(err);
         }
     }
+    /**
+     *µ¼³öÄ£°å-User defined method
+     *@param model model
+     */
+    public void excelFoced(EquIdInfo model) throws BOSException
+    {
+        try {
+            getController().excelFoced(getContext(), model);
+        }
+        catch(RemoteException err) {
+            throw new EJBRemoteException(err);
+        }
+    }
 }

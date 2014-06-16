@@ -199,6 +199,7 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
     protected ActionOutUse actionOutUse = null;
     protected ActionRegistChange actionRegistChange = null;
     protected ActionExcel actionExcel = null;
+    protected ActionExcelFoced actionExcelFoced = null;
     /**
      * output class constructor
      */
@@ -280,6 +281,14 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.actionExcel.setExtendProperty("isObjectUpdateLock", "false");
          this.actionExcel.addService(new com.kingdee.eas.framework.client.service.PermissionService());
          this.actionExcel.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
+        //actionExcelFoced
+        this.actionExcelFoced = new ActionExcelFoced(this);
+        getActionManager().registerAction("actionExcelFoced", actionExcelFoced);
+        this.actionExcelFoced.setExtendProperty("canForewarn", "true");
+        this.actionExcelFoced.setExtendProperty("userDefined", "true");
+        this.actionExcelFoced.setExtendProperty("isObjectUpdateLock", "false");
+         this.actionExcelFoced.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+         this.actionExcelFoced.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
         this.contCreator = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contCreateTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contLastUpdateUser = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -2542,6 +2551,15 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
     {
         com.kingdee.eas.port.equipment.record.EquIdFactory.getRemoteInstance().excel(editData);
     }
+    	
+
+    /**
+     * output actionExcelFoced_actionPerformed method
+     */
+    public void actionExcelFoced_actionPerformed(ActionEvent e) throws Exception
+    {
+        com.kingdee.eas.port.equipment.record.EquIdFactory.getRemoteInstance().excelFoced(editData);
+    }
 	public RequestContext prepareActionSubmit(IItemAction itemAction) throws Exception {
 			RequestContext request = super.prepareActionSubmit(itemAction);		
 		if (request != null) {
@@ -2606,6 +2624,17 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
     }
 	
 	public boolean isPrepareActionExcel() {
+    	return false;
+    }
+	public RequestContext prepareActionExcelFoced(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionExcelFoced() {
     	return false;
     }
 
@@ -2726,6 +2755,36 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
         {
         	getUIContext().put("ORG.PK", getOrgPK(this));
             innerActionPerformed("eas", AbstractEquIdEditUI.this, "ActionExcel", "actionExcel_actionPerformed", e);
+        }
+    }
+
+    /**
+     * output ActionExcelFoced class
+     */     
+    protected class ActionExcelFoced extends ItemAction {     
+    
+        public ActionExcelFoced()
+        {
+            this(null);
+        }
+
+        public ActionExcelFoced(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            _tempStr = resHelper.getString("ActionExcelFoced.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionExcelFoced.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionExcelFoced.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractEquIdEditUI.this, "ActionExcelFoced", "actionExcelFoced_actionPerformed", e);
         }
     }
 

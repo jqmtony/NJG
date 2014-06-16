@@ -101,7 +101,8 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 		super.loadFields();
 		attachListeners();
 		tzsbStatus.setEnabled(true);
-		pktextDate1.setEnabled(true);
+		contdayone.setVisible(false);
+		contdaytow.setVisible(false);
 		
 	}
 
@@ -117,6 +118,9 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 		combosbStatus.setEnabled(false);
 		pktextDate1.setEnabled(false);
 		testDay.setEnabled(false);
+		
+		this.txtcityPeriod.setPrecision(0);	
+		this.txtportPeriod.setPrecision(0);	
 
 		if(chkcityTest.getSelected() == 32){
 			txtcityPeriod.setEnabled(true);

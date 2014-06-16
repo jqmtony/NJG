@@ -6,6 +6,7 @@ package com.kingdee.eas.port.equipment.insurance.client;
 import java.awt.event.*;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.apache.log4j.Logger;
 
@@ -55,6 +56,8 @@ public class InsuranceDeclarationStateEditUI extends AbstractInsuranceDeclaratio
     public void loadFields()
     {
         super.loadFields();
+        contyear.setVisible(false);
+        contyear.setEnabled(false);
     }
     
    
@@ -716,6 +719,7 @@ public class InsuranceDeclarationStateEditUI extends AbstractInsuranceDeclaratio
     	super.onLoad();
     	if (OprtState.ADDNEW.equals(getOprtState())) {
     		this.prmtCU.setValue(SysContext.getSysContext().getCurrentCtrlUnit());
+    		pkBizDate.setValue(new Date());
     	}
     	//过滤不是已报废的设备
     	 KDBizPromptBox kdtE1_equNumber_PromptBox = new KDBizPromptBox();
@@ -740,7 +744,7 @@ public class InsuranceDeclarationStateEditUI extends AbstractInsuranceDeclaratio
 	 //根据设备编号，带出上年投保价值，可修改
     public void kdtE1_Changed(int rowIndex, int colIndex) throws Exception {
     	super.kdtE1_Changed(rowIndex, colIndex);
-    	if (prmtCU.getData() == null || this.pkyear.getSqlDate() == null ||  this.kdtE1.getCell(rowIndex, "equNumber").getValue() ==null)
+    	if (prmtCU.getData() == null || this.pkBizDate.getSqlDate() == null ||  this.kdtE1.getCell(rowIndex, "equNumber").getValue() ==null)
 			return;
     	
 
@@ -749,7 +753,7 @@ public class InsuranceDeclarationStateEditUI extends AbstractInsuranceDeclaratio
     	if(!"equNumber".equals(this.kdtE1.getColumnKey(colIndex))){return;}
 		
     	SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-		String yymmdd = df.format(this.pkyear.getSqlDate());
+		String yymmdd = df.format(this.pkBizDate.getSqlDate());
 		String yearMonth = String.valueOf(Integer.parseInt(yymmdd.substring(0,4)) - 1);
 		
 		StringBuffer sb = new StringBuffer();

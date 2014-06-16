@@ -52,4 +52,5 @@ public interface IEquId extends IXRBillBase
     public void outUse(EquIdInfo model) throws BOSException;
     public void actionRegistChange(EquIdInfo model) throws BOSException;
     public void excel(EquIdInfo model) throws BOSException;
+    public void excelFoced(EquIdInfo model) throws BOSException;
 }

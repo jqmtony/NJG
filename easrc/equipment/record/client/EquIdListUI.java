@@ -3,14 +3,36 @@
  */
 package com.kingdee.eas.port.equipment.record.client;
 
+import java.awt.Dialog;
+import java.awt.Frame;
+import java.awt.Window;
 import java.awt.event.ActionEvent;
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.io.File;
+import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.swing.SwingUtilities;
 
 import org.apache.log4j.Logger;
 
 import com.kingdee.bos.BOSException;
-import com.kingdee.bos.ctrl.kdf.table.KDTSelectBlock;
+import com.kingdee.bos.ctrl.common.LanguageManager;
+import com.kingdee.bos.ctrl.excel.io.kds.KDSBookToBook;
+import com.kingdee.bos.ctrl.excel.model.struct.Sheet;
+import com.kingdee.bos.ctrl.kdf.export.ExportManager;
+import com.kingdee.bos.ctrl.kdf.export.KDTables2KDSBook;
+import com.kingdee.bos.ctrl.kdf.export.KDTables2KDSBookVO;
+import com.kingdee.bos.ctrl.kdf.kds.KDSBook;
+import com.kingdee.bos.ctrl.kdf.read.POIXlsReader;
+import com.kingdee.bos.ctrl.kdf.table.IColumn;
+import com.kingdee.bos.ctrl.kdf.table.KDTMenuManager;
+import com.kingdee.bos.ctrl.kdf.table.KDTable;
+import com.kingdee.bos.ctrl.swing.KDFileChooser;
+import com.kingdee.bos.ctrl.swing.util.SimpleFileFilter;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.dao.query.IQueryExecutor;
 import com.kingdee.bos.metadata.IMetaDataPK;
@@ -21,20 +43,20 @@ import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.IUIWindow;
 import com.kingdee.bos.ui.face.UIFactory;
+import com.kingdee.bos.ui.face.UIRuleUtil;
+import com.kingdee.eas.base.permission.client.longtime.ILongTimeTask;
+import com.kingdee.eas.base.permission.client.longtime.LongTimeDialog;
 import com.kingdee.eas.basedata.org.OrgConstants;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.common.client.UIContext;
 import com.kingdee.eas.common.client.UIFactoryName;
+import com.kingdee.eas.fi.newrpt.client.designer.io.WizzardIO;
 import com.kingdee.eas.port.equipment.base.client.ImportFaCardUI;
 import com.kingdee.eas.port.equipment.base.enumbase.sbStatusType;
 import com.kingdee.eas.port.equipment.record.EquIdFactory;
 import com.kingdee.eas.port.equipment.record.EquIdInfo;
 import com.kingdee.eas.port.equipment.record.IEquId;
-import com.kingdee.eas.port.equipment.special.client.SpecialChangeEditUI;
-import com.kingdee.eas.tools.datatask.DatataskMode;
-import com.kingdee.eas.tools.datatask.DatataskParameter;
-import com.kingdee.eas.tools.datatask.client.DatataskCaller;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.KDTableUtil;
@@ -713,19 +735,209 @@ public class EquIdListUI extends AbstractEquIdListUI
 		btninUse.setIcon(EASResource.getIcon("imgTbtn_turnin"));
 		btnoutUse.setIcon(EASResource.getIcon("imgTbtn_stopturnin"));
 		btnExcel.setIcon(EASResource.getIcon("imgTbtn_input"));
+		btnExcelFoced.setIcon(EASResource.getIcon("imgTbtn_dcdwj"));
+	}
+	
+	
+	public void actionExcelFoced_actionPerformed(ActionEvent e)throws Exception {
+			super.actionExcelFoced_actionPerformed(e);
+			btnExportExcel();
+    }
+
+	String colName[] = {"设备编码","设备名称","市检到期检测日期","港检到期检测日期"};
+	/**
+	 * 导出模板
+	  **/
+	protected void btnExportExcel() throws Exception {
+		ExportManager exportM = new ExportManager();
+        String path = null;
+        File tempFile = File.createTempFile("eastemp",".xls");
+        path = tempFile.getCanonicalPath();
+        
+        KDTable kdtable = new KDTable();
+        kdtable.addHeadRow();
+        for (int i = 0; i < colName.length; i++)
+        {
+        	this.addColumn(kdtable, "F"+i,colName[i]);
+		}
+        
+        KDTables2KDSBookVO[] tablesVO = new KDTables2KDSBookVO[1];
+        tablesVO[0]=new KDTables2KDSBookVO(kdtable);
+		tablesVO[0].setTableName("更新到期检测日期");
+        KDSBook book = null;
+        book = KDTables2KDSBook.getInstance().exportKDTablesToKDSBook(tablesVO,true,true);
+        exportM.exportToExcel(book, path);
+		KDFileChooser fileChooser = new KDFileChooser();
+		fileChooser.setFileSelectionMode(0);
+		fileChooser.setMultiSelectionEnabled(false);
+		fileChooser.setSelectedFile(new File("更新到期检测日期.xls"));
+		int result = fileChooser.showSaveDialog(this);
+		if (result == KDFileChooser.APPROVE_OPTION){
+			File dest = fileChooser.getSelectedFile();
+			try{
+				File src = new File(path);
+				if (dest.exists())
+					dest.delete();
+				src.renameTo(dest);
+				MsgBox.showInfo("导出成功！");
+				KDTMenuManager.openFileInExcel(dest.getAbsolutePath());
+			}
+			catch (Exception e3)
+			{
+				handUIException(e3);
+			}
+		}
+		tempFile.delete();
+	}
+	
+	private IColumn addColumn(KDTable kdtable,String key,String colName)
+	{
+		IColumn Icolunmn = kdtable.addColumn();
+		Icolunmn.setKey(key);
+		kdtable.getHeadRow(0).getCell(key).setValue(colName);
+		return Icolunmn;
 	}
 	
 	public void actionExcel_actionPerformed(ActionEvent e) throws Exception {
-		DatataskCaller task = new DatataskCaller();
-        task.setParentComponent(this);
-        DatataskParameter param = new DatataskParameter();
-        String solutionName = "eas.custom.007";
-        param.solutionName = solutionName;
-        ArrayList paramList = new ArrayList();
-        paramList.add(param);
-        task.invoke(paramList, DatataskMode.UPDATE, true);
+//		DatataskCaller task = new DatataskCaller();
+//        task.setParentComponent(this);
+//        DatataskParameter param = new DatataskParameter();
+//        String solutionName = "eas.custom.007";
+//        param.solutionName = solutionName;
+//        ArrayList paramList = new ArrayList();
+//        paramList.add(param);
+//        task.invoke(paramList, DatataskMode.UPDATE, true);
+		actionImportExcel();
         this.refresh(null);
 	}
+	
+
+//	
+	    public void actionImportExcel()  {
+			final String path = showExcelSelectDlg(this);
+			if (path == null) {
+				return;
+			}
+			Window win = SwingUtilities.getWindowAncestor(this);
+	        LongTimeDialog dialog = null;
+	        if(win instanceof Frame){
+	        	dialog = new LongTimeDialog((Frame)win);
+	        }else if(win instanceof Dialog){
+	        	dialog = new LongTimeDialog((Dialog)win);
+	        }
+	        if(dialog==null){
+	        	dialog = new LongTimeDialog(new Frame());
+	        }
+	        dialog.setLongTimeTask(new ILongTimeTask() {
+				public void afterExec(Object arg0) throws Exception {
+					Boolean bol=(Boolean)arg0;
+					if(bol){
+						MsgBox.showInfo("更新成功！");
+					}
+				}
+				public Object exec() throws Exception {
+					boolean bol=importExcelToTable(path);
+					return bol;
+				}
+	    	}
+		    );
+		    dialog.show();
+		}
+	    
+	    
+		private boolean importExcelToTable(String fileName) throws Exception {
+			KDSBook kdsbook = null;
+			try {
+				kdsbook = POIXlsReader.parse2(fileName);
+			} catch (Exception e) {
+				e.printStackTrace();
+				MsgBox.showWarning(this,"读EXCEL出错,EXCEl格式不匹配！");
+				return false;
+			}
+			if (kdsbook == null) {
+				return false;
+			}
+			if(KDSBookToBook.traslate(kdsbook).getSheetCount()>1){
+				MsgBox.showWarning(this,"读EXCEL出错,EXCEl Sheet数量不匹配！");
+				return false;
+			}
+			Sheet excelSheet = KDSBookToBook.traslate(kdsbook).getSheet(0);
+	    	Map e_colNameMap = new HashMap();
+			int e_maxRow = excelSheet.getMaxRowIndex();
+			int e_maxColumn = excelSheet.getMaxColIndex();
+			for (int col = 0; col <= e_maxColumn; col++) {
+				String excelColName = excelSheet.getCell(0, col, true).getText();
+				e_colNameMap.put(excelColName, new Integer(col));
+			}
+			for (int i = 0; i < colName.length; i++)
+	        {
+				Integer colInt = (Integer) e_colNameMap.get(colName[i]);
+				if (colInt == null) {
+					MsgBox.showWarning(this,"表头结构不一致！表格上的关键列:" + colName[i] + "在EXCEL中没有出现！");
+					return false;
+				}
+			}
+			IEquId iEquId = EquIdFactory.getRemoteInstance();
+			Calendar ca = Calendar.getInstance();
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			
+			for (int rowIndex = 1; rowIndex <= e_maxRow; rowIndex++) {
+				Integer colInt = (Integer) e_colNameMap.get(colName[0]);
+				Integer colcityInt = (Integer) e_colNameMap.get(colName[2]);
+				Integer colhongkInt = (Integer) e_colNameMap.get(colName[3]);
+
+				if (colInt == null) {
+					continue;
+				}
+				com.kingdee.bos.ctrl.common.variant.Variant cellRawVal = excelSheet.getCell(rowIndex, colInt.intValue(), true).getValue();
+				if (com.kingdee.bos.ctrl.common.variant.Variant.isNull(cellRawVal)) {
+					continue;
+				}
+				String citycellRawVal = excelSheet.getCell(rowIndex, colcityInt.intValue(), true).getDisplayFormula();
+				String hongkcellRawVal = excelSheet.getCell(rowIndex, colhongkInt.intValue(), true).getDisplayFormula();
+				String colValue = cellRawVal.toString();
+				if(iEquId.exists("where number='"+colValue+"'"))
+				{
+					EquIdInfo equInfo = iEquId.getEquIdCollection("where number='"+colValue+"'").get(0);
+					BigDecimal portperiod = equInfo.getPortPeriod()!=null?equInfo.getPortPeriod():BigDecimal.ZERO;
+					BigDecimal ctyPeriod = equInfo.getCityPeriod()!=null?equInfo.getCityPeriod():BigDecimal.ZERO;
+					
+					if (UIRuleUtil.isNotNull(citycellRawVal)) {
+						ca.setTime(sdf.parse(citycellRawVal));
+						ca.add(Calendar.YEAR,ctyPeriod.intValue());
+						equInfo.setDayone(ca.getTime());
+						equInfo.setTextDate1(ca.getTime());
+					}
+					
+					if (UIRuleUtil.isNotNull(hongkcellRawVal)) {
+						ca.setTime(sdf.parse(hongkcellRawVal));
+						ca.add(Calendar.YEAR,portperiod.intValue());
+						equInfo.setDaytow(ca.getTime());
+						equInfo.setTestDay(ca.getTime());
+					}
+					
+					iEquId.update(new ObjectUuidPK(equInfo.getId()), equInfo);
+				}
+			}
+			return true;
+		}
+		
+		 public static String showExcelSelectDlg(CoreUIObject ui)
+         {
+			 KDFileChooser chsFile = new KDFileChooser();
+			 String XLS = "xls";
+			 String Key_File = "Key_File";
+			 SimpleFileFilter Filter_Excel = new SimpleFileFilter(XLS, (new StringBuilder("MS Excel")).append(LanguageManager.getLangMessage(Key_File, WizzardIO.class.getName(), "\u64CD\u4F5C\u5931\u8D25")).toString());
+			 chsFile.addChoosableFileFilter(Filter_Excel);
+			 int ret = chsFile.showOpenDialog(ui);
+			 if(ret != 0)
+				 SysUtil.abort();
+
+			 File file = chsFile.getSelectedFile();
+			 String fileName = file.getAbsolutePath();
+			 return fileName;
+         }
+		
 	
 	public void actionImportFacard_actionPerformed(ActionEvent e)throws Exception {
 		IUIWindow uiWindow = null;

@@ -816,12 +816,14 @@ public class AnnualYearDetailEditUI extends AbstractAnnualYearDetailEditUI
 			storeFields();
 			editData.setStatus(XRBillStatusEnum.RELEASED);
 			((IAnnualYearDetail)getBillInterface()).update(new ObjectUuidPK(editData.getId()), editData);
-			btnUnIssued.setEnabled(true);
-			btnIssued.setEnabled(false);
-			btnUnAudit.setEnabled(false);
 			ObjectUuidPK pk = new ObjectUuidPK(editData.getId());
 			setDataObject(getValue(pk));
 			loadFields();
+			btnUnIssued.setEnabled(true);
+			btnIssued.setEnabled(false);
+			btnUnAudit.setEnabled(false);
+			btnSave.setEnabled(false);
+			btnSubmit.setEnabled(false);
 			setSaved(true);
 		}else{
 			MsgBox.showInfo("此单据未审核，不允许下达!");

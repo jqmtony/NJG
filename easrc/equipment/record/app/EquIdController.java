@@ -57,4 +57,5 @@ public interface EquIdController extends XRBillBaseController
     public void outUse(Context ctx, EquIdInfo model) throws BOSException, RemoteException;
     public void actionRegistChange(Context ctx, EquIdInfo model) throws BOSException, RemoteException;
     public void excel(Context ctx, EquIdInfo model) throws BOSException, RemoteException;
+    public void excelFoced(Context ctx, EquIdInfo model) throws BOSException, RemoteException;
 }
