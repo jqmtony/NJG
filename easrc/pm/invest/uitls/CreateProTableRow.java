@@ -12,13 +12,12 @@ import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.eas.fdc.basedata.CostAccountInfo;
 import com.kingdee.eas.fdc.basedata.FDCHelper;
-import com.kingdee.eas.fdc.contract.programming.ProgrammingContracCostCollection;
-import com.kingdee.eas.fdc.contract.programming.ProgrammingContracCostInfo;
-import com.kingdee.eas.fdc.contract.programming.ProgrammingContractCollection;
-import com.kingdee.eas.fdc.contract.programming.ProgrammingContractEconomyCollection;
-import com.kingdee.eas.fdc.contract.programming.ProgrammingContractEconomyInfo;
-import com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo;
-import com.kingdee.eas.fdc.contract.programming.client.ProgrammingContractUtil;
+import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryCollection;
+import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryCostEntryCollection;
+import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryCostEntryInfo;
+import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryEconomyEntryCollection;
+import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryEconomyEntryInfo;
+import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryInfo;
 
 public class CreateProTableRow {
 	
@@ -49,7 +48,7 @@ public class CreateProTableRow {
      *
      * @param table
      */
-    public void insertLine(KDTable table , int rowIndex , int level , ProgrammingContractInfo head) throws Exception
+    public void insertLine(KDTable table , int rowIndex , int level , ProgrammingEntryInfo head) throws Exception
     {
         if(table == null)
         {
@@ -68,7 +67,7 @@ public class CreateProTableRow {
      *
      * @param table
      */
-    public void insertSameLine(KDTable table , int rowIndex , int level , ProgrammingContractInfo head) throws Exception
+    public void insertSameLine(KDTable table , int rowIndex , int level , ProgrammingEntryInfo head) throws Exception
     {
         if(table == null)
         {
@@ -125,13 +124,13 @@ public class CreateProTableRow {
     /**
      * 新建单据行，返回一个新的分录行的默认值
      */
-    protected IObjectValue createSameNewDetailData(KDTable table , int level , ProgrammingContractInfo head)
+    protected IObjectValue createSameNewDetailData(KDTable table , int level , ProgrammingEntryInfo head)
     {
         if(table == null)
         {
             return null;
         }
-        ProgrammingContractInfo newDetailInfo = new ProgrammingContractInfo();
+        ProgrammingEntryInfo newDetailInfo = new ProgrammingEntryInfo();
         newDetailInfo.setId(BOSUuid.create("ECE079DB"));
         newDetailInfo.setLevel(level);
         newDetailInfo.setEstimateAmount(FDCHelper.ZERO);
@@ -149,13 +148,13 @@ public class CreateProTableRow {
     /**
      * 新建单据行，返回一个新的分录行的默认值
      */
-    protected IObjectValue createNewDetailData(KDTable table , int level , ProgrammingContractInfo head)
+    protected IObjectValue createNewDetailData(KDTable table , int level , ProgrammingEntryInfo head)
     {
         if(table == null)
         {
             return null;
         }
-        ProgrammingContractInfo newDetailInfo = new ProgrammingContractInfo();
+        ProgrammingEntryInfo newDetailInfo = new ProgrammingEntryInfo();
         newDetailInfo.setId(BOSUuid.create("ECE079DB"));
         newDetailInfo.setLevel(level);
         newDetailInfo.setEstimateAmount(FDCHelper.ZERO);
@@ -170,12 +169,12 @@ public class CreateProTableRow {
         return (IObjectValue) newDetailInfo;
     }
     
-    public void cloneHead(ProgrammingContractInfo head,ProgrammingContractInfo newDetailInfo) {
-    	ProgrammingContracCostCollection  costColl = (ProgrammingContracCostCollection)head.getCostEntries();
+    public void cloneHead(ProgrammingEntryInfo head,ProgrammingEntryInfo newDetailInfo) {
+    	ProgrammingEntryCostEntryCollection  costColl = (ProgrammingEntryCostEntryCollection)head.getCostEntries();
     	newDetailInfo.getCostEntries().clear();
     	for(int i = 0 ; i < costColl.size(); i++){
-    		ProgrammingContracCostInfo oldInfo = costColl.get(i);
-    		ProgrammingContracCostInfo info = (ProgrammingContracCostInfo)oldInfo.clone();
+    		ProgrammingEntryCostEntryInfo oldInfo = costColl.get(i);
+    		ProgrammingEntryCostEntryInfo info = (ProgrammingEntryCostEntryInfo)oldInfo.clone();
     		info.setContract(newDetailInfo);
     		info.setId(null);
     		newDetailInfo.getCostEntries().add(info);
@@ -184,11 +183,11 @@ public class CreateProTableRow {
 //    		oldInfo.setAssigning(FDCHelper.ZERO);
     		oldInfo.setContractAssign(FDCHelper.ZERO);
     	}
-    	ProgrammingContractEconomyCollection economyColl = (ProgrammingContractEconomyCollection)head.getEconomyEntries();
+    	ProgrammingEntryEconomyEntryCollection economyColl = (ProgrammingEntryEconomyEntryCollection)head.getEconomyEntries();
     	newDetailInfo.getEconomyEntries().clear();
     	for(int i = 0 ; i < economyColl.size(); i++){
-    		ProgrammingContractEconomyInfo oldInfo = economyColl.get(i);
-    		ProgrammingContractEconomyInfo info = (ProgrammingContractEconomyInfo)oldInfo.clone();
+    		ProgrammingEntryEconomyEntryInfo oldInfo = economyColl.get(i);
+    		ProgrammingEntryEconomyEntryInfo info = (ProgrammingEntryEconomyEntryInfo)oldInfo.clone();
     		info.setContract(newDetailInfo);
     		info.setId(null);
     		newDetailInfo.getEconomyEntries().add(info);
@@ -227,14 +226,14 @@ public class CreateProTableRow {
 //	     newDetailInfo.setPrice(head.getPrice());
 //	     head.setPrice(null);
 	}
-    public BigDecimal getAllContractAssign(ProgrammingContractInfo pcInfo,ProgrammingContractCollection pcCollection,CostAccountInfo caInfo, boolean flag) {
+    public BigDecimal getAllContractAssign(ProgrammingEntryInfo pcInfo,ProgrammingEntryCollection pcCollection,CostAccountInfo caInfo, boolean flag) {
 		BigDecimal allContractAssign = FDCHelper.ZERO;
 		for (int i = 0; i < pcCollection.size(); i++) {
-			ProgrammingContractInfo programmingContractInfo = pcCollection.get(i);
+			ProgrammingEntryInfo programmingContractInfo = pcCollection.get(i);
 			if (flag) {
-				ProgrammingContracCostCollection costEntries = programmingContractInfo.getCostEntries();
+				ProgrammingEntryCostEntryCollection costEntries = programmingContractInfo.getCostEntries();
 				for (int j = 0; j < costEntries.size(); j++) {
-					ProgrammingContracCostInfo pccInfo = costEntries.get(j);
+					ProgrammingEntryCostEntryInfo pccInfo = costEntries.get(j);
 					CostAccountInfo costAccountInfo = pccInfo.getCostAccount();
 					if (costAccountInfo != null) {
 						if(costAccountInfo.getLongNumber()!=null){
@@ -250,9 +249,9 @@ public class CreateProTableRow {
 				}
 			} else {
 				if (!programmingContractInfo.getId().toString().equals(pcInfo.getId().toString())) {
-					ProgrammingContracCostCollection costEntries = programmingContractInfo.getCostEntries();
+					ProgrammingEntryCostEntryCollection costEntries = programmingContractInfo.getCostEntries();
 					for (int j = 0; j < costEntries.size(); j++) {
-						ProgrammingContracCostInfo pccInfo = costEntries.get(j);
+						ProgrammingEntryCostEntryInfo pccInfo = costEntries.get(j);
 						CostAccountInfo costAccountInfo = pccInfo.getCostAccount();
 						if (costAccountInfo != null) {
 							if(costAccountInfo.getLongNumber()!=null){
@@ -271,14 +270,14 @@ public class CreateProTableRow {
 		}
 		return allContractAssign;
 	}
-//    public void cloneInsertHead(ProgrammingContractInfo head,ProgrammingContractCollection pcCollection,ProgrammingContractInfo newDetailInfo,AimCostInfo aimCostInfo) {
-//    	ProgrammingContracCostCollection  costColl = (ProgrammingContracCostCollection)head.getCostEntries();
+//    public void cloneInsertHead(ProgrammingEntryInfo head,ProgrammingEntryCollection pcCollection,ProgrammingEntryInfo newDetailInfo,AimCostInfo aimCostInfo) {
+//    	ProgrammingEntryCostEntryCollection  costColl = (ProgrammingEntryCostEntryCollection)head.getCostEntries();
 //    	newDetailInfo.getCostEntries().clear();
 //    	BigDecimal assin=FDCHelper.ZERO;
 //    	for(int i = 0 ; i < costColl.size(); i++){
 //    		
-//    		ProgrammingContracCostInfo oldInfo = costColl.get(i);
-//    		ProgrammingContracCostInfo info = (ProgrammingContracCostInfo)oldInfo.clone();
+//    		ProgrammingEntryCostEntryInfo oldInfo = costColl.get(i);
+//    		ProgrammingEntryCostEntryInfo info = (ProgrammingEntryCostEntryInfo)oldInfo.clone();
 //    		
 //    		BigDecimal goalCost = ProgrammingContractUtil.getGoalCostBy_costAcc_aimCost(info.getCostAccount(),aimCostInfo);
 //    		
@@ -298,11 +297,11 @@ public class CreateProTableRow {
 //    		oldInfo.setAssigned(goalCost);
 //    		oldInfo.setAssigning(oldInfo.getContractAssign());
 //    	}
-//    	ProgrammingContractEconomyCollection economyColl = (ProgrammingContractEconomyCollection)head.getEconomyEntries();
+//    	ProgrammingEntryEconomyEntryCollection economyColl = (ProgrammingEntryEconomyEntryCollection)head.getEconomyEntries();
 //    	newDetailInfo.getEconomyEntries().clear();
 //    	for(int i = 0 ; i < economyColl.size(); i++){
-//    		ProgrammingContractEconomyInfo oldInfo = economyColl.get(i);
-//    		ProgrammingContractEconomyInfo info = (ProgrammingContractEconomyInfo)oldInfo.clone();
+//    		ProgrammingEntryEconomyEntryInfo oldInfo = economyColl.get(i);
+//    		ProgrammingEntryEconomyEntryInfo info = (ProgrammingEntryEconomyEntryInfo)oldInfo.clone();
 //    		info.setContract(newDetailInfo);
 //    		info.setId(null);
 //    		newDetailInfo.getEconomyEntries().add(info);

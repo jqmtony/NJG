@@ -95,30 +95,25 @@ import com.kingdee.eas.fdc.basedata.client.FDCClientHelper;
 import com.kingdee.eas.fdc.basedata.client.FDCMsgBox;
 import com.kingdee.eas.fdc.basedata.client.FDCUIWeightWorker;
 import com.kingdee.eas.fdc.basedata.client.IFDCWork;
-import com.kingdee.eas.fdc.contract.FDCUtils;
-import com.kingdee.eas.fdc.contract.programming.ProgrammingContracCostCollection;
-import com.kingdee.eas.fdc.contract.programming.ProgrammingContracCostInfo;
-import com.kingdee.eas.fdc.contract.programming.ProgrammingContractCollection;
-import com.kingdee.eas.fdc.contract.programming.ProgrammingContractEconomyCollection;
-import com.kingdee.eas.fdc.contract.programming.ProgrammingContractEconomyInfo;
-import com.kingdee.eas.fdc.contract.programming.ProgrammingContractFactory;
-import com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo;
-import com.kingdee.eas.fdc.contract.programming.ProgrammingException;
-import com.kingdee.eas.fdc.contract.programming.client.LimitedTextDocument;
-import com.kingdee.eas.fdc.contract.programming.client.ProgrammingContractEditUI;
-import com.kingdee.eas.fdc.contract.programming.client.ProgrammingExportUI;
-import com.kingdee.eas.fdc.contract.programming.client.ProgrammingImportUI;
 import com.kingdee.eas.framework.ICoreBase;
 import com.kingdee.eas.framework.IFWEntityStruct;
 import com.kingdee.eas.framework.util.StringUtility;
 import com.kingdee.eas.mm.control.client.TableCellComparator;
+import com.kingdee.eas.port.pm.invest.investplan.ContractProgrammingFactory;
 import com.kingdee.eas.port.pm.invest.investplan.IProgramming;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingCollection;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryCollection;
+import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryCostEntryCollection;
+import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryCostEntryInfo;
+import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryEconomyEntryCollection;
+import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryEconomyEntryInfo;
+import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryFactory;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryInfo;
+import com.kingdee.eas.port.pm.invest.investplan.ProgrammingException;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingFactory;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingInfo;
 import com.kingdee.eas.port.pm.invest.uitls.CreateProTableRow;
+import com.kingdee.eas.port.pm.utils.FDCUtils;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
@@ -127,7 +122,7 @@ import com.kingdee.util.NumericExceptionSubItem;
 import com.kingdee.util.StringUtils;
 import com.kingdee.util.Uuid;
 
-/**
+/** 
  * output class name
  */
 public class ProgrammingEditUI extends AbstractProgrammingEditUI
@@ -158,9 +153,16 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 		this.kdtCompareEntry.getColumn("content").getStyleAttributes().setLocked(true);
 		this.kdtCompareEntry.getColumn("programmingContract").getStyleAttributes().setBackground(FDCClientHelper.KDTABLE_DISABLE_BG_COLOR);
 		this.kdtCompareEntry.getColumn("content").getStyleAttributes().setBackground(FDCClientHelper.KDTABLE_DISABLE_BG_COLOR);
-		
 		txtBuildArea.setEnabled(false);
 		txtSaleArea.setEnabled(false);
+		kDTabbedPane1.remove(pnlCostAccount);
+		this.kdtCostAccount.getStyleAttributes().setLocked(true);
+		this.kdtCostAccount.getStyleAttributes().setHided(true);
+		this.kdtEntries.getColumn("costAccount").getStyleAttributes().setHided(true);
+		this.kdtEntries.getColumn("costAccount").getStyleAttributes().setLocked(true);
+		this.kdtEntries.getColumn("isInvite").getStyleAttributes().setHided(true);
+		this.kdtEntries.getColumn("isInvite").getStyleAttributes().setLocked(true);
+		
     	super.onLoad();
     	txtVersion.setPrecision(1);
 		initTable();
@@ -173,18 +175,18 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 
 		if (this.getUIContext().get("modify") != null) {
 			// 修订情况下给合约新增ID
-			ProgrammingContractInfo programmingContractInfo = new ProgrammingContractInfo();
+			ProgrammingEntryInfo programmingEntryInfo = new ProgrammingEntryInfo();
 			for (int i = 0; i < kdtEntries.getRowCount(); i++) {
 				String longNumber=kdtEntries.getCell(i, "longNumber").getValue().toString();
-				ProgrammingContractInfo proConInfo = (ProgrammingContractInfo) kdtEntries.getRow(i).getUserObject();
-				BOSUuid newid=BOSUuid.create(programmingContractInfo.getBOSType());
+				ProgrammingEntryInfo proConInfo = (ProgrammingEntryInfo) kdtEntries.getRow(i).getUserObject();
+				BOSUuid newid=BOSUuid.create(programmingEntryInfo.getBOSType());
 				kdtEntries.getCell(i, "id").setValue(newid);
 				kdtEntries.getCell(i, "isCiting").setValue(Boolean.valueOf(proConInfo.isIsCiting()));
 				kdtEntries.getCell(i, "isWTCiting").setValue(Boolean.valueOf(proConInfo.isIsWTCiting()));
 				for(int j=0;j<kdtEntries.getRowCount();j++){
-					ProgrammingContractInfo parent=((ProgrammingContractInfo)kdtEntries.getRow(j).getUserObject()).getParent();
+					ProgrammingEntryInfo parent=((ProgrammingEntryInfo)kdtEntries.getRow(j).getUserObject()).getParent();
 					if(parent!=null&&parent.getLongNumber().equals(longNumber)){
-						((ProgrammingContractInfo)kdtEntries.getRow(j).getUserObject()).setParent(proConInfo);
+						((ProgrammingEntryInfo)kdtEntries.getRow(j).getUserObject()).setParent(proConInfo);
 					}
 				}
 				
@@ -262,12 +264,12 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 	 */
 	private void clearAimCost() {
 		for (int i = 0; i < kdtEntries.getRowCount(); i++) {
-			ProgrammingContractInfo programmingContractInfo = (ProgrammingContractInfo) kdtEntries.getRow(i).getUserObject();
-			ProgrammingContracCostCollection costEntries = programmingContractInfo.getCostEntries();
-			ProgrammingContractEconomyCollection economyEntries = programmingContractInfo.getEconomyEntries();
+			ProgrammingEntryInfo programmingEntryInfo = (ProgrammingEntryInfo) kdtEntries.getRow(i).getUserObject();
+			ProgrammingEntryCostEntryCollection costEntries = programmingEntryInfo.getCostEntries();
+			ProgrammingEntryEconomyEntryCollection economyEntries = programmingEntryInfo.getEconomyEntries();
 			// 成本构成
 			for (int j = 0; j < costEntries.size(); j++) {
-				ProgrammingContracCostInfo pccInfo = costEntries.get(j);
+				ProgrammingEntryCostEntryInfo pccInfo = costEntries.get(j);
 				// 目标成本，已分配，待分配，本合约分配 清0
 				pccInfo.setGoalCost(FDCHelper.ZERO);
 				pccInfo.setAssigned(FDCHelper.ZERO);
@@ -276,17 +278,17 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 			}
 			// 规划合约金额清0,控制金额清0,规划余额清0，控制余额清0,预估金额清0
 		
-			programmingContractInfo.setControlAmount(FDCHelper.ZERO);
-			programmingContractInfo.setBalance(programmingContractInfo.getBalance().subtract(programmingContractInfo.getAmount()));
-			programmingContractInfo.setControlBalance(FDCHelper.ZERO);
-			programmingContractInfo.setAmount(FDCHelper.ZERO);
+			programmingEntryInfo.setControlAmount(FDCHelper.ZERO);
+			programmingEntryInfo.setBalance(programmingEntryInfo.getBalance().subtract(programmingEntryInfo.getAmount()));
+			programmingEntryInfo.setControlBalance(FDCHelper.ZERO);
+			programmingEntryInfo.setAmount(FDCHelper.ZERO);
 			// 经济条款
 			for (int k = 0; k < economyEntries.size(); k++) {
-				ProgrammingContractEconomyInfo pceInfo = economyEntries.get(k);
+				ProgrammingEntryEconomyEntryInfo pceInfo = economyEntries.get(k);
 				// 付款金额清0
 				pceInfo.setAmount(FDCHelper.ZERO);
 			}
-			dataBinder.loadLineFields(kdtEntries, kdtEntries.getRow(i), programmingContractInfo);
+			dataBinder.loadLineFields(kdtEntries, kdtEntries.getRow(i), programmingEntryInfo);
 			kdtEntries.getRow(i).getStyleAttributes().setFontColor(Color.BLACK);
 		}
 	}
@@ -321,25 +323,25 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 		kdtEntries.getEditManager().editingStopped();
 		Map isAssignAimCost=new HashMap();
 		for (int i = 0; i < kdtEntries.getRowCount(); i++) {
-			ProgrammingContractInfo programmingContractInfo = (ProgrammingContractInfo) kdtEntries.getRow(i).getUserObject();
-			programmingContractInfo.setLongNumber((String) kdtEntries.getCell(i, LONGNUMBER).getValue());
-			programmingContractInfo.setName((String) kdtEntries.getCell(i, "name").getValue());
-			programmingContractInfo.setAmount(FDCHelper.toBigDecimal(kdtEntries.getCell(i, "amount").getValue()));
-			programmingContractInfo.setControlAmount(FDCHelper.toBigDecimal(kdtEntries.getCell(i, "controlAmount").getValue()));
-			programmingContractInfo.setControlBalance(FDCHelper.toBigDecimal(kdtEntries.getCell(i, "controlBalance").getValue()));
-			ProgrammingContracCostCollection costEntries = programmingContractInfo.getCostEntries();
-			ProgrammingContractEconomyCollection economyEntries = programmingContractInfo.getEconomyEntries();
+			ProgrammingEntryInfo programmingEntryInfo = (ProgrammingEntryInfo) kdtEntries.getRow(i).getUserObject();
+			programmingEntryInfo.setLongNumber((String) kdtEntries.getCell(i, LONGNUMBER).getValue());
+			programmingEntryInfo.setName((String) kdtEntries.getCell(i, "name").getValue());
+			programmingEntryInfo.setAmount(FDCHelper.toBigDecimal(kdtEntries.getCell(i, "amount").getValue()));
+			programmingEntryInfo.setControlAmount(FDCHelper.toBigDecimal(kdtEntries.getCell(i, "controlAmount").getValue()));
+			programmingEntryInfo.setControlBalance(FDCHelper.toBigDecimal(kdtEntries.getCell(i, "controlBalance").getValue()));
+			ProgrammingEntryCostEntryCollection costEntries = programmingEntryInfo.getCostEntries();
+			ProgrammingEntryEconomyEntryCollection economyEntries = programmingEntryInfo.getEconomyEntries();
 
 			BigDecimal newAmount = FDCHelper.ZERO;// 规划金额
-			BigDecimal oldAmount = programmingContractInfo.getAmount();
-			BigDecimal oldBalance = programmingContractInfo.getBalance();// 原规划余额
+			BigDecimal oldAmount = programmingEntryInfo.getAmount();
+			BigDecimal oldBalance = programmingEntryInfo.getBalance();// 原规划余额
 
 			if (costEntries.size() == 0) {
-				newAmount = programmingContractInfo.getAmount();// 原规划金额
+				newAmount = programmingEntryInfo.getAmount();// 原规划金额
 			} else {
 				int flagAllNoChange = 0;
 				for (int j = 0; j < costEntries.size(); j++) {
-					ProgrammingContracCostInfo pccInfo = costEntries.get(j);
+					ProgrammingEntryCostEntryInfo pccInfo = costEntries.get(j);
 					CostAccountInfo costAccount = pccInfo.getCostAccount();// 成本科目
 					// 获取原"已分配"，原"目标成本","本合约分配"
 					BigDecimal oldAssigned = pccInfo.getAssigned();
@@ -368,19 +370,19 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 					}
 				}
 				// 规划金额动态更新
-				programmingContractInfo.setAmount(newAmount);
+				programmingEntryInfo.setAmount(newAmount);
 				// 控制金额 = 规划金额
-				programmingContractInfo.setControlAmount(newAmount);
+				programmingEntryInfo.setControlAmount(newAmount);
 				// 规划余额动态更新
 				
-				programmingContractInfo.setBalance(oldBalance.add(newAmount.subtract(oldAmount)));
+				programmingEntryInfo.setBalance(oldBalance.add(newAmount.subtract(oldAmount)));
 				// 经济条款"付款金额"动态更新
 				for (int k = 0; k < economyEntries.size(); k++) {
-					ProgrammingContractEconomyInfo pceInfo = economyEntries.get(k);
+					ProgrammingEntryEconomyEntryInfo pceInfo = economyEntries.get(k);
 					BigDecimal scale = pceInfo.getScale();
 					pceInfo.setAmount(FDCHelper.divide(newAmount.multiply(scale), FDCHelper.ONE_HUNDRED));
 				}
-				dataBinder.loadLineFields(kdtEntries, kdtEntries.getRow(i), programmingContractInfo);
+				dataBinder.loadLineFields(kdtEntries, kdtEntries.getRow(i), programmingEntryInfo);
 				int level = new Integer(kdtEntries.getCell(i, "level").getValue().toString()).intValue();
 				if (level != 1) {
 					// 汇总
@@ -500,12 +502,12 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 	private void initData() throws Exception {
 		if (isBillModify()) {
 			for(Iterator it = editData.getEntries().iterator() ; it.hasNext();){
-				oldProgId.add(((ProgrammingContractInfo)it.next()).getId());
+				oldProgId.add(((ProgrammingEntryInfo)it.next()).getId());
 			}
 			actionCopy_actionPerformed(null);
 			int cou = 0;
 			for(Iterator it = editData.getEntries().iterator(); it.hasNext();){
-				ProgrammingContractInfo entry=(ProgrammingContractInfo)it.next();
+				ProgrammingEntryInfo entry=(ProgrammingEntryInfo)it.next();
 				entry.setSrcId(oldProgId.get(cou).toString());
 				cou++;
 			}
@@ -516,7 +518,7 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
     	if(node != null)
     		curProject = (ProjectInfo)node;
 		
-		if(editData.getProject() == null){
+		if(editData.getCurProject() == null){
 			if(curProject != null){
 				editData.setProject(curProject);
 				txtProjectName.setText(curProject.getName());
@@ -641,13 +643,13 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
  			this.kdtEntries.getColumn("isInvite").getStyleAttributes().setLocked(true);
  			this.actionEditInvite.setEnabled(false);
  		}
- 		kdtEntries.getColumn("buildPrice").getStyleAttributes().setLocked(true);
- 		kdtEntries.getColumn("buildPrice").getStyleAttributes().setNumberFormat(FDCHelper.getNumberFtm(2));
- 		kdtEntries.getColumn("quantities").getStyleAttributes().setLocked(true);
- 		kdtEntries.getColumn("quantities").getStyleAttributes().setNumberFormat(FDCHelper.getNumberFtm(2));
- 		kdtEntries.getColumn("unit").getStyleAttributes().setLocked(true);
- 		kdtEntries.getColumn("price").getStyleAttributes().setLocked(true);
- 		kdtEntries.getColumn("price").getStyleAttributes().setNumberFormat(FDCHelper.getNumberFtm(2));
+// 		kdtEntries.getColumn("buildPrice").getStyleAttributes().setLocked(true);
+// 		kdtEntries.getColumn("buildPrice").getStyleAttributes().setNumberFormat(FDCHelper.getNumberFtm(2));
+// 		kdtEntries.getColumn("quantities").getStyleAttributes().setLocked(true);
+// 		kdtEntries.getColumn("quantities").getStyleAttributes().setNumberFormat(FDCHelper.getNumberFtm(2));
+// 		kdtEntries.getColumn("unit").getStyleAttributes().setLocked(true);
+// 		kdtEntries.getColumn("price").getStyleAttributes().setLocked(true);
+// 		kdtEntries.getColumn("price").getStyleAttributes().setNumberFormat(FDCHelper.getNumberFtm(2));
 	}
 	public void actionEditInvite_actionPerformed(ActionEvent e) throws Exception {
 		if (MsgBox.showConfirm2("是否确定修改？") == MsgBox.CANCEL) {
@@ -702,9 +704,19 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 		}
 		try {
 			setBuildPrice();
+			
+			
+			Object node = getUIContext().get("treeSelectedObj");
+	    	if(node != null)
+	    	{
+	    		curProject = (ProjectInfo)node;
+	    		editData.setProject(curProject);
+				txtProjectName.setText(curProject.getName());
+	    	}
 		} catch (BOSException e) {
 			e.printStackTrace();
 		}
+		
 	}
 	private void setBuildPrice() throws BOSException{
 		if(OprtState.VIEW.equals(getOprtState())){
@@ -712,7 +724,7 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 		}
 		EntityViewInfo view=new EntityViewInfo();
 		FilterInfo filter=new FilterInfo();
-		if(this.editData.getProject()==null){
+		if(this.editData.getCurProject()==null){
 			Object node = getUIContext().get("treeSelectedObj");
 	    	filter.getFilterItems().add(new FilterItemInfo("project.id",((ProjectInfo)node).getId().toString()));
 		}else{
@@ -733,19 +745,19 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 					continue;
 				}
 			}
-			kdtEntries.getRow(i).getCell("buildPrice").setValue(FDCHelper.divide(kdtEntries.getRow(i).getCell("amount").getValue(), this.totalBuildArea, 2, BigDecimal.ROUND_HALF_UP));
-			if((Boolean)kdtEntries.getRow(i).getCell("isInput").getValue()){
-		 		kdtEntries.getRow(i).getCell("quantities").getStyleAttributes().setLocked(false);
-		 		kdtEntries.getRow(i).getCell("unit").getStyleAttributes().setLocked(false);
-		 		kdtEntries.getRow(i).getCell("quantities").getStyleAttributes().setBackground(FDCClientHelper.KDTABLE_COMMON_BG_COLOR);
-		 		kdtEntries.getRow(i).getCell("unit").getStyleAttributes().setBackground(FDCClientHelper.KDTABLE_COMMON_BG_COLOR);
-			}else{
-				kdtEntries.getRow(i).getCell("quantities").setValue(null);
-				kdtEntries.getRow(i).getCell("unit").setValue(null);
-				kdtEntries.getRow(i).getCell("price").setValue(null);
-				kdtEntries.getRow(i).getCell("quantities").getStyleAttributes().setBackground(Color.WHITE);
-		 		kdtEntries.getRow(i).getCell("unit").getStyleAttributes().setBackground(Color.WHITE);
-			}
+//			kdtEntries.getRow(i).getCell("buildPrice").setValue(FDCHelper.divide(kdtEntries.getRow(i).getCell("amount").getValue(), this.totalBuildArea, 2, BigDecimal.ROUND_HALF_UP));
+//			if((Boolean)kdtEntries.getRow(i).getCell("isInput").getValue()){
+//		 		kdtEntries.getRow(i).getCell("quantities").getStyleAttributes().setLocked(false);
+//		 		kdtEntries.getRow(i).getCell("unit").getStyleAttributes().setLocked(false);
+//		 		kdtEntries.getRow(i).getCell("quantities").getStyleAttributes().setBackground(FDCClientHelper.KDTABLE_COMMON_BG_COLOR);
+//		 		kdtEntries.getRow(i).getCell("unit").getStyleAttributes().setBackground(FDCClientHelper.KDTABLE_COMMON_BG_COLOR);
+//			}else{
+//				kdtEntries.getRow(i).getCell("quantities").setValue(null);
+//				kdtEntries.getRow(i).getCell("unit").setValue(null);
+//				kdtEntries.getRow(i).getCell("price").setValue(null);
+//				kdtEntries.getRow(i).getCell("quantities").getStyleAttributes().setBackground(Color.WHITE);
+//		 		kdtEntries.getRow(i).getCell("unit").getStyleAttributes().setBackground(Color.WHITE);
+//			}
 		}
 	}
 	
@@ -1039,7 +1051,7 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
         		return;
         	}
         	
-    		ProgrammingContractInfo headObject = (ProgrammingContractInfo)kdtEntries.getRow(rowIndex).getUserObject();
+    		ProgrammingEntryInfo headObject = (ProgrammingEntryInfo)kdtEntries.getRow(rowIndex).getUserObject();
     		headObject.setContractType((ContractTypeInfo)kdtEntries.getCell(rowIndex, "contractType").getValue());
     		int newLevel = 0;
     		//新增时判断数据是否合法
@@ -1064,16 +1076,16 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
     			}else{
     				create.insertSameLine(kdtEntries , row , newLevel, headObject);//不带数据
     			}
-//    			if(kdtEntries.getCell(rowIndex+1, HEADNUMBER)!=null){
-//    				Object checkHeadNumber = kdtEntries.getCell(rowIndex+1, HEADNUMBER).getValue();
-//    				if( checkHeadNumber!=null && ln.equals(checkHeadNumber)){
-//        				create.insertSameLine(kdtEntries , row , newLevel, headObject);
-//        			} else {
-//        				create.insertLine(kdtEntries , row , newLevel, headObject);
-//        			}
-//    			} else {
-//    				create.insertLine(kdtEntries , row , newLevel, headObject);
-//    			}
+    			if(kdtEntries.getCell(rowIndex+1, HEADNUMBER)!=null){
+    				Object checkHeadNumber = kdtEntries.getCell(rowIndex+1, HEADNUMBER).getValue();
+    				if( checkHeadNumber!=null && ln.equals(checkHeadNumber)){
+        				create.insertSameLine(kdtEntries , row , newLevel, headObject);
+        			} else {
+        				create.insertLine(kdtEntries , row , newLevel, headObject);
+        			}
+    			} else {
+    				create.insertLine(kdtEntries , row , newLevel, headObject);
+    			}
     			
     			kdtEntries.getCell(row, HEADNUMBER).setValue(o);
     			if(longName != null)
@@ -1158,7 +1170,7 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
     		Object longName = kdtEntries.getCell(rowIndex, "longName").getValue();
     		boolean isCiting = ((Boolean)kdtEntries.getCell(rowIndex, "isCiting").getValue()).booleanValue();
     		
-    		ProgrammingContractInfo headObject = (ProgrammingContractInfo)kdtEntries.getRow(rowIndex).getUserObject();
+    		ProgrammingEntryInfo headObject = (ProgrammingEntryInfo)kdtEntries.getRow(rowIndex).getUserObject();
     		
     		int activelevel = new Integer(headlevel.toString()).intValue();
     		if(activelevel == 1 ){ //如果是一级则增加一行到最后
@@ -1194,7 +1206,7 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
     			row = getInsertRowIndexSameLevel(rowIndex , rowCount);
 //    			create.insertSameLine(kdtEntries , row ,activelevel , headObject.getParent());
     			
-    			ProgrammingContractInfo newDetailInfo = new ProgrammingContractInfo();
+    			ProgrammingEntryInfo newDetailInfo = new ProgrammingEntryInfo();
 		        newDetailInfo.setId(BOSUuid.create("ECE079DB"));
 		        newDetailInfo.setLevel(activelevel);
 		        newDetailInfo.setBalance(FDCHelper.ZERO);
@@ -1249,7 +1261,7 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 //		}
 //    	Object headNumber = kdtEntries.getCell(rowIndex, HEADNUMBER).getValue();
 //		Object level = kdtEntries.getCell(rowIndex, "level").getValue();
-//		ProgrammingContractInfo headObject = (ProgrammingContractInfo)kdtEntries.getRow(rowIndex).getUserObject();
+//		ProgrammingEntryInfo headObject = (ProgrammingEntryInfo)kdtEntries.getRow(rowIndex).getUserObject();
 //    	create.insertLine(kdtEntries , rowIndex , new Integer(level.toString()).intValue() , headObject.getParent());
 //		kdtEntries.getCell(rowIndex, HEADNUMBER).setValue(headNumber);
 //		if(headObject.getParent() != null && headObject.getParent().getDisplayName() != null){
@@ -1396,8 +1408,8 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 		int loop = getLoop(rowIndex, h);
 		if (loop > 0) {
 			int level = new Integer(kdtEntries.getCell(loop, "level").getValue().toString()).intValue();
-			ProgrammingContractInfo proConInfo = (ProgrammingContractInfo) kdtEntries.getRow(loop).getUserObject();
-			ProgrammingContracCostCollection costEntries = proConInfo.getCostEntries();
+			ProgrammingEntryInfo proConInfo = (ProgrammingEntryInfo) kdtEntries.getRow(loop).getUserObject();
+			ProgrammingEntryCostEntryCollection costEntries = proConInfo.getCostEntries();
 			if (costEntries.size() == 0) {
 				if (!isHasSomeLevel) {
 					kdtEntries.getCell(loop, "amount").setValue(FDCHelper.ZERO);
@@ -1503,16 +1515,23 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 		}
 		UIContext uiContext = new UIContext(this);
 		IUIWindow uiWindow = null;
-		ProgrammingContractInfo rowObject = (ProgrammingContractInfo) kdtEntries.getRow(rowIndex).getUserObject();
+		ProgrammingEntryInfo rowObject = (ProgrammingEntryInfo) kdtEntries.getRow(rowIndex).getUserObject();
 		setContractToEditData(rowIndex, rowObject);
-		ProgrammingContractCollection pcCollection = getPCCollection();
+		ProgrammingEntryCollection pcCollection = getPCCollection();
 		ProjectInfo project = (ProjectInfo) this.getUIContext().get("treeSelectedObj");
 		uiContext.put("programmingContract", rowObject);// 规划合约
 		uiContext.put("pcCollection", pcCollection);// 规划合约集合
 		uiContext.put("project", project);// 工程项目
-
-		uiWindow = UIFactory.createUIFactory(UIFactoryName.MODEL).create(ProgrammingContractEditUI.class.getName(), uiContext, null,
-				oprtState);
+		
+		String oprstate = OprtState.ADDNEW;
+		
+		String oql = "where sourceBillId='"+rowObject.getId()+"'";
+		if(ContractProgrammingFactory.getRemoteInstance().exists(oql))
+		{
+			uiContext.put("ID", ContractProgrammingFactory.getRemoteInstance().getContractProgrammingCollection(oql).get(0).getId());
+			oprstate = OprtState.VIEW;
+		}
+		uiWindow = UIFactory.createUIFactory(UIFactoryName.MODEL).create(ContractProgrammingEditUI.class.getName(), uiContext, null,oprstate);
 		uiWindow.show();
 		// 绑定数据到分录上
 		dataBinder.loadLineFields(kdtEntries, kdtEntries.getRow(rowIndex), rowObject);
@@ -1544,14 +1563,14 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 	private void setMyFontColor() {
 		for (int i = 0; i < kdtEntries.getRowCount(); i++) {
 			boolean flag = false;// false默认表示没有错误数据
-			ProgrammingContractInfo programmingContractInfo = (ProgrammingContractInfo) kdtEntries.getRow(i).getUserObject();
-			ProgrammingContracCostCollection pccCollection = programmingContractInfo.getCostEntries();
+			ProgrammingEntryInfo programmingEntryInfo = (ProgrammingEntryInfo) kdtEntries.getRow(i).getUserObject();
+			ProgrammingEntryCostEntryCollection pccCollection = programmingEntryInfo.getCostEntries();
 			for (int j = 0; j < pccCollection.size(); j++) {
-				ProgrammingContracCostInfo pccInfo = pccCollection.get(j);
+				ProgrammingEntryCostEntryInfo pccInfo = pccCollection.get(j);
 				BigDecimal assigning = pccInfo.getAssigning();// 待分配
 				BigDecimal contractAssign = pccInfo.getContractAssign();// 本合约分配
 				// 若"本合约分配">"待分配"，表示有错误数据
-				if (contractAssign.compareTo(assigning) > 0&&!programmingContractInfo.isIsCiting()&&!programmingContractInfo.isIsWTCiting()) {
+				if (contractAssign.compareTo(assigning) > 0&&!programmingEntryInfo.isIsCiting()&&!programmingEntryInfo.isIsWTCiting()) {
 					flag = true;
 				}
 			}
@@ -1981,7 +2000,7 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
     }
     
     private void setIsInvite(IRow row,Boolean isInvite){
-    	ProgrammingContractInfo pc=(ProgrammingContractInfo) row.getUserObject();
+    	ProgrammingEntryInfo pc=(ProgrammingEntryInfo) row.getUserObject();
     	int level = Integer.parseInt(row.getCell("level").getValue().toString());
     	if(level==1){
     		pc.setIsInvite(isInvite);
@@ -1990,7 +2009,7 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
     	if(!isInvite.booleanValue()&&level!=1){
     		for(int j=0;j<kdtEntries.getRowCount();j++){
     			if(j==row.getRowIndex()) continue;
-				ProgrammingContractInfo parent=((ProgrammingContractInfo)kdtEntries.getRow(j).getUserObject()).getParent();
+				ProgrammingEntryInfo parent=((ProgrammingEntryInfo)kdtEntries.getRow(j).getUserObject()).getParent();
 				Boolean pIsInvite=(Boolean) kdtEntries.getRow(j).getCell("isInvite").getValue();
 				if(parent!=null&&pc.getParent()!=null&&parent.getId().toString().equals(pc.getParent().getId().toString())){
 					if(!pIsInvite.equals(isInvite)){
@@ -2000,7 +2019,7 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 			}
     	}
     	for(int j=0;j<row.getRowIndex();j++){
-    		ProgrammingContractInfo parent=((ProgrammingContractInfo)kdtEntries.getRow(j).getUserObject());
+    		ProgrammingEntryInfo parent=((ProgrammingEntryInfo)kdtEntries.getRow(j).getUserObject());
     		if(pc.getParent()!=null&&pc.getParent().getId().toString().equals(parent.getId().toString())){
     			Boolean pIsInvite=(Boolean) kdtEntries.getRow(j).getCell("isInvite").getValue();
     			if(pIsInvite.equals(isInvite)){
@@ -2110,9 +2129,9 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 		int level = new Integer(kdtEntries.getCell(rowIndex, "level").getValue().toString()).intValue();
 		UIContext uiContext = new UIContext(this);
 		IUIWindow uiWindow = null;
-		ProgrammingContractInfo rowObject = (ProgrammingContractInfo) kdtEntries.getRow(rowIndex).getUserObject();
+		ProgrammingEntryInfo rowObject = (ProgrammingEntryInfo) kdtEntries.getRow(rowIndex).getUserObject();
 		setContractToEditData(rowIndex, rowObject);
-		ProgrammingContractCollection pcCollection = getPCCollection();
+		ProgrammingEntryCollection pcCollection = getPCCollection();
 		ProjectInfo project = (ProjectInfo) this.getUIContext().get("treeSelectedObj");
 		uiContext.put("programmingContract", rowObject);// 规划合约
 		uiContext.put("pcCollection", pcCollection);// 规划合约集合
@@ -2173,8 +2192,16 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 					return;
 				}
 			}
-			uiWindow = UIFactory.createUIFactory(UIFactoryName.MODEL).create(ProgrammingContractEditUI.class.getName(), uiContext, null,
-					oprtState);
+			
+			String oprstate = OprtState.ADDNEW;
+			
+			String oql = "where sourceBillId='"+rowObject.getId()+"'";
+			if(ContractProgrammingFactory.getRemoteInstance().exists(oql))
+			{
+				uiContext.put("ID", ContractProgrammingFactory.getRemoteInstance().getContractProgrammingCollection(oql).get(0).getId());
+				oprstate = OprtState.VIEW;
+			}
+			uiWindow = UIFactory.createUIFactory(UIFactoryName.MODEL).create(ContractProgrammingEditUI.class.getName(), uiContext, null,oprstate);
 			uiWindow.show();
 			// 绑定数据到分录上
 			dataBinder.loadLineFields(kdtEntries, kdtEntries.getRow(rowIndex), rowObject);
@@ -2200,8 +2227,8 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 			if(OprtState.VIEW.equals(getOprtState())){
 				return;
 			}
-			kdtEntries.getRow(rowIndex).getCell("buildPrice").setValue(FDCHelper.divide(kdtEntries.getRow(rowIndex).getCell("amount").getValue(), this.totalBuildArea, 2, BigDecimal.ROUND_HALF_UP));
-			kdtEntries.getRow(rowIndex).getCell("price").setValue(FDCHelper.divide(kdtEntries.getRow(rowIndex).getCell("amount").getValue(), kdtEntries.getRow(rowIndex).getCell("quantities").getValue(), 2, BigDecimal.ROUND_HALF_UP));
+//			kdtEntries.getRow(rowIndex).getCell("buildPrice").setValue(FDCHelper.divide(kdtEntries.getRow(rowIndex).getCell("amount").getValue(), this.totalBuildArea, 2, BigDecimal.ROUND_HALF_UP));
+//			kdtEntries.getRow(rowIndex).getCell("price").setValue(FDCHelper.divide(kdtEntries.getRow(rowIndex).getCell("amount").getValue(), kdtEntries.getRow(rowIndex).getCell("quantities").getValue(), 2, BigDecimal.ROUND_HALF_UP));
 			
 		}
     }
@@ -2211,12 +2238,12 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 	 * 
 	 * @return
 	 */
-	private ProgrammingContractCollection getPCCollection() {
-		ProgrammingContractCollection pcCollection = new ProgrammingContractCollection();
-		ProgrammingContractInfo pcInfo = null;
+	private ProgrammingEntryCollection getPCCollection() {
+		ProgrammingEntryCollection pcCollection = new ProgrammingEntryCollection();
+		ProgrammingEntryInfo pcInfo = null;
 		int columnCount = kdtEntries.getRowCount();
 		for (int i = 0; i < columnCount; i++) {
-			pcInfo = (ProgrammingContractInfo) kdtEntries.getRow(i).getUserObject();
+			pcInfo = (ProgrammingEntryInfo) kdtEntries.getRow(i).getUserObject();
 			setContractToEditData(i, pcInfo);
 			pcCollection.add(pcInfo);
 		}
@@ -2402,12 +2429,12 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 					kdtEntries.getCell(i, BALANCE).getStyleAttributes().setFontColor(Color.red);
 				}
 			}
-//			if(((Boolean)kdtEntries.getCell(i, "isWTCiting").getValue()).booleanValue()){
-//				kdtEntries.getRow(i).getStyleAttributes().setBackground(new java.awt.Color(128,255,128));
-//			}
-//			if(isCiting){
-//				kdtEntries.getRow(i).getStyleAttributes().setBackground(FDCClientHelper.KDTABLE_DISABLE_BG_COLOR);
-//			}
+			if(((Boolean)kdtEntries.getCell(i, "isWTCiting").getValue()).booleanValue()){
+				kdtEntries.getRow(i).getStyleAttributes().setBackground(new java.awt.Color(128,255,128));
+			}
+			if(isCiting){
+				kdtEntries.getRow(i).getStyleAttributes().setBackground(FDCClientHelper.KDTABLE_DISABLE_BG_COLOR);
+			}
 		}
 	}
 
@@ -2431,7 +2458,7 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 	 * @param rowIndex
 	 * @param rowObject
 	 */
-	private void setContractToEditData(int rowIndex, ProgrammingContractInfo rowObject) {
+	private void setContractToEditData(int rowIndex, ProgrammingEntryInfo rowObject) {
 		int level = new Integer(kdtEntries.getCell(rowIndex, "level").getValue().toString()).intValue();
 		rowObject.setLevel(level);
 		if (level > 1) {
@@ -2517,10 +2544,10 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 	 */
 	private void verifyRedData() {
 		for (int i = 0; i < kdtEntries.getRowCount(); i++) {
-			ProgrammingContractInfo programmingContractInfo = (ProgrammingContractInfo) kdtEntries.getRow(i).getUserObject();
-			ProgrammingContracCostCollection costEntries = programmingContractInfo.getCostEntries();
+			ProgrammingEntryInfo programmingEntryInfo = (ProgrammingEntryInfo) kdtEntries.getRow(i).getUserObject();
+			ProgrammingEntryCostEntryCollection costEntries = programmingEntryInfo.getCostEntries();
 			for (int j = 0; j < costEntries.size(); j++) {
-				ProgrammingContracCostInfo pccInfo = costEntries.get(j);
+				ProgrammingEntryCostEntryInfo pccInfo = costEntries.get(j);
 				BigDecimal contractAssign = pccInfo.getContractAssign();
 				BigDecimal assigning = pccInfo.getAssigning();
 				if (contractAssign.compareTo(assigning) > 0) {
@@ -3117,7 +3144,7 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 	
 	protected String getEditUIName()
     {
-        return com.kingdee.eas.fdc.contract.programming.client.ProgrammingEditUI.class.getName();
+        return com.kingdee.eas.port.pm.invest.investplan.client.ProgrammingEditUI.class.getName();
     }
 	
 	public SelectorItemCollection getSelectors() {
@@ -3188,7 +3215,7 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
      */
     protected IObjectValue createNewData()
     {
-        com.kingdee.eas.fdc.contract.programming.ProgrammingInfo objectValue = new com.kingdee.eas.fdc.contract.programming.ProgrammingInfo();
+       com.kingdee.eas.port.pm.invest.investplan.ProgrammingInfo objectValue = new com.kingdee.eas.port.pm.invest.investplan.ProgrammingInfo();
 		objectValue.setId(BOSUuid.create(objectValue.getBOSType()));
         objectValue.setVersion(new BigDecimal("1.0"));
         objectValue.setCreator((com.kingdee.eas.base.permission.UserInfo)(com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentUser()));
@@ -3312,7 +3339,7 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 		kdtCostAccount.getStyleAttributes().setLocked(true);
 		int rowCount = kdtEntries.getRowCount();
 		for(int i = 0 ; i < rowCount ; i++){
-			ProgrammingContractInfo rowObject = (ProgrammingContractInfo)kdtEntries.getRow(i).getUserObject();
+			ProgrammingEntryInfo rowObject = (ProgrammingEntryInfo)kdtEntries.getRow(i).getUserObject();
 			Object name = kdtEntries.getCell(i, "name").getValue();//框架合约模板名称
 			String proName = "";
 			String oldName = "";
@@ -3331,9 +3358,9 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 	 * @param proName
 	 * @param oldName
 	 */
-	private void createCostEntriesRow(int i, ProgrammingContractInfo rowObject, String proName, String oldName) {
+	private void createCostEntriesRow(int i, ProgrammingEntryInfo rowObject, String proName, String oldName) {
 		if (rowObject != null) {
-			ProgrammingContracCostCollection proCol = rowObject.getCostEntries();
+			ProgrammingEntryCostEntryCollection proCol = rowObject.getCostEntries();
 			if (proCol.size() > 0) {
 				addRowForCost(proName, oldName, proCol);
 			}
@@ -3346,10 +3373,10 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 	 * @param oldName
 	 * @param proCol
 	 */
-	private void addRowForCost(String proName, String oldName, ProgrammingContracCostCollection proCol) {
+	private void addRowForCost(String proName, String oldName, ProgrammingEntryCostEntryCollection proCol) {
 		for (int i = 0; i < proCol.size(); i++) {
 			boolean isHas = false;
-			ProgrammingContracCostInfo info = proCol.get(i);
+			ProgrammingEntryCostEntryInfo info = proCol.get(i);
 			BigDecimal contractAssign = info.getContractAssign();// 本合约分配
 			BigDecimal goalCost = info.getGoalCost();// 目标成本
 			if (contractAssign != null && goalCost != null) {
@@ -3703,7 +3730,7 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 		ProgrammingEntryCollection pcCollection  = this.editData.getEntries();
 		BigDecimal allContractAssign = FDCHelper.ZERO;
 		for (int i = 0; i < pcCollection.size(); i++) {
-			ProgrammingEntryInfo programmingContractInfo = pcCollection.get(i);
+			ProgrammingEntryInfo programmingEntryInfo = pcCollection.get(i);
 		}
 		return allContractAssign;
 	}
@@ -3736,15 +3763,15 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 				}
 			}
 			if (isLeaf && longNumber.indexOf('.') != -1) {
-				entry.put(longNumber, (ProgrammingContractInfo)this.kdtEntries.getRow(i).getUserObject());
+				entry.put(longNumber, (ProgrammingEntryInfo)this.kdtEntries.getRow(i).getUserObject());
 				colorEntry.put(longNumber, this.kdtEntries.getRow(i));
-				for(int k=0;k<((ProgrammingContractInfo) this.kdtEntries.getRow(i).getUserObject()).getCostEntries().size();k++){
-					ProgrammingContracCostInfo pcc=((ProgrammingContractInfo) this.kdtEntries.getRow(i).getUserObject()).getCostEntries().get(k);
+				for(int k=0;k<((ProgrammingEntryInfo) this.kdtEntries.getRow(i).getUserObject()).getCostEntries().size();k++){
+					ProgrammingEntryCostEntryInfo pcc=((ProgrammingEntryInfo) this.kdtEntries.getRow(i).getUserObject()).getCostEntries().get(k);
 					entryCost.put(longNumber+pcc.getCostAccount().getLongNumber().replaceAll("!", "."),pcc);
 				}
 			}
 		}
-		ProgrammingContractCollection col=ProgrammingContractFactory.getRemoteInstance().getProgrammingContractCollection("select *,costEntries.*,costEntries.costAccount.* from where programming.versionGroup = '" + this.editData.getVersionGroup()+"' and programming.version="+(this.txtVersion.getBigDecimalValue().subtract(new BigDecimal(1)))+" order by longNumber,costEntries.costAccount.longNumber");
+		ProgrammingEntryCollection col=ProgrammingEntryFactory.getRemoteInstance().getProgrammingEntryCollection("select *,costEntries.*,costEntries.costAccount.* from where programming.versionGroup = '" + this.editData.getVersionGroup()+"' and programming.version="+(this.txtVersion.getBigDecimalValue().subtract(new BigDecimal(1)))+" order by longNumber,costEntries.costAccount.longNumber");
 		for(int i=0;i<col.size();i++){
 			String longNumber = col.get(i).getLongNumber();
 			String name=col.get(i).getName();
@@ -3761,7 +3788,7 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 				IRow row=null;
 				String content=null;
 				if(entry.get(longNumber)!=null){
-					ProgrammingContractInfo nowPC=(ProgrammingContractInfo) entry.get(longNumber);
+					ProgrammingEntryInfo nowPC=(ProgrammingEntryInfo) entry.get(longNumber);
 					BigDecimal nowAmount=nowPC.getAmount();
 					if(nowAmount.compareTo(srcAmount)!=0){
 						row=table.addRow();
@@ -3780,7 +3807,7 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 							String costName=col.get(i).getCostEntries().get(k).getCostAccount().getName();
 							BigDecimal srcCostAmount=col.get(i).getCostEntries().get(k).getContractAssign();
 							if(entryCost.get(longNumber+costLongNumber)!=null){
-								ProgrammingContracCostInfo srcPCC=(ProgrammingContracCostInfo) entryCost.get(longNumber+costLongNumber);
+								ProgrammingEntryCostEntryInfo srcPCC=(ProgrammingEntryCostEntryInfo) entryCost.get(longNumber+costLongNumber);
 								BigDecimal nowCostAmount=srcPCC.getContractAssign();
 								
 								if(nowCostAmount.compareTo(srcCostAmount)!=0){
@@ -3798,7 +3825,7 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 						Object[] key = entryCost.keySet().toArray(); 
 			    		for (int k = 0; k < key.length; k++) {
 			    			String nowCostNumber=(String)key[k];
-			    			ProgrammingContracCostInfo nowPCC=(ProgrammingContracCostInfo) entryCost.get(key[k]);
+			    			ProgrammingEntryCostEntryInfo nowPCC=(ProgrammingEntryCostEntryInfo) entryCost.get(key[k]);
 			    			if(nowCostNumber.startsWith(longNumber)&&nowPCC.getContractAssign()!=null&&nowPCC.getContractAssign().compareTo(FDCHelper.ZERO)!=0){
 			    				content=content+nowCostNumber.replaceFirst(longNumber, "")+"     "+nowPCC.getCostAccount().getName()+"增加"+nowPCC.getContractAssign()+";";
 			    			}
@@ -3827,7 +3854,7 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 		Object[] key = entry.keySet().toArray(); 
 		for (int k = 0; k < key.length; k++) {
 			String nowNumber=(String)key[k];
-			ProgrammingContractInfo nowPC=(ProgrammingContractInfo) entry.get(key[k]);
+			ProgrammingEntryInfo nowPC=(ProgrammingEntryInfo) entry.get(key[k]);
 			String nowName=nowPC.getName();
 			IRow row=table.addRow();
 			row.getCell("programmingContract").setValue(nowNumber+"     "+nowName.trim());

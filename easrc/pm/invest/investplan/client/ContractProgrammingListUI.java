@@ -40,6 +40,7 @@ import com.kingdee.eas.port.pm.invest.investplan.ContractProgrammingFactory;
 import com.kingdee.eas.port.pm.invest.investplan.ContractProgrammingInfo;
 import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
 import com.kingdee.eas.util.SysUtil;
+import com.kingdee.eas.xr.helper.common.PortProjectTreeBuilder;
 import com.kingdee.jdbc.rowset.IRowSet;
 
 /**
@@ -107,6 +108,7 @@ public class ContractProgrammingListUI extends
 			SysUtil.abort();
 		}
 		super.onLoad();
+		buildProjectTree();
 		updateButtonStatus();
 //		setColor();
 	}
@@ -123,6 +125,19 @@ public class ContractProgrammingListUI extends
 			setColor();
 		} catch (Exception e) {
 			e.printStackTrace();
+		}
+	}
+	
+	
+	public void buildProjectTree() throws Exception {
+		PortProjectTreeBuilder projectTreeBuilder = new PortProjectTreeBuilder();
+
+		projectTreeBuilder.build(this, this.treeProject, actionOnLoad);
+		
+		if(this.treeProject.getRowCount() > 0)
+		{
+			this.treeProject.setSelectionRow(0);
+			this.treeProject.expandAllNodes(true,(DefaultKingdeeTreeNode)  this.treeProject.getModel().getRoot());
 		}
 	}
 	
@@ -206,23 +221,23 @@ public class ContractProgrammingListUI extends
 	 * @throws EASBizException
 	 */
 	private void checkProjectInAimCost() throws BOSException, EASBizException {
-//		DefaultKingdeeTreeNode node = getProjSelectedTreeNode();
-//		// 保留这个判断可提高部分性能
+		DefaultKingdeeTreeNode node = getProjSelectedTreeNode();
+		// 保留这个判断可提高部分性能
 //		if (node.getTextColor() == Color.RED) {
 //			MsgBox.showError("该工程项目还没有对应目标成本，不能新增合约规划！");
 //			abort();
 //		}
-//		if (node.getUserObject() instanceof ProjectInfo) {
-//			ProjectInfo info = (ProjectInfo) node.getUserObject();
-//			FilterInfo filter = new FilterInfo();
-//			filter.getFilterItems().add(
-//					new FilterItemInfo("orgOrProId", info.getId().toString(),
-//							CompareType.EQUALS));
+		if (node.getUserObject() instanceof ProjectInfo) {
+			ProjectInfo info = (ProjectInfo) node.getUserObject();
+			FilterInfo filter = new FilterInfo();
+			filter.getFilterItems().add(
+					new FilterItemInfo("orgOrProId", info.getId().toString(),
+							CompareType.EQUALS));
 //			if (!AimCostFactory.getRemoteInstance().exists(filter)) {
 //				MsgBox.showError("该工程项目还没有对应目标成本，不能新增合约规划！");
 //				abort();
 //			}
-//		}
+		}
 	}
 
 	public void actionAddNew_actionPerformed(ActionEvent e) throws Exception {

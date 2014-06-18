@@ -5,10 +5,7 @@ package com.kingdee.eas.port.pm.invest.investplan.client;
 
 import java.awt.event.ActionEvent;
 import java.math.BigDecimal;
-import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 import javax.swing.event.TreeSelectionEvent;
@@ -23,7 +20,6 @@ import com.kingdee.bos.ctrl.kdf.util.style.Styles.HorizontalAlignment;
 import com.kingdee.bos.ctrl.swing.tree.DefaultKingdeeTreeNode;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
-import com.kingdee.bos.framework.cache.ActionCache;
 import com.kingdee.bos.metadata.data.SortType;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemCollection;
@@ -37,30 +33,29 @@ import com.kingdee.bos.ui.face.UIFactory;
 import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.eas.base.attachment.common.AttachmentClientManager;
 import com.kingdee.eas.base.attachment.common.AttachmentManagerFactory;
-import com.kingdee.eas.base.permission.PermissionFactory;
-import com.kingdee.eas.basedata.org.OrgType;
+import com.kingdee.eas.basedata.assistant.ProjectInfo;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.OprtState;
-import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.common.client.UIContext;
 import com.kingdee.eas.common.client.UIFactoryName;
-import com.kingdee.eas.basedata.assistant.ProjectInfo;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
 import com.kingdee.eas.fdc.basedata.FDCHelper;
 import com.kingdee.eas.fdc.basedata.client.FDCClientUtils;
 import com.kingdee.eas.fdc.basedata.client.FDCMsgBox;
-import com.kingdee.eas.fdc.basedata.client.ProjectTreeBuilder;
-import com.kingdee.eas.fdc.contract.FDCUtils;
-import com.kingdee.eas.framework.AbstractCoreBaseInfo;
 import com.kingdee.eas.framework.CoreBaseInfo;
 import com.kingdee.eas.framework.ICoreBase;
 import com.kingdee.eas.port.pm.invest.investplan.IProgramming;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingCollection;
+import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryCollection;
+import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryInfo;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingFactory;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingInfo;
+import com.kingdee.eas.port.pm.utils.FDCUtils;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
+import com.kingdee.eas.xr.helper.common.PortProjectTreeBuilder;
 import com.kingdee.util.NumericExceptionSubItem;
+
 
 /**
  * output class name
@@ -137,53 +132,40 @@ public class ProgrammingListUI extends AbstractProgrammingListUI
     }
     
     protected void treeSelectChange() throws Exception {
-//		DefaultKingdeeTreeNode projectNode  = (DefaultKingdeeTreeNode) treeProject.getLastSelectedPathComponent();
-//		Object project  = null;
-//		if(projectNode!=null) {
-//			project = projectNode.getUserObject();
-//			if (project instanceof ProjectInfo) {
-//				actionAddNew.setEnabled(true);
-//				kDContainer1.setTitle(((ProjectInfo) project).getDisplayName());
-//			} else {
-//				actionAddNew.setEnabled(false);
-//				kDContainer1.setTitle(null);
-//			}
-//		}
-//		
-//		mainQuery.setFilter(getTreeSelectFilter(project));
-//		SorterItemCollection sorter = mainQuery.getSorter();
-//    	sorter.clear();
-////    	SorterItemInfo sorterName = new SorterItemInfo("name");
-//    	SorterItemInfo sorterVsersion = new SorterItemInfo("version");
-//    	sorterVsersion.setSortType(SortType.DESCEND);
-////    	sorter.add(sorterName);
-//    	sorter.add(sorterVsersion);
-//		execQuery();
+		DefaultKingdeeTreeNode projectNode  = (DefaultKingdeeTreeNode) treeProject.getLastSelectedPathComponent();
+		Object project  = null;
+		if(projectNode!=null) {
+			project = projectNode.getUserObject();
+			if (project instanceof ProjectInfo) {
+				actionAddNew.setEnabled(true);
+				kDContainer1.setTitle(((ProjectInfo) project).getDisplayName());
+			} 
+			else {
+				actionAddNew.setEnabled(false);
+				kDContainer1.setTitle(null);
+			}
+		}
+		
+		mainQuery.setFilter(getTreeSelectFilter(project));
+		SorterItemCollection sorter = mainQuery.getSorter();
+    	sorter.clear();
+//    	SorterItemInfo sorterName = new SorterItemInfo("name");
+    	SorterItemInfo sorterVsersion = new SorterItemInfo("version");
+    	sorterVsersion.setSortType(SortType.DESCEND);
+//    	sorter.add(sorterName);
+    	sorter.add(sorterVsersion);
+		execQuery();
     }
     
 	public void buildProjectTree() throws Exception {
-		ProjectTreeBuilder projectTreeBuilder = new ProjectTreeBuilder();
+		PortProjectTreeBuilder projectTreeBuilder = new PortProjectTreeBuilder();
 
-		projectTreeBuilder.build(this, treeProject, actionOnLoad);
+		projectTreeBuilder.build(this, this.treeProject, actionOnLoad);
 		
-		authorizedOrgs = (Set)ActionCache.get("FDCBillListUIHandler.authorizedOrgs");
-		if(authorizedOrgs==null){
-			authorizedOrgs = new HashSet();
-			Map orgs = PermissionFactory.getRemoteInstance().getAuthorizedOrgs(
-					 new ObjectUuidPK(SysContext.getSysContext().getCurrentUserInfo().getId()),
-			            OrgType.CostCenter, 
-			            null,  null, null);
-			if(orgs!=null){
-				Set orgSet = orgs.keySet();
-				Iterator it = orgSet.iterator();
-				while(it.hasNext()){
-					authorizedOrgs.add(it.next());
-				}
-			}		
-		}
-		if (treeProject.getRowCount() > 0) {
-			treeProject.setSelectionRow(0);
-			treeProject.expandPath(treeProject.getSelectionPath());
+		if(this.treeProject.getRowCount() > 0)
+		{
+			this.treeProject.setSelectionRow(0);
+			this.treeProject.expandAllNodes(true,(DefaultKingdeeTreeNode)  this.treeProject.getModel().getRoot());
 		}
 	}
 	
@@ -343,7 +325,7 @@ public class ProgrammingListUI extends AbstractProgrammingListUI
 	public void actionAddNew_actionPerformed(ActionEvent e) throws Exception {
 		
 		DefaultKingdeeTreeNode node  = (DefaultKingdeeTreeNode) treeProject.getLastSelectedPathComponent();
-//		FDCClientUtils.checkSelectProj(this, node);
+		FDCClientUtils.checkSelectProj(this, node);
 //		if (node == null) {
 //			throw new EASBizException(new NumericExceptionSubItem("1", "请选择工程项目"));
 //		}
@@ -352,9 +334,9 @@ public class ProgrammingListUI extends AbstractProgrammingListUI
 //		if (!(obj instanceof ProjectInfo)) {
 //			throw new EASBizException(new NumericExceptionSubItem("1", "请选择工程项目"));
 //		}
-//		
 		
-		String proId =  ((AbstractCoreBaseInfo) obj).getId().toString();
+		
+		String proId = ((ProjectInfo) obj).getId().toString();
 		boolean isExist = getBizInterface().exists("where project = '".concat(proId).concat("'"));
 		if (isExist) {
 			throw new EASBizException(new NumericExceptionSubItem("1", "此工程项目下已存在合约框架\n不允许再新增"));
@@ -396,17 +378,17 @@ public class ProgrammingListUI extends AbstractProgrammingListUI
 		String ids = FDCUtils.buildBillIds(idList);
 		String oql = "select programming, programming.isCiting where id in ".concat(ids);
 		ProgrammingCollection collection = ((IProgramming) getBizInterface()).getProgrammingCollection(oql);
-//		for (int i = 0, size = collection.size(); i < size; i++) {
-//			ProgrammingInfo info = collection.get(i);
-//			ProgrammingContractCollection entries = info.getEntries();
-//			for (int j = 0, count = entries.size(); j < count; j++) {
-//				ProgrammingContractInfo entry = entries.get(j);
-//				if (entry.isIsCiting()) {
-//					throw new EASBizException(new NumericExceptionSubItem("1", 
-//							"合约框架中存在被引用的框架合约\n不允许此操作"));
-//				}
-//			}
-//		}
+		for (int i = 0, size = collection.size(); i < size; i++) {
+			ProgrammingInfo info = collection.get(i);
+			ProgrammingEntryCollection entries = info.getEntries();
+			for (int j = 0, count = entries.size(); j < count; j++) {
+				ProgrammingEntryInfo entry = entries.get(j);
+				if (entry.isIsCiting()) {
+					throw new EASBizException(new NumericExceptionSubItem("1", 
+							"合约框架中存在被引用的框架合约\n不允许此操作"));
+				}
+			}
+		}
 	}
 	
 	private IProgramming getServiceInterface() throws BOSException {

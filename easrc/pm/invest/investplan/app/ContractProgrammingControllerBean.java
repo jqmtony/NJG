@@ -19,7 +19,7 @@ import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.fdc.basedata.FDCBillInfo;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
-import com.kingdee.eas.fdc.contract.ContractException;
+import com.kingdee.eas.port.pm.contract.ContractException;
 import com.kingdee.eas.port.pm.invest.investplan.ContractProgrammingFactory;
 import com.kingdee.eas.port.pm.invest.investplan.ContractProgrammingInfo;
 

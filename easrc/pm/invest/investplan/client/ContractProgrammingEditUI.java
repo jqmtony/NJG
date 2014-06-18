@@ -8,9 +8,7 @@ import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.Iterator;
-import java.util.Set;
 
 import org.apache.log4j.Logger;
 
@@ -52,6 +50,8 @@ import com.kingdee.eas.port.pm.invest.investplan.ContractProgrammingEntryFactory
 import com.kingdee.eas.port.pm.invest.investplan.ContractProgrammingEntryInfo;
 import com.kingdee.eas.port.pm.invest.investplan.ContractProgrammingFactory;
 import com.kingdee.eas.port.pm.invest.investplan.ContractProgrammingInfo;
+import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryInfo;
+import com.kingdee.eas.port.pm.invest.investplan.ProgrammingTemplateEntireInfo;
 import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
 import com.kingdee.jdbc.rowset.IRowSet;
 
@@ -63,7 +63,7 @@ public class ContractProgrammingEditUI extends AbstractContractProgrammingEditUI
     private static final Logger logger = CoreUIObject.getLogger(ContractProgrammingEditUI.class);
     //因为修订合约规划然后保存后 会再调用一次loadfields() 这时会造成 分录又被加载一次 所以搞个变量控制下
     private boolean isLoadEmend=true;
-  
+    private ProgrammingEntryInfo  programmingEntryInfo;
     public ContractProgrammingEditUI() throws Exception
     {
         super();
@@ -264,17 +264,29 @@ public class ContractProgrammingEditUI extends AbstractContractProgrammingEditUI
 	
 	protected IObjectValue createNewData() {		
 		ContractProgrammingInfo info = new ContractProgrammingInfo();
-		BOSUuid projId = (BOSUuid) getUIContext().get("projectId");
-		if(projId == null){
-			projId = editData.getCurProject().getId();
+		if(getUIContext().get("projectId")!=null)
+		{
+			BOSUuid projId = (BOSUuid) getUIContext().get("projectId");
+			try {
+				ProjectInfo prjInfo = ProjectFactory.getRemoteInstance().getProjectInfo(new ObjectUuidPK(projId));
+				info.setCurProject(prjInfo);
+			} catch (EASBizException e) {
+				e.printStackTrace();
+			} catch (BOSException e) {
+				e.printStackTrace();
+			}
 		}
-		try {
-			ProjectInfo prjInfo = ProjectFactory.getRemoteInstance().getProjectInfo(new ObjectUuidPK(projId));
-			info.setCurProject(prjInfo);
-		} catch (EASBizException e) {
-			e.printStackTrace();
-		} catch (BOSException e) {
-			e.printStackTrace();
+		if(getUIContext().get("project")!=null)
+		{
+			info.setCurProject((ProjectInfo)getUIContext().get("project"));
+		}
+		if(getUIContext().get("programmingContract")!=null)
+		{
+			ProgrammingEntryInfo rowObject = (ProgrammingEntryInfo)getUIContext().get("programmingContract");
+			info.setSourceBillId(rowObject.getId().toString());
+			info.setNumber(rowObject.getNumber());
+			info.setName(rowObject.getName()!=null?rowObject.getName().trim():"");
+			info.setDescription(rowObject.getDescription());
 		}
 		info.setCreator(SysContext.getSysContext().getCurrentUserInfo());
 		info.setCreateTime(new Timestamp(new Date().getTime()));
@@ -310,6 +322,7 @@ public class ContractProgrammingEditUI extends AbstractContractProgrammingEditUI
 			}
 		};
 		prmtCostAccount.setSelector(selector);
+		
 		
 //		prmtCostAccount.setQueryInfo("com.kingdee.eas.fdc.basedata.app.CostAccountQuery");
 		prmtCostAccount.setDisplayFormat("$longNumber$");
@@ -499,97 +512,97 @@ public class ContractProgrammingEditUI extends AbstractContractProgrammingEditUI
 	
 	protected void verifyInput(ActionEvent e) throws Exception {
 		super.verifyInput(e);
-    	if(this.txtName.getText()==null || this.txtName.getText().trim().length()==0){
-    		MsgBox.showWarning("合约规划名称不能为空!");
-    		abort();
-    	}
-		if(kdtEntry.getRowCount()>0){
-			Set set=new HashSet();
-			for(int i=0;i<kdtEntry.getRowCount();i++){
-				if(kdtEntry.getCell(i, "costAccount").getValue()==null){
-					MsgBox.showError("第"+(i+1)+"行没有选择成本科目！");
-					abort();
-				}
-				else{
-					CostAccountInfo info = (CostAccountInfo)kdtEntry.getCell(i, "costAccount").getValue();
-					if(!set.add(info.getId().toString())){
-						MsgBox.showError("同一成本科目不能重复录入规划金额！");
-						abort();
-					}
-				}
-				if(kdtEntry.getCell(i, "aimcost").getValue()==null){
-					MsgBox.showError("第"+(i+1)+"行的成本科目没有对应目标成本！");
-					abort();
-				}				
-				else{
-					if(kdtEntry.getCell(i, "programmingMoney").getValue()!=null){
-						BigDecimal programmingMoney=FDCHelper.toBigDecimal(kdtEntry.getCell(i, "programmingMoney").getValue());
-						BigDecimal aimCost=FDCHelper.toBigDecimal(kdtEntry.getCell(i, "aimcost").getValue());
-						if(programmingMoney.compareTo(FDCHelper.ZERO)<=0){
-							MsgBox.showError("第"+(i+1)+"行录入的规划金额小于或等于零！");
-							abort();
-						}
-						if(aimCost.compareTo(programmingMoney)<0){
-							MsgBox.showError("第"+(i+1)+"行录入的规划金额大于目标成本！");
-							abort();
-						}
-					}
-					else{
-						MsgBox.showError("第"+(i+1)+"行没有录入规划金额！");
-						abort();
-					}
-				}
-				// 需求变更为可对同一科目进行多次规划 所以 新加 验证 对同一科目的规划金额累加 不能超过目标成本
-				BigDecimal money=FDCHelper.ZERO;
-				IRow row=kdtEntry.getRow(i);
-    			CostAccountInfo newInfo =(CostAccountInfo)row.getCell("costAccount").getValue();
-    			//这里为了区分 新增、修订和修改  
-    			if(row.getCell("id").getValue()==null){
-					FDCSQLBuilder builder=new FDCSQLBuilder();
-					builder.appendSql(" select sum(entry.FProgrammingMoney) money from T_CON_ContractProgrammingEntry entry ");
-					builder.appendSql(" inner join T_CON_ContractProgramming parent on entry.FParentID=parent.fid  ");
-					builder.appendSql(" where entry.fprjLongNumber=? and entry.FCostAccountID=? and parent.FIsLastVersion=1 ");				
-					builder.addParam(row.getCell("prjLongNumber").getValue().toString());
-					builder.addParam(newInfo.getId().toString());
-					IRowSet rs=builder.executeQuery();
-					if(rs.next()){
-						if(rs.getBigDecimal("money")!=null){
-							money=money.add(rs.getBigDecimal("money"));
-						}
-					}
-				}
-    			else{
-    				FDCSQLBuilder builder=new FDCSQLBuilder();
-					builder.appendSql(" select sum(entry.FProgrammingMoney) money from T_CON_ContractProgrammingEntry entry ");
-					builder.appendSql(" inner join T_CON_ContractProgramming parent on entry.FParentID=parent.fid  ");
-					builder.appendSql(" where entry.fprjLongNumber=? and entry.FCostAccountID=? and parent.FIsLastVersion=1 and entry.fid<>? ");				
-					builder.addParam(row.getCell("prjLongNumber").getValue().toString());
-					builder.addParam(newInfo.getId().toString());
-					builder.addParam(row.getCell("id").getValue().toString());
-					IRowSet rs=builder.executeQuery();
-					if(rs.next()){
-						if(rs.getBigDecimal("money")!=null){
-							money=money.add(rs.getBigDecimal("money"));
-						}
-					}					
-    			}
-				BigDecimal aimCost=FDCHelper.toBigDecimal(row.getCell("aimcost").getValue());
-				BigDecimal programmingMoney=FDCHelper.toBigDecimal(row.getCell("programmingMoney").getValue());
-				money=money.add(programmingMoney);
-				if(money.compareTo(aimCost)>0){
-					MsgBox.showError("在同一工程项目下科目"+newInfo.getName()+"的累计规划金额不能超过目标成本！");
-					abort();
-				}
-				//如果是修订状态  验证完了 应该把分录的ID 替换成新的
-				if(getUIContext().get("isEmend")!=null && getUIContext().get("isEmend").toString().equals("yes")){
-					row.getCell("id").setValue(BOSUuid.create("21118986"));
-				}
-			}
-		}
-		else{
-			MsgBox.showError("请添加成本科目分录！");
-			abort();
-		}
+//    	if(this.txtName.getText()==null || this.txtName.getText().trim().length()==0){
+//    		MsgBox.showWarning("合约规划名称不能为空!");
+//    		abort();
+//    	}
+//		if(kdtEntry.getRowCount()>0){
+//			Set set=new HashSet();
+//			for(int i=0;i<kdtEntry.getRowCount();i++){
+//				if(kdtEntry.getCell(i, "costAccount").getValue()==null){
+//					MsgBox.showError("第"+(i+1)+"行没有选择成本科目！");
+//					abort();
+//				}
+//				else{
+//					CostAccountInfo info = (CostAccountInfo)kdtEntry.getCell(i, "costAccount").getValue();
+//					if(!set.add(info.getId().toString())){
+//						MsgBox.showError("同一成本科目不能重复录入规划金额！");
+//						abort();
+//					}
+//				}
+//				if(kdtEntry.getCell(i, "aimcost").getValue()==null){
+//					MsgBox.showError("第"+(i+1)+"行的成本科目没有对应目标成本！");
+//					abort();
+//				}				
+//				else{
+//					if(kdtEntry.getCell(i, "programmingMoney").getValue()!=null){
+//						BigDecimal programmingMoney=FDCHelper.toBigDecimal(kdtEntry.getCell(i, "programmingMoney").getValue());
+//						BigDecimal aimCost=FDCHelper.toBigDecimal(kdtEntry.getCell(i, "aimcost").getValue());
+//						if(programmingMoney.compareTo(FDCHelper.ZERO)<=0){
+//							MsgBox.showError("第"+(i+1)+"行录入的规划金额小于或等于零！");
+//							abort();
+//						}
+//						if(aimCost.compareTo(programmingMoney)<0){
+//							MsgBox.showError("第"+(i+1)+"行录入的规划金额大于目标成本！");
+//							abort();
+//						}
+//					}
+//					else{
+//						MsgBox.showError("第"+(i+1)+"行没有录入规划金额！");
+//						abort();
+//					}
+//				}
+//				// 需求变更为可对同一科目进行多次规划 所以 新加 验证 对同一科目的规划金额累加 不能超过目标成本
+//				BigDecimal money=FDCHelper.ZERO;
+//				IRow row=kdtEntry.getRow(i);
+//    			CostAccountInfo newInfo =(CostAccountInfo)row.getCell("costAccount").getValue();
+//    			//这里为了区分 新增、修订和修改  
+//    			if(row.getCell("id").getValue()==null){
+//					FDCSQLBuilder builder=new FDCSQLBuilder();
+//					builder.appendSql(" select sum(entry.FProgrammingMoney) money from T_CON_ContractProgrammingEntry entry ");
+//					builder.appendSql(" inner join T_CON_ContractProgramming parent on entry.FParentID=parent.fid  ");
+//					builder.appendSql(" where entry.fprjLongNumber=? and entry.FCostAccountID=? and parent.FIsLastVersion=1 ");				
+//					builder.addParam(row.getCell("prjLongNumber").getValue().toString());
+//					builder.addParam(newInfo.getId().toString());
+//					IRowSet rs=builder.executeQuery();
+//					if(rs.next()){
+//						if(rs.getBigDecimal("money")!=null){
+//							money=money.add(rs.getBigDecimal("money"));
+//						}
+//					}
+//				}
+//    			else{
+//    				FDCSQLBuilder builder=new FDCSQLBuilder();
+//					builder.appendSql(" select sum(entry.FProgrammingMoney) money from T_CON_ContractProgrammingEntry entry ");
+//					builder.appendSql(" inner join T_CON_ContractProgramming parent on entry.FParentID=parent.fid  ");
+//					builder.appendSql(" where entry.fprjLongNumber=? and entry.FCostAccountID=? and parent.FIsLastVersion=1 and entry.fid<>? ");				
+//					builder.addParam(row.getCell("prjLongNumber").getValue().toString());
+//					builder.addParam(newInfo.getId().toString());
+//					builder.addParam(row.getCell("id").getValue().toString());
+//					IRowSet rs=builder.executeQuery();
+//					if(rs.next()){
+//						if(rs.getBigDecimal("money")!=null){
+//							money=money.add(rs.getBigDecimal("money"));
+//						}
+//					}					
+//    			}
+//				BigDecimal aimCost=FDCHelper.toBigDecimal(row.getCell("aimcost").getValue());
+//				BigDecimal programmingMoney=FDCHelper.toBigDecimal(row.getCell("programmingMoney").getValue());
+//				money=money.add(programmingMoney);
+//				if(money.compareTo(aimCost)>0){
+//					MsgBox.showError("在同一工程项目下科目"+newInfo.getName()+"的累计规划金额不能超过目标成本！");
+//					abort();
+//				}
+//				//如果是修订状态  验证完了 应该把分录的ID 替换成新的
+//				if(getUIContext().get("isEmend")!=null && getUIContext().get("isEmend").toString().equals("yes")){
+//					row.getCell("id").setValue(BOSUuid.create("21118986"));
+//				}
+//			}
+//		}
+//		else{
+//			MsgBox.showError("请添加成本科目分录！");
+//			abort();
+//		}
 	}
 
 }

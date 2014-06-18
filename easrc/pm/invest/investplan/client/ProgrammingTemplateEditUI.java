@@ -67,18 +67,20 @@ import com.kingdee.eas.fdc.basedata.CostAccountInfo;
 import com.kingdee.eas.fdc.basedata.FDCHelper;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
 import com.kingdee.eas.fdc.basedata.client.ContractTypePromptSelector;
+import com.kingdee.eas.fdc.basedata.client.CostAccountPromptBox;
 import com.kingdee.eas.fdc.basedata.client.FDCMsgBox;
 import com.kingdee.eas.fdc.basedata.client.FDCUIWeightWorker;
 import com.kingdee.eas.fdc.basedata.client.IFDCWork;
-import com.kingdee.eas.fdc.contract.client.CostAccountPromptBox;
-import com.kingdee.eas.fdc.contract.programming.ProgrammingException;
-import com.kingdee.eas.fdc.contract.programming.client.LimitedTextDocument;
 import com.kingdee.eas.framework.IFWEntityStruct;
 import com.kingdee.eas.mm.control.client.TableCellComparator;
+import com.kingdee.eas.port.pm.invest.investplan.ProgrammingException;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingTemplateEntireCollection;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingTemplateEntireInfo;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingTemplateEntirePteCostCollection;
+import com.kingdee.eas.port.pm.invest.investplan.ProgrammingTemplateEntirePteCostFactory;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingTemplateEntirePteCostInfo;
+import com.kingdee.eas.port.pm.invest.investplan.ProgrammingTemplateEntirePteEnonomyFactory;
+import com.kingdee.eas.port.pm.invest.investplan.ProgrammingTemplateEntirePteEnonomyInfo;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingTemplateFactory;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingTemplateInfo;
 import com.kingdee.eas.port.pm.invest.uitls.CreateTableRow;
@@ -1001,37 +1003,37 @@ public class ProgrammingTemplateEditUI extends AbstractProgrammingTemplateEditUI
      * output actionSubmit_actionPerformed
      */
     public void actionSubmit_actionPerformed(ActionEvent e) throws Exception{
-//    	kdtEntires.getEditManager().editingStopped();
-//    	verifyDataBySave();
-//    	int rowCount = this.kdtEntires.getRowCount();
-//		for(int i = 0 ; i < rowCount ; i++){
-//			IRow row = kdtEntires.getRow(i);
-//			Object name =  row.getCell("name").getValue();
-//			if(name != null && name.toString().trim().length() > 0){
-//				row.getCell("name").setValue(name.toString().trim());
-//			}
-//			row.getCell("sortNumber").setValue(new Integer(i));
-//			ProgrammingTemplateEntireInfo rowObject = (ProgrammingTemplateEntireInfo)kdtEntires.getRow(i).getUserObject();
-//    		setCostAccountToEditData(i,rowObject);
-//			if(rowObject.getId() != null){
-//	    		FilterInfo filter = new FilterInfo();
-//				filter.getFilterItems().add(new FilterItemInfo("parent" , rowObject.getId().toString() , CompareType.EQUALS));
-//				ProgrammingTemplateEntirePteCostFactory.getRemoteInstance().delete(filter);
-//				for (int j = 0; j < rowObject.getPteCost().size(); j++) {
-//					ProgrammingTemplateEntirePteCostInfo info = rowObject.getPteCost().get(j);
-//					info.setParent(rowObject);
-//					ProgrammingTemplateEntirePteCostFactory.getRemoteInstance().save(info);
-//				}
-//				rowObject.getPteCost().clear();
-//				PTEEnonomyFactory.getRemoteInstance().delete(filter);
-//				for (int j = 0; j < rowObject.getPteEnonomy().size(); j++) {
-//					PTEEnonomyInfo info = rowObject.getPteEnonomy().get(j);
-//					info.setParent(rowObject);
-//					PTEEnonomyFactory.getRemoteInstance().save(info);
-//				}
-//				rowObject.getPteEnonomy().clear();
-//			}
-//		}
+    	kdtEntires.getEditManager().editingStopped();
+    	verifyDataBySave();
+    	int rowCount = this.kdtEntires.getRowCount();
+		for(int i = 0 ; i < rowCount ; i++){
+			IRow row = kdtEntires.getRow(i);
+			Object name =  row.getCell("name").getValue();
+			if(name != null && name.toString().trim().length() > 0){
+				row.getCell("name").setValue(name.toString().trim());
+			}
+			row.getCell("sortNumber").setValue(new Integer(i));
+			ProgrammingTemplateEntireInfo rowObject = (ProgrammingTemplateEntireInfo)kdtEntires.getRow(i).getUserObject();
+    		setCostAccountToEditData(i,rowObject);
+			if(rowObject.getId() != null){
+	    		FilterInfo filter = new FilterInfo();
+				filter.getFilterItems().add(new FilterItemInfo("parent" , rowObject.getId().toString() , CompareType.EQUALS));
+				ProgrammingTemplateEntirePteCostFactory.getRemoteInstance().delete(filter);
+				for (int j = 0; j < rowObject.getPteCost().size(); j++) {
+					ProgrammingTemplateEntirePteCostInfo info = rowObject.getPteCost().get(j);
+					info.setParent(rowObject);
+					ProgrammingTemplateEntirePteCostFactory.getRemoteInstance().save(info);
+				}
+				rowObject.getPteCost().clear();
+				ProgrammingTemplateEntirePteEnonomyFactory.getRemoteInstance().delete(filter);
+				for (int j = 0; j < rowObject.getPteEnonomy().size(); j++) {
+					ProgrammingTemplateEntirePteEnonomyInfo info = rowObject.getPteEnonomy().get(j);
+					info.setParent(rowObject);
+					ProgrammingTemplateEntirePteEnonomyFactory.getRemoteInstance().save(info);
+				}
+				rowObject.getPteEnonomy().clear();
+			}
+		}
     	
     	if(txtNumber.getText() == null || "".equals(txtNumber.getText()))
     		txtNumber.setText(getDateString());
@@ -1585,7 +1587,7 @@ public class ProgrammingTemplateEditUI extends AbstractProgrammingTemplateEditUI
 //				filter.getFilterItems().add(new FilterItemInfo("parent" , rowObject.getId().toString() , CompareType.EQUALS));
 //				view.setFilter(filter);
 //				ProgrammingTemplateEntirePteCostCollection col = ProgrammingTemplateEntirePteCostFactory.getRemoteInstance().getProgrammingTemplateEntirePteCostCollection(view);
-//				PTEEnonomyCollection pteEC = PTEEnonomyFactory.getRemoteInstance().getPTEEnonomyCollection(view);
+//				PTEEnonomyCollection pteEC = ProgrammingTemplateEntirePteEnonomyFactory.getRemoteInstance().getPTEEnonomyCollection(view);
 //
 //				int size = col.size();
 //				Object[] costValue = new Object[size];
@@ -1611,7 +1613,7 @@ public class ProgrammingTemplateEditUI extends AbstractProgrammingTemplateEditUI
 //
 //				int pteeSize = pteEC.size();
 //				for (int j = 0; j < pteeSize; j++) {
-//					PTEEnonomyInfo pteeInfo = pteEC.get(j);
+//					ProgrammingTemplateEntirePteEnonomyInfo pteeInfo = pteEC.get(j);
 //					if (pteeInfo != null) {
 //						if (pteeInfo.getPaymentType() != null) {
 //							PaymentTypeInfo paymentTypeInfo = PaymentTypeFactory.getRemoteInstance().getPaymentTypeInfo(
