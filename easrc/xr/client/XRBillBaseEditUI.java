@@ -474,4 +474,9 @@ public abstract class XRBillBaseEditUI extends AbstractXRBillBaseEditUI
 	protected IObjectValue createNewData() {
 		return super.createNewData();
 	}
+	
+	public void actionCopy_actionPerformed(ActionEvent e) throws Exception {
+		editData.put("status", XRBillStatusEnum.ADD);
+		super.actionCopy_actionPerformed(e);
+	}
 }
