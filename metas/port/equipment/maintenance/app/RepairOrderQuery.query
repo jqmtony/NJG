@@ -204,6 +204,19 @@
                 <key name="name" value="Person" />
             </entityRef>
         </subEntity>
+        <subEntity>
+            <name>slDepart</name>
+            <alias>joinQuery[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderQuery].subObjects.subEntity[slDepart].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.maintenance.app" />
+                <key name="name" value="RepairOrderQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.basedata.org.app" />
+                <key name="name" value="AdminOrgUnit" />
+            </entityRef>
+        </subEntity>
     </subObjects>
     <units>
         <queryField>
@@ -2128,6 +2141,99 @@
                 <key name="name" value="RepairOrderQuery" />
             </query>
         </queryField>
+        <queryField>
+            <name>slDepart.name</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderQuery].units.queryField[slDepart.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>37964862-25ce-40cd-b288-7e07868967c8</key>
+                    <parentUnit>
+                        <key name="name" value="slDepart.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="slDepart" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.maintenance.app" />
+                <key name="name" value="RepairOrderQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>6ed395b4-dcac-4707-b956-f814b056d403</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderQuery].units.propertyUnit[6ed395b4-dcac-4707-b956-f814b056d403].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>d3c4f5bc-f4fb-40d6-9ad1-e4d0142b589c</key>
+                    <parentUnit>
+                        <key name="name" value="6ed395b4-dcac-4707-b956-f814b056d403" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RepairOrder" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="slDepart" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.maintenance.app" />
+                <key name="name" value="RepairOrderQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>7d32ef1e-e72d-4d84-affe-ac725daa71d1</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderQuery].units.propertyUnit[7d32ef1e-e72d-4d84-affe-ac725daa71d1].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>f7ad5f06-fa98-4c32-b915-8668583f5e57</key>
+                    <parentUnit>
+                        <key name="name" value="7d32ef1e-e72d-4d84-affe-ac725daa71d1" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="slDepart" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.maintenance.app" />
+                <key name="name" value="RepairOrderQuery" />
+            </query>
+        </propertyUnit>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -2571,6 +2677,36 @@
                 <key name="name" value="RepairOrderQuery" />
             </query>
         </join>
+        <join>
+            <name>d5a4ea6d-2a61-4312-a319-a4585517bacd</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="RepairOrder" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="slDepart" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>f2e6fb1a-cdf8-4a35-affd-c4bdc51575d8</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="6ed395b4-dcac-4707-b956-f814b056d403" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="7d32ef1e-e72d-4d84-affe-ac725daa71d1" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="d5a4ea6d-2a61-4312-a319-a4585517bacd" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.maintenance.app" />
+                <key name="name" value="RepairOrderQuery" />
+            </query>
+        </join>
     </joins>
     <resource>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderQuery].alias">
@@ -2690,6 +2826,12 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderQuery].subObjects.subEntity[slDepart].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderQuery].units.propertyUnit[00a866a6-64e1-4f3f-a034-5740ab0d31ec].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -2774,7 +2916,19 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderQuery].units.propertyUnit[6ed395b4-dcac-4707-b956-f814b056d403].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderQuery].units.propertyUnit[77d916df-ecd5-401b-8c6d-373919ec4c82].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderQuery].units.propertyUnit[7d32ef1e-e72d-4d84-affe-ac725daa71d1].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -3391,6 +3545,27 @@
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderQuery].units.queryField[repairTime].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderQuery].units.queryField[slDepart.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="受理部门" />
+            <lang locale="zh_HK" value="受理部門" />
+            <lang locale="zh_TW" value="受理部門" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderQuery].units.queryField[slDepart.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderQuery].units.queryField[slDepart.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderQuery].units.queryField[slDepart.name].extendedProperty.isUsingF7">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />

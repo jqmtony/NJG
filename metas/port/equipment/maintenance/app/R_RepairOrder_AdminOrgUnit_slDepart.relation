@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <relationship xmlns="com.kingdee.bos.metadata">
     <package>com.kingdee.eas.port.equipment.maintenance.app</package>
-    <name>R_RepairOrder_MaintenanceType_maintenanceType</name>
-    <alias>relationship[com.kingdee.eas.port.equipment.maintenance.app.R_RepairOrder_MaintenanceType_maintenanceType].alias</alias>
-    <description>relationship[com.kingdee.eas.port.equipment.maintenance.app.R_RepairOrder_MaintenanceType_maintenanceType].description</description>
+    <name>R_RepairOrder_AdminOrgUnit_slDepart</name>
+    <alias>relationship[com.kingdee.eas.port.equipment.maintenance.app.R_RepairOrder_AdminOrgUnit_slDepart].alias</alias>
+    <description>relationship[com.kingdee.eas.port.equipment.maintenance.app.R_RepairOrder_AdminOrgUnit_slDepart].description</description>
     <userDefined>true</userDefined>
     <type>Association</type>
     <clientCardinality>1</clientCardinality>
@@ -14,20 +14,18 @@
         <key name="name" value="RepairOrder" />
     </clientObject>
     <supplierObject>
-        <key name="package" value="com.kingdee.eas.port.equipment.base.app" />
-        <key name="name" value="MaintenanceType" />
+        <key name="package" value="com.kingdee.eas.basedata.org.app" />
+        <key name="name" value="AdminOrgUnit" />
     </supplierObject>
     <resource>
-        <rs key="relationship[com.kingdee.eas.port.equipment.maintenance.app.R_RepairOrder_MaintenanceType_maintenanceType].alias">
+        <rs key="relationship[com.kingdee.eas.port.equipment.maintenance.app.R_RepairOrder_AdminOrgUnit_slDepart].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="relationship[com.kingdee.eas.port.equipment.maintenance.app.R_RepairOrder_MaintenanceType_maintenanceType].description">
+        <rs key="relationship[com.kingdee.eas.port.equipment.maintenance.app.R_RepairOrder_AdminOrgUnit_slDepart].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
     </resource>
