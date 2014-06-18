@@ -1523,15 +1523,15 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 		uiContext.put("pcCollection", pcCollection);// 规划合约集合
 		uiContext.put("project", project);// 工程项目
 		
-		String oprstate = OprtState.ADDNEW;
+//		String oprstate = OprtState.ADDNEW;
 		
-		String oql = "where sourceBillId='"+rowObject.getId()+"'";
-		if(ContractProgrammingFactory.getRemoteInstance().exists(oql))
-		{
-			uiContext.put("ID", ContractProgrammingFactory.getRemoteInstance().getContractProgrammingCollection(oql).get(0).getId());
-			oprstate = OprtState.VIEW;
-		}
-		uiWindow = UIFactory.createUIFactory(UIFactoryName.MODEL).create(ContractProgrammingEditUI.class.getName(), uiContext, null,oprstate);
+//		String oql = "where sourceBillId='"+rowObject.getId()+"'";
+//		if(ContractProgrammingFactory.getRemoteInstance().exists(oql))
+//		{
+//			uiContext.put("ID", ContractProgrammingFactory.getRemoteInstance().getContractProgrammingCollection(oql).get(0).getId());
+//			oprstate = OprtState.VIEW;
+//		}
+		uiWindow = UIFactory.createUIFactory(UIFactoryName.MODEL).create(ProgrammingEntryEditUI.class.getName(), uiContext, null,oprtState);
 		uiWindow.show();
 		// 绑定数据到分录上
 		dataBinder.loadLineFields(kdtEntries, kdtEntries.getRow(rowIndex), rowObject);
@@ -2193,15 +2193,15 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 				}
 			}
 			
-			String oprstate = OprtState.ADDNEW;
+//			String oprstate = OprtState.ADDNEW;
 			
-			String oql = "where sourceBillId='"+rowObject.getId()+"'";
-			if(ContractProgrammingFactory.getRemoteInstance().exists(oql))
-			{
-				uiContext.put("ID", ContractProgrammingFactory.getRemoteInstance().getContractProgrammingCollection(oql).get(0).getId());
-				oprstate = OprtState.VIEW;
-			}
-			uiWindow = UIFactory.createUIFactory(UIFactoryName.MODEL).create(ContractProgrammingEditUI.class.getName(), uiContext, null,oprstate);
+//			String oql = "where sourceBillId='"+rowObject.getId()+"'";
+//			if(ContractProgrammingFactory.getRemoteInstance().exists(oql))
+//			{
+//				uiContext.put("ID", ContractProgrammingFactory.getRemoteInstance().getContractProgrammingCollection(oql).get(0).getId());
+//				oprstate = OprtState.VIEW;
+//			}
+			uiWindow = UIFactory.createUIFactory(UIFactoryName.MODEL).create(ProgrammingEntryEditUI.class.getName(), uiContext, null,oprtState);
 			uiWindow.show();
 			// 绑定数据到分录上
 			dataBinder.loadLineFields(kdtEntries, kdtEntries.getRow(rowIndex), rowObject);
@@ -2893,34 +2893,24 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
         		}
     		}
     	}
-    	for(int i=0;i<this.kdtEntries.getRowCount();i++){
+    	for(int i=0;i<this.kdtEntries.getRowCount();i++)
+    	{
     		Object oldLongNumber = kdtEntries.getCell(i, LONGNUMBER).getValue();
-    		if(i+1 <kdtEntries.getRowCount()){
+    		if(i+1 <kdtEntries.getRowCount())
+    		{
     			Object nextHeadNumber = kdtEntries.getCell(i+1, HEADNUMBER).getValue();
-    			if(!oldLongNumber.equals(nextHeadNumber)){
-    				if (kdtEntries.getCell(i, "contractType").getValue()== null){
+    			if(!oldLongNumber.equals(nextHeadNumber))
+    			{
+    				if (kdtEntries.getCell(i, "contractType").getValue()== null)
+    				{
     					throw new EASBizException(new NumericExceptionSubItem("1", "分录第"+(i+1)+"行，合同类型不能为空！"));
     				}
-    				if((Boolean)kdtEntries.getRow(i).getCell("isInput").getValue()){
-    					if (kdtEntries.getCell(i, "quantities").getValue()== null){
-        					throw new EASBizException(new NumericExceptionSubItem("1", "分录第"+(i+1)+"行，实体工程量不能为空！"));
-        				}
-        				if (kdtEntries.getCell(i, "unit").getValue()== null){
-        					throw new EASBizException(new NumericExceptionSubItem("1", "分录第"+(i+1)+"行，单位不能为空！"));
-        				}
-    				}
     			}
-    		}else{
+    		}
+    		else
+    		{
     			if (kdtEntries.getCell(i, "contractType").getValue()== null){
 					throw new EASBizException(new NumericExceptionSubItem("1", "分录第"+(i+1)+"行，合同类型不能为空！"));
-				}
-    			if((Boolean)kdtEntries.getRow(i).getCell("isInput").getValue()){
-					if (kdtEntries.getCell(i, "quantities").getValue()== null){
-    					throw new EASBizException(new NumericExceptionSubItem("1", "分录第"+(i+1)+"行，实体工程量不能为空！"));
-    				}
-    				if (kdtEntries.getCell(i, "unit").getValue()== null){
-    					throw new EASBizException(new NumericExceptionSubItem("1", "分录第"+(i+1)+"行，单位不能为空！"));
-    				}
 				}
     		}
     	}

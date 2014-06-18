@@ -38,7 +38,7 @@ public class ContractProgrammingControllerBean extends AbstractContractProgrammi
     		EASBizException {
     	ContractProgrammingInfo info=ContractProgrammingFactory.getLocalInstance(ctx).getContractProgrammingInfo(new ObjectUuidPK(billId));
     	FDCSQLBuilder builder=new FDCSQLBuilder(ctx);
-    	builder.appendSql("update T_CON_ContractProgramming set fisfinal=0 where fnumber=? and fid <> ?");
+    	builder.appendSql("update CT_INV_ContractProgramming set fisfinal=0 where fnumber=? and fid <> ?");
     	builder.addParam(info.getNumber());
     	builder.addParam(info.getId().toString());
     	builder.execute();
@@ -68,9 +68,9 @@ public class ContractProgrammingControllerBean extends AbstractContractProgrammi
 		selector.add("isFinal");
     	this._updatePartial(ctx, info, selector);
     	FDCSQLBuilder builder=new FDCSQLBuilder(ctx);
-    	builder.appendSql("update T_CON_ContractProgramming set fisfinal=1 where fnumber=? and fstate=? and fid in");
-    	builder.appendSql(" (select fid from T_CON_ContractProgramming where ");
-    	builder.appendSql(" fedition=(select max(fedition) from T_CON_ContractProgramming where fnumber=? and fid<>? and fstate=?)) ");
+    	builder.appendSql("update CT_INV_ContractProgramming set fisfinal=1 where fnumber=? and fstate=? and fid in");
+    	builder.appendSql(" (select fid from CT_INV_ContractProgramming where ");
+    	builder.appendSql(" fedition=(select max(fedition) from CT_INV_ContractProgramming where fnumber=? and fid<>? and fstate=?)) ");
     	builder.addParam(info.getNumber());
     	builder.addParam(FDCBillStateEnum.AUDITTED_VALUE);
     	builder.addParam(info.getNumber());
@@ -90,8 +90,8 @@ public class ContractProgrammingControllerBean extends AbstractContractProgrammi
 //    	ContractProgrammingInfo info=ContractProgrammingFactory.getLocalInstance(ctx).getContractProgrammingInfo(pk);
     	super._delete(ctx, pk);
 //    	FDCSQLBuilder builder=new FDCSQLBuilder(ctx);
-//		builder.appendSql("update t_con_contractprogramming set fisversion=1 where fedition= ");
-//		builder.appendSql(" (select max(fedition) from t_con_contractprogramming where fnumber=? ) and fnumber=? ");
+//		builder.appendSql("update CT_INV_ContractProgramming set fisversion=1 where fedition= ");
+//		builder.appendSql(" (select max(fedition) from CT_INV_ContractProgramming where fnumber=? ) and fnumber=? ");
 //		builder.addParam(info.getNumber());
 //		builder.addParam(info.getNumber());
 //		builder.execute();
@@ -112,7 +112,7 @@ public class ContractProgrammingControllerBean extends AbstractContractProgrammi
     protected IObjectPK _save(Context ctx, IObjectValue model) throws BOSException, EASBizException {
     	ContractProgrammingInfo info=(ContractProgrammingInfo)model;
     	FDCSQLBuilder builder=new FDCSQLBuilder(ctx);
-		builder.appendSql("update t_con_contractprogramming set fislastversion=0 where fnumber=? ");
+		builder.appendSql("update CT_INV_ContractProgramming set fislastversion=0 where fnumber=? ");
 		builder.addParam(info.getNumber());
 		builder.execute();
 		builder.clear();
@@ -123,7 +123,7 @@ public class ContractProgrammingControllerBean extends AbstractContractProgrammi
     protected IObjectPK _submit(Context ctx, IObjectValue model) throws BOSException, EASBizException {
     	ContractProgrammingInfo info=(ContractProgrammingInfo)model;
     	FDCSQLBuilder builder=new FDCSQLBuilder(ctx);
-		builder.appendSql("update t_con_contractprogramming set fislastversion=0 where fnumber=? ");
+		builder.appendSql("update CT_INV_ContractProgramming set fislastversion=0 where fnumber=? ");
 		builder.addParam(info.getNumber());
 		builder.execute();
 		builder.clear();
@@ -134,8 +134,8 @@ public class ContractProgrammingControllerBean extends AbstractContractProgrammi
     //更新同一合约规划 版本号最大的 的 记录的  是否最大版本 为true
     private void updateIsLastVersion(Context ctx,String number) throws BOSException, EASBizException {
     	FDCSQLBuilder builder=new FDCSQLBuilder(ctx);
-    	builder.appendSql("update t_con_contractprogramming set fislastversion=1 where fedition= ");
-		builder.appendSql(" (select max(fedition) from t_con_contractprogramming where fnumber=? ) and fnumber=? ");
+    	builder.appendSql("update CT_INV_ContractProgramming set fislastversion=1 where fedition= ");
+		builder.appendSql(" (select max(fedition) from CT_INV_ContractProgramming where fnumber=? ) and fnumber=? ");
 		builder.addParam(number);
 		builder.addParam(number);
 		builder.execute();
@@ -167,23 +167,5 @@ public class ContractProgrammingControllerBean extends AbstractContractProgrammi
 	 */
 	private void checkNumberDup(Context ctx, FDCBillInfo billInfo)
 			throws BOSException, EASBizException {
-		if(!isUseNumber()) return;
-		FilterInfo filter = new FilterInfo();
-
-		filter.getFilterItems().add(
-				new FilterItemInfo("number", billInfo.getNumber()));
-		filter.getFilterItems().add(
-				new FilterItemInfo("state", FDCBillStateEnum.INVALID,CompareType.NOTEQUALS));		
-		filter.getFilterItems()
-				.add(new FilterItemInfo("orgUnit.id", billInfo.getOrgUnit().getId()));
-		if (billInfo.getId() != null) {
-			filter.getFilterItems().add(
-					new FilterItemInfo("id", billInfo.getId().toString(),
-							CompareType.NOTEQUALS));
-		}
-
-		if (_exists(ctx, filter)) {
-			throw new ContractException(ContractException.NUMBER_DUP);
-		}
 	}    
 }

@@ -51,7 +51,6 @@ import com.kingdee.eas.port.pm.invest.investplan.ContractProgrammingEntryInfo;
 import com.kingdee.eas.port.pm.invest.investplan.ContractProgrammingFactory;
 import com.kingdee.eas.port.pm.invest.investplan.ContractProgrammingInfo;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryInfo;
-import com.kingdee.eas.port.pm.invest.investplan.ProgrammingTemplateEntireInfo;
 import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
 import com.kingdee.jdbc.rowset.IRowSet;
 
@@ -154,7 +153,7 @@ public class ContractProgrammingEditUI extends AbstractContractProgrammingEditUI
 //    	//提交时 更新其他版本为 非最大版本
 //    	if(getUIContext().get("isEmend")!=null && getUIContext().get("isEmend").toString().equals("yes")){
 //    		FDCSQLBuilder builder=new FDCSQLBuilder();
-//    		builder.appendSql("update t_con_contractprogramming set fislastversion=0 where fnumber=? ");
+//    		builder.appendSql("update CT_INV_ContractProgramming set fislastversion=0 where fnumber=? ");
 //    		builder.addParam(editData.getNumber());
 //    		builder.execute();
 //    		builder.clear();
@@ -175,7 +174,7 @@ public class ContractProgrammingEditUI extends AbstractContractProgrammingEditUI
 //    	//保存时 更新其他版本为 非最大版本
 //    	if(getUIContext().get("isEmend")!=null && getUIContext().get("isEmend").toString().equals("yes")){
 //    		FDCSQLBuilder builder=new FDCSQLBuilder();
-//    		builder.appendSql("update t_con_contractprogramming set fislastversion=0 where fnumber=? ");
+//    		builder.appendSql("update CT_INV_ContractProgramming set fislastversion=0 where fnumber=? ");
 //    		builder.addParam(editData.getNumber());
 //    		builder.execute();
 //    		builder.clear();
@@ -284,7 +283,7 @@ public class ContractProgrammingEditUI extends AbstractContractProgrammingEditUI
 		{
 			ProgrammingEntryInfo rowObject = (ProgrammingEntryInfo)getUIContext().get("programmingContract");
 			info.setSourceBillId(rowObject.getId().toString());
-			info.setNumber(rowObject.getNumber());
+			info.setNumber(rowObject.getLongNumber());
 			info.setName(rowObject.getName()!=null?rowObject.getName().trim():"");
 			info.setDescription(rowObject.getDescription());
 		}
@@ -559,8 +558,8 @@ public class ContractProgrammingEditUI extends AbstractContractProgrammingEditUI
 //    			//这里为了区分 新增、修订和修改  
 //    			if(row.getCell("id").getValue()==null){
 //					FDCSQLBuilder builder=new FDCSQLBuilder();
-//					builder.appendSql(" select sum(entry.FProgrammingMoney) money from T_CON_ContractProgrammingEntry entry ");
-//					builder.appendSql(" inner join T_CON_ContractProgramming parent on entry.FParentID=parent.fid  ");
+//					builder.appendSql(" select sum(entry.FProgrammingMoney) money from CT_INV_ContractPE entry ");
+//					builder.appendSql(" inner join CT_INV_ContractProgramming parent on entry.FParentID=parent.fid  ");
 //					builder.appendSql(" where entry.fprjLongNumber=? and entry.FCostAccountID=? and parent.FIsLastVersion=1 ");				
 //					builder.addParam(row.getCell("prjLongNumber").getValue().toString());
 //					builder.addParam(newInfo.getId().toString());
@@ -573,8 +572,8 @@ public class ContractProgrammingEditUI extends AbstractContractProgrammingEditUI
 //				}
 //    			else{
 //    				FDCSQLBuilder builder=new FDCSQLBuilder();
-//					builder.appendSql(" select sum(entry.FProgrammingMoney) money from T_CON_ContractProgrammingEntry entry ");
-//					builder.appendSql(" inner join T_CON_ContractProgramming parent on entry.FParentID=parent.fid  ");
+//					builder.appendSql(" select sum(entry.FProgrammingMoney) money from CT_INV_ContractPE entry ");
+//					builder.appendSql(" inner join CT_INV_ContractProgramming parent on entry.FParentID=parent.fid  ");
 //					builder.appendSql(" where entry.fprjLongNumber=? and entry.FCostAccountID=? and parent.FIsLastVersion=1 and entry.fid<>? ");				
 //					builder.addParam(row.getCell("prjLongNumber").getValue().toString());
 //					builder.addParam(newInfo.getId().toString());

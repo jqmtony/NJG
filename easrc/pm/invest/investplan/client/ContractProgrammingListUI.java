@@ -156,8 +156,8 @@ public class ContractProgrammingListUI extends
 				if(isLastVersion){
 					//取合约规划 中科目累计规划金额
 					FDCSQLBuilder builder=new FDCSQLBuilder();
-					builder.appendSql(" select sum(entry.FProgrammingMoney) money from T_CON_ContractProgrammingEntry entry ");
-					builder.appendSql(" inner join T_CON_ContractProgramming parent on entry.FParentID=parent.fid  ");
+					builder.appendSql(" select sum(entry.FProgrammingMoney) money from CT_INV_ContractPE entry ");
+					builder.appendSql(" inner join CT_INV_ContractProgramming parent on entry.FParentID=parent.fid  ");
 					builder.appendSql(" where entry.fprjLongNumber=? and entry.FCostAccountID=? and parent.FisLastVersion=1 ");
 					if(row.getCell("entrys.prjLongNumber").getValue()==null 
 							||row.getCell("costAccount.id").getValue()==null){
@@ -307,7 +307,7 @@ public class ContractProgrammingListUI extends
 		cpInfo.setCreateTime(new Timestamp(new Date().getTime()));
 		//每次修订时版本号 取最大版本号加0.1
 		builder.clear();
-		builder.appendSql("select max(fedition) edition from t_con_contractprogramming where fnumber=?");
+		builder.appendSql("select max(fedition) edition from CT_INV_ContractProgramming where fnumber=?");
 		builder.addParam(info.getNumber());
 		IRowSet rs=builder.executeQuery();
 		BigDecimal maxEdition=FDCHelper.ZERO;
