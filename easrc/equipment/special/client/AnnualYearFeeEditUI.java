@@ -53,6 +53,7 @@ import com.kingdee.eas.port.equipment.special.IAnnualYearPlanEntry;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
+import com.kingdee.eas.xr.helper.Tool;
 import com.kingdee.bos.ctrl.common.LanguageManager;
 import com.kingdee.bos.ctrl.excel.io.kds.KDSBookToBook;
 import com.kingdee.bos.ctrl.excel.model.struct.Sheet;
@@ -727,7 +728,7 @@ public class AnnualYearFeeEditUI extends AbstractAnnualYearFeeEditUI
     {
         com.kingdee.eas.port.equipment.special.AnnualYearFeeInfo objectValue = new com.kingdee.eas.port.equipment.special.AnnualYearFeeInfo();
         objectValue.setCreator((com.kingdee.eas.base.permission.UserInfo)(com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentUser()));
-		
+    	Tool.checkGroupAddNew();
         return objectValue;
     }
 	@Override
@@ -793,12 +794,10 @@ public class AnnualYearFeeEditUI extends AbstractAnnualYearFeeEditUI
 	public void kdtEntry_Changed(int rowIndex, int colIndex) throws Exception {
 		super.kdtEntry_Changed(rowIndex, colIndex);
 		for(int i = 0;i<kdtEntry.getRowCount();i++){
-			if(kdtEntry.getCell(i, "checkFee").getValue() !=null && kdtEntry.getCell(i, "otherFee").getValue() !=null){
 				BigDecimal a = UIRuleUtil.getBigDecimal(kdtEntry.getCell(i, "checkFee").getValue());
 				BigDecimal b = UIRuleUtil.getBigDecimal(kdtEntry.getCell(i, "otherFee").getValue());
 				BigDecimal c = a.add(b);
 				kdtEntry.getCell(i, "totalAmount").setValue(c);
-			}
 		}
 	}
 

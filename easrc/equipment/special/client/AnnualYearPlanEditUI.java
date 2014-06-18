@@ -23,6 +23,7 @@ import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.framework.*;
 import com.kingdee.eas.port.equipment.base.client.ImportFaCardUI;
 import com.kingdee.eas.port.equipment.record.EquIdInfo;
+import com.kingdee.eas.xr.helper.Tool;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.swing.KDTextField;
 import com.kingdee.bos.ctrl.swing.KDWorkButton;
@@ -65,6 +66,7 @@ public class AnnualYearPlanEditUI extends AbstractAnnualYearPlanEditUI
         super.btnAddLine_actionPerformed(e);
     }
 
+    
     /**
      * output menuItemEnterToNextRow_itemStateChanged method
      */
@@ -681,7 +683,7 @@ public class AnnualYearPlanEditUI extends AbstractAnnualYearPlanEditUI
     {
         com.kingdee.eas.port.equipment.special.AnnualYearPlanInfo objectValue = new com.kingdee.eas.port.equipment.special.AnnualYearPlanInfo();
         objectValue.setCreator((com.kingdee.eas.base.permission.UserInfo)(com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentUser()));
-		
+    	Tool.checkGroupAddNew();
         return objectValue;
     }
 	protected void attachListeners() {
@@ -725,6 +727,7 @@ public class AnnualYearPlanEditUI extends AbstractAnnualYearPlanEditUI
 
 			public void actionPerformed(ActionEvent e) {
 				try {
+					
 					IUIWindow uiWindow = null;
 					UIContext context = new UIContext(this);
 					
@@ -747,4 +750,69 @@ public class AnnualYearPlanEditUI extends AbstractAnnualYearPlanEditUI
 		});
 	}
 	
+		public void kdtEntry_Changed(int rowIndex, int colIndex) throws Exception {
+				
+				if ("zdaNumber".equalsIgnoreCase(kdtEntry.getColumn(colIndex).getKey())) {
+					kdtEntry.getCell(rowIndex,"equipmentName").setValue(com.kingdee.bos.ui.face.UIRuleUtil.getString(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)kdtEntry.getCell(rowIndex,"zdaNumber").getValue(),"name")));
+				
+				}
+				
+				if ("zdaNumber".equalsIgnoreCase(kdtEntry.getColumn(colIndex).getKey())) {
+					kdtEntry.getCell(rowIndex,"code").setValue(com.kingdee.bos.ui.face.UIRuleUtil.getString(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)kdtEntry.getCell(rowIndex,"zdaNumber").getValue(),"code")));
+				
+				}
+				
+				if ("zdaNumber".equalsIgnoreCase(kdtEntry.getColumn(colIndex).getKey())) {
+					kdtEntry.getCell(rowIndex,"useUnit").setValue(com.kingdee.bos.ui.face.UIRuleUtil.getString(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)kdtEntry.getCell(rowIndex,"zdaNumber").getValue(),"ssOrgUnit.name")));
+				
+				}
+				
+				if ("zdaNumber".equalsIgnoreCase(kdtEntry.getColumn(colIndex).getKey())) {
+					kdtEntry.getCell(rowIndex,"state").setValue(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)kdtEntry.getCell(rowIndex,"zdaNumber").getValue(),"tzsbStatus"));
+				
+				}
+				
+				if ("zdaNumber".equalsIgnoreCase(kdtEntry.getColumn(colIndex).getKey())) {
+					kdtEntry.getCell(rowIndex,"address").setValue(com.kingdee.bos.ui.face.UIRuleUtil.getString(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)kdtEntry.getCell(rowIndex,"zdaNumber").getValue(),"address.name")));
+				
+				}
+				
+				if ("zdaNumber".equalsIgnoreCase(kdtEntry.getColumn(colIndex).getKey())) {
+					kdtEntry.getCell(rowIndex,"companyNumber").setValue(com.kingdee.bos.ui.face.UIRuleUtil.getString(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)kdtEntry.getCell(rowIndex,"zdaNumber").getValue(),"innerNumber")));
+				
+				}
+				
+				if ("zdaNumber".equalsIgnoreCase(kdtEntry.getColumn(colIndex).getKey())) {
+					kdtEntry.getCell(rowIndex,"NO").setValue(com.kingdee.bos.ui.face.UIRuleUtil.getString(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)kdtEntry.getCell(rowIndex,"zdaNumber").getValue(),"model")));
+				
+				}
+				
+				if ("zdaNumber".equalsIgnoreCase(kdtEntry.getColumn(colIndex).getKey())) {
+					kdtEntry.getCell(rowIndex,"engineNumber").setValue(com.kingdee.bos.ui.face.UIRuleUtil.getString(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)kdtEntry.getCell(rowIndex,"zdaNumber").getValue(),"engineNumber")));
+				
+				}
+				
+				if ("zdaNumber".equalsIgnoreCase(kdtEntry.getColumn(colIndex).getKey())) {
+					kdtEntry.getCell(rowIndex,"carNumber").setValue(com.kingdee.bos.ui.face.UIRuleUtil.getString(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)kdtEntry.getCell(rowIndex,"zdaNumber").getValue(),"carNumber")));
+				
+				}
+				
+				if ("zdaNumber".equalsIgnoreCase(kdtEntry.getColumn(colIndex).getKey())) {
+					kdtEntry.getCell(rowIndex,"weight").setValue(com.kingdee.bos.ui.face.UIRuleUtil.getBigDecimal(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)kdtEntry.getCell(rowIndex,"zdaNumber").getValue(),"ratedWeight")));
+				
+				}
+				
+				if ("zdaNumber".equalsIgnoreCase(kdtEntry.getColumn(colIndex).getKey())) {
+					kdtEntry.getCell(rowIndex,"useDate").setValue(com.kingdee.bos.ui.face.UIRuleUtil.getDateValue(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)kdtEntry.getCell(rowIndex,"zdaNumber").getValue(),"qyDate")));
+				
+				}
+				
+				if ("zdaNumber".equalsIgnoreCase(kdtEntry.getColumn(colIndex).getKey())) {
+					kdtEntry.getCell(rowIndex,"createUnit").setValue(com.kingdee.bos.ui.face.UIRuleUtil.getString(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)kdtEntry.getCell(rowIndex,"zdaNumber").getValue(),"mader")));
+				
+				}
+				
+				
+				
+				    }
 }

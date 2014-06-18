@@ -117,7 +117,7 @@ public class ToolHelp {
         BOTRelationCollection botRelationCols = btpResult.getBOTRelationCollection();   
         for (int i = 0; i < destBillCols.size(); i++) {   
             CoreBillBaseInfo destBillInfo = (CoreBillBaseInfo) destBillCols.getObject(i);   
-            iBTPManager.submitRelations(destBillInfo, botRelationCols);   
+            iBTPManager.saveRelations(destBillInfo, botRelationCols);   
         }   
 	}  
 	

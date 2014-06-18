@@ -45,6 +45,7 @@ import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
 import com.kingdee.eas.xr.app.XRBillStatusEnum;
+import com.kingdee.eas.xr.helper.Tool;
 import com.kingdee.eas.xr.helper.XRSQLBuilder;
 import com.kingdee.eas.xr.helper.common.FDCUIWeightWorker;
 import com.kingdee.eas.xr.helper.common.IFDCWork;
@@ -918,10 +919,8 @@ public class ComproductionEditUI extends AbstractComproductionEditUI {
 	 */
 	protected com.kingdee.bos.dao.IObjectValue createNewData() {
 		com.kingdee.eas.port.equipment.operate.ComproductionInfo objectValue = new com.kingdee.eas.port.equipment.operate.ComproductionInfo();
-		objectValue
-				.setCreator((com.kingdee.eas.base.permission.UserInfo) (com.kingdee.eas.common.client.SysContext
-						.getSysContext().getCurrentUser()));
-
+		objectValue.setCreator((com.kingdee.eas.base.permission.UserInfo) (com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentUser()));
+		Tool.checkGroupAddNew();
 		return objectValue;
 	}
 
@@ -1056,7 +1055,7 @@ public class ComproductionEditUI extends AbstractComproductionEditUI {
 		}
 		if (prmtreportingUnit.getData() == null || this.pkBizDate.getSqlDate() == null)
 			return;
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-mm-dd");
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 		String year = (df.format(this.pkBizDate.getSqlDate())).substring(0, 4);
 
 		StringBuffer sb = new StringBuffer();
@@ -1185,5 +1184,6 @@ public class ComproductionEditUI extends AbstractComproductionEditUI {
 			}
 			
 	}
+
 
 }

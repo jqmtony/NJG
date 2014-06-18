@@ -25,6 +25,7 @@ import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
 import com.kingdee.eas.xr.app.XRBillStatusEnum;
+import com.kingdee.eas.xr.helper.Tool;
 import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
 import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
@@ -656,7 +657,7 @@ public class AnnualYearDetailEditUI extends AbstractAnnualYearDetailEditUI
     {
         com.kingdee.eas.port.equipment.special.AnnualYearDetailInfo objectValue = new com.kingdee.eas.port.equipment.special.AnnualYearDetailInfo();
         objectValue.setCreator((com.kingdee.eas.base.permission.UserInfo)(com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentUser()));
-		
+    	Tool.checkGroupAddNew();
         return objectValue;
     }
 	@Override
@@ -685,14 +686,24 @@ public class AnnualYearDetailEditUI extends AbstractAnnualYearDetailEditUI
 	    }
 
 	public void onLoad() throws Exception {
+		actionAddNew.setVisible(false);
 		txtNumber.setEnabled(false);
 		this.kdtEntry.getColumn("seq").getStyleAttributes().setHided(true);
+		this.kdtEntry.getColumn("check").getStyleAttributes().setLocked(true);
+		this.kdtEntry.getColumn("planDate").getStyleAttributes().setLocked(true);
+		this.kdtEntry.getColumn("endDate").getStyleAttributes().setLocked(true);
+		this.kdtEntry.getColumn("checkType").getStyleAttributes().setLocked(true);
+		this.kdtEntry.getColumn("beizhu").getStyleAttributes().setLocked(true);
+		this.kdtEntry.getColumn("result").getStyleAttributes().setLocked(true);
 		if(getUIContext().get("FeedInfor")!=null)
 		{
 			txtNumber.setEnabled(false);
 			comboStatus.setEnabled(false);
 			txtDescription.setEnabled(false);
 		}
+		kdtEntry_detailPanel.getAddNewLineButton().setVisible(false);
+		kdtEntry_detailPanel.getRemoveLinesButton().setVisible(false);
+		kdtEntry_detailPanel.getInsertLineButton().setVisible(false);
 		super.onLoad();
 		btnIssued.setEnabled(false);
 		btnUnIssued.setEnabled(false);
@@ -724,6 +735,8 @@ public class AnnualYearDetailEditUI extends AbstractAnnualYearDetailEditUI
 			this.kdtEntry.getColumn("endDate").getStyleAttributes().setLocked(true);
 			this.kdtEntry.getColumn("checkType").getStyleAttributes().setLocked(true);
 			this.kdtEntry.getColumn("beizhu").getStyleAttributes().setLocked(true);
+			this.kdtEntry.getColumn("result").getStyleAttributes().setLocked(false);
+			this.kdtEntry.getColumn("check").getStyleAttributes().setLocked(false);
 		
 			
 			this.kdtEntry_detailPanel.getAddNewLineButton().setEnabled(false);

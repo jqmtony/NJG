@@ -632,4 +632,9 @@ public class OverhaulNoticeListUI extends AbstractOverhaulNoticeListUI
 	    	MsgBox.showWarning("单据不是已审批或者已整改状态!");SysUtil.abort();
 	    }
     }
+    
+    public void onLoad() throws Exception {
+    	actionAddNew.setEnabled(false);
+    	super.onLoad();
+    }
 }

@@ -28,11 +28,19 @@ import com.kingdee.bos.ctrl.swing.event.DataChangeEvent;
 import com.kingdee.bos.ctrl.swing.event.DataChangeListener;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.bos.metadata.entity.EntityViewInfo;
+import com.kingdee.bos.metadata.entity.FilterInfo;
+import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.metadata.entity.SelectorItemInfo;
+import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.IUIWindow;
 import com.kingdee.bos.ui.face.UIFactory;
+import com.kingdee.eas.basedata.assistant.client.F7MeasureUnitTreeDetailListUI;
+import com.kingdee.eas.basedata.master.cssp.client.F7SupplierSimpleSelector;
+import com.kingdee.eas.basedata.master.material.client.MaterialClientTools;
+import com.kingdee.eas.basedata.org.OrgConstants;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
@@ -75,6 +83,9 @@ import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
 import com.kingdee.eas.xr.helper.ListenersXRHelper;
+import com.kingdee.eas.xr.helper.Tool;
+import com.kingdee.eas.xr.helper.XRSQLBuilder;
+import com.kingdee.jdbc.rowset.IRowSet;
 
 /**
  * output class name
@@ -249,6 +260,20 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 			}
 		});
 	
+		
+		Tool.setRespDeptF7(this.prmtjhOrgUnit, this, SysContext.getSysContext().getCurrentCtrlUnit().getId().toString());
+		Tool.setRespDeptF7(this.prmtwxOrgUnit, this, SysContext.getSysContext().getCurrentCtrlUnit().getId().toString());
+		Tool.setRespDeptF7(this.prmtwxDept, this, SysContext.getSysContext().getCurrentCtrlUnit().getId().toString());
+		Tool.setRespDeptF7(this.prmtssOrgUnit, this, SysContext.getSysContext().getCurrentCtrlUnit().getId().toString());
+		Tool.setRespDeptF7(this.prmtusingDept, this, SysContext.getSysContext().getCurrentCtrlUnit().getId().toString());
+		Tool.setPersonF7(this.prmtresPerson, this, SysContext.getSysContext().getCurrentCtrlUnit().getId().toString());
+		
+		this.prmtsupplier.setSelector(new F7SupplierSimpleSelector(this,this.prmtsupplier));
+		this.prmtinstaller.setSelector(new F7SupplierSimpleSelector(this,this.prmtinstaller));
+		this.prmtdebuger.setSelector(new F7SupplierSimpleSelector(this,this.prmtdebuger));
+		
+		MaterialClientTools.setMeasureUnitF7(
+				this, this.prmtunit);
 	}
 	
 	//市检值改变事件
@@ -260,9 +285,6 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 					ca.setTime(this.pktextDate1.getSqlDate());
 					ca.add(Calendar.YEAR,txtcityPeriod.getBigIntegerValue().intValue());
 					pkdayone.setValue(ca.getTime());
-						if(pkdayone.getValue() !=null){
-							pktextDate1.setValue(pkdayone.getValue());
-						}
 			}
 		
 	}
@@ -276,9 +298,6 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 			ca.setTime(this.testDay.getSqlDate());
 			ca.add(Calendar.YEAR,txtportPeriod.getBigIntegerValue().intValue());
 			pkdaytow.setValue(ca.getTime());
-				if(pkdaytow.getValue() !=null){
-					testDay.setValue(pkdaytow.getValue());
-				}
 	}
 	}
 	
@@ -577,7 +596,7 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 //		txttzdaNumber.setEnabled(state);
 //		chkcityTest.setEnabled(state);
 //		chkportTest.setEnabled(state);
-		testDay.setEnabled(state);
+//		testDay.setEnabled(state);
 		
 	}
 
@@ -1178,14 +1197,12 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 	}
 
 	/**
-	 * output createNewData method
+	 * 集团下不允许新建单据
 	 */
 	protected com.kingdee.bos.dao.IObjectValue createNewData() {
 		com.kingdee.eas.port.equipment.record.EquIdInfo objectValue = new com.kingdee.eas.port.equipment.record.EquIdInfo();
-		objectValue
-				.setCreator((com.kingdee.eas.base.permission.UserInfo) (com.kingdee.eas.common.client.SysContext
-						.getSysContext().getCurrentUser()));
-
+		objectValue.setCreator((com.kingdee.eas.base.permission.UserInfo) (com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentUser()));
+		Tool.checkGroupAddNew();
 		return objectValue;
 	}
 
@@ -1409,13 +1426,17 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 	}
 	
 	protected void attachListeners() {
-		ListenersXRHelper.addDataChangeListener(prmttype);
-		ListenersXRHelper.addDataChangeListener(prmtasset);
+		addDataChangeListener(prmttype);
+		addDataChangeListener(prmtasset);
+		addDataChangeListener(txtcityPeriod);
+		addDataChangeListener(txtportPeriod);
 	}
 
 	protected void detachListeners() {
-		ListenersXRHelper.removeDataChangeListener(prmttype);
-		ListenersXRHelper.removeDataChangeListener(prmtasset);
+		removeDataChangeListener(prmttype);
+		removeDataChangeListener(prmtasset);
+		removeDataChangeListener(txtcityPeriod);
+		removeDataChangeListener(txtportPeriod);
 	}
 
 	protected KDTextField getNumberCtrl() {

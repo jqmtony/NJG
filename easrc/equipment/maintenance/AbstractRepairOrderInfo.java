@@ -212,6 +212,17 @@ public class AbstractRepairOrderInfo extends com.kingdee.eas.xr.XRBillBaseInfo i
     {
         setDate("transferTime", item);
     }
+    /**
+     * Object: 维修单 's 受理部门 property 
+     */
+    public com.kingdee.eas.basedata.org.AdminOrgUnitInfo getSlDepart()
+    {
+        return (com.kingdee.eas.basedata.org.AdminOrgUnitInfo)get("slDepart");
+    }
+    public void setSlDepart(com.kingdee.eas.basedata.org.AdminOrgUnitInfo item)
+    {
+        put("slDepart", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("F96E9B71");

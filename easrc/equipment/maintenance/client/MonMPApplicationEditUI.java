@@ -16,11 +16,15 @@ import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.eas.basedata.person.PersonInfo;
+import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.framework.*;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.MsgBox;
+import com.kingdee.eas.xr.helper.PersonXRHelper;
+import com.kingdee.eas.xr.helper.Tool;
 import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
 import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
@@ -680,7 +684,21 @@ public class MonMPApplicationEditUI extends AbstractMonMPApplicationEditUI
     {
         com.kingdee.eas.port.equipment.maintenance.MonMPApplicationInfo objectValue = new com.kingdee.eas.port.equipment.maintenance.MonMPApplicationInfo();
         objectValue.setCreator((com.kingdee.eas.base.permission.UserInfo)(com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentUser()));
+        Tool.checkGroupAddNew();
+    	try {
+			objectValue.setBizDate(SysUtil.getAppServerTime(null));
+		} catch (EASBizException e) {
+			e.printStackTrace();
+		}
+		objectValue.setCU(SysContext.getSysContext().getCurrentCtrlUnit());
 		
+		PersonInfo personInfo = com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentUserInfo().getPerson();
+		if(personInfo==null)
+		{
+			MsgBox.showWarning("当前用户不是职员用户，不能执行此操作！");SysUtil.abort();
+		}
+		objectValue.setPreparer(personInfo);
+		objectValue.setAppDepart(PersonXRHelper.getPosiMemByDeptUser(personInfo));
         return objectValue;
     }
 	@Override
@@ -720,11 +738,6 @@ public class MonMPApplicationEditUI extends AbstractMonMPApplicationEditUI
 		kdtE1_equNumber_PromptBox.setEntityViewInfo(evi);
 		 KDTDefaultCellEditor kdtEntry_feeType_CellEditor = new KDTDefaultCellEditor(kdtE1_equNumber_PromptBox);
 		 kdtE1.getColumn("equNumber").setEditor(kdtEntry_feeType_CellEditor);
-			if(getOprtState().equals(OprtState.ADDNEW)){
-				pkBizDate.setValue(new Date());
-				prmtpreparer.setValue(com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentUserInfo().getPerson());
-				prmtCU.setValue(SysContext.getSysContext().getCurrentCtrlUnit());
-			}
 		
 	}
 	

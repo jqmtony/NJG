@@ -25,6 +25,7 @@ import com.kingdee.eas.port.equipment.record.EquIdFactory;
 import com.kingdee.eas.port.equipment.record.EquIdInfo;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.MsgBox;
+import com.kingdee.eas.xr.helper.Tool;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.swing.KDTextField;
 
@@ -682,7 +683,7 @@ public class EqmAccidentEditUI extends AbstractEqmAccidentEditUI
     {
         com.kingdee.eas.port.equipment.operate.EqmAccidentInfo objectValue = new com.kingdee.eas.port.equipment.operate.EqmAccidentInfo();
         objectValue.setCreator((com.kingdee.eas.base.permission.UserInfo)(com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentUser()));
-		
+    	Tool.checkGroupAddNew();
         return objectValue;
     }
 	@Override
@@ -749,12 +750,19 @@ public class EqmAccidentEditUI extends AbstractEqmAccidentEditUI
 			    String id1 = ((AdminOrgUnitInfo)edInfo.getSsOrgUnit()).getId().toString();
 			    AdminOrgUnitInfo aoInfo =  AdminOrgUnitFactory.getRemoteInstance().getAdminOrgUnitInfo(new ObjectUuidPK(id1));
 			    prmtssOrgUnit.setValue(aoInfo);
+			}else{
+				prmtssOrgUnit.setValue(null);
 			}
 			if(edInfo.getUsingDept()!=null){
 				  String id2 = ((AdminOrgUnitInfo)edInfo.getSsOrgUnit()).getId().toString();
 				  AdminOrgUnitInfo aoInfo =  AdminOrgUnitFactory.getRemoteInstance().getAdminOrgUnitInfo(new ObjectUuidPK(id2));
 				  prmtuseingDept.setValue(aoInfo);
+			}else{
+				 prmtuseingDept.setValue(null);
 			}
+		}else{
+			  prmtssOrgUnit.setValue(null);
+			  prmtuseingDept.setValue(null);
 		}
 		
 	}

@@ -31,6 +31,7 @@ import com.kingdee.eas.port.equipment.base.InsuranceInfo;
 import com.kingdee.eas.port.equipment.insurance.InsuranceCoverageFactory;
 import com.kingdee.eas.port.equipment.insurance.InsuranceCoverageInfo;
 import com.kingdee.eas.port.equipment.record.EquIdInfo;
+import com.kingdee.eas.xr.helper.Tool;
 import com.kingdee.eas.xr.helper.XRSQLBuilder;
 import com.kingdee.jdbc.rowset.IRowSet;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
@@ -739,7 +740,7 @@ this.prmtinsurance.setEnabledMultiSelection(true);
     {
         com.kingdee.eas.port.equipment.insurance.EquInsuranceAccidentInfo objectValue = new com.kingdee.eas.port.equipment.insurance.EquInsuranceAccidentInfo();
         objectValue.setCreator((com.kingdee.eas.base.permission.UserInfo)(com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentUser()));
-		
+        Tool.checkGroupAddNew();
         return objectValue;
     }
 	@Override
@@ -795,13 +796,24 @@ this.prmtinsurance.setEnabledMultiSelection(true);
 			 IRowSet rowSet = new XRSQLBuilder().appendSql(sb.toString()).executeQuery();
 			 while (rowSet.next()) {
 				 String id1 = rowSet.getString("fid");//保险投保明细表ID
+				 if(id1 != null){
+					 InsuranceCoverageInfo icInfo = InsuranceCoverageFactory.getRemoteInstance().getInsuranceCoverageInfo(new ObjectUuidPK(id1));
+					 prmtpolicyNumber.setValue(icInfo);
+				 }else{
+					 prmtpolicyNumber.setValue(null);
+				 }
 				 String id2 = rowSet.getString("CFInsurancecompany");//保险公司ID
+				 if(id2 != null){
+					 InsuranceCompanyInfo iscInfo = InsuranceCompanyFactory.getRemoteInstance().getInsuranceCompanyInfo(new ObjectUuidPK(id2));
+					 prmtinsuranceCompany.setValue(iscInfo);
+				 }else{
+					 prmtinsuranceCompany.setValue(null);
+				 }
 				 String id3 = rowSet.getString("cfxianzhongid");//险种
-				 InsuranceCoverageInfo icInfo = InsuranceCoverageFactory.getRemoteInstance().getInsuranceCoverageInfo(new ObjectUuidPK(id1));
-				 prmtpolicyNumber.setValue(icInfo);
-				 InsuranceCompanyInfo iscInfo = InsuranceCompanyFactory.getRemoteInstance().getInsuranceCompanyInfo(new ObjectUuidPK(id2));
-				 prmtinsuranceCompany.setValue(iscInfo);
-				 txtxianzhongID.setText(id3);
+				 if(id3 != null){
+					 txtxianzhongID.setText(id3);
+				 }
+				
 					if(UIRuleUtil.isNotNull(this.txtxianzhongID.getText()))
 			        {
 			        	String spicId[] = (this.txtxianzhongID.getText().trim()).split("&");
@@ -821,9 +833,15 @@ this.prmtinsurance.setEnabledMultiSelection(true);
 						} catch (EASBizException e) {
 							e.printStackTrace();
 						}
+			        }else{
+			        	this.prmtinsurance.setValue(null);
 			        }
 				 
 			 }
+		}else{
+			 prmtpolicyNumber.setValue(null);
+			 prmtinsuranceCompany.setValue(null);
+			 this.prmtinsurance.setValue(null);
 		}
 	}
 	

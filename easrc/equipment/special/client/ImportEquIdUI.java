@@ -206,13 +206,20 @@ public class ImportEquIdUI extends AbstractImportEquIdUI
 					row = kdtable.addRow();
 					row.getCell("zdaNumber").setValue(equIdInfo);
 					InitEntry(row, equIdInfo, CheckType.port);
+					selectIndex+=2;
 				}
 				else
 				{
 					if(equIdInfo.isCityTest())
+					{
 						InitEntry(row, equIdInfo, CheckType.city);
+						selectIndex+=1;
+					}
 					if(equIdInfo.isPortTest())
+					{
 						InitEntry(row, equIdInfo, CheckType.port);
+						selectIndex+=1;
+					}
 				}
 			}
 			else
@@ -240,7 +247,6 @@ public class ImportEquIdUI extends AbstractImportEquIdUI
 					}
 				}
 			}
-			selectIndex+=1;
 		}
 		
 		if(getUIContext().get("yearPlan")==null)
@@ -262,7 +268,7 @@ public class ImportEquIdUI extends AbstractImportEquIdUI
 	{
 		row.getCell("equipmentName").setValue(UIRuleUtil.getString(UIRuleUtil.getProperty((IObjectValue)row.getCell("zdaNumber").getValue(),"name")));
 		row.getCell("code").setValue(UIRuleUtil.getString(UIRuleUtil.getProperty((IObjectValue)row.getCell("zdaNumber").getValue(),"code")));
-		row.getCell("useUnit").setValue(UIRuleUtil.getString(UIRuleUtil.getProperty((IObjectValue)row.getCell("zdaNumber").getValue(),"usingDept.name")));
+		row.getCell("useUnit").setValue(UIRuleUtil.getString(UIRuleUtil.getProperty((IObjectValue)row.getCell("zdaNumber").getValue(),"ssOrgUnit.name")));
 		row.getCell("state").setValue(UIRuleUtil.getString(UIRuleUtil.getProperty((IObjectValue)row.getCell("zdaNumber").getValue(),"tzsbStatus")));
 		row.getCell("address").setValue(UIRuleUtil.getString(UIRuleUtil.getProperty((IObjectValue)row.getCell("zdaNumber").getValue(),"address.name")));
 		row.getCell("companyNumber").setValue(UIRuleUtil.getString(UIRuleUtil.getProperty((IObjectValue)row.getCell("zdaNumber").getValue(),"innerNumber")));

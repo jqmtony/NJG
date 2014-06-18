@@ -29,6 +29,7 @@ import com.kingdee.eas.port.equipment.record.EquIdInfo;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.MsgBox;
 import com.kingdee.eas.xr.app.XRBillStatusEnum;
+import com.kingdee.eas.xr.helper.Tool;
 import com.kingdee.eas.xr.helper.XRSQLBuilder;
 import com.kingdee.jdbc.rowset.IRowSet;
 import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
@@ -694,7 +695,7 @@ public class InsuranceDeclarationStateEditUI extends AbstractInsuranceDeclaratio
     {
         com.kingdee.eas.port.equipment.insurance.InsuranceDeclarationStateInfo objectValue = new com.kingdee.eas.port.equipment.insurance.InsuranceDeclarationStateInfo();
         objectValue.setCreator((com.kingdee.eas.base.permission.UserInfo)(com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentUser()));
-		
+    	Tool.checkGroupAddNew();
         return objectValue;
     }
 	@Override
@@ -716,6 +717,7 @@ public class InsuranceDeclarationStateEditUI extends AbstractInsuranceDeclaratio
 	 public void onLoad() throws Exception {
     	 this.kdtE1.getColumn("seq").getStyleAttributes().setHided(true);
     	 txttotalAmountInsured.setEnabled(false);
+    	 this.kdtE1.getColumn("originalValue").getStyleAttributes().setLocked(true);
     	super.onLoad();
     	if (OprtState.ADDNEW.equals(getOprtState())) {
     		this.prmtCU.setValue(SysContext.getSysContext().getCurrentCtrlUnit());
@@ -774,7 +776,9 @@ public class InsuranceDeclarationStateEditUI extends AbstractInsuranceDeclaratio
 			this.kdtE1.getCell(rowIndex, "insuredValue").setValue(amount);
 		}
 		txttotalAmountInsured.setValue(UIRuleUtil.sum(kdtE1, "insuredValue"));
-		
+		String id =((EquIdInfo)kdtE1.getCell(rowIndex, "equNumber").getValue()).getId().toString();
+		EquIdInfo eqInfo = EquIdFactory.getRemoteInstance().getEquIdInfo(new ObjectUuidPK(id));
+		kdtE1.getCell(rowIndex, "originalValue").setValue(eqInfo.getAssetValue());
 		
     }
 

@@ -410,6 +410,16 @@ public abstract class AbstractEqmIOEditUI extends com.kingdee.eas.xr.client.XRBi
         this.prmtInOrgUnit.setEditFormat("$number$");		
         this.prmtInOrgUnit.setCommitFormat("$number$");		
         this.prmtInOrgUnit.setRequired(false);
+        this.prmtInOrgUnit.addDataChangeListener(new com.kingdee.bos.ctrl.swing.event.DataChangeListener() {
+            public void dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) {
+                try {
+                    prmtInOrgUnit_dataChanged(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                }
+            }
+        });
         // prmtoldUseingDept		
         this.prmtoldUseingDept.setQueryInfo("com.kingdee.eas.basedata.org.app.AdminItemQuery");		
         this.prmtoldUseingDept.setVisible(true);		
@@ -909,6 +919,14 @@ public abstract class AbstractEqmIOEditUI extends com.kingdee.eas.xr.client.XRBi
      */
     protected void prmteqmNumber_dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) throws Exception
     {
+    }
+
+    /**
+     * output prmtInOrgUnit_dataChanged method
+     */
+    protected void prmtInOrgUnit_dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) throws Exception
+    {
+        //write your code heresss
     }
 
 

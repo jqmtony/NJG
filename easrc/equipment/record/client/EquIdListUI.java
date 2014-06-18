@@ -13,6 +13,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.swing.SwingUtilities;
@@ -39,11 +40,13 @@ import com.kingdee.bos.metadata.IMetaDataPK;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
+import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.IUIWindow;
 import com.kingdee.bos.ui.face.UIFactory;
 import com.kingdee.bos.ui.face.UIRuleUtil;
+import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.eas.base.permission.client.longtime.ILongTimeTask;
 import com.kingdee.eas.base.permission.client.longtime.LongTimeDialog;
 import com.kingdee.eas.basedata.org.OrgConstants;
@@ -61,6 +64,8 @@ import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.KDTableUtil;
 import com.kingdee.eas.util.client.MsgBox;
+import com.kingdee.eas.xr.IXRBillBase;
+import com.kingdee.eas.xr.XRBillBaseInfo;
 
 /**
  * output class name
@@ -691,20 +696,32 @@ public class EquIdListUI extends AbstractEquIdListUI
      **/
     public void actionInUse_actionPerformed(ActionEvent e) throws Exception {
     	super.actionInUse_actionPerformed(e); 
-    	IEquId  conntion =EquIdFactory.getRemoteInstance();
+    	checkSelected();
+    	List<String> list = this.getSelectedIdValues();
+    	StringBuffer msg = new StringBuffer("");
     	
-    	int selecRow[] = KDTableUtil.getSelectedRows(this.tblMain);
-    	for (int i = 0; i < selecRow.length; i++) 
+    	for (int i = 0; i < list.size(); i++)
     	{
-    		EquIdInfo conInfo = conntion.getEquIdInfo(new ObjectUuidPK(tblMain.getRow(i).getCell("id").getValue().toString()));
-    		if(conInfo.getSbStatus().equals(sbStatusType.inUse)){
-    			MsgBox.showWarning("当前所选设备已是在用状态！");
-				SysUtil.abort();
+    		ObjectUuidPK pk = new ObjectUuidPK(BOSUuid.read(list.get(i)));
+    		SelectorItemCollection sc = new SelectorItemCollection();
+    		Object o = getBizInterface().getValue(pk, sc);
+    		EquIdInfo conInfo = (EquIdInfo)o;
+    		
+    		if(conInfo.getSbStatus().equals(sbStatusType.inUse)||conInfo.getSbStatus().equals(sbStatusType.discarded)){
+    			if(!"".equals(msg.toString().trim()))
+    				msg.append(";").append(conInfo.getNumber());
+    			else
+    				msg.append(conInfo.getNumber());
+    			continue;
     		}
     		conInfo.setSbStatus(sbStatusType.inUse);
-			conntion.update(new ObjectUuidPK(conInfo.getId()), conInfo)  ;
-    	}
-    	this.refresh(e);
+    		((IEquId)getBizInterface()).update(pk, conInfo);
+		}
+    	if(!"".equals(msg.toString().trim()))
+    		MsgBox.showConfirm3a("部分数据不满足条件,请查看详细信息!", "编码：\n"+msg.toString()+"\n已经在用或者已报废！");
+    	else
+    		MsgBox.showInfo("在用成功！");
+    	 this.refresh(e);
     }
     
     /**
@@ -714,20 +731,32 @@ public class EquIdListUI extends AbstractEquIdListUI
      **/
     public void actionOutUse_actionPerformed(ActionEvent e) throws Exception {
     	super.actionOutUse_actionPerformed(e);
-	IEquId  conntion =EquIdFactory.getRemoteInstance();
+    	checkSelected();
+    	List<String> list = this.getSelectedIdValues();
+    	StringBuffer msg = new StringBuffer("");
     	
-    	int selecRow[] = KDTableUtil.getSelectedRows(this.tblMain);
-    	for (int i = 0; i < selecRow.length; i++) 
+    	for (int i = 0; i < list.size(); i++)
     	{
-    		EquIdInfo conInfo = conntion.getEquIdInfo(new ObjectUuidPK(tblMain.getRow(i).getCell("id").getValue().toString()));
-    		if(conInfo.getSbStatus().equals(sbStatusType.notUse)){
-    			MsgBox.showWarning("当前所选设备已是停用状态！");
-				SysUtil.abort();
+    		ObjectUuidPK pk = new ObjectUuidPK(BOSUuid.read(list.get(i)));
+    		SelectorItemCollection sc = new SelectorItemCollection();
+    		Object o = getBizInterface().getValue(pk, sc);
+    		EquIdInfo conInfo = (EquIdInfo)o;
+    		
+    		if(conInfo.getSbStatus().equals(sbStatusType.notUse)||conInfo.getSbStatus().equals(sbStatusType.discarded)){
+    			if(!"".equals(msg.toString().trim()))
+    				msg.append(";").append(conInfo.getNumber());
+    			else
+    				msg.append(conInfo.getNumber());
+    			continue;
     		}
     		conInfo.setSbStatus(sbStatusType.notUse);
-			conntion.update(new ObjectUuidPK(conInfo.getId()), conInfo)  ;
-    	}
-    	this.refresh(e);
+    		((IEquId)getBizInterface()).update(pk, conInfo);
+		}
+    	if(!"".equals(msg.toString().trim()))
+    		MsgBox.showConfirm3a("部分数据不满足条件,请查看详细信息!", "编码：\n"+msg.toString()+"\n已经停用或者已报废！");
+    	else
+    		MsgBox.showInfo("停用成功！");
+    	 this.refresh(e);
     }
     
 	protected void initWorkButton() {
@@ -906,14 +935,12 @@ public class EquIdListUI extends AbstractEquIdListUI
 						ca.setTime(sdf.parse(citycellRawVal));
 						ca.add(Calendar.YEAR,ctyPeriod.intValue());
 						equInfo.setDayone(ca.getTime());
-						equInfo.setTextDate1(ca.getTime());
 					}
 					
 					if (UIRuleUtil.isNotNull(hongkcellRawVal)) {
 						ca.setTime(sdf.parse(hongkcellRawVal));
 						ca.add(Calendar.YEAR,portperiod.intValue());
 						equInfo.setDaytow(ca.getTime());
-						equInfo.setTestDay(ca.getTime());
 					}
 					
 					iEquId.update(new ObjectUuidPK(equInfo.getId()), equInfo);

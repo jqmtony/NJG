@@ -9,6 +9,7 @@ import com.kingdee.bos.metadata.IMetaDataPK;
 import com.kingdee.bos.metadata.rule.RuleExecutor;
 import com.kingdee.bos.metadata.MetaDataPK;
 //import com.kingdee.bos.metadata.entity.EntityViewInfo;
+import com.kingdee.bos.framework.DynamicObjectFactory;
 import com.kingdee.bos.framework.ejb.AbstractEntityControllerBean;
 import com.kingdee.bos.framework.ejb.AbstractBizControllerBean;
 //import com.kingdee.bos.dao.IObjectPK;
@@ -20,6 +21,8 @@ import com.kingdee.bos.service.IServiceContext;
 import java.lang.String;
 
 import com.kingdee.eas.base.codingrule.CodingRuleManagerFactory;
+import com.kingdee.eas.basedata.org.AdminOrgUnitFactory;
+import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
@@ -92,25 +95,39 @@ public class RepairOrderControllerBean extends AbstractRepairOrderControllerBean
 			super._audit(ctx, pk);
 			RepairOrderInfo roInfo = getRepairOrderInfo(ctx, pk);
 				if(roInfo.getSourceBillId() != null){
-					MonMainPlanE1Info mmeInfo = MonMainPlanE1Factory.getLocalInstance(ctx).getMonMainPlanE1Info(new ObjectUuidPK(roInfo.getSourceBillId()));
-					if(roInfo.getTransferTime()!=null){
-						mmeInfo.setActualCompleteT(roInfo.getTransferTime());
+					IObjectValue billInfo = (IObjectValue) DynamicObjectFactory.getLocalInstance(ctx).getValue(new ObjectUuidPK(roInfo.getSourceBillId() ).getObjectType(), new ObjectUuidPK(roInfo.getSourceBillId()));
+					if(billInfo instanceof MonMainPlanE1Info)
+					{
+						MonMainPlanE1Info mmeInfo = MonMainPlanE1Factory.getLocalInstance(ctx).getMonMainPlanE1Info(new ObjectUuidPK(roInfo.getSourceBillId()));
+						if(roInfo.getTransferTime()!=null){
+							mmeInfo.setActualCompleteT(roInfo.getTransferTime());
+						}
+						if(roInfo.getAcceptSituation() !=null){
+							mmeInfo.setComplete(roInfo.getAcceptSituation());
+						}
+						if(roInfo.getSlDepart() !=null){
+							String id = ((AdminOrgUnitInfo)roInfo.getSlDepart()).getId().toString();
+							AdminOrgUnitInfo aoInfo = AdminOrgUnitFactory.getLocalInstance(ctx).getAdminOrgUnitInfo(new ObjectUuidPK(id));
+							mmeInfo.setImplementDepart(aoInfo);
+						}
+						MonMainPlanE1Factory.getLocalInstance(ctx).update((new ObjectUuidPK(mmeInfo.getId())),mmeInfo);
 					}
-					if(roInfo.getAcceptSituation() !=null){
-						mmeInfo.setComplete(roInfo.getAcceptSituation());
-					}
-					MonMainPlanE1Factory.getLocalInstance(ctx).update((new ObjectUuidPK(mmeInfo.getId())),mmeInfo);
 				}
-			
 		}
 		
 		protected void _unAudit(Context ctx, IObjectPK pk) throws BOSException,EASBizException {
 			super._unAudit(ctx, pk);
 			RepairOrderInfo roInfo = getRepairOrderInfo(ctx, pk);
 			if(roInfo.getSourceBillId() != null){
-				MonMainPlanE1Info mmeInfo = MonMainPlanE1Factory.getLocalInstance(ctx).getMonMainPlanE1Info(new ObjectUuidPK(roInfo.getSourceBillId()));
-				mmeInfo.setActualCompleteT(null);
-				MonMainPlanE1Factory.getLocalInstance(ctx).update((new ObjectUuidPK(mmeInfo.getId())),mmeInfo);
+				IObjectValue billInfo = (IObjectValue) DynamicObjectFactory.getLocalInstance(ctx).getValue(new ObjectUuidPK(roInfo.getSourceBillId() ).getObjectType(), new ObjectUuidPK(roInfo.getSourceBillId()));
+					if(billInfo instanceof MonMainPlanE1Info)
+					{
+					MonMainPlanE1Info mmeInfo = MonMainPlanE1Factory.getLocalInstance(ctx).getMonMainPlanE1Info(new ObjectUuidPK(roInfo.getSourceBillId()));
+					mmeInfo.setActualCompleteT(null);
+					mmeInfo.setComplete(null);
+					mmeInfo.setImplementDepart(null);
+					MonMainPlanE1Factory.getLocalInstance(ctx).update((new ObjectUuidPK(mmeInfo.getId())),mmeInfo);
+					}
 			}
 		}
 }

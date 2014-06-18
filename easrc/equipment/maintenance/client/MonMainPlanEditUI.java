@@ -17,6 +17,7 @@ import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.framework.*;
+import com.kingdee.eas.xr.helper.Tool;
 import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
 import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
@@ -677,7 +678,7 @@ public class MonMainPlanEditUI extends AbstractMonMainPlanEditUI
     {
         com.kingdee.eas.port.equipment.maintenance.MonMainPlanInfo objectValue = new com.kingdee.eas.port.equipment.maintenance.MonMainPlanInfo();
         objectValue.setCreator((com.kingdee.eas.base.permission.UserInfo)(com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentUser()));
-		
+        Tool.checkGroupAddNew();
         return objectValue;
     }
 	@Override
@@ -698,6 +699,9 @@ public class MonMainPlanEditUI extends AbstractMonMainPlanEditUI
 
 	public void onLoad() throws Exception {
 		this.kdtE1.getColumn("seq").getStyleAttributes().setHided(true);
+		this.kdtE1.getColumn("implementDepart").getStyleAttributes().setLocked(true);
+		this.kdtE1.getColumn("actualCompleteT").getStyleAttributes().setLocked(true);
+		this.kdtE1.getColumn("complete").getStyleAttributes().setLocked(true);
 		super.onLoad();
 		 KDBizPromptBox kdtE1_equNumber_PromptBox = new KDBizPromptBox();
 	        kdtE1_equNumber_PromptBox.setQueryInfo("com.kingdee.eas.port.equipment.record.app.EquIdQuery");

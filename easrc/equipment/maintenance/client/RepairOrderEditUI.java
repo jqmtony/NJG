@@ -14,11 +14,19 @@ import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.eas.basedata.person.PersonInfo;
+import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
+import com.kingdee.eas.cp.bc.BizCollUtil;
 import com.kingdee.eas.framework.*;
+import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
+import com.kingdee.eas.util.SysUtil;
+import com.kingdee.eas.xr.helper.PersonXRHelper;
+import com.kingdee.eas.xr.helper.Tool;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.swing.KDTextField;
+import com.kingdee.bos.ctrl.swing.event.DataChangeEvent;
 
 /**
  * output class name
@@ -674,7 +682,23 @@ public class RepairOrderEditUI extends AbstractRepairOrderEditUI
     {
         com.kingdee.eas.port.equipment.maintenance.RepairOrderInfo objectValue = new com.kingdee.eas.port.equipment.maintenance.RepairOrderInfo();
         objectValue.setCreator((com.kingdee.eas.base.permission.UserInfo)(com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentUser()));
+      
+    	Tool.checkGroupAddNew();
+    	
+    	try {
+			objectValue.setBizDate(SysUtil.getAppServerTime(null));
+		} catch (EASBizException e) {
+			e.printStackTrace();
+		}
+		objectValue.setCU(SysContext.getSysContext().getCurrentCtrlUnit());
 		
+		PersonInfo personInfo = com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentUserInfo().getPerson();
+		if(personInfo==null)
+		{
+			MsgBox.showWarning("当前用户不是职员用户，不能执行此操作！");SysUtil.abort();
+		}
+		objectValue.setRepairPerson(personInfo);
+		objectValue.setRepairDepart(PersonXRHelper.getPosiMemByDeptUser(personInfo));
         return objectValue;
     }
 	@Override
@@ -694,6 +718,7 @@ public class RepairOrderEditUI extends AbstractRepairOrderEditUI
 	}
 
 	public void onLoad() throws Exception {
+		prmtslDepart.setEnabled(false);
 		this.kdtE1.getColumn("seq").getStyleAttributes().setHided(true);
 		super.onLoad();
 		 EntityViewInfo evi = new EntityViewInfo();
@@ -702,9 +727,17 @@ public class RepairOrderEditUI extends AbstractRepairOrderEditUI
 		 filter.getFilterItems().add(new FilterItemInfo("ssOrgUnit.id",id ,CompareType.EQUALS));
 		 evi.setFilter(filter);
 		 prmtequName.setEntityViewInfo(evi);
-		 if(getOprtState().equals(OprtState.ADDNEW)){
-			 pkBizDate.setValue(new Date());
-			 prmtCU.setValue(SysContext.getSysContext().getCurrentCtrlUnit());
-		 }
+		Tool.setPersonF7(this.prmtassignee, this, SysContext.getSysContext().getCurrentCtrlUnit().getId().toString());
+		Tool.setPersonF7(this.prmtrepairPerson, this, SysContext.getSysContext().getCurrentCtrlUnit().getId().toString());
+		Tool.setPersonF7(this.prmtdeliveryPerson, this, SysContext.getSysContext().getCurrentCtrlUnit().getId().toString());
+		Tool.setPersonF7(this.prmtrecipient, this, SysContext.getSysContext().getCurrentCtrlUnit().getId().toString());
+	}
+	
+	protected void prmtassignee_dataChanged(DataChangeEvent e) throws Exception {
+		super.prmtassignee_dataChanged(e);
+		if(BizCollUtil.isF7ValueChanged(e)&&e.getNewValue()!=null)
+			this.prmtslDepart.setValue(PersonXRHelper.getPosiMemByDeptUser((PersonInfo)e.getNewValue()));
+		else
+			this.prmtslDepart.setValue(null);
 	}
 }

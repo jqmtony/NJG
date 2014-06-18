@@ -15,12 +15,19 @@ import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.eas.basedata.org.AdminOrgUnitFactory;
 import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
+import com.kingdee.eas.basedata.org.client.f7.AdminF7;
 import com.kingdee.eas.common.client.SysContext;
+import com.kingdee.eas.cp.bc.BizCollUtil;
 import com.kingdee.eas.framework.*;
 import com.kingdee.eas.port.equipment.record.EquIdInfo;
+import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
+import com.kingdee.eas.util.SysUtil;
+import com.kingdee.eas.xr.helper.Tool;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.swing.KDTextField;
 import com.kingdee.bos.ctrl.swing.event.DataChangeEvent;
+import com.kingdee.bos.ctrl.swing.event.SelectorEvent;
+import com.kingdee.bos.ctrl.swing.event.SelectorListener;
 
 /**
  * output class name
@@ -56,6 +63,8 @@ public class EqmIOEditUI extends AbstractEqmIOEditUI
 	protected void prmteqmNumber_dataChanged(DataChangeEvent e)
 			throws Exception {
 		if (prmteqmNumber.getValue() == null) {
+			prmtoutOrgUnit.setValue(null);
+			prmtoldUseingDept.setValue(null);
 			return;
 		}
 		EquIdInfo eqmInfo = (EquIdInfo)prmteqmNumber.getValue();
@@ -63,11 +72,15 @@ public class EqmIOEditUI extends AbstractEqmIOEditUI
 		{
 			AdminOrgUnitInfo ssOrgUnit = AdminOrgUnitFactory.getRemoteInstance().getAdminOrgUnitInfo(new ObjectUuidPK(eqmInfo.getSsOrgUnit().getId()));
 			prmtoutOrgUnit.setValue(ssOrgUnit);
+		}else{
+			prmtoutOrgUnit.setValue(null);
 		}
 		if(eqmInfo.getUsingDept()!=null)
 		{
 			AdminOrgUnitInfo usingDept = AdminOrgUnitFactory.getRemoteInstance().getAdminOrgUnitInfo(new ObjectUuidPK(eqmInfo.getUsingDept().getId()));
 			prmtoldUseingDept.setValue(usingDept);
+		}else{
+			prmtoldUseingDept.setValue(null);
 		}
 	}
 	/**
@@ -694,7 +707,7 @@ public class EqmIOEditUI extends AbstractEqmIOEditUI
     {
         com.kingdee.eas.port.equipment.operate.EqmIOInfo objectValue = new com.kingdee.eas.port.equipment.operate.EqmIOInfo();
         objectValue.setCreator((com.kingdee.eas.base.permission.UserInfo)(com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentUser()));
-		
+    	Tool.checkGroupAddNew();
         return objectValue;
     }
 	@Override
@@ -725,5 +738,36 @@ public class EqmIOEditUI extends AbstractEqmIOEditUI
 		 filter.getFilterItems().add(new FilterItemInfo("ssOrgUnit.id",id ,CompareType.EQUALS));
 		 evi.setFilter(filter);
 		prmteqmNumber.setEntityViewInfo(evi);
+		
+		Tool.setRespDeptF7(this.prmtInOrgUnit, this, null);
+		
+		this.prmtuseingOrgUnit.addSelectorListener(new SelectorListener(){
+
+			public void willShow(SelectorEvent arg0) {
+				if(prmtInOrgUnit.getValue()==null)
+				{
+					MsgBox.showWarning("请先选择调入单位！");SysUtil.abort();
+				}
+			}
+			
+		});
 	}
+	
+	protected void prmtInOrgUnit_dataChanged(DataChangeEvent e)throws Exception {
+		super.prmtInOrgUnit_dataChanged(e);
+		if(BizCollUtil.isF7ValueChanged(e)&&e.getNewValue()!=null)
+		{
+			AdminOrgUnitInfo orgInfo = (AdminOrgUnitInfo)e.getNewValue();
+			
+			AdminF7 f7 = new AdminF7(this);
+			f7.showCheckBoxOfShowingAllOUs();
+			f7.setIsCUFilter(false);
+			f7.setRootUnitID(orgInfo.getId().toString());
+			f7.setCurrentCUID(orgInfo.getId().toString());
+
+			prmtuseingOrgUnit.setSelector(f7);
+			prmtuseingOrgUnit.setValue(null);
+		}
+	}
+	
 }

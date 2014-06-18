@@ -46,6 +46,7 @@ import com.kingdee.eas.port.equipment.uitl.ToolHelp;
 import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.xr.app.XRBillStatusEnum;
+import com.kingdee.eas.xr.helper.Tool;
 
 /**
  * output class name
@@ -703,7 +704,7 @@ public class OverhaulNoticeEditUI extends AbstractOverhaulNoticeEditUI
     {
         com.kingdee.eas.port.equipment.special.OverhaulNoticeInfo objectValue = new com.kingdee.eas.port.equipment.special.OverhaulNoticeInfo();
         objectValue.setCreator((com.kingdee.eas.base.permission.UserInfo)(com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentUser()));
-		
+    	Tool.checkGroupAddNew();
         return objectValue;
     }
 	@Override
@@ -774,7 +775,9 @@ public class OverhaulNoticeEditUI extends AbstractOverhaulNoticeEditUI
 		this.kdtEntry.getColumn("zdaNumber").getStyleAttributes().setLocked(true);
 		this.kdtEntry.getColumn("equipmentName").getStyleAttributes().setLocked(true);
 		this.kdtEntry.getColumn("noCheckItem").getStyleAttributes().setLocked(true);
-		
+		pkbackDate.setEnabled(false);
+		txtfeedback.setEnabled(false);
+	    actionAddNew.setVisible(false);
 		if(getUIContext().get("FeedInfor")!=null)
 		{
 			pkBizDate.setEnabled(false);
@@ -798,6 +801,8 @@ public class OverhaulNoticeEditUI extends AbstractOverhaulNoticeEditUI
 			this.kdtEntry_detailPanel.getInsertLineButton().setEnabled(false);
 			this.kdtEntry_detailPanel.getRemoveLinesButton().setEnabled(false);			
 			btnAddNew.setVisible(false);
+			pkbackDate.setEnabled(true);
+			txtfeedback.setEnabled(true);
 			
 			if(editData.getStatus().equals(XRBillStatusEnum.AUDITED)){
 				btnConRect.setEnabled(true);

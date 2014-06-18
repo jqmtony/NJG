@@ -23,6 +23,7 @@ import com.kingdee.eas.framework.*;
 import com.kingdee.eas.port.equipment.base.enumbase.sbStatusType;
 import com.kingdee.eas.port.equipment.record.EquIdFactory;
 import com.kingdee.eas.port.equipment.record.EquIdInfo;
+import com.kingdee.eas.xr.helper.Tool;
 import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
 import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
@@ -676,7 +677,7 @@ public class EqmScrapEditUI extends AbstractEqmScrapEditUI
     {
         com.kingdee.eas.port.equipment.operate.EqmScrapInfo objectValue = new com.kingdee.eas.port.equipment.operate.EqmScrapInfo();
         objectValue.setCreator((com.kingdee.eas.base.permission.UserInfo)(com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentUser()));
-		
+        Tool.checkGroupAddNew();
         return objectValue;
     }
 	@Override
@@ -720,17 +721,27 @@ public class EqmScrapEditUI extends AbstractEqmScrapEditUI
 			EquIdInfo edInfo = EquIdFactory.getRemoteInstance().getEquIdInfo(new ObjectUuidPK(id));
 			if(edInfo.getName() != null){
 				txteqmName.setText(edInfo.getName());
+			}else{
+				txteqmName.setText(null);
 			}
 			if(edInfo.getSsOrgUnit()!=null){
 			    String id1 = ((AdminOrgUnitInfo)edInfo.getSsOrgUnit()).getId().toString();
 			    AdminOrgUnitInfo aoInfo =  AdminOrgUnitFactory.getRemoteInstance().getAdminOrgUnitInfo(new ObjectUuidPK(id1));
 			    prmtssOrgUnit.setValue(aoInfo);
+			}else{
+				 prmtssOrgUnit.setValue(null);
 			}
 			if(edInfo.getUsingDept()!=null){
 				  String id2 = ((AdminOrgUnitInfo)edInfo.getSsOrgUnit()).getId().toString();
 				  AdminOrgUnitInfo aoInfo =  AdminOrgUnitFactory.getRemoteInstance().getAdminOrgUnitInfo(new ObjectUuidPK(id2));
 				  prmtusedDept.setValue(aoInfo);
+			}else{
+				prmtusedDept.setValue(null);
 			}
+		}else{
+			txteqmName.setText(null);
+			prmtssOrgUnit.setValue(null);
+			prmtusedDept.setValue(null);
 		}
 	}
 	

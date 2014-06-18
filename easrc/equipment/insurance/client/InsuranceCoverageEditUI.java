@@ -9,6 +9,7 @@ import java.awt.Frame;
 import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.io.File;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -39,6 +40,7 @@ import com.kingdee.bos.ctrl.swing.KDTextField;
 import com.kingdee.bos.ctrl.swing.KDWorkButton;
 import com.kingdee.bos.ctrl.swing.util.SimpleFileFilter;
 import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
@@ -67,6 +69,7 @@ import com.kingdee.eas.port.equipment.record.IEquId;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
+import com.kingdee.eas.xr.helper.Tool;
 
 /**
  * output class name
@@ -772,7 +775,7 @@ this.prmtinsurance.setEnabledMultiSelection(true);
     {
         com.kingdee.eas.port.equipment.insurance.InsuranceCoverageInfo objectValue = new com.kingdee.eas.port.equipment.insurance.InsuranceCoverageInfo();
         objectValue.setCreator((com.kingdee.eas.base.permission.UserInfo)(com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentUser()));
-		
+        Tool.checkGroupAddNew();
         return objectValue;
     }
 	@Override
@@ -794,6 +797,7 @@ this.prmtinsurance.setEnabledMultiSelection(true);
 
 	public void onLoad() throws Exception {
 		 this.kdtE1.getColumn("seq").getStyleAttributes().setHided(true);
+		 this.kdtE1.getColumn("useUnit").getStyleAttributes().setLocked(true);
 		super.onLoad();
 		
 		this.kDContainer1.setTitle("保险投保明细");
@@ -853,7 +857,7 @@ this.prmtinsurance.setEnabledMultiSelection(true);
 		actionImportExcel();
 	}
 	
-	private String lockCell[] = {"equNumber","equType","specModel","factoryUseDate","makeUnit","tonnage"};
+	private String lockCell[] = {"useUnit","originalValue","presentValue","equType","specModel","factoryUseDate","makeUnit","tonnage"};
 	String path ="";
 	
 	    public void actionImportExcel()  {
@@ -915,6 +919,7 @@ this.prmtinsurance.setEnabledMultiSelection(true);
 			{
 				kdtableHidedCell.put(lockCell[i], lockCell[i]);
 			}
+			Map<String, Integer> map = new HashMap<String, Integer>();
 			for (int col = 0; col< table.getColumnCount(); col++) {
 				if (table.getColumn(col).getStyleAttributes().isHided()||kdtableHidedCell.get(table.getColumnKey(col))!=null) {
 					continue;
@@ -925,56 +930,30 @@ this.prmtinsurance.setEnabledMultiSelection(true);
 					MsgBox.showWarning(this,"表头结构不一致！表格上的关键列:" + colName + "在EXCEL中没有出现！");
 					return false;
 				}
+				
 			}
-			table.removeRows();
-			IAdminOrgUnit IAdminorgUnit = AdminOrgUnitFactory.getRemoteInstance();
-			IEquId IEquId = EquIdFactory.getRemoteInstance();
+			for (int col = 0; col< table.getRowCount(); col++) {
+				IRow row = table.getRow(col);
+				map.put(((EquIdInfo)row.getCell("equNumber").getValue()).getNumber(), col);
+			}
 			for (int rowIndex = 1; rowIndex <= e_maxRow; rowIndex++) {
-				IRow row = table.addRow();
-				int newrowIndex = row.getRowIndex();
-				InsuranceCoverageE1Info entry = new InsuranceCoverageE1Info();
-				entry.setId(BOSUuid.create(entry.getBOSType()));
-				row.setUserObject(entry);
-				for (int col = 0; col < table.getColumnCount(); col++) {
-					if (table.getColumn(col).getStyleAttributes().isHided()||kdtableHidedCell.get(table.getColumnKey(col))!=null) {
-	    				continue;
-	    			}
-					ICell tblCell = row.getCell(col);
-					String colName = (String) table.getHeadRow(0).getCell(col).getValue();
-					Integer colInt = (Integer) e_colNameMap.get(colName);
-
-					if (colInt == null) {
-						continue;
-					}
-					com.kingdee.bos.ctrl.common.variant.Variant cellRawVal = excelSheet.getCell(rowIndex, colInt.intValue(), true).getValue();
-					if (com.kingdee.bos.ctrl.common.variant.Variant.isNull(cellRawVal)) {
-						continue;
-					}
-					String colValue = cellRawVal.toString();
-					if(colName.equals("使用单位"))
-					{
-						AdminOrgUnitCollection admCollection = IAdminorgUnit.getAdminOrgUnitCollection("select id,number,name where name='"+colValue+"'");
-						AdminOrgUnitInfo admiOrgInfo = admCollection.size()>0?admCollection.get(0):null;
-						tblCell.setValue(admiOrgInfo);
-					}
-					else if(colName.equals("设备名称"))
-					{
-						EquIdCollection eqCollection = IEquId.getEquIdCollection("where name='"+colValue+"'");
-						EquIdInfo eqInfo = eqCollection.size()>0?eqCollection.get(0):null;
-						if(eqInfo==null){continue;}
-						tblCell.setValue(eqInfo.getName());
-						table.getCell(newrowIndex, "equNumber").setValue(eqInfo);
-						kdtE1.getCell(newrowIndex,"equType").setValue(com.kingdee.bos.ui.face.UIRuleUtil.getString(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)kdtE1.getCell(newrowIndex,"equNumber").getValue(),"eqmType.name")));
-						kdtE1.getCell(newrowIndex,"equName").setValue(com.kingdee.bos.ui.face.UIRuleUtil.getString(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)kdtE1.getCell(newrowIndex,"equNumber").getValue(),"name")));
-						kdtE1.getCell(newrowIndex,"specModel").setValue(com.kingdee.bos.ui.face.UIRuleUtil.getString(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)kdtE1.getCell(newrowIndex,"equNumber").getValue(),"model")));
-						kdtE1.getCell(newrowIndex,"factoryUseDate").setValue(com.kingdee.bos.ui.face.UIRuleUtil.getDateValue(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)kdtE1.getCell(newrowIndex,"equNumber").getValue(),"qyDate")));
-						kdtE1.getCell(newrowIndex,"makeUnit").setValue(com.kingdee.bos.ui.face.UIRuleUtil.getString(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)kdtE1.getCell(newrowIndex,"equNumber").getValue(),"mader")));
-						kdtE1.getCell(newrowIndex,"tonnage").setValue(com.kingdee.bos.ui.face.UIRuleUtil.getString(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)kdtE1.getCell(newrowIndex,"equNumber").getValue(),"weight")));
-					}
-					else
-					{
-						tblCell.setValue(colValue);
-					}
+				Integer colInt = (Integer) e_colNameMap.get("设备编号");
+				Integer equInt = (Integer) e_colNameMap.get("投保金额");
+				
+				if (colInt == null||equInt==null) {
+					continue;
+				}
+				com.kingdee.bos.ctrl.common.variant.Variant cellRawVal = excelSheet.getCell(rowIndex, colInt.intValue(), true).getValue();
+				if (com.kingdee.bos.ctrl.common.variant.Variant.isNull(cellRawVal)) {
+					continue;
+				}
+				com.kingdee.bos.ctrl.common.variant.Variant equV = excelSheet.getCell(rowIndex, equInt.intValue(), true).getValue();
+				if (com.kingdee.bos.ctrl.common.variant.Variant.isNull(equV)) {
+					continue;
+				}
+				if(map.get(cellRawVal.toString())!=null&&table.getRow(map.get(cellRawVal.toString()))!=null)
+				{
+					table.getRow(map.get(cellRawVal.toString())).getCell("insuranceAmount").setValue(equV.toString());
 				}
 			}
 			return true;
@@ -1052,4 +1031,20 @@ this.prmtinsurance.setEnabledMultiSelection(true);
 			tempFile.delete();
 		}
 	
+		public void kdtE1_Changed(int rowIndex, int colIndex) throws Exception {
+			super.kdtE1_Changed(rowIndex, colIndex);
+			if(kdtE1.getCell(rowIndex, "equNumber").getValue() != null){
+				String id = ((EquIdInfo)kdtE1.getCell(rowIndex, "equNumber").getValue()).getId().toString();
+				EquIdInfo eqInfo = EquIdFactory.getRemoteInstance().getEquIdInfo(new ObjectUuidPK(id));
+				kdtE1.getCell(rowIndex, "originalValue").setValue(eqInfo.getAssetValue());
+				if(eqInfo.getSsOrgUnit() != null){
+					String id2 = ((AdminOrgUnitInfo)eqInfo.getSsOrgUnit()).getId().toString();
+					AdminOrgUnitInfo aoInfo = AdminOrgUnitFactory.getRemoteInstance().getAdminOrgUnitInfo(new ObjectUuidPK(id2));
+					kdtE1.getCell(rowIndex, "useUnit").setValue(aoInfo);
+				}
+			}else{
+				kdtE1.getCell(rowIndex, "originalValue").setValue(null);
+				kdtE1.getCell(rowIndex, "useUnit").setValue(null);
+			}
+		}
 }

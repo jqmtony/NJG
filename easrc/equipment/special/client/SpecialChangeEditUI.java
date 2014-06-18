@@ -27,6 +27,7 @@ import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.port.equipment.record.EquIdFactory;
 import com.kingdee.eas.port.equipment.record.EquIdInfo;
 import com.kingdee.eas.port.equipment.special.client.AbstractImportEquIdUI.ActionRegistChange;
+import com.kingdee.eas.xr.helper.Tool;
 import com.kingdee.eas.xr.helper.XRSQLBuilder;
 import com.kingdee.jdbc.rowset.IRowSet;
 
@@ -686,7 +687,7 @@ public class SpecialChangeEditUI extends AbstractSpecialChangeEditUI
     {
         com.kingdee.eas.port.equipment.special.SpecialChangeInfo objectValue = new com.kingdee.eas.port.equipment.special.SpecialChangeInfo();
         objectValue.setCreator((com.kingdee.eas.base.permission.UserInfo)(com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentUser()));
-		
+    	Tool.checkGroupAddNew();
         return objectValue;
     }
 	@Override

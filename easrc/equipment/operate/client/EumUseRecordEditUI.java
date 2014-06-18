@@ -5,6 +5,8 @@ package com.kingdee.eas.port.equipment.operate.client;
 
 import java.awt.event.ActionEvent;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 import org.apache.log4j.Logger;
@@ -35,6 +37,9 @@ import com.kingdee.eas.port.equipment.base.enumbase.sbStatusType;
 import com.kingdee.eas.port.equipment.record.EquIdCollection;
 import com.kingdee.eas.port.equipment.record.EquIdFactory;
 import com.kingdee.eas.port.equipment.record.EquIdInfo;
+import com.kingdee.eas.util.SysUtil;
+import com.kingdee.eas.util.client.MsgBox;
+import com.kingdee.eas.xr.helper.Tool;
 import com.kingdee.eas.xr.helper.XRSQLBuilder;
 import com.kingdee.jdbc.rowset.IRowSet;
 
@@ -102,11 +107,28 @@ public class EumUseRecordEditUI extends AbstractEumUseRecordEditUI {
 		}
 	}
 
+	protected void verifyInput(ActionEvent e) throws Exception {
+		super.verifyInput(e);
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+		String time = (df.format(this.pkBizDate.getSqlDate())).substring(0, 7);
+		String id = ((AdminOrgUnitInfo)prmtUseOrgUnit.getData()).getId().toString();
+		StringBuffer sb = new StringBuffer();
+		sb.append("/*dialect*/select to_char(fbizdate,'yyyy-mm') datetime");
+		sb.append(" from CT_OPE_EumUseRecord");
+		sb.append(" where CFUseOrgUnitID = '"+id+"'");
+		sb.append(" and to_char(fbizdate,'yyyy-mm')='"+time+"'");
+		IRowSet rowSet = new XRSQLBuilder().appendSql(sb.toString()).executeQuery();
+		if(rowSet.size()>0){
+			MsgBox.showInfo("本单位本月已有设备使用记录，不允许再新增!");
+  			SysUtil.abort();
+		}
+	}
 	/**
 	 * output loadFields method
 	 */
 	public void loadFields() {
 		super.loadFields();
+		contreportTime.setEnabled(false);
 	}
 
 	/**
@@ -702,10 +724,8 @@ public class EumUseRecordEditUI extends AbstractEumUseRecordEditUI {
 	 */
 	protected com.kingdee.bos.dao.IObjectValue createNewData() {
 		com.kingdee.eas.port.equipment.operate.EumUseRecordInfo objectValue = new com.kingdee.eas.port.equipment.operate.EumUseRecordInfo();
-		objectValue
-				.setCreator((com.kingdee.eas.base.permission.UserInfo) (com.kingdee.eas.common.client.SysContext
-						.getSysContext().getCurrentUser()));
-
+		objectValue.setCreator((com.kingdee.eas.base.permission.UserInfo) (com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentUser()));
+		Tool.checkGroupAddNew();
 		return objectValue;
 	}
 
