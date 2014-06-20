@@ -808,6 +808,20 @@
                 <key name="name" value="R_AnnualYearDetail_AnnualYearDetailEntry_Entry" />
             </relationship>
         </linkProperty>
+        <linkProperty>
+            <name>useDpatmen</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].properties.linkProperty[useDpatmen].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].properties.linkProperty[useDpatmen].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <mappingField>
+                <key name="name" value="CFUseDpatmenID" />
+            </mappingField>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.port.equipment.special.app" />
+                <key name="name" value="R_AnnualYearDetail_AdminOrgUnit_useDpatmen" />
+            </relationship>
+        </linkProperty>
     </properties>
     <logicalKey>
         <name>id</name>
@@ -2335,6 +2349,58 @@
             <lang locale="zh_CN" value="年度检测明细" />
             <lang locale="zh_HK" value="年度檢測明細" />
             <lang locale="zh_TW" value="年度檢測明細" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].properties.linkProperty[useDpatmen].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="使用单位" />
+            <lang locale="zh_HK" value="使用單位" />
+            <lang locale="zh_TW" value="使用單位" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].properties.linkProperty[useDpatmen].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="使用单位" />
+            <lang locale="zh_HK" value="使用單位" />
+            <lang locale="zh_TW" value="使用單位" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].properties.linkProperty[useDpatmen].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].properties.linkProperty[useDpatmen].extendedProperty.dataField">
+            <lang locale="en_US" value="name" />
+            <lang locale="zh_CN" value="name" />
+            <lang locale="zh_TW" value="name" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].properties.linkProperty[useDpatmen].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].properties.linkProperty[useDpatmen].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].properties.linkProperty[useDpatmen].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].properties.linkProperty[useDpatmen].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].properties.linkProperty[useDpatmen].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].properties.linkProperty[useDpatmen].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
     </resource>
 </entityObject>

@@ -245,6 +245,20 @@
             <scale>0</scale>
             <precision>44</precision>
         </column>
+        <column>
+            <name>CFUseDpatmenID</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.special.app.CT_SPE_AnnualYearDetail].columns.column[CFUseDpatmenID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.special.app.CT_SPE_AnnualYearDetail].columns.column[CFUseDpatmenID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
     </columns>
     <primaryKey>
         <name>CPK_SPE_AnnualYphq</name>
@@ -355,6 +369,25 @@
                 </fkColumnPair>
             </fkColumnPairs>
         </foreignKey>
+        <foreignKey>
+            <name>CFK_SPE_SPEAYDSeq0</name>
+            <userDefined>true</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.basedata.org" />
+                <key name="name" value="T_ORG_Admin" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="CFUseDpatmenID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
     </foreignKeys>
     <resource>
         <rs key="dataTable[com.kingdee.eas.port.equipment.special.app.CT_SPE_AnnualYearDetail].alias">
@@ -362,6 +395,18 @@
             <lang locale="zh_CN" value="设备检测明细表" />
             <lang locale="zh_HK" value="設備檢測明細表" />
             <lang locale="zh_TW" value="設備檢測明細表" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.special.app.CT_SPE_AnnualYearDetail].columns.column[CFUseDpatmenID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="使用单位" />
+            <lang locale="zh_HK" value="使用單位" />
+            <lang locale="zh_TW" value="使用單位" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.special.app.CT_SPE_AnnualYearDetail].columns.column[CFUseDpatmenID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="使用单位" />
+            <lang locale="zh_HK" value="使用單位" />
+            <lang locale="zh_TW" value="使用單位" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.special.app.CT_SPE_AnnualYearDetail].columns.column[FAuditTime].alias">
             <lang locale="en_US" value="null" />
