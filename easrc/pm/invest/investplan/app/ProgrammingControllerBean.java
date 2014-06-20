@@ -168,7 +168,7 @@ public class ProgrammingControllerBean extends AbstractProgrammingControllerBean
 	protected IObjectPK _submit(Context ctx, IObjectValue model) throws BOSException, EASBizException {
 		ProgrammingInfo info = (ProgrammingInfo)model;
 		info.getVersionGroup();
-		FDCSQLBuilder sql = new FDCSQLBuilder(ctx, "select fid from t_con_programming where FVersionGroup = '"+info.getVersionGroup()+"'");
+		FDCSQLBuilder sql = new FDCSQLBuilder(ctx, "select fid from CT_INV_Programming where FVersionGroup = '"+info.getVersionGroup()+"'");
 		IRowSet rs = sql.executeQuery();
 		try {
 			if(!rs.next()){
@@ -183,7 +183,7 @@ public class ProgrammingControllerBean extends AbstractProgrammingControllerBean
 	protected IObjectPK _save(Context ctx, IObjectValue model) throws BOSException, EASBizException {
 		ProgrammingInfo info = (ProgrammingInfo) model;
 		info.getVersionGroup();
-		FDCSQLBuilder sql = new FDCSQLBuilder(ctx, "select fid from t_con_programming where FVersionGroup = '" + info.getVersionGroup() + "'");
+		FDCSQLBuilder sql = new FDCSQLBuilder(ctx, "select fid from CT_INV_Programming where FVersionGroup = '" + info.getVersionGroup() + "'");
 		IRowSet rs = sql.executeQuery();
 		try {
 			if (!rs.next()) {
@@ -202,13 +202,13 @@ public class ProgrammingControllerBean extends AbstractProgrammingControllerBean
 		fdcSB.setBatchType(FDCSQLBuilder.STATEMENT_TYPE);
 		
 		StringBuffer sql = new StringBuffer();
-		sql.append("update t_con_programming set FIsLatest = 1 where fid = '").append(billId.toString()).append("'");
+		sql.append("update CT_INV_Programming set FIsLatest = 1 where fid = '").append(billId.toString()).append("'");
 		fdcSB.addBatch(sql.toString());
 		
 		String versionGroup = info.getVersionGroup();
 		BigDecimal version = info.getVersion().subtract(new BigDecimal("1"));
 		sql.setLength(0);
-		sql.append("update t_con_programming set FIsLatest = 0 where FVersionGroup = '");
+		sql.append("update CT_INV_Programming set FIsLatest = 0 where FVersionGroup = '");
 		sql.append(versionGroup).append("' ");
 		sql.append("and FVersion = ").append(version.toString());
 		fdcSB.addBatch(sql.toString());
@@ -236,31 +236,31 @@ public class ProgrammingControllerBean extends AbstractProgrammingControllerBean
 				StringBuffer idsql = new StringBuffer();
 				if(!entry.getId().toString().equals(srcId)){
 					String newId=BOSUuid.create(entry.getBOSType()).toString();
-					idsql.append("update T_CON_ProgrammingEntry set fid ='"+newId+"' where fid = '").append(srcId).append("'");
+					idsql.append("update CT_INV_ProgrammingEntry set fid ='"+newId+"' where fid = '").append(srcId).append("'");
 					fdcSB.addBatch(idsql.toString());
 					
 					idsql = new StringBuffer();
-					idsql.append("update T_CON_ProgrammingEntry set fparentid ='"+newId+"' where fparentid = '").append(srcId).append("'");
+					idsql.append("update CT_INV_ProgrammingEntry set fparentid ='"+newId+"' where fparentid = '").append(srcId).append("'");
 					fdcSB.addBatch(idsql.toString());
 					
 					idsql = new StringBuffer();
-					idsql.append("update T_CON_ProgrammingContracCost set fcontractID ='"+newId+"' where fcontractID = '").append(srcId).append("'");
+					idsql.append("update CT_INV_ProgrammingECE set fcontractID ='"+newId+"' where fcontractID = '").append(srcId).append("'");
 					fdcSB.addBatch(idsql.toString());
 					
 					idsql = new StringBuffer();
-					idsql.append("update T_CON_ProgContEconomy set fcontractID ='"+newId+"' where fcontractID = '").append(srcId).append("'");
+					idsql.append("update CT_INV_ProgrammingEEE set fcontractID ='"+newId+"' where fcontractID = '").append(srcId).append("'");
 					fdcSB.addBatch(idsql.toString());
 					
 					idsql = new StringBuffer();
-					idsql.append("update T_CON_ProgrammingContracCost set fcontractID ='"+srcId+"' where fcontractID = '").append(entry.getId().toString()).append("'");
+					idsql.append("update CT_INV_ProgrammingECE set fcontractID ='"+srcId+"' where fcontractID = '").append(entry.getId().toString()).append("'");
 					fdcSB.addBatch(idsql.toString());
 					
 					idsql = new StringBuffer();
-					idsql.append("update T_CON_ProgContEconomy set fcontractID ='"+srcId+"' where fcontractID = '").append(entry.getId().toString()).append("'");
+					idsql.append("update CT_INV_ProgrammingEEE set fcontractID ='"+srcId+"' where fcontractID = '").append(entry.getId().toString()).append("'");
 					fdcSB.addBatch(idsql.toString());
 					
 					idsql = new StringBuffer();
-					idsql.append("update T_CON_ProgrammingEntry set fparentid ='"+srcId+"' where fparentid = '").append(entry.getId().toString()).append("'");
+					idsql.append("update CT_INV_ProgrammingEntry set fparentid ='"+srcId+"' where fparentid = '").append(entry.getId().toString()).append("'");
 					fdcSB.addBatch(idsql.toString());
 				}
 				
@@ -271,7 +271,7 @@ public class ProgrammingControllerBean extends AbstractProgrammingControllerBean
 				if(col.size()>0){
 					if(!entry.getId().toString().equals(srcId)){
 						idsql = new StringBuffer();
-						idsql.append("update T_CON_ProgrammingEntry set fid ='"+srcId+"' where fid = '").append(entry.getId().toString()).append("'");
+						idsql.append("update CT_INV_ProgrammingEntry set fid ='"+srcId+"' where fid = '").append(entry.getId().toString()).append("'");
 						fdcSB.addBatch(idsql.toString());
 					}
 					ContractBillFactory.getLocalInstance(ctx).synReUpdateProgramming(col.get(0).getId().toString(), entry);
@@ -281,7 +281,7 @@ public class ProgrammingControllerBean extends AbstractProgrammingControllerBean
 				if(wcol.size()>0){
 					if(!entry.getId().toString().equals(srcId)){
 						idsql = new StringBuffer();
-						idsql.append("update T_CON_ProgrammingEntry set fid ='"+srcId+"' where fid = '").append(entry.getId().toString()).append("'");
+						idsql.append("update CT_INV_ProgrammingEntry set fid ='"+srcId+"' where fid = '").append(entry.getId().toString()).append("'");
 						fdcSB.addBatch(idsql.toString());
 					}
 					ContractWithoutTextFactory.getLocalInstance(ctx).synReUpdateProgramming(wcol.get(0).getId().toString(), entry);
@@ -290,7 +290,7 @@ public class ProgrammingControllerBean extends AbstractProgrammingControllerBean
 				}
 				if(col.size()==0&&wcol.size()==0&&!entry.getId().toString().equals(srcId)){
 						idsql = new StringBuffer();
-						idsql.append("update T_CON_ProgrammingEntry set fid ='"+srcId+"',fbudgetAmount=famount where fid = '").append(entry.getId().toString()).append("'");
+						idsql.append("update CT_INV_ProgrammingEntry set fid ='"+srcId+"',fbudgetAmount=famount where fid = '").append(entry.getId().toString()).append("'");
 						fdcSB.addBatch(idsql.toString());
 					}
 				}
@@ -365,7 +365,7 @@ public class ProgrammingControllerBean extends AbstractProgrammingControllerBean
 	}
 
 	protected void _unAudit(Context ctx, BOSUuid billId) throws BOSException, EASBizException {
-		String sql_Query = "select fid from T_CON_ProgrammingEntry where FProgrammingID = '"+billId.toString()+"' and FIsCiting = 1";
+		String sql_Query = "select fid from CT_INV_ProgrammingEntry where FProgrammingID = '"+billId.toString()+"' and FIsCiting = 1";
 		FDCSQLBuilder checkSQL = new FDCSQLBuilder(ctx);
 		checkSQL.appendSql(sql_Query);
 		IRowSet rs = checkSQL.executeQuery();
@@ -387,11 +387,11 @@ public class ProgrammingControllerBean extends AbstractProgrammingControllerBean
 		fdcSB.setBatchType(FDCSQLBuilder.STATEMENT_TYPE);
 		
 		StringBuffer sql = new StringBuffer();
-		sql.append("update t_con_programming set FIsLatest = 0 where fid = '").append(billId.toString()).append("'");
+		sql.append("update CT_INV_Programming set FIsLatest = 0 where fid = '").append(billId.toString()).append("'");
 		fdcSB.addBatch(sql.toString());
 		
 		sql.setLength(0);
-		sql.append("update t_con_programming set FIsLatest = 1 where FVersionGroup = '");
+		sql.append("update CT_INV_Programming set FIsLatest = 1 where FVersionGroup = '");
 		sql.append(versionGroup).append("' ");
 		sql.append("and FVersion = ").append(version.toString());
 		fdcSB.addBatch(sql.toString());

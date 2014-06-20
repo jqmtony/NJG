@@ -103,8 +103,6 @@ public class ProgrammingEntryEditUI extends AbstractProgrammingEntryEditUI
 
 	protected KDWorkButton btnAddnewLine_cost;
 	protected KDWorkButton btnRemoveLines_cost;
-	protected KDWorkButton btnAddnewLine_economy;
-	protected KDWorkButton btnRemoveLines_economy;
 
 	private ProgrammingEntryInfo pcInfo;
 	private ProgrammingEntryInfo oldPcInfo;
@@ -126,14 +124,6 @@ public class ProgrammingEntryEditUI extends AbstractProgrammingEntryEditUI
 	private static final String CONTRACTASSIGN = "contractAssign";// 本合约分配
 	private static final String COST_DES = "description";// 备注
 
-	// 经济条款分录表格列名
-	private static final String ECONOMY_ID = "id";// ID
-	private static final String PAYMENTTYPE = "paymentType";// 付款类型
-	private static final String SCALE = "scale";// 付款比例
-	private static final String AMOUNT = "amount";// 付款金额
-	private static final String PAYMENTDATE = "paymentDate";// 付款日期
-	private static final String CONDITION = "condition";// 付款条件
-	private static final String ECONOMY_DES = "description";// 备注
 
 	public ProgrammingEntryEditUI() throws Exception {
 		super();
@@ -143,6 +133,8 @@ public class ProgrammingEntryEditUI extends AbstractProgrammingEntryEditUI
 		super.onLoad();
 		initFormat();
 		setSmallButton();
+		kDTabbedPane1.remove(kDContainerEconomy);
+		btnEdit.setVisible(false);
 		if (this.oprtState.equals(OprtState.VIEW)) {
 			isEditable(false);
 			ctrButtonEnable(false);
@@ -150,58 +142,16 @@ public class ProgrammingEntryEditUI extends AbstractProgrammingEntryEditUI
 			isEditable(true);
 			ctrButtonEnable(true);
 		}
-
+		
 		txtAmount.addDataChangeListener(new DataChangeListener() {
-			/*
-			 * 规划金额改变后需要处理的事情有以下几种情况
-			 * 1. 判断规划金额录入的数值是否小于0
-			 * 2. 经济条款—付款金额依据原付款比例动态改变
-			 * 3.
-			 */
 			public void dataChanged(DataChangeEvent e) {
 				if (e.getOldValue() != e.getNewValue()) {
-					/**
-					 * 经济条款分录动态变化情况
-					 */
-					int economyRowCount = kdtEconomy.getRowCount();
-					BigDecimal planAmount = null;// 规划金额
-					if (!FDCHelper.isEmpty(e.getNewValue())) {
-						planAmount = new BigDecimal(e.getNewValue().toString());
-						/* 1.判断规划金额录入的数值是否小于0 */
-						// if (planAmount.compareTo(new BigDecimal(0)) <= 0) {
-						// FDCMsgBox.showInfo("\"规划金额\"不能小于0");
-						// txtAmount.setValue(e.getOldValue());
-						// SysUtil.abort();
-						// }
-						/* 2.经济条款—付款金额依据原付款比例动态改变 */
-						// 2.1 规划金额变不为空值情况——付款金额 = 原付款比例*新规划金额
-						for (int i = 0; i < economyRowCount; i++) {
-							// BigDecimal amount = null;
-							Object obj = kdtEconomy.getCell(i, SCALE).getValue();
-							if (obj != null) {
-								BigDecimal scale = new BigDecimal(obj.toString());
-								scale = FDCHelper.divide(scale, new BigDecimal(100), 8, BigDecimal.ROUND_HALF_UP);
-								kdtEconomy.getCell(i, AMOUNT).setValue(scale.multiply(planAmount));
-							}
-						}
-					} else {
-						// 2.2 规划金额变为空值情况——付款金额全部置null
-						for (int i = 0; i < economyRowCount; i++) {
-							kdtEconomy.getCell(i, AMOUNT).setValue(null);
-						}
-					}
 
-					/**
-					 * 成本构成分录动态变化情况
-					 */
 				}
 			}
 		});
-		KDWorkButton btnAddRowinfo = new KDWorkButton();
-		btnAddRowinfo = (KDWorkButton)kdContainerCost.add(this.actionSelect);
-		btnAddRowinfo.setText("成本科目选择");
-		btnAddRowinfo.setSize(new Dimension(140, 19));
 	}
+	
 	public void actionSelect_actionPerformed(ActionEvent e) throws Exception {
 		Map ctx = new HashMap();
 		ProjectInfo project = (ProjectInfo) this.getUIContext().get("project");
@@ -263,8 +213,8 @@ public class ProgrammingEntryEditUI extends AbstractProgrammingEntryEditUI
 					row.getCell(CONTRACTASSIGN).setValue(FDCHelper.ZERO);
 					projectF7();
 					costAccountCellF7(project, rowIndex, kdtCost.getColumnIndex(COSTACCOUNT),this.pcCollection);
-					
-					kdtCost.getCell(rowIndex, COSTACCOUNT_NUMBER).setValue(newCostAccountInfo.getLongNumber().replace('!', '.'));
+
+//					kdtCost.getCell(rowIndex, COSTACCOUNT_NUMBER).setValue(newCostAccountInfo.getLongNumber().replace('!', '.'));
 					// 2.
 //					AimCostInfo aimCostInfo = (AimCostInfo) this.getUIContext().get("aimCostInfo");// 目标成本
 //					if (aimCostInfo == null) {
@@ -368,26 +318,14 @@ public class ProgrammingEntryEditUI extends AbstractProgrammingEntryEditUI
 		});
 		txtName.setText(pcInfo.getName() == null ? null : pcInfo.getName().trim());
 		
-		if(pcInfo.getId()==null||!this.oprtState.equals(OprtState.VIEW)){
-			this.btnEdit.setEnabled(false);
-			this.btnAddnewLine_economy.setEnabled(false);
-			this.btnRemoveLines_economy.setEnabled(false);
-		}
-		if(pcInfo.getId()!=null&&this.oprtState.equals(OprtState.VIEW)){
-			this.btnEdit.setEnabled(true);
-			this.btnAddnewLine_economy.setEnabled(true);
-			this.btnRemoveLines_economy.setEnabled(true);
-		}
 	}
 
 	/**
-	 * 在成本构成和经济条款页签中添加新增、删除按钮
+	 * 在成本构成页签中添加新增、删除按钮
 	 */
 	private void setSmallButton() {
 		btnAddnewLine_cost = new KDWorkButton();
 		btnRemoveLines_cost = new KDWorkButton();
-		btnAddnewLine_economy = new KDWorkButton();
-		btnRemoveLines_economy = new KDWorkButton();
 
 		btnAddnewLine_cost.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -411,32 +349,9 @@ public class ProgrammingEntryEditUI extends AbstractProgrammingEntryEditUI
 				}
 			}
 		});
-		btnAddnewLine_economy.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-					actionAddnewLine_enocomy_actionPerformed(e);
-				} catch (Exception e1) {
-					e1.printStackTrace();
-				}
-			}
-		});
-		btnRemoveLines_economy.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-					actionRemoveLine_enocomy_actionPerformed(e);
-					if (kdtEconomy.getRowCount() == 0) {
-						btnRemoveLines_economy.setEnabled(false);
-					}
-				} catch (Exception e1) {
-					e1.printStackTrace();
-				}
-			}
-		});
 		
 		setButtonStyle(kdContainerCost, btnAddnewLine_cost, "新增行", "imgTbtn_addline");
 		setButtonStyle(kdContainerCost, btnRemoveLines_cost, "删除行", "imgTbtn_deleteline");
-		setButtonStyle(kDContainerEconomy, btnAddnewLine_economy, "新增行", "imgTbtn_addline");
-		setButtonStyle(kDContainerEconomy, btnRemoveLines_economy, "删除行", "imgTbtn_deleteline");
 
 		if (OprtState.VIEW.equals(getOprtState())) {
 			setButtionEnable(false);
@@ -469,8 +384,6 @@ public class ProgrammingEntryEditUI extends AbstractProgrammingEntryEditUI
 	private void setButtionEnable(boolean isEnable) {
 		btnAddnewLine_cost.setEnabled(isEnable);
 		btnRemoveLines_cost.setEnabled(isEnable);
-		btnAddnewLine_economy.setEnabled(isEnable);
-		btnRemoveLines_economy.setEnabled(isEnable);
 		this.actionSelect.setEnabled(isEnable);
 	}
 	protected void actionAddnewLine_cost_actionPerformed(ActionEvent e) {
@@ -480,6 +393,8 @@ public class ProgrammingEntryEditUI extends AbstractProgrammingEntryEditUI
 		ProjectInfo project = (ProjectInfo) this.getUIContext().get("project");
 		row.getCell(COST_ID).setValue(BOSUuid.create("9E6FDD26"));
 		row.getCell(PROJECT).setValue(project);
+		row.getCell(COSTACCOUNT_NUMBER).setValue(project.getNumber());
+		row.getCell(COSTACCOUNT_NUMBER).getStyleAttributes().setLocked(true);
 		//初始化 目标成本，已分配，待分配，本合约分配
 		row.getCell(GOALCOST).setValue(FDCHelper.ZERO);
 		row.getCell(ASSIGNED).setValue(FDCHelper.ZERO);
@@ -515,19 +430,9 @@ public class ProgrammingEntryEditUI extends AbstractProgrammingEntryEditUI
 	}
 
 	protected void actionAddnewLine_enocomy_actionPerformed(ActionEvent e) {
-		IRow row = kdtEconomy.addRow();
-		row.getCell(ECONOMY_ID).setValue(BOSUuid.create("144467E3"));
 	}
 
 	protected void actionRemoveLine_enocomy_actionPerformed(ActionEvent e) throws Exception {
-		if (kdtEconomy.getSelectManager().getActiveRowIndex() < 0) {
-			FDCMsgBox.showInfo("请选择行");
-			SysUtil.abort();
-		}
-		if (FDCMsgBox.OK == FDCMsgBox.showConfirm2("是否确认删除数据？")) {
-			int rowIndex = this.kdtEconomy.getSelectManager().getActiveRowIndex();
-			removeLine(kdtEconomy, rowIndex);
-		}
 	}
 
 	/**
@@ -643,25 +548,6 @@ public class ProgrammingEntryEditUI extends AbstractProgrammingEntryEditUI
 		this.kdtCost.getColumn("scale").getStyleAttributes().setNumberFormat("#0.00");
 		this.kdtCost.getColumn("scale").getStyleAttributes().setHorizontalAlign(HorizontalAlignment.RIGHT);
 		
-		/* 经济条款 */
-
-		this.kdtEconomy.checkParsed();
-		// 付款日期
-		this.kdtEconomy.getColumn(PAYMENTDATE).getStyleAttributes().setNumberFormat("yyyy-MM");
-		// 付款条件 -----长度不能超过80个字符
-		KDTDefaultCellEditor cellEditor = new KDTDefaultCellEditor(new KDTextField());
-		KDTextField kdtf = (KDTextField) cellEditor.getComponent();
-		kdtf.setMaxLength(80);
-		this.kdtEconomy.getColumn(CONDITION).setEditor(cellEditor);
-		
-		this.kdtEconomy.getColumn("scale").setEditor(weight);
-		this.kdtEconomy.getColumn("scale").getStyleAttributes().setNumberFormat("#0.00");
-		this.kdtEconomy.getColumn("scale").getStyleAttributes().setHorizontalAlign(HorizontalAlignment.RIGHT);
-		
-		KDTDefaultCellEditor description = new KDTDefaultCellEditor(new KDTextField());
-		KDTextField des = (KDTextField) description.getComponent();
-		des.setMaxLength(255);
-		this.kdtEconomy.getColumn("description").setEditor(description);
 
 	}
 	/**
@@ -684,8 +570,6 @@ public class ProgrammingEntryEditUI extends AbstractProgrammingEntryEditUI
 		btnSave.setEnabled(isEnable);
 		btnAddnewLine_cost.setEnabled(isEnable);
 		btnRemoveLines_cost.setEnabled(false);
-		btnAddnewLine_economy.setEnabled(isEnable);
-		btnRemoveLines_economy.setEnabled(false);
 		this.actionSelect.setEnabled(isEnable);
 	}
 
@@ -914,77 +798,6 @@ public class ProgrammingEntryEditUI extends AbstractProgrammingEntryEditUI
 			} else {
 				return true;
 			}
-			if (kdtEconomy.getRowCount() == oldPcInfo.getEconomyEntries().size()) {
-				for (int i = 0; i < kdtEconomy.getRowCount(); i++) {
-					for (int j = 0; j < oldPcInfo.getEconomyEntries().size(); j++) {
-						if (oldPcInfo.getEconomyEntries().get(j).getId() == kdtEconomy.getCell(i, ECONOMY_ID).getValue()) {
-
-							PaymentTypeInfo infoPT = oldPcInfo.getEconomyEntries().get(j).getPaymentType();
-							BigDecimal infoScale = oldPcInfo.getEconomyEntries().get(j).getScale();
-							BigDecimal infoAmount = oldPcInfo.getEconomyEntries().get(j).getAmount();
-							String infoCondition = oldPcInfo.getEconomyEntries().get(j).getCondition();
-							String infoDescription = oldPcInfo.getEconomyEntries().get(j).getDescription();
-
-							PaymentTypeInfo tablePT = (PaymentTypeInfo) kdtEconomy.getCell(j, PAYMENTTYPE).getValue();
-							Object scale = kdtEconomy.getCell(j, SCALE).getValue();
-							Object amount = kdtEconomy.getCell(j, AMOUNT).getValue();
-							Object condition = kdtEconomy.getCell(j, CONDITION).getValue();
-							Object description = kdtEconomy.getCell(j, ECONOMY_DES).getValue();
-
-							// 付款类型
-							if (FDCHelper.isEmpty(infoPT) ^ FDCHelper.isEmpty(tablePT)) {
-								return true;
-							}
-							if (!FDCHelper.isEmpty(infoPT) & !FDCHelper.isEmpty(tablePT)) {
-								if (!infoPT.getName().equals(tablePT.getName())) {
-									return true;
-								}
-							}
-
-							// 付款比例
-							if (FDCHelper.isEmpty(infoScale) ^ FDCHelper.isEmpty(scale)) {
-								return true;
-							}
-							if (!FDCHelper.isEmpty(infoScale) & !FDCHelper.isEmpty(scale)) {
-								BigDecimal temp = new BigDecimal(scale.toString());
-								if (infoScale.compareTo(temp) != 0) {
-									return true;
-								}
-							}
-							// 付款金额
-							if (FDCHelper.isEmpty(infoAmount) ^ FDCHelper.isEmpty(amount)) {
-								return true;
-							}
-							if (!FDCHelper.isEmpty(infoAmount) & !FDCHelper.isEmpty(amount)) {
-								BigDecimal temp = new BigDecimal(amount.toString());
-								if (infoAmount.compareTo(temp) != 0) {
-									return true;
-								}
-							}
-							// 付款条件
-							if (FDCHelper.isEmpty(infoCondition) ^ FDCHelper.isEmpty(condition)) {
-								return true;
-							}
-							if (!FDCHelper.isEmpty(infoCondition) & !FDCHelper.isEmpty(condition)) {
-								if (!infoCondition.equals(condition.toString())) {
-									return true;
-								}
-							}
-							// 备注
-							if (FDCHelper.isEmpty(infoDescription) ^ FDCHelper.isEmpty(description)) {
-								return true;
-							}
-							if (!FDCHelper.isEmpty(infoDescription) & !FDCHelper.isEmpty(description)) {
-								if (!infoDescription.equals(description.toString())) {
-									return true;
-								}
-							}
-						}
-					}
-				}
-			} else {
-				return true;
-			}
 		}
 		if (oprtState.equals(OprtState.VIEW)) {
 			return false;
@@ -1041,7 +854,7 @@ public class ProgrammingEntryEditUI extends AbstractProgrammingEntryEditUI
 				costAccountNames.append(";");
 			}
 			costAccountNames.append(costAccountInfo.getName());
-//			costAccountInfo.setCurProject(projectInfo);
+			costAccountInfo.setCurProject(projectInfo);
 			pccInfo.setCostAccount(costAccountInfo);
 			if (!FDCHelper.isEmpty(goalCost)) {
 				pccInfo.setGoalCost(new BigDecimal(goalCost.toString()));
@@ -1081,34 +894,6 @@ public class ProgrammingEntryEditUI extends AbstractProgrammingEntryEditUI
 				}
 			}
 
-		}
-		
-
-		/* 经济条款 */
-		pcInfo.getEconomyEntries().clear();
-		int enonomy_rowCount = kdtEconomy.getRowCount();
-		for(int i=0;i<enonomy_rowCount;i++){
-			ProgrammingEntryEconomyEntryInfo pciInfo = new ProgrammingEntryEconomyEntryInfo();
-			PaymentTypeInfo currentInfo = (PaymentTypeInfo) kdtEconomy.getCell(i, PAYMENTTYPE).getValue();// 付款类型
-			Object scaleObj = kdtEconomy.getCell(i, SCALE).getValue();//付款比例
-			Object amountObj = kdtEconomy.getCell(i, AMOUNT).getValue();//付款金额
-			Object conditionObj = kdtEconomy.getCell(i, CONDITION).getValue();//付款条件
-			Object paymentDateObj = kdtEconomy.getCell(i, PAYMENTDATE).getValue();//付款日期
-			Object descriptionObj = kdtEconomy.getCell(i, ECONOMY_DES).getValue();// 备注
-			pciInfo.setPaymentType(currentInfo);// 存储付款类型
-			if(!FDCHelper.isEmpty(scaleObj)){
-				pciInfo.setScale(new BigDecimal(scaleObj.toString()));// 存储付款比例
-			}
-			if(!FDCHelper.isEmpty(amountObj)){
-				pciInfo.setAmount(new BigDecimal(amountObj.toString()));// 存储付款金额
-			}
-			pciInfo.setCondition((String) conditionObj);// 存储付款条件
-			if(!FDCHelper.isEmpty(paymentDateObj)){
-				Date paymentDate = (Date) paymentDateObj;
-				pciInfo.setPaymentDate(new Timestamp(paymentDate.getTime()));// 存储付款日期
-			}
-			pciInfo.setDescription((String) descriptionObj);// 存储付款条件
-			pcInfo.getEconomyEntries().add(pciInfo);
 		}
 
 		if (directExit) {
@@ -1246,29 +1031,6 @@ public class ProgrammingEntryEditUI extends AbstractProgrammingEntryEditUI
 			}
 			if (FDCHelper.isEmpty(contractAssign.getValue())) {
 				FDCMsgBox.showInfo("本合约分配不能为空！");
-				SysUtil.abort();
-			}
-		}
-		// 经济条款分录必录项验空
-		for (int i = 0; i < kdtEconomy.getRowCount(); i++) {
-			IRow row = kdtEconomy.getRow(i);
-			ICell costAccountCell = row.getCell(PAYMENTTYPE);
-			ICell scale = row.getCell(SCALE);
-			
-			if (FDCHelper.isEmpty(row.getCell(PAYMENTDATE))) {
-				FDCMsgBox.showInfo("计划付款日期不能为空！");
-				SysUtil.abort();
-			}
-			if (FDCHelper.isEmpty(costAccountCell.getValue())) {
-				FDCMsgBox.showInfo("付款类型不能为空！");
-				SysUtil.abort();
-			}
-			if (FDCHelper.isEmpty(scale.getValue())) {
-				FDCMsgBox.showInfo("计划付款比例不能为空！");
-				SysUtil.abort();
-			}
-			if (FDCHelper.isEmpty(row.getCell(AMOUNT))) {
-				FDCMsgBox.showInfo("计划付款金额不能为空！");
 				SysUtil.abort();
 			}
 		}
@@ -1530,50 +1292,50 @@ public class ProgrammingEntryEditUI extends AbstractProgrammingEntryEditUI
 		}
 
 		// 选择"成本科目F7"
-		if (colIndex == kdtCost.getColumnIndex(COSTACCOUNT)) {
-			/*
-			 * 1.取出成本科目的值
-			 * 
-			 * 1.1判断成本科目是否为空
-			 * 
-			 * 1.1.1为空：置空当前行除工程项目外的所有单元格
-			 * 
-			 * 1.1.2不为空：取值
-			 * 
-			 * 1.2判断所选的成本科目是否重复，重复直接返回,不重复继续
-			 * 
-			 * 2.取出目标成本信息
-			 * 
-			 * 2.1若为空，把"目标成本","已分配","待分配","本合约分配","备注"置空；
-			 * 
-			 * 2.2若不为空： 判断目标成本是否是已审批之后状态
-			 * 
-			 * 2.2.1若不为审批之后状态，把各单元格数值置0，备注项置空 ；
-			 * 
-			 * 2.2.2若为审批之后状态，取出相应成本科目的目标成本值（需要用到成本科目，目标成本作为条件）
-			 * 
-			 * 3.算出"已分配","待分配","本合约分配"各值
-			 * 
-			 * 最后把牵涉到的值：规划金额，经济条款中"付款比例"、"付款金额"等值 更新一遍
-			 */
-			BigDecimal allAssigned = FDCHelper.ZERO;// "已分配"
-			ProjectInfo project = (ProjectInfo) kdtCost.getCell(rowIndex, PROJECT).getValue();// 工程项目
-			// 1.
-			Object newValue = kdtCost.getCell(rowIndex, COSTACCOUNT).getValue();
-			// 1.1
-			if(newValue == null){
-				// 1.1.1
-				ProgrammingEntryUtil.clearCell(kdtCost, rowIndex, COSTACCOUNT_NUMBER, COSTACCOUNT, GOALCOST, ASSIGNED, ASSIGNING,
-						CONTRACTASSIGN, COST_DES);
-			}
-			else{
-				// 1.1.2
-				CostAccountInfo newCostAccountInfo = (CostAccountInfo) newValue;// 成本科目
-				kdtCost.getCell(rowIndex, COSTACCOUNT_NUMBER).setValue(newCostAccountInfo.getLongNumber().replace('!', '.'));
-				// 1.2
-				if (isCostAccountDup(newCostAccountInfo, project, rowIndex)) {
-					return;
-				}
+//		if (colIndex == kdtCost.getColumnIndex(COSTACCOUNT)) {
+//			/*
+//			 * 1.取出成本科目的值
+//			 * 
+//			 * 1.1判断成本科目是否为空
+//			 * 
+//			 * 1.1.1为空：置空当前行除工程项目外的所有单元格
+//			 * 
+//			 * 1.1.2不为空：取值
+//			 * 
+//			 * 1.2判断所选的成本科目是否重复，重复直接返回,不重复继续
+//			 * 
+//			 * 2.取出目标成本信息
+//			 * 
+//			 * 2.1若为空，把"目标成本","已分配","待分配","本合约分配","备注"置空；
+//			 * 
+//			 * 2.2若不为空： 判断目标成本是否是已审批之后状态
+//			 * 
+//			 * 2.2.1若不为审批之后状态，把各单元格数值置0，备注项置空 ；
+//			 * 
+//			 * 2.2.2若为审批之后状态，取出相应成本科目的目标成本值（需要用到成本科目，目标成本作为条件）
+//			 * 
+//			 * 3.算出"已分配","待分配","本合约分配"各值
+//			 * 
+//			 * 最后把牵涉到的值：规划金额，经济条款中"付款比例"、"付款金额"等值 更新一遍
+//			 */
+//			BigDecimal allAssigned = FDCHelper.ZERO;// "已分配"
+//			ProjectInfo project = (ProjectInfo) kdtCost.getCell(rowIndex, PROJECT).getValue();// 工程项目
+//			// 1.
+//			Object newValue = kdtCost.getCell(rowIndex, COSTACCOUNT).getValue();
+//			// 1.1
+//			if(newValue == null){
+//				// 1.1.1
+//				ProgrammingEntryUtil.clearCell(kdtCost, rowIndex, COSTACCOUNT_NUMBER, COSTACCOUNT, GOALCOST, ASSIGNED, ASSIGNING,
+//						CONTRACTASSIGN, COST_DES);
+//			}
+//			else{
+//				// 1.1.2
+//				CostAccountInfo newCostAccountInfo = (CostAccountInfo) newValue;// 成本科目
+//				kdtCost.getCell(rowIndex, COSTACCOUNT_NUMBER).setValue(newCostAccountInfo.getLongNumber().replace('!', '.'));
+//				// 1.2
+//				if (isCostAccountDup(newCostAccountInfo, project, rowIndex)) {
+//					return;
+//				}
 				// 2.
 //				AimCostInfo aimCostInfo = (AimCostInfo) this.getUIContext().get("aimCostInfo");// 目标成本
 //				if (aimCostInfo == null) {
@@ -1617,8 +1379,8 @@ public class ProgrammingEntryEditUI extends AbstractProgrammingEntryEditUI
 //						}
 //					}
 //				}
-			}
-		}
+//			}
+//		}
 		if(colIndex == kdtCost.getColumnIndex("scale")){
 			// 绘制付款比例显示 郊果
 			ObjectValueRender render_scale = new ObjectValueRender();
@@ -1666,16 +1428,6 @@ public class ProgrammingEntryEditUI extends AbstractProgrammingEntryEditUI
 	 */
 	private void afterPlanAmountChange() {
 		BigDecimal planAmount = (BigDecimal) txtAmount.getValue();
-		for (int i = 0; i < kdtEconomy.getRowCount(); i++) {
-			Object scaleObj = kdtEconomy.getCell(i, SCALE).getValue();
-			if (scaleObj != null) {
-				BigDecimal scale = new BigDecimal(scaleObj.toString());
-				BigDecimal hundren = FDCHelper.ONE_HUNDRED;
-				scale = FDCHelper.divide(scale, hundren);
-				BigDecimal amount = planAmount.multiply(scale);
-				kdtEconomy.getCell(i, AMOUNT).setValue(amount);
-			}
-		}
 	}
 
 	/**
@@ -1775,184 +1527,15 @@ public class ProgrammingEntryEditUI extends AbstractProgrammingEntryEditUI
 	 * 经济条款分录单击事件
 	 */
 	protected void kdtEconomy_tableClicked(KDTMouseEvent e) throws Exception {
-		// 选中行则“删除行”按钮可用
-		if (e.getRowIndex() > -1 && !oprtState.equals(OprtState.VIEW) && e.getType() != KDTStyleConstants.HEAD_ROW) {
-			btnRemoveLines_economy.setEnabled(true);
-		}
 	}
 
 	/**
 	 * 经济条款分录数据编辑处理
 	 */
 	protected void kdtEconomy_editStopped(KDTEditEvent e) throws Exception {
-		int rowIndex = e.getRowIndex();
-		int colIndex = e.getColIndex();
-		Object oldValue = e.getOldValue();
-		/* 选择付款类型 */
-		// if (colIndex == kdtEconomy.getColumnIndex(PAYMENTTYPE)) {
-		// isEnonomDup();
-		// }
-
-		/* 编辑付款比例 */
-		if (colIndex == kdtEconomy.getColumnIndex(SCALE)) {
-			ICell scaleCell = kdtEconomy.getCell(rowIndex, SCALE);
-			ICell amountCell = kdtEconomy.getCell(rowIndex, AMOUNT);
-			if (scaleCell.getValue() != null && oldValue != null) {
-				BigDecimal newScale = FDCHelper.toBigDecimal(scaleCell.getValue().toString());
-				BigDecimal oldScale = FDCHelper.toBigDecimal(oldValue.toString());
-				if ((newScale).compareTo(oldScale) == 0) {
-					return;
-				}
-			}
-			// 绘制付款比例显示 郊果
-			ObjectValueRender render_scale = new ObjectValueRender();
-			render_scale.setFormat(new IDataFormat() {
-				public String format(Object o) {
-					String str = o.toString();
-					if (!FDCHelper.isEmpty(str)) {
-						return str + "%";
-					}
-					return str;
-				}
-			});
-			kdtEconomy.getColumn(SCALE).setRenderer(render_scale);
-
-			// 绘制付款金额显示 郊果
-			ObjectValueRender render_amount = new ObjectValueRender();
-			render_amount.setFormat(new IDataFormat() {
-				public String format(Object o) {
-					String str = o.toString();
-					if (!FDCHelper.isEmpty(str)) {
-						return str;
-					}
-					return str;
-				}
-			});
-			kdtEconomy.getColumn(AMOUNT).setRenderer(render_amount);
-
-			BigDecimal scale = (BigDecimal) scaleCell.getValue();
-			if (!FDCHelper.isEmpty(scale)) {
-				// Object newScaleValue = e.getValue();
-				Object oldScaleValue = e.getOldValue();
-				Object oldAmountValue = kdtEconomy.getCell(rowIndex, AMOUNT).getValue();
-				// editStopedCheckIsChange(oldScaleValue, newScaleValue);
-				BigDecimal planAmount = txtAmount.getBigDecimalValue();
-				if (!FDCHelper.isEmpty(planAmount)) {
-					BigDecimal amount = FDCHelper.divide(planAmount.multiply(scale), FDCHelper.ONE_HUNDRED);
-					amountCell.setValue(amount.toString());
-				}
-
-				// 判断
-				if (getPayScaleAll().compareTo(new BigDecimal(100)) > 0) {
-					FDCMsgBox.showInfo("计划付款比例累计不得超过100%");
-					scaleCell.setValue(oldScaleValue);
-					amountCell.setValue(oldAmountValue);
-				} else if (getPayAmountAll().compareTo(
-						txtAmount.getValue() == null ? new BigDecimal(0) : new BigDecimal(txtAmount.getValue().toString())) > 0) {
-					FDCMsgBox.showInfo("计划付款金额总和不能超出规划金额");
-					scaleCell.setValue(oldScaleValue);
-					amountCell.setValue(oldAmountValue);
-				}
-			} else {
-				amountCell.setValue(null);
-			}
-		}
-
-		/* 编辑付款金额 */
-		if (colIndex == kdtEconomy.getColumnIndex(AMOUNT)) {
-			ICell scaleCell = kdtEconomy.getCell(rowIndex, SCALE);
-			ICell amountCell = kdtEconomy.getCell(rowIndex, AMOUNT);
-			if (amountCell.getValue() != null && oldValue != null) {
-				BigDecimal newAmount = FDCHelper.toBigDecimal(amountCell.getValue().toString());
-				BigDecimal oldAmount = FDCHelper.toBigDecimal(oldValue.toString());
-				if ((newAmount).compareTo(oldAmount) == 0) {
-					return;
-				}
-			}
-			String amountStr = (String) amountCell.getValue();
-			// 绘制付款比例显示 郊果
-			ObjectValueRender render_scale = new ObjectValueRender();
-			render_scale.setFormat(new IDataFormat() {
-				public String format(Object o) {
-					String str = o.toString();
-					if (!FDCHelper.isEmpty(str)) {
-						return str + "%";
-					}
-					return str;
-				}
-			});
-			kdtEconomy.getColumn(SCALE).setRenderer(render_scale);
-
-			// 绘制付款金额 显示郊果
-			ObjectValueRender render_amount = new ObjectValueRender();
-			render_amount.setFormat(new IDataFormat() {
-				public String format(Object o) {
-					String str = o.toString();
-					if (!FDCHelper.isEmpty(str)) {
-						return str;
-					}
-					return str;
-				}
-			});
-			kdtEconomy.getColumn(AMOUNT).setRenderer(render_amount);
-
-			if (!FDCHelper.isEmpty(amountStr)) {
-				// Object newAmountValue = e.getValue();
-				Object oldAmountValue = e.getOldValue();
-				Object oldScaleValue = kdtEconomy.getCell(rowIndex, SCALE).getValue();
-				// editStopedCheckIsChange(oldAmountValue, newAmountValue);
-
-				if (amountStr.matches("^\\d*$")) {
-					// 填写付款金额后自动计算出付款比例
-					BigDecimal amount = new BigDecimal(amountStr);
-					BigDecimal hundrenBig = FDCHelper.ONE_HUNDRED;
-					amount = amount.multiply(hundrenBig);
-					BigDecimal planAmount = (BigDecimal) txtAmount.getValue();
-					if (!FDCHelper.isEmpty(planAmount)) {
-						BigDecimal scale = FDCHelper.divide(amount, planAmount, 10, BigDecimal.ROUND_HALF_UP);
-						scaleCell.setValue(scale);
-					}
-				} else {
-					// scaleCell.setValue(null);
-					amountCell.setValue(null);
-					FDCMsgBox.showInfo("请录入整数！");
-				}
-
-				// 判断
-				if (getPayScaleAll().compareTo(FDCHelper.ONE_HUNDRED) > 0) {
-					FDCMsgBox.showInfo("您所填写的计划付款金额过大，计划付款比例已超出100%");
-					scaleCell.setValue(oldScaleValue);
-					amountCell.setValue(oldAmountValue);
-				} else if (getPayAmountAll().compareTo(
-						txtAmount.getValue() == null ? new BigDecimal(0) : new BigDecimal(txtAmount.getValue().toString())) > 0) {
-					FDCMsgBox.showInfo("计划付款金额总和不能超出规划金额");
-					scaleCell.setValue(oldScaleValue);
-					amountCell.setValue(oldAmountValue);
-				}
-			} else {
-				scaleCell.setValue(null);
-			}
-
-		}
 
 	}
 
-	/**
-	 * 判断目标成本是否已审批
-	 * 
-	 * @return true:审批中之后状态; false:未审批
-	 */
-//	private boolean isAimCostAudit(AimCostInfo aimCostInfo) {
-//		if (aimCostInfo != null) {
-//			FDCBillStateEnum state = aimCostInfo.getState();
-//			if (state.equals(FDCBillStateEnum.SAVED) || state.equals(FDCBillStateEnum.SUBMITTED)) {
-//				return false;
-//			} else {
-//				return true;
-//			}
-//		}
-//		return false;
-//	}
 	/**
 	 * 判断单元格的值在编辑前后是否改变
 	 * 
@@ -1963,92 +1546,6 @@ public class ProgrammingEntryEditUI extends AbstractProgrammingEntryEditUI
 		if (newValue != null && oldValue != null) {
 			if (new BigDecimal(newValue.toString()).compareTo(new BigDecimal(oldValue.toString())) == 0) {
 				SysUtil.abort();
-			}
-		}
-	}
-
-	/**
-	 * 付款比例总和
-	 * 
-	 * @return
-	 */
-	private BigDecimal getPayScaleAll() {
-		int rowCount = kdtEconomy.getRowCount();
-		BigDecimal scale = new BigDecimal(0);
-		for (int i = 0; i < rowCount; i++) {
-			Object scaleObj = kdtEconomy.getCell(i, SCALE).getValue();
-			if (!FDCHelper.isEmpty(scaleObj)) {
-				BigDecimal temp = new BigDecimal(scaleObj.toString());
-				scale = scale.add(temp);
-			}
-		}
-		return scale;
-	}
-
-	/**
-	 * 付款金额总和
-	 * 
-	 * @return
-	 */
-	private BigDecimal getPayAmountAll() {
-		int rowCount = kdtEconomy.getRowCount();
-		BigDecimal amount = new BigDecimal(0);
-		for (int i = 0; i < rowCount; i++) {
-			Object amountObj = kdtEconomy.getCell(i, AMOUNT).getValue();
-			if (!FDCHelper.isEmpty(amountObj)) {
-				BigDecimal temp = new BigDecimal(amountObj.toString());
-				amount = amount.add(temp);
-			}
-		}
-		return amount;
-	}
-
-	/**
-	 * 付款金额或付款比例单元格值删除后处理情况
-	 */
-	// protected void kdtEconomy_activeCellChanged(KDTActiveCellEvent e) throws Exception {
-	// if (e.getPrevColumnIndex() == kdtEconomy.getColumnIndex(SCALE)) {
-	// if (kdtEconomy.getCell(e.getPrevRowIndex(), e.getPrevColumnIndex()).getValue() == null) {
-	// kdtEconomy.getCell(e.getPrevRowIndex(), AMOUNT).setValue(null);
-	// }
-	// }
-	// if (e.getPrevColumnIndex() == kdtEconomy.getColumnIndex(AMOUNT)) {
-	// if (kdtEconomy.getCell(e.getPrevRowIndex(), e.getPrevColumnIndex()).getValue() == null) {
-	// kdtEconomy.getCell(e.getPrevRowIndex(), SCALE).setValue(null);
-	// }
-	// }
-	// }
-
-	/**
-	 * 判断付款类型是否重复
-	 * 
-	 * @param enonomy_rowCount
-	 */
-	private void isEnonomDup() {
-		int rowIndex = kdtEconomy.getSelectManager().getActiveRowIndex();
-		ICell economyCell = kdtEconomy.getCell(rowIndex, PAYMENTTYPE);
-		PaymentTypeInfo currentInfo = (PaymentTypeInfo) economyCell.getValue();
-		if (FDCHelper.isEmpty(currentInfo)) {
-			return;
-		}
-		int columnCount = kdtEconomy.getRowCount();
-		if (!FDCHelper.isEmpty(currentInfo.getName())) {
-			int flag = 0;
-			for (int i = 0; i < columnCount; i++) {
-				PaymentTypeInfo forInfo = (PaymentTypeInfo) kdtEconomy.getCell(i, PAYMENTTYPE).getValue();
-				if (forInfo == null) {
-					break;
-				}
-				if (!FDCHelper.isEmpty(forInfo.getName())) {
-					if (currentInfo.getName().equals(forInfo.getName())) {
-						flag++;
-						if (flag >= 2) {
-							FDCMsgBox.showInfo("本框架合约经济条款内已经有\"" + currentInfo.getName() + "\"付款类型，不能再继续添加此付款类型了！");
-							economyCell.setValue(null);
-							SysUtil.abort();
-						}
-					}
-				}
 			}
 		}
 	}
@@ -2099,11 +1596,9 @@ public class ProgrammingEntryEditUI extends AbstractProgrammingEntryEditUI
 				return str;
 			}
 		});
-		kdtEconomy.getColumn(SCALE).setRenderer(render_scale);
 
 		// 分录信息
 		addCostLine(kdtCost);
-		addEconomyLine(kdtEconomy);
 
 		int level = pcInfo.getLevel();
 		if (level > 1) {
@@ -2151,7 +1646,7 @@ public class ProgrammingEntryEditUI extends AbstractProgrammingEntryEditUI
 				row.getCell(COST_ID).setValue(pccInfo.getId());
 				ProjectInfo project = null;
 				if (pccInfo.getCostAccount() != null) {
-//					project = pccInfo.getCostAccount().getCurProject();
+					project = pccInfo.getCostAccount().getCurProject();
 				}
 				row.getCell(PROJECT).setValue(project);
 				costAccountCellF7(project, i, kdtCost.getColumnIndex(COSTACCOUNT),this.pcCollection);// 根据当前行工程项目加载F7成本科目
@@ -2211,33 +1706,6 @@ public class ProgrammingEntryEditUI extends AbstractProgrammingEntryEditUI
 		}
 		return null;
 	}
-	/**
-	 * 初始化框架合约经济条款分录数据
-	 * 
-	 * @param table
-	 */
-	private void addEconomyLine(KDTable table) {
-		ProgrammingEntryEconomyEntryCollection pcEnonomyCollection = pcInfo.getEconomyEntries();
-		IRow row;
-		for (int i = 0; i < pcEnonomyCollection.size(); i++) {
-			ProgrammingEntryEconomyEntryInfo pcEnonomyInfo = pcEnonomyCollection.get(i);
-			row = table.addRow();
-			if (pcEnonomyInfo.getId() == null) {
-				pcEnonomyInfo.setId(BOSUuid.create(pcEnonomyInfo.getBOSType()));
-			}
-			row.getCell(ECONOMY_ID).setValue(pcEnonomyInfo.getId());
-			row.getCell(PAYMENTTYPE).setValue(pcEnonomyInfo.getPaymentType());
-			if (pcEnonomyInfo.getScale() != null) {
-				row.getCell(SCALE).setValue(pcEnonomyInfo.getScale());
-			}
-			row.getCell(AMOUNT).setValue(pcEnonomyInfo.getAmount());
-			row.getCell(CONDITION).setValue(pcEnonomyInfo.getCondition());
-			row.getCell(PAYMENTDATE).setValue(pcEnonomyInfo.getPaymentDate());
-			row.getCell(ECONOMY_DES).setValue(pcEnonomyInfo.getDescription());
-		}
-		paymentTypeF7();
-		paymentDate();
-	}
 
 	/**
 	 * 通过框架ID获取所关联的经济条款
@@ -2250,7 +1718,7 @@ public class ProgrammingEntryEditUI extends AbstractProgrammingEntryEditUI
 		PaymentTypeInfo paymentInfo = null;
 		ProgrammingEntryEconomyEntryCollection pceCollection = new ProgrammingEntryEconomyEntryCollection();
 		FDCSQLBuilder fdcBuilder = new FDCSQLBuilder();
-		fdcBuilder.appendSql(" select FID,FPAYMENTTYPEID  from T_CON_ProgContEconomy ");
+		fdcBuilder.appendSql(" select FID,FPAYMENTTYPEID  from CT_INV_ProgrammingEEE ");
 		fdcBuilder.appendSql(" where FContractID = '" + pcID + "'");
 		IRowSet rs = null;
 		try {
@@ -2279,7 +1747,7 @@ public class ProgrammingEntryEditUI extends AbstractProgrammingEntryEditUI
 	 */
 	private void isNameDup(String name, String id) {
 		FDCSQLBuilder fdcBuilder = new FDCSQLBuilder();
-		fdcBuilder.appendSql(" select * from T_CON_ProgrammingContract where FName_l2 = '" + name + "' ");
+		fdcBuilder.appendSql(" select * from CT_INV_ProgrammingEntry where FName_l2 = '" + name + "' ");
 		fdcBuilder.appendSql(" and FID <> '" + id + "' ");
 		try {
 			IRowSet iRowSet = fdcBuilder.executeQuery();
@@ -2304,7 +1772,7 @@ public class ProgrammingEntryEditUI extends AbstractProgrammingEntryEditUI
 	 */
 	private void isNumberDup(String longNumber, String id) {
 		FDCSQLBuilder fdcBuilder = new FDCSQLBuilder();
-		fdcBuilder.appendSql(" select * from T_CON_ProgrammingContract where FLongNumber = '" + longNumber + "' ");
+		fdcBuilder.appendSql(" select * from CT_INV_ProgrammingEntry where FLongNumber = '" + longNumber + "' ");
 		fdcBuilder.appendSql(" and FID <> '" + id + "' ");
 		try {
 			IRowSet iRowSet = fdcBuilder.executeQuery();
@@ -2414,12 +1882,12 @@ public class ProgrammingEntryEditUI extends AbstractProgrammingEntryEditUI
 	}
 
 	/**
-	 * 工程项目F7
+	 * 工程项目F7\成本科目
 	 * 
 	 */
 	private void projectF7() {
 		KDBizPromptBox kdtEconomyEntriese_costAccount_PromptBox = new KDBizPromptBox();
-		kdtEconomyEntriese_costAccount_PromptBox.setQueryInfo("com.kingdee.eas.fdc.basedata.app.F7ProjectQuery");
+		kdtEconomyEntriese_costAccount_PromptBox.setQueryInfo("com.kingdee.eas.basedata.assistant.app.F7ProjectQuery");
 		kdtEconomyEntriese_costAccount_PromptBox.setVisible(true);
 		kdtEconomyEntriese_costAccount_PromptBox.setEditable(true);
 		kdtEconomyEntriese_costAccount_PromptBox.setDisplayFormat("$number$");
@@ -2430,6 +1898,19 @@ public class ProgrammingEntryEditUI extends AbstractProgrammingEntryEditUI
 		ObjectValueRender kdtCostEntries_paymentType_OVR = new ObjectValueRender();
 		kdtCostEntries_paymentType_OVR.setFormat(new BizDataFormat("$name$"));
 		this.kdtCost.getColumn(PROJECT).setRenderer(kdtCostEntries_paymentType_OVR);
+		
+		kdtEconomyEntriese_costAccount_PromptBox = new KDBizPromptBox();
+		kdtEconomyEntriese_costAccount_PromptBox.setQueryInfo("com.kingdee.eas.fdc.basedata.app.CostAccountQuery");
+		kdtEconomyEntriese_costAccount_PromptBox.setVisible(true);
+		kdtEconomyEntriese_costAccount_PromptBox.setEditable(true);
+		kdtEconomyEntriese_costAccount_PromptBox.setDisplayFormat("$number$");
+		kdtEconomyEntriese_costAccount_PromptBox.setEditFormat("$number$");
+		kdtEconomyEntriese_costAccount_PromptBox.setCommitFormat("$number$");
+		kdtEconomyEntriese_costAccount_CellEditor = new KDTDefaultCellEditor(kdtEconomyEntriese_costAccount_PromptBox);
+		this.kdtCost.getColumn(COSTACCOUNT).setEditor(kdtEconomyEntriese_costAccount_CellEditor);
+		kdtCostEntries_paymentType_OVR = new ObjectValueRender();
+		kdtCostEntries_paymentType_OVR.setFormat(new BizDataFormat("$name$"));
+		this.kdtCost.getColumn(COSTACCOUNT).setRenderer(kdtCostEntries_paymentType_OVR);
 	}
 
 	/**
@@ -2437,32 +1918,32 @@ public class ProgrammingEntryEditUI extends AbstractProgrammingEntryEditUI
 	 */
 	private void costAccountF7(ProjectInfo project,ProgrammingEntryCollection pcCol) {
 //		CostAccountPromptBox selector = new CostAccountPromptBox(this,pcCol,(AimCostInfo) this.getUIContext().get("aimCostInfo"));
-		KDBizPromptBox prmtCostAccount = new KDBizPromptBox() {
-			protected String valueToString(Object o) {
-				String str = null;
-				if (o != null && o instanceof CostAccountInfo) {
-					str = ((CostAccountInfo) o).getLongNumber().replace('!', '.');
-				}
-				return str;
-			}
-		};
+//		KDBizPromptBox prmtCostAccount = new KDBizPromptBox() {
+//			protected String valueToString(Object o) {
+//				String str = null;
+//				if (o != null && o instanceof CostAccountInfo) {
+//					str = ((CostAccountInfo) o).getLongNumber().replace('!', '.');
+//				}
+//				return str;
+//			}
+//		};
 //		prmtCostAccount.setSelector(selector);
-		prmtCostAccount.setEnabledMultiSelection(false);
-		prmtCostAccount.setDisplayFormat("$longNumber$");
-		prmtCostAccount.setEditFormat("$longNumber$");
-		prmtCostAccount.setCommitFormat("$longNumber$");
-
-		KDTDefaultCellEditor caEditor = new KDTDefaultCellEditor(prmtCostAccount);
-		EntityViewInfo entityView = new EntityViewInfo();
-		FilterInfo filter = new FilterInfo();
-		// filter.getFilterItems().add(new FilterItemInfo("fullOrgUnit.id",OrgConstants.DEF_CU_ID,CompareType.EQUALS));
-		filter.getFilterItems().add(new FilterItemInfo("curProject.id", project.getId().toString(), CompareType.EQUALS));
-		entityView.setFilter(filter);
-		prmtCostAccount.setEntityViewInfo(entityView);
-		kdtCost.getColumn(COSTACCOUNT).setEditor(caEditor);
-		ObjectValueRender kdtCostEntries_costAccount_OVR = new ObjectValueRender();
-		kdtCostEntries_costAccount_OVR.setFormat(new BizDataFormat("$name$"));
-		this.kdtCost.getColumn(COSTACCOUNT).setRenderer(kdtCostEntries_costAccount_OVR);
+//		prmtCostAccount.setEnabledMultiSelection(false);
+//		prmtCostAccount.setDisplayFormat("$longNumber$");
+//		prmtCostAccount.setEditFormat("$longNumber$");
+//		prmtCostAccount.setCommitFormat("$longNumber$");
+//
+//		KDTDefaultCellEditor caEditor = new KDTDefaultCellEditor(prmtCostAccount);
+//		EntityViewInfo entityView = new EntityViewInfo();
+//		FilterInfo filter = new FilterInfo();
+//		// filter.getFilterItems().add(new FilterItemInfo("fullOrgUnit.id",OrgConstants.DEF_CU_ID,CompareType.EQUALS));
+//		filter.getFilterItems().add(new FilterItemInfo("curProject.id", project.getId().toString(), CompareType.EQUALS));
+//		entityView.setFilter(filter);
+//		prmtCostAccount.setEntityViewInfo(entityView);
+//		kdtCost.getColumn(COSTACCOUNT).setEditor(caEditor);
+//		ObjectValueRender kdtCostEntries_costAccount_OVR = new ObjectValueRender();
+//		kdtCostEntries_costAccount_OVR.setFormat(new BizDataFormat("$name$"));
+//		this.kdtCost.getColumn(COSTACCOUNT).setRenderer(kdtCostEntries_costAccount_OVR);
 	}
 
 	/**
@@ -2470,117 +1951,43 @@ public class ProgrammingEntryEditUI extends AbstractProgrammingEntryEditUI
 	 */
 	private void costAccountCellF7(ProjectInfo project,int rowIndex,int colIndex,ProgrammingEntryCollection pcCol) {
 //		CostAccountPromptBox selector = new CostAccountPromptBox(this,pcCol,(AimCostInfo) this.getUIContext().get("aimCostInfo"));
-		KDBizPromptBox prmtCostAccount = new KDBizPromptBox() {
-			protected String valueToString(Object o) {
-				String str = null;
-				if (o != null && o instanceof CostAccountInfo) {
-					str = ((CostAccountInfo) o).getLongNumber().replace('!', '.');
-				}
-				return str;
-			}
-		};
+//		KDBizPromptBox prmtCostAccount = new KDBizPromptBox() {
+//			protected String valueToString(Object o) {
+//				String str = null;
+//				if (o != null && o instanceof CostAccountInfo) {
+//					str = ((CostAccountInfo) o).getLongNumber().replace('!', '.');
+//				}
+//				return str;
+//			}
+//		};
 //		prmtCostAccount.setSelector(selector);
-		prmtCostAccount.setEnabledMultiSelection(false);
-		prmtCostAccount.setDisplayFormat("$longNumber$");
-		prmtCostAccount.setEditFormat("$longNumber$");
-		prmtCostAccount.setCommitFormat("$longNumber$");
-
-		KDTDefaultCellEditor caEditor = new KDTDefaultCellEditor(prmtCostAccount);
-		EntityViewInfo entityView = new EntityViewInfo();
-		FilterInfo filter = new FilterInfo();
-		if (project != null) {
-			filter.getFilterItems().add(new FilterItemInfo("curProject.id", project.getId().toString(), CompareType.EQUALS));
-		} else {
-			filter.getFilterItems().add(new FilterItemInfo("curProject.id", "error", CompareType.EQUALS));
-		}
-		entityView.setFilter(filter);
-		prmtCostAccount.setEntityViewInfo(entityView);
-		caEditor.setValue(prmtCostAccount);
-		kdtCost.getCell(rowIndex, colIndex).setEditor(caEditor);
-		ObjectValueRender kdtCostEntries_costAccount_OVR = new ObjectValueRender();
-		kdtCostEntries_costAccount_OVR.setFormat(new BizDataFormat("$name$"));
-		kdtCost.getCell(rowIndex, colIndex).setRenderer(kdtCostEntries_costAccount_OVR);
+//		prmtCostAccount.setEnabledMultiSelection(false);
+//		prmtCostAccount.setDisplayFormat("$longNumber$");
+//		prmtCostAccount.setEditFormat("$longNumber$");
+//		prmtCostAccount.setCommitFormat("$longNumber$");
+//
+//		KDTDefaultCellEditor caEditor = new KDTDefaultCellEditor(prmtCostAccount);
+//		EntityViewInfo entityView = new EntityViewInfo();
+//		FilterInfo filter = new FilterInfo();
+//		if (project != null) {
+//			filter.getFilterItems().add(new FilterItemInfo("curProject.id", project.getId().toString(), CompareType.EQUALS));
+//		} else {
+//			filter.getFilterItems().add(new FilterItemInfo("curProject.id", "error", CompareType.EQUALS));
+//		}
+//		entityView.setFilter(filter);
+//		prmtCostAccount.setEntityViewInfo(entityView);
+//		caEditor.setValue(prmtCostAccount);
+//		kdtCost.getCell(rowIndex, colIndex).setEditor(caEditor);
+//		ObjectValueRender kdtCostEntries_costAccount_OVR = new ObjectValueRender();
+//		kdtCostEntries_costAccount_OVR.setFormat(new BizDataFormat("$name$"));
+//		kdtCost.getCell(rowIndex, colIndex).setRenderer(kdtCostEntries_costAccount_OVR);
 	}
 
-	/**
-	 * 付款类型F7
-	 */
-	private void paymentTypeF7() {
-		KDBizPromptBox kdtEconomyEntriese_costAccount_PromptBox = new KDBizPromptBox();
-		kdtEconomyEntriese_costAccount_PromptBox.setQueryInfo("com.kingdee.eas.fdc.basedata.app.F7PaymentTypeQuery");
-		kdtEconomyEntriese_costAccount_PromptBox.setVisible(true);
-		kdtEconomyEntriese_costAccount_PromptBox.setEditable(true);
-		kdtEconomyEntriese_costAccount_PromptBox.setDisplayFormat("$number$");
-		kdtEconomyEntriese_costAccount_PromptBox.setEditFormat("$number$");
-		kdtEconomyEntriese_costAccount_PromptBox.setCommitFormat("$number$");
-		KDTDefaultCellEditor kdtEconomyEntriese_costAccount_CellEditor = new KDTDefaultCellEditor(kdtEconomyEntriese_costAccount_PromptBox);
-		this.kdtEconomy.getColumn(PAYMENTTYPE).setEditor(kdtEconomyEntriese_costAccount_CellEditor);
-		ObjectValueRender kdtCostEntries_paymentType_OVR = new ObjectValueRender();
-		kdtCostEntries_paymentType_OVR.setFormat(new BizDataFormat("$name$"));
-		this.kdtEconomy.getColumn(PAYMENTTYPE).setRenderer(kdtCostEntries_paymentType_OVR);
-	}
 
-	/**
-	 * 付款日期
-	 */
-	private void paymentDate() {
-		KDDatePicker kdDataPicker = new KDDatePicker();
-		KDTDefaultCellEditor cellEditor = new KDTDefaultCellEditor(kdDataPicker);
-		kdtEconomy.getColumn(PAYMENTDATE).setEditor(cellEditor);
-		ObjectValueRender ovr = new ObjectValueRender();
-		kdtEconomy.getColumn(PAYMENTDATE).setRenderer(ovr);
-	}
 	public void actionEdit_actionPerformed(ActionEvent e) throws Exception {
 		if (MsgBox.showConfirm2("是否确定修改？") == MsgBox.CANCEL) {
 			return;
 		}
-		for (int i = 0; i < kdtEconomy.getRowCount(); i++) {
-			IRow row = kdtEconomy.getRow(i);
-			ICell costAccountCell = row.getCell(PAYMENTTYPE);
-			ICell scale = row.getCell(SCALE);
-			
-			if (FDCHelper.isEmpty(row.getCell(PAYMENTDATE))) {
-				FDCMsgBox.showInfo("计划付款日期不能为空！");
-				SysUtil.abort();
-			}
-			if (FDCHelper.isEmpty(costAccountCell.getValue())) {
-				FDCMsgBox.showInfo("付款类型不能为空！");
-				SysUtil.abort();
-			}
-			if (FDCHelper.isEmpty(scale.getValue())) {
-				FDCMsgBox.showInfo("计划付款比例不能为空！");
-				SysUtil.abort();
-			}
-			if (FDCHelper.isEmpty(row.getCell(AMOUNT))) {
-				FDCMsgBox.showInfo("计划付款金额不能为空！");
-				SysUtil.abort();
-			}
-		}
-		pcInfo.getEconomyEntries().clear();
-		int enonomy_rowCount = kdtEconomy.getRowCount();
-		for(int i=0;i<enonomy_rowCount;i++){
-			ProgrammingEntryEconomyEntryInfo pciInfo = new ProgrammingEntryEconomyEntryInfo();
-			PaymentTypeInfo currentInfo = (PaymentTypeInfo) kdtEconomy.getCell(i, PAYMENTTYPE).getValue();// 付款类型
-			Object scaleObj = kdtEconomy.getCell(i, SCALE).getValue();//付款比例
-			Object amountObj = kdtEconomy.getCell(i, AMOUNT).getValue();//付款金额
-			Object conditionObj = kdtEconomy.getCell(i, CONDITION).getValue();//付款条件
-			Object paymentDateObj = kdtEconomy.getCell(i, PAYMENTDATE).getValue();//付款日期
-			Object descriptionObj = kdtEconomy.getCell(i, ECONOMY_DES).getValue();// 备注
-			pciInfo.setPaymentType(currentInfo);// 存储付款类型
-			if(!FDCHelper.isEmpty(scaleObj)){
-				pciInfo.setScale(new BigDecimal(scaleObj.toString()));// 存储付款比例
-			}
-			if(!FDCHelper.isEmpty(amountObj)){
-				pciInfo.setAmount(new BigDecimal(amountObj.toString()));// 存储付款金额
-			}
-			pciInfo.setCondition((String) conditionObj);// 存储付款条件
-			if(!FDCHelper.isEmpty(paymentDateObj)){
-				Date paymentDate = (Date) paymentDateObj;
-				pciInfo.setPaymentDate(new Timestamp(paymentDate.getTime()));// 存储付款日期
-			}
-			pciInfo.setDescription((String) descriptionObj);// 存储付款条件
-			pcInfo.getEconomyEntries().add(pciInfo);
-		}
-		ProgrammingEntryFactory.getRemoteInstance().submit(pcInfo);
+//		ProgrammingEntryFactory.getRemoteInstance().submit(pcInfo);
 	}
 }
