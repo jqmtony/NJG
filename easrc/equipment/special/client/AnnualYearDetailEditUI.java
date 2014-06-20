@@ -686,7 +686,6 @@ public class AnnualYearDetailEditUI extends AbstractAnnualYearDetailEditUI
 	    }
 
 	public void onLoad() throws Exception {
-		actionAddNew.setVisible(false);
 		txtNumber.setEnabled(false);
 		this.kdtEntry.getColumn("seq").getStyleAttributes().setHided(true);
 		this.kdtEntry.getColumn("check").getStyleAttributes().setLocked(true);
@@ -739,9 +738,9 @@ public class AnnualYearDetailEditUI extends AbstractAnnualYearDetailEditUI
 			this.kdtEntry.getColumn("check").getStyleAttributes().setLocked(false);
 		
 			
-			this.kdtEntry_detailPanel.getAddNewLineButton().setEnabled(false);
-			this.kdtEntry_detailPanel.getInsertLineButton().setEnabled(false);
-			this.kdtEntry_detailPanel.getRemoveLinesButton().setEnabled(false);			
+//			this.kdtEntry_detailPanel.getAddNewLineButton().setEnabled(false);
+//			this.kdtEntry_detailPanel.getInsertLineButton().setEnabled(false);
+//			this.kdtEntry_detailPanel.getRemoveLinesButton().setEnabled(false);			
 			btnAddNew.setVisible(false);
 			
 			if(editData.getStatus().equals(XRBillStatusEnum.RELEASED)){
@@ -809,12 +808,6 @@ public class AnnualYearDetailEditUI extends AbstractAnnualYearDetailEditUI
 		
 		btnConfirmation.setEnabled(true);
 		btnUnConfirmation.setEnabled(false);
-//		
-//		btnUnIssued.setVisible(true);
-//		btnUnIssued.setEnabled(true);
-//		btnIssued.setVisible(true);
-//		btnAudit.setVisible(true);
-//		btnUnAudit.setVisible(true);
         
         this.kdtEntry_detailPanel.getAddNewLineButton().setEnabled(false);
 		this.kdtEntry_detailPanel.getInsertLineButton().setEnabled(false);

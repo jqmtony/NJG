@@ -7,14 +7,23 @@ import java.awt.event.*;
 
 import org.apache.log4j.Logger;
 
+import com.kingdee.bos.BOSException;
+import com.kingdee.bos.metadata.IMetaDataPK;
+import com.kingdee.bos.metadata.entity.EntityViewInfo;
+import com.kingdee.bos.metadata.entity.FilterInfo;
+import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
+import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.IUIWindow;
 import com.kingdee.bos.ui.face.UIFactory;
 import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.bos.dao.query.IQueryExecutor;
+import com.kingdee.eas.basedata.org.OrgConstants;
 import com.kingdee.eas.common.client.OprtState;
+import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.common.client.UIContext;
 import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.framework.*;
@@ -716,7 +725,6 @@ public class AnnualYearDetailListUI extends AbstractAnnualYearDetailListUI
     }
     
     public void onLoad() throws Exception {
-    	actionAddNew.setVisible(false);
     	super.onLoad();
     	}
     /**
@@ -737,5 +745,34 @@ public class AnnualYearDetailListUI extends AbstractAnnualYearDetailListUI
 			SysUtil.abort();
         }
     }
-    
+    //去除CU隔离
+	protected boolean isIgnoreCUFilter() {
+		return true;
+	}
+	
+	//根据所属组织隔离设备档案
+	protected IQueryExecutor getQueryExecutor(IMetaDataPK arg0,EntityViewInfo arg1) {
+		EntityViewInfo viewInfo = (EntityViewInfo)arg1.clone();
+		FilterInfo filInfo = new FilterInfo();
+		String id = SysContext.getSysContext().getCurrentAdminUnit().getId().toString();
+		filInfo.getFilterItems().add(new FilterItemInfo("useDpatmen.id",id ,CompareType.EQUALS));
+		if(viewInfo.getFilter()!=null)
+	    	{
+	    
+					try {
+						viewInfo.getFilter().mergeFilter(filInfo, "and");
+					} catch (BOSException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+			
+	    	}
+	    	else
+	    	{
+	    		viewInfo.setFilter(filInfo);
+	    	}
+		if(OrgConstants.DEF_CU_ID.equals(id))
+			viewInfo = new EntityViewInfo();
+		return super.getQueryExecutor(arg0, viewInfo);
+	}
 }

@@ -331,11 +331,11 @@ public class ImportEquIdUI extends AbstractImportEquIdUI
 		if(getUIContext().get("equID")!=null&&((Set)getUIContext().get("equID")).size()>0)
 			filterInfo.getFilterItems().add(new FilterItemInfo("id",getUIContext().get("equID"),CompareType.NOTINCLUDE));
 //		if(getUIContext().get("yearPlan")!=null)
-			filterInfo.getFilterItems().add(new FilterItemInfo("special","1",CompareType.EQUALS));
+		filterInfo.getFilterItems().add(new FilterItemInfo("special","1",CompareType.EQUALS));
 		
 		filterInfo.getFilterItems().add(new FilterItemInfo("sbStatus","3",CompareType.NOTEQUALS));
-		String id = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
-		filterInfo.getFilterItems().add(new FilterItemInfo("ssOrgUnit.id",id ,CompareType.EQUALS));
+//		String id = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
+//		filterInfo.getFilterItems().add(new FilterItemInfo("ssOrgUnit.id",id ,CompareType.EQUALS));
 		
 		try {
 			if(viewInfo.getFilter()!=null)

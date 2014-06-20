@@ -25,6 +25,17 @@ public class AbstractAnnualYearDetailInfo extends com.kingdee.eas.xr.XRBillBaseI
     {
         return (com.kingdee.eas.port.equipment.special.AnnualYearDetailEntryCollection)get("Entry");
     }
+    /**
+     * Object: 设备检测明细表 's 使用单位 property 
+     */
+    public com.kingdee.eas.basedata.org.AdminOrgUnitInfo getUseDpatmen()
+    {
+        return (com.kingdee.eas.basedata.org.AdminOrgUnitInfo)get("useDpatmen");
+    }
+    public void setUseDpatmen(com.kingdee.eas.basedata.org.AdminOrgUnitInfo item)
+    {
+        put("useDpatmen", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("22366297");

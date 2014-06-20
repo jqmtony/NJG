@@ -60,6 +60,7 @@ public abstract class AbstractAnnualYearDetailEditUI extends com.kingdee.eas.xr.
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contAuditTime;
     protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtEntry;
 	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtEntry_detailPanel = null;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contuseDpatmen;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtCreator;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkCreateTime;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtLastUpdateUser;
@@ -72,6 +73,7 @@ public abstract class AbstractAnnualYearDetailEditUI extends com.kingdee.eas.xr.
     protected com.kingdee.bos.ctrl.swing.KDComboBox comboStatus;
     protected com.kingdee.bos.ctrl.swing.KDComboBox comboBizStatus;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkAuditTime;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtuseDpatmen;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnIssued;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnUnIssued;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnConfirmation;
@@ -166,6 +168,7 @@ public abstract class AbstractAnnualYearDetailEditUI extends com.kingdee.eas.xr.
         this.contBizStatus = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contAuditTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.kdtEntry = new com.kingdee.bos.ctrl.kdf.table.KDTable();
+        this.contuseDpatmen = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.prmtCreator = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.pkCreateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.prmtLastUpdateUser = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
@@ -178,6 +181,7 @@ public abstract class AbstractAnnualYearDetailEditUI extends com.kingdee.eas.xr.
         this.comboStatus = new com.kingdee.bos.ctrl.swing.KDComboBox();
         this.comboBizStatus = new com.kingdee.bos.ctrl.swing.KDComboBox();
         this.pkAuditTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
+        this.prmtuseDpatmen = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.btnIssued = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btnUnIssued = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btnConfirmation = new com.kingdee.bos.ctrl.swing.KDWorkButton();
@@ -195,6 +199,7 @@ public abstract class AbstractAnnualYearDetailEditUI extends com.kingdee.eas.xr.
         this.contBizStatus.setName("contBizStatus");
         this.contAuditTime.setName("contAuditTime");
         this.kdtEntry.setName("kdtEntry");
+        this.contuseDpatmen.setName("contuseDpatmen");
         this.prmtCreator.setName("prmtCreator");
         this.pkCreateTime.setName("pkCreateTime");
         this.prmtLastUpdateUser.setName("prmtLastUpdateUser");
@@ -207,6 +212,7 @@ public abstract class AbstractAnnualYearDetailEditUI extends com.kingdee.eas.xr.
         this.comboStatus.setName("comboStatus");
         this.comboBizStatus.setName("comboBizStatus");
         this.pkAuditTime.setName("pkAuditTime");
+        this.prmtuseDpatmen.setName("prmtuseDpatmen");
         this.btnIssued.setName("btnIssued");
         this.btnUnIssued.setName("btnUnIssued");
         this.btnConfirmation.setName("btnConfirmation");
@@ -397,6 +403,11 @@ public abstract class AbstractAnnualYearDetailEditUI extends com.kingdee.eas.xr.
         kdtEntry_beizhu_TextField.setMaxLength(100);
         KDTDefaultCellEditor kdtEntry_beizhu_CellEditor = new KDTDefaultCellEditor(kdtEntry_beizhu_TextField);
         this.kdtEntry.getColumn("beizhu").setEditor(kdtEntry_beizhu_CellEditor);
+        // contuseDpatmen		
+        this.contuseDpatmen.setBoundLabelText(resHelper.getString("contuseDpatmen.boundLabelText"));		
+        this.contuseDpatmen.setBoundLabelLength(100);		
+        this.contuseDpatmen.setBoundLabelUnderline(true);		
+        this.contuseDpatmen.setVisible(true);
         // prmtCreator		
         this.prmtCreator.setEnabled(false);		
         this.prmtCreator.setCommitFormat("$name$");		
@@ -433,6 +444,14 @@ public abstract class AbstractAnnualYearDetailEditUI extends com.kingdee.eas.xr.
         // pkAuditTime		
         this.pkAuditTime.setTimeEnabled(true);		
         this.pkAuditTime.setEnabled(false);
+        // prmtuseDpatmen		
+        this.prmtuseDpatmen.setQueryInfo("com.kingdee.eas.basedata.org.app.AdminItemQuery");		
+        this.prmtuseDpatmen.setVisible(true);		
+        this.prmtuseDpatmen.setEditable(true);		
+        this.prmtuseDpatmen.setDisplayFormat("$name$");		
+        this.prmtuseDpatmen.setEditFormat("$number$");		
+        this.prmtuseDpatmen.setCommitFormat("$number$");		
+        this.prmtuseDpatmen.setRequired(false);
         // btnIssued		
         this.btnIssued.setText(resHelper.getString("btnIssued.text"));
         this.btnIssued.addActionListener(new java.awt.event.ActionListener() {
@@ -467,7 +486,7 @@ public abstract class AbstractAnnualYearDetailEditUI extends com.kingdee.eas.xr.
         // btnUnConfirmation
         this.btnUnConfirmation.setAction((IItemAction)ActionProxyFactory.getProxy(actionUnConfirmation, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnUnConfirmation.setText(resHelper.getString("btnUnConfirmation.text"));
-        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmtCU,pkLastUpdateTime,prmtLastUpdateUser,pkCreateTime,prmtCreator,prmtAuditor,txtDescription,pkBizDate,txtNumber,pkAuditTime,comboBizStatus,comboStatus,kdtEntry}));
+        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmtCU,pkLastUpdateTime,prmtLastUpdateUser,pkCreateTime,prmtCreator,prmtAuditor,txtDescription,pkBizDate,txtNumber,pkAuditTime,comboBizStatus,comboStatus,kdtEntry,prmtuseDpatmen}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
 		registerBindings();
@@ -533,6 +552,8 @@ vo.put("result","10");
 			public void afterEvent(com.kingdee.eas.framework.client.multiDetail.DetailPanelEvent event) throws Exception {
 			}
 		});
+        contuseDpatmen.setBounds(new Rectangle(706, 35, 270, 19));
+        this.add(contuseDpatmen, new KDLayout.Constraints(706, 35, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         //contCreator
         contCreator.setBoundEditor(prmtCreator);
         //contCreateTime
@@ -557,6 +578,8 @@ vo.put("result","10");
         contBizStatus.setBoundEditor(comboBizStatus);
         //contAuditTime
         contAuditTime.setBoundEditor(pkAuditTime);
+        //contuseDpatmen
+        contuseDpatmen.setBoundEditor(prmtuseDpatmen);
 
     }
 
@@ -766,7 +789,8 @@ vo.put("result","10");
 		dataBinder.registerBinding("auditor", com.kingdee.eas.base.permission.UserInfo.class, this.prmtAuditor, "data");
 		dataBinder.registerBinding("status", com.kingdee.eas.xr.app.XRBillStatusEnum.class, this.comboStatus, "selectedItem");
 		dataBinder.registerBinding("bizStatus", com.kingdee.eas.xr.app.XRBizActionEnum.class, this.comboBizStatus, "selectedItem");
-		dataBinder.registerBinding("auditTime", java.sql.Timestamp.class, this.pkAuditTime, "value");		
+		dataBinder.registerBinding("auditTime", java.sql.Timestamp.class, this.pkAuditTime, "value");
+		dataBinder.registerBinding("useDpatmen", com.kingdee.eas.basedata.org.AdminOrgUnitInfo.class, this.prmtuseDpatmen, "data");		
 	}
 	//Regiester UI State
 	private void registerUIState(){		
@@ -933,7 +957,8 @@ vo.put("result","10");
 		getValidateHelper().registerBindProperty("auditor", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("status", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("bizStatus", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("auditTime", ValidateHelper.ON_SAVE);    		
+		getValidateHelper().registerBindProperty("auditTime", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("useDpatmen", ValidateHelper.ON_SAVE);    		
 	}
 
 
@@ -1123,6 +1148,15 @@ kdtEntry.getCell(rowIndex,"createUnit").setValue(com.kingdee.bos.ui.face.UIRuleU
         sic.add(new SelectorItemInfo("status"));
         sic.add(new SelectorItemInfo("bizStatus"));
         sic.add(new SelectorItemInfo("auditTime"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("useDpatmen.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("useDpatmen.id"));
+        	sic.add(new SelectorItemInfo("useDpatmen.number"));
+        	sic.add(new SelectorItemInfo("useDpatmen.name"));
+		}
         return sic;
     }        
     	

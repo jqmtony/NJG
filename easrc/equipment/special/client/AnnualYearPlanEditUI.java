@@ -4,29 +4,35 @@
 package com.kingdee.eas.port.equipment.special.client;
 
 import java.awt.BorderLayout;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.swing.JMenuItem;
+
 import org.apache.log4j.Logger;
+
+import com.kingdee.bos.ctrl.kdf.table.KDTSelectBlock;
+import com.kingdee.bos.ctrl.kdf.table.KDTable;
+import com.kingdee.bos.ctrl.swing.KDPopupMenu;
+import com.kingdee.bos.ctrl.swing.KDTextField;
+import com.kingdee.bos.ctrl.swing.KDWorkButton;
+import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.IUIWindow;
 import com.kingdee.bos.ui.face.UIException;
 import com.kingdee.bos.ui.face.UIFactory;
 import com.kingdee.bos.ui.face.UIRuleUtil;
-import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.common.client.UIContext;
 import com.kingdee.eas.common.client.UIFactoryName;
-import com.kingdee.eas.framework.*;
-import com.kingdee.eas.port.equipment.base.client.ImportFaCardUI;
 import com.kingdee.eas.port.equipment.record.EquIdInfo;
+import com.kingdee.eas.util.SysUtil;
+import com.kingdee.eas.util.client.MsgBox;
 import com.kingdee.eas.xr.helper.Tool;
-import com.kingdee.bos.ctrl.kdf.table.KDTable;
-import com.kingdee.bos.ctrl.swing.KDTextField;
-import com.kingdee.bos.ctrl.swing.KDWorkButton;
 
 /**
  * output class name
@@ -699,7 +705,7 @@ public class AnnualYearPlanEditUI extends AbstractAnnualYearPlanEditUI
 	public void onLoad() throws Exception {
 		 this.kdtEntry.getColumn("seq").getStyleAttributes().setHided(true);
 		 this.kdtEntry.getColumn("checkType").getStyleAttributes().setLocked(true);
-		 this.kdtEntry.getColumn("planDate").getStyleAttributes().setLocked(true);
+//		 this.kdtEntry.getColumn("planDate").getStyleAttributes().setLocked(true);
 		 this.kdtEntry.getColumn("endDate").getStyleAttributes().setLocked(true);
 		super.onLoad();
 		if(getOprtState().equals(OprtState.ADDNEW)){
@@ -708,6 +714,41 @@ public class AnnualYearPlanEditUI extends AbstractAnnualYearPlanEditUI
 		}
 		InitWorkButtons();
 		
+		KDPopupMenu menu = this.getMenuManager(this.kdtEntry).getMenu();
+		JMenuItem jme = new JMenuItem("批量设置计划检验日期");
+		menu.add(jme);
+		jme.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				if(!OprtState.EDIT.equals(getOprtState())&&!OprtState.ADDNEW.equals(getOprtState())){
+					MsgBox.showInfo("当前状态不是修改状态，不能设置时间！");
+					SysUtil.abort();
+				}
+				KDTSelectBlock sb;
+	        	int size = kdtEntry.getSelectManager().size(); 
+	        	for (int i = 0; i < size; i++){
+	        		sb = kdtEntry.getSelectManager().get(i);
+	        		int left = sb.getLeft(); // 选择块最左边列索引
+	        		int right = sb.getRight(); // 选择块最右边列索引
+	        		for (int j2 = left; j2 <=right; j2++) {
+						String cellName = kdtEntry.getColumnKey(j2);
+						if(!cellName.equals("planDate")){
+							MsgBox.showInfo("请选择计划检验日期列进行批量设置时间！");
+							SysUtil.abort();
+						}
+					}
+	        	}
+				
+				IUIWindow uiWindow = null;
+				UIContext context = new UIContext(this);
+				try {
+					 context.put("kdtable", kdtEntry);
+					uiWindow = UIFactory.createUIFactory(UIFactoryName.MODEL).create(UpdatePlanDate.class.getName(), context, null, OprtState.VIEW);
+				} catch (UIException e1) {
+					e1.printStackTrace();
+				}
+				uiWindow.show();
+			}
+		});
 	}
 	
 	private void InitWorkButtons()
