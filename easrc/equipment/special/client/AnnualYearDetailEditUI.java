@@ -694,21 +694,23 @@ public class AnnualYearDetailEditUI extends AbstractAnnualYearDetailEditUI
 		this.kdtEntry.getColumn("checkType").getStyleAttributes().setLocked(true);
 		this.kdtEntry.getColumn("beizhu").getStyleAttributes().setLocked(true);
 		this.kdtEntry.getColumn("result").getStyleAttributes().setLocked(true);
+		prmtuseDpatmen.setEnabled(false);
 		if(getUIContext().get("FeedInfor")!=null)
 		{
 			txtNumber.setEnabled(false);
 			comboStatus.setEnabled(false);
 			txtDescription.setEnabled(false);
 		}
-		kdtEntry_detailPanel.getAddNewLineButton().setVisible(false);
-		kdtEntry_detailPanel.getRemoveLinesButton().setVisible(false);
-		kdtEntry_detailPanel.getInsertLineButton().setVisible(false);
+//		kdtEntry_detailPanel.getAddNewLineButton().setVisible(false);
+//		kdtEntry_detailPanel.getRemoveLinesButton().setVisible(false);
+//		kdtEntry_detailPanel.getInsertLineButton().setVisible(false);
 		super.onLoad();
 		btnIssued.setEnabled(false);
 		btnUnIssued.setEnabled(false);
 		if(editData.getStatus().equals(XRBillStatusEnum.AUDITED)){
 			btnIssued.setEnabled(true);
 		}
+		this.kdtEntry.getColumn("useUnit").getStyleAttributes().setHided(true);
 		if(editData.getStatus().equals(XRBillStatusEnum.RELEASED)){
 		    btnUnIssued.setEnabled(true);
 		}
