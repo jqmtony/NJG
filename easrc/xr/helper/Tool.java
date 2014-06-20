@@ -66,9 +66,10 @@ public class Tool {
 	 * 集团下不允许新建单据
 	 */
 	public static void checkGroupAddNew() {
-		if(SysContext.getSysContext().getCurrentAdminUnit().getId().toString().equals(OrgConstants.DEF_CU_ID))
+		AdminOrgUnitInfo adminInfo = SysContext.getSysContext().getCurrentAdminUnit();
+		if(adminInfo.getId().toString().equals(OrgConstants.DEF_CU_ID))
 		{
-			MsgBox.showWarning("目前组织为南京港（集团）有限公司，不允许新建单据！");SysUtil.abort();
+			MsgBox.showWarning("目前组织为{"+adminInfo.getName()+"}，不允许新建单据！");SysUtil.abort();
 		}
 	}
 	/**
