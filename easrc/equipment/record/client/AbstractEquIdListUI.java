@@ -51,12 +51,14 @@ public abstract class AbstractEquIdListUI extends com.kingdee.eas.xr.client.XRBi
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnExcel;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnExcelFoced;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnImportFacard;
+    protected com.kingdee.bos.ctrl.swing.KDWorkButton btnImportCard;
     protected ActionInUse actionInUse = null;
     protected ActionOutUse actionOutUse = null;
     protected ActionRegistChange actionRegistChange = null;
     protected ActionExcel actionExcel = null;
     protected actionImportFacard actionImportFacard = null;
     protected ActionExcelFoced actionExcelFoced = null;
+    protected actionImportCard actionImportCard = null;
     /**
      * output class constructor
      */
@@ -137,16 +139,22 @@ public abstract class AbstractEquIdListUI extends com.kingdee.eas.xr.client.XRBi
         this.actionExcelFoced.setExtendProperty("isObjectUpdateLock", "false");
          this.actionExcelFoced.addService(new com.kingdee.eas.framework.client.service.PermissionService());
          this.actionExcelFoced.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
+        //actionImportCard
+        this.actionImportCard = new actionImportCard(this);
+        getActionManager().registerAction("actionImportCard", actionImportCard);
+         this.actionImportCard.addService(new com.kingdee.eas.framework.client.service.PermissionService());
         this.btninUse = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btnoutUse = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btnExcel = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btnExcelFoced = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btnImportFacard = new com.kingdee.bos.ctrl.swing.KDWorkButton();
+        this.btnImportCard = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btninUse.setName("btninUse");
         this.btnoutUse.setName("btnoutUse");
         this.btnExcel.setName("btnExcel");
         this.btnExcelFoced.setName("btnExcelFoced");
         this.btnImportFacard.setName("btnImportFacard");
+        this.btnImportCard.setName("btnImportCard");
         // CoreUI
 		String tblMainStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol15\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol16\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol26\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol27\"><c:Protection hidden=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"0\" /><t:Column t:key=\"name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"1\" /><t:Column t:key=\"model\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"2\" /><t:Column t:key=\"size\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"3\" /><t:Column t:key=\"weight\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"4\" /><t:Column t:key=\"qyDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"5\" /><t:Column t:key=\"serialNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"6\" /><t:Column t:key=\"sbStatus\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"7\" /><t:Column t:key=\"special\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"8\" /><t:Column t:key=\"ccNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"9\" /><t:Column t:key=\"tzdaNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"10\" /><t:Column t:key=\"tzsbStatus\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"11\" /><t:Column t:key=\"assetValue\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"12\" /><t:Column t:key=\"EqmCategory\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"13\" /><t:Column t:key=\"status\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"14\" /><t:Column t:key=\"wxOrgUnit.id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"15\" t:styleID=\"sCol15\" /><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"16\" t:styleID=\"sCol16\" /><t:Column t:key=\"specialType.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"17\" /><t:Column t:key=\"cityPeriod\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"18\" /><t:Column t:key=\"portPeriod\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"19\" /><t:Column t:key=\"code\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"20\" /><t:Column t:key=\"engineNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"21\" /><t:Column t:key=\"carNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"22\" /><t:Column t:key=\"ratedWeight\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"23\" /><t:Column t:key=\"textDate1\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"24\" /><t:Column t:key=\"testDay\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"25\" /><t:Column t:key=\"dayone\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"26\" t:styleID=\"sCol26\" /><t:Column t:key=\"daytow\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"27\" t:styleID=\"sCol27\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{number}</t:Cell><t:Cell>$Resource{name}</t:Cell><t:Cell>$Resource{model}</t:Cell><t:Cell>$Resource{size}</t:Cell><t:Cell>$Resource{weight}</t:Cell><t:Cell>$Resource{qyDate}</t:Cell><t:Cell>$Resource{serialNumber}</t:Cell><t:Cell>$Resource{sbStatus}</t:Cell><t:Cell>$Resource{special}</t:Cell><t:Cell>$Resource{ccNumber}</t:Cell><t:Cell>$Resource{tzdaNumber}</t:Cell><t:Cell>$Resource{tzsbStatus}</t:Cell><t:Cell>$Resource{assetValue}</t:Cell><t:Cell>$Resource{EqmCategory}</t:Cell><t:Cell>$Resource{status}</t:Cell><t:Cell>$Resource{wxOrgUnit.id}</t:Cell><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{specialType.name}</t:Cell><t:Cell>$Resource{cityPeriod}</t:Cell><t:Cell>$Resource{portPeriod}</t:Cell><t:Cell>$Resource{code}</t:Cell><t:Cell>$Resource{engineNumber}</t:Cell><t:Cell>$Resource{carNumber}</t:Cell><t:Cell>$Resource{ratedWeight}</t:Cell><t:Cell>$Resource{textDate1}</t:Cell><t:Cell>$Resource{testDay}</t:Cell><t:Cell>$Resource{dayone}</t:Cell><t:Cell>$Resource{daytow}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
@@ -173,6 +181,10 @@ public abstract class AbstractEquIdListUI extends com.kingdee.eas.xr.client.XRBi
         // btnImportFacard
         this.btnImportFacard.setAction((IItemAction)ActionProxyFactory.getProxy(actionImportFacard, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnImportFacard.setText(resHelper.getString("btnImportFacard.text"));
+        // btnImportCard
+        this.btnImportCard.setAction((IItemAction)ActionProxyFactory.getProxy(actionImportCard, new Class[] { IItemAction.class }, getServiceContext()));		
+        this.btnImportCard.setText(resHelper.getString("btnImportCard.text"));		
+        this.btnImportCard.setIcon(com.kingdee.eas.util.client.EASResource.getIcon("imgTree_import"));
 		//Register control's property binding
 		registerBindings();
 		registerUIState();
@@ -306,6 +318,7 @@ public abstract class AbstractEquIdListUI extends com.kingdee.eas.xr.client.XRBi
     {
         this.toolBar.add(btnAddNew);
         this.toolBar.add(btnCloud);
+        this.toolBar.add(btnXunTong);
         this.toolBar.add(btnView);
         this.toolBar.add(kDSeparatorCloud);
         this.toolBar.add(btnEdit);
@@ -316,6 +329,7 @@ public abstract class AbstractEquIdListUI extends com.kingdee.eas.xr.client.XRBi
         this.toolBar.add(btnExcel);
         this.toolBar.add(btnExcelFoced);
         this.toolBar.add(btnImportFacard);
+        this.toolBar.add(btnImportCard);
         this.toolBar.add(btnQuery);
         this.toolBar.add(btnLocate);
         this.toolBar.add(btnAttachment);
@@ -576,6 +590,14 @@ com.kingdee.eas.port.equipment.record.EquIdFactory.getRemoteInstance().excel(edi
 com.kingdee.eas.port.equipment.record.EquIdInfo editData = (com.kingdee.eas.port.equipment.record.EquIdInfo)getBizInterface().getValue(new com.kingdee.bos.dao.ormapping.ObjectUuidPK(BOSUuid.read(getSelectedKeyValue())));
 com.kingdee.eas.port.equipment.record.EquIdFactory.getRemoteInstance().excelFoced(editData);
     }
+    	
+
+    /**
+     * output actionImportCard_actionPerformed method
+     */
+    public void actionImportCard_actionPerformed(ActionEvent e) throws Exception
+    {
+    }
 	public RequestContext prepareActionRemove(IItemAction itemAction) throws Exception {
 			RequestContext request = super.prepareActionRemove(itemAction);		
 		if (request != null) {
@@ -651,6 +673,17 @@ com.kingdee.eas.port.equipment.record.EquIdFactory.getRemoteInstance().excelFoce
     }
 	
 	public boolean isPrepareActionExcelFoced() {
+    	return false;
+    }
+	public RequestContext prepareactionImportCard(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareactionImportCard() {
     	return false;
     }
 
@@ -832,6 +865,37 @@ com.kingdee.eas.port.equipment.record.EquIdFactory.getRemoteInstance().excelFoce
         {
         	getUIContext().put("ORG.PK", getOrgPK(this));
             innerActionPerformed("eas", AbstractEquIdListUI.this, "ActionExcelFoced", "actionExcelFoced_actionPerformed", e);
+        }
+    }
+
+    /**
+     * output actionImportCard class
+     */     
+    protected class actionImportCard extends ItemAction {     
+    
+        public actionImportCard()
+        {
+            this(null);
+        }
+
+        public actionImportCard(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            this.setEnabled(false);
+            _tempStr = resHelper.getString("actionImportCard.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("actionImportCard.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("actionImportCard.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractEquIdListUI.this, "actionImportCard", "actionImportCard_actionPerformed", e);
         }
     }
 

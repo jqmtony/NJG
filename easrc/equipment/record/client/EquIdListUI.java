@@ -3,6 +3,7 @@
  */
 package com.kingdee.eas.port.equipment.record.client;
 
+import java.awt.Component;
 import java.awt.Dialog;
 import java.awt.Frame;
 import java.awt.Window;
@@ -11,11 +12,12 @@ import java.io.File;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.SwingUtilities;
 
 import org.apache.log4j.Logger;
@@ -49,11 +51,17 @@ import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.eas.base.permission.client.longtime.ILongTimeTask;
 import com.kingdee.eas.base.permission.client.longtime.LongTimeDialog;
+import com.kingdee.eas.basedata.org.AdminOrgUnitFactory;
+import com.kingdee.eas.basedata.org.IAdminOrgUnit;
 import com.kingdee.eas.basedata.org.OrgConstants;
+import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.common.client.UIContext;
 import com.kingdee.eas.common.client.UIFactoryName;
+import com.kingdee.eas.custom.fi.AssetCardCollection;
+import com.kingdee.eas.custom.fi.AssetCardFactory;
+import com.kingdee.eas.custom.fi.AssetCardInfo;
 import com.kingdee.eas.fi.newrpt.client.designer.io.WizzardIO;
 import com.kingdee.eas.port.equipment.base.client.ImportFaCardUI;
 import com.kingdee.eas.port.equipment.base.enumbase.sbStatusType;
@@ -62,10 +70,8 @@ import com.kingdee.eas.port.equipment.record.EquIdInfo;
 import com.kingdee.eas.port.equipment.record.IEquId;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
-import com.kingdee.eas.util.client.KDTableUtil;
 import com.kingdee.eas.util.client.MsgBox;
-import com.kingdee.eas.xr.IXRBillBase;
-import com.kingdee.eas.xr.XRBillBaseInfo;
+import com.kingdee.eas.xr.app.XRBillStatusEnum;
 
 /**
  * output class name
@@ -686,7 +692,8 @@ public class EquIdListUI extends AbstractEquIdListUI
     public void onLoad() throws Exception {
     	super.onLoad();
     	this.btnImportFacard.setEnabled(true);
-    	this.btnImportFacard.setIcon(EASResource.getIcon("imgTbtn_importcyclostyle"));    	  	
+    	this.btnImportFacard.setIcon(EASResource.getIcon("imgTbtn_importcyclostyle"));    
+    	this.btnImportCard.setEnabled(true);
     }
     
     /**
@@ -973,6 +980,78 @@ public class EquIdListUI extends AbstractEquIdListUI
 		uiWindow.show(); 
 	}
 
+	public void actionImportCard_actionPerformed(ActionEvent e)throws Exception {
+		super.actionImportCard_actionPerformed(e);
+		
+		LongTimeDialog dialog = new LongTimeDialog((JFrame) SwingUtilities.getWindowAncestor(this));    
+        dialog.setLongTimeTask(new ILongTimeTask() {    
+            public Object exec() throws Exception { 
+            	Imp();
+                return "";    
+           }    
+            
+            public void afterExec(Object result) throws Exception {    
+           }    
+        });    
+        Component[] cps=dialog.getContentPane().getComponents();    
+        for(Component cp:cps){    
+            if(cp instanceof JLabel){    
+                ((JLabel) cp).setText("引入正在进行、请稍候.......");    
+            }    
+        }    
+        dialog.show();  
+        
+        refresh(null);
+	}
 	
+	int index = 0;
+	
+	private void Imp() throws BOSException, EASBizException
+	{
+		
+		String sql = "select a.fid from CT_FI_AssetCard a left join CT_REC_EquId b on b.fsourcebillid=a.fid where b.fid is null";
+		
+		EntityViewInfo view = new EntityViewInfo();
+		FilterInfo filInfo = new FilterInfo();
+		filInfo.getFilterItems().add(new FilterItemInfo("id",sql,CompareType.INNER));
+		view.setFilter(filInfo);
+		IAdminOrgUnit iAdminOrgUnit = AdminOrgUnitFactory.getRemoteInstance();
+		IEquId IEquId = EquIdFactory.getRemoteInstance();
+		AssetCardCollection assectCollect = AssetCardFactory.getRemoteInstance().getAssetCardCollection(view);
+		index = 0;
+		for (int i = 0; i < assectCollect.size(); i++) 
+		{
+			AssetCardInfo cardInfo = assectCollect.get(i);
+			if(!IEquId.exists("select id where number='"+cardInfo.getNumber()+"'"))
+				ImportEquInfo(IEquId,iAdminOrgUnit,cardInfo);
+		}
+		if(index!=0)
+			MsgBox.showInfo("引入成功，共成功{"+index+"}条！");
+		else
+			MsgBox.showWarning("没有满足条件的数据，引入失败！");
+	}
+	
+	private void ImportEquInfo(IEquId IEquId,IAdminOrgUnit iAdminOrgUnit,AssetCardInfo info)
+	{
+		try 
+		{
+			EquIdInfo equInfo = new EquIdInfo();
+			equInfo.setId(BOSUuid.create(equInfo.getBOSType()));
+			equInfo.setNumber(info.getNumber());
+			equInfo.setName(info.getName());
+			equInfo.setSsOrgUnit(iAdminOrgUnit.getAdminOrgUnitInfo(new ObjectUuidPK(info.getFICompany().getId())));
+			equInfo.setSourceBillId(info.getId().toString());
+			equInfo.setStatus(XRBillStatusEnum.TEMPORARILYSAVED);
+			
+			IEquId.addnew(equInfo);
+			index+=1;
+		} 
+		catch (EASBizException e) {
+			e.printStackTrace();
+		} 
+		catch (BOSException e) {
+			e.printStackTrace();
+		}
+	}
 
 }
