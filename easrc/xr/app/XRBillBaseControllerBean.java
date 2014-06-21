@@ -49,7 +49,7 @@ public class XRBillBaseControllerBean extends AbstractXRBillBaseControllerBean
 		scmCheckNumberBlank(ctx,model);
 		_checkNumberDup(ctx,null,model);
 		XRBillBaseInfo info = (XRBillBaseInfo)model;
-		if(info.getId()==null){
+		if(info.getId()==null || XRBillStatusEnum.ADD.equals(info.getStatus())){
 			info.setStatus(XRBillStatusEnum.TEMPORARILYSAVED);
 			info.setId(BOSUuid.create(info.getBOSType()));
 		}
@@ -62,7 +62,7 @@ public class XRBillBaseControllerBean extends AbstractXRBillBaseControllerBean
 		XRBillBaseInfo info = (XRBillBaseInfo)model;
 		   boolean isAddNew = isAddNew(ctx, info);
 		   setBillNewNumber(ctx, info, isAddNew, true, "");
-		if(info.getId()==null){
+		   if(info.getId()==null || XRBillStatusEnum.ADD.equals(info.getStatus())){
 			info.setStatus(XRBillStatusEnum.TEMPORARILYSAVED);
 			info.setId(BOSUuid.create(info.getBOSType()));
 		}
