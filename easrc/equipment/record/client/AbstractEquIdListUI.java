@@ -318,7 +318,6 @@ public abstract class AbstractEquIdListUI extends com.kingdee.eas.xr.client.XRBi
     {
         this.toolBar.add(btnAddNew);
         this.toolBar.add(btnCloud);
-        this.toolBar.add(btnXunTong);
         this.toolBar.add(btnView);
         this.toolBar.add(kDSeparatorCloud);
         this.toolBar.add(btnEdit);

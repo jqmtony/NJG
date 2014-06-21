@@ -840,7 +840,7 @@ protected void checkCanEdit(ComproductionInfo billInfo)
             throw new EASBizException(EASBizException.CHECKEXIST);
         } else
         {
-            ((IComproduction)getBizInterface()).actionAudit((ComproductionInfo) getBizInterface().getValue(pk));
+            ((IComproduction)getBizInterface()).actionUnAudit((ComproductionInfo) getBizInterface().getValue(pk));
             refresh(e);
             return;
         }

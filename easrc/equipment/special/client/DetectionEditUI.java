@@ -19,6 +19,7 @@ import com.kingdee.bos.ctrl.swing.KDLayout;
 import com.kingdee.bos.ctrl.swing.KDTextField;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.fi.fa.basedata.FaCatFactory;
@@ -763,7 +764,8 @@ public class DetectionEditUI extends AbstractDetectionEditUI
 		IRowSet rowset = new XRSQLBuilder().appendSql(getCatType()).executeQuery();
 		while(rowset.next())
 		{
-			catMap.add(rowset.getString("catId"));
+			if(UIRuleUtil.isNotNull(rowset.getString("catId")))
+				catMap.add(rowset.getString("catId"));
 		}
 		
 		this.kdtE1.removeRows();

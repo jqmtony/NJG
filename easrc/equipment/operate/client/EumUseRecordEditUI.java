@@ -129,6 +129,7 @@ public class EumUseRecordEditUI extends AbstractEumUseRecordEditUI {
 	public void loadFields() {
 		super.loadFields();
 		contreportTime.setEnabled(false);
+		contreportTime.setVisible(false);
 	}
 
 	/**
