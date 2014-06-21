@@ -277,7 +277,7 @@ public class createCard {
 		cardInfo.setNeatRemValue(price.multiply(neatLeftRate).divide(
 				new BigDecimal(100)));
 
-		String number = getNumber(cardInfo, OrgConstants.CU_VIEW_ID);
+		String number = getNumber(cardInfo, OrgConstants.DEF_CU_ID);
 		cardInfo.setNumber(number);// µ¥¾Ý±àºÅ
 		FaCurDepartmentFactory.getRemoteInstance().save(curDep);
 		FaCurCardFactory.getRemoteInstance().save(cardInfo);
