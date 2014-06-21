@@ -93,6 +93,7 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contcostTemp;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer continvestAmount;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contStatus;
+    protected com.kingdee.bos.ctrl.swing.KDWorkButton btnInvestPlan;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtNumber;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkBizDate;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtbuildType;
@@ -131,6 +132,7 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
 	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtE3_detailPanel = null;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtremark;
     protected com.kingdee.eas.port.pm.invest.YearInvestPlanInfo editData = null;
+    protected ActionInvestPlan actionInvestPlan = null;
     /**
      * output class constructor
      */
@@ -180,6 +182,10 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
         actionUnAudit.putValue(ItemAction.NAME, _tempStr);
         this.actionUnAudit.setBindWorkFlow(true);
          this.actionUnAudit.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+        //actionInvestPlan
+        this.actionInvestPlan = new ActionInvestPlan(this);
+        getActionManager().registerAction("actionInvestPlan", actionInvestPlan);
+         this.actionInvestPlan.addService(new com.kingdee.eas.framework.client.service.PermissionService());
         this.contCreator = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contCreateTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contLastUpdateUser = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -227,6 +233,7 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
         this.contcostTemp = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.continvestAmount = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contStatus = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.btnInvestPlan = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.txtNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.pkBizDate = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.prmtbuildType = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
@@ -308,6 +315,7 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
         this.contcostTemp.setName("contcostTemp");
         this.continvestAmount.setName("continvestAmount");
         this.contStatus.setName("contStatus");
+        this.btnInvestPlan.setName("btnInvestPlan");
         this.txtNumber.setName("txtNumber");
         this.pkBizDate.setName("pkBizDate");
         this.prmtbuildType.setName("prmtbuildType");
@@ -537,6 +545,21 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
         this.contStatus.setBoundLabelLength(100);		
         this.contStatus.setBoundLabelUnderline(true);		
         this.contStatus.setEnabled(false);
+        // btnInvestPlan
+        this.btnInvestPlan.setAction((IItemAction)ActionProxyFactory.getProxy(actionInvestPlan, new Class[] { IItemAction.class }, getServiceContext()));		
+        this.btnInvestPlan.setText(resHelper.getString("btnInvestPlan.text"));
+        this.btnInvestPlan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+                beforeActionPerformed(e);
+                try {
+                    btnInvestPlan_actionPerformed(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                    afterActionPerformed(e);
+                }
+            }
+        });
         // txtNumber		
         this.txtNumber.setRequired(true);		
         this.txtNumber.setEditable(false);
@@ -944,12 +967,14 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
         kDPanel1.add(contCU, new KDLayout.Constraints(696, 57, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         kDContainer1.setBounds(new Rectangle(13, 304, 957, 223));
         kDPanel1.add(kDContainer1, new KDLayout.Constraints(13, 304, 957, 223, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        contcostTemp.setBounds(new Rectangle(13, 282, 270, 19));
-        kDPanel1.add(contcostTemp, new KDLayout.Constraints(13, 282, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contcostTemp.setBounds(new Rectangle(510, 282, 270, 19));
+        kDPanel1.add(contcostTemp, new KDLayout.Constraints(510, 282, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         continvestAmount.setBounds(new Rectangle(13, 83, 270, 19));
         kDPanel1.add(continvestAmount, new KDLayout.Constraints(13, 83, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contStatus.setBounds(new Rectangle(696, 5, 270, 19));
         kDPanel1.add(contStatus, new KDLayout.Constraints(696, 5, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        btnInvestPlan.setBounds(new Rectangle(14, 282, 160, 19));
+        kDPanel1.add(btnInvestPlan, new KDLayout.Constraints(14, 282, 160, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         //contNumber
         contNumber.setBoundEditor(txtNumber);
         //contBizDate
@@ -1464,6 +1489,13 @@ vo.put("reviewStage","1");
     }
 
     /**
+     * output btnInvestPlan_actionPerformed method
+     */
+    protected void btnInvestPlan_actionPerformed(java.awt.event.ActionEvent e) throws Exception
+    {
+    }
+
+    /**
      * output prmtbuildType_dataChanged method
      */
     protected void prmtbuildType_dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) throws Exception
@@ -1708,6 +1740,14 @@ vo.put("reviewStage","1");
     {
         super.actionUnAudit_actionPerformed(e);
     }
+    	
+
+    /**
+     * output actionInvestPlan_actionPerformed method
+     */
+    public void actionInvestPlan_actionPerformed(ActionEvent e) throws Exception
+    {
+    }
 	public RequestContext prepareActionSubmit(IItemAction itemAction) throws Exception {
 			RequestContext request = super.prepareActionSubmit(itemAction);		
 		if (request != null) {
@@ -1729,6 +1769,47 @@ vo.put("reviewStage","1");
 	
 	public boolean isPrepareActionUnAudit() {
     	return false;
+    }
+	public RequestContext prepareActionInvestPlan(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionInvestPlan() {
+    	return false;
+    }
+
+    /**
+     * output ActionInvestPlan class
+     */     
+    protected class ActionInvestPlan extends ItemAction {     
+    
+        public ActionInvestPlan()
+        {
+            this(null);
+        }
+
+        public ActionInvestPlan(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            _tempStr = resHelper.getString("ActionInvestPlan.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionInvestPlan.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionInvestPlan.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractYearInvestPlanEditUI.this, "ActionInvestPlan", "actionInvestPlan_actionPerformed", e);
+        }
     }
 
     /**

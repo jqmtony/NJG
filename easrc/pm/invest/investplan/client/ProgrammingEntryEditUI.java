@@ -146,6 +146,7 @@ public class ProgrammingEntryEditUI extends AbstractProgrammingEntryEditUI
 		txtAmount.addDataChangeListener(new DataChangeListener() {
 			public void dataChanged(DataChangeEvent e) {
 				if (e.getOldValue() != e.getNewValue()) {
+					
 
 				}
 			}

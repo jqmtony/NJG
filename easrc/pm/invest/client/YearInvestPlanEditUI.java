@@ -29,6 +29,8 @@ import com.kingdee.bos.dao.AbstractObjectValue;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.ui.face.IUIWindow;
+import com.kingdee.bos.ui.face.UIFactory;
 import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.eas.base.core.fm.ClientVerifyHelper;
 import com.kingdee.eas.base.permission.UserInfo;
@@ -38,6 +40,8 @@ import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
 import com.kingdee.eas.basedata.person.PersonInfo;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
+import com.kingdee.eas.common.client.UIContext;
+import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.port.pm.base.BuildTypeInfo;
 import com.kingdee.eas.port.pm.base.CostTypeTreeFactory;
 import com.kingdee.eas.port.pm.base.ICostType;
@@ -46,10 +50,14 @@ import com.kingdee.eas.port.pm.invest.CostTempE1Collection;
 import com.kingdee.eas.port.pm.invest.CostTempE1Info;
 import com.kingdee.eas.port.pm.invest.CostTempInfo;
 import com.kingdee.eas.port.pm.invest.ObjectStateEnum;
-import com.kingdee.eas.util.SysUtil;
+import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryCollection;
+import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryInfo;
+import com.kingdee.eas.port.pm.invest.investplan.ProgrammingFactory;
+import com.kingdee.eas.port.pm.invest.investplan.ProgrammingInfo;
+import com.kingdee.eas.port.pm.invest.investplan.client.ProgrammingEditUI;
+import com.kingdee.eas.port.pm.invest.investplan.client.ProgrammingEntryEditUI;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
-import com.kingdee.eas.xr.helper.ClientVerifyXRHelper;
 import com.kingdee.eas.xr.helper.PersonXRHelper;
 
 /**
@@ -123,6 +131,22 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 
 		this.kDContainer1.getContentPane().add(this.kdtEntry,BorderLayout.CENTER);
 		initProWorkButton(this.kDContainer1, false);
+	}
+	
+	public void actionInvestPlan_actionPerformed(ActionEvent e)throws Exception {
+		super.actionInvestPlan_actionPerformed(e);
+		UIContext uiContext = new UIContext(this);
+		IUIWindow uiWindow = null;
+		ProjectInfo project = (ProjectInfo) this.getUIContext().get("treeSelectedObj");
+		uiContext.put("project", project);// 工程项目
+		
+		String oql = "where sourceBillId='"+project.getId()+"'";
+		if(ProgrammingFactory.getRemoteInstance().exists(oql))
+		{
+			uiContext.put("ID", ProgrammingFactory.getRemoteInstance().getProgrammingCollection(oql).get(0).getId());
+		}
+		uiWindow = UIFactory.createUIFactory(UIFactoryName.MODEL).create(ProgrammingEditUI.class.getName(), uiContext, null,oprtState);
+		uiWindow.show();
 	}
 	
 	protected void prmtrequestPerson_dataChanged(DataChangeEvent e)throws Exception {
