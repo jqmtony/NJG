@@ -660,7 +660,7 @@ public class AnnualYearDetailListUI extends AbstractAnnualYearDetailListUI
         ObjectUuidPK pk = new ObjectUuidPK(BOSUuid.read(billID));
         Object o = getBizInterface().getValue(pk);
         AnnualYearDetailInfo onInfo = (AnnualYearDetailInfo)o;
-        if(onInfo.getStatus().equals(XRBillStatusEnum.RELEASED)&&onInfo.isIsConfirmation()){
+        if((onInfo.getStatus().equals(XRBillStatusEnum.RELEASED)||onInfo.getStatus().equals(XRBillStatusEnum.EXECUTION))&&onInfo.isIsConfirmation()){
 	    	IUIWindow uiWindow = null;
 			UIContext context = new UIContext(this);
 			context.put("ID", billID);
@@ -675,7 +675,7 @@ public class AnnualYearDetailListUI extends AbstractAnnualYearDetailListUI
 	    }
 	    else
 	    {
-	    	MsgBox.showWarning("单据没有确认，不能录入检测信息!");SysUtil.abort();
+	    	MsgBox.showWarning("单据状态不是下达或者没有确认，不能录入检测信息!");SysUtil.abort();
 	    }
     }
     

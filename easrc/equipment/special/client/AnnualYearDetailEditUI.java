@@ -12,10 +12,12 @@ import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.framework.*;
+import com.kingdee.eas.port.equipment.base.enumbase.CheckResult;
 import com.kingdee.eas.port.equipment.operate.ComproductionInfo;
 import com.kingdee.eas.port.equipment.special.AnnualYearDetailFactory;
 import com.kingdee.eas.port.equipment.special.AnnualYearDetailInfo;
@@ -799,6 +801,16 @@ public class AnnualYearDetailEditUI extends AbstractAnnualYearDetailEditUI
 	
 	//确认检测信息
 	public void actionConfirmation_actionPerformed(ActionEvent e)throws Exception {
+		for(int i = 0;i<kdtEntry.getRowCount();i++){
+			if(UIRuleUtil.getBoolean(kdtEntry.getCell(i, "check").getValue())){
+				CheckResult result = UIRuleUtil.isNotNull(kdtEntry.getCell(i, "result").getValue())?(CheckResult)kdtEntry.getCell(i, "result").getValue():null;
+				if(result==null||result.equals(CheckResult.NULL))
+				{
+					MsgBox.showInfo("第{"+(i+1)+"}行设备是否检测已勾选，检测结果不能为空!");
+					SysUtil.abort();
+				}
+			}
+		}
 		super.actionConfirmation_actionPerformed(e);
 		storeFields();
 		editData.setStatus(XRBillStatusEnum.EXECUTION);
@@ -1000,4 +1012,7 @@ public class AnnualYearDetailEditUI extends AbstractAnnualYearDetailEditUI
 		loadFields();
 		setSaved(true);
     }
+    
+
+ 
 }

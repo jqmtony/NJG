@@ -713,6 +713,7 @@ public class DetectionEditUI extends AbstractDetectionEditUI
 		IRowSet rowset = new XRSQLBuilder().appendSql(getCatType()).executeQuery();
 		while(rowset.next())
 		{
+			if(UIRuleUtil.isNotNull(rowset.getString("catId")))
 			catMap.add(rowset.getString("catId"));
 		}
 		
