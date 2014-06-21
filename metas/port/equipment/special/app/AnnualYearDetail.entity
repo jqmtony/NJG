@@ -785,6 +785,58 @@
             </parameters>
             <configured>false</configured>
         </method>
+        <method>
+            <name>confirm</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].methods.method[confirm].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].methods.method[confirm].description</description>
+            <innerID>162d918f-8f2c-4999-8ea1-4aef233a29ed</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].methods.method[confirm].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].methods.method[confirm].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.port.equipment.special.app.AnnualYearDetail</metadataRef>
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>unConfirm</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].methods.method[unConfirm].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].methods.method[unConfirm].description</description>
+            <innerID>f3736a95-766f-4e58-a1bb-149c03724254</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].methods.method[unConfirm].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].methods.method[unConfirm].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.port.equipment.special.app.AnnualYearDetail</metadataRef>
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
     </methods>
     <isAbstract>false</isAbstract>
     <bizUnitPK>com.kingdee.eas.port.equipment.special.AnnualYearDetail</bizUnitPK>
@@ -822,6 +874,26 @@
                 <key name="name" value="R_AnnualYearDetail_AdminOrgUnit_useDpatmen" />
             </relationship>
         </linkProperty>
+        <ownProperty>
+            <name>isConfirmation</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].properties.ownProperty[isConfirmation].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].properties.ownProperty[isConfirmation].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>Boolean</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>1</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].properties.ownProperty[isConfirmation].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFIsConfirmation" />
+            </mappingField>
+        </ownProperty>
     </properties>
     <logicalKey>
         <name>id</name>
@@ -1214,6 +1286,90 @@
                 </formalParameter>
             </formalParameters>
         </event>
+        <event>
+            <name>confirmEvent</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[confirmEvent].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[confirmEvent].description</description>
+            <userDefined>true</userDefined>
+            <eventMethods>
+                <eventMethod>
+                    <name>162d918f-8f2c-4999-8ea1-4aef233a29ed</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[confirmEvent].eventMethods.eventMethod[162d918f-8f2c-4999-8ea1-4aef233a29ed].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[confirmEvent].eventMethods.eventMethod[162d918f-8f2c-4999-8ea1-4aef233a29ed].description</description>
+                    <entityMethodRef>
+                        <key name="name" value="confirm" />
+                        <key name="innerID" value="162d918f-8f2c-4999-8ea1-4aef233a29ed" />
+                    </entityMethodRef>
+                    <parameterMappings>
+                        <parameterMapping>
+                            <name />
+                            <alias>entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[confirmEvent].eventMethods.eventMethod[162d918f-8f2c-4999-8ea1-4aef233a29ed].parameterMappings.parameterMappingalias</alias>
+                            <description>entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[confirmEvent].eventMethods.eventMethod[162d918f-8f2c-4999-8ea1-4aef233a29ed].parameterMappings.parameterMappingdescription</description>
+                            <formalParameterInnerID>e54c8295-0e43-41a9-a41f-78a713ca5367evfp</formalParameterInnerID>
+                            <actualParameterIndex>0</actualParameterIndex>
+                            <isBOPK>true</isBOPK>
+                        </parameterMapping>
+                    </parameterMappings>
+                </eventMethod>
+            </eventMethods>
+            <formalParameters>
+                <formalParameter>
+                    <innerID>e54c8295-0e43-41a9-a41f-78a713ca5367evfp</innerID>
+                    <userDefined>true</userDefined>
+                    <parameter>
+                        <name>model</name>
+                        <alias>entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[confirmEvent].formalParameters.formalParameter.parameter[model].alias</alias>
+                        <description>entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[confirmEvent].formalParameters.formalParameter.parameter[model].description</description>
+                        <direction>in</direction>
+                        <dataType>ObjectValue</dataType>
+                        <metadataRef>com.kingdee.eas.port.equipment.special.app.AnnualYearDetail</metadataRef>
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </formalParameter>
+            </formalParameters>
+        </event>
+        <event>
+            <name>unConfirmEvent</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[unConfirmEvent].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[unConfirmEvent].description</description>
+            <userDefined>true</userDefined>
+            <eventMethods>
+                <eventMethod>
+                    <name>f3736a95-766f-4e58-a1bb-149c03724254</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[unConfirmEvent].eventMethods.eventMethod[f3736a95-766f-4e58-a1bb-149c03724254].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[unConfirmEvent].eventMethods.eventMethod[f3736a95-766f-4e58-a1bb-149c03724254].description</description>
+                    <entityMethodRef>
+                        <key name="name" value="unConfirm" />
+                        <key name="innerID" value="f3736a95-766f-4e58-a1bb-149c03724254" />
+                    </entityMethodRef>
+                    <parameterMappings>
+                        <parameterMapping>
+                            <name />
+                            <alias>entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[unConfirmEvent].eventMethods.eventMethod[f3736a95-766f-4e58-a1bb-149c03724254].parameterMappings.parameterMappingalias</alias>
+                            <description>entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[unConfirmEvent].eventMethods.eventMethod[f3736a95-766f-4e58-a1bb-149c03724254].parameterMappings.parameterMappingdescription</description>
+                            <formalParameterInnerID>d4fb851c-2171-4d36-a15b-ef05ff99a603evfp</formalParameterInnerID>
+                            <actualParameterIndex>0</actualParameterIndex>
+                            <isBOPK>true</isBOPK>
+                        </parameterMapping>
+                    </parameterMappings>
+                </eventMethod>
+            </eventMethods>
+            <formalParameters>
+                <formalParameter>
+                    <innerID>d4fb851c-2171-4d36-a15b-ef05ff99a603evfp</innerID>
+                    <userDefined>true</userDefined>
+                    <parameter>
+                        <name>model</name>
+                        <alias>entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[unConfirmEvent].formalParameters.formalParameter.parameter[model].alias</alias>
+                        <description>entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[unConfirmEvent].formalParameters.formalParameter.parameter[model].description</description>
+                        <direction>in</direction>
+                        <dataType>ObjectValue</dataType>
+                        <metadataRef>com.kingdee.eas.port.equipment.special.app.AnnualYearDetail</metadataRef>
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </formalParameter>
+            </formalParameters>
+        </event>
     </events>
     <defaultView>
         <name />
@@ -1364,6 +1520,54 @@
             <lang locale="zh_CN" value="值对象" />
             <lang locale="zh_HK" value="值對象" />
             <lang locale="zh_TW" value="值對象" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[confirmEvent].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="确认事件" />
+            <lang locale="zh_HK" value="確認事件" />
+            <lang locale="zh_TW" value="確認事件" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[confirmEvent].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[confirmEvent].eventMethods.eventMethod[162d918f-8f2c-4999-8ea1-4aef233a29ed].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[confirmEvent].eventMethods.eventMethod[162d918f-8f2c-4999-8ea1-4aef233a29ed].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[confirmEvent].eventMethods.eventMethod[162d918f-8f2c-4999-8ea1-4aef233a29ed].parameterMappings.parameterMappingalias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[confirmEvent].eventMethods.eventMethod[162d918f-8f2c-4999-8ea1-4aef233a29ed].parameterMappings.parameterMappingdescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[confirmEvent].formalParameters.formalParameter.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[confirmEvent].formalParameters.formalParameter.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[confirmationEvent].alias">
             <lang locale="en_US" value="null" />
@@ -1653,6 +1857,54 @@
             <lang locale="zh_HK" value="值對象" />
             <lang locale="zh_TW" value="值對象" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[unConfirmEvent].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="反确认事件" />
+            <lang locale="zh_HK" value="反確認事件" />
+            <lang locale="zh_TW" value="反確認事件" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[unConfirmEvent].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[unConfirmEvent].eventMethods.eventMethod[f3736a95-766f-4e58-a1bb-149c03724254].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[unConfirmEvent].eventMethods.eventMethod[f3736a95-766f-4e58-a1bb-149c03724254].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[unConfirmEvent].eventMethods.eventMethod[f3736a95-766f-4e58-a1bb-149c03724254].parameterMappings.parameterMappingalias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[unConfirmEvent].eventMethods.eventMethod[f3736a95-766f-4e58-a1bb-149c03724254].parameterMappings.parameterMappingdescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[unConfirmEvent].formalParameters.formalParameter.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[unConfirmEvent].formalParameters.formalParameter.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[unConfirmationEvent].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="反确认检测信息事件" />
@@ -1869,6 +2121,30 @@
             <lang locale="zh_CN" value="主键" />
             <lang locale="zh_HK" value="主鍵" />
             <lang locale="zh_TW" value="主鍵" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].methods.method[confirm].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="确认" />
+            <lang locale="zh_HK" value="確認" />
+            <lang locale="zh_TW" value="確認" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].methods.method[confirm].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].methods.method[confirm].parameters.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].methods.method[confirm].parameters.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].methods.method[confirmation].alias">
             <lang locale="en_US" value="null" />
@@ -2206,6 +2482,30 @@
             <lang locale="zh_HK" value="pks" />
             <lang locale="zh_TW" value="pks" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].methods.method[unConfirm].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="反确认" />
+            <lang locale="zh_HK" value="反確認" />
+            <lang locale="zh_TW" value="反確認" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].methods.method[unConfirm].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].methods.method[unConfirm].parameters.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].methods.method[unConfirm].parameters.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].methods.method[unConfirmation].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="反确认检测信息" />
@@ -2398,6 +2698,69 @@
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].properties.linkProperty[useDpatmen].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].properties.ownProperty[isConfirmation].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否确认" />
+            <lang locale="zh_HK" value="是否確認" />
+            <lang locale="zh_TW" value="是否確認" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].properties.ownProperty[isConfirmation].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否确认" />
+            <lang locale="zh_HK" value="是否確認" />
+            <lang locale="zh_TW" value="是否確認" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].properties.ownProperty[isConfirmation].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否确认" />
+            <lang locale="zh_HK" value="是否確認" />
+            <lang locale="zh_TW" value="是否確認" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].properties.ownProperty[isConfirmation].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].properties.ownProperty[isConfirmation].extendedProperty.bizDataType">
+            <lang locale="en_US" value="BOOLEAN" />
+            <lang locale="zh_CN" value="BOOLEAN" />
+            <lang locale="zh_TW" value="BOOLEAN" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].properties.ownProperty[isConfirmation].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].properties.ownProperty[isConfirmation].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].properties.ownProperty[isConfirmation].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].properties.ownProperty[isConfirmation].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].properties.ownProperty[isConfirmation].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].properties.ownProperty[isConfirmation].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].properties.ownProperty[isConfirmation].extendedProperty.isVisibleForKDTable">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />

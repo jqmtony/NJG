@@ -1541,6 +1541,37 @@
                 <key name="name" value="AnnualYearDetailQuery" />
             </query>
         </propertyUnit>
+        <queryField>
+            <name>isConfirmation</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailQuery].units.queryField[isConfirmation].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Boolean</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>d02c69ab-e71c-412f-8006-e85a3ca9d313</key>
+                    <parentUnit>
+                        <key name="name" value="isConfirmation" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="AnnualYearDetail" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="isConfirmation" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.special.app" />
+                <key name="name" value="AnnualYearDetailQuery" />
+            </query>
+        </queryField>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -2356,6 +2387,22 @@
             <lang locale="zh_CN" value="ID" />
             <lang locale="zh_HK" value="ID" />
             <lang locale="zh_TW" value="ID" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailQuery].units.queryField[isConfirmation].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否确认" />
+            <lang locale="zh_HK" value="是否確認" />
+            <lang locale="zh_TW" value="是否確認" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailQuery].units.queryField[isConfirmation].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailQuery].units.queryField[isConfirmation].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailQuery].units.queryField[lastUpdateTime].displayName">
             <lang locale="en_US" value="lastUpdateTime" />
