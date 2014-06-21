@@ -426,4 +426,30 @@ public class AnnualYearDetail extends XRBillBase implements IAnnualYearDetail
             throw new EJBRemoteException(err);
         }
     }
+    /**
+     *确认-User defined method
+     *@param model model
+     */
+    public void confirm(AnnualYearDetailInfo model) throws BOSException
+    {
+        try {
+            getController().confirm(getContext(), model);
+        }
+        catch(RemoteException err) {
+            throw new EJBRemoteException(err);
+        }
+    }
+    /**
+     *反确认-User defined method
+     *@param model model
+     */
+    public void unConfirm(AnnualYearDetailInfo model) throws BOSException
+    {
+        try {
+            getController().unConfirm(getContext(), model);
+        }
+        catch(RemoteException err) {
+            throw new EJBRemoteException(err);
+        }
+    }
 }

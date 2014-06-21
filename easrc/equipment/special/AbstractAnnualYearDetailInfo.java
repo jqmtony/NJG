@@ -36,6 +36,17 @@ public class AbstractAnnualYearDetailInfo extends com.kingdee.eas.xr.XRBillBaseI
     {
         put("useDpatmen", item);
     }
+    /**
+     * Object:设备检测明细表's 是否确认property 
+     */
+    public boolean isIsConfirmation()
+    {
+        return getBoolean("isConfirmation");
+    }
+    public void setIsConfirmation(boolean item)
+    {
+        setBoolean("isConfirmation", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("22366297");

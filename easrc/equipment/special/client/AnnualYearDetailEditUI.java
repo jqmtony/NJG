@@ -314,7 +314,12 @@ public class AnnualYearDetailEditUI extends AbstractAnnualYearDetailEditUI
      */
     public void actionSubmit_actionPerformed(ActionEvent e) throws Exception
     {
+    	if(editData.getStatus().equals(XRBillStatusEnum.RELEASED)){
+    		MsgBox.showInfo("此单据已下达，不需要提交!");
+			SysUtil.abort();
+    	}
         super.actionSubmit_actionPerformed(e);
+        
     }
 
     /**
@@ -683,6 +688,8 @@ public class AnnualYearDetailEditUI extends AbstractAnnualYearDetailEditUI
 	        btnUnIssued.setIcon(EASResource.getIcon("imgTbtn_fmakeknown"));
 	        btnConfirmation.setIcon(EASResource.getIcon("imgTbtn_affirm"));
 	        btnUnConfirmation.setIcon(EASResource.getIcon("imgTbtn_faffirm"));
+	        btnConfirm.setIcon(EASResource.getIcon("imgTbtn_affirm"));
+	        btnUnConfirm.setIcon(EASResource.getIcon("imgTbtn_faffirm"));
 	    }
 
 	public void onLoad() throws Exception {
@@ -707,12 +714,21 @@ public class AnnualYearDetailEditUI extends AbstractAnnualYearDetailEditUI
 		super.onLoad();
 		btnIssued.setEnabled(false);
 		btnUnIssued.setEnabled(false);
+		btnConfirm.setEnabled(false);
+		btnUnConfirm.setEnabled(false);
 		if(editData.getStatus().equals(XRBillStatusEnum.AUDITED)){
 			btnIssued.setEnabled(true);
 		}
 		this.kdtEntry.getColumn("useUnit").getStyleAttributes().setHided(true);
-		if(editData.getStatus().equals(XRBillStatusEnum.RELEASED)){
+		if(editData.getStatus().equals(XRBillStatusEnum.RELEASED)&&! editData.isIsConfirmation()){
 		    btnUnIssued.setEnabled(true);
+		    btnConfirm.setEnabled(true);
+		}
+		if(editData.isIsConfirmation()){
+			btnConfirm.setEnabled(false);
+			btnUnConfirm.setEnabled(true);
+			btnEdit.setEnabled(false);
+			btnAddNew.setEnabled(false);
 		}
 		if(getUIContext().get("FeedInfor")!=null)
 		{
@@ -738,6 +754,7 @@ public class AnnualYearDetailEditUI extends AbstractAnnualYearDetailEditUI
 			this.kdtEntry.getColumn("beizhu").getStyleAttributes().setLocked(true);
 			this.kdtEntry.getColumn("result").getStyleAttributes().setLocked(false);
 			this.kdtEntry.getColumn("check").getStyleAttributes().setLocked(false);
+			this.pkBizDate.setEnabled(true);
 		
 			
 //			this.kdtEntry_detailPanel.getAddNewLineButton().setEnabled(false);
@@ -832,6 +849,7 @@ public class AnnualYearDetailEditUI extends AbstractAnnualYearDetailEditUI
 			btnUnAudit.setEnabled(false);
 			btnSave.setEnabled(false);
 			btnSubmit.setEnabled(false);
+			btnConfirm.setEnabled(true);
 			setSaved(true);
 		}else{
 			MsgBox.showInfo("此单据未审核，不允许下达!");
@@ -852,6 +870,7 @@ public class AnnualYearDetailEditUI extends AbstractAnnualYearDetailEditUI
 			
 			btnUnIssued.setEnabled(false);
 			btnIssued.setEnabled(true);
+			btnEdit.setEnabled(true);
 			ObjectUuidPK pk = new ObjectUuidPK(editData.getId());
 			setDataObject(getValue(pk));
 			loadFields();
@@ -890,13 +909,15 @@ public class AnnualYearDetailEditUI extends AbstractAnnualYearDetailEditUI
      */
     public void actionEdit_actionPerformed(ActionEvent e) throws Exception
     {
-    	if(editData.getStatus().equals(XRBillStatusEnum.RELEASED)){
-    		MsgBox.showInfo("此单据已下达，不允许修改!");
-			SysUtil.abort();
-    	}
         super.actionEdit_actionPerformed(e);
+        btnSave.setEnabled(true);
     }
 
+    
+    protected void checkCanEdit() throws Exception {
+    	
+    	
+    }
     /**
      * 删除
      */
@@ -904,6 +925,14 @@ public class AnnualYearDetailEditUI extends AbstractAnnualYearDetailEditUI
     {
     	if(editData.getStatus().equals(XRBillStatusEnum.RELEASED)){
     		MsgBox.showInfo("此单据已下达，不允许删除!");
+			SysUtil.abort();
+    	}
+    	if(editData.getStatus().equals(XRBillStatusEnum.FINISH)){
+    		MsgBox.showInfo("此单据已完成，不允许删除!");
+			SysUtil.abort();
+    	}
+    	if(editData.getStatus().equals(XRBillStatusEnum.EXECUTION)){
+    		MsgBox.showInfo("此单据已执行，不允许删除!");
 			SysUtil.abort();
     	}
         super.actionRemove_actionPerformed(e);
@@ -931,9 +960,44 @@ public class AnnualYearDetailEditUI extends AbstractAnnualYearDetailEditUI
 			btnIssued.setEnabled(true);
 			btnUnIssued.setEnabled(false);
 		}else
-		if(info.getStatus() != null&& info.getStatus() == XRBillStatusEnum.RELEASED){
+		if(info.getStatus() != null&& info.getStatus() == XRBillStatusEnum.RELEASED&&!info.isIsConfirmation()){
 		    btnUnIssued.setEnabled(true);
 			btnIssued.setEnabled(false);
+			btnConfirm.setEnabled(true);
 		}
+    }
+    
+    //确认明细
+    public void actionConfirm_actionPerformed(ActionEvent e) throws Exception {
+    	super.actionConfirm_actionPerformed(e);
+    	storeFields();
+    	editData.setIsConfirmation(true);
+    	((IAnnualYearDetail)getBillInterface()).update(new ObjectUuidPK(editData.getId()), editData);
+    	btnConfirm.setEnabled(false);
+    	btnUnConfirm.setEnabled(true);
+    	btnEdit.setEnabled(false);
+    	btnUnIssued.setEnabled(false);
+    	btnSave.setEnabled(false);
+    	btnSubmit.setEnabled(false);
+		ObjectUuidPK pk = new ObjectUuidPK(editData.getId());
+		setDataObject(getValue(pk));
+		loadFields();
+		setSaved(true);
+    }
+    
+      //反确认明细
+    public void actionUnConfirm_actionPerformed(ActionEvent e) throws Exception {
+    	super.actionUnConfirm_actionPerformed(e);
+    	storeFields();
+    	editData.setIsConfirmation(false);
+    	((IAnnualYearDetail)getBillInterface()).update(new ObjectUuidPK(editData.getId()), editData);
+    	btnConfirm.setEnabled(true);
+    	btnUnConfirm.setEnabled(false);
+    	btnEdit.setEnabled(true);
+    	btnUnIssued.setEnabled(true);
+		ObjectUuidPK pk = new ObjectUuidPK(editData.getId());
+		setDataObject(getValue(pk));
+		loadFields();
+		setSaved(true);
     }
 }

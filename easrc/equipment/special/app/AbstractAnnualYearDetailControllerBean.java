@@ -704,6 +704,46 @@ public abstract class AbstractAnnualYearDetailControllerBean extends XRBillBaseC
         return;
     }
 
+    public void confirm(Context ctx, AnnualYearDetailInfo model) throws BOSException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("162d918f-8f2c-4999-8ea1-4aef233a29ed"), new Object[]{ctx, model});
+            invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
+            _confirm(ctx, model);
+            }
+            invokeServiceAfter(svcCtx);
+        } catch (BOSException ex) {
+            throw ex;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected void _confirm(Context ctx, IObjectValue model) throws BOSException
+    {    	
+        return;
+    }
+
+    public void unConfirm(Context ctx, AnnualYearDetailInfo model) throws BOSException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("f3736a95-766f-4e58-a1bb-149c03724254"), new Object[]{ctx, model});
+            invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
+            _unConfirm(ctx, model);
+            }
+            invokeServiceAfter(svcCtx);
+        } catch (BOSException ex) {
+            throw ex;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected void _unConfirm(Context ctx, IObjectValue model) throws BOSException
+    {    	
+        return;
+    }
+
     public XRBillBaseCollection getXRBillBaseCollection (Context ctx) throws BOSException
     {
     	return (XRBillBaseCollection)(getAnnualYearDetailCollection(ctx).cast(XRBillBaseCollection.class));

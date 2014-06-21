@@ -612,6 +612,14 @@ public class AnnualYearDetailListUI extends AbstractAnnualYearDetailListUI
        	  MsgBox.showInfo("此单据已下达，不能删除!");
    			SysUtil.abort();
          }
+         if(ayInfo.getStatus()== XRBillStatusEnum.FINISH){
+          	  MsgBox.showInfo("此单据已完成，不允许删除!");
+      			SysUtil.abort();
+            }
+         if(ayInfo.getStatus()== XRBillStatusEnum.EXECUTION){
+          	  MsgBox.showInfo("此单据已执行，不允许删除!");
+      			SysUtil.abort();
+            }
         super.actionRemove_actionPerformed(e);
   	 
     }
@@ -622,18 +630,18 @@ public class AnnualYearDetailListUI extends AbstractAnnualYearDetailListUI
     public void actionEdit_actionPerformed(ActionEvent e) throws Exception
     {
     	
-    	  checkSelected();
-          String billID = getSelectedKeyValue();
-          if(billID == null)
-              return;
-          ObjectUuidPK pk = new ObjectUuidPK(BOSUuid.read(billID));
-          SelectorItemCollection sc = new SelectorItemCollection();
-          Object o = getBizInterface().getValue(pk, sc);
-          AnnualYearDetailInfo ayInfo = (AnnualYearDetailInfo)o;
-          if(ayInfo.getStatus()== XRBillStatusEnum.RELEASED){
-        	  MsgBox.showInfo("此单据已下达，不能修改!");
-    			SysUtil.abort();
-          }
+//    	  checkSelected();
+//          String billID = getSelectedKeyValue();
+//          if(billID == null)
+//              return;
+//          ObjectUuidPK pk = new ObjectUuidPK(BOSUuid.read(billID));
+//          SelectorItemCollection sc = new SelectorItemCollection();
+//          Object o = getBizInterface().getValue(pk, sc);
+//          AnnualYearDetailInfo ayInfo = (AnnualYearDetailInfo)o;
+//          if(ayInfo.getStatus()== XRBillStatusEnum.RELEASED){
+//        	  MsgBox.showInfo("此单据已下达，不能修改!");
+//    			SysUtil.abort();
+//          }
         super.actionEdit_actionPerformed(e);
   	
     }
@@ -652,7 +660,7 @@ public class AnnualYearDetailListUI extends AbstractAnnualYearDetailListUI
         ObjectUuidPK pk = new ObjectUuidPK(BOSUuid.read(billID));
         Object o = getBizInterface().getValue(pk);
         AnnualYearDetailInfo onInfo = (AnnualYearDetailInfo)o;
-        if(onInfo.getStatus().equals(XRBillStatusEnum.RELEASED)||onInfo.getStatus().equals(XRBillStatusEnum.EXECUTION)){
+        if(onInfo.getStatus().equals(XRBillStatusEnum.RELEASED)&&onInfo.isIsConfirmation()){
 	    	IUIWindow uiWindow = null;
 			UIContext context = new UIContext(this);
 			context.put("ID", billID);
@@ -667,7 +675,7 @@ public class AnnualYearDetailListUI extends AbstractAnnualYearDetailListUI
 	    }
 	    else
 	    {
-	    	MsgBox.showWarning("单据不是已下达或者已执行状态!");SysUtil.abort();
+	    	MsgBox.showWarning("单据没有确认，不能录入检测信息!");SysUtil.abort();
 	    }
     }
     
