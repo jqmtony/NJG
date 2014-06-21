@@ -26,6 +26,7 @@ import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
+import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.IUIWindow;
@@ -926,6 +927,11 @@ public class AnnualYearPlanEditUI extends AbstractAnnualYearPlanEditUI
 		EntityViewInfo view = new EntityViewInfo();
 		FilterInfo filInfo = new FilterInfo();
 		
+		SelectorItemCollection sic = new SelectorItemCollection();
+		sic.add("id");
+		sic.add("status");
+		sic.add("isConfirmation");
+		
 		for (int i = 0; i < this.kdtEntry.getRowCount(); i++) 
 		{
 			IRow row = this.kdtEntry.getRow(i);
@@ -941,6 +947,7 @@ public class AnnualYearPlanEditUI extends AbstractAnnualYearPlanEditUI
 			filInfo = new FilterInfo();
 			filInfo.getFilterItems().add(new FilterItemInfo("id",sql,CompareType.INNER));
 			view.setFilter(filInfo);
+			view.setSelector(sic);
 			if(!iAnnualYearDetail.exists(filInfo))
 				continue;
 			row.getStyleAttributes().setBackground(a);
