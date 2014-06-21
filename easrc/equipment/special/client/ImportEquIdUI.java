@@ -34,6 +34,7 @@ import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.UIRuleUtil;
+import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.eas.base.permission.client.longtime.ILongTimeTask;
 import com.kingdee.eas.base.permission.client.longtime.LongTimeDialog;
 import com.kingdee.eas.common.client.SysContext;
@@ -44,6 +45,7 @@ import com.kingdee.eas.port.equipment.base.enumbase.CheckType;
 import com.kingdee.eas.port.equipment.record.EquIdFactory;
 import com.kingdee.eas.port.equipment.record.EquIdInfo;
 import com.kingdee.eas.port.equipment.record.IEquId;
+import com.kingdee.eas.port.equipment.special.AnnualYearPlanEntryInfo;
 import com.kingdee.eas.port.equipment.uitl.ToolHelp;
 import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
 import com.kingdee.eas.util.SysUtil;
@@ -266,6 +268,9 @@ public class ImportEquIdUI extends AbstractImportEquIdUI
 	
 	private void InitEntry(IRow row,EquIdInfo equIdInfo,CheckType checktype) throws DataAccessException, BOSException
 	{
+		AnnualYearPlanEntryInfo entryInfo = new AnnualYearPlanEntryInfo();
+		entryInfo.setId(BOSUuid.create(entryInfo.getBOSType()));
+		row.setUserObject(entryInfo);
 		row.getCell("equipmentName").setValue(UIRuleUtil.getString(UIRuleUtil.getProperty((IObjectValue)row.getCell("zdaNumber").getValue(),"name")));
 		row.getCell("code").setValue(UIRuleUtil.getString(UIRuleUtil.getProperty((IObjectValue)row.getCell("zdaNumber").getValue(),"code")));
 		row.getCell("useUnit").setValue(UIRuleUtil.getString(UIRuleUtil.getProperty((IObjectValue)row.getCell("zdaNumber").getValue(),"ssOrgUnit.name")));

@@ -4,6 +4,7 @@
 package com.kingdee.eas.port.equipment.special.client;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Date;
@@ -14,24 +15,38 @@ import javax.swing.JMenuItem;
 
 import org.apache.log4j.Logger;
 
+import com.kingdee.bos.BOSException;
+import com.kingdee.bos.ctrl.kdf.table.IRow;
 import com.kingdee.bos.ctrl.kdf.table.KDTSelectBlock;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.swing.KDPopupMenu;
 import com.kingdee.bos.ctrl.swing.KDTextField;
 import com.kingdee.bos.ctrl.swing.KDWorkButton;
 import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.bos.metadata.entity.EntityViewInfo;
+import com.kingdee.bos.metadata.entity.FilterInfo;
+import com.kingdee.bos.metadata.entity.FilterItemInfo;
+import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.IUIWindow;
 import com.kingdee.bos.ui.face.UIException;
 import com.kingdee.bos.ui.face.UIFactory;
 import com.kingdee.bos.ui.face.UIRuleUtil;
+import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.common.client.UIContext;
 import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.port.equipment.record.EquIdInfo;
+import com.kingdee.eas.port.equipment.special.AnnualYearDetailFactory;
+import com.kingdee.eas.port.equipment.special.AnnualYearDetailInfo;
+import com.kingdee.eas.port.equipment.special.AnnualYearPlanEntryInfo;
+import com.kingdee.eas.port.equipment.special.DetectionE2Factory;
+import com.kingdee.eas.port.equipment.special.IAnnualYearDetail;
+import com.kingdee.eas.port.equipment.special.IDetectionE2;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.MsgBox;
+import com.kingdee.eas.xr.app.XRBillStatusEnum;
 import com.kingdee.eas.xr.helper.Tool;
 
 /**
@@ -41,6 +56,26 @@ public class AnnualYearPlanEditUI extends AbstractAnnualYearPlanEditUI
 {
     private static final Logger logger = CoreUIObject.getLogger(AnnualYearPlanEditUI.class);
     
+    /**
+     * 已生成检查明细
+     */
+    private Color a = new Color(109,169,235);
+    /**
+     * 已下达
+     */
+    private Color b = new Color(220,124,172);
+    /**
+     * 已确认
+     */
+    private Color c = new Color(101,243,122);
+    /**
+     * 已执行
+     */
+    private Color d = new Color(211,145,44);
+    /**
+     * 已生成检测小结
+     */
+    private Color e = new Color(189,200,145);
     /**
      * output class constructor
      */
@@ -54,6 +89,13 @@ public class AnnualYearPlanEditUI extends AbstractAnnualYearPlanEditUI
     public void loadFields()
     {
         super.loadFields();
+        try {
+			setRowColor();
+		} catch (EASBizException e) {
+			e.printStackTrace();
+		} catch (BOSException e) {
+			e.printStackTrace();
+		}
     }
 
     /**
@@ -708,11 +750,13 @@ public class AnnualYearPlanEditUI extends AbstractAnnualYearPlanEditUI
 //		 this.kdtEntry.getColumn("planDate").getStyleAttributes().setLocked(true);
 		 this.kdtEntry.getColumn("endDate").getStyleAttributes().setLocked(true);
 		super.onLoad();
+		InitButtonColor();
 		if(getOprtState().equals(OprtState.ADDNEW)){
 		  pkBizDate.setValue(new Date());
 		  prmtCU.setValue(SysContext.getSysContext().getCurrentCtrlUnit());
 		}
 		InitWorkButtons();
+		
 		
 		KDPopupMenu menu = this.getMenuManager(this.kdtEntry).getMenu();
 		JMenuItem jme = new JMenuItem("批量设置计划检验日期");
@@ -856,4 +900,71 @@ public class AnnualYearPlanEditUI extends AbstractAnnualYearPlanEditUI
 				
 				
 				    }
+		
+		
+	private void InitButtonColor()
+	{
+		this.kDLabel1.setOpaque(true);
+		this.kDLabel2.setOpaque(true);
+		this.kDLabel3.setOpaque(true);
+		this.kDLabel4.setOpaque(true);
+		this.kDLabel5.setOpaque(true);
+		this.kDLabel1.setBackground(a);
+		this.kDLabel2.setBackground(b);
+		this.kDLabel3.setBackground(c);
+		this.kDLabel4.setBackground(d);
+		this.kDLabel5.setBackground(e);
+	}
+	
+	private void setRowColor() throws EASBizException, BOSException
+	{
+		if(editData.getId()==null)
+			return;
+		IAnnualYearDetail iAnnualYearDetail = AnnualYearDetailFactory.getRemoteInstance();
+		IDetectionE2 iDetectionE2 = DetectionE2Factory.getRemoteInstance();
+		
+		EntityViewInfo view = new EntityViewInfo();
+		FilterInfo filInfo = new FilterInfo();
+		
+		for (int i = 0; i < this.kdtEntry.getRowCount(); i++) 
+		{
+			IRow row = this.kdtEntry.getRow(i);
+			AnnualYearPlanEntryInfo annEntryPlanEntryInfo = (AnnualYearPlanEntryInfo)row.getUserObject();
+			EquIdInfo equIdInfo = annEntryPlanEntryInfo.getZdaNumber();
+			if(equIdInfo==null)
+				continue;
+			String equId = equIdInfo.getId().toString();
+			
+			String sql = "select a.fid from CT_SPE_AnnualYearDetail a left join CT_SPE_AnnualYearDetailEntry b on b.fparentid=a.fid " +
+					" where a.fsourceBillId='"+editData.getId()+"' and b.CFZdaNumberID='"+equId+"'";
+			view = new EntityViewInfo();
+			filInfo = new FilterInfo();
+			filInfo.getFilterItems().add(new FilterItemInfo("id",sql,CompareType.INNER));
+			view.setFilter(filInfo);
+			if(!iAnnualYearDetail.exists(filInfo))
+				continue;
+			row.getStyleAttributes().setBackground(a);
+			AnnualYearDetailInfo detailInfo = iAnnualYearDetail.getAnnualYearDetailCollection(view).get(0);
+			
+			XRBillStatusEnum status = detailInfo.getStatus();
+			//下达
+			if(status.equals(XRBillStatusEnum.RELEASED))
+				row.getStyleAttributes().setBackground(b);
+			//确认
+			if(detailInfo.isIsConfirmation())
+				row.getStyleAttributes().setBackground(c);
+			//执行 
+			if(status.equals(XRBillStatusEnum.EXECUTION))
+				row.getStyleAttributes().setBackground(d);
+				
+			//当前设备是否已经有小结
+			if(iDetectionE2.exists("select id where parent.sourceBillId='"+detailInfo.getId()+"' and zdaNumber.id='"+equId+"'"))
+			{
+				row.getStyleAttributes().setBackground(e);
+			}
+		}
+	}
+	
+	
+	
 }

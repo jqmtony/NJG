@@ -3,6 +3,7 @@
  */
 package com.kingdee.eas.port.equipment.record.client;
 
+import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
@@ -17,6 +18,7 @@ import javax.swing.event.ChangeEvent;
 import org.apache.log4j.Logger;
 
 import com.kingdee.bos.BOSException;
+import com.kingdee.bos.ctrl.kdf.table.IRow;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.swing.KDCheckBox;
 import com.kingdee.bos.ctrl.swing.KDFormattedTextField;
@@ -26,8 +28,11 @@ import com.kingdee.bos.ctrl.swing.KDWorkButton;
 import com.kingdee.bos.ctrl.swing.StringUtils;
 import com.kingdee.bos.ctrl.swing.event.DataChangeEvent;
 import com.kingdee.bos.ctrl.swing.event.DataChangeListener;
+import com.kingdee.bos.ctrl.swing.event.SelectorEvent;
+import com.kingdee.bos.ctrl.swing.event.SelectorListener;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.bos.metadata.MetaDataPK;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
@@ -37,6 +42,7 @@ import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.IUIWindow;
 import com.kingdee.bos.ui.face.UIFactory;
+import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.eas.basedata.assistant.client.F7MeasureUnitTreeDetailListUI;
 import com.kingdee.eas.basedata.master.cssp.client.F7SupplierSimpleSelector;
 import com.kingdee.eas.basedata.master.material.client.MaterialClientTools;
@@ -53,6 +59,12 @@ import com.kingdee.eas.fi.fa.basedata.FaUseStatusInfo;
 import com.kingdee.eas.fi.fa.basedata.client.FaCatPromptBox;
 import com.kingdee.eas.fi.fa.manage.FaCurCardFactory;
 import com.kingdee.eas.fi.fa.manage.FaCurCardInfo;
+import com.kingdee.eas.fi.fa.manage.FaManageUtils;
+import com.kingdee.eas.fi.fa.manage.IFaCurCard;
+import com.kingdee.eas.fi.fa.manage.client.CommonQueryWithResultDialog;
+import com.kingdee.eas.fi.fa.manage.client.FACommonProcessor;
+import com.kingdee.eas.fi.fa.manage.client.FaClientUtils;
+import com.kingdee.eas.framework.BillBaseInfo;
 import com.kingdee.eas.port.equipment.insurance.EquInsuranceAccidentCollection;
 import com.kingdee.eas.port.equipment.insurance.EquInsuranceAccidentFactory;
 import com.kingdee.eas.port.equipment.insurance.IEquInsuranceAccident;
@@ -96,7 +108,7 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 	static final String Coll_CU_ID = "NJP";
 	private static final Logger logger = CoreUIObject
 			.getLogger(EquIdEditUI.class);
-
+	private String companyId;
 	/**
 	 * output class constructor
 	 */
@@ -272,9 +284,99 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 		this.prmtinstaller.setSelector(new F7SupplierSimpleSelector(this,this.prmtinstaller));
 		this.prmtdebuger.setSelector(new F7SupplierSimpleSelector(this,this.prmtdebuger));
 		
-		MaterialClientTools.setMeasureUnitF7(
-				this, this.prmtunit);
+		MaterialClientTools.setMeasureUnitF7(this, this.prmtunit);
+		
+		this.prmtasset.addSelectorListener(new SelectorListener(){
+
+			public void willShow(SelectorEvent e) {
+			}
+			
+		});
 	}
+	
+	private void SelectorFaCard() throws Exception
+	{
+		CommonQueryWithResultDialog dialog = initDialog();
+		if(dialog.show() || dialog.hasKeyValue())
+		{
+			ArrayList rowSet = dialog.getSearchResult();
+			IFaCurCard iFaCurCard = FaCurCardFactory.getRemoteInstance();
+			if(rowSet != null && rowSet.size() > 0)
+            {
+				IRow result = (IRow)rowSet.get(0);
+				String cardId = result.getCell("id").getValue().toString();
+				FaCurCardInfo cardInfo = iFaCurCard.getFaCurCardInfo(new ObjectUuidPK(cardId));
+				
+				this.prmtasset.setValue(cardInfo);
+            }
+		} else
+		{
+			SysUtil.abort();
+		}
+	}
+	
+    private CommonQueryWithResultDialog initDialog()throws Exception
+    {
+    	CommonQueryWithResultDialog dialog = new CommonQueryWithResultDialog();
+    	if(getUIWindow() == null)
+    		dialog.setOwner((Component)getUIContext().get("OwnerWindow"));
+    	else
+    		dialog.setOwner(this);
+    	HashMap hmParam = gethmParamD();
+    	boolean isRange = "true".equals(hmParam.get("FA_040").toString());
+    	FACommonProcessor processor = new FACommonProcessor();
+    	processor.setRange(isRange);
+    	dialog.setProcessor(processor);
+    	dialog.setParentUIClassName(getClass().getName());
+    	dialog.setEntityViewInfo(new EntityViewInfo());
+    	dialog.setQueryObjectPK(new MetaDataPK("com.kingdee.eas.fi.fa.manage", "FaCurCardQuery"));
+    	dialog.setTitle(getUITitle());
+    	dialog.setHeight(525);
+    	dialog.setSelectMode(10);
+    	dialog.setOpenType(0);
+    	return dialog;
+    }
+    
+    public HashMap gethmParamD()
+    {
+    	HashMap hmParam = new HashMap();
+    	try
+        {
+    		hmParam = FaManageUtils.getFAParameter(BOSUuid.read(getCurrentCompanyID()));
+        }
+    	catch(Exception e)
+        {
+    		handUIException(e);
+        }
+    	return hmParam;
+    }
+    
+    protected String getCurrentCompanyID()
+    {
+    	if(FaClientUtils.isFromWorkflow(getUIContext()))
+        {
+    		BillBaseInfo initObj = null;
+    		if(getUIContext().get("ID") != null)
+            {
+    			String id = getUIContext().get("ID").toString();
+    			try
+                {
+    				initObj = (BillBaseInfo)getBizInterface().getValue((new StringBuilder()).append("select company.id where id='").append(id).append("'").toString());
+                }
+    			catch(Exception e)
+                {
+    				handleException(e);
+    				SysUtil.abort();
+                }
+            }
+    		companyId = initObj == null ? SysContext.getSysContext().getCurrentFIUnit().getId().toString() : initObj.getCompany().getId().toString();
+        } else
+        	if(FaClientUtils.isFromLink(this))
+        		companyId = (String)getUIContext().get("COMPANY_ID");
+        	else
+        		companyId = SysContext.getSysContext().getCurrentFIUnit().getId().toString();
+    	return companyId;
+    }
 	
 	//市检值改变事件
 	protected void txtcityPeriod_dataChanged(DataChangeEvent e)
