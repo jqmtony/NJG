@@ -49,6 +49,8 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI {
 				new FilterItemInfo("", CompareType.NOTEMPTY));
 		prmtprojectName.setEntityViewInfo(evi);
 		setPreferredSize(new Dimension(1013, 341));
+		contBizStatus.setVisible(false);
+		contDescription.setVisible(false);
 		super.onLoad();
 	}
 
