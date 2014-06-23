@@ -115,6 +115,78 @@
                 <key name="name" value="RepairOrder" />
             </entityObjectRef>
         </operation>
+        <operation>
+            <name>toVoid</name>
+            <alias>functionObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderEditUIFunction].operations.operation[toVoid].alias</alias>
+            <description>functionObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderEditUIFunction].operations.operation[toVoid].description</description>
+            <reverseOperation />
+            <eventMethod>fadeab88-a707-4875-9244-051e9acb6035</eventMethod>
+            <event>toVoidEvent</event>
+            <userDefined>true</userDefined>
+            <uiActionRef>
+                <id>ca3db98c-dc03-41df-9f14-7e9df7b26f41uiaf</id>
+                <uiStatus>EDIT</uiStatus>
+                <webUIStatus />
+                <userDefined>true</userDefined>
+                <uiObjectRef>
+                    <key name="package" value="com.kingdee.eas.port.equipment.maintenance.client" />
+                    <key name="name" value="RepairOrderEditUI" />
+                </uiObjectRef>
+                <actionRefName>ActionToVoid</actionRefName>
+                <webActionRefName />
+                <parameters>
+                    <parameter>
+                        <name>billID</name>
+                        <alias>functionObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderEditUIFunction].operations.operation[toVoid].uiActionRef.parameters.parameter[billID].alias</alias>
+                        <description>functionObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderEditUIFunction].operations.operation[toVoid].uiActionRef.parameters.parameter[billID].description</description>
+                        <direction>in</direction>
+                        <dataType>BOSUuid</dataType>
+                        <metadataRef />
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </parameters>
+            </uiActionRef>
+            <entityObjectRef>
+                <key name="package" value="com.kingdee.eas.port.equipment.maintenance.app" />
+                <key name="name" value="RepairOrder" />
+            </entityObjectRef>
+        </operation>
+        <operation>
+            <name>unToVoid</name>
+            <alias>functionObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderEditUIFunction].operations.operation[unToVoid].alias</alias>
+            <description>functionObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderEditUIFunction].operations.operation[unToVoid].description</description>
+            <reverseOperation />
+            <eventMethod>1a0b5d64-98d7-49df-89d6-a0c8cd64eb25</eventMethod>
+            <event>unToVoidEvent</event>
+            <userDefined>true</userDefined>
+            <uiActionRef>
+                <id>512507a7-0e7d-4afb-bbfc-6e861698caa5uiaf</id>
+                <uiStatus>EDIT</uiStatus>
+                <webUIStatus />
+                <userDefined>true</userDefined>
+                <uiObjectRef>
+                    <key name="package" value="com.kingdee.eas.port.equipment.maintenance.client" />
+                    <key name="name" value="RepairOrderEditUI" />
+                </uiObjectRef>
+                <actionRefName>ActionUnToVoid</actionRefName>
+                <webActionRefName />
+                <parameters>
+                    <parameter>
+                        <name>billID</name>
+                        <alias>functionObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderEditUIFunction].operations.operation[unToVoid].uiActionRef.parameters.parameter[billID].alias</alias>
+                        <description>functionObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderEditUIFunction].operations.operation[unToVoid].uiActionRef.parameters.parameter[billID].description</description>
+                        <direction>in</direction>
+                        <dataType>BOSUuid</dataType>
+                        <metadataRef />
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </parameters>
+            </uiActionRef>
+            <entityObjectRef>
+                <key name="package" value="com.kingdee.eas.port.equipment.maintenance.app" />
+                <key name="name" value="RepairOrder" />
+            </entityObjectRef>
+        </operation>
     </operations>
     <resource>
         <rs key="functionObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderEditUIFunction].alias">
@@ -211,6 +283,64 @@
             <lang locale="zh_TW" value="單據內碼" />
         </rs>
         <rs key="functionObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderEditUIFunction].operations.operation[ActionUnAudit].uiActionRef.parameters.parameter[billID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据内码" />
+            <lang locale="zh_HK" value="單據內碼" />
+            <lang locale="zh_TW" value="單據內碼" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderEditUIFunction].operations.operation[toVoid].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="作废" />
+            <lang locale="zh_HK" value="作廢" />
+            <lang locale="zh_TW" value="作廢" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderEditUIFunction].operations.operation[toVoid].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderEditUIFunction].operations.operation[toVoid].extendedProperty.userDefined">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderEditUIFunction].operations.operation[toVoid].uiActionRef.parameters.parameter[billID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据内码" />
+            <lang locale="zh_HK" value="單據內碼" />
+            <lang locale="zh_TW" value="單據內碼" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderEditUIFunction].operations.operation[toVoid].uiActionRef.parameters.parameter[billID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据内码" />
+            <lang locale="zh_HK" value="單據內碼" />
+            <lang locale="zh_TW" value="單據內碼" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderEditUIFunction].operations.operation[unToVoid].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="反作废" />
+            <lang locale="zh_HK" value="反作廢" />
+            <lang locale="zh_TW" value="反作廢" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderEditUIFunction].operations.operation[unToVoid].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderEditUIFunction].operations.operation[unToVoid].extendedProperty.userDefined">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderEditUIFunction].operations.operation[unToVoid].uiActionRef.parameters.parameter[billID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据内码" />
+            <lang locale="zh_HK" value="單據內碼" />
+            <lang locale="zh_TW" value="單據內碼" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderEditUIFunction].operations.operation[unToVoid].uiActionRef.parameters.parameter[billID].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="单据内码" />
             <lang locale="zh_HK" value="單據內碼" />

@@ -1236,6 +1236,37 @@
                 <key name="name" value="AnnualYearPlanQuery" />
             </query>
         </queryField>
+        <queryField>
+            <name>Entry.actualDate</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.queryField[Entry.actualDate].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Date</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>cb4d0836-24de-496c-93f8-d36511c7b9d5</key>
+                    <parentUnit>
+                        <key name="name" value="Entry.actualDate" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Entry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="actualDate" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.special.app" />
+                <key name="name" value="AnnualYearPlanQuery" />
+            </query>
+        </queryField>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -1546,11 +1577,47 @@
             <lang locale="zh_HK" value="規格型號" />
             <lang locale="zh_TW" value="規格型號" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.queryField[Entry.NO].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.queryField[Entry.NO].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.queryField[Entry.actualDate].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="实际检测日期" />
+            <lang locale="zh_HK" value="實際檢測日期" />
+            <lang locale="zh_TW" value="實際檢測日期" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.queryField[Entry.actualDate].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.queryField[Entry.actualDate].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.queryField[Entry.address].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="使用地点" />
             <lang locale="zh_HK" value="使用地點" />
             <lang locale="zh_TW" value="使用地點" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.queryField[Entry.address].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.queryField[Entry.address].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.queryField[Entry.beizhu].displayName">
             <lang locale="en_US" value="null" />
@@ -1558,11 +1625,31 @@
             <lang locale="zh_HK" value="備註" />
             <lang locale="zh_TW" value="備註" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.queryField[Entry.beizhu].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.queryField[Entry.beizhu].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.queryField[Entry.carNumber].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="车架号" />
             <lang locale="zh_HK" value="車架號" />
             <lang locale="zh_TW" value="車架號" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.queryField[Entry.carNumber].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.queryField[Entry.carNumber].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.queryField[Entry.checkType].displayName">
             <lang locale="en_US" value="null" />
@@ -1570,11 +1657,31 @@
             <lang locale="zh_HK" value="檢驗類別" />
             <lang locale="zh_TW" value="檢驗類別" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.queryField[Entry.checkType].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.queryField[Entry.checkType].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.queryField[Entry.code].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="注册代码" />
             <lang locale="zh_HK" value="註冊代碼" />
             <lang locale="zh_TW" value="註冊代碼" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.queryField[Entry.code].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.queryField[Entry.code].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.queryField[Entry.companyNumber].displayName">
             <lang locale="en_US" value="null" />
@@ -1582,11 +1689,31 @@
             <lang locale="zh_HK" value="用戶使用編號" />
             <lang locale="zh_TW" value="用戶使用編號" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.queryField[Entry.companyNumber].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.queryField[Entry.companyNumber].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.queryField[Entry.createUnit].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="制造单位" />
             <lang locale="zh_HK" value="製造單位" />
             <lang locale="zh_TW" value="製造單位" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.queryField[Entry.createUnit].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.queryField[Entry.createUnit].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.queryField[Entry.endDate].displayName">
             <lang locale="en_US" value="null" />
@@ -1594,11 +1721,31 @@
             <lang locale="zh_HK" value="到期檢驗日期" />
             <lang locale="zh_TW" value="到期檢驗日期" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.queryField[Entry.endDate].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.queryField[Entry.endDate].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.queryField[Entry.engineNumber].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="发动机编号" />
             <lang locale="zh_HK" value="發動機編號" />
             <lang locale="zh_TW" value="發動機編號" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.queryField[Entry.engineNumber].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.queryField[Entry.engineNumber].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.queryField[Entry.equipmentName].displayName">
             <lang locale="en_US" value="null" />
@@ -1606,11 +1753,31 @@
             <lang locale="zh_HK" value="設備名稱" />
             <lang locale="zh_TW" value="設備名稱" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.queryField[Entry.equipmentName].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.queryField[Entry.equipmentName].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.queryField[Entry.planDate].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="计划检验日期" />
             <lang locale="zh_HK" value="計畫檢驗日期" />
             <lang locale="zh_TW" value="計畫檢驗日期" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.queryField[Entry.planDate].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.queryField[Entry.planDate].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.queryField[Entry.state].displayName">
             <lang locale="en_US" value="null" />
@@ -1618,11 +1785,31 @@
             <lang locale="zh_HK" value="使用狀態" />
             <lang locale="zh_TW" value="使用狀態" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.queryField[Entry.state].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.queryField[Entry.state].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.queryField[Entry.useDate].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="投用日期" />
             <lang locale="zh_HK" value="投用日期" />
             <lang locale="zh_TW" value="投用日期" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.queryField[Entry.useDate].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.queryField[Entry.useDate].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.queryField[Entry.useUnit].displayName">
             <lang locale="en_US" value="null" />
@@ -1630,11 +1817,31 @@
             <lang locale="zh_HK" value="使用單位" />
             <lang locale="zh_TW" value="使用單位" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.queryField[Entry.useUnit].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.queryField[Entry.useUnit].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.queryField[Entry.weight].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="额定起载重量(t)" />
             <lang locale="zh_HK" value="額定起載重量(t)" />
             <lang locale="zh_TW" value="額定起載重量(t)" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.queryField[Entry.weight].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.queryField[Entry.weight].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.queryField[auditTime].displayName">
             <lang locale="en_US" value="null" />
