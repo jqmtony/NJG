@@ -3,22 +3,39 @@
  */
 package com.kingdee.eas.port.equipment.maintenance.client;
 
+import java.awt.Color;
 import java.awt.event.*;
 import java.util.Date;
 
 import org.apache.log4j.Logger;
 
+import com.kingdee.bos.BOSException;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
+import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.framework.*;
+import com.kingdee.eas.port.equipment.maintenance.IRepairOrder;
+import com.kingdee.eas.port.equipment.maintenance.MonMainPlanE1Info;
+import com.kingdee.eas.port.equipment.maintenance.RepairOrderFactory;
+import com.kingdee.eas.port.equipment.maintenance.RepairOrderInfo;
+import com.kingdee.eas.port.equipment.record.EquIdInfo;
+import com.kingdee.eas.port.equipment.special.AnnualYearDetailFactory;
+import com.kingdee.eas.port.equipment.special.AnnualYearDetailInfo;
+import com.kingdee.eas.port.equipment.special.AnnualYearPlanEntryInfo;
+import com.kingdee.eas.port.equipment.special.DetectionE2Factory;
+import com.kingdee.eas.port.equipment.special.IAnnualYearDetail;
+import com.kingdee.eas.port.equipment.special.IDetectionE2;
+import com.kingdee.eas.xr.app.XRBillStatusEnum;
 import com.kingdee.eas.xr.helper.Tool;
 import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
+import com.kingdee.bos.ctrl.kdf.table.IRow;
 import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.swing.KDTextField;
@@ -30,6 +47,7 @@ public class MonMainPlanEditUI extends AbstractMonMainPlanEditUI
 {
     private static final Logger logger = CoreUIObject.getLogger(MonMainPlanEditUI.class);
     
+    private Color b = new Color(175,176,168);
     /**
      * output class constructor
      */
@@ -44,6 +62,13 @@ public class MonMainPlanEditUI extends AbstractMonMainPlanEditUI
     {
         super.loadFields();
         txtplanTotalCost.setEnabled(false);
+        try {
+			setRowColor();
+		} catch (EASBizException e) {
+			e.printStackTrace();
+		} catch (BOSException e) {
+			e.printStackTrace();
+		}
     }
 
     /**
@@ -723,5 +748,46 @@ public class MonMainPlanEditUI extends AbstractMonMainPlanEditUI
 				 pkBizDate.setValue(new Date());
 				 prmtCU.setValue(SysContext.getSysContext().getCurrentCtrlUnit());
 			 }
+	}
+	
+	private void setRowColor() throws EASBizException, BOSException
+	{
+		if(editData.getId()==null)
+			return;
+		IRepairOrder iRepair = RepairOrderFactory.getRemoteInstance();
+		
+		EntityViewInfo view = new EntityViewInfo();
+		FilterInfo filInfo = new FilterInfo();
+		
+		SelectorItemCollection sic = new SelectorItemCollection();
+		sic.add("id");
+		sic.add("status");
+		
+		for (int i = 0; i < this.kdtE1.getRowCount(); i++) 
+		{
+			IRow row = this.kdtE1.getRow(i);
+			MonMainPlanE1Info annEntryPlanEntryInfo = (MonMainPlanE1Info)row.getUserObject();
+			EquIdInfo equIdInfo = annEntryPlanEntryInfo.getEquNumber();
+			if(equIdInfo==null)
+				continue;
+			String equId = equIdInfo.getId().toString();
+			
+			String sql = "select a.fid from CT_MAI_RepairOrder a " +
+					" where a.fsourceBillId='"+annEntryPlanEntryInfo.getId()+"' and a.CFEquNameID='"+equId+"'";
+			view = new EntityViewInfo();
+			filInfo = new FilterInfo();
+			filInfo.getFilterItems().add(new FilterItemInfo("id",sql,CompareType.INNER));
+			view.setFilter(filInfo);
+			view.setSelector(sic);
+			if(!iRepair.exists(filInfo))
+				continue;
+			RepairOrderInfo detailInfo = iRepair.getRepairOrderCollection(view).get(0);
+			
+			XRBillStatusEnum status = detailInfo.getStatus();
+			//×÷·Ï
+			if(status.equals(XRBillStatusEnum.DELETED))
+				row.getStyleAttributes().setBackground(b);
+				
+		}
 	}
 }

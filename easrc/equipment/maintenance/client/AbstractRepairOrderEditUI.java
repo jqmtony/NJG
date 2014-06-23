@@ -111,6 +111,8 @@ public abstract class AbstractRepairOrderEditUI extends com.kingdee.eas.xr.clien
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pktransferTime;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtslDepart;
     protected com.kingdee.eas.port.equipment.maintenance.RepairOrderInfo editData = null;
+    protected ActionToVoid actionToVoid = null;
+    protected ActionUnToVoid actionUnToVoid = null;
     /**
      * output class constructor
      */
@@ -160,6 +162,22 @@ public abstract class AbstractRepairOrderEditUI extends com.kingdee.eas.xr.clien
         actionUnAudit.putValue(ItemAction.NAME, _tempStr);
         this.actionUnAudit.setBindWorkFlow(true);
          this.actionUnAudit.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+        //actionToVoid
+        this.actionToVoid = new ActionToVoid(this);
+        getActionManager().registerAction("actionToVoid", actionToVoid);
+        this.actionToVoid.setExtendProperty("canForewarn", "true");
+        this.actionToVoid.setExtendProperty("userDefined", "true");
+        this.actionToVoid.setExtendProperty("isObjectUpdateLock", "false");
+         this.actionToVoid.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+         this.actionToVoid.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
+        //actionUnToVoid
+        this.actionUnToVoid = new ActionUnToVoid(this);
+        getActionManager().registerAction("actionUnToVoid", actionUnToVoid);
+        this.actionUnToVoid.setExtendProperty("canForewarn", "true");
+        this.actionUnToVoid.setExtendProperty("userDefined", "true");
+        this.actionUnToVoid.setExtendProperty("isObjectUpdateLock", "false");
+         this.actionUnToVoid.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+         this.actionUnToVoid.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
         this.contCreator = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contCreateTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contLastUpdateUser = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -405,6 +423,14 @@ public abstract class AbstractRepairOrderEditUI extends com.kingdee.eas.xr.clien
 
 
         this.kdtE1.checkParsed();
+        KDFormattedTextField kdtE1_seq_TextField = new KDFormattedTextField();
+        kdtE1_seq_TextField.setName("kdtE1_seq_TextField");
+        kdtE1_seq_TextField.setVisible(true);
+        kdtE1_seq_TextField.setEditable(true);
+        kdtE1_seq_TextField.setHorizontalAlignment(2);
+        kdtE1_seq_TextField.setDataType(0);
+        KDTDefaultCellEditor kdtE1_seq_CellEditor = new KDTDefaultCellEditor(kdtE1_seq_TextField);
+        this.kdtE1.getColumn("seq").setEditor(kdtE1_seq_CellEditor);
         KDTextField kdtE1_repairContent_TextField = new KDTextField();
         kdtE1_repairContent_TextField.setName("kdtE1_repairContent_TextField");
         kdtE1_repairContent_TextField.setMaxLength(100);
@@ -1406,6 +1432,24 @@ public abstract class AbstractRepairOrderEditUI extends com.kingdee.eas.xr.clien
     {
         super.actionUnAudit_actionPerformed(e);
     }
+    	
+
+    /**
+     * output actionToVoid_actionPerformed method
+     */
+    public void actionToVoid_actionPerformed(ActionEvent e) throws Exception
+    {
+        com.kingdee.eas.port.equipment.maintenance.RepairOrderFactory.getRemoteInstance().toVoid(editData);
+    }
+    	
+
+    /**
+     * output actionUnToVoid_actionPerformed method
+     */
+    public void actionUnToVoid_actionPerformed(ActionEvent e) throws Exception
+    {
+        com.kingdee.eas.port.equipment.maintenance.RepairOrderFactory.getRemoteInstance().unToVoid(editData);
+    }
 	public RequestContext prepareActionSubmit(IItemAction itemAction) throws Exception {
 			RequestContext request = super.prepareActionSubmit(itemAction);		
 		if (request != null) {
@@ -1427,6 +1471,88 @@ public abstract class AbstractRepairOrderEditUI extends com.kingdee.eas.xr.clien
 	
 	public boolean isPrepareActionUnAudit() {
     	return false;
+    }
+	public RequestContext prepareActionToVoid(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionToVoid() {
+    	return false;
+    }
+	public RequestContext prepareActionUnToVoid(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionUnToVoid() {
+    	return false;
+    }
+
+    /**
+     * output ActionToVoid class
+     */     
+    protected class ActionToVoid extends ItemAction {     
+    
+        public ActionToVoid()
+        {
+            this(null);
+        }
+
+        public ActionToVoid(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            _tempStr = resHelper.getString("ActionToVoid.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionToVoid.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionToVoid.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractRepairOrderEditUI.this, "ActionToVoid", "actionToVoid_actionPerformed", e);
+        }
+    }
+
+    /**
+     * output ActionUnToVoid class
+     */     
+    protected class ActionUnToVoid extends ItemAction {     
+    
+        public ActionUnToVoid()
+        {
+            this(null);
+        }
+
+        public ActionUnToVoid(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            _tempStr = resHelper.getString("ActionUnToVoid.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionUnToVoid.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionUnToVoid.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractRepairOrderEditUI.this, "ActionUnToVoid", "actionUnToVoid_actionPerformed", e);
+        }
     }
 
     /**

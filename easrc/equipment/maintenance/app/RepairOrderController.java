@@ -53,4 +53,6 @@ public interface RepairOrderController extends XRBillBaseController
     public void updateBigObject(Context ctx, IObjectPK pk, RepairOrderInfo model) throws BOSException, RemoteException;
     public void updatePartial(Context ctx, RepairOrderInfo model, SelectorItemCollection selector) throws BOSException, EASBizException, RemoteException;
     public String getBindingProperty(Context ctx) throws BOSException, RemoteException;
+    public void toVoid(Context ctx, RepairOrderInfo model) throws BOSException, RemoteException;
+    public void unToVoid(Context ctx, RepairOrderInfo model) throws BOSException, RemoteException;
 }

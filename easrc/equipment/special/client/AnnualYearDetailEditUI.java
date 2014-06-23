@@ -21,6 +21,8 @@ import com.kingdee.eas.port.equipment.base.enumbase.CheckResult;
 import com.kingdee.eas.port.equipment.operate.ComproductionInfo;
 import com.kingdee.eas.port.equipment.special.AnnualYearDetailFactory;
 import com.kingdee.eas.port.equipment.special.AnnualYearDetailInfo;
+import com.kingdee.eas.port.equipment.special.AnnualYearPlanFactory;
+import com.kingdee.eas.port.equipment.special.AnnualYearPlanInfo;
 import com.kingdee.eas.port.equipment.special.IAnnualYearDetail;
 import com.kingdee.eas.port.equipment.special.OverhaulNoticeFactory;
 import com.kingdee.eas.util.SysUtil;
@@ -799,6 +801,8 @@ public class AnnualYearDetailEditUI extends AbstractAnnualYearDetailEditUI
 	}
 	
 	
+	
+	
 	//确认检测信息
 	public void actionConfirmation_actionPerformed(ActionEvent e)throws Exception {
 		for(int i = 0;i<kdtEntry.getRowCount();i++){
@@ -815,6 +819,10 @@ public class AnnualYearDetailEditUI extends AbstractAnnualYearDetailEditUI
 		storeFields();
 		editData.setStatus(XRBillStatusEnum.EXECUTION);
 	    AnnualYearDetailFactory.getRemoteInstance().update(new ObjectUuidPK(editData.getId()), editData);
+//	    if(editData.getSourceBillId() != null){
+//	    	String id = editData.getSourceBillId().toString();
+//	    	AnnualYearPlanInfo ayInfo = AnnualYearPlanFactory.getRemoteInstance().getAnnualYearPlanInfo(new ObjectUuidPK(id));
+//	    }
 		MsgBox.showInfo("确认检测信息成功！");
 		this.setOprtState("VIEW");
 		loadData();

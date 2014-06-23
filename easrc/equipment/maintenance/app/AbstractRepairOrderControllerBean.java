@@ -644,6 +644,46 @@ public abstract class AbstractRepairOrderControllerBean extends XRBillBaseContro
         }
     }
 
+    public void toVoid(Context ctx, RepairOrderInfo model) throws BOSException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("fadeab88-a707-4875-9244-051e9acb6035"), new Object[]{ctx, model});
+            invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
+            _toVoid(ctx, model);
+            }
+            invokeServiceAfter(svcCtx);
+        } catch (BOSException ex) {
+            throw ex;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected void _toVoid(Context ctx, IObjectValue model) throws BOSException
+    {    	
+        return;
+    }
+
+    public void unToVoid(Context ctx, RepairOrderInfo model) throws BOSException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("1a0b5d64-98d7-49df-89d6-a0c8cd64eb25"), new Object[]{ctx, model});
+            invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
+            _unToVoid(ctx, model);
+            }
+            invokeServiceAfter(svcCtx);
+        } catch (BOSException ex) {
+            throw ex;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected void _unToVoid(Context ctx, IObjectValue model) throws BOSException
+    {    	
+        return;
+    }
+
     public XRBillBaseCollection getXRBillBaseCollection (Context ctx) throws BOSException
     {
     	return (XRBillBaseCollection)(getRepairOrderCollection(ctx).cast(XRBillBaseCollection.class));

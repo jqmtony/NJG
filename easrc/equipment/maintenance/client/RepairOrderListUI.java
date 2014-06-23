@@ -4,10 +4,23 @@
 package com.kingdee.eas.port.equipment.maintenance.client;
 
 import java.awt.event.*;
+
 import org.apache.log4j.Logger;
+
+import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.eas.framework.*;
+import com.kingdee.eas.port.equipment.maintenance.IRepairOrder;
+import com.kingdee.eas.port.equipment.maintenance.RepairOrderInfo;
+import com.kingdee.eas.port.equipment.special.AnnualYearDetailInfo;
+import com.kingdee.eas.port.equipment.special.IAnnualYearDetail;
+import com.kingdee.eas.util.SysUtil;
+import com.kingdee.eas.util.client.EASResource;
+import com.kingdee.eas.util.client.MsgBox;
+import com.kingdee.eas.xr.app.XRBillStatusEnum;
 
 /**
  * output class name
@@ -586,4 +599,46 @@ public class RepairOrderListUI extends AbstractRepairOrderListUI
         return objectValue;
     }
 
+
+    public void actionToVoid_actionPerformed(ActionEvent e) throws Exception {
+    	super.actionToVoid_actionPerformed(e);
+    	 checkSelected();
+         String billID = getSelectedKeyValue();
+         if(billID == null)
+             return;
+         ObjectUuidPK pk = new ObjectUuidPK(BOSUuid.read(billID));
+         SelectorItemCollection sc = new SelectorItemCollection();
+         Object o = getBizInterface().getValue(pk, sc);
+        RepairOrderInfo ayInfo = (RepairOrderInfo)o;
+      
+        	 ayInfo.setStatus(XRBillStatusEnum.DELETED);
+        	 ((IRepairOrder)getBillInterface()).update(new ObjectUuidPK(ayInfo.getId()), ayInfo);
+        	 refresh(e);
+	    	  return;
+       
+    }
+    
+    public void actionUnToVoid_actionPerformed(ActionEvent e) throws Exception {
+    	super.actionUnToVoid_actionPerformed(e);
+    	 checkSelected();
+         String billID = getSelectedKeyValue();
+         if(billID == null)
+             return;
+         ObjectUuidPK pk = new ObjectUuidPK(BOSUuid.read(billID));
+         SelectorItemCollection sc = new SelectorItemCollection();
+         Object o = getBizInterface().getValue(pk, sc);
+        RepairOrderInfo ayInfo = (RepairOrderInfo)o;
+      
+        	 ayInfo.setStatus(XRBillStatusEnum.TEMPORARILYSAVED);
+        	 ((IRepairOrder)getBillInterface()).update(new ObjectUuidPK(ayInfo.getId()), ayInfo);
+        	 refresh(e);
+	    	  return;
+    }
+    
+	protected void initWorkButton() {
+		super.initWorkButton();
+		btnToVoid.setIcon(EASResource.getIcon("imgTbtn_blankout"));
+		btnUnToViod.setIcon(EASResource.getIcon("imgTbtn_fblankout"));
+		
+	}
 }

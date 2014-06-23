@@ -14,4 +14,14 @@ import com.kingdee.eas.framework.batchHandler.ResponseContext;
 public abstract class AbstractRepairOrderEditUIHandler extends com.kingdee.eas.xr.app.XRBillBaseEditUIHandler
 
 {
+	public void handleActionToVoid(RequestContext request,ResponseContext response, Context context) throws Exception {
+		_handleActionToVoid(request,response,context);
+	}
+	protected void _handleActionToVoid(RequestContext request,ResponseContext response, Context context) throws Exception {
+	}
+	public void handleActionUnToVoid(RequestContext request,ResponseContext response, Context context) throws Exception {
+		_handleActionUnToVoid(request,response,context);
+	}
+	protected void _handleActionUnToVoid(RequestContext request,ResponseContext response, Context context) throws Exception {
+	}
 }

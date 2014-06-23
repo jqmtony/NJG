@@ -219,6 +219,17 @@ public class AbstractAnnualYearPlanEntryInfo extends com.kingdee.eas.framework.C
     {
         setString("beizhu", item);
     }
+    /**
+     * Object:年度检测明细's 实际检测日期property 
+     */
+    public java.util.Date getActualDate()
+    {
+        return getDate("actualDate");
+    }
+    public void setActualDate(java.util.Date item)
+    {
+        setDate("actualDate", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("485866C3");

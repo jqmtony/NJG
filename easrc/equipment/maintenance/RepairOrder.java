@@ -387,4 +387,30 @@ public class RepairOrder extends XRBillBase implements IRepairOrder
             throw new EJBRemoteException(err);
         }
     }
+    /**
+     *×÷·Ï-User defined method
+     *@param model model
+     */
+    public void toVoid(RepairOrderInfo model) throws BOSException
+    {
+        try {
+            getController().toVoid(getContext(), model);
+        }
+        catch(RemoteException err) {
+            throw new EJBRemoteException(err);
+        }
+    }
+    /**
+     *·´×÷·Ï-User defined method
+     *@param model model
+     */
+    public void unToVoid(RepairOrderInfo model) throws BOSException
+    {
+        try {
+            getController().unToVoid(getContext(), model);
+        }
+        catch(RemoteException err) {
+            throw new EJBRemoteException(err);
+        }
+    }
 }

@@ -750,6 +750,7 @@ public class AnnualYearPlanEditUI extends AbstractAnnualYearPlanEditUI
 		 this.kdtEntry.getColumn("checkType").getStyleAttributes().setLocked(true);
 //		 this.kdtEntry.getColumn("planDate").getStyleAttributes().setLocked(true);
 		 this.kdtEntry.getColumn("endDate").getStyleAttributes().setLocked(true);
+		 this.kdtEntry.getColumn("actualDate").getStyleAttributes().setLocked(true);
 		super.onLoad();
 		InitButtonColor();
 		if(getOprtState().equals(OprtState.ADDNEW)){

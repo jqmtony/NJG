@@ -43,6 +43,7 @@ import com.kingdee.eas.port.equipment.maintenance.MonMainPlanE1Info;
 import com.kingdee.eas.port.equipment.maintenance.RepairOrderCollection;
 import com.kingdee.eas.framework.ObjectBaseCollection;
 import com.kingdee.eas.port.equipment.maintenance.RepairOrderInfo;
+import com.kingdee.eas.port.equipment.operate.ComproductionInfo;
 import com.kingdee.eas.port.equipment.wdx.EqmOverhaulInfo;
 import com.kingdee.util.UuidException;
 
@@ -128,6 +129,51 @@ public class RepairOrderControllerBean extends AbstractRepairOrderControllerBean
 					mmeInfo.setImplementDepart(null);
 					MonMainPlanE1Factory.getLocalInstance(ctx).update((new ObjectUuidPK(mmeInfo.getId())),mmeInfo);
 					}
+			}
+		}
+		
+	//×÷·Ï
+	protected void _toVoid(Context ctx, IObjectValue model) throws BOSException {
+		super._toVoid(ctx, model);
+		RepairOrderInfo info = (RepairOrderInfo)model;
+		if(info.getSourceBillId() != null){
+			IObjectValue billInfo = (IObjectValue) DynamicObjectFactory.getLocalInstance(ctx).getValue(new ObjectUuidPK(info.getSourceBillId() ).getObjectType(), new ObjectUuidPK(info.getSourceBillId()));
+			if(billInfo instanceof MonMainPlanE1Info)
+			{
+				try {
+					MonMainPlanE1Info mmeInfo = MonMainPlanE1Factory.getLocalInstance(ctx).getMonMainPlanE1Info(new ObjectUuidPK(info.getSourceBillId()));
+					mmeInfo.setActualCompleteT(null);
+					if(info.getBIMUDF0021() !=null){
+					mmeInfo.setComplete(info.getBIMUDF0021() );
+					}
+					mmeInfo.setImplementDepart(null);
+					MonMainPlanE1Factory.getLocalInstance(ctx).update((new ObjectUuidPK(mmeInfo.getId())),mmeInfo);
+				} catch (EASBizException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+	
+	//·´×÷·Ï
+	protected void _unToVoid(Context ctx, IObjectValue model)
+			throws BOSException {
+		super._unToVoid(ctx, model);
+		RepairOrderInfo info = (RepairOrderInfo)model;
+		if(info.getSourceBillId() != null){
+			IObjectValue billInfo = (IObjectValue) DynamicObjectFactory.getLocalInstance(ctx).getValue(new ObjectUuidPK(info.getSourceBillId() ).getObjectType(), new ObjectUuidPK(info.getSourceBillId()));
+			if(billInfo instanceof MonMainPlanE1Info)
+			{
+				try {
+					MonMainPlanE1Info mmeInfo = MonMainPlanE1Factory.getLocalInstance(ctx).getMonMainPlanE1Info(new ObjectUuidPK(info.getSourceBillId()));
+					mmeInfo.setComplete(null);
+					MonMainPlanE1Factory.getLocalInstance(ctx).update((new ObjectUuidPK(mmeInfo.getId())),mmeInfo);
+				} catch (EASBizException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		     }
 			}
 		}
 }

@@ -292,6 +292,9 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 			}
 			
 		});
+		
+		//设备档案设备类型选择界面左边树不要显示11土地、12无形资产和13投资性房地产
+		 
 	}
 	
 	private void SelectorFaCard() throws Exception

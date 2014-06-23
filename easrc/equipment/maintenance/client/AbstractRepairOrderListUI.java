@@ -46,6 +46,10 @@ import com.kingdee.bos.appframework.uip.UINavigator;
 public abstract class AbstractRepairOrderListUI extends com.kingdee.eas.xr.client.XRBillBaseListUI
 {
     private static final Logger logger = CoreUIObject.getLogger(AbstractRepairOrderListUI.class);
+    protected com.kingdee.bos.ctrl.swing.KDWorkButton btnToVoid;
+    protected com.kingdee.bos.ctrl.swing.KDWorkButton btnUnToViod;
+    protected ActionToVoid actionToVoid = null;
+    protected ActionUnToVoid actionUnToVoid = null;
     /**
      * output class constructor
      */
@@ -82,6 +86,26 @@ public abstract class AbstractRepairOrderListUI extends com.kingdee.eas.xr.clien
          this.actionRemove.addService(new com.kingdee.eas.framework.client.service.PermissionService());
          this.actionRemove.addService(new com.kingdee.eas.framework.client.service.NetFunctionService());
          this.actionRemove.addService(new com.kingdee.eas.framework.client.service.UserMonitorService());
+        //actionToVoid
+        this.actionToVoid = new ActionToVoid(this);
+        getActionManager().registerAction("actionToVoid", actionToVoid);
+        this.actionToVoid.setExtendProperty("canForewarn", "true");
+        this.actionToVoid.setExtendProperty("userDefined", "true");
+        this.actionToVoid.setExtendProperty("isObjectUpdateLock", "false");
+         this.actionToVoid.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+         this.actionToVoid.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
+        //actionUnToVoid
+        this.actionUnToVoid = new ActionUnToVoid(this);
+        getActionManager().registerAction("actionUnToVoid", actionUnToVoid);
+        this.actionUnToVoid.setExtendProperty("canForewarn", "true");
+        this.actionUnToVoid.setExtendProperty("userDefined", "true");
+        this.actionUnToVoid.setExtendProperty("isObjectUpdateLock", "false");
+         this.actionUnToVoid.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+         this.actionUnToVoid.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
+        this.btnToVoid = new com.kingdee.bos.ctrl.swing.KDWorkButton();
+        this.btnUnToViod = new com.kingdee.bos.ctrl.swing.KDWorkButton();
+        this.btnToVoid.setName("btnToVoid");
+        this.btnUnToViod.setName("btnUnToViod");
         // CoreUI
 		String tblMainStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol9\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol10\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol16\"><c:NumberFormat>&amp;date</c:NumberFormat></c:Style><c:Style id=\"sCol19\"><c:NumberFormat>&amp;date</c:NumberFormat></c:Style><c:Style id=\"sCol22\"><c:Protection hidden=\"true\" /><c:NumberFormat>&amp;int</c:NumberFormat></c:Style><c:Style id=\"sCol25\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol29\"><c:NumberFormat>&amp;date</c:NumberFormat></c:Style><c:Style id=\"sCol33\"><c:NumberFormat>&amp;date</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"0\" /><t:Column t:key=\"bizDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"1\" /><t:Column t:key=\"creator.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"2\" /><t:Column t:key=\"createTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"3\" /><t:Column t:key=\"lastUpdateUser.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"4\" /><t:Column t:key=\"lastUpdateTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"5\" /><t:Column t:key=\"auditor.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"6\" /><t:Column t:key=\"auditTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"7\" /><t:Column t:key=\"status\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"8\" /><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol9\" /><t:Column t:key=\"CU.id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol10\" /><t:Column t:key=\"equName.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"equModel\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"equAddress\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"repairDepart.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"repairPerson.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"repairTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol16\" /><t:Column t:key=\"repairContent\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"assignee.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"acceptTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol19\" /><t:Column t:key=\"maintenanceType.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"maintenanceProgram\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"E1.seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol22\" /><t:Column t:key=\"E1.repairContent0\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"E1.replaceSparePart.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"E1.workTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol25\" /><t:Column t:key=\"E1.repairPerson.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"E1.remark\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"BIMUDF0021\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"repairDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol29\" /><t:Column t:key=\"acceptSituation\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"deliveryPerson.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"recipient.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"transferTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol33\" /><t:Column t:key=\"slDepart.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{number}</t:Cell><t:Cell>$Resource{bizDate}</t:Cell><t:Cell>$Resource{creator.name}</t:Cell><t:Cell>$Resource{createTime}</t:Cell><t:Cell>$Resource{lastUpdateUser.name}</t:Cell><t:Cell>$Resource{lastUpdateTime}</t:Cell><t:Cell>$Resource{auditor.name}</t:Cell><t:Cell>$Resource{auditTime}</t:Cell><t:Cell>$Resource{status}</t:Cell><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{CU.id}</t:Cell><t:Cell>$Resource{equName.name}</t:Cell><t:Cell>$Resource{equModel}</t:Cell><t:Cell>$Resource{equAddress}</t:Cell><t:Cell>$Resource{repairDepart.name}</t:Cell><t:Cell>$Resource{repairPerson.name}</t:Cell><t:Cell>$Resource{repairTime}</t:Cell><t:Cell>$Resource{repairContent}</t:Cell><t:Cell>$Resource{assignee.name}</t:Cell><t:Cell>$Resource{acceptTime}</t:Cell><t:Cell>$Resource{maintenanceType.name}</t:Cell><t:Cell>$Resource{maintenanceProgram}</t:Cell><t:Cell>$Resource{E1.seq}</t:Cell><t:Cell>$Resource{E1.repairContent0}</t:Cell><t:Cell>$Resource{E1.replaceSparePart.name}</t:Cell><t:Cell>$Resource{E1.workTime}</t:Cell><t:Cell>$Resource{E1.repairPerson.name}</t:Cell><t:Cell>$Resource{E1.remark}</t:Cell><t:Cell>$Resource{BIMUDF0021}</t:Cell><t:Cell>$Resource{repairDate}</t:Cell><t:Cell>$Resource{acceptSituation}</t:Cell><t:Cell>$Resource{deliveryPerson.name}</t:Cell><t:Cell>$Resource{recipient.name}</t:Cell><t:Cell>$Resource{transferTime}</t:Cell><t:Cell>$Resource{slDepart.name}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
@@ -91,6 +115,12 @@ public abstract class AbstractRepairOrderListUI extends com.kingdee.eas.xr.clien
 
         this.tblMain.checkParsed();
         this.tblMain.getGroupManager().setGroup(true);
+        // btnToVoid
+        this.btnToVoid.setAction((IItemAction)ActionProxyFactory.getProxy(actionToVoid, new Class[] { IItemAction.class }, getServiceContext()));		
+        this.btnToVoid.setText(resHelper.getString("btnToVoid.text"));
+        // btnUnToViod
+        this.btnUnToViod.setAction((IItemAction)ActionProxyFactory.getProxy(actionUnToVoid, new Class[] { IItemAction.class }, getServiceContext()));		
+        this.btnUnToViod.setText(resHelper.getString("btnUnToViod.text"));
 		//Register control's property binding
 		registerBindings();
 		registerUIState();
@@ -234,6 +264,8 @@ public abstract class AbstractRepairOrderListUI extends com.kingdee.eas.xr.clien
         this.toolBar.add(btnAttachment);
         this.toolBar.add(btnAudit);
         this.toolBar.add(btnUnAudit);
+        this.toolBar.add(btnToVoid);
+        this.toolBar.add(btnUnToViod);
         this.toolBar.add(separatorFW1);
         this.toolBar.add(btnPageSetup);
         this.toolBar.add(btnPrint);
@@ -429,6 +461,28 @@ public abstract class AbstractRepairOrderListUI extends com.kingdee.eas.xr.clien
     {
         super.actionRemove_actionPerformed(e);
     }
+    	
+
+    /**
+     * output actionToVoid_actionPerformed method
+     */
+    public void actionToVoid_actionPerformed(ActionEvent e) throws Exception
+    {
+        if (getSelectedKeyValue() == null) return;
+com.kingdee.eas.port.equipment.maintenance.RepairOrderInfo editData = (com.kingdee.eas.port.equipment.maintenance.RepairOrderInfo)getBizInterface().getValue(new com.kingdee.bos.dao.ormapping.ObjectUuidPK(BOSUuid.read(getSelectedKeyValue())));
+com.kingdee.eas.port.equipment.maintenance.RepairOrderFactory.getRemoteInstance().toVoid(editData);
+    }
+    	
+
+    /**
+     * output actionUnToVoid_actionPerformed method
+     */
+    public void actionUnToVoid_actionPerformed(ActionEvent e) throws Exception
+    {
+        if (getSelectedKeyValue() == null) return;
+com.kingdee.eas.port.equipment.maintenance.RepairOrderInfo editData = (com.kingdee.eas.port.equipment.maintenance.RepairOrderInfo)getBizInterface().getValue(new com.kingdee.bos.dao.ormapping.ObjectUuidPK(BOSUuid.read(getSelectedKeyValue())));
+com.kingdee.eas.port.equipment.maintenance.RepairOrderFactory.getRemoteInstance().unToVoid(editData);
+    }
 	public RequestContext prepareActionRemove(IItemAction itemAction) throws Exception {
 			RequestContext request = super.prepareActionRemove(itemAction);		
 		if (request != null) {
@@ -439,6 +493,88 @@ public abstract class AbstractRepairOrderListUI extends com.kingdee.eas.xr.clien
 	
 	public boolean isPrepareActionRemove() {
     	return false;
+    }
+	public RequestContext prepareActionToVoid(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionToVoid() {
+    	return false;
+    }
+	public RequestContext prepareActionUnToVoid(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionUnToVoid() {
+    	return false;
+    }
+
+    /**
+     * output ActionToVoid class
+     */     
+    protected class ActionToVoid extends ItemAction {     
+    
+        public ActionToVoid()
+        {
+            this(null);
+        }
+
+        public ActionToVoid(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            _tempStr = resHelper.getString("ActionToVoid.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionToVoid.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionToVoid.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractRepairOrderListUI.this, "ActionToVoid", "actionToVoid_actionPerformed", e);
+        }
+    }
+
+    /**
+     * output ActionUnToVoid class
+     */     
+    protected class ActionUnToVoid extends ItemAction {     
+    
+        public ActionUnToVoid()
+        {
+            this(null);
+        }
+
+        public ActionUnToVoid(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            _tempStr = resHelper.getString("ActionUnToVoid.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionUnToVoid.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionUnToVoid.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractRepairOrderListUI.this, "ActionUnToVoid", "actionUnToVoid_actionPerformed", e);
+        }
     }
 
     /**

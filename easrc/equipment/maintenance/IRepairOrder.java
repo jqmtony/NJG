@@ -48,4 +48,6 @@ public interface IRepairOrder extends IXRBillBase
     public void updateBigObject(IObjectPK pk, RepairOrderInfo model) throws BOSException;
     public void updatePartial(RepairOrderInfo model, SelectorItemCollection selector) throws BOSException, EASBizException;
     public String getBindingProperty() throws BOSException;
+    public void toVoid(RepairOrderInfo model) throws BOSException;
+    public void unToVoid(RepairOrderInfo model) throws BOSException;
 }

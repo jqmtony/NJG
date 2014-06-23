@@ -758,7 +758,7 @@ public class AnnualYearDetailListUI extends AbstractAnnualYearDetailListUI
 		return true;
 	}
 	
-	//根据所属组织隔离设备档案
+	//根据使用单位隔离检测明细
 	protected IQueryExecutor getQueryExecutor(IMetaDataPK arg0,EntityViewInfo arg1) {
 		EntityViewInfo viewInfo = (EntityViewInfo)arg1.clone();
 		FilterInfo filInfo = new FilterInfo();
