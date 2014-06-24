@@ -19,11 +19,17 @@ import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.framework.*;
 import com.kingdee.eas.port.equipment.base.enumbase.CheckResult;
 import com.kingdee.eas.port.equipment.operate.ComproductionInfo;
+import com.kingdee.eas.port.equipment.record.EquIdInfo;
 import com.kingdee.eas.port.equipment.special.AnnualYearDetailFactory;
 import com.kingdee.eas.port.equipment.special.AnnualYearDetailInfo;
+import com.kingdee.eas.port.equipment.special.AnnualYearPlanEntryCollection;
+import com.kingdee.eas.port.equipment.special.AnnualYearPlanEntryFactory;
+import com.kingdee.eas.port.equipment.special.AnnualYearPlanEntryInfo;
 import com.kingdee.eas.port.equipment.special.AnnualYearPlanFactory;
 import com.kingdee.eas.port.equipment.special.AnnualYearPlanInfo;
 import com.kingdee.eas.port.equipment.special.IAnnualYearDetail;
+import com.kingdee.eas.port.equipment.special.IAnnualYearPlan;
+import com.kingdee.eas.port.equipment.special.IAnnualYearPlanEntry;
 import com.kingdee.eas.port.equipment.special.OverhaulNoticeFactory;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
@@ -789,7 +795,7 @@ public class AnnualYearDetailEditUI extends AbstractAnnualYearDetailEditUI
 	        kdtE1_equNumber_PromptBox.setDisplayFormat("$number$");
 	        kdtE1_equNumber_PromptBox.setEditFormat("$number$");
 	        kdtE1_equNumber_PromptBox.setCommitFormat("$number$");
-	   	 EntityViewInfo evi = new EntityViewInfo();
+	   	    EntityViewInfo evi = new EntityViewInfo();
 			 FilterInfo filter = new FilterInfo();
 			 filter.getFilterItems().add(new FilterItemInfo("sbStatus","3",CompareType.NOTEQUALS));
 			 String id = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
@@ -819,10 +825,23 @@ public class AnnualYearDetailEditUI extends AbstractAnnualYearDetailEditUI
 		storeFields();
 		editData.setStatus(XRBillStatusEnum.EXECUTION);
 	    AnnualYearDetailFactory.getRemoteInstance().update(new ObjectUuidPK(editData.getId()), editData);
-//	    if(editData.getSourceBillId() != null){
-//	    	String id = editData.getSourceBillId().toString();
-//	    	AnnualYearPlanInfo ayInfo = AnnualYearPlanFactory.getRemoteInstance().getAnnualYearPlanInfo(new ObjectUuidPK(id));
-//	    }
+		if(getUIContext().get("SId")!=null){
+			for (int j = 0; j < kdtEntry.getRowCount(); j++) {
+				String id3 = (String) getUIContext().get("SId");
+				AnnualYearPlanInfo annInfo = AnnualYearPlanFactory.getRemoteInstance().getAnnualYearPlanInfo(new ObjectUuidPK(id3));
+				AnnualYearPlanEntryCollection aeCollection = 	AnnualYearPlanEntryFactory.getRemoteInstance().getAnnualYearPlanEntryCollection("where parent = '"+annInfo.getId()+"'");
+				for(int i=0;i<aeCollection.size();i++){
+					String id1 = ((EquIdInfo)aeCollection.get(i).getZdaNumber()).getId().toString();
+					String id2 =  ((EquIdInfo)kdtEntry.getCell(j, "zdaNumber").getValue()).getId().toString();
+					if(id1.equals(id2)){
+						aeCollection.get(i).setActualDate(editData.getBizDate());
+						AnnualYearPlanEntryFactory.getRemoteInstance().update(new ObjectUuidPK(aeCollection.get(i).getId()), aeCollection.get(i));
+					}
+				}
+				
+			}
+	    
+	    }
 		MsgBox.showInfo("确认检测信息成功！");
 		this.setOprtState("VIEW");
 		loadData();

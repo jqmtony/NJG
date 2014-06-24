@@ -1221,12 +1221,12 @@ public class ComproductionEditUI extends AbstractComproductionEditUI {
 		this.kdtEntrys.getCell(e.getRowIndex(), "increaseDecrease").setValue(a.subtract(b));//同比增减 = 本期实绩-去年同期实绩
 		BigDecimal c = UIRuleUtil.getBigDecimal(kdtEntrys.getCell(e.getRowIndex(), "increaseDecrease").getValue());//同比增减
 		//增减率 = 同比增减/去年同期实绩*0.01
-		 this.kdtEntrys.getCell(e.getRowIndex(), "increaseRate").setValue(Double.parseDouble(String.valueOf((b.compareTo(BigDecimal.ZERO))!=0?c.divide(b,  4, BigDecimal.ROUND_UP):BigDecimal.ZERO)));
+		 this.kdtEntrys.getCell(e.getRowIndex(), "increaseRate").setValue(Double.parseDouble(String.valueOf((b.compareTo(BigDecimal.ZERO))!=0?c.divide(b,  4, BigDecimal.ROUND_UP).multiply(new BigDecimal("100")):BigDecimal.ZERO)));
 		BigDecimal d = UIRuleUtil.getBigDecimal(kdtEntrys.getCell(e.getRowIndex(), "periodCon").getValue());//本期单耗
 		BigDecimal f  = UIRuleUtil.getBigDecimal(kdtEntrys.getCell(e.getRowIndex(), "samePeriod").getValue());//去年同期单耗
 		BigDecimal g = d.subtract(f);//同比增减
 		//增减率 = 同比增减/去年同期单耗*0.01
-		  this.kdtEntrys.getCell(e.getRowIndex(), "increaseRate1").setValue(Double.parseDouble(String.valueOf((f.compareTo(BigDecimal.ZERO))!=0?g.divide(f,  4, BigDecimal.ROUND_UP):BigDecimal.ZERO)));
+		  this.kdtEntrys.getCell(e.getRowIndex(), "increaseRate1").setValue(Double.parseDouble(String.valueOf((f.compareTo(BigDecimal.ZERO))!=0?g.divide(f,  4, BigDecimal.ROUND_UP).multiply(new BigDecimal("100")):BigDecimal.ZERO)));
 		  BigDecimal h = UIRuleUtil.getBigDecimal(kdtEntrys.getCell(e.getRowIndex(), "proEnergy").getValue());//装卸生产能耗
 		  BigDecimal k = UIRuleUtil.getBigDecimal(kdtEntrys.getCell(e.getRowIndex(), "fzproEnergy").getValue());//辅助生产能耗
 		  BigDecimal l = UIRuleUtil.getBigDecimal(kdtEntrys.getCell(e.getRowIndex(), "lifeEnergy").getValue());//生活能耗
@@ -1303,14 +1303,14 @@ public class ComproductionEditUI extends AbstractComproductionEditUI {
 				BigDecimal aaaa6 = UIRuleUtil.getBigDecimal(kdtEntrys.getCell(9, "stagePerformance").getValue());
 				BigDecimal aaaa7 = UIRuleUtil.getBigDecimal(kdtEntrys.getCell(10, "stagePerformance").getValue());
 				BigDecimal bbbb0 = UIRuleUtil.getBigDecimal(kdtEntrys.getCell(2, "stagePerformance").getValue());
-				kdtEntrys.getCell(3, "periodCon").setValue(Double.parseDouble(String.valueOf((bbbb0.compareTo(BigDecimal.ZERO))!=0?aaaa0.divide(bbbb, 4, BigDecimal.ROUND_UP):BigDecimal.ZERO)));
-				kdtEntrys.getCell(4, "periodCon").setValue(Double.parseDouble(String.valueOf((bbbb0.compareTo(BigDecimal.ZERO))!=0?aaaa1.divide(bbbb, 4, BigDecimal.ROUND_UP):BigDecimal.ZERO)));
-				kdtEntrys.getCell(5, "periodCon").setValue(Double.parseDouble(String.valueOf((bbbb0.compareTo(BigDecimal.ZERO))!=0?aaaa2.divide(bbbb, 4, BigDecimal.ROUND_UP):BigDecimal.ZERO)));
-				kdtEntrys.getCell(6, "periodCon").setValue(Double.parseDouble(String.valueOf((bbbb0.compareTo(BigDecimal.ZERO))!=0?aaaa3.divide(bbbb, 4, BigDecimal.ROUND_UP):BigDecimal.ZERO)));
-				kdtEntrys.getCell(7, "periodCon").setValue(Double.parseDouble(String.valueOf((bbbb0.compareTo(BigDecimal.ZERO))!=0?aaaa4.divide(bbbb, 4, BigDecimal.ROUND_UP):BigDecimal.ZERO)));
-				kdtEntrys.getCell(8, "periodCon").setValue(Double.parseDouble(String.valueOf((bbbb0.compareTo(BigDecimal.ZERO))!=0?aaaa5.divide(bbbb, 4, BigDecimal.ROUND_UP):BigDecimal.ZERO)));
-				kdtEntrys.getCell(9, "periodCon").setValue(Double.parseDouble(String.valueOf((bbbb0.compareTo(BigDecimal.ZERO))!=0?aaaa6.divide(bbbb, 4, BigDecimal.ROUND_UP):BigDecimal.ZERO)));
-				kdtEntrys.getCell(10, "periodCon").setValue(Double.parseDouble(String.valueOf((bbbb0.compareTo(BigDecimal.ZERO))!=0?aaaa7.divide(bbbb, 4, BigDecimal.ROUND_UP):BigDecimal.ZERO)));
+				kdtEntrys.getCell(3, "periodCon").setValue(Double.parseDouble(String.valueOf((bbbb0.compareTo(BigDecimal.ZERO))!=0?aaaa0.divide(bbbb0, 4, BigDecimal.ROUND_UP):BigDecimal.ZERO)));
+				kdtEntrys.getCell(4, "periodCon").setValue(Double.parseDouble(String.valueOf((bbbb0.compareTo(BigDecimal.ZERO))!=0?aaaa1.divide(bbbb0, 4, BigDecimal.ROUND_UP):BigDecimal.ZERO)));
+				kdtEntrys.getCell(5, "periodCon").setValue(Double.parseDouble(String.valueOf((bbbb0.compareTo(BigDecimal.ZERO))!=0?aaaa2.divide(bbbb0, 4, BigDecimal.ROUND_UP):BigDecimal.ZERO)));
+				kdtEntrys.getCell(6, "periodCon").setValue(Double.parseDouble(String.valueOf((bbbb0.compareTo(BigDecimal.ZERO))!=0?aaaa3.divide(bbbb0, 4, BigDecimal.ROUND_UP):BigDecimal.ZERO)));
+				kdtEntrys.getCell(7, "periodCon").setValue(Double.parseDouble(String.valueOf((bbbb0.compareTo(BigDecimal.ZERO))!=0?aaaa4.divide(bbbb0, 4, BigDecimal.ROUND_UP):BigDecimal.ZERO)));
+				kdtEntrys.getCell(8, "periodCon").setValue(Double.parseDouble(String.valueOf((bbbb0.compareTo(BigDecimal.ZERO))!=0?aaaa5.divide(bbbb0, 4, BigDecimal.ROUND_UP):BigDecimal.ZERO)));
+				kdtEntrys.getCell(9, "periodCon").setValue(Double.parseDouble(String.valueOf((bbbb0.compareTo(BigDecimal.ZERO))!=0?aaaa6.divide(bbbb0, 4, BigDecimal.ROUND_UP):BigDecimal.ZERO)));
+				kdtEntrys.getCell(10, "periodCon").setValue(Double.parseDouble(String.valueOf((bbbb0.compareTo(BigDecimal.ZERO))!=0?aaaa7.divide(bbbb0, 4, BigDecimal.ROUND_UP):BigDecimal.ZERO)));
 				//吞吐量同比节超量(节-，超+)=（本期单耗-去年同期单耗）*吞吐量本期实绩
 				BigDecimal qq = UIRuleUtil.getBigDecimal(kdtEntrys.getCell(0, "periodCon").getValue());
 				BigDecimal ww = UIRuleUtil.getBigDecimal(kdtEntrys.getCell(0, "samePeriod").getValue());
@@ -1321,7 +1321,7 @@ public class ComproductionEditUI extends AbstractComproductionEditUI {
 				for (int i = 3; i < 11; i++) {
 					BigDecimal tt = UIRuleUtil.getBigDecimal(kdtEntrys.getCell(i, "periodCon").getValue());
 					BigDecimal yy = UIRuleUtil.getBigDecimal(kdtEntrys.getCell(i, "samePeriod").getValue());
-					BigDecimal uu = UIRuleUtil.getBigDecimal(kdtEntrys.getCell(i, "stagePerformance").getValue());
+					BigDecimal uu = UIRuleUtil.getBigDecimal(kdtEntrys.getCell(2, "stagePerformance").getValue());
 					BigDecimal ty = tt.subtract(yy);//本期单耗-去年同期单耗
 					kdtEntrys.getCell(i, "excessSection").setValue(ty.multiply(uu));
 				}

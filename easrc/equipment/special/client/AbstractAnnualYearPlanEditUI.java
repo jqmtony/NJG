@@ -302,6 +302,16 @@ public abstract class AbstractAnnualYearPlanEditUI extends com.kingdee.eas.xr.cl
 		}
 	});
 
+        this.kdtEntry.addKDTMouseListener(new com.kingdee.bos.ctrl.kdf.table.event.KDTMouseListener() {
+            public void tableClicked(com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent e) {
+                try {
+                    kdtEntry_tableClicked(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                }
+            }
+        });
 
                 this.kdtEntry.putBindContents("editData",new String[] {"seq","zdaNumber","equipmentName","code","useUnit","planDate","endDate","actualDate","state","address","companyNumber","NO","engineNumber","carNumber","weight","useDate","createUnit","checkType","beizhu"});
 
@@ -916,6 +926,13 @@ vo.put("checkType","10");
         } else if (STATUS_VIEW.equals(this.oprtState)) {
         } else if (STATUS_FINDVIEW.equals(this.oprtState)) {
         }
+    }
+
+    /**
+     * output kdtEntry_tableClicked method
+     */
+    protected void kdtEntry_tableClicked(com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent e) throws Exception
+    {
     }
 
 

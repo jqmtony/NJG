@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.Vector;
 
 import javax.swing.JMenuItem;
 
@@ -19,6 +20,7 @@ import com.kingdee.bos.BOSException;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
 import com.kingdee.bos.ctrl.kdf.table.KDTSelectBlock;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
+import com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent;
 import com.kingdee.bos.ctrl.swing.KDPopupMenu;
 import com.kingdee.bos.ctrl.swing.KDTextField;
 import com.kingdee.bos.ctrl.swing.KDWorkButton;
@@ -38,7 +40,11 @@ import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.common.client.UIContext;
 import com.kingdee.eas.common.client.UIFactoryName;
+import com.kingdee.eas.port.equipment.record.EquIdCollection;
+import com.kingdee.eas.port.equipment.record.EquIdFactory;
 import com.kingdee.eas.port.equipment.record.EquIdInfo;
+import com.kingdee.eas.port.equipment.record.IEquId;
+import com.kingdee.eas.port.equipment.record.client.EquIdEditUI;
 import com.kingdee.eas.port.equipment.special.AnnualYearDetailFactory;
 import com.kingdee.eas.port.equipment.special.AnnualYearDetailInfo;
 import com.kingdee.eas.port.equipment.special.AnnualYearPlanEntryInfo;
@@ -973,6 +979,22 @@ public class AnnualYearPlanEditUI extends AbstractAnnualYearPlanEditUI
 		}
 	}
 	
-	
+	protected void kdtEntry_tableClicked(KDTMouseEvent e) throws Exception {
+		super.kdtEntry_tableClicked(e);
+		  if ((e.getButton() == 1) && (e.getClickCount() == 2))
+	        {
+			  if(e.getRowIndex() != -1){
+				  String id = ((EquIdInfo)kdtEntry.getCell(e.getRowIndex(), "zdaNumber").getValue()).getId().toString();
+					IUIWindow uiWindow = null;
+					UIContext context = new UIContext(this);
+					context.put("ID", id);
+					context.put("anid", editData.getId().toString());
+					uiWindow = UIFactory.createUIFactory(UIFactoryName.MODEL).create(EquIdEditUI.class.getName(), context, null, OprtState.VIEW);
+					uiWindow.show(); 
+			  }
+			  
+	        }
+
+	}
 	
 }

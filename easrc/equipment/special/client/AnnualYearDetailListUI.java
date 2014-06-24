@@ -665,6 +665,9 @@ public class AnnualYearDetailListUI extends AbstractAnnualYearDetailListUI
 			UIContext context = new UIContext(this);
 			context.put("ID", billID);
 			context.put("FeedInfor", billID);
+			if(onInfo.getSourceBillId() !=null){
+			context.put("SId", onInfo.getSourceBillId());
+			}
 			String oprstate = "";
 			if(onInfo.getStatus().equals(XRBillStatusEnum.RELEASED))
 				oprstate=OprtState.EDIT;

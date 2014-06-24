@@ -293,8 +293,19 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 			
 		});
 		
+		
+		if(getUIContext().get("anid")!=null){
+			this.toolBar.setVisible(false);
+			this.toolBar.removeAllToolBarComponents();
+		}
 		//设备档案设备类型选择界面左边树不要显示11土地、12无形资产和13投资性房地产
-		 
+//		 EntityViewInfo evi = new EntityViewInfo();
+//		 FilterInfo filter = new FilterInfo();
+//		 filter.getFilterItems().add(new FilterItemInfo("number",11 ,CompareType.NOTEQUALS));
+//		 filter.getFilterItems().add(new FilterItemInfo("number",12 ,CompareType.NOTEQUALS));
+//		 filter.getFilterItems().add(new FilterItemInfo("number",13 ,CompareType.NOTEQUALS));
+//		 evi.setFilter(filter);
+//		prmttype.setEntityViewInfo(evi);
 	}
 	
 	private void SelectorFaCard() throws Exception
