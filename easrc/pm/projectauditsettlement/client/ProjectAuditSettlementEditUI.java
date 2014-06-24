@@ -721,6 +721,9 @@ public class ProjectAuditSettlementEditUI extends
 				.setCreator((com.kingdee.eas.base.permission.UserInfo) (com.kingdee.eas.common.client.SysContext
 						.getSysContext().getCurrentUser()));
 
+		ProjectInfo project = (ProjectInfo) getUIContext().get("treeInfo");
+		if(project != null) 
+			objectValue.setProjectName(project);
 		return objectValue;
 	}
 
