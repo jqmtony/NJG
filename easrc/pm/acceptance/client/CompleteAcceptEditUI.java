@@ -15,6 +15,7 @@ import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.dao.IObjectPK;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.eas.basedata.assistant.MeasureUnitInfo;
+import com.kingdee.eas.basedata.assistant.ProjectInfo;
 import com.kingdee.eas.basedata.org.client.f7.AdminF7;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.SysContext;
@@ -738,6 +739,9 @@ public class CompleteAcceptEditUI extends AbstractCompleteAcceptEditUI {
 				.setCreator((com.kingdee.eas.base.permission.UserInfo) (com.kingdee.eas.common.client.SysContext
 						.getSysContext().getCurrentUser()));
 
+		ProjectInfo project = (ProjectInfo) getUIContext().get("treeInfo");
+		if(project != null) 
+			objectValue.setProjectName(project);
 		return objectValue;
 	}
 
