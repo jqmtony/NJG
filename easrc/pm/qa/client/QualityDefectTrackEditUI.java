@@ -13,6 +13,7 @@ import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.eas.basedata.assistant.ProjectInfo;
 import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
 import com.kingdee.eas.basedata.org.OrgConstants;
 import com.kingdee.eas.basedata.org.client.f7.AdminF7;
@@ -40,14 +41,17 @@ public class QualityDefectTrackEditUI extends AbstractQualityDefectTrackEditUI {
 		// 过滤当前组织对应的项目
 		AdminOrgUnitInfo admin = SysContext.getSysContext()
 				.getCurrentAdminUnit();
-		EntityViewInfo evi = new EntityViewInfo();
-		FilterInfo filter = new FilterInfo();
-		evi.setFilter(filter);
-		filter.getFilterItems().add(
-				new FilterItemInfo("company.longnumber", admin.getLongNumber()
-						+ "%", CompareType.LIKE));
-		prmtprojectName.setEntityViewInfo(evi);
+//		EntityViewInfo evi = new EntityViewInfo();
+//		FilterInfo filter = new FilterInfo();
+//		evi.setFilter(filter);
+//		filter.getFilterItems().add(
+//				new FilterItemInfo("company.longnumber", admin.getLongNumber()
+//						+ "%", CompareType.LIKE));
+//		prmtprojectName.setEntityViewInfo(evi);
 
+		btnAddLine.setVisible(false);
+		btnRemoveLine.setVisible(false);
+		btnInsertLine.setVisible(false);
 		contBizStatus.setVisible(false);
 		contDescription.setVisible(false);
 
@@ -70,6 +74,7 @@ public class QualityDefectTrackEditUI extends AbstractQualityDefectTrackEditUI {
 		f7.setIsCUFilter(false);
 		f7.setRootUnitID(admin.getId().toString());
 		this.prmtrespondDepart.setSelector(f7);
+		
 		super.onLoad();
 	}
 
@@ -690,7 +695,9 @@ public class QualityDefectTrackEditUI extends AbstractQualityDefectTrackEditUI {
 		objectValue
 				.setCreator((com.kingdee.eas.base.permission.UserInfo) (com.kingdee.eas.common.client.SysContext
 						.getSysContext().getCurrentUser()));
-
+		ProjectInfo project = (ProjectInfo) getUIContext().get("treeInfo");
+		if(project != null) 
+			objectValue.setProjectName(project);
 		return objectValue;
 	}
 
