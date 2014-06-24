@@ -1094,8 +1094,8 @@ public class ComproductionEditUI extends AbstractComproductionEditUI {
 			BigDecimal a3 = UIRuleUtil.getBigDecimal(kdtEntrys.getCell(rowindex, "periodCon").getValue());
 			BigDecimal a4 = UIRuleUtil.getBigDecimal(kdtEntrys.getCell(rowindex, "samePeriod").getValue());
 			BigDecimal a5 = a3.subtract(a4);
-			 this.kdtEntrys.getCell(rowindex, "increaseRate").setValue(Double.parseDouble(String.valueOf((a1.compareTo(BigDecimal.ZERO))!=0?a2.divide(a1,  4, BigDecimal.ROUND_UP):BigDecimal.ZERO)));
-			 this.kdtEntrys.getCell(rowindex, "increaseRate1").setValue(Double.parseDouble(String.valueOf((a4.compareTo(BigDecimal.ZERO))!=0?a5.divide(a4,  4, BigDecimal.ROUND_UP):BigDecimal.ZERO)));
+			 this.kdtEntrys.getCell(rowindex, "increaseRate").setValue(Double.parseDouble(String.valueOf((a1.compareTo(BigDecimal.ZERO))!=0?a2.divide(a1,  4, BigDecimal.ROUND_UP).multiply(new BigDecimal("100")):BigDecimal.ZERO)));
+			 this.kdtEntrys.getCell(rowindex, "increaseRate1").setValue(Double.parseDouble(String.valueOf((a4.compareTo(BigDecimal.ZERO))!=0?a5.divide(a4,  4, BigDecimal.ROUND_UP).multiply(new BigDecimal("100")):BigDecimal.ZERO)));
 			 rowindex+=1;
 		}
 	}
