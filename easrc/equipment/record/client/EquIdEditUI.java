@@ -1582,17 +1582,45 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
         	  FaCurCardInfo fccInfo = FaCurCardFactory.getRemoteInstance().getFaCurCardInfo(new ObjectUuidPK(editData.getSourceBillId().toString()));
         	  if(fccInfo.getAssetCat().getId() !=null && ((FaCatInfo)prmttype.getData()).getId()!=null){
         	     if(fccInfo.getAssetCat().getId() != ((FaCatInfo)prmttype.getData()).getId()){
-        	    	 MsgBox.showWarning("固定资产卡片类型与设备类型不一致！");
+        	    	 MsgBox.showInfo("固定资产卡片类型与设备类型不一致！");
      				SysUtil.abort();
         	     }
         	  }
 		}
+          if(editData.isSpecial()){
+        	  if(!editData.isCityTest()&&!editData.isPortTest()){
+        		  MsgBox.showInfo("当前设备为特种设备，请勾选特种设备属性的市检或港检！");
+   				  SysUtil.abort();
+        	  }
+        	  if(editData.isCityTest()&&!editData.isPortTest()){
+        		  if(editData.getCityPeriod() ==null){
+	        		  MsgBox.showInfo("检测类别为市检，请填写市检周期！");
+	   				  SysUtil.abort();
+        		  }
+        	  }
+        	  if(editData.isPortTest()){
+        		  if(editData.getPortPeriod() ==null&&!editData.isCityTest()){
+	        		  MsgBox.showInfo("检测类别为港检，请填写港检周期！");
+	   				  SysUtil.abort();
+        		  }
+        	  }
+        	  if(editData.isPortTest()&&editData.isCityTest()){
+        		  if(editData.getPortPeriod() ==null||editData.getCityPeriod() ==null){
+	        		  MsgBox.showInfo("检测类别为市检和港检，请填写市检周期和港检周期！");
+	   				  SysUtil.abort();
+        		  }
+        	  }
+        	  if(editData.getTzdaNumber() == null){
+        		  MsgBox.showInfo("当前设备为特种设备，请填写设备档案号！");
+   				  SysUtil.abort();
+        	  }
+          }
 	}
 	
 	public void actionRegistChange_actionPerformed(ActionEvent e)throws Exception {
 		super.actionRegistChange_actionPerformed(e);
 		if(chkspecial.getSelected() ==16){
-			 MsgBox.showWarning("特种设备才能变更！");
+			 MsgBox.showInfo("特种设备才能变更！");
 				SysUtil.abort();
 		}
 		IUIWindow uiWindow = null;

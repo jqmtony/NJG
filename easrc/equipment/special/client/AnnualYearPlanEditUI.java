@@ -983,16 +983,22 @@ public class AnnualYearPlanEditUI extends AbstractAnnualYearPlanEditUI
 		super.kdtEntry_tableClicked(e);
 		  if ((e.getButton() == 1) && (e.getClickCount() == 2))
 	        {
+			  if(editData.getId() ==null){
+				  MsgBox.showInfo("请先保存单据！");
+					SysUtil.abort();
+			  }else{
 			  if(e.getRowIndex() != -1){
-				  String id = ((EquIdInfo)kdtEntry.getCell(e.getRowIndex(), "zdaNumber").getValue()).getId().toString();
+				  if(kdtEntry.getCell(e.getRowIndex(), "zdaNumber").getValue() !=null){
+				    String id = ((EquIdInfo)kdtEntry.getCell(e.getRowIndex(), "zdaNumber").getValue()).getId().toString();
 					IUIWindow uiWindow = null;
 					UIContext context = new UIContext(this);
 					context.put("ID", id);
 					context.put("anid", editData.getId().toString());
 					uiWindow = UIFactory.createUIFactory(UIFactoryName.MODEL).create(EquIdEditUI.class.getName(), context, null, OprtState.VIEW);
 					uiWindow.show(); 
+				  }
+			    }
 			  }
-			  
 	        }
 
 	}

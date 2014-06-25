@@ -223,6 +223,7 @@ public class ImportEquIdUI extends AbstractImportEquIdUI
 						selectIndex+=1;
 					}
 				}
+				
 			}
 			else
 			{
@@ -249,6 +250,7 @@ public class ImportEquIdUI extends AbstractImportEquIdUI
 					}
 				}
 			}
+		
 		}
 		
 		if(getUIContext().get("yearPlan")==null)
@@ -257,7 +259,7 @@ public class ImportEquIdUI extends AbstractImportEquIdUI
 		}
 		if(selectIndex==0)
 		{
-			MsgBox.showWarning("没有选中的设备档案，请检查！");SysUtil.abort();
+			com.kingdee.eas.util.client.MsgBox.showWarning("没有选中的设备档案，请检查！");SysUtil.abort();
 		}
 		
 		getUIWindow().close();
