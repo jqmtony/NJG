@@ -116,7 +116,7 @@ public class EumUseRecordEditUI extends AbstractEumUseRecordEditUI {
 		sb.append("/*dialect*/select to_char(fbizdate,'yyyy-mm') datetime");
 		sb.append(" from CT_OPE_EumUseRecord");
 		sb.append(" where CFUseOrgUnitID = '"+id+"'");
-		sb.append(" and to_char(fbizdate,'yyyy-mm')='"+time+"'");
+		sb.append(" and to_char(fbizdate,'yyyy-mm')='"+time+"'and fnumber <> '"+editData.getNumber()+"'");
 		IRowSet rowSet = new XRSQLBuilder().appendSql(sb.toString()).executeQuery();
 		if(rowSet.size()>0){
 			MsgBox.showInfo("本单位本月已有设备使用记录，不允许再新增!");

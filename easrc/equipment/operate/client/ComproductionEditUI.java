@@ -58,7 +58,7 @@ import com.kingdee.jdbc.rowset.IRowSet;
 public class ComproductionEditUI extends AbstractComproductionEditUI {
 	private static final Logger logger = CoreUIObject
 			.getLogger(ComproductionEditUI.class);
-
+	 private Color a = new Color(187,255,255);
 	/**
 	 * output class constructor
 	 */
@@ -72,6 +72,7 @@ public class ComproductionEditUI extends AbstractComproductionEditUI {
 	public void loadFields() {
 		// 注销监听器
 		detachListeners();
+		this.actionAddNew.setVisible(false);
 		super.loadFields();
 		// 最后加上监听器
 		attachListeners();
@@ -85,9 +86,21 @@ public class ComproductionEditUI extends AbstractComproductionEditUI {
 			this.kdtEntrys.getRow(i).getStyleAttributes().setLocked(true);
 			this.kdtEntrys.getRow(i).getStyleAttributes().setBackground(Color.yellow);
 		}
-//		for (int i = 0; i < 2; i++) {
-//			this.kdtEntrys.getCell(i, "stagePerformance").getStyleAttributes().setBackground(Color.green);
-//		}
+		for (int i = 0; i < 2; i++) {
+			 if(this.kdtEntrys.getRowCount()>=2){
+				 this.kdtEntrys.getCell(i, "stagePerformance").getStyleAttributes().setBackground(a);
+			 }
+		}
+		for (int i = 2; i < 9; i++) {
+			 if(this.kdtEntrys.getRowCount()>=7){
+				 this.kdtEntrys.getCell(i, "proEnergy").getStyleAttributes().setBackground(a);
+				 this.kdtEntrys.getCell(i, "fzproEnergy").getStyleAttributes().setBackground(a);
+				 this.kdtEntrys.getCell(i, "lifeEnergy").getStyleAttributes().setBackground(a);
+				 this.kdtEntrys.getCell(i, "otherEnergy").getStyleAttributes().setBackground(a);
+			 }
+		}
+		
+		contBizDate.setBoundLabelText("填报日期");
 	}
 
 	protected void initWorkButton() {
@@ -998,6 +1011,8 @@ public class ComproductionEditUI extends AbstractComproductionEditUI {
 				IRow.getCell("project1").setValue(cleName[i]);
 			}
 			this.prmtreportingUnit.setValue(SysContext.getSysContext().getCurrentAdminUnit());
+			setEntry();
+			setSumEntry();
 		}
 		this.kdtEntrys.getColumn("project").setWidth(30);
 		this.kdtEntrys.getColumn("project1").setWidth(180);
@@ -1038,7 +1053,20 @@ public class ComproductionEditUI extends AbstractComproductionEditUI {
 			this.kdtEntrys.getRow(i).getStyleAttributes().setLocked(true);
 			this.kdtEntrys.getRow(i).getStyleAttributes().setBackground(Color.yellow);
 		}
+		for (int i = 0; i < 2; i++) {
+			 if(this.kdtEntrys.getRowCount()>=2){
+				 this.kdtEntrys.getCell(i, "stagePerformance").getStyleAttributes().setBackground(a);
+			 }
+		}
 		
+		for (int i = 2; i < 9; i++) {
+			 if(this.kdtEntrys.getRowCount()>=7){
+				 this.kdtEntrys.getCell(i, "proEnergy").getStyleAttributes().setBackground(a);
+				 this.kdtEntrys.getCell(i, "fzproEnergy").getStyleAttributes().setBackground(a);
+				 this.kdtEntrys.getCell(i, "lifeEnergy").getStyleAttributes().setBackground(a);
+				 this.kdtEntrys.getCell(i, "otherEnergy").getStyleAttributes().setBackground(a);
+			 }
+		}
 		kdtEntrys.getRow(9).getStyleAttributes().setLocked(true);
 	
 		for (int i = 0; i < this.kdtEntrys.getRowCount(); i++) {
@@ -1061,9 +1089,9 @@ public class ComproductionEditUI extends AbstractComproductionEditUI {
 			kdtEntrys.getCell(i, "otherEnergy").getStyleAttributes().setLocked(true);
 		}  
 	
+		Tool.setRespDeptF7(this.prmtreportingUnit, this, SysContext.getSysContext().getCurrentCtrlUnit().getId().toString());
 		
-		setSumEntry();
-		setEntry();
+		
 		
 	}
 	
@@ -1305,7 +1333,7 @@ public class ComproductionEditUI extends AbstractComproductionEditUI {
 		sb.append("/*dialect*/select to_char(fbizdate,'yyyy-mm') datetime");
 		sb.append(" from CT_OPE_Comproduction");
 		sb.append(" where CFReportingUnitID = '"+id+"'");
-		sb.append(" and to_char(fbizdate,'yyyy-mm')='"+time+"'");
+		sb.append(" and to_char(fbizdate,'yyyy-mm')='"+time+"'and fnumber <>'"+editData.getNumber()+"'");
 		IRowSet rowSet = new XRSQLBuilder().appendSql(sb.toString()).executeQuery();
 		if(rowSet.size()>0){
 			MsgBox.showInfo("本单位本月已有公司产能报表，不允许再新增!");
