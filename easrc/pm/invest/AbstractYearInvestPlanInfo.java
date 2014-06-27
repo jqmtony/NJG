@@ -210,17 +210,6 @@ public class AbstractYearInvestPlanInfo extends com.kingdee.eas.xr.XRBillBaseInf
         setString("scheme", item);
     }
     /**
-     * Object:年度投资计划's 投资年度property 
-     */
-    public int getYear()
-    {
-        return getInt("year");
-    }
-    public void setYear(int item)
-    {
-        setInt("year", item);
-    }
-    /**
      * Object:年度投资计划's 项目状态property 
      */
     public com.kingdee.eas.port.pm.invest.ObjectStateEnum getObjectState()
@@ -286,6 +275,17 @@ public class AbstractYearInvestPlanInfo extends com.kingdee.eas.xr.XRBillBaseInf
     public com.kingdee.eas.port.pm.invest.YearInvestPlanE3Collection getE3()
     {
         return (com.kingdee.eas.port.pm.invest.YearInvestPlanE3Collection)get("E3");
+    }
+    /**
+     * Object: 年度投资计划 's 投资年度 property 
+     */
+    public com.kingdee.eas.port.pm.base.InvestYearInfo getYear()
+    {
+        return (com.kingdee.eas.port.pm.base.InvestYearInfo)get("year");
+    }
+    public void setYear(com.kingdee.eas.port.pm.base.InvestYearInfo item)
+    {
+        put("year", item);
     }
     public BOSObjectType getBOSType()
     {

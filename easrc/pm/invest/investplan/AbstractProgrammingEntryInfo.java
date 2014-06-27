@@ -398,6 +398,50 @@ public class AbstractProgrammingEntryInfo extends com.kingdee.eas.framework.Tree
     {
         setString("compare", item);
     }
+    /**
+     * Object: 分录 's 投资年度 property 
+     */
+    public com.kingdee.eas.port.pm.base.InvestYearInfo getInvestYear()
+    {
+        return (com.kingdee.eas.port.pm.base.InvestYearInfo)get("investYear");
+    }
+    public void setInvestYear(com.kingdee.eas.port.pm.base.InvestYearInfo item)
+    {
+        put("investYear", item);
+    }
+    /**
+     * Object:分录's 本年度投资金额property 
+     */
+    public java.math.BigDecimal getInvestAmount()
+    {
+        return getBigDecimal("investAmount");
+    }
+    public void setInvestAmount(java.math.BigDecimal item)
+    {
+        setBigDecimal("investAmount", item);
+    }
+    /**
+     * Object:分录's 累计投资property 
+     */
+    public java.math.BigDecimal getCumulativeInvest()
+    {
+        return getBigDecimal("cumulativeInvest");
+    }
+    public void setCumulativeInvest(java.math.BigDecimal item)
+    {
+        setBigDecimal("cumulativeInvest", item);
+    }
+    /**
+     * Object:分录's 投资比例property 
+     */
+    public double getInvestProportion()
+    {
+        return getDouble("investProportion");
+    }
+    public void setInvestProportion(double item)
+    {
+        setDouble("investProportion", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("7D5CF726");

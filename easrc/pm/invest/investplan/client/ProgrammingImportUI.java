@@ -110,10 +110,10 @@ public class ProgrammingImportUI extends AbstractProgrammingImportUI
 //		AimCostInfo aimCost = (AimCostInfo) uiContext.get("aimCost"); // 目标成本
 //		aimCost = null;
 //		programming.setAimCost(aimCost);
-		ProjectInfo project = (ProjectInfo) uiContext.get("project"); // 框架合约的关联的工程项目
-		if (programming == null || project == null) {
-			return;
-		}
+//		ProjectInfo project = (ProjectInfo) uiContext.get("project"); // 框架合约的关联的工程项目
+//		if (programming == null || project == null) {
+//			return;
+//		}
 		
 		FilterInfo filter = new FilterInfo();
 		filter.getFilterItems().add(new FilterItemInfo("parent", getSelectedKeyValue()));
@@ -125,7 +125,7 @@ public class ProgrammingImportUI extends AbstractProgrammingImportUI
 		ProgrammingTemplateEntireCollection templateEntireCollection = 
 			ProgrammingTemplateEntireFactory.getRemoteInstance().getProgrammingTemplateEntireCollection(evi);
 		
-		templateImport(programming, templateEntireCollection, project);
+		templateImport(programming, templateEntireCollection, null);
 		MsgBox.showInfo(this, "导入成功");
 		disposeUIWindow();
 	}

@@ -37,6 +37,7 @@ import com.kingdee.eas.framework.CoreBillBaseCollection;
 import com.kingdee.eas.framework.CoreBaseInfo;
 import com.kingdee.eas.framework.ObjectBaseCollection;
 import com.kingdee.eas.port.pm.invest.YearInvestPlanInfo;
+import com.kingdee.eas.port.pm.invest.investplan.ProgrammingFactory;
 import com.kingdee.util.NumericExceptionSubItem;
 
 public class YearInvestPlanControllerBean extends AbstractYearInvestPlanControllerBean
@@ -67,5 +68,11 @@ public class YearInvestPlanControllerBean extends AbstractYearInvestPlanControll
         	info.setObjectState(ObjectStateEnum.save);
         	YearInvestPlanFactory.getLocalInstance(ctx).update(pks[i], info);
 		}
+    }
+    
+    protected void _delete(Context ctx, IObjectPK pk) throws BOSException,EASBizException {
+    	String number = getYearInvestPlanInfo(ctx, pk).getNumber();
+    	super._delete(ctx, pk);
+    	 ProgrammingFactory.getLocalInstance(ctx).delete("where SourceBillId='"+number+"'");
     }
 }

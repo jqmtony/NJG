@@ -3,6 +3,10 @@
  */
 package com.kingdee.eas.port.pm.invest.client;
 
+import java.awt.event.ActionEvent;
+
+import javax.swing.tree.TreeNode;
+
 import org.apache.log4j.Logger;
 
 import com.kingdee.bos.ctrl.swing.tree.DefaultKingdeeTreeNode;
@@ -16,6 +20,7 @@ import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.eas.basedata.assistant.ProjectInfo;
 import com.kingdee.eas.common.client.SysContext;
+import com.kingdee.eas.common.client.UIContext;
 import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.framework.CoreBaseInfo;
 import com.kingdee.eas.xr.helper.common.PortProjectTreeBuilder;
@@ -45,7 +50,6 @@ public class YearInvestPlanListUI extends AbstractYearInvestPlanListUI
     
     public void onLoad() throws Exception {
     	super.onLoad();
-    	buildProjectTree();
     }
     
     protected String getEditUIModal() {
@@ -58,28 +62,6 @@ public class YearInvestPlanListUI extends AbstractYearInvestPlanListUI
     	filter.getFilterItems().add(new FilterItemInfo("CU.longnumber",cuNumber+"%",CompareType.LIKE));
     	return filter;
     }
-   
-    public void buildProjectTree() throws Exception {
-		PortProjectTreeBuilder projectTreeBuilder = new PortProjectTreeBuilder();
-
-		projectTreeBuilder.build(this, this.kDTree1, actionOnLoad);
-		
-		if(this.kDTree1.getRowCount() > 0)
-		{
-			this.kDTree1.setSelectionRow(0);
-			this.kDTree1.expandAllNodes(true,(DefaultKingdeeTreeNode)  this.kDTree1.getModel().getRoot());
-		}
-	}
-    
-//    protected FilterInfo getTreeSelectFilter(Object projectNode) throws Exception {
-//		FilterInfo filter = new FilterInfo();
-//		if (projectNode != null && projectNode instanceof CoreBaseInfo) {
-//	    	String cuNumber=SysContext.getSysContext().getCurrentCtrlUnit().getLongNumber();
-//	    	filter.getFilterItems().add(new FilterItemInfo("CU.longnumber",cuNumber+"%",CompareType.LIKE));
-//	    	return filter;
-//		}
-//		return filter;
-//	}
     
     /**
      * output getBizInterface method

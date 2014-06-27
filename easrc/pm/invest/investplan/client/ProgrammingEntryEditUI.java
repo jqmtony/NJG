@@ -3,17 +3,14 @@
  */
 package com.kingdee.eas.port.pm.invest.investplan.client;
 
-import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.math.BigDecimal;
 import java.sql.SQLException;
-import java.sql.Timestamp;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -39,7 +36,6 @@ import com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent;
 import com.kingdee.bos.ctrl.kdf.util.render.ObjectValueRender;
 import com.kingdee.bos.ctrl.kdf.util.style.Styles.HorizontalAlignment;
 import com.kingdee.bos.ctrl.swing.KDContainer;
-import com.kingdee.bos.ctrl.swing.KDDatePicker;
 import com.kingdee.bos.ctrl.swing.KDFormattedTextField;
 import com.kingdee.bos.ctrl.swing.KDTextField;
 import com.kingdee.bos.ctrl.swing.KDWorkButton;
@@ -69,23 +65,21 @@ import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.fdc.basedata.CostAccountInfo;
-import com.kingdee.eas.fdc.basedata.CurProjectInfo;
-import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
 import com.kingdee.eas.fdc.basedata.FDCHelper;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
 import com.kingdee.eas.fdc.basedata.PaymentTypeFactory;
 import com.kingdee.eas.fdc.basedata.PaymentTypeInfo;
-import com.kingdee.eas.fdc.basedata.client.CostAccountPromptBox;
 import com.kingdee.eas.fdc.basedata.client.FDCMsgBox;
 import com.kingdee.eas.fdc.contract.client.CostAccountF7UI;
 import com.kingdee.eas.fdc.invite.InviteFormEnum;
+import com.kingdee.eas.port.pm.base.InvestYearInfo;
+import com.kingdee.eas.port.pm.invest.YearInvestPlanInfo;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryCollection;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryCostEntryCollection;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryCostEntryInfo;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryEconomyEntryCollection;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryEconomyEntryFactory;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryEconomyEntryInfo;
-import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryFactory;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryInfo;
 import com.kingdee.eas.port.pm.utils.FDCUtils;
 import com.kingdee.eas.util.SysUtil;
@@ -117,6 +111,7 @@ public class ProgrammingEntryEditUI extends AbstractProgrammingEntryEditUI
 	private static final String COST_ID = "id";// ID
 	private static final String PROJECT = "project";// 工程项目(F7)
 	private static final String COSTACCOUNT_NUMBER = "number";// 成本科目编码
+	private static final String INVESTYEAR = "investYear";//投资年度
 	private static final String COSTACCOUNT = "name";// 成本科目名称(F7)
 	private static final String GOALCOST = "goalCost";// 目标成本
 	private static final String ASSIGNED = "assigned";// 已分配
@@ -322,7 +317,7 @@ public class ProgrammingEntryEditUI extends AbstractProgrammingEntryEditUI
 	}
 
 	/**
-	 * 在成本构成页签中添加新增、删除按钮
+	 * 在投资规划页签中添加新增、删除按钮
 	 */
 	private void setSmallButton() {
 		btnAddnewLine_cost = new KDWorkButton();
@@ -390,11 +385,12 @@ public class ProgrammingEntryEditUI extends AbstractProgrammingEntryEditUI
 	protected void actionAddnewLine_cost_actionPerformed(ActionEvent e) {
 		IRow row = kdtCost.addRow();
 		int rowIndex = row.getRowIndex();
+		YearInvestPlanInfo yipInfo = (YearInvestPlanInfo) this.getUIContext().get("PlanNumber");
 
-		ProjectInfo project = (ProjectInfo) this.getUIContext().get("project");
+//		ProjectInfo project = (ProjectInfo) this.getUIContext().get("project");
 		row.getCell(COST_ID).setValue(BOSUuid.create("9E6FDD26"));
-		row.getCell(PROJECT).setValue(project);
-		row.getCell(COSTACCOUNT_NUMBER).setValue(project.getNumber());
+		row.getCell(PROJECT).setValue(yipInfo);
+		row.getCell(COSTACCOUNT_NUMBER).setValue(yipInfo.getNumber());
 		row.getCell(COSTACCOUNT_NUMBER).getStyleAttributes().setLocked(true);
 		//初始化 目标成本，已分配，待分配，本合约分配
 		row.getCell(GOALCOST).setValue(FDCHelper.ZERO);
@@ -402,7 +398,7 @@ public class ProgrammingEntryEditUI extends AbstractProgrammingEntryEditUI
 		row.getCell(ASSIGNING).setValue(FDCHelper.ZERO);
 		row.getCell(CONTRACTASSIGN).setValue(FDCHelper.ZERO);
 		projectF7();
-		costAccountCellF7(project, rowIndex, kdtCost.getColumnIndex(COSTACCOUNT),this.pcCollection);
+//		costAccountCellF7(project, rowIndex, kdtCost.getColumnIndex(COSTACCOUNT),this.pcCollection);
 	}
 
 	protected void actionRemoveLine_cost_actionPerformed(ActionEvent e) throws Exception {
@@ -849,13 +845,14 @@ public class ProgrammingEntryEditUI extends AbstractProgrammingEntryEditUI
 			Object assigning = kdtCost.getCell(i, ASSIGNING).getValue();// 待分配
 			Object contractAssign = kdtCost.getCell(i, CONTRACTASSIGN).getValue();// 本合约分配
 			String description = (String) kdtCost.getCell(i, COST_DES).getValue();// 备注
-			ProjectInfo projectInfo = (ProjectInfo) project;
+
+//			ProjectInfo projectInfo = (ProjectInfo) project;
 			CostAccountInfo costAccountInfo = (CostAccountInfo) costAccount;
 			if(i > 0){
 				costAccountNames.append(";");
 			}
-			costAccountNames.append(costAccountInfo.getName());
-			costAccountInfo.setCurProject(projectInfo);
+//			costAccountNames.append(costAccountInfo.getName());
+//			costAccountInfo.setCurProject(projectInfo);
 			pccInfo.setCostAccount(costAccountInfo);
 			if (!FDCHelper.isEmpty(goalCost)) {
 				pccInfo.setGoalCost(new BigDecimal(goalCost.toString()));
@@ -1014,26 +1011,26 @@ public class ProgrammingEntryEditUI extends AbstractProgrammingEntryEditUI
 				FDCMsgBox.showInfo("成本科目编码不能为空！");
 				SysUtil.abort();
 			}
-			if (FDCHelper.isEmpty(costAccountCell_name.getValue())) {
-				FDCMsgBox.showInfo("成本科目名称不能为空！");
-				SysUtil.abort();
-			}
+//			if (FDCHelper.isEmpty(costAccountCell_name.getValue())) {
+//				FDCMsgBox.showInfo("成本科目名称不能为空！");
+//				SysUtil.abort();
+//			}
 			if (FDCHelper.isEmpty(goalCost.getValue())) {
 				FDCMsgBox.showInfo("目标成本不能为空！");
 				SysUtil.abort();
 			}
-			if (FDCHelper.isEmpty(assigned.getValue())) {
-				FDCMsgBox.showInfo("已分配不能为空！");
-				SysUtil.abort();
-			}
-			if (FDCHelper.isEmpty(assigning.getValue())) {
-				FDCMsgBox.showInfo("待分配不能为空！");
-				SysUtil.abort();
-			}
-			if (FDCHelper.isEmpty(contractAssign.getValue())) {
-				FDCMsgBox.showInfo("本合约分配不能为空！");
-				SysUtil.abort();
-			}
+//			if (FDCHelper.isEmpty(assigned.getValue())) {
+//				FDCMsgBox.showInfo("已分配不能为空！");
+//				SysUtil.abort();
+//			}
+//			if (FDCHelper.isEmpty(assigning.getValue())) {
+//				FDCMsgBox.showInfo("待分配不能为空！");
+//				SysUtil.abort();
+//			}
+//			if (FDCHelper.isEmpty(contractAssign.getValue())) {
+//				FDCMsgBox.showInfo("本合约分配不能为空！");
+//				SysUtil.abort();
+//			}
 		}
 	}
 
@@ -1137,14 +1134,14 @@ public class ProgrammingEntryEditUI extends AbstractProgrammingEntryEditUI
 		if (e.getRowIndex() > -1 && !oprtState.equals(OprtState.VIEW) && e.getType() != KDTStyleConstants.HEAD_ROW) {
 			btnRemoveLines_cost.setEnabled(true);
 		}
-		if (e.getColIndex() == kdtCost.getColumnIndex(COSTACCOUNT) && e.getType() != KDTStyleConstants.HEAD_ROW) {
-			ProjectInfo project = (ProjectInfo) kdtCost.getCell(rowIndex, PROJECT).getValue();
-			if (project == null) {
-				FDCMsgBox.showInfo("请先录入工程项目");
-			} else {
-				kdtCost.getColumn(COSTACCOUNT).getStyleAttributes().setLocked(false);
-			}
-		}
+//		if (e.getColIndex() == kdtCost.getColumnIndex(COSTACCOUNT) && e.getType() != KDTStyleConstants.HEAD_ROW) {
+//			ProjectInfo project = (ProjectInfo) kdtCost.getCell(rowIndex, PROJECT).getValue();
+//			if (project == null) {
+//				FDCMsgBox.showInfo("请先录入工程项目");
+//			} else {
+//				kdtCost.getColumn(COSTACCOUNT).getStyleAttributes().setLocked(false);
+//			}
+//		}
 	}
 
 	/**
@@ -1154,123 +1151,251 @@ public class ProgrammingEntryEditUI extends AbstractProgrammingEntryEditUI
 		int rowIndex = e.getRowIndex();
 		int colIndex = e.getColIndex();
 		Object oldValue = e.getOldValue();
-		// 编辑"工程项目"
-		if (colIndex == kdtCost.getColumnIndex(PROJECT)) {
+		
+		if(colIndex == kdtCost.getColumnIndex(INVESTYEAR))
+		{
 			Object projectObj = kdtCost.getCell(rowIndex, colIndex).getValue();
-			if (projectObj != null) {
-				ProjectInfo newProject = (ProjectInfo) projectObj;
-				costAccountCellF7(newProject, rowIndex, kdtCost.getColumnIndex(COSTACCOUNT),this.pcCollection);// 通过工程项目为条件重新加载成本科目F7
-				// 工程项目不变，则不做处理
-				if (oldValue != null) {
-					ProjectInfo oldProject = (ProjectInfo) oldValue;
-					if (newProject.getNumber().equals(oldProject.getNumber())) {
-						return;
-					}
-				}
-
-				// 取目标成本，为空则把当前行除工程项目外所有值置空
-//				AimCostInfo aimCostInfo = null;
-//				Object aimCostObj = this.getUIContext().get("aimCostInfo");
-//				if (aimCostObj == null) {
+			if(projectObj != null)
+			{
+				InvestYearInfo IyInfo = (InvestYearInfo) projectObj;
+//				YearInvestPlanInfo yipInfo = 
+				
+//				this.kdtCost.getCell(rowIndex,PROJECT).setValue(IyInfo);
+				
+	       
+		}
+	  }
+		
+//		// 编辑"工程项目"
+//		if (colIndex == kdtCost.getColumnIndex(PROJECT)) {
+//			Object projectObj = kdtCost.getCell(rowIndex, colIndex).getValue();
+//			if (projectObj != null) {
+//				ProjectInfo newProject = (ProjectInfo) projectObj;
+//				costAccountCellF7(newProject, rowIndex, kdtCost.getColumnIndex(COSTACCOUNT),this.pcCollection);// 通过工程项目为条件重新加载成本科目F7
+//				// 工程项目不变，则不做处理
+//				if (oldValue != null) {
+//					ProjectInfo oldProject = (ProjectInfo) oldValue;
+//					if (newProject.getNumber().equals(oldProject.getNumber())) {
+//						return;
+//					}
+//				}
+//
+//				// 取目标成本，为空则把当前行除工程项目外所有值置空
+////				AimCostInfo aimCostInfo = null;
+////				Object aimCostObj = this.getUIContext().get("aimCostInfo");
+////				if (aimCostObj == null) {
+////					ProgrammingEntryUtil.clearCell(kdtCost, rowIndex, COSTACCOUNT_NUMBER, COSTACCOUNT, GOALCOST, ASSIGNED, ASSIGNING,
+////							CONTRACTASSIGN, COST_DES);
+////				} else {
+////					aimCostInfo = (AimCostInfo) aimCostObj;
+////				}
+//				/*
+//				 * 工程项目改变之后
+//				 * 
+//				 * 1.
+//				 * 
+//				 * 2.判断当前行是否已选了成本科目
+//				 * 
+//				 * 2.1:若无：清空除工程项目外所有当前行单元格
+//				 * 
+//				 * 2.2:若有：判断所变的工程项目是否也有此成本科目
+//				 * 
+//				 * 2.2.1:若无：清空除工程项目外所有当前行单元格
+//				 * 
+//				 * 2.2.2:若有：
+//				 * 
+//				 * 2.2.2.1:给当前行成本科目单元格重新关联新的成本科目
+//				 * 
+//				 * 2.2.2.2：获取"目标成本"
+//				 * 
+//				 * 2.2.2.2.1：判断目标成本是否为0
+//				 * 
+//				 * 2.2.2.2.1.1:为0，给"目标成本","已分配","待分配","本合约分配"赋值0,备注清空
+//				 * 
+//				 * 2.2.2.2.1.2:不为0，算出"已分配","待分配","本合约分配"各值
+//				 * 
+//				 * 最后把牵涉到的值：规划金额，经济条款中"付款比例"、"付款金额"等值 更新一遍
+//				 */
+//				// 1
+//
+//				Object costAccountObj = kdtCost.getCell(rowIndex, COSTACCOUNT).getValue();
+//				// 2
+//				if (costAccountObj == null) {
+//					// 2.1
 //					ProgrammingEntryUtil.clearCell(kdtCost, rowIndex, COSTACCOUNT_NUMBER, COSTACCOUNT, GOALCOST, ASSIGNED, ASSIGNING,
 //							CONTRACTASSIGN, COST_DES);
-//				} else {
-//					aimCostInfo = (AimCostInfo) aimCostObj;
+//				} 
+//				else {
+//					// 2.2
+//					CostAccountInfo costAccount = (CostAccountInfo) costAccountObj;
+//					String newCostAccountID = ProgrammingEntryUtil.isExitCostAccount(newProject, costAccount);
+//					if (newCostAccountID == null) {
+//						// 2.2.1
+//						ProgrammingEntryUtil.clearCell(kdtCost, rowIndex, COSTACCOUNT_NUMBER, COSTACCOUNT, GOALCOST, ASSIGNED,
+//								ASSIGNING, CONTRACTASSIGN, COST_DES);
+//					} 
+////					else {
+//						// 2.2.2
+//						// 2.2.2.1给当前行成本科目单元格重新关联新的成本科目
+////						CostAccountInfo newCostAccountInfo = ProgrammingEntryUtil.getCostAccountByNewID(newCostAccountID);
+////						kdtCost.getCell(rowIndex, COSTACCOUNT).setValue(newCostAccountInfo);
+////						kdtCost.getCell(rowIndex, COSTACCOUNT_NUMBER).setValue(newCostAccountInfo.getLongNumber().replace('!', '.'));
+//						// 2.2.2.2：获取"目标成本"
+////						BigDecimal goalCost = ProgrammingEntryUtil.getGoalCostBy_costAcc_aimCost(newCostAccountInfo,
+////								aimCostInfo);
+//						// 2.2.2.2.1
+////						if (goalCost.compareTo(FDCHelper.ZERO) == 0) {
+////							// 2.2.2.2.1.1
+////							ProgrammingEntryUtil.setZero(kdtCost, rowIndex, GOALCOST, ASSIGNED, ASSIGNING, CONTRACTASSIGN, COST_DES);
+////							afterContractAssignChange();
+////							afterPlanAmountChange();
+////						} 
+//						else {
+//							// 2.2.2.2.1.2 算出"已分配","待分配","本合约分配"各值
+////							BigDecimal allAssigned = FDCHelper.ZERO;// 已分配
+//							// 算出"待分配" == "目标成本" - "已分配"
+////							BigDecimal assigning = goalCost.subtract(allAssigned);
+////							// 带出"本合约分配"="待分配"
+////							BigDecimal contractAssign = assigning;
+////							// 显示在单元格中
+////							kdtCost.getCell(rowIndex, GOALCOST).setValue(goalCost);// 目标成本
+////							kdtCost.getCell(rowIndex, ASSIGNED).setValue(allAssigned);// 已分配
+////							kdtCost.getCell(rowIndex, ASSIGNING).setValue(assigning);// 待分配
+////							kdtCost.getCell(rowIndex, CONTRACTASSIGN).setValue(contractAssign);// 本合约分配
+////
+////							// 本合约分配带出后又自动算出"规划金额"
+////							afterContractAssignChange();
+////							// 自动算出"规划金额"后，动态改变经济条款中"付款比例"和"付款金额"
+////							// 默认以"付款比例"为定值，改变"付款金额"
+////							afterPlanAmountChange();
+////						}
+//					}
 //				}
-				/*
-				 * 工程项目改变之后
-				 * 
-				 * 1.
-				 * 
-				 * 2.判断当前行是否已选了成本科目
-				 * 
-				 * 2.1:若无：清空除工程项目外所有当前行单元格
-				 * 
-				 * 2.2:若有：判断所变的工程项目是否也有此成本科目
-				 * 
-				 * 2.2.1:若无：清空除工程项目外所有当前行单元格
-				 * 
-				 * 2.2.2:若有：
-				 * 
-				 * 2.2.2.1:给当前行成本科目单元格重新关联新的成本科目
-				 * 
-				 * 2.2.2.2：获取"目标成本"
-				 * 
-				 * 2.2.2.2.1：判断目标成本是否为0
-				 * 
-				 * 2.2.2.2.1.1:为0，给"目标成本","已分配","待分配","本合约分配"赋值0,备注清空
-				 * 
-				 * 2.2.2.2.1.2:不为0，算出"已分配","待分配","本合约分配"各值
-				 * 
-				 * 最后把牵涉到的值：规划金额，经济条款中"付款比例"、"付款金额"等值 更新一遍
-				 */
-				// 1
-
-				Object costAccountObj = kdtCost.getCell(rowIndex, COSTACCOUNT).getValue();
-				// 2
-				if (costAccountObj == null) {
-					// 2.1
-					ProgrammingEntryUtil.clearCell(kdtCost, rowIndex, COSTACCOUNT_NUMBER, COSTACCOUNT, GOALCOST, ASSIGNED, ASSIGNING,
-							CONTRACTASSIGN, COST_DES);
-				} 
-				else {
-					// 2.2
-					CostAccountInfo costAccount = (CostAccountInfo) costAccountObj;
-					String newCostAccountID = ProgrammingEntryUtil.isExitCostAccount(newProject, costAccount);
-					if (newCostAccountID == null) {
-						// 2.2.1
-						ProgrammingEntryUtil.clearCell(kdtCost, rowIndex, COSTACCOUNT_NUMBER, COSTACCOUNT, GOALCOST, ASSIGNED,
-								ASSIGNING, CONTRACTASSIGN, COST_DES);
-					} 
-//					else {
-						// 2.2.2
-						// 2.2.2.1给当前行成本科目单元格重新关联新的成本科目
-//						CostAccountInfo newCostAccountInfo = ProgrammingEntryUtil.getCostAccountByNewID(newCostAccountID);
-//						kdtCost.getCell(rowIndex, COSTACCOUNT).setValue(newCostAccountInfo);
-//						kdtCost.getCell(rowIndex, COSTACCOUNT_NUMBER).setValue(newCostAccountInfo.getLongNumber().replace('!', '.'));
-						// 2.2.2.2：获取"目标成本"
-//						BigDecimal goalCost = ProgrammingEntryUtil.getGoalCostBy_costAcc_aimCost(newCostAccountInfo,
-//								aimCostInfo);
-						// 2.2.2.2.1
-//						if (goalCost.compareTo(FDCHelper.ZERO) == 0) {
-//							// 2.2.2.2.1.1
-//							ProgrammingEntryUtil.setZero(kdtCost, rowIndex, GOALCOST, ASSIGNED, ASSIGNING, CONTRACTASSIGN, COST_DES);
-//							afterContractAssignChange();
-//							afterPlanAmountChange();
-//						} 
-						else {
-							// 2.2.2.2.1.2 算出"已分配","待分配","本合约分配"各值
-//							BigDecimal allAssigned = FDCHelper.ZERO;// 已分配
-							// 算出"待分配" == "目标成本" - "已分配"
-//							BigDecimal assigning = goalCost.subtract(allAssigned);
-//							// 带出"本合约分配"="待分配"
-//							BigDecimal contractAssign = assigning;
-//							// 显示在单元格中
-//							kdtCost.getCell(rowIndex, GOALCOST).setValue(goalCost);// 目标成本
-//							kdtCost.getCell(rowIndex, ASSIGNED).setValue(allAssigned);// 已分配
-//							kdtCost.getCell(rowIndex, ASSIGNING).setValue(assigning);// 待分配
-//							kdtCost.getCell(rowIndex, CONTRACTASSIGN).setValue(contractAssign);// 本合约分配
+//			} else {
+//				//工程项目变为空则清空所在行所有行
+//				ProgrammingEntryUtil.clearCell(kdtCost, rowIndex, PROJECT, COSTACCOUNT_NUMBER, COSTACCOUNT, GOALCOST, ASSIGNED,
+//						ASSIGNING, CONTRACTASSIGN, COST_DES);
+//				kdtCost.getColumn(COSTACCOUNT).getStyleAttributes().setLocked(true);
+//			}
 //
-//							// 本合约分配带出后又自动算出"规划金额"
-//							afterContractAssignChange();
-//							// 自动算出"规划金额"后，动态改变经济条款中"付款比例"和"付款金额"
-//							// 默认以"付款比例"为定值，改变"付款金额"
-//							afterPlanAmountChange();
-//						}
-					}
-				}
-			} else {
-				//工程项目变为空则清空所在行所有行
-				ProgrammingEntryUtil.clearCell(kdtCost, rowIndex, PROJECT, COSTACCOUNT_NUMBER, COSTACCOUNT, GOALCOST, ASSIGNED,
-						ASSIGNING, CONTRACTASSIGN, COST_DES);
-				kdtCost.getColumn(COSTACCOUNT).getStyleAttributes().setLocked(true);
-			}
-
-		}
-		// 编辑"本合约分配"
-		if (colIndex == kdtCost.getColumnIndex(CONTRACTASSIGN)) {
-			afterContractAssignChange();
-			
+//		}
+//		// 编辑"本合约分配"
+//		if (colIndex == kdtCost.getColumnIndex(CONTRACTASSIGN)) {
+//			afterContractAssignChange();
+//			
+////			ObjectValueRender render_scale = new ObjectValueRender();
+////			render_scale.setFormat(new IDataFormat() {
+////				public String format(Object o) {
+////					String str = o.toString();
+////					if (!FDCHelper.isEmpty(str)) {
+////						return str + "%";
+////					}
+////					return str;
+////				}
+////			});
+////			kdtCost.getColumn("scale").setRenderer(render_scale);
+//			BigDecimal amount=(BigDecimal) kdtCost.getRow(e.getRowIndex()).getCell(CONTRACTASSIGN).getValue();
+//			BigDecimal goalCost=(BigDecimal) kdtCost.getRow(e.getRowIndex()).getCell(GOALCOST).getValue();
+//			if(amount!=null&&goalCost!=null&&goalCost.compareTo(FDCHelper.ZERO)!=0){
+//				amount=goalCost==null?FDCHelper.ZERO:amount.multiply(new BigDecimal(100)).divide(goalCost,2,BigDecimal.ROUND_HALF_UP);
+//				kdtCost.getRow(e.getRowIndex()).getCell("scale").setValue(amount);
+//			}else{
+//				kdtCost.getRow(e.getRowIndex()).getCell("scale").setValue(FDCHelper.ZERO);
+//			}
+//		}
+//
+//		// 选择"成本科目F7"
+////		if (colIndex == kdtCost.getColumnIndex(COSTACCOUNT)) {
+////			/*
+////			 * 1.取出成本科目的值
+////			 * 
+////			 * 1.1判断成本科目是否为空
+////			 * 
+////			 * 1.1.1为空：置空当前行除工程项目外的所有单元格
+////			 * 
+////			 * 1.1.2不为空：取值
+////			 * 
+////			 * 1.2判断所选的成本科目是否重复，重复直接返回,不重复继续
+////			 * 
+////			 * 2.取出目标成本信息
+////			 * 
+////			 * 2.1若为空，把"目标成本","已分配","待分配","本合约分配","备注"置空；
+////			 * 
+////			 * 2.2若不为空： 判断目标成本是否是已审批之后状态
+////			 * 
+////			 * 2.2.1若不为审批之后状态，把各单元格数值置0，备注项置空 ；
+////			 * 
+////			 * 2.2.2若为审批之后状态，取出相应成本科目的目标成本值（需要用到成本科目，目标成本作为条件）
+////			 * 
+////			 * 3.算出"已分配","待分配","本合约分配"各值
+////			 * 
+////			 * 最后把牵涉到的值：规划金额，经济条款中"付款比例"、"付款金额"等值 更新一遍
+////			 */
+////			BigDecimal allAssigned = FDCHelper.ZERO;// "已分配"
+////			ProjectInfo project = (ProjectInfo) kdtCost.getCell(rowIndex, PROJECT).getValue();// 工程项目
+////			// 1.
+////			Object newValue = kdtCost.getCell(rowIndex, COSTACCOUNT).getValue();
+////			// 1.1
+////			if(newValue == null){
+////				// 1.1.1
+////				ProgrammingEntryUtil.clearCell(kdtCost, rowIndex, COSTACCOUNT_NUMBER, COSTACCOUNT, GOALCOST, ASSIGNED, ASSIGNING,
+////						CONTRACTASSIGN, COST_DES);
+////			}
+////			else{
+////				// 1.1.2
+////				CostAccountInfo newCostAccountInfo = (CostAccountInfo) newValue;// 成本科目
+////				kdtCost.getCell(rowIndex, COSTACCOUNT_NUMBER).setValue(newCostAccountInfo.getLongNumber().replace('!', '.'));
+////				// 1.2
+////				if (isCostAccountDup(newCostAccountInfo, project, rowIndex)) {
+////					return;
+////				}
+//				// 2.
+////				AimCostInfo aimCostInfo = (AimCostInfo) this.getUIContext().get("aimCostInfo");// 目标成本
+////				if (aimCostInfo == null) {
+////					// 2.1
+//////					ProgrammingEntryUtil.clearCell(kdtCost, rowIndex, GOALCOST, ASSIGNED, ASSIGNING, CONTRACTASSIGN, COST_DES);
+////					ProgrammingEntryUtil.setZero(kdtCost, rowIndex, GOALCOST, ASSIGNED, ASSIGNING, CONTRACTASSIGN, COST_DES);
+////				} else {
+////					// 2.2是否是已审批
+////					if (!isAimCostAudit(aimCostInfo)) {
+////						// 2.2.1
+////						ProgrammingEntryUtil.setZero(kdtCost, rowIndex, GOALCOST, ASSIGNED, ASSIGNING, CONTRACTASSIGN, COST_DES);
+////					} else {
+////						// 2.2.2 取出目标成本的值
+////						// ProjectInfo project = (ProjectInfo) kdtCost.getCell(rowIndex, PROJECT).getValue();
+////						if (project != null) {
+////							BigDecimal goalCost = ProgrammingEntryUtil.getGoalCostBy_costAcc_aimCost(newCostAccountInfo,
+////									aimCostInfo);
+////							if (goalCost.compareTo(FDCHelper.ZERO) == 0) {
+////								ProgrammingEntryUtil.setZero(kdtCost, rowIndex, GOALCOST, ASSIGNED, ASSIGNING, CONTRACTASSIGN, COST_DES);
+////								afterContractAssignChange();
+////								afterPlanAmountChange();
+////							}
+////				else {
+////								allAssigned = getAllContractAssign(newCostAccountInfo, false);// 已分配
+////								// 算出"待分配" == "目标成本" - "已分配"
+////								BigDecimal assigning = goalCost.subtract(allAssigned);// 待分配
+////								// 带出"本合约分配"="待分配"
+////								BigDecimal contractAssign = assigning;// 本合约分配
+////								// 显示在单元格中
+////								kdtCost.getCell(rowIndex, GOALCOST).setValue(goalCost);// 目标成本
+////								kdtCost.getCell(rowIndex, ASSIGNED).setValue(allAssigned);// 已分配
+////								kdtCost.getCell(rowIndex, ASSIGNING).setValue(assigning);// 待分配
+////								kdtCost.getCell(rowIndex, CONTRACTASSIGN).setValue(contractAssign);// 本合约分配
+////
+////								// 本合约分配带出后又自动算出"规划金额"
+////								afterContractAssignChange();
+////								// 自动算出"规划金额"后，动态改变经济条款中"付款比例"和"付款金额"
+////								// 默认以"付款比例"为定值，改变"付款金额"
+////								afterPlanAmountChange();
+////							}
+////						}
+////					}
+////				}
+////			}
+////		}
+//		if(colIndex == kdtCost.getColumnIndex("scale")){
+//			// 绘制付款比例显示 郊果
 //			ObjectValueRender render_scale = new ObjectValueRender();
 //			render_scale.setFormat(new IDataFormat() {
 //				public String format(Object o) {
@@ -1282,129 +1407,16 @@ public class ProgrammingEntryEditUI extends AbstractProgrammingEntryEditUI
 //				}
 //			});
 //			kdtCost.getColumn("scale").setRenderer(render_scale);
-			BigDecimal amount=(BigDecimal) kdtCost.getRow(e.getRowIndex()).getCell(CONTRACTASSIGN).getValue();
-			BigDecimal goalCost=(BigDecimal) kdtCost.getRow(e.getRowIndex()).getCell(GOALCOST).getValue();
-			if(amount!=null&&goalCost!=null&&goalCost.compareTo(FDCHelper.ZERO)!=0){
-				amount=goalCost==null?FDCHelper.ZERO:amount.multiply(new BigDecimal(100)).divide(goalCost,2,BigDecimal.ROUND_HALF_UP);
-				kdtCost.getRow(e.getRowIndex()).getCell("scale").setValue(amount);
-			}else{
-				kdtCost.getRow(e.getRowIndex()).getCell("scale").setValue(FDCHelper.ZERO);
-			}
-		}
-
-		// 选择"成本科目F7"
-//		if (colIndex == kdtCost.getColumnIndex(COSTACCOUNT)) {
-//			/*
-//			 * 1.取出成本科目的值
-//			 * 
-//			 * 1.1判断成本科目是否为空
-//			 * 
-//			 * 1.1.1为空：置空当前行除工程项目外的所有单元格
-//			 * 
-//			 * 1.1.2不为空：取值
-//			 * 
-//			 * 1.2判断所选的成本科目是否重复，重复直接返回,不重复继续
-//			 * 
-//			 * 2.取出目标成本信息
-//			 * 
-//			 * 2.1若为空，把"目标成本","已分配","待分配","本合约分配","备注"置空；
-//			 * 
-//			 * 2.2若不为空： 判断目标成本是否是已审批之后状态
-//			 * 
-//			 * 2.2.1若不为审批之后状态，把各单元格数值置0，备注项置空 ；
-//			 * 
-//			 * 2.2.2若为审批之后状态，取出相应成本科目的目标成本值（需要用到成本科目，目标成本作为条件）
-//			 * 
-//			 * 3.算出"已分配","待分配","本合约分配"各值
-//			 * 
-//			 * 最后把牵涉到的值：规划金额，经济条款中"付款比例"、"付款金额"等值 更新一遍
-//			 */
-//			BigDecimal allAssigned = FDCHelper.ZERO;// "已分配"
-//			ProjectInfo project = (ProjectInfo) kdtCost.getCell(rowIndex, PROJECT).getValue();// 工程项目
-//			// 1.
-//			Object newValue = kdtCost.getCell(rowIndex, COSTACCOUNT).getValue();
-//			// 1.1
-//			if(newValue == null){
-//				// 1.1.1
-//				ProgrammingEntryUtil.clearCell(kdtCost, rowIndex, COSTACCOUNT_NUMBER, COSTACCOUNT, GOALCOST, ASSIGNED, ASSIGNING,
-//						CONTRACTASSIGN, COST_DES);
+//			BigDecimal amount=(BigDecimal) kdtCost.getRow(e.getRowIndex()).getCell("scale").getValue();
+//			BigDecimal goalCost=(BigDecimal) kdtCost.getRow(e.getRowIndex()).getCell(GOALCOST).getValue();
+//			if(amount!=null){
+//				amount=goalCost==null?FDCHelper.ZERO:goalCost.multiply(amount).divide(new BigDecimal(100),2,BigDecimal.ROUND_HALF_UP);
+//				kdtCost.getRow(e.getRowIndex()).getCell(CONTRACTASSIGN).setValue(amount);
+//			}else{
+//				kdtCost.getRow(e.getRowIndex()).getCell(CONTRACTASSIGN).setValue(FDCHelper.ZERO);
 //			}
-//			else{
-//				// 1.1.2
-//				CostAccountInfo newCostAccountInfo = (CostAccountInfo) newValue;// 成本科目
-//				kdtCost.getCell(rowIndex, COSTACCOUNT_NUMBER).setValue(newCostAccountInfo.getLongNumber().replace('!', '.'));
-//				// 1.2
-//				if (isCostAccountDup(newCostAccountInfo, project, rowIndex)) {
-//					return;
-//				}
-				// 2.
-//				AimCostInfo aimCostInfo = (AimCostInfo) this.getUIContext().get("aimCostInfo");// 目标成本
-//				if (aimCostInfo == null) {
-//					// 2.1
-////					ProgrammingEntryUtil.clearCell(kdtCost, rowIndex, GOALCOST, ASSIGNED, ASSIGNING, CONTRACTASSIGN, COST_DES);
-//					ProgrammingEntryUtil.setZero(kdtCost, rowIndex, GOALCOST, ASSIGNED, ASSIGNING, CONTRACTASSIGN, COST_DES);
-//				} else {
-//					// 2.2是否是已审批
-//					if (!isAimCostAudit(aimCostInfo)) {
-//						// 2.2.1
-//						ProgrammingEntryUtil.setZero(kdtCost, rowIndex, GOALCOST, ASSIGNED, ASSIGNING, CONTRACTASSIGN, COST_DES);
-//					} else {
-//						// 2.2.2 取出目标成本的值
-//						// ProjectInfo project = (ProjectInfo) kdtCost.getCell(rowIndex, PROJECT).getValue();
-//						if (project != null) {
-//							BigDecimal goalCost = ProgrammingEntryUtil.getGoalCostBy_costAcc_aimCost(newCostAccountInfo,
-//									aimCostInfo);
-//							if (goalCost.compareTo(FDCHelper.ZERO) == 0) {
-//								ProgrammingEntryUtil.setZero(kdtCost, rowIndex, GOALCOST, ASSIGNED, ASSIGNING, CONTRACTASSIGN, COST_DES);
-//								afterContractAssignChange();
-//								afterPlanAmountChange();
-//							}
-//				else {
-//								allAssigned = getAllContractAssign(newCostAccountInfo, false);// 已分配
-//								// 算出"待分配" == "目标成本" - "已分配"
-//								BigDecimal assigning = goalCost.subtract(allAssigned);// 待分配
-//								// 带出"本合约分配"="待分配"
-//								BigDecimal contractAssign = assigning;// 本合约分配
-//								// 显示在单元格中
-//								kdtCost.getCell(rowIndex, GOALCOST).setValue(goalCost);// 目标成本
-//								kdtCost.getCell(rowIndex, ASSIGNED).setValue(allAssigned);// 已分配
-//								kdtCost.getCell(rowIndex, ASSIGNING).setValue(assigning);// 待分配
-//								kdtCost.getCell(rowIndex, CONTRACTASSIGN).setValue(contractAssign);// 本合约分配
-//
-//								// 本合约分配带出后又自动算出"规划金额"
-//								afterContractAssignChange();
-//								// 自动算出"规划金额"后，动态改变经济条款中"付款比例"和"付款金额"
-//								// 默认以"付款比例"为定值，改变"付款金额"
-//								afterPlanAmountChange();
-//							}
-//						}
-//					}
-//				}
-//			}
+//			afterContractAssignChange();
 //		}
-		if(colIndex == kdtCost.getColumnIndex("scale")){
-			// 绘制付款比例显示 郊果
-			ObjectValueRender render_scale = new ObjectValueRender();
-			render_scale.setFormat(new IDataFormat() {
-				public String format(Object o) {
-					String str = o.toString();
-					if (!FDCHelper.isEmpty(str)) {
-						return str + "%";
-					}
-					return str;
-				}
-			});
-			kdtCost.getColumn("scale").setRenderer(render_scale);
-			BigDecimal amount=(BigDecimal) kdtCost.getRow(e.getRowIndex()).getCell("scale").getValue();
-			BigDecimal goalCost=(BigDecimal) kdtCost.getRow(e.getRowIndex()).getCell(GOALCOST).getValue();
-			if(amount!=null){
-				amount=goalCost==null?FDCHelper.ZERO:goalCost.multiply(amount).divide(new BigDecimal(100),2,BigDecimal.ROUND_HALF_UP);
-				kdtCost.getRow(e.getRowIndex()).getCell(CONTRACTASSIGN).setValue(amount);
-			}else{
-				kdtCost.getRow(e.getRowIndex()).getCell(CONTRACTASSIGN).setValue(FDCHelper.ZERO);
-			}
-			afterContractAssignChange();
-		}
 	}
 
 	/**
@@ -1651,7 +1663,7 @@ public class ProgrammingEntryEditUI extends AbstractProgrammingEntryEditUI
 				}
 				row.getCell(PROJECT).setValue(project);
 				costAccountCellF7(project, i, kdtCost.getColumnIndex(COSTACCOUNT),this.pcCollection);// 根据当前行工程项目加载F7成本科目
-				row.getCell(COSTACCOUNT_NUMBER).setValue(pccInfo.getCostAccount().getLongNumber().replace('!', '.'));
+//				row.getCell(COSTACCOUNT_NUMBER).setValue(pccInfo.getCostAccount().getLongNumber().replace('!', '.'));
 				row.getCell(COSTACCOUNT).setValue(pccInfo.getCostAccount());
 				row.getCell(GOALCOST).setValue(pccInfo.getGoalCost());
 				row.getCell(ASSIGNED).setValue(pccInfo.getAssigned());
@@ -1883,35 +1895,23 @@ public class ProgrammingEntryEditUI extends AbstractProgrammingEntryEditUI
 	}
 
 	/**
-	 * 工程项目F7\成本科目
+	 * 投资年度F7
 	 * 
 	 */
 	private void projectF7() {
 		KDBizPromptBox kdtEconomyEntriese_costAccount_PromptBox = new KDBizPromptBox();
-		kdtEconomyEntriese_costAccount_PromptBox.setQueryInfo("com.kingdee.eas.basedata.assistant.app.F7ProjectQuery");
+		kdtEconomyEntriese_costAccount_PromptBox.setQueryInfo("com.kingdee.eas.port.pm.base.app.InvestYearQuery");
 		kdtEconomyEntriese_costAccount_PromptBox.setVisible(true);
 		kdtEconomyEntriese_costAccount_PromptBox.setEditable(true);
 		kdtEconomyEntriese_costAccount_PromptBox.setDisplayFormat("$number$");
 		kdtEconomyEntriese_costAccount_PromptBox.setEditFormat("$number$");
 		kdtEconomyEntriese_costAccount_PromptBox.setCommitFormat("$number$");
 		KDTDefaultCellEditor kdtEconomyEntriese_costAccount_CellEditor = new KDTDefaultCellEditor(kdtEconomyEntriese_costAccount_PromptBox);
-		this.kdtCost.getColumn(PROJECT).setEditor(kdtEconomyEntriese_costAccount_CellEditor);
+		this.kdtCost.getColumn(INVESTYEAR).setEditor(kdtEconomyEntriese_costAccount_CellEditor);
 		ObjectValueRender kdtCostEntries_paymentType_OVR = new ObjectValueRender();
 		kdtCostEntries_paymentType_OVR.setFormat(new BizDataFormat("$name$"));
-		this.kdtCost.getColumn(PROJECT).setRenderer(kdtCostEntries_paymentType_OVR);
+		this.kdtCost.getColumn(INVESTYEAR).setRenderer(kdtCostEntries_paymentType_OVR);
 		
-		kdtEconomyEntriese_costAccount_PromptBox = new KDBizPromptBox();
-		kdtEconomyEntriese_costAccount_PromptBox.setQueryInfo("com.kingdee.eas.fdc.basedata.app.CostAccountQuery");
-		kdtEconomyEntriese_costAccount_PromptBox.setVisible(true);
-		kdtEconomyEntriese_costAccount_PromptBox.setEditable(true);
-		kdtEconomyEntriese_costAccount_PromptBox.setDisplayFormat("$number$");
-		kdtEconomyEntriese_costAccount_PromptBox.setEditFormat("$number$");
-		kdtEconomyEntriese_costAccount_PromptBox.setCommitFormat("$number$");
-		kdtEconomyEntriese_costAccount_CellEditor = new KDTDefaultCellEditor(kdtEconomyEntriese_costAccount_PromptBox);
-		this.kdtCost.getColumn(COSTACCOUNT).setEditor(kdtEconomyEntriese_costAccount_CellEditor);
-		kdtCostEntries_paymentType_OVR = new ObjectValueRender();
-		kdtCostEntries_paymentType_OVR.setFormat(new BizDataFormat("$name$"));
-		this.kdtCost.getColumn(COSTACCOUNT).setRenderer(kdtCostEntries_paymentType_OVR);
 	}
 
 	/**
@@ -1991,4 +1991,6 @@ public class ProgrammingEntryEditUI extends AbstractProgrammingEntryEditUI
 		}
 //		ProgrammingEntryFactory.getRemoteInstance().submit(pcInfo);
 	}
+	
+	
 }
