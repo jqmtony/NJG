@@ -836,6 +836,80 @@
                 <key name="name" value="FCompare" />
             </mappingField>
         </ownProperty>
+        <linkProperty>
+            <name>investYear</name>
+            <alias>entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.linkProperty[investYear].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.linkProperty[investYear].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <mappingField>
+                <key name="name" value="FInvestYearID" />
+            </mappingField>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.investplan.app" />
+                <key name="name" value="R_ProgrammingEntry_InvestYear_investYear" />
+            </relationship>
+        </linkProperty>
+        <ownProperty>
+            <name>investAmount</name>
+            <alias>entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.ownProperty[investAmount].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.ownProperty[investAmount].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>BigDecimal</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>13</length>
+            <precision>28</precision>
+            <decimalDigits>10</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.ownProperty[investAmount].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="FInvestAmount" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>cumulativeInvest</name>
+            <alias>entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.ownProperty[cumulativeInvest].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.ownProperty[cumulativeInvest].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>BigDecimal</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>13</length>
+            <precision>28</precision>
+            <decimalDigits>10</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.ownProperty[cumulativeInvest].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="FCumulativeInvest" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>investProportion</name>
+            <alias>entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.ownProperty[investProportion].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.ownProperty[investProportion].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>Double</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>10</length>
+            <precision>0</precision>
+            <decimalDigits>2</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.ownProperty[investProportion].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="FInvestProportion" />
+            </mappingField>
+        </ownProperty>
     </properties>
     <logicalKey>
         <name>id</name>
@@ -884,8 +958,7 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].logicalKey[id].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].logicalKey[id].description">
@@ -1013,6 +1086,18 @@
             <lang locale="zh_CN" value="经济条款" />
             <lang locale="zh_HK" value="經濟條款" />
             <lang locale="zh_TW" value="經濟條款" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.linkProperty[investYear].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="投资年度" />
+            <lang locale="zh_HK" value="投資年度" />
+            <lang locale="zh_TW" value="投資年度" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.linkProperty[investYear].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="投资年度" />
+            <lang locale="zh_HK" value="投資年度" />
+            <lang locale="zh_TW" value="投資年度" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.linkProperty[inviteOrg].alias">
             <lang locale="en_US" value="null" />
@@ -1155,8 +1240,7 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.ownProperty[billId].defaultValue">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.ownProperty[billId].description">
@@ -1220,8 +1304,7 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.ownProperty[buildPerSquare].defaultValue">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.ownProperty[buildPerSquare].description">
@@ -1253,8 +1336,7 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.ownProperty[changeAmount].defaultValue">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.ownProperty[changeAmount].description">
@@ -1318,8 +1400,7 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.ownProperty[compare].defaultValue">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.ownProperty[compare].description">
@@ -1417,8 +1498,7 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.ownProperty[costAccountNames].defaultValue">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.ownProperty[costAccountNames].description">
@@ -1441,6 +1521,23 @@
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.ownProperty[cumulativeInvest].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="累计投资" />
+            <lang locale="zh_HK" value="累計投資" />
+            <lang locale="zh_TW" value="累計投資" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.ownProperty[cumulativeInvest].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.ownProperty[cumulativeInvest].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="累计投资" />
+            <lang locale="zh_HK" value="累計投資" />
+            <lang locale="zh_TW" value="累計投資" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.ownProperty[estimateAmount].alias">
             <lang locale="en_US" value="null" />
@@ -1474,6 +1571,40 @@
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.ownProperty[investAmount].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="本年度投资金额" />
+            <lang locale="zh_HK" value="本年度投資金額" />
+            <lang locale="zh_TW" value="本年度投資金額" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.ownProperty[investAmount].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.ownProperty[investAmount].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.ownProperty[investProportion].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="投资比例" />
+            <lang locale="zh_HK" value="投資比例" />
+            <lang locale="zh_TW" value="投資比例" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.ownProperty[investProportion].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.ownProperty[investProportion].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="投资比例" />
+            <lang locale="zh_HK" value="投資比例" />
+            <lang locale="zh_TW" value="投資比例" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.ownProperty[inviteWay].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="招标方式" />
@@ -1482,8 +1613,7 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.ownProperty[inviteWay].defaultValue">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.ownProperty[inviteWay].description">
@@ -1547,8 +1677,7 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.ownProperty[isInvite].defaultValue">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.ownProperty[isInvite].description">
@@ -1580,8 +1709,7 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.ownProperty[isWTCiting].defaultValue">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.ownProperty[isWTCiting].description">
@@ -1613,8 +1741,7 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.ownProperty[settleAmount].defaultValue">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.ownProperty[settleAmount].description">
@@ -1646,8 +1773,7 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.ownProperty[signUpAmount].defaultValue">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.ownProperty[signUpAmount].description">
@@ -1679,8 +1805,7 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.ownProperty[soldPerSquare].defaultValue">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.ownProperty[soldPerSquare].description">
@@ -1776,8 +1901,7 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.ownProperty[supMaterial].defaultValue">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.ownProperty[supMaterial].description">
@@ -1809,8 +1933,7 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.ownProperty[unAuditContractEA].defaultValue">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.ownProperty[unAuditContractEA].description">
@@ -1842,8 +1965,7 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.ownProperty[unAuditContractSettleEA].defaultValue">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.ownProperty[unAuditContractSettleEA].description">
@@ -1908,8 +2030,7 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.ownProperty[withOutTextName].defaultValue">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.ownProperty[withOutTextName].description">
@@ -1940,8 +2061,7 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.ownProperty[withOutTextNumber].defaultValue">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.ownProperty[withOutTextNumber].description">
@@ -1972,8 +2092,7 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.ownProperty[workContent].defaultValue">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntry].properties.ownProperty[workContent].description">

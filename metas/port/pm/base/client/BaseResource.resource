@@ -72,6 +72,11 @@
             <value>i18nResource[com.kingdee.eas.port.pm.base.client.BaseResource].resourceItems.resourceItem[QuestionTypeTteeQueryF7WindowTitle].value</value>
             <userDefined>true</userDefined>
         </resourceItem>
+        <resourceItem>
+            <name>InvestYearQueryF7WindowTitle</name>
+            <value>i18nResource[com.kingdee.eas.port.pm.base.client.BaseResource].resourceItems.resourceItem[InvestYearQueryF7WindowTitle].value</value>
+            <userDefined>true</userDefined>
+        </resourceItem>
     </resourceItems>
     <resource>
         <rs key="i18nResource[com.kingdee.eas.port.pm.base.client.BaseResource].alias">
@@ -103,6 +108,12 @@
             <lang locale="zh_CN" value="资金来源" />
             <lang locale="zh_HK" value="資金來源" />
             <lang locale="zh_TW" value="資金來源" />
+        </rs>
+        <rs key="i18nResource[com.kingdee.eas.port.pm.base.client.BaseResource].resourceItems.resourceItem[InvestYearQueryF7WindowTitle].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="投资年度" />
+            <lang locale="zh_HK" value="投資年度" />
+            <lang locale="zh_TW" value="投資年度" />
         </rs>
         <rs key="i18nResource[com.kingdee.eas.port.pm.base.client.BaseResource].resourceItems.resourceItem[InviteTypeQueryF7WindowTitle].value">
             <lang locale="en_US" value="null" />

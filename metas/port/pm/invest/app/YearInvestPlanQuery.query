@@ -165,6 +165,19 @@
                 <key name="name" value="CostTemp" />
             </entityRef>
         </subEntity>
+        <subEntity>
+            <name>year</name>
+            <alias>joinQuery[com.kingdee.eas.port.pm.invest.app.YearInvestPlanQuery].subObjects.subEntity[year].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YearInvestPlanQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
+                <key name="name" value="InvestYear" />
+            </entityRef>
+        </subEntity>
     </subObjects>
     <units>
         <queryField>
@@ -562,37 +575,6 @@
                     </subEntity>
                     <refProperty>
                         <key name="name" value="addInvestAmount" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
-                <key name="name" value="YearInvestPlanQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>year</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.YearInvestPlanQuery].units.queryField[year].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>Int</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>4df2460f-2a06-4d76-bbb7-271a5dff8074</key>
-                    <parentUnit>
-                        <key name="name" value="year" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="YearInvestPlan" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="year" />
                     </refProperty>
                 </propertyRef>
             </propertyRefs>
@@ -1438,6 +1420,99 @@
                 <key name="name" value="YearInvestPlanQuery" />
             </query>
         </queryField>
+        <queryField>
+            <name>year.name</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.YearInvestPlanQuery].units.queryField[year.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0d0a128a-e909-473f-8b87-5b3882cdabb5</key>
+                    <parentUnit>
+                        <key name="name" value="year.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="year" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YearInvestPlanQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>eea44848-5940-4e77-a00d-469462b944d3</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.YearInvestPlanQuery].units.propertyUnit[eea44848-5940-4e77-a00d-469462b944d3].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>9a073b4e-3477-4161-a0a4-61ef87fc0e15</key>
+                    <parentUnit>
+                        <key name="name" value="eea44848-5940-4e77-a00d-469462b944d3" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="YearInvestPlan" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="year" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YearInvestPlanQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>455603be-cb5b-4d43-b1bb-d2d7995529da</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.YearInvestPlanQuery].units.propertyUnit[455603be-cb5b-4d43-b1bb-d2d7995529da].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>22259fd9-9716-470e-b4e4-270be76fcccc</key>
+                    <parentUnit>
+                        <key name="name" value="455603be-cb5b-4d43-b1bb-d2d7995529da" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="year" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YearInvestPlanQuery" />
+            </query>
+        </propertyUnit>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -1789,6 +1864,36 @@
                 <key name="name" value="YearInvestPlanQuery" />
             </query>
         </join>
+        <join>
+            <name>0f613bb7-d83f-4122-aa9f-e6e37df2639d</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="YearInvestPlan" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="year" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>3e2e26ef-74a2-4b4c-a26f-7e07931575d1</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="eea44848-5940-4e77-a00d-469462b944d3" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="455603be-cb5b-4d43-b1bb-d2d7995529da" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="0f613bb7-d83f-4122-aa9f-e6e37df2639d" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YearInvestPlanQuery" />
+            </query>
+        </join>
     </joins>
     <resource>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YearInvestPlanQuery].alias">
@@ -1897,6 +2002,12 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YearInvestPlanQuery].subObjects.subEntity[year].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YearInvestPlanQuery].units.propertyUnit[02724c2a-21b5-4687-93ae-d0d9f8c4f18f].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -1952,6 +2063,12 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YearInvestPlanQuery].units.propertyUnit[3f0dd0d9-275b-4a0b-937f-5e0304f77333].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YearInvestPlanQuery].units.propertyUnit[455603be-cb5b-4d43-b1bb-d2d7995529da].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -2018,6 +2135,12 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YearInvestPlanQuery].units.propertyUnit[e72e21b9-e5a6-4ff6-9bb8-764fde347329].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YearInvestPlanQuery].units.propertyUnit[eea44848-5940-4e77-a00d-469462b944d3].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -2270,11 +2393,31 @@
             <lang locale="zh_HK" value="申報部門" />
             <lang locale="zh_TW" value="申報部門" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YearInvestPlanQuery].units.queryField[requestOrg.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YearInvestPlanQuery].units.queryField[requestOrg.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YearInvestPlanQuery].units.queryField[requestPerson.name].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="申报人" />
             <lang locale="zh_HK" value="申報人" />
             <lang locale="zh_TW" value="申報人" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YearInvestPlanQuery].units.queryField[requestPerson.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YearInvestPlanQuery].units.queryField[requestPerson.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YearInvestPlanQuery].units.queryField[status].displayName">
             <lang locale="en_US" value="null" />
@@ -2282,18 +2425,33 @@
             <lang locale="zh_HK" value="單據狀態" />
             <lang locale="zh_TW" value="單據狀態" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YearInvestPlanQuery].units.queryField[year].displayName">
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YearInvestPlanQuery].units.queryField[status].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YearInvestPlanQuery].units.queryField[status].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YearInvestPlanQuery].units.queryField[year.name].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="投资年度" />
             <lang locale="zh_HK" value="投資年度" />
             <lang locale="zh_TW" value="投資年度" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YearInvestPlanQuery].units.queryField[year].extendedProperty.isCommonQueryFilter">
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YearInvestPlanQuery].units.queryField[year.name].extendedProperty.isCommonQueryFilter">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YearInvestPlanQuery].units.queryField[year].extendedProperty.isCommonQuerySorter">
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YearInvestPlanQuery].units.queryField[year.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YearInvestPlanQuery].units.queryField[year.name].extendedProperty.isUsingF7">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />

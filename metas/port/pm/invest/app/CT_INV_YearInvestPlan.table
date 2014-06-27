@@ -246,20 +246,6 @@
             <precision>1000</precision>
         </column>
         <column>
-            <name>CFYear</name>
-            <alias>dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YearInvestPlan].columns.column[CFYear].alias</alias>
-            <description>dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YearInvestPlan].columns.column[CFYear].description</description>
-            <userDefined>true</userDefined>
-            <isMultilingual>false</isMultilingual>
-            <isEncoded>false</isEncoded>
-            <isNullable>true</isNullable>
-            <defaultValue />
-            <sqlType>INT</sqlType>
-            <length>4</length>
-            <scale>0</scale>
-            <precision>4</precision>
-        </column>
-        <column>
             <name>CFObjectState</name>
             <alias>dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YearInvestPlan].columns.column[CFObjectState].alias</alias>
             <description>dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YearInvestPlan].columns.column[CFObjectState].description</description>
@@ -553,6 +539,20 @@
             <scale>0</scale>
             <precision>44</precision>
         </column>
+        <column>
+            <name>CFYearID</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YearInvestPlan].columns.column[CFYearID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YearInvestPlan].columns.column[CFYearID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
     </columns>
     <primaryKey>
         <name>PK_YearInvestPlan</name>
@@ -792,6 +792,25 @@
                     </refColumn>
                     <fkColumn>
                         <key name="name" value="CFCostTempID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
+        <foreignKey>
+            <name>CFK_INV_INVYIPEau8</name>
+            <userDefined>true</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
+                <key name="name" value="CT_BAS_InvestYear" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="CFYearID" />
                     </fkColumn>
                 </fkColumnPair>
             </fkColumnPairs>
@@ -1056,17 +1075,17 @@
             <lang locale="zh_HK" value="備註" />
             <lang locale="zh_TW" value="備註" />
         </rs>
-        <rs key="dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YearInvestPlan].columns.column[CFYear].alias">
+        <rs key="dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YearInvestPlan].columns.column[CFYearID].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="投资年度" />
             <lang locale="zh_HK" value="投資年度" />
             <lang locale="zh_TW" value="投資年度" />
         </rs>
-        <rs key="dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YearInvestPlan].columns.column[CFYear].description">
+        <rs key="dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YearInvestPlan].columns.column[CFYearID].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="文本" />
-            <lang locale="zh_HK" value="文本" />
-            <lang locale="zh_TW" value="文本" />
+            <lang locale="zh_CN" value="投资年度" />
+            <lang locale="zh_HK" value="投資年度" />
+            <lang locale="zh_TW" value="投資年度" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YearInvestPlan].columns.column[FAuditTime].alias">
             <lang locale="en_US" value="null" />
@@ -1082,9 +1101,9 @@
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YearInvestPlan].columns.column[FAuditorID].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="审核人" />
+            <lang locale="zh_HK" value="審核人" />
+            <lang locale="zh_TW" value="審核人" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YearInvestPlan].columns.column[FAuditorID].description">
             <lang locale="en_US" value="null" />
@@ -1118,9 +1137,9 @@
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YearInvestPlan].columns.column[FControlUnitID].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="控制单元" />
+            <lang locale="zh_HK" value="控制單元" />
+            <lang locale="zh_TW" value="控制單元" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YearInvestPlan].columns.column[FControlUnitID].description">
             <lang locale="en_US" value="null" />
@@ -1142,9 +1161,9 @@
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YearInvestPlan].columns.column[FCreatorID].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="创建者" />
+            <lang locale="zh_HK" value="創建者" />
+            <lang locale="zh_TW" value="創建者" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YearInvestPlan].columns.column[FCreatorID].description">
             <lang locale="en_US" value="null" />
@@ -1166,9 +1185,9 @@
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YearInvestPlan].columns.column[FHandlerID].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="经手人" />
+            <lang locale="zh_HK" value="經手人" />
+            <lang locale="zh_TW" value="經手人" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YearInvestPlan].columns.column[FHandlerID].description">
             <lang locale="en_US" value="null" />
@@ -1213,9 +1232,9 @@
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YearInvestPlan].columns.column[FLastUpdateUserID].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="最后修改者" />
+            <lang locale="zh_HK" value="最後修改者" />
+            <lang locale="zh_TW" value="最後修改者" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YearInvestPlan].columns.column[FLastUpdateUserID].description">
             <lang locale="en_US" value="null" />

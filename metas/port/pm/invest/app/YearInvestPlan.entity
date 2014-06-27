@@ -935,7 +935,7 @@
             <isNullable>false</isNullable>
             <formula />
             <length>1000</length>
-            <precision>500</precision>
+            <precision>1000</precision>
             <decimalDigits>0</decimalDigits>
             <defaultValue>entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].properties.ownProperty[BIMUDF0027].defaultValue</defaultValue>
             <displayFormat />
@@ -995,7 +995,7 @@
             <isNullable>false</isNullable>
             <formula />
             <length>1000</length>
-            <precision>500</precision>
+            <precision>1000</precision>
             <decimalDigits>0</decimalDigits>
             <defaultValue>entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].properties.ownProperty[analyse].defaultValue</defaultValue>
             <displayFormat />
@@ -1015,32 +1015,12 @@
             <isNullable>false</isNullable>
             <formula />
             <length>1000</length>
-            <precision>255</precision>
+            <precision>1000</precision>
             <decimalDigits>0</decimalDigits>
             <defaultValue>entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].properties.ownProperty[scheme].defaultValue</defaultValue>
             <displayFormat />
             <mappingField>
                 <key name="name" value="CFScheme" />
-            </mappingField>
-        </ownProperty>
-        <ownProperty>
-            <name>year</name>
-            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].properties.ownProperty[year].alias</alias>
-            <description>entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].properties.ownProperty[year].description</description>
-            <userDefined>true</userDefined>
-            <configured>false</configured>
-            <dataType>Integer</dataType>
-            <metadataRef />
-            <isMultilingual>false</isMultilingual>
-            <isNullable>false</isNullable>
-            <formula />
-            <length>4</length>
-            <precision>4</precision>
-            <decimalDigits>0</decimalDigits>
-            <defaultValue>entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].properties.ownProperty[year].defaultValue</defaultValue>
-            <displayFormat />
-            <mappingField>
-                <key name="name" value="CFYear" />
             </mappingField>
         </ownProperty>
         <ownProperty>
@@ -1131,7 +1111,7 @@
             <isNullable>false</isNullable>
             <formula />
             <length>100</length>
-            <precision>0</precision>
+            <precision>100</precision>
             <decimalDigits>0</decimalDigits>
             <defaultValue>entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].properties.ownProperty[remark].defaultValue</defaultValue>
             <displayFormat />
@@ -1148,6 +1128,20 @@
             <relationship>
                 <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
                 <key name="name" value="R_YearInvestPlan_YearInvestPlanE3" />
+            </relationship>
+        </linkProperty>
+        <linkProperty>
+            <name>year</name>
+            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].properties.linkProperty[year].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].properties.linkProperty[year].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <mappingField>
+                <key name="name" value="CFYearID" />
+            </mappingField>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="R_YearInvestPlan_InvestYear_year" />
             </relationship>
         </linkProperty>
     </properties>
@@ -2210,6 +2204,58 @@
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].properties.linkProperty[year].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="投资年度" />
+            <lang locale="zh_HK" value="投資年度" />
+            <lang locale="zh_TW" value="投資年度" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].properties.linkProperty[year].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="投资年度" />
+            <lang locale="zh_HK" value="投資年度" />
+            <lang locale="zh_TW" value="投資年度" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].properties.linkProperty[year].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].properties.linkProperty[year].extendedProperty.dataField">
+            <lang locale="en_US" value="name" />
+            <lang locale="zh_CN" value="name" />
+            <lang locale="zh_TW" value="name" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].properties.linkProperty[year].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].properties.linkProperty[year].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].properties.linkProperty[year].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].properties.linkProperty[year].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].properties.linkProperty[year].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].properties.linkProperty[year].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].properties.ownProperty[BIMUDF0027].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="项目建设内容" />
@@ -3088,68 +3134,6 @@
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].properties.ownProperty[scheme].extendedProperty.isVisibleForKDTable">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].properties.ownProperty[year].alias">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="投资年度" />
-            <lang locale="zh_HK" value="投資年度" />
-            <lang locale="zh_TW" value="投資年度" />
-        </rs>
-        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].properties.ownProperty[year].defaultValue">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
-        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].properties.ownProperty[year].description">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="文本" />
-            <lang locale="zh_HK" value="文本" />
-            <lang locale="zh_TW" value="文本" />
-        </rs>
-        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].properties.ownProperty[year].extendedProperty.ColWidthInKDTable">
-            <lang locale="en_US" value="50" />
-            <lang locale="zh_CN" value="50" />
-            <lang locale="zh_TW" value="50" />
-        </rs>
-        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].properties.ownProperty[year].extendedProperty.bizDataType">
-            <lang locale="en_US" value="INTEGER" />
-            <lang locale="zh_CN" value="INTEGER" />
-            <lang locale="zh_TW" value="INTEGER" />
-        </rs>
-        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].properties.ownProperty[year].extendedProperty.enableFieldPermission">
-            <lang locale="en_US" value="false" />
-            <lang locale="zh_CN" value="false" />
-            <lang locale="zh_TW" value="false" />
-        </rs>
-        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].properties.ownProperty[year].extendedProperty.isForGrouping">
-            <lang locale="en_US" value="false" />
-            <lang locale="zh_CN" value="false" />
-            <lang locale="zh_TW" value="false" />
-        </rs>
-        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].properties.ownProperty[year].extendedProperty.isForMapping">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].properties.ownProperty[year].extendedProperty.isForMatching">
-            <lang locale="en_US" value="false" />
-            <lang locale="zh_CN" value="false" />
-            <lang locale="zh_TW" value="false" />
-        </rs>
-        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].properties.ownProperty[year].extendedProperty.isForWrittenBack">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].properties.ownProperty[year].extendedProperty.isInCode">
-            <lang locale="en_US" value="false" />
-            <lang locale="zh_CN" value="false" />
-            <lang locale="zh_TW" value="false" />
-        </rs>
-        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].properties.ownProperty[year].extendedProperty.isVisibleForKDTable">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
