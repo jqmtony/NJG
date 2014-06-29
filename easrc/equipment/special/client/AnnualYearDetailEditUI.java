@@ -3,23 +3,37 @@
  */
 package com.kingdee.eas.port.equipment.special.client;
 
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.apache.log4j.Logger;
 
+import com.kingdee.bos.BOSException;
+import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
+import com.kingdee.bos.ctrl.kdf.table.IRow;
+import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
+import com.kingdee.bos.ctrl.kdf.table.KDTable;
+import com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent;
+import com.kingdee.bos.ctrl.swing.KDTextField;
+import com.kingdee.bos.ctrl.swing.KDWorkButton;
+import com.kingdee.bos.dao.DataAccessException;
+import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.UIRuleUtil;
-import com.kingdee.bos.dao.IObjectValue;
-import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.eas.common.client.SysContext;
-import com.kingdee.eas.framework.*;
 import com.kingdee.eas.port.equipment.base.enumbase.CheckResult;
-import com.kingdee.eas.port.equipment.operate.ComproductionInfo;
+import com.kingdee.eas.port.equipment.base.enumbase.CheckType;
+import com.kingdee.eas.port.equipment.record.EquIdFactory;
 import com.kingdee.eas.port.equipment.record.EquIdInfo;
+import com.kingdee.eas.port.equipment.special.AnnualYearDetailEntryInfo;
 import com.kingdee.eas.port.equipment.special.AnnualYearDetailFactory;
 import com.kingdee.eas.port.equipment.special.AnnualYearDetailInfo;
 import com.kingdee.eas.port.equipment.special.AnnualYearPlanEntryCollection;
@@ -28,18 +42,11 @@ import com.kingdee.eas.port.equipment.special.AnnualYearPlanEntryInfo;
 import com.kingdee.eas.port.equipment.special.AnnualYearPlanFactory;
 import com.kingdee.eas.port.equipment.special.AnnualYearPlanInfo;
 import com.kingdee.eas.port.equipment.special.IAnnualYearDetail;
-import com.kingdee.eas.port.equipment.special.IAnnualYearPlan;
-import com.kingdee.eas.port.equipment.special.IAnnualYearPlanEntry;
-import com.kingdee.eas.port.equipment.special.OverhaulNoticeFactory;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
 import com.kingdee.eas.xr.app.XRBillStatusEnum;
 import com.kingdee.eas.xr.helper.Tool;
-import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
-import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
-import com.kingdee.bos.ctrl.kdf.table.KDTable;
-import com.kingdee.bos.ctrl.swing.KDTextField;
 
 /**
  * output class name
@@ -47,7 +54,7 @@ import com.kingdee.bos.ctrl.swing.KDTextField;
 public class AnnualYearDetailEditUI extends AbstractAnnualYearDetailEditUI
 {
     private static final Logger logger = CoreUIObject.getLogger(AnnualYearDetailEditUI.class);
-    
+    private KDBizPromptBox kdtE1_equNumber_PromptBox = null;
     /**
      * output class constructor
      */
@@ -788,25 +795,155 @@ public class AnnualYearDetailEditUI extends AbstractAnnualYearDetailEditUI
 			btnUnConfirmation.setVisible(false);
 		}
 		
-		 KDBizPromptBox kdtE1_equNumber_PromptBox = new KDBizPromptBox();
-	        kdtE1_equNumber_PromptBox.setQueryInfo("com.kingdee.eas.port.equipment.record.app.EquIdQuery");
-	        kdtE1_equNumber_PromptBox.setVisible(true);
-	        kdtE1_equNumber_PromptBox.setEditable(true);
-	        kdtE1_equNumber_PromptBox.setDisplayFormat("$number$");
-	        kdtE1_equNumber_PromptBox.setEditFormat("$number$");
-	        kdtE1_equNumber_PromptBox.setCommitFormat("$number$");
-	   	    EntityViewInfo evi = new EntityViewInfo();
-			 FilterInfo filter = new FilterInfo();
-			 filter.getFilterItems().add(new FilterItemInfo("sbStatus","3",CompareType.NOTEQUALS));
-			 String id = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
-	 		 filter.getFilterItems().add(new FilterItemInfo("ssOrgUnit.id",id ,CompareType.EQUALS));
-			 evi.setFilter(filter);
-			kdtE1_equNumber_PromptBox.setEntityViewInfo(evi);
-			 KDTDefaultCellEditor kdtEntry_feeType_CellEditor = new KDTDefaultCellEditor(kdtE1_equNumber_PromptBox);
-			 kdtEntry.getColumn("zdaNumber").setEditor(kdtEntry_feeType_CellEditor);
+		EntityViewFilterEquId();
+			 
+			KDWorkButton addNew = kdtEntry_detailPanel.getAddNewLineButton();
+			KDWorkButton insert = kdtEntry_detailPanel.getInsertLineButton();
+			KDWorkButton remove = kdtEntry_detailPanel.getRemoveLinesButton();
+			if(addNew.getActionListeners()[0]!=null)
+				addNew.removeActionListener(addNew.getActionListeners()[0]);
+			if(insert.getActionListeners()[0]!=null)
+				insert.removeActionListener(insert.getActionListeners()[0]);
+			if(remove.getActionListeners()[0]!=null)
+				remove.removeActionListener(remove.getActionListeners()[0]);
+			
+			addNew.addActionListener(new ActionListener(){
+
+				public void actionPerformed(ActionEvent e) {
+					try {
+						kdtEntry_detailPanel.actionAddnewLine_actionPerformed(e);
+					} catch (Exception e1) {
+						e1.printStackTrace();
+					}
+					EntityViewFilterEquId();
+				}
+				
+			});
+			insert.addActionListener(new ActionListener(){
+				
+				public void actionPerformed(ActionEvent e) {
+					try {
+						kdtEntry_detailPanel.actionInsertLine_actionPerformed(e);
+					} catch (Exception e1) {
+						e1.printStackTrace();
+					}
+					EntityViewFilterEquId();
+				}
+				
+			});
+			remove.addActionListener(new ActionListener(){
+				
+				public void actionPerformed(ActionEvent e) {
+					try {
+						kdtEntry_detailPanel.actionRemoveLine_actionPerformed(e);
+					} catch (Exception e1) {
+						e1.printStackTrace();
+					}
+					EntityViewFilterEquId();
+				}
+				
+			});
+			 
 	}
 	
+	public void kdtEntry_Changed(int rowIndex, int colIndex) throws Exception {
+	}
 	
+	protected void kdtEntry_editStopped(KDTEditEvent e) throws Exception {
+		super.kdtEntry_editStopped(e);
+		if(e.getRowIndex()==-1)
+			return;
+		if(e.getColIndex()==this.kdtEntry.getColumnIndex("zdaNumber"))
+		{
+			String id = ((EquIdInfo)this.kdtEntry.getCell(e.getRowIndex(), "zdaNumber").getValue()).getId().toString();
+			EquIdInfo eqInfo = 	EquIdFactory.getRemoteInstance().getEquIdInfo(new ObjectUuidPK(id));
+			this.kdtEntry.removeRow(e.getRowIndex());
+			IRow row = this.kdtEntry.addRow();
+			row.getCell("zdaNumber").setValue(eqInfo);
+			if(eqInfo.isCityTest()&&eqInfo.isPortTest()){
+				InitEntry(row, eqInfo, CheckType.city);
+				row = kdtEntry.addRow();
+				row.getCell("zdaNumber").setValue(eqInfo);
+				InitEntry(row, eqInfo, CheckType.port);
+			}
+			else
+			{
+				if(eqInfo.isCityTest())
+				{
+					InitEntry(row, eqInfo, CheckType.city);
+				}
+				if(eqInfo.isPortTest())
+				{
+					InitEntry(row, eqInfo, CheckType.port);
+				}
+			}
+			EntityViewFilterEquId();
+		}
+	}
+	
+	private void InitEntry(IRow row,EquIdInfo equIdInfo,CheckType checktype) throws DataAccessException, BOSException
+	{
+		AnnualYearDetailEntryInfo entryInfo = new AnnualYearDetailEntryInfo();
+		entryInfo.setId(BOSUuid.create(entryInfo.getBOSType()));
+		row.setUserObject(entryInfo);
+		row.getCell("equipmentName").setValue(UIRuleUtil.getString(UIRuleUtil.getProperty((IObjectValue)row.getCell("zdaNumber").getValue(),"name")));
+		row.getCell("code").setValue(UIRuleUtil.getString(UIRuleUtil.getProperty((IObjectValue)row.getCell("zdaNumber").getValue(),"code")));
+		row.getCell("useUnit").setValue(UIRuleUtil.getString(UIRuleUtil.getProperty((IObjectValue)row.getCell("zdaNumber").getValue(),"ssOrgUnit.name")));
+		row.getCell("state").setValue(UIRuleUtil.getString(UIRuleUtil.getProperty((IObjectValue)row.getCell("zdaNumber").getValue(),"tzsbStatus")));
+		row.getCell("address").setValue(UIRuleUtil.getString(UIRuleUtil.getProperty((IObjectValue)row.getCell("zdaNumber").getValue(),"address.name")));
+		row.getCell("companyNumber").setValue(UIRuleUtil.getString(UIRuleUtil.getProperty((IObjectValue)row.getCell("zdaNumber").getValue(),"innerNumber")));
+		row.getCell("NO").setValue(UIRuleUtil.getString(UIRuleUtil.getProperty((IObjectValue)row.getCell("zdaNumber").getValue(),"model")));
+		row.getCell("engineNumber").setValue(UIRuleUtil.getString(UIRuleUtil.getProperty((IObjectValue)row.getCell("zdaNumber").getValue(),"engineNumber")));
+		row.getCell("carNumber").setValue(UIRuleUtil.getString(UIRuleUtil.getProperty((IObjectValue)row.getCell("zdaNumber").getValue(),"carNumber")));
+		row.getCell("weight").setValue(UIRuleUtil.getString(UIRuleUtil.getProperty((IObjectValue)row.getCell("zdaNumber").getValue(),"ratedWeight")));
+		row.getCell("useDate").setValue(UIRuleUtil.getString(UIRuleUtil.getProperty((IObjectValue)row.getCell("zdaNumber").getValue(),"qyDate")));
+		row.getCell("createUnit").setValue(UIRuleUtil.getString(UIRuleUtil.getProperty((IObjectValue)row.getCell("zdaNumber").getValue(),"mader")));
+		row.getCell("checkType").setValue(checktype);
+		if(checktype.equals(checktype.city)&&equIdInfo.getDayone() !=null){
+			row.getCell("planDate").setValue(equIdInfo.getDayone());
+		}
+		if(checktype.equals(checktype.city)&&equIdInfo.getTextDate1() !=null){
+			row.getCell("endDate").setValue(equIdInfo.getTextDate1());
+		}
+		if(checktype.equals(checktype.port)&& equIdInfo.getDaytow() !=null){
+			row.getCell("planDate").setValue(equIdInfo.getDaytow());
+		}
+		if(checktype.equals(checktype.port)&& equIdInfo.getTestDay() !=null){
+			row.getCell("endDate").setValue(equIdInfo.getTestDay());
+		}
+	}
+	
+	private void EntityViewFilterEquId()
+	{
+		Set<String> set = new HashSet<String>(); 
+		set.add("9999999999999999999999999");
+		for (int i = 0; i < this.kdtEntry.getRowCount(); i++) 
+		{
+			IRow row = this.kdtEntry.getRow(i);
+			if(UIRuleUtil.isNotNull(row.getCell("zdaNumber").getValue()))
+				set.add(((EquIdInfo)row.getCell("zdaNumber").getValue()).getId().toString());
+		}
+		kdtE1_equNumber_PromptBox = new KDBizPromptBox();
+        kdtE1_equNumber_PromptBox.setQueryInfo("com.kingdee.eas.port.equipment.record.app.EquIdQuery");
+        kdtE1_equNumber_PromptBox.setVisible(true);
+        kdtE1_equNumber_PromptBox.setEditable(true);
+        kdtE1_equNumber_PromptBox.setDisplayFormat("$number$");
+        kdtE1_equNumber_PromptBox.setEditFormat("$number$");
+        kdtE1_equNumber_PromptBox.setCommitFormat("$number$");
+        
+   	    EntityViewInfo evi = new EntityViewInfo();
+		 FilterInfo filter = new FilterInfo();
+		 filter.getFilterItems().add(new FilterItemInfo("sbStatus","3",CompareType.NOTEQUALS));
+		 String id = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
+ 		 filter.getFilterItems().add(new FilterItemInfo("ssOrgUnit.id",id ,CompareType.EQUALS));
+ 		 filter.getFilterItems().add(new FilterItemInfo("special",1 ,CompareType.EQUALS));
+ 		 filter.getFilterItems().add(new FilterItemInfo("id",set ,CompareType.NOTINCLUDE));
+		 evi.setFilter(filter);
+		 
+		kdtE1_equNumber_PromptBox.setEntityViewInfo(evi);
+		 KDTDefaultCellEditor kdtEntry_feeType_CellEditor = new KDTDefaultCellEditor(kdtE1_equNumber_PromptBox);
+		 kdtEntry.getColumn("zdaNumber").setEditor(kdtEntry_feeType_CellEditor);
+	}
 	
 	
 	//确认检测信息

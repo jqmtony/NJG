@@ -630,18 +630,18 @@ public class AnnualYearDetailListUI extends AbstractAnnualYearDetailListUI
     public void actionEdit_actionPerformed(ActionEvent e) throws Exception
     {
     	
-//    	  checkSelected();
-//          String billID = getSelectedKeyValue();
-//          if(billID == null)
-//              return;
-//          ObjectUuidPK pk = new ObjectUuidPK(BOSUuid.read(billID));
-//          SelectorItemCollection sc = new SelectorItemCollection();
-//          Object o = getBizInterface().getValue(pk, sc);
-//          AnnualYearDetailInfo ayInfo = (AnnualYearDetailInfo)o;
-//          if(ayInfo.getStatus()== XRBillStatusEnum.RELEASED){
-//        	  MsgBox.showInfo("此单据已下达，不能修改!");
-//    			SysUtil.abort();
-//          }
+    	  checkSelected();
+          String billID = getSelectedKeyValue();
+          if(billID == null)
+              return;
+          ObjectUuidPK pk = new ObjectUuidPK(BOSUuid.read(billID));
+          SelectorItemCollection sc = new SelectorItemCollection();
+          Object o = getBizInterface().getValue(pk, sc);
+          AnnualYearDetailInfo ayInfo = (AnnualYearDetailInfo)o;
+          if(ayInfo.getStatus()== XRBillStatusEnum.RELEASED&&ayInfo.isIsConfirmation()){
+        	  MsgBox.showInfo("此单据已确认，不能修改!");
+    			SysUtil.abort();
+          }
         super.actionEdit_actionPerformed(e);
   	
     }

@@ -423,14 +423,6 @@ public abstract class AbstractRepairOrderEditUI extends com.kingdee.eas.xr.clien
 
 
         this.kdtE1.checkParsed();
-        KDFormattedTextField kdtE1_seq_TextField = new KDFormattedTextField();
-        kdtE1_seq_TextField.setName("kdtE1_seq_TextField");
-        kdtE1_seq_TextField.setVisible(true);
-        kdtE1_seq_TextField.setEditable(true);
-        kdtE1_seq_TextField.setHorizontalAlignment(2);
-        kdtE1_seq_TextField.setDataType(0);
-        KDTDefaultCellEditor kdtE1_seq_CellEditor = new KDTDefaultCellEditor(kdtE1_seq_TextField);
-        this.kdtE1.getColumn("seq").setEditor(kdtE1_seq_CellEditor);
         KDTextField kdtE1_repairContent_TextField = new KDTextField();
         kdtE1_repairContent_TextField.setName("kdtE1_repairContent_TextField");
         kdtE1_repairContent_TextField.setMaxLength(100);
@@ -592,6 +584,16 @@ public abstract class AbstractRepairOrderEditUI extends com.kingdee.eas.xr.clien
         this.prmtrepairPerson.setEditFormat("$number$");		
         this.prmtrepairPerson.setCommitFormat("$number$");		
         this.prmtrepairPerson.setRequired(false);
+        this.prmtrepairPerson.addDataChangeListener(new com.kingdee.bos.ctrl.swing.event.DataChangeListener() {
+            public void dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) {
+                try {
+                    prmtrepairPerson_dataChanged(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                }
+            }
+        });
         // pkrepairTime		
         this.pkrepairTime.setVisible(true);		
         this.pkrepairTime.setRequired(false);
@@ -1226,6 +1228,13 @@ public abstract class AbstractRepairOrderEditUI extends com.kingdee.eas.xr.clien
         } else if (STATUS_VIEW.equals(this.oprtState)) {
         } else if (STATUS_FINDVIEW.equals(this.oprtState)) {
         }
+    }
+
+    /**
+     * output prmtrepairPerson_dataChanged method
+     */
+    protected void prmtrepairPerson_dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) throws Exception
+    {
     }
 
     /**

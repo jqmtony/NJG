@@ -22,6 +22,7 @@ import com.kingdee.eas.cp.bc.BizCollUtil;
 import com.kingdee.eas.framework.*;
 import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
 import com.kingdee.eas.util.SysUtil;
+import com.kingdee.eas.xr.app.XRBillStatusEnum;
 import com.kingdee.eas.xr.helper.PersonXRHelper;
 import com.kingdee.eas.xr.helper.Tool;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
@@ -399,6 +400,10 @@ public class RepairOrderEditUI extends AbstractRepairOrderEditUI
      */
     public void actionEdit_actionPerformed(ActionEvent e) throws Exception
     {
+    	if(editData.getStatus().equals(XRBillStatusEnum.DELETED)){
+    		MsgBox.showInfo("单据已作废，不允许修改!");
+  			SysUtil.abort();
+    	}
         super.actionEdit_actionPerformed(e);
     }
 
@@ -407,6 +412,10 @@ public class RepairOrderEditUI extends AbstractRepairOrderEditUI
      */
     public void actionRemove_actionPerformed(ActionEvent e) throws Exception
     {
+    	if(editData.getStatus().equals(XRBillStatusEnum.DELETED)){
+    		MsgBox.showInfo("不允许删除作废单据!");
+  			SysUtil.abort();
+    	}
         super.actionRemove_actionPerformed(e);
     }
 
@@ -739,5 +748,14 @@ public class RepairOrderEditUI extends AbstractRepairOrderEditUI
 			this.prmtslDepart.setValue(PersonXRHelper.getPosiMemByDeptUser((PersonInfo)e.getNewValue()));
 		else
 			this.prmtslDepart.setValue(null);
+	}
+	
+	protected void prmtrepairPerson_dataChanged(DataChangeEvent e)
+			throws Exception {
+		super.prmtrepairPerson_dataChanged(e);
+		if(BizCollUtil.isF7ValueChanged(e)&&e.getNewValue()!=null)
+			this.prmtrepairDepart.setValue(PersonXRHelper.getPosiMemByDeptUser((PersonInfo)e.getNewValue()));
+		else
+			this.prmtrepairDepart.setValue(null);
 	}
 }

@@ -309,21 +309,9 @@ public class RepairOrderListUI extends AbstractRepairOrderListUI
         super.actionView_actionPerformed(e);
     }
 
-    /**
-     * output actionEdit_actionPerformed
-     */
-    public void actionEdit_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionEdit_actionPerformed(e);
-    }
+   
 
-    /**
-     * output actionRemove_actionPerformed
-     */
-    public void actionRemove_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionRemove_actionPerformed(e);
-    }
+   
 
     /**
      * output actionRefresh_actionPerformed
@@ -598,7 +586,44 @@ public class RepairOrderListUI extends AbstractRepairOrderListUI
 		
         return objectValue;
     }
-
+    /**
+     * output actionRemove_actionPerformed
+     */
+    public void actionRemove_actionPerformed(ActionEvent e) throws Exception
+    {
+    	 checkSelected();
+         String billID = getSelectedKeyValue();
+         if(billID == null)
+             return;
+         ObjectUuidPK pk = new ObjectUuidPK(BOSUuid.read(billID));
+         SelectorItemCollection sc = new SelectorItemCollection();
+         Object o = getBizInterface().getValue(pk, sc);
+        RepairOrderInfo ayInfo = (RepairOrderInfo)o;
+    	if( ayInfo.getStatus().equals(XRBillStatusEnum.DELETED)){
+    		MsgBox.showInfo("不允许删除作废单据!");
+  			SysUtil.abort();
+    	}
+        super.actionRemove_actionPerformed(e);
+    }
+    /**
+     * output actionEdit_actionPerformed
+     */
+    public void actionEdit_actionPerformed(ActionEvent e) throws Exception
+    {
+    	 checkSelected();
+         String billID = getSelectedKeyValue();
+         if(billID == null)
+             return;
+         ObjectUuidPK pk = new ObjectUuidPK(BOSUuid.read(billID));
+         SelectorItemCollection sc = new SelectorItemCollection();
+         Object o = getBizInterface().getValue(pk, sc);
+        RepairOrderInfo ayInfo = (RepairOrderInfo)o;
+    	if( ayInfo.getStatus().equals(XRBillStatusEnum.DELETED)){
+    		MsgBox.showInfo("单据已作废，不允许修改!");
+  			SysUtil.abort();
+    	}
+        super.actionEdit_actionPerformed(e);
+    }
 
     public void actionToVoid_actionPerformed(ActionEvent e) throws Exception {
     	super.actionToVoid_actionPerformed(e);

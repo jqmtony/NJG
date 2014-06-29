@@ -4,6 +4,7 @@
 package com.kingdee.eas.port.equipment.operate.client;
 
 import java.awt.event.*;
+
 import org.apache.log4j.Logger;
 
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
@@ -751,6 +752,9 @@ public class EqmIOEditUI extends AbstractEqmIOEditUI
 			}
 			
 		});
+		prmteqmNumber.setRequired(true);
+		prmtInOrgUnit.setRequired(true);
+		prmtuseingOrgUnit.setRequired(true);
 	}
 	
 	protected void prmtInOrgUnit_dataChanged(DataChangeEvent e)throws Exception {
@@ -769,5 +773,16 @@ public class EqmIOEditUI extends AbstractEqmIOEditUI
 			prmtuseingOrgUnit.setValue(null);
 		}
 	}
-	
+	protected void verifyInput(ActionEvent actionevent) throws Exception {
+		super.verifyInput(actionevent);
+		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(prmteqmNumber.getValue())) {
+			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"设备编号"});
+		}
+		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(prmtInOrgUnit.getValue())) {
+			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"调入单位"});
+		}
+		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(prmtuseingOrgUnit.getValue())) {
+			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"使用部门"});
+		}
+	}
 }

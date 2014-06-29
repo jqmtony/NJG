@@ -711,7 +711,7 @@ public class EqmScrapEditUI extends AbstractEqmScrapEditUI
 		 filter.getFilterItems().add(new FilterItemInfo("ssOrgUnit.id",id ,CompareType.EQUALS));
 		 evi.setFilter(filter);
 		prmteqmNumber.setEntityViewInfo(evi);
-
+		prmteqmNumber.setRequired(true);
 	}
 	
 	public void prmteqmNumber_Changed() throws Exception {
@@ -744,5 +744,10 @@ public class EqmScrapEditUI extends AbstractEqmScrapEditUI
 			prmtusedDept.setValue(null);
 		}
 	}
-	
+	protected void verifyInput(ActionEvent e) throws Exception {
+		super.verifyInput(e);
+		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(prmteqmNumber.getValue())) {
+			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"…Ë±∏±‡∫≈"});
+		}
+	}
 }
