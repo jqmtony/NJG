@@ -28,9 +28,14 @@ import com.kingdee.eas.fdc.basedata.FDCHelper;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
 import com.kingdee.eas.fdc.basedata.client.FDCMsgBox;
 import com.kingdee.eas.port.pm.invest.YearInvestPlanInfo;
+import com.kingdee.eas.port.pm.invest.investplan.InvestPlanDetailCollection;
+import com.kingdee.eas.port.pm.invest.investplan.InvestPlanDetailEntryCollection;
+import com.kingdee.eas.port.pm.invest.investplan.InvestPlanDetailEntryFactory;
+import com.kingdee.eas.port.pm.invest.investplan.InvestPlanDetailEntryInfo;
 import com.kingdee.eas.port.pm.invest.investplan.InvestPlanDetailInfo;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryCollection;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryInfo;
+import com.kingdee.eas.port.pm.invest.investplan.ProgrammingInfo;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.xr.helper.XRSQLBuilder;
 import com.kingdee.jdbc.rowset.IRowSet;
@@ -70,22 +75,22 @@ public class InvestPlanDetailEditUI extends AbstractInvestPlanDetailEditUI
     	kdtEntrys_detailPanel.getAddNewLineButton().setVisible(false);
     	kdtEntrys_detailPanel.getRemoveLinesButton().setVisible(false);
     	kdtEntrys.getStyleAttributes().setLocked(true);
-    	if(this.getUIContext().get("proNumber")!=null&&OprtState.ADDNEW.equals(getOprtState()))
+    	this.kdtEntrys.getColumn("proportion").getStyleAttributes().setNumberFormat("#,##0.00 %");
+    	
+    	Map uiContext = this.getUIContext();
+    	pcInfo = (ProgrammingEntryInfo) uiContext.get("programmingContract");
+    	yipInfo = (YearInvestPlanInfo) uiContext.get("projectName");
+    	if(uiContext.get("proNumber")!=null&&OprtState.ADDNEW.equals(getOprtState()))
     	{
-//    		IRow row = this.kdtEntrys.addRow();
-//    		row.getCell("number").setValue(this.getUIContext().get("proNumber"));
-    		
-    		String proNumber = this.getUIContext().get("proNumber").toString();
-    		
-    		String sql = "select CFProjectName,FNumber,CFYearID from CT_INV_YearInvestPlan where rownum<50";
-    		IRowSet rowset = new XRSQLBuilder().appendSql(sql).executeQuery();
-    		while(rowset.next())
-    		{
-    			IRow row = this.kdtEntrys.addRow();
-    			row.getCell(0).setValue(rowset.getString(1));
-    			row.getCell(1).setValue(rowset.getString(2));
-    			row.getCell(2).setValue(rowset.getString(3));
-    		}
+    		IRow row = this.kdtEntrys.addRow();
+    		row.getCell("number").setValue(uiContext.get("proNumber"));
+    		row.getCell("project").setValue(uiContext.get("projectName"));
+    		row.getCell("amount").setValue(pcInfo.getAmount());
+    		row.getCell("cumulativeInvest").setValue(pcInfo.getCumulativeInvest());
+    		row.getCell("investAmount").setValue(pcInfo.getInvestAmount());
+    		row.getCell("balance").setValue(pcInfo.getBalance());
+    		row.getCell("proportion").setValue(pcInfo.getInvestProportion());
+    		row.getCell("remark").setValue(pcInfo.getDescription());
     	}
     }
 
@@ -731,6 +736,7 @@ public class InvestPlanDetailEditUI extends AbstractInvestPlanDetailEditUI
         {
         	objectValue.setSourceBillId(getUIContext().get("SourceBillId").toString());
         }
+        
         return objectValue;
     }
 

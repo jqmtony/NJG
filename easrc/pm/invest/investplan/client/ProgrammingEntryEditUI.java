@@ -86,6 +86,7 @@ import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.ExceptionHandler;
 import com.kingdee.eas.util.client.MsgBox;
+import com.kingdee.eas.xr.helper.XRSQLBuilder;
 import com.kingdee.jdbc.rowset.IRowSet;
 
 /**
@@ -126,10 +127,43 @@ public class ProgrammingEntryEditUI extends AbstractProgrammingEntryEditUI
 
 	public void onLoad() throws Exception {
 		super.onLoad();
+		toolBar.setVisible(true);
 		initFormat();
 		setSmallButton();
 		kDTabbedPane1.remove(kDContainerEconomy);
 		btnEdit.setVisible(false);
+		
+		Map uiContext = this.getUIContext();
+		if(uiContext.get("proNumber")!=null&&OprtState.ADDNEW.equals(getOprtState()))
+    	{
+			StringBuffer sb = new StringBuffer();
+    		sb.append(" select a.fid,a.CFProjectName,a.FNumber,b.fname_l2,isnull(sum(d.FAmount),0),isnull(sum(d.FCumulativeInvest),0),");
+    		sb.append(" isnull(sum(d.FInvestAmount),0) ,isnull(sum(d.FBalance),0),case when isnull(sum(d.FAmount),0)<>0 then isnull(sum(d.FInvestAmount),0)/isnull(sum(d.FAmount),0)  else 0 end");
+    		sb.append(" from CT_INV_YearInvestPlan a");
+    		sb.append(" left join CT_BAS_InvestYear b on b.fid=a.CFYearID");
+    		sb.append(" left join CT_INV_Programming c on c.fsourcebillid = a.fnumber");
+    		sb.append(" left join CT_INV_Programmingentry d on d.FProgrammingID=c.fid");
+    		sb.append(" WHERE A.FNUMBER IN('NDJH20140624-020','NDJH20140627-027','NDJH20140630-028')");
+    		sb.append(" group by a.fid,a.CFProjectName,a.FNumber,b.fname_l2");
+    		
+    		IRowSet rowset = new XRSQLBuilder().appendSql(sb.toString()).executeQuery();
+    		while(rowset.next())
+    		{
+    			IRow row = this.kdtCost.addRow();
+    			row.getCell(0).setValue(rowset.getString(1));
+    			row.getCell(1).setValue(rowset.getString(2));
+    			row.getCell(2).setValue(rowset.getString(3));
+    			row.getCell(3).setValue(rowset.getString(4));
+    			row.getCell(4).setValue(rowset.getString(5));
+    			row.getCell(5).setValue(rowset.getString(6));
+    			row.getCell(6).setValue(rowset.getString(7));
+    			row.getCell(7).setValue(rowset.getString(8));
+    			row.getCell(8).setValue(rowset.getString(9));
+    		}
+			
+    	}
+		
+		
 		if (this.oprtState.equals(OprtState.VIEW)) {
 			isEditable(false);
 			ctrButtonEnable(false);
@@ -448,7 +482,7 @@ public class ProgrammingEntryEditUI extends AbstractProgrammingEntryEditUI
 		}
 		if (obj instanceof ProgrammingEntryCostEntryInfo) {
 			ProgrammingEntryCostEntryInfo newDetailInfo = (ProgrammingEntryCostEntryInfo) obj;
-			newDetailInfo.setId(BOSUuid.create("9E6FDD26"));
+			newDetailInfo.setId(BOSUuid.create("4F1A141F"));
 			return (IObjectValue) newDetailInfo;
 		}
 		if (obj instanceof ProgrammingEntryEconomyEntryInfo) {
@@ -456,6 +490,7 @@ public class ProgrammingEntryEditUI extends AbstractProgrammingEntryEditUI
 			newDetailInfo.setId(BOSUuid.create("144467E3"));
 			return (IObjectValue) newDetailInfo;
 		}
+		
 		return null;
 	}
 

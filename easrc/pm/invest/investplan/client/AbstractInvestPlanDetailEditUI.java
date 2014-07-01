@@ -293,7 +293,7 @@ public abstract class AbstractInvestPlanDetailEditUI extends com.kingdee.eas.fra
         this.contremark.setVisible(false);		
         this.contremark.setEnabled(false);
         // kdtEntrys
-		String kdtEntrysStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol4\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol5\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol6\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol7\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"project\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"investYear\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"investAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol4\" /><t:Column t:key=\"cumulativeInvest\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol5\" /><t:Column t:key=\"amount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol6\" /><t:Column t:key=\"balance\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol7\" /><t:Column t:key=\"proportion\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"remark\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{project}</t:Cell><t:Cell>$Resource{number}</t:Cell><t:Cell>$Resource{investYear}</t:Cell><t:Cell>$Resource{investAmount}</t:Cell><t:Cell>$Resource{cumulativeInvest}</t:Cell><t:Cell>$Resource{amount}</t:Cell><t:Cell>$Resource{balance}</t:Cell><t:Cell>$Resource{proportion}</t:Cell><t:Cell>$Resource{remark}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		String kdtEntrysStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol4\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol5\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol6\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol7\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"project\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"investYear\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"amount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"4\" t:styleID=\"sCol4\" /><t:Column t:key=\"cumulativeInvest\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"5\" t:styleID=\"sCol5\" /><t:Column t:key=\"investAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"6\" t:styleID=\"sCol6\" /><t:Column t:key=\"balance\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol7\" /><t:Column t:key=\"proportion\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"remark\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{project}</t:Cell><t:Cell>$Resource{number}</t:Cell><t:Cell>$Resource{investYear}</t:Cell><t:Cell>$Resource{amount}</t:Cell><t:Cell>$Resource{cumulativeInvest}</t:Cell><t:Cell>$Resource{investAmount}</t:Cell><t:Cell>$Resource{balance}</t:Cell><t:Cell>$Resource{proportion}</t:Cell><t:Cell>$Resource{remark}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.kdtEntrys.setFormatXml(resHelper.translateString("kdtEntrys",kdtEntrysStrXML));
         this.kdtEntrys.addKDTEditListener(new com.kingdee.bos.ctrl.kdf.table.event.KDTEditAdapter() {
@@ -306,7 +306,7 @@ public abstract class AbstractInvestPlanDetailEditUI extends com.kingdee.eas.fra
             }
         });
 
-                this.kdtEntrys.putBindContents("editData",new String[] {"id","project","number","investYear","investAmount","cumulativeInvest","amount","balance","proportion","remark"});
+                this.kdtEntrys.putBindContents("editData",new String[] {"id","project","number","investYear","amount","cumulativeInvest","investAmount","balance","proportion","remark"});
 
 
         this.kdtEntrys.checkParsed();
@@ -332,28 +332,6 @@ public abstract class AbstractInvestPlanDetailEditUI extends com.kingdee.eas.fra
         ObjectValueRender kdtEntrys_investYear_OVR = new ObjectValueRender();
         kdtEntrys_investYear_OVR.setFormat(new BizDataFormat("$name$"));
         this.kdtEntrys.getColumn("investYear").setRenderer(kdtEntrys_investYear_OVR);
-        KDFormattedTextField kdtEntrys_investAmount_TextField = new KDFormattedTextField();
-        kdtEntrys_investAmount_TextField.setName("kdtEntrys_investAmount_TextField");
-        kdtEntrys_investAmount_TextField.setVisible(true);
-        kdtEntrys_investAmount_TextField.setEditable(true);
-        kdtEntrys_investAmount_TextField.setHorizontalAlignment(2);
-        kdtEntrys_investAmount_TextField.setDataType(1);
-        	kdtEntrys_investAmount_TextField.setMinimumValue(new java.math.BigDecimal("-1.0E26"));
-        	kdtEntrys_investAmount_TextField.setMaximumValue(new java.math.BigDecimal("1.0E26"));
-        kdtEntrys_investAmount_TextField.setPrecision(2);
-        KDTDefaultCellEditor kdtEntrys_investAmount_CellEditor = new KDTDefaultCellEditor(kdtEntrys_investAmount_TextField);
-        this.kdtEntrys.getColumn("investAmount").setEditor(kdtEntrys_investAmount_CellEditor);
-        KDFormattedTextField kdtEntrys_cumulativeInvest_TextField = new KDFormattedTextField();
-        kdtEntrys_cumulativeInvest_TextField.setName("kdtEntrys_cumulativeInvest_TextField");
-        kdtEntrys_cumulativeInvest_TextField.setVisible(true);
-        kdtEntrys_cumulativeInvest_TextField.setEditable(true);
-        kdtEntrys_cumulativeInvest_TextField.setHorizontalAlignment(2);
-        kdtEntrys_cumulativeInvest_TextField.setDataType(1);
-        	kdtEntrys_cumulativeInvest_TextField.setMinimumValue(new java.math.BigDecimal("-1.0E26"));
-        	kdtEntrys_cumulativeInvest_TextField.setMaximumValue(new java.math.BigDecimal("1.0E26"));
-        kdtEntrys_cumulativeInvest_TextField.setPrecision(2);
-        KDTDefaultCellEditor kdtEntrys_cumulativeInvest_CellEditor = new KDTDefaultCellEditor(kdtEntrys_cumulativeInvest_TextField);
-        this.kdtEntrys.getColumn("cumulativeInvest").setEditor(kdtEntrys_cumulativeInvest_CellEditor);
         KDFormattedTextField kdtEntrys_amount_TextField = new KDFormattedTextField();
         kdtEntrys_amount_TextField.setName("kdtEntrys_amount_TextField");
         kdtEntrys_amount_TextField.setVisible(true);
@@ -365,6 +343,28 @@ public abstract class AbstractInvestPlanDetailEditUI extends com.kingdee.eas.fra
         kdtEntrys_amount_TextField.setPrecision(2);
         KDTDefaultCellEditor kdtEntrys_amount_CellEditor = new KDTDefaultCellEditor(kdtEntrys_amount_TextField);
         this.kdtEntrys.getColumn("amount").setEditor(kdtEntrys_amount_CellEditor);
+        KDFormattedTextField kdtEntrys_cumulativeInvest_TextField = new KDFormattedTextField();
+        kdtEntrys_cumulativeInvest_TextField.setName("kdtEntrys_cumulativeInvest_TextField");
+        kdtEntrys_cumulativeInvest_TextField.setVisible(true);
+        kdtEntrys_cumulativeInvest_TextField.setEditable(true);
+        kdtEntrys_cumulativeInvest_TextField.setHorizontalAlignment(2);
+        kdtEntrys_cumulativeInvest_TextField.setDataType(1);
+        	kdtEntrys_cumulativeInvest_TextField.setMinimumValue(new java.math.BigDecimal("-1.0E26"));
+        	kdtEntrys_cumulativeInvest_TextField.setMaximumValue(new java.math.BigDecimal("1.0E26"));
+        kdtEntrys_cumulativeInvest_TextField.setPrecision(2);
+        KDTDefaultCellEditor kdtEntrys_cumulativeInvest_CellEditor = new KDTDefaultCellEditor(kdtEntrys_cumulativeInvest_TextField);
+        this.kdtEntrys.getColumn("cumulativeInvest").setEditor(kdtEntrys_cumulativeInvest_CellEditor);
+        KDFormattedTextField kdtEntrys_investAmount_TextField = new KDFormattedTextField();
+        kdtEntrys_investAmount_TextField.setName("kdtEntrys_investAmount_TextField");
+        kdtEntrys_investAmount_TextField.setVisible(true);
+        kdtEntrys_investAmount_TextField.setEditable(true);
+        kdtEntrys_investAmount_TextField.setHorizontalAlignment(2);
+        kdtEntrys_investAmount_TextField.setDataType(1);
+        	kdtEntrys_investAmount_TextField.setMinimumValue(new java.math.BigDecimal("-1.0E26"));
+        	kdtEntrys_investAmount_TextField.setMaximumValue(new java.math.BigDecimal("1.0E26"));
+        kdtEntrys_investAmount_TextField.setPrecision(2);
+        KDTDefaultCellEditor kdtEntrys_investAmount_CellEditor = new KDTDefaultCellEditor(kdtEntrys_investAmount_TextField);
+        this.kdtEntrys.getColumn("investAmount").setEditor(kdtEntrys_investAmount_CellEditor);
         KDFormattedTextField kdtEntrys_balance_TextField = new KDFormattedTextField();
         kdtEntrys_balance_TextField.setName("kdtEntrys_balance_TextField");
         kdtEntrys_balance_TextField.setVisible(true);
@@ -378,7 +378,7 @@ public abstract class AbstractInvestPlanDetailEditUI extends com.kingdee.eas.fra
         this.kdtEntrys.getColumn("balance").setEditor(kdtEntrys_balance_CellEditor);
         KDTextField kdtEntrys_proportion_TextField = new KDTextField();
         kdtEntrys_proportion_TextField.setName("kdtEntrys_proportion_TextField");
-        kdtEntrys_proportion_TextField.setMaxLength(100);
+        kdtEntrys_proportion_TextField.setMaxLength(28);
         KDTDefaultCellEditor kdtEntrys_proportion_CellEditor = new KDTDefaultCellEditor(kdtEntrys_proportion_TextField);
         this.kdtEntrys.getColumn("proportion").setEditor(kdtEntrys_proportion_CellEditor);
         KDTextField kdtEntrys_remark_TextField = new KDTextField();

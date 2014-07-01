@@ -74,10 +74,10 @@ public abstract class AbstractProgrammingEntryEditUI extends com.kingdee.eas.fra
     protected com.kingdee.bos.ctrl.swing.KDComboBox kdcInviteWay;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtInviteOrg;
     protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtEstimateAmount;
-    protected com.kingdee.bos.ctrl.swing.KDContainer kdContainerCost;
     protected com.kingdee.bos.ctrl.swing.KDContainer kDContainerEconomy;
-    protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtCost;
+    protected com.kingdee.bos.ctrl.swing.KDContainer kdContainerCost;
     protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtEconomy;
+    protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtCost;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnSave;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnAttachment;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnEdit;
@@ -149,10 +149,10 @@ public abstract class AbstractProgrammingEntryEditUI extends com.kingdee.eas.fra
         this.kdcInviteWay = new com.kingdee.bos.ctrl.swing.KDComboBox();
         this.prmtInviteOrg = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.txtEstimateAmount = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
-        this.kdContainerCost = new com.kingdee.bos.ctrl.swing.KDContainer();
         this.kDContainerEconomy = new com.kingdee.bos.ctrl.swing.KDContainer();
-        this.kdtCost = new com.kingdee.bos.ctrl.kdf.table.KDTable();
+        this.kdContainerCost = new com.kingdee.bos.ctrl.swing.KDContainer();
         this.kdtEconomy = new com.kingdee.bos.ctrl.kdf.table.KDTable();
+        this.kdtCost = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.btnSave = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btnAttachment = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btnEdit = new com.kingdee.bos.ctrl.swing.KDWorkButton();
@@ -184,32 +184,37 @@ public abstract class AbstractProgrammingEntryEditUI extends com.kingdee.eas.fra
         this.kdcInviteWay.setName("kdcInviteWay");
         this.prmtInviteOrg.setName("prmtInviteOrg");
         this.txtEstimateAmount.setName("txtEstimateAmount");
-        this.kdContainerCost.setName("kdContainerCost");
         this.kDContainerEconomy.setName("kDContainerEconomy");
-        this.kdtCost.setName("kdtCost");
+        this.kdContainerCost.setName("kdContainerCost");
         this.kdtEconomy.setName("kdtEconomy");
+        this.kdtCost.setName("kdtCost");
         this.btnSave.setName("btnSave");
         this.btnAttachment.setName("btnAttachment");
         this.btnEdit.setName("btnEdit");
         // CoreUI
-        // kDPanel1
+        // kDPanel1		
+        this.kDPanel1.setVisible(false);
         // kDTabbedPane1
         // kDLabelContainer1		
         this.kDLabelContainer1.setBoundLabelText(resHelper.getString("kDLabelContainer1.boundLabelText"));		
         this.kDLabelContainer1.setBoundLabelLength(100);		
-        this.kDLabelContainer1.setBoundLabelUnderline(true);
+        this.kDLabelContainer1.setBoundLabelUnderline(true);		
+        this.kDLabelContainer1.setVisible(false);
         // kDLabelContainer2		
         this.kDLabelContainer2.setBoundLabelText(resHelper.getString("kDLabelContainer2.boundLabelText"));		
         this.kDLabelContainer2.setBoundLabelLength(100);		
-        this.kDLabelContainer2.setBoundLabelUnderline(true);
+        this.kDLabelContainer2.setBoundLabelUnderline(true);		
+        this.kDLabelContainer2.setVisible(false);
         // kDLabelContainer3		
         this.kDLabelContainer3.setBoundLabelText(resHelper.getString("kDLabelContainer3.boundLabelText"));		
         this.kDLabelContainer3.setBoundLabelLength(100);		
-        this.kDLabelContainer3.setBoundLabelUnderline(true);
+        this.kDLabelContainer3.setBoundLabelUnderline(true);		
+        this.kDLabelContainer3.setVisible(false);
         // kDLabelContainer4		
         this.kDLabelContainer4.setBoundLabelText(resHelper.getString("kDLabelContainer4.boundLabelText"));		
         this.kDLabelContainer4.setBoundLabelLength(100);		
-        this.kDLabelContainer4.setBoundLabelUnderline(true);
+        this.kDLabelContainer4.setBoundLabelUnderline(true);		
+        this.kDLabelContainer4.setVisible(false);
         // kDLabelContainer5		
         this.kDLabelContainer5.setBoundLabelText(resHelper.getString("kDLabelContainer5.boundLabelText"));		
         this.kDLabelContainer5.setBoundLabelUnderline(true);		
@@ -218,11 +223,13 @@ public abstract class AbstractProgrammingEntryEditUI extends com.kingdee.eas.fra
         // kDLabelContainer6		
         this.kDLabelContainer6.setBoundLabelText(resHelper.getString("kDLabelContainer6.boundLabelText"));		
         this.kDLabelContainer6.setBoundLabelLength(100);		
-        this.kDLabelContainer6.setBoundLabelUnderline(true);
+        this.kDLabelContainer6.setBoundLabelUnderline(true);		
+        this.kDLabelContainer6.setVisible(false);
         // kDLabelContainer8		
         this.kDLabelContainer8.setBoundLabelText(resHelper.getString("kDLabelContainer8.boundLabelText"));		
         this.kDLabelContainer8.setBoundLabelLength(100);		
-        this.kDLabelContainer8.setBoundLabelUnderline(true);
+        this.kDLabelContainer8.setBoundLabelUnderline(true);		
+        this.kDLabelContainer8.setVisible(false);
         // kDLabelContainer9		
         this.kDLabelContainer9.setBoundLabelText(resHelper.getString("kDLabelContainer9.boundLabelText"));		
         this.kDLabelContainer9.setBoundLabelUnderline(true);		
@@ -253,22 +260,27 @@ public abstract class AbstractProgrammingEntryEditUI extends com.kingdee.eas.fra
         this.contEstimateAmount.setBoundLabelUnderline(true);		
         this.contEstimateAmount.setVisible(false);
         // txtParentLongName		
-        this.txtParentLongName.setEditable(false);
+        this.txtParentLongName.setEditable(false);		
+        this.txtParentLongName.setVisible(false);
         // txtNumber		
         this.txtNumber.setRequired(true);		
-        this.txtNumber.setMaxLength(80);
+        this.txtNumber.setMaxLength(80);		
+        this.txtNumber.setVisible(false);
         // txtName		
         this.txtName.setRequired(true);		
-        this.txtName.setMaxLength(80);
+        this.txtName.setMaxLength(80);		
+        this.txtName.setVisible(false);
         // txtAmount		
         this.txtAmount.setPrecision(2);		
         this.txtAmount.setDataType(1);		
         this.txtAmount.setSupportedEmpty(true);		
-        this.txtAmount.setEnabled(false);
+        this.txtAmount.setEnabled(false);		
+        this.txtAmount.setVisible(false);
         // txtControlAmount		
         this.txtControlAmount.setPrecision(2);		
         this.txtControlAmount.setSupportedEmpty(true);		
-        this.txtControlAmount.setDataType(1);
+        this.txtControlAmount.setDataType(1);		
+        this.txtControlAmount.setVisible(false);
         // kDScrollPane1
         // txtWorkContent		
         this.txtWorkContent.setMaxLength(1024);
@@ -299,62 +311,15 @@ public abstract class AbstractProgrammingEntryEditUI extends com.kingdee.eas.fra
         // txtEstimateAmount		
         this.txtEstimateAmount.setDataType(1);		
         this.txtEstimateAmount.setEnabled(false);
+        // kDContainerEconomy		
+        this.kDContainerEconomy.setEnabled(false);		
+        this.kDContainerEconomy.setVisible(false);
         // kdContainerCost
-        // kDContainerEconomy
-        // kdtCost
-		String kdtCostStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol4\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol8\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol9\"><c:Protection locked=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"0\" t:styleID=\"sCol0\" /><t:Column t:key=\"project\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"true\" t:index=\"1\" /><t:Column t:key=\"number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"true\" t:index=\"2\" /><t:Column t:key=\"investYear\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"true\" t:index=\"3\" /><t:Column t:key=\"name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"true\" t:index=\"4\" t:styleID=\"sCol4\" /><t:Column t:key=\"goalCost\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"true\" t:index=\"5\" /><t:Column t:key=\"assigned\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"true\" t:index=\"6\" /><t:Column t:key=\"assigning\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"true\" t:index=\"7\" /><t:Column t:key=\"scale\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"8\" t:styleID=\"sCol8\" /><t:Column t:key=\"contractAssign\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"true\" t:index=\"9\" t:styleID=\"sCol9\" /><t:Column t:key=\"description\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"10\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header1\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{project}</t:Cell><t:Cell>$Resource{number}</t:Cell><t:Cell>$Resource{investYear}</t:Cell><t:Cell>$Resource{name}</t:Cell><t:Cell>$Resource{goalCost}</t:Cell><t:Cell>$Resource{assigned}</t:Cell><t:Cell>$Resource{assigning}</t:Cell><t:Cell>$Resource{scale}</t:Cell><t:Cell>$Resource{contractAssign}</t:Cell><t:Cell>$Resource{description}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
-		
-        this.kdtCost.setFormatXml(resHelper.translateString("kdtCost",kdtCostStrXML));
-        this.kdtCost.addKDTMouseListener(new com.kingdee.bos.ctrl.kdf.table.event.KDTMouseListener() {
-            public void tableClicked(com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent e) {
-                try {
-                    kdtCost_tableClicked(e);
-                } catch (Exception exc) {
-                    handUIException(exc);
-                } finally {
-                }
-            }
-        });
-        this.kdtCost.addKDTActiveCellListener(new com.kingdee.bos.ctrl.kdf.table.event.KDTActiveCellListener() {
-            public void activeCellChanged(com.kingdee.bos.ctrl.kdf.table.event.KDTActiveCellEvent e) {
-                try {
-                    kdtCost_activeCellChanged(e);
-                } catch (Exception exc) {
-                    handUIException(exc);
-                } finally {
-                }
-            }
-        });
-        this.kdtCost.addKDTEditListener(new com.kingdee.bos.ctrl.kdf.table.event.KDTEditAdapter() {
-            public void editStopped(com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent e) {
-                try {
-                    kdtCost_editStopped(e);
-                } catch(Exception exc) {
-                    handUIException(exc);
-                }
-            }
-            public void editStarting(com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent e) {
-                try {
-                    kdtCost_editStarting(e);
-                } catch(Exception exc) {
-                    handUIException(exc);
-                }
-            }
-            public void editStarted(com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent e) {
-                try {
-                    kdtCost_editStarted(e);
-                } catch(Exception exc) {
-                    handUIException(exc);
-                }
-            }
-        });
-
-        
-
         // kdtEconomy
 		String kdtEconomyStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol1\"><c:Alignment horizontal=\"center\" /></c:Style><c:Style id=\"sCol2\"><c:Alignment horizontal=\"center\" /></c:Style><c:Style id=\"sCol3\"><c:NumberFormat>###</c:NumberFormat><c:Alignment horizontal=\"center\" /></c:Style><c:Style id=\"sCol4\"><c:NumberFormat>###,##0</c:NumberFormat><c:Alignment horizontal=\"right\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"paymentDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"1\" t:styleID=\"sCol1\" /><t:Column t:key=\"paymentType\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"true\" t:index=\"2\" t:styleID=\"sCol2\" /><t:Column t:key=\"scale\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"true\" t:index=\"3\" t:styleID=\"sCol3\" /><t:Column t:key=\"amount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"4\" t:styleID=\"sCol4\" /><t:Column t:key=\"condition\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"5\" /><t:Column t:key=\"description\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header1\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{paymentDate}</t:Cell><t:Cell>$Resource{paymentType}</t:Cell><t:Cell>$Resource{scale}</t:Cell><t:Cell>$Resource{amount}</t:Cell><t:Cell>$Resource{condition}</t:Cell><t:Cell>$Resource{description}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
-        this.kdtEconomy.setFormatXml(resHelper.translateString("kdtEconomy",kdtEconomyStrXML));
+        this.kdtEconomy.setFormatXml(resHelper.translateString("kdtEconomy",kdtEconomyStrXML));		
+        this.kdtEconomy.setVisible(false);
         this.kdtEconomy.addKDTMouseListener(new com.kingdee.bos.ctrl.kdf.table.event.KDTMouseListener() {
             public void tableClicked(com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent e) {
                 try {
@@ -404,6 +369,56 @@ public abstract class AbstractProgrammingEntryEditUI extends com.kingdee.eas.fra
 
         
 
+        // kdtCost
+		String kdtCostStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol1\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol2\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol3\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol4\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol5\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol6\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol7\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol8\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol9\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol10\"><c:Protection hidden=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"0\" t:styleID=\"sCol0\" /><t:Column t:key=\"project\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"true\" t:index=\"1\" t:styleID=\"sCol1\" /><t:Column t:key=\"number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"true\" t:index=\"2\" t:styleID=\"sCol2\" /><t:Column t:key=\"investYear\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"true\" t:index=\"3\" t:styleID=\"sCol3\" /><t:Column t:key=\"goalCost\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"true\" t:index=\"4\" t:styleID=\"sCol4\" /><t:Column t:key=\"assigned\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"true\" t:index=\"5\" t:styleID=\"sCol5\" /><t:Column t:key=\"contractAssign\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"true\" t:index=\"6\" t:styleID=\"sCol6\" /><t:Column t:key=\"assigning\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"true\" t:index=\"7\" t:styleID=\"sCol7\" /><t:Column t:key=\"scale\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"8\" t:styleID=\"sCol8\" /><t:Column t:key=\"description\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"9\" t:styleID=\"sCol9\" /><t:Column t:key=\"name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"true\" t:index=\"10\" t:styleID=\"sCol10\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header1\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{project}</t:Cell><t:Cell>$Resource{number}</t:Cell><t:Cell>$Resource{investYear}</t:Cell><t:Cell>$Resource{goalCost}</t:Cell><t:Cell>$Resource{assigned}</t:Cell><t:Cell>$Resource{contractAssign}</t:Cell><t:Cell>$Resource{assigning}</t:Cell><t:Cell>$Resource{scale}</t:Cell><t:Cell>$Resource{description}</t:Cell><t:Cell>$Resource{name}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		
+        this.kdtCost.setFormatXml(resHelper.translateString("kdtCost",kdtCostStrXML));
+        this.kdtCost.addKDTMouseListener(new com.kingdee.bos.ctrl.kdf.table.event.KDTMouseListener() {
+            public void tableClicked(com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent e) {
+                try {
+                    kdtCost_tableClicked(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                }
+            }
+        });
+        this.kdtCost.addKDTActiveCellListener(new com.kingdee.bos.ctrl.kdf.table.event.KDTActiveCellListener() {
+            public void activeCellChanged(com.kingdee.bos.ctrl.kdf.table.event.KDTActiveCellEvent e) {
+                try {
+                    kdtCost_activeCellChanged(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                }
+            }
+        });
+        this.kdtCost.addKDTEditListener(new com.kingdee.bos.ctrl.kdf.table.event.KDTEditAdapter() {
+            public void editStopped(com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent e) {
+                try {
+                    kdtCost_editStopped(e);
+                } catch(Exception exc) {
+                    handUIException(exc);
+                }
+            }
+            public void editStarting(com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent e) {
+                try {
+                    kdtCost_editStarting(e);
+                } catch(Exception exc) {
+                    handUIException(exc);
+                }
+            }
+            public void editStarted(com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent e) {
+                try {
+                    kdtCost_editStarted(e);
+                } catch(Exception exc) {
+                    handUIException(exc);
+                }
+            }
+        });
+
+        
+
         // btnSave
         this.btnSave.setAction((IItemAction)ActionProxyFactory.getProxy(actionSubmit, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnSave.setText(resHelper.getString("btnSave.text"));		
@@ -439,11 +454,11 @@ public abstract class AbstractProgrammingEntryEditUI extends com.kingdee.eas.fra
      */
     public void initUIContentLayout()
     {
-        this.setBounds(new Rectangle(10, 10, 700, 605));
+        this.setBounds(new Rectangle(10, 10, 700, 290));
         this.setLayout(null);
-        kDPanel1.setBounds(new Rectangle(5, 5, 700, 330));
+        kDPanel1.setBounds(new Rectangle(2, 87, 700, 9));
         this.add(kDPanel1, null);
-        kDTabbedPane1.setBounds(new Rectangle(5, 330, 690, 270));
+        kDTabbedPane1.setBounds(new Rectangle(5, 7, 690, 270));
         this.add(kDTabbedPane1, null);
         //kDPanel1
         kDPanel1.setLayout(null);        kDLabelContainer1.setBounds(new Rectangle(5, 5, 680, 20));
@@ -499,12 +514,12 @@ public abstract class AbstractProgrammingEntryEditUI extends com.kingdee.eas.fra
         //contEstimateAmount
         contEstimateAmount.setBoundEditor(txtEstimateAmount);
         //kDTabbedPane1
-        kDTabbedPane1.add(kdContainerCost, resHelper.getString("kdContainerCost.constraints"));
         kDTabbedPane1.add(kDContainerEconomy, resHelper.getString("kDContainerEconomy.constraints"));
-        //kdContainerCost
-kdContainerCost.getContentPane().setLayout(new BorderLayout(0, 0));        kdContainerCost.getContentPane().add(kdtCost, BorderLayout.CENTER);
+        kDTabbedPane1.add(kdContainerCost, resHelper.getString("kdContainerCost.constraints"));
         //kDContainerEconomy
 kDContainerEconomy.getContentPane().setLayout(new BorderLayout(0, 0));        kDContainerEconomy.getContentPane().add(kdtEconomy, BorderLayout.CENTER);
+        //kdContainerCost
+kdContainerCost.getContentPane().setLayout(new BorderLayout(0, 0));        kdContainerCost.getContentPane().add(kdtCost, BorderLayout.CENTER);
 
     }
 
@@ -636,41 +651,6 @@ kDContainerEconomy.getContentPane().setLayout(new BorderLayout(0, 0));        kD
     }
 
     /**
-     * output kdtCost_editStopped method
-     */
-    protected void kdtCost_editStopped(com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent e) throws Exception
-    {
-    }
-
-    /**
-     * output kdtCost_tableClicked method
-     */
-    protected void kdtCost_tableClicked(com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent e) throws Exception
-    {
-    }
-
-    /**
-     * output kdtCost_activeCellChanged method
-     */
-    protected void kdtCost_activeCellChanged(com.kingdee.bos.ctrl.kdf.table.event.KDTActiveCellEvent e) throws Exception
-    {
-    }
-
-    /**
-     * output kdtCost_editStarting method
-     */
-    protected void kdtCost_editStarting(com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent e) throws Exception
-    {
-    }
-
-    /**
-     * output kdtCost_editStarted method
-     */
-    protected void kdtCost_editStarted(com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent e) throws Exception
-    {
-    }
-
-    /**
      * output kdtEconomy_editStopped method
      */
     protected void kdtEconomy_editStopped(com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent e) throws Exception
@@ -702,6 +682,41 @@ kDContainerEconomy.getContentPane().setLayout(new BorderLayout(0, 0));        kD
      * output kdtEconomy_tableSelectChanged method
      */
     protected void kdtEconomy_tableSelectChanged(com.kingdee.bos.ctrl.kdf.table.event.KDTSelectEvent e) throws Exception
+    {
+    }
+
+    /**
+     * output kdtCost_editStopped method
+     */
+    protected void kdtCost_editStopped(com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent e) throws Exception
+    {
+    }
+
+    /**
+     * output kdtCost_tableClicked method
+     */
+    protected void kdtCost_tableClicked(com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent e) throws Exception
+    {
+    }
+
+    /**
+     * output kdtCost_activeCellChanged method
+     */
+    protected void kdtCost_activeCellChanged(com.kingdee.bos.ctrl.kdf.table.event.KDTActiveCellEvent e) throws Exception
+    {
+    }
+
+    /**
+     * output kdtCost_editStarting method
+     */
+    protected void kdtCost_editStarting(com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent e) throws Exception
+    {
+    }
+
+    /**
+     * output kdtCost_editStarted method
+     */
+    protected void kdtCost_editStarted(com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent e) throws Exception
     {
     }
 

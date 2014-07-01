@@ -40,7 +40,7 @@ public class AbstractProgrammingEntryCostEntryInfo extends com.kingdee.eas.frame
         put("costAccount", item);
     }
     /**
-     * Object:成本构成's 目标成本property 
+     * Object:成本构成's 投资总金额property 
      */
     public java.math.BigDecimal getGoalCost()
     {
@@ -51,7 +51,7 @@ public class AbstractProgrammingEntryCostEntryInfo extends com.kingdee.eas.frame
         setBigDecimal("goalCost", item);
     }
     /**
-     * Object:成本构成's 已分配property 
+     * Object:成本构成's 累计投资（不含本年）property 
      */
     public java.math.BigDecimal getAssigned()
     {
@@ -62,7 +62,7 @@ public class AbstractProgrammingEntryCostEntryInfo extends com.kingdee.eas.frame
         setBigDecimal("assigned", item);
     }
     /**
-     * Object:成本构成's 待分配property 
+     * Object:成本构成's 投资余额property 
      */
     public java.math.BigDecimal getAssigning()
     {
@@ -73,7 +73,7 @@ public class AbstractProgrammingEntryCostEntryInfo extends com.kingdee.eas.frame
         setBigDecimal("assigning", item);
     }
     /**
-     * Object:成本构成's 本合约分配property 
+     * Object:成本构成's 本年度投资金额property 
      */
     public java.math.BigDecimal getContractAssign()
     {
@@ -93,6 +93,50 @@ public class AbstractProgrammingEntryCostEntryInfo extends com.kingdee.eas.frame
     public void setDescription(String item)
     {
         setString("description", item);
+    }
+    /**
+     * Object: 成本构成 's 投资年度 property 
+     */
+    public com.kingdee.eas.port.pm.base.InvestYearInfo getInvestYear()
+    {
+        return (com.kingdee.eas.port.pm.base.InvestYearInfo)get("investYear");
+    }
+    public void setInvestYear(com.kingdee.eas.port.pm.base.InvestYearInfo item)
+    {
+        put("investYear", item);
+    }
+    /**
+     * Object:成本构成's 工程项目property 
+     */
+    public String getProject()
+    {
+        return getString("project");
+    }
+    public void setProject(String item)
+    {
+        setString("project", item);
+    }
+    /**
+     * Object:成本构成's 项目编码property 
+     */
+    public String getNumber()
+    {
+        return getString("number");
+    }
+    public void setNumber(String item)
+    {
+        setString("number", item);
+    }
+    /**
+     * Object:成本构成's 投资比例property 
+     */
+    public java.math.BigDecimal getProportion()
+    {
+        return getBigDecimal("proportion");
+    }
+    public void setProportion(java.math.BigDecimal item)
+    {
+        setBigDecimal("proportion", item);
     }
     public BOSObjectType getBOSType()
     {

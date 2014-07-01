@@ -17,6 +17,7 @@ public class AbstractProgrammingEntryInfo extends com.kingdee.eas.framework.Tree
     {
         super(pkField);
         put("costEntries", new com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryCostEntryCollection());
+        put("EntriesEn", new com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryEntriesEnCollection());
         put("economyEntries", new com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryEconomyEntryCollection());
     }
     /**
@@ -441,6 +442,13 @@ public class AbstractProgrammingEntryInfo extends com.kingdee.eas.framework.Tree
     public void setInvestProportion(double item)
     {
         setDouble("investProportion", item);
+    }
+    /**
+     * Object: 分录 's 第5个表体 property 
+     */
+    public com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryEntriesEnCollection getEntriesEn()
+    {
+        return (com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryEntriesEnCollection)get("EntriesEn");
     }
     public BOSObjectType getBOSType()
     {

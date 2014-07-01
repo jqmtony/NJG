@@ -17,6 +17,10 @@ import com.kingdee.bos.ctrl.swing.KDTextField;
 import com.kingdee.bos.ctrl.swing.event.DataChangeEvent;
 import com.kingdee.bos.dao.AbstractObjectValue;
 import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.bos.metadata.entity.EntityViewInfo;
+import com.kingdee.bos.metadata.entity.FilterInfo;
+import com.kingdee.bos.metadata.entity.FilterItemInfo;
+import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.eas.base.core.fm.ClientVerifyHelper;
@@ -119,6 +123,12 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 		this.kDContainer1.getContentPane().setVisible(false);
 
 //		this.kDContainer1.getContentPane().add(this.kdtEntry,BorderLayout.CENTER);
+		
+		FilterInfo filter = new FilterInfo();
+		filter.getFilterItems().add(new FilterItemInfo("NJGyearInvest.buildType.name","新建项目",CompareType.EQUALS) );
+		EntityViewInfo view = new EntityViewInfo();
+		view.setFilter(filter);
+		this.prmtportProject.setEntityViewInfo(view);
 	}
 	
 	public void actionInvestPlan_actionPerformed(ActionEvent e)throws Exception {
@@ -216,8 +226,6 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 	}
 	protected void prmtportProject_dataChanged(DataChangeEvent e)throws Exception {
 		super.prmtportProject_dataChanged(e);
-		ProjectInfo info = (ProjectInfo) prmtportProject.getValue();
-		
 	}
 
 

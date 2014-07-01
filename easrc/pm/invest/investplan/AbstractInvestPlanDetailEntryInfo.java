@@ -75,16 +75,16 @@ public class AbstractInvestPlanDetailEntryInfo extends com.kingdee.eas.framework
     /**
      * Object:分录's 年度投资比例property 
      */
-    public String getProportion()
+    public java.math.BigDecimal getProportion()
     {
-        return getString("proportion");
+        return getBigDecimal("proportion");
     }
-    public void setProportion(String item)
+    public void setProportion(java.math.BigDecimal item)
     {
-        setString("proportion", item);
+        setBigDecimal("proportion", item);
     }
     /**
-     * Object:分录's 本年度投资金额property 
+     * Object:分录's 投资总额property 
      */
     public java.math.BigDecimal getAmount()
     {
@@ -95,7 +95,7 @@ public class AbstractInvestPlanDetailEntryInfo extends com.kingdee.eas.framework
         setBigDecimal("amount", item);
     }
     /**
-     * Object:分录's 投资总额property 
+     * Object:分录's 本年度投资金额property 
      */
     public java.math.BigDecimal getInvestAmount()
     {

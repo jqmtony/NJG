@@ -61,12 +61,14 @@ public abstract class AbstractProgrammingEditUI extends com.kingdee.eas.fdc.base
     protected com.kingdee.bos.ctrl.swing.KDContainer conCompare;
     protected com.kingdee.bos.ctrl.swing.KDContainer conProgramming;
     protected com.kingdee.bos.ctrl.swing.KDPanel pnlCostAccount;
+    protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel1;
     protected com.kingdee.bos.ctrl.swing.KDTextArea txtDescription;
     protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtCompareEntry;
     protected com.kingdee.bos.ctrl.swing.KDSplitPane kDSplitPane1;
     protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtEntries;
     protected com.kingdee.bos.ctrl.swing.KDPanel colorPanel;
     protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtCostAccount;
+    protected com.kingdee.bos.ctrl.kdf.table.KDTable kDTable1;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtNumber;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtName;
     protected com.kingdee.bos.ctrl.swing.KDNumberTextField txtVersion;
@@ -196,12 +198,14 @@ public abstract class AbstractProgrammingEditUI extends com.kingdee.eas.fdc.base
         this.conCompare = new com.kingdee.bos.ctrl.swing.KDContainer();
         this.conProgramming = new com.kingdee.bos.ctrl.swing.KDContainer();
         this.pnlCostAccount = new com.kingdee.bos.ctrl.swing.KDPanel();
+        this.kDPanel1 = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.txtDescription = new com.kingdee.bos.ctrl.swing.KDTextArea();
         this.kdtCompareEntry = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.kDSplitPane1 = new com.kingdee.bos.ctrl.swing.KDSplitPane();
         this.kdtEntries = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.colorPanel = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.kdtCostAccount = new com.kingdee.bos.ctrl.kdf.table.KDTable();
+        this.kDTable1 = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.txtNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtName = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtVersion = new com.kingdee.bos.ctrl.swing.KDNumberTextField();
@@ -234,12 +238,14 @@ public abstract class AbstractProgrammingEditUI extends com.kingdee.eas.fdc.base
         this.conCompare.setName("conCompare");
         this.conProgramming.setName("conProgramming");
         this.pnlCostAccount.setName("pnlCostAccount");
+        this.kDPanel1.setName("kDPanel1");
         this.txtDescription.setName("txtDescription");
         this.kdtCompareEntry.setName("kdtCompareEntry");
         this.kDSplitPane1.setName("kDSplitPane1");
         this.kdtEntries.setName("kdtEntries");
         this.colorPanel.setName("colorPanel");
         this.kdtCostAccount.setName("kdtCostAccount");
+        this.kDTable1.setName("kDTable1");
         this.txtNumber.setName("txtNumber");
         this.txtName.setName("txtName");
         this.txtVersion.setName("txtVersion");
@@ -379,6 +385,7 @@ public abstract class AbstractProgrammingEditUI extends com.kingdee.eas.fdc.base
         // conCompare
         // conProgramming
         // pnlCostAccount
+        // kDPanel1
         // txtDescription		
         this.txtDescription.setMaxLength(50000);
         // kdtCompareEntry
@@ -648,6 +655,87 @@ public abstract class AbstractProgrammingEditUI extends com.kingdee.eas.fdc.base
         
 
         this.kdtCostAccount.checkParsed();
+        // kDTable1
+		String kDTable1StrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol10\"><c:Protection hidden=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"project\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"investYear\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"goalCost\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"assigned\" t:width=\"140\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"contractAssign\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"assigning\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"proportion\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"description\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"contract\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol10\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header1\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{project}</t:Cell><t:Cell>$Resource{number}</t:Cell><t:Cell>$Resource{investYear}</t:Cell><t:Cell>$Resource{goalCost}</t:Cell><t:Cell>$Resource{assigned}</t:Cell><t:Cell>$Resource{contractAssign}</t:Cell><t:Cell>$Resource{assigning}</t:Cell><t:Cell>$Resource{proportion}</t:Cell><t:Cell>$Resource{description}</t:Cell><t:Cell>$Resource{contract}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		
+        this.kDTable1.setFormatXml(resHelper.translateString("kDTable1",kDTable1StrXML));
+
+                this.kDTable1.putBindContents("editData",new String[] {"costEntries.id","costEntries.project","costEntries.number","costEntries.investYear","costEntries.goalCost","costEntries.assigned","costEntries.contractAssign","costEntries.assigning","costEntries.proportion","costEntries.description","costEntries.contract"});
+
+
+        this.kDTable1.checkParsed();
+        final KDBizPromptBox kDTable1_investYear_PromptBox = new KDBizPromptBox();
+        kDTable1_investYear_PromptBox.setQueryInfo("com.kingdee.eas.port.pm.base.app.InvestYearQuery");
+        kDTable1_investYear_PromptBox.setVisible(true);
+        kDTable1_investYear_PromptBox.setEditable(true);
+        kDTable1_investYear_PromptBox.setDisplayFormat("$number$");
+        kDTable1_investYear_PromptBox.setEditFormat("$number$");
+        kDTable1_investYear_PromptBox.setCommitFormat("$number$");
+        KDTDefaultCellEditor kDTable1_investYear_CellEditor = new KDTDefaultCellEditor(kDTable1_investYear_PromptBox);
+        this.kDTable1.getColumn("investYear").setEditor(kDTable1_investYear_CellEditor);
+        ObjectValueRender kDTable1_investYear_OVR = new ObjectValueRender();
+        kDTable1_investYear_OVR.setFormat(new BizDataFormat("$name$"));
+        this.kDTable1.getColumn("investYear").setRenderer(kDTable1_investYear_OVR);
+        KDFormattedTextField kDTable1_goalCost_TextField = new KDFormattedTextField();
+        kDTable1_goalCost_TextField.setName("kDTable1_goalCost_TextField");
+        kDTable1_goalCost_TextField.setVisible(true);
+        kDTable1_goalCost_TextField.setEditable(true);
+        kDTable1_goalCost_TextField.setHorizontalAlignment(2);
+        kDTable1_goalCost_TextField.setDataType(1);
+        	kDTable1_goalCost_TextField.setMinimumValue(new java.math.BigDecimal("-999.9999999999"));
+        	kDTable1_goalCost_TextField.setMaximumValue(new java.math.BigDecimal("999.9999999999"));
+        kDTable1_goalCost_TextField.setPrecision(10);
+        KDTDefaultCellEditor kDTable1_goalCost_CellEditor = new KDTDefaultCellEditor(kDTable1_goalCost_TextField);
+        this.kDTable1.getColumn("goalCost").setEditor(kDTable1_goalCost_CellEditor);
+        KDFormattedTextField kDTable1_assigned_TextField = new KDFormattedTextField();
+        kDTable1_assigned_TextField.setName("kDTable1_assigned_TextField");
+        kDTable1_assigned_TextField.setVisible(true);
+        kDTable1_assigned_TextField.setEditable(true);
+        kDTable1_assigned_TextField.setHorizontalAlignment(2);
+        kDTable1_assigned_TextField.setDataType(1);
+        	kDTable1_assigned_TextField.setMinimumValue(new java.math.BigDecimal("-999.9999999999"));
+        	kDTable1_assigned_TextField.setMaximumValue(new java.math.BigDecimal("999.9999999999"));
+        kDTable1_assigned_TextField.setPrecision(10);
+        KDTDefaultCellEditor kDTable1_assigned_CellEditor = new KDTDefaultCellEditor(kDTable1_assigned_TextField);
+        this.kDTable1.getColumn("assigned").setEditor(kDTable1_assigned_CellEditor);
+        KDFormattedTextField kDTable1_contractAssign_TextField = new KDFormattedTextField();
+        kDTable1_contractAssign_TextField.setName("kDTable1_contractAssign_TextField");
+        kDTable1_contractAssign_TextField.setVisible(true);
+        kDTable1_contractAssign_TextField.setEditable(true);
+        kDTable1_contractAssign_TextField.setHorizontalAlignment(2);
+        kDTable1_contractAssign_TextField.setDataType(1);
+        	kDTable1_contractAssign_TextField.setMinimumValue(new java.math.BigDecimal("-999.9999999999"));
+        	kDTable1_contractAssign_TextField.setMaximumValue(new java.math.BigDecimal("999.9999999999"));
+        kDTable1_contractAssign_TextField.setPrecision(10);
+        KDTDefaultCellEditor kDTable1_contractAssign_CellEditor = new KDTDefaultCellEditor(kDTable1_contractAssign_TextField);
+        this.kDTable1.getColumn("contractAssign").setEditor(kDTable1_contractAssign_CellEditor);
+        KDFormattedTextField kDTable1_assigning_TextField = new KDFormattedTextField();
+        kDTable1_assigning_TextField.setName("kDTable1_assigning_TextField");
+        kDTable1_assigning_TextField.setVisible(true);
+        kDTable1_assigning_TextField.setEditable(true);
+        kDTable1_assigning_TextField.setHorizontalAlignment(2);
+        kDTable1_assigning_TextField.setDataType(1);
+        	kDTable1_assigning_TextField.setMinimumValue(new java.math.BigDecimal("-999.9999999999"));
+        	kDTable1_assigning_TextField.setMaximumValue(new java.math.BigDecimal("999.9999999999"));
+        kDTable1_assigning_TextField.setPrecision(10);
+        KDTDefaultCellEditor kDTable1_assigning_CellEditor = new KDTDefaultCellEditor(kDTable1_assigning_TextField);
+        this.kDTable1.getColumn("assigning").setEditor(kDTable1_assigning_CellEditor);
+        KDFormattedTextField kDTable1_proportion_TextField = new KDFormattedTextField();
+        kDTable1_proportion_TextField.setName("kDTable1_proportion_TextField");
+        kDTable1_proportion_TextField.setVisible(true);
+        kDTable1_proportion_TextField.setEditable(true);
+        kDTable1_proportion_TextField.setHorizontalAlignment(2);
+        kDTable1_proportion_TextField.setDataType(1);
+        	kDTable1_proportion_TextField.setMinimumValue(new java.math.BigDecimal("-9.999999999999E8"));
+        	kDTable1_proportion_TextField.setMaximumValue(new java.math.BigDecimal("9.999999999999E8"));
+        kDTable1_proportion_TextField.setPrecision(4);
+        KDTDefaultCellEditor kDTable1_proportion_CellEditor = new KDTDefaultCellEditor(kDTable1_proportion_TextField);
+        this.kDTable1.getColumn("proportion").setEditor(kDTable1_proportion_CellEditor);
+        KDTextField kDTable1_description_TextField = new KDTextField();
+        kDTable1_description_TextField.setName("kDTable1_description_TextField");
+        kDTable1_description_TextField.setMaxLength(255);
+        KDTDefaultCellEditor kDTable1_description_CellEditor = new KDTDefaultCellEditor(kDTable1_description_TextField);
+        this.kDTable1.getColumn("description").setEditor(kDTable1_description_CellEditor);
         // txtNumber
         // txtName		
         this.txtName.setRequired(true);
@@ -748,6 +836,7 @@ public abstract class AbstractProgrammingEditUI extends com.kingdee.eas.fdc.base
         kDTabbedPane1.add(conCompare, resHelper.getString("conCompare.constraints"));
         kDTabbedPane1.add(conProgramming, resHelper.getString("conProgramming.constraints"));
         kDTabbedPane1.add(pnlCostAccount, resHelper.getString("pnlCostAccount.constraints"));
+        kDTabbedPane1.add(kDPanel1, resHelper.getString("kDPanel1.constraints"));
         //kDScrollPane1
         kDScrollPane1.getViewport().add(txtDescription, null);
         //conCompare
@@ -759,6 +848,8 @@ conProgramming.getContentPane().setLayout(new BorderLayout(0, 0));        conPro
         kDSplitPane1.add(colorPanel, "bottom");
         colorPanel.setLayout(null);        //pnlCostAccount
 pnlCostAccount.setLayout(new BorderLayout(0, 0));        pnlCostAccount.add(kdtCostAccount, BorderLayout.CENTER);
+        //kDPanel1
+kDPanel1.setLayout(new BorderLayout(0, 0));        kDPanel1.add(kDTable1, BorderLayout.CENTER);
         //contNumber
         contNumber.setBoundEditor(txtNumber);
         //contName
@@ -1001,6 +1092,18 @@ pnlCostAccount.setLayout(new BorderLayout(0, 0));        pnlCostAccount.add(kdtC
 		dataBinder.registerBinding("entries.cumulativeInvest", java.math.BigDecimal.class, this.kdtEntries, "cumulativeInvest.text");
 		dataBinder.registerBinding("entries.investProportion", double.class, this.kdtEntries, "investProportion.text");
 		dataBinder.registerBinding("entries.investAmount", java.math.BigDecimal.class, this.kdtEntries, "investAmount.text");
+		dataBinder.registerBinding("entries.costEntries", com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryCostEntryInfo.class, this.kDTable1, "userObject");
+		dataBinder.registerBinding("entries.costEntries.id", com.kingdee.bos.util.BOSUuid.class, this.kDTable1, "id.text");
+		dataBinder.registerBinding("entries.costEntries.project", String.class, this.kDTable1, "project.text");
+		dataBinder.registerBinding("entries.costEntries.number", String.class, this.kDTable1, "number.text");
+		dataBinder.registerBinding("entries.costEntries.investYear", com.kingdee.eas.port.pm.base.InvestYearInfo.class, this.kDTable1, "investYear.text");
+		dataBinder.registerBinding("entries.costEntries.goalCost", java.math.BigDecimal.class, this.kDTable1, "goalCost.text");
+		dataBinder.registerBinding("entries.costEntries.assigned", java.math.BigDecimal.class, this.kDTable1, "assigned.text");
+		dataBinder.registerBinding("entries.costEntries.contractAssign", java.math.BigDecimal.class, this.kDTable1, "contractAssign.text");
+		dataBinder.registerBinding("entries.costEntries.assigning", java.math.BigDecimal.class, this.kDTable1, "assigning.text");
+		dataBinder.registerBinding("entries.costEntries.proportion", java.math.BigDecimal.class, this.kDTable1, "proportion.text");
+		dataBinder.registerBinding("entries.costEntries.description", String.class, this.kDTable1, "description.text");
+		dataBinder.registerBinding("entries.costEntries.contract", com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryCostEntryCollection.class, this.kDTable1, "contract.text");
 		dataBinder.registerBinding("number", String.class, this.txtNumber, "text");
 		dataBinder.registerBinding("name", String.class, this.txtName, "text");
 		dataBinder.registerBinding("version", java.math.BigDecimal.class, this.txtVersion, "text");
@@ -1180,6 +1283,18 @@ pnlCostAccount.setLayout(new BorderLayout(0, 0));        pnlCostAccount.add(kdtC
 		getValidateHelper().registerBindProperty("entries.cumulativeInvest", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("entries.investProportion", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("entries.investAmount", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("entries.costEntries", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("entries.costEntries.id", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("entries.costEntries.project", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("entries.costEntries.number", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("entries.costEntries.investYear", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("entries.costEntries.goalCost", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("entries.costEntries.assigned", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("entries.costEntries.contractAssign", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("entries.costEntries.assigning", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("entries.costEntries.proportion", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("entries.costEntries.description", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("entries.costEntries.contract", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("number", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("name", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("version", ValidateHelper.ON_SAVE);    
@@ -1324,6 +1439,38 @@ pnlCostAccount.setLayout(new BorderLayout(0, 0));        pnlCostAccount.add(kdtC
     	sic.add(new SelectorItemInfo("entries.cumulativeInvest"));
     	sic.add(new SelectorItemInfo("entries.investProportion"));
     	sic.add(new SelectorItemInfo("entries.investAmount"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("entries.costEntries.*"));
+		}
+		else{
+	    	sic.add(new SelectorItemInfo("entries.costEntries.id"));
+        	sic.add(new SelectorItemInfo("entries.costEntries.number"));
+		}
+    	sic.add(new SelectorItemInfo("entries.costEntries.project"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("entries.costEntries.investYear.*"));
+		}
+		else{
+	    	sic.add(new SelectorItemInfo("entries.costEntries.investYear.id"));
+			sic.add(new SelectorItemInfo("entries.costEntries.investYear.name"));
+        	sic.add(new SelectorItemInfo("entries.costEntries.investYear.number"));
+		}
+    	sic.add(new SelectorItemInfo("entries.costEntries.goalCost"));
+    	sic.add(new SelectorItemInfo("entries.costEntries.assigned"));
+    	sic.add(new SelectorItemInfo("entries.costEntries.contractAssign"));
+    	sic.add(new SelectorItemInfo("entries.costEntries.assigning"));
+    	sic.add(new SelectorItemInfo("entries.costEntries.proportion"));
+    	sic.add(new SelectorItemInfo("entries.costEntries.description"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("entries.costEntries.contract.*"));
+		}
+		else{
+	    	sic.add(new SelectorItemInfo("entries.costEntries.contract.id"));
+        	sic.add(new SelectorItemInfo("entries.costEntries.contract.number"));
+		}
         sic.add(new SelectorItemInfo("number"));
         sic.add(new SelectorItemInfo("name"));
         sic.add(new SelectorItemInfo("version"));
