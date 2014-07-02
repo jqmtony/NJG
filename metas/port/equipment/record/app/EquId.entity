@@ -837,6 +837,32 @@
             </parameters>
             <configured>false</configured>
         </method>
+        <method>
+            <name>excelEqu</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].methods.method[excelEqu].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].methods.method[excelEqu].description</description>
+            <innerID>4e6de2ef-0ffc-40a0-9c67-b813eb5bf3eb</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].methods.method[excelEqu].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].methods.method[excelEqu].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.port.equipment.record.app.EquId</metadataRef>
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
     </methods>
     <isAbstract>false</isAbstract>
     <bizUnitPK>com.kingdee.eas.port.equipment.record.EquId</bizUnitPK>
@@ -2009,6 +2035,134 @@
                 <key name="name" value="CFDaytow" />
             </mappingField>
         </ownProperty>
+        <ownProperty>
+            <name>telePhoneNumber</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[telePhoneNumber].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[telePhoneNumber].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>String</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>100</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[telePhoneNumber].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFTelePhoneNumber" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>actrueTime</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[actrueTime].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[actrueTime].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>Date</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>8</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[actrueTime].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFActrueTime" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>responsible</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[responsible].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[responsible].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>String</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>100</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[responsible].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFResponsible" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>inStreet</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[inStreet].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[inStreet].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>String</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>100</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[inStreet].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFInStreet" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>inspectorOne</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[inspectorOne].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[inspectorOne].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>String</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>100</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[inspectorOne].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFInspectorOne" />
+            </mappingField>
+        </ownProperty>
+        <linkProperty>
+            <name>textType</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.linkProperty[textType].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.linkProperty[textType].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <mappingField>
+                <key name="name" value="CFTextTypeID" />
+            </mappingField>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.port.equipment.record.app" />
+                <key name="name" value="R_EquId_TestType_textType" />
+            </relationship>
+        </linkProperty>
+        <linkProperty>
+            <name>equTypeone</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.linkProperty[equTypeone].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.linkProperty[equTypeone].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <mappingField>
+                <key name="name" value="CFEquTypeoneID" />
+            </mappingField>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.port.equipment.record.app" />
+                <key name="name" value="R_EquId_EquType_equTypeone" />
+            </relationship>
+        </linkProperty>
     </properties>
     <logicalKey>
         <name>id</name>
@@ -2233,6 +2387,48 @@
                 </formalParameter>
             </formalParameters>
         </event>
+        <event>
+            <name>excelEquEvent</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[excelEquEvent].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[excelEquEvent].description</description>
+            <userDefined>true</userDefined>
+            <eventMethods>
+                <eventMethod>
+                    <name>4e6de2ef-0ffc-40a0-9c67-b813eb5bf3eb</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[excelEquEvent].eventMethods.eventMethod[4e6de2ef-0ffc-40a0-9c67-b813eb5bf3eb].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[excelEquEvent].eventMethods.eventMethod[4e6de2ef-0ffc-40a0-9c67-b813eb5bf3eb].description</description>
+                    <entityMethodRef>
+                        <key name="name" value="excelEqu" />
+                        <key name="innerID" value="4e6de2ef-0ffc-40a0-9c67-b813eb5bf3eb" />
+                    </entityMethodRef>
+                    <parameterMappings>
+                        <parameterMapping>
+                            <name />
+                            <alias>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[excelEquEvent].eventMethods.eventMethod[4e6de2ef-0ffc-40a0-9c67-b813eb5bf3eb].parameterMappings.parameterMappingalias</alias>
+                            <description>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[excelEquEvent].eventMethods.eventMethod[4e6de2ef-0ffc-40a0-9c67-b813eb5bf3eb].parameterMappings.parameterMappingdescription</description>
+                            <formalParameterInnerID>befc808c-64d1-43a1-a3ef-1fbc2a47cbf5evfp</formalParameterInnerID>
+                            <actualParameterIndex>0</actualParameterIndex>
+                            <isBOPK>true</isBOPK>
+                        </parameterMapping>
+                    </parameterMappings>
+                </eventMethod>
+            </eventMethods>
+            <formalParameters>
+                <formalParameter>
+                    <innerID>befc808c-64d1-43a1-a3ef-1fbc2a47cbf5evfp</innerID>
+                    <userDefined>true</userDefined>
+                    <parameter>
+                        <name>model</name>
+                        <alias>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[excelEquEvent].formalParameters.formalParameter.parameter[model].alias</alias>
+                        <description>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[excelEquEvent].formalParameters.formalParameter.parameter[model].description</description>
+                        <direction>in</direction>
+                        <dataType>ObjectValue</dataType>
+                        <metadataRef>com.kingdee.eas.port.equipment.record.app.EquId</metadataRef>
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </formalParameter>
+            </formalParameters>
+        </event>
     </events>
     <defaultView>
         <name />
@@ -2352,6 +2548,54 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[actionRegistChangeEvent].formalParameters.formalParameter.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[excelEquEvent].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="导入设备档案事件" />
+            <lang locale="zh_HK" value="導入設備檔案事件" />
+            <lang locale="zh_TW" value="導入設備檔案事件" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[excelEquEvent].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[excelEquEvent].eventMethods.eventMethod[4e6de2ef-0ffc-40a0-9c67-b813eb5bf3eb].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[excelEquEvent].eventMethods.eventMethod[4e6de2ef-0ffc-40a0-9c67-b813eb5bf3eb].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[excelEquEvent].eventMethods.eventMethod[4e6de2ef-0ffc-40a0-9c67-b813eb5bf3eb].parameterMappings.parameterMappingalias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[excelEquEvent].eventMethods.eventMethod[4e6de2ef-0ffc-40a0-9c67-b813eb5bf3eb].parameterMappings.parameterMappingdescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[excelEquEvent].formalParameters.formalParameter.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].events.event[excelEquEvent].formalParameters.formalParameter.parameter[model].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -2800,6 +3044,30 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].methods.method[delete].parameters.parameter[pk].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].methods.method[excelEqu].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="导入设备档案" />
+            <lang locale="zh_HK" value="導入設備檔案" />
+            <lang locale="zh_TW" value="導入設備檔案" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].methods.method[excelEqu].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].methods.method[excelEqu].parameters.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].methods.method[excelEqu].parameters.parameter[model].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -3261,15 +3529,15 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.linkProperty[address].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="安装地点" />
-            <lang locale="zh_HK" value="安裝地點" />
-            <lang locale="zh_TW" value="安裝地點" />
+            <lang locale="zh_CN" value="使用单位地址" />
+            <lang locale="zh_HK" value="使用單位地址" />
+            <lang locale="zh_TW" value="使用單位地址" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.linkProperty[address].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="安装地点" />
-            <lang locale="zh_HK" value="安裝地點" />
-            <lang locale="zh_TW" value="安裝地點" />
+            <lang locale="zh_CN" value="使用单位地址" />
+            <lang locale="zh_HK" value="使用單位地址" />
+            <lang locale="zh_TW" value="使用單位地址" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.linkProperty[address].extendedProperty.ColWidthInKDTable">
             <lang locale="en_US" value="50" />
@@ -3515,6 +3783,58 @@
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.linkProperty[eqmType].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.linkProperty[equTypeone].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="设备类型" />
+            <lang locale="zh_HK" value="設備類型" />
+            <lang locale="zh_TW" value="設備類型" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.linkProperty[equTypeone].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="设备类型" />
+            <lang locale="zh_HK" value="設備類型" />
+            <lang locale="zh_TW" value="設備類型" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.linkProperty[equTypeone].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.linkProperty[equTypeone].extendedProperty.dataField">
+            <lang locale="en_US" value="name" />
+            <lang locale="zh_CN" value="name" />
+            <lang locale="zh_TW" value="name" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.linkProperty[equTypeone].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.linkProperty[equTypeone].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.linkProperty[equTypeone].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.linkProperty[equTypeone].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.linkProperty[equTypeone].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.linkProperty[equTypeone].extendedProperty.isVisibleForKDTable">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
@@ -3935,6 +4255,58 @@
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.linkProperty[textType].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="检验类别" />
+            <lang locale="zh_HK" value="檢驗類別" />
+            <lang locale="zh_TW" value="檢驗類別" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.linkProperty[textType].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="检验类别" />
+            <lang locale="zh_HK" value="檢驗類別" />
+            <lang locale="zh_TW" value="檢驗類別" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.linkProperty[textType].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.linkProperty[textType].extendedProperty.dataField">
+            <lang locale="en_US" value="name" />
+            <lang locale="zh_CN" value="name" />
+            <lang locale="zh_TW" value="name" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.linkProperty[textType].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.linkProperty[textType].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.linkProperty[textType].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.linkProperty[textType].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.linkProperty[textType].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.linkProperty[textType].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.linkProperty[unit].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="计量单位" />
@@ -4212,6 +4584,69 @@
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[EqmCategory].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[actrueTime].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="实际检测日期" />
+            <lang locale="zh_HK" value="實際檢測日期" />
+            <lang locale="zh_TW" value="實際檢測日期" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[actrueTime].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[actrueTime].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="实际检测日期" />
+            <lang locale="zh_HK" value="實際檢測日期" />
+            <lang locale="zh_TW" value="實際檢測日期" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[actrueTime].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[actrueTime].extendedProperty.bizDataType">
+            <lang locale="en_US" value="DATE" />
+            <lang locale="zh_CN" value="DATE" />
+            <lang locale="zh_TW" value="DATE" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[actrueTime].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[actrueTime].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[actrueTime].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[actrueTime].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[actrueTime].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[actrueTime].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[actrueTime].extendedProperty.isVisibleForKDTable">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
@@ -5171,6 +5606,69 @@
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[inStreet].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="设备所在街道/乡镇" />
+            <lang locale="zh_HK" value="設備所在街道/鄉鎮" />
+            <lang locale="zh_TW" value="設備所在街道/鄉鎮" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[inStreet].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[inStreet].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="设备所在街道/乡镇" />
+            <lang locale="zh_HK" value="設備所在街道/鄉鎮" />
+            <lang locale="zh_TW" value="設備所在街道/鄉鎮" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[inStreet].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[inStreet].extendedProperty.bizDataType">
+            <lang locale="en_US" value="STRING" />
+            <lang locale="zh_CN" value="STRING" />
+            <lang locale="zh_TW" value="STRING" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[inStreet].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[inStreet].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[inStreet].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[inStreet].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[inStreet].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[inStreet].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[inStreet].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[innerNumber].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="厂内编号" />
@@ -5230,6 +5728,69 @@
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[innerNumber].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[inspectorOne].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="检验员1" />
+            <lang locale="zh_HK" value="檢驗員1" />
+            <lang locale="zh_TW" value="檢驗員1" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[inspectorOne].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[inspectorOne].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="检验员1" />
+            <lang locale="zh_HK" value="檢驗員1" />
+            <lang locale="zh_TW" value="檢驗員1" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[inspectorOne].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[inspectorOne].extendedProperty.bizDataType">
+            <lang locale="en_US" value="STRING" />
+            <lang locale="zh_CN" value="STRING" />
+            <lang locale="zh_TW" value="STRING" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[inspectorOne].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[inspectorOne].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[inspectorOne].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[inspectorOne].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[inspectorOne].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[inspectorOne].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[inspectorOne].extendedProperty.isVisibleForKDTable">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
@@ -5362,9 +5923,9 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[location].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="功能位置" />
-            <lang locale="zh_HK" value="功能位置" />
-            <lang locale="zh_TW" value="功能位置" />
+            <lang locale="zh_CN" value="设备使用地点" />
+            <lang locale="zh_HK" value="設備使用地點" />
+            <lang locale="zh_TW" value="設備使用地點" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[location].defaultValue">
             <lang locale="en_US" value="null" />
@@ -5374,9 +5935,9 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[location].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="功能位置" />
-            <lang locale="zh_HK" value="功能位置" />
-            <lang locale="zh_TW" value="功能位置" />
+            <lang locale="zh_CN" value="设备使用地点" />
+            <lang locale="zh_HK" value="設備使用地點" />
+            <lang locale="zh_TW" value="設備使用地點" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[location].extendedProperty.ColWidthInKDTable">
             <lang locale="en_US" value="50" />
@@ -6121,6 +6682,69 @@
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[responsible].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="责任检验员" />
+            <lang locale="zh_HK" value="責任檢驗員" />
+            <lang locale="zh_TW" value="責任檢驗員" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[responsible].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[responsible].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="责任检验员" />
+            <lang locale="zh_HK" value="責任檢驗員" />
+            <lang locale="zh_TW" value="責任檢驗員" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[responsible].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[responsible].extendedProperty.bizDataType">
+            <lang locale="en_US" value="STRING" />
+            <lang locale="zh_CN" value="STRING" />
+            <lang locale="zh_TW" value="STRING" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[responsible].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[responsible].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[responsible].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[responsible].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[responsible].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[responsible].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[responsible].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[sbDescription].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="备注" />
@@ -6630,6 +7254,69 @@
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[telePhoneNumber].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="联系方式" />
+            <lang locale="zh_HK" value="聯繫方式" />
+            <lang locale="zh_TW" value="聯繫方式" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[telePhoneNumber].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[telePhoneNumber].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="联系方式" />
+            <lang locale="zh_HK" value="聯繫方式" />
+            <lang locale="zh_TW" value="聯繫方式" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[telePhoneNumber].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[telePhoneNumber].extendedProperty.bizDataType">
+            <lang locale="en_US" value="STRING" />
+            <lang locale="zh_CN" value="STRING" />
+            <lang locale="zh_TW" value="STRING" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[telePhoneNumber].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[telePhoneNumber].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[telePhoneNumber].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[telePhoneNumber].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[telePhoneNumber].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[telePhoneNumber].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[telePhoneNumber].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[testDay].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="到期检测日期" />
@@ -6951,9 +7638,9 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[zzsShortName].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="制造商简称" />
-            <lang locale="zh_HK" value="製造商簡稱" />
-            <lang locale="zh_TW" value="製造商簡稱" />
+            <lang locale="zh_CN" value="联系人" />
+            <lang locale="zh_HK" value="聯繫人" />
+            <lang locale="zh_TW" value="聯繫人" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[zzsShortName].defaultValue">
             <lang locale="en_US" value="null" />
@@ -6963,9 +7650,9 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[zzsShortName].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="制造商简称" />
-            <lang locale="zh_HK" value="製造商簡稱" />
-            <lang locale="zh_TW" value="製造商簡稱" />
+            <lang locale="zh_CN" value="联系人" />
+            <lang locale="zh_HK" value="聯繫人" />
+            <lang locale="zh_TW" value="聯繫人" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.ownProperty[zzsShortName].extendedProperty.ColWidthInKDTable">
             <lang locale="en_US" value="50" />

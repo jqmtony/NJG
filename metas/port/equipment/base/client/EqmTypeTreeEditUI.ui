@@ -17,6 +17,17 @@
     </parent>
     <components>
         <component>
+            <name>CoreUI</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.base.client.EqmTypeTreeEditUI].components.component[CoreUI].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDPanel</classType>
+            <isContainer>true</isContainer>
+            <constraints>10,10,400,220</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
             <name>kDLabelContainer1</name>
             <alias>uiObject[com.kingdee.eas.port.equipment.base.client.EqmTypeTreeEditUI].components.component[kDLabelContainer1].alias</alias>
             <userDefined>true</userDefined>
@@ -241,7 +252,7 @@
         <component>
             <name>btnPrint</name>
             <alias>uiObject[com.kingdee.eas.port.equipment.base.client.EqmTypeTreeEditUI].components.component[btnPrint].alias</alias>
-            <userDefined>true</userDefined>
+            <userDefined>false</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
             <isContainer>false</isContainer>
             <constraints />
@@ -261,7 +272,7 @@
         <component>
             <name>btnPrintPreview</name>
             <alias>uiObject[com.kingdee.eas.port.equipment.base.client.EqmTypeTreeEditUI].components.component[btnPrintPreview].alias</alias>
-            <userDefined>true</userDefined>
+            <userDefined>false</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
             <isContainer>false</isContainer>
             <constraints />
@@ -281,7 +292,7 @@
         <component>
             <name>menuItemPrint</name>
             <alias>uiObject[com.kingdee.eas.port.equipment.base.client.EqmTypeTreeEditUI].components.component[menuItemPrint].alias</alias>
-            <userDefined>true</userDefined>
+            <userDefined>false</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDMenuItem</classType>
             <isContainer>false</isContainer>
             <constraints />
@@ -294,14 +305,14 @@
                     <type>boolean</type>
                     <value>uiObject[com.kingdee.eas.port.equipment.base.client.EqmTypeTreeEditUI].components.component[menuItemPrint].properties.property[visible].value</value>
                     <isMultiLan>false</isMultiLan>
-                    <userDefined>true</userDefined>
+                    <userDefined>false</userDefined>
                 </property>
             </properties>
         </component>
         <component>
             <name>menuItemPrintPreview</name>
             <alias>uiObject[com.kingdee.eas.port.equipment.base.client.EqmTypeTreeEditUI].components.component[menuItemPrintPreview].alias</alias>
-            <userDefined>true</userDefined>
+            <userDefined>false</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDMenuItem</classType>
             <isContainer>false</isContainer>
             <constraints />
@@ -314,7 +325,7 @@
                     <type>boolean</type>
                     <value>uiObject[com.kingdee.eas.port.equipment.base.client.EqmTypeTreeEditUI].components.component[menuItemPrintPreview].properties.property[visible].value</value>
                     <isMultiLan>false</isMultiLan>
-                    <userDefined>true</userDefined>
+                    <userDefined>false</userDefined>
                 </property>
             </properties>
         </component>
@@ -325,7 +336,7 @@
             <type>com.kingdee.eas.port.equipment.base.app.EqmTypeTree</type>
             <objectType>enty</objectType>
             <herited>true</herited>
-            <userDefined>true</userDefined>
+            <userDefined>false</userDefined>
         </dataObject>
     </dataObjects>
     <statuses>
@@ -409,126 +420,157 @@
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.EqmTypeTreeEditUI].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="组别编辑界面模板" />
+            <lang locale="zh_HK" value="組別編輯介面範本" />
             <lang locale="zh_TW" value="組別編輯介面範本" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.EqmTypeTreeEditUI].components.component[CoreUI].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.EqmTypeTreeEditUI].components.component[btnPrintPreview].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.EqmTypeTreeEditUI].components.component[btnPrintPreview].properties.property[visible].value">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.EqmTypeTreeEditUI].components.component[btnPrint].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.EqmTypeTreeEditUI].components.component[btnPrint].properties.property[visible].value">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.EqmTypeTreeEditUI].components.component[kDLabelContainer1].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.EqmTypeTreeEditUI].components.component[kDLabelContainer1].properties.property[boundLabelLength].value">
             <lang locale="en_US" value="100" />
             <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
             <lang locale="zh_TW" value="100" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.EqmTypeTreeEditUI].components.component[kDLabelContainer1].properties.property[boundLabelText].value">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="编码:" />
+            <lang locale="zh_HK" value="編碼:" />
             <lang locale="zh_TW" value="編碼:" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.EqmTypeTreeEditUI].components.component[kDLabelContainer1].properties.property[boundLabelUnderline].value">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.EqmTypeTreeEditUI].components.component[kDLabelContainer2].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.EqmTypeTreeEditUI].components.component[kDLabelContainer2].properties.property[boundLabelLength].value">
             <lang locale="en_US" value="100" />
             <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
             <lang locale="zh_TW" value="100" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.EqmTypeTreeEditUI].components.component[kDLabelContainer2].properties.property[boundLabelText].value">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="名称:" />
+            <lang locale="zh_HK" value="名稱:" />
             <lang locale="zh_TW" value="名稱:" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.EqmTypeTreeEditUI].components.component[kDLabelContainer2].properties.property[boundLabelUnderline].value">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.EqmTypeTreeEditUI].components.component[kDLabelContainer3].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.EqmTypeTreeEditUI].components.component[kDLabelContainer3].properties.property[boundLabelLength].value">
             <lang locale="en_US" value="100" />
             <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
             <lang locale="zh_TW" value="100" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.EqmTypeTreeEditUI].components.component[kDLabelContainer3].properties.property[boundLabelText].value">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="描述:" />
+            <lang locale="zh_HK" value="描述:" />
             <lang locale="zh_TW" value="描述:" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.EqmTypeTreeEditUI].components.component[kDLabelContainer3].properties.property[boundLabelUnderline].value">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.EqmTypeTreeEditUI].components.component[menuItemPrintPreview].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.EqmTypeTreeEditUI].components.component[menuItemPrintPreview].properties.property[visible].value">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.EqmTypeTreeEditUI].components.component[menuItemPrint].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.EqmTypeTreeEditUI].components.component[menuItemPrint].properties.property[visible].value">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.EqmTypeTreeEditUI].components.component[txtDescription].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.EqmTypeTreeEditUI].components.component[txtName].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.EqmTypeTreeEditUI].components.component[txtNumber].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.EqmTypeTreeEditUI].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="组别编辑界面模板" />
+            <lang locale="zh_HK" value="組別編輯介面範本" />
             <lang locale="zh_TW" value="組別編輯介面範本" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.EqmTypeTreeEditUI].extendedProperty.bimIsRelationObject">
@@ -549,36 +591,43 @@
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.EqmTypeTreeEditUI].statuses.status[ADDNEW].alias">
             <lang locale="en_US" value="AddNew" />
             <lang locale="zh_CN" value="AddNew" />
+            <lang locale="zh_HK" value="AddNew" />
             <lang locale="zh_TW" value="AddNew" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.EqmTypeTreeEditUI].statuses.status[ADDNEW].description">
             <lang locale="en_US" value="AddNew" />
             <lang locale="zh_CN" value="AddNew" />
+            <lang locale="zh_HK" value="AddNew" />
             <lang locale="zh_TW" value="AddNew" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.EqmTypeTreeEditUI].statuses.status[EDIT].alias">
             <lang locale="en_US" value="EDIT" />
             <lang locale="zh_CN" value="EDIT" />
+            <lang locale="zh_HK" value="EDIT" />
             <lang locale="zh_TW" value="EDIT" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.EqmTypeTreeEditUI].statuses.status[EDIT].description">
             <lang locale="en_US" value="EDIT" />
             <lang locale="zh_CN" value="EDIT" />
+            <lang locale="zh_HK" value="EDIT" />
             <lang locale="zh_TW" value="EDIT" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.EqmTypeTreeEditUI].statuses.status[VIEW].alias">
             <lang locale="en_US" value="View" />
             <lang locale="zh_CN" value="View" />
+            <lang locale="zh_HK" value="View" />
             <lang locale="zh_TW" value="View" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.EqmTypeTreeEditUI].statuses.status[VIEW].description">
             <lang locale="en_US" value="View" />
             <lang locale="zh_CN" value="View" />
+            <lang locale="zh_HK" value="View" />
             <lang locale="zh_TW" value="View" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.base.client.EqmTypeTreeEditUI].title">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="组别管理" />
+            <lang locale="zh_HK" value="組別管理" />
             <lang locale="zh_TW" value="組別管理" />
         </rs>
     </resource>

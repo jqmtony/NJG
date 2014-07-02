@@ -62,6 +62,11 @@
             <value>i18nResource[com.kingdee.eas.port.equipment.base.client.BaseResource].resourceItems.resourceItem[SpecialCheckItemQueryF7WindowTitle].value</value>
             <userDefined>true</userDefined>
         </resourceItem>
+        <resourceItem>
+            <name>TestTypeQueryF7WindowTitle</name>
+            <value>i18nResource[com.kingdee.eas.port.equipment.base.client.BaseResource].resourceItems.resourceItem[TestTypeQueryF7WindowTitle].value</value>
+            <userDefined>true</userDefined>
+        </resourceItem>
     </resourceItems>
     <resource>
         <rs key="i18nResource[com.kingdee.eas.port.equipment.base.client.BaseResource].alias">
@@ -102,9 +107,9 @@
         </rs>
         <rs key="i18nResource[com.kingdee.eas.port.equipment.base.client.BaseResource].resourceItems.resourceItem[EquTypeQueryF7WindowTitle].value">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="EquType" />
-            <lang locale="zh_HK" value="EquType" />
-            <lang locale="zh_TW" value="EquType" />
+            <lang locale="zh_CN" value="设备类型" />
+            <lang locale="zh_HK" value="設備類型" />
+            <lang locale="zh_TW" value="設備類型" />
         </rs>
         <rs key="i18nResource[com.kingdee.eas.port.equipment.base.client.BaseResource].resourceItems.resourceItem[EquipmentTypeQueryF7WindowTitle].value">
             <lang locale="en_US" value="null" />
@@ -141,6 +146,12 @@
             <lang locale="zh_CN" value="特种设备类型" />
             <lang locale="zh_HK" value="特種設備類型" />
             <lang locale="zh_TW" value="特種設備類型" />
+        </rs>
+        <rs key="i18nResource[com.kingdee.eas.port.equipment.base.client.BaseResource].resourceItems.resourceItem[TestTypeQueryF7WindowTitle].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="检测类别" />
+            <lang locale="zh_HK" value="檢測類別" />
+            <lang locale="zh_TW" value="檢測類別" />
         </rs>
     </resource>
 </i18nResource>

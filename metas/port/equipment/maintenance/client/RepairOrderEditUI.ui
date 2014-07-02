@@ -1234,7 +1234,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>10,394,932,37,262</constraints>
+            <constraints>10,394,602,37,262</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -1563,6 +1563,104 @@
                     <name>visible</name>
                     <type>boolean</type>
                     <value>uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[contslDepart].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="CoreUI" />
+            </parent>
+        </component>
+        <component>
+            <name>contrepairCategory</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[contrepairCategory].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>672,394,270,19,138</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>boundLabelText</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[contrepairCategory].properties.property[boundLabelText].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelLength</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[contrepairCategory].properties.property[boundLabelLength].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelUnderline</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[contrepairCategory].properties.property[boundLabelUnderline].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[contrepairCategory].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="CoreUI" />
+            </parent>
+        </component>
+        <component>
+            <name>contrepairAmount</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[contrepairAmount].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>672,418,270,19,138</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>boundLabelText</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[contrepairAmount].properties.property[boundLabelText].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelLength</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[contrepairAmount].properties.property[boundLabelLength].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelUnderline</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[contrepairAmount].properties.property[boundLabelUnderline].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[contrepairAmount].properties.property[visible].value</value>
                     <isMultiLan>false</isMultiLan>
                     <userDefined>true</userDefined>
                 </property>
@@ -3429,6 +3527,151 @@
                 </propertyBinding>
             </propertyBindings>
         </component>
+        <component>
+            <name>repairCategory</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[repairCategory].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDComboBox</classType>
+            <isContainer>false</isContainer>
+            <constraints>7</constraints>
+            <tabIndex>36</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[repairCategory].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>items</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[repairCategory].properties.property[items].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>required</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[repairCategory].properties.property[required].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="contrepairCategory" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>selectedItem</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>repairCategory</bindingField>
+                    <fieldType>com.kingdee.eas.port.equipment.base.enumbase.RepairCategory</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
+        <component>
+            <name>txtrepairAmount</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[txtrepairAmount].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDFormattedTextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>7</constraints>
+            <tabIndex>37</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[txtrepairAmount].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>horizontalAlignment</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[txtrepairAmount].properties.property[horizontalAlignment].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>dataType</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[txtrepairAmount].properties.property[dataType].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>supportedEmpty</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[txtrepairAmount].properties.property[supportedEmpty].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>minimumValue</name>
+                    <type>java.math.BigDecimal</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[txtrepairAmount].properties.property[minimumValue].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>maximumValue</name>
+                    <type>java.math.BigDecimal</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[txtrepairAmount].properties.property[maximumValue].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>precision</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[txtrepairAmount].properties.property[precision].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>required</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[txtrepairAmount].properties.property[required].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="contrepairAmount" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>value</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>repairAmount</bindingField>
+                    <fieldType>java.math.BigDecimal</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
     </components>
     <dataObjects>
         <dataObject>
@@ -4369,6 +4612,66 @@
             <lang locale="zh_HK" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[contrepairAmount].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[contrepairAmount].properties.property[boundLabelLength].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[contrepairAmount].properties.property[boundLabelText].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="维修费用" />
+            <lang locale="zh_HK" value="維修費用" />
+            <lang locale="zh_TW" value="維修費用" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[contrepairAmount].properties.property[boundLabelUnderline].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[contrepairAmount].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[contrepairCategory].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[contrepairCategory].properties.property[boundLabelLength].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[contrepairCategory].properties.property[boundLabelText].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="维修类别" />
+            <lang locale="zh_HK" value="維修類別" />
+            <lang locale="zh_TW" value="維修類別" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[contrepairCategory].properties.property[boundLabelUnderline].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[contrepairCategory].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[contrepairContent].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -5234,6 +5537,30 @@
             <lang locale="zh_HK" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[repairCategory].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="维修类别" />
+            <lang locale="zh_HK" value="維修類別" />
+            <lang locale="zh_TW" value="維修類別" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[repairCategory].properties.property[items].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="[Enum]com.kingdee.eas.port.equipment.base.enumbase.RepairCategory" />
+            <lang locale="zh_HK" value="[Enum]com.kingdee.eas.port.equipment.base.enumbase.RepairCategory" />
+            <lang locale="zh_TW" value="[Enum]com.kingdee.eas.port.equipment.base.enumbase.RepairCategory" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[repairCategory].properties.property[required].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[repairCategory].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[scrollPaneBIMUDF0021].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -5391,6 +5718,60 @@
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[txtmaintenanceProgram].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[txtrepairAmount].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="维修费用" />
+            <lang locale="zh_HK" value="維修費用" />
+            <lang locale="zh_TW" value="維修費用" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[txtrepairAmount].properties.property[dataType].value">
+            <lang locale="en_US" value="1" />
+            <lang locale="zh_CN" value="1" />
+            <lang locale="zh_HK" value="1" />
+            <lang locale="zh_TW" value="1" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[txtrepairAmount].properties.property[horizontalAlignment].value">
+            <lang locale="en_US" value="2" />
+            <lang locale="zh_CN" value="2" />
+            <lang locale="zh_HK" value="2" />
+            <lang locale="zh_TW" value="2" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[txtrepairAmount].properties.property[maximumValue].value">
+            <lang locale="en_US" value="&quot;1.0E18&quot;" />
+            <lang locale="zh_CN" value="&quot;1.0E18&quot;" />
+            <lang locale="zh_HK" value="&quot;1.0E18&quot;" />
+            <lang locale="zh_TW" value="&quot;1.0E18&quot;" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[txtrepairAmount].properties.property[minimumValue].value">
+            <lang locale="en_US" value="&quot;-1.0E18&quot;" />
+            <lang locale="zh_CN" value="&quot;-1.0E18&quot;" />
+            <lang locale="zh_HK" value="&quot;-1.0E18&quot;" />
+            <lang locale="zh_TW" value="&quot;-1.0E18&quot;" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[txtrepairAmount].properties.property[precision].value">
+            <lang locale="en_US" value="2" />
+            <lang locale="zh_CN" value="2" />
+            <lang locale="zh_HK" value="2" />
+            <lang locale="zh_TW" value="2" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[txtrepairAmount].properties.property[required].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[txtrepairAmount].properties.property[supportedEmpty].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[txtrepairAmount].properties.property[visible].value">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_HK" value="true" />
