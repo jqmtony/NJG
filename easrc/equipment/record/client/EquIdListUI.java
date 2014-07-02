@@ -11,6 +11,7 @@ import java.awt.event.ActionEvent;
 import java.io.File;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
@@ -68,6 +69,8 @@ import com.kingdee.eas.port.equipment.base.enumbase.sbStatusType;
 import com.kingdee.eas.port.equipment.record.EquIdFactory;
 import com.kingdee.eas.port.equipment.record.EquIdInfo;
 import com.kingdee.eas.port.equipment.record.IEquId;
+import com.kingdee.eas.tools.datatask.DatataskParameter;
+import com.kingdee.eas.tools.datatask.client.DatataskCaller;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
@@ -1053,5 +1056,16 @@ public class EquIdListUI extends AbstractEquIdListUI
 			e.printStackTrace();
 		}
 	}
-
+	public void actionExcelEqu_actionPerformed(ActionEvent e) throws Exception {
+		super.actionExcelEqu_actionPerformed(e);
+		String strSolutionName = "eas.equ.001";
+		DatataskCaller task = new DatataskCaller();
+		task.setParentComponent(this);
+		DatataskParameter param = new DatataskParameter();
+		param.solutionName = strSolutionName;
+		param.alias = btnExcelEqu.getText();
+		ArrayList paramList = new ArrayList();
+		paramList.add(param);
+		task.invoke(paramList, 0, true);
+	}
 }

@@ -744,6 +744,26 @@ public abstract class AbstractEquIdControllerBean extends XRBillBaseControllerBe
         return;
     }
 
+    public void excelEqu(Context ctx, EquIdInfo model) throws BOSException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("4e6de2ef-0ffc-40a0-9c67-b813eb5bf3eb"), new Object[]{ctx, model});
+            invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
+            _excelEqu(ctx, model);
+            }
+            invokeServiceAfter(svcCtx);
+        } catch (BOSException ex) {
+            throw ex;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected void _excelEqu(Context ctx, IObjectValue model) throws BOSException
+    {    	
+        return;
+    }
+
     public XRBillBaseCollection getXRBillBaseCollection (Context ctx) throws BOSException
     {
     	return (XRBillBaseCollection)(getEquIdCollection(ctx).cast(XRBillBaseCollection.class));

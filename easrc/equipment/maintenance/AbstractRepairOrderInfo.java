@@ -223,6 +223,30 @@ public class AbstractRepairOrderInfo extends com.kingdee.eas.xr.XRBillBaseInfo i
     {
         put("slDepart", item);
     }
+    /**
+     * Object:维修单's 维修类别property 
+     */
+    public com.kingdee.eas.port.equipment.base.enumbase.RepairCategory getRepairCategory()
+    {
+        return com.kingdee.eas.port.equipment.base.enumbase.RepairCategory.getEnum(getString("repairCategory"));
+    }
+    public void setRepairCategory(com.kingdee.eas.port.equipment.base.enumbase.RepairCategory item)
+    {
+		if (item != null) {
+        setString("repairCategory", item.getValue());
+		}
+    }
+    /**
+     * Object:维修单's 维修费用property 
+     */
+    public java.math.BigDecimal getRepairAmount()
+    {
+        return getBigDecimal("repairAmount");
+    }
+    public void setRepairAmount(java.math.BigDecimal item)
+    {
+        setBigDecimal("repairAmount", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("F96E9B71");

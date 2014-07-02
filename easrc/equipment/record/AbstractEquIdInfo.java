@@ -198,7 +198,7 @@ public class AbstractEquIdInfo extends com.kingdee.eas.xr.XRBillBaseInfo impleme
         setBoolean("dependable", item);
     }
     /**
-     * Object: 设备档案 's 安装地点 property 
+     * Object: 设备档案 's 使用单位地址 property 
      */
     public com.kingdee.eas.basedata.assistant.AddressInfo getAddress()
     {
@@ -209,7 +209,7 @@ public class AbstractEquIdInfo extends com.kingdee.eas.xr.XRBillBaseInfo impleme
         put("address", item);
     }
     /**
-     * Object:设备档案's 功能位置property 
+     * Object:设备档案's 设备使用地点property 
      */
     public String getLocation()
     {
@@ -478,7 +478,7 @@ public class AbstractEquIdInfo extends com.kingdee.eas.xr.XRBillBaseInfo impleme
 		}
     }
     /**
-     * Object:设备档案's 制造商简称property 
+     * Object:设备档案's 联系人property 
      */
     public String getZzsShortName()
     {
@@ -720,6 +720,83 @@ public class AbstractEquIdInfo extends com.kingdee.eas.xr.XRBillBaseInfo impleme
     public void setDaytow(java.util.Date item)
     {
         setDate("daytow", item);
+    }
+    /**
+     * Object:设备档案's 联系方式property 
+     */
+    public String getTelePhoneNumber()
+    {
+        return getString("telePhoneNumber");
+    }
+    public void setTelePhoneNumber(String item)
+    {
+        setString("telePhoneNumber", item);
+    }
+    /**
+     * Object:设备档案's 实际检测日期property 
+     */
+    public java.util.Date getActrueTime()
+    {
+        return getDate("actrueTime");
+    }
+    public void setActrueTime(java.util.Date item)
+    {
+        setDate("actrueTime", item);
+    }
+    /**
+     * Object:设备档案's 责任检验员property 
+     */
+    public String getResponsible()
+    {
+        return getString("responsible");
+    }
+    public void setResponsible(String item)
+    {
+        setString("responsible", item);
+    }
+    /**
+     * Object:设备档案's 设备所在街道/乡镇property 
+     */
+    public String getInStreet()
+    {
+        return getString("inStreet");
+    }
+    public void setInStreet(String item)
+    {
+        setString("inStreet", item);
+    }
+    /**
+     * Object:设备档案's 检验员1property 
+     */
+    public String getInspectorOne()
+    {
+        return getString("inspectorOne");
+    }
+    public void setInspectorOne(String item)
+    {
+        setString("inspectorOne", item);
+    }
+    /**
+     * Object: 设备档案 's 检验类别 property 
+     */
+    public com.kingdee.eas.port.equipment.base.TestTypeInfo getTextType()
+    {
+        return (com.kingdee.eas.port.equipment.base.TestTypeInfo)get("textType");
+    }
+    public void setTextType(com.kingdee.eas.port.equipment.base.TestTypeInfo item)
+    {
+        put("textType", item);
+    }
+    /**
+     * Object: 设备档案 's 设备类型 property 
+     */
+    public com.kingdee.eas.port.equipment.base.EquTypeInfo getEquTypeone()
+    {
+        return (com.kingdee.eas.port.equipment.base.EquTypeInfo)get("equTypeone");
+    }
+    public void setEquTypeone(com.kingdee.eas.port.equipment.base.EquTypeInfo item)
+    {
+        put("equTypeone", item);
     }
     public BOSObjectType getBOSType()
     {

@@ -979,6 +979,7 @@ public class AnnualYearDetailEditUI extends AbstractAnnualYearDetailEditUI
 			}
 	    
 	    }
+		
 		MsgBox.showInfo("确认检测信息成功！");
 		this.setOprtState("VIEW");
 		loadData();

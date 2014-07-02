@@ -61,6 +61,12 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
     protected com.kingdee.bos.ctrl.swing.KDButtonGroup kDButtonGroup2;
     protected com.kingdee.bos.ctrl.swing.KDButtonGroup kDButtonGroup3;
     protected com.kingdee.bos.ctrl.swing.KDTabbedPane kDTabbedPane1;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contdaytow;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contdayone;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer conttestDay;
+    protected com.kingdee.bos.ctrl.swing.KDCheckBox chkdependable;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer conresPerson;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contportPeriod;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtCreator;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkCreateTime;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtLastUpdateUser;
@@ -76,10 +82,13 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
     protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel6;
     protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel7;
     protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel8;
-    protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel2;
     protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel10;
     protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel11;
     protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel3;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer conlocation;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer conusingDept;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer conaddress;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contEqmCategory;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer consbDescription;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer conname;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer conssOrgUnit;
@@ -97,10 +106,10 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contype;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer continnerNumber;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contnowStatus;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contzzsShortName;
     protected com.kingdee.bos.ctrl.swing.KDCheckBox chkisMainEqm;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contNumber;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contEqmCategory;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer conparent;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contequTypeone;
     protected com.kingdee.bos.ctrl.swing.KDTextArea txtsbDescription;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtname;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtssOrgUnit;
@@ -117,22 +126,9 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmttype;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtinnerNumber;
     protected com.kingdee.bos.ctrl.swing.KDComboBox combonowStatus;
-    protected com.kingdee.bos.ctrl.swing.KDTextField txtzzsShortName;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtNumber;
-    protected com.kingdee.bos.ctrl.swing.KDTextField txtEqmCategory;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer conparent;
-    protected com.kingdee.bos.ctrl.swing.KDCheckBox chkdependable;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer conaddress;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer conlocation;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer conusingDept;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer conresPerson;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contdaytow;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtparent;
-    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtaddress;
-    protected com.kingdee.bos.ctrl.swing.KDTextField txtlocation;
-    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtusingDept;
-    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtresPerson;
-    protected com.kingdee.bos.ctrl.swing.KDDatePicker pkdaytow;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtequTypeone;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer conmader;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer conmadedCountry;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer conmadeDate;
@@ -144,7 +140,6 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer concheckDate;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer condeadline;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer consourceUnit;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contdayone;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtmader;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtmadedCountry;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkmadeDate;
@@ -156,31 +151,40 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkcheckDate;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkdeadline;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtsourceUnit;
-    protected com.kingdee.bos.ctrl.swing.KDDatePicker pkdayone;
     protected com.kingdee.bos.ctrl.swing.KDCheckBox chkportTest;
     protected com.kingdee.bos.ctrl.swing.KDCheckBox chkcityTest;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer conttestDay;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer conttzdaNumber;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer conttzsbStatus;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contspecialType;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contcityPeriod;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contportPeriod;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contcode;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contengineNumber;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contcarNumber;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contratedWeight;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer conttextDate1;
-    protected com.kingdee.bos.ctrl.swing.KDDatePicker testDay;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contzzsShortName;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer conttelePhoneNumber;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contactrueTime;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contresponsible;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer continStreet;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer continspectorOne;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer conttextType;
     protected com.kingdee.bos.ctrl.swing.KDTextField txttzdaNumber;
     protected com.kingdee.bos.ctrl.swing.KDComboBox tzsbStatus;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtspecialType;
     protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtcityPeriod;
-    protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtportPeriod;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtcode;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtengineNumber;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtcarNumber;
     protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtratedWeight;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pktextDate1;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txtzzsShortName;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txttelePhoneNumber;
+    protected com.kingdee.bos.ctrl.swing.KDDatePicker pkactrueTime;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txtresponsible;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txtinStreet;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txtinspectorOne;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmttextType;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contasset;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contassetStatus;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contassetValue;
@@ -189,10 +193,19 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtassetStatus;
     protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtassetValue;
     protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtinstallCost;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txtlocation;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtusingDept;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtaddress;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txtEqmCategory;
     protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtTechnologyPar;
 	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtTechnologyPar_detailPanel = null;
     protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtSpareInfo;
 	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtSpareInfo_detailPanel = null;
+    protected com.kingdee.bos.ctrl.swing.KDDatePicker pkdaytow;
+    protected com.kingdee.bos.ctrl.swing.KDDatePicker pkdayone;
+    protected com.kingdee.bos.ctrl.swing.KDDatePicker testDay;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtresPerson;
+    protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtportPeriod;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnRegistChange;
     protected com.kingdee.eas.port.equipment.record.EquIdInfo editData = null;
     protected ActionInUse actionInUse = null;
@@ -200,6 +213,7 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
     protected ActionRegistChange actionRegistChange = null;
     protected ActionExcel actionExcel = null;
     protected ActionExcelFoced actionExcelFoced = null;
+    protected ActionExcelEqu actionExcelEqu = null;
     /**
      * output class constructor
      */
@@ -289,6 +303,14 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.actionExcelFoced.setExtendProperty("isObjectUpdateLock", "false");
          this.actionExcelFoced.addService(new com.kingdee.eas.framework.client.service.PermissionService());
          this.actionExcelFoced.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
+        //actionExcelEqu
+        this.actionExcelEqu = new ActionExcelEqu(this);
+        getActionManager().registerAction("actionExcelEqu", actionExcelEqu);
+        this.actionExcelEqu.setExtendProperty("canForewarn", "true");
+        this.actionExcelEqu.setExtendProperty("userDefined", "true");
+        this.actionExcelEqu.setExtendProperty("isObjectUpdateLock", "false");
+         this.actionExcelEqu.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+         this.actionExcelEqu.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
         this.contCreator = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contCreateTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contLastUpdateUser = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -304,6 +326,12 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.kDButtonGroup2 = new com.kingdee.bos.ctrl.swing.KDButtonGroup();
         this.kDButtonGroup3 = new com.kingdee.bos.ctrl.swing.KDButtonGroup();
         this.kDTabbedPane1 = new com.kingdee.bos.ctrl.swing.KDTabbedPane();
+        this.contdaytow = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contdayone = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.conttestDay = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.chkdependable = new com.kingdee.bos.ctrl.swing.KDCheckBox();
+        this.conresPerson = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contportPeriod = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.prmtCreator = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.pkCreateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.prmtLastUpdateUser = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
@@ -319,10 +347,13 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.kDPanel6 = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.kDPanel7 = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.kDPanel8 = new com.kingdee.bos.ctrl.swing.KDPanel();
-        this.kDPanel2 = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.kDPanel10 = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.kDPanel11 = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.kDPanel3 = new com.kingdee.bos.ctrl.swing.KDPanel();
+        this.conlocation = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.conusingDept = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.conaddress = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contEqmCategory = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.consbDescription = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.conname = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.conssOrgUnit = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -340,10 +371,10 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.contype = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.continnerNumber = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contnowStatus = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contzzsShortName = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.chkisMainEqm = new com.kingdee.bos.ctrl.swing.KDCheckBox();
         this.contNumber = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contEqmCategory = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.conparent = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contequTypeone = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.txtsbDescription = new com.kingdee.bos.ctrl.swing.KDTextArea();
         this.txtname = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.prmtssOrgUnit = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
@@ -360,22 +391,9 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.prmttype = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.txtinnerNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.combonowStatus = new com.kingdee.bos.ctrl.swing.KDComboBox();
-        this.txtzzsShortName = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
-        this.txtEqmCategory = new com.kingdee.bos.ctrl.swing.KDTextField();
-        this.conparent = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.chkdependable = new com.kingdee.bos.ctrl.swing.KDCheckBox();
-        this.conaddress = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.conlocation = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.conusingDept = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.conresPerson = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contdaytow = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.prmtparent = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
-        this.prmtaddress = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
-        this.txtlocation = new com.kingdee.bos.ctrl.swing.KDTextField();
-        this.prmtusingDept = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
-        this.prmtresPerson = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
-        this.pkdaytow = new com.kingdee.bos.ctrl.swing.KDDatePicker();
+        this.prmtequTypeone = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.conmader = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.conmadedCountry = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.conmadeDate = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -387,7 +405,6 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.concheckDate = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.condeadline = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.consourceUnit = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contdayone = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.txtmader = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.prmtmadedCountry = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.pkmadeDate = new com.kingdee.bos.ctrl.swing.KDDatePicker();
@@ -399,31 +416,40 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.pkcheckDate = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.pkdeadline = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.txtsourceUnit = new com.kingdee.bos.ctrl.swing.KDTextField();
-        this.pkdayone = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.chkportTest = new com.kingdee.bos.ctrl.swing.KDCheckBox();
         this.chkcityTest = new com.kingdee.bos.ctrl.swing.KDCheckBox();
-        this.conttestDay = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.conttzdaNumber = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.conttzsbStatus = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contspecialType = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contcityPeriod = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contportPeriod = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contcode = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contengineNumber = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contcarNumber = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contratedWeight = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.conttextDate1 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.testDay = new com.kingdee.bos.ctrl.swing.KDDatePicker();
+        this.contzzsShortName = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.conttelePhoneNumber = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contactrueTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contresponsible = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.continStreet = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.continspectorOne = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.conttextType = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.txttzdaNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.tzsbStatus = new com.kingdee.bos.ctrl.swing.KDComboBox();
         this.prmtspecialType = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.txtcityPeriod = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
-        this.txtportPeriod = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
         this.txtcode = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtengineNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtcarNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtratedWeight = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
         this.pktextDate1 = new com.kingdee.bos.ctrl.swing.KDDatePicker();
+        this.txtzzsShortName = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.txttelePhoneNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.pkactrueTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
+        this.txtresponsible = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.txtinStreet = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.txtinspectorOne = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.prmttextType = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.contasset = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contassetStatus = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contassetValue = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -432,8 +458,17 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.prmtassetStatus = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.txtassetValue = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
         this.txtinstallCost = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
+        this.txtlocation = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.prmtusingDept = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.prmtaddress = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.txtEqmCategory = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.kdtTechnologyPar = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.kdtSpareInfo = new com.kingdee.bos.ctrl.kdf.table.KDTable();
+        this.pkdaytow = new com.kingdee.bos.ctrl.swing.KDDatePicker();
+        this.pkdayone = new com.kingdee.bos.ctrl.swing.KDDatePicker();
+        this.testDay = new com.kingdee.bos.ctrl.swing.KDDatePicker();
+        this.prmtresPerson = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.txtportPeriod = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
         this.btnRegistChange = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.contCreator.setName("contCreator");
         this.contCreateTime.setName("contCreateTime");
@@ -447,6 +482,12 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.contBizStatus.setName("contBizStatus");
         this.contAuditTime.setName("contAuditTime");
         this.kDTabbedPane1.setName("kDTabbedPane1");
+        this.contdaytow.setName("contdaytow");
+        this.contdayone.setName("contdayone");
+        this.conttestDay.setName("conttestDay");
+        this.chkdependable.setName("chkdependable");
+        this.conresPerson.setName("conresPerson");
+        this.contportPeriod.setName("contportPeriod");
         this.prmtCreator.setName("prmtCreator");
         this.pkCreateTime.setName("pkCreateTime");
         this.prmtLastUpdateUser.setName("prmtLastUpdateUser");
@@ -462,10 +503,13 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.kDPanel6.setName("kDPanel6");
         this.kDPanel7.setName("kDPanel7");
         this.kDPanel8.setName("kDPanel8");
-        this.kDPanel2.setName("kDPanel2");
         this.kDPanel10.setName("kDPanel10");
         this.kDPanel11.setName("kDPanel11");
         this.kDPanel3.setName("kDPanel3");
+        this.conlocation.setName("conlocation");
+        this.conusingDept.setName("conusingDept");
+        this.conaddress.setName("conaddress");
+        this.contEqmCategory.setName("contEqmCategory");
         this.consbDescription.setName("consbDescription");
         this.conname.setName("conname");
         this.conssOrgUnit.setName("conssOrgUnit");
@@ -483,10 +527,10 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.contype.setName("contype");
         this.continnerNumber.setName("continnerNumber");
         this.contnowStatus.setName("contnowStatus");
-        this.contzzsShortName.setName("contzzsShortName");
         this.chkisMainEqm.setName("chkisMainEqm");
         this.contNumber.setName("contNumber");
-        this.contEqmCategory.setName("contEqmCategory");
+        this.conparent.setName("conparent");
+        this.contequTypeone.setName("contequTypeone");
         this.txtsbDescription.setName("txtsbDescription");
         this.txtname.setName("txtname");
         this.prmtssOrgUnit.setName("prmtssOrgUnit");
@@ -503,22 +547,9 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.prmttype.setName("prmttype");
         this.txtinnerNumber.setName("txtinnerNumber");
         this.combonowStatus.setName("combonowStatus");
-        this.txtzzsShortName.setName("txtzzsShortName");
         this.txtNumber.setName("txtNumber");
-        this.txtEqmCategory.setName("txtEqmCategory");
-        this.conparent.setName("conparent");
-        this.chkdependable.setName("chkdependable");
-        this.conaddress.setName("conaddress");
-        this.conlocation.setName("conlocation");
-        this.conusingDept.setName("conusingDept");
-        this.conresPerson.setName("conresPerson");
-        this.contdaytow.setName("contdaytow");
         this.prmtparent.setName("prmtparent");
-        this.prmtaddress.setName("prmtaddress");
-        this.txtlocation.setName("txtlocation");
-        this.prmtusingDept.setName("prmtusingDept");
-        this.prmtresPerson.setName("prmtresPerson");
-        this.pkdaytow.setName("pkdaytow");
+        this.prmtequTypeone.setName("prmtequTypeone");
         this.conmader.setName("conmader");
         this.conmadedCountry.setName("conmadedCountry");
         this.conmadeDate.setName("conmadeDate");
@@ -530,7 +561,6 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.concheckDate.setName("concheckDate");
         this.condeadline.setName("condeadline");
         this.consourceUnit.setName("consourceUnit");
-        this.contdayone.setName("contdayone");
         this.txtmader.setName("txtmader");
         this.prmtmadedCountry.setName("prmtmadedCountry");
         this.pkmadeDate.setName("pkmadeDate");
@@ -542,31 +572,40 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.pkcheckDate.setName("pkcheckDate");
         this.pkdeadline.setName("pkdeadline");
         this.txtsourceUnit.setName("txtsourceUnit");
-        this.pkdayone.setName("pkdayone");
         this.chkportTest.setName("chkportTest");
         this.chkcityTest.setName("chkcityTest");
-        this.conttestDay.setName("conttestDay");
         this.conttzdaNumber.setName("conttzdaNumber");
         this.conttzsbStatus.setName("conttzsbStatus");
         this.contspecialType.setName("contspecialType");
         this.contcityPeriod.setName("contcityPeriod");
-        this.contportPeriod.setName("contportPeriod");
         this.contcode.setName("contcode");
         this.contengineNumber.setName("contengineNumber");
         this.contcarNumber.setName("contcarNumber");
         this.contratedWeight.setName("contratedWeight");
         this.conttextDate1.setName("conttextDate1");
-        this.testDay.setName("testDay");
+        this.contzzsShortName.setName("contzzsShortName");
+        this.conttelePhoneNumber.setName("conttelePhoneNumber");
+        this.contactrueTime.setName("contactrueTime");
+        this.contresponsible.setName("contresponsible");
+        this.continStreet.setName("continStreet");
+        this.continspectorOne.setName("continspectorOne");
+        this.conttextType.setName("conttextType");
         this.txttzdaNumber.setName("txttzdaNumber");
         this.tzsbStatus.setName("tzsbStatus");
         this.prmtspecialType.setName("prmtspecialType");
         this.txtcityPeriod.setName("txtcityPeriod");
-        this.txtportPeriod.setName("txtportPeriod");
         this.txtcode.setName("txtcode");
         this.txtengineNumber.setName("txtengineNumber");
         this.txtcarNumber.setName("txtcarNumber");
         this.txtratedWeight.setName("txtratedWeight");
         this.pktextDate1.setName("pktextDate1");
+        this.txtzzsShortName.setName("txtzzsShortName");
+        this.txttelePhoneNumber.setName("txttelePhoneNumber");
+        this.pkactrueTime.setName("pkactrueTime");
+        this.txtresponsible.setName("txtresponsible");
+        this.txtinStreet.setName("txtinStreet");
+        this.txtinspectorOne.setName("txtinspectorOne");
+        this.prmttextType.setName("prmttextType");
         this.contasset.setName("contasset");
         this.contassetStatus.setName("contassetStatus");
         this.contassetValue.setName("contassetValue");
@@ -575,8 +614,17 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.prmtassetStatus.setName("prmtassetStatus");
         this.txtassetValue.setName("txtassetValue");
         this.txtinstallCost.setName("txtinstallCost");
+        this.txtlocation.setName("txtlocation");
+        this.prmtusingDept.setName("prmtusingDept");
+        this.prmtaddress.setName("prmtaddress");
+        this.txtEqmCategory.setName("txtEqmCategory");
         this.kdtTechnologyPar.setName("kdtTechnologyPar");
         this.kdtSpareInfo.setName("kdtSpareInfo");
+        this.pkdaytow.setName("pkdaytow");
+        this.pkdayone.setName("pkdayone");
+        this.testDay.setName("testDay");
+        this.prmtresPerson.setName("prmtresPerson");
+        this.txtportPeriod.setName("txtportPeriod");
         this.btnRegistChange.setName("btnRegistChange");
         // CoreUI
         // contCreator		
@@ -636,6 +684,41 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         // kDButtonGroup2
         // kDButtonGroup3
         // kDTabbedPane1
+        // contdaytow		
+        this.contdaytow.setBoundLabelText(resHelper.getString("contdaytow.boundLabelText"));		
+        this.contdaytow.setBoundLabelLength(100);		
+        this.contdaytow.setBoundLabelUnderline(true);		
+        this.contdaytow.setEnabled(false);		
+        this.contdaytow.setVisible(false);
+        // contdayone		
+        this.contdayone.setBoundLabelText(resHelper.getString("contdayone.boundLabelText"));		
+        this.contdayone.setBoundLabelLength(100);		
+        this.contdayone.setBoundLabelUnderline(true);		
+        this.contdayone.setEnabled(false);		
+        this.contdayone.setVisible(false);
+        // conttestDay		
+        this.conttestDay.setBoundLabelText(resHelper.getString("conttestDay.boundLabelText"));		
+        this.conttestDay.setBoundLabelLength(100);		
+        this.conttestDay.setBoundLabelUnderline(true);		
+        this.conttestDay.setVisible(false);		
+        this.conttestDay.setEnabled(false);
+        // chkdependable		
+        this.chkdependable.setText(resHelper.getString("chkdependable.text"));		
+        this.chkdependable.setVisible(false);		
+        this.chkdependable.setHorizontalAlignment(2);		
+        this.chkdependable.setEnabled(false);
+        // conresPerson		
+        this.conresPerson.setBoundLabelText(resHelper.getString("conresPerson.boundLabelText"));		
+        this.conresPerson.setBoundLabelLength(100);		
+        this.conresPerson.setBoundLabelUnderline(true);		
+        this.conresPerson.setVisible(false);		
+        this.conresPerson.setEnabled(false);
+        // contportPeriod		
+        this.contportPeriod.setBoundLabelText(resHelper.getString("contportPeriod.boundLabelText"));		
+        this.contportPeriod.setBoundLabelLength(60);		
+        this.contportPeriod.setBoundLabelUnderline(true);		
+        this.contportPeriod.setVisible(false);		
+        this.contportPeriod.setEnabled(false);
         // prmtCreator		
         this.prmtCreator.setEnabled(false);		
         this.prmtCreator.setCommitFormat("$name$");		
@@ -680,14 +763,33 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         // kDPanel7
         // kDPanel8		
         this.kDPanel8.setBorder(new TitledBorder(BorderFactory.createEtchedBorder(new Color(255,255,255),new Color(148,145,140)), resHelper.getString("kDPanel8.border.title")));
-        // kDPanel2		
-        this.kDPanel2.setBorder(new TitledBorder(BorderFactory.createEtchedBorder(new Color(255,255,255),new Color(148,145,140)), resHelper.getString("kDPanel2.border.title")));
         // kDPanel10		
         this.kDPanel10.setBorder(new TitledBorder(BorderFactory.createEtchedBorder(new Color(255,255,255),new Color(148,145,140)), resHelper.getString("kDPanel10.border.title")));
         // kDPanel11		
         this.kDPanel11.setBorder(new TitledBorder(BorderFactory.createEtchedBorder(new Color(255,255,255),new Color(148,145,140)), resHelper.getString("kDPanel11.border.title")));
         // kDPanel3		
         this.kDPanel3.setBorder(new TitledBorder(BorderFactory.createEtchedBorder(new Color(255,255,255),new Color(148,145,140)), resHelper.getString("kDPanel3.border.title")));
+        // conlocation		
+        this.conlocation.setBoundLabelText(resHelper.getString("conlocation.boundLabelText"));		
+        this.conlocation.setBoundLabelLength(100);		
+        this.conlocation.setBoundLabelUnderline(true);		
+        this.conlocation.setVisible(true);
+        // conusingDept		
+        this.conusingDept.setBoundLabelText(resHelper.getString("conusingDept.boundLabelText"));		
+        this.conusingDept.setBoundLabelLength(80);		
+        this.conusingDept.setBoundLabelUnderline(true);		
+        this.conusingDept.setVisible(true);
+        // conaddress		
+        this.conaddress.setBoundLabelText(resHelper.getString("conaddress.boundLabelText"));		
+        this.conaddress.setBoundLabelLength(100);		
+        this.conaddress.setBoundLabelUnderline(true);		
+        this.conaddress.setVisible(true);
+        // contEqmCategory		
+        this.contEqmCategory.setBoundLabelText(resHelper.getString("contEqmCategory.boundLabelText"));		
+        this.contEqmCategory.setBoundLabelLength(100);		
+        this.contEqmCategory.setBoundLabelUnderline(true);		
+        this.contEqmCategory.setVisible(false);		
+        this.contEqmCategory.setEnabled(false);
         // consbDescription		
         this.consbDescription.setBoundLabelText(resHelper.getString("consbDescription.boundLabelText"));		
         this.consbDescription.setBoundLabelLength(100);		
@@ -782,11 +884,6 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.contnowStatus.setBoundLabelLength(100);		
         this.contnowStatus.setBoundLabelUnderline(true);		
         this.contnowStatus.setVisible(true);
-        // contzzsShortName		
-        this.contzzsShortName.setBoundLabelText(resHelper.getString("contzzsShortName.boundLabelText"));		
-        this.contzzsShortName.setBoundLabelLength(100);		
-        this.contzzsShortName.setBoundLabelUnderline(true);		
-        this.contzzsShortName.setVisible(true);
         // chkisMainEqm		
         this.chkisMainEqm.setText(resHelper.getString("chkisMainEqm.text"));		
         this.chkisMainEqm.setVisible(true);		
@@ -795,11 +892,16 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.contNumber.setBoundLabelText(resHelper.getString("contNumber.boundLabelText"));		
         this.contNumber.setBoundLabelLength(100);		
         this.contNumber.setBoundLabelUnderline(true);
-        // contEqmCategory		
-        this.contEqmCategory.setBoundLabelText(resHelper.getString("contEqmCategory.boundLabelText"));		
-        this.contEqmCategory.setBoundLabelLength(100);		
-        this.contEqmCategory.setBoundLabelUnderline(true);		
-        this.contEqmCategory.setVisible(true);
+        // conparent		
+        this.conparent.setBoundLabelText(resHelper.getString("conparent.boundLabelText"));		
+        this.conparent.setBoundLabelLength(100);		
+        this.conparent.setBoundLabelUnderline(true);		
+        this.conparent.setVisible(true);
+        // contequTypeone		
+        this.contequTypeone.setBoundLabelText(resHelper.getString("contequTypeone.boundLabelText"));		
+        this.contequTypeone.setBoundLabelLength(100);		
+        this.contequTypeone.setBoundLabelUnderline(true);		
+        this.contequTypeone.setVisible(true);
         // txtsbDescription		
         this.txtsbDescription.setVisible(true);		
         this.txtsbDescription.setRequired(false);		
@@ -914,52 +1016,8 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.combonowStatus.setVisible(true);		
         this.combonowStatus.addItems(EnumUtils.getEnumList("com.kingdee.eas.port.equipment.base.enumbase.nowStatusType").toArray());		
         this.combonowStatus.setRequired(false);
-        // txtzzsShortName		
-        this.txtzzsShortName.setVisible(true);		
-        this.txtzzsShortName.setHorizontalAlignment(2);		
-        this.txtzzsShortName.setMaxLength(100);		
-        this.txtzzsShortName.setRequired(false);
         // txtNumber		
         this.txtNumber.setRequired(true);
-        // txtEqmCategory		
-        this.txtEqmCategory.setVisible(true);		
-        this.txtEqmCategory.setHorizontalAlignment(2);		
-        this.txtEqmCategory.setMaxLength(80);		
-        this.txtEqmCategory.setRequired(false);		
-        this.txtEqmCategory.setEnabled(false);
-        // conparent		
-        this.conparent.setBoundLabelText(resHelper.getString("conparent.boundLabelText"));		
-        this.conparent.setBoundLabelLength(100);		
-        this.conparent.setBoundLabelUnderline(true);		
-        this.conparent.setVisible(true);
-        // chkdependable		
-        this.chkdependable.setText(resHelper.getString("chkdependable.text"));		
-        this.chkdependable.setVisible(true);		
-        this.chkdependable.setHorizontalAlignment(2);
-        // conaddress		
-        this.conaddress.setBoundLabelText(resHelper.getString("conaddress.boundLabelText"));		
-        this.conaddress.setBoundLabelLength(100);		
-        this.conaddress.setBoundLabelUnderline(true);		
-        this.conaddress.setVisible(true);
-        // conlocation		
-        this.conlocation.setBoundLabelText(resHelper.getString("conlocation.boundLabelText"));		
-        this.conlocation.setBoundLabelLength(100);		
-        this.conlocation.setBoundLabelUnderline(true);		
-        this.conlocation.setVisible(true);
-        // conusingDept		
-        this.conusingDept.setBoundLabelText(resHelper.getString("conusingDept.boundLabelText"));		
-        this.conusingDept.setBoundLabelLength(100);		
-        this.conusingDept.setBoundLabelUnderline(true);		
-        this.conusingDept.setVisible(true);
-        // conresPerson		
-        this.conresPerson.setBoundLabelText(resHelper.getString("conresPerson.boundLabelText"));		
-        this.conresPerson.setBoundLabelLength(100);		
-        this.conresPerson.setBoundLabelUnderline(true);		
-        this.conresPerson.setVisible(true);
-        // contdaytow		
-        this.contdaytow.setBoundLabelText(resHelper.getString("contdaytow.boundLabelText"));		
-        this.contdaytow.setBoundLabelLength(100);		
-        this.contdaytow.setBoundLabelUnderline(true);
         // prmtparent		
         this.prmtparent.setQueryInfo("com.kingdee.eas.port.equipment.record.app.EquIdQuery");		
         this.prmtparent.setVisible(true);		
@@ -968,38 +1026,14 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.prmtparent.setEditFormat("$number$");		
         this.prmtparent.setCommitFormat("$number$");		
         this.prmtparent.setRequired(false);
-        // prmtaddress		
-        this.prmtaddress.setQueryInfo("com.kingdee.eas.basedata.assistant.app.F7AddressQuery");		
-        this.prmtaddress.setVisible(true);		
-        this.prmtaddress.setEditable(true);		
-        this.prmtaddress.setDisplayFormat("$detailAddress$");		
-        this.prmtaddress.setEditFormat("$number$");		
-        this.prmtaddress.setCommitFormat("$number$");		
-        this.prmtaddress.setRequired(false);
-        // txtlocation		
-        this.txtlocation.setVisible(true);		
-        this.txtlocation.setHorizontalAlignment(2);		
-        this.txtlocation.setMaxLength(100);		
-        this.txtlocation.setRequired(false);
-        // prmtusingDept		
-        this.prmtusingDept.setQueryInfo("com.kingdee.eas.basedata.org.app.AdminItemQuery");		
-        this.prmtusingDept.setVisible(true);		
-        this.prmtusingDept.setEditable(true);		
-        this.prmtusingDept.setDisplayFormat("$name$");		
-        this.prmtusingDept.setEditFormat("$number$");		
-        this.prmtusingDept.setCommitFormat("$number$");		
-        this.prmtusingDept.setRequired(false);
-        // prmtresPerson		
-        this.prmtresPerson.setQueryInfo("com.kingdee.eas.basedata.person.app.PersonQuery");		
-        this.prmtresPerson.setVisible(true);		
-        this.prmtresPerson.setEditable(true);		
-        this.prmtresPerson.setDisplayFormat("$name$");		
-        this.prmtresPerson.setEditFormat("$number$");		
-        this.prmtresPerson.setCommitFormat("$number$");		
-        this.prmtresPerson.setRequired(false);
-        // pkdaytow		
-        this.pkdaytow.setRequired(false);		
-        this.pkdaytow.setEnabled(false);
+        // prmtequTypeone		
+        this.prmtequTypeone.setQueryInfo("com.kingdee.eas.port.equipment.base.app.EquTypeQuery");		
+        this.prmtequTypeone.setVisible(true);		
+        this.prmtequTypeone.setEditable(true);		
+        this.prmtequTypeone.setDisplayFormat("$name$");		
+        this.prmtequTypeone.setEditFormat("$number$");		
+        this.prmtequTypeone.setCommitFormat("$number$");		
+        this.prmtequTypeone.setRequired(false);
         // conmader		
         this.conmader.setBoundLabelText(resHelper.getString("conmader.boundLabelText"));		
         this.conmader.setBoundLabelLength(100);		
@@ -1055,10 +1089,6 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.consourceUnit.setBoundLabelLength(100);		
         this.consourceUnit.setBoundLabelUnderline(true);		
         this.consourceUnit.setVisible(true);
-        // contdayone		
-        this.contdayone.setBoundLabelText(resHelper.getString("contdayone.boundLabelText"));		
-        this.contdayone.setBoundLabelLength(100);		
-        this.contdayone.setBoundLabelUnderline(true);
         // txtmader		
         this.txtmader.setVisible(true);		
         this.txtmader.setHorizontalAlignment(2);		
@@ -1118,9 +1148,6 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.txtsourceUnit.setHorizontalAlignment(2);		
         this.txtsourceUnit.setMaxLength(100);		
         this.txtsourceUnit.setRequired(false);
-        // pkdayone		
-        this.pkdayone.setRequired(false);		
-        this.pkdayone.setEnabled(false);
         // chkportTest		
         this.chkportTest.setText(resHelper.getString("chkportTest.text"));		
         this.chkportTest.setVisible(true);		
@@ -1129,14 +1156,9 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.chkcityTest.setText(resHelper.getString("chkcityTest.text"));		
         this.chkcityTest.setVisible(true);		
         this.chkcityTest.setHorizontalAlignment(2);
-        // conttestDay		
-        this.conttestDay.setBoundLabelText(resHelper.getString("conttestDay.boundLabelText"));		
-        this.conttestDay.setBoundLabelLength(100);		
-        this.conttestDay.setBoundLabelUnderline(true);		
-        this.conttestDay.setVisible(true);
         // conttzdaNumber		
         this.conttzdaNumber.setBoundLabelText(resHelper.getString("conttzdaNumber.boundLabelText"));		
-        this.conttzdaNumber.setBoundLabelLength(100);		
+        this.conttzdaNumber.setBoundLabelLength(80);		
         this.conttzdaNumber.setBoundLabelUnderline(true);		
         this.conttzdaNumber.setVisible(true);
         // conttzsbStatus		
@@ -1151,27 +1173,22 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.contspecialType.setVisible(true);
         // contcityPeriod		
         this.contcityPeriod.setBoundLabelText(resHelper.getString("contcityPeriod.boundLabelText"));		
-        this.contcityPeriod.setBoundLabelLength(60);		
+        this.contcityPeriod.setBoundLabelLength(30);		
         this.contcityPeriod.setBoundLabelUnderline(true);		
         this.contcityPeriod.setVisible(true);
-        // contportPeriod		
-        this.contportPeriod.setBoundLabelText(resHelper.getString("contportPeriod.boundLabelText"));		
-        this.contportPeriod.setBoundLabelLength(60);		
-        this.contportPeriod.setBoundLabelUnderline(true);		
-        this.contportPeriod.setVisible(true);
         // contcode		
         this.contcode.setBoundLabelText(resHelper.getString("contcode.boundLabelText"));		
-        this.contcode.setBoundLabelLength(100);		
+        this.contcode.setBoundLabelLength(70);		
         this.contcode.setBoundLabelUnderline(true);		
         this.contcode.setVisible(true);
         // contengineNumber		
         this.contengineNumber.setBoundLabelText(resHelper.getString("contengineNumber.boundLabelText"));		
-        this.contengineNumber.setBoundLabelLength(60);		
+        this.contengineNumber.setBoundLabelLength(100);		
         this.contengineNumber.setBoundLabelUnderline(true);		
         this.contengineNumber.setVisible(true);
         // contcarNumber		
         this.contcarNumber.setBoundLabelText(resHelper.getString("contcarNumber.boundLabelText"));		
-        this.contcarNumber.setBoundLabelLength(40);		
+        this.contcarNumber.setBoundLabelLength(100);		
         this.contcarNumber.setBoundLabelUnderline(true);		
         this.contcarNumber.setVisible(true);
         // contratedWeight		
@@ -1181,10 +1198,44 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.contratedWeight.setVisible(true);
         // conttextDate1		
         this.conttextDate1.setBoundLabelText(resHelper.getString("conttextDate1.boundLabelText"));		
-        this.conttextDate1.setBoundLabelLength(100);		
+        this.conttextDate1.setBoundLabelLength(75);		
         this.conttextDate1.setBoundLabelUnderline(true);		
         this.conttextDate1.setVisible(true);
-        // testDay
+        // contzzsShortName		
+        this.contzzsShortName.setBoundLabelText(resHelper.getString("contzzsShortName.boundLabelText"));		
+        this.contzzsShortName.setBoundLabelLength(80);		
+        this.contzzsShortName.setBoundLabelUnderline(true);		
+        this.contzzsShortName.setVisible(true);
+        // conttelePhoneNumber		
+        this.conttelePhoneNumber.setBoundLabelText(resHelper.getString("conttelePhoneNumber.boundLabelText"));		
+        this.conttelePhoneNumber.setBoundLabelLength(70);		
+        this.conttelePhoneNumber.setBoundLabelUnderline(true);		
+        this.conttelePhoneNumber.setVisible(true);
+        // contactrueTime		
+        this.contactrueTime.setBoundLabelText(resHelper.getString("contactrueTime.boundLabelText"));		
+        this.contactrueTime.setBoundLabelLength(75);		
+        this.contactrueTime.setBoundLabelUnderline(true);		
+        this.contactrueTime.setVisible(true);
+        // contresponsible		
+        this.contresponsible.setBoundLabelText(resHelper.getString("contresponsible.boundLabelText"));		
+        this.contresponsible.setBoundLabelLength(80);		
+        this.contresponsible.setBoundLabelUnderline(true);		
+        this.contresponsible.setVisible(true);
+        // continStreet		
+        this.continStreet.setBoundLabelText(resHelper.getString("continStreet.boundLabelText"));		
+        this.continStreet.setBoundLabelLength(105);		
+        this.continStreet.setBoundLabelUnderline(true);		
+        this.continStreet.setVisible(true);
+        // continspectorOne		
+        this.continspectorOne.setBoundLabelText(resHelper.getString("continspectorOne.boundLabelText"));		
+        this.continspectorOne.setBoundLabelLength(70);		
+        this.continspectorOne.setBoundLabelUnderline(true);		
+        this.continspectorOne.setVisible(true);
+        // conttextType		
+        this.conttextType.setBoundLabelText(resHelper.getString("conttextType.boundLabelText"));		
+        this.conttextType.setBoundLabelLength(80);		
+        this.conttextType.setBoundLabelUnderline(true);		
+        this.conttextType.setVisible(true);
         // txttzdaNumber		
         this.txttzdaNumber.setVisible(true);		
         this.txttzdaNumber.setHorizontalAlignment(2);		
@@ -1221,25 +1272,6 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
                 }
             }
         });
-        // txtportPeriod		
-        this.txtportPeriod.setVisible(true);		
-        this.txtportPeriod.setHorizontalAlignment(2);		
-        this.txtportPeriod.setDataType(1);		
-        this.txtportPeriod.setSupportedEmpty(true);		
-        this.txtportPeriod.setMinimumValue( new java.math.BigDecimal("-1.0E27"));		
-        this.txtportPeriod.setMaximumValue( new java.math.BigDecimal("1.0E27"));		
-        this.txtportPeriod.setPrecision(1);		
-        this.txtportPeriod.setRequired(false);
-        this.txtportPeriod.addDataChangeListener(new com.kingdee.bos.ctrl.swing.event.DataChangeListener() {
-            public void dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) {
-                try {
-                    txtportPeriod_dataChanged(e);
-                } catch (Exception exc) {
-                    handUIException(exc);
-                } finally {
-                }
-            }
-        });
         // txtcode		
         this.txtcode.setVisible(true);		
         this.txtcode.setHorizontalAlignment(2);		
@@ -1267,6 +1299,42 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         // pktextDate1		
         this.pktextDate1.setVisible(true);		
         this.pktextDate1.setRequired(false);
+        // txtzzsShortName		
+        this.txtzzsShortName.setVisible(true);		
+        this.txtzzsShortName.setHorizontalAlignment(2);		
+        this.txtzzsShortName.setMaxLength(100);		
+        this.txtzzsShortName.setRequired(false);
+        // txttelePhoneNumber		
+        this.txttelePhoneNumber.setVisible(true);		
+        this.txttelePhoneNumber.setHorizontalAlignment(2);		
+        this.txttelePhoneNumber.setMaxLength(100);		
+        this.txttelePhoneNumber.setRequired(false);
+        // pkactrueTime		
+        this.pkactrueTime.setVisible(true);		
+        this.pkactrueTime.setRequired(false);
+        // txtresponsible		
+        this.txtresponsible.setVisible(true);		
+        this.txtresponsible.setHorizontalAlignment(2);		
+        this.txtresponsible.setMaxLength(100);		
+        this.txtresponsible.setRequired(false);
+        // txtinStreet		
+        this.txtinStreet.setVisible(true);		
+        this.txtinStreet.setHorizontalAlignment(2);		
+        this.txtinStreet.setMaxLength(100);		
+        this.txtinStreet.setRequired(false);
+        // txtinspectorOne		
+        this.txtinspectorOne.setVisible(true);		
+        this.txtinspectorOne.setHorizontalAlignment(2);		
+        this.txtinspectorOne.setMaxLength(100);		
+        this.txtinspectorOne.setRequired(false);
+        // prmttextType		
+        this.prmttextType.setQueryInfo("com.kingdee.eas.port.equipment.base.app.TestTypeQuery");		
+        this.prmttextType.setVisible(true);		
+        this.prmttextType.setEditable(true);		
+        this.prmttextType.setDisplayFormat("$name$");		
+        this.prmttextType.setEditFormat("$number$");		
+        this.prmttextType.setCommitFormat("$number$");		
+        this.prmttextType.setRequired(false);
         // contasset		
         this.contasset.setBoundLabelText(resHelper.getString("contasset.boundLabelText"));		
         this.contasset.setBoundLabelLength(100);		
@@ -1333,6 +1401,33 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.txtinstallCost.setMaximumValue( new java.math.BigDecimal("1.0E18"));		
         this.txtinstallCost.setPrecision(2);		
         this.txtinstallCost.setRequired(false);
+        // txtlocation		
+        this.txtlocation.setVisible(true);		
+        this.txtlocation.setHorizontalAlignment(2);		
+        this.txtlocation.setMaxLength(100);		
+        this.txtlocation.setRequired(false);
+        // prmtusingDept		
+        this.prmtusingDept.setQueryInfo("com.kingdee.eas.basedata.org.app.AdminItemQuery");		
+        this.prmtusingDept.setVisible(true);		
+        this.prmtusingDept.setEditable(true);		
+        this.prmtusingDept.setDisplayFormat("$name$");		
+        this.prmtusingDept.setEditFormat("$number$");		
+        this.prmtusingDept.setCommitFormat("$number$");		
+        this.prmtusingDept.setRequired(false);
+        // prmtaddress		
+        this.prmtaddress.setQueryInfo("com.kingdee.eas.basedata.assistant.app.F7AddressQuery");		
+        this.prmtaddress.setVisible(true);		
+        this.prmtaddress.setEditable(true);		
+        this.prmtaddress.setDisplayFormat("$detailAddress$");		
+        this.prmtaddress.setEditFormat("$number$");		
+        this.prmtaddress.setCommitFormat("$number$");		
+        this.prmtaddress.setRequired(false);
+        // txtEqmCategory		
+        this.txtEqmCategory.setVisible(true);		
+        this.txtEqmCategory.setHorizontalAlignment(2);		
+        this.txtEqmCategory.setMaxLength(80);		
+        this.txtEqmCategory.setRequired(false);		
+        this.txtEqmCategory.setEnabled(false);
         // kdtTechnologyPar
 		String kdtTechnologyParStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /><c:NumberFormat>&amp;int</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"parName\" t:width=\"222\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"parValue\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"parInfo\" t:width=\"333\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{parName}</t:Cell><t:Cell>$Resource{parValue}</t:Cell><t:Cell>$Resource{parInfo}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
@@ -1376,10 +1471,44 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         kdtSpareInfo_speModel_TextField.setMaxLength(100);
         KDTDefaultCellEditor kdtSpareInfo_speModel_CellEditor = new KDTDefaultCellEditor(kdtSpareInfo_speModel_TextField);
         this.kdtSpareInfo.getColumn("speModel").setEditor(kdtSpareInfo_speModel_CellEditor);
+        // pkdaytow		
+        this.pkdaytow.setRequired(false);		
+        this.pkdaytow.setEnabled(false);
+        // pkdayone		
+        this.pkdayone.setRequired(false);		
+        this.pkdayone.setEnabled(false);
+        // testDay
+        // prmtresPerson		
+        this.prmtresPerson.setQueryInfo("com.kingdee.eas.basedata.person.app.PersonQuery");		
+        this.prmtresPerson.setVisible(true);		
+        this.prmtresPerson.setEditable(true);		
+        this.prmtresPerson.setDisplayFormat("$name$");		
+        this.prmtresPerson.setEditFormat("$number$");		
+        this.prmtresPerson.setCommitFormat("$number$");		
+        this.prmtresPerson.setRequired(false);
+        // txtportPeriod		
+        this.txtportPeriod.setVisible(true);		
+        this.txtportPeriod.setHorizontalAlignment(2);		
+        this.txtportPeriod.setDataType(1);		
+        this.txtportPeriod.setSupportedEmpty(true);		
+        this.txtportPeriod.setMinimumValue( new java.math.BigDecimal("-1.0E27"));		
+        this.txtportPeriod.setMaximumValue( new java.math.BigDecimal("1.0E27"));		
+        this.txtportPeriod.setPrecision(1);		
+        this.txtportPeriod.setRequired(false);
+        this.txtportPeriod.addDataChangeListener(new com.kingdee.bos.ctrl.swing.event.DataChangeListener() {
+            public void dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) {
+                try {
+                    txtportPeriod_dataChanged(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                }
+            }
+        });
         // btnRegistChange
         this.btnRegistChange.setAction((IItemAction)ActionProxyFactory.getProxy(actionRegistChange, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnRegistChange.setText(resHelper.getString("btnRegistChange.text"));
-        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmtCU,pkLastUpdateTime,prmtLastUpdateUser,pkCreateTime,prmtCreator,prmtAuditor,txtDescription,pkBizDate,pkAuditTime,comboBizStatus,comboStatus,kdtTechnologyPar,combosbStatus,txtinnerNumber,combonowStatus,txtzzsShortName,chkcityTest,chkportTest,txttzdaNumber,tzsbStatus,prmtasset,prmtassetStatus,txtassetValue,txtinstallCost,chkisMainEqm,txtEqmCategory,pktextDate1,pkdayone,pkdaytow}));
+        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmtCU,pkLastUpdateTime,prmtLastUpdateUser,pkCreateTime,prmtCreator,prmtAuditor,txtDescription,pkBizDate,pkAuditTime,comboBizStatus,comboStatus,kdtTechnologyPar,combosbStatus,txtinnerNumber,combonowStatus,txtzzsShortName,chkcityTest,chkportTest,txttzdaNumber,tzsbStatus,prmtasset,prmtassetStatus,txtassetValue,txtinstallCost,chkisMainEqm,txtEqmCategory,pktextDate1,pkdayone,pkdaytow,txttelePhoneNumber,pkactrueTime,txtresponsible,txtinStreet,txtinspectorOne,prmttextType,prmtequTypeone}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
 		registerBindings();
@@ -1432,6 +1561,18 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.add(contAuditTime, new KDLayout.Constraints(713, 577, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         kDTabbedPane1.setBounds(new Rectangle(8, 4, 993, 569));
         this.add(kDTabbedPane1, new KDLayout.Constraints(8, 4, 993, 569, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        contdaytow.setBounds(new Rectangle(964, 610, 270, 19));
+        this.add(contdaytow, new KDLayout.Constraints(964, 610, 270, 19, 0));
+        contdayone.setBounds(new Rectangle(988, 602, 270, 19));
+        this.add(contdayone, new KDLayout.Constraints(988, 602, 270, 19, 0));
+        conttestDay.setBounds(new Rectangle(987, 579, 270, 19));
+        this.add(conttestDay, new KDLayout.Constraints(987, 579, 270, 19, 0));
+        chkdependable.setBounds(new Rectangle(932, 613, 82, 19));
+        this.add(chkdependable, new KDLayout.Constraints(932, 613, 82, 19, 0));
+        conresPerson.setBounds(new Rectangle(995, 586, 270, 19));
+        this.add(conresPerson, new KDLayout.Constraints(995, 586, 270, 19, 0));
+        contportPeriod.setBounds(new Rectangle(976, 594, 130, 19));
+        this.add(contportPeriod, new KDLayout.Constraints(976, 594, 130, 19, 0));
         //contCreator
         contCreator.setBoundEditor(prmtCreator);
         //contCreateTime
@@ -1462,18 +1603,24 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         kDPanel1.setLayout(new KDLayout());
         kDPanel1.putClientProperty("OriginalBounds", new Rectangle(0, 0, 992, 536));        kDPanel8.setBounds(new Rectangle(2, 3, 983, 177));
         kDPanel1.add(kDPanel8, new KDLayout.Constraints(2, 3, 983, 177, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        kDPanel2.setBounds(new Rectangle(2, 184, 983, 72));
-        kDPanel1.add(kDPanel2, new KDLayout.Constraints(2, 184, 983, 72, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        kDPanel10.setBounds(new Rectangle(2, 260, 983, 116));
-        kDPanel1.add(kDPanel10, new KDLayout.Constraints(2, 260, 983, 116, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        kDPanel11.setBounds(new Rectangle(2, 380, 983, 93));
-        kDPanel1.add(kDPanel11, new KDLayout.Constraints(2, 380, 983, 93, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        kDPanel10.setBounds(new Rectangle(2, 218, 983, 116));
+        kDPanel1.add(kDPanel10, new KDLayout.Constraints(2, 218, 983, 116, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        kDPanel11.setBounds(new Rectangle(2, 339, 983, 134));
+        kDPanel1.add(kDPanel11, new KDLayout.Constraints(2, 339, 983, 134, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         kDPanel3.setBounds(new Rectangle(2, 477, 983, 55));
         kDPanel1.add(kDPanel3, new KDLayout.Constraints(2, 477, 983, 55, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        conlocation.setBounds(new Rectangle(361, 190, 270, 19));
+        kDPanel1.add(conlocation, new KDLayout.Constraints(361, 190, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        conusingDept.setBounds(new Rectangle(16, 190, 269, 19));
+        kDPanel1.add(conusingDept, new KDLayout.Constraints(16, 190, 269, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        conaddress.setBounds(new Rectangle(701, 190, 270, 19));
+        kDPanel1.add(conaddress, new KDLayout.Constraints(701, 190, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contEqmCategory.setBounds(new Rectangle(966, 319, 270, 19));
+        kDPanel1.add(contEqmCategory, new KDLayout.Constraints(966, 319, 270, 19, 0));
         //kDPanel8
         kDPanel8.setLayout(new KDLayout());
-        kDPanel8.putClientProperty("OriginalBounds", new Rectangle(2, 3, 983, 177));        consbDescription.setBounds(new Rectangle(355, 139, 613, 19));
-        kDPanel8.add(consbDescription, new KDLayout.Constraints(355, 139, 613, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        kDPanel8.putClientProperty("OriginalBounds", new Rectangle(2, 3, 983, 177));        consbDescription.setBounds(new Rectangle(12, 139, 614, 19));
+        kDPanel8.add(consbDescription, new KDLayout.Constraints(12, 139, 614, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         conname.setBounds(new Rectangle(355, 13, 270, 19));
         kDPanel8.add(conname, new KDLayout.Constraints(355, 13, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         conssOrgUnit.setBounds(new Rectangle(699, 55, 270, 19));
@@ -1506,14 +1653,14 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         kDPanel8.add(continnerNumber, new KDLayout.Constraints(699, 13, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contnowStatus.setBounds(new Rectangle(699, 97, 270, 19));
         kDPanel8.add(contnowStatus, new KDLayout.Constraints(699, 97, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contzzsShortName.setBounds(new Rectangle(11, 139, 270, 19));
-        kDPanel8.add(contzzsShortName, new KDLayout.Constraints(11, 139, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         chkisMainEqm.setBounds(new Rectangle(792, 118, 104, 19));
         kDPanel8.add(chkisMainEqm, new KDLayout.Constraints(792, 118, 104, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contNumber.setBounds(new Rectangle(11, 13, 270, 19));
         kDPanel8.add(contNumber, new KDLayout.Constraints(11, 13, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contEqmCategory.setBounds(new Rectangle(355, 55, 270, 19));
-        kDPanel8.add(contEqmCategory, new KDLayout.Constraints(355, 55, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        conparent.setBounds(new Rectangle(699, 139, 267, 19));
+        kDPanel8.add(conparent, new KDLayout.Constraints(699, 139, 267, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contequTypeone.setBounds(new Rectangle(355, 55, 270, 19));
+        kDPanel8.add(contequTypeone, new KDLayout.Constraints(355, 55, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         //consbDescription
         consbDescription.setBoundEditor(txtsbDescription);
         //conname
@@ -1546,43 +1693,15 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         continnerNumber.setBoundEditor(txtinnerNumber);
         //contnowStatus
         contnowStatus.setBoundEditor(combonowStatus);
-        //contzzsShortName
-        contzzsShortName.setBoundEditor(txtzzsShortName);
         //contNumber
         contNumber.setBoundEditor(txtNumber);
-        //contEqmCategory
-        contEqmCategory.setBoundEditor(txtEqmCategory);
-        //kDPanel2
-        kDPanel2.setLayout(new KDLayout());
-        kDPanel2.putClientProperty("OriginalBounds", new Rectangle(2, 184, 983, 72));        conparent.setBounds(new Rectangle(11, 14, 270, 19));
-        kDPanel2.add(conparent, new KDLayout.Constraints(11, 14, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        chkdependable.setBounds(new Rectangle(357, 14, 82, 19));
-        kDPanel2.add(chkdependable, new KDLayout.Constraints(357, 14, 82, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        conaddress.setBounds(new Rectangle(699, 14, 270, 19));
-        kDPanel2.add(conaddress, new KDLayout.Constraints(699, 14, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        conlocation.setBounds(new Rectangle(11, 35, 270, 19));
-        kDPanel2.add(conlocation, new KDLayout.Constraints(11, 35, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        conusingDept.setBounds(new Rectangle(355, 35, 270, 19));
-        kDPanel2.add(conusingDept, new KDLayout.Constraints(355, 35, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        conresPerson.setBounds(new Rectangle(699, 35, 270, 19));
-        kDPanel2.add(conresPerson, new KDLayout.Constraints(699, 35, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contdaytow.setBounds(new Rectangle(441, 11, 270, 19));
-        kDPanel2.add(contdaytow, new KDLayout.Constraints(441, 11, 270, 19, 0));
         //conparent
         conparent.setBoundEditor(prmtparent);
-        //conaddress
-        conaddress.setBoundEditor(prmtaddress);
-        //conlocation
-        conlocation.setBoundEditor(txtlocation);
-        //conusingDept
-        conusingDept.setBoundEditor(prmtusingDept);
-        //conresPerson
-        conresPerson.setBoundEditor(prmtresPerson);
-        //contdaytow
-        contdaytow.setBoundEditor(pkdaytow);
+        //contequTypeone
+        contequTypeone.setBoundEditor(prmtequTypeone);
         //kDPanel10
         kDPanel10.setLayout(new KDLayout());
-        kDPanel10.putClientProperty("OriginalBounds", new Rectangle(2, 260, 983, 116));        conmader.setBounds(new Rectangle(11, 15, 270, 19));
+        kDPanel10.putClientProperty("OriginalBounds", new Rectangle(2, 218, 983, 116));        conmader.setBounds(new Rectangle(11, 15, 270, 19));
         kDPanel10.add(conmader, new KDLayout.Constraints(11, 15, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         conmadedCountry.setBounds(new Rectangle(355, 15, 270, 19));
         kDPanel10.add(conmadedCountry, new KDLayout.Constraints(355, 15, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
@@ -1604,8 +1723,6 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         kDPanel10.add(condeadline, new KDLayout.Constraints(11, 78, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         consourceUnit.setBounds(new Rectangle(355, 78, 270, 19));
         kDPanel10.add(consourceUnit, new KDLayout.Constraints(355, 78, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contdayone.setBounds(new Rectangle(660, 75, 270, 19));
-        kDPanel10.add(contdayone, new KDLayout.Constraints(660, 75, 270, 19, 0));
         //conmader
         conmader.setBoundEditor(txtmader);
         //conmadedCountry
@@ -1628,38 +1745,44 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         condeadline.setBoundEditor(pkdeadline);
         //consourceUnit
         consourceUnit.setBoundEditor(txtsourceUnit);
-        //contdayone
-        contdayone.setBoundEditor(pkdayone);
         //kDPanel11
         kDPanel11.setLayout(new KDLayout());
-        kDPanel11.putClientProperty("OriginalBounds", new Rectangle(2, 380, 983, 93));        chkportTest.setBounds(new Rectangle(286, 34, 65, 19));
+        kDPanel11.putClientProperty("OriginalBounds", new Rectangle(2, 339, 983, 134));        chkportTest.setBounds(new Rectangle(286, 34, 65, 19));
         kDPanel11.add(chkportTest, new KDLayout.Constraints(286, 34, 65, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         chkcityTest.setBounds(new Rectangle(286, 14, 67, 19));
         kDPanel11.add(chkcityTest, new KDLayout.Constraints(286, 14, 67, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        conttestDay.setBounds(new Rectangle(355, 55, 270, 19));
-        kDPanel11.add(conttestDay, new KDLayout.Constraints(355, 55, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        conttzdaNumber.setBounds(new Rectangle(11, 13, 270, 19));
-        kDPanel11.add(conttzdaNumber, new KDLayout.Constraints(11, 13, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        conttzsbStatus.setBounds(new Rectangle(699, 34, 270, 19));
-        kDPanel11.add(conttzsbStatus, new KDLayout.Constraints(699, 34, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        conttzdaNumber.setBounds(new Rectangle(11, 13, 269, 19));
+        kDPanel11.add(conttzdaNumber, new KDLayout.Constraints(11, 13, 269, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        conttzsbStatus.setBounds(new Rectangle(700, 76, 268, 19));
+        kDPanel11.add(conttzsbStatus, new KDLayout.Constraints(700, 76, 268, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contspecialType.setBounds(new Rectangle(355, 34, 270, 19));
         kDPanel11.add(contspecialType, new KDLayout.Constraints(355, 34, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contcityPeriod.setBounds(new Rectangle(11, 34, 130, 19));
-        kDPanel11.add(contcityPeriod, new KDLayout.Constraints(11, 34, 130, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contportPeriod.setBounds(new Rectangle(151, 34, 130, 19));
-        kDPanel11.add(contportPeriod, new KDLayout.Constraints(151, 34, 130, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contcode.setBounds(new Rectangle(355, 13, 270, 19));
-        kDPanel11.add(contcode, new KDLayout.Constraints(355, 13, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contengineNumber.setBounds(new Rectangle(699, 55, 147, 19));
-        kDPanel11.add(contengineNumber, new KDLayout.Constraints(699, 55, 147, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contcarNumber.setBounds(new Rectangle(851, 55, 118, 19));
-        kDPanel11.add(contcarNumber, new KDLayout.Constraints(851, 55, 118, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contratedWeight.setBounds(new Rectangle(699, 13, 270, 19));
-        kDPanel11.add(contratedWeight, new KDLayout.Constraints(699, 13, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        conttextDate1.setBounds(new Rectangle(11, 55, 270, 19));
-        kDPanel11.add(conttextDate1, new KDLayout.Constraints(11, 55, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        //conttestDay
-        conttestDay.setBoundEditor(testDay);
+        contcityPeriod.setBounds(new Rectangle(11, 34, 73, 19));
+        kDPanel11.add(contcityPeriod, new KDLayout.Constraints(11, 34, 73, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contcode.setBounds(new Rectangle(355, 13, 269, 19));
+        kDPanel11.add(contcode, new KDLayout.Constraints(355, 13, 269, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contengineNumber.setBounds(new Rectangle(700, 55, 267, 19));
+        kDPanel11.add(contengineNumber, new KDLayout.Constraints(700, 55, 267, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contcarNumber.setBounds(new Rectangle(700, 34, 268, 19));
+        kDPanel11.add(contcarNumber, new KDLayout.Constraints(700, 34, 268, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contratedWeight.setBounds(new Rectangle(700, 13, 268, 19));
+        kDPanel11.add(contratedWeight, new KDLayout.Constraints(700, 13, 268, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        conttextDate1.setBounds(new Rectangle(95, 34, 185, 19));
+        kDPanel11.add(conttextDate1, new KDLayout.Constraints(95, 34, 185, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contzzsShortName.setBounds(new Rectangle(11, 55, 268, 19));
+        kDPanel11.add(contzzsShortName, new KDLayout.Constraints(11, 55, 268, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        conttelePhoneNumber.setBounds(new Rectangle(355, 55, 270, 19));
+        kDPanel11.add(conttelePhoneNumber, new KDLayout.Constraints(355, 55, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contactrueTime.setBounds(new Rectangle(355, 76, 271, 19));
+        kDPanel11.add(contactrueTime, new KDLayout.Constraints(355, 76, 271, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contresponsible.setBounds(new Rectangle(11, 98, 270, 19));
+        kDPanel11.add(contresponsible, new KDLayout.Constraints(11, 98, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        continStreet.setBounds(new Rectangle(700, 98, 268, 19));
+        kDPanel11.add(continStreet, new KDLayout.Constraints(700, 98, 268, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        continspectorOne.setBounds(new Rectangle(355, 98, 270, 19));
+        kDPanel11.add(continspectorOne, new KDLayout.Constraints(355, 98, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        conttextType.setBounds(new Rectangle(11, 76, 270, 19));
+        kDPanel11.add(conttextType, new KDLayout.Constraints(11, 76, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         //conttzdaNumber
         conttzdaNumber.setBoundEditor(txttzdaNumber);
         //conttzsbStatus
@@ -1668,8 +1791,6 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         contspecialType.setBoundEditor(prmtspecialType);
         //contcityPeriod
         contcityPeriod.setBoundEditor(txtcityPeriod);
-        //contportPeriod
-        contportPeriod.setBoundEditor(txtportPeriod);
         //contcode
         contcode.setBoundEditor(txtcode);
         //contengineNumber
@@ -1680,6 +1801,20 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         contratedWeight.setBoundEditor(txtratedWeight);
         //conttextDate1
         conttextDate1.setBoundEditor(pktextDate1);
+        //contzzsShortName
+        contzzsShortName.setBoundEditor(txtzzsShortName);
+        //conttelePhoneNumber
+        conttelePhoneNumber.setBoundEditor(txttelePhoneNumber);
+        //contactrueTime
+        contactrueTime.setBoundEditor(pkactrueTime);
+        //contresponsible
+        contresponsible.setBoundEditor(txtresponsible);
+        //continStreet
+        continStreet.setBoundEditor(txtinStreet);
+        //continspectorOne
+        continspectorOne.setBoundEditor(txtinspectorOne);
+        //conttextType
+        conttextType.setBoundEditor(prmttextType);
         //kDPanel3
         kDPanel3.setLayout(new KDLayout());
         kDPanel3.putClientProperty("OriginalBounds", new Rectangle(2, 477, 983, 55));        contasset.setBounds(new Rectangle(11, 15, 270, 19));
@@ -1698,12 +1833,30 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         contassetValue.setBoundEditor(txtassetValue);
         //continstallCost
         continstallCost.setBoundEditor(txtinstallCost);
+        //conlocation
+        conlocation.setBoundEditor(txtlocation);
+        //conusingDept
+        conusingDept.setBoundEditor(prmtusingDept);
+        //conaddress
+        conaddress.setBoundEditor(prmtaddress);
+        //contEqmCategory
+        contEqmCategory.setBoundEditor(txtEqmCategory);
         //kDPanel6
 kDPanel6.setLayout(new BorderLayout(0, 0));        kdtTechnologyPar_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtTechnologyPar,new com.kingdee.eas.port.equipment.record.EquIdTechnologyParInfo(),null,false);
         kDPanel6.add(kdtTechnologyPar_detailPanel, BorderLayout.CENTER);
         //kDPanel7
 kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtSpareInfo,new com.kingdee.eas.port.equipment.record.EquIdSpareInfoInfo(),null,false);
         kDPanel7.add(kdtSpareInfo_detailPanel, BorderLayout.CENTER);
+        //contdaytow
+        contdaytow.setBoundEditor(pkdaytow);
+        //contdayone
+        contdayone.setBoundEditor(pkdayone);
+        //conttestDay
+        conttestDay.setBoundEditor(testDay);
+        //conresPerson
+        conresPerson.setBoundEditor(prmtresPerson);
+        //contportPeriod
+        contportPeriod.setBoundEditor(txtportPeriod);
 
     }
 
@@ -1878,6 +2031,7 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
 
 	//Regiester control's property binding.
 	private void registerBindings(){
+		dataBinder.registerBinding("dependable", boolean.class, this.chkdependable, "selected");
 		dataBinder.registerBinding("creator", com.kingdee.eas.base.permission.UserInfo.class, this.prmtCreator, "data");
 		dataBinder.registerBinding("createTime", java.sql.Timestamp.class, this.pkCreateTime, "value");
 		dataBinder.registerBinding("lastUpdateUser", com.kingdee.eas.base.permission.UserInfo.class, this.prmtLastUpdateUser, "data");
@@ -1907,16 +2061,9 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
 		dataBinder.registerBinding("eqmType", com.kingdee.eas.fi.fa.basedata.FaCatInfo.class, this.prmttype, "data");
 		dataBinder.registerBinding("innerNumber", String.class, this.txtinnerNumber, "text");
 		dataBinder.registerBinding("nowStatus", com.kingdee.eas.port.equipment.base.enumbase.nowStatusType.class, this.combonowStatus, "selectedItem");
-		dataBinder.registerBinding("zzsShortName", String.class, this.txtzzsShortName, "text");
 		dataBinder.registerBinding("number", String.class, this.txtNumber, "text");
-		dataBinder.registerBinding("EqmCategory", String.class, this.txtEqmCategory, "text");
-		dataBinder.registerBinding("dependable", boolean.class, this.chkdependable, "selected");
 		dataBinder.registerBinding("parent", com.kingdee.eas.port.equipment.record.EquIdInfo.class, this.prmtparent, "data");
-		dataBinder.registerBinding("address", com.kingdee.eas.basedata.assistant.AddressInfo.class, this.prmtaddress, "data");
-		dataBinder.registerBinding("location", String.class, this.txtlocation, "text");
-		dataBinder.registerBinding("usingDept", com.kingdee.eas.basedata.org.AdminOrgUnitInfo.class, this.prmtusingDept, "data");
-		dataBinder.registerBinding("resPerson", com.kingdee.eas.basedata.person.PersonInfo.class, this.prmtresPerson, "data");
-		dataBinder.registerBinding("daytow", java.util.Date.class, this.pkdaytow, "value");
+		dataBinder.registerBinding("equTypeone", com.kingdee.eas.port.equipment.base.EquTypeInfo.class, this.prmtequTypeone, "data");
 		dataBinder.registerBinding("mader", String.class, this.txtmader, "text");
 		dataBinder.registerBinding("madedCountry", com.kingdee.eas.basedata.assistant.CountryInfo.class, this.prmtmadedCountry, "data");
 		dataBinder.registerBinding("madeDate", java.util.Date.class, this.pkmadeDate, "value");
@@ -1928,24 +2075,32 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
 		dataBinder.registerBinding("checkDate", java.util.Date.class, this.pkcheckDate, "value");
 		dataBinder.registerBinding("deadline", java.util.Date.class, this.pkdeadline, "value");
 		dataBinder.registerBinding("sourceUnit", String.class, this.txtsourceUnit, "text");
-		dataBinder.registerBinding("dayone", java.util.Date.class, this.pkdayone, "value");
 		dataBinder.registerBinding("portTest", boolean.class, this.chkportTest, "selected");
 		dataBinder.registerBinding("cityTest", boolean.class, this.chkcityTest, "selected");
-		dataBinder.registerBinding("testDay", java.util.Date.class, this.testDay, "value");
 		dataBinder.registerBinding("tzdaNumber", String.class, this.txttzdaNumber, "text");
 		dataBinder.registerBinding("tzsbStatus", com.kingdee.eas.port.equipment.base.enumbase.sbStatusType.class, this.tzsbStatus, "selectedItem");
 		dataBinder.registerBinding("specialType", com.kingdee.eas.port.equipment.base.SpecialTypeInfo.class, this.prmtspecialType, "data");
 		dataBinder.registerBinding("cityPeriod", java.math.BigDecimal.class, this.txtcityPeriod, "value");
-		dataBinder.registerBinding("portPeriod", java.math.BigDecimal.class, this.txtportPeriod, "value");
 		dataBinder.registerBinding("code", String.class, this.txtcode, "text");
 		dataBinder.registerBinding("engineNumber", String.class, this.txtengineNumber, "text");
 		dataBinder.registerBinding("carNumber", String.class, this.txtcarNumber, "text");
 		dataBinder.registerBinding("ratedWeight", java.math.BigDecimal.class, this.txtratedWeight, "value");
 		dataBinder.registerBinding("textDate1", java.util.Date.class, this.pktextDate1, "value");
+		dataBinder.registerBinding("zzsShortName", String.class, this.txtzzsShortName, "text");
+		dataBinder.registerBinding("telePhoneNumber", String.class, this.txttelePhoneNumber, "text");
+		dataBinder.registerBinding("actrueTime", java.util.Date.class, this.pkactrueTime, "value");
+		dataBinder.registerBinding("responsible", String.class, this.txtresponsible, "text");
+		dataBinder.registerBinding("inStreet", String.class, this.txtinStreet, "text");
+		dataBinder.registerBinding("inspectorOne", String.class, this.txtinspectorOne, "text");
+		dataBinder.registerBinding("textType", com.kingdee.eas.port.equipment.base.TestTypeInfo.class, this.prmttextType, "data");
 		dataBinder.registerBinding("asset", com.kingdee.eas.fi.fa.manage.FaCurCardInfo.class, this.prmtasset, "data");
 		dataBinder.registerBinding("assetStatus", com.kingdee.eas.fi.fa.basedata.FaUseStatusInfo.class, this.prmtassetStatus, "data");
 		dataBinder.registerBinding("assetValue", java.math.BigDecimal.class, this.txtassetValue, "value");
 		dataBinder.registerBinding("installCost", java.math.BigDecimal.class, this.txtinstallCost, "value");
+		dataBinder.registerBinding("location", String.class, this.txtlocation, "text");
+		dataBinder.registerBinding("usingDept", com.kingdee.eas.basedata.org.AdminOrgUnitInfo.class, this.prmtusingDept, "data");
+		dataBinder.registerBinding("address", com.kingdee.eas.basedata.assistant.AddressInfo.class, this.prmtaddress, "data");
+		dataBinder.registerBinding("EqmCategory", String.class, this.txtEqmCategory, "text");
 		dataBinder.registerBinding("TechnologyPar.seq", int.class, this.kdtTechnologyPar, "seq.text");
 		dataBinder.registerBinding("TechnologyPar", com.kingdee.eas.port.equipment.record.EquIdTechnologyParInfo.class, this.kdtTechnologyPar, "userObject");
 		dataBinder.registerBinding("TechnologyPar.parName", String.class, this.kdtTechnologyPar, "parName.text");
@@ -1954,7 +2109,12 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
 		dataBinder.registerBinding("SpareInfo.seq", int.class, this.kdtSpareInfo, "seq.text");
 		dataBinder.registerBinding("SpareInfo", com.kingdee.eas.port.equipment.record.EquIdSpareInfoInfo.class, this.kdtSpareInfo, "userObject");
 		dataBinder.registerBinding("SpareInfo.materialName", String.class, this.kdtSpareInfo, "materialName.text");
-		dataBinder.registerBinding("SpareInfo.speModel", String.class, this.kdtSpareInfo, "speModel.text");		
+		dataBinder.registerBinding("SpareInfo.speModel", String.class, this.kdtSpareInfo, "speModel.text");
+		dataBinder.registerBinding("daytow", java.util.Date.class, this.pkdaytow, "value");
+		dataBinder.registerBinding("dayone", java.util.Date.class, this.pkdayone, "value");
+		dataBinder.registerBinding("testDay", java.util.Date.class, this.testDay, "value");
+		dataBinder.registerBinding("resPerson", com.kingdee.eas.basedata.person.PersonInfo.class, this.prmtresPerson, "data");
+		dataBinder.registerBinding("portPeriod", java.math.BigDecimal.class, this.txtportPeriod, "value");		
 	}
 	//Regiester UI State
 	private void registerUIState(){		
@@ -2089,6 +2249,7 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
 	 */
 	protected void registerValidator() {
     	getValidateHelper().setCustomValidator( getValidator() );
+		getValidateHelper().registerBindProperty("dependable", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("creator", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("createTime", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("lastUpdateUser", ValidateHelper.ON_SAVE);    
@@ -2118,16 +2279,9 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
 		getValidateHelper().registerBindProperty("eqmType", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("innerNumber", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("nowStatus", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("zzsShortName", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("number", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("EqmCategory", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("dependable", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("parent", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("address", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("location", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("usingDept", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("resPerson", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("daytow", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("equTypeone", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("mader", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("madedCountry", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("madeDate", ValidateHelper.ON_SAVE);    
@@ -2139,24 +2293,32 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
 		getValidateHelper().registerBindProperty("checkDate", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("deadline", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("sourceUnit", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("dayone", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("portTest", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("cityTest", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("testDay", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("tzdaNumber", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("tzsbStatus", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("specialType", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("cityPeriod", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("portPeriod", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("code", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("engineNumber", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("carNumber", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("ratedWeight", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("textDate1", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("zzsShortName", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("telePhoneNumber", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("actrueTime", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("responsible", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("inStreet", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("inspectorOne", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("textType", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("asset", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("assetStatus", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("assetValue", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("installCost", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("location", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("usingDept", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("address", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("EqmCategory", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("TechnologyPar.seq", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("TechnologyPar", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("TechnologyPar.parName", ValidateHelper.ON_SAVE);    
@@ -2165,7 +2327,12 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
 		getValidateHelper().registerBindProperty("SpareInfo.seq", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("SpareInfo", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("SpareInfo.materialName", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("SpareInfo.speModel", ValidateHelper.ON_SAVE);    		
+		getValidateHelper().registerBindProperty("SpareInfo.speModel", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("daytow", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("dayone", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("testDay", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("resPerson", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("portPeriod", ValidateHelper.ON_SAVE);    		
 	}
 
 
@@ -2205,16 +2372,16 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
     }
 
     /**
-     * output txtportPeriod_dataChanged method
+     * output prmtasset_dataChanged method
      */
-    protected void txtportPeriod_dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) throws Exception
+    protected void prmtasset_dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) throws Exception
     {
     }
 
     /**
-     * output prmtasset_dataChanged method
+     * output txtportPeriod_dataChanged method
      */
-    protected void prmtasset_dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) throws Exception
+    protected void txtportPeriod_dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) throws Exception
     {
     }
 
@@ -2239,6 +2406,7 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
 		if(StringUtils.isEmpty(selectorAll)){
 			selectorAll = "true";
 		}
+        sic.add(new SelectorItemInfo("dependable"));
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
 			sic.add(new SelectorItemInfo("creator.*"));
@@ -2348,10 +2516,7 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
 		}
         sic.add(new SelectorItemInfo("innerNumber"));
         sic.add(new SelectorItemInfo("nowStatus"));
-        sic.add(new SelectorItemInfo("zzsShortName"));
         sic.add(new SelectorItemInfo("number"));
-        sic.add(new SelectorItemInfo("EqmCategory"));
-        sic.add(new SelectorItemInfo("dependable"));
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
 			sic.add(new SelectorItemInfo("parent.*"));
@@ -2363,34 +2528,13 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
 		}
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
-			sic.add(new SelectorItemInfo("address.*"));
+			sic.add(new SelectorItemInfo("equTypeone.*"));
 		}
 		else{
-        	sic.add(new SelectorItemInfo("address.id"));
-        	sic.add(new SelectorItemInfo("address.number"));
-        	sic.add(new SelectorItemInfo("address.name"));
-        	sic.add(new SelectorItemInfo("address.detailAddress"));
+        	sic.add(new SelectorItemInfo("equTypeone.id"));
+        	sic.add(new SelectorItemInfo("equTypeone.number"));
+        	sic.add(new SelectorItemInfo("equTypeone.name"));
 		}
-        sic.add(new SelectorItemInfo("location"));
-		if(selectorAll.equalsIgnoreCase("true"))
-		{
-			sic.add(new SelectorItemInfo("usingDept.*"));
-		}
-		else{
-        	sic.add(new SelectorItemInfo("usingDept.id"));
-        	sic.add(new SelectorItemInfo("usingDept.number"));
-        	sic.add(new SelectorItemInfo("usingDept.name"));
-		}
-		if(selectorAll.equalsIgnoreCase("true"))
-		{
-			sic.add(new SelectorItemInfo("resPerson.*"));
-		}
-		else{
-        	sic.add(new SelectorItemInfo("resPerson.id"));
-        	sic.add(new SelectorItemInfo("resPerson.number"));
-        	sic.add(new SelectorItemInfo("resPerson.name"));
-		}
-        sic.add(new SelectorItemInfo("daytow"));
         sic.add(new SelectorItemInfo("mader"));
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
@@ -2434,10 +2578,8 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
         sic.add(new SelectorItemInfo("checkDate"));
         sic.add(new SelectorItemInfo("deadline"));
         sic.add(new SelectorItemInfo("sourceUnit"));
-        sic.add(new SelectorItemInfo("dayone"));
         sic.add(new SelectorItemInfo("portTest"));
         sic.add(new SelectorItemInfo("cityTest"));
-        sic.add(new SelectorItemInfo("testDay"));
         sic.add(new SelectorItemInfo("tzdaNumber"));
         sic.add(new SelectorItemInfo("tzsbStatus"));
 		if(selectorAll.equalsIgnoreCase("true"))
@@ -2450,12 +2592,26 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
         	sic.add(new SelectorItemInfo("specialType.name"));
 		}
         sic.add(new SelectorItemInfo("cityPeriod"));
-        sic.add(new SelectorItemInfo("portPeriod"));
         sic.add(new SelectorItemInfo("code"));
         sic.add(new SelectorItemInfo("engineNumber"));
         sic.add(new SelectorItemInfo("carNumber"));
         sic.add(new SelectorItemInfo("ratedWeight"));
         sic.add(new SelectorItemInfo("textDate1"));
+        sic.add(new SelectorItemInfo("zzsShortName"));
+        sic.add(new SelectorItemInfo("telePhoneNumber"));
+        sic.add(new SelectorItemInfo("actrueTime"));
+        sic.add(new SelectorItemInfo("responsible"));
+        sic.add(new SelectorItemInfo("inStreet"));
+        sic.add(new SelectorItemInfo("inspectorOne"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("textType.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("textType.id"));
+        	sic.add(new SelectorItemInfo("textType.number"));
+        	sic.add(new SelectorItemInfo("textType.name"));
+		}
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
 			sic.add(new SelectorItemInfo("asset.*"));
@@ -2476,6 +2632,27 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
 		}
         sic.add(new SelectorItemInfo("assetValue"));
         sic.add(new SelectorItemInfo("installCost"));
+        sic.add(new SelectorItemInfo("location"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("usingDept.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("usingDept.id"));
+        	sic.add(new SelectorItemInfo("usingDept.number"));
+        	sic.add(new SelectorItemInfo("usingDept.name"));
+		}
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("address.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("address.id"));
+        	sic.add(new SelectorItemInfo("address.number"));
+        	sic.add(new SelectorItemInfo("address.name"));
+        	sic.add(new SelectorItemInfo("address.detailAddress"));
+		}
+        sic.add(new SelectorItemInfo("EqmCategory"));
     	sic.add(new SelectorItemInfo("TechnologyPar.seq"));
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
@@ -2495,6 +2672,19 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
 		}
     	sic.add(new SelectorItemInfo("SpareInfo.materialName"));
     	sic.add(new SelectorItemInfo("SpareInfo.speModel"));
+        sic.add(new SelectorItemInfo("daytow"));
+        sic.add(new SelectorItemInfo("dayone"));
+        sic.add(new SelectorItemInfo("testDay"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("resPerson.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("resPerson.id"));
+        	sic.add(new SelectorItemInfo("resPerson.number"));
+        	sic.add(new SelectorItemInfo("resPerson.name"));
+		}
+        sic.add(new SelectorItemInfo("portPeriod"));
         return sic;
     }        
     	
@@ -2559,6 +2749,15 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
     public void actionExcelFoced_actionPerformed(ActionEvent e) throws Exception
     {
         com.kingdee.eas.port.equipment.record.EquIdFactory.getRemoteInstance().excelFoced(editData);
+    }
+    	
+
+    /**
+     * output actionExcelEqu_actionPerformed method
+     */
+    public void actionExcelEqu_actionPerformed(ActionEvent e) throws Exception
+    {
+        com.kingdee.eas.port.equipment.record.EquIdFactory.getRemoteInstance().excelEqu(editData);
     }
 	public RequestContext prepareActionSubmit(IItemAction itemAction) throws Exception {
 			RequestContext request = super.prepareActionSubmit(itemAction);		
@@ -2635,6 +2834,17 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
     }
 	
 	public boolean isPrepareActionExcelFoced() {
+    	return false;
+    }
+	public RequestContext prepareActionExcelEqu(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionExcelEqu() {
     	return false;
     }
 
@@ -2785,6 +2995,36 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
         {
         	getUIContext().put("ORG.PK", getOrgPK(this));
             innerActionPerformed("eas", AbstractEquIdEditUI.this, "ActionExcelFoced", "actionExcelFoced_actionPerformed", e);
+        }
+    }
+
+    /**
+     * output ActionExcelEqu class
+     */     
+    protected class ActionExcelEqu extends ItemAction {     
+    
+        public ActionExcelEqu()
+        {
+            this(null);
+        }
+
+        public ActionExcelEqu(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            _tempStr = resHelper.getString("ActionExcelEqu.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionExcelEqu.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionExcelEqu.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractEquIdEditUI.this, "ActionExcelEqu", "actionExcelEqu_actionPerformed", e);
         }
     }
 

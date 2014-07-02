@@ -145,18 +145,18 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 		this.txtcityPeriod.setPrecision(0);	
 		this.txtportPeriod.setPrecision(0);	
 
-		if(chkcityTest.getSelected() == 32){
-			txtcityPeriod.setEnabled(true);
-		}else{
-			txtcityPeriod.setEnabled(false);
-			txtcityPeriod.setValue(null);
-		}
-		if(chkportTest.getSelected() == 32){
-			txtportPeriod.setEnabled(true);
-		}else{
-			txtportPeriod.setEnabled(false);
-			txtportPeriod.setValue(null);
-		}
+//		if(chkcityTest.getSelected() == 32){
+//			txtcityPeriod.setEnabled(true);
+//		}else{
+//			txtcityPeriod.setEnabled(false);
+//			txtcityPeriod.setValue(null);
+//		}
+//		if(chkportTest.getSelected() == 32){
+//			txtportPeriod.setEnabled(true);
+//		}else{
+//			txtportPeriod.setEnabled(false);
+//			txtportPeriod.setValue(null);
+//		}
 		super.onLoad();
 		FaCatPromptBox facatBox = new FaCatPromptBox();
 		facatBox.setACompanyOrgUnitInfo(SysContext.getSysContext()
@@ -247,30 +247,30 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 //		}else if(chkspecial.getSelected() == 32){
 //			kDPanel11.setEnabled(false);	
 //		}
-		txtcityPeriod.setEnabled(false);
-		txtportPeriod.setEnabled(false);
-		//市检布尔
-		chkcityTest.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e) {
-				if(chkcityTest.getSelected() == 32){
-					txtcityPeriod.setEnabled(true);
-				}else{
-					txtcityPeriod.setEnabled(false);
-					txtcityPeriod.setValue(null);
-				}
-			}
-		});
-		//港检布尔
-		chkportTest.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e) {
-				if(chkportTest.getSelected() == 32){
-					txtportPeriod.setEnabled(true);
-				}else{
-					txtportPeriod.setEnabled(false);
-					txtportPeriod.setValue(null);
-				}
-			}
-		});
+//		txtcityPeriod.setEnabled(false);
+//		txtportPeriod.setEnabled(false);
+//		//市检布尔
+//		chkcityTest.addActionListener(new ActionListener(){
+//			public void actionPerformed(ActionEvent e) {
+//				if(chkcityTest.getSelected() == 32){
+//					txtcityPeriod.setEnabled(true);
+//				}else{
+//					txtcityPeriod.setEnabled(false);
+//					txtcityPeriod.setValue(null);
+//				}
+//			}
+//		});
+//		//港检布尔
+//		chkportTest.addActionListener(new ActionListener(){
+//			public void actionPerformed(ActionEvent e) {
+//				if(chkportTest.getSelected() == 32){
+//					txtportPeriod.setEnabled(true);
+//				}else{
+//					txtportPeriod.setEnabled(false);
+//					txtportPeriod.setValue(null);
+//				}
+//			}
+//		});
 	
 		
 		Tool.setRespDeptF7(this.prmtjhOrgUnit, this, SysContext.getSysContext().getCurrentCtrlUnit().getId().toString());
@@ -1378,6 +1378,20 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 			sic.add(new SelectorItemInfo("ssOrgUnit.name"));
 		}
 		if (selectorAll.equalsIgnoreCase("true")) {
+			sic.add(new SelectorItemInfo("equTypeone.*"));
+		} else {
+			sic.add(new SelectorItemInfo("equTypeone.id"));
+			sic.add(new SelectorItemInfo("equTypeone.number"));
+			sic.add(new SelectorItemInfo("equTypeone.name"));
+		}
+		if (selectorAll.equalsIgnoreCase("true")) {
+			sic.add(new SelectorItemInfo("textType.*"));
+		} else {
+			sic.add(new SelectorItemInfo("textType.id"));
+			sic.add(new SelectorItemInfo("textType.number"));
+			sic.add(new SelectorItemInfo("textType.name"));
+		}
+		if (selectorAll.equalsIgnoreCase("true")) {
 			sic.add(new SelectorItemInfo("jhOrgUnit.*"));
 		} else {
 			sic.add(new SelectorItemInfo("jhOrgUnit.id"));
@@ -1538,6 +1552,11 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 		sic.add(new SelectorItemInfo("textDate1"));
 		sic.add(new SelectorItemInfo("daytow"));
 		sic.add(new SelectorItemInfo("dayone"));
+		sic.add(new SelectorItemInfo("telePhoneNumber"));
+		sic.add(new SelectorItemInfo("actrueTime"));
+		sic.add(new SelectorItemInfo("responsible"));
+		sic.add(new SelectorItemInfo("inStreet"));
+		sic.add(new SelectorItemInfo("inspectorOne"));
 		return sic;
 	}
 	
@@ -1592,28 +1611,15 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
         		  MsgBox.showInfo("当前设备为特种设备，请勾选特种设备属性的市检或港检！");
    				  SysUtil.abort();
         	  }
-        	  if(editData.isCityTest()&&!editData.isPortTest()){
+        	  if(editData.isCityTest()){
         		  if(editData.getCityPeriod() ==null){
-	        		  MsgBox.showInfo("检测类别为市检，请填写市检周期！");
+	        		  MsgBox.showInfo("检测类别为市检，请填写周期！");
 	   				  SysUtil.abort();
         		  }
+        	 
         	  }
-        	  if(editData.isPortTest()){
-        		  if(editData.getPortPeriod() ==null&&!editData.isCityTest()){
-	        		  MsgBox.showInfo("检测类别为港检，请填写港检周期！");
-	   				  SysUtil.abort();
-        		  }
-        	  }
-        	  if(editData.isPortTest()&&editData.isCityTest()){
-        		  if(editData.getPortPeriod() ==null||editData.getCityPeriod() ==null){
-	        		  MsgBox.showInfo("检测类别为市检和港检，请填写市检周期和港检周期！");
-	   				  SysUtil.abort();
-        		  }
-        	  }
-        	  if(editData.getTzdaNumber() == null){
-        		  MsgBox.showInfo("当前设备为特种设备，请填写设备档案号！");
-   				  SysUtil.abort();
-        	  }
+        	 
+        	
           }
 	}
 	
