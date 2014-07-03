@@ -678,7 +678,6 @@ public class EquIdListUI extends AbstractEquIdListUI
 					try {
 						viewInfo.getFilter().mergeFilter(filInfo, "and");
 					} catch (BOSException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 			
@@ -688,7 +687,7 @@ public class EquIdListUI extends AbstractEquIdListUI
 	    		viewInfo.setFilter(filInfo);
 	    	}
 		if(OrgConstants.DEF_CU_ID.equals(id))
-			viewInfo = new EntityViewInfo();
+			viewInfo =  (EntityViewInfo)arg1.clone();
 		return super.getQueryExecutor(arg0, viewInfo);
 	}
 	
@@ -784,7 +783,7 @@ public class EquIdListUI extends AbstractEquIdListUI
 			btnExportExcel();
     }
 
-	String colName[] = {"设备编码","设备名称","市检到期检测日期","港检到期检测日期"};
+	String colName[] = {"设备编码","设备名称","到期检测日期"};
 	/**
 	 * 导出模板
 	  **/
@@ -845,7 +844,7 @@ public class EquIdListUI extends AbstractEquIdListUI
 //        String solutionName = "eas.custom.007";
 //        param.solutionName = solutionName;
 //        ArrayList paramList = new ArrayList();
-//        paramList.add(param);
+//        paramList.add(param);   
 //        task.invoke(paramList, DatataskMode.UPDATE, true);
 		actionImportExcel();
         this.refresh(null);
@@ -924,7 +923,7 @@ public class EquIdListUI extends AbstractEquIdListUI
 			for (int rowIndex = 1; rowIndex <= e_maxRow; rowIndex++) {
 				Integer colInt = (Integer) e_colNameMap.get(colName[0]);
 				Integer colcityInt = (Integer) e_colNameMap.get(colName[2]);
-				Integer colhongkInt = (Integer) e_colNameMap.get(colName[3]);
+//				Integer colhongkInt = (Integer) e_colNameMap.get(colName[3]);
 
 				if (colInt == null) {
 					continue;
@@ -934,25 +933,27 @@ public class EquIdListUI extends AbstractEquIdListUI
 					continue;
 				}
 				String citycellRawVal = excelSheet.getCell(rowIndex, colcityInt.intValue(), true).getDisplayFormula();
-				String hongkcellRawVal = excelSheet.getCell(rowIndex, colhongkInt.intValue(), true).getDisplayFormula();
+//				String hongkcellRawVal = excelSheet.getCell(rowIndex, colhongkInt.intValue(), true).getDisplayFormula();
 				String colValue = cellRawVal.toString();
 				if(iEquId.exists("where number='"+colValue+"'"))
 				{
 					EquIdInfo equInfo = iEquId.getEquIdCollection("where number='"+colValue+"'").get(0);
-					BigDecimal portperiod = equInfo.getPortPeriod()!=null?equInfo.getPortPeriod():BigDecimal.ZERO;
+//					BigDecimal portperiod = equInfo.getPortPeriod()!=null?equInfo.getPortPeriod():BigDecimal.ZERO;
 					BigDecimal ctyPeriod = equInfo.getCityPeriod()!=null?equInfo.getCityPeriod():BigDecimal.ZERO;
 					
 					if (UIRuleUtil.isNotNull(citycellRawVal)) {
 						ca.setTime(sdf.parse(citycellRawVal));
+						equInfo.setTextDate1(ca.getTime());
 						ca.add(Calendar.YEAR,ctyPeriod.intValue());
 						equInfo.setDayone(ca.getTime());
+						
 					}
 					
-					if (UIRuleUtil.isNotNull(hongkcellRawVal)) {
-						ca.setTime(sdf.parse(hongkcellRawVal));
-						ca.add(Calendar.YEAR,portperiod.intValue());
-						equInfo.setDaytow(ca.getTime());
-					}
+//					if (UIRuleUtil.isNotNull(hongkcellRawVal)) {
+//						ca.setTime(sdf.parse(hongkcellRawVal));
+//						ca.add(Calendar.YEAR,portperiod.intValue());
+//						equInfo.setDaytow(ca.getTime());
+//					}
 					
 					iEquId.update(new ObjectUuidPK(equInfo.getId()), equInfo);
 				}

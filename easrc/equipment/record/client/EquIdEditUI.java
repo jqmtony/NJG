@@ -46,6 +46,7 @@ import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.eas.basedata.assistant.client.F7MeasureUnitTreeDetailListUI;
 import com.kingdee.eas.basedata.master.cssp.client.F7SupplierSimpleSelector;
 import com.kingdee.eas.basedata.master.material.client.MaterialClientTools;
+import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
 import com.kingdee.eas.basedata.org.OrgConstants;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.OprtState;
@@ -94,6 +95,7 @@ import com.kingdee.eas.tools.datatask.client.DatataskCaller;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
+import com.kingdee.eas.xr.app.XRBillStatusEnum;
 import com.kingdee.eas.xr.helper.ListenersXRHelper;
 import com.kingdee.eas.xr.helper.Tool;
 import com.kingdee.eas.xr.helper.XRSQLBuilder;
@@ -405,17 +407,17 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 		
 	}
 	
-	//港检值改变事件
-	protected void txtportPeriod_dataChanged(DataChangeEvent e)
-			throws Exception {
-		super.txtportPeriod_dataChanged(e);
-		if(testDay.getValue() !=null && txtportPeriod.getBigDecimalValue() !=null){
-			Calendar ca = Calendar.getInstance();
-			ca.setTime(this.testDay.getSqlDate());
-			ca.add(Calendar.YEAR,txtportPeriod.getBigIntegerValue().intValue());
-			pkdaytow.setValue(ca.getTime());
-	}
-	}
+//	//港检值改变事件
+//	protected void txtportPeriod_dataChanged(DataChangeEvent e)
+//			throws Exception {
+//		super.txtportPeriod_dataChanged(e);
+//		if(testDay.getValue() !=null && txtportPeriod.getBigDecimalValue() !=null){
+//			Calendar ca = Calendar.getInstance();
+//			ca.setTime(this.testDay.getSqlDate());
+//			ca.add(Calendar.YEAR,txtportPeriod.getBigIntegerValue().intValue());
+//			pkdaytow.setValue(ca.getTime());
+//	}
+//	}
 	
 	 protected void initWorkButton()
 	    {
@@ -1590,13 +1592,16 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 		super.actionSubmit_actionPerformed(e);
 	}
 
+	protected void beforeStoreFields(ActionEvent arg0) throws Exception {
+	}
+	
 	/**
 	 * zhangjuan
 	 * 2014-5-14
 	 * 实现功能：校验固定资产卡片类型与设备档案的设备类型是否一致
 	 */
 	protected void verifyInput(ActionEvent e) throws Exception {
-		super.verifyInput(e);
+	
           if(editData.getSourceBillId()!=null){
         	  FaCurCardInfo fccInfo = FaCurCardFactory.getRemoteInstance().getFaCurCardInfo(new ObjectUuidPK(editData.getSourceBillId().toString()));
         	  if(fccInfo.getAssetCat().getId() !=null && ((FaCatInfo)prmttype.getData()).getId()!=null){
@@ -1611,17 +1616,52 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
         		  MsgBox.showInfo("当前设备为特种设备，请勾选特种设备属性的市检或港检！");
    				  SysUtil.abort();
         	  }
+        	  if(editData.isCityTest()&&editData.isPortTest()){
+        		  MsgBox.showInfo("不能同时勾选市检和港检！");
+   				  SysUtil.abort();
+        	  }
         	  if(editData.isCityTest()){
         		  if(editData.getCityPeriod() ==null){
-	        		  MsgBox.showInfo("检测类别为市检，请填写周期！");
+	        		  MsgBox.showInfo("请填写周期！");
 	   				  SysUtil.abort();
         		  }
         	 
         	  }
+        	  if(editData.isPortTest()){
+        		  if(editData.getCityPeriod() ==null){
+	        		  MsgBox.showInfo("请填写周期！");
+	   				  SysUtil.abort();
+        		  }
         	 
+        	  }
         	
           }
+//         if(editData.getStatus().equals(XRBillStatusEnum.ADD)){
+//	  		StringBuffer sb = new StringBuffer();
+//	  		sb.append("/*dialect*/select fnumber");
+//	  		sb.append(" from CT_REC_EquId");
+//	  		sb.append(" where fnumber = '"+editData.getNumber()+"'");
+//	  		IRowSet rowSet = new XRSQLBuilder().appendSql(sb.toString()).executeQuery();
+//	  		if(rowSet.size()>0){
+//	  			MsgBox.showInfo("存在重复的设备编码!");
+//	    			SysUtil.abort();
+//	  		}
+//         }
+         if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(txtNumber.getText())) {
+ 			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"单据编号"});
+ 		}
+     	if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(combosbStatus.getSelectedItem())) {
+			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"设备状态"});
+		}
+		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(prmttype.getData())) {
+			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"设备类别"});
+		}
+		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(prmtssOrgUnit.getData())) {
+			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"所属单位"});
+		}
+      	super.verifyInput(e);
 	}
+	
 	
 	public void actionRegistChange_actionPerformed(ActionEvent e)throws Exception {
 		super.actionRegistChange_actionPerformed(e);
