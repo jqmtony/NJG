@@ -9,6 +9,12 @@
     <enumDataType>STRING</enumDataType>
     <enumValues>
         <enumValue>
+            <name>NULL</name>
+            <alias>bizEnum[com.kingdee.eas.port.equipment.base.enumbase.nowStatusType].enumValues.enumValue[NULL].alias</alias>
+            <userDefined>true</userDefined>
+            <value>0</value>
+        </enumValue>
+        <enumValue>
             <name>well</name>
             <alias>bizEnum[com.kingdee.eas.port.equipment.base.enumbase.nowStatusType].enumValues.enumValue[well].alias</alias>
             <userDefined>true</userDefined>
@@ -26,32 +32,66 @@
             <userDefined>true</userDefined>
             <value>3</value>
         </enumValue>
+        <enumValue>
+            <name>rent</name>
+            <alias>bizEnum[com.kingdee.eas.port.equipment.base.enumbase.nowStatusType].enumValues.enumValue[rent].alias</alias>
+            <userDefined>true</userDefined>
+            <value>4</value>
+        </enumValue>
+        <enumValue>
+            <name>assetstran</name>
+            <alias>bizEnum[com.kingdee.eas.port.equipment.base.enumbase.nowStatusType].enumValues.enumValue[assetstran].alias</alias>
+            <userDefined>true</userDefined>
+            <value>5</value>
+        </enumValue>
     </enumValues>
     <resource>
         <rs key="bizEnum[com.kingdee.eas.port.equipment.base.enumbase.nowStatusType].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="目前现况" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_HK" value="目前現況" />
+            <lang locale="zh_TW" value="目前現況" />
         </rs>
         <rs key="bizEnum[com.kingdee.eas.port.equipment.base.enumbase.nowStatusType].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="bizEnum[com.kingdee.eas.port.equipment.base.enumbase.nowStatusType].enumValues.enumValue[NULL].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="bizEnum[com.kingdee.eas.port.equipment.base.enumbase.nowStatusType].enumValues.enumValue[Worse].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="较差" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_HK" value="較差" />
+            <lang locale="zh_TW" value="較差" />
+        </rs>
+        <rs key="bizEnum[com.kingdee.eas.port.equipment.base.enumbase.nowStatusType].enumValues.enumValue[assetstran].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="资产转移" />
+            <lang locale="zh_HK" value="資產轉移" />
+            <lang locale="zh_TW" value="資產轉移" />
         </rs>
         <rs key="bizEnum[com.kingdee.eas.port.equipment.base.enumbase.nowStatusType].enumValues.enumValue[general].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="一般" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_HK" value="一般" />
+            <lang locale="zh_TW" value="一般" />
+        </rs>
+        <rs key="bizEnum[com.kingdee.eas.port.equipment.base.enumbase.nowStatusType].enumValues.enumValue[rent].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="租用" />
+            <lang locale="zh_HK" value="租用" />
+            <lang locale="zh_TW" value="租用" />
         </rs>
         <rs key="bizEnum[com.kingdee.eas.port.equipment.base.enumbase.nowStatusType].enumValues.enumValue[well].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="良好" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_HK" value="良好" />
+            <lang locale="zh_TW" value="良好" />
         </rs>
     </resource>
 </bizEnum>

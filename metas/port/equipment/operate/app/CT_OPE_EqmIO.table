@@ -357,6 +357,48 @@
             <scale>0</scale>
             <precision>0</precision>
         </column>
+        <column>
+            <name>CFTransferType</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_EqmIO].columns.column[CFTransferType].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_EqmIO].columns.column[CFTransferType].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>100</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFRentStart</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_EqmIO].columns.column[CFRentStart].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_EqmIO].columns.column[CFRentStart].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>DATETIME</sqlType>
+            <length>8</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFRentEnd</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_EqmIO].columns.column[CFRentEnd].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_EqmIO].columns.column[CFRentEnd].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>DATETIME</sqlType>
+            <length>8</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
     </columns>
     <primaryKey>
         <name>CPK_OPE_EqmIOIDi13</name>
@@ -653,6 +695,42 @@
             <lang locale="zh_CN" value="调出单位" />
             <lang locale="zh_HK" value="調出單位" />
             <lang locale="zh_TW" value="調出單位" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_EqmIO].columns.column[CFRentEnd].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="租用截止日期" />
+            <lang locale="zh_HK" value="租用截止日期" />
+            <lang locale="zh_TW" value="租用截止日期" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_EqmIO].columns.column[CFRentEnd].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="租用截止日期" />
+            <lang locale="zh_HK" value="租用截止日期" />
+            <lang locale="zh_TW" value="租用截止日期" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_EqmIO].columns.column[CFRentStart].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="租用开始日期" />
+            <lang locale="zh_HK" value="租用開始日期" />
+            <lang locale="zh_TW" value="租用開始日期" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_EqmIO].columns.column[CFRentStart].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="租用开始日期" />
+            <lang locale="zh_HK" value="租用開始日期" />
+            <lang locale="zh_TW" value="租用開始日期" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_EqmIO].columns.column[CFTransferType].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="调拨类型" />
+            <lang locale="zh_HK" value="調撥類型" />
+            <lang locale="zh_TW" value="調撥類型" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_EqmIO].columns.column[CFTransferType].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="调拨类型" />
+            <lang locale="zh_HK" value="調撥類型" />
+            <lang locale="zh_TW" value="調撥類型" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_EqmIO].columns.column[CFUseingOrgUnitID].alias">
             <lang locale="en_US" value="null" />

@@ -1231,6 +1231,37 @@
                 <key name="name" value="OverhaulNoticeQuery" />
             </query>
         </queryField>
+        <queryField>
+            <name>Entry.testResults</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.special.app.OverhaulNoticeQuery].units.queryField[Entry.testResults].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>3dd930a3-522f-4eee-9a3f-67073cef0521</key>
+                    <parentUnit>
+                        <key name="name" value="Entry.testResults" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Entry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="testResults" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.special.app" />
+                <key name="name" value="OverhaulNoticeQuery" />
+            </query>
+        </queryField>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -1712,6 +1743,22 @@
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.OverhaulNoticeQuery].units.queryField[Entry.seq].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.OverhaulNoticeQuery].units.queryField[Entry.testResults].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="检测结果" />
+            <lang locale="zh_HK" value="檢測結果" />
+            <lang locale="zh_TW" value="檢測結果" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.OverhaulNoticeQuery].units.queryField[Entry.testResults].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.OverhaulNoticeQuery].units.queryField[Entry.testResults].extendedProperty.isCommonQuerySorter">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />

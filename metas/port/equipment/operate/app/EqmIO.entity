@@ -849,6 +849,66 @@
                 <key name="name" value="CFInstallAdress" />
             </mappingField>
         </ownProperty>
+        <ownProperty>
+            <name>transferType</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].properties.ownProperty[transferType].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].properties.ownProperty[transferType].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>Enum</dataType>
+            <metadataRef>com.kingdee.eas.port.equipment.base.enumbase.TransferType</metadataRef>
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>80</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].properties.ownProperty[transferType].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFTransferType" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>rentStart</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].properties.ownProperty[rentStart].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].properties.ownProperty[rentStart].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>Date</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>8</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].properties.ownProperty[rentStart].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFRentStart" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>rentEnd</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].properties.ownProperty[rentEnd].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].properties.ownProperty[rentEnd].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>Date</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>8</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].properties.ownProperty[rentEnd].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFRentEnd" />
+            </mappingField>
+        </ownProperty>
     </properties>
     <logicalKey>
         <name>id</name>
@@ -2468,6 +2528,200 @@
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].properties.ownProperty[oldInstallAdress].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].properties.ownProperty[rentEnd].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="租用截止日期" />
+            <lang locale="zh_HK" value="租用截止日期" />
+            <lang locale="zh_TW" value="租用截止日期" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].properties.ownProperty[rentEnd].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].properties.ownProperty[rentEnd].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="租用截止日期" />
+            <lang locale="zh_HK" value="租用截止日期" />
+            <lang locale="zh_TW" value="租用截止日期" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].properties.ownProperty[rentEnd].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].properties.ownProperty[rentEnd].extendedProperty.bizDataType">
+            <lang locale="en_US" value="DATE" />
+            <lang locale="zh_CN" value="DATE" />
+            <lang locale="zh_TW" value="DATE" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].properties.ownProperty[rentEnd].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].properties.ownProperty[rentEnd].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].properties.ownProperty[rentEnd].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].properties.ownProperty[rentEnd].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].properties.ownProperty[rentEnd].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].properties.ownProperty[rentEnd].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].properties.ownProperty[rentEnd].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].properties.ownProperty[rentStart].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="租用开始日期" />
+            <lang locale="zh_HK" value="租用開始日期" />
+            <lang locale="zh_TW" value="租用開始日期" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].properties.ownProperty[rentStart].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].properties.ownProperty[rentStart].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="租用开始日期" />
+            <lang locale="zh_HK" value="租用開始日期" />
+            <lang locale="zh_TW" value="租用開始日期" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].properties.ownProperty[rentStart].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].properties.ownProperty[rentStart].extendedProperty.bizDataType">
+            <lang locale="en_US" value="DATE" />
+            <lang locale="zh_CN" value="DATE" />
+            <lang locale="zh_TW" value="DATE" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].properties.ownProperty[rentStart].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].properties.ownProperty[rentStart].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].properties.ownProperty[rentStart].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].properties.ownProperty[rentStart].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].properties.ownProperty[rentStart].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].properties.ownProperty[rentStart].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].properties.ownProperty[rentStart].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].properties.ownProperty[transferType].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="调拨类型" />
+            <lang locale="zh_HK" value="調撥類型" />
+            <lang locale="zh_TW" value="調撥類型" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].properties.ownProperty[transferType].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="group" />
+            <lang locale="zh_HK" value="group" />
+            <lang locale="zh_TW" value="group" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].properties.ownProperty[transferType].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="调拨类型" />
+            <lang locale="zh_HK" value="調撥類型" />
+            <lang locale="zh_TW" value="調撥類型" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].properties.ownProperty[transferType].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].properties.ownProperty[transferType].extendedProperty.bizDataType">
+            <lang locale="en_US" value="ENUM" />
+            <lang locale="zh_CN" value="ENUM" />
+            <lang locale="zh_TW" value="ENUM" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].properties.ownProperty[transferType].extendedProperty.defaultValue">
+            <lang locale="en_US" value="group" />
+            <lang locale="zh_CN" value="group" />
+            <lang locale="zh_TW" value="group" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].properties.ownProperty[transferType].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].properties.ownProperty[transferType].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].properties.ownProperty[transferType].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].properties.ownProperty[transferType].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].properties.ownProperty[transferType].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].properties.ownProperty[transferType].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].properties.ownProperty[transferType].extendedProperty.isVisibleForKDTable">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />

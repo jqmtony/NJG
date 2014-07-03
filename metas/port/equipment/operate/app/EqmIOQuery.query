@@ -1288,6 +1288,99 @@
                 <key name="name" value="EqmIOQuery" />
             </query>
         </queryField>
+        <queryField>
+            <name>transferType</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.operate.app.EqmIOQuery].units.queryField[transferType].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>a90a366b-bc50-4fef-98f3-eaeff7ba85be</key>
+                    <parentUnit>
+                        <key name="name" value="transferType" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="EqmIO" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="transferType" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.operate.app" />
+                <key name="name" value="EqmIOQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>rentStart</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.operate.app.EqmIOQuery].units.queryField[rentStart].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Date</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>5462563c-f539-44ab-ac78-160604e62b39</key>
+                    <parentUnit>
+                        <key name="name" value="rentStart" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="EqmIO" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="rentStart" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.operate.app" />
+                <key name="name" value="EqmIOQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>rentEnd</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.operate.app.EqmIOQuery].units.queryField[rentEnd].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Date</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>660291b5-cfd6-49bf-b476-5f1044b1ea83</key>
+                    <parentUnit>
+                        <key name="name" value="rentEnd" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="EqmIO" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="rentEnd" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.operate.app" />
+                <key name="name" value="EqmIOQuery" />
+            </query>
+        </queryField>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -2050,6 +2143,38 @@
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.EqmIOQuery].units.queryField[rentEnd].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="租用截止日期" />
+            <lang locale="zh_HK" value="租用截止日期" />
+            <lang locale="zh_TW" value="租用截止日期" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.EqmIOQuery].units.queryField[rentEnd].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.EqmIOQuery].units.queryField[rentEnd].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.EqmIOQuery].units.queryField[rentStart].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="租用开始日期" />
+            <lang locale="zh_HK" value="租用開始日期" />
+            <lang locale="zh_TW" value="租用開始日期" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.EqmIOQuery].units.queryField[rentStart].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.EqmIOQuery].units.queryField[rentStart].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.EqmIOQuery].units.queryField[status].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="单据状态" />
@@ -2062,6 +2187,22 @@
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.EqmIOQuery].units.queryField[status].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.EqmIOQuery].units.queryField[transferType].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="调拨类型" />
+            <lang locale="zh_HK" value="調撥類型" />
+            <lang locale="zh_TW" value="調撥類型" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.EqmIOQuery].units.queryField[transferType].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.EqmIOQuery].units.queryField[transferType].extendedProperty.isCommonQuerySorter">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
