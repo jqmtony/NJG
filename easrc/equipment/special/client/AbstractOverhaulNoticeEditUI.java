@@ -362,26 +362,21 @@ public abstract class AbstractOverhaulNoticeEditUI extends com.kingdee.eas.xr.cl
         this.pkAuditTime.setTimeEnabled(true);		
         this.pkAuditTime.setEnabled(false);
         // pknoticeDate		
-        this.pknoticeDate.setVisible(true);		
         this.pknoticeDate.setRequired(false);
         // pkplanFinishDate		
-        this.pkplanFinishDate.setVisible(true);		
         this.pkplanFinishDate.setRequired(false);
         // scrollPanerequestContent
         // txtrequestContent		
-        this.txtrequestContent.setVisible(true);		
         this.txtrequestContent.setRequired(false);		
         this.txtrequestContent.setMaxLength(255);
         // scrollPanefeedback
         // txtfeedback		
-        this.txtfeedback.setVisible(true);		
         this.txtfeedback.setRequired(false);		
         this.txtfeedback.setMaxLength(1000);
         // pkbackDate		
-        this.pkbackDate.setVisible(true);		
         this.pkbackDate.setRequired(false);
         // kdtEntry
-		String kdtEntryStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style><c:Style id=\"sCol2\"><c:Protection locked=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"zdaNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"equipmentName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol2\" /><t:Column t:key=\"noCheckItem\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"checkContent\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"beizhu\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{zdaNumber}</t:Cell><t:Cell>$Resource{equipmentName}</t:Cell><t:Cell>$Resource{noCheckItem}</t:Cell><t:Cell>$Resource{checkContent}</t:Cell><t:Cell>$Resource{beizhu}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		String kdtEntryStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style><c:Style id=\"sCol2\"><c:Protection locked=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"zdaNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"equipmentName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol2\" /><t:Column t:key=\"testResults\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"noCheckItem\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"checkContent\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"beizhu\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{zdaNumber}</t:Cell><t:Cell>$Resource{equipmentName}</t:Cell><t:Cell>$Resource{testResults}</t:Cell><t:Cell>$Resource{noCheckItem}</t:Cell><t:Cell>$Resource{checkContent}</t:Cell><t:Cell>$Resource{beizhu}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.kdtEntry.setFormatXml(resHelper.translateString("kdtEntry",kdtEntryStrXML));
         kdtEntry.addKDTEditListener(new KDTEditAdapter() {
@@ -396,10 +391,18 @@ public abstract class AbstractOverhaulNoticeEditUI extends com.kingdee.eas.xr.cl
 	});
 
 
-                this.kdtEntry.putBindContents("editData",new String[] {"seq","zdaNumber","equipmentName","noCheckItem","checkContent","beizhu"});
+                this.kdtEntry.putBindContents("editData",new String[] {"seq","zdaNumber","equipmentName","testResults","noCheckItem","checkContent","beizhu"});
 
 
         this.kdtEntry.checkParsed();
+        KDFormattedTextField kdtEntry_seq_TextField = new KDFormattedTextField();
+        kdtEntry_seq_TextField.setName("kdtEntry_seq_TextField");
+        kdtEntry_seq_TextField.setVisible(true);
+        kdtEntry_seq_TextField.setEditable(true);
+        kdtEntry_seq_TextField.setHorizontalAlignment(2);
+        kdtEntry_seq_TextField.setDataType(0);
+        KDTDefaultCellEditor kdtEntry_seq_CellEditor = new KDTDefaultCellEditor(kdtEntry_seq_TextField);
+        this.kdtEntry.getColumn("seq").setEditor(kdtEntry_seq_CellEditor);
         final KDBizPromptBox kdtEntry_zdaNumber_PromptBox = new KDBizPromptBox();
         kdtEntry_zdaNumber_PromptBox.setQueryInfo("com.kingdee.eas.port.equipment.record.app.EquIdQuery");
         kdtEntry_zdaNumber_PromptBox.setVisible(true);
@@ -417,6 +420,12 @@ public abstract class AbstractOverhaulNoticeEditUI extends com.kingdee.eas.xr.cl
         kdtEntry_equipmentName_TextField.setMaxLength(80);
         KDTDefaultCellEditor kdtEntry_equipmentName_CellEditor = new KDTDefaultCellEditor(kdtEntry_equipmentName_TextField);
         this.kdtEntry.getColumn("equipmentName").setEditor(kdtEntry_equipmentName_CellEditor);
+        KDComboBox kdtEntry_testResults_ComboBox = new KDComboBox();
+        kdtEntry_testResults_ComboBox.setName("kdtEntry_testResults_ComboBox");
+        kdtEntry_testResults_ComboBox.setVisible(true);
+        kdtEntry_testResults_ComboBox.addItems(EnumUtils.getEnumList("com.kingdee.eas.port.equipment.base.enumbase.CheckResult").toArray());
+        KDTDefaultCellEditor kdtEntry_testResults_CellEditor = new KDTDefaultCellEditor(kdtEntry_testResults_ComboBox);
+        this.kdtEntry.getColumn("testResults").setEditor(kdtEntry_testResults_CellEditor);
         final KDBizPromptBox kdtEntry_noCheckItem_PromptBox = new KDBizPromptBox();
         kdtEntry_noCheckItem_PromptBox.setQueryInfo("com.kingdee.eas.port.equipment.base.app.SpecialCheckItemQuery");
         kdtEntry_noCheckItem_PromptBox.setVisible(true);
@@ -462,6 +471,8 @@ public abstract class AbstractOverhaulNoticeEditUI extends com.kingdee.eas.xr.cl
         // btnUnConRet
         this.btnUnConRet.setAction((IItemAction)ActionProxyFactory.getProxy(actionUnConRet, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnUnConRet.setText(resHelper.getString("btnUnConRet.text"));
+        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {pknoticeDate,pkplanFinishDate,txtrequestContent,txtfeedback,pkbackDate,comboStatus,comboBizStatus,pkAuditTime,txtNumber,pkBizDate,txtDescription,prmtAuditor,prmtCreator,pkCreateTime,prmtLastUpdateUser,pkLastUpdateTime,prmtCU,kdtEntry}));
+        this.setFocusCycleRoot(true);
 		//Register control's property binding
 		registerBindings();
 		registerUIState();
@@ -566,6 +577,14 @@ public abstract class AbstractOverhaulNoticeEditUI extends com.kingdee.eas.xr.cl
         //kDContainer1
 kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtEntry,new com.kingdee.eas.port.equipment.special.OverhaulNoticeEntryInfo(),null,false);
         kDContainer1.getContentPane().add(kdtEntry_detailPanel, BorderLayout.CENTER);
+		kdtEntry_detailPanel.addAddListener(new com.kingdee.eas.framework.client.multiDetail.IDetailPanelListener() {
+			public void beforeEvent(com.kingdee.eas.framework.client.multiDetail.DetailPanelEvent event) throws Exception {
+				IObjectValue vo = event.getObjectValue();
+vo.put("testResults","0");
+			}
+			public void afterEvent(com.kingdee.eas.framework.client.multiDetail.DetailPanelEvent event) throws Exception {
+			}
+		});
 
     }
 
@@ -764,7 +783,8 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
 		dataBinder.registerBinding("Entry.equipmentName", String.class, this.kdtEntry, "equipmentName.text");
 		dataBinder.registerBinding("Entry.noCheckItem", java.lang.Object.class, this.kdtEntry, "noCheckItem.text");
 		dataBinder.registerBinding("Entry.checkContent", String.class, this.kdtEntry, "checkContent.text");
-		dataBinder.registerBinding("Entry.beizhu", String.class, this.kdtEntry, "beizhu.text");		
+		dataBinder.registerBinding("Entry.beizhu", String.class, this.kdtEntry, "beizhu.text");
+		dataBinder.registerBinding("Entry.testResults", com.kingdee.util.enums.Enum.class, this.kdtEntry, "testResults.text");		
 	}
 	//Regiester UI State
 	private void registerUIState(){		
@@ -790,6 +810,14 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
     }
 
 
+    /**
+     * output onShow method
+     */
+    public void onShow() throws Exception
+    {
+        super.onShow();
+        this.pknoticeDate.requestFocusInWindow();
+    }
 
 	
 	
@@ -914,7 +942,8 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
 		getValidateHelper().registerBindProperty("Entry.equipmentName", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("Entry.noCheckItem", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("Entry.checkContent", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("Entry.beizhu", ValidateHelper.ON_SAVE);    		
+		getValidateHelper().registerBindProperty("Entry.beizhu", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("Entry.testResults", ValidateHelper.ON_SAVE);    		
 	}
 
 
@@ -1033,6 +1062,7 @@ kdtEntry.getCell(rowIndex,"equipmentName").setValue(com.kingdee.bos.ui.face.UIRu
 		}
     	sic.add(new SelectorItemInfo("Entry.checkContent"));
     	sic.add(new SelectorItemInfo("Entry.beizhu"));
+    	sic.add(new SelectorItemInfo("Entry.testResults"));
         return sic;
     }        
     	

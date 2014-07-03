@@ -66,6 +66,9 @@ public abstract class AbstractEqmIOEditUI extends com.kingdee.eas.xr.client.XRBi
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contoldUseingDept;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contuseingOrgUnit;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer continstallAdress;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer conttransferType;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contrentStart;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contrentEnd;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtCreator;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkCreateTime;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtLastUpdateUser;
@@ -86,6 +89,9 @@ public abstract class AbstractEqmIOEditUI extends com.kingdee.eas.xr.client.XRBi
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtoldUseingDept;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtuseingOrgUnit;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtinstallAdress;
+    protected com.kingdee.bos.ctrl.swing.KDComboBox transferType;
+    protected com.kingdee.bos.ctrl.swing.KDDatePicker pkrentStart;
+    protected com.kingdee.bos.ctrl.swing.KDDatePicker pkrentEnd;
     protected com.kingdee.eas.port.equipment.operate.EqmIOInfo editData = null;
     /**
      * output class constructor
@@ -156,6 +162,9 @@ public abstract class AbstractEqmIOEditUI extends com.kingdee.eas.xr.client.XRBi
         this.contoldUseingDept = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contuseingOrgUnit = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.continstallAdress = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.conttransferType = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contrentStart = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contrentEnd = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.prmtCreator = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.pkCreateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.prmtLastUpdateUser = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
@@ -176,6 +185,9 @@ public abstract class AbstractEqmIOEditUI extends com.kingdee.eas.xr.client.XRBi
         this.prmtoldUseingDept = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.prmtuseingOrgUnit = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.txtinstallAdress = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.transferType = new com.kingdee.bos.ctrl.swing.KDComboBox();
+        this.pkrentStart = new com.kingdee.bos.ctrl.swing.KDDatePicker();
+        this.pkrentEnd = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.contCreator.setName("contCreator");
         this.contCreateTime.setName("contCreateTime");
         this.contLastUpdateUser.setName("contLastUpdateUser");
@@ -196,6 +208,9 @@ public abstract class AbstractEqmIOEditUI extends com.kingdee.eas.xr.client.XRBi
         this.contoldUseingDept.setName("contoldUseingDept");
         this.contuseingOrgUnit.setName("contuseingOrgUnit");
         this.continstallAdress.setName("continstallAdress");
+        this.conttransferType.setName("conttransferType");
+        this.contrentStart.setName("contrentStart");
+        this.contrentEnd.setName("contrentEnd");
         this.prmtCreator.setName("prmtCreator");
         this.pkCreateTime.setName("pkCreateTime");
         this.prmtLastUpdateUser.setName("prmtLastUpdateUser");
@@ -216,6 +231,9 @@ public abstract class AbstractEqmIOEditUI extends com.kingdee.eas.xr.client.XRBi
         this.prmtoldUseingDept.setName("prmtoldUseingDept");
         this.prmtuseingOrgUnit.setName("prmtuseingOrgUnit");
         this.txtinstallAdress.setName("txtinstallAdress");
+        this.transferType.setName("transferType");
+        this.pkrentStart.setName("pkrentStart");
+        this.pkrentEnd.setName("pkrentEnd");
         // CoreUI
         // contCreator		
         this.contCreator.setBoundLabelText(resHelper.getString("contCreator.boundLabelText"));		
@@ -313,6 +331,21 @@ public abstract class AbstractEqmIOEditUI extends com.kingdee.eas.xr.client.XRBi
         this.continstallAdress.setBoundLabelLength(100);		
         this.continstallAdress.setBoundLabelUnderline(true);		
         this.continstallAdress.setVisible(true);
+        // conttransferType		
+        this.conttransferType.setBoundLabelText(resHelper.getString("conttransferType.boundLabelText"));		
+        this.conttransferType.setBoundLabelLength(100);		
+        this.conttransferType.setBoundLabelUnderline(true);		
+        this.conttransferType.setVisible(true);
+        // contrentStart		
+        this.contrentStart.setBoundLabelText(resHelper.getString("contrentStart.boundLabelText"));		
+        this.contrentStart.setBoundLabelLength(100);		
+        this.contrentStart.setBoundLabelUnderline(true);		
+        this.contrentStart.setVisible(true);
+        // contrentEnd		
+        this.contrentEnd.setBoundLabelText(resHelper.getString("contrentEnd.boundLabelText"));		
+        this.contrentEnd.setBoundLabelLength(100);		
+        this.contrentEnd.setBoundLabelUnderline(true);		
+        this.contrentEnd.setVisible(true);
         // prmtCreator		
         this.prmtCreator.setEnabled(false);		
         this.prmtCreator.setCommitFormat("$name$");		
@@ -441,7 +474,17 @@ public abstract class AbstractEqmIOEditUI extends com.kingdee.eas.xr.client.XRBi
         this.txtinstallAdress.setHorizontalAlignment(2);		
         this.txtinstallAdress.setMaxLength(100);		
         this.txtinstallAdress.setRequired(false);
-        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmteqmNumber,txteqmName,prmtoutOrgUnit,prmtoldUseingDept,txtoldInstallAdress,prmtInOrgUnit,prmtuseingOrgUnit,txtinstallAdress}));
+        // transferType		
+        this.transferType.setVisible(true);		
+        this.transferType.addItems(EnumUtils.getEnumList("com.kingdee.eas.port.equipment.base.enumbase.TransferType").toArray());		
+        this.transferType.setRequired(false);
+        // pkrentStart		
+        this.pkrentStart.setVisible(true);		
+        this.pkrentStart.setRequired(false);
+        // pkrentEnd		
+        this.pkrentEnd.setVisible(true);		
+        this.pkrentEnd.setRequired(false);
+        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmteqmNumber,txteqmName,prmtoutOrgUnit,prmtoldUseingDept,txtoldInstallAdress,prmtInOrgUnit,prmtuseingOrgUnit,txtinstallAdress,transferType,pkrentStart,pkrentEnd}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
 		registerBindings();
@@ -470,30 +513,30 @@ public abstract class AbstractEqmIOEditUI extends com.kingdee.eas.xr.client.XRBi
         this.setBounds(new Rectangle(10, 10, 1013, 629));
         this.setLayout(new KDLayout());
         this.putClientProperty("OriginalBounds", new Rectangle(10, 10, 1013, 629));
-        contCreator.setBounds(new Rectangle(10, 154, 270, 19));
-        this.add(contCreator, new KDLayout.Constraints(10, 154, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contCreateTime.setBounds(new Rectangle(10, 178, 270, 19));
-        this.add(contCreateTime, new KDLayout.Constraints(10, 178, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contLastUpdateUser.setBounds(new Rectangle(341, 154, 270, 19));
-        this.add(contLastUpdateUser, new KDLayout.Constraints(341, 154, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contLastUpdateTime.setBounds(new Rectangle(341, 178, 270, 19));
-        this.add(contLastUpdateTime, new KDLayout.Constraints(341, 178, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contCreator.setBounds(new Rectangle(10, 177, 270, 19));
+        this.add(contCreator, new KDLayout.Constraints(10, 177, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contCreateTime.setBounds(new Rectangle(10, 201, 270, 19));
+        this.add(contCreateTime, new KDLayout.Constraints(10, 201, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contLastUpdateUser.setBounds(new Rectangle(341, 177, 270, 19));
+        this.add(contLastUpdateUser, new KDLayout.Constraints(341, 177, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contLastUpdateTime.setBounds(new Rectangle(341, 201, 270, 19));
+        this.add(contLastUpdateTime, new KDLayout.Constraints(341, 201, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contCU.setBounds(new Rectangle(689, 317, 270, 19));
         this.add(contCU, new KDLayout.Constraints(689, 317, 270, 19, 0));
         contNumber.setBounds(new Rectangle(27, 317, 270, 19));
         this.add(contNumber, new KDLayout.Constraints(27, 317, 270, 19, 0));
         contBizDate.setBounds(new Rectangle(358, 317, 270, 19));
         this.add(contBizDate, new KDLayout.Constraints(358, 317, 270, 19, 0));
-        contDescription.setBounds(new Rectangle(10, 64, 933, 54));
-        this.add(contDescription, new KDLayout.Constraints(10, 64, 933, 54, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contAuditor.setBounds(new Rectangle(672, 154, 270, 19));
-        this.add(contAuditor, new KDLayout.Constraints(672, 154, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contDescription.setBounds(new Rectangle(10, 90, 933, 54));
+        this.add(contDescription, new KDLayout.Constraints(10, 90, 933, 54, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contAuditor.setBounds(new Rectangle(672, 177, 270, 19));
+        this.add(contAuditor, new KDLayout.Constraints(672, 177, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contStatus.setBounds(new Rectangle(27, 341, 270, 19));
         this.add(contStatus, new KDLayout.Constraints(27, 341, 270, 19, 0));
         contBizStatus.setBounds(new Rectangle(358, 341, 270, 19));
         this.add(contBizStatus, new KDLayout.Constraints(358, 341, 270, 19, 0));
-        contAuditTime.setBounds(new Rectangle(672, 178, 270, 19));
-        this.add(contAuditTime, new KDLayout.Constraints(672, 178, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contAuditTime.setBounds(new Rectangle(672, 201, 270, 19));
+        this.add(contAuditTime, new KDLayout.Constraints(672, 201, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         conteqmNumber.setBounds(new Rectangle(10, 10, 270, 19));
         this.add(conteqmNumber, new KDLayout.Constraints(10, 10, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         conteqmName.setBounds(new Rectangle(341, 10, 270, 19));
@@ -502,14 +545,20 @@ public abstract class AbstractEqmIOEditUI extends com.kingdee.eas.xr.client.XRBi
         this.add(contoutOrgUnit, new KDLayout.Constraints(672, 10, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contoldInstallAdress.setBounds(new Rectangle(341, 34, 270, 19));
         this.add(contoldInstallAdress, new KDLayout.Constraints(341, 34, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contInOrgUnit.setBounds(new Rectangle(10, 130, 270, 19));
-        this.add(contInOrgUnit, new KDLayout.Constraints(10, 130, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contInOrgUnit.setBounds(new Rectangle(10, 153, 270, 19));
+        this.add(contInOrgUnit, new KDLayout.Constraints(10, 153, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contoldUseingDept.setBounds(new Rectangle(10, 34, 270, 19));
         this.add(contoldUseingDept, new KDLayout.Constraints(10, 34, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contuseingOrgUnit.setBounds(new Rectangle(341, 130, 270, 19));
-        this.add(contuseingOrgUnit, new KDLayout.Constraints(341, 130, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        continstallAdress.setBounds(new Rectangle(672, 130, 270, 19));
-        this.add(continstallAdress, new KDLayout.Constraints(672, 130, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contuseingOrgUnit.setBounds(new Rectangle(341, 153, 270, 19));
+        this.add(contuseingOrgUnit, new KDLayout.Constraints(341, 153, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        continstallAdress.setBounds(new Rectangle(672, 153, 270, 19));
+        this.add(continstallAdress, new KDLayout.Constraints(672, 153, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        conttransferType.setBounds(new Rectangle(10, 60, 270, 19));
+        this.add(conttransferType, new KDLayout.Constraints(10, 60, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contrentStart.setBounds(new Rectangle(341, 60, 270, 19));
+        this.add(contrentStart, new KDLayout.Constraints(341, 60, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contrentEnd.setBounds(new Rectangle(672, 60, 270, 19));
+        this.add(contrentEnd, new KDLayout.Constraints(672, 60, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         //contCreator
         contCreator.setBoundEditor(prmtCreator);
         //contCreateTime
@@ -550,6 +599,12 @@ public abstract class AbstractEqmIOEditUI extends com.kingdee.eas.xr.client.XRBi
         contuseingOrgUnit.setBoundEditor(prmtuseingOrgUnit);
         //continstallAdress
         continstallAdress.setBoundEditor(txtinstallAdress);
+        //conttransferType
+        conttransferType.setBoundEditor(transferType);
+        //contrentStart
+        contrentStart.setBoundEditor(pkrentStart);
+        //contrentEnd
+        contrentEnd.setBoundEditor(pkrentEnd);
 
     }
 
@@ -742,7 +797,10 @@ public abstract class AbstractEqmIOEditUI extends com.kingdee.eas.xr.client.XRBi
 		dataBinder.registerBinding("InOrgUnit", com.kingdee.eas.basedata.org.AdminOrgUnitInfo.class, this.prmtInOrgUnit, "data");
 		dataBinder.registerBinding("oldUseingDept", com.kingdee.eas.basedata.org.AdminOrgUnitInfo.class, this.prmtoldUseingDept, "data");
 		dataBinder.registerBinding("useingOrgUnit", com.kingdee.eas.basedata.org.AdminOrgUnitInfo.class, this.prmtuseingOrgUnit, "data");
-		dataBinder.registerBinding("installAdress", String.class, this.txtinstallAdress, "text");		
+		dataBinder.registerBinding("installAdress", String.class, this.txtinstallAdress, "text");
+		dataBinder.registerBinding("transferType", com.kingdee.eas.port.equipment.base.enumbase.TransferType.class, this.transferType, "selectedItem");
+		dataBinder.registerBinding("rentStart", java.util.Date.class, this.pkrentStart, "value");
+		dataBinder.registerBinding("rentEnd", java.util.Date.class, this.pkrentEnd, "value");		
 	}
 	//Regiester UI State
 	private void registerUIState(){		
@@ -896,7 +954,10 @@ public abstract class AbstractEqmIOEditUI extends com.kingdee.eas.xr.client.XRBi
 		getValidateHelper().registerBindProperty("InOrgUnit", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("oldUseingDept", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("useingOrgUnit", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("installAdress", ValidateHelper.ON_SAVE);    		
+		getValidateHelper().registerBindProperty("installAdress", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("transferType", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("rentStart", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("rentEnd", ValidateHelper.ON_SAVE);    		
 	}
 
 
@@ -1042,6 +1103,9 @@ public abstract class AbstractEqmIOEditUI extends com.kingdee.eas.xr.client.XRBi
         	sic.add(new SelectorItemInfo("useingOrgUnit.name"));
 		}
         sic.add(new SelectorItemInfo("installAdress"));
+        sic.add(new SelectorItemInfo("transferType"));
+        sic.add(new SelectorItemInfo("rentStart"));
+        sic.add(new SelectorItemInfo("rentEnd"));
         return sic;
     }        
     	
@@ -1145,6 +1209,8 @@ public abstract class AbstractEqmIOEditUI extends com.kingdee.eas.xr.client.XRBi
      * output applyDefaultValue method
      */
     protected void applyDefaultValue(IObjectValue vo) {        
+		vo.put("transferType","1");
+        
     }        
 	protected void setFieldsNull(com.kingdee.bos.dao.AbstractObjectValue arg0) {
 		super.setFieldsNull(arg0);

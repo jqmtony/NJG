@@ -34,6 +34,8 @@ import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.eas.xr.app.XRBillBaseControllerBean;
 import com.kingdee.eas.framework.CoreBillBaseCollection;
 import com.kingdee.eas.framework.CoreBaseInfo;
+import com.kingdee.eas.port.equipment.base.enumbase.TransferType;
+import com.kingdee.eas.port.equipment.base.enumbase.nowStatusType;
 import com.kingdee.eas.port.equipment.operate.EqmIOCollection;
 import com.kingdee.eas.framework.ObjectBaseCollection;
 import com.kingdee.eas.port.equipment.operate.EqmIOInfo;
@@ -52,9 +54,16 @@ public class EqmIOControllerBean extends AbstractEqmIOControllerBean
     	if(eoInfo.getEqmNumber()!=null){
     		String id = ((EquIdInfo)eoInfo.getEqmNumber()).getId().toString();
     		EquIdInfo edInfo = EquIdFactory.getLocalInstance(ctx).getEquIdInfo(new ObjectUuidPK(id));
-    		if(eoInfo.getInOrgUnit()!=null&&eoInfo.getUseingOrgUnit()!=null){
+    		if(eoInfo.getInOrgUnit()!=null&&eoInfo.getUseingOrgUnit()!=null&&eoInfo.getInstallAdress() != null){
     			edInfo.setSsOrgUnit(eoInfo.getInOrgUnit());
         		edInfo.setUsingDept(eoInfo.getUseingOrgUnit());
+        		edInfo.setLocation(eoInfo.getInstallAdress());
+    		}
+    		if(eoInfo.getTransferType()!=null&&eoInfo.getTransferType().equals(TransferType.group)){
+    			edInfo.setNowStatus(nowStatusType.rent);
+    		}
+    		if(eoInfo.getTransferType()!=null&&eoInfo.getTransferType().equals(TransferType.assetstran)){
+    			edInfo.setNowStatus(nowStatusType.assetstran);
     		}
     		EquIdFactory.getLocalInstance(ctx).update(new ObjectUuidPK(edInfo.getId()), edInfo);
     	}
@@ -68,10 +77,12 @@ public class EqmIOControllerBean extends AbstractEqmIOControllerBean
     	if(eoInfo.getEqmNumber()!=null){
     		String id = ((EquIdInfo)eoInfo.getEqmNumber()).getId().toString();
     		EquIdInfo edInfo = EquIdFactory.getLocalInstance(ctx).getEquIdInfo(new ObjectUuidPK(id));
-    		if(eoInfo.getOutOrgUnit()!=null&&eoInfo.getOldUseingDept()!=null){
+    		if(eoInfo.getOutOrgUnit()!=null&&eoInfo.getOldUseingDept()!=null&&eoInfo.getOldInstallAdress()!=null){
     			edInfo.setSsOrgUnit(eoInfo.getOutOrgUnit());
         		edInfo.setUsingDept(eoInfo.getOldUseingDept());
+        		edInfo.setLocation(eoInfo.getOldInstallAdress());
     		}
+    		edInfo.setNowStatus(nowStatusType.NULL);
     		EquIdFactory.getLocalInstance(ctx).update(new ObjectUuidPK(edInfo.getId()), edInfo);
     	}
     }

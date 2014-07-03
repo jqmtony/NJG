@@ -83,6 +83,19 @@ public class AbstractOverhaulNoticeEntryInfo extends com.kingdee.eas.framework.C
     {
         setString("beizhu", item);
     }
+    /**
+     * Object:整改明细's 检测结果property 
+     */
+    public com.kingdee.eas.port.equipment.base.enumbase.CheckResult getTestResults()
+    {
+        return com.kingdee.eas.port.equipment.base.enumbase.CheckResult.getEnum(getString("testResults"));
+    }
+    public void setTestResults(com.kingdee.eas.port.equipment.base.enumbase.CheckResult item)
+    {
+		if (item != null) {
+        setString("testResults", item.getValue());
+		}
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("50CA390C");

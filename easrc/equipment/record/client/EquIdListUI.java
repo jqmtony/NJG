@@ -775,6 +775,7 @@ public class EquIdListUI extends AbstractEquIdListUI
 		btnoutUse.setIcon(EASResource.getIcon("imgTbtn_stopturnin"));
 		btnExcel.setIcon(EASResource.getIcon("imgTbtn_input"));
 		btnExcelFoced.setIcon(EASResource.getIcon("imgTbtn_dcdwj"));
+		btnExcelEqu.setIcon(EASResource.getIcon("imgTbtn_inputoutput"));
 	}
 	
 	

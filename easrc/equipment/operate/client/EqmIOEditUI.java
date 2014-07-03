@@ -12,6 +12,7 @@ import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.eas.basedata.org.AdminOrgUnitFactory;
@@ -20,6 +21,7 @@ import com.kingdee.eas.basedata.org.client.f7.AdminF7;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.cp.bc.BizCollUtil;
 import com.kingdee.eas.framework.*;
+import com.kingdee.eas.port.equipment.base.enumbase.TransferType;
 import com.kingdee.eas.port.equipment.record.EquIdInfo;
 import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
 import com.kingdee.eas.util.SysUtil;
@@ -66,6 +68,7 @@ public class EqmIOEditUI extends AbstractEqmIOEditUI
 		if (prmteqmNumber.getValue() == null) {
 			prmtoutOrgUnit.setValue(null);
 			prmtoldUseingDept.setValue(null);
+			txtoldInstallAdress.setText(null);
 			return;
 		}
 		EquIdInfo eqmInfo = (EquIdInfo)prmteqmNumber.getValue();
@@ -82,6 +85,11 @@ public class EqmIOEditUI extends AbstractEqmIOEditUI
 			prmtoldUseingDept.setValue(usingDept);
 		}else{
 			prmtoldUseingDept.setValue(null);
+		}
+		if(eqmInfo.getLocation() != null){
+			txtoldInstallAdress.setText(eqmInfo.getLocation());
+		}else{
+			txtoldInstallAdress.setText(null);
 		}
 	}
 	/**
@@ -755,6 +763,33 @@ public class EqmIOEditUI extends AbstractEqmIOEditUI
 		prmteqmNumber.setRequired(true);
 		prmtInOrgUnit.setRequired(true);
 		prmtuseingOrgUnit.setRequired(true);
+		
+		if(transferType.getSelectedItem() != null){
+			if(transferType.getSelectedItem().equals(TransferType.group)){
+				pkrentStart.setEnabled(true);
+				pkrentEnd.setEnabled(true);
+			}
+			if(transferType.getSelectedItem().equals(TransferType.assetstran)){
+				pkrentStart.setEnabled(false);
+				pkrentEnd.setEnabled(false);
+				pkrentStart.setValue(null);
+				pkrentEnd.setValue(null);
+			}
+		}
+		transferType.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				if(transferType.getSelectedItem().equals(TransferType.group)){
+					pkrentStart.setEnabled(true);
+					pkrentEnd.setEnabled(true);
+				}
+				if(transferType.getSelectedItem().equals(TransferType.assetstran)){
+					pkrentStart.setEnabled(false);
+					pkrentEnd.setEnabled(false);
+					pkrentStart.setValue(null);
+					pkrentEnd.setValue(null);
+				}
+			}
+		});
 	}
 	
 	protected void prmtInOrgUnit_dataChanged(DataChangeEvent e)throws Exception {
@@ -774,7 +809,7 @@ public class EqmIOEditUI extends AbstractEqmIOEditUI
 		}
 	}
 	protected void verifyInput(ActionEvent actionevent) throws Exception {
-		super.verifyInput(actionevent);
+	
 		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(prmteqmNumber.getValue())) {
 			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"设备编号"});
 		}
@@ -784,5 +819,31 @@ public class EqmIOEditUI extends AbstractEqmIOEditUI
 		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(prmtuseingOrgUnit.getValue())) {
 			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"使用部门"});
 		}
+		if(transferType.getSelectedItem().equals(TransferType.group)){
+			
+			  if(UIRuleUtil.isNull(this.pkrentStart.getValue())&&UIRuleUtil.isNull(this.pkrentEnd.getValue())){
+			    	MsgBox.showInfo("调拨类型为集团内租用，请填写租用开始日期和租用截止日期！");
+					SysUtil.abort();
+				}
+			if(UIRuleUtil.isNull(this.pkrentStart.getValue())){
+				MsgBox.showInfo("调拨类型为集团内租用，请填写租用开始日期！");
+				SysUtil.abort();
+			}
+		    if(UIRuleUtil.isNull(this.pkrentEnd.getValue())){
+		    	MsgBox.showInfo("调拨类型为集团内租用，请填写租用截止日期！");
+				SysUtil.abort();
+			}
+		  
+			
+		}
+		if(!UIRuleUtil.isNull(this.pkrentStart.getValue())&&!UIRuleUtil.isNull(this.pkrentEnd.getValue())){
+			if(pkrentEnd.getSqlDate().before(pkrentStart.getSqlDate())){
+				MsgBox.showInfo("租用开始日期不能晚于租用截止日期！");
+				SysUtil.abort();
+			}
+		}
+		
+		super.verifyInput(actionevent);
 	}
+
 }

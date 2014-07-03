@@ -105,6 +105,41 @@ public class AbstractEqmIOInfo extends com.kingdee.eas.xr.XRBillBaseInfo impleme
     {
         setString("installAdress", item);
     }
+    /**
+     * Object:设备调出调入's 调拨类型property 
+     */
+    public com.kingdee.eas.port.equipment.base.enumbase.TransferType getTransferType()
+    {
+        return com.kingdee.eas.port.equipment.base.enumbase.TransferType.getEnum(getString("transferType"));
+    }
+    public void setTransferType(com.kingdee.eas.port.equipment.base.enumbase.TransferType item)
+    {
+		if (item != null) {
+        setString("transferType", item.getValue());
+		}
+    }
+    /**
+     * Object:设备调出调入's 租用开始日期property 
+     */
+    public java.util.Date getRentStart()
+    {
+        return getDate("rentStart");
+    }
+    public void setRentStart(java.util.Date item)
+    {
+        setDate("rentStart", item);
+    }
+    /**
+     * Object:设备调出调入's 租用截止日期property 
+     */
+    public java.util.Date getRentEnd()
+    {
+        return getDate("rentEnd");
+    }
+    public void setRentEnd(java.util.Date item)
+    {
+        setDate("rentEnd", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("A4EDF708");

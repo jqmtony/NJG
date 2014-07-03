@@ -56,8 +56,11 @@ import com.kingdee.eas.base.attachment.client.AttachmentUIContextInfo;
 import com.kingdee.eas.base.attachment.common.AttachmentClientManager;
 import com.kingdee.eas.base.attachment.common.AttachmentManagerFactory;
 import com.kingdee.eas.base.attachment.util.FileGetter;
+import com.kingdee.eas.basedata.org.CtrlUnitInfo;
+import com.kingdee.eas.basedata.org.OrgConstants;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.OprtState;
+import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.common.client.UIContext;
 import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.framework.ICoreBase;
@@ -106,6 +109,8 @@ public class AttachmentNjpListUI extends AbstractAttachmentNjpListUI
     	this.actionView.setVisible(false);
     	this.actionEdit.setVisible(false);
     	this.actionRemove.setVisible(false);
+    	
+    	this.setUITitle("设备法规制度");
     }
 	
     protected void kDTable1_doRequestRowSet(RequestRowSetEvent e) {
@@ -147,11 +152,20 @@ public class AttachmentNjpListUI extends AbstractAttachmentNjpListUI
         }
     }
     
+    
+    //去除CU隔离
+	protected boolean isIgnoreCUFilter() {
+		return true;
+	}
+
     protected IQueryExecutor getQueryExecutor(IMetaDataPK queryPK,EntityViewInfo viewInfo) {
     	EntityViewInfo newInfo = (EntityViewInfo)viewInfo.clone();
     	FilterInfo filInfo = new FilterInfo();
+    	CtrlUnitInfo CTRLiNFO  = SysContext.getSysContext().getCurrentCtrlUnit();
     	filInfo.getFilterItems().add(new FilterItemInfo("RegulationsEntry.id",null,CompareType.ISNOT));
-    	
+    	filInfo.getFilterItems().add(new FilterItemInfo("cu.longNumber",CTRLiNFO.getLongNumber()+"%",CompareType.LIKE));
+    	filInfo.getFilterItems().add(new FilterItemInfo("cu.id",OrgConstants.DEF_CU_ID,CompareType.EQUALS));
+    	filInfo.setMaskString("#0 and (#1 or #2)");
     	if(newInfo.getFilter()!=null)
     	{
     		try {
@@ -372,9 +386,7 @@ public class AttachmentNjpListUI extends AbstractAttachmentNjpListUI
 		}
 	}
 	
-	protected boolean isIgnoreCUFilter() {
-		return true;
-	}
+
 
 	protected ICoreBase getBizInterface() throws Exception {
 		return AttachmentFactory.getRemoteInstance();
@@ -454,5 +466,5 @@ public class AttachmentNjpListUI extends AbstractAttachmentNjpListUI
 	      
 	}  
 	
-
+	 
 }
