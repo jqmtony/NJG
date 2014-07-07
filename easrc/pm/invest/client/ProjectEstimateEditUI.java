@@ -27,19 +27,30 @@ import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.UIRuleUtil;
+import com.kingdee.eas.base.uiframe.client.UIFactoryHelper;
 import com.kingdee.eas.basedata.assistant.IProject;
 import com.kingdee.eas.basedata.assistant.ProjectFactory;
 import com.kingdee.eas.basedata.assistant.ProjectInfo;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.OprtState;
+import com.kingdee.eas.common.client.UIContext;
 import com.kingdee.eas.framework.CoreBaseInfo;
 import com.kingdee.eas.port.pm.base.CostTypeTreeFactory;
 import com.kingdee.eas.port.pm.base.ICostType;
 import com.kingdee.eas.port.pm.base.ICostTypeTree;
+import com.kingdee.eas.port.pm.base.InvestYearFactory;
+import com.kingdee.eas.port.pm.base.InvestYearInfo;
 import com.kingdee.eas.port.pm.invest.CostTempE1Collection;
 import com.kingdee.eas.port.pm.invest.CostTempE1Info;
 import com.kingdee.eas.port.pm.invest.CostTempInfo;
 import com.kingdee.eas.port.pm.invest.ProjectEstimateFactory;
+import com.kingdee.eas.port.pm.invest.YearInvestPlanCollection;
+import com.kingdee.eas.port.pm.invest.YearInvestPlanFactory;
+import com.kingdee.eas.port.pm.invest.YearInvestPlanInfo;
+import com.kingdee.eas.port.pm.invest.investplan.IProgramming;
+import com.kingdee.eas.port.pm.invest.investplan.ProgrammingFactory;
+import com.kingdee.eas.port.pm.invest.investplan.ProgrammingInfo;
+import com.kingdee.eas.port.pm.invest.investplan.client.ProgrammingEditUI;
 import com.kingdee.eas.port.pm.invest.uitls.F7ProjectDialog;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.MsgBox;
@@ -68,8 +79,9 @@ public class ProjectEstimateEditUI extends AbstractProjectEstimateEditUI
         this.attachListeners();
     }
 
+    ProgrammingEditUI programmingEditUI = null;
     /**
-     * output storeFields method
+     * output onLoad method
      */
     public void onLoad() throws Exception {
     	super.onLoad();
@@ -94,6 +106,28 @@ public class ProjectEstimateEditUI extends AbstractProjectEstimateEditUI
 		kdtE1_costType_OVR.setFormat(new BizDataFormat("$E1.costType.name$"));
 		this.kdtE1.getColumn("costType").setRenderer(kdtE1_costType_OVR);
 		
+		//加载投资规划编辑界面
+    	UIContext uiContext = new UIContext(this);
+    	String number = this.txtNumber.getText();
+    	String oql = "where SourceBillId='"+number+"'";
+    	boolean flse = true;
+    	if(ProgrammingFactory.getRemoteInstance().exists(oql))
+    	{
+    		uiContext.put("ID", ProgrammingFactory.getRemoteInstance().getProgrammingCollection(oql).get(0).getId());
+    		flse = false;
+    	}
+    	else
+    	{
+    		uiContext.put("PlanNumber",number);
+    	}
+        programmingEditUI = (ProgrammingEditUI) UIFactoryHelper.initUIObject(ProgrammingEditUI.class.getName(), uiContext, null, flse?"ADDNEW":getOprtState());
+        
+        kDScrollPane1.setViewportView(programmingEditUI);
+        kDScrollPane1.setKeyBoardControl(true);
+        kDScrollPane1.setEnabled(false);
+		
+		
+		
 		FilterInfo filter = new FilterInfo();
 		filter.getFilterItems().add(new FilterItemInfo("NJGprojectType.name","基本建设",com.kingdee.bos.metadata.query.util.CompareType.EQUALS));
 //		EntityViewInfo view = new EntityViewInfo();
@@ -106,20 +140,21 @@ public class ProjectEstimateEditUI extends AbstractProjectEstimateEditUI
 		
 		this.prmtprojectName.setSelector(f7Projs);
     }
+    
     public void storeFields()
     {
         super.storeFields();
     }
     protected void verifyInput(ActionEvent actionevent) throws Exception {
-    	BigDecimal proportionCount = com.kingdee.eas.xr.helper.TableXRHelper.getColumnValueSum(this.kdtE1,"proportion");
-    	 if(proportionCount.compareTo(new BigDecimal(100.00))!=0){
-    		MsgBox.showWarning("请确定占总投资总和为100！");abort();
-    	} 
-    	BigDecimal totalCount = com.kingdee.eas.xr.helper.TableXRHelper.getColumnValueSum(this.kdtE1,"total");
-    	BigDecimal esamount =this.txtestimateAmount.getBigDecimalValue();
-    	if(esamount.compareTo(totalCount)!=0){
-    		MsgBox.showWarning("请确定估算金额等于合计总金额！");abort();
-    	}
+//    	BigDecimal proportionCount = com.kingdee.eas.xr.helper.TableXRHelper.getColumnValueSum(this.kdtE1,"proportion");
+//    	 if(proportionCount.compareTo(new BigDecimal(100.00))!=0){
+//    		MsgBox.showWarning("请确定占总投资总和为100！");abort();
+//    	} 
+//    	BigDecimal totalCount = com.kingdee.eas.xr.helper.TableXRHelper.getColumnValueSum(this.kdtE1,"total");
+//    	BigDecimal esamount =this.txtestimateAmount.getBigDecimalValue();
+//    	if(esamount.compareTo(totalCount)!=0){
+//    		MsgBox.showWarning("请确定估算金额等于合计总金额！");abort();
+//    	}
     	super.verifyInput(actionevent);
     }
     /**
@@ -127,38 +162,90 @@ public class ProjectEstimateEditUI extends AbstractProjectEstimateEditUI
      */
     protected void prmttempName_dataChanged(DataChangeEvent e) throws Exception {
     	super.prmttempName_dataChanged(e);
-    	if(prmttempName.getValue()!=null){
-    		this.kdtE1.removeRows();
-    		CostTempInfo info =(CostTempInfo) prmttempName.getValue();
-    		CostTempE1Collection costTecoll = info.getE1();
-    		ICostTypeTree IcostTypeTree = CostTypeTreeFactory.getRemoteInstance();
-    		ICostType IcostType =com.kingdee.eas.port.pm.base.CostTypeFactory.getRemoteInstance();
-    		for (int i = 0; i < costTecoll.size(); i++) {
-    			CostTempE1Info e1Info = costTecoll.get(i);
-    			IRow row = this.kdtE1.addRow(i);
-    			if(e1Info.getCostType() != null)
-    				row.getCell("costType").setValue(IcostTypeTree.getCostTypeTreeInfo(new ObjectUuidPK(e1Info.getCostType().getId())));
-    			if(e1Info.getCostNames() != null)
-    				row.getCell("costName").setValue(IcostType.getCostTypeInfo(new ObjectUuidPK(e1Info.getCostNames().getId())));
-			}
-    	}
+//    	if(prmttempName.getValue()!=null){
+//    		this.kdtE1.removeRows();
+//    		CostTempInfo info =(CostTempInfo) prmttempName.getValue();
+//    		CostTempE1Collection costTecoll = info.getE1();
+//    		ICostTypeTree IcostTypeTree = CostTypeTreeFactory.getRemoteInstance();
+//    		ICostType IcostType =com.kingdee.eas.port.pm.base.CostTypeFactory.getRemoteInstance();
+//    		for (int i = 0; i < costTecoll.size(); i++) {
+//    			CostTempE1Info e1Info = costTecoll.get(i);
+//    			IRow row = this.kdtE1.addRow(i);
+//    			if(e1Info.getCostType() != null)
+//    				row.getCell("costType").setValue(IcostTypeTree.getCostTypeTreeInfo(new ObjectUuidPK(e1Info.getCostType().getId())));
+//    			if(e1Info.getCostNames() != null)
+//    				row.getCell("costName").setValue(IcostType.getCostTypeInfo(new ObjectUuidPK(e1Info.getCostNames().getId())));
+//			}
+//    	}
 	}
     
     protected void prmtprojectName_dataChanged(DataChangeEvent e)throws Exception {
     	super.prmtprojectName_dataChanged(e);
     	if(prmtprojectName.getValue()==null)
     		return;
-    	ProjectInfo info = (ProjectInfo) prmtprojectName.getValue();
+    	ProjectInfo projectInfo = (ProjectInfo) prmtprojectName.getValue();
     	String oql = "";
     	if(editData.getId()==null)
-    		oql= " select id where projectName.id = '"+info.getId().toString()+"'";
+    		oql= " select id where projectName.id = '"+projectInfo.getId().toString()+"'";
     	else
-    		oql= " select id where projectName.id = '"+info.getId().toString()+"' and id<>'"+editData.getId().toString()+"'";
+    		oql= " select id where projectName.id = '"+projectInfo.getId().toString()+"' and id<>'"+editData.getId().toString()+"'";
     	if(ProjectEstimateFactory.getRemoteInstance().exists(oql))
     	{
     		MsgBox.showWarning("当前项目已经有项目估算单据，请重新选择！");
     		prmtprojectName.setValue(null);SysUtil.abort();
     	}
+    	
+    	
+    	if(prmtprojectName.getValue()!=null)
+		{
+			verifyInput(null);
+			IProgramming iProgramming = ProgrammingFactory.getRemoteInstance();
+			YearInvestPlanInfo yearInvestPlanInfo = (YearInvestPlanInfo)projectInfo.getNJGyearInvest();
+			YearInvestPlanInfo ypInfo = YearInvestPlanFactory.getRemoteInstance().getYearInvestPlanInfo(new ObjectUuidPK(yearInvestPlanInfo.getId()));
+			
+//			EntityViewInfo view = new EntityViewInfo();
+//			FilterInfo filter = new FilterInfo();
+//			view.setFilter(filter);
+//			filter.getFilterItems().add(new FilterItemInfo("number",ypInfo.getNumber()));
+//			filter.getFilterItems().add(new FilterItemInfo("portProject.number",ypInfo.getNumber()));
+//			filter.getFilterItems().add(new FilterItemInfo("id",editData.getId()+"",CompareType.NOTEQUALS));
+//			filter.getFilterItems().add(new FilterItemInfo("status","4"));
+//			filter.setMaskString("(#0 or #1) and #2 and #3");
+//			SorterItemCollection siColl = view.getSorter();
+//	      siColl.add(new SorterItemInfo("year.number")); //需要排序的字段
+//	      SorterItemInfo siInfo= siColl.get(0); //第一个需要排序的字段
+//	      siInfo.setSortType(SortType.DESCEND);  //需要排序的字段降序
+//	      view.setFilter(filter); 
+	        
+	        String sql = "select number,year.id,year.number,year.name where (number='"+ypInfo.getNumber()+"' or portProject.number='"+
+	        ypInfo.getNumber()+"') and id<>'"+editData.getId()+"' and objectState='8'" +" order by year.number desc ";
+			YearInvestPlanCollection coll = YearInvestPlanFactory.getRemoteInstance().getYearInvestPlanCollection(sql);
+			YearInvestPlanInfo pro = coll.get(0);
+			 
+			InvestYearInfo  newYearInfo = InvestYearFactory.getRemoteInstance().getInvestYearInfo("where name ='"+String.valueOf(Integer.parseInt(pro.getYear().getName())+1)+"'");
+			
+			if(!iProgramming.exists("where sourceBillId='"+pro.getNumber()+"'"))
+			{
+				MsgBox.showWarning("没有对应的项目!");
+				kDScrollPane1.setViewportView(null);
+				SysUtil.abort();
+			}
+			
+			
+			ProgrammingInfo pmInfo = iProgramming.getProgrammingInfo("where sourceBillId='"+pro.getNumber()+"'");
+			
+			UIContext uiContext = new UIContext(this);
+	    	uiContext.put("ID", pmInfo.getId());
+	    	uiContext.put("proNumber", this.txtNumber.getText());
+	    	
+	    	programmingEditUI = (ProgrammingEditUI) UIFactoryHelper.initUIObject(ProgrammingEditUI.class.getName(), uiContext, null, "EDIT");
+	    	kDScrollPane1.setViewportView(programmingEditUI);
+	    	kDScrollPane1.setKeyBoardControl(true);
+	    	kDScrollPane1.setEnabled(false);
+	        programmingEditUI.actionCopy_actionPerformed(null);
+	        	        
+		}
+    	
     }
     
     /**
@@ -234,65 +321,66 @@ public class ProjectEstimateEditUI extends AbstractProjectEstimateEditUI
 //    	kdtE1_detailPanel.getAddNewLineButton().setEnabled(false);
 //    	kdtE1_detailPanel.getInsertLineButton().setEnabled(false);
 //    	kdtE1_detailPanel.getRemoveLinesButton().setEnabled(false);
-		ActionListener[] actions = kdtE1_detailPanel.getRemoveLinesButton().getActionListeners();
-		if (actions != null && actions.length > 0)
-			kdtE1_detailPanel.getRemoveLinesButton().removeActionListener(actions[0]);
-	      	kdtE1_detailPanel.getRemoveLinesButton().addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						//分录删除按钮点击事件
-						kdtE1.removeRow(kdtE1.getSelectManager().getActiveRowIndex());
-						BigDecimal totalCount = new BigDecimal(UIRuleUtil.sum(kdtE1,"total"));
-	                	 getProportion( totalCount);
-					}
-			});
-	      	kdtE1_detailPanel.getInsertLineButton().removeActionListener(actions[0]);
-	      	kdtE1_detailPanel.getInsertLineButton().addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-					}
-			});
-	      	kdtE1_detailPanel.getAddNewLineButton().removeActionListener(actions[0]);
-	      	kdtE1_detailPanel.getAddNewLineButton().addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-
-						//分录新增按钮点击事件
-					}
-			});
-		  //分录新增设置默认值
-	      	kdtE1_detailPanel.addAddListener(new com.kingdee.eas.framework.client.multiDetail.IDetailPanelListener() {
-                  public void beforeEvent(com.kingdee.eas.framework.client.multiDetail.DetailPanelEvent event) throws Exception {
-                          IObjectValue vo = event.getObjectValue();
-                          vo.put("total",BigDecimal.ZERO);
-                          vo.put("proportion",BigDecimal.ZERO);
-                          
-                          //设置默认值
-                  }
-                  public void afterEvent(com.kingdee.eas.framework.client.multiDetail.DetailPanelEvent event) throws Exception {
-                	  IObjectValue vo = event.getObjectValue();
-                  }
-          });
-		   //分录新增设置默认值,
-	      	kdtE1_detailPanel.addInsertListener(new com.kingdee.eas.framework.client.multiDetail.IDetailPanelListener() {
-                  public void beforeEvent(com.kingdee.eas.framework.client.multiDetail.DetailPanelEvent event) throws Exception {
-                          IObjectValue vo = event.getObjectValue();
-                          vo.put("total",BigDecimal.ZERO);
-                          vo.put("proportion",BigDecimal.ZERO);
-                          //设置默认值
-                  }
-                  public void afterEvent(com.kingdee.eas.framework.client.multiDetail.DetailPanelEvent event) throws Exception {
-
-                  }
-          });
-	        //分录新增设置默认值,
-	      	kdtE1_detailPanel.addRemoveListener(new com.kingdee.eas.framework.client.multiDetail.IDetailPanelListener() {
-                  public void beforeEvent(com.kingdee.eas.framework.client.multiDetail.DetailPanelEvent event) throws Exception {
-                          IObjectValue vo = event.getObjectValue();
-                          //设置默认值
-                  }
-                  public void afterEvent(com.kingdee.eas.framework.client.multiDetail.DetailPanelEvent event) throws Exception {
-                	  BigDecimal totalCount = new BigDecimal(UIRuleUtil.sum(kdtE1,"total"));
-                	  getProportion( totalCount);
-                  }
-          });
+    	
+//		ActionListener[] actions = kdtE1_detailPanel.getRemoveLinesButton().getActionListeners();
+//		if (actions != null && actions.length > 0)
+//			kdtE1_detailPanel.getRemoveLinesButton().removeActionListener(actions[0]);
+//	      	kdtE1_detailPanel.getRemoveLinesButton().addActionListener(new ActionListener() {
+//					public void actionPerformed(ActionEvent e) {
+//						//分录删除按钮点击事件
+//						kdtE1.removeRow(kdtE1.getSelectManager().getActiveRowIndex());
+//						BigDecimal totalCount = new BigDecimal(UIRuleUtil.sum(kdtE1,"total"));
+//	                	 getProportion( totalCount);
+//					}
+//			});
+//	      	kdtE1_detailPanel.getInsertLineButton().removeActionListener(actions[0]);
+//	      	kdtE1_detailPanel.getInsertLineButton().addActionListener(new ActionListener() {
+//					public void actionPerformed(ActionEvent e) {
+//					}
+//			});
+//	      	kdtE1_detailPanel.getAddNewLineButton().removeActionListener(actions[0]);
+//	      	kdtE1_detailPanel.getAddNewLineButton().addActionListener(new ActionListener() {
+//					public void actionPerformed(ActionEvent e) {
+//
+//						//分录新增按钮点击事件
+//					}
+//			});
+//		  //分录新增设置默认值
+//	      	kdtE1_detailPanel.addAddListener(new com.kingdee.eas.framework.client.multiDetail.IDetailPanelListener() {
+//                  public void beforeEvent(com.kingdee.eas.framework.client.multiDetail.DetailPanelEvent event) throws Exception {
+//                          IObjectValue vo = event.getObjectValue();
+//                          vo.put("total",BigDecimal.ZERO);
+//                          vo.put("proportion",BigDecimal.ZERO);
+//                          
+//                          //设置默认值
+//                  }
+//                  public void afterEvent(com.kingdee.eas.framework.client.multiDetail.DetailPanelEvent event) throws Exception {
+//                	  IObjectValue vo = event.getObjectValue();
+//                  }
+//          });
+//		   //分录新增设置默认值,
+//	      	kdtE1_detailPanel.addInsertListener(new com.kingdee.eas.framework.client.multiDetail.IDetailPanelListener() {
+//                  public void beforeEvent(com.kingdee.eas.framework.client.multiDetail.DetailPanelEvent event) throws Exception {
+//                          IObjectValue vo = event.getObjectValue();
+//                          vo.put("total",BigDecimal.ZERO);
+//                          vo.put("proportion",BigDecimal.ZERO);
+//                          //设置默认值
+//                  }
+//                  public void afterEvent(com.kingdee.eas.framework.client.multiDetail.DetailPanelEvent event) throws Exception {
+//
+//                  }
+//          });
+//	        //分录新增设置默认值,
+//	      	kdtE1_detailPanel.addRemoveListener(new com.kingdee.eas.framework.client.multiDetail.IDetailPanelListener() {
+//                  public void beforeEvent(com.kingdee.eas.framework.client.multiDetail.DetailPanelEvent event) throws Exception {
+//                          IObjectValue vo = event.getObjectValue();
+//                          //设置默认值
+//                  }
+//                  public void afterEvent(com.kingdee.eas.framework.client.multiDetail.DetailPanelEvent event) throws Exception {
+//                	  BigDecimal totalCount = new BigDecimal(UIRuleUtil.sum(kdtE1,"total"));
+//                	  getProportion( totalCount);
+//                  }
+//          });
     }
 
     /**

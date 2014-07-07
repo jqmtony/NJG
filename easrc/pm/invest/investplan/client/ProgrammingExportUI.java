@@ -214,58 +214,58 @@ public class ProgrammingExportUI extends AbstractProgrammingExportUI
 	 */
 	private void addCostEntries(ProgrammingTemplateEntireInfo proTempInfo, ProgrammingTemplateEntirePteCostCollection pteCostCol, ProgrammingEntryCostEntryCollection proCostCol) {
 		Map map = new HashMap();
-		ProgrammingEntryCostEntryCollection proConCostCol = (ProgrammingEntryCostEntryCollection)proCostCol.clone();
-		for(int i = 0 ; i < proConCostCol.size() ; i++){
-			ProgrammingEntryCostEntryInfo costInfo = proConCostCol.get(i);
-			CostAccountInfo oldCost = null;
-			try {
-				oldCost = CostAccountFactory.getRemoteInstance().getCostAccountInfo(new ObjectUuidPK(costInfo.getCostAccount().getId().toString()));
-			} catch (EASBizException e) {
-				e.printStackTrace();
-			} catch (BOSException e) {
-				e.printStackTrace();
-			}
-			if(oldCost == null)
-				continue;
-			CostAccountInfo cost = getOrgCostAccountInfo(oldCost);
-			if(cost != null){
-				ProgrammingTemplateEntirePteCostInfo pteCostInfo = createProgrammingTemplateEntirePteCost(proTempInfo, costInfo, cost);
-				pteCostCol.add(pteCostInfo);
-			}else{
-				CostAccountInfo costAccountInfo = getOrgCostAccountInfo(oldCost, null);
-				if (map.isEmpty()) {
-					map.put(costAccountInfo.getId().toString(), costInfo);
-				} else {
-					if (map.containsKey(costAccountInfo.getId().toString())) {
-						ProgrammingEntryCostEntryInfo proCon = (ProgrammingEntryCostEntryInfo) map.get(costAccountInfo.getId().toString());
-						proCon.setContractAssign(proCon.getContractAssign().add(costInfo.getContractAssign()));// 本合约分配
-						proCon.setGoalCost(proCon.getGoalCost().add(costInfo.getGoalCost()));// 目标成本
-						proCon.setAssigning(proCon.getAssigning().add(costInfo.getAssigning()));// 待分配
-					} else {
-						map.put(costAccountInfo.getId().toString(), costInfo);
-					}
-				}
-			}
-		}
+//		ProgrammingEntryCostEntryCollection proConCostCol = (ProgrammingEntryCostEntryCollection)proCostCol.clone();
+//		for(int i = 0 ; i < proConCostCol.size() ; i++){
+//			ProgrammingEntryCostEntryInfo costInfo = proConCostCol.get(i);
+//			CostAccountInfo oldCost = null;
+//			try {
+//				oldCost = CostAccountFactory.getRemoteInstance().getCostAccountInfo(new ObjectUuidPK(costInfo.getCostAccount().getId().toString()));
+//			} catch (EASBizException e) {
+//				e.printStackTrace();
+//			} catch (BOSException e) {
+//				e.printStackTrace();
+//			}
+//			if(oldCost == null)
+//				continue;
+//			CostAccountInfo cost = getOrgCostAccountInfo(oldCost);
+//			if(cost != null){
+//				ProgrammingTemplateEntirePteCostInfo pteCostInfo = createProgrammingTemplateEntirePteCost(proTempInfo, costInfo, cost);
+//				pteCostCol.add(pteCostInfo);
+//			}else{
+//				CostAccountInfo costAccountInfo = getOrgCostAccountInfo(oldCost, null);
+//				if (map.isEmpty()) {
+//					map.put(costAccountInfo.getId().toString(), costInfo);
+//				} else {
+//					if (map.containsKey(costAccountInfo.getId().toString())) {
+//						ProgrammingEntryCostEntryInfo proCon = (ProgrammingEntryCostEntryInfo) map.get(costAccountInfo.getId().toString());
+//						proCon.setContractAssign(proCon.getContractAssign().add(costInfo.getContractAssign()));// 本合约分配
+//						proCon.setGoalCost(proCon.getGoalCost().add(costInfo.getGoalCost()));// 目标成本
+//						proCon.setAssigning(proCon.getAssigning().add(costInfo.getAssigning()));// 待分配
+//					} else {
+//						map.put(costAccountInfo.getId().toString(), costInfo);
+//					}
+//				}
+//			}
+//		}
 		
-		if (!map.isEmpty()) {
-			Set set = map.keySet();
-			Iterator it = set.iterator();
-			while (it.hasNext()) {
-				ProgrammingTemplateEntirePteCostInfo pteCostInfo = new ProgrammingTemplateEntirePteCostInfo();
-				pteCostInfo.setParent(proTempInfo);
-				String id = it.next().toString();
-				try {
-					CostAccountInfo orgCost = CostAccountFactory.getRemoteInstance().getCostAccountInfo(new ObjectUuidPK(id));
-					ProgrammingEntryCostEntryInfo proConCostInfo = (ProgrammingEntryCostEntryInfo)map.get(id);
-					pteCostCol.add(createProgrammingTemplateEntirePteCost(proTempInfo, proConCostInfo, orgCost));
-				} catch (EASBizException e) {
-					logger.error(e);
-				} catch (BOSException e) {
-					logger.error(e);
-				}
-			}
-		}
+//		if (!map.isEmpty()) {
+//			Set set = map.keySet();
+//			Iterator it = set.iterator();
+//			while (it.hasNext()) {
+//				ProgrammingTemplateEntirePteCostInfo pteCostInfo = new ProgrammingTemplateEntirePteCostInfo();
+//				pteCostInfo.setParent(proTempInfo);
+//				String id = it.next().toString();
+//				try {
+//					CostAccountInfo orgCost = CostAccountFactory.getRemoteInstance().getCostAccountInfo(new ObjectUuidPK(id));
+//					ProgrammingEntryCostEntryInfo proConCostInfo = (ProgrammingEntryCostEntryInfo)map.get(id);
+//					pteCostCol.add(createProgrammingTemplateEntirePteCost(proTempInfo, proConCostInfo, orgCost));
+//				} catch (EASBizException e) {
+//					logger.error(e);
+//				} catch (BOSException e) {
+//					logger.error(e);
+//				}
+//			}
+//		}
 	}
 
 	private ProgrammingTemplateEntirePteCostInfo createProgrammingTemplateEntirePteCost(ProgrammingTemplateEntireInfo proTempInfo, ProgrammingEntryCostEntryInfo costInfo, CostAccountInfo cost) {

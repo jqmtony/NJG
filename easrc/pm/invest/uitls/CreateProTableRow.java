@@ -32,15 +32,17 @@ public class CreateProTableRow {
      *
      * @param table
      */
-    public void addLine(KDTable table , int level) throws Exception
+    public IObjectValue addLine(KDTable table , int level) throws Exception
     {
         if(table == null)
         {
-            return;
+            return null;
         }
         IObjectValue detailData = createNewDetailData(table , level , null);
         IRow row = table.addRow();
         loadLineFields(table, row, detailData);
+        
+        return detailData;
     }
     
     /**
@@ -51,7 +53,7 @@ public class CreateProTableRow {
     public void insertLine(KDTable table , int rowIndex , int level , ProgrammingEntryInfo head) throws Exception
     {
         if(table == null)
-        {
+        { 
             return;
         }
         IObjectValue detailData = createNewDetailData(table , level , head);
@@ -67,15 +69,17 @@ public class CreateProTableRow {
      *
      * @param table
      */
-    public void insertSameLine(KDTable table , int rowIndex , int level , ProgrammingEntryInfo head) throws Exception
+    public IObjectValue insertSameLine(KDTable table , int rowIndex , int level , ProgrammingEntryInfo head) throws Exception
     {
         if(table == null)
         {
-            return;
+            return null;
         }
         IObjectValue detailData = createSameNewDetailData(table , level , head);
         IRow row = table.addRow(rowIndex);
         loadLineFields(table, row, detailData);
+        
+        return detailData;
     }
     
 

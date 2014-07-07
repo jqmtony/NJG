@@ -94,13 +94,14 @@ import com.kingdee.eas.framework.ICoreBase;
 import com.kingdee.eas.framework.IFWEntityStruct;
 import com.kingdee.eas.framework.util.StringUtility;
 import com.kingdee.eas.mm.control.client.TableCellComparator;
+import com.kingdee.eas.port.pm.base.InvestYearFactory;
+import com.kingdee.eas.port.pm.base.InvestYearInfo;
+import com.kingdee.eas.port.pm.invest.YearInvestPlanFactory;
+import com.kingdee.eas.port.pm.invest.YearInvestPlanInfo;
 import com.kingdee.eas.port.pm.invest.investplan.IProgramming;
-import com.kingdee.eas.port.pm.invest.investplan.IProgrammingEntryCostEntry;
-import com.kingdee.eas.port.pm.invest.investplan.InvestPlanDetailFactory;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingCollection;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryCollection;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryCostEntryCollection;
-import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryCostEntryFactory;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryCostEntryInfo;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryInfo;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingException;
@@ -128,6 +129,10 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
     private final String HEADNUMBER = "headNumber";//长级长编码
     private final String BALANCE = "balance";
 	private final String AMOUNT = "amount";
+	private KDFormattedTextField investZ = null;
+	private KDFormattedTextField investB = null;
+	private KDFormattedTextField investL = null;
+	private KDFormattedTextField investY = null;
 	private final String CONTROLAMOUNT = "controlAmount";
     protected KDWorkButton btnAddnewLine;
     protected KDWorkButton btnInsertLines;
@@ -136,6 +141,8 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
     protected KDWorkButton btnImports;
     protected KDWorkButton btnExports;
     protected BigDecimal totalBuildArea;
+    
+    private YearInvestPlanInfo planInfo = null;
     
 	public ProgrammingEditUI() throws Exception {
 		super();
@@ -150,8 +157,10 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 		this.kdtCompareEntry.getColumn("content").getStyleAttributes().setBackground(FDCClientHelper.KDTABLE_DISABLE_BG_COLOR);
 		txtBuildArea.setEnabled(false);
 		this.kdtEntries.getColumn("investProportion").getStyleAttributes().setNumberFormat("#,##0.00 %");
+		this.kDTable1.getColumn("proportion").getStyleAttributes().setNumberFormat("#,##0.00 %");
 		txtSaleArea.setEnabled(false);
 		kDTabbedPane1.remove(pnlCostAccount);
+		kDTabbedPane1.remove(kDPanel1);
 		this.kdtCostAccount.getStyleAttributes().setLocked(true);
 		this.kdtCostAccount.getStyleAttributes().setHided(true);
 		this.kdtEntries.getColumn("costAccount").getStyleAttributes().setHided(true);
@@ -169,25 +178,31 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
     	setSmallBtnEnable();
     	initData();
     	setMouseClick();
+    	
+    	investZ = (KDFormattedTextField) getUIContext().get("proInvestAmount");
+    	investB = (KDFormattedTextField) getUIContext().get("proAmount");
+    	investL = (KDFormattedTextField) getUIContext().get("proAddAmount");
+    	investY = (KDFormattedTextField) getUIContext().get("proBalance");
+			
 
 		if (this.getUIContext().get("modify") != null) {
 			// 修订情况下给投资规划新增ID
-			ProgrammingEntryInfo programmingEntryInfo = new ProgrammingEntryInfo();
-			for (int i = 0; i < kdtEntries.getRowCount(); i++) {
-				String longNumber=kdtEntries.getCell(i, "longNumber").getValue().toString();
-				ProgrammingEntryInfo proConInfo = (ProgrammingEntryInfo) kdtEntries.getRow(i).getUserObject();
-				BOSUuid newid=BOSUuid.create(programmingEntryInfo.getBOSType());
-				kdtEntries.getCell(i, "id").setValue(newid);
-				kdtEntries.getCell(i, "isCiting").setValue(Boolean.valueOf(proConInfo.isIsCiting()));
-				kdtEntries.getCell(i, "isWTCiting").setValue(Boolean.valueOf(proConInfo.isIsWTCiting()));
-				for(int j=0;j<kdtEntries.getRowCount();j++){
-					ProgrammingEntryInfo parent=((ProgrammingEntryInfo)kdtEntries.getRow(j).getUserObject()).getParent();
-					if(parent!=null&&parent.getLongNumber().equals(longNumber)){
-						((ProgrammingEntryInfo)kdtEntries.getRow(j).getUserObject()).setParent(proConInfo);
-					}
-				}
-				
-			}
+//			ProgrammingEntryInfo programmingEntryInfo = new ProgrammingEntryInfo();
+//			for (int i = 0; i < kdtEntries.getRowCount(); i++) {
+//				String longNumber=kdtEntries.getCell(i, "longNumber").getValue().toString();
+//				ProgrammingEntryInfo proConInfo = (ProgrammingEntryInfo) kdtEntries.getRow(i).getUserObject();
+//				BOSUuid newid=BOSUuid.create(programmingEntryInfo.getBOSType());
+//				kdtEntries.getCell(i, "id").setValue(newid);
+//				kdtEntries.getCell(i, "isCiting").setValue(Boolean.valueOf(proConInfo.isIsCiting()));
+//				kdtEntries.getCell(i, "isWTCiting").setValue(Boolean.valueOf(proConInfo.isIsWTCiting()));
+//				for(int j=0;j<kdtEntries.getRowCount();j++){
+//					ProgrammingEntryInfo parent=((ProgrammingEntryInfo)kdtEntries.getRow(j).getUserObject()).getParent();
+//					if(parent!=null&&parent.getLongNumber().equals(longNumber)){
+//						((ProgrammingEntryInfo)kdtEntries.getRow(j).getUserObject()).setParent(proConInfo);
+//					}
+//				}
+//				
+//			}
 			this.actionImport.setEnabled(false);
 			
 			this.txtDescription.setText(null);
@@ -199,8 +214,17 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 		compare.setText("提取");
 		compare.setSize(new Dimension(140, 19));
 		if(this.txtVersion.getBigDecimalValue()!=null&&this.txtVersion.getBigDecimalValue().compareTo(new BigDecimal(1))==0){
-			this.kDTabbedPane1.remove(this.conCompare);
-			this.kDTabbedPane1.remove(this.kDScrollPane1);
+			this.kdtEntries.getColumn("amount").getStyleAttributes().setLocked(false);
+		}
+		else
+		{
+			this.kdtEntries.getColumn("amount").getStyleAttributes().setLocked(true);
+			conProgramming.removeButton(btnInsertLines);
+			conProgramming.removeButton(btnAddnewLine);
+			conProgramming.removeButton(btnRemoveLines);
+			conProgramming.removeButton(btnImports);
+			conProgramming.removeButton(btnExports);
+			
 		}
 		
 		FlowLayout flowLayout = new FlowLayout();
@@ -209,6 +233,8 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 		colorPanel.setLayout(flowLayout);
 		drawALogo("增加",new Color(248,171,166));
 		drawALogo("减少",new Color(163,207,98));
+		this.kDTabbedPane1.remove(this.conCompare);
+		this.kDTabbedPane1.remove(this.kDScrollPane1);
 		
     }
     
@@ -417,7 +443,7 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 		
 		if(editData.getCurProject() == null){
 			if(curProject != null){
-				editData.setProject(curProject);
+//				editData.setProject(curProject);
 				txtProjectName.setText(curProject.getName());
 			}
 		}
@@ -446,7 +472,7 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 		btnAddnewLine.setEnabled(false);
 		btnRemoveLines.setEnabled(false);
 		btnDetails.setEnabled(false);
-		btnImports.setEnabled(false);
+//		btnImports.setEnabled(false);
 		btnExports.setEnabled(false);
 	}
 
@@ -579,58 +605,15 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 	    	if(node != null)
 	    	{
 	    		curProject = (ProjectInfo)node;
-	    		editData.setProject(curProject);
+//	    		editData.setProject(curProject);
 				txtProjectName.setText(curProject.getName());
 	    	}
 		} catch (BOSException e) {
 			e.printStackTrace();
 		}
-		
-//		if(editData!=null)
-//		{
-//			SelectorItemCollection sic = new SelectorItemCollection();
-//			sic.add(new SelectorItemInfo("project"));
-//			sic.add(new SelectorItemInfo("number"));
-//			sic.add(new SelectorItemInfo("investYear.id"));
-//			sic.add(new SelectorItemInfo("investYear.number"));
-//			sic.add(new SelectorItemInfo("investYear.name"));
-//			sic.add(new SelectorItemInfo("proportion"));
-//			
-//			IProgrammingEntryCostEntry iProgrammingEntryCostEntry = null;
-//			try {
-//				iProgrammingEntryCostEntry = ProgrammingEntryCostEntryFactory.getRemoteInstance();
-//			} catch (BOSException e) {
-//				e.printStackTrace();
-//			}
-//			
-//			for (int i = 0; i < editData.getEntries().size(); i++) 
-//			{
-//				ProgrammingEntryInfo programmingEntryInfo = editData.getEntries().get(i);
-//				
-//				for (int j = 0; j < programmingEntryInfo.size(); j++) 
-//				{
-//					for (int j2 = 0; j2 < programmingEntryInfo.getCostEntries().size(); j2++) 
-//					{
-//						ProgrammingEntryCostEntryInfo programmingEntryCostEntryInfo = programmingEntryInfo.getCostEntries().get(j2);
-//						
-//						try {
-//							ProgrammingEntryCostEntryInfo costInfo = iProgrammingEntryCostEntry.getProgrammingEntryCostEntryInfo(new ObjectUuidPK(programmingEntryCostEntryInfo.getId()),sic);
-//							programmingEntryCostEntryInfo.setProject(costInfo.getProject());
-//							programmingEntryCostEntryInfo.setNumber(costInfo.getNumber());
-//							programmingEntryCostEntryInfo.setInvestYear(costInfo.getInvestYear());
-//							programmingEntryCostEntryInfo.setProportion(costInfo.getProportion());
-//						
-//						} catch (EASBizException e) {
-//							e.printStackTrace();
-//						} catch (BOSException e) {
-//							e.printStackTrace();
-//						}
-//					}
-//				}
-//			}
-//		}
-		
-		setHeadRowColor();
+		if (this.getUIContext().get("modify") == null) {
+			setHeadRowColor();
+		}
 	}
 	private void setBuildPrice() throws BOSException{
 		if(OprtState.VIEW.equals(getOprtState())){
@@ -645,20 +628,20 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 //			filter.getFilterItems().add(new FilterItemInfo("project.id",this.editData.getProject().getId().toString()));
 //		}
 		
-		filter.getFilterItems().add(new FilterItemInfo("state",FDCBillStateEnum.AUDITTED_VALUE));
-		filter.getFilterItems().add(new FilterItemInfo("isLastVersion",Boolean.TRUE));
-		view.setFilter(filter);
-		for(int i=0;i<this.kdtEntries.getRowCount();i++){
-			if(i+1 <kdtEntries.getRowCount()){
-				Object oldLongNumber = kdtEntries.getCell(i, LONGNUMBER).getValue();
-				if(oldLongNumber == null){
-					continue;
-				}
-				Object nextHeadNumber = kdtEntries.getCell(i+1, HEADNUMBER).getValue();
-				if(oldLongNumber.equals(nextHeadNumber)){
-					continue;
-				}
-			}
+//		filter.getFilterItems().add(new FilterItemInfo("state",FDCBillStateEnum.AUDITTED_VALUE));
+//		filter.getFilterItems().add(new FilterItemInfo("isLastVersion",Boolean.TRUE));
+//		view.setFilter(filter);
+//		for(int i=0;i<this.kdtEntries.getRowCount();i++){
+//			if(i+1 <kdtEntries.getRowCount()){
+//				Object oldLongNumber = kdtEntries.getCell(i, LONGNUMBER).getValue();
+//				if(oldLongNumber == null){
+//					continue;
+//				}
+//				Object nextHeadNumber = kdtEntries.getCell(i+1, HEADNUMBER).getValue();
+//				if(oldLongNumber.equals(nextHeadNumber)){
+//					continue;
+//				}
+//			}
 //			kdtEntries.getRow(i).getCell("buildPrice").setValue(FDCHelper.divide(kdtEntries.getRow(i).getCell("amount").getValue(), this.totalBuildArea, 2, BigDecimal.ROUND_HALF_UP));
 //			if((Boolean)kdtEntries.getRow(i).getCell("isInput").getValue()){
 //		 		kdtEntries.getRow(i).getCell("quantities").getStyleAttributes().setLocked(false);
@@ -672,7 +655,7 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 //				kdtEntries.getRow(i).getCell("quantities").getStyleAttributes().setBackground(Color.WHITE);
 //		 		kdtEntries.getRow(i).getCell("unit").getStyleAttributes().setBackground(Color.WHITE);
 //			}
-		}
+//		}
 	}
 	
 	/**
@@ -926,6 +909,7 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
     //设置新增、删除、插入分录按钮是否可用
     private void setSmallBtnEnable(){
     	btnExports.setEnabled(true);
+    	btnImports.setEnabled(true);
     	if(OprtState.VIEW.equals(getOprtState()))
     	{
     		setButtionEnable(false);
@@ -936,7 +920,6 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
     		}
     	}else{
     		btnInsertLines.setEnabled(true);
-    		btnImports.setEnabled(true);
     		if(kdtEntries.getSelectManager().getActiveRowIndex() < 0 || kdtEntries.getRowCount() <= 0){
     			btnAddnewLine.setEnabled(false);
     			btnRemoveLines.setEnabled(false);
@@ -967,7 +950,8 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
     	int row = -1;
     	if(rowIndex < 0){
     		//下标为0则正常新增
-    		create.addLine(kdtEntries, 1);
+    		IObjectValue detailData = create.addLine(kdtEntries, 1);
+    		setAddRow((ProgrammingEntryInfo) detailData);
     		if(rowCount == 0)
     			row = 0;
     		else
@@ -1020,16 +1004,18 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
     			}else{
     				create.insertSameLine(kdtEntries , row , newLevel, headObject);//不带数据
     			}
-    			if(kdtEntries.getCell(rowIndex+1, HEADNUMBER)!=null){
-    				Object checkHeadNumber = kdtEntries.getCell(rowIndex+1, HEADNUMBER).getValue();
-    				if( checkHeadNumber!=null && ln.equals(checkHeadNumber)){
-        				create.insertSameLine(kdtEntries , row , newLevel, headObject);
-        			} else {
-        				create.insertLine(kdtEntries , row , newLevel, headObject);
-        			}
-    			} else {
-    				create.insertLine(kdtEntries , row , newLevel, headObject);
-    			}
+//    			if(kdtEntries.getCell(rowIndex+1, HEADNUMBER)!=null){
+//    				Object checkHeadNumber = kdtEntries.getCell(rowIndex+1, HEADNUMBER).getValue();
+//    				if( checkHeadNumber!=null && ln.equals(checkHeadNumber)){
+//        				create.insertSameLine(kdtEntries , row , newLevel, headObject);
+//        			} else {
+//        				create.insertLine(kdtEntries , row , newLevel, headObject);
+//        			}
+//    			} else {
+//    				create.insertLine(kdtEntries , row , newLevel, headObject);
+//    			}
+    			
+    			setAddRow(headObject);
     			
     			kdtEntries.getCell(row, HEADNUMBER).setValue(o);
     			if(longName != null)
@@ -1037,11 +1023,9 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
     		}
     		//重新汇总到上级
     		caclTotalAmount(row, kdtEntries.getColumnIndex("amount"), newLevel);
-			caclTotalAmount(row, kdtEntries.getColumnIndex("controlAmount"), newLevel);
+			caclTotalAmount(row, kdtEntries.getColumnIndex("cumulativeInvest"), newLevel);
 			caclTotalAmount(row, kdtEntries.getColumnIndex("balance"), newLevel);
-			caclTotalAmount(row, kdtEntries.getColumnIndex("controlBalance"), newLevel);
-			caclTotalAmount(row, kdtEntries.getColumnIndex("buildPerSquare"), newLevel);
-			caclTotalAmount(row, kdtEntries.getColumnIndex("soldPerSquare"), newLevel);
+			caclTotalAmount(row, kdtEntries.getColumnIndex("investAmount"), newLevel);
 			
 			kdtEntries.getCell(row, "isInvite").setValue(isInvite);
     	}
@@ -1100,7 +1084,8 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
     	
     	if(rowIndex < 0){
     		//下标为0则正常新增
-    		create.addLine(kdtEntries, 1);
+    		IObjectValue detailData =create.addLine(kdtEntries, 1);
+    		setAddRow((ProgrammingEntryInfo) detailData);
     		if(rowCount == 0)
     			row = 0;
     		else
@@ -1119,7 +1104,8 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
     		
     		int activelevel = new Integer(headlevel.toString()).intValue();
     		if(activelevel == 1 ){ //如果是一级则增加一行到最后
-    			create.insertSameLine(kdtEntries , rowCount , 1 , null);
+    			IObjectValue detailData =create.insertSameLine(kdtEntries , rowCount , 1 , null);
+    			setAddRow((ProgrammingEntryInfo) detailData);
     			row = rowCount;
     		}else if(o == null || o.toString().trim().length() == 0){//新增时判断数据是否合法
     			MsgBox.showInfo("分录第 "+(rowIndex+1)+" 行，框架投资规划编码不能为空！");
@@ -1165,6 +1151,8 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
     		        
 	        	IRow addRow = kdtEntries.addRow(row);
 	        	create.loadLineFields(kdtEntries, addRow, newDetailInfo);
+	        	
+	        	setAddRow(newDetailInfo);
 	            
     			kdtEntries.getCell(row, HEADNUMBER).setValue(head);
     			if(longName != null)
@@ -1428,8 +1416,6 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
     public void actionDetails_actionPerformed(ActionEvent e) throws Exception{
     	checkAimCostNotNull();
     	
-    	this.kDTable1.addRow();
-    	
 		int rowIndex = kdtEntries.getSelectManager().getActiveRowIndex();
 		this.kdtEntries.getEditManager().editingStopped();
 		Object oldLongNumber = kdtEntries.getCell(rowIndex, LONGNUMBER).getValue();
@@ -1472,18 +1458,8 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 		uiContext.put("pcCollection", pcCollection);// 规划投资规划集合
 		uiContext.put("project", project);// 工程项目
 		
-		String oprstate = OprtState.ADDNEW;
-		String oql = "where sourceBillId='"+rowObject.getId()+"'";
-		if(InvestPlanDetailFactory.getRemoteInstance().exists(oql))
-		{
-			uiContext.put("ID", InvestPlanDetailFactory.getRemoteInstance().getInvestPlanDetailCollection(oql).get(0).getId());
-			oprstate = OprtState.VIEW;
-		}
-		else
-			uiContext.put("SourceBillId", rowObject.getId());
-		uiContext.put("proNumber", this.txtDescription.getText());
-		uiContext.put("projectName", this.txtName.getText());
-		uiWindow = UIFactory.createUIFactory(UIFactoryName.MODEL).create(ProgrammingEntryEditUI.class.getName(), uiContext, null,oprstate);
+		uiContext.put("table", this.kDTable1);
+		uiWindow = UIFactory.createUIFactory(UIFactoryName.MODEL).create(ViewPlanDetailUI.class.getName(), uiContext, null,OprtState.ADDNEW);
 		uiWindow.show();
 		
 		
@@ -1514,42 +1490,42 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 	 * @param rowIndex
 	 */
 	private void setMyFontColor() {
-		for (int i = 0; i < kdtEntries.getRowCount(); i++) {
-			boolean flag = false;// false默认表示没有错误数据
-			ProgrammingEntryInfo programmingEntryInfo = (ProgrammingEntryInfo) kdtEntries.getRow(i).getUserObject();
-			ProgrammingEntryCostEntryCollection pccCollection = programmingEntryInfo.getCostEntries();
-			for (int j = 0; j < pccCollection.size(); j++) {
-				ProgrammingEntryCostEntryInfo pccInfo = pccCollection.get(j);
-				BigDecimal assigning = pccInfo.getAssigning();// 待分配
-				BigDecimal contractAssign = pccInfo.getContractAssign();// 本投资规划分配
-				// 若"本投资规划分配">"待分配"，表示有错误数据
-//				if (contractAssign.compareTo(assigning) > 0&&!programmingEntryInfo.isIsCiting()&&!programmingEntryInfo.isIsWTCiting()) {
-//					flag = true;
+//		for (int i = 0; i < kdtEntries.getRowCount(); i++) {
+//			boolean flag = false;// false默认表示没有错误数据
+//			ProgrammingEntryInfo programmingEntryInfo = (ProgrammingEntryInfo) kdtEntries.getRow(i).getUserObject();
+//			ProgrammingEntryCostEntryCollection pccCollection = programmingEntryInfo.getCostEntries();
+//			for (int j = 0; j < pccCollection.size(); j++) {
+//				ProgrammingEntryCostEntryInfo pccInfo = pccCollection.get(j);
+//				BigDecimal assigning = pccInfo.getAssigning();// 待分配
+//				BigDecimal contractAssign = pccInfo.getContractAssign();// 本投资规划分配
+//				// 若"本投资规划分配">"待分配"，表示有错误数据
+////				if (contractAssign.compareTo(assigning) > 0&&!programmingEntryInfo.isIsCiting()&&!programmingEntryInfo.isIsWTCiting()) {
+////					flag = true;
+////				}
+//			}
+//			if (flag) {
+//				kdtEntries.getRow(i).getStyleAttributes().setFontColor(Color.RED);
+//			} else {
+//				kdtEntries.getRow(i).getStyleAttributes().setFontColor(Color.BLACK);
+//				Object blanceValue = kdtEntries.getCell(i, BALANCE).getValue();
+//				if (blanceValue != null) {
+//					BigDecimal blance = FDCHelper.toBigDecimal(blanceValue);
+//					if (blance.compareTo(FDCHelper.ZERO) > 0) {
+//						kdtEntries.getCell(i, BALANCE).getStyleAttributes().setFontColor(Color.blue);
+//					} else {
+//						kdtEntries.getCell(i, BALANCE).getStyleAttributes().setFontColor(Color.red);
+//					}
 //				}
-			}
-			if (flag) {
-				kdtEntries.getRow(i).getStyleAttributes().setFontColor(Color.RED);
-			} else {
-				kdtEntries.getRow(i).getStyleAttributes().setFontColor(Color.BLACK);
-				Object blanceValue = kdtEntries.getCell(i, BALANCE).getValue();
-				if (blanceValue != null) {
-					BigDecimal blance = FDCHelper.toBigDecimal(blanceValue);
-					if (blance.compareTo(FDCHelper.ZERO) > 0) {
-						kdtEntries.getCell(i, BALANCE).getStyleAttributes().setFontColor(Color.blue);
-					} else {
-						kdtEntries.getCell(i, BALANCE).getStyleAttributes().setFontColor(Color.red);
-					}
-				}
-			}
-
-			Object blanceValue = kdtEntries.getCell(i, BALANCE).getValue();
-			if (blanceValue != null) {
-				BigDecimal blance = FDCHelper.toBigDecimal(blanceValue);
-				if (blance.compareTo(FDCHelper.ZERO) == 0) {
-					kdtEntries.getCell(i, BALANCE).getStyleAttributes().setFontColor(Color.black);
-				}
-			}
-		}
+//			}
+//
+//			Object blanceValue = kdtEntries.getCell(i, BALANCE).getValue();
+//			if (blanceValue != null) {
+//				BigDecimal blance = FDCHelper.toBigDecimal(blanceValue);
+//				if (blance.compareTo(FDCHelper.ZERO) == 0) {
+//					kdtEntries.getCell(i, BALANCE).getStyleAttributes().setFontColor(Color.black);
+//				}
+//			}
+//		}
 	}
     
 	/**
@@ -1727,7 +1703,6 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 			return;
 		}
 		
-		
 		this.dataBinder.storeFields();
 		int rowIndex = kdtEntries.getSelectManager().getActiveRowIndex();
 		int level = new Integer(kdtEntries.getCell(rowIndex, "level").getValue().toString()).intValue();
@@ -1753,15 +1728,16 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 			int newLevel = UIRuleUtil.getInt(row.getCell("level").getValue());
 			
 			
-			caclTotalAmount(e.getRowIndex(), kdtEntries.getColumnIndex(key), newLevel);
-			caclTotalAmount(e.getRowIndex(), kdtEntries.getColumnIndex("balance"), newLevel);
 			
 			if(UIRuleUtil.getBigDecimal((kdtEntries.getCell(rowIndex,"investAmount").getValue())).
 					compareTo(UIRuleUtil.getBigDecimal((kdtEntries.getCell(rowIndex,"amount").getValue())))>0)
 			{
 				FDCMsgBox.showInfo("本年度金额不能超过总金额！");
-				this.kdtEntries.getCell(rowIndex,"investAmount").setValue(new BigDecimal (0.00));
-				this.kdtEntries.getCell(rowIndex+1, HEADNUMBER).setValue(0);
+				this.kdtEntries.getCell(rowIndex,"investAmount").setValue(oldValue);
+				for (int i = rowIndex +1 ; i < kdtEntries.getRowCount(); i++) {
+					this.kdtEntries.getCell(rowIndex+1, HEADNUMBER).setValue(oldValue);
+				}
+				return;
 			}
 			
 			if((UIRuleUtil.getBigDecimal((kdtEntries.getCell(rowIndex,"investAmount").getValue()))).
@@ -1769,8 +1745,11 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 					compareTo(UIRuleUtil.getBigDecimal((kdtEntries.getCell(rowIndex,"amount").getValue())))>0)
 			{
 				FDCMsgBox.showInfo("本年度金额与累计金额之和不能超过总金额！");
-				this.kdtEntries.getCell(rowIndex,"investAmount").setValue(0);
-				this.kdtEntries.getCell(rowIndex+1, HEADNUMBER).setValue(0);
+				this.kdtEntries.getCell(rowIndex,"investAmount").setValue(oldValue);
+				for (int i = rowIndex +1 ; i < kdtEntries.getRowCount(); i++) {
+					this.kdtEntries.getCell(rowIndex+1, HEADNUMBER).setValue(oldValue);
+				}
+				return;
 			}
 			
 			for (int i = 0; i < this.kdtEntries.getRowCount(); i++) 
@@ -1781,7 +1760,27 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 				kdtEntries.getCell(i, "balance").setValue(amountBig.subtract(cumulative).subtract(investAmountBig));
 				kdtEntries.getCell(i, "investProportion").setValue(
 						amountBig.compareTo(BigDecimal.ZERO)==0?0:(investAmountBig.divide(amountBig ,4, RoundingMode.HALF_UP)));
+				
 			}
+//			BigDecimal amountBig = UIRuleUtil.getBigDecimal((row.getCell("amount").getValue()));
+//			BigDecimal investAmountBig = UIRuleUtil.getBigDecimal((row.getCell("investAmount").getValue()));
+//			BigDecimal cumulative = UIRuleUtil.getBigDecimal(row.getCell("cumulativeInvest").getValue());
+//			row.getCell("balance").setValue(amountBig.subtract(cumulative).subtract(investAmountBig));
+//			row.getCell("investProportion").setValue(
+//					amountBig.compareTo(BigDecimal.ZERO)==0?0:(investAmountBig.divide(amountBig ,4, RoundingMode.HALF_UP)));
+			
+			caclTotalAmount(e.getRowIndex(), kdtEntries.getColumnIndex(key), newLevel);
+//			caclTotalAmount(e.getRowIndex(), kdtEntries.getColumnIndex("balance"), newLevel);
+			//插入子分录是
+			
+			setEntryEditDetail(row);
+			
+			
+			investZ.setValue(UIRuleUtil.getBigDecimal(this.kdtEntries.getFootRow(0).getCell("amount").getValue()));//投资总金额
+			investB.setValue(UIRuleUtil.getBigDecimal(this.kdtEntries.getFootRow(0).getCell("investAmount").getValue()));//本年度投资金额
+			investL.setValue(UIRuleUtil.getBigDecimal(this.kdtEntries.getFootRow(0).getCell("cumulativeInvest").getValue()));//累计投资
+			investY.setValue(UIRuleUtil.getBigDecimal(this.kdtEntries.getFootRow(0).getCell("balance").getValue()));//投资余额
+			
 		}
 		//------------------------------
 		
@@ -1815,6 +1814,103 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 				}
 			}
 		}
+    }
+    
+    
+    private void setEntryEditDetail(IRow row) throws EASBizException, BOSException
+    {
+    	String proNumber = editData.getSourceBillId();
+		
+		planInfo = YearInvestPlanFactory.getRemoteInstance().getYearInvestPlanInfo("where number='"+proNumber+"'");
+		String proName = planInfo.getProjectName();
+		String yearIdt = planInfo.getYear().getId().toString();
+		
+		ProgrammingEntryInfo entryInfo = (ProgrammingEntryInfo)row.getUserObject();
+		
+		Set<String> yearSet = new HashSet<String>();
+		Map<String, ProgrammingEntryCostEntryInfo> entryMap = new HashMap<String, ProgrammingEntryCostEntryInfo>();
+		
+		for (int i = 0; i < entryInfo.getCostEntries().size(); i++) 
+		{
+			ProgrammingEntryCostEntryInfo costEntryInfo = entryInfo.getCostEntries().get(i);
+			String yearId = costEntryInfo.getInvestYear().getId().toString();
+			yearSet.add(yearId);
+			entryMap.put(yearId, costEntryInfo);
+		}
+		
+		BigDecimal GoalCost = UIRuleUtil.getBigDecimal(row.getCell("amount").getValue());
+		BigDecimal Assigned = UIRuleUtil.getBigDecimal(row.getCell("cumulativeInvest").getValue());
+		BigDecimal ContractAssign = UIRuleUtil.getBigDecimal(row.getCell("investAmount").getValue());
+		BigDecimal Assigning = UIRuleUtil.getBigDecimal(row.getCell("balance").getValue());
+		BigDecimal Proportion = UIRuleUtil.getBigDecimal(row.getCell("investProportion").getValue());
+		
+		IRow entryE2Row = null;
+		IObjectValue obj = null;
+		if(yearSet.contains(yearIdt))
+		{	
+			if(entryMap.get(yearIdt)!=null)
+			{
+				ProgrammingEntryCostEntryInfo costEntryInfo = (ProgrammingEntryCostEntryInfo)entryMap.get(yearIdt);
+				costEntryInfo.setContract(entryInfo);
+				costEntryInfo.setGoalCost(GoalCost);//投资总额
+				costEntryInfo.setAssigned(Assigned);// 累计投资（不含本年）
+				costEntryInfo.setContractAssign(ContractAssign);//本年度投资金额
+				costEntryInfo.setAssigning(Assigning);//投资余额
+				costEntryInfo.setProportion(Proportion);//投资比例
+				costEntryInfo.setDescription(UIRuleUtil.getString(row.getCell("remark").getValue()));//备注
+				
+				obj = costEntryInfo;
+				for (int i = 0; i < this.kDTable1.getRowCount(); i++)
+				{
+					IRow e2Row = this.kDTable1.getRow(i);
+					String ye = ((InvestYearInfo)e2Row.getCell("investYear").getValue()).getId().toString();
+					if(ye.equals(yearIdt))
+					{
+						entryE2Row = e2Row;
+						break;
+					}
+				}
+			}
+		}
+		else
+		{
+			ProgrammingEntryCostEntryInfo newCostEntryInfo = new ProgrammingEntryCostEntryInfo();
+			newCostEntryInfo.setId(BOSUuid.create(newCostEntryInfo.getBOSType()));
+			newCostEntryInfo.setProject(proName);
+			newCostEntryInfo.setContract(entryInfo);
+			newCostEntryInfo.setNumber(proNumber);
+			newCostEntryInfo.setInvestYear(InvestYearFactory.getRemoteInstance().getInvestYearInfo(new ObjectUuidPK(yearIdt)));
+			newCostEntryInfo.setGoalCost(GoalCost);//投资总额
+			newCostEntryInfo.setAssigned(Assigned);// 累计投资（不含本年）
+			newCostEntryInfo.setContractAssign(ContractAssign);//本年度投资金额
+			newCostEntryInfo.setAssigning(Assigning);//投资余额
+			newCostEntryInfo.setProportion(Proportion);//投资比例
+			newCostEntryInfo.setDescription(UIRuleUtil.getString(row.getCell("remark").getValue()));
+			entryInfo.getCostEntries().add(newCostEntryInfo);
+			obj = newCostEntryInfo;
+			entryE2Row = this.kDTable1.addRow();
+			
+		}
+		
+		dataBinder.loadLineFields(this.kDTable1, entryE2Row, obj);
+		storeFields();
+    }
+    
+    
+    private void setAddRow(ProgrammingEntryInfo programmingEntry) throws EASBizException, BOSException
+    {
+    	ProgrammingEntryCostEntryInfo newCostEntryInfo = new ProgrammingEntryCostEntryInfo();
+		newCostEntryInfo.setId(BOSUuid.create(newCostEntryInfo.getBOSType()));
+		newCostEntryInfo.setProject(planInfo.getProjectName());
+		newCostEntryInfo.setContract(programmingEntry);
+		newCostEntryInfo.setNumber(planInfo.getNumber());
+		newCostEntryInfo.setInvestYear(InvestYearFactory.getRemoteInstance().getInvestYearInfo(new ObjectUuidPK(planInfo.getYear().getId())));
+		newCostEntryInfo.setGoalCost(BigDecimal.ZERO);//投资总额
+		newCostEntryInfo.setAssigned(BigDecimal.ZERO);// 累计投资（不含本年）
+		newCostEntryInfo.setContractAssign(BigDecimal.ZERO);//本年度投资金额
+		newCostEntryInfo.setAssigning(BigDecimal.ZERO);//投资余额
+		newCostEntryInfo.setProportion(BigDecimal.ZERO);//投资比例
+		programmingEntry.getCostEntries().add(newCostEntryInfo);
     }
     
     /**
@@ -1872,7 +1968,7 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 			if(curLevel == 1){
 				parentNumber = kdtEntries.getCell(loop, LONGNUMBER).getValue().toString();
 			}else{
-				parentNumber = kdtEntries.getCell(loop, HEADNUMBER).getValue().toString();
+				parentNumber = UIRuleUtil.isNotNull(kdtEntries.getCell(loop, HEADNUMBER).getValue())?kdtEntries.getCell(loop, HEADNUMBER).getValue().toString():"";
 			}
 			dbSum = FDCHelper.ZERO;
 			for (int i = 0; i < kdtEntries.getRowCount(); i++) {
@@ -2006,18 +2102,9 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 				}
 			}
 			
-			String oprstate = OprtState.ADDNEW;
-			
-			String oql = "where sourceBillId='"+rowObject.getId()+"'";
-			if(InvestPlanDetailFactory.getRemoteInstance().exists(oql))
-			{
-				uiContext.put("ID", InvestPlanDetailFactory.getRemoteInstance().getInvestPlanDetailCollection(oql).get(0).getId());
-				oprstate = OprtState.VIEW;
-			}
-			else
-				uiContext.put("SourceBillId", rowObject.getId());
 			uiContext.put("proNumber", this.txtDescription.getText());
-			uiWindow = UIFactory.createUIFactory(UIFactoryName.MODEL).create(ProgrammingEntryEditUI.class.getName(), uiContext, null,oprstate);
+			uiContext.put("table", this.kDTable1);
+			uiWindow = UIFactory.createUIFactory(UIFactoryName.MODEL).create(ViewPlanDetailUI.class.getName(), uiContext, null,OprtState.ADDNEW);
 			uiWindow.show();
 			// 绑定数据到分录上
 			dataBinder.loadLineFields(kdtEntries, kdtEntries.getRow(rowIndex), rowObject);
@@ -2232,24 +2319,24 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
     }
 	
 	private void setTableFontColor(){
-		for (int i = 0; i < kdtEntries.getRowCount(); i++) {
-			Object blanceValue = kdtEntries.getCell(i, BALANCE).getValue();
-			boolean isCiting = ((Boolean)kdtEntries.getCell(i, "isCiting").getValue()).booleanValue();
-			if(blanceValue != null){
-				BigDecimal blance = (BigDecimal)blanceValue;
-				if(blance.compareTo(FDCHelper.ZERO) > 0){
-					kdtEntries.getCell(i, BALANCE).getStyleAttributes().setFontColor(Color.blue);
-				}else{
-					kdtEntries.getCell(i, BALANCE).getStyleAttributes().setFontColor(Color.red);
-				}
-			}
-			if(((Boolean)kdtEntries.getCell(i, "isWTCiting").getValue()).booleanValue()){
-				kdtEntries.getRow(i).getStyleAttributes().setBackground(new java.awt.Color(128,255,128));
-			}
-			if(isCiting){
-				kdtEntries.getRow(i).getStyleAttributes().setBackground(FDCClientHelper.KDTABLE_DISABLE_BG_COLOR);
-			}
-		}
+//		for (int i = 0; i < kdtEntries.getRowCount(); i++) {
+//			Object blanceValue = kdtEntries.getCell(i, BALANCE).getValue();
+//			boolean isCiting = ((Boolean)kdtEntries.getCell(i, "isCiting").getValue()).booleanValue();
+//			if(blanceValue != null){
+//				BigDecimal blance = (BigDecimal)blanceValue;
+//				if(blance.compareTo(FDCHelper.ZERO) > 0){
+//					kdtEntries.getCell(i, BALANCE).getStyleAttributes().setFontColor(Color.blue);
+//				}else{
+//					kdtEntries.getCell(i, BALANCE).getStyleAttributes().setFontColor(Color.red);
+//				}
+//			}
+//			if(((Boolean)kdtEntries.getCell(i, "isWTCiting").getValue()).booleanValue()){
+//				kdtEntries.getRow(i).getStyleAttributes().setBackground(new java.awt.Color(128,255,128));
+//			}
+//			if(isCiting){
+//				kdtEntries.getRow(i).getStyleAttributes().setBackground(FDCClientHelper.KDTABLE_DISABLE_BG_COLOR);
+//			}
+//		}
 	}
 
 	/**
@@ -2273,68 +2360,68 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 	 * @param rowObject
 	 */
 	private void setContractToEditData(int rowIndex, ProgrammingEntryInfo rowObject) {
-		int level = new Integer(kdtEntries.getCell(rowIndex, "level").getValue().toString()).intValue();
-		rowObject.setLevel(level);
-		if (level > 1) {
-			Object longNumber = kdtEntries.getCell(rowIndex, LONGNUMBER).getValue();
-			if (FDCHelper.isEmpty(longNumber)) {
-				String subNumber = (String) kdtEntries.getCell(rowIndex, HEADNUMBER).getValue();
-				if (!FDCHelper.isEmpty(subNumber)) {
-					rowObject.setLongNumber(subNumber.toString().trim() + ".");// 长编码
-				}
-			} else {
-				rowObject.setLongNumber((String) kdtEntries.getCell(rowIndex, "longNumber").getValue());// 长编码
-			}
-		} else {
-			rowObject.setLongNumber((String) kdtEntries.getCell(rowIndex, "longNumber").getValue());// 长编码
-		}
-		rowObject.setDisplayName((String) kdtEntries.getCell(rowIndex, "longName").getValue());// 长名称
-		rowObject.setNumber((String) kdtEntries.getCell(rowIndex, "number").getValue());// 编码
-		rowObject.setName((String) kdtEntries.getCell(rowIndex, "name").getValue());// 名称
-
-		rowObject.setWorkContent((String) kdtEntries.getCell(rowIndex, "workContent").getValue());// 工作内容
-		rowObject.setSupMaterial((String) kdtEntries.getCell(rowIndex, "supMaterial").getValue());// 甲供及甲指材设
-		rowObject.setIsInvite((Boolean) kdtEntries.getCell(rowIndex, "isInvite").getValue());
-//		rowObject.setInviteWay((InviteFormEnum) kdtEntries.getCell(rowIndex, "inviteWay").getValue());// 招标方式
-		if (!FDCHelper.isEmpty(kdtEntries.getCell(rowIndex, "inviteOrg").getValue())) {
-			Object value = kdtEntries.getCell(rowIndex, "inviteOrg").getValue();
-			rowObject.setInviteOrg((CostCenterOrgUnitInfo) value);// 招标组织
-		}
-		
-		Object amount = kdtEntries.getCell(rowIndex, AMOUNT).getValue();
-		if (!FDCHelper.isEmpty(amount)) {
-			rowObject.setAmount(new BigDecimal(amount.toString()));// 规划金额
-		}
-		Object controlAmount = kdtEntries.getCell(rowIndex, CONTROLAMOUNT).getValue();
-		if (!FDCHelper.isEmpty(controlAmount)) {
-			rowObject.setControlAmount(new BigDecimal(controlAmount.toString())); // 控制金额
-		}
-		Object signUpAmount = kdtEntries.getCell(rowIndex, "signUpAmount").getValue();
-		if (!FDCHelper.isEmpty(signUpAmount)) {
-			rowObject.setSignUpAmount(new BigDecimal(signUpAmount.toString())); // 签约金额
-		}
-		Object changeAmount = kdtEntries.getCell(rowIndex, "changeAmount").getValue();
-		if (!FDCHelper.isEmpty(changeAmount)) {
-			rowObject.setChangeAmount(new BigDecimal(changeAmount.toString())); // 变更金额
-		}
-		Object settleAmount = kdtEntries.getCell(rowIndex, "settleAmount").getValue();
-		if (!FDCHelper.isEmpty(settleAmount)) {
-			rowObject.setSettleAmount(new BigDecimal(settleAmount.toString())); // 结算金额
-		}
-		Object balance = kdtEntries.getCell(rowIndex, "balance").getValue();
-		if (!FDCHelper.isEmpty(balance)) {
-			rowObject.setBalance(new BigDecimal(balance.toString())); // 规划余额
-		}
-		Object controlBalance = kdtEntries.getCell(rowIndex, "controlBalance").getValue();
-		if (!FDCHelper.isEmpty(controlBalance)) {
-			rowObject.setControlBalance(new BigDecimal(controlBalance.toString())); // 控制余额
-		}
-		Object citeVersionObj = kdtEntries.getCell(rowIndex, "citeVersion").getValue();
-		if (!FDCHelper.isEmpty(citeVersionObj)) {
-			rowObject.setCiteVersion(new Integer(kdtEntries.getCell(rowIndex, "citeVersion").getValue().toString()).intValue());// 引用版本
-		}
-
-		rowObject.setDescription((String) kdtEntries.getCell(rowIndex, "remark").getValue());// 备注
+//		int level = new Integer(kdtEntries.getCell(rowIndex, "level").getValue().toString()).intValue();
+//		rowObject.setLevel(level);
+//		if (level > 1) {
+//			Object longNumber = kdtEntries.getCell(rowIndex, LONGNUMBER).getValue();
+//			if (FDCHelper.isEmpty(longNumber)) {
+//				String subNumber = (String) kdtEntries.getCell(rowIndex, HEADNUMBER).getValue();
+//				if (!FDCHelper.isEmpty(subNumber)) {
+//					rowObject.setLongNumber(subNumber.toString().trim() + ".");// 长编码
+//				}
+//			} else {
+//				rowObject.setLongNumber((String) kdtEntries.getCell(rowIndex, "longNumber").getValue());// 长编码
+//			}
+//		} else {
+//			rowObject.setLongNumber((String) kdtEntries.getCell(rowIndex, "longNumber").getValue());// 长编码
+//		}
+//		rowObject.setDisplayName((String) kdtEntries.getCell(rowIndex, "longName").getValue());// 长名称
+//		rowObject.setNumber((String) kdtEntries.getCell(rowIndex, "number").getValue());// 编码
+//		rowObject.setName((String) kdtEntries.getCell(rowIndex, "name").getValue());// 名称
+//
+//		rowObject.setWorkContent((String) kdtEntries.getCell(rowIndex, "workContent").getValue());// 工作内容
+//		rowObject.setSupMaterial((String) kdtEntries.getCell(rowIndex, "supMaterial").getValue());// 甲供及甲指材设
+//		rowObject.setIsInvite((Boolean) kdtEntries.getCell(rowIndex, "isInvite").getValue());
+////		rowObject.setInviteWay((InviteFormEnum) kdtEntries.getCell(rowIndex, "inviteWay").getValue());// 招标方式
+//		if (!FDCHelper.isEmpty(kdtEntries.getCell(rowIndex, "inviteOrg").getValue())) {
+//			Object value = kdtEntries.getCell(rowIndex, "inviteOrg").getValue();
+//			rowObject.setInviteOrg((CostCenterOrgUnitInfo) value);// 招标组织
+//		}
+//		
+//		Object amount = kdtEntries.getCell(rowIndex, AMOUNT).getValue();
+//		if (!FDCHelper.isEmpty(amount)) {
+//			rowObject.setAmount(new BigDecimal(amount.toString()));// 规划金额
+//		}
+//		Object controlAmount = kdtEntries.getCell(rowIndex, CONTROLAMOUNT).getValue();
+//		if (!FDCHelper.isEmpty(controlAmount)) {
+//			rowObject.setControlAmount(new BigDecimal(controlAmount.toString())); // 控制金额
+//		}
+//		Object signUpAmount = kdtEntries.getCell(rowIndex, "signUpAmount").getValue();
+//		if (!FDCHelper.isEmpty(signUpAmount)) {
+//			rowObject.setSignUpAmount(new BigDecimal(signUpAmount.toString())); // 签约金额
+//		}
+//		Object changeAmount = kdtEntries.getCell(rowIndex, "changeAmount").getValue();
+//		if (!FDCHelper.isEmpty(changeAmount)) {
+//			rowObject.setChangeAmount(new BigDecimal(changeAmount.toString())); // 变更金额
+//		}
+//		Object settleAmount = kdtEntries.getCell(rowIndex, "settleAmount").getValue();
+//		if (!FDCHelper.isEmpty(settleAmount)) {
+//			rowObject.setSettleAmount(new BigDecimal(settleAmount.toString())); // 结算金额
+//		}
+//		Object balance = kdtEntries.getCell(rowIndex, "balance").getValue();
+//		if (!FDCHelper.isEmpty(balance)) {
+//			rowObject.setBalance(new BigDecimal(balance.toString())); // 规划余额
+//		}
+//		Object controlBalance = kdtEntries.getCell(rowIndex, "controlBalance").getValue();
+//		if (!FDCHelper.isEmpty(controlBalance)) {
+//			rowObject.setControlBalance(new BigDecimal(controlBalance.toString())); // 控制余额
+//		}
+//		Object citeVersionObj = kdtEntries.getCell(rowIndex, "citeVersion").getValue();
+//		if (!FDCHelper.isEmpty(citeVersionObj)) {
+//			rowObject.setCiteVersion(new Integer(kdtEntries.getCell(rowIndex, "citeVersion").getValue().toString()).intValue());// 引用版本
+//		}
+//
+//		rowObject.setDescription((String) kdtEntries.getCell(rowIndex, "remark").getValue());// 备注
 	}
 
 	public void actionExitCurrent_actionPerformed(ActionEvent e) throws Exception {
@@ -2360,28 +2447,28 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 	 * @return 大于返回true
 	 */
 	private boolean verifyAmountVSAimCost() {
-		kdtEntries.getEditManager().editingStopped();
-		BigDecimal aimCostAccountTotal = FDCHelper.ZERO;// 总目标成本
-		BigDecimal amountTotal = FDCHelper.ZERO;// 总规划金额
-		for (int i = 0; i < kdtEntries.getRowCount(); i++) {
-			int level = new Integer(kdtEntries.getCell(i, "level").getValue().toString()).intValue();
-			if (level == 1) {
-				Object amountSingleObj = kdtEntries.getCell(i, "amount").getValue();
-				BigDecimal amountSingle = FDCHelper.ZERO;
-				if (amountSingleObj != null) {
-					amountSingle = FDCHelper.toBigDecimal(amountSingleObj);
-				}
-				amountTotal = amountTotal.add(amountSingle);
-			}
-		}
-		// 已规划金额大于总目标成本金额 return true
-		if (amountTotal.compareTo(aimCostAccountTotal) > 0) {
-			FDCMsgBox.showWarning(this,"总规划金额不能大于总目标成本金额！");
-			this.abort();
-		} else if(amountTotal.compareTo(aimCostAccountTotal)<0){
-			FDCMsgBox.showWarning(this,"总规划金额不能小于总目标成本金额！");
-			this.abort();
-		} 
+//		kdtEntries.getEditManager().editingStopped();
+//		BigDecimal aimCostAccountTotal = FDCHelper.ZERO;// 总目标成本
+//		BigDecimal amountTotal = FDCHelper.ZERO;// 总规划金额
+//		for (int i = 0; i < kdtEntries.getRowCount(); i++) {
+//			int level = new Integer(kdtEntries.getCell(i, "level").getValue().toString()).intValue();
+//			if (level == 1) {
+//				Object amountSingleObj = kdtEntries.getCell(i, "amount").getValue();
+//				BigDecimal amountSingle = FDCHelper.ZERO;
+//				if (amountSingleObj != null) {
+//					amountSingle = FDCHelper.toBigDecimal(amountSingleObj);
+//				}
+//				amountTotal = amountTotal.add(amountSingle);
+//			}
+//		}
+//		// 已规划金额大于总目标成本金额 return true
+//		if (amountTotal.compareTo(aimCostAccountTotal) > 0) {
+//			FDCMsgBox.showWarning(this,"总规划金额不能大于总目标成本金额！");
+//			this.abort();
+//		} else if(amountTotal.compareTo(aimCostAccountTotal)<0){
+//			FDCMsgBox.showWarning(this,"总规划金额不能小于总目标成本金额！");
+//			this.abort();
+//		} 
 		return false;
 	}
 	
@@ -2424,10 +2511,10 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 		}
 		SorterItemCollection sorter = new SorterItemCollection();
 		sorter.add(new SorterItemInfo(IFWEntityStruct.coreBase_ID));
-		if(ProgrammingFactory.getRemoteInstance().exists(filter)) {
-			txtName.requestFocus(true);
-			throw new EASBizException(new NumericExceptionSubItem("1", errrMsg + name_txt + "已经存在，不能重复！"));
-		}
+//		if(ProgrammingFactory.getRemoteInstance().exists(filter)) {
+//			txtName.requestFocus(true);
+//			throw new EASBizException(new NumericExceptionSubItem("1", errrMsg + name_txt + "已经存在，不能重复！"));
+//		}
 		// 保存时去掉分录名称的前后空格
 		int rowCount = kdtEntries.getRowCount();
 		for (int i = 0; i < rowCount; i++) {
@@ -2435,7 +2522,7 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 			Object name = row.getCell("name").getValue();
 			
 			Object number = kdtEntries.getCell(i, "longNumber").getValue();
-    		Object head = kdtEntries.getCell(i, HEADNUMBER).getValue();
+    		Object head = UIRuleUtil.isNotNull(kdtEntries.getCell(i, HEADNUMBER).getValue())?kdtEntries.getCell(i, HEADNUMBER).getValue():"";
     		if(number == null || number.toString().trim() == null){
 	    		throw new ProgrammingException(ProgrammingException.NUMBER_NULL , new Object[]{new Integer(i+1)});
         	}
@@ -2466,9 +2553,9 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 		
 //		verifyControlParam();
 		verifyDataBySave();
-		if (StringUtils.isEmpty(txtProjectName.getText())) {
-			throw new EASBizException(new NumericExceptionSubItem("1", "工程项目不能为空"));
-		}
+//		if (StringUtils.isEmpty(txtProjectName.getText())) {
+//			throw new EASBizException(new NumericExceptionSubItem("1", "工程项目不能为空"));
+//		}
 		if (StringUtils.isEmpty(txtVersion.getText())) {
 			throw new EASBizException(new NumericExceptionSubItem("1", "版本号不能为空"));
 		}
@@ -2491,51 +2578,52 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 		String curVersion = txtVersion.getText();
 		String versionGroup = txtVersionGroup.getText();
 		
-		if(this.txtVersion.getBigDecimalValue()!=null&&this.txtVersion.getBigDecimalValue().compareTo(new BigDecimal(1))>0){
-			if(this.txtDescription.getText()==null||"".equals(this.txtDescription.getText().trim())){
-				FDCMsgBox.showWarning(this,"调整说明不能为空！");
-				SysUtil.abort();
-			}
-			if(this.kdtCompareEntry.getRowCount()!=this.kdtVerCompareEntry.getRowCount()){
-				FDCMsgBox.showWarning(this,"请先进行调整原因提取操作！");
-				SysUtil.abort();
-			}
-			for(int i=0;i<this.kdtCompareEntry.getRowCount();i++){
-				String srcPc=this.kdtCompareEntry.getRow(i).getCell("programmingContract").getValue().toString();
-				String srcContent=this.kdtCompareEntry.getRow(i).getCell("content").getValue().toString();
-				
-				String pc=this.kdtVerCompareEntry.getRow(i).getCell("programmingContract").getValue().toString();
-				String content=this.kdtVerCompareEntry.getRow(i).getCell("content").getValue().toString();
-				if(!pc.equals(srcPc)||!content.equals(srcContent)){
-					FDCMsgBox.showWarning(this,"请先进行调整原因提取操作！");
-					SysUtil.abort();
-				}
-			}
-			ProgrammingCollection col=ProgrammingFactory.getRemoteInstance().getProgrammingCollection("select aimCost.measureStage.id from where versionGroup = '" + this.editData.getVersionGroup()+"' and version="+(this.txtVersion.getBigDecimalValue().subtract(new BigDecimal(1))));
-			if(col.size()>0){
-				for(int i=0;i<this.kdtCompareEntry.getRowCount();i++){
-					String content=(String)this.kdtCompareEntry.getRow(i).getCell("content").getValue();
-					String reson=(String)this.kdtCompareEntry.getRow(i).getCell("reason").getValue();
-					if (content != null) {
-						if(content.indexOf("规划金额增加")>=0){
-							BigDecimal amount=new BigDecimal(content.substring(content.indexOf("规划金额增加")+6, content.indexOf("元")));
-							if(amount.compareTo(new BigDecimal(1000000))>=0&&(reson == null||"".equals(reson.trim()))){
-								FDCMsgBox.showWarning(this,"第"+(i+1)+"行调整原因不能为空！");
-								this.kdtCompareEntry.getEditManager().editCellAt(i, this.kdtCompareEntry.getColumnIndex("reason"));
-								SysUtil.abort();
-							}
-						}else{
-							BigDecimal amount=new BigDecimal(content.substring(content.indexOf("规划金额减少")+6, content.indexOf("元")));
-							if(amount.compareTo(new BigDecimal(1000000))>=0&&(reson == null||"".equals(reson.trim()))){
-								FDCMsgBox.showWarning(this,"第"+(i+1)+"行调整原因不能为空！");
-								this.kdtCompareEntry.getEditManager().editCellAt(i, this.kdtCompareEntry.getColumnIndex("reason"));
-								SysUtil.abort();
-							}
-						}
-					} 
-				}
-			}
-		}
+//		if(this.txtVersion.getBigDecimalValue()!=null&&this.txtVersion.getBigDecimalValue().compareTo(new BigDecimal(1))>0)
+//		{
+//			if(this.txtDescription.getText()==null||"".equals(this.txtDescription.getText().trim())){
+//				FDCMsgBox.showWarning(this,"调整说明不能为空！");
+//				SysUtil.abort();
+//			}
+//			if(this.kdtCompareEntry.getRowCount()!=this.kdtVerCompareEntry.getRowCount()){
+//				FDCMsgBox.showWarning(this,"请先进行调整原因提取操作！");
+//				SysUtil.abort();
+//			}
+//			for(int i=0;i<this.kdtCompareEntry.getRowCount();i++){
+//				String srcPc=this.kdtCompareEntry.getRow(i).getCell("programmingContract").getValue().toString();
+//				String srcContent=this.kdtCompareEntry.getRow(i).getCell("content").getValue().toString();
+//				
+//				String pc=this.kdtVerCompareEntry.getRow(i).getCell("programmingContract").getValue().toString();
+//				String content=this.kdtVerCompareEntry.getRow(i).getCell("content").getValue().toString();
+//				if(!pc.equals(srcPc)||!content.equals(srcContent)){
+//					FDCMsgBox.showWarning(this,"请先进行调整原因提取操作！");
+//					SysUtil.abort();
+//				}
+//			}
+//			ProgrammingCollection col=ProgrammingFactory.getRemoteInstance().getProgrammingCollection("select aimCost.measureStage.id from where versionGroup = '" + this.editData.getVersionGroup()+"' and version="+(this.txtVersion.getBigDecimalValue().subtract(new BigDecimal(1))));
+//			if(col.size()>0){
+//				for(int i=0;i<this.kdtCompareEntry.getRowCount();i++){
+//					String content=(String)this.kdtCompareEntry.getRow(i).getCell("content").getValue();
+//					String reson=(String)this.kdtCompareEntry.getRow(i).getCell("reason").getValue();
+//					if (content != null) {
+//						if(content.indexOf("规划金额增加")>=0){
+//							BigDecimal amount=new BigDecimal(content.substring(content.indexOf("规划金额增加")+6, content.indexOf("元")));
+//							if(amount.compareTo(new BigDecimal(1000000))>=0&&(reson == null||"".equals(reson.trim()))){
+//								FDCMsgBox.showWarning(this,"第"+(i+1)+"行调整原因不能为空！");
+//								this.kdtCompareEntry.getEditManager().editCellAt(i, this.kdtCompareEntry.getColumnIndex("reason"));
+//								SysUtil.abort();
+//							}
+//						}else{
+//							BigDecimal amount=new BigDecimal(content.substring(content.indexOf("规划金额减少")+6, content.indexOf("元")));
+//							if(amount.compareTo(new BigDecimal(1000000))>=0&&(reson == null||"".equals(reson.trim()))){
+//								FDCMsgBox.showWarning(this,"第"+(i+1)+"行调整原因不能为空！");
+//								this.kdtCompareEntry.getEditManager().editCellAt(i, this.kdtCompareEntry.getColumnIndex("reason"));
+//								SysUtil.abort();
+//							}
+//						}
+//					} 
+//				}
+//			}
+//		}
 		
 		super.actionSubmit_actionPerformed(e);
 		if (isBillModify()) {
@@ -3037,10 +3125,15 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 			}
 		}
 		UIContext uiContext = new UIContext(this);
+		String proNumber = editData.getSourceBillId();
+		
+		planInfo = YearInvestPlanFactory.getRemoteInstance().getYearInvestPlanInfo("where number='"+proNumber+"'");
+		
 		uiContext.put("editData", editData);
 		uiContext.put("project", curProject);
 		uiContext.put("dataChangeListener", dataChangeListener);
-		IUIWindow ui = UIFactory.createUIFactory(UIFactoryName.MODEL).create(ProgrammingImportUI.class.getName(), uiContext, null,	OprtState.VIEW , WinStyle.SHOW_ONLYLEFTSTATUSBAR);
+		uiContext.put("planInfo", planInfo);
+		IUIWindow ui = UIFactory.createUIFactory(UIFactoryName.MODEL).create(ProgrammingImportUI.class.getName(), uiContext, null,	OprtState.ADDNEW , WinStyle.SHOW_ONLYLEFTSTATUSBAR);
 		ui.show();
 		
 		// 从末级逐级向上汇总
@@ -3201,6 +3294,103 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 		ui.show();
 	}
 
+	public void actionCopy_actionPerformed(ActionEvent e) throws Exception {
+		super.actionCopy_actionPerformed(e);
+		Set<ProgrammingEntryInfo> set = new HashSet<ProgrammingEntryInfo>();
+		
+		for (int i = 0; i < editData.getEntries().size(); i++) 
+		{
+			ProgrammingEntryInfo programmingEntry = editData.getEntries().get(i);
+			
+			Map<String, ProgrammingEntryCostEntryInfo> map = new HashMap<String, ProgrammingEntryCostEntryInfo>();
+			
+			for (int j = 0; j < programmingEntry.getCostEntries().size(); j++) 
+			{
+				ProgrammingEntryCostEntryInfo entryInfo = programmingEntry.getCostEntries().get(j);
+				
+				String yearName = entryInfo.getInvestYear().getName();
+				
+				map.put(String.valueOf(Integer.parseInt(yearName)+1), entryInfo);
+			}
+			InvestYearInfo yearInfo = (InvestYearInfo) getUIContext().get("year");
+			
+			BigDecimal GoalCost = BigDecimal.ZERO;
+			BigDecimal Assigned = BigDecimal.ZERO;
+			BigDecimal ssigning = BigDecimal.ZERO;
+			
+			if(map.get(yearInfo.getName())!=null)
+			{
+				ProgrammingEntryCostEntryInfo entryInfo = map.get(yearInfo.getName());
+				
+				GoalCost = entryInfo.getGoalCost()!=null?entryInfo.getGoalCost():BigDecimal.ZERO;
+				
+				Assigned = GoalCost.subtract(entryInfo.getAssigning()!=null?entryInfo.getAssigning():BigDecimal.ZERO);
+				
+				ssigning = GoalCost.subtract(Assigned);
+			}
+			programmingEntry.setCumulativeInvest(Assigned);//累计投资
+			programmingEntry.setInvestAmount(BigDecimal.ZERO);//本年投资
+			programmingEntry.setInvestProportion(0);//比例
+			
+			ProgrammingEntryCostEntryInfo newCostEntryInfo = new ProgrammingEntryCostEntryInfo();
+			newCostEntryInfo.setId(BOSUuid.create(newCostEntryInfo.getBOSType()));
+			newCostEntryInfo.setProject((String) getUIContext().get("proname"));
+			newCostEntryInfo.setContract(programmingEntry);
+			newCostEntryInfo.setNumber((String) getUIContext().get("proNumber"));
+			newCostEntryInfo.setInvestYear(yearInfo);
+			newCostEntryInfo.setGoalCost(GoalCost);//投资总额
+			newCostEntryInfo.setAssigned(Assigned);// 累计投资（不含本年）
+			newCostEntryInfo.setContractAssign(BigDecimal.ZERO);//本年度投资金额
+			newCostEntryInfo.setAssigning(ssigning);//投资余额
+			newCostEntryInfo.setProportion(BigDecimal.ZERO);//投资比例
+			
+			programmingEntry.getCostEntries().add(newCostEntryInfo);
+			set.add(programmingEntry);
+			
+		}
+		
+		editData.setSourceBillId((String) getUIContext().get("proNumber"));
+		
+		Iterator<ProgrammingEntryInfo> iteror = set.iterator();
+		int index = 0;
+		while(iteror.hasNext())
+		{
+			dataBinder.loadLineFields(this.kdtEntries, this.kdtEntries.getRow(index), iteror.next());
+			index+=1;
+		}
+		
+		ModfInitEntryRow();
+		
+		if(this.txtVersion.getBigDecimalValue()!=null&&this.txtVersion.getBigDecimalValue().compareTo(new BigDecimal(1))==0){
+			this.kdtEntries.getColumn("amount").getStyleAttributes().setLocked(false);
+		}
+		else
+		{
+			this.kdtEntries.getColumn("amount").getStyleAttributes().setLocked(true);
+			conProgramming.removeButton(btnInsertLines);
+			conProgramming.removeButton(btnAddnewLine);
+			conProgramming.removeButton(btnRemoveLines);
+			conProgramming.removeButton(btnImports);
+			conProgramming.removeButton(btnExports);
+			
+		}
+	}
+	
+	private void ModfInitEntryRow()
+	{
+		List rows = kdtEntries.getBody().getRows();
+		Collections.sort(rows, new TableCellComparator(kdtEntries.getColumnIndex("sortNumber"), KDTSortManager.SORT_ASCEND));
+		kdtEntries.setRefresh(true);
+		
+		for (int i = 0; i < this.kdtEntries.getRowCount(); i++)
+		{
+			IRow row = this.kdtEntries.getRow(i);
+			int newLevel = UIRuleUtil.getInt(row.getCell("level").getValue());
+			caclTotalAmount(i, kdtEntries.getColumnIndex("cumulativeInvest"), newLevel);
+		}
+		
+		setHeadRowColor();
+	}
 	
 	public void actionComAddRow_actionPerformed(ActionEvent e) throws Exception {
 	}

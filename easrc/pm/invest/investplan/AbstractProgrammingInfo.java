@@ -44,11 +44,11 @@ public class AbstractProgrammingInfo extends com.kingdee.eas.fdc.basedata.FDCBil
     /**
      * Object: 投资规划 's 工程项目 property 
      */
-    public com.kingdee.eas.basedata.assistant.ProjectInfo getProject()
+    public com.kingdee.eas.fdc.basedata.CurProjectInfo getProject()
     {
-        return (com.kingdee.eas.basedata.assistant.ProjectInfo)get("project");
+        return (com.kingdee.eas.fdc.basedata.CurProjectInfo)get("project");
     }
-    public void setProject(com.kingdee.eas.basedata.assistant.ProjectInfo item)
+    public void setProject(com.kingdee.eas.fdc.basedata.CurProjectInfo item)
     {
         put("project", item);
     }

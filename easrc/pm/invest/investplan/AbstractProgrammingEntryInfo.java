@@ -17,7 +17,6 @@ public class AbstractProgrammingEntryInfo extends com.kingdee.eas.framework.Tree
     {
         super(pkField);
         put("costEntries", new com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryCostEntryCollection());
-        put("EntriesEn", new com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryEntriesEnCollection());
         put("economyEntries", new com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryEconomyEntryCollection());
     }
     /**
@@ -444,11 +443,26 @@ public class AbstractProgrammingEntryInfo extends com.kingdee.eas.framework.Tree
         setDouble("investProportion", item);
     }
     /**
-     * Object: 分录 's 第5个表体 property 
+     * Object:分录's 量数property 
      */
-    public com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryEntriesEnCollection getEntriesEn()
+    public java.math.BigDecimal getQuantities()
     {
-        return (com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryEntriesEnCollection)get("EntriesEn");
+        return getBigDecimal("quantities");
+    }
+    public void setQuantities(java.math.BigDecimal item)
+    {
+        setBigDecimal("quantities", item);
+    }
+    /**
+     * Object: 分录 's 单位 property 
+     */
+    public com.kingdee.eas.basedata.assistant.MeasureUnitInfo getUnit()
+    {
+        return (com.kingdee.eas.basedata.assistant.MeasureUnitInfo)get("unit");
+    }
+    public void setUnit(com.kingdee.eas.basedata.assistant.MeasureUnitInfo item)
+    {
+        put("unit", item);
     }
     public BOSObjectType getBOSType()
     {

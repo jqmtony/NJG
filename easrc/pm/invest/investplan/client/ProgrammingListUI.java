@@ -172,11 +172,11 @@ public class ProgrammingListUI extends AbstractProgrammingListUI
 	protected FilterInfo getTreeSelectFilter(Object projectNode) throws Exception {
 		FilterInfo filter = new FilterInfo();
 		FilterItemCollection filterItems = filter.getFilterItems();
-		if (projectNode != null && projectNode instanceof CoreBaseInfo) {
-			CoreBaseInfo projTreeNodeInfo = (CoreBaseInfo) projectNode;
-			String id = projTreeNodeInfo.getId().toString();
-			filterItems.add(new FilterItemInfo("project.id", projTreeNodeInfo instanceof ProjectInfo ? id : ""));
-		}
+//		if (projectNode != null && projectNode instanceof CoreBaseInfo) {
+//			CoreBaseInfo projTreeNodeInfo = (CoreBaseInfo) projectNode;
+//			String id = projTreeNodeInfo.getId().toString();
+//			filterItems.add(new FilterItemInfo("project.id", projTreeNodeInfo instanceof ProjectInfo ? id : ""));
+//		}
 		return filter;
 	}
 	

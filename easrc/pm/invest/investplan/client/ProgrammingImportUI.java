@@ -20,6 +20,7 @@ import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.eas.base.attachment.AttachmentFactory;
 import com.kingdee.eas.base.attachment.BoAttchAssoFactory;
@@ -32,8 +33,12 @@ import com.kingdee.eas.fdc.basedata.CostAccountInfo;
 import com.kingdee.eas.fdc.basedata.FDCHelper;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
 import com.kingdee.eas.framework.ICoreBase;
+import com.kingdee.eas.port.pm.base.InvestYearFactory;
+import com.kingdee.eas.port.pm.invest.YearInvestPlanFactory;
+import com.kingdee.eas.port.pm.invest.YearInvestPlanInfo;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryCollection;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryCostEntryCollection;
+import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryCostEntryInfo;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryEconomyEntryCollection;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryEconomyEntryInfo;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryInfo;
@@ -135,6 +140,9 @@ public class ProgrammingImportUI extends AbstractProgrammingImportUI
 	throws EASBizException, BOSException {
 		ProgrammingEntryCollection entries = programming.getEntries();
 		entries.clear();
+		
+		YearInvestPlanInfo planInfo = (YearInvestPlanInfo)getUIContext().get("planInfo");
+		
 		for (int i = 0, size = templateEntryCollection.size(); i < size; i++) {
 			ProgrammingTemplateEntireInfo templateEntry = templateEntryCollection.get(i);
 			ProgrammingEntryInfo programmingEntry = new ProgrammingEntryInfo();
@@ -143,6 +151,22 @@ public class ProgrammingImportUI extends AbstractProgrammingImportUI
 			entryImport(programmingEntry, templateEntry, project);
 			initEntryOtherAmout(programmingEntry);
 			entries.add(programmingEntry);
+			
+			if(planInfo!=null)
+			{
+				ProgrammingEntryCostEntryInfo newCostEntryInfo = new ProgrammingEntryCostEntryInfo();
+				newCostEntryInfo.setId(BOSUuid.create(newCostEntryInfo.getBOSType()));
+				newCostEntryInfo.setProject(planInfo.getProjectName());
+				newCostEntryInfo.setContract(programmingEntry);
+				newCostEntryInfo.setNumber(planInfo.getNumber());
+				newCostEntryInfo.setInvestYear(InvestYearFactory.getRemoteInstance().getInvestYearInfo(new ObjectUuidPK(planInfo.getYear().getId())));
+				newCostEntryInfo.setGoalCost(BigDecimal.ZERO);//投资总额
+				newCostEntryInfo.setAssigned(BigDecimal.ZERO);// 累计投资（不含本年）
+				newCostEntryInfo.setContractAssign(BigDecimal.ZERO);//本年度投资金额
+				newCostEntryInfo.setAssigning(BigDecimal.ZERO);//投资余额
+				newCostEntryInfo.setProportion(BigDecimal.ZERO);//投资比例
+				programmingEntry.getCostEntries().add(newCostEntryInfo);
+			}
 		}
 		
 		setEntryParent(entries);

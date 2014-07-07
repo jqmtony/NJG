@@ -434,6 +434,10 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
             }
         }
     }
+			protected com.kingdee.eas.basedata.org.OrgType getMainBizOrgType() {
+			return com.kingdee.eas.basedata.org.OrgType.getEnum("CostCenter");
+		}
+
 
     /**
      * output loadFields method

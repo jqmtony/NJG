@@ -287,6 +287,17 @@ public class AbstractYearInvestPlanInfo extends com.kingdee.eas.xr.XRBillBaseInf
     {
         put("year", item);
     }
+    /**
+     * Object:年度投资计划's 投资余额property 
+     */
+    public java.math.BigDecimal getBalance()
+    {
+        return getBigDecimal("balance");
+    }
+    public void setBalance(java.math.BigDecimal item)
+    {
+        setBigDecimal("balance", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("5047FDF8");

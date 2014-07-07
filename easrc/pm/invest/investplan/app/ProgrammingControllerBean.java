@@ -412,7 +412,7 @@ public class ProgrammingControllerBean extends AbstractProgrammingControllerBean
 		
 	}
 	protected void _delete(Context ctx, IObjectPK pk) throws BOSException, EASBizException {
-		this._isReferenced(ctx, pk);
+//		this._isReferenced(ctx, pk);
 		super._delete(ctx, pk);
 	}
 	protected boolean _isAddPCPass(Context ctx, BOSUuid billId, BigDecimal amount) throws BOSException, EASBizException {
