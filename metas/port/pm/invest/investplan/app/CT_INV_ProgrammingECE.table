@@ -99,7 +99,7 @@
             <isMultilingual>false</isMultilingual>
             <isEncoded>false</isEncoded>
             <isNullable>false</isNullable>
-            <defaultValue />
+            <defaultValue>''</defaultValue>
             <sqlType>VARCHAR</sqlType>
             <length>44</length>
             <scale>0</scale>
@@ -116,6 +116,62 @@
             <defaultValue />
             <sqlType>VARCHAR</sqlType>
             <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FInvestYearID</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingECE].columns.column[FInvestYearID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingECE].columns.column[FInvestYearID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FProject</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingECE].columns.column[FProject].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingECE].columns.column[FProject].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>255</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FProportion</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingECE].columns.column[FProportion].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingECE].columns.column[FProportion].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NUMERIC</sqlType>
+            <length>13</length>
+            <scale>4</scale>
+            <precision>28</precision>
+        </column>
+        <column>
+            <name>FNumber</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingECE].columns.column[FNumber].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingECE].columns.column[FNumber].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>80</length>
             <scale>0</scale>
             <precision>0</precision>
         </column>
@@ -234,6 +290,54 @@
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingECE].columns.column[FInvestYearID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="投资年度" />
+            <lang locale="zh_HK" value="投資年度" />
+            <lang locale="zh_TW" value="投資年度" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingECE].columns.column[FInvestYearID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="投资年度" />
+            <lang locale="zh_HK" value="投資年度" />
+            <lang locale="zh_TW" value="投資年度" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingECE].columns.column[FNumber].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目编码" />
+            <lang locale="zh_HK" value="項目編碼" />
+            <lang locale="zh_TW" value="項目編碼" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingECE].columns.column[FNumber].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目编码" />
+            <lang locale="zh_HK" value="項目編碼" />
+            <lang locale="zh_TW" value="項目編碼" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingECE].columns.column[FProject].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="工程项目" />
+            <lang locale="zh_HK" value="工程項目" />
+            <lang locale="zh_TW" value="工程項目" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingECE].columns.column[FProject].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="工程项目" />
+            <lang locale="zh_HK" value="工程項目" />
+            <lang locale="zh_TW" value="工程項目" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingECE].columns.column[FProportion].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="投资比例" />
+            <lang locale="zh_HK" value="投資比例" />
+            <lang locale="zh_TW" value="投資比例" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingECE].columns.column[FProportion].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="投资比例" />
+            <lang locale="zh_HK" value="投資比例" />
+            <lang locale="zh_TW" value="投資比例" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingECE].description">
             <lang locale="en_US" value="null" />

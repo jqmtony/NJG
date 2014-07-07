@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<relationship xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.port.pm.invest.investplan.app</package>
+    <name>R_ProgrammingEntryCostEntry_InvestYear_investYear</name>
+    <alias>relationship[com.kingdee.eas.port.pm.invest.investplan.app.R_ProgrammingEntryCostEntry_InvestYear_investYear].alias</alias>
+    <description>relationship[com.kingdee.eas.port.pm.invest.investplan.app.R_ProgrammingEntryCostEntry_InvestYear_investYear].description</description>
+    <userDefined>true</userDefined>
+    <type>Association</type>
+    <clientCardinality>0..*</clientCardinality>
+    <supplierCardinality>0..1</supplierCardinality>
+    <xmlNodeRelationship />
+    <clientObject>
+        <key name="package" value="com.kingdee.eas.port.pm.invest.investplan.app" />
+        <key name="name" value="ProgrammingEntryCostEntry" />
+    </clientObject>
+    <supplierObject>
+        <key name="package" value="com.kingdee.eas.port.pm.base.app" />
+        <key name="name" value="InvestYear" />
+    </supplierObject>
+    <resource>
+        <rs key="relationship[com.kingdee.eas.port.pm.invest.investplan.app.R_ProgrammingEntryCostEntry_InvestYear_investYear].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="投资年度" />
+            <lang locale="zh_HK" value="投資年度" />
+            <lang locale="zh_TW" value="投資年度" />
+        </rs>
+        <rs key="relationship[com.kingdee.eas.port.pm.invest.investplan.app.R_ProgrammingEntryCostEntry_InvestYear_investYear].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="投资年度" />
+            <lang locale="zh_HK" value="投資年度" />
+            <lang locale="zh_TW" value="投資年度" />
+        </rs>
+        <rs key="relationship[com.kingdee.eas.port.pm.invest.investplan.app.R_ProgrammingEntryCostEntry_InvestYear_investYear].extendedProperty.userDefined">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+    </resource>
+</relationship>
+
