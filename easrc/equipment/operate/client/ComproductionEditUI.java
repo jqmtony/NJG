@@ -1090,7 +1090,16 @@ public class ComproductionEditUI extends AbstractComproductionEditUI {
 		}  
 	
 		Tool.setRespDeptF7(this.prmtreportingUnit, this, SysContext.getSysContext().getCurrentCtrlUnit().getId().toString());
-		
+		this.kdtEntrys.getColumn("proEnergy").getStyleAttributes().setNumberFormat("#,##0.0000");
+		this.kdtEntrys.getColumn("fzproEnergy").getStyleAttributes().setNumberFormat("#,##0.0000");
+		this.kdtEntrys.getColumn("lifeEnergy").getStyleAttributes().setNumberFormat("#,##0.0000");
+		this.kdtEntrys.getColumn("otherEnergy").getStyleAttributes().setNumberFormat("#,##0.0000");
+		this.kdtEntrys.getColumn("samePerformance").getStyleAttributes().setNumberFormat("#,##0.0000");
+		this.kdtEntrys.getColumn("increaseDecrease").getStyleAttributes().setNumberFormat("#,##0.0000");
+		this.kdtEntrys.getColumn("periodCon").getStyleAttributes().setNumberFormat("#,##0.0000");
+		this.kdtEntrys.getColumn("samePeriod").getStyleAttributes().setNumberFormat("#,##0.0000");
+		this.kdtEntrys.getColumn("excessSection").getStyleAttributes().setNumberFormat("#,##0.0000");
+
 		
 		
 	}
