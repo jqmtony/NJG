@@ -67,6 +67,11 @@
             <value>i18nResource[com.kingdee.eas.port.equipment.base.client.BaseResource].resourceItems.resourceItem[TestTypeQueryF7WindowTitle].value</value>
             <userDefined>true</userDefined>
         </resourceItem>
+        <resourceItem>
+            <name>InitialConnectionQueryF7WindowTitle</name>
+            <value>i18nResource[com.kingdee.eas.port.equipment.base.client.BaseResource].resourceItems.resourceItem[InitialConnectionQueryF7WindowTitle].value</value>
+            <userDefined>true</userDefined>
+        </resourceItem>
     </resourceItems>
     <resource>
         <rs key="i18nResource[com.kingdee.eas.port.equipment.base.client.BaseResource].alias">
@@ -116,6 +121,12 @@
             <lang locale="zh_CN" value="设备类型" />
             <lang locale="zh_HK" value="設備類型" />
             <lang locale="zh_TW" value="設備類型" />
+        </rs>
+        <rs key="i18nResource[com.kingdee.eas.port.equipment.base.client.BaseResource].resourceItems.resourceItem[InitialConnectionQueryF7WindowTitle].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="初始化设备与设备档案关联" />
+            <lang locale="zh_HK" value="初始化設備與設備檔案關聯" />
+            <lang locale="zh_TW" value="初始化設備與設備檔案關聯" />
         </rs>
         <rs key="i18nResource[com.kingdee.eas.port.equipment.base.client.BaseResource].resourceItems.resourceItem[PowerUnitQueryF7WindowTitle].value">
             <lang locale="en_US" value="null" />
