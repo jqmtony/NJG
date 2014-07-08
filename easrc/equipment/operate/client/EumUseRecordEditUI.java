@@ -85,14 +85,15 @@ public class EumUseRecordEditUI extends AbstractEumUseRecordEditUI {
 			}
 			this.prmtUseOrgUnit.setValue(SysContext.getSysContext().getCurrentAdminUnit());
 			
+			//引入在用的主要设备以及相关信息
 			String id = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
 			StringBuffer sb = new StringBuffer();
-			
 			sb.append("/*dialect*/select");
 			sb.append(" a.cfname 设备名称,b.fname_l2 设备类型,a.CFEqmCategory 设备类别,a.CFModel 规格型号");
 			sb.append(" from CT_REC_EquId a");
 			sb.append(" left join T_FA_Cat b on a.CFEqmTypeID = b.fid");
 			sb.append(" where a.cfsbstatus <>'3'");
+			sb.append(" and a.CFSbStatus <>'2'");
 			sb.append(" and a.CFIsMainEqm = '1'");
 			sb.append(" and a.CFSsOrgUnitID = '"+id+"'");
 			IRowSet rowSet = new XRSQLBuilder().appendSql(sb.toString()).executeQuery();
@@ -104,6 +105,31 @@ public class EumUseRecordEditUI extends AbstractEumUseRecordEditUI {
 				row.getCell("eqmCategory").setValue(rowSet.getString("设备类别"));
 				row.getCell("eqmType").setValue(rowSet.getString("设备类型"));
 			}
+			
+//			for (int i = 0; i < kdtEqmUse.getRowCount(); i++) {
+//				if(kdtEqmUse.getRowCount()>0){
+//					String id2 = ((EquIdInfo)kdtEqmUse.getCell(i, "eqmName").getValue()).getId().toString();
+//					SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+//					String month = (df.format(this.pkBizDate.getSqlDate())).substring(0, 7);
+//					//取当月维修单的总维修费用
+//					StringBuffer sb1 = new StringBuffer();
+//					sb.append("/*dialect*/select");
+//					sb.append(" CFEquNameID fid,");
+//					sb.append(" nvl(sum(CFSelfAmount),0) samount,");
+//					sb.append(" nvl(sum(CFOutAmount),0) outmount");
+//					sb.append(" from CT_MAI_RepairOrder");
+//					sb.append(" where to_char(fbizdate,'YYYY-MM')='"+month+"'");
+//					sb.append(" and  CFEquNameID = '"+id2+"'");
+//					sb.append(" and FControlUnitID = '"+id+"' group by CFEquNameID");
+//					IRowSet rowSet1 = new XRSQLBuilder().appendSql(sb1.toString()).executeQuery();
+//					while (rowSet1.next()) {
+//						for (int k = 0; k < kdtEqmUse.getRowCount(); k++) {
+//							this.kdtEqmUse.getCell(k, "selfAmount").setValue(rowSet1.getBigDecimal("samount"));
+//							this.kdtEqmUse.getCell(k, "outAmount").setValue(rowSet1.getBigDecimal("outmount"));
+//						  }
+//				     	}
+//				}
+//			}
 		}
 	}
 

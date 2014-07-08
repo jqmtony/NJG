@@ -224,28 +224,48 @@ public class AbstractRepairOrderInfo extends com.kingdee.eas.xr.XRBillBaseInfo i
         put("slDepart", item);
     }
     /**
-     * Object:维修单's 维修类别property 
+     * Object:维修单's 自修property 
      */
-    public com.kingdee.eas.port.equipment.base.enumbase.RepairCategory getRepairCategory()
+    public boolean isSelfStudy()
     {
-        return com.kingdee.eas.port.equipment.base.enumbase.RepairCategory.getEnum(getString("repairCategory"));
+        return getBoolean("selfStudy");
     }
-    public void setRepairCategory(com.kingdee.eas.port.equipment.base.enumbase.RepairCategory item)
+    public void setSelfStudy(boolean item)
     {
-		if (item != null) {
-        setString("repairCategory", item.getValue());
-		}
+        setBoolean("selfStudy", item);
     }
     /**
-     * Object:维修单's 维修费用property 
+     * Object:维修单's 委外修理property 
      */
-    public java.math.BigDecimal getRepairAmount()
+    public boolean isOutsourcing()
     {
-        return getBigDecimal("repairAmount");
+        return getBoolean("outsourcing");
     }
-    public void setRepairAmount(java.math.BigDecimal item)
+    public void setOutsourcing(boolean item)
     {
-        setBigDecimal("repairAmount", item);
+        setBoolean("outsourcing", item);
+    }
+    /**
+     * Object:维修单's 自修费用property 
+     */
+    public java.math.BigDecimal getSelfAmount()
+    {
+        return getBigDecimal("selfAmount");
+    }
+    public void setSelfAmount(java.math.BigDecimal item)
+    {
+        setBigDecimal("selfAmount", item);
+    }
+    /**
+     * Object:维修单's 委外修理费用property 
+     */
+    public java.math.BigDecimal getOutAmount()
+    {
+        return getBigDecimal("outAmount");
+    }
+    public void setOutAmount(java.math.BigDecimal item)
+    {
+        setBigDecimal("outAmount", item);
     }
     public BOSObjectType getBOSType()
     {

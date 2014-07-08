@@ -25,6 +25,8 @@ import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.xr.app.XRBillStatusEnum;
 import com.kingdee.eas.xr.helper.PersonXRHelper;
 import com.kingdee.eas.xr.helper.Tool;
+import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
+import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.swing.KDTextField;
 import com.kingdee.bos.ctrl.swing.event.DataChangeEvent;
@@ -729,17 +731,94 @@ public class RepairOrderEditUI extends AbstractRepairOrderEditUI
 	public void onLoad() throws Exception {
 		prmtslDepart.setEnabled(false);
 		this.kdtE1.getColumn("seq").getStyleAttributes().setHided(true);
+		if(getOprtState().equals(OprtState.ADDNEW)){
+		    txtselfAmount.setEnabled(false);
+		    txtoutAmount.setEnabled(false);
+		}
 		super.onLoad();
 		 EntityViewInfo evi = new EntityViewInfo();
 		 FilterInfo filter = new FilterInfo();
 		 String id = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
 		 filter.getFilterItems().add(new FilterItemInfo("ssOrgUnit.id",id ,CompareType.EQUALS));
+		 filter.getFilterItems().add(new FilterItemInfo("sbStatus","1",CompareType.EQUALS));
 		 evi.setFilter(filter);
 		 prmtequName.setEntityViewInfo(evi);
+		 
+		   KDBizPromptBox kdtE1_repairPerson_PromptBox = new KDBizPromptBox();
+	        kdtE1_repairPerson_PromptBox.setQueryInfo("com.kingdee.eas.basedata.person.app.PersonQuery");
+	        kdtE1_repairPerson_PromptBox.setVisible(true);
+	        kdtE1_repairPerson_PromptBox.setEditable(true);
+	        kdtE1_repairPerson_PromptBox.setDisplayFormat("$number$");
+	        kdtE1_repairPerson_PromptBox.setEditFormat("$number$");
+	        kdtE1_repairPerson_PromptBox.setCommitFormat("$number$");
+	        KDTDefaultCellEditor kdtE1_repairPerson_CellEditor = new KDTDefaultCellEditor(kdtE1_repairPerson_PromptBox);
+	        kdtE1.getColumn("repairPerson").setEditor(kdtE1_repairPerson_CellEditor);
+		 
+	    Tool.setPersonF7(kdtE1_repairPerson_PromptBox, this, SysContext.getSysContext().getCurrentCtrlUnit().getId().toString());
 		Tool.setPersonF7(this.prmtassignee, this, SysContext.getSysContext().getCurrentCtrlUnit().getId().toString());
 		Tool.setPersonF7(this.prmtrepairPerson, this, SysContext.getSysContext().getCurrentCtrlUnit().getId().toString());
 		Tool.setPersonF7(this.prmtdeliveryPerson, this, SysContext.getSysContext().getCurrentCtrlUnit().getId().toString());
 		Tool.setPersonF7(this.prmtrecipient, this, SysContext.getSysContext().getCurrentCtrlUnit().getId().toString());
+		if(chkselfStudy.getSelected() == 32){
+			txtselfAmount.setEnabled(true);
+		}else{
+			 txtselfAmount.setEnabled(false);
+			 txtselfAmount.setValue(null);
+		}
+		if(chkoutsourcing.getSelected() == 32){
+			 txtoutAmount.setEnabled(true);
+		}else{
+			txtoutAmount.setEnabled(false);
+			txtoutAmount.setValue(null);
+		}
+		
+		//自修
+		chkselfStudy.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				if(chkselfStudy.getSelected() == 32){
+					 txtselfAmount.setEnabled(true);
+				}else{
+					 txtselfAmount.setEnabled(false);
+					 txtselfAmount.setValue(null);
+				}
+			}
+		});
+		//委外修理
+		chkoutsourcing.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				if(chkoutsourcing.getSelected() == 32){
+					 txtoutAmount.setEnabled(true);
+				}else{
+					txtoutAmount.setEnabled(false);
+					txtoutAmount.setValue(null);
+				}
+			}
+		});
+	}
+	
+
+	protected void verifyInput(ActionEvent e) throws Exception {
+		super.verifyInput(e);
+		if(!editData.isSelfStudy()&&!editData.isOutsourcing()){
+			MsgBox.showInfo("请勾选自修或者委外修理！");
+			SysUtil.abort();
+		}
+		if(editData.isSelfStudy()&&editData.isOutsourcing()){
+			if(txtselfAmount.getBigDecimalValue() ==null&&txtoutAmount.getBigDecimalValue() ==null){
+				MsgBox.showInfo("请填写自修费用和委外修理费用！");
+				SysUtil.abort();
+			}
+		}
+		if(editData.isSelfStudy()&&txtselfAmount.getBigDecimalValue() ==null){
+			MsgBox.showInfo("请填写自修费用！");
+			SysUtil.abort();
+		}
+		if(editData.isOutsourcing()&&txtoutAmount.getBigDecimalValue() ==null){
+			MsgBox.showInfo("请填写委外修理费用！");
+			SysUtil.abort();
+		}
+	
+	   	
 	}
 	
 	protected void prmtassignee_dataChanged(DataChangeEvent e) throws Exception {

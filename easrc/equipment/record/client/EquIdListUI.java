@@ -1047,6 +1047,7 @@ public class EquIdListUI extends AbstractEquIdListUI
 			equInfo.setSsOrgUnit(iAdminOrgUnit.getAdminOrgUnitInfo(new ObjectUuidPK(info.getFICompany().getId())));
 			equInfo.setSourceBillId(info.getId().toString());
 			equInfo.setStatus(XRBillStatusEnum.TEMPORARILYSAVED);
+			equInfo.setSbStatus(sbStatusType.inUse);
 			
 			IEquId.addnew(equInfo);
 			index+=1;

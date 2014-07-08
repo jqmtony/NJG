@@ -709,6 +709,7 @@ public class EqmScrapEditUI extends AbstractEqmScrapEditUI
 		 FilterInfo filter = new FilterInfo();
 		 String id = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
 		 filter.getFilterItems().add(new FilterItemInfo("ssOrgUnit.id",id ,CompareType.EQUALS));
+		 filter.getFilterItems().add(new FilterItemInfo("sbStatus","1",CompareType.EQUALS));
 		 evi.setFilter(filter);
 		prmteqmNumber.setEntityViewInfo(evi);
 		prmteqmNumber.setRequired(true);

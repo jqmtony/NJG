@@ -218,15 +218,26 @@ public class AbstractEumUseRecordEqmUseInfo extends com.kingdee.eas.framework.Co
         setBigDecimal("materialAmount", item);
     }
     /**
-     * Object:设备使用记录's 修理费property 
+     * Object:设备使用记录's 自修费用property 
      */
-    public java.math.BigDecimal getRepaireAmount()
+    public java.math.BigDecimal getSelfAmount()
     {
-        return getBigDecimal("repaireAmount");
+        return getBigDecimal("selfAmount");
     }
-    public void setRepaireAmount(java.math.BigDecimal item)
+    public void setSelfAmount(java.math.BigDecimal item)
     {
-        setBigDecimal("repaireAmount", item);
+        setBigDecimal("selfAmount", item);
+    }
+    /**
+     * Object:设备使用记录's 委外修理费用property 
+     */
+    public java.math.BigDecimal getOutAmount()
+    {
+        return getBigDecimal("outAmount");
+    }
+    public void setOutAmount(java.math.BigDecimal item)
+    {
+        setBigDecimal("outAmount", item);
     }
     public BOSObjectType getBOSType()
     {

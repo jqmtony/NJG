@@ -729,9 +729,9 @@ public class MonMPApplicationEditUI extends AbstractMonMPApplicationEditUI
         kdtE1_equNumber_PromptBox.setDisplayFormat("$number$");
         kdtE1_equNumber_PromptBox.setEditFormat("$number$");
         kdtE1_equNumber_PromptBox.setCommitFormat("$number$");
-   	 EntityViewInfo evi = new EntityViewInfo();
+   	     EntityViewInfo evi = new EntityViewInfo();
 		 FilterInfo filter = new FilterInfo();
-		 filter.getFilterItems().add(new FilterItemInfo("sbStatus","3",CompareType.NOTEQUALS));
+		 filter.getFilterItems().add(new FilterItemInfo("sbStatus","1",CompareType.EQUALS));
 		 String id = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
  		 filter.getFilterItems().add(new FilterItemInfo("ssOrgUnit.id",id ,CompareType.EQUALS));
 		 evi.setFilter(filter);
