@@ -939,9 +939,9 @@
             </mappingField>
         </ownProperty>
         <ownProperty>
-            <name>repaireAmount</name>
-            <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecordEqmUse].properties.ownProperty[repaireAmount].alias</alias>
-            <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecordEqmUse].properties.ownProperty[repaireAmount].description</description>
+            <name>selfAmount</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecordEqmUse].properties.ownProperty[selfAmount].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecordEqmUse].properties.ownProperty[selfAmount].description</description>
             <userDefined>true</userDefined>
             <configured>false</configured>
             <dataType>BigDecimal</dataType>
@@ -952,10 +952,30 @@
             <length>28</length>
             <precision>28</precision>
             <decimalDigits>10</decimalDigits>
-            <defaultValue>entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecordEqmUse].properties.ownProperty[repaireAmount].defaultValue</defaultValue>
+            <defaultValue>entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecordEqmUse].properties.ownProperty[selfAmount].defaultValue</defaultValue>
             <displayFormat />
             <mappingField>
-                <key name="name" value="CFRepaireAmount" />
+                <key name="name" value="CFSelfAmount" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>outAmount</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecordEqmUse].properties.ownProperty[outAmount].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecordEqmUse].properties.ownProperty[outAmount].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>BigDecimal</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>28</length>
+            <precision>28</precision>
+            <decimalDigits>10</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecordEqmUse].properties.ownProperty[outAmount].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFOutAmount" />
             </mappingField>
         </ownProperty>
     </properties>
@@ -2287,6 +2307,69 @@
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecordEqmUse].properties.ownProperty[outAmount].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="委外修理费用" />
+            <lang locale="zh_HK" value="委外修理費用" />
+            <lang locale="zh_TW" value="委外修理費用" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecordEqmUse].properties.ownProperty[outAmount].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecordEqmUse].properties.ownProperty[outAmount].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="委外修理费用" />
+            <lang locale="zh_HK" value="委外修理費用" />
+            <lang locale="zh_TW" value="委外修理費用" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecordEqmUse].properties.ownProperty[outAmount].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecordEqmUse].properties.ownProperty[outAmount].extendedProperty.bizDataType">
+            <lang locale="en_US" value="AMOUNT" />
+            <lang locale="zh_CN" value="AMOUNT" />
+            <lang locale="zh_TW" value="AMOUNT" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecordEqmUse].properties.ownProperty[outAmount].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecordEqmUse].properties.ownProperty[outAmount].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecordEqmUse].properties.ownProperty[outAmount].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecordEqmUse].properties.ownProperty[outAmount].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecordEqmUse].properties.ownProperty[outAmount].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecordEqmUse].properties.ownProperty[outAmount].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecordEqmUse].properties.ownProperty[outAmount].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecordEqmUse].properties.ownProperty[powerCost].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="能耗量" />
@@ -2413,65 +2496,65 @@
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
-        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecordEqmUse].properties.ownProperty[repaireAmount].alias">
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecordEqmUse].properties.ownProperty[selfAmount].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="修理费" />
-            <lang locale="zh_HK" value="修理費" />
-            <lang locale="zh_TW" value="修理費" />
+            <lang locale="zh_CN" value="自修费用" />
+            <lang locale="zh_HK" value="自修費用" />
+            <lang locale="zh_TW" value="自修費用" />
         </rs>
-        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecordEqmUse].properties.ownProperty[repaireAmount].defaultValue">
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecordEqmUse].properties.ownProperty[selfAmount].defaultValue">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecordEqmUse].properties.ownProperty[repaireAmount].description">
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecordEqmUse].properties.ownProperty[selfAmount].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="修理费" />
-            <lang locale="zh_HK" value="修理費" />
-            <lang locale="zh_TW" value="修理費" />
+            <lang locale="zh_CN" value="自修费用" />
+            <lang locale="zh_HK" value="自修費用" />
+            <lang locale="zh_TW" value="自修費用" />
         </rs>
-        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecordEqmUse].properties.ownProperty[repaireAmount].extendedProperty.ColWidthInKDTable">
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecordEqmUse].properties.ownProperty[selfAmount].extendedProperty.ColWidthInKDTable">
             <lang locale="en_US" value="50" />
             <lang locale="zh_CN" value="50" />
             <lang locale="zh_TW" value="50" />
         </rs>
-        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecordEqmUse].properties.ownProperty[repaireAmount].extendedProperty.bizDataType">
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecordEqmUse].properties.ownProperty[selfAmount].extendedProperty.bizDataType">
             <lang locale="en_US" value="AMOUNT" />
             <lang locale="zh_CN" value="AMOUNT" />
             <lang locale="zh_TW" value="AMOUNT" />
         </rs>
-        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecordEqmUse].properties.ownProperty[repaireAmount].extendedProperty.enableFieldPermission">
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecordEqmUse].properties.ownProperty[selfAmount].extendedProperty.enableFieldPermission">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
-        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecordEqmUse].properties.ownProperty[repaireAmount].extendedProperty.isForGrouping">
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecordEqmUse].properties.ownProperty[selfAmount].extendedProperty.isForGrouping">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
-        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecordEqmUse].properties.ownProperty[repaireAmount].extendedProperty.isForMapping">
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecordEqmUse].properties.ownProperty[selfAmount].extendedProperty.isForMapping">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
-        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecordEqmUse].properties.ownProperty[repaireAmount].extendedProperty.isForMatching">
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecordEqmUse].properties.ownProperty[selfAmount].extendedProperty.isForMatching">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
-        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecordEqmUse].properties.ownProperty[repaireAmount].extendedProperty.isForWrittenBack">
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecordEqmUse].properties.ownProperty[selfAmount].extendedProperty.isForWrittenBack">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
-        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecordEqmUse].properties.ownProperty[repaireAmount].extendedProperty.isInCode">
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecordEqmUse].properties.ownProperty[selfAmount].extendedProperty.isInCode">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
-        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecordEqmUse].properties.ownProperty[repaireAmount].extendedProperty.isVisibleForKDTable">
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecordEqmUse].properties.ownProperty[selfAmount].extendedProperty.isVisibleForKDTable">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />

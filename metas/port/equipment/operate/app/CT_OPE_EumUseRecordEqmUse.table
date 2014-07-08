@@ -302,9 +302,23 @@
             <precision>28</precision>
         </column>
         <column>
-            <name>CFRepaireAmount</name>
-            <alias>dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_EumUseRecordEqmUse].columns.column[CFRepaireAmount].alias</alias>
-            <description>dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_EumUseRecordEqmUse].columns.column[CFRepaireAmount].description</description>
+            <name>CFSelfAmount</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_EumUseRecordEqmUse].columns.column[CFSelfAmount].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_EumUseRecordEqmUse].columns.column[CFSelfAmount].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NUMERIC</sqlType>
+            <length>28</length>
+            <scale>10</scale>
+            <precision>28</precision>
+        </column>
+        <column>
+            <name>CFOutAmount</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_EumUseRecordEqmUse].columns.column[CFOutAmount].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_EumUseRecordEqmUse].columns.column[CFOutAmount].description</description>
             <userDefined>true</userDefined>
             <isMultilingual>false</isMultilingual>
             <isEncoded>false</isEncoded>
@@ -527,6 +541,18 @@
             <lang locale="zh_HK" value="型號及技術規格" />
             <lang locale="zh_TW" value="型號及技術規格" />
         </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_EumUseRecordEqmUse].columns.column[CFOutAmount].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="委外修理费用" />
+            <lang locale="zh_HK" value="委外修理費用" />
+            <lang locale="zh_TW" value="委外修理費用" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_EumUseRecordEqmUse].columns.column[CFOutAmount].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="委外修理费用" />
+            <lang locale="zh_HK" value="委外修理費用" />
+            <lang locale="zh_TW" value="委外修理費用" />
+        </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_EumUseRecordEqmUse].columns.column[CFPowerCost].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="能耗量" />
@@ -575,17 +601,17 @@
             <lang locale="zh_HK" value="能源單耗單位" />
             <lang locale="zh_TW" value="能源單耗單位" />
         </rs>
-        <rs key="dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_EumUseRecordEqmUse].columns.column[CFRepaireAmount].alias">
+        <rs key="dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_EumUseRecordEqmUse].columns.column[CFSelfAmount].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="修理费" />
-            <lang locale="zh_HK" value="修理費" />
-            <lang locale="zh_TW" value="修理費" />
+            <lang locale="zh_CN" value="自修费用" />
+            <lang locale="zh_HK" value="自修費用" />
+            <lang locale="zh_TW" value="自修費用" />
         </rs>
-        <rs key="dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_EumUseRecordEqmUse].columns.column[CFRepaireAmount].description">
+        <rs key="dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_EumUseRecordEqmUse].columns.column[CFSelfAmount].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="修理费" />
-            <lang locale="zh_HK" value="修理費" />
-            <lang locale="zh_TW" value="修理費" />
+            <lang locale="zh_CN" value="自修费用" />
+            <lang locale="zh_HK" value="自修費用" />
+            <lang locale="zh_TW" value="自修費用" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_EumUseRecordEqmUse].columns.column[CFSeq].alias">
             <lang locale="en_US" value="null" />

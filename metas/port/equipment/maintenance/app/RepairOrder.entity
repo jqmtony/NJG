@@ -1095,29 +1095,49 @@
             </relationship>
         </linkProperty>
         <ownProperty>
-            <name>repairCategory</name>
-            <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[repairCategory].alias</alias>
-            <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[repairCategory].description</description>
+            <name>selfStudy</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[selfStudy].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[selfStudy].description</description>
             <userDefined>true</userDefined>
             <configured>false</configured>
-            <dataType>Enum</dataType>
-            <metadataRef>com.kingdee.eas.port.equipment.base.enumbase.RepairCategory</metadataRef>
+            <dataType>Boolean</dataType>
+            <metadataRef />
             <isMultilingual>false</isMultilingual>
             <isNullable>false</isNullable>
             <formula />
-            <length>80</length>
+            <length>1</length>
             <precision>0</precision>
             <decimalDigits>0</decimalDigits>
-            <defaultValue>entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[repairCategory].defaultValue</defaultValue>
+            <defaultValue>entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[selfStudy].defaultValue</defaultValue>
             <displayFormat />
             <mappingField>
-                <key name="name" value="CFRepairCategory" />
+                <key name="name" value="CFSelfStudy" />
             </mappingField>
         </ownProperty>
         <ownProperty>
-            <name>repairAmount</name>
-            <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[repairAmount].alias</alias>
-            <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[repairAmount].description</description>
+            <name>outsourcing</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[outsourcing].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[outsourcing].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>Boolean</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>1</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[outsourcing].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFOutsourcing" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>selfAmount</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[selfAmount].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[selfAmount].description</description>
             <userDefined>true</userDefined>
             <configured>false</configured>
             <dataType>BigDecimal</dataType>
@@ -1128,10 +1148,30 @@
             <length>28</length>
             <precision>28</precision>
             <decimalDigits>10</decimalDigits>
-            <defaultValue>entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[repairAmount].defaultValue</defaultValue>
+            <defaultValue>entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[selfAmount].defaultValue</defaultValue>
             <displayFormat />
             <mappingField>
-                <key name="name" value="CFRepairAmount" />
+                <key name="name" value="CFSelfAmount" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>outAmount</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[outAmount].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[outAmount].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>BigDecimal</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>28</length>
+            <precision>28</precision>
+            <decimalDigits>10</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[outAmount].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFOutAmount" />
             </mappingField>
         </ownProperty>
     </properties>
@@ -3368,133 +3408,128 @@
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
-        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[repairAmount].alias">
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[outAmount].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="维修费用" />
-            <lang locale="zh_HK" value="維修費用" />
-            <lang locale="zh_TW" value="維修費用" />
+            <lang locale="zh_CN" value="委外修理费用" />
+            <lang locale="zh_HK" value="委外修理費用" />
+            <lang locale="zh_TW" value="委外修理費用" />
         </rs>
-        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[repairAmount].defaultValue">
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[outAmount].defaultValue">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[repairAmount].description">
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[outAmount].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="维修费用" />
-            <lang locale="zh_HK" value="維修費用" />
-            <lang locale="zh_TW" value="維修費用" />
+            <lang locale="zh_CN" value="委外修理费用" />
+            <lang locale="zh_HK" value="委外修理費用" />
+            <lang locale="zh_TW" value="委外修理費用" />
         </rs>
-        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[repairAmount].extendedProperty.ColWidthInKDTable">
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[outAmount].extendedProperty.ColWidthInKDTable">
             <lang locale="en_US" value="50" />
             <lang locale="zh_CN" value="50" />
             <lang locale="zh_TW" value="50" />
         </rs>
-        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[repairAmount].extendedProperty.bizDataType">
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[outAmount].extendedProperty.bizDataType">
             <lang locale="en_US" value="AMOUNT" />
             <lang locale="zh_CN" value="AMOUNT" />
             <lang locale="zh_TW" value="AMOUNT" />
         </rs>
-        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[repairAmount].extendedProperty.enableFieldPermission">
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[outAmount].extendedProperty.enableFieldPermission">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
-        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[repairAmount].extendedProperty.isForGrouping">
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[outAmount].extendedProperty.isForGrouping">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
-        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[repairAmount].extendedProperty.isForMapping">
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[outAmount].extendedProperty.isForMapping">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
-        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[repairAmount].extendedProperty.isForMatching">
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[outAmount].extendedProperty.isForMatching">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
-        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[repairAmount].extendedProperty.isForWrittenBack">
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[outAmount].extendedProperty.isForWrittenBack">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
-        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[repairAmount].extendedProperty.isInCode">
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[outAmount].extendedProperty.isInCode">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
-        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[repairAmount].extendedProperty.isVisibleForKDTable">
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[outAmount].extendedProperty.isVisibleForKDTable">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
-        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[repairCategory].alias">
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[outsourcing].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="维修类别" />
-            <lang locale="zh_HK" value="維修類別" />
-            <lang locale="zh_TW" value="維修類別" />
+            <lang locale="zh_CN" value="委外修理" />
+            <lang locale="zh_HK" value="委外修理" />
+            <lang locale="zh_TW" value="委外修理" />
         </rs>
-        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[repairCategory].defaultValue">
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[outsourcing].defaultValue">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="selfstudy" />
-            <lang locale="zh_HK" value="selfstudy" />
-            <lang locale="zh_TW" value="selfstudy" />
+            <lang locale="zh_CN" value="委外修理" />
+            <lang locale="zh_HK" value="委外修理" />
+            <lang locale="zh_TW" value="委外修理" />
         </rs>
-        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[repairCategory].description">
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[outsourcing].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="维修类别" />
-            <lang locale="zh_HK" value="維修類別" />
-            <lang locale="zh_TW" value="維修類別" />
+            <lang locale="zh_CN" value="委外修理" />
+            <lang locale="zh_HK" value="委外修理" />
+            <lang locale="zh_TW" value="委外修理" />
         </rs>
-        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[repairCategory].extendedProperty.ColWidthInKDTable">
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[outsourcing].extendedProperty.ColWidthInKDTable">
             <lang locale="en_US" value="50" />
             <lang locale="zh_CN" value="50" />
             <lang locale="zh_TW" value="50" />
         </rs>
-        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[repairCategory].extendedProperty.bizDataType">
-            <lang locale="en_US" value="ENUM" />
-            <lang locale="zh_CN" value="ENUM" />
-            <lang locale="zh_TW" value="ENUM" />
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[outsourcing].extendedProperty.bizDataType">
+            <lang locale="en_US" value="BOOLEAN" />
+            <lang locale="zh_CN" value="BOOLEAN" />
+            <lang locale="zh_TW" value="BOOLEAN" />
         </rs>
-        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[repairCategory].extendedProperty.defaultValue">
-            <lang locale="en_US" value="selfstudy" />
-            <lang locale="zh_CN" value="selfstudy" />
-            <lang locale="zh_TW" value="selfstudy" />
-        </rs>
-        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[repairCategory].extendedProperty.enableFieldPermission">
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[outsourcing].extendedProperty.enableFieldPermission">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
-        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[repairCategory].extendedProperty.isForGrouping">
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[outsourcing].extendedProperty.isForGrouping">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
-        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[repairCategory].extendedProperty.isForMapping">
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[outsourcing].extendedProperty.isForMapping">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
-        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[repairCategory].extendedProperty.isForMatching">
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[outsourcing].extendedProperty.isForMatching">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
-        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[repairCategory].extendedProperty.isForWrittenBack">
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[outsourcing].extendedProperty.isForWrittenBack">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
-        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[repairCategory].extendedProperty.isInCode">
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[outsourcing].extendedProperty.isInCode">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
-        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[repairCategory].extendedProperty.isVisibleForKDTable">
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[outsourcing].extendedProperty.isVisibleForKDTable">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
@@ -3684,6 +3719,132 @@
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[repairTime].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[selfAmount].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="自修费用" />
+            <lang locale="zh_HK" value="自修費用" />
+            <lang locale="zh_TW" value="自修費用" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[selfAmount].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[selfAmount].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="自修费用" />
+            <lang locale="zh_HK" value="自修費用" />
+            <lang locale="zh_TW" value="自修費用" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[selfAmount].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[selfAmount].extendedProperty.bizDataType">
+            <lang locale="en_US" value="AMOUNT" />
+            <lang locale="zh_CN" value="AMOUNT" />
+            <lang locale="zh_TW" value="AMOUNT" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[selfAmount].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[selfAmount].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[selfAmount].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[selfAmount].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[selfAmount].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[selfAmount].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[selfAmount].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[selfStudy].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="自修" />
+            <lang locale="zh_HK" value="自修" />
+            <lang locale="zh_TW" value="自修" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[selfStudy].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="自修" />
+            <lang locale="zh_HK" value="自修" />
+            <lang locale="zh_TW" value="自修" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[selfStudy].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="自修" />
+            <lang locale="zh_HK" value="自修" />
+            <lang locale="zh_TW" value="自修" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[selfStudy].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[selfStudy].extendedProperty.bizDataType">
+            <lang locale="en_US" value="BOOLEAN" />
+            <lang locale="zh_CN" value="BOOLEAN" />
+            <lang locale="zh_TW" value="BOOLEAN" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[selfStudy].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[selfStudy].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[selfStudy].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[selfStudy].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[selfStudy].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[selfStudy].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].properties.ownProperty[selfStudy].extendedProperty.isVisibleForKDTable">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />

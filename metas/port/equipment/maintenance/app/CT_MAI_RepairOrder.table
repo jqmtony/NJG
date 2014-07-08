@@ -498,23 +498,51 @@
             <precision>0</precision>
         </column>
         <column>
-            <name>CFRepairCategory</name>
-            <alias>dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrder].columns.column[CFRepairCategory].alias</alias>
-            <description>dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrder].columns.column[CFRepairCategory].description</description>
+            <name>CFSelfStudy</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrder].columns.column[CFSelfStudy].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrder].columns.column[CFSelfStudy].description</description>
             <userDefined>true</userDefined>
             <isMultilingual>false</isMultilingual>
             <isEncoded>false</isEncoded>
             <isNullable>true</isNullable>
             <defaultValue />
-            <sqlType>VARCHAR</sqlType>
-            <length>100</length>
+            <sqlType>INT</sqlType>
+            <length>1</length>
             <scale>0</scale>
             <precision>0</precision>
         </column>
         <column>
-            <name>CFRepairAmount</name>
-            <alias>dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrder].columns.column[CFRepairAmount].alias</alias>
-            <description>dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrder].columns.column[CFRepairAmount].description</description>
+            <name>CFOutsourcing</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrder].columns.column[CFOutsourcing].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrder].columns.column[CFOutsourcing].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>INT</sqlType>
+            <length>1</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFSelfAmount</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrder].columns.column[CFSelfAmount].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrder].columns.column[CFSelfAmount].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NUMERIC</sqlType>
+            <length>28</length>
+            <scale>10</scale>
+            <precision>28</precision>
+        </column>
+        <column>
+            <name>CFOutAmount</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrder].columns.column[CFOutAmount].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrder].columns.column[CFOutAmount].description</description>
             <userDefined>true</userDefined>
             <isMultilingual>false</isMultilingual>
             <isEncoded>false</isEncoded>
@@ -915,6 +943,30 @@
             <lang locale="zh_HK" value="維修類型" />
             <lang locale="zh_TW" value="維修類型" />
         </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrder].columns.column[CFOutAmount].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="委外修理费用" />
+            <lang locale="zh_HK" value="委外修理費用" />
+            <lang locale="zh_TW" value="委外修理費用" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrder].columns.column[CFOutAmount].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="委外修理费用" />
+            <lang locale="zh_HK" value="委外修理費用" />
+            <lang locale="zh_TW" value="委外修理費用" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrder].columns.column[CFOutsourcing].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="委外修理" />
+            <lang locale="zh_HK" value="委外修理" />
+            <lang locale="zh_TW" value="委外修理" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrder].columns.column[CFOutsourcing].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="委外修理" />
+            <lang locale="zh_HK" value="委外修理" />
+            <lang locale="zh_TW" value="委外修理" />
+        </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrder].columns.column[CFRecipientID].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="接收人" />
@@ -926,30 +978,6 @@
             <lang locale="zh_CN" value="接收人" />
             <lang locale="zh_HK" value="接收人" />
             <lang locale="zh_TW" value="接收人" />
-        </rs>
-        <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrder].columns.column[CFRepairAmount].alias">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="维修费用" />
-            <lang locale="zh_HK" value="維修費用" />
-            <lang locale="zh_TW" value="維修費用" />
-        </rs>
-        <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrder].columns.column[CFRepairAmount].description">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="维修费用" />
-            <lang locale="zh_HK" value="維修費用" />
-            <lang locale="zh_TW" value="維修費用" />
-        </rs>
-        <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrder].columns.column[CFRepairCategory].alias">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="维修类别" />
-            <lang locale="zh_HK" value="維修類別" />
-            <lang locale="zh_TW" value="維修類別" />
-        </rs>
-        <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrder].columns.column[CFRepairCategory].description">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="维修类别" />
-            <lang locale="zh_HK" value="維修類別" />
-            <lang locale="zh_TW" value="維修類別" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrder].columns.column[CFRepairContent].alias">
             <lang locale="en_US" value="null" />
@@ -1010,6 +1038,30 @@
             <lang locale="zh_CN" value="报修时间" />
             <lang locale="zh_HK" value="報修時間" />
             <lang locale="zh_TW" value="報修時間" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrder].columns.column[CFSelfAmount].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="自修费用" />
+            <lang locale="zh_HK" value="自修費用" />
+            <lang locale="zh_TW" value="自修費用" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrder].columns.column[CFSelfAmount].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="自修费用" />
+            <lang locale="zh_HK" value="自修費用" />
+            <lang locale="zh_TW" value="自修費用" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrder].columns.column[CFSelfStudy].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="自修" />
+            <lang locale="zh_HK" value="自修" />
+            <lang locale="zh_TW" value="自修" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrder].columns.column[CFSelfStudy].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="自修" />
+            <lang locale="zh_HK" value="自修" />
+            <lang locale="zh_TW" value="自修" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrder].columns.column[CFSlDepartID].alias">
             <lang locale="en_US" value="null" />
