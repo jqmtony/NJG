@@ -29,17 +29,6 @@ public class AbstractEumUseRecordEqmUseInfo extends com.kingdee.eas.framework.Co
         put("parent", item);
     }
     /**
-     * Object:设备使用记录's 设备名称property 
-     */
-    public String getEqmName()
-    {
-        return getString("eqmName");
-    }
-    public void setEqmName(String item)
-    {
-        setString("eqmName", item);
-    }
-    /**
      * Object:设备使用记录's 型号及技术规格property 
      */
     public String getModelType()
@@ -238,6 +227,17 @@ public class AbstractEumUseRecordEqmUseInfo extends com.kingdee.eas.framework.Co
     public void setOutAmount(java.math.BigDecimal item)
     {
         setBigDecimal("outAmount", item);
+    }
+    /**
+     * Object: 设备使用记录 's 设备名称 property 
+     */
+    public com.kingdee.eas.port.equipment.record.EquIdInfo getEqmName()
+    {
+        return (com.kingdee.eas.port.equipment.record.EquIdInfo)get("eqmName");
+    }
+    public void setEqmName(com.kingdee.eas.port.equipment.record.EquIdInfo item)
+    {
+        put("eqmName", item);
     }
     public BOSObjectType getBOSType()
     {

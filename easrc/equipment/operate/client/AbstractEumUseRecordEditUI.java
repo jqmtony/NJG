@@ -257,11 +257,18 @@ public abstract class AbstractEumUseRecordEditUI extends com.kingdee.eas.xr.clie
 
 
         this.kdtEqmUse.checkParsed();
-        KDTextField kdtEqmUse_eqmName_TextField = new KDTextField();
-        kdtEqmUse_eqmName_TextField.setName("kdtEqmUse_eqmName_TextField");
-        kdtEqmUse_eqmName_TextField.setMaxLength(100);
-        KDTDefaultCellEditor kdtEqmUse_eqmName_CellEditor = new KDTDefaultCellEditor(kdtEqmUse_eqmName_TextField);
+        final KDBizPromptBox kdtEqmUse_eqmName_PromptBox = new KDBizPromptBox();
+        kdtEqmUse_eqmName_PromptBox.setQueryInfo("com.kingdee.eas.port.equipment.record.app.EquIdQuery");
+        kdtEqmUse_eqmName_PromptBox.setVisible(true);
+        kdtEqmUse_eqmName_PromptBox.setEditable(true);
+        kdtEqmUse_eqmName_PromptBox.setDisplayFormat("$number$");
+        kdtEqmUse_eqmName_PromptBox.setEditFormat("$number$");
+        kdtEqmUse_eqmName_PromptBox.setCommitFormat("$number$");
+        KDTDefaultCellEditor kdtEqmUse_eqmName_CellEditor = new KDTDefaultCellEditor(kdtEqmUse_eqmName_PromptBox);
         this.kdtEqmUse.getColumn("eqmName").setEditor(kdtEqmUse_eqmName_CellEditor);
+        ObjectValueRender kdtEqmUse_eqmName_OVR = new ObjectValueRender();
+        kdtEqmUse_eqmName_OVR.setFormat(new BizDataFormat("$name$"));
+        this.kdtEqmUse.getColumn("eqmName").setRenderer(kdtEqmUse_eqmName_OVR);
         KDTextField kdtEqmUse_eqmType_TextField = new KDTextField();
         kdtEqmUse_eqmType_TextField.setName("kdtEqmUse_eqmType_TextField");
         kdtEqmUse_eqmType_TextField.setMaxLength(100);
@@ -527,7 +534,7 @@ public abstract class AbstractEumUseRecordEditUI extends com.kingdee.eas.xr.clie
         this.prmtreportTime.setEditFormat("$number$");		
         this.prmtreportTime.setCommitFormat("$number$");		
         this.prmtreportTime.setRequired(false);
-        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmtCU,pkLastUpdateTime,prmtLastUpdateUser,pkCreateTime,prmtCreator,prmtAuditor,txtDescription,pkBizDate,txtNumber,pkAuditTime,comboBizStatus,comboStatus,kdtEqmUse,prmtstaPerson,prmtUseOrgUnit,prmtreportTime}));
+        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmtCU,pkLastUpdateTime,prmtLastUpdateUser,pkCreateTime,prmtCreator,prmtAuditor,txtDescription,pkBizDate,txtNumber,pkAuditTime,comboBizStatus,comboStatus,prmtstaPerson,prmtUseOrgUnit,prmtreportTime,kdtEqmUse}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
 		registerBindings();
@@ -802,7 +809,6 @@ vo.put("CostType","1");
 	private void registerBindings(){
 		dataBinder.registerBinding("EqmUse.seq", int.class, this.kdtEqmUse, "seq.text");
 		dataBinder.registerBinding("EqmUse", com.kingdee.eas.port.equipment.operate.EumUseRecordEqmUseInfo.class, this.kdtEqmUse, "userObject");
-		dataBinder.registerBinding("EqmUse.eqmName", String.class, this.kdtEqmUse, "eqmName.text");
 		dataBinder.registerBinding("EqmUse.modelType", String.class, this.kdtEqmUse, "modelType.text");
 		dataBinder.registerBinding("EqmUse.powerCost", java.math.BigDecimal.class, this.kdtEqmUse, "powerCost.text");
 		dataBinder.registerBinding("EqmUse.czCost", java.math.BigDecimal.class, this.kdtEqmUse, "czCost.text");
@@ -821,6 +827,7 @@ vo.put("CostType","1");
 		dataBinder.registerBinding("EqmUse.materialAmount", java.math.BigDecimal.class, this.kdtEqmUse, "materialAmount.text");
 		dataBinder.registerBinding("EqmUse.selfAmount", java.math.BigDecimal.class, this.kdtEqmUse, "selfAmount.text");
 		dataBinder.registerBinding("EqmUse.outAmount", java.math.BigDecimal.class, this.kdtEqmUse, "outAmount.text");
+		dataBinder.registerBinding("EqmUse.eqmName", java.lang.Object.class, this.kdtEqmUse, "eqmName.text");
 		dataBinder.registerBinding("creator", com.kingdee.eas.base.permission.UserInfo.class, this.prmtCreator, "data");
 		dataBinder.registerBinding("createTime", java.sql.Timestamp.class, this.pkCreateTime, "value");
 		dataBinder.registerBinding("lastUpdateUser", com.kingdee.eas.base.permission.UserInfo.class, this.prmtLastUpdateUser, "data");
@@ -972,7 +979,6 @@ vo.put("CostType","1");
     	getValidateHelper().setCustomValidator( getValidator() );
 		getValidateHelper().registerBindProperty("EqmUse.seq", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("EqmUse", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("EqmUse.eqmName", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("EqmUse.modelType", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("EqmUse.powerCost", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("EqmUse.czCost", ValidateHelper.ON_SAVE);    
@@ -991,6 +997,7 @@ vo.put("CostType","1");
 		getValidateHelper().registerBindProperty("EqmUse.materialAmount", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("EqmUse.selfAmount", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("EqmUse.outAmount", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("EqmUse.eqmName", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("creator", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("createTime", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("lastUpdateUser", ValidateHelper.ON_SAVE);    
@@ -1047,7 +1054,6 @@ vo.put("CostType","1");
 		}
 		else{
 		}
-    	sic.add(new SelectorItemInfo("EqmUse.eqmName"));
     	sic.add(new SelectorItemInfo("EqmUse.modelType"));
     	sic.add(new SelectorItemInfo("EqmUse.powerCost"));
     	sic.add(new SelectorItemInfo("EqmUse.czCost"));
@@ -1090,6 +1096,15 @@ vo.put("CostType","1");
     	sic.add(new SelectorItemInfo("EqmUse.materialAmount"));
     	sic.add(new SelectorItemInfo("EqmUse.selfAmount"));
     	sic.add(new SelectorItemInfo("EqmUse.outAmount"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("EqmUse.eqmName.*"));
+		}
+		else{
+	    	sic.add(new SelectorItemInfo("EqmUse.eqmName.id"));
+			sic.add(new SelectorItemInfo("EqmUse.eqmName.name"));
+        	sic.add(new SelectorItemInfo("EqmUse.eqmName.number"));
+		}
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
 			sic.add(new SelectorItemInfo("creator.*"));

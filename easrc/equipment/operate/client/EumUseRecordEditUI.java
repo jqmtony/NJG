@@ -4,16 +4,14 @@
 package com.kingdee.eas.port.equipment.operate.client;
 
 import java.awt.event.ActionEvent;
-import java.math.BigDecimal;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 
 import org.apache.log4j.Logger;
 
-import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
+import com.kingdee.bos.BOSException;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
-import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.swing.KDTextField;
 import com.kingdee.bos.dao.IObjectValue;
@@ -21,22 +19,18 @@ import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
-import com.kingdee.bos.metadata.entity.SelectorItemCollection;
-import com.kingdee.bos.metadata.entity.SelectorItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
-import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.fi.fa.basedata.FaCatFactory;
-import com.kingdee.eas.fi.fa.basedata.FaCatInfo;
-import com.kingdee.eas.fi.fa.basedata.FaUseStatusFactory;
 import com.kingdee.eas.fi.fa.basedata.IFaCat;
 import com.kingdee.eas.port.equipment.base.enumbase.sbStatusType;
 import com.kingdee.eas.port.equipment.record.EquIdCollection;
 import com.kingdee.eas.port.equipment.record.EquIdFactory;
 import com.kingdee.eas.port.equipment.record.EquIdInfo;
+import com.kingdee.eas.port.equipment.record.IEquId;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.MsgBox;
 import com.kingdee.eas.xr.helper.Tool;
@@ -65,71 +59,49 @@ public class EumUseRecordEditUI extends AbstractEumUseRecordEditUI {
 			pkBizDate.setValue(new Date());
 			//获取当前的登录人，除了User用户之外。
 			prmtstaPerson.setValue(com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentUserInfo().getPerson());
-			FilterInfo filter = new FilterInfo();
-			EntityViewInfo view = new EntityViewInfo();
-			view.setFilter(filter);
-			filter.getFilterItems().add(new FilterItemInfo("tzsbStatus",sbStatusType.INUSE_VALUE));
-			filter.getFilterItems().add(new FilterItemInfo("ssOrgUnit",SysContext.getSysContext().getCurrentCtrlUnit().getId(),CompareType.EQUALS));
-			EquIdCollection coll = EquIdFactory.getRemoteInstance().getEquIdCollection(view);
-			IFaCat ifacat = FaCatFactory.getRemoteInstance();
-			for (int i = 0; i < coll.size(); i++) {
-				IRow row = kdtEqmUse.addRow(i);
-				EquIdInfo info = coll.get(i);
-				String eqmcat = ifacat.getFaCatInfo(new ObjectUuidPK(info.getEqmType().getId())).getName();
-				row.getCell("seq").setValue(i+1);
-				row.getCell("eqmName").setValue(info.getName());
-				row.getCell("modelType").setValue(info.getSize());
-				row.getCell("eqmType").setValue(eqmcat);
-				row.getCell("eqmCategory").setValue(info.getEqmCategory());
-//				System.out.println(info.getName()+"=============>"+eqmcat);
-			}
+//			FilterInfo filter = new FilterInfo();
+//			EntityViewInfo view = new EntityViewInfo();
+//			view.setFilter(filter);
+//			filter.getFilterItems().add(new FilterItemInfo("tzsbStatus",sbStatusType.INUSE_VALUE));
+//			filter.getFilterItems().add(new FilterItemInfo("ssOrgUnit",SysContext.getSysContext().getCurrentCtrlUnit().getId(),CompareType.EQUALS));
+//			EquIdCollection coll = EquIdFactory.getRemoteInstance().getEquIdCollection(view);
+//			IFaCat ifacat = FaCatFactory.getRemoteInstance();
+//			for (int i = 0; i < coll.size(); i++) {
+//				IRow row = kdtEqmUse.addRow(i);
+//				EquIdInfo info = coll.get(i);
+//				String eqmcat = ifacat.getFaCatInfo(new ObjectUuidPK(info.getEqmType().getId())).getName();
+//				row.getCell("seq").setValue(i+1);
+//				row.getCell("eqmName").setValue(info.getName());
+//				row.getCell("modelType").setValue(info.getSize());
+//				row.getCell("eqmType").setValue(eqmcat);
+//				row.getCell("eqmCategory").setValue(info.getEqmCategory());
+////				System.out.println(info.getName()+"=============>"+eqmcat);
+//			}
 			this.prmtUseOrgUnit.setValue(SysContext.getSysContext().getCurrentAdminUnit());
 			
 			//引入在用的主要设备以及相关信息
 			String id = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
 			StringBuffer sb = new StringBuffer();
 			sb.append("/*dialect*/select");
-			sb.append(" a.cfname 设备名称,b.fname_l2 设备类型,a.CFEqmCategory 设备类别,a.CFModel 规格型号");
+			sb.append(" a.fid 设备名称,b.fname_l2 设备类型,a.CFEqmCategory 设备类别,a.CFModel 规格型号");
 			sb.append(" from CT_REC_EquId a");
 			sb.append(" left join T_FA_Cat b on a.CFEqmTypeID = b.fid");
-			sb.append(" where a.cfsbstatus <>'3'");
-			sb.append(" and a.CFSbStatus <>'2'");
+			sb.append(" where a.cfsbstatus = '1'");
 			sb.append(" and a.CFIsMainEqm = '1'");
 			sb.append(" and a.CFSsOrgUnitID = '"+id+"'");
 			IRowSet rowSet = new XRSQLBuilder().appendSql(sb.toString()).executeQuery();
 			this.kdtEqmUse.removeRows();
+			IEquId iEquId = EquIdFactory.getRemoteInstance();
 			while (rowSet.next()) {
 				IRow row = this.kdtEqmUse.addRow();
-				row.getCell("eqmName").setValue(rowSet.getString("设备名称"));
+				EquIdInfo equInfo = iEquId.getEquIdInfo(new ObjectUuidPK(rowSet.getString("设备名称")));
+				row.getCell("eqmName").setValue(equInfo);
 				row.getCell("modelType").setValue(rowSet.getString("规格型号"));
 				row.getCell("eqmCategory").setValue(rowSet.getString("设备类别"));
 				row.getCell("eqmType").setValue(rowSet.getString("设备类型"));
+				getRepairOrder(row, equInfo);
+				getMetialAmount(row,equInfo);
 			}
-			
-//			for (int i = 0; i < kdtEqmUse.getRowCount(); i++) {
-//				if(kdtEqmUse.getRowCount()>0){
-//					String id2 = ((EquIdInfo)kdtEqmUse.getCell(i, "eqmName").getValue()).getId().toString();
-//					SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-//					String month = (df.format(this.pkBizDate.getSqlDate())).substring(0, 7);
-//					//取当月维修单的总维修费用
-//					StringBuffer sb1 = new StringBuffer();
-//					sb.append("/*dialect*/select");
-//					sb.append(" CFEquNameID fid,");
-//					sb.append(" nvl(sum(CFSelfAmount),0) samount,");
-//					sb.append(" nvl(sum(CFOutAmount),0) outmount");
-//					sb.append(" from CT_MAI_RepairOrder");
-//					sb.append(" where to_char(fbizdate,'YYYY-MM')='"+month+"'");
-//					sb.append(" and  CFEquNameID = '"+id2+"'");
-//					sb.append(" and FControlUnitID = '"+id+"' group by CFEquNameID");
-//					IRowSet rowSet1 = new XRSQLBuilder().appendSql(sb1.toString()).executeQuery();
-//					while (rowSet1.next()) {
-//						for (int k = 0; k < kdtEqmUse.getRowCount(); k++) {
-//							this.kdtEqmUse.getCell(k, "selfAmount").setValue(rowSet1.getBigDecimal("samount"));
-//							this.kdtEqmUse.getCell(k, "outAmount").setValue(rowSet1.getBigDecimal("outmount"));
-//						  }
-//				     	}
-//				}
-//			}
 		}
 	}
 
@@ -149,6 +121,56 @@ public class EumUseRecordEditUI extends AbstractEumUseRecordEditUI {
   			SysUtil.abort();
 		}
 	}
+	
+	private void getRepairOrder(IRow row,EquIdInfo info) throws BOSException, SQLException
+	{
+		String id = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+		String month = (df.format(this.pkBizDate.getSqlDate())).substring(0, 7);
+		//修理费取当月维修单的总维修费用
+		StringBuffer sb1 = new StringBuffer();
+		sb1.append("/*dialect*/select");
+		sb1.append(" CFEquNameID fid,");
+		sb1.append(" nvl(sum(CFSelfAmount),0) samount,");
+		sb1.append(" nvl(sum(CFOutAmount),0) outmount");
+		sb1.append(" from CT_MAI_RepairOrder");
+		sb1.append(" where to_char(fbizdate,'YYYY-MM')='"+month+"'");
+		sb1.append(" and  CFEquNameID = '"+info.getId()+"'");
+		sb1.append(" and  FStatus = '4'");
+		sb1.append(" and FControlUnitID = '"+id+"' group by CFEquNameID");
+		IRowSet rowSet1 = new XRSQLBuilder().appendSql(sb1.toString()).executeQuery();
+		while (rowSet1.next()) {
+				row.getCell("selfAmount").setValue(rowSet1.getBigDecimal("samount"));
+				row.getCell("outAmount").setValue(rowSet1.getBigDecimal("outmount"));
+	     	}
+	}
+	
+	private void getMetialAmount(IRow row,EquIdInfo info) throws BOSException, SQLException
+	{
+		String id = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
+		//材料费取维修领料单分录的金额
+		SimpleDateFormat df1 = new SimpleDateFormat("yyyy-MM-dd");
+		String month1 = (df1.format(this.pkBizDate.getSqlDate())).substring(0, 7);
+		StringBuffer sb2 = new StringBuffer();
+		sb2.append("/*dialect*/select e.fid fid,");
+		sb2.append(" nvl(sum(a.famount),0) amount");
+		sb2.append(" from T_IM_MaterialReqBillEntry a");
+		sb2.append(" left join T_IM_MaterialReqBill b on a.fparentid = b.fid");
+		sb2.append(" left join CT_FI_AssetCard c on c.fid = a.cfassetid");
+		sb2.append(" left join CT_BAS_InitialConnectionE1 d on d.CFInitialID = c.fid");
+		sb2.append(" left join CT_REC_EquId e on e.fid = d.CFEqupmentID");
+		sb2.append(" left join T_ORG_Storage f on b.FStorageOrgUnitID = f.fid");
+		sb2.append(" where f.fid = '"+id+"'");
+		sb2.append(" and e.fid = '"+info.getId()+"'");
+		sb2.append(" and to_char(b.fbizdate,'YYYY-MM')='"+month1+"'");
+		sb2.append(" and b.FBaseStatus = '4'");
+		sb2.append(" group by e.fid");
+		IRowSet rowSet2 = new XRSQLBuilder().appendSql(sb2.toString()).executeQuery();
+		while (rowSet2.next()) {
+			row.getCell("materialAmount").setValue(rowSet2.getBigDecimal("amount"));
+     	}
+	}
+	
 	/**
 	 * output loadFields method
 	 */
