@@ -64,20 +64,6 @@
             <precision>0</precision>
         </column>
         <column>
-            <name>CFEqmName</name>
-            <alias>dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_EumUseRecordEqmUse].columns.column[CFEqmName].alias</alias>
-            <description>dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_EumUseRecordEqmUse].columns.column[CFEqmName].description</description>
-            <userDefined>true</userDefined>
-            <isMultilingual>false</isMultilingual>
-            <isEncoded>false</isEncoded>
-            <isNullable>true</isNullable>
-            <defaultValue />
-            <sqlType>NVARCHAR</sqlType>
-            <length>100</length>
-            <scale>0</scale>
-            <precision>0</precision>
-        </column>
-        <column>
             <name>CFModelType</name>
             <alias>dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_EumUseRecordEqmUse].columns.column[CFModelType].alias</alias>
             <description>dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_EumUseRecordEqmUse].columns.column[CFModelType].description</description>
@@ -329,6 +315,20 @@
             <scale>10</scale>
             <precision>28</precision>
         </column>
+        <column>
+            <name>CFEqmNameID</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_EumUseRecordEqmUse].columns.column[CFEqmNameID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_EumUseRecordEqmUse].columns.column[CFEqmNameID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
     </columns>
     <primaryKey>
         <name>CPK_OPE_EumUREUmg9</name>
@@ -401,6 +401,25 @@
                 </fkColumnPair>
             </fkColumnPairs>
         </foreignKey>
+        <foreignKey>
+            <name>CFK_OPE_OPEEUREUkl</name>
+            <userDefined>true</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.port.equipment.record.app" />
+                <key name="name" value="CT_REC_EquId" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="CFEqmNameID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
     </foreignKeys>
     <resource>
         <rs key="dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_EumUseRecordEqmUse].alias">
@@ -457,13 +476,13 @@
             <lang locale="zh_HK" value="設備類別" />
             <lang locale="zh_TW" value="設備類別" />
         </rs>
-        <rs key="dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_EumUseRecordEqmUse].columns.column[CFEqmName].alias">
+        <rs key="dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_EumUseRecordEqmUse].columns.column[CFEqmNameID].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="设备名称" />
             <lang locale="zh_HK" value="設備名稱" />
             <lang locale="zh_TW" value="設備名稱" />
         </rs>
-        <rs key="dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_EumUseRecordEqmUse].columns.column[CFEqmName].description">
+        <rs key="dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_EumUseRecordEqmUse].columns.column[CFEqmNameID].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="设备名称" />
             <lang locale="zh_HK" value="設備名稱" />
