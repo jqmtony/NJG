@@ -1211,52 +1211,52 @@ public class ContractClientUtils {
 			}
 			
 			//½±Àø	
-			builder.clear();
-			builder.appendSql("select FContractID,sum(famount) as amount from T_CON_GuerdonBill where ");
-			builder.appendParam("FContractID",noSettleContractIdArray);
-			builder.appendSql(" and ");
-			builder.appendParam("fstate",FDCBillStateEnum.AUDITTED_VALUE);
-			builder.appendSql(" AND fisGuerdoned = 1 group by fcontractid ");
-			rs = builder.executeQuery();
-			while (rs.next()) {
-				String contractId = rs.getString("FContractID");
-				BigDecimal guerdonAmt = rs.getBigDecimal("amount");	
-				if(lastAmtMap.containsKey(contractId) && guerdonAmt != null){
-					lastAmtMap.put(contractId,((BigDecimal)lastAmtMap.get(contractId)).add(guerdonAmt));
-				}				
-			}
+//			builder.clear();
+//			builder.appendSql("select FContractID,sum(famount) as amount from T_CON_GuerdonBill where ");
+//			builder.appendParam("FContractID",noSettleContractIdArray);
+//			builder.appendSql(" and ");
+//			builder.appendParam("fstate",FDCBillStateEnum.AUDITTED_VALUE);
+//			builder.appendSql(" AND fisGuerdoned = 1 group by fcontractid ");
+//			rs = builder.executeQuery();
+//			while (rs.next()) {
+//				String contractId = rs.getString("FContractID");
+//				BigDecimal guerdonAmt = rs.getBigDecimal("amount");	
+//				if(lastAmtMap.containsKey(contractId) && guerdonAmt != null){
+//					lastAmtMap.put(contractId,((BigDecimal)lastAmtMap.get(contractId)).add(guerdonAmt));
+//				}				
+//			}
 			
 			//Î¥Ô¼
-			builder.clear();
-			builder.appendSql("select FContractID,sum(famount) as amount from T_CON_CompensationBill where ");
-			builder.appendParam("FContractID",noSettleContractIdArray);
-			builder.appendSql(" and ");
-			builder.appendParam("fstate",FDCBillStateEnum.AUDITTED_VALUE);
-			builder.appendSql(" AND fisCompensated = 1 group by fcontractid ");
-			rs = builder.executeQuery();
-			while (rs.next()) {
-				String contractId = rs.getString("FContractID");
-				BigDecimal compenseAmt = rs.getBigDecimal("amount");	
-				if(lastAmtMap.containsKey(contractId) && compenseAmt != null){
-					lastAmtMap.put(contractId,((BigDecimal)lastAmtMap.get(contractId)).subtract(compenseAmt));
-				}				
-			}
-			
-			//¿Û¿î
-			builder.clear();
-			builder.appendSql("select prb.FContractID,sum(doprb.famount) as amount from T_CON_DeductOfPayReqBill doprb ");
-			builder.appendSql("inner join T_CON_PayRequestBill prb on prb.fid = doprb.fpayRequestBillId ");
-			builder.appendSql("where ");
-			builder.appendParam("prb.FContractID",noSettleContractIdArray);
-			builder.appendSql(" group by prb.FContractID ");
-			rs = builder.executeQuery();
-			while (rs.next()) {
-				String contractId = rs.getString("FContractID");
-				BigDecimal deductAmt = rs.getBigDecimal("amount");	
-				if(lastAmtMap.containsKey(contractId) && deductAmt != null){
-					lastAmtMap.put(contractId,((BigDecimal)lastAmtMap.get(contractId)).subtract(deductAmt));
-				}				
-			}
+//			builder.clear();
+//			builder.appendSql("select FContractID,sum(famount) as amount from T_CON_CompensationBill where ");
+//			builder.appendParam("FContractID",noSettleContractIdArray);
+//			builder.appendSql(" and ");
+//			builder.appendParam("fstate",FDCBillStateEnum.AUDITTED_VALUE);
+//			builder.appendSql(" AND fisCompensated = 1 group by fcontractid ");
+//			rs = builder.executeQuery();
+//			while (rs.next()) {
+//				String contractId = rs.getString("FContractID");
+//				BigDecimal compenseAmt = rs.getBigDecimal("amount");	
+//				if(lastAmtMap.containsKey(contractId) && compenseAmt != null){
+//					lastAmtMap.put(contractId,((BigDecimal)lastAmtMap.get(contractId)).subtract(compenseAmt));
+//				}				
+//			}
+//			
+//			//¿Û¿î
+//			builder.clear();
+//			builder.appendSql("select prb.FContractID,sum(doprb.famount) as amount from T_CON_DeductOfPayReqBill doprb ");
+//			builder.appendSql("inner join T_CON_PayRequestBill prb on prb.fid = doprb.fpayRequestBillId ");
+//			builder.appendSql("where ");
+//			builder.appendParam("prb.FContractID",noSettleContractIdArray);
+//			builder.appendSql(" group by prb.FContractID ");
+//			rs = builder.executeQuery();
+//			while (rs.next()) {
+//				String contractId = rs.getString("FContractID");
+//				BigDecimal deductAmt = rs.getBigDecimal("amount");	
+//				if(lastAmtMap.containsKey(contractId) && deductAmt != null){
+//					lastAmtMap.put(contractId,((BigDecimal)lastAmtMap.get(contractId)).subtract(deductAmt));
+//				}				
+//			}
 		}
 		return lastAmtMap;
 	}

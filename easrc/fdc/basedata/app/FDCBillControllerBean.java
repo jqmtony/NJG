@@ -34,8 +34,6 @@ import com.kingdee.eas.basedata.org.FullOrgUnitInfo;
 import com.kingdee.eas.basedata.org.OrgConstants;
 import com.kingdee.eas.basedata.org.OrgUnitInfo;
 import com.kingdee.eas.common.EASBizException;
-import com.kingdee.eas.fdc.basedata.CurProjectFactory;
-import com.kingdee.eas.fdc.basedata.CurProjectInfo;
 import com.kingdee.eas.fdc.basedata.FDCBillInfo;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
 import com.kingdee.eas.fdc.basedata.FDCConstants;
@@ -213,19 +211,18 @@ public class FDCBillControllerBean extends AbstractFDCBillControllerBean {
 	//设置单据的一些属性，对于导入单据可能组织设置存在问题，必须取工程项目对应的成本中心
 	protected void setPropsForBill(Context ctx, FDCBillInfo fDCBillInfo) throws EASBizException, BOSException {
 	
-		CurProjectInfo projectInfo = null;
+		ProjectInfo projectInfo = null;
 		if(fDCBillInfo.getOrgUnit() == null) {			
 			if(fDCBillInfo.get("curProject")!=null){
-				projectInfo =(CurProjectInfo)fDCBillInfo.get("curProject");
-				if( projectInfo.getCostCenter()==null || projectInfo.getCU()==null){
+				projectInfo =(ProjectInfo)fDCBillInfo.get("curProject");
+				if( projectInfo.getCompany()==null || projectInfo.getCU()==null){
 					SelectorItemCollection sic = new SelectorItemCollection();
 					sic.add("CU.id");
 					sic.add("costCenter.id");				
-					projectInfo = CurProjectFactory.getLocalInstance(ctx)
-						.getCurProjectInfo(new ObjectUuidPK(projectInfo.getId().toString()),sic);
+					projectInfo = ProjectFactory.getLocalInstance(ctx).getProjectInfo(new ObjectUuidPK(projectInfo.getId().toString()),sic);
 				}
-				if(projectInfo.getCostCenter()!=null) {
-					FullOrgUnitInfo orgUnit = projectInfo.getCostCenter().castToFullOrgUnitInfo();
+				if(projectInfo.getCompany()!=null) {
+					FullOrgUnitInfo orgUnit = projectInfo.getCompany().castToFullOrgUnitInfo();
 					fDCBillInfo.setOrgUnit(orgUnit);
 				}
 			}else{
@@ -238,13 +235,12 @@ public class FDCBillControllerBean extends AbstractFDCBillControllerBean {
 		if(fDCBillInfo.getCU() == null) {
 			if(fDCBillInfo.get("curProject")!=null){
 				if(projectInfo==null){
-					projectInfo =(CurProjectInfo)fDCBillInfo.get("curProject");
+					projectInfo =(ProjectInfo)fDCBillInfo.get("curProject");
 				}
 				if(projectInfo.getCU()==null){
 					SelectorItemCollection sic = new SelectorItemCollection();
 					sic.add("CU.id");				
-					projectInfo = CurProjectFactory.getLocalInstance(ctx)
-						.getCurProjectInfo(new ObjectUuidPK(projectInfo.getId().toString()),sic);
+					projectInfo = ProjectFactory.getLocalInstance(ctx).getProjectInfo(new ObjectUuidPK(projectInfo.getId().toString()),sic);
 				}				
 				fDCBillInfo.setCU(projectInfo.getCU());
 				
@@ -822,6 +818,7 @@ public class FDCBillControllerBean extends AbstractFDCBillControllerBean {
 		initProject( ctx,  paramMap, initMap);
 		if(initMap.get(FDCConstants.FDC_INIT_PROJECT)!=null){
 			curProjectInfo = (ProjectInfo)initMap.get(FDCConstants.FDC_INIT_PROJECT);
+			curProjectInfo = ProjectFactory.getLocalInstance(ctx).getProjectInfo(new ObjectUuidPK(curProjectInfo.getId()));
 			projectId = curProjectInfo.getId().toString();
 			paramMap.put("projectId",projectId);
 			initMap.put("projectId",projectId);
@@ -1016,16 +1013,15 @@ public class FDCBillControllerBean extends AbstractFDCBillControllerBean {
 	protected void setProps (Context ctx, FDCBillInfo fDCBillInfo) throws EASBizException, BOSException {
 
 		if(fDCBillInfo.get("curProject")!=null && (fDCBillInfo.getOrgUnit() == null ||fDCBillInfo.getCU() == null )) {
-			CurProjectInfo projectInfo =(CurProjectInfo)fDCBillInfo.get("curProject");
-			if( projectInfo.getCostCenter()==null || projectInfo.getCU()==null){
+			ProjectInfo projectInfo =(ProjectInfo)fDCBillInfo.get("curProject");
+			if( projectInfo.getCompany()==null || projectInfo.getCU()==null){
 				SelectorItemCollection sic = new SelectorItemCollection();
 				sic.add("CU.id");
-				sic.add("costCenter.id");				
-				projectInfo = CurProjectFactory.getLocalInstance(ctx)
-					.getCurProjectInfo(new ObjectUuidPK(projectInfo.getId().toString()),sic);
+				sic.add("company.id");				
+				projectInfo = ProjectFactory.getLocalInstance(ctx).getProjectInfo(new ObjectUuidPK(projectInfo.getId().toString()),sic);
 			}
-			if(fDCBillInfo.getOrgUnit() == null && projectInfo.getCostCenter()!=null) {
-				FullOrgUnitInfo orgUnit = projectInfo.getCostCenter().castToFullOrgUnitInfo();
+			if(fDCBillInfo.getOrgUnit() == null && projectInfo.getCompany()!=null) {
+				FullOrgUnitInfo orgUnit = projectInfo.getCompany().castToFullOrgUnitInfo();
 				fDCBillInfo.setOrgUnit(orgUnit);
 			}
 			if(fDCBillInfo.getCU() == null) {

@@ -25,6 +25,8 @@ import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.util.BOSUuid;
+import com.kingdee.eas.basedata.assistant.ProjectFactory;
+import com.kingdee.eas.basedata.assistant.ProjectInfo;
 import com.kingdee.eas.basedata.org.CtrlUnitInfo;
 import com.kingdee.eas.basedata.org.FullOrgUnitInfo;
 import com.kingdee.eas.basedata.org.OrgConstants;
@@ -33,8 +35,6 @@ import com.kingdee.eas.fdc.basedata.CostAccountCollection;
 import com.kingdee.eas.fdc.basedata.CostAccountFactory;
 import com.kingdee.eas.fdc.basedata.CostAccountInfo;
 import com.kingdee.eas.fdc.basedata.CostAccountWithAcctFacadeFactory;
-import com.kingdee.eas.fdc.basedata.CurProjectFactory;
-import com.kingdee.eas.fdc.basedata.CurProjectInfo;
 import com.kingdee.eas.fdc.basedata.FDCBasedataException;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
 import com.kingdee.eas.framework.IFWEntityStruct;
@@ -619,7 +619,7 @@ public class CostAccountControllerBean extends AbstractCostAccountControllerBean
 	// return super._delete(ctx, filter);
 	// }
 	protected void _importDatas(Context ctx, IObjectCollection cac, BOSUuid addressId) throws BOSException, EASBizException {
-		CurProjectInfo cpi = CurProjectFactory.getLocalInstance(ctx).getCurProjectInfo(new ObjectUuidPK(addressId.toString()));
+		ProjectInfo cpi = ProjectFactory.getLocalInstance(ctx).getProjectInfo(new ObjectUuidPK(addressId.toString()));
 		
 		EntityViewInfo view = new EntityViewInfo();
 		FilterInfo filter = new FilterInfo();

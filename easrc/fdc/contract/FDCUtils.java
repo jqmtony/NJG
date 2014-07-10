@@ -1246,7 +1246,7 @@ public class FDCUtils {
 					if (isIncludeChangeAudit(ctx)) {
 						builder.clear();
 						builder.appendSql("select FContractBillID,sum(fchangeAmount) as changeAmount from ( ");
-						builder.appendSql("select FContractBillID,FBalanceAmount as fchangeAmount from T_CON_ContractChangeBill ");
+						builder.appendSql("select FContractBillID,FBalanceAmount as fchangeAmount from CT_CON_ContractCSB ");
 						builder.appendSql("where FHasSettled=1 and ");
 						builder.appendParam("FContractBillID", noSettleContractIdArray, "varchar(44)");
 						builder.appendSql(" and (");
@@ -1256,7 +1256,7 @@ public class FDCUtils {
 						builder.appendSql(" or ");
 						builder.appendParam("FState", FDCBillStateEnum.ANNOUNCE_VALUE);
 						builder.appendSql(" ) union all ");
-						builder.appendSql("select FContractBillID,FAmount as fchangeAmount from T_CON_ContractChangeBill ");
+						builder.appendSql("select FContractBillID,FAmount as fchangeAmount from CT_CON_ContractCSB ");
 						builder.appendSql("where FHasSettled=0 and ");
 						builder.appendParam("FContractBillID", noSettleContractIdArray, "varchar(44)");
 						builder.appendSql(" and (");
@@ -1305,7 +1305,7 @@ public class FDCUtils {
 		FDCSQLBuilder builder = new FDCSQLBuilder(ctx);
 		try {
 			builder
-					.appendSql("select fcontractbillid,FTotalOriginalAmount as FTotalOriginalAmount from t_con_contractsettlementbill where FIsFinalSettle=1 and ");
+					.appendSql("select fcontractbillid,FTotalOriginalAmount as FTotalOriginalAmount from ct_con_contractsettlementbill where FIsFinalSettle=1 and ");
 			builder.appendParam("fcontractbillid", contractIdList, "varchar(44)");
 
 			IRowSet rs = builder.executeQuery();
@@ -1317,7 +1317,7 @@ public class FDCUtils {
 			}
 
 			builder = new FDCSQLBuilder(ctx);
-			builder.appendSql("select FID,FHasSettled,FSettleAmt,FOriginalAmount from T_CON_ContractBill where ");
+			builder.appendSql("select FID,FHasSettled,FSettleAmt,FOriginalAmount from cT_CON_ContractBill where ");
 			builder.appendParam("fid", contractIdList, "varchar(44)");
 			rs = builder.executeQuery();
 			if (rs == null || rs.size() == 0) {
@@ -1349,7 +1349,7 @@ public class FDCUtils {
 					builder.clear();
 					builder.appendSql("select FContractBillID,sum(fchangeAmount) as changeAmount from ( ");
 					// 改为取原币FBalanceAmount--》FOriBalanceAmount
-					builder.appendSql("select FContractBillID,FOriBalanceAmount as fchangeAmount from T_CON_ContractChangeBill ");
+					builder.appendSql("select FContractBillID,FOriBalanceAmount as fchangeAmount from CT_CON_ContractCSB ");
 					builder.appendSql("where FHasSettled=1 and ");
 					builder.appendParam("FContractBillID", noSettleContractIdArray, "varchar(44)");
 					builder.appendSql(" and (");
@@ -1360,7 +1360,7 @@ public class FDCUtils {
 					builder.appendParam("FState", FDCBillStateEnum.ANNOUNCE_VALUE);
 					builder.appendSql(" ) union all ");
 					// 改为取原币FAmount --> FOriginalAmount
-					builder.appendSql("select FContractBillID,FOriginalAmount as fchangeAmount from T_CON_ContractChangeBill ");
+					builder.appendSql("select FContractBillID,FOriginalAmount as fchangeAmount from CT_CON_ContractCSB ");
 					builder.appendSql("where FHasSettled=0 and ");
 					builder.appendParam("FContractBillID", noSettleContractIdArray, "varchar(44)");
 					builder.appendSql(" and (");

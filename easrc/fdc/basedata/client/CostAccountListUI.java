@@ -50,6 +50,7 @@ import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.eas.base.attachment.common.AttachmentClientManager;
 import com.kingdee.eas.base.attachment.common.AttachmentManagerFactory;
 import com.kingdee.eas.base.uiframe.client.UIModelDialogFactory;
+import com.kingdee.eas.basedata.assistant.ProjectInfo;
 import com.kingdee.eas.basedata.org.CostCenterOrgUnitInfo;
 import com.kingdee.eas.basedata.org.FullOrgUnitInfo;
 import com.kingdee.eas.basedata.org.OrgConstants;
@@ -1401,7 +1402,7 @@ public class CostAccountListUI extends AbstractCostAccountListUI {
 		KDTSelectBlock selectBlock = null;
 		ICell cell = null;
 		FullOrgUnitInfo foui;
-		CurProjectInfo cpi;
+		ProjectInfo cpi;
 		for (int i = 0; i < tblMain.getSelectManager().size(); i++) {
 			caiSelect = new CostAccountInfo();
 			selectBlock = tblMain.getSelectManager().get(i);
@@ -1424,7 +1425,7 @@ public class CostAccountListUI extends AbstractCostAccountListUI {
 					foui.setLongNumber(row.getCell("fullOrgUnit.longNumber").getValue().toString());
 					caiSelect.setFullOrgUnit(foui);
 				} else if (row.getCell("curProject.id").getValue() != null) {
-					cpi = new CurProjectInfo();
+					cpi = new ProjectInfo();
 					cpi.setId(BOSUuid.read(row.getCell("curProject.id").getValue().toString()));
 					cpi.setLongNumber(row.getCell("curProject.longNumber").getValue().toString());
 					caiSelect.setCurProject(cpi);

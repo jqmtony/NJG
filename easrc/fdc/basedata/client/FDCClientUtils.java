@@ -570,31 +570,19 @@ public class FDCClientUtils {
 	 * @return
 	 */
 	public static FullOrgUnitInfo getCostOrgByProj(String projId) {
-
-		String pProjId = checkProjWithCostOrg(projId) ? projId
-				: getTopProjId(projId);
-		
 		FullOrgUnitInfo orgInfo = null;
-		EntityViewInfo view = new EntityViewInfo();
-		FilterInfo filter = new FilterInfo();
-		filter.getFilterItems()
-				.add(new FilterItemInfo("Project.id", pProjId));
-		view.setFilter(filter);
-		view.getSelector().add("costCenterOU.*");
-
-		ProjectWithCostCenterOUCollection pwcc = null;
+		ProjectInfo info = null;
 		try {
-			pwcc = ProjectWithCostCenterOUFactory.getRemoteInstance()
-					.getProjectWithCostCenterOUCollection(view);
+			info = ProjectFactory.getRemoteInstance().getProjectInfo(new ObjectUuidPK(projId));
+			if(info!=null) {
+				orgInfo = info.getCompany().castToFullOrgUnitInfo();
+				orgInfo = FullOrgUnitFactory.getRemoteInstance().getFullOrgUnitInfo(new ObjectUuidPK(orgInfo.getId()));
+			}
+		} catch (EASBizException e) {
+			e.printStackTrace();
 		} catch (BOSException e) {
-			ExceptionHandler.handle(e);
+			e.printStackTrace();
 		}
-
-		if(pwcc.size() > 0) {
-			ProjectWithCostCenterOUInfo info = pwcc.get(0);
-			orgInfo = info.getCostCenterOU().castToFullOrgUnitInfo();
-		}
-
 		return orgInfo;
 	}
 
