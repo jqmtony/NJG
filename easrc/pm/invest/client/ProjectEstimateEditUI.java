@@ -4,7 +4,6 @@
 package com.kingdee.eas.port.pm.invest.client;
 
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -12,7 +11,6 @@ import org.apache.log4j.Logger;
 
 import com.kingdee.bos.ctrl.extendcontrols.BizDataFormat;
 import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
-import com.kingdee.bos.ctrl.kdf.table.IRow;
 import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent;
@@ -21,28 +19,20 @@ import com.kingdee.bos.ctrl.swing.KDTextField;
 import com.kingdee.bos.ctrl.swing.event.DataChangeEvent;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.bos.metadata.data.SortType;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
+import com.kingdee.bos.metadata.entity.SorterItemCollection;
+import com.kingdee.bos.metadata.entity.SorterItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.eas.base.uiframe.client.UIFactoryHelper;
-import com.kingdee.eas.basedata.assistant.IProject;
-import com.kingdee.eas.basedata.assistant.ProjectFactory;
 import com.kingdee.eas.basedata.assistant.ProjectInfo;
-import com.kingdee.eas.common.EASBizException;
-import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.UIContext;
-import com.kingdee.eas.framework.CoreBaseInfo;
-import com.kingdee.eas.port.pm.base.CostTypeTreeFactory;
-import com.kingdee.eas.port.pm.base.ICostType;
-import com.kingdee.eas.port.pm.base.ICostTypeTree;
 import com.kingdee.eas.port.pm.base.InvestYearFactory;
 import com.kingdee.eas.port.pm.base.InvestYearInfo;
-import com.kingdee.eas.port.pm.invest.CostTempE1Collection;
-import com.kingdee.eas.port.pm.invest.CostTempE1Info;
-import com.kingdee.eas.port.pm.invest.CostTempInfo;
 import com.kingdee.eas.port.pm.invest.ProjectEstimateFactory;
 import com.kingdee.eas.port.pm.invest.YearInvestPlanCollection;
 import com.kingdee.eas.port.pm.invest.YearInvestPlanFactory;
@@ -54,7 +44,6 @@ import com.kingdee.eas.port.pm.invest.investplan.client.ProgrammingEditUI;
 import com.kingdee.eas.port.pm.invest.uitls.F7ProjectDialog;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.MsgBox;
-import com.kingdee.util.NumericExceptionSubItem;
 /**
  * output class name
  */
@@ -106,27 +95,8 @@ public class ProjectEstimateEditUI extends AbstractProjectEstimateEditUI
 		kdtE1_costType_OVR.setFormat(new BizDataFormat("$E1.costType.name$"));
 		this.kdtE1.getColumn("costType").setRenderer(kdtE1_costType_OVR);
 		
-		//加载投资规划编辑界面
-    	UIContext uiContext = new UIContext(this);
-    	String number = this.txtNumber.getText();
-    	String oql = "where SourceBillId='"+number+"'";
-    	boolean flse = true;
-    	if(ProgrammingFactory.getRemoteInstance().exists(oql))
-    	{
-    		uiContext.put("ID", ProgrammingFactory.getRemoteInstance().getProgrammingCollection(oql).get(0).getId());
-    		flse = false;
-    	}
-    	else
-    	{
-    		uiContext.put("PlanNumber",number);
-    	}
-        programmingEditUI = (ProgrammingEditUI) UIFactoryHelper.initUIObject(ProgrammingEditUI.class.getName(), uiContext, null, flse?"ADDNEW":getOprtState());
-        
-        kDScrollPane1.setViewportView(programmingEditUI);
-        kDScrollPane1.setKeyBoardControl(true);
-        kDScrollPane1.setEnabled(false);
 		
-		
+		prmtprojectName_dataChanged(null);
 		
 		FilterInfo filter = new FilterInfo();
 		filter.getFilterItems().add(new FilterItemInfo("NJGprojectType.name","基本建设",com.kingdee.bos.metadata.query.util.CompareType.EQUALS));
@@ -192,60 +162,43 @@ public class ProjectEstimateEditUI extends AbstractProjectEstimateEditUI
     	if(ProjectEstimateFactory.getRemoteInstance().exists(oql))
     	{
     		MsgBox.showWarning("当前项目已经有项目估算单据，请重新选择！");
+    		kDScrollPane1.setViewportView(programmingEditUI);
     		prmtprojectName.setValue(null);SysUtil.abort();
     	}
     	
-    	
-    	if(prmtprojectName.getValue()!=null)
+
+		IProgramming iProgramming = ProgrammingFactory.getRemoteInstance();
+		YearInvestPlanInfo yearInvestPlanInfo = (YearInvestPlanInfo)projectInfo.getNJGyearInvest();
+		YearInvestPlanInfo ypInfo = YearInvestPlanFactory.getRemoteInstance().getYearInvestPlanInfo(new ObjectUuidPK(yearInvestPlanInfo.getId()));
+		
+		EntityViewInfo view = new EntityViewInfo();
+		FilterInfo filter = new FilterInfo();
+		view.setFilter(filter);
+		filter.getFilterItems().add(new FilterItemInfo("sourceBillId",ypInfo.getNumber()));
+		SorterItemCollection siColl = view.getSorter();
+        siColl.add(new SorterItemInfo("version")); //需要排序的字段
+        SorterItemInfo siInfo= siColl.get(0); //第一个需要排序的字段
+        siInfo.setSortType(SortType.DESCEND);  //需要排序的字段降序
+        view.setFilter(filter); 
+        
+		if(!iProgramming.exists(filter))
 		{
-			verifyInput(null);
-			IProgramming iProgramming = ProgrammingFactory.getRemoteInstance();
-			YearInvestPlanInfo yearInvestPlanInfo = (YearInvestPlanInfo)projectInfo.getNJGyearInvest();
-			YearInvestPlanInfo ypInfo = YearInvestPlanFactory.getRemoteInstance().getYearInvestPlanInfo(new ObjectUuidPK(yearInvestPlanInfo.getId()));
-			
-//			EntityViewInfo view = new EntityViewInfo();
-//			FilterInfo filter = new FilterInfo();
-//			view.setFilter(filter);
-//			filter.getFilterItems().add(new FilterItemInfo("number",ypInfo.getNumber()));
-//			filter.getFilterItems().add(new FilterItemInfo("portProject.number",ypInfo.getNumber()));
-//			filter.getFilterItems().add(new FilterItemInfo("id",editData.getId()+"",CompareType.NOTEQUALS));
-//			filter.getFilterItems().add(new FilterItemInfo("status","4"));
-//			filter.setMaskString("(#0 or #1) and #2 and #3");
-//			SorterItemCollection siColl = view.getSorter();
-//	      siColl.add(new SorterItemInfo("year.number")); //需要排序的字段
-//	      SorterItemInfo siInfo= siColl.get(0); //第一个需要排序的字段
-//	      siInfo.setSortType(SortType.DESCEND);  //需要排序的字段降序
-//	      view.setFilter(filter); 
-	        
-	        String sql = "select number,year.id,year.number,year.name where (number='"+ypInfo.getNumber()+"' or portProject.number='"+
-	        ypInfo.getNumber()+"') and id<>'"+editData.getId()+"' and objectState='8'" +" order by year.number desc ";
-			YearInvestPlanCollection coll = YearInvestPlanFactory.getRemoteInstance().getYearInvestPlanCollection(sql);
-			YearInvestPlanInfo pro = coll.get(0);
-			 
-			InvestYearInfo  newYearInfo = InvestYearFactory.getRemoteInstance().getInvestYearInfo("where name ='"+String.valueOf(Integer.parseInt(pro.getYear().getName())+1)+"'");
-			
-			if(!iProgramming.exists("where sourceBillId='"+pro.getNumber()+"'"))
-			{
-				MsgBox.showWarning("没有对应的项目!");
-				kDScrollPane1.setViewportView(null);
-				SysUtil.abort();
-			}
-			
-			
-			ProgrammingInfo pmInfo = iProgramming.getProgrammingInfo("where sourceBillId='"+pro.getNumber()+"'");
-			
-			UIContext uiContext = new UIContext(this);
-	    	uiContext.put("ID", pmInfo.getId());
-	    	uiContext.put("proNumber", this.txtNumber.getText());
-	    	
-	    	programmingEditUI = (ProgrammingEditUI) UIFactoryHelper.initUIObject(ProgrammingEditUI.class.getName(), uiContext, null, "EDIT");
-	    	kDScrollPane1.setViewportView(programmingEditUI);
-	    	kDScrollPane1.setKeyBoardControl(true);
-	    	kDScrollPane1.setEnabled(false);
-	        programmingEditUI.actionCopy_actionPerformed(null);
-	        	        
+			MsgBox.showWarning("没有对应的项目!");
+			kDScrollPane1.setViewportView(null);
+			SysUtil.abort();
 		}
+		
+		ProgrammingInfo pmInfo = iProgramming.getProgrammingCollection(view).get(0);
+		
+		
+		UIContext uiContext = new UIContext(this);
+    	uiContext.put("ID", pmInfo.getId());
+    	uiContext.put("proEstimate", this.txtestimateAmount);
     	
+    	programmingEditUI = (ProgrammingEditUI) UIFactoryHelper.initUIObject(ProgrammingEditUI.class.getName(), uiContext, null, "EDIT");
+    	kDScrollPane1.setViewportView(programmingEditUI);
+    	kDScrollPane1.setKeyBoardControl(true);
+    	kDScrollPane1.setEnabled(false);
     }
     
     /**
@@ -630,6 +583,7 @@ public class ProjectEstimateEditUI extends AbstractProjectEstimateEditUI
     {
       
     	super.actionSave_actionPerformed(e);
+    	programmingEditUI.actionSave_actionPerformed(e);
     }
 
     /**
@@ -638,6 +592,7 @@ public class ProjectEstimateEditUI extends AbstractProjectEstimateEditUI
     public void actionSubmit_actionPerformed(ActionEvent e) throws Exception
     {
         super.actionSubmit_actionPerformed(e);
+        programmingEditUI.actionSubmit_actionPerformed(e);
     }
 
     /**

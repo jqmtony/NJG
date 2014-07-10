@@ -56,6 +56,7 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contAuditTime;
     protected com.kingdee.bos.ctrl.swing.KDTabbedPane kDTabbedPane1;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contremark;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contcostTemp;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtCreator;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkCreateTime;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtLastUpdateUser;
@@ -90,7 +91,6 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contobjectState;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contCU;
     protected com.kingdee.bos.ctrl.swing.KDContainer kDContainer1;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contcostTemp;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer continvestAmount;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contStatus;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contyear;
@@ -117,7 +117,6 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtCU;
     protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtEntry;
 	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtEntry_detailPanel = null;
-    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtcostTemp;
     protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtinvestAmount;
     protected com.kingdee.bos.ctrl.swing.KDComboBox comboStatus;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtyear;
@@ -133,6 +132,7 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
     protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtE3;
 	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtE3_detailPanel = null;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtremark;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtcostTemp;
     protected com.kingdee.eas.port.pm.invest.YearInvestPlanInfo editData = null;
     /**
      * output class constructor
@@ -193,6 +193,7 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
         this.contAuditTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.kDTabbedPane1 = new com.kingdee.bos.ctrl.swing.KDTabbedPane();
         this.contremark = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contcostTemp = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.prmtCreator = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.pkCreateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.prmtLastUpdateUser = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
@@ -227,7 +228,6 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
         this.contobjectState = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contCU = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.kDContainer1 = new com.kingdee.bos.ctrl.swing.KDContainer();
-        this.contcostTemp = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.continvestAmount = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contStatus = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contyear = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -253,7 +253,6 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
         this.objectState = new com.kingdee.bos.ctrl.swing.KDComboBox();
         this.prmtCU = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.kdtEntry = new com.kingdee.bos.ctrl.kdf.table.KDTable();
-        this.prmtcostTemp = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.txtinvestAmount = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
         this.comboStatus = new com.kingdee.bos.ctrl.swing.KDComboBox();
         this.prmtyear = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
@@ -267,6 +266,7 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
         this.kdtE2 = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.kdtE3 = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.txtremark = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.prmtcostTemp = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.contCreator.setName("contCreator");
         this.contCreateTime.setName("contCreateTime");
         this.contLastUpdateUser.setName("contLastUpdateUser");
@@ -277,6 +277,7 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
         this.contAuditTime.setName("contAuditTime");
         this.kDTabbedPane1.setName("kDTabbedPane1");
         this.contremark.setName("contremark");
+        this.contcostTemp.setName("contcostTemp");
         this.prmtCreator.setName("prmtCreator");
         this.pkCreateTime.setName("pkCreateTime");
         this.prmtLastUpdateUser.setName("prmtLastUpdateUser");
@@ -311,7 +312,6 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
         this.contobjectState.setName("contobjectState");
         this.contCU.setName("contCU");
         this.kDContainer1.setName("kDContainer1");
-        this.contcostTemp.setName("contcostTemp");
         this.continvestAmount.setName("continvestAmount");
         this.contStatus.setName("contStatus");
         this.contyear.setName("contyear");
@@ -337,7 +337,6 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
         this.objectState.setName("objectState");
         this.prmtCU.setName("prmtCU");
         this.kdtEntry.setName("kdtEntry");
-        this.prmtcostTemp.setName("prmtcostTemp");
         this.txtinvestAmount.setName("txtinvestAmount");
         this.comboStatus.setName("comboStatus");
         this.prmtyear.setName("prmtyear");
@@ -351,6 +350,7 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
         this.kdtE2.setName("kdtE2");
         this.kdtE3.setName("kdtE3");
         this.txtremark.setName("txtremark");
+        this.prmtcostTemp.setName("prmtcostTemp");
         // CoreUI
         // contCreator		
         this.contCreator.setBoundLabelText(resHelper.getString("contCreator.boundLabelText"));		
@@ -387,11 +387,26 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
         this.contAuditTime.setBoundLabelUnderline(true);
         // kDTabbedPane1		
         this.kDTabbedPane1.setToolTipText(resHelper.getString("kDTabbedPane1.toolTipText"));
+        this.kDTabbedPane1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent e) {
+                try {
+                    kDTabbedPane1_stateChanged(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                }
+            }
+        });
         // contremark		
         this.contremark.setBoundLabelText(resHelper.getString("contremark.boundLabelText"));		
         this.contremark.setBoundLabelLength(100);		
         this.contremark.setBoundLabelUnderline(true);		
         this.contremark.setVisible(false);
+        // contcostTemp		
+        this.contcostTemp.setBoundLabelText(resHelper.getString("contcostTemp.boundLabelText"));		
+        this.contcostTemp.setBoundLabelLength(100);		
+        this.contcostTemp.setBoundLabelUnderline(true);		
+        this.contcostTemp.setVisible(true);
         // prmtCreator		
         this.prmtCreator.setEnabled(false);		
         this.prmtCreator.setCommitFormat("$name$");		
@@ -528,11 +543,6 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
         // kDContainer1		
         this.kDContainer1.setTitle(resHelper.getString("kDContainer1.title"));		
         this.kDContainer1.setEnableActive(false);
-        // contcostTemp		
-        this.contcostTemp.setBoundLabelText(resHelper.getString("contcostTemp.boundLabelText"));		
-        this.contcostTemp.setBoundLabelLength(100);		
-        this.contcostTemp.setBoundLabelUnderline(true);		
-        this.contcostTemp.setVisible(true);
         // continvestAmount		
         this.continvestAmount.setBoundLabelText(resHelper.getString("continvestAmount.boundLabelText"));		
         this.continvestAmount.setBoundLabelLength(100);		
@@ -547,7 +557,8 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
         this.contyear.setBoundLabelText(resHelper.getString("contyear.boundLabelText"));		
         this.contyear.setBoundLabelLength(100);		
         this.contyear.setBoundLabelUnderline(true);		
-        this.contyear.setVisible(true);
+        this.contyear.setVisible(true);		
+        this.contyear.setVerifyInputWhenFocusTarget(false);
         // contbalance		
         this.contbalance.setBoundLabelText(resHelper.getString("contbalance.boundLabelText"));		
         this.contbalance.setBoundLabelLength(100);		
@@ -752,23 +763,6 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
         kdtEntry_acceptTime_DatePicker.setEditable(true);
         KDTDefaultCellEditor kdtEntry_acceptTime_CellEditor = new KDTDefaultCellEditor(kdtEntry_acceptTime_DatePicker);
         this.kdtEntry.getColumn("acceptTime").setEditor(kdtEntry_acceptTime_CellEditor);
-        // prmtcostTemp		
-        this.prmtcostTemp.setQueryInfo("com.kingdee.eas.port.pm.invest.app.CostTempQuery");		
-        this.prmtcostTemp.setEditable(true);		
-        this.prmtcostTemp.setDisplayFormat("$tempName$");		
-        this.prmtcostTemp.setEditFormat("$number$");		
-        this.prmtcostTemp.setCommitFormat("$number$");		
-        this.prmtcostTemp.setRequired(false);
-        this.prmtcostTemp.addDataChangeListener(new com.kingdee.bos.ctrl.swing.event.DataChangeListener() {
-            public void dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) {
-                try {
-                    prmtcostTemp_dataChanged(e);
-                } catch (Exception exc) {
-                    handUIException(exc);
-                } finally {
-                }
-            }
-        });
         // txtinvestAmount		
         this.txtinvestAmount.setHorizontalAlignment(2);		
         this.txtinvestAmount.setDataType(1);		
@@ -787,7 +781,7 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
         this.prmtyear.setDisplayFormat("$name$");		
         this.prmtyear.setEditFormat("$number$");		
         this.prmtyear.setCommitFormat("$number$");		
-        this.prmtyear.setRequired(true);
+        this.prmtyear.setRequired(false);
         this.prmtyear.addDataChangeListener(new com.kingdee.bos.ctrl.swing.event.DataChangeListener() {
             public void dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) {
                 try {
@@ -864,6 +858,23 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
         this.txtremark.setHorizontalAlignment(2);		
         this.txtremark.setMaxLength(100);		
         this.txtremark.setRequired(false);
+        // prmtcostTemp		
+        this.prmtcostTemp.setQueryInfo("com.kingdee.eas.port.pm.invest.app.CostTempQuery");		
+        this.prmtcostTemp.setEditable(true);		
+        this.prmtcostTemp.setDisplayFormat("$tempName$");		
+        this.prmtcostTemp.setEditFormat("$number$");		
+        this.prmtcostTemp.setCommitFormat("$number$");		
+        this.prmtcostTemp.setRequired(false);
+        this.prmtcostTemp.addDataChangeListener(new com.kingdee.bos.ctrl.swing.event.DataChangeListener() {
+            public void dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) {
+                try {
+                    prmtcostTemp_dataChanged(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                }
+            }
+        });
         this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {txtaddress,txtBIMUDF0027,txtchancedAmount,txtamount,txtaddInvestAmount,prmtprojectType,prmtrequestOrg,prmtrequestPerson,pkplanEndDate,pkplanStartDate,prmtfundSource,prmtportProject,prmtCU,pkLastUpdateTime,prmtLastUpdateUser,pkCreateTime,prmtCreator,prmtAuditor,txtDescription,pkBizDate,txtNumber,pkAuditTime,comboBizStatus,comboStatus,txtprojectName,prmtbuildType,txtscheme,txtanalyse,planType,objectState,prmtcostTemp,txtinvestAmount,txtremark,kdtEntry,kdtE2,kdtE3,prmtyear,txtbalance}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
@@ -913,6 +924,8 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
         this.add(kDTabbedPane1, new KDLayout.Constraints(10, 10, 986, 571, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         contremark.setBounds(new Rectangle(571, 633, 270, 19));
         this.add(contremark, new KDLayout.Constraints(571, 633, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contcostTemp.setBounds(new Rectangle(294, 607, 68, 19));
+        this.add(contcostTemp, new KDLayout.Constraints(294, 607, 68, 19, 0));
         //contCreator
         contCreator.setBoundEditor(prmtCreator);
         //contCreateTime
@@ -966,8 +979,8 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
         kDPanel1.add(contamount, new KDLayout.Constraints(13, 109, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contchancedAmount.setBounds(new Rectangle(354, 135, 270, 19));
         kDPanel1.add(contchancedAmount, new KDLayout.Constraints(354, 135, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contBIMUDF0027.setBounds(new Rectangle(14, 215, 957, 63));
-        kDPanel1.add(contBIMUDF0027, new KDLayout.Constraints(14, 215, 957, 63, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        contBIMUDF0027.setBounds(new Rectangle(13, 215, 957, 306));
+        kDPanel1.add(contBIMUDF0027, new KDLayout.Constraints(13, 215, 957, 306, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contaddress.setBounds(new Rectangle(13, 191, 611, 19));
         kDPanel1.add(contaddress, new KDLayout.Constraints(13, 191, 611, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contplanType.setBounds(new Rectangle(354, 31, 270, 19));
@@ -976,10 +989,8 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
         kDPanel1.add(contobjectState, new KDLayout.Constraints(696, 31, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contCU.setBounds(new Rectangle(696, 57, 270, 19));
         kDPanel1.add(contCU, new KDLayout.Constraints(696, 57, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        kDContainer1.setBounds(new Rectangle(13, 304, 957, 223));
-        kDPanel1.add(kDContainer1, new KDLayout.Constraints(13, 304, 957, 223, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        contcostTemp.setBounds(new Rectangle(16, 285, 270, 19));
-        kDPanel1.add(contcostTemp, new KDLayout.Constraints(16, 285, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDContainer1.setBounds(new Rectangle(4, 526, 957, 9));
+        kDPanel1.add(kDContainer1, new KDLayout.Constraints(4, 526, 957, 9, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         continvestAmount.setBounds(new Rectangle(13, 83, 270, 19));
         kDPanel1.add(continvestAmount, new KDLayout.Constraints(13, 83, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contStatus.setBounds(new Rectangle(696, 5, 270, 19));
@@ -1031,8 +1042,6 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
         //kDContainer1
 kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtEntry,new com.kingdee.eas.port.pm.invest.YearInvestPlanEntryInfo(),null,false);
         kDContainer1.getContentPane().add(kdtEntry_detailPanel, BorderLayout.CENTER);
-        //contcostTemp
-        contcostTemp.setBoundEditor(prmtcostTemp);
         //continvestAmount
         continvestAmount.setBoundEditor(txtinvestAmount);
         //contStatus
@@ -1075,6 +1084,8 @@ vo.put("reviewStage","1");
 		});
         //contremark
         contremark.setBoundEditor(txtremark);
+        //contcostTemp
+        contcostTemp.setBoundEditor(prmtcostTemp);
 
     }
 
@@ -1284,7 +1295,6 @@ vo.put("reviewStage","1");
 		dataBinder.registerBinding("Entry.acceptTime", java.util.Date.class, this.kdtEntry, "acceptTime.text");
 		dataBinder.registerBinding("Entry.description", String.class, this.kdtEntry, "description.text");
 		dataBinder.registerBinding("Entry.costType", java.lang.Object.class, this.kdtEntry, "costType.text");
-		dataBinder.registerBinding("costTemp", com.kingdee.eas.port.pm.invest.CostTempInfo.class, this.prmtcostTemp, "data");
 		dataBinder.registerBinding("investAmount", java.math.BigDecimal.class, this.txtinvestAmount, "value");
 		dataBinder.registerBinding("status", com.kingdee.eas.xr.app.XRBillStatusEnum.class, this.comboStatus, "selectedItem");
 		dataBinder.registerBinding("year", com.kingdee.eas.port.pm.base.InvestYearInfo.class, this.prmtyear, "data");
@@ -1300,7 +1310,8 @@ vo.put("reviewStage","1");
 		dataBinder.registerBinding("E3.reviewTime", java.util.Date.class, this.kdtE3, "reviewTime.text");
 		dataBinder.registerBinding("E3.reviewStage", com.kingdee.util.enums.Enum.class, this.kdtE3, "reviewStage.text");
 		dataBinder.registerBinding("E3.accredConclusion", String.class, this.kdtE3, "accredConclusion.text");
-		dataBinder.registerBinding("remark", String.class, this.txtremark, "text");		
+		dataBinder.registerBinding("remark", String.class, this.txtremark, "text");
+		dataBinder.registerBinding("costTemp", com.kingdee.eas.port.pm.invest.CostTempInfo.class, this.prmtcostTemp, "data");		
 	}
 	//Regiester UI State
 	private void registerUIState(){		
@@ -1471,7 +1482,6 @@ vo.put("reviewStage","1");
 		getValidateHelper().registerBindProperty("Entry.acceptTime", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("Entry.description", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("Entry.costType", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("costTemp", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("investAmount", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("status", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("year", ValidateHelper.ON_SAVE);    
@@ -1487,7 +1497,8 @@ vo.put("reviewStage","1");
 		getValidateHelper().registerBindProperty("E3.reviewTime", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("E3.reviewStage", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("E3.accredConclusion", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("remark", ValidateHelper.ON_SAVE);    		
+		getValidateHelper().registerBindProperty("remark", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("costTemp", ValidateHelper.ON_SAVE);    		
 	}
 
 
@@ -1503,6 +1514,13 @@ vo.put("reviewStage","1");
         } else if (STATUS_VIEW.equals(this.oprtState)) {
         } else if (STATUS_FINDVIEW.equals(this.oprtState)) {
         }
+    }
+
+    /**
+     * output kDTabbedPane1_stateChanged method
+     */
+    protected void kDTabbedPane1_stateChanged(javax.swing.event.ChangeEvent e) throws Exception
+    {
     }
 
     /**
@@ -1541,18 +1559,18 @@ vo.put("reviewStage","1");
     }
 
     /**
-     * output prmtcostTemp_dataChanged method
-     */
-    protected void prmtcostTemp_dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) throws Exception
-    {
-    }
-
-    /**
      * output prmtyear_dataChanged method
      */
     protected void prmtyear_dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) throws Exception
     {
         //write your code hereoo
+    }
+
+    /**
+     * output prmtcostTemp_dataChanged method
+     */
+    protected void prmtcostTemp_dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) throws Exception
+    {
     }
 
 
@@ -1704,15 +1722,6 @@ vo.put("reviewStage","1");
 			sic.add(new SelectorItemInfo("Entry.costType.name"));
         	sic.add(new SelectorItemInfo("Entry.costType.number"));
 		}
-		if(selectorAll.equalsIgnoreCase("true"))
-		{
-			sic.add(new SelectorItemInfo("costTemp.*"));
-		}
-		else{
-        	sic.add(new SelectorItemInfo("costTemp.id"));
-        	sic.add(new SelectorItemInfo("costTemp.number"));
-        	sic.add(new SelectorItemInfo("costTemp.tempName"));
-		}
         sic.add(new SelectorItemInfo("investAmount"));
         sic.add(new SelectorItemInfo("status"));
 		if(selectorAll.equalsIgnoreCase("true"))
@@ -1747,6 +1756,15 @@ vo.put("reviewStage","1");
     	sic.add(new SelectorItemInfo("E3.reviewStage"));
     	sic.add(new SelectorItemInfo("E3.accredConclusion"));
         sic.add(new SelectorItemInfo("remark"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("costTemp.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("costTemp.id"));
+        	sic.add(new SelectorItemInfo("costTemp.number"));
+        	sic.add(new SelectorItemInfo("costTemp.tempName"));
+		}
         return sic;
     }        
     	
@@ -1867,9 +1885,6 @@ vo.put("reviewStage","1");
 		}
 		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(objectState.getSelectedItem())) {
 			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"项目状态"});
-		}
-		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(prmtyear.getData())) {
-			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"投资年度"});
 		}
 			super.beforeStoreFields(arg0);
 		}

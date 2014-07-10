@@ -9,13 +9,17 @@ import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.swing.event.AncestorEvent;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 import org.apache.log4j.Logger;
 
+import com.kingdee.bos.BOSException;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent;
+import com.kingdee.bos.ctrl.swing.KDPanel;
+import com.kingdee.bos.ctrl.swing.KDTabbedPane;
 import com.kingdee.bos.ctrl.swing.KDTextField;
 import com.kingdee.bos.ctrl.swing.event.DataChangeEvent;
 import com.kingdee.bos.dao.AbstractObjectValue;
@@ -38,9 +42,11 @@ import com.kingdee.eas.basedata.assistant.ProjectInfo;
 import com.kingdee.eas.basedata.org.AdminOrgUnitCollection;
 import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
 import com.kingdee.eas.basedata.person.PersonInfo;
+import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.common.client.UIContext;
+import com.kingdee.eas.cp.bc.BizCollUtil;
 import com.kingdee.eas.port.pm.base.BuildTypeInfo;
 import com.kingdee.eas.port.pm.base.InvestYearFactory;
 import com.kingdee.eas.port.pm.base.InvestYearInfo;
@@ -89,47 +95,18 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 		kDContainer1.setVisible(false);
 		this.txtinvestAmount.setEnabled(false);
 		this.continvestAmount.setEnabled(false);
-		
 		this.txtamount.setEnabled(false);
 		this.txtbalance.setEnabled(false);
 		contcostTemp.setVisible(false);
 		prmtcostTemp.setVisible(false);
 		prmtcostTemp.setEnabled(false);
 		
-		
-		//加载投资规划编辑界面
-    	UIContext uiContext = new UIContext(this);
-    	String number = this.txtNumber.getText();
-    	String oql = "where SourceBillId='"+number+"'";
-    	boolean flse = true;
-    	if(ProgrammingFactory.getRemoteInstance().exists(oql))
-    	{
-    		uiContext.put("ID", ProgrammingFactory.getRemoteInstance().getProgrammingCollection(oql).get(0).getId());
-    		flse = false;
-    	}
-    	else
-    	{
-    		uiContext.put("PlanNumber",number);
-    	}
-    	uiContext.put("proAmount", this.txtamount);
-    	uiContext.put("proInvestAmount", this.txtinvestAmount);
-    	uiContext.put("proAddAmount", this.txtaddInvestAmount);
-    	uiContext.put("proBalance", this.txtbalance);
-        programmingEditUI = (ProgrammingEditUI) UIFactoryHelper.initUIObject(ProgrammingEditUI.class.getName(), uiContext, null, flse?"ADDNEW":getOprtState());
-        
-        kDScrollPane1.setViewportView(programmingEditUI);
-        kDScrollPane1.setKeyBoardControl(true);
-        kDScrollPane1.setEnabled(false);
-        
-        
 		if (prmtbuildType.getValue() != null) 
 		{
 			if (((BuildTypeInfo) prmtbuildType.getValue()).getName().equals("新建项目")) 
 			{
 				prmtportProject.setVisible(false);
 				contportProject.setVisible(false);
-				prmtyear.setEnabled(false);
-				contyear.setEnabled(false);
 				ClientVerifyHelper.verifyEmpty(this, this.prmtyear);
 			} 
 		}
@@ -140,78 +117,35 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 			contportProject.setVisible(false);
 		}
 
-		if (getOprtState().equals(OprtState.ADDNEW)) {
+		if (getOprtState().equals(OprtState.ADDNEW))
+		{
 			UserInfo user = SysContext.getSysContext().getCurrentUserInfo();
-			if (user.getPerson() != null) {//申请人带出申请单位
+			if (user.getPerson() != null) 
+			{//申请人带出申请单位
 				PersonInfo person = user.getPerson();
 				prmtrequestPerson.setValue(person);
 				AdminOrgUnitCollection orgColl = PersonXRHelper.getDepartmentByUserCollection(person);
 				AdminOrgUnitInfo adminInfo = orgColl.get(0);
 				prmtrequestOrg.setValue(adminInfo);
 			}
-		} else if (getOprtState().equals(OprtState.VIEW)) {
-		} else if (getOprtState().equals(OprtState.EDIT)) {
+		}
+		else if (getOprtState().equals(OprtState.VIEW))
+		{
+		} 
+		else if (getOprtState().equals(OprtState.EDIT)) 
+		{
 		}
 		this.kDContainer1.getContentPane().setVisible(false);
-
-//		this.kDContainer1.getContentPane().add(this.kdtEntry,BorderLayout.CENTER);
-		
-//		FilterInfo filter = new FilterInfo();
-//		filter.getFilterItems().add(new FilterItemInfo("NJGyearInvest.buildType.name","新建项目",CompareType.EQUALS) );
-//		EntityViewInfo view = new EntityViewInfo();
-//		view.setFilter(filter);
-//		this.prmtportProject.setEntityViewInfo(view);
-		
-		
-		this.kDTabbedPane1.addChangeListener(new ChangeListener(){
-
-			public void stateChanged(ChangeEvent e) {
-				if(e.getSource()!=null)
-				{
-					String name = kDTabbedPane1.getSelectedComponent().getName();
-					if(name.equals(kDScrollPane1.getName())&&editData.getId()==null)
-					{
-						MsgBox.showWarning("单据未保存，请先保存！");
-						kDTabbedPane1.setSelectedComponent(kDPanel1);
-						SysUtil.abort();
-					}
-				}
-			}
-			
-		});
 	}
 	
 	public void actionInvestPlan_actionPerformed(ActionEvent e)throws Exception {
-//		super.actionInvestPlan_actionPerformed(e);
-//		if(editData.getId()==null)
-//		{
-//			MsgBox.showWarning("请先保存单据!");
-//			return;
-//		}
-//		
-//		UIContext uiContext = new UIContext(this);
-//		IUIWindow uiWindow = null;
-//		
-//		String oql = "where sourceBillId='"+this.txtNumber.getText().trim()+"'";
-//		String oprst = "";
-//		if(ProgrammingFactory.getRemoteInstance().exists(oql))
-//		{
-//			uiContext.put("ID", ProgrammingFactory.getRemoteInstance().getProgrammingCollection(oql).get(0).getId());
-//			oprst = OprtState.VIEW;
-//		}
-//		else
-//		{
-//			uiContext.put("number",this.txtNumber.getText().trim());
-//			oprst = OprtState.ADDNEW;
-//		}
-//		uiWindow = UIFactory.createUIFactory(UIFactoryName.MODEL).create(ProgrammingEditUI.class.getName(), uiContext, null,oprst);
-//		uiWindow.show();
 	}
 	/**
 	 * 申报人带出组织
 	 */
 	protected void prmtrequestPerson_dataChanged(DataChangeEvent e)throws Exception {
-		if (prmtrequestPerson.getValue() != null) {
+		if (prmtrequestPerson.getValue() != null)
+		{
 			PersonInfo prinfo = (PersonInfo) prmtrequestPerson.getValue();
 			AdminOrgUnitCollection orgColl = PersonXRHelper.getDepartmentByUserCollection(prinfo);
 			AdminOrgUnitInfo adminInfo = orgColl.get(0);
@@ -222,36 +156,19 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 	 * 费用模板直接带出费用类型，费用名称
 	 */
 	protected void prmtcostTemp_dataChanged(DataChangeEvent e) throws Exception {
-//		super.prmtcostTemp_dataChanged(e);
-//		if (prmtcostTemp.getValue() != null) {
-//			this.kdtEntry.removeRows();
-//			CostTempInfo info = (CostTempInfo) prmtcostTemp.getValue();
-//			CostTempE1Collection costTeoColl = info.getE1();
-//			ICostTypeTree IostTypeTree = CostTypeTreeFactory.getRemoteInstance();
-//			ICostType IcostType = com.kingdee.eas.port.pm.base.CostTypeFactory.getRemoteInstance();
-//			for (int i = 0; i < costTeoColl.size(); i++) {
-//				CostTempE1Info e1Info = costTeoColl.get(i);
-//				IRow row = this.kdtEntry.addRow(i);
-//				if (e1Info.getCostType() != null)
-//					row.getCell("costType").setValue(IostTypeTree.getCostTypeTreeInfo(new ObjectUuidPK(e1Info.getCostType().getId())));
-//				if (e1Info.getCostNames() != null)
-//					row.getCell("costName").setValue(IcostType.getCostTypeInfo(new ObjectUuidPK(e1Info.getCostNames().getId())).getName());
-//			}
-//		}
 	}
 	/**
 	 * 建设性质为续建项目时显示出项目信息字段
 	 */
 	protected void prmtbuildType_dataChanged(DataChangeEvent e)throws Exception {
 		super.prmtbuildType_dataChanged(e);
-		if (prmtbuildType.getValue() != null) {
+		if (prmtbuildType.getValue() != null) 
+		{
 			BuildTypeInfo bdtinfo = (BuildTypeInfo) prmtbuildType.getValue();
 			if (bdtinfo.getName().equals("续建项目")) 
 			{
 				prmtportProject.setVisible(true);
 				contportProject.setVisible(true);
-				prmtyear.setEnabled(false);
-				contyear.setEnabled(false);
 			} 
 			else 
 			{
@@ -278,75 +195,6 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 		arg0.put("status",null);
 		arg0.put("objectState",ObjectStateEnum.save);
 	}
-	protected void prmtportProject_dataChanged(DataChangeEvent e)throws Exception {
-		super.prmtportProject_dataChanged(e);
-		if(prmtportProject.getValue()!=null)
-		{
-			verifyInput(null);
-			IProgramming iProgramming = ProgrammingFactory.getRemoteInstance();
-			ProjectInfo projectInfo = (ProjectInfo)prmtportProject.getValue();
-			YearInvestPlanInfo yearInvestPlanInfo = (YearInvestPlanInfo)projectInfo.getNJGyearInvest();
-			YearInvestPlanInfo ypInfo = YearInvestPlanFactory.getRemoteInstance().getYearInvestPlanInfo(new ObjectUuidPK(yearInvestPlanInfo.getId()));
-			
-//			EntityViewInfo view = new EntityViewInfo();
-//			FilterInfo filter = new FilterInfo();
-//			view.setFilter(filter);
-//			filter.getFilterItems().add(new FilterItemInfo("number",ypInfo.getNumber()));
-//			filter.getFilterItems().add(new FilterItemInfo("portProject.number",ypInfo.getNumber()));
-//			filter.getFilterItems().add(new FilterItemInfo("id",editData.getId()+"",CompareType.NOTEQUALS));
-//			filter.getFilterItems().add(new FilterItemInfo("status","4"));
-//			filter.setMaskString("(#0 or #1) and #2 and #3");
-//			SorterItemCollection siColl = view.getSorter();
-//	      siColl.add(new SorterItemInfo("year.number")); //需要排序的字段
-//	      SorterItemInfo siInfo= siColl.get(0); //第一个需要排序的字段
-//	      siInfo.setSortType(SortType.DESCEND);  //需要排序的字段降序
-//	      view.setFilter(filter); 
-	        
-	        String oql = "select number,year.id,year.number,year.name where (number='"+ypInfo.getNumber()+"' or portProject.number='"+
-	        ypInfo.getNumber()+"') and id<>'"+editData.getId()+"' and objectState='8'" +" order by year.number desc ";
-			YearInvestPlanCollection coll = YearInvestPlanFactory.getRemoteInstance().getYearInvestPlanCollection(oql);
-			YearInvestPlanInfo pro = coll.get(0);
-			 
-			InvestYearInfo  newYearInfo = InvestYearFactory.getRemoteInstance().getInvestYearInfo("where name ='"+String.valueOf(Integer.parseInt(pro.getYear().getName())+1)+"'");
-			
-			if(!iProgramming.exists("where sourceBillId='"+pro.getNumber()+"'"))
-			{
-				MsgBox.showWarning("没有对应的项目!");
-				this.prmtyear.setValue(null);
-				kDScrollPane1.setViewportView(null);
-				SysUtil.abort();
-			}
-			
-			this.prmtyear.setValue(newYearInfo);
-			
-			ProgrammingInfo pmInfo = iProgramming.getProgrammingInfo("where sourceBillId='"+pro.getNumber()+"'");
-			
-			UIContext uiContext = new UIContext(this);
-	    	uiContext.put("ID", pmInfo.getId());
-	    	uiContext.put("year",newYearInfo);
-	    	uiContext.put("proNumber", this.txtNumber.getText());
-	    	uiContext.put("proAmount", this.txtamount);
-	    	uiContext.put("proInvestAmount", this.txtinvestAmount);
-	    	uiContext.put("proAddAmount", this.txtaddInvestAmount);
-	    	uiContext.put("proBalance", this.txtbalance);
-	    	uiContext.put("proname", this.txtprojectName.getText());
-	    	uiContext.put("modify", this.txtprojectName.getText());
-	    	
-	    	programmingEditUI = (ProgrammingEditUI) UIFactoryHelper.initUIObject(ProgrammingEditUI.class.getName(), uiContext, null, "EDIT");
-	    	kDScrollPane1.setViewportView(programmingEditUI);
-	    	kDScrollPane1.setKeyBoardControl(true);
-	    	kDScrollPane1.setEnabled(false);
-	        programmingEditUI.actionCopy_actionPerformed(null);
-	        	        
-		}
-		else
-		{
-			kDScrollPane1.setViewportView(programmingEditUI);
-		}
-	}
-	
-
-	
 	protected void prmtyear_dataChanged(DataChangeEvent e)throws Exception{
 		super.prmtyear_dataChanged(e);
 	}
@@ -357,13 +205,6 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 	
 	protected void kdtEntry_editStopped(KDTEditEvent e) throws Exception {
 		super.kdtEntry_editStopped(e);
-//		if (e.getRowIndex() == -1) {
-//			return;
-//		}
-//		if (this.kdtEntry.getColumn(e.getColIndex()).getKey().equals("yearInvestBudget"))
-//			this.txtamount.setValue(UIRuleUtil.sum(this.kdtEntry,"yearInvestBudget"));
-//		if (this.kdtEntry.getColumn(e.getColIndex()).getKey().equals("estimate"))
-//			this.txtinvestAmount.setValue(UIRuleUtil.sum(this.kdtEntry,"estimate"));
 	}
 	/**
 	 * 校验信息
@@ -371,21 +212,19 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 	protected void verifyInput(ActionEvent e) throws Exception {
 		BigDecimal a = UIRuleUtil.getBigDecimal((this.txtinvestAmount.getValue()));
 		BigDecimal c = UIRuleUtil.getBigDecimal((this.txtamount.getValue()));
-		if(a.compareTo(c)<0){
+		if(a.compareTo(c)<0)
+		{
 			MsgBox.showWarning("项目投资总金额不能小于本年计划投资金额");abort();
 		}
     	ClientVerifyHelper.verifyEmpty(this, this.pkplanStartDate);
     	ClientVerifyHelper.verifyEmpty(this, this.pkplanEndDate);
     	ClientVerifyHelper.verifyEmpty(this, this.pkBizDate);
     	
-    	
     	SimpleDateFormat Formatter = new SimpleDateFormat("yyyy-MM-dd");
-    	if(((BuildTypeInfo) prmtbuildType.getValue()).getName().equals("续建项目")){
-    		ClientVerifyHelper.verifyEmpty(this, this.prmtportProject);
-    	}
     	if(!Formatter.format(this.pkplanStartDate.getSqlDate()).equals(Formatter.format(this.pkBizDate.getSqlDate())))
     	{	
-    		if(this.pkplanStartDate.getSqlDate().before(this.pkBizDate.getSqlDate())){
+    		if(this.pkplanStartDate.getSqlDate().before(this.pkBizDate.getSqlDate()))
+    		{
     	    	MsgBox.showWarning("计划开工日期不能早于计划申报日期！");abort();
     	    }
     	}	
@@ -399,14 +238,136 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 	}
 
 	/**
+	 * 续建时，项目信息选择已立项项目
+	 */
+	protected void prmtportProject_dataChanged(DataChangeEvent e)throws Exception {
+		super.prmtportProject_dataChanged(e);
+		if(!BizCollUtil.isF7ValueChanged(e)||e.getNewValue()==null)
+			return;
+		setPortProject(null);
+	}
+	
+	/**
+	 * 点击投资规划页签加载投资规划
+	 */
+	protected void kDTabbedPane1_stateChanged(ChangeEvent e) throws Exception {
+		super.kDTabbedPane1_stateChanged(e);
+		if(e!=null&&e.getSource()!=null)
+			setPortProject(e);
+	}
+	
+	/**
+	 * 项目信息及投资规划界面加载封装
+	 */
+	private void setPortProject(ChangeEvent e) throws Exception
+	{
+		if(editData!=null)
+		{
+			boolean eidtBill = YearInvestPlanFactory.getRemoteInstance().exists("select id where id ='"+editData.getId()+"'");
+			if(e!=null&&e.getSource()!=null)
+			{
+				KDTabbedPane kdtable = (KDTabbedPane)e.getSource();
+				if(!kdtable.getSelectedComponent().getName().equals("kDScrollPane1"))
+					return;
+			}
+			if(!eidtBill)
+			{
+				if(e==null)
+				{
+					MsgBox.showWarning("单据未保存，请先保存！");
+					this.prmtportProject.setValue(null);
+					SysUtil.abort();
+				}
+				else 
+				{
+					KDTabbedPane kdtable = (KDTabbedPane)e.getSource();
+					if(kdtable.getSelectedComponent().getName().equals("kDScrollPane1"))
+					{
+						MsgBox.showWarning("单据未保存，请先保存！");
+						kDTabbedPane1.setSelectedComponent(kDPanel1);
+						SysUtil.abort();
+					}
+					if(!kdtable.getSelectedComponent().getName().equals("kDScrollPane1"))
+						return;
+				}
+			}
+		
+		
+		kDScrollPane1.setViewportView(null);
+		String number = this.txtNumber.getText();
+		UIContext uiContext = new UIContext(this);
+		uiContext.put("proAmount", this.txtamount);
+		uiContext.put("proInvestAmount", this.txtinvestAmount);
+		uiContext.put("proAddAmount", this.txtaddInvestAmount);
+		uiContext.put("proBalance", this.txtbalance);
+		uiContext.put("proNumber",number);
+		uiContext.put("proname", this.txtprojectName.getText());
+		uiContext.put("modify", this.txtprojectName.getText());
+		if(prmtportProject.getValue()==null){
+			//加载投资规划编辑界面
+	    	String oql = "where SourceBillId='"+editData.getId()+"'";
+	    	boolean flse = true;
+	    	if(ProgrammingFactory.getRemoteInstance().exists(oql))
+	    	{
+	    		uiContext.put("ID", ProgrammingFactory.getRemoteInstance().getProgrammingCollection(oql).get(0).getId());
+	    		flse = false;
+	    	}
+	    	else
+	    	{
+	    		uiContext.put("yearPlanId",editData.getId().toString());
+	    	}
+	    	
+	        programmingEditUI = (ProgrammingEditUI) UIFactoryHelper.initUIObject(ProgrammingEditUI.class.getName(), uiContext, null, flse?"ADDNEW":getOprtState());
+	        kDScrollPane1.setViewportView(programmingEditUI);
+	        kDScrollPane1.setKeyBoardControl(true);
+	        kDScrollPane1.setEnabled(false);
+		}
+		else
+		{
+			verifyInput(null);
+			IProgramming iProgramming = ProgrammingFactory.getRemoteInstance();
+			ProjectInfo projectInfo = (ProjectInfo)prmtportProject.getValue();
+			YearInvestPlanInfo yearInvestPlanInfo = (YearInvestPlanInfo)projectInfo.getNJGyearInvest();
+			yearInvestPlanInfo = YearInvestPlanFactory.getRemoteInstance().getYearInvestPlanInfo(new ObjectUuidPK(yearInvestPlanInfo.getId()));
+	        String oql = "select number,year.id,year.number,year.name where (number='"+yearInvestPlanInfo.getNumber()+"' or portProject.number='"+
+	        yearInvestPlanInfo.getNumber()+"')  and objectState='8'" ;
+	        if(editData.getId()!=null)
+	        	oql = oql + "and id<>'"+editData.getId()+"'";
+	        oql = oql +" order by year.number desc ";
+			YearInvestPlanCollection coll = YearInvestPlanFactory.getRemoteInstance().getYearInvestPlanCollection(oql);
+			YearInvestPlanInfo pro = coll.get(0);
+			InvestYearInfo  newYearInfo = InvestYearFactory.getRemoteInstance().getInvestYearInfo("where name ='"+String.valueOf(Integer.parseInt(pro.getYear().getName())+1)+"'");
+			if(!iProgramming.exists("where sourceBillId='"+pro.getId()+"'"))
+			{
+				MsgBox.showWarning("没有对应的项目!");
+				this.prmtyear.setValue(null);
+				kDScrollPane1.setViewportView(null);
+				SysUtil.abort();
+			}
+			ProgrammingInfo pmInfo = iProgramming.getProgrammingCollection("where sourceBillId='"+pro.getId()+"'").get(0);
+	    	uiContext.put("ID", pmInfo.getId());
+	    	uiContext.put("year",newYearInfo);
+	    	uiContext.put("yearPlanId",editData.getId().toString());
+	    	programmingEditUI = (ProgrammingEditUI) UIFactoryHelper.initUIObject(ProgrammingEditUI.class.getName(), uiContext, null, "EDIT");
+	    	kDScrollPane1.setViewportView(programmingEditUI);
+	    	kDScrollPane1.setKeyBoardControl(true);
+	    	kDScrollPane1.setEnabled(false);
+	        programmingEditUI.actionCopy_actionPerformed(null);
+		}
+	  }
+	}
+	
+	/**
 	 * output loadFields method
 	 */
 	public void loadFields() {
 		detachListeners();
 		super.loadFields();
 		attachListeners();
+		this.getUITitle();
+		if(programmingEditUI!=null)
+			programmingEditUI.loadFields();
 	}
-
 	/**
 	 * output storeFields method
 	 */
@@ -650,7 +611,8 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 	 */
 	public void actionSave_actionPerformed(ActionEvent e) throws Exception {
 		super.actionSave_actionPerformed(e);
-		programmingEditUI.actionSave_actionPerformed(e);
+		if(programmingEditUI!=null)
+			programmingEditUI.actionSave_actionPerformed(e);
 	}
 
 	/**
@@ -658,7 +620,8 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 	 */
 	public void actionSubmit_actionPerformed(ActionEvent e) throws Exception {
 		super.actionSubmit_actionPerformed(e);
-		programmingEditUI.actionSubmit_actionPerformed(e);
+		if(programmingEditUI!=null)
+			programmingEditUI.actionSubmit_actionPerformed(e);
 	}
 
 	/**

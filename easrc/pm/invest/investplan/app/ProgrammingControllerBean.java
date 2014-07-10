@@ -299,7 +299,7 @@ public class ProgrammingControllerBean extends AbstractProgrammingControllerBean
 	}
 
 	/**
-	 * 审批后合同引用的框架合约需要更新为修订后的新版本
+	 * 审批后合同引用的框架投资规划需要更新为修订后的新版本
 	 * @param ctx
 	 * @param billId
 	 * @param entries
@@ -329,7 +329,7 @@ public class ProgrammingControllerBean extends AbstractProgrammingControllerBean
 	}
 	
 	/**
-	 * 审批后招标立项引用的框架合约需要更新为修订后的新版本
+	 * 审批后招标立项引用的框架投资规划需要更新为修订后的新版本
 	 * @param ctx
 	 * @param billId
 	 * @param entries
@@ -371,7 +371,7 @@ public class ProgrammingControllerBean extends AbstractProgrammingControllerBean
 		IRowSet rs = checkSQL.executeQuery();
 		try {
 			if(rs.next()){
-				throw new EASBizException(new NumericExceptionSubItem("1", "存在已经被引用的框架合约，不允许反审批！"));
+				throw new EASBizException(new NumericExceptionSubItem("1", "存在已经被引用的框架投资规划，不允许反审批！"));
 			}
 		} catch (SQLException e) {
 			logger.error(e);

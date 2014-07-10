@@ -464,6 +464,17 @@ public class AbstractProgrammingEntryInfo extends com.kingdee.eas.framework.Tree
     {
         put("unit", item);
     }
+    /**
+     * Object:·ÖÂ¼'s µ¥¼Ûproperty 
+     */
+    public java.math.BigDecimal getPrice()
+    {
+        return getBigDecimal("price");
+    }
+    public void setPrice(java.math.BigDecimal item)
+    {
+        setBigDecimal("price", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("7D5CF726");
