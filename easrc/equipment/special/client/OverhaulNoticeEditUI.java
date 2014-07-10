@@ -789,6 +789,7 @@ public class OverhaulNoticeEditUI extends AbstractOverhaulNoticeEditUI
 			txtrequestContent.setEnabled(false);
 		}
 		super.onLoad();
+		this.setUITitle("整改通知单");
 		if(getUIContext().get("FeedInfor")!=null)
 		{
 			this.toolBar.removeAll();

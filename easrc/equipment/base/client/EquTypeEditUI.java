@@ -425,5 +425,10 @@ public class EquTypeEditUI extends AbstractEquTypeEditUI
 		
         return objectValue;
     }
+    
+    public void onLoad() throws Exception {
+    	super.onLoad();
+    	this.setUITitle("特种设备名称");
+    }
 
 }

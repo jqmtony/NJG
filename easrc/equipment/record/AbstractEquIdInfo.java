@@ -766,17 +766,6 @@ public class AbstractEquIdInfo extends com.kingdee.eas.xr.XRBillBaseInfo impleme
         setString("inStreet", item);
     }
     /**
-     * Object:设备档案's 检验员1property 
-     */
-    public String getInspectorOne()
-    {
-        return getString("inspectorOne");
-    }
-    public void setInspectorOne(String item)
-    {
-        setString("inspectorOne", item);
-    }
-    /**
      * Object: 设备档案 's 检验类别 property 
      */
     public com.kingdee.eas.port.equipment.base.TestTypeInfo getTextType()

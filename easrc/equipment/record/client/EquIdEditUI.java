@@ -274,6 +274,76 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 //			}
 //		});
 	
+		if(editData.isSpecial()){
+			txttzdaNumber.setEnabled(true);
+			txtcityPeriod.setEnabled(true);
+			pktextDate1.setEnabled(true);
+			txtzzsShortName.setEnabled(true);
+			prmttextType.setEnabled(true);
+			txtresponsible.setEnabled(true);
+			chkcityTest.setEnabled(true);
+			chkportTest.setEnabled(true);
+			txtcode.setEnabled(true);
+			prmtspecialType.setEnabled(true);
+			txttelePhoneNumber.setEnabled(true);
+			pkactrueTime.setEnabled(true);
+			prmtequTypeone.setEnabled(true);
+			tzsbStatus.setEnabled(true);
+		}
+		if(chkspecial.getSelected() ==16){
+			txttzdaNumber.setEnabled(false);
+			txttzdaNumber.setText(null);
+			txtcityPeriod.setEnabled(false);
+			pktextDate1.setEnabled(false);
+			txtzzsShortName.setEnabled(false);
+			prmttextType.setEnabled(false);
+			txtresponsible.setEnabled(false);
+			chkcityTest.setEnabled(false);
+			chkportTest.setEnabled(false);
+			txtcode.setEnabled(false);
+			prmtspecialType.setEnabled(false);
+			txttelePhoneNumber.setEnabled(false);
+			pkactrueTime.setEnabled(false);
+			prmtequTypeone.setEnabled(false);
+			tzsbStatus.setEnabled(false);
+		}
+		
+		chkspecial.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				if(editData.isSpecial()){
+					txttzdaNumber.setEnabled(true);
+					txtcityPeriod.setEnabled(true);
+					pktextDate1.setEnabled(true);
+					txtzzsShortName.setEnabled(true);
+					prmttextType.setEnabled(true);
+					txtresponsible.setEnabled(true);
+					chkcityTest.setEnabled(true);
+					chkportTest.setEnabled(true);
+					txtcode.setEnabled(true);
+					prmtspecialType.setEnabled(true);
+					txttelePhoneNumber.setEnabled(true);
+					pkactrueTime.setEnabled(true);
+					prmtequTypeone.setEnabled(true);
+					tzsbStatus.setEnabled(true);
+				}
+				if(chkspecial.getSelected() ==16){
+					txttzdaNumber.setEnabled(false);
+					txtcityPeriod.setEnabled(false);
+					pktextDate1.setEnabled(false);
+					txtzzsShortName.setEnabled(false);
+					prmttextType.setEnabled(false);
+					txtresponsible.setEnabled(false);
+					chkcityTest.setEnabled(false);
+					chkportTest.setEnabled(false);
+					txtcode.setEnabled(false);
+					prmtspecialType.setEnabled(false);
+					txttelePhoneNumber.setEnabled(false);
+					pkactrueTime.setEnabled(false);
+					prmtequTypeone.setEnabled(false);
+					tzsbStatus.setEnabled(false);
+				}
+			}
+		});
 		
 		Tool.setRespDeptF7(this.prmtjhOrgUnit, this, SysContext.getSysContext().getCurrentCtrlUnit().getId().toString());
 		Tool.setRespDeptF7(this.prmtwxOrgUnit, this, SysContext.getSysContext().getCurrentCtrlUnit().getId().toString());
@@ -300,14 +370,6 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 			this.toolBar.setVisible(false);
 			this.toolBar.removeAllToolBarComponents();
 		}
-		//设备档案设备类型选择界面左边树不要显示11土地、12无形资产和13投资性房地产
-//		 EntityViewInfo evi = new EntityViewInfo();
-//		 FilterInfo filter = new FilterInfo();
-//		 filter.getFilterItems().add(new FilterItemInfo("number",11 ,CompareType.NOTEQUALS));
-//		 filter.getFilterItems().add(new FilterItemInfo("number",12 ,CompareType.NOTEQUALS));
-//		 filter.getFilterItems().add(new FilterItemInfo("number",13 ,CompareType.NOTEQUALS));
-//		 evi.setFilter(filter);
-//		prmttype.setEntityViewInfo(evi);
 	}
 	
 	private void SelectorFaCard() throws Exception
@@ -1636,18 +1698,8 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
         	  }
         	
           }
-//         if(editData.getStatus().equals(XRBillStatusEnum.ADD)){
-//	  		StringBuffer sb = new StringBuffer();
-//	  		sb.append("/*dialect*/select fnumber");
-//	  		sb.append(" from CT_REC_EquId");
-//	  		sb.append(" where fnumber = '"+editData.getNumber()+"'");
-//	  		IRowSet rowSet = new XRSQLBuilder().appendSql(sb.toString()).executeQuery();
-//	  		if(rowSet.size()>0){
-//	  			MsgBox.showInfo("存在重复的设备编码!");
-//	    			SysUtil.abort();
-//	  		}
-//         }
-         if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(txtNumber.getText())) {
+
+          if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(txtNumber.getText())) {
  			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"单据编号"});
  		}
      	if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(combosbStatus.getSelectedItem())) {

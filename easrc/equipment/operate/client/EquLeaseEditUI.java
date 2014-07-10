@@ -4,13 +4,24 @@
 package com.kingdee.eas.port.equipment.operate.client;
 
 import java.awt.event.*;
+
 import org.apache.log4j.Logger;
+
+import com.kingdee.bos.metadata.entity.EntityViewInfo;
+import com.kingdee.bos.metadata.entity.FilterInfo;
+import com.kingdee.bos.metadata.entity.FilterItemInfo;
+import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.framework.*;
+import com.kingdee.eas.port.equipment.base.enumbase.RentPay;
+import com.kingdee.eas.util.SysUtil;
+import com.kingdee.eas.util.client.MsgBox;
+import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
+import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.swing.KDTextField;
 
@@ -33,7 +44,10 @@ public class EquLeaseEditUI extends AbstractEquLeaseEditUI
      */
     public void loadFields()
     {
+    	// 注销监听器
+		detachListeners();
         super.loadFields();
+    	attachListeners();
     }
 
     /**
@@ -697,12 +711,88 @@ public class EquLeaseEditUI extends AbstractEquLeaseEditUI
 		if(getOprtState().equals(OprtState.ADDNEW)){
 			this.prmtCU.setValue(SysContext.getSysContext().getCurrentAdminUnit());
 		}
+	 	    KDBizPromptBox kdtE1_equNumber_PromptBox = new KDBizPromptBox();
+	        kdtE1_equNumber_PromptBox.setQueryInfo("com.kingdee.eas.port.equipment.record.app.EquIdQuery");
+	        kdtE1_equNumber_PromptBox.setVisible(true);
+	        kdtE1_equNumber_PromptBox.setEditable(true);
+	        kdtE1_equNumber_PromptBox.setDisplayFormat("$number$");
+	        kdtE1_equNumber_PromptBox.setEditFormat("$number$");
+	        kdtE1_equNumber_PromptBox.setCommitFormat("$number$");
+	   	     EntityViewInfo evi = new EntityViewInfo();
+			 FilterInfo filter = new FilterInfo();
+			 filter.getFilterItems().add(new FilterItemInfo("sbStatus","1",CompareType.EQUALS));
+			 String id = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
+	 		 filter.getFilterItems().add(new FilterItemInfo("ssOrgUnit.id",id ,CompareType.EQUALS));
+			 evi.setFilter(filter);
+			 kdtE1_equNumber_PromptBox.setEntityViewInfo(evi);
+			 KDTDefaultCellEditor kdtEntry_feeType_CellEditor = new KDTDefaultCellEditor(kdtE1_equNumber_PromptBox);
+			 kdtE1.getColumn("equNumber").setEditor(kdtEntry_feeType_CellEditor);
+			
+			      rentPay.addActionListener(new ActionListener(){
+					public void actionPerformed(ActionEvent e) {
+						if(rentPay.getSelectedItem().equals(RentPay.YEARRENT)){
+							kdtE1.getHeadRow(0).getCell("amount").setValue("年租金");
+						}
+						if(rentPay.getSelectedItem().equals(RentPay.QUATRENT)){
+							kdtE1.getHeadRow(0).getCell("amount").setValue("季租金");
+						}
+						if(rentPay.getSelectedItem().equals(RentPay.MONTHRENT)){
+							kdtE1.getHeadRow(0).getCell("amount").setValue("月租金");
+						}
+						if(rentPay.getSelectedItem().equals(RentPay.DAYRENT)){
+							kdtE1.getHeadRow(0).getCell("amount").setValue("日租金");
+						}
+						if(rentPay.getSelectedItem().equals(RentPay.ONERENT)){
+							kdtE1.getHeadRow(0).getCell("amount").setValue("租金总额");
+						}
+						if(rentPay.getSelectedItem().equals(RentPay.IRREGULAR)){
+							kdtE1.getHeadRow(0).getCell("amount").setValue("租金总额");
+						}
+					}
+				});
+			      
+			      if(rentPay.getSelectedItem().equals(RentPay.YEARRENT)){
+						kdtE1.getHeadRow(0).getCell("amount").setValue("年租金");
+					}
+					if(rentPay.getSelectedItem().equals(RentPay.QUATRENT)){
+						kdtE1.getHeadRow(0).getCell("amount").setValue("季租金");
+					}
+					if(rentPay.getSelectedItem().equals(RentPay.MONTHRENT)){
+						kdtE1.getHeadRow(0).getCell("amount").setValue("月租金");
+					}
+					if(rentPay.getSelectedItem().equals(RentPay.DAYRENT)){
+						kdtE1.getHeadRow(0).getCell("amount").setValue("日租金");
+					}
+					if(rentPay.getSelectedItem().equals(RentPay.ONERENT)){
+						kdtE1.getHeadRow(0).getCell("amount").setValue("租金总额");
+					}
+					if(rentPay.getSelectedItem().equals(RentPay.IRREGULAR)){
+						kdtE1.getHeadRow(0).getCell("amount").setValue("租金总额");
+					}
 	}
 	
 	public void kdtE1_Changed(int rowIndex, int colIndex) throws Exception {
 		super.kdtE1_Changed(rowIndex, colIndex);
-		if(  this.kdtE1.getCell(rowIndex, "amount").getValue() !=null ){
+		if(this.kdtE1.getCell(rowIndex, "amount").getValue() !=null ){
 			txtleaseSales.setValue(UIRuleUtil.sum(kdtE1, "amount"));
 		   }
+	}
+	
+	protected void verifyInput(ActionEvent e) throws Exception {
+		super.verifyInput(e);
+		if(UIRuleUtil.isNull(this.pkleaseStart.getValue()))
+		{
+			MsgBox.showInfo("租赁开始日期不能为空！");
+			SysUtil.abort();
+		}
+		if(UIRuleUtil.isNull(this.pkleaseEnd.getValue()))
+		{
+			MsgBox.showInfo("租赁结束日期不能为空！");
+			SysUtil.abort();
+		}
+		if(pkleaseEnd.getSqlDate().before(pkleaseStart.getSqlDate())){
+			MsgBox.showInfo("租赁开始日期不能晚于租赁结束日期！");
+			SysUtil.abort();
+		}
 	}
 }

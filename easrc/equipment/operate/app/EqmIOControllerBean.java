@@ -62,9 +62,9 @@ public class EqmIOControllerBean extends AbstractEqmIOControllerBean
     		if(eoInfo.getTransferType()!=null&&eoInfo.getTransferType().equals(TransferType.group)){
     			edInfo.setNowStatus(nowStatusType.rent);
     		}
-    		if(eoInfo.getTransferType()!=null&&eoInfo.getTransferType().equals(TransferType.assetstran)){
-    			edInfo.setNowStatus(nowStatusType.assetstran);
-    		}
+//    		if(eoInfo.getTransferType()!=null&&eoInfo.getTransferType().equals(TransferType.assetstran)){
+//    			edInfo.setNowStatus(nowStatusType.assetstran);
+//    		}
     		EquIdFactory.getLocalInstance(ctx).update(new ObjectUuidPK(edInfo.getId()), edInfo);
     	}
     }
