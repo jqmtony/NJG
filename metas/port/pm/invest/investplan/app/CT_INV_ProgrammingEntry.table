@@ -688,10 +688,10 @@
             <isEncoded>false</isEncoded>
             <isNullable>true</isNullable>
             <defaultValue />
-            <sqlType>VARCHAR</sqlType>
+            <sqlType>NUMERIC</sqlType>
             <length>10</length>
-            <scale>0</scale>
-            <precision>0</precision>
+            <scale>10</scale>
+            <precision>28</precision>
         </column>
         <column>
             <name>FInvestAmount</name>
@@ -702,10 +702,10 @@
             <isEncoded>false</isEncoded>
             <isNullable>true</isNullable>
             <defaultValue />
-            <sqlType>VARCHAR</sqlType>
+            <sqlType>NUMERIC</sqlType>
             <length>13</length>
-            <scale>0</scale>
-            <precision>0</precision>
+            <scale>10</scale>
+            <precision>28</precision>
         </column>
         <column>
             <name>FCumulativeInvest</name>
@@ -716,10 +716,10 @@
             <isEncoded>false</isEncoded>
             <isNullable>true</isNullable>
             <defaultValue />
-            <sqlType>VARCHAR</sqlType>
+            <sqlType>NUMERIC</sqlType>
             <length>13</length>
-            <scale>0</scale>
-            <precision>0</precision>
+            <scale>10</scale>
+            <precision>28</precision>
         </column>
         <column>
             <name>FQuantities</name>
@@ -730,10 +730,10 @@
             <isEncoded>false</isEncoded>
             <isNullable>true</isNullable>
             <defaultValue />
-            <sqlType>VARCHAR</sqlType>
-            <length>44</length>
-            <scale>0</scale>
-            <precision>0</precision>
+            <sqlType>NUMERIC</sqlType>
+            <length>28</length>
+            <scale>10</scale>
+            <precision>28</precision>
         </column>
         <column>
             <name>FUnit</name>
@@ -748,6 +748,20 @@
             <length>44</length>
             <scale>0</scale>
             <precision>0</precision>
+        </column>
+        <column>
+            <name>FPrice</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingEntry].columns.column[FPrice].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingEntry].columns.column[FPrice].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NUMERIC</sqlType>
+            <length>13</length>
+            <scale>10</scale>
+            <precision>28</precision>
         </column>
     </columns>
     <primaryKey>
@@ -1209,6 +1223,18 @@
             <lang locale="zh_CN" value="上级规划合约" />
             <lang locale="zh_HK" value="上級規劃合約" />
             <lang locale="zh_TW" value="上級規劃合約" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingEntry].columns.column[FPrice].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单价" />
+            <lang locale="zh_HK" value="單價" />
+            <lang locale="zh_TW" value="單價" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingEntry].columns.column[FPrice].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单价" />
+            <lang locale="zh_HK" value="單價" />
+            <lang locale="zh_TW" value="單價" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingEntry].columns.column[FProgrammingID].alias">
             <lang locale="en_US" value="null" />

@@ -406,6 +406,20 @@
             <parent>
                 <key name="name" value="CoreUI" />
             </parent>
+            <eventBindings>
+                <eventBinding>
+                    <name>stateChanged</name>
+                    <eventType>javax.swing.event.ChangeEvent</eventType>
+                    <scene />
+                    <listenerType>javax.swing.event.ChangeListener</listenerType>
+                    <listenerAdapter>javax.swing.event.ChangeListener</listenerAdapter>
+                    <methodName>kDTabbedPane1_stateChanged</methodName>
+                    <code />
+                    <isBindWorkFlow>false</isBindWorkFlow>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </eventBinding>
+            </eventBindings>
         </component>
         <component>
             <name>contremark</name>
@@ -448,6 +462,55 @@
                     <name>visible</name>
                     <type>boolean</type>
                     <value>uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[contremark].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="CoreUI" />
+            </parent>
+        </component>
+        <component>
+            <name>contcostTemp</name>
+            <alias>uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[contcostTemp].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>294,607,68,19,0</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>boundLabelText</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[contcostTemp].properties.property[boundLabelText].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelLength</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[contcostTemp].properties.property[boundLabelLength].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelUnderline</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[contcostTemp].properties.property[boundLabelUnderline].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[contcostTemp].properties.property[visible].value</value>
                     <isMultiLan>false</isMultiLan>
                     <userDefined>true</userDefined>
                 </property>
@@ -1210,7 +1273,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>696,163,270,19,137</constraints>
+            <constraints>696,191,270,19,137</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -1651,7 +1714,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>696,109,270,19,137</constraints>
+            <constraints>354,135,270,19,385</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -1700,7 +1763,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>14,215,957,63,261</constraints>
+            <constraints>13,215,957,306,325</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -1945,7 +2008,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>13,304,957,223,15</constraints>
+            <constraints>4,526,957,9,15</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -1966,55 +2029,6 @@
                     <name>enableActive</name>
                     <type>boolean</type>
                     <value>uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[kDContainer1].properties.property[enableActive].value</value>
-                    <isMultiLan>false</isMultiLan>
-                    <userDefined>true</userDefined>
-                </property>
-            </properties>
-            <parent>
-                <key name="name" value="kDPanel1" />
-            </parent>
-        </component>
-        <component>
-            <name>contcostTemp</name>
-            <alias>uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[contcostTemp].alias</alias>
-            <userDefined>true</userDefined>
-            <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
-            <isContainer>true</isContainer>
-            <constraints>16,285,270,19,261</constraints>
-            <tabIndex>0</tabIndex>
-            <herited>false</herited>
-            <bimUIObjectPK />
-            <layoutInfo>
-                <name />
-                <type>LabelContainerLayout</type>
-                <value />
-            </layoutInfo>
-            <properties>
-                <property>
-                    <name>boundLabelText</name>
-                    <type>java.lang.String</type>
-                    <value>uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[contcostTemp].properties.property[boundLabelText].value</value>
-                    <isMultiLan>true</isMultiLan>
-                    <userDefined>true</userDefined>
-                </property>
-                <property>
-                    <name>boundLabelLength</name>
-                    <type>int</type>
-                    <value>uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[contcostTemp].properties.property[boundLabelLength].value</value>
-                    <isMultiLan>false</isMultiLan>
-                    <userDefined>true</userDefined>
-                </property>
-                <property>
-                    <name>boundLabelUnderline</name>
-                    <type>boolean</type>
-                    <value>uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[contcostTemp].properties.property[boundLabelUnderline].value</value>
-                    <isMultiLan>false</isMultiLan>
-                    <userDefined>true</userDefined>
-                </property>
-                <property>
-                    <name>visible</name>
-                    <type>boolean</type>
-                    <value>uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[contcostTemp].properties.property[visible].value</value>
                     <isMultiLan>false</isMultiLan>
                     <userDefined>true</userDefined>
                 </property>
@@ -2127,7 +2141,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>354,135,270,19,385</constraints>
+            <constraints>696,163,270,19,137</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -2162,6 +2176,62 @@
                     <name>visible</name>
                     <type>boolean</type>
                     <value>uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[contyear].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>verifyInputWhenFocusTarget</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[contyear].properties.property[verifyInputWhenFocusTarget].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="kDPanel1" />
+            </parent>
+        </component>
+        <component>
+            <name>contbalance</name>
+            <alias>uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[contbalance].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>696,109,270,19,137</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>boundLabelText</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[contbalance].properties.property[boundLabelText].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelLength</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[contbalance].properties.property[boundLabelLength].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelUnderline</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[contbalance].properties.property[boundLabelUnderline].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[contbalance].properties.property[visible].value</value>
                     <isMultiLan>false</isMultiLan>
                     <userDefined>true</userDefined>
                 </property>
@@ -3572,96 +3642,6 @@
             </eventBindings>
         </component>
         <component>
-            <name>prmtcostTemp</name>
-            <alias>uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[prmtcostTemp].alias</alias>
-            <userDefined>true</userDefined>
-            <classType>com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox</classType>
-            <isContainer>false</isContainer>
-            <constraints>7</constraints>
-            <tabIndex>37</tabIndex>
-            <herited>false</herited>
-            <bimUIObjectPK />
-            <layoutInfo>
-                <name />
-                <type>XYLayout</type>
-                <value />
-            </layoutInfo>
-            <properties>
-                <property>
-                    <name>queryInfo</name>
-                    <type>java.lang.String</type>
-                    <value>uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[prmtcostTemp].properties.property[queryInfo].value</value>
-                    <isMultiLan>false</isMultiLan>
-                    <userDefined>true</userDefined>
-                </property>
-                <property>
-                    <name>editable</name>
-                    <type>boolean</type>
-                    <value>uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[prmtcostTemp].properties.property[editable].value</value>
-                    <isMultiLan>false</isMultiLan>
-                    <userDefined>true</userDefined>
-                </property>
-                <property>
-                    <name>displayFormat</name>
-                    <type>java.lang.String</type>
-                    <value>uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[prmtcostTemp].properties.property[displayFormat].value</value>
-                    <isMultiLan>false</isMultiLan>
-                    <userDefined>true</userDefined>
-                </property>
-                <property>
-                    <name>editFormat</name>
-                    <type>java.lang.String</type>
-                    <value>uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[prmtcostTemp].properties.property[editFormat].value</value>
-                    <isMultiLan>false</isMultiLan>
-                    <userDefined>true</userDefined>
-                </property>
-                <property>
-                    <name>commitFormat</name>
-                    <type>java.lang.String</type>
-                    <value>uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[prmtcostTemp].properties.property[commitFormat].value</value>
-                    <isMultiLan>false</isMultiLan>
-                    <userDefined>true</userDefined>
-                </property>
-                <property>
-                    <name>required</name>
-                    <type>boolean</type>
-                    <value>uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[prmtcostTemp].properties.property[required].value</value>
-                    <isMultiLan>false</isMultiLan>
-                    <userDefined>true</userDefined>
-                </property>
-            </properties>
-            <parent>
-                <key name="name" value="contcostTemp" />
-            </parent>
-            <propertyBindings>
-                <propertyBinding>
-                    <propertyName>data</propertyName>
-                    <propertyType>java.lang.Object</propertyType>
-                    <bindingObject>editData</bindingObject>
-                    <bindingField>costTemp</bindingField>
-                    <fieldType>com.kingdee.eas.port.pm.invest.CostTempInfo</fieldType>
-                    <accessType>2</accessType>
-                    <autoMode>false</autoMode>
-                    <herited>false</herited>
-                    <userDefined>true</userDefined>
-                </propertyBinding>
-            </propertyBindings>
-            <eventBindings>
-                <eventBinding>
-                    <name>dataChanged</name>
-                    <eventType>com.kingdee.bos.ctrl.swing.event.DataChangeEvent</eventType>
-                    <scene />
-                    <listenerType>com.kingdee.bos.ctrl.swing.event.DataChangeListener</listenerType>
-                    <listenerAdapter>com.kingdee.bos.ctrl.swing.event.DataChangeListener</listenerAdapter>
-                    <methodName>prmtcostTemp_dataChanged</methodName>
-                    <code />
-                    <isBindWorkFlow>false</isBindWorkFlow>
-                    <herited>false</herited>
-                    <userDefined>true</userDefined>
-                </eventBinding>
-            </eventBindings>
-        </component>
-        <component>
             <name>txtinvestAmount</name>
             <alias>uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[txtinvestAmount].alias</alias>
             <userDefined>true</userDefined>
@@ -3802,6 +3782,11 @@
             <tabIndex>43</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
             <properties>
                 <property>
                     <name>queryInfo</name>
@@ -3863,6 +3848,110 @@
                     <bindingObject>editData</bindingObject>
                     <bindingField>year</bindingField>
                     <fieldType>com.kingdee.eas.port.pm.base.InvestYearInfo</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+            <eventBindings>
+                <eventBinding>
+                    <name>dataChanged</name>
+                    <eventType>com.kingdee.bos.ctrl.swing.event.DataChangeEvent</eventType>
+                    <scene />
+                    <listenerType>com.kingdee.bos.ctrl.swing.event.DataChangeListener</listenerType>
+                    <listenerAdapter>com.kingdee.bos.ctrl.swing.event.DataChangeListener</listenerAdapter>
+                    <methodName>prmtyear_dataChanged</methodName>
+                    <code>//write your code hereoo</code>
+                    <isBindWorkFlow>false</isBindWorkFlow>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </eventBinding>
+            </eventBindings>
+        </component>
+        <component>
+            <name>txtbalance</name>
+            <alias>uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[txtbalance].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDFormattedTextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>7</constraints>
+            <tabIndex>44</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[txtbalance].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>horizontalAlignment</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[txtbalance].properties.property[horizontalAlignment].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>dataType</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[txtbalance].properties.property[dataType].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>supportedEmpty</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[txtbalance].properties.property[supportedEmpty].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>minimumValue</name>
+                    <type>java.math.BigDecimal</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[txtbalance].properties.property[minimumValue].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>maximumValue</name>
+                    <type>java.math.BigDecimal</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[txtbalance].properties.property[maximumValue].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>precision</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[txtbalance].properties.property[precision].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>required</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[txtbalance].properties.property[required].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="contbalance" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>value</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>balance</bindingField>
+                    <fieldType>java.math.BigDecimal</fieldType>
                     <accessType>2</accessType>
                     <autoMode>false</autoMode>
                     <herited>false</herited>
@@ -4315,6 +4404,96 @@
                     <userDefined>true</userDefined>
                 </propertyBinding>
             </propertyBindings>
+        </component>
+        <component>
+            <name>prmtcostTemp</name>
+            <alias>uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[prmtcostTemp].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox</classType>
+            <isContainer>false</isContainer>
+            <constraints>7</constraints>
+            <tabIndex>37</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>queryInfo</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[prmtcostTemp].properties.property[queryInfo].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>editable</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[prmtcostTemp].properties.property[editable].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>displayFormat</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[prmtcostTemp].properties.property[displayFormat].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>editFormat</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[prmtcostTemp].properties.property[editFormat].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>commitFormat</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[prmtcostTemp].properties.property[commitFormat].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>required</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[prmtcostTemp].properties.property[required].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="contcostTemp" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>data</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>costTemp</bindingField>
+                    <fieldType>com.kingdee.eas.port.pm.invest.CostTempInfo</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+            <eventBindings>
+                <eventBinding>
+                    <name>dataChanged</name>
+                    <eventType>com.kingdee.bos.ctrl.swing.event.DataChangeEvent</eventType>
+                    <scene />
+                    <listenerType>com.kingdee.bos.ctrl.swing.event.DataChangeListener</listenerType>
+                    <listenerAdapter>com.kingdee.bos.ctrl.swing.event.DataChangeListener</listenerAdapter>
+                    <methodName>prmtcostTemp_dataChanged</methodName>
+                    <code />
+                    <isBindWorkFlow>false</isBindWorkFlow>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </eventBinding>
+            </eventBindings>
         </component>
     </components>
     <dataObjects>
@@ -4942,6 +5121,36 @@
             <lang locale="zh_HK" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[contbalance].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[contbalance].properties.property[boundLabelLength].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[contbalance].properties.property[boundLabelText].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="投资余额" />
+            <lang locale="zh_HK" value="投資餘額" />
+            <lang locale="zh_TW" value="投資餘額" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[contbalance].properties.property[boundLabelUnderline].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[contbalance].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[contbuildType].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -5445,6 +5654,12 @@
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_HK" value="true" />
             <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[contyear].properties.property[verifyInputWhenFocusTarget].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[contyear].properties.property[visible].value">
             <lang locale="en_US" value="true" />
@@ -6173,9 +6388,9 @@
             <lang locale="zh_TW" value="投資年度" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[prmtyear].extendedProperty.requiredPrompt">
-            <lang locale="en_US" value="投资年度" />
-            <lang locale="zh_CN" value="投资年度" />
-            <lang locale="zh_TW" value="投资年度" />
+            <lang locale="en_US" value="" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[prmtyear].properties.property[commitFormat].value">
             <lang locale="en_US" value="$number$" />
@@ -6208,10 +6423,10 @@
             <lang locale="zh_TW" value="com.kingdee.eas.port.pm.base.app.InvestYearQuery" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[prmtyear].properties.property[required].value">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_HK" value="true" />
-            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[prmtyear].properties.property[visible].value">
             <lang locale="en_US" value="true" />
@@ -6374,11 +6589,6 @@
             <lang locale="zh_HK" value="計畫投資金額" />
             <lang locale="zh_TW" value="計畫投資金額" />
         </rs>
-        <rs key="uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[txtamount].extendedProperty.requiredPrompt">
-            <lang locale="en_US" value="计划投资金额" />
-            <lang locale="zh_CN" value="计划投资金额" />
-            <lang locale="zh_TW" value="计划投资金额" />
-        </rs>
         <rs key="uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[txtamount].properties.property[dataType].value">
             <lang locale="en_US" value="1" />
             <lang locale="zh_CN" value="1" />
@@ -6410,10 +6620,10 @@
             <lang locale="zh_TW" value="2" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[txtamount].properties.property[required].value">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_HK" value="true" />
-            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[txtamount].properties.property[supportedEmpty].value">
             <lang locale="en_US" value="true" />
@@ -6438,6 +6648,60 @@
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[txtbalance].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="投资余额" />
+            <lang locale="zh_HK" value="投資餘額" />
+            <lang locale="zh_TW" value="投資餘額" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[txtbalance].properties.property[dataType].value">
+            <lang locale="en_US" value="1" />
+            <lang locale="zh_CN" value="1" />
+            <lang locale="zh_HK" value="1" />
+            <lang locale="zh_TW" value="1" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[txtbalance].properties.property[horizontalAlignment].value">
+            <lang locale="en_US" value="2" />
+            <lang locale="zh_CN" value="2" />
+            <lang locale="zh_HK" value="2" />
+            <lang locale="zh_TW" value="2" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[txtbalance].properties.property[maximumValue].value">
+            <lang locale="en_US" value="&quot;1.0E26&quot;" />
+            <lang locale="zh_CN" value="&quot;1.0E26&quot;" />
+            <lang locale="zh_HK" value="&quot;1.0E26&quot;" />
+            <lang locale="zh_TW" value="&quot;1.0E26&quot;" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[txtbalance].properties.property[minimumValue].value">
+            <lang locale="en_US" value="&quot;-1.0E26&quot;" />
+            <lang locale="zh_CN" value="&quot;-1.0E26&quot;" />
+            <lang locale="zh_HK" value="&quot;-1.0E26&quot;" />
+            <lang locale="zh_TW" value="&quot;-1.0E26&quot;" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[txtbalance].properties.property[precision].value">
+            <lang locale="en_US" value="2" />
+            <lang locale="zh_CN" value="2" />
+            <lang locale="zh_HK" value="2" />
+            <lang locale="zh_TW" value="2" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[txtbalance].properties.property[required].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[txtbalance].properties.property[supportedEmpty].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[txtbalance].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI].components.component[txtchancedAmount].alias">
             <lang locale="en_US" value="null" />
