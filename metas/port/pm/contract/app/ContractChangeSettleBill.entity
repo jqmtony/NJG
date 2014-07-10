@@ -801,20 +801,6 @@
                 <key name="name" value="FAllowAmount" />
             </mappingField>
         </ownProperty>
-        <linkProperty>
-            <name>conChangeBill</name>
-            <alias>entityObject[com.kingdee.eas.port.pm.contract.app.ContractChangeSettleBill].properties.linkProperty[conChangeBill].alias</alias>
-            <description>entityObject[com.kingdee.eas.port.pm.contract.app.ContractChangeSettleBill].properties.linkProperty[conChangeBill].description</description>
-            <userDefined>true</userDefined>
-            <configured>false</configured>
-            <mappingField>
-                <key name="name" value="FConChangeBillID" />
-            </mappingField>
-            <relationship>
-                <key name="package" value="com.kingdee.eas.port.pm.contract.app" />
-                <key name="name" value="R_ContractChangeSettleBill_ContractChangeBill_conChangeBill" />
-            </relationship>
-        </linkProperty>
     </properties>
     <logicalKey>
         <name>id</name>
@@ -1875,23 +1861,6 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractChangeSettleBill].properties.linkProperty[conChangeBill].alias">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="变更指令单" />
-            <lang locale="zh_HK" value="變更指令單" />
-            <lang locale="zh_TW" value="變更指令單" />
-        </rs>
-        <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractChangeSettleBill].properties.linkProperty[conChangeBill].description">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="变更指令单" />
-            <lang locale="zh_HK" value="變更指令單" />
-            <lang locale="zh_TW" value="變更指令單" />
-        </rs>
-        <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractChangeSettleBill].properties.linkProperty[conChangeBill].extendedProperty.isInCode">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractChangeSettleBill].properties.linkProperty[contractBill].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="合同" />
@@ -1936,8 +1905,7 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractChangeSettleBill].properties.ownProperty[allowAmount].defaultValue">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractChangeSettleBill].properties.ownProperty[allowAmount].description">
