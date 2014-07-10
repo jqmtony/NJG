@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiObject xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.port.equipment.operate.client</package>
+    <name>EquLeaseListUI</name>
+    <alias>uiObject[com.kingdee.eas.port.equipment.operate.client.EquLeaseListUI].alias</alias>
+    <description>uiObject[com.kingdee.eas.port.equipment.operate.client.EquLeaseListUI].description</description>
+    <userDefined>true</userDefined>
+    <releasePackage>com.kingdee.eas.port.equipment.operate.client</releasePackage>
+    <releaseClass>EquLeaseListUI</releaseClass>
+    <title>uiObject[com.kingdee.eas.port.equipment.operate.client.EquLeaseListUI].title</title>
+    <uitype />
+    <defaultbutton />
+    <bizUnitPK>com.kingdee.eas.port.equipment.operate.EquLease</bizUnitPK>
+    <parent>
+        <key name="package" value="com.kingdee.eas.xr.client" />
+        <key name="name" value="XRBillBaseListUI" />
+    </parent>
+    <components>
+        <component>
+            <name>CoreUI</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.operate.client.EquLeaseListUI].components.component[CoreUI].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDPanel</classType>
+            <isContainer>true</isContainer>
+            <constraints />
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>kDLayout1</name>
+                <type>KDLayout</type>
+                <value />
+            </layoutInfo>
+        </component>
+        <component>
+            <name>tblMain</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.operate.client.EquLeaseListUI].components.component[tblMain].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.kdf.table.KDTable</classType>
+            <isContainer>false</isContainer>
+            <constraints>10,10,996,580,325</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>formatXml</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.operate.client.EquLeaseListUI].components.component[tblMain].properties.property[formatXml].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>status.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>mainQuery</bindingObject>
+                    <bindingField>status</bindingField>
+                    <fieldType>java.lang.String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>number.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>mainQuery</bindingObject>
+                    <bindingField>number</bindingField>
+                    <fieldType>java.lang.String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>bizDate.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>mainQuery</bindingObject>
+                    <bindingField>bizDate</bindingField>
+                    <fieldType>java.lang.String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>creator.name.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>mainQuery</bindingObject>
+                    <bindingField>creator.name</bindingField>
+                    <fieldType>java.lang.String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>createTime.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>mainQuery</bindingObject>
+                    <bindingField>createTime</bindingField>
+                    <fieldType>java.lang.String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>lastUpdateUser.name.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>mainQuery</bindingObject>
+                    <bindingField>lastUpdateUser.name</bindingField>
+                    <fieldType>java.lang.String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>lastUpdateTime.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>mainQuery</bindingObject>
+                    <bindingField>lastUpdateTime</bindingField>
+                    <fieldType>java.lang.String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>auditor.name.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>mainQuery</bindingObject>
+                    <bindingField>auditor.name</bindingField>
+                    <fieldType>java.lang.String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>auditTime.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>mainQuery</bindingObject>
+                    <bindingField>auditTime</bindingField>
+                    <fieldType>java.lang.String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>id.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>mainQuery</bindingObject>
+                    <bindingField>id</bindingField>
+                    <fieldType>java.lang.String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>CU.id.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>mainQuery</bindingObject>
+                    <bindingField>CU.id</bindingField>
+                    <fieldType>java.lang.String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>conNo.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>mainQuery</bindingObject>
+                    <bindingField>conNo</bindingField>
+                    <fieldType>java.lang.String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>theLessor.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>mainQuery</bindingObject>
+                    <bindingField>theLessor</bindingField>
+                    <fieldType>java.lang.String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>theLessee.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>mainQuery</bindingObject>
+                    <bindingField>theLessee</bindingField>
+                    <fieldType>java.lang.String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>signingDate.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>mainQuery</bindingObject>
+                    <bindingField>signingDate</bindingField>
+                    <fieldType>java.lang.String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>leaseSales.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>mainQuery</bindingObject>
+                    <bindingField>leaseSales</bindingField>
+                    <fieldType>java.lang.String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>leaseStart.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>mainQuery</bindingObject>
+                    <bindingField>leaseStart</bindingField>
+                    <fieldType>java.lang.String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>leaseEnd.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>mainQuery</bindingObject>
+                    <bindingField>leaseEnd</bindingField>
+                    <fieldType>java.lang.String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>rentPay.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>mainQuery</bindingObject>
+                    <bindingField>rentPay</bindingField>
+                    <fieldType>java.lang.String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>haveRented.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>mainQuery</bindingObject>
+                    <bindingField>haveRented</bindingField>
+                    <fieldType>java.lang.String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>surplus.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>mainQuery</bindingObject>
+                    <bindingField>surplus</bindingField>
+                    <fieldType>java.lang.String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>leaseMent.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>mainQuery</bindingObject>
+                    <bindingField>leaseMent</bindingField>
+                    <fieldType>java.lang.String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>E1.seq.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>mainQuery</bindingObject>
+                    <bindingField>E1.seq</bindingField>
+                    <fieldType>java.lang.String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>E1.equNumber.number.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>mainQuery</bindingObject>
+                    <bindingField>E1.equNumber.number</bindingField>
+                    <fieldType>java.lang.String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>E1.equName.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>mainQuery</bindingObject>
+                    <bindingField>E1.equName</bindingField>
+                    <fieldType>java.lang.String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>E1.model.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>mainQuery</bindingObject>
+                    <bindingField>E1.model</bindingField>
+                    <fieldType>java.lang.String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>E1.unit.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>mainQuery</bindingObject>
+                    <bindingField>E1.unit</bindingField>
+                    <fieldType>java.lang.String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>E1.shuliang.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>mainQuery</bindingObject>
+                    <bindingField>E1.shuliang</bindingField>
+                    <fieldType>java.lang.String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>E1.amount.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>mainQuery</bindingObject>
+                    <bindingField>E1.amount</bindingField>
+                    <fieldType>java.lang.String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>E1.use.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>mainQuery</bindingObject>
+                    <bindingField>E1.use</bindingField>
+                    <fieldType>java.lang.String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
+    </components>
+    <dataObjects>
+        <dataObject>
+            <name>mainQuery</name>
+            <type>com.kingdee.eas.port.equipment.operate.app.EquLeaseQuery</type>
+            <objectType>jqye</objectType>
+            <herited>true</herited>
+            <userDefined>false</userDefined>
+        </dataObject>
+    </dataObjects>
+    <actions>
+        <action>
+            <instanceName>actionRemove</instanceName>
+            <className>ActionRemove</className>
+            <name>uiObject[com.kingdee.eas.port.equipment.operate.client.EquLeaseListUI].actions.action[actionRemove].name</name>
+            <enabled>true</enabled>
+            <actionPerformed />
+            <beforeActionPerformed />
+            <afterActionPerformed />
+            <finallyActionPerformed />
+            <actionCommandKey />
+            <acceleratorKey>ctrl D</acceleratorKey>
+            <mnemonicKey />
+            <smallIcon>uiObject[com.kingdee.eas.port.equipment.operate.client.EquLeaseListUI].actions.action[actionRemove].smallIcon</smallIcon>
+            <shortDescription>uiObject[com.kingdee.eas.port.equipment.operate.client.EquLeaseListUI].actions.action[actionRemove].shortDescription</shortDescription>
+            <longDescription>uiObject[com.kingdee.eas.port.equipment.operate.client.EquLeaseListUI].actions.action[actionRemove].longDescription</longDescription>
+            <isBindWorkFlow>true</isBindWorkFlow>
+            <herited>true</herited>
+            <daemonRun>false</daemonRun>
+            <actionExtendProperty />
+            <services>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root&gt;&lt;service class="com.kingdee.eas.framework.client.service.PermissionService" /&gt;&lt;service class="com.kingdee.eas.framework.client.service.NetFunctionService" /&gt;&lt;service class="com.kingdee.eas.framework.client.service.UserMonitorService" /&gt;&lt;/root&gt;</services>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <oprtIntent />
+            <nextUI />
+            <isUIPNavigator>false</isUIPNavigator>
+            <isBatchAction>false</isBatchAction>
+            <isEntryAction>false</isEntryAction>
+            <batchMethodName />
+        </action>
+    </actions>
+    <resource>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.operate.client.EquLeaseListUI].actions.action[actionRemove].longDescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="删除" />
+            <lang locale="zh_HK" value="刪除" />
+            <lang locale="zh_TW" value="刪除" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.operate.client.EquLeaseListUI].actions.action[actionRemove].name">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="删除" />
+            <lang locale="zh_HK" value="刪除" />
+            <lang locale="zh_TW" value="刪除" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.operate.client.EquLeaseListUI].actions.action[actionRemove].shortDescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="删除" />
+            <lang locale="zh_HK" value="刪除" />
+            <lang locale="zh_TW" value="刪除" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.operate.client.EquLeaseListUI].actions.action[actionRemove].smallIcon">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.operate.client.EquLeaseListUI].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="设备租赁单" />
+            <lang locale="zh_HK" value="設備租賃單" />
+            <lang locale="zh_TW" value="設備租賃單" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.operate.client.EquLeaseListUI].components.component[CoreUI].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.operate.client.EquLeaseListUI].components.component[tblMain].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.operate.client.EquLeaseListUI].components.component[tblMain].properties.property[formatXml].value">
+            <lang locale="en_US" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;DocRoot xmlns:c=&quot;http://www.kingdee.com/Common&quot; xmlns:f=&quot;http://www.kingdee.com/Form&quot; xmlns:t=&quot;http://www.kingdee.com/Table&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://www.kingdee.com/KDF KDFSchema.xsd&quot; version=&quot;0.0&quot;&gt;&lt;Styles /&gt;&lt;Table id=&quot;KDTable&quot;&gt;&lt;t:Sheet name=&quot;sheet1&quot;&gt;&lt;t:Table t:selectMode=&quot;15&quot; t:mergeMode=&quot;0&quot; t:dataRequestMode=&quot;0&quot; t:pageRowCount=&quot;100&quot;&gt;&lt;t:ColumnGroup&gt;&lt;t:Column t:key=&quot;status&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;number&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;bizDate&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;creator.name&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;createTime&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;lastUpdateUser.name&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;lastUpdateTime&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;auditor.name&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;auditTime&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;id&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;CU.id&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;/t:ColumnGroup&gt;&lt;t:Head&gt;&lt;t:Row t:name=&quot;header&quot; t:height=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot;&gt;&lt;t:Cell&gt;status&lt;/t:Cell&gt;&lt;t:Cell&gt;number&lt;/t:Cell&gt;&lt;t:Cell&gt;bizDate&lt;/t:Cell&gt;&lt;t:Cell&gt;用户别名&lt;/t:Cell&gt;&lt;t:Cell&gt;createTime&lt;/t:Cell&gt;&lt;t:Cell&gt;用户别名&lt;/t:Cell&gt;&lt;t:Cell&gt;lastUpdateTime&lt;/t:Cell&gt;&lt;t:Cell&gt;用户别名&lt;/t:Cell&gt;&lt;t:Cell&gt;auditTime&lt;/t:Cell&gt;&lt;t:Cell&gt;id&lt;/t:Cell&gt;&lt;t:Cell&gt;CU.id&lt;/t:Cell&gt;&lt;/t:Row&gt;&lt;/t:Head&gt;&lt;/t:Table&gt;&lt;t:SheetOptions&gt;&lt;t:MergeBlocks&gt;&lt;t:Head /&gt;&lt;/t:MergeBlocks&gt;&lt;/t:SheetOptions&gt;&lt;/t:Sheet&gt;&lt;/Table&gt;&lt;/DocRoot&gt;" />
+            <lang locale="zh_CN" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;DocRoot xmlns:c=&quot;http://www.kingdee.com/Common&quot; xmlns:f=&quot;http://www.kingdee.com/Form&quot; xmlns:t=&quot;http://www.kingdee.com/Table&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://www.kingdee.com/KDF KDFSchema.xsd&quot; version=&quot;0.0&quot;&gt;&lt;Styles&gt;&lt;c:Style id=&quot;sCol9&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol10&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol14&quot;&gt;&lt;c:NumberFormat&gt;&amp;amp;date&lt;/c:NumberFormat&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol15&quot;&gt;&lt;c:NumberFormat&gt;&amp;amp;double&lt;/c:NumberFormat&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol16&quot;&gt;&lt;c:NumberFormat&gt;&amp;amp;date&lt;/c:NumberFormat&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol17&quot;&gt;&lt;c:NumberFormat&gt;&amp;amp;date&lt;/c:NumberFormat&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol19&quot;&gt;&lt;c:NumberFormat&gt;&amp;amp;int&lt;/c:NumberFormat&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol20&quot;&gt;&lt;c:NumberFormat&gt;&amp;amp;int&lt;/c:NumberFormat&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol22&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;c:NumberFormat&gt;&amp;amp;int&lt;/c:NumberFormat&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol27&quot;&gt;&lt;c:NumberFormat&gt;&amp;amp;int&lt;/c:NumberFormat&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol28&quot;&gt;&lt;c:NumberFormat&gt;&amp;amp;double&lt;/c:NumberFormat&gt;&lt;/c:Style&gt;&lt;/Styles&gt;&lt;Table id=&quot;KDTable&quot;&gt;&lt;t:Sheet name=&quot;sheet1&quot;&gt;&lt;t:Table t:selectMode=&quot;15&quot; t:mergeMode=&quot;0&quot; t:dataRequestMode=&quot;0&quot; t:pageRowCount=&quot;100&quot;&gt;&lt;t:ColumnGroup&gt;&lt;t:Column t:key=&quot;status&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;number&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;bizDate&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;creator.name&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;createTime&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;lastUpdateUser.name&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;lastUpdateTime&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;auditor.name&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;auditTime&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;id&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol9&quot; /&gt;&lt;t:Column t:key=&quot;CU.id&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol10&quot; /&gt;&lt;t:Column t:key=&quot;conNo&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;theLessor&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;theLessee&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;signingDate&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol14&quot; /&gt;&lt;t:Column t:key=&quot;leaseSales&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol15&quot; /&gt;&lt;t:Column t:key=&quot;leaseStart&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol16&quot; /&gt;&lt;t:Column t:key=&quot;leaseEnd&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol17&quot; /&gt;&lt;t:Column t:key=&quot;rentPay&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;haveRented&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol19&quot; /&gt;&lt;t:Column t:key=&quot;surplus&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol20&quot; /&gt;&lt;t:Column t:key=&quot;leaseMent&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;E1.seq&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol22&quot; /&gt;&lt;t:Column t:key=&quot;E1.equNumber.number&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;E1.equName&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;E1.model&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;E1.unit&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;E1.shuliang&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol27&quot; /&gt;&lt;t:Column t:key=&quot;E1.amount&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol28&quot; /&gt;&lt;t:Column t:key=&quot;E1.use&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;/t:ColumnGroup&gt;&lt;t:Head&gt;&lt;t:Row t:name=&quot;header&quot; t:height=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot;&gt;&lt;t:Cell&gt;单据状态&lt;/t:Cell&gt;&lt;t:Cell&gt;单据编号&lt;/t:Cell&gt;&lt;t:Cell&gt;业务日期&lt;/t:Cell&gt;&lt;t:Cell&gt;制单人&lt;/t:Cell&gt;&lt;t:Cell&gt;制单时间&lt;/t:Cell&gt;&lt;t:Cell&gt;最后修改人&lt;/t:Cell&gt;&lt;t:Cell&gt;最后修改时间&lt;/t:Cell&gt;&lt;t:Cell&gt;审核人&lt;/t:Cell&gt;&lt;t:Cell&gt;审核时间&lt;/t:Cell&gt;&lt;t:Cell&gt;ID&lt;/t:Cell&gt;&lt;t:Cell&gt;ID&lt;/t:Cell&gt;&lt;t:Cell&gt;合同号&lt;/t:Cell&gt;&lt;t:Cell&gt;出租方&lt;/t:Cell&gt;&lt;t:Cell&gt;承租方&lt;/t:Cell&gt;&lt;t:Cell&gt;签订日期&lt;/t:Cell&gt;&lt;t:Cell&gt;租赁总额&lt;/t:Cell&gt;&lt;t:Cell&gt;租赁开始日期&lt;/t:Cell&gt;&lt;t:Cell&gt;租赁结束日期&lt;/t:Cell&gt;&lt;t:Cell&gt;租金缴费方式&lt;/t:Cell&gt;&lt;t:Cell&gt;已租租期&lt;/t:Cell&gt;&lt;t:Cell&gt;剩余租期&lt;/t:Cell&gt;&lt;t:Cell&gt;租赁方式&lt;/t:Cell&gt;&lt;t:Cell&gt;单据分录序列号&lt;/t:Cell&gt;&lt;t:Cell&gt;设备编码&lt;/t:Cell&gt;&lt;t:Cell&gt;设备名称&lt;/t:Cell&gt;&lt;t:Cell&gt;规格型号&lt;/t:Cell&gt;&lt;t:Cell&gt;计量单位&lt;/t:Cell&gt;&lt;t:Cell&gt;数量&lt;/t:Cell&gt;&lt;t:Cell&gt;租金总额&lt;/t:Cell&gt;&lt;t:Cell&gt;用途&lt;/t:Cell&gt;&lt;/t:Row&gt;&lt;/t:Head&gt;&lt;/t:Table&gt;&lt;t:SheetOptions&gt;&lt;t:MergeBlocks&gt;&lt;t:Head /&gt;&lt;/t:MergeBlocks&gt;&lt;/t:SheetOptions&gt;&lt;/t:Sheet&gt;&lt;/Table&gt;&lt;/DocRoot&gt;" />
+            <lang locale="zh_HK" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;DocRoot xmlns:c=&quot;http://www.kingdee.com/Common&quot; xmlns:f=&quot;http://www.kingdee.com/Form&quot; xmlns:t=&quot;http://www.kingdee.com/Table&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://www.kingdee.com/KDF KDFSchema.xsd&quot; version=&quot;0.0&quot;&gt;&lt;Styles&gt;&lt;c:Style id=&quot;sCol9&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol10&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol14&quot;&gt;&lt;c:NumberFormat&gt;&amp;amp;date&lt;/c:NumberFormat&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol15&quot;&gt;&lt;c:NumberFormat&gt;&amp;amp;double&lt;/c:NumberFormat&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol16&quot;&gt;&lt;c:NumberFormat&gt;&amp;amp;date&lt;/c:NumberFormat&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol17&quot;&gt;&lt;c:NumberFormat&gt;&amp;amp;date&lt;/c:NumberFormat&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol19&quot;&gt;&lt;c:NumberFormat&gt;&amp;amp;int&lt;/c:NumberFormat&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol20&quot;&gt;&lt;c:NumberFormat&gt;&amp;amp;int&lt;/c:NumberFormat&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol22&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;c:NumberFormat&gt;&amp;amp;int&lt;/c:NumberFormat&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol27&quot;&gt;&lt;c:NumberFormat&gt;&amp;amp;int&lt;/c:NumberFormat&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol28&quot;&gt;&lt;c:NumberFormat&gt;&amp;amp;double&lt;/c:NumberFormat&gt;&lt;/c:Style&gt;&lt;/Styles&gt;&lt;Table id=&quot;KDTable&quot;&gt;&lt;t:Sheet name=&quot;sheet1&quot;&gt;&lt;t:Table t:selectMode=&quot;15&quot; t:mergeMode=&quot;0&quot; t:dataRequestMode=&quot;0&quot; t:pageRowCount=&quot;100&quot;&gt;&lt;t:ColumnGroup&gt;&lt;t:Column t:key=&quot;status&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;number&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;bizDate&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;creator.name&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;createTime&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;lastUpdateUser.name&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;lastUpdateTime&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;auditor.name&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;auditTime&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;id&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol9&quot; /&gt;&lt;t:Column t:key=&quot;CU.id&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol10&quot; /&gt;&lt;t:Column t:key=&quot;conNo&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;theLessor&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;theLessee&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;signingDate&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol14&quot; /&gt;&lt;t:Column t:key=&quot;leaseSales&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol15&quot; /&gt;&lt;t:Column t:key=&quot;leaseStart&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol16&quot; /&gt;&lt;t:Column t:key=&quot;leaseEnd&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol17&quot; /&gt;&lt;t:Column t:key=&quot;rentPay&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;haveRented&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol19&quot; /&gt;&lt;t:Column t:key=&quot;surplus&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol20&quot; /&gt;&lt;t:Column t:key=&quot;leaseMent&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;E1.seq&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol22&quot; /&gt;&lt;t:Column t:key=&quot;E1.equNumber.number&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;E1.equName&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;E1.model&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;E1.unit&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;E1.shuliang&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol27&quot; /&gt;&lt;t:Column t:key=&quot;E1.amount&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol28&quot; /&gt;&lt;t:Column t:key=&quot;E1.use&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;/t:ColumnGroup&gt;&lt;t:Head&gt;&lt;t:Row t:name=&quot;header&quot; t:height=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot;&gt;&lt;t:Cell&gt;單據狀態&lt;/t:Cell&gt;&lt;t:Cell&gt;單據編號&lt;/t:Cell&gt;&lt;t:Cell&gt;業務日期&lt;/t:Cell&gt;&lt;t:Cell&gt;制單人&lt;/t:Cell&gt;&lt;t:Cell&gt;制單時間&lt;/t:Cell&gt;&lt;t:Cell&gt;最後修改人&lt;/t:Cell&gt;&lt;t:Cell&gt;最後修改時間&lt;/t:Cell&gt;&lt;t:Cell&gt;審核人&lt;/t:Cell&gt;&lt;t:Cell&gt;審核時間&lt;/t:Cell&gt;&lt;t:Cell&gt;ID&lt;/t:Cell&gt;&lt;t:Cell&gt;ID&lt;/t:Cell&gt;&lt;t:Cell&gt;合同號&lt;/t:Cell&gt;&lt;t:Cell&gt;出租方&lt;/t:Cell&gt;&lt;t:Cell&gt;承租方&lt;/t:Cell&gt;&lt;t:Cell&gt;簽訂日期&lt;/t:Cell&gt;&lt;t:Cell&gt;租賃總額&lt;/t:Cell&gt;&lt;t:Cell&gt;租賃開始日期&lt;/t:Cell&gt;&lt;t:Cell&gt;租賃結束日期&lt;/t:Cell&gt;&lt;t:Cell&gt;租金繳費方式&lt;/t:Cell&gt;&lt;t:Cell&gt;已租租期&lt;/t:Cell&gt;&lt;t:Cell&gt;剩餘租期&lt;/t:Cell&gt;&lt;t:Cell&gt;租賃方式&lt;/t:Cell&gt;&lt;t:Cell&gt;單據分錄序列號&lt;/t:Cell&gt;&lt;t:Cell&gt;設備編碼&lt;/t:Cell&gt;&lt;t:Cell&gt;設備名稱&lt;/t:Cell&gt;&lt;t:Cell&gt;規格型號&lt;/t:Cell&gt;&lt;t:Cell&gt;計量單位&lt;/t:Cell&gt;&lt;t:Cell&gt;數量&lt;/t:Cell&gt;&lt;t:Cell&gt;租金總額&lt;/t:Cell&gt;&lt;t:Cell&gt;用途&lt;/t:Cell&gt;&lt;/t:Row&gt;&lt;/t:Head&gt;&lt;/t:Table&gt;&lt;t:SheetOptions&gt;&lt;t:MergeBlocks&gt;&lt;t:Head /&gt;&lt;/t:MergeBlocks&gt;&lt;/t:SheetOptions&gt;&lt;/t:Sheet&gt;&lt;/Table&gt;&lt;/DocRoot&gt;" />
+            <lang locale="zh_TW" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;DocRoot xmlns:c=&quot;http://www.kingdee.com/Common&quot; xmlns:f=&quot;http://www.kingdee.com/Form&quot; xmlns:t=&quot;http://www.kingdee.com/Table&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://www.kingdee.com/KDF KDFSchema.xsd&quot; version=&quot;0.0&quot;&gt;&lt;Styles&gt;&lt;c:Style id=&quot;sCol9&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol10&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol14&quot;&gt;&lt;c:NumberFormat&gt;&amp;amp;date&lt;/c:NumberFormat&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol15&quot;&gt;&lt;c:NumberFormat&gt;&amp;amp;double&lt;/c:NumberFormat&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol16&quot;&gt;&lt;c:NumberFormat&gt;&amp;amp;date&lt;/c:NumberFormat&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol17&quot;&gt;&lt;c:NumberFormat&gt;&amp;amp;date&lt;/c:NumberFormat&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol19&quot;&gt;&lt;c:NumberFormat&gt;&amp;amp;int&lt;/c:NumberFormat&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol20&quot;&gt;&lt;c:NumberFormat&gt;&amp;amp;int&lt;/c:NumberFormat&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol22&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;c:NumberFormat&gt;&amp;amp;int&lt;/c:NumberFormat&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol27&quot;&gt;&lt;c:NumberFormat&gt;&amp;amp;int&lt;/c:NumberFormat&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol28&quot;&gt;&lt;c:NumberFormat&gt;&amp;amp;double&lt;/c:NumberFormat&gt;&lt;/c:Style&gt;&lt;/Styles&gt;&lt;Table id=&quot;KDTable&quot;&gt;&lt;t:Sheet name=&quot;sheet1&quot;&gt;&lt;t:Table t:selectMode=&quot;15&quot; t:mergeMode=&quot;0&quot; t:dataRequestMode=&quot;0&quot; t:pageRowCount=&quot;100&quot;&gt;&lt;t:ColumnGroup&gt;&lt;t:Column t:key=&quot;status&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;number&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;bizDate&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;creator.name&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;createTime&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;lastUpdateUser.name&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;lastUpdateTime&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;auditor.name&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;auditTime&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;id&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol9&quot; /&gt;&lt;t:Column t:key=&quot;CU.id&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol10&quot; /&gt;&lt;t:Column t:key=&quot;conNo&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;theLessor&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;theLessee&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;signingDate&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol14&quot; /&gt;&lt;t:Column t:key=&quot;leaseSales&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol15&quot; /&gt;&lt;t:Column t:key=&quot;leaseStart&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol16&quot; /&gt;&lt;t:Column t:key=&quot;leaseEnd&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol17&quot; /&gt;&lt;t:Column t:key=&quot;rentPay&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;haveRented&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol19&quot; /&gt;&lt;t:Column t:key=&quot;surplus&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol20&quot; /&gt;&lt;t:Column t:key=&quot;leaseMent&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;E1.seq&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol22&quot; /&gt;&lt;t:Column t:key=&quot;E1.equNumber.number&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;E1.equName&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;E1.model&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;E1.unit&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;E1.shuliang&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol27&quot; /&gt;&lt;t:Column t:key=&quot;E1.amount&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol28&quot; /&gt;&lt;t:Column t:key=&quot;E1.use&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;/t:ColumnGroup&gt;&lt;t:Head&gt;&lt;t:Row t:name=&quot;header&quot; t:height=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot;&gt;&lt;t:Cell&gt;單據狀態&lt;/t:Cell&gt;&lt;t:Cell&gt;單據編號&lt;/t:Cell&gt;&lt;t:Cell&gt;業務日期&lt;/t:Cell&gt;&lt;t:Cell&gt;制單人&lt;/t:Cell&gt;&lt;t:Cell&gt;制單時間&lt;/t:Cell&gt;&lt;t:Cell&gt;最後修改人&lt;/t:Cell&gt;&lt;t:Cell&gt;最後修改時間&lt;/t:Cell&gt;&lt;t:Cell&gt;審核人&lt;/t:Cell&gt;&lt;t:Cell&gt;審核時間&lt;/t:Cell&gt;&lt;t:Cell&gt;ID&lt;/t:Cell&gt;&lt;t:Cell&gt;ID&lt;/t:Cell&gt;&lt;t:Cell&gt;合同號&lt;/t:Cell&gt;&lt;t:Cell&gt;出租方&lt;/t:Cell&gt;&lt;t:Cell&gt;承租方&lt;/t:Cell&gt;&lt;t:Cell&gt;簽訂日期&lt;/t:Cell&gt;&lt;t:Cell&gt;租賃總額&lt;/t:Cell&gt;&lt;t:Cell&gt;租賃開始日期&lt;/t:Cell&gt;&lt;t:Cell&gt;租賃結束日期&lt;/t:Cell&gt;&lt;t:Cell&gt;租金繳費方式&lt;/t:Cell&gt;&lt;t:Cell&gt;已租租期&lt;/t:Cell&gt;&lt;t:Cell&gt;剩餘租期&lt;/t:Cell&gt;&lt;t:Cell&gt;租賃方式&lt;/t:Cell&gt;&lt;t:Cell&gt;單據分錄序列號&lt;/t:Cell&gt;&lt;t:Cell&gt;設備編碼&lt;/t:Cell&gt;&lt;t:Cell&gt;設備名稱&lt;/t:Cell&gt;&lt;t:Cell&gt;規格型號&lt;/t:Cell&gt;&lt;t:Cell&gt;計量單位&lt;/t:Cell&gt;&lt;t:Cell&gt;數量&lt;/t:Cell&gt;&lt;t:Cell&gt;租金總額&lt;/t:Cell&gt;&lt;t:Cell&gt;用途&lt;/t:Cell&gt;&lt;/t:Row&gt;&lt;/t:Head&gt;&lt;/t:Table&gt;&lt;t:SheetOptions&gt;&lt;t:MergeBlocks&gt;&lt;t:Head /&gt;&lt;/t:MergeBlocks&gt;&lt;/t:SheetOptions&gt;&lt;/t:Sheet&gt;&lt;/Table&gt;&lt;/DocRoot&gt;" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.operate.client.EquLeaseListUI].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="基础单据序时簿界面" />
+            <lang locale="zh_HK" value="基礎單據序時簿介面" />
+            <lang locale="zh_TW" value="基礎單據序時簿介面" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.operate.client.EquLeaseListUI].title">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="设备租赁单" />
+            <lang locale="zh_HK" value="設備租賃單" />
+            <lang locale="zh_TW" value="設備租賃單" />
+        </rs>
+    </resource>
+</uiObject>
+

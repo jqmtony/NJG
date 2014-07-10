@@ -32,6 +32,11 @@
             <value>i18nResource[com.kingdee.eas.port.equipment.operate.client.OperateResource].resourceItems.resourceItem[ComproductionQueryF7WindowTitle].value</value>
             <userDefined>true</userDefined>
         </resourceItem>
+        <resourceItem>
+            <name>EquLeaseQueryF7WindowTitle</name>
+            <value>i18nResource[com.kingdee.eas.port.equipment.operate.client.OperateResource].resourceItems.resourceItem[EquLeaseQueryF7WindowTitle].value</value>
+            <userDefined>true</userDefined>
+        </resourceItem>
     </resourceItems>
     <resource>
         <rs key="i18nResource[com.kingdee.eas.port.equipment.operate.client.OperateResource].alias">
@@ -69,6 +74,12 @@
             <lang locale="zh_CN" value="设备报废单" />
             <lang locale="zh_HK" value="設備報廢單" />
             <lang locale="zh_TW" value="設備報廢單" />
+        </rs>
+        <rs key="i18nResource[com.kingdee.eas.port.equipment.operate.client.OperateResource].resourceItems.resourceItem[EquLeaseQueryF7WindowTitle].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="设备租赁单" />
+            <lang locale="zh_HK" value="設備租賃單" />
+            <lang locale="zh_TW" value="設備租賃單" />
         </rs>
         <rs key="i18nResource[com.kingdee.eas.port.equipment.operate.client.OperateResource].resourceItems.resourceItem[EumUseRecordQueryF7WindowTitle].value">
             <lang locale="en_US" value="null" />

@@ -1,0 +1,1675 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entityObject xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.port.equipment.operate.app</package>
+    <name>EquLeaseE1</name>
+    <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].alias</alias>
+    <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].description</description>
+    <userDefined>true</userDefined>
+    <bosType>FAAE969C</bosType>
+    <stereoType>false</stereoType>
+    <businessImplName>com.kingdee.eas.port.equipment.operate.EquLeaseE1</businessImplName>
+    <businessControllerName>com.kingdee.eas.port.equipment.operate.app.EquLeaseE1Controller</businessControllerName>
+    <accessLevel>public</accessLevel>
+    <subClassingMode>normal</subClassingMode>
+    <methods>
+        <method>
+            <name>exists</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[exists].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[exists].description</description>
+            <innerID>3e30f2cb-62bb-4147-91ae-17aea52c6f9c</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>Boolean</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[exists].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[exists].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>exists</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[exists].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[exists].description</description>
+            <innerID>2f97c57e-f18c-4865-8c32-59c445bc4907</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>Boolean</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>filter</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[exists].parameters.parameter[filter].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[exists].parameters.parameter[filter].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.FilterInfo</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>exists</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[exists].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[exists].description</description>
+            <innerID>c30b53a1-14d6-4f44-82ac-5a6387fb4727</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>Boolean</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>oql</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[exists].parameters.parameter[oql].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[exists].parameters.parameter[oql].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getValue</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getValue].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getValue].description</description>
+            <innerID>e5474df9-b919-48da-b01a-25867944120b</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>ObjectValue</returnValueType>
+            <metadataRef>com.kingdee.eas.port.equipment.operate.app.EquLeaseE1</metadataRef>
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getValue].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getValue].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getValue</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getValue].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getValue].description</description>
+            <innerID>87d24244-23e4-4e0c-969c-3b39a7235925</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>ObjectValue</returnValueType>
+            <metadataRef>com.kingdee.eas.port.equipment.operate.app.EquLeaseE1</metadataRef>
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getValue].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getValue].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>selector</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getValue].parameters.parameter[selector].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getValue].parameters.parameter[selector].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.SelectorItemCollection</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getValue</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getValue].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getValue].description</description>
+            <innerID>1ecfd3ae-6781-41e8-835a-f41b1f13093f</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>ObjectValue</returnValueType>
+            <metadataRef>com.kingdee.eas.port.equipment.operate.app.EquLeaseE1</metadataRef>
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>oql</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getValue].parameters.parameter[oql].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getValue].parameters.parameter[oql].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>addnew</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[addnew].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[addnew].description</description>
+            <innerID>7562c402-1432-4d58-86e3-5c5d159899ac</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>com.kingdee.bos.dao.IObjectPK</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[addnew].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[addnew].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.port.equipment.operate.app.EquLeaseE1</metadataRef>
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>addnew</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[addnew].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[addnew].description</description>
+            <innerID>25d0f4e8-e980-4bae-80de-4860e1c076d3</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[addnew].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[addnew].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[addnew].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[addnew].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.port.equipment.operate.app.EquLeaseE1</metadataRef>
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>update</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[update].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[update].description</description>
+            <innerID>81a66231-ae4c-4025-932c-b6adbe6d1095</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[update].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[update].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[update].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[update].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.port.equipment.operate.app.EquLeaseE1</metadataRef>
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>updatePartial</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[updatePartial].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[updatePartial].description</description>
+            <innerID>bd61539a-fc7c-4739-a8cb-b4d2d2da38a9</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[updatePartial].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[updatePartial].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.port.equipment.operate.app.EquLeaseE1</metadataRef>
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>selector</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[updatePartial].parameters.parameter[selector].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[updatePartial].parameters.parameter[selector].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.SelectorItemCollection</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>updateBigObject</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[updateBigObject].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[updateBigObject].description</description>
+            <innerID>dda9ebd4-f84b-427c-b3d4-0015042ff7b8</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[updateBigObject].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[updateBigObject].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[updateBigObject].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[updateBigObject].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.port.equipment.operate.app.EquLeaseE1</metadataRef>
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>delete</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[delete].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[delete].description</description>
+            <innerID>f72cfe7a-2e8f-479c-9019-367b9080cfc0</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[delete].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[delete].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getPKList</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getPKList].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getPKList].description</description>
+            <innerID>13f64367-1cff-4d3e-ae2b-86a67cd89925</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>com.kingdee.bos.dao.IObjectPK[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getPKList</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getPKList].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getPKList].description</description>
+            <innerID>86c2fb5a-7634-42df-a40c-b7c3a65bbe52</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>com.kingdee.bos.dao.IObjectPK[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>oql</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getPKList].parameters.parameter[oql].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getPKList].parameters.parameter[oql].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getPKList</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getPKList].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getPKList].description</description>
+            <innerID>b551896a-38bf-4150-bb81-19490a133175</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>com.kingdee.bos.dao.IObjectPK[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>filter</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getPKList].parameters.parameter[filter].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getPKList].parameters.parameter[filter].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.FilterInfo</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>sorter</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getPKList].parameters.parameter[sorter].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getPKList].parameters.parameter[sorter].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.SorterItemCollection</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getCollection</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getCollection].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getCollection].description</description>
+            <innerID>b4c1e352-d74e-4c0c-a54c-1206c271ea72</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>ObjectCollection</returnValueType>
+            <metadataRef>com.kingdee.eas.port.equipment.operate.app.EquLeaseE1</metadataRef>
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getCollection</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getCollection].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getCollection].description</description>
+            <innerID>3c2d875a-2835-46d6-8e82-71eb0735e609</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>ObjectCollection</returnValueType>
+            <metadataRef>com.kingdee.eas.port.equipment.operate.app.EquLeaseE1</metadataRef>
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>view</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getCollection].parameters.parameter[view].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getCollection].parameters.parameter[view].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.EntityViewInfo</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getCollection</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getCollection].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getCollection].description</description>
+            <innerID>abf0c9eb-d8a1-4d83-8181-5459e4b725b5</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>ObjectCollection</returnValueType>
+            <metadataRef>com.kingdee.eas.port.equipment.operate.app.EquLeaseE1</metadataRef>
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>oql</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getCollection].parameters.parameter[oql].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getCollection].parameters.parameter[oql].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>delete</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[delete].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[delete].description</description>
+            <innerID>ae1af9b6-451e-430f-8449-c075da77adb4</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>com.kingdee.bos.dao.IObjectPK[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>filter</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[delete].parameters.parameter[filter].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[delete].parameters.parameter[filter].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.FilterInfo</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>delete</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[delete].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[delete].description</description>
+            <innerID>7144fec9-139c-42a3-b141-35057a7f2924</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>com.kingdee.bos.dao.IObjectPK[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>oql</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[delete].parameters.parameter[oql].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[delete].parameters.parameter[oql].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>delete</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[delete].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[delete].description</description>
+            <innerID>a75363d1-76d7-40f6-926a-41610a79963b</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>arrayPK</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[delete].parameters.parameter[arrayPK].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[delete].parameters.parameter[arrayPK].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK[]</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+    </methods>
+    <isAbstract>false</isAbstract>
+    <bizUnitPK>com.kingdee.eas.port.equipment.operate.EquLease</bizUnitPK>
+    <baseEntity>
+        <key name="package" value="com.kingdee.eas.framework.app" />
+        <key name="name" value="CoreBillEntryBase" />
+    </baseEntity>
+    <table>
+        <key name="package" value="com.kingdee.eas.port.equipment.operate.app" />
+        <key name="name" value="CT_OPE_EquLeaseE1" />
+    </table>
+    <properties>
+        <linkProperty>
+            <name>parent</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.linkProperty[parent].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.linkProperty[parent].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <mappingField>
+                <key name="name" value="FParentID" />
+            </mappingField>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.port.equipment.operate.app" />
+                <key name="name" value="R_EquLease_EquLeaseE1" />
+            </relationship>
+        </linkProperty>
+        <linkProperty>
+            <name>equNumber</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.linkProperty[equNumber].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.linkProperty[equNumber].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <mappingField>
+                <key name="name" value="CFEquNumberID" />
+            </mappingField>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.port.equipment.operate.app" />
+                <key name="name" value="R_EquLeaseE1_EquId_equNumber" />
+            </relationship>
+        </linkProperty>
+        <ownProperty>
+            <name>equName</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[equName].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[equName].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>String</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>80</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[equName].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFEquName" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>model</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[model].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[model].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>String</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>80</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[model].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFModel" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>unit</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[unit].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[unit].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>String</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>80</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[unit].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFUnit" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>shuliang</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[shuliang].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[shuliang].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>Integer</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>4</length>
+            <precision>10</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[shuliang].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFShuliang" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>amount</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[amount].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[amount].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>BigDecimal</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>28</length>
+            <precision>28</precision>
+            <decimalDigits>10</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[amount].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFAmount" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>use</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[use].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[use].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>String</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>1000</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[use].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFUse" />
+            </mappingField>
+        </ownProperty>
+    </properties>
+    <logicalKey>
+        <name>id</name>
+        <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].logicalKey[id].alias</alias>
+        <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].logicalKey[id].description</description>
+        <keyClass>com.kingdee.bos.dao.IObjectPK</keyClass>
+        <userDefined>true</userDefined>
+        <keyProperties>
+            <baseProperty>
+                <key name="name" value="id" />
+            </baseProperty>
+        </keyProperties>
+    </logicalKey>
+    <defaultView>
+        <name />
+        <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].defaultViewalias</alias>
+        <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].defaultViewdescription</description>
+    </defaultView>
+    <resource>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="第1个表体" />
+            <lang locale="zh_HK" value="第1個表體" />
+            <lang locale="zh_TW" value="第1個表體" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].defaultViewalias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].defaultViewdescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].defaultViewextendedProperty.genImplementCode">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].extendedProperty.genImplementCode">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].logicalKey[id].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].logicalKey[id].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[addnew].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[addnew].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[addnew].parameters.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[addnew].parameters.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[addnew].parameters.parameter[pk].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[addnew].parameters.parameter[pk].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[delete].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[delete].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[delete].parameters.parameter[arrayPK].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[delete].parameters.parameter[arrayPK].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[delete].parameters.parameter[filter].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[delete].parameters.parameter[filter].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[delete].parameters.parameter[oql].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[delete].parameters.parameter[oql].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[delete].parameters.parameter[pk].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[delete].parameters.parameter[pk].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[exists].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[exists].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[exists].parameters.parameter[filter].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[exists].parameters.parameter[filter].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[exists].parameters.parameter[oql].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[exists].parameters.parameter[oql].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[exists].parameters.parameter[pk].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[exists].parameters.parameter[pk].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getCollection].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getCollection].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getCollection].parameters.parameter[oql].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getCollection].parameters.parameter[oql].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getCollection].parameters.parameter[view].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getCollection].parameters.parameter[view].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getPKList].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getPKList].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getPKList].parameters.parameter[filter].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getPKList].parameters.parameter[filter].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getPKList].parameters.parameter[oql].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getPKList].parameters.parameter[oql].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getPKList].parameters.parameter[sorter].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getPKList].parameters.parameter[sorter].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getValue].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getValue].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getValue].parameters.parameter[oql].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getValue].parameters.parameter[oql].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getValue].parameters.parameter[pk].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getValue].parameters.parameter[pk].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getValue].parameters.parameter[selector].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[getValue].parameters.parameter[selector].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[updateBigObject].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[updateBigObject].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[updateBigObject].parameters.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[updateBigObject].parameters.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[updateBigObject].parameters.parameter[pk].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[updateBigObject].parameters.parameter[pk].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[updatePartial].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[updatePartial].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[updatePartial].parameters.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[updatePartial].parameters.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[updatePartial].parameters.parameter[selector].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[updatePartial].parameters.parameter[selector].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[update].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[update].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[update].parameters.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[update].parameters.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[update].parameters.parameter[pk].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].methods.method[update].parameters.parameter[pk].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.linkProperty[equNumber].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="设备编码" />
+            <lang locale="zh_HK" value="設備編碼" />
+            <lang locale="zh_TW" value="設備編碼" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.linkProperty[equNumber].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="设备编码" />
+            <lang locale="zh_HK" value="設備編碼" />
+            <lang locale="zh_TW" value="設備編碼" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.linkProperty[equNumber].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.linkProperty[equNumber].extendedProperty.dataField">
+            <lang locale="en_US" value="number" />
+            <lang locale="zh_CN" value="number" />
+            <lang locale="zh_TW" value="number" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.linkProperty[equNumber].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.linkProperty[equNumber].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.linkProperty[equNumber].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.linkProperty[equNumber].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.linkProperty[equNumber].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.linkProperty[equNumber].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.linkProperty[parent].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.linkProperty[parent].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[amount].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="租金总额" />
+            <lang locale="zh_HK" value="租金總額" />
+            <lang locale="zh_TW" value="租金總額" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[amount].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[amount].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="租金总额" />
+            <lang locale="zh_HK" value="租金總額" />
+            <lang locale="zh_TW" value="租金總額" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[amount].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[amount].extendedProperty.bizDataType">
+            <lang locale="en_US" value="AMOUNT" />
+            <lang locale="zh_CN" value="AMOUNT" />
+            <lang locale="zh_TW" value="AMOUNT" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[amount].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[amount].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[amount].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[amount].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[amount].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[amount].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[amount].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[equName].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="设备名称" />
+            <lang locale="zh_HK" value="設備名稱" />
+            <lang locale="zh_TW" value="設備名稱" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[equName].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[equName].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="设备名称" />
+            <lang locale="zh_HK" value="設備名稱" />
+            <lang locale="zh_TW" value="設備名稱" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[equName].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[equName].extendedProperty.DataField">
+            <lang locale="en_US" value="E1.equNumber.name" />
+            <lang locale="zh_CN" value="E1.equNumber.name" />
+            <lang locale="zh_TW" value="E1.equNumber.name" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[equName].extendedProperty.DataSourceType">
+            <lang locale="en_US" value="BASEDATAEXT" />
+            <lang locale="zh_CN" value="BASEDATAEXT" />
+            <lang locale="zh_TW" value="BASEDATAEXT" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[equName].extendedProperty.bizDataType">
+            <lang locale="en_US" value="STRING" />
+            <lang locale="zh_CN" value="STRING" />
+            <lang locale="zh_TW" value="STRING" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[equName].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[equName].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[equName].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[equName].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[equName].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[equName].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[equName].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="规格型号" />
+            <lang locale="zh_HK" value="規格型號" />
+            <lang locale="zh_TW" value="規格型號" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[model].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="规格型号" />
+            <lang locale="zh_HK" value="規格型號" />
+            <lang locale="zh_TW" value="規格型號" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[model].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[model].extendedProperty.DataField">
+            <lang locale="en_US" value="E1.equNumber.model" />
+            <lang locale="zh_CN" value="E1.equNumber.model" />
+            <lang locale="zh_TW" value="E1.equNumber.model" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[model].extendedProperty.DataSourceType">
+            <lang locale="en_US" value="BASEDATAEXT" />
+            <lang locale="zh_CN" value="BASEDATAEXT" />
+            <lang locale="zh_TW" value="BASEDATAEXT" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[model].extendedProperty.bizDataType">
+            <lang locale="en_US" value="STRING" />
+            <lang locale="zh_CN" value="STRING" />
+            <lang locale="zh_TW" value="STRING" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[model].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[model].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[model].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[model].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[model].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[model].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[model].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[shuliang].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="数量" />
+            <lang locale="zh_HK" value="數量" />
+            <lang locale="zh_TW" value="數量" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[shuliang].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[shuliang].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="数量" />
+            <lang locale="zh_HK" value="數量" />
+            <lang locale="zh_TW" value="數量" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[shuliang].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[shuliang].extendedProperty.bizDataType">
+            <lang locale="en_US" value="INTEGER" />
+            <lang locale="zh_CN" value="INTEGER" />
+            <lang locale="zh_TW" value="INTEGER" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[shuliang].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[shuliang].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[shuliang].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[shuliang].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[shuliang].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[shuliang].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[shuliang].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[unit].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="计量单位" />
+            <lang locale="zh_HK" value="計量單位" />
+            <lang locale="zh_TW" value="計量單位" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[unit].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[unit].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="计量单位" />
+            <lang locale="zh_HK" value="計量單位" />
+            <lang locale="zh_TW" value="計量單位" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[unit].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[unit].extendedProperty.DataField">
+            <lang locale="en_US" value="E1.equNumber.unit" />
+            <lang locale="zh_CN" value="E1.equNumber.unit" />
+            <lang locale="zh_TW" value="E1.equNumber.unit" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[unit].extendedProperty.DataSourceType">
+            <lang locale="en_US" value="BASEDATAEXT" />
+            <lang locale="zh_CN" value="BASEDATAEXT" />
+            <lang locale="zh_TW" value="BASEDATAEXT" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[unit].extendedProperty.bizDataType">
+            <lang locale="en_US" value="STRING" />
+            <lang locale="zh_CN" value="STRING" />
+            <lang locale="zh_TW" value="STRING" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[unit].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[unit].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[unit].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[unit].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[unit].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[unit].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[unit].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[use].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="用途" />
+            <lang locale="zh_HK" value="用途" />
+            <lang locale="zh_TW" value="用途" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[use].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[use].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="用途" />
+            <lang locale="zh_HK" value="用途" />
+            <lang locale="zh_TW" value="用途" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[use].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[use].extendedProperty.bizDataType">
+            <lang locale="en_US" value="NOTE" />
+            <lang locale="zh_CN" value="NOTE" />
+            <lang locale="zh_TW" value="NOTE" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[use].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[use].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[use].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[use].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[use].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[use].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EquLeaseE1].properties.ownProperty[use].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+    </resource>
+</entityObject>
+
