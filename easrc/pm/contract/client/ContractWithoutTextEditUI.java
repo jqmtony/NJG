@@ -245,6 +245,11 @@ public class ContractWithoutTextEditUI extends
 	public void onShow() throws Exception {
 		super.onShow();
 		chkCostsplit.setVisible(false);
+		cbIsBgControl.setVisible(false);
+		cbIsBgControl.setSelected(false);
+		contCostedDept.setVisible(false);
+		contCostedCompany.setVisible(false);
+		contBgEntry.setVisible(false);
 		setFocus();
 		txtPaymentRequestBillNumber.setRequired(false);
 		txtPaymentRequestBillNumber.setEditable(false);
@@ -498,7 +503,7 @@ public class ContractWithoutTextEditUI extends
 		//onLoad后续逻辑抽象为一个方法
 		fillAttachmentList();
 		afterOnload();
-		this.prmtPayment.setEnabled(false);
+//		this.prmtPayment.setEnabled(false);
 		
 		EntityViewInfo view=new EntityViewInfo();
 		FilterInfo filter=new FilterInfo();
@@ -1467,8 +1472,8 @@ public class ContractWithoutTextEditUI extends
 		//付款类型不能为空
 		if(prmtPayment.getData() == null)
 		{
-			MsgBox.showWarning("付款类别不能为空！");
-    		SysUtil.abort() ;
+//			MsgBox.showWarning("付款类别不能为空！");
+//    		SysUtil.abort() ;
 		}
     	super.actionSave_actionPerformed(e);
 		// 保存后反写写所关联的框架合约状态
@@ -2101,7 +2106,6 @@ public class ContractWithoutTextEditUI extends
 	}
 	
 	private void checkAmountForSubmit() throws BOSException, SQLException{
-		// 11.6.24 不进入动态成本，就不鸟这个控制 add by emanon
 		if (chkCostsplit.isSelected()) {
 			if ("严格控制".equals(CONTROLNOCONTRACT)
 					|| "提示控制".equals(CONTROLNOCONTRACT)) {
@@ -3580,7 +3584,7 @@ public class ContractWithoutTextEditUI extends
 			filter.getFilterItems().add(new FilterItemInfo("id",null));
 		}
 		view.setFilter(filter);
-		this.prmtPayContentType.setEntityViewInfo(view);
+//		this.prmtPayContentType.setEntityViewInfo(view);
 	}
 
 	public void actionRemove_actionPerformed(ActionEvent e) throws Exception {

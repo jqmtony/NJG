@@ -35,35 +35,25 @@ import com.kingdee.bos.metadata.IMetaDataPK;
 import com.kingdee.bos.metadata.MetaDataPK;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.ui.face.CoreUIObject;
-import com.kingdee.bos.ui.face.IUIFactory;
-import com.kingdee.bos.ui.face.IUIWindow;
-import com.kingdee.bos.ui.face.UIFactory;
 import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.eas.common.EASBizException;
-import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
-import com.kingdee.eas.common.client.UIContext;
-import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.fdc.basedata.FDCConstants;
 import com.kingdee.eas.fdc.basedata.FDCHelper;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
 import com.kingdee.eas.fdc.basedata.client.FDCClientUtils;
 import com.kingdee.eas.fdc.basedata.client.FDCMsgBox;
-import com.kingdee.eas.fdc.contract.ConChangeSettleEntryInfo;
-import com.kingdee.eas.fdc.contract.ContractBillInfo;
-import com.kingdee.eas.fdc.contract.ContractChangeBillFactory;
-import com.kingdee.eas.fdc.contract.ContractChangeBillInfo;
 import com.kingdee.eas.fdc.contract.ContractChangeEntryCollection;
-import com.kingdee.eas.fdc.contract.ContractChangeSettleBillFactory;
-import com.kingdee.eas.fdc.contract.ContractChangeSettleBillInfo;
-import com.kingdee.eas.fdc.contract.ContractEstimateChangeBillFactory;
 import com.kingdee.eas.fdc.contract.FDCUtils;
 import com.kingdee.eas.fdc.contract.ResponsibleStyleEnum;
 import com.kingdee.eas.fdc.contract.client.ChangeConfirmProvider;
-import com.kingdee.eas.fdc.contract.client.ContractChangeBillEditUI;
-import com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo;
 import com.kingdee.eas.fm.common.ContextHelperFactory;
 import com.kingdee.eas.framework.ICoreBase;
+import com.kingdee.eas.port.pm.contract.ContractBillFactory;
+import com.kingdee.eas.port.pm.contract.ContractBillInfo;
+import com.kingdee.eas.port.pm.contract.ContractChangeSettleBillEntryInfo;
+import com.kingdee.eas.port.pm.contract.ContractChangeSettleBillFactory;
+import com.kingdee.eas.port.pm.contract.ContractChangeSettleBillInfo;
 import com.kingdee.eas.port.pm.utils.CommerceHelper;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
@@ -76,7 +66,7 @@ import com.kingdee.util.NumericExceptionSubItem;
 public class ContractChangeSettleBillEditUI extends AbstractContractChangeSettleBillEditUI
 {
     private static final Logger logger = CoreUIObject.getLogger(ContractChangeSettleBillEditUI.class);
-    private ContractChangeBillInfo contractChangeInfo = null;
+    private ContractBillInfo contractChangeInfo = null;
     protected KDWorkButton btnAddnewLine;
     protected KDWorkButton btnInsertLines;
     protected KDWorkButton btnRemoveLines;
@@ -196,8 +186,8 @@ public class ContractChangeSettleBillEditUI extends AbstractContractChangeSettle
 		ContractChangeSettleBillInfo info = new ContractChangeSettleBillInfo();
 		//为了编码规则取这个值 维护下
 		info.setBookedDate(new java.util.Date());
-		if(this.getUIContext().get("contractChangeID") !=null ){
-			String contractChangeID = this.getUIContext().get("contractChangeID").toString();
+		if(this.getUIContext().get("contractBillId") !=null ){
+			String contractChangeID = this.getUIContext().get("contractBillId").toString();
 			SelectorItemCollection sel = new SelectorItemCollection();
 			sel.add("*");
 			sel.add("curProject.*");
@@ -206,7 +196,7 @@ public class ContractChangeSettleBillEditUI extends AbstractContractChangeSettle
 			sel.add("entrys.*");
 			sel.add("orgUnit.*");
 			try {
-				contractChangeInfo = ContractChangeBillFactory.getRemoteInstance().getContractChangeBillInfo(new ObjectUuidPK(contractChangeID), sel);
+				contractChangeInfo = ContractBillFactory.getRemoteInstance().getContractBillInfo(new ObjectUuidPK(contractChangeID), sel);
 			} catch (EASBizException e) {
 				this.handleException(e);
 			} catch (BOSException e) {
@@ -219,28 +209,19 @@ public class ContractChangeSettleBillEditUI extends AbstractContractChangeSettle
 		
 		
 		if(contractChangeInfo != null){
-			info.setConChangeBill(contractChangeInfo);
-			info.setContractBill(contractChangeInfo.getContractBill());
+			info.setContractBill(contractChangeInfo);
 			info.setCurProject(contractChangeInfo.getCurProject());
-			info.setSupplier(contractChangeInfo.getMainSupp());
+			info.setSupplier(contractChangeInfo.getPartB());
 			info.setResponsibleStyle(ResponsibleStyleEnum.AllContain);
 			info.setCreateTime(new Timestamp(new java.util.Date().getTime()));
 			info.setCreator(SysContext.getSysContext().getCurrentUserInfo());
-			//变更原因组合成字段
-			ContractChangeEntryCollection  coll = contractChangeInfo.getEntrys();
-			StringBuffer sb = new StringBuffer();
-			for(int i = 0 ; i < coll.size() ; i ++){
-				sb.append(",");
-				sb.append(coll.get(i).getChangeContent());
-			}
-			info.setChangeReson(sb.toString().replaceFirst(",", ""));
-			info.setOriginalAmount(contractChangeInfo.getContractBill().getOriginalAmount());
-			info.setAmount(contractChangeInfo.getContractBill().getAmount());
+			info.setOriginalAmount(contractChangeInfo.getOriginalAmount());
+			info.setAmount(contractChangeInfo.getAmount());
 			info.setOrgUnit(contractChangeInfo.getOrgUnit());
 			info.setAllowAmount(new BigDecimal("0"));
 			info.setIsFinish(true);
 			//求合同最新造价
-			String cotractId = contractChangeInfo.getContractBill().getId().toString();
+			String cotractId = contractChangeInfo.getId().toString();
 			try {
 				info.setLastAmount(FDCUtils.getContractLastAmt(null, cotractId));
 			} catch (EASBizException e) {
@@ -254,7 +235,7 @@ public class ContractChangeSettleBillEditUI extends AbstractContractChangeSettle
 		return info;
 	}
 	protected IObjectValue createNewDetailData(KDTable table) {
-		return new ConChangeSettleEntryInfo();
+		return new ContractChangeSettleBillEntryInfo();
 	}
 	
 	protected final  static String  KD_AMOUNT = "amount"; 
@@ -276,35 +257,8 @@ public class ContractChangeSettleBillEditUI extends AbstractContractChangeSettle
 			}
 			this.txtAllowAmount.setValue(totalAmount.setScale(2,BigDecimal.ROUND_HALF_UP));
 			BigDecimal originalAmount = (BigDecimal)this.txtOriginalAmount.getNumberValue();
-//			this.txtLastAmount.setValue(totalAmount.add(originalAmount).setScale(2,BigDecimal.ROUND_HALF_UP));
 		}
 	}
-//	private Map getEntryContracts() {
-//		Map contractMap = new HashMap();
-//		ContractBillInfo contract = (ContractBillInfo) this.prmtContractBill.getValue();
-//		ProgrammingContractInfo programmingContract = contract.getProgrammingContract();
-//		if (programmingContract == null || programmingContract.getId() == null) {
-//			String conId = contract.getId().toString();
-//			String oql = "select id, programmingContract where id = '".concat(conId).concat("'");
-//			try {
-//				ContractBillInfo contractBillInfo = ContractBillFactory.getRemoteInstance().getContractBillInfo(oql);
-//				programmingContract = contractBillInfo.getProgrammingContract();
-//				if (programmingContract == null || programmingContract.getId() == null) {
-//					return contractMap;
-//				}
-//			} catch (Exception e) {
-//				return contractMap;
-//			}
-//		}
-//		BigDecimal amount = this.txtAllowAmount.getBigDecimalValue().subtract(this.txtOrigDeductAmount.getBigDecimalValue());
-//		// 多个相同合同的测算金额累计
-//		BigDecimal amountValue = (BigDecimal) contractMap.get(contract.getId().toString());
-//		if (amountValue != null) {
-//			amount = amount.add(amountValue);
-//		}
-//		contractMap.put(contract.getId().toString(), amount);
-//		return contractMap;
-//	}
 	private Object getCtrlParam() {
 		String orgPk = this.editData.getOrgUnit().getId().toString();
 		IObjectPK orgpk = new ObjectUuidPK(orgPk);
@@ -667,14 +621,5 @@ public class ContractChangeSettleBillEditUI extends AbstractContractChangeSettle
 		super.actionEdit_actionPerformed(e);
 	}
 	protected void btnViewContractChange_actionPerformed(ActionEvent e) throws Exception {
-		if(this.editData.getConChangeBill()!=null){
-			UIContext uiContext = new UIContext(this);
-			uiContext.put("ID", this.editData.getConChangeBill().getId());
-	        IUIFactory uiFactory = UIFactory.createUIFactory(UIFactoryName.MODEL);
-	        IUIWindow uiWindow = uiFactory.create(ContractChangeBillEditUI.class.getName(), uiContext,null,OprtState.VIEW);
-	        uiWindow.show();
-		}else{
-			FDCMsgBox.showWarning(this,"无关联变更指令单！");
-		}
 	}
 }

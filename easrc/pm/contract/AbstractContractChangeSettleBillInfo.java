@@ -137,17 +137,6 @@ public class AbstractContractChangeSettleBillInfo extends com.kingdee.eas.fdc.ba
     {
         setBigDecimal("allowAmount", item);
     }
-    /**
-     * Object: 变更签证确认单 's 变更指令单 property 
-     */
-    public com.kingdee.eas.fdc.contract.ContractChangeBillInfo getConChangeBill()
-    {
-        return (com.kingdee.eas.fdc.contract.ContractChangeBillInfo)get("conChangeBill");
-    }
-    public void setConChangeBill(com.kingdee.eas.fdc.contract.ContractChangeBillInfo item)
-    {
-        put("conChangeBill", item);
-    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("442D6414");

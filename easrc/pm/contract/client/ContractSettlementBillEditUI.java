@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.FocusEvent;
 import java.awt.event.ItemEvent;
 import java.math.BigDecimal;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -17,8 +18,6 @@ import java.util.Map;
 
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 
 import org.apache.log4j.Logger;
 
@@ -41,6 +40,7 @@ import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.metadata.entity.SelectorItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.eas.base.attachment.AttachmentInfo;
 import com.kingdee.eas.base.attachment.BoAttchAssoCollection;
@@ -50,7 +50,6 @@ import com.kingdee.eas.base.attachment.common.AttachmentClientManager;
 import com.kingdee.eas.base.attachment.common.AttachmentManagerFactory;
 import com.kingdee.eas.base.commonquery.BooleanEnum;
 import com.kingdee.eas.base.param.ParamControlFactory;
-import com.kingdee.eas.base.permission.PermissionFactory;
 import com.kingdee.eas.base.permission.UserInfo;
 import com.kingdee.eas.basedata.assistant.CurrencyInfo;
 import com.kingdee.eas.basedata.assistant.ExchangeRateInfo;
@@ -75,13 +74,9 @@ import com.kingdee.eas.fdc.basedata.client.FDCClientVerifyHelper;
 import com.kingdee.eas.fdc.basedata.client.FDCMsgBox;
 import com.kingdee.eas.fdc.basedata.client.FDCSplitClientHelper;
 import com.kingdee.eas.fdc.contract.ChangeSupplierEntryFactory;
-import com.kingdee.eas.fdc.contract.CompensationBillInfo;
-import com.kingdee.eas.fdc.contract.ContractChangeBillCollection;
-import com.kingdee.eas.fdc.contract.ContractChangeBillFactory;
 import com.kingdee.eas.fdc.contract.ContractFacadeFactory;
 import com.kingdee.eas.fdc.contract.ContractSettleTypeEnum;
 import com.kingdee.eas.fdc.contract.FDCUtils;
-import com.kingdee.eas.fdc.contract.GuerdonBillInfo;
 import com.kingdee.eas.fdc.contract.SettNoCostSplitFactory;
 import com.kingdee.eas.fdc.contract.SettlementCostSplitFactory;
 import com.kingdee.eas.fdc.contract.client.AbstractSplitInvokeStrategy;
@@ -89,14 +84,17 @@ import com.kingdee.eas.fdc.contract.client.ConSettleSplitInvokeStrategy;
 import com.kingdee.eas.fdc.contract.client.ConSettlementPrintProvider;
 import com.kingdee.eas.fdc.contract.client.ContractClientUtils;
 import com.kingdee.eas.fdc.contract.client.SplitInvokeStrategyFactory;
-import com.kingdee.eas.fdc.finance.DeductBillEntryInfo;
 import com.kingdee.eas.port.pm.contract.ContractBillFactory;
 import com.kingdee.eas.port.pm.contract.ContractBillInfo;
+import com.kingdee.eas.port.pm.contract.ContractChangeSettleBillCollection;
+import com.kingdee.eas.port.pm.contract.ContractChangeSettleBillFactory;
+import com.kingdee.eas.port.pm.contract.ContractChangeSettleBillInfo;
 import com.kingdee.eas.port.pm.contract.ContractSettlementBillCollection;
 import com.kingdee.eas.port.pm.contract.ContractSettlementBillFactory;
 import com.kingdee.eas.port.pm.contract.ContractSettlementBillInfo;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.MsgBox;
+import com.kingdee.eas.xr.helper.TableXRHelper;
 import com.kingdee.jdbc.rowset.IRowSet;
 import com.kingdee.util.UuidException;
 
@@ -401,76 +399,51 @@ public class ContractSettlementBillEditUI extends
 
 		addDataChangeListener(cbFinalSettle);
 		perMap = new HashMap();
-		try {
+//		try {
 			// 违约的权限
-			if (PermissionFactory
-					.getRemoteInstance()
-					.hasFunctionPermission(
-							new ObjectUuidPK(SysContext.getSysContext()
-									.getCurrentUserInfo().getId().toString()),
-							new ObjectUuidPK(SysContext.getSysContext()
-									.getCurrentOrgUnit().getId().toString()),
-							new MetaDataPK(
-									"com.kingdee.eas.fdc.contract.client.CompensationBillListUI"),
-							new MetaDataPK("ActionOnLoad"))) {
-				perMap.put(this.panelCompensation.getName(), Boolean.TRUE);
-			}
+//			if (PermissionFactory
+//					.getRemoteInstance()
+//					.hasFunctionPermission(
+//							new ObjectUuidPK(SysContext.getSysContext()
+//									.getCurrentUserInfo().getId().toString()),
+//							new ObjectUuidPK(SysContext.getSysContext()
+//									.getCurrentOrgUnit().getId().toString()),
+//							new MetaDataPK(
+//									"com.kingdee.eas.fdc.contract.client.CompensationBillListUI"),
+//							new MetaDataPK("ActionOnLoad"))) {
+//				perMap.put(this.panelCompensation.getName(), Boolean.TRUE);
+//			}
 			// 扣款的权限
-			if (PermissionFactory
-					.getRemoteInstance()
-					.hasFunctionPermission(
-							new ObjectUuidPK(SysContext.getSysContext()
-									.getCurrentUserInfo().getId().toString()),
-							new ObjectUuidPK(SysContext.getSysContext()
-									.getCurrentOrgUnit().getId().toString()),
-							new MetaDataPK(
-									"com.kingdee.eas.fdc.contract.client.DeductListUI"),
-							new MetaDataPK("ActionOnLoad"))) {
-				perMap.put(this.panelDeduct.getName(), Boolean.TRUE);
-			}
-			// 奖励的权限
-			if (PermissionFactory
-					.getRemoteInstance()
-					.hasFunctionPermission(
-							new ObjectUuidPK(SysContext.getSysContext()
-									.getCurrentUserInfo().getId().toString()),
-							new ObjectUuidPK(SysContext.getSysContext()
-									.getCurrentOrgUnit().getId().toString()),
-							new MetaDataPK(
-									"com.kingdee.eas.fdc.contract.client.GuerdonBillListUI"),
-							new MetaDataPK("ActionOnLoad"))) {
-				perMap.put(this.panelGuerdon.getName(), Boolean.TRUE);
-			}
-		} catch (EASBizException e) {
-			// TODO 自动生成 catch 块
-			e.printStackTrace();
-		} catch (BOSException e) {
-			// TODO 自动生成 catch 块
-			e.printStackTrace();
-		}
-		this.tabTop.addChangeListener(new ChangeListener() {
-			public void stateChanged(ChangeEvent arg0) {
-				// TODO 自动生成方法存根
-				String panelName = tabTop.getSelectedComponent().getName();
-				if ((panelName.equals(panelCompensation.getName())
-						|| panelName.equals(panelDeduct.getName()) || panelName
-						.equals(panelGuerdon.getName()))
-						&& !perMap.containsKey(panelName)) {
-					if (panelName.equals(panelCompensation.getName()))
-						tblCompensationBill.setVisible(false);
-					else if (panelName.equals(panelDeduct.getName()))
-						tblDeduct.setVisible(false);
-					else if (panelName.equals(panelGuerdon.getName()))
-						tblGuerdon.setVisible(false);
-					MsgBox.showError(ContractClientUtils.getRes("NoPermission")
-							.replaceAll(
-									"\\{0\\}",
-									SysContext.getSysContext()
-											.getCurrentOrgUnit().getName()));
-				}
-			}
-
-		});
+//			if (PermissionFactory
+//					.getRemoteInstance()
+//					.hasFunctionPermission(
+//							new ObjectUuidPK(SysContext.getSysContext()
+//									.getCurrentUserInfo().getId().toString()),
+//							new ObjectUuidPK(SysContext.getSysContext()
+//									.getCurrentOrgUnit().getId().toString()),
+//							new MetaDataPK(
+//									"com.kingdee.eas.fdc.contract.client.DeductListUI"),
+//							new MetaDataPK("ActionOnLoad"))) {
+//				perMap.put(this.panelDeduct.getName(), Boolean.TRUE);
+//			}
+//			// 奖励的权限
+//			if (PermissionFactory
+//					.getRemoteInstance()
+//					.hasFunctionPermission(
+//							new ObjectUuidPK(SysContext.getSysContext()
+//									.getCurrentUserInfo().getId().toString()),
+//							new ObjectUuidPK(SysContext.getSysContext()
+//									.getCurrentOrgUnit().getId().toString()),
+//							new MetaDataPK(
+//									"com.kingdee.eas.fdc.contract.client.GuerdonBillListUI"),
+//							new MetaDataPK("ActionOnLoad"))) {
+//				perMap.put(this.panelGuerdon.getName(), Boolean.TRUE);
+//			}
+//		} catch (EASBizException e) {
+//			e.printStackTrace();
+//		} catch (BOSException e) {
+//			e.printStackTrace();
+//		}
 	}
 
 	// 注销监听器
@@ -521,8 +494,7 @@ public class ContractSettlementBillEditUI extends
 		}
 
 		txtProj.setText(curProjectInfo.getDisplayName());
-		FullOrgUnitInfo costOrg = FDCClientUtils
-				.getCostOrgByProj(curProjectInfo.getId().toString());
+		FullOrgUnitInfo costOrg = FDCClientUtils.getCostOrgByProj(curProjectInfo.getId().toString());
 		txtOrgUnit.setText(costOrg.getDisplayName());
 		editData.setOrgUnit(costOrg);
 		editData.setCU(curProjectInfo.getCU());
@@ -555,11 +527,8 @@ public class ContractSettlementBillEditUI extends
 
 		if (totalSettleMap == null) {
 			totalSettleMap = new HashMap();
-			totalSettleMap.put("OriginalAmount", editData
-					.getTotalOriginalAmount().subtract(
-							editData.getCurOriginalAmount()));
-			totalSettleMap.put("SettlePrice", editData.getTotalSettlePrice()
-					.subtract(editData.getCurSettlePrice()));
+			totalSettleMap.put("OriginalAmount", UIRuleUtil.getBigDecimal(editData.getTotalOriginalAmount()).subtract(UIRuleUtil.getBigDecimal(editData.getCurOriginalAmount())));
+			totalSettleMap.put("SettlePrice", UIRuleUtil.getBigDecimal(editData.getTotalSettlePrice()).subtract(UIRuleUtil.getBigDecimal(editData.getCurSettlePrice())));
 		}
 
 		// 加载完数据后加上
@@ -637,71 +606,6 @@ public class ContractSettlementBillEditUI extends
 		txtSettlePrice.setPrecision(curPrecision);
 	}
 
-	// private void setComSumAmount() {
-	// BigDecimal sum = FDCHelper.ZERO;
-	// for (int i = 0; i < this.tblCompensationBill.getRowCount(); i++) {
-	// IRow row = this.tblCompensationBill.getRow(i);
-	// Boolean select = (Boolean) row.getCell("select").getValue();
-	// if (select.booleanValue()) {
-	// BigDecimal amount = (BigDecimal) row.getCell("amount")
-	// .getValue();
-	// if (amount != null) {
-	// sum = sum.add(amount);
-	// }
-	// }
-	// }
-	// this.txtCompensationAmount.setValue(sum);
-	// BigDecimal settleAmount = this.txtSettlePrice.getBigDecimalValue();
-	// if (settleAmount == null) {
-	// settleAmount = FDCHelper.ZERO;
-	// }
-	// this.txtFinalAmount.setValue(settleAmount.subtract(sum));
-	// }
-
-	/*
-	 * private void fillCompensationBills() { tblCompensationBill.removeRows();
-	 * tblCompensationBill.getColumn("amount").getStyleAttributes()
-	 * .setHorizontalAlign(HorizontalAlignment.RIGHT);
-	 * tblCompensationBill.getColumn("amount").getStyleAttributes()
-	 * .setNumberFormat(FDCHelper.getNumberFtm(2)); String formatString =
-	 * "yyyy-MM-dd";
-	 * tblCompensationBill.getColumn("createDate").getStyleAttributes()
-	 * .setNumberFormat(formatString); CompensationBillCollection coll = new
-	 * CompensationBillCollection(); try { String contractId = (String)
-	 * getUIContext().get("contractBillId"); if (contractId == null) { String
-	 * settId = getUIContext().get(UIContext.ID).toString(); if (settId != null)
-	 * { ContractSettlementBillInfo sett = (ContractSettlementBillInfo) this
-	 * .getValue(new ObjectUuidPK(BOSUuid.read(settId))); contractId =
-	 * sett.getContractBill().getId().toString(); } } EntityViewInfo conView =
-	 * new EntityViewInfo(); conView.getSelector().add(new
-	 * SelectorItemInfo("*")); conView.getSelector().add(new
-	 * SelectorItemInfo("currency.*")); conView.getSelector().add(new
-	 * SelectorItemInfo("creator.*")); conView.getSelector().add( new
-	 * SelectorItemInfo("compensationType.*")); FilterInfo filter = new
-	 * FilterInfo(); conView.setFilter(filter); filter.getFilterItems().add( new
-	 * FilterItemInfo("contract.Id", contractId)); coll =
-	 * CompensationBillFactory.getRemoteInstance()
-	 * .getCompensationBillCollection(conView); } catch (Exception e) {
-	 * e.printStackTrace(); this.abort(e); }
-	 * 
-	 * for (int i = 0; i < coll.size(); i++) { CompensationBillInfo info =
-	 * coll.get(i); if (info.getAuditor() == null) { continue; } IRow row =
-	 * tblCompensationBill.addRow(); row.setUserObject(info); if
-	 * (info.getDescription() != null) {
-	 * row.getCell("select").setValue(Boolean.TRUE); } else {
-	 * row.getCell("select").setValue(Boolean.FALSE); }
-	 * row.getCell("number").setValue(info.getNumber());
-	 * row.getCell("name").setValue(info.getName());
-	 * row.getCell("type").setValue(info.getCompensationType());
-	 * row.getCell("amount").setValue(info.getAmount());
-	 * row.getCell("deductType").setValue(
-	 * CompensationBillEditUI.getResource("settleDeduct")); if
-	 * (info.getCreator() != null) {
-	 * row.getCell("creator").setValue(info.getCreator().getName()); }
-	 * row.getCell("createDate").setValue(info.getCreateTime()); }
-	 * this.tblCompensationBill.getStyleAttributes().setLocked(true); }
-	 */
-
 	/**
 	 * output actionCopy_actionPerformed
 	 */
@@ -767,7 +671,7 @@ public class ContractSettlementBillEditUI extends
 			if (settId != null) {
 				FDCSQLBuilder builder = new FDCSQLBuilder();
 				builder
-						.appendSql("select fcontractBillId from T_CON_ContractSettlementBill where fid=?");
+						.appendSql("select fcontractBillId from CT_CON_ContractSettlementBill where fid=?");
 				builder.addParam(settId);
 				IRowSet rowSet = builder.executeQuery();
 				if (rowSet.size() == 1) {
@@ -847,10 +751,8 @@ public class ContractSettlementBillEditUI extends
 	/**
 	 * output getBizInterface method
 	 */
-	protected com.kingdee.eas.framework.ICoreBase getBizInterface()
-			throws Exception {
-		return com.kingdee.eas.fdc.contract.ContractSettlementBillFactory
-				.getRemoteInstance();
+	protected com.kingdee.eas.framework.ICoreBase getBizInterface()throws Exception {
+		return ContractSettlementBillFactory.getRemoteInstance();
 	}
 
 	/**
@@ -876,9 +778,8 @@ public class ContractSettlementBillEditUI extends
 	protected com.kingdee.bos.dao.IObjectValue createNewData() {
 
 		ContractSettlementBillInfo objectValue = new ContractSettlementBillInfo();
-		objectValue.setCreator((UserInfo) (SysContext.getSysContext()
-				.getCurrentUserInfo()));
-		// objectValue.setCreateTime(new Timestamp(new Date().getTime()));
+		objectValue.setCreator((UserInfo) (SysContext.getSysContext().getCurrentUserInfo()));
+		 objectValue.setCreateTime(new Timestamp(new Date().getTime()));
 		try {
 			objectValue.setCreateTime(FDCDateHelper.getServerTimeStamp());
 		} catch (BOSException e1) {
@@ -927,13 +828,10 @@ public class ContractSettlementBillEditUI extends
 		try {
 			Map param = new HashMap();
 			param.put("ContractBillId", contractBill.getId().toString());
-			totalSettleMap = ContractFacadeFactory.getRemoteInstance()
-					.getTotalSettlePrice(param);
+//			totalSettleMap = ContractFacadeFactory.getRemoteInstance().getTotalSettlePrice(param);
 			if (totalSettleMap != null) {
-				objectValue.setTotalOriginalAmount((BigDecimal) totalSettleMap
-						.get("OriginalAmount"));
-				objectValue.setTotalSettlePrice((BigDecimal) totalSettleMap
-						.get("SettlePrice"));
+				objectValue.setTotalOriginalAmount((BigDecimal) totalSettleMap.get("OriginalAmount"));
+				objectValue.setTotalSettlePrice((BigDecimal) totalSettleMap.get("SettlePrice"));
 			} else {
 				objectValue.setTotalOriginalAmount(FDCConstants.ZERO);
 				objectValue.setTotalSettlePrice(FDCConstants.ZERO);
@@ -1012,27 +910,13 @@ public class ContractSettlementBillEditUI extends
 		return keep6ForGuaranteRate;
 	}
 
-	/*
-	 * （非 Javadoc）
-	 * 
-	 * @see com.kingdee.eas.framework.client.CoreBillEditUI#onLoad()
-	 */
 	public void onLoad() throws Exception {
-		// 工作流中的滚动条
-		
 		this.setPreferredSize(new Dimension(1013, 600));
 		txtOriginalAmount.setDataType(1);
 		txtcontractName.setMaxLength(200);
-		formatCtrl(this.txtqualityGuaranteRate);
 		super.onLoad();
-		settlementDetailHelper.fillCollectPanel();
-		if(this.getUIContext().get("isShowPanelCollection")!=null){
-			boolean b=Boolean.valueOf(this.getUIContext().get("isShowPanelCollection").toString()).booleanValue();
-			if(!b){
-				this.tabTop.remove(panelCollection);
-			}
-		}
-
+		tabTop.remove(panelCollection);
+		tabTop.remove(panelCompensation);
 		txtOriginalAmount.setRequired(true);
 		txtSettlePrice.setCommitsOnValidEdit(true);
 		txtcontractName.setMaxLength(200);
@@ -1094,8 +978,6 @@ public class ContractSettlementBillEditUI extends
 
 		setPrecision();
 
-		// FDCClientHelper.initComboCurrency(prmtCurrency, true);
-
 		handleOldData();
 		// 检查合同是否可进行多次结算
 		if (canSetterMore) {
@@ -1113,6 +995,15 @@ public class ContractSettlementBillEditUI extends
 			pkbookedDate.setSupportedEmpty(false);
 		}
 		fillAttachmentList();
+		
+		EntityViewInfo eiew = new EntityViewInfo();
+		FilterInfo filter = new FilterInfo();
+		eiew.setFilter(filter);
+		filter.getFilterItems().add(new FilterItemInfo("contractBill.number",txtcontractNumber.getText()));
+		TableXRHelper.showQueryDate(tblDeduct, "com.kingdee.eas.port.pm.contract.app.ContractBillQuery", eiew);
+		filter = new FilterInfo();
+		filter.getFilterItems().add(new FilterItemInfo("number",txtcontractNumber.getText()));
+		TableXRHelper.showQueryDate(tblGuerdon, "com.kingdee.eas.port.pm.contract.app.ContractChangeSettleBillQuery", eiew);
 	}
 
 	/**
@@ -1342,7 +1233,7 @@ public class ContractSettlementBillEditUI extends
 		boolean isContractChangeSettled = false;
 		Object contractBillId= paramMap.get("contractBillId");//合同ID
 		
-		//根据合同获取所有的未结算的变更指令单
+		//根据合同获取所有的未结算的变更单
 		EntityViewInfo view=new EntityViewInfo();
 		FilterInfo filter=new FilterInfo();
 		view.setFilter(filter);
@@ -1353,7 +1244,7 @@ public class ContractSettlementBillEditUI extends
 		filter.getFilterItems().add(new FilterItemInfo("state", FDCBillStateEnum.AUDITTING, CompareType.NOTEQUALS));
 		view.getSelector().add("id");
 		view.getSelector().add("number");
-		ContractChangeBillCollection ContractChangeCol = ContractChangeBillFactory.getRemoteInstance().getContractChangeBillCollection(view);
+		ContractChangeSettleBillCollection ContractChangeCol = ContractChangeSettleBillFactory.getRemoteInstance().getContractChangeSettleBillCollection(view);
 		if (ContractChangeCol != null && ContractChangeCol.size() > 0) {
 			//不存在未结算的变更指令单
 			isContractChangeSettled = false;
@@ -1406,39 +1297,35 @@ public class ContractSettlementBillEditUI extends
 			try {
 				contract = ContractBillFactory.getRemoteInstance().getContractBillInfo(new ObjectUuidPK(this.editData.getContractBill().getId()));
 			} catch (EASBizException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (BOSException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			if(contract != null ){
-//				
+					EntityViewInfo evi = new EntityViewInfo();
+					SelectorItemCollection sic = null;
+					FilterInfo filter = null;
 				
-//					EntityViewInfo evi = new EntityViewInfo();
-//					SelectorItemCollection sic = null;
-//					FilterInfo filter = null;
-//				
-//				    contractOrgiAmt = contract.getOriginalAmount();
-//					sic = new SelectorItemCollection();
-//					sic.add(new SelectorItemInfo("originalAmount"));
-//					filter = new FilterInfo();
-//					filter.getFilterItems().add(new FilterItemInfo("contractBill.id", contract.getId().toString()));
-//					filter.getFilterItems().add(new FilterItemInfo("state","\'"+FDCBillStateEnum.ANNOUNCE_VALUE+"\','"+FDCBillStateEnum.VISA_VALUE+"\',\'"+FDCBillStateEnum.AUDITTED_VALUE+"\'",CompareType.INCLUDE));
-//					evi.setSelector(sic);
-//					evi.setFilter(filter);
-//					ContractChangeBillCollection collection = null;
-//					 try {
-//						collection = ContractChangeBillFactory.getRemoteInstance().getContractChangeBillCollection(evi);
-//					} catch (BOSException e) {
-//						// TODO Auto-generated catch block
-//						e.printStackTrace();
-//					}
-//					if(collection != null && collection.size() >0 ){
-//						for(Iterator it = collection.iterator();it.hasNext();){
-//							contractOrgiAmt = FDCHelper.add(contractOrgiAmt, ((ContractChangeBillInfo)it.next()).getOriginalAmount());
-//						}
-//				    }
+				    contractOrgiAmt = contract.getOriginalAmount();
+					sic = new SelectorItemCollection();
+					sic.add(new SelectorItemInfo("originalAmount"));
+					filter = new FilterInfo();
+					filter.getFilterItems().add(new FilterItemInfo("contractBill.id", contract.getId().toString()));
+					filter.getFilterItems().add(new FilterItemInfo("state","\'"+FDCBillStateEnum.ANNOUNCE_VALUE+"\','"+FDCBillStateEnum.VISA_VALUE+"\',\'"+FDCBillStateEnum.AUDITTED_VALUE+"\'",CompareType.INCLUDE));
+					evi.setSelector(sic);
+					evi.setFilter(filter);
+					ContractChangeSettleBillCollection collection = null;
+					 try {
+						collection = ContractChangeSettleBillFactory.getRemoteInstance().getContractChangeSettleBillCollection(evi);
+					} catch (BOSException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					if(collection != null && collection.size() >0 ){
+						for(Iterator it = collection.iterator();it.hasNext();){
+							contractOrgiAmt = FDCHelper.add(contractOrgiAmt, ((ContractChangeSettleBillInfo)it.next()).getOriginalAmount());
+						}
+				    }
 				//调用统一接口来获取合同的最新结算价
 				
 				try {
@@ -1501,60 +1388,12 @@ public class ContractSettlementBillEditUI extends
 		
 	}
 
-	/*
-	 * private void saveCompensationRel() throws BOSException, EASBizException {
-	 * for (int i = 0; i < this.tblCompensationBill.getRowCount(); i++) { IRow
-	 * row = this.tblCompensationBill.getRow(i); CompensationBillInfo info =
-	 * (CompensationBillInfo) row .getUserObject(); Boolean b = (Boolean)
-	 * row.getCell("select").getValue(); if (b.booleanValue()) { if
-	 * (info.getDescription() == null) { info.setDescription("isSelect");
-	 * SelectorItemCollection sels = new SelectorItemCollection(); sels.add(new
-	 * SelectorItemInfo("description"));
-	 * CompensationBillFactory.getRemoteInstance().updatePartial( info, sels); }
-	 * } else { if (info.getDescription() != null) { info.setDescription(null);
-	 * SelectorItemCollection sels = new SelectorItemCollection(); sels.add(new
-	 * SelectorItemInfo("description"));
-	 * CompensationBillFactory.getRemoteInstance().updatePartial( info, sels); }
-	 * } } }
-	 */
 
 	public boolean isModify() {
 		if (getOprtState() == OprtState.ADDNEW
 				|| getOprtState() == OprtState.EDIT) {
-			for (int i = 0; i < this.tblCompensationBill.getRowCount(); i++) {
-				IRow row = this.tblCompensationBill.getRow(i);
-				CompensationBillInfo info = (CompensationBillInfo) row
-						.getUserObject();
-				Boolean b = (Boolean) row.getCell("select").getValue();
-				if (info == null || b == null)
-					return false;
-				if (b.booleanValue() != info.isIsCompensated()) {
-					return true;
-				}
-			}
 
-			for (int i = 0; i < this.tblGuerdon.getRowCount(); i++) {
-				IRow row = this.tblGuerdon.getRow(i);
-				GuerdonBillInfo info = (GuerdonBillInfo) row.getUserObject();
-				Boolean b = (Boolean) row.getCell("select").getValue();
-				if (info == null || b == null)
-					return false;
-				if (b.booleanValue() != info.isIsGuerdoned()) {
-					return true;
-				}
-			}
 
-			for (int i = 0; i < this.tblDeduct.getRowCount(); i++) {
-				IRow row = this.tblDeduct.getRow(i);
-				DeductBillEntryInfo info = (DeductBillEntryInfo) row
-						.getUserObject();
-				Boolean b = (Boolean) row.getCell("select").getValue();
-				if (info == null || b == null)
-					return false;
-				if (b.booleanValue() != info.isHasApplied()) {
-					return true;
-				}
-			}
 		}
 
 		return super.isModify();
@@ -1596,15 +1435,6 @@ public class ContractSettlementBillEditUI extends
 	}
 
 	public void actionSave_actionPerformed(ActionEvent e) throws Exception {
-		// saveCompensationRel();
-		/*
-		 * if(this.editData.getContractBill().getId()!=null){ Map paramMap=new
-		 * HashMap(); paramMap.put("contractBillId",
-		 * this.editData.getContractBill().getId().toString());
-		 * paramMap.put("billState", this.editData.getState());
-		 * paramMap.put("txtSettlePrice", txtSettlePrice.getBigDecimalValue());
-		 * ContractClientUtils.checkTotalSettlePriceSmallerThanZero(paramMap); }
-		 */
 		checkAmt();
         if(isMoreSettlement){
         	if (((com.kingdee.eas.base.commonquery.BooleanEnum)this.cbFinalSettle.getSelectedItem()).getValue()==BooleanEnum.TRUE_VALUE){
@@ -1885,21 +1715,20 @@ public class ContractSettlementBillEditUI extends
 			//是否存在未审核的变更审批单     by Cassiel_peng
 			filter=new FilterInfo();
 			filter.getFilterItems().add(new FilterItemInfo("contractBill.id", contractId));
-//			filter.getFilterItems().add(new FilterItemInfo("parent.state", FDCBillStateEnum.SAVED));
-			filter.getFilterItems().add(new FilterItemInfo("parent.state", FDCBillStateEnum.SUBMITTED));
-			filter.getFilterItems().add(new FilterItemInfo("parent.state", FDCBillStateEnum.AUDITTING));//不知道这种单据状态是否需要考虑
+			filter.getFilterItems().add(new FilterItemInfo("state", FDCBillStateEnum.SUBMITTED));
+			filter.getFilterItems().add(new FilterItemInfo("state", FDCBillStateEnum.AUDITTING));//不知道这种单据状态是否需要考虑
 			filter.setMaskString("#0 and ( #1 or #2)");
-			if(ChangeSupplierEntryFactory.getRemoteInstance().exists(filter)){
+			if(ContractSettlementBillFactory.getRemoteInstance().exists(filter)){
 				FDCMsgBox.showWarning(this,"存在还未审批通过的变更审批单，不允许审批最终结算单！");
 				SysUtil.abort();
 //				throw new ContractException(ContractException.CHANGEBILLNOTAUDIT);
 			}
 		}
-		if(!this.btnAType.isSelected()&&!this.btnBType.isSelected()&&!this.BtnCType.isSelected()){
-			FDCMsgBox.showWarning(this, "请填写合同结算类型！");
-			this.btnAType.requestFocus(true);
-			SysUtil.abort();
-		}
+//		if(!this.btnAType.isSelected()&&!this.btnBType.isSelected()&&!this.BtnCType.isSelected()){
+//			FDCMsgBox.showWarning(this, "请填写合同结算类型！");
+//			this.btnAType.requestFocus(true);
+//			SysUtil.abort();
+//		}
 		super.verifyInputForSubmint();
 	}
 

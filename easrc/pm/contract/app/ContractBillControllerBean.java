@@ -35,6 +35,8 @@ import com.kingdee.eas.base.codingrule.CodingRuleManagerFactory;
 import com.kingdee.eas.base.codingrule.ICodingRuleManager;
 import com.kingdee.eas.base.commonquery.BooleanEnum;
 import com.kingdee.eas.basedata.assistant.PeriodInfo;
+import com.kingdee.eas.basedata.assistant.ProjectFactory;
+import com.kingdee.eas.basedata.assistant.ProjectInfo;
 import com.kingdee.eas.basedata.org.CostCenterOrgUnitInfo;
 import com.kingdee.eas.basedata.org.OrgConstants;
 import com.kingdee.eas.basedata.org.PositionInfo;
@@ -47,8 +49,6 @@ import com.kingdee.eas.fdc.basedata.ContractThirdTypeEnum;
 import com.kingdee.eas.fdc.basedata.ContractTypeFactory;
 import com.kingdee.eas.fdc.basedata.ContractTypeInfo;
 import com.kingdee.eas.fdc.basedata.CostSplitStateEnum;
-import com.kingdee.eas.fdc.basedata.CurProjectFactory;
-import com.kingdee.eas.fdc.basedata.CurProjectInfo;
 import com.kingdee.eas.fdc.basedata.FDCBillInfo;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
 import com.kingdee.eas.fdc.basedata.FDCBillWFFacadeFactory;
@@ -297,40 +297,31 @@ public class ContractBillControllerBean extends AbstractContractBillControllerBe
 
         ContractBillInfo contractBillInfo = this.getContractBillInfo(ctx,new ObjectUuidPK(billId.toString()),getSic());
 		//检查功能是否已经结束初始化
-		String comId = contractBillInfo.getCurProject().getCompany().getId().toString();
+        ProjectInfo curProjectInfo = ProjectFactory.getLocalInstance(ctx).getProjectInfo(new ObjectUuidPK(contractBillInfo.getCurProject().getId()));
+		String comId = curProjectInfo.getCompany().getId().toString();
 			
 		HashMap param = FDCUtils.getDefaultFDCParam(ctx,contractBillInfo.getOrgUnit().getId().toString());		
 		boolean splitBeforeAudit = false;
-//		String costCenterId = ContextUtil.getCurrentCostUnit(ctx).getId().toString();
 		if(param.get(FDCConstants.FDC_PARAM_SPLITBFAUDIT)!=null){
-//			splitBeforeAudit = FDCUtils.getDefaultFDCParamByKey(ctx, costCenterId, FDCConstants.FDC_PARAM_SPLITBFAUDIT);
-			//用下面一句代码，从param里边直接取出来的参数值不对劲，用上边一句代码重新取吧.
 			splitBeforeAudit =  Boolean.valueOf(param.get(FDCConstants.FDC_PARAM_SPLITBFAUDIT).toString()).booleanValue();
-		}
-		//该合同已经还没有拆分，不能审核
-		if(splitBeforeAudit && contractBillInfo.isIsCoseSplit() &&  
-				!contractBillInfo.isIsAmtWithoutCost() && !CostSplitStateEnum.ALLSPLIT.equals(contractBillInfo.getSplitState())){
-//			MsgBox.showWarning(this, "该合同已经进行了拆分，不能进行修改");
-//			SysUtil.abort();
-			throw new ContractException(ContractException.NOSPLITFORAUDIT);
 		}
 		
 		//是否启用财务一体化
-		boolean isInCore = FDCUtils.IsInCorporation( ctx, comId);
-		if(isInCore){
-			String curProject = contractBillInfo.getCurProject().getId().toString();
-			//没有结束初始化
-			if(!ProjectPeriodStatusUtil._isClosed(ctx,curProject)){
-				throw new ProjectPeriodStatusException(ProjectPeriodStatusException.ISNOT_INIT,new Object[]{contractBillInfo.getCurProject().getDisplayName()});
-			}			
-			//不再当前期间，不能审核
-		}
+//		boolean isInCore = FDCUtils.IsInCorporation( ctx, comId);
+//		if(isInCore){
+//			String curProject = contractBillInfo.getCurProject().getId().toString();
+//			//没有结束初始化
+//			if(!ProjectPeriodStatusUtil._isClosed(ctx,curProject)){
+//				throw new ProjectPeriodStatusException(ProjectPeriodStatusException.ISNOT_INIT,new Object[]{contractBillInfo.getCurProject().getDisplayName()});
+//			}			
+//			//不再当前期间，不能审核
+//		}
 		//单据审批时预算控制
 		//根据参数是否显示合同费用项目
-		boolean isShowCharge = FDCUtils.getDefaultFDCParamByKey(ctx,null,FDCConstants.FDC_PARAM_CHARGETYPE);
-        if (isShowCharge && contractBillInfo.getConChargeType() != null) {
-           invokeAuditBudgetCtrl(ctx,contractBillInfo);
-        }
+//		boolean isShowCharge = FDCUtils.getDefaultFDCParamByKey(ctx,null,FDCConstants.FDC_PARAM_CHARGETYPE);
+//        if (isShowCharge && contractBillInfo.getConChargeType() != null) {
+//           invokeAuditBudgetCtrl(ctx,contractBillInfo);
+//        }
 	}
 	
 	protected void checkBillForUnAudit(Context ctx, BOSUuid billId)throws BOSException, EASBizException {
@@ -346,97 +337,61 @@ public class ContractBillControllerBean extends AbstractContractBillControllerBe
         sic.add(new SelectorItemInfo("conChargeType.id"));
         
         ContractBillInfo contractBillInfo = this.getContractBillInfo(ctx,new ObjectUuidPK(billId.toString()),sic);
-
-        //检查是否已经拆分
-        HashMap param = FDCUtils.getDefaultFDCParam(ctx,contractBillInfo.getOrgUnit().getId().toString());	
-		boolean splitBeforeAudit = false; 
-//		String costCenterId = ContextUtil.getCurrentCostUnit(ctx).getId().toString();
-		if(param.get(FDCConstants.FDC_PARAM_SPLITBFAUDIT)!=null){
-//			splitBeforeAudit = FDCUtils.getDefaultFDCParamByKey(ctx, costCenterId, FDCConstants.FDC_PARAM_SPLITBFAUDIT);
-			//用下面一句代码，从param里边直接取出来的参数值不对劲，用上边一句代码重新取吧.
-			splitBeforeAudit =  Boolean.valueOf(param.get(FDCConstants.FDC_PARAM_SPLITBFAUDIT).toString()).booleanValue();
-		}
-    	if(!splitBeforeAudit){
-    		FilterInfo filterSett = new FilterInfo();
-    		filterSett.getFilterItems().add(
-    				new FilterItemInfo("contractBill.id", billId.toString()));
-    		filterSett.getFilterItems().add(
-    				new FilterItemInfo("state", FDCBillStateEnum.INVALID_VALUE,
-    						CompareType.NOTEQUALS));
-    		boolean hasSettleSplit = false;
-    		if (ContractCostSplitFactory.getLocalInstance(ctx).exists(filterSett)
-    				|| ConNoCostSplitFactory.getLocalInstance(ctx).exists(filterSett)) {
-    			hasSettleSplit = true;
-    		}
-    		if (hasSettleSplit) {
-    			throw new  ContractException(ContractException.HASSPLIT);
-    		}
-    	}
-    	
-    	//R110603-0148:如果存在变更审批单，则不允许反审批
-    	if (ContractUtil.hasChangeAuditBill(ctx, contractBillInfo.getId())) {
-    		throw new  ContractException(ContractException.HASCHANGEAUDITBILL);
-    	}
     	
     	//R110603-0148如果存在变更指令单，则不允许反审批
     	if (ContractUtil.hasContractChangeBill(ctx, contractBillInfo.getId())) {
     		throw new  ContractException(ContractException.HASCONTRACTCHANGEBILL);
     	}
         
-        //检查功能是否已经结束初始化
-		String comId = contractBillInfo.getCurProject().getCompany().getId().toString();
-			
-		//是否启用财务一体化
-		boolean isInCore = FDCUtils.IsInCorporation( ctx, comId);
-		if(isInCore){
-			String curProject = contractBillInfo.getCurProject().getId().toString();
-			
-//			if(ProjectPeriodStatusUtil._isEnd(ctx,curProject)){
-//				throw new ProjectPeriodStatusException(ProjectPeriodStatusException.CLOPRO_HASEND,new Object[]{contractBillInfo.getCurProject().getDisplayName()});
-//			}		
-			
-			//单据期间在工程项目当前期间之前，不能反审核
-			PeriodInfo costPeriod = FDCUtils.getCurrentPeriod(ctx,curProject,true);
-			if(contractBillInfo.getPeriod().getBeginDate().before(costPeriod.getBeginDate())){
-				throw new  ContractException(ContractException.CNTPERIODBEFORE);
-			}			
-		}
+//        //检查功能是否已经结束初始化
+//		String comId = contractBillInfo.getCurProject().getCompany().getId().toString();
+//			
+//		//是否启用财务一体化
+//		boolean isInCore = FDCUtils.IsInCorporation( ctx, comId);
+//		if(isInCore){
+//			String curProject = contractBillInfo.getCurProject().getId().toString();
+//			//单据期间在工程项目当前期间之前，不能反审核
+//			PeriodInfo costPeriod = FDCUtils.getCurrentPeriod(ctx,curProject,true);
+//			if(contractBillInfo.getPeriod().getBeginDate().before(costPeriod.getBeginDate())){
+//				throw new  ContractException(ContractException.CNTPERIODBEFORE);
+//			}			
+//		}
 		//2009-3-4 如果合同对应的核算项目基础资料已经被凭证引用，则不允许反审批合同
-		FilterInfo filter = new FilterInfo();
-		filter.getFilterItems().add(new FilterItemInfo("contractId", billId.toString()));
-		boolean exist = ContractBaseDataFactory.getLocalInstance(ctx).exists(filter);
-		if(exist){
-			EntityViewInfo view = new EntityViewInfo();
-			view.getSelector().add("number");
-			view.getSelector().add("name");
-			view.getSelector().add("state");
-			view.getSelector().add("id");
-			view.setFilter(filter);
-			ContractBaseDataCollection contractBaseDataCollection = 
-				ContractBaseDataFactory.getLocalInstance(ctx).getContractBaseDataCollection(view);
-			if(contractBaseDataCollection.size() == 1) {
-				ContractBaseDataInfo info = contractBaseDataCollection.get(0);
-				String baseId = info.getId().toString();
-				String sql = " select ar.fid from T_GL_VoucherAssistRecord ar  \r\n" +
-						" inner join T_BD_AssistantHG hg  on ar.FAssGrpID = hg.fid   \r\n" +
-						" where hg.FContractBaseDataID = ?     \r\n";
-				IRowSet rs = DbUtil.executeQuery(ctx,sql,new Object[]{baseId});
-				try {
-					if(rs != null && rs.next()){
-						throw new ContractException(ContractException.HASVOUCHER);
-					}
-				} catch (SQLException e) {
-					e.printStackTrace();
-					throw new BOSException(e);
-				}
-			}
-		}
-		//单据反审批时预算控制
-		//根据参数是否显示合同费用项目
-		boolean isShowCharge = FDCUtils.getDefaultFDCParamByKey(ctx,null,FDCConstants.FDC_PARAM_CHARGETYPE);
-        if (isShowCharge && contractBillInfo.getConChargeType() != null) {
-           invokeUnAuditBudgetCtrl(ctx,contractBillInfo);
-        }
+//		FilterInfo filter = new FilterInfo();
+//		filter.getFilterItems().add(new FilterItemInfo("contractId", billId.toString()));
+//		boolean exist = ContractBaseDataFactory.getLocalInstance(ctx).exists(filter);
+//		if(exist){
+//			EntityViewInfo view = new EntityViewInfo();
+//			view.getSelector().add("number");
+//			view.getSelector().add("name");
+//			view.getSelector().add("state");
+//			view.getSelector().add("id");
+//			view.setFilter(filter);
+//			ContractBaseDataCollection contractBaseDataCollection = 
+//				ContractBaseDataFactory.getLocalInstance(ctx).getContractBaseDataCollection(view);
+//			if(contractBaseDataCollection.size() == 1) {
+//				ContractBaseDataInfo info = contractBaseDataCollection.get(0);
+//				String baseId = info.getId().toString();
+//				String sql = " select ar.fid from T_GL_VoucherAssistRecord ar  \r\n" +
+//						" inner join T_BD_AssistantHG hg  on ar.FAssGrpID = hg.fid   \r\n" +
+//						" where hg.FContractBaseDataID = ?     \r\n";
+//				IRowSet rs = DbUtil.executeQuery(ctx,sql,new Object[]{baseId});
+//				try {
+//					if(rs != null && rs.next()){
+//						throw new ContractException(ContractException.HASVOUCHER);
+//					}
+//				} catch (SQLException e) {
+//					e.printStackTrace();
+//					throw new BOSException(e);
+//				}
+//			}
+//		}
+//		//单据反审批时预算控制
+//		//根据参数是否显示合同费用项目
+//		boolean isShowCharge = FDCUtils.getDefaultFDCParamByKey(ctx,null,FDCConstants.FDC_PARAM_CHARGETYPE);
+//        if (isShowCharge && contractBillInfo.getConChargeType() != null) {
+//           invokeUnAuditBudgetCtrl(ctx,contractBillInfo);
+//        }
 	}
 	
 	protected void _update(Context ctx, IObjectPK pk, IObjectValue model)
@@ -449,8 +404,8 @@ public class ContractBillControllerBean extends AbstractContractBillControllerBe
 			this.handleIntermitNumber(ctx,(FDCBillInfo)model);
 		super._update(ctx, pk, model);
 		
-		//同步到合同基本资料，用于合同做核算项目
-		ContractBaseDataHelper.synToContractBaseData(ctx, false, pk.toString());
+//		//同步到合同基本资料，用于合同做核算项目
+//		ContractBaseDataHelper.synToContractBaseData(ctx, false, pk.toString());
 	}
 
 	/*
@@ -497,7 +452,7 @@ public class ContractBillControllerBean extends AbstractContractBillControllerBe
 		boolean flag = false;
 //		ContractBillInfo cbi = this.getContractBillInfo(ctx,ctPK);
 //		 String sql =
-//		        "select fid from T_CON_ContractBill where FNumber = ? and FOrgUnitID = ? ";
+//		        "select fid from  ct_con_contractbill where FNumber = ? and FOrgUnitID = ? ";
 //		    Object[] params = new Object[]{storeNumber,cbi.getOrgUnit().getId().toString()};
 //
 //		    RowSet rowset = DbUtil.executeQuery(ctx, sql, params);
@@ -506,13 +461,13 @@ public class ContractBillControllerBean extends AbstractContractBillControllerBe
 //					if(!rowset.getString("FID").equalsIgnoreCase(ctPK.toString())){
 //						throw (new ContractException(ContractException.NUMBER_DUP));
 //					}else{
-//						sql = "update T_CON_ContractBill set  FIsArchived = 1 ,FNumber = ?  where FID = ? ";
+//						sql = "update  ct_con_contractbill set  FIsArchived = 1 ,FNumber = ?  where FID = ? ";
 //					    params = new Object[]{storeNumber,ctPK.toString()};
 //					    DbUtil.execute(ctx,sql,params);
 //					    flag = true;
 //					}
 //				}else{
-//					sql = "update T_CON_ContractBill set  FIsArchived = 1 ,FNumber = ?  where FID = ? ";
+//					sql = "update  ct_con_contractbill set  FIsArchived = 1 ,FNumber = ?  where FID = ? ";
 //				    params = new Object[]{storeNumber,ctPK.toString()};
 //				    DbUtil.execute(ctx,sql,params);
 //				    flag = true;
@@ -542,9 +497,9 @@ public class ContractBillControllerBean extends AbstractContractBillControllerBe
 			//如果是非独立结算的补充合同,金额累加到
 			String sql1 = " select entry.fcontent as amount,parent.fsplitState splitState,parent.fid mainId,parent.FAmount mainAmount,parent.ForiginalAmount oriAmount 			\r\n" +
 					",parent.FexRate mainRate,parent.FgrtRate grtRate,parent.FGrtAmount grtAmount,parent.FStampTaxRate stampRate,parent.FStampTaxAmt stampAmt                             \r\n"+
-					"from T_CON_ContractbillEntry entry 																							\r\n" +
-					"inner join T_CON_Contractbill con on con.fid=entry.fparentid  and con.fisAmtWithoutCost=1 and con.fcontractPropert='SUPPLY' 	\r\n" +
-					"inner join T_Con_contractBill parent on parent.fnumber = con.fmainContractNumber  and parent.fcurprojectid=con.fcurprojectid												\r\n" +
+					"from cT_CON_ContractbillEntry entry 																							\r\n" +
+					"inner join cT_CON_Contractbill con on con.fid=entry.fparentid  and con.fisAmtWithoutCost=1 and con.fcontractPropert='SUPPLY' 	\r\n" +
+					"inner join cT_Con_contractBill parent on parent.fnumber = con.fmainContractNumber  and parent.fcurprojectid=con.fcurprojectid												\r\n" +
 					"where con.fid=? and entry.FRowkey='am' 																				\r\n";
 			IRowSet rs1 = DbUtil.executeQuery(ctx,sql1,new Object[]{billId.toString()});
 			try {
@@ -570,7 +525,7 @@ public class ContractBillControllerBean extends AbstractContractBillControllerBe
 					//主合同印花税金额
 					BigDecimal stampAmt = rs1.getBigDecimal("stampAmt");
 					//更新主合同原币和本位币金额
-					String updateSql = "update T_CON_Contractbill set ForiginalAmount=?, FAmount=?,FGrtAmount=?,FStampTaxAmt=? where Fid=?";
+					String updateSql = "update  ct_con_contractbill set ForiginalAmount=?, FAmount=?,FGrtAmount=?,FStampTaxAmt=? where Fid=?";
 					
 			    	//原币金额
 			    	if(supAmount==null){
@@ -599,7 +554,7 @@ public class ContractBillControllerBean extends AbstractContractBillControllerBe
 					DbUtil.execute(ctx,updateSql,new Object[]{supAmount.add(oriAmount),revAmount.add(mainAmount),newGrtAmount,newStampAmt,mainId});
 							    		
 					//判断主合同的金额 和 合同拆分的已拆分金额 ，是否相等。如果不等，把主合同和合同拆分的拆分状态改为部分拆分
-//					String updateState1 = "update T_CON_Contractbill set FSplitState=? where Fid=?";
+//					String updateState1 = "update  ct_con_contractbill set FSplitState=? where Fid=?";
 //					String updateState2 = "update T_CON_ContractCostSplit set FSplitState=? where Fid=?";
 					EntityViewInfo viewInfo = new EntityViewInfo();
 //					viewInfo.getSelector().add("amount");
@@ -611,102 +566,6 @@ public class ContractBillControllerBean extends AbstractContractBillControllerBe
 					viewInfo.setFilter(filterInfo);
 					filterInfo.getFilterItems().add(new FilterItemInfo("contractBill.id",mainId));
 					
-					//R110228-280：录入非单独结算的补充合同之后主合同显示为全部拆分(之前没有考虑合同不进入动态成本的情况)
-					ContractBillInfo contractbill = ContractBillFactory.getLocalInstance(ctx).getContractBillInfo(new ObjectUuidPK(mainId));
-					if (contractbill.isIsCoseSplit()) {
-						
-						//成本类：非自动按比例拆分时部分拆分(以前逻辑)，否则(启用参数)自动拆分并且状态为全部拆分 by hpw 2010-06-25
-						ContractCostSplitCollection col = ContractCostSplitFactory.getLocalInstance(ctx).getContractCostSplitCollection(viewInfo);
-						boolean isSplitBaseOnProp = false;
-						if (col != null && col.size() > 0) {
-							ContractCostSplitInfo info = col.get(0);
-							if (info != null && info.getContractBill() != null && info.getContractBill().isIsCoseSplit() && info.getCurProject() != null && info.getCurProject().getCompany() != null
-									&& info.getCurProject().getCompany().getId() != null) {
-								isSplitBaseOnProp = FDCUtils.getDefaultFDCParamByKey(ctx, info.getCurProject().getCompany().getId().toString(), FDCConstants.FDC_PARAM_SPLITBASEONPROP);
-							}
-						}
-						FDCSQLBuilder builder=new FDCSQLBuilder(ctx);
-						for(int i=0;i < col.size();i++){
-							ContractCostSplitInfo info = col.get(i);
-							if(info!=null){
-//								if(!isSplitBaseOnProp){
-//									//如果补充合同+主合同金额大于主合同已拆分金额 则变更主合同拆分状态为部分拆分
-//									//R110608-0383: 录入金额为0的主合同的拆分金额存在为0的情况
-//									BigDecimal splitAmount = info.getBigDecimal("amount");
-//									if (splitAmount == null) {
-//										splitAmount = FDCHelper.ZERO;
-//									}
-//									if((mainAmount.add(revAmount)).compareTo(splitAmount)==1
-//											&& splitState.equals(CostSplitStateEnum.ALLSPLIT_VALUE)){
-//										builder.appendSql("update T_CON_ContractBill set fsplitState=? where fid=?");
-//										builder.addParam(CostSplitStateEnum.PARTSPLIT_VALUE);
-//										builder.addParam(mainId.toString());
-//										builder.getSql();
-//										builder.execute();
-//										builder.clear();//不用再New
-//										builder.appendSql("update T_CON_ContractCostSplit set fsplitState=? where fcontractbillid=?");
-//										builder.addParam(CostSplitStateEnum.PARTSPLIT_VALUE);
-//										builder.addParam(mainId.toString());
-//										builder.execute();
-//										builder.clear();
-//									}
-//								}
-							}
-						}
-						
-						if(isSplitBaseOnProp){
-							ContractCostSplitFactory.getLocalInstance(ctx).autoSplit4(BOSUuid.read(mainId));
-						}
-						
-					} else {
-						//非成本类：更新状态为部分拆分
-						ConNoCostSplitCollection col = ConNoCostSplitFactory.getLocalInstance(ctx).getConNoCostSplitCollection(viewInfo);
-						FDCSQLBuilder builder=new FDCSQLBuilder(ctx);
-						for(int i=0;i < col.size();i++){
-							ConNoCostSplitInfo info = col.get(i);
-							if(info!=null){
-								//如果补充合同+主合同金额大于主合同已拆分金额 则变更主合同拆分状态为部分拆分
-								BigDecimal splitAmount = info.getBigDecimal("amount");
-								if (splitAmount == null) {
-									splitAmount = FDCHelper.ZERO;
-								}
-								if((mainAmount.add(revAmount)).compareTo(splitAmount)==1
-										&& splitState.equals(CostSplitStateEnum.ALLSPLIT_VALUE)){
-									builder.appendSql("update T_CON_ContractBill set fsplitState=? where fid=?");
-									builder.addParam(CostSplitStateEnum.PARTSPLIT_VALUE);
-									builder.addParam(mainId.toString());
-									builder.getSql();
-									builder.execute();
-									builder.clear();//不用再New
-									builder.appendSql("update T_CON_ConNoCostSplit set fsplitState=? where fcontractbillid=?");
-									builder.addParam(CostSplitStateEnum.PARTSPLIT_VALUE);
-									builder.addParam(mainId.toString());
-									builder.execute();
-									builder.clear();
-								}
-							}
-						}
-					}
-					
-			    	//更新合同付款计划    					
-					revAmount = revAmount.add(FDCUtils.getContractLastPrice (ctx,mainId,false));
-					
-					EntityViewInfo view = new EntityViewInfo();
-					view.getSelector().add(new SelectorItemInfo("payProportion"));
-					FilterInfo filter = new FilterInfo();
-					view.setFilter(filter);
-					filter.getFilterItems().add(new FilterItemInfo("contractId.id", mainId));
-					
-					IContractPayPlan iContractPayPlan =  ContractPayPlanFactory.getLocalInstance(ctx);
-					ContractPayPlanCollection payPlans =iContractPayPlan.getContractPayPlanCollection(view);
-					for (int i = 0; i < payPlans.size(); i++) {
-						ContractPayPlanInfo info = payPlans.get(i);
-						
-						iContractPayPlan.update(new ObjectUuidPK(info.getId().toString()),info);
-					}
-				/*****更新主合同的合同执行情况表合同成本金额 -by neo****/
-				ContractExecInfosFactory.getLocalInstance(ctx).
-						updateSuppliedContract("audit", mainId);
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -716,9 +575,9 @@ public class ContractBillControllerBean extends AbstractContractBillControllerBe
 			//如果是非独立结算的补充合同,金额累加到
 			String sql = " select entry.fcontent as amount,parent.fsplitState splitState,parent.fid mainId,parent.FAmount mainAmount,parent.ForiginalAmount oriAmount 			\r\n" +
 					",parent.FexRate mainRate,parent.FgrtRate grtRate,parent.FGrtAmount grtAmount,parent.FStampTaxRate stampRate,parent.FStampTaxAmt stampAmt    \r\n"+
-					" ,parent.FHasSettled    from T_CON_ContractbillEntry entry 																	\r\n" +
-					"inner join T_CON_Contractbill con on con.fid=entry.fparentid  and con.fisAmtWithoutCost=1 and con.fcontractPropert='SUPPLY' 	\r\n" +
-					"inner join T_Con_contractBill parent on parent.fnumber = con.fmainContractNumber 	and parent.fcurprojectid=con.fcurprojectid					\r\n" +
+					" ,parent.FHasSettled    from  ct_con_contractbillentry entry 																	\r\n" +
+					"inner join  ct_con_contractbill con on con.fid=entry.fparentid  and con.fisAmtWithoutCost=1 and con.fcontractPropert='SUPPLY' 	\r\n" +
+					"inner join  ct_con_contractbill parent on parent.fnumber = con.fmainContractNumber 	and parent.fcurprojectid=con.fcurprojectid					\r\n" +
 					"where   con.fid=? 	and  entry.FRowkey='am' 	 																							\r\n";
 			IRowSet rs = DbUtil.executeQuery(ctx,sql,new Object[]{billId.toString()});
 			try {
@@ -752,8 +611,8 @@ public class ContractBillControllerBean extends AbstractContractBillControllerBe
 					//主合同印花税金额
 					BigDecimal stampAmt = rs.getBigDecimal("stampAmt");
 					
-					String updateSql = "update T_CON_Contractbill set ForiginalAmount=?, FAmount=?,FGrtAmount=?,FStampTaxAmt=? where Fid=?";
-//					String updateSql = "update T_CON_Contractbill set FAmount=?,FlocalAmount=? where Fid=?";
+					String updateSql = "update  ct_con_contractbill set ForiginalAmount=?, FAmount=?,FGrtAmount=?,FStampTaxAmt=? where Fid=?";
+//					String updateSql = "update  ct_con_contractbill set FAmount=?,FlocalAmount=? where Fid=?";
 					//DbUtil.execute(ctx,updateSql,new Object[]{mainAmount.subtract(supAmount),localAmount.subtract(supAmount),mainId});
 					
 					//R101227-311合同反审批时报错， 先进行空指针处理
@@ -762,18 +621,7 @@ public class ContractBillControllerBean extends AbstractContractBillControllerBe
 						supAmount = FDCConstants.ZERO;
 					}
 			    	BigDecimal revAmount = supAmount.multiply(mainRate);
-			    	//如果主合同已拆分金额大于其自身金额 则补充合同不能反审批
-			    	String splitSql = "select famount from T_CON_ContractCostSplit where fcontractBillId=?";
-			    	IRowSet ir = DbUtil.executeQuery(ctx,splitSql,new Object[]{mainId.toString()});
-			    	if(ir!=null && ir.next()){
-			    		BigDecimal splitAmount = ir.getBigDecimal("famount");
-			    		if (splitAmount == null) {
-			    			splitAmount = FDCHelper.ZERO;
-			    		}
-			    		if(splitAmount.compareTo(mainAmount.subtract(revAmount))==1){
-			    			throw new ContractException(ContractException.HASSPLIT);
-			    		}
-			    	}
+			    	
 					//如果付款申请单的累计申请金额已经大于revAmount
 			    	if(mainAmount==null){
 			    		mainAmount = FDCConstants.ZERO;
@@ -803,105 +651,6 @@ public class ContractBillControllerBean extends AbstractContractBillControllerBe
 					FilterInfo filterInfo = new FilterInfo();
 					viewInfo.setFilter(filterInfo);
 					filterInfo.getFilterItems().add(new FilterItemInfo("contractBill.id",mainId));
-					
-					//R110228-280：录入非单独结算的补充合同之后主合同显示为全部拆分(之前没有考虑合同不进入动态成本的情况)
-					ContractBillInfo contractbill = ContractBillFactory.getLocalInstance(ctx).getContractBillInfo(new ObjectUuidPK(mainId));
-					if (contractbill.isIsCoseSplit()) {
-						
-						//成本类：非自动按比例拆分时部分拆分，否则自动拆分并且状态为全部拆分 by hpw 2010-06-25
-						ContractCostSplitCollection coll = ContractCostSplitFactory
-						.getLocalInstance(ctx).getContractCostSplitCollection(viewInfo);
-						boolean isSplitBaseOnProp = false;
-						if (coll != null && coll.size() > 0) {
-							ContractCostSplitInfo info = coll.get(0);
-							if (info != null && info.getContractBill() != null && info.getContractBill().isIsCoseSplit() && info.getCurProject() != null && info.getCurProject().getCompany() != null
-									&& info.getCurProject().getCompany().getId() != null) {
-								isSplitBaseOnProp = FDCUtils.getDefaultFDCParamByKey(ctx, info.getCurProject().getCompany().getId().toString(), FDCConstants.FDC_PARAM_SPLITBASEONPROP);
-							}
-						}
-						FDCSQLBuilder builder=new FDCSQLBuilder(ctx);
-						for(int j=0;j < coll.size();j++){
-							ContractCostSplitInfo splitInfo = coll.get(j);
-							if(splitInfo!=null){
-								if(!isSplitBaseOnProp){
-									//如果主合同原金额等于主合同已拆分金额 则变更主合同拆分状态为完全拆分
-									BigDecimal splitAmount = splitInfo.getBigDecimal("amount");
-									if (splitAmount == null) {
-										splitAmount = FDCHelper.ZERO;
-									}
-									if((mainAmount.subtract(revAmount)).compareTo(splitAmount)==0 
-											&& splitState.equals(CostSplitStateEnum.PARTSPLIT_VALUE)){
-										builder.appendSql("update T_CON_ContractBill set fsplitState=? where fid=?");
-										builder.addParam(CostSplitStateEnum.ALLSPLIT_VALUE);
-										builder.addParam(mainId.toString());
-										builder.getSql();
-										builder.execute();
-										//								DbUtil.execute(ctx,updateState1,new Object[]{CostSplitStateEnum.PARTSPLIT_VALUE,mainId.toString()});
-										//								FDCSQLBuilder builder2=new FDCSQLBuilder(ctx);
-										builder.clear();
-										builder.appendSql("update T_CON_ContractCostSplit set fsplitState=? where fcontractbillid=?");
-										builder.addParam(CostSplitStateEnum.ALLSPLIT_VALUE);
-										builder.addParam(mainId.toString());
-										builder.execute();
-										builder.clear();
-									}
-								}
-							}
-						}
-						
-						if(isSplitBaseOnProp){
-							ContractCostSplitFactory.getLocalInstance(ctx).autoSplit4(BOSUuid.read(mainId));
-						}
-					} else {
-						
-						//非成本类：更新状态为部分拆分
-						ConNoCostSplitCollection col = ConNoCostSplitFactory.getLocalInstance(ctx).getConNoCostSplitCollection(viewInfo);
-						FDCSQLBuilder builder=new FDCSQLBuilder(ctx);
-						for(int i=0;i < col.size();i++){
-							ConNoCostSplitInfo info = col.get(i);
-							if(info!=null){
-								//如果主合同原金额等于主合同已拆分金额 则变更主合同拆分状态为完全拆分
-								BigDecimal splitAmount = info.getBigDecimal("amount");
-								if (splitAmount == null) {
-									splitAmount = FDCHelper.ZERO;
-								}
-								if((mainAmount.add(revAmount)).compareTo(splitAmount)==0
-										&& splitState.equals(CostSplitStateEnum.PARTSPLIT_VALUE)){
-									builder.appendSql("update T_CON_ContractBill set fsplitState=? where fid=?");
-									builder.addParam(CostSplitStateEnum.ALLSPLIT_VALUE);
-									builder.addParam(mainId.toString());
-									builder.getSql();
-									builder.execute();
-									builder.clear();
-									builder.appendSql("update T_CON_ConNoCostSplit set fsplitState=? where fcontractbillid=?");
-									builder.addParam(CostSplitStateEnum.ALLSPLIT_VALUE);
-									builder.addParam(mainId.toString());
-									builder.execute();
-									builder.clear();
-								}
-							}
-						}
-					}
-					
-			    	//更新合同付款计划    	
-			    	revAmount = revAmount.add(FDCUtils.getContractLastPrice (ctx,mainId,false));
-			    	
-					EntityViewInfo view = new EntityViewInfo();
-					view.getSelector().add(new SelectorItemInfo("payProportion"));
-					FilterInfo filter = new FilterInfo();
-					view.setFilter(filter);
-					filter.getFilterItems().add(new FilterItemInfo("contractId.id", mainId));
-					
-					IContractPayPlan iContractPayPlan =  ContractPayPlanFactory.getLocalInstance(ctx);
-					ContractPayPlanCollection payPlans =iContractPayPlan.getContractPayPlanCollection(view);
-					for (int i = 0; i < payPlans.size(); i++) {
-						ContractPayPlanInfo info = payPlans.get(i);
-						
-						iContractPayPlan.update(new ObjectUuidPK(info.getId().toString()),info);
-					}
-				/*****更新主合同的合同执行情况表合同成本金额 -by neo****/
-				ContractExecInfosFactory.getLocalInstance(ctx).
-						updateSuppliedContract("audit", mainId);
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -915,9 +664,9 @@ public class ContractBillControllerBean extends AbstractContractBillControllerBe
 		FDCSQLBuilder builder = new FDCSQLBuilder(ctx);
 		IRowSet rowSet = null;
 		builder
-				.appendSql(" select con.famount amount from t_con_contractbillentry entry inner join t_con_contractbill con on con.fid = entry.fparentid   and con.fisAmtWithoutCost=1 and");
+				.appendSql(" select con.famount amount from  ct_con_contractbillentry entry inner join  ct_con_contractbill con on con.fid = entry.fparentid   and con.fisAmtWithoutCost=1 and");
 		builder
-				.appendSql(" con.fcontractPropert='SUPPLY'  inner join T_Con_contractBill parent on parent.fnumber = con.fmainContractNumber  and  parent.fcurprojectid=con.fcurprojectid   ");
+				.appendSql(" con.fcontractPropert='SUPPLY'  inner join  ct_con_contractbill parent on parent.fnumber = con.fmainContractNumber  and  parent.fcurprojectid=con.fcurprojectid   ");
 		builder.appendSql(" where  entry.FRowkey='am' and ");
 		builder.appendParam(" con.fid", billId.toString());
 		rowSet = builder.executeQuery();
@@ -946,28 +695,7 @@ public class ContractBillControllerBean extends AbstractContractBillControllerBe
 		supplyAdd(ctx, billId,true);
 	
 		//同步到执行状态：已签署
-		ContractStateHelper.synToExecState(ctx, billId.toString(), ContractExecStateEnum.SIGNED);
-		
-		//自动审批拆分单(完全拆分状态的)
-		//成本拆分
-		CostSplitBillAutoAuditor.autoAudit(ctx, new ObjectUuidPK(billId), "T_CON_ContractCostSplit", "FContractBillID");
-		//财务拆分
-		CostSplitBillAutoAuditor.autoAudit(ctx, new ObjectUuidPK(billId), "T_CON_ConNoCostSplit", "FContractBillID");
-		//审批时根据合同数据增加合同执行表相关信息
-		/******判断：当且仅当合同性质为补充合同且合同为不计成本金额时不记录合同执行情况表******/
-		FilterInfo filter = new FilterInfo();
-		filter.getFilterItems().add(new FilterItemInfo("isAmtWithoutCost",Boolean.TRUE));
-		filter.getFilterItems().add(new FilterItemInfo("contractPropert",ContractPropertyEnum.SUPPLY_VALUE));
-		filter.getFilterItems().add(new FilterItemInfo("id",billId));
-		if(!ContractBillFactory.getLocalInstance(ctx).
-				exists(filter)){
-			ContractExecInfosFactory.getLocalInstance(ctx)
-				.updateContract(ContractExecInfosInfo.EXECINFO_AUDIT,billId.toString());
-		}
-		
-		updatePeriod(ctx, billId);
-		
-		
+//		ContractStateHelper.synToExecState(ctx, billId.toString(), ContractExecStateEnum.SIGNED);
 		
 		//合同审批同时合同对应的预估合同变更单也相应的审批 20120222 wangxin 
 	
@@ -1070,8 +798,8 @@ public class ContractBillControllerBean extends AbstractContractBillControllerBe
 		String billIdStr = billId.toString();
 		FDCSQLBuilder builder = new FDCSQLBuilder(ctx);
 		IRowSet rowSet = null;
-		builder.appendSql(" select parent.fid conId,entry.fcontent as amount from t_con_contractbillentry entry inner join t_con_contractbill con on con.fid = entry.fparentid   and con.fisAmtWithoutCost=1 and");
-		builder.appendSql(" con.fcontractPropert='SUPPLY'  inner join T_Con_contractBill parent on parent.fnumber = con.fmainContractNumber  and  parent.fcurprojectid=con.fcurprojectid   ");
+		builder.appendSql(" select parent.fid conId,entry.fcontent as amount from  ct_con_contractbillentry entry inner join  ct_con_contractbill con on con.fid = entry.fparentid   and con.fisAmtWithoutCost=1 and");
+		builder.appendSql(" con.fcontractPropert='SUPPLY'  inner join  ct_con_contractbill parent on parent.fnumber = con.fmainContractNumber  and  parent.fcurprojectid=con.fcurprojectid   ");
 		builder.appendSql(" where  entry.FRowkey='am' and ");
 		builder.appendParam(" con.fid", billIdStr);
 		rowSet = builder.executeQuery();
@@ -1086,156 +814,156 @@ public class ContractBillControllerBean extends AbstractContractBillControllerBe
 		ContractBillInfo supplierContractBillInfo= this.getContractBillInfo(ctx, new ObjectUuidPK(billId), getSic());
 //		if (contractBillInfo.getProgrammingContract() == null)
 //			return;
-		IProgrammingContract service = ProgrammingContractFactory.getLocalInstance(ctx);
-		ProgrammingContractInfo pcInfo = null;
-		if (pcInfo == null)
-			return;
-		// 规划余额
-		BigDecimal balanceAmt = pcInfo.getBalance();
-		// 控制余额
-		BigDecimal controlBalanceAmt = pcInfo.getControlBalance();
-		// 合同签约金额
-		BigDecimal signAmount = contractBillInfo.getAmount();
-		// 框架合约签约金额
-		BigDecimal signUpAmount = pcInfo.getSignUpAmount();
-		// 差额
-		SelectorItemCollection sict = new SelectorItemCollection();
-		sict.add("balance");
-		sict.add("controlBalance");
-		sict.add("signUpAmount");
-		sict.add("changeAmount");
-		sict.add("settleAmount");
-		sict.add("srcId");
-		sict.add("estimateAmount");
-		sict.add("budgetAmount");
-		sict.add("billid");
-		sict.add("unAuditContractEA");
-		if (flag) {
-			if (relateAmt == null) {
-				pcInfo.setBalance(FDCHelper.subtract(balanceAmt, signAmount));
-				pcInfo.setControlBalance(FDCHelper.subtract(controlBalanceAmt, signAmount));
-				pcInfo.setSignUpAmount(FDCHelper.add(signUpAmount, signAmount));
-				// 维护差额
-				// otherBalance = FDCHelper.subtract(balanceAmt,
-				// FDCHelper.subtract(balanceAmt, signAmount));
-				// otherControlBalance = FDCHelper.subtract(controlBalanceAmt,
-				// FDCHelper.subtract(controlBalanceAmt, signAmount));
-//				otherSignUpAmount = FDCHelper.subtract(FDCHelper.add(signUpAmount, signAmount), signUpAmount);
-			} else {
-				pcInfo.setBalance(FDCHelper.subtract(balanceAmt, relateAmt));
-				pcInfo.setControlBalance(FDCHelper.subtract(controlBalanceAmt, relateAmt));
-				pcInfo.setSignUpAmount(FDCHelper.add(signUpAmount, relateAmt));
-				// 维护差额
-				// otherBalance = FDCHelper.subtract(balanceAmt,
-				// FDCHelper.subtract(balanceAmt, relateAmt));
-				// otherControlBalance = FDCHelper.subtract(controlBalanceAmt,
-				// FDCHelper.subtract(controlBalanceAmt, relateAmt));
-//				otherSignUpAmount = FDCHelper.subtract(FDCHelper.add(signUpAmount, relateAmt), signUpAmount);
-			}
-			if(ContractPropertyEnum.SUPPLY.equals(supplierContractBillInfo.getContractPropert())){
-				//流程里面报错放到前台？
-//				if(supAmount.compareTo(pcInfo.getEstimateAmount())>0){
-//					throw new EASBizException(new NumericExceptionSubItem("100","补充合同原币金额大于主合同合约规划预估金额！"));
-//				}
-				//主要是补充合同，把合约规划的预估金额置为零，
-//				BigDecimal  estimateAmount = pcInfo.getEstimateAmount();
-//				pcInfo.setUnAuditContractEA(supAmount);
-				pcInfo.setEstimateAmount(FDCHelper.subtract(pcInfo.getEstimateAmount(), supAmount));
-				pcInfo.setBalance(FDCHelper.add(pcInfo.getBalance(), supAmount));
-				
-			}else{
-				pcInfo.setBudgetAmount(FDCHelper.ZERO);
-				pcInfo.setBillId(billIdStr);
-			}
-			
-			service.updatePartial(pcInfo, sict);
-			
-//			// 更新其他的合约规划版本金额
-//			String progId = pcInfo.getId().toString();
-//			while (progId != null) {
-//				String nextVersionProgId = getNextVersionProg(ctx, progId, builder, rowSet);
-//				if (nextVersionProgId != null) {
-//					pcInfo = ProgrammingContractFactory.getLocalInstance(ctx).getProgrammingContractInfo(new ObjectUuidPK(nextVersionProgId), sict);
-//					pcInfo.setBalance(FDCHelper.subtract(pcInfo.getBalance(), otherSignUpAmount));
-//					pcInfo.setControlBalance(FDCHelper.subtract(pcInfo.getControlBalance(), otherSignUpAmount));
-//					pcInfo.setSignUpAmount(FDCHelper.add(pcInfo.getSignUpAmount(), otherSignUpAmount));
-//					service.updatePartial(pcInfo, sict);
-//					progId = pcInfo.getId().toString();
-//				} else {
-//					progId = null;
-//				}
+//		IProgrammingContract service = ProgrammingContractFactory.getLocalInstance(ctx);
+//		ProgrammingContractInfo pcInfo = null;
+//		if (pcInfo == null)
+//			return;
+//		// 规划余额
+//		BigDecimal balanceAmt = pcInfo.getBalance();
+//		// 控制余额
+//		BigDecimal controlBalanceAmt = pcInfo.getControlBalance();
+//		// 合同签约金额
+//		BigDecimal signAmount = contractBillInfo.getAmount();
+//		// 框架合约签约金额
+//		BigDecimal signUpAmount = pcInfo.getSignUpAmount();
+//		// 差额
+//		SelectorItemCollection sict = new SelectorItemCollection();
+//		sict.add("balance");
+//		sict.add("controlBalance");
+//		sict.add("signUpAmount");
+//		sict.add("changeAmount");
+//		sict.add("settleAmount");
+//		sict.add("srcId");
+//		sict.add("estimateAmount");
+//		sict.add("budgetAmount");
+//		sict.add("billid");
+//		sict.add("unAuditContractEA");
+//		if (flag) {
+//			if (relateAmt == null) {
+//				pcInfo.setBalance(FDCHelper.subtract(balanceAmt, signAmount));
+//				pcInfo.setControlBalance(FDCHelper.subtract(controlBalanceAmt, signAmount));
+//				pcInfo.setSignUpAmount(FDCHelper.add(signUpAmount, signAmount));
+//				// 维护差额
+//				// otherBalance = FDCHelper.subtract(balanceAmt,
+//				// FDCHelper.subtract(balanceAmt, signAmount));
+//				// otherControlBalance = FDCHelper.subtract(controlBalanceAmt,
+//				// FDCHelper.subtract(controlBalanceAmt, signAmount));
+////				otherSignUpAmount = FDCHelper.subtract(FDCHelper.add(signUpAmount, signAmount), signUpAmount);
+//			} else {
+//				pcInfo.setBalance(FDCHelper.subtract(balanceAmt, relateAmt));
+//				pcInfo.setControlBalance(FDCHelper.subtract(controlBalanceAmt, relateAmt));
+//				pcInfo.setSignUpAmount(FDCHelper.add(signUpAmount, relateAmt));
+//				// 维护差额
+//				// otherBalance = FDCHelper.subtract(balanceAmt,
+//				// FDCHelper.subtract(balanceAmt, relateAmt));
+//				// otherControlBalance = FDCHelper.subtract(controlBalanceAmt,
+//				// FDCHelper.subtract(controlBalanceAmt, relateAmt));
+////				otherSignUpAmount = FDCHelper.subtract(FDCHelper.add(signUpAmount, relateAmt), signUpAmount);
 //			}
-		} else {
-			if (relateAmt == null) {
-				pcInfo.setBalance(FDCHelper.add(balanceAmt, signAmount));
-				pcInfo.setControlBalance(FDCHelper.add(controlBalanceAmt, signAmount));
-				pcInfo.setSignUpAmount(FDCHelper.subtract(signUpAmount, signAmount));
-				// 维护差额
-				// otherBalance = FDCHelper.subtract(balanceAmt,
-				// FDCHelper.add(balanceAmt, signAmount));
-				// otherControlBalance = FDCHelper.subtract(controlBalanceAmt,
-				// FDCHelper.add(controlBalanceAmt, signAmount));
-//				otherSignUpAmount = FDCHelper.subtract(FDCHelper.subtract(signUpAmount, signAmount), signUpAmount);
-			} else {
-				pcInfo.setBalance(FDCHelper.add(balanceAmt, relateAmt));
-				pcInfo.setControlBalance(FDCHelper.add(controlBalanceAmt, relateAmt));
-				pcInfo.setSignUpAmount(FDCHelper.subtract(signUpAmount, relateAmt));
-				// 维护差额
-				// otherBalance = FDCHelper.subtract(balanceAmt,
-				// FDCHelper.add(balanceAmt, relateAmt));
-				// otherControlBalance = FDCHelper.subtract(controlBalanceAmt,
-				// FDCHelper.add(controlBalanceAmt, relateAmt));
-//				otherSignUpAmount = FDCHelper.subtract(FDCHelper.subtract(signUpAmount, relateAmt), signUpAmount);
-			}
-			if(ContractPropertyEnum.SUPPLY.equals(supplierContractBillInfo.getContractPropert())){
-//				BigDecimal  estimateAmount = FDCHelper.ZERO;
-//				if(pcInfo.getUnAuditContractEA()!=null){
-//					estimateAmount=pcInfo.getUnAuditContractEA();
-//				}
-				//主要是补充合同，把合约规划的预估金额置为零，
-//				if(!(pcInfo.getEstimateAmount()!=null&&pcInfo.getEstimateAmount().compareTo(FDCHelper.ZERO)>0)){
-					pcInfo.setEstimateAmount(FDCHelper.add(pcInfo.getEstimateAmount(), supAmount));
-//				}
-				pcInfo.setBalance(FDCHelper.subtract(pcInfo.getBalance(), supAmount));
-				
-				//对应的预估变动单变为是否最新为false
-//				FilterInfo filter = new FilterInfo();
-//				filter.getFilterItems().add(new FilterItemInfo("programmingContract.id",pcInfo.getId().toString()));
-//				filter.getFilterItems().add(new FilterItemInfo("isRespite",Boolean.TRUE));
-//				EntityViewInfo view = new EntityViewInfo();
-//				view.setFilter(filter);
-//				ContractEstimateChangeBillCollection  coll = ContractEstimateChangeBillFactory.getLocalInstance(ctx).getContractEstimateChangeBillCollection(view);
-//				if(coll.size()>0){
-//					ContractEstimateChangeBillInfo contInfo = coll.get(0);
-//					contInfo.setIsLastest(true);
-//					contInfo.setIsRespite(false);
-//					SelectorItemCollection sel = new SelectorItemCollection();
-//					sel.add("isLastest");
-//					sel.add("isRespite");
-//					ContractEstimateChangeBillFactory.getLocalInstance(ctx).updatePartial(contInfo, sel);
-//				}
-			}else{
-				pcInfo.setBudgetAmount(pcInfo.getAmount());
-				pcInfo.setBillId(null);
-			}
-			service.updatePartial(pcInfo, sict);
-			
-//			// 更新其他的合约规划版本金额
-//			String progId = pcInfo.getId().toString();
-//			while (progId != null) {
-//				String nextVersionProgId = getNextVersionProg(ctx, progId, builder, rowSet);
-//				if (nextVersionProgId != null) {
-//					pcInfo = ProgrammingContractFactory.getLocalInstance(ctx).getProgrammingContractInfo(new ObjectUuidPK(nextVersionProgId), sict);
-//					pcInfo.setBalance(FDCHelper.add(pcInfo.getBalance(), otherSignUpAmount));
-//					pcInfo.setControlBalance(FDCHelper.add(pcInfo.getControlBalance(), otherSignUpAmount));
-//					pcInfo.setSignUpAmount(FDCHelper.subtract(pcInfo.getSignUpAmount(), otherSignUpAmount));
-//					service.updatePartial(pcInfo, sict);
-//					progId = pcInfo.getId().toString();
-//				} else {
-//					progId = null;
-//				}
+//			if(ContractPropertyEnum.SUPPLY.equals(supplierContractBillInfo.getContractPropert())){
+//				//流程里面报错放到前台？
+////				if(supAmount.compareTo(pcInfo.getEstimateAmount())>0){
+////					throw new EASBizException(new NumericExceptionSubItem("100","补充合同原币金额大于主合同合约规划预估金额！"));
+////				}
+//				//主要是补充合同，把合约规划的预估金额置为零，
+////				BigDecimal  estimateAmount = pcInfo.getEstimateAmount();
+////				pcInfo.setUnAuditContractEA(supAmount);
+//				pcInfo.setEstimateAmount(FDCHelper.subtract(pcInfo.getEstimateAmount(), supAmount));
+//				pcInfo.setBalance(FDCHelper.add(pcInfo.getBalance(), supAmount));
+//				
+//			}else{
+//				pcInfo.setBudgetAmount(FDCHelper.ZERO);
+//				pcInfo.setBillId(billIdStr);
 //			}
-		}
+//			
+//			service.updatePartial(pcInfo, sict);
+//			
+////			// 更新其他的合约规划版本金额
+////			String progId = pcInfo.getId().toString();
+////			while (progId != null) {
+////				String nextVersionProgId = getNextVersionProg(ctx, progId, builder, rowSet);
+////				if (nextVersionProgId != null) {
+////					pcInfo = ProgrammingContractFactory.getLocalInstance(ctx).getProgrammingContractInfo(new ObjectUuidPK(nextVersionProgId), sict);
+////					pcInfo.setBalance(FDCHelper.subtract(pcInfo.getBalance(), otherSignUpAmount));
+////					pcInfo.setControlBalance(FDCHelper.subtract(pcInfo.getControlBalance(), otherSignUpAmount));
+////					pcInfo.setSignUpAmount(FDCHelper.add(pcInfo.getSignUpAmount(), otherSignUpAmount));
+////					service.updatePartial(pcInfo, sict);
+////					progId = pcInfo.getId().toString();
+////				} else {
+////					progId = null;
+////				}
+////			}
+//		} else {
+//			if (relateAmt == null) {
+//				pcInfo.setBalance(FDCHelper.add(balanceAmt, signAmount));
+//				pcInfo.setControlBalance(FDCHelper.add(controlBalanceAmt, signAmount));
+//				pcInfo.setSignUpAmount(FDCHelper.subtract(signUpAmount, signAmount));
+//				// 维护差额
+//				// otherBalance = FDCHelper.subtract(balanceAmt,
+//				// FDCHelper.add(balanceAmt, signAmount));
+//				// otherControlBalance = FDCHelper.subtract(controlBalanceAmt,
+//				// FDCHelper.add(controlBalanceAmt, signAmount));
+////				otherSignUpAmount = FDCHelper.subtract(FDCHelper.subtract(signUpAmount, signAmount), signUpAmount);
+//			} else {
+//				pcInfo.setBalance(FDCHelper.add(balanceAmt, relateAmt));
+//				pcInfo.setControlBalance(FDCHelper.add(controlBalanceAmt, relateAmt));
+//				pcInfo.setSignUpAmount(FDCHelper.subtract(signUpAmount, relateAmt));
+//				// 维护差额
+//				// otherBalance = FDCHelper.subtract(balanceAmt,
+//				// FDCHelper.add(balanceAmt, relateAmt));
+//				// otherControlBalance = FDCHelper.subtract(controlBalanceAmt,
+//				// FDCHelper.add(controlBalanceAmt, relateAmt));
+////				otherSignUpAmount = FDCHelper.subtract(FDCHelper.subtract(signUpAmount, relateAmt), signUpAmount);
+//			}
+//			if(ContractPropertyEnum.SUPPLY.equals(supplierContractBillInfo.getContractPropert())){
+////				BigDecimal  estimateAmount = FDCHelper.ZERO;
+////				if(pcInfo.getUnAuditContractEA()!=null){
+////					estimateAmount=pcInfo.getUnAuditContractEA();
+////				}
+//				//主要是补充合同，把合约规划的预估金额置为零，
+////				if(!(pcInfo.getEstimateAmount()!=null&&pcInfo.getEstimateAmount().compareTo(FDCHelper.ZERO)>0)){
+//					pcInfo.setEstimateAmount(FDCHelper.add(pcInfo.getEstimateAmount(), supAmount));
+////				}
+//				pcInfo.setBalance(FDCHelper.subtract(pcInfo.getBalance(), supAmount));
+//				
+//				//对应的预估变动单变为是否最新为false
+////				FilterInfo filter = new FilterInfo();
+////				filter.getFilterItems().add(new FilterItemInfo("programmingContract.id",pcInfo.getId().toString()));
+////				filter.getFilterItems().add(new FilterItemInfo("isRespite",Boolean.TRUE));
+////				EntityViewInfo view = new EntityViewInfo();
+////				view.setFilter(filter);
+////				ContractEstimateChangeBillCollection  coll = ContractEstimateChangeBillFactory.getLocalInstance(ctx).getContractEstimateChangeBillCollection(view);
+////				if(coll.size()>0){
+////					ContractEstimateChangeBillInfo contInfo = coll.get(0);
+////					contInfo.setIsLastest(true);
+////					contInfo.setIsRespite(false);
+////					SelectorItemCollection sel = new SelectorItemCollection();
+////					sel.add("isLastest");
+////					sel.add("isRespite");
+////					ContractEstimateChangeBillFactory.getLocalInstance(ctx).updatePartial(contInfo, sel);
+////				}
+//			}else{
+//				pcInfo.setBudgetAmount(pcInfo.getAmount());
+//				pcInfo.setBillId(null);
+//			}
+//			service.updatePartial(pcInfo, sict);
+//			
+////			// 更新其他的合约规划版本金额
+////			String progId = pcInfo.getId().toString();
+////			while (progId != null) {
+////				String nextVersionProgId = getNextVersionProg(ctx, progId, builder, rowSet);
+////				if (nextVersionProgId != null) {
+////					pcInfo = ProgrammingContractFactory.getLocalInstance(ctx).getProgrammingContractInfo(new ObjectUuidPK(nextVersionProgId), sict);
+////					pcInfo.setBalance(FDCHelper.add(pcInfo.getBalance(), otherSignUpAmount));
+////					pcInfo.setControlBalance(FDCHelper.add(pcInfo.getControlBalance(), otherSignUpAmount));
+////					pcInfo.setSignUpAmount(FDCHelper.subtract(pcInfo.getSignUpAmount(), otherSignUpAmount));
+////					service.updatePartial(pcInfo, sict);
+////					progId = pcInfo.getId().toString();
+////				} else {
+////					progId = null;
+////				}
+////			}
+//		}
 	}
 
 	/**
@@ -1253,7 +981,7 @@ public class ContractBillControllerBean extends AbstractContractBillControllerBe
 		sql.append(" Select CON.FID CON, ISNULL(SUM(CAB.FAmount),0) AMOUNT  ");
 		sql.append(" from T_CON_ChangeAuditBill CAB ");
 		sql.append(" right join T_CON_ChangeSupplierEntry CSE ON CSE.FParentID = CAB.FID  ");
-		sql.append(" inner join T_CON_ContractBill CON ON  CSE.FContractBillID = CON.FID  ");
+		sql.append(" inner join  ct_con_contractbill CON ON  CSE.FContractBillID = CON.FID  ");
 		sql.append(" WHERE  1 = 1 AND  ");
 		sql.append(" CON.FID = '").append(billId.toString()).append("' AND	 ");
 		sql.append(" CON.FState IN ('4AUDITTED')  ");
@@ -1395,10 +1123,6 @@ public class ContractBillControllerBean extends AbstractContractBillControllerBe
 	}
 	protected void _unAudit(Context ctx, BOSUuid billId) throws BOSException, EASBizException {
 		FilterInfo filter = new FilterInfo();
-		filter.getFilterItems().add(new FilterItemInfo("contractBill.id", billId.toString()));
-		if(ContractPCSplitBillFactory.getLocalInstance(ctx).exists(filter)){
-			throw new EASBizException(new NumericExceptionSubItem("100","存在合约规划拆分，不能进行反审批操作！"));
-		}
 		checkBillForUnAudit(ctx, billId);
 		
 		filter = new FilterInfo();
@@ -1421,24 +1145,6 @@ public class ContractBillControllerBean extends AbstractContractBillControllerBe
 		}
 		//如果是非独立结算的补充合同，主合同金额减少
 		supplyAdd(ctx, billId,false);
-		//自动反审批拆分单
-		//成本拆分
-		CostSplitBillAutoAuditor.autoUnAudit(ctx, new ObjectUuidPK(billId), "T_CON_ContractCostSplit", "FContractBillID");
-		//财务拆分
-		CostSplitBillAutoAuditor.autoUnAudit(ctx, new ObjectUuidPK(billId), "T_CON_ConNoCostSplit", "FContractBillID");
-		
-		//自动删除本期月结数据
-		SelectorItemCollection selectors = new SelectorItemCollection();
-		selectors.add("period.id");
-
-		ContractBillInfo info = (ContractBillInfo)this.getValue(ctx,new ObjectUuidPK(billId),selectors);
-		if(info.getPeriod()!=null){
-			CostClosePeriodFacadeFactory.getLocalInstance(ctx).delete(info.getId().toString(),
-					info.getPeriod().getId().toString());
-		}
-		//反审批合同时删除合同执行表对应相关信息
-		ContractExecInfosFactory.getLocalInstance(ctx)
-			.updateContract(ContractExecInfosInfo.EXECINFO_UNAUDIT,billId.toString());
 		
 //		IContractEstimateChangeBill iFaced =  ContractEstimateChangeBillFactory.getLocalInstance(ctx);
 //		  
@@ -1540,28 +1246,28 @@ public class ContractBillControllerBean extends AbstractContractBillControllerBe
 				}	
 			}
 			//如果第一次归档 则把归档编号保存 进新加字段 FArchivedNumber
-			String updateNumberSql = "update T_CON_ContractBill set FArchivedNumber=?  where FID = ? ";
+			String updateNumberSql = "update  ct_con_contractbill set FArchivedNumber=?  where FID = ? ";
 			Object[] params = new Object[]{storeNumber,cbi.getId().toString()};
 			DbUtil.execute(ctx,updateNumberSql,params);
 		}	
 					
 		//更新合同归档状态和归档编码
-		String updateNumberSql = "update T_CON_ContractBill set FArchivingNumber=fnumber  where FID = ? ";
+		String updateNumberSql = "update  ct_con_contractbill set FArchivingNumber=fnumber  where FID = ? ";
 		Object[] params = new Object[]{cbi.getId().toString()};
 		DbUtil.execute(ctx,updateNumberSql,params);
 		
 		//更新合同归档状态和归档编码
-		String sql = "select fid from T_CON_ContractBill where FNumber = ? and FOrgUnitID = ? ";
+		String sql = "select fid from  ct_con_contractbill where FNumber = ? and FOrgUnitID = ? ";
 		 
 		params = new Object[]{storeNumber,cbi.getOrgUnit().getId().toString()};
 		RowSet rowset = DbUtil.executeQuery(ctx, sql, params);
 		 
 		boolean hasCodeType =  cbi.getCodeType()!=null;
 		if(hasCodeType){
-			sql = "update T_CON_ContractBill set  FIsArchived = 1 ,FNumber = ? ,FCodeTypeID=? where FID = ? ";
+			sql = "update  ct_con_contractbill set  FIsArchived = 1 ,FNumber = ? ,FCodeTypeID=? where FID = ? ";
 			params = new Object[]{storeNumber,cbi.getCodeType().getId().toString(),cbi.getId().toString()};
 		}else{
-			sql = "update T_CON_ContractBill set  FIsArchived = 1 ,FNumber = ? where FID = ? ";
+			sql = "update  ct_con_contractbill set  FIsArchived = 1 ,FNumber = ? where FID = ? ";
 			params = new Object[]{storeNumber,cbi.getId().toString()};
 		}
 			
@@ -1606,7 +1312,7 @@ public class ContractBillControllerBean extends AbstractContractBillControllerBe
         sic.add(new SelectorItemInfo("*"));
         sic.add(new SelectorItemInfo("codeType.number"));
         sic.add(new SelectorItemInfo("curProject.id"));
-        sic.add(new SelectorItemInfo("curProject.fullOrgUnit.id"));
+        sic.add(new SelectorItemInfo("curProject.company.id"));
         
 		//合同编码规则，必须合同编码作为应用属性
 		String bindingProperty = "codeType.number";
@@ -1728,7 +1434,8 @@ public class ContractBillControllerBean extends AbstractContractBillControllerBe
 				if(setNumber(ctx,info, cbi, orgId, bindingProperty, iCodingRuleManager))
 					return;
 			}
-			orgId = cbi.getCurProject().getCompany().getId().toString();
+			ProjectInfo curProjectInfo = ProjectFactory.getLocalInstance(ctx).getProjectInfo(new ObjectUuidPK(cbi.getCurProject().getId()));
+			orgId = curProjectInfo.getCompany().getId().toString();
 			/****
 			 * 财务组织，一级类型有对应的编码规则
 			 */
@@ -1777,27 +1484,26 @@ public class ContractBillControllerBean extends AbstractContractBillControllerBe
 		IObjectPK objectPK = super._addnew(ctx, model);
 		
 //		同步到合同基本资料，用于合同做核算项目
-		ContractBaseDataHelper.synToContractBaseData(ctx, false, objectPK.toString());
+//		ContractBaseDataHelper.synToContractBaseData(ctx, false, objectPK.toString());
 		
     	/**添加反写ContractBaseDataID的代码 -by neo**/
-		FDCSQLBuilder builder = new FDCSQLBuilder();
-		builder.appendSql(
-				"update t_con_contractbill set fcontractbasedataid =" +
-				"(select fid from t_CON_contractbasedata where fcontractid = t_con_contractbill.fid) " +
-				"where");
-		builder.appendParam("fid", objectPK.toString());
-		builder.executeUpdate(ctx);
+//		FDCSQLBuilder builder = new FDCSQLBuilder();
+//		builder.appendSql(
+//				"update ct_con_contractbill set fcontractbasedataid =" +
+//				"(select fid from t_CON_contractbasedata where fcontractid = t_con_contractbill.fid) " +
+//				"where");
+//		builder.appendParam("fid", objectPK.toString());
+//		builder.executeUpdate(ctx);
 		return objectPK;
 		/**添加反写ContractBaseDataID的代码**/
 	}
 
 	protected void _updatePartial(Context ctx, IObjectValue model, SelectorItemCollection selector) throws BOSException, EASBizException {
-		// TODO Auto-generated method stub
 		super._updatePartial(ctx, model, selector);
 		
 //		同步到合同基本资料，用于合同做核算项目
 		String id = ((FDCBillInfo)model).getId().toString();
-		ContractBaseDataHelper.synToContractBaseData(ctx, false, id);
+//		ContractBaseDataHelper.synToContractBaseData(ctx, false, id);
 
 	}
 	
@@ -1813,7 +1519,7 @@ public class ContractBillControllerBean extends AbstractContractBillControllerBe
 		sic.add("*");
 		sic.add("programmingContract.*");
 		builder.clear();
-		builder.appendSql("select fprogrammingContract from T_CON_CONTRACTBILL where 1=1 and ");
+		builder.appendSql("select fprogrammingContract from  ct_con_contractbill where 1=1 and ");
 		builder.appendParam("fid", pk.toString());
 		IRowSet rowSet = builder.executeQuery();
 		while (rowSet.next()) {
@@ -1865,7 +1571,7 @@ public class ContractBillControllerBean extends AbstractContractBillControllerBe
 		buildSQL.appendSql(" select count(1) count from T_INV_InviteProject ");
 		buildSQL.appendSql(" where FProgrammingContractId = '" + proContId + "' ");
 		buildSQL.appendSql(" union ");
-		buildSQL.appendSql(" select count(1) count from T_CON_ContractBill ");
+		buildSQL.appendSql(" select count(1) count from  ct_con_contractbill ");
 		buildSQL.appendSql(" where FProgrammingContract = '" + proContId + "' ");
 		int count = 0;
 		try {
@@ -2072,7 +1778,7 @@ public class ContractBillControllerBean extends AbstractContractBillControllerBe
 		}
 		
 		Map amountMap = new HashMap();
-		String sql = "select FContent from T_CON_ContractBillEntry where fparentid = ? and FRowkey = ?";
+		String sql = "select FContent from  ct_con_contractbillentry where fparentid = ? and FRowkey = ?";
 		Set set = idMap.keySet();
 		Iterator it = set.iterator();
 		while(it.hasNext()){
@@ -2109,7 +1815,7 @@ public class ContractBillControllerBean extends AbstractContractBillControllerBe
 	//初始化工程项目
 	protected void  initProject(Context ctx, Map paramMap,Map initMap) throws EASBizException, BOSException{
 		String projectId = (String) paramMap.get("projectId");
-		CurProjectInfo curProjectInfo = null;
+		ProjectInfo curProjectInfo = null;
 		if(projectId == null && paramMap.get("contractBillId")!=null) {
 			//合同单据
 			String contractBillId = (String)paramMap.get("contractBillId");
@@ -2166,7 +1872,7 @@ public class ContractBillControllerBean extends AbstractContractBillControllerBe
 			selector.add("CU.number");
 			selector.add("CU.code");
 			selector.add("isWholeAgeStage");
-			curProjectInfo = CurProjectFactory.getLocalInstance(ctx).getCurProjectInfo(new ObjectUuidPK(projectId),selector);
+			curProjectInfo = ProjectFactory.getLocalInstance(ctx).getProjectInfo(new ObjectUuidPK(projectId),selector);
 		}
 		initMap.put(FDCConstants.FDC_INIT_PROJECT,curProjectInfo);
 		
@@ -2175,7 +1881,7 @@ public class ContractBillControllerBean extends AbstractContractBillControllerBe
 
 	protected boolean _contractBillAntiStore(Context ctx, List idList) throws BOSException, EASBizException {
 	
-		String sql = "update T_CON_ContractBill set  FIsArchived = 0 where FID = ? ";
+		String sql = "update  ct_con_contractbill set  FIsArchived = 0 where FID = ? ";
 		Object[] params = null;
 		for (Iterator iter = idList.iterator(); iter.hasNext();) {
 			String id = (String) iter.next();
@@ -2224,31 +1930,8 @@ public class ContractBillControllerBean extends AbstractContractBillControllerBe
 			return false;
 		}
 		
-		//成本拆分
-		CostSplitBillAutoAuditor.autoDelete(ctx,pk, "T_CON_ContractCostSplit", "FContractBillID");
-		//财务拆分
-		CostSplitBillAutoAuditor.autoDelete(ctx,pk, "T_CON_ConNoCostSplit", "FContractBillID");
 		String contractid=pk.toString();
 		com.kingdee.eas.fdc.basedata.FDCSQLBuilder builder=new com.kingdee.eas.fdc.basedata.FDCSQLBuilder(ctx);
-/*		builder.appendSql("delete from T_Con_ContractCostSplitEntry where fparentid in (select fid from T_Con_ContractCostSplit where fcontractbillid=?)");
-		builder.addParam(contractid);
-		builder.execute();
-		builder.clear();
-		builder.appendSql("delete from T_Con_ContractCostSplit where fcontractbillid=?)");
-		builder.addParam(contractid);
-		builder.execute();
-		builder.clear();
-		builder.appendSql("delete from T_CON_ConNoCostSplitEntry where fparentid in (select fid from T_CON_ConNoCostSplit where fcontractbillid=?)");
-		builder.addParam(contractid);
-		builder.execute();
-		builder.clear();
-		builder.appendSql("delete from T_CON_ConNoCostSplit where fcontractbillid=?)");
-		builder.addParam(contractid);
-		builder.execute();
-		builder.clear();*/
-		builder.appendSql("update T_Con_ContractBill set fsplitstate='1NOSPLIT' where fid=?");
-		builder.addParam(contractid);
-		builder.execute();
 		return true;
 	}
 
@@ -2365,9 +2048,9 @@ public class ContractBillControllerBean extends AbstractContractBillControllerBe
 		
 		//如果存在补充合同，也作废
 		FDCSQLBuilder builder = new FDCSQLBuilder(ctx);
-	    builder.appendSql("select sup.fid from t_con_contractbill sup ");
-	    builder.appendSql("inner join t_con_contractbillentry supe on supe.fparentid=sup.fid ");
-	    builder.appendSql("inner join t_con_contractbill main on main.fid=supe.fcontent ");
+	    builder.appendSql("select sup.fid from  ct_con_contractbill sup ");
+	    builder.appendSql("inner join  ct_con_contractbillentry supe on supe.fparentid=sup.fid ");
+	    builder.appendSql("inner join  ct_con_contractbill main on main.fid=supe.fcontent ");
 	    builder.appendSql("where main.fid=?");
 	    builder.addParam(conId);
 	    IRowSet rs = builder.executeQuery();
@@ -2489,8 +2172,8 @@ public class ContractBillControllerBean extends AbstractContractBillControllerBe
 		try {
 			FDCSQLBuilder builder = new FDCSQLBuilder(ctx);
 			IRowSet rowSet = null;
-			builder.appendSql(" select entry.fcontent as amount,con.fid as id from t_con_contractbillentry entry inner join t_con_contractbill con on con.fid = entry.fparentid   and con.fisAmtWithoutCost=1 and");
-			builder.appendSql(" con.fcontractPropert='SUPPLY'  inner join T_Con_contractBill parent on parent.fnumber = con.fmainContractNumber  and  parent.fcurprojectid=con.fcurprojectid   ");
+			builder.appendSql(" select entry.fcontent as amount,con.fid as id from  ct_con_contractbillentry entry inner join  ct_con_contractbill con on con.fid = entry.fparentid   and con.fisAmtWithoutCost=1 and");
+			builder.appendSql(" con.fcontractPropert='SUPPLY'  inner join  ct_con_contractbill parent on parent.fnumber = con.fmainContractNumber  and  parent.fcurprojectid=con.fcurprojectid   ");
 			builder.appendSql(" where  entry.FRowkey='am' and con.fstate='4AUDITTED' and ");
 			builder.appendParam(" parent.fid", billId);
 			rowSet = builder.executeQuery();
@@ -2591,8 +2274,8 @@ public class ContractBillControllerBean extends AbstractContractBillControllerBe
 		try {
 			FDCSQLBuilder builder = new FDCSQLBuilder(ctx);
 			IRowSet rowSet = null;
-			builder.appendSql(" select entry.fcontent as amount,con.fid as id from t_con_contractbillentry entry inner join t_con_contractbill con on con.fid = entry.fparentid   and con.fisAmtWithoutCost=1 and");
-			builder.appendSql(" con.fcontractPropert='SUPPLY'  inner join T_Con_contractBill parent on parent.fnumber = con.fmainContractNumber  and  parent.fcurprojectid=con.fcurprojectid   ");
+			builder.appendSql(" select entry.fcontent as amount,con.fid as id from  ct_con_contractbillentry entry inner join  ct_con_contractbill con on con.fid = entry.fparentid   and con.fisAmtWithoutCost=1 and");
+			builder.appendSql(" con.fcontractPropert='SUPPLY'  inner join  ct_con_contractbill parent on parent.fnumber = con.fmainContractNumber  and  parent.fcurprojectid=con.fcurprojectid   ");
 			builder.appendSql(" where  entry.FRowkey='am' and con.fstate='4AUDITTED' and ");
 			builder.appendParam(" parent.fid", billId);
 			rowSet = builder.executeQuery();

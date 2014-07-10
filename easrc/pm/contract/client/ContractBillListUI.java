@@ -263,7 +263,6 @@ public class ContractBillListUI extends AbstractContractBillListUI {
 		super.buildContractTypeTree();
 	}
 	protected void updateButtonStatus() {
-		// TODO Auto-generated method stub
 		super.updateButtonStatus();
 		
 //		放开，在虚体可以增删改
@@ -437,13 +436,7 @@ protected void tblMain_tableSelectChanged(
 	}
 	
 	public void actionUnAudit_actionPerformed(ActionEvent e) throws Exception {
-		FDCClientHelper.checkAuditor(getSelectedIdValues(), "t_con_ContractBill");
-		
-		//R110603-0148:如果存在变更审批单，则不允许反审批
-	    if (ContractUtil.hasChangeAuditBill(null, getSelectedIdValues())) {
-    		FDCMsgBox.showWarning(this, EASResource.getString("com.kingdee.eas.fdc.contract.client.ContractResource", "hasChangeAuditBill"));
-			this.abort();
-    	}
+		FDCClientHelper.checkAuditor(getSelectedIdValues(), "ct_con_ContractBill");
     	
     	//R110603-0148:如果存在变更指令单，则不允许反审批
     	if (ContractUtil.hasContractChangeBill(null, getSelectedIdValues())) {
@@ -478,7 +471,7 @@ protected void tblMain_tableSelectChanged(
 		SelectorItemCollection sic = new SelectorItemCollection();
 		sic.add("*");
 		sic.add("programmingContract.*");
-		builder.appendSql("select fprogrammingContract from T_CON_CONTRACTBILL where 1=1 and ");
+		builder.appendSql("select fprogrammingContract from  ct_con_contractbill where 1=1 and ");
 		builder.appendParam("fid", selectedKeyValue);
 		IRowSet rowSet = builder.executeQuery();
 		while (rowSet.next()) {
@@ -599,9 +592,9 @@ protected void tblMain_tableSelectChanged(
 
 	protected void audit(List ids) throws Exception {
 		FDCSQLBuilder builder = new FDCSQLBuilder();
-	    builder.appendSql("select bill.fcontractpropert from t_con_contractbillentry entry ");
-	    builder.appendSql("inner join t_con_contractbill bill on  bill.fid=entry.fparentid ");
-	    builder.appendSql("inner join t_con_contractbill main on main.fid=entry.fcontent and main.fstate <> '4AUDITTED' ");
+	    builder.appendSql("select bill.fcontractpropert from ct_con_contractbillentry entry ");
+	    builder.appendSql("inner join ct_con_contractbill bill on  bill.fid=entry.fparentid ");
+	    builder.appendSql("inner join ct_con_contractbill main on main.fid=entry.fcontent and main.fstate <> '4AUDITTED' ");
 	    builder.appendSql("where ");
 	    builder.appendParam("bill.fid", FDCHelper.list2Set(ids).toArray());
 	    builder.appendSql(" and bill.fcontractpropert='SUPPLY' ");
@@ -626,9 +619,9 @@ protected void tblMain_tableSelectChanged(
 	 */
 	private int unLongContract(List ids) {
 		FDCSQLBuilder builder = new FDCSQLBuilder();
-		builder.appendSql(" select count(1) from t_con_contractbillentry entry");
-		builder.appendSql(" inner join t_con_contractbill con on con.fid = entry.fparentid   ");
-		builder.appendSql(" inner join t_con_contractbillentry entry2 on entry2.fparentid = entry.fparentid ");
+		builder.appendSql(" select count(1) from  ct_con_contractbillentry entry");
+		builder.appendSql(" inner join  ct_con_contractbill con on con.fid = entry.fparentid   ");
+		builder.appendSql(" inner join  ct_con_contractbillentry entry2 on entry2.fparentid = entry.fparentid ");
 		builder.appendSql("  where entry.frowkey = 'am' and");
 		builder.appendParam(" entry2.fcontent", FDCHelper.list2Set(ids).toArray());
 		try {
@@ -651,9 +644,9 @@ protected void tblMain_tableSelectChanged(
 		}
 		
 		FDCSQLBuilder builder = new FDCSQLBuilder();
-	    builder.appendSql("select * from t_con_contractbillentry entry ");
-	    builder.appendSql("inner join t_con_contractbill bill on bill.fid=entry.fparentid ");
-	    builder.appendSql("inner join t_con_contractbill main on  main.fid=entry.fcontent ");
+	    builder.appendSql("select * from  ct_con_contractbillentry entry ");
+	    builder.appendSql("inner join  ct_con_contractbill bill on bill.fid=entry.fparentid ");
+	    builder.appendSql("inner join  ct_con_contractbill main on  main.fid=entry.fcontent ");
 	    builder.appendSql("where");
 	    builder.appendParam("main.fid", FDCHelper.list2Set(ids).toArray());
 	    if(isSupply){
@@ -666,7 +659,7 @@ protected void tblMain_tableSelectChanged(
 		}
 	    
 	    builder.clear();
-	    builder.appendSql("select count(fid) from t_con_contractbill where ");
+	    builder.appendSql("select count(fid) from  ct_con_contractbill where ");
 	    builder.appendParam("FMainContractID", FDCHelper.list2Set(ids).toArray());
 	    rs = builder.executeQuery();
 	    if(rs!= null && rs.size() > 0 && rs.next() && rs.getInt(1) > 0){
@@ -860,7 +853,7 @@ protected void tblMain_tableSelectChanged(
  	        		if(creatorCtrl){
  	        			//制单人要等于当前用户才行
  	        			FDCSQLBuilder builder=new FDCSQLBuilder();
- 	        			builder.appendSql("select 1 from T_Con_ContractBill where fid=? and fcreatorId=?");
+ 	        			builder.appendSql("select 1 from  ct_con_contractbill where fid=? and fcreatorId=?");
  	        			builder.addParam(boID);
  	        			builder.addParam(userId);
  	        			if(!builder.isExist()){

@@ -517,51 +517,51 @@ public abstract class AbstractContractChangeSettleBillEditUI extends com.kingdee
         this.setLayout(new KDLayout());
         this.putClientProperty("OriginalBounds", new Rectangle(10, 10, 920, 461));
         contCreator.setBounds(new Rectangle(10, 418, 270, 19));
-        this.add(contCreator, new KDLayout.Constraints(10, 418, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        this.add(contCreator, new KDLayout.Constraints(10, 418, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contCreateTime.setBounds(new Rectangle(310, 418, 270, 19));
-        this.add(contCreateTime, new KDLayout.Constraints(310, 418, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        this.add(contCreateTime, new KDLayout.Constraints(310, 418, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contNumber.setBounds(new Rectangle(10, 10, 270, 19));
-        this.add(contNumber, new KDLayout.Constraints(10, 10, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        this.add(contNumber, new KDLayout.Constraints(10, 10, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contAuditor.setBounds(new Rectangle(610, 394, 270, 19));
-        this.add(contAuditor, new KDLayout.Constraints(610, 394, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        this.add(contAuditor, new KDLayout.Constraints(610, 394, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contOrgUnit.setBounds(new Rectangle(610, 34, 270, 19));
-        this.add(contOrgUnit, new KDLayout.Constraints(610, 34, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        this.add(contOrgUnit, new KDLayout.Constraints(610, 34, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contName.setBounds(new Rectangle(310, 10, 270, 19));
-        this.add(contName, new KDLayout.Constraints(310, 10, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        this.add(contName, new KDLayout.Constraints(310, 10, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contOriginalAmount.setBounds(new Rectangle(610, 58, 270, 19));
-        this.add(contOriginalAmount, new KDLayout.Constraints(610, 58, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        this.add(contOriginalAmount, new KDLayout.Constraints(610, 58, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contAmount.setBounds(new Rectangle(310, 58, 270, 19));
-        this.add(contAmount, new KDLayout.Constraints(310, 58, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        this.add(contAmount, new KDLayout.Constraints(310, 58, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contAuditTime.setBounds(new Rectangle(610, 418, 270, 19));
-        this.add(contAuditTime, new KDLayout.Constraints(610, 418, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        this.add(contAuditTime, new KDLayout.Constraints(610, 418, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         chkIsFinish.setBounds(new Rectangle(310, 82, 140, 19));
-        this.add(chkIsFinish, new KDLayout.Constraints(310, 82, 140, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        this.add(chkIsFinish, new KDLayout.Constraints(310, 82, 140, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contResponsibleStyle.setBounds(new Rectangle(10, 82, 270, 19));
-        this.add(contResponsibleStyle, new KDLayout.Constraints(10, 82, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        this.add(contResponsibleStyle, new KDLayout.Constraints(10, 82, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contLastAmount.setBounds(new Rectangle(10, 58, 270, 19));
-        this.add(contLastAmount, new KDLayout.Constraints(10, 58, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        this.add(contLastAmount, new KDLayout.Constraints(10, 58, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contReasonDescription.setBounds(new Rectangle(610, 106, 270, 66));
-        this.add(contReasonDescription, new KDLayout.Constraints(610, 106, 270, 66, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        this.add(contReasonDescription, new KDLayout.Constraints(610, 106, 270, 66, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contColseDescription.setBounds(new Rectangle(9, 106, 571, 73));
-        this.add(contColseDescription, new KDLayout.Constraints(9, 106, 571, 73, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        this.add(contColseDescription, new KDLayout.Constraints(9, 106, 571, 73, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contChangeReson.setBounds(new Rectangle(610, 82, 270, 19));
-        this.add(contChangeReson, new KDLayout.Constraints(610, 82, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        this.add(contChangeReson, new KDLayout.Constraints(610, 82, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contSupplier.setBounds(new Rectangle(10, 202, 270, 19));
-        this.add(contSupplier, new KDLayout.Constraints(10, 202, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        this.add(contSupplier, new KDLayout.Constraints(10, 202, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contContractBill.setBounds(new Rectangle(10, 34, 270, 19));
-        this.add(contContractBill, new KDLayout.Constraints(10, 34, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        this.add(contContractBill, new KDLayout.Constraints(10, 34, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contCurProject.setBounds(new Rectangle(610, 10, 270, 19));
-        this.add(contCurProject, new KDLayout.Constraints(610, 10, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        this.add(contCurProject, new KDLayout.Constraints(610, 10, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contReportAmount.setBounds(new Rectangle(10, 394, 270, 19));
-        this.add(contReportAmount, new KDLayout.Constraints(10, 394, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        this.add(contReportAmount, new KDLayout.Constraints(10, 394, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contAllowAmount.setBounds(new Rectangle(310, 394, 270, 19));
-        this.add(contAllowAmount, new KDLayout.Constraints(310, 394, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        this.add(contAllowAmount, new KDLayout.Constraints(310, 394, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         kDContainer1.setBounds(new Rectangle(10, 226, 890, 157));
-        this.add(kDContainer1, new KDLayout.Constraints(10, 226, 890, 157, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        this.add(kDContainer1, new KDLayout.Constraints(10, 226, 890, 157, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         contContractBillNumber.setBounds(new Rectangle(310, 34, 270, 19));
-        this.add(contContractBillNumber, new KDLayout.Constraints(310, 34, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        this.add(contContractBillNumber, new KDLayout.Constraints(310, 34, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contOrigDeductAmount.setBounds(new Rectangle(310, 202, 270, 19));
-        this.add(contOrigDeductAmount, new KDLayout.Constraints(310, 202, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        this.add(contOrigDeductAmount, new KDLayout.Constraints(310, 202, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         //contCreator
         contCreator.setBoundEditor(prmtCreator);
         //contCreateTime
@@ -810,8 +810,7 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
 		dataBinder.registerBinding("entrys.totalAmount", java.math.BigDecimal.class, this.kdtEntrys, "totalAmount.text");
 		dataBinder.registerBinding("entrys.remark", String.class, this.kdtEntrys, "remark.text");
 		dataBinder.registerBinding("entrys", com.kingdee.eas.port.pm.contract.ContractChangeSettleBillEntryInfo.class, this.kdtEntrys, "userObject");
-		dataBinder.registerBinding("contractBill.number", String.class, this.txtConBillNumber, "text");
-		dataBinder.registerBinding("conChangeBill.amount", java.math.BigDecimal.class, this.txtOrigDeductAmount, "value");		
+		dataBinder.registerBinding("contractBill.number", String.class, this.txtConBillNumber, "text");		
 	}
 	//Regiester UI State
 	private void registerUIState(){		
@@ -966,8 +965,7 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
 		getValidateHelper().registerBindProperty("entrys.totalAmount", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("entrys.remark", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("entrys", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("contractBill.number", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("conChangeBill.amount", ValidateHelper.ON_SAVE);    		
+		getValidateHelper().registerBindProperty("contractBill.number", ValidateHelper.ON_SAVE);    		
 	}
 
 
@@ -1084,7 +1082,6 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
 		}
 		else{
 		}
-        sic.add(new SelectorItemInfo("conChangeBill.amount"));
         return sic;
     }        
     	

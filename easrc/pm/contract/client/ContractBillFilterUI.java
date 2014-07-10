@@ -176,7 +176,6 @@ public class ContractBillFilterUI extends ContractFullFilterUI {
 				logger.error(e);
 			}
 		} else {
-			filter.getFilterItems().add(new FilterItemInfo("curProject.isEnabled", Boolean.TRUE));
 		}
 	}
 	
@@ -187,7 +186,6 @@ public class ContractBillFilterUI extends ContractFullFilterUI {
 				Set idSet = FDCClientUtils.genContractTypeIdSet(id);
 				filter.getFilterItems().add(new FilterItemInfo("contractType.id", idSet, CompareType.INCLUDE));
 			} else {
-				filter.getFilterItems().add(new FilterItemInfo("contractType.isEnabled", Boolean.TRUE));
 			}
 		} catch (Exception e) {
 			logger.error(e);

@@ -52,8 +52,6 @@ import com.kingdee.eas.fdc.basedata.client.FDCClientHelper;
 import com.kingdee.eas.fdc.basedata.client.FDCClientUtils;
 import com.kingdee.eas.fdc.basedata.client.FDCMsgBox;
 import com.kingdee.eas.fdc.basedata.client.FDCSplitClientHelper;
-import com.kingdee.eas.fdc.contract.ContractChangeBillCollection;
-import com.kingdee.eas.fdc.contract.ContractChangeBillFactory;
 import com.kingdee.eas.fdc.contract.FDCUtils;
 import com.kingdee.eas.fdc.contract.SettNoCostSplitFactory;
 import com.kingdee.eas.fdc.contract.SettlementCostSplitFactory;
@@ -68,9 +66,11 @@ import com.kingdee.eas.framework.ICoreBase;
 import com.kingdee.eas.framework.ICoreBillBase;
 import com.kingdee.eas.framework.TreeBaseInfo;
 import com.kingdee.eas.framework.client.FindDialog;
+import com.kingdee.eas.port.pm.contract.ContractBillFactory;
 import com.kingdee.eas.port.pm.contract.ContractBillInfo;
 import com.kingdee.eas.port.pm.contract.ContractChangeSettleBillCollection;
 import com.kingdee.eas.port.pm.contract.ContractChangeSettleBillFactory;
+import com.kingdee.eas.port.pm.contract.ContractChangeSettleBillInfo;
 import com.kingdee.eas.port.pm.contract.ContractSettlementBillCollection;
 import com.kingdee.eas.port.pm.contract.ContractSettlementBillFactory;
 import com.kingdee.eas.port.pm.contract.ContractSettlementBillInfo;
@@ -142,25 +142,18 @@ public class ContractSettlementBillListUI extends
 		// 检查合同是否已有结算
 		String billId = getSelectedKeyValue(getMainTable());
 		ContractSettlementBillCollection billColl = null;
-		// String oql="select id where isFinalSettle=1 and
-		// contractBill.id='"+billId+"'";
-		// billColl =
-		// ContractSettlementBillFactory.getRemoteInstance().getContractSettlementBillCollection(oql);
+		 String oql="select id where isFinalSettle=1 and contractBill.id='"+billId+"'";
+		 billColl =ContractSettlementBillFactory.getRemoteInstance().getContractSettlementBillCollection(oql);
 
 		EntityViewInfo view = new EntityViewInfo();
 		FilterInfo filter = new FilterInfo();
-		filter.getFilterItems().add(
-				new FilterItemInfo("contractBill.id", billId));
-		// filter.getFilterItems().add(new FilterItemInfo("state",
-		// FDCBillStateEnum.SAVED,CompareType.NOTEQUALS));
-		filter.getFilterItems().add(
-				new FilterItemInfo("isFinalSettle", BooleanEnum.TRUE));
+		filter.getFilterItems().add(new FilterItemInfo("contractBill.id", billId));
+		 filter.getFilterItems().add(new FilterItemInfo("state",FDCBillStateEnum.SAVED,CompareType.NOTEQUALS));
+		filter.getFilterItems().add(new FilterItemInfo("isFinalSettle", BooleanEnum.TRUE));
 		view.setFilter(filter);
-		billColl = ContractSettlementBillFactory.getRemoteInstance()
-				.getContractSettlementBillCollection(view);
+		billColl = ContractSettlementBillFactory.getRemoteInstance().getContractSettlementBillCollection(view);
 		if (billColl != null && billColl.size() > 0) {
-			MsgBox.showWarning(this, ContractClientUtils
-					.getRes("hasFinalSettle"));
+			MsgBox.showWarning(this, ContractClientUtils.getRes("hasFinalSettle"));
 			SysUtil.abort();
 		}
 
@@ -168,51 +161,9 @@ public class ContractSettlementBillListUI extends
 	}
 
 	private void checkCanAddNew(String contractID) throws Exception {
-//		FilterInfo filter = new FilterInfo();
-//		filter.getFilterItems().add(new FilterItemInfo("id",contractID));
-//		filter.getFilterItems().add(new FilterItemInfo("splitState",CostSplitStateEnum.NOSPLIT));
-//		filter.getFilterItems().add(new FilterItemInfo("splitState",CostSplitStateEnum.PARTSPLIT));
-//		filter.setMaskString("#0 and (#1 or #2)");
-//		if(ContractBillFactory.getRemoteInstance().exists(filter)){
-//			MsgBox.showWarning(this,"此合同未完全拆分！");
-//			SysUtil.abort();
-//		}
-//		//判断变更指令单是否拆分
-//		IFDCSQLFacade  fdcSqlFacade = FDCSQLFacadeFactory.getRemoteInstance();
-//		List params = new ArrayList();
-//		params.add(contractID);
-//		
-//		IRowSet noCost = fdcSqlFacade.executeQuery("select conSplit.FSplitState from T_CON_ContractChangeBill contractbill " +
-//				" left join T_CON_ConChangeNoCostSplit conSplit on contractbill.fid = conSplit.FContractChangeID "+
-//				" where contractbill.FContractBillID = ? and conSplit.FSplitState = '3ALLSPLIT'", params);
-//		
-//		IRowSet isCost = fdcSqlFacade.executeQuery("select conSplit.FSplitState from T_CON_ContractChangeBill contractbill " +
-//				" left join T_CON_ConChangeSplit conSplit on contractbill.fid = conSplit.FContractChangeID "+
-//				" where contractbill.FContractBillID = ? and conSplit.FSplitState ='3ALLSPLIT'", params);
-//		if(!noCost.next()&&!isCost.next()){
-//			MsgBox.showWarning(this,"此变更指令单未完全拆分！");
-//			SysUtil.abort();
-//		}
-		
 		//变更确认单必须审批
-		FilterInfo filter1 = new FilterInfo();
-		filter1.getFilterItems().add(new FilterItemInfo("contractBill.id",contractID));
-		EntityViewInfo view = new EntityViewInfo();
-		view.setFilter(filter1);
-		ContractChangeBillCollection coll = ContractChangeBillFactory.getRemoteInstance().getContractChangeBillCollection(view);
-		Set idSet = new HashSet();
-		for(int i = 0 ; i< coll.size();i++){
-			idSet.add(coll.get(i).getId().toString());
-		}
 		FilterInfo filter4 = new FilterInfo();
-		filter4.getFilterItems().add(new FilterItemInfo("conChangeBill.id",idSet,CompareType.INCLUDE));
-		EntityViewInfo view1 = new EntityViewInfo();
-		view1.setFilter(filter4);
-		ContractChangeSettleBillCollection conColl = ContractChangeSettleBillFactory.getRemoteInstance().getContractChangeSettleBillCollection(view1);
-		if(idSet.size()!= conColl.size()){
-			MsgBox.showWarning(this,"一条或多条指令单未做变更确认！");
-			SysUtil.abort();
-		}
+		filter4.getFilterItems().add(new FilterItemInfo("contractBill.id",contractID));
 		filter4.getFilterItems().add(new FilterItemInfo("state",FDCBillStateEnum.AUDITTED,CompareType.NOTEQUALS));
 		
 		if(ContractChangeSettleBillFactory.getRemoteInstance().exists(filter4)){
@@ -302,25 +253,25 @@ public class ContractSettlementBillListUI extends
 		BigDecimal canSettAmt = FDCHelper.ZERO;
 		ContractBillInfo contract = conSettBill.getContractBill();
 		if(conSettBill.getContractBill().getId()!=null){
-//			        contract = ContractBillFactory.getRemoteInstance().getContractBillInfo(new ObjectUuidPK(conSettBill.getContractBill().getId()));
-//				    contractOrgiAmt = contract.getOriginalAmount();
-//				    EntityViewInfo evi = new EntityViewInfo();
-//				    SelectorItemCollection sic ;
-//				    FilterInfo filter;
-//					sic = new SelectorItemCollection();
-//					sic.add(new SelectorItemInfo("originalAmount"));
-//					filter = new FilterInfo();
-//					filter.getFilterItems().add(new FilterItemInfo("contractBill.id", conSettBill.getContractBill().getId().toString()));
-//					evi.setSelector(sic);
-//					evi.setFilter(filter);
-//					ContractChangeBillCollection collection = null;
-//					collection = ContractChangeBillFactory.getRemoteInstance().getContractChangeBillCollection(evi);
-//					
-//					if(collection != null && collection.size() >0 ){
-//						for(Iterator it = collection.iterator();it.hasNext();){
-//							contractOrgiAmt = FDCHelper.add(contractOrgiAmt, ((ContractChangeBillInfo)it.next()).getOriginalAmount());
-//						}
-//				    }
+	        contract = ContractBillFactory.getRemoteInstance().getContractBillInfo(new ObjectUuidPK(conSettBill.getContractBill().getId()));
+		    contractOrgiAmt = contract.getOriginalAmount();
+		    EntityViewInfo evi = new EntityViewInfo();
+		    SelectorItemCollection sic ;
+		    FilterInfo filter;
+			sic = new SelectorItemCollection();
+			sic.add(new SelectorItemInfo("originalAmount"));
+			filter = new FilterInfo();
+			filter.getFilterItems().add(new FilterItemInfo("contractBill.id", conSettBill.getContractBill().getId().toString()));
+			evi.setSelector(sic);
+			evi.setFilter(filter);
+			ContractChangeSettleBillCollection collection = null;
+			collection = ContractChangeSettleBillFactory.getRemoteInstance().getContractChangeSettleBillCollection(evi);
+			
+			if(collection != null && collection.size() >0 ){
+				for(Iterator it = collection.iterator();it.hasNext();){
+					contractOrgiAmt = FDCHelper.add(contractOrgiAmt, ((ContractChangeSettleBillInfo)it.next()).getOriginalAmount());
+				}
+		    }
 			//调用统一接口取数
 			 try {
 				 contractOrgiAmt = FDCHelper.toBigDecimal(FDCUtils.getLastOriginalAmt_Batch(null, new String[]{conSettBill.getContractBill().getId().toString()}).get(conSettBill.getContractBill().getId().toString()));
@@ -330,28 +281,26 @@ public class ContractSettlementBillListUI extends
 			}
 				
 			}
-//			if(contractOrgiAmt != null && contractOrgiAmt.compareTo(FDCHelper.ZERO) != 0){
-//				canSettAmt =FDCHelper.toBigDecimal(FDCHelper.multiply(contractOrgiAmt,FDCHelper.toBigDecimal(new Double(1+contract.getOverRate()/100.00))),2);
-//			}
-//			
-//			if(FDCHelper.subtract(totalSettlementOrgiAmt, canSettAmt).compareTo(FDCHelper.ZERO) > 0 ){
-//				if(isOverContractAmt()){
-//					FDCMsgBox.showError("累计结算已超过合同最新造价约定比例，请通过补录变更单或其他方式增加合同最新造价!");
-//					abort();
-//				}else{
-//					FDCMsgBox.showWarning("累计结算已超过合同最新造价约定比例，请通过补录变更单或其他方式增加合同最新造价!");
-//				}
-//			}
+			if(contractOrgiAmt != null && contractOrgiAmt.compareTo(FDCHelper.ZERO) != 0){
+				canSettAmt =FDCHelper.toBigDecimal(FDCHelper.multiply(contractOrgiAmt,FDCHelper.toBigDecimal(new Double(1+contract.getOverRate()/100.00))),2);
+			}
+			
+			if(FDCHelper.subtract(totalSettlementOrgiAmt, canSettAmt).compareTo(FDCHelper.ZERO) > 0 ){
+				if(isOverContractAmt()){
+					FDCMsgBox.showError("累计结算已超过合同最新造价约定比例，请通过补录变更单或其他方式增加合同最新造价!");
+					abort();
+				}else{
+					FDCMsgBox.showWarning("累计结算已超过合同最新造价约定比例，请通过补录变更单或其他方式增加合同最新造价!");
+				}
+			}
 		HashMap paramItem = null;
 		FDCParamInfo paramInfo = null;
 		try {
 			paramItem = ParamControlFactory.getRemoteInstance().getParamHashMap(SysContext.getSysContext().getCurrentCostUnit().getId().toString(),"com.kingdee.eas.fdc.contract.contract");
 			paramInfo = new FDCParamInfo(paramItem);
 		} catch (EASBizException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (BOSException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
         String conSettType = "rdContractOverRate";
@@ -897,25 +846,9 @@ public class ContractSettlementBillListUI extends
 				price_col_index + 1);
 	}
 
-	/*
-	 * （非 Javadoc）
-	 * 
-	 * @see com.kingdee.eas.fdc.contract.client.ContractListBaseUI#getEditUIName()
-	 */
 	protected String getEditUIName() {
-		// TODO 自动生成方法存根
-		// return super.getEditUIName();
-
-		return com.kingdee.eas.fdc.contract.client.ContractSettlementBillEditUI.class
-				.getName();
+		return ContractSettlementBillEditUI.class.getName();
 	}
-
-
-	/*
-	 * （非 Javadoc）
-	 * 
-	 * @see com.kingdee.eas.fdc.contract.client.ContractListBaseUI#updateButtonStatus()
-	 */
 	protected void updateButtonStatus() {
 		super.updateButtonStatus();
 
