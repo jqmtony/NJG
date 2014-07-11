@@ -134,7 +134,6 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 	private KDFormattedTextField investY = null;//投资余额
 	private KDFormattedTextField investGS = null;//估算金额
 	
-	private final String CONTROLAMOUNT = "controlAmount";
     protected KDWorkButton btnAddnewLine;
     protected KDWorkButton btnInsertLines;
     protected KDWorkButton btnRemoveLines;
@@ -547,12 +546,8 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 		kdtEntries.getColumn("amount").setRenderer(objectValueRender);
 		kdtEntries.getColumn("balance").setRenderer(objectValueRender);
 		kdtEntries.getColumn("cumulativeInvest").setRenderer(objectValueRender);
-		kdtEntries.getColumn("signUpAmount").setRenderer(objectValueRender);
-		kdtEntries.getColumn("changeAmount").setRenderer(objectValueRender);
-		kdtEntries.getColumn("settleAmount").setRenderer(objectValueRender);
-		kdtEntries.getColumn("buildPerSquare").setRenderer(objectValueRender);
-		kdtEntries.getColumn("soldPerSquare").setRenderer(objectValueRender);	
-		kdtEntries.getColumn("estimateAmount").setRenderer(objectValueRender);	
+		kdtEntries.getColumn("price").setRenderer(objectValueRender);
+		kdtEntries.getColumn("quantities").setRenderer(objectValueRender);
 	}
 	
 	private void cellAttachment() {
@@ -1479,29 +1474,38 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 			
 			BigDecimal amountBig = UIRuleUtil.getBigDecimal((row.getCell("amount").getValue()));//投资总金额
 			BigDecimal cumulative = UIRuleUtil.getBigDecimal(row.getCell( "cumulativeInvest").getValue());//累计投资
-			BigDecimal investAm = UIRuleUtil.getBigDecimal(row.getCell( "investAmount").getValue());//本年度投资金额
 			BigDecimal q = UIRuleUtil.getBigDecimal(row.getCell( "quantities").getValue());//数量
 			BigDecimal p = UIRuleUtil.getBigDecimal(row.getCell( "price").getValue());//单价
-			investAm=p.multiply(q);
-			
-			row.getCell("investProportion").setValue(
-					amountBig.compareTo(BigDecimal.ZERO)==0?0:(p.multiply(q).divide(amountBig ,4, RoundingMode.HALF_UP)));
-			
-			if(row.getCell("investAmount").getValue()==null)
+			if(!key.equals("investAmount"))
 			{
-				row.getCell("investAmount").setValue(amountBig);
+				if(row.getCell( "price").getValue()==null||row.getCell( "quantities").getValue()==null)
+				{
+					if(getOprtState().equals(OprtState.ADDNEW))
+					{
+						row.getCell( "investAmount").setValue(amountBig);
+					}
+					else if(getOprtState().equals(OprtState.EDIT))
+					{
+						row.getCell( "investAmount").setValue(BigDecimal.ZERO);
+					}
+				}
+				else
+				{
+					row.getCell( "investAmount").setValue(p.multiply(q));
+					
+				}
 			}
-			else
-			{
-				row.getCell("investAmount").setValue(p.compareTo(BigDecimal.ZERO)!=0&&q.compareTo(BigDecimal.ZERO)!=0?investAm:0 );
-			}
-			row.getCell("balance").setValue(amountBig.subtract(cumulative).subtract(UIRuleUtil.getBigDecimal(row.getCell( "investAmount").getValue())));
-			if(UIRuleUtil.getBigDecimal((kdtEntries.getCell(rowIndex,"investAmount").getValue())).
-					compareTo(UIRuleUtil.getBigDecimal((kdtEntries.getCell(rowIndex,"amount").getValue())))>0)
+			BigDecimal investAm = UIRuleUtil.getBigDecimal(row.getCell( "investAmount").getValue());//本年度投资金额
+			row.getCell("balance").setValue(amountBig.subtract(cumulative).subtract(investAm));
+			if(row.getCell("price").getValue()!=null&&row.getCell("quantities").getValue()!=null)
+				row.getCell("investAmount").getStyleAttributes().setLocked(true);
+			
+			row.getCell("investProportion").setValue(amountBig.compareTo(BigDecimal.ZERO)==0?0:(investAm.divide(amountBig ,4, RoundingMode.HALF_UP)));
+			if(UIRuleUtil.getBigDecimal(row.getCell( "investAmount").getValue()).compareTo(UIRuleUtil.getBigDecimal((row.getCell("amount").getValue())))>0)
 			{
 				FDCMsgBox.showInfo("本年度金额不能超过总金额！");
-				row.getCell("quantities").setValue(0);
-				row.getCell("investAmount").setValue(0);
+				row.getCell("quantities").setValue(BigDecimal.ZERO);
+				row.getCell("investAmount").setValue(BigDecimal.ZERO);
 				row.getCell("balance").setValue(amountBig.subtract(cumulative).
 						subtract(UIRuleUtil.getBigDecimal(row.getCell("investAmount").getValue())));
 				row.getCell("investProportion").setValue(0);
@@ -2159,6 +2163,7 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 		veryfyForSave();
 		super.actionSave_actionPerformed(e);
 		sumClass.appendProFootRow(null, null);
+		setHeadRowColor();
 	}
 
 	/**
@@ -2265,6 +2270,7 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 		
 		setAuditBtnEnable();
 		sumClass.appendProFootRow(null, null);
+		setHeadRowColor();
 		
 		if (isBillModify()) {
 			ProgrammingListUI parentUI = (ProgrammingListUI) getUIContext().get("parent");
@@ -2980,7 +2986,7 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 				ssigning = GoalCost.subtract(Assigned);
 			}
 			programmingEntry.setCumulativeInvest(Assigned);//累计投资
-			programmingEntry.setInvestAmount(BigDecimal.ZERO);//本年投资
+			programmingEntry.setInvestAmount(null);//本年投资
 			programmingEntry.setInvestProportion(0);//比例
 			programmingEntry.setPrice(null);//单价
 			programmingEntry.setQuantities(null);//数量
