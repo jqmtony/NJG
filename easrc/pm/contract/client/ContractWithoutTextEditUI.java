@@ -174,8 +174,8 @@ import com.kingdee.jdbc.rowset.IRowSet;
 /**
  * 
  * 描述:无文本合同编辑界面
- * @author liupd  date:2006-10-10 <p>
- * @version EAS5.1.3
+ * @author 
+ * @version 
  */
 public class ContractWithoutTextEditUI extends
 		AbstractContractWithoutTextEditUI {
@@ -571,11 +571,11 @@ public class ContractWithoutTextEditUI extends
 		return id;
 	}
 	private void initProgrammingContract() throws EASBizException, BOSException {
-		if(this.editData.getProgrammingContract()!=null && this.editData.getProgrammingContract().getId() != null){
-			ProgrammingContractInfo proContInfo = getProContInfo(this.editData.getProgrammingContract().getId().toString());
-			this.editData.setProgrammingContract(proContInfo);
-			this.txtPCName.setText(this.editData.getProgrammingContract().getName());
-		}
+//		if(this.editData.getProgrammingContract()!=null && this.editData.getProgrammingContract().getId() != null){
+//			ProgrammingContractInfo proContInfo = getProContInfo(this.editData.getProgrammingContract().getId().toString());
+//			this.editData.setProgrammingContract(proContInfo);
+//			this.txtPCName.setText(this.editData.getProgrammingContract().getName());
+//		}
 	}
 
 	protected void loadBgEntryTable(){
@@ -881,9 +881,9 @@ public class ContractWithoutTextEditUI extends
 		if (!STATUS_ADDNEW.equals(getOprtState()) && !STATUS_EDIT.equals(getOprtState())) {
 			return;
 		}
-		if(this.editData.getProgrammingContract()==null||this.pkbookedDate.getValue()==null){
-			return;
-		}
+//		if(this.editData.getProgrammingContract()==null||this.pkbookedDate.getValue()==null){
+//			return;
+//		}
 		HashMap hmParamIn = new HashMap();
 		hmParamIn.put("CIFI_PAYPLAN", editData.getCurProject().getCompany().getId().toString());
 		HashMap hmAllParam = ParamControlFactory.getRemoteInstance().getParamHashMap(hmParamIn);
@@ -900,7 +900,7 @@ public class ContractWithoutTextEditUI extends
 		EntityViewInfo view=new EntityViewInfo();
     	FilterInfo filter=new FilterInfo();
     	
-    	filter.getFilterItems().add(new FilterItemInfo("programmingContract.id",this.editData.getProgrammingContract().getId().toString()));
+//    	filter.getFilterItems().add(new FilterItemInfo("programmingContract.id",this.editData.getProgrammingContract().getId().toString()));
     	filter.getFilterItems().add(new FilterItemInfo("head.state",FDCBillStateEnum.CONFIRMED_VALUE));
     	filter.getFilterItems().add(new FilterItemInfo("head.isLatest",Boolean.TRUE));
     	
@@ -1136,13 +1136,13 @@ public class ContractWithoutTextEditUI extends
 		if(projLeafNodesIdSet!=null && projLeafNodesIdSet.size()>0){
 			filter.getFilterItems().add(new FilterItemInfo("id", projLeafNodesIdSet, CompareType.INCLUDE));			
 		}else{
-			filter.getFilterItems().add(new FilterItemInfo("isLeaf",new Integer(1)));
-			filter.getFilterItems().add(new FilterItemInfo("fullOrgUnit.longNumber", orgUnitInfo.getLongNumber() + "%",CompareType.LIKE));
-			filter.getFilterItems().add(new FilterItemInfo("fullOrgUnit.isCostOrgUnit", Boolean.TRUE));
-			filter.getFilterItems().add(new FilterItemInfo("id", " select b.fid from T_FDC_ProjectWithCostCenterOU a "
-					+" inner join t_fdc_curproject p on a.fcurprojectid=p.fid "
-					+" inner join t_fdc_curproject b on charindex(p.FLongNumber || '!',b.FLongNumber || '!')=1 "
-								+" where p.flevel=1 ", CompareType.INNER));
+//			filter.getFilterItems().add(new FilterItemInfo("isLeaf",new Integer(1)));
+//			filter.getFilterItems().add(new FilterItemInfo("fullOrgUnit.longNumber", orgUnitInfo.getLongNumber() + "%",CompareType.LIKE));
+//			filter.getFilterItems().add(new FilterItemInfo("fullOrgUnit.isCostOrgUnit", Boolean.TRUE));
+//			filter.getFilterItems().add(new FilterItemInfo("id", " select b.fid from T_FDC_ProjectWithCostCenterOU a "
+//					+" inner join t_bd_project p on a.fcurprojectid=p.fid "
+//					+" inner join t_bd_project b on charindex(p.FLongNumber || '!',b.FLongNumber || '!')=1 "
+//								+" where p.flevel=1 ", CompareType.INNER));
 		}
 
 		v.setFilter(filter);
@@ -1462,7 +1462,7 @@ public class ContractWithoutTextEditUI extends
     }
     public void actionSave_actionPerformed(ActionEvent e) throws Exception {
 		// 保存前反写所关联的框架合约“是否引用”字段
-    	updateProgrammingContract(this.editData.getProgrammingContract(),0);
+//    	updateProgrammingContract(this.editData.getProgrammingContract(),0);
 		//合同类型不能为空
 		if(prmtContractType.getData() == null)
     	{
@@ -1477,7 +1477,7 @@ public class ContractWithoutTextEditUI extends
 		}
     	super.actionSave_actionPerformed(e);
 		// 保存后反写写所关联的框架合约状态
-    	updateProgrammingContract(this.editData.getProgrammingContract(),1);
+//    	updateProgrammingContract(this.editData.getProgrammingContract(),1);
 //    	ContractWithoutTextFactory.getRemoteInstance().getContractWithoutTextInfo()
 //    	PayRequestBillFactory.getRemoteInstance().addnew(this.prbi);
 		modify=false;
@@ -1527,24 +1527,24 @@ public class ContractWithoutTextEditUI extends
 	
 	public void actionSubmit_actionPerformed(ActionEvent e) throws Exception {
 		// 提交前反写所关联的框架合约“是否引用”字段
-		updateProgrammingContract(this.editData.getProgrammingContract(),0);
+//		updateProgrammingContract(this.editData.getProgrammingContract(),0);
 		//合同类型不能为空
 		if(prmtContractType.getData() == null)
     	{
     		MsgBox.showWarning("合同类型不能为空！");
     		SysUtil.abort() ;
     	}
-		//付款类型不能为空
-		if(prmtPayment.getData() == null)
-		{
-			MsgBox.showWarning("付款类别不能为空！");
-    		SysUtil.abort() ;
-		}
-		
+//		//付款类型不能为空
+//		if(prmtPayment.getData() == null)
+//		{
+//			MsgBox.showWarning("付款类别不能为空！");
+//    		SysUtil.abort() ;
+//		}
+//		
 		super.actionSubmit_actionPerformed(e);
 		modify=false;
 		// 提交后反写写所关联的框架合约状态
-		updateProgrammingContract(this.editData.getProgrammingContract(),1);
+//		updateProgrammingContract(this.editData.getProgrammingContract(),1);
 		//new update by renliang at 2010-5-12
 		if(isNotEnterCAS){
 			this.chkNeedPaid.setEnabled(false);
@@ -1561,44 +1561,44 @@ public class ContractWithoutTextEditUI extends
 	 * @param isCiting
 	 */
 	private void updateProgrammingContract(ProgrammingContractInfo pc, int isCiting) {
-		try {
-			String oldPCId=null;
-			FDCSQLBuilder buildSQL = new FDCSQLBuilder();
-			IRowSet iRowSet=null;
-			if(this.editData.getId()!=null){
-				buildSQL.appendSql("select fprogrammingContract from T_CON_ContractWithoutText where fid='" + this.editData.getId().toString() + "'");
-				iRowSet = buildSQL.executeQuery();
-				while (iRowSet.next()) {
-					oldPCId=iRowSet.getString("fprogrammingContract");
-				}
-			}
-			if(isCiting==0){
-				if(oldPCId==null||(pc!=null&&oldPCId.equals(pc.getId().toString()))){
-					return;
-				}
-				buildSQL = new FDCSQLBuilder();
-				buildSQL.appendSql("select count(*) count from T_CON_ContractWithoutText where fprogrammingContract='" + oldPCId + "' and fid!='" + this.editData.getId().toString() + "'");
-				int count = 0;
-				iRowSet = buildSQL.executeQuery();
-				if (iRowSet.next()) {
-					count = iRowSet.getInt("count");
-				}
-				if(count>0){
-					return;
-				}
-				buildSQL = new FDCSQLBuilder();
-				buildSQL.appendSql("update T_CON_ProgrammingContract set FIsWTCiting = " + isCiting + " where FID = '" + oldPCId + "'");
-				buildSQL.executeUpdate();
-			}else if(pc!=null){
-				buildSQL = new FDCSQLBuilder();
-				buildSQL.appendSql("update T_CON_ProgrammingContract set FIsWTCiting = " + isCiting + " where FID = '" + pc.getId().toString() + "'");
-				buildSQL.executeUpdate();
-			}
-		} catch (BOSException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+//		try {
+//			String oldPCId=null;
+//			FDCSQLBuilder buildSQL = new FDCSQLBuilder();
+//			IRowSet iRowSet=null;
+//			if(this.editData.getId()!=null){
+//				buildSQL.appendSql("select fprogrammingContract from cT_CON_ContractWithoutText where fid='" + this.editData.getId().toString() + "'");
+//				iRowSet = buildSQL.executeQuery();
+//				while (iRowSet.next()) {
+//					oldPCId=iRowSet.getString("fprogrammingContract");
+//				}
+//			}
+//			if(isCiting==0){
+//				if(oldPCId==null||(pc!=null&&oldPCId.equals(pc.getId().toString()))){
+//					return;
+//				}
+//				buildSQL = new FDCSQLBuilder();
+//				buildSQL.appendSql("select count(*) count from cT_CON_ContractWithoutText where fprogrammingContract='" + oldPCId + "' and fid!='" + this.editData.getId().toString() + "'");
+//				int count = 0;
+//				iRowSet = buildSQL.executeQuery();
+//				if (iRowSet.next()) {
+//					count = iRowSet.getInt("count");
+//				}
+//				if(count>0){
+//					return;
+//				}
+//				buildSQL = new FDCSQLBuilder();
+//				buildSQL.appendSql("update T_CON_ProgrammingContract set FIsWTCiting = " + isCiting + " where FID = '" + oldPCId + "'");
+//				buildSQL.executeUpdate();
+//			}else if(pc!=null){
+//				buildSQL = new FDCSQLBuilder();
+//				buildSQL.appendSql("update T_CON_ProgrammingContract set FIsWTCiting = " + isCiting + " where FID = '" + pc.getId().toString() + "'");
+//				buildSQL.executeUpdate();
+//			}
+//		} catch (BOSException e) {
+//			e.printStackTrace();
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
 	}
     protected void chkNeedPaid_actionPerformed(java.awt.event.ActionEvent e) throws Exception
     {
@@ -1828,7 +1828,7 @@ public class ContractWithoutTextEditUI extends
 		ContractWithoutTextInfo info = (ContractWithoutTextInfo)newData;
 		info.setCurProject(editData.getCurProject());
 		
-		info.setProgrammingContract(null);
+//		info.setProgrammingContract(null);
 		this.txtPCName.setText(null);
 	}
 
@@ -2137,100 +2137,100 @@ public class ContractWithoutTextEditUI extends
 	}
 	protected BigDecimal getAccActOnLoadPcAmount(ProgrammingContractInfo pc) throws BOSException, SQLException{
 		if(pc==null) return FDCHelper.ZERO;
-		FDCSQLBuilder _builder = new FDCSQLBuilder();
-		_builder.appendSql(" select sum(t.amount) amount from (select sum(bill.famount) amount from T_CON_ContractBill bill ");
-		_builder.appendSql(" where bill.fProgrammingContract='"+pc.getId().toString()+"' and bill.fstate in('2SUBMITTED','3AUDITTING')");
-		
-		_builder.appendSql(" union all select sum(bill.famount) amount from T_CON_ContractWithoutText bill where 1=1");
-		if(this.editData.getId()!=null){
-			_builder.appendSql(" and bill.fid!='"+this.editData.getId()+"'");
-		}
-		_builder.appendSql(" and bill.fProgrammingContract='"+pc.getId().toString()+"' and bill.fstate in('2SUBMITTED','3AUDITTING'))t");
-		
-		IRowSet rowSet = _builder.executeQuery();
-		while(rowSet.next()){
-			if(rowSet.getBigDecimal("amount")!=null)
-				return rowSet.getBigDecimal("amount");
-		}
+//		FDCSQLBuilder _builder = new FDCSQLBuilder();
+//		_builder.appendSql(" select sum(t.amount) amount from (select sum(bill.famount) amount from T_CON_ContractBill bill ");
+//		_builder.appendSql(" where bill.fProgrammingContract='"+pc.getId().toString()+"' and bill.fstate in('2SUBMITTED','3AUDITTING')");
+//		
+//		_builder.appendSql(" union all select sum(bill.famount) amount from cT_CON_ContractWithoutText  bill where 1=1");
+//		if(this.editData.getId()!=null){
+//			_builder.appendSql(" and bill.fid!='"+this.editData.getId()+"'");
+//		}
+//		_builder.appendSql(" and bill.fProgrammingContract='"+pc.getId().toString()+"' and bill.fstate in('2SUBMITTED','3AUDITTING'))t");
+//		
+//		IRowSet rowSet = _builder.executeQuery();
+//		while(rowSet.next()){
+//			if(rowSet.getBigDecimal("amount")!=null)
+//				return rowSet.getBigDecimal("amount");
+//		}
 		return FDCHelper.ZERO;
 	}
 	private void verifyContractProgrammingPara() throws BOSException, SQLException, EASBizException {
-		ProgrammingContractInfo pc = (ProgrammingContractInfo) this.editData.getProgrammingContract();
-		if(pc != null && this.editData.getId() !=null){
-			SelectorItemCollection sick = new SelectorItemCollection();
-			sick.add("*");
-			pc = ProgrammingContractFactory.getRemoteInstance().getProgrammingContractInfo(new ObjectUuidPK(pc.getId()), sick);
-		}
-		String param = null;
-		BOSUuid idcu = editData.getCurProject().getId();
-		ObjectUuidPK pk = new ObjectUuidPK(editData.getOrgUnit().getId());
-		param = ContextHelperFactory.getRemoteInstance().getStringParam("FDC228_ISSTRICTCONTROL", pk);
-		if (!com.kingdee.util.StringUtils.isEmpty(param)) {
-			int i = Integer.parseInt(param);
-			boolean isAbort=false;
-			if(pc==null){
-				FilterInfo filter = new FilterInfo();
-				filter.getFilterItems().add(new FilterItemInfo("programming.project.id", idcu));
-				filter.getFilterItems().add(new FilterItemInfo("programming.isLatest", new Integer(1), CompareType.EQUALS));
-				filter.getFilterItems().add(new FilterItemInfo("programming.state", FDCBillStateEnum.AUDITTED_VALUE, CompareType.EQUALS));
-				if(editData.getContractType()!=null){
-					filter.getFilterItems().add(new FilterItemInfo("contractType.id", editData.getContractType().getId().toString(), CompareType.EQUALS));
-				}
-				isAbort=ProgrammingContractFactory.getRemoteInstance().exists(filter);
-			}
-			switch (i) {
-			case 0:
-				// 严格控制时
-				if (pc != null) {
-					BigDecimal amount = this.editData.getAmount().setScale(2, BigDecimal.ROUND_HALF_UP);
-					BigDecimal balance=(pc.getBalance()== null?FDCHelper.ZERO:pc.getBalance()).setScale(2, BigDecimal.ROUND_HALF_UP);
-					BigDecimal onLoadAmount=getAccActOnLoadPcAmount(pc).setScale(2, BigDecimal.ROUND_HALF_UP);
-					String detail="规划余额："+balance+"\n占用金额："+onLoadAmount;
-					
-					if (amount.compareTo(FDCHelper.subtract(balance, onLoadAmount)) > 0) {
-						FDCMsgBox.showDetailAndOK(this, "合同签约金额超过关联的合约的（规划余额-占用金额），不允许提交！", detail, 2);
-						SysUtil.abort();
-					}
-				} else if(isAbort){
-					FDCMsgBox.showWarning(this, "未关联框架合约，不允许提交！");
-					SysUtil.abort();
-				}
-				break;
-			case 1:
-				// 提示控制时
-				if (pc != null ) {
-					BigDecimal amount = this.editData.getAmount().setScale(2, BigDecimal.ROUND_HALF_UP);
-					BigDecimal balance=(pc.getBalance()== null?FDCHelper.ZERO:pc.getBalance()).setScale(2, BigDecimal.ROUND_HALF_UP);
-					BigDecimal onLoadAmount=getAccActOnLoadPcAmount(pc).setScale(2, BigDecimal.ROUND_HALF_UP);
-					String detail="规划余额："+balance+"\n占用金额："+onLoadAmount;
-					
-					if (amount.compareTo(FDCHelper.subtract(balance, onLoadAmount)) > 0) {
-						if(FDCMsgBox.showConfirm3a(this, "合同签约金额超过关联的合约的（规划余额-占用金额），请确认是否提交？",detail)== FDCMsgBox.CANCEL){
-							SysUtil.abort();
-						}
-					}
-				} else if(isAbort) {
-					FDCMsgBox.showWarning(this, "未关联框架合约，不允许提交！");
-					SysUtil.abort();
-				}
-				break;
-			case 2:
-				// 不控制时
-				if (pc != null) {
-					BigDecimal amount = this.editData.getAmount().setScale(2, BigDecimal.ROUND_HALF_UP);
-					BigDecimal balance=(pc.getBalance()== null?FDCHelper.ZERO:pc.getBalance()).setScale(2, BigDecimal.ROUND_HALF_UP);
-					BigDecimal onLoadAmount=getAccActOnLoadPcAmount(pc).setScale(2, BigDecimal.ROUND_HALF_UP);
-					String detail="规划余额："+balance+"\n占用金额："+onLoadAmount;
-					
-					if (amount.compareTo(FDCHelper.subtract(balance, onLoadAmount)) > 0) {
-						if(FDCMsgBox.showConfirm3a(this, "合同签约金额超过关联的合约的（规划余额-占用金额），请确认是否提交？",detail)== FDCMsgBox.CANCEL){
-							SysUtil.abort();
-						}
-					}
-				}
-				break;
-			}
-		}
+//		ProgrammingContractInfo pc = (ProgrammingContractInfo) this.editData.getProgrammingContract();
+//		if(pc != null && this.editData.getId() !=null){
+//			SelectorItemCollection sick = new SelectorItemCollection();
+//			sick.add("*");
+//			pc = ProgrammingContractFactory.getRemoteInstance().getProgrammingContractInfo(new ObjectUuidPK(pc.getId()), sick);
+//		}
+//		String param = null;
+//		BOSUuid idcu = editData.getCurProject().getId();
+//		ObjectUuidPK pk = new ObjectUuidPK(editData.getOrgUnit().getId());
+//		param = ContextHelperFactory.getRemoteInstance().getStringParam("FDC228_ISSTRICTCONTROL", pk);
+//		if (!com.kingdee.util.StringUtils.isEmpty(param)) {
+//			int i = Integer.parseInt(param);
+//			boolean isAbort=false;
+//			if(pc==null){
+//				FilterInfo filter = new FilterInfo();
+//				filter.getFilterItems().add(new FilterItemInfo("programming.project.id", idcu));
+//				filter.getFilterItems().add(new FilterItemInfo("programming.isLatest", new Integer(1), CompareType.EQUALS));
+//				filter.getFilterItems().add(new FilterItemInfo("programming.state", FDCBillStateEnum.AUDITTED_VALUE, CompareType.EQUALS));
+//				if(editData.getContractType()!=null){
+//					filter.getFilterItems().add(new FilterItemInfo("contractType.id", editData.getContractType().getId().toString(), CompareType.EQUALS));
+//				}
+//				isAbort=ProgrammingContractFactory.getRemoteInstance().exists(filter);
+//			}
+//			switch (i) {
+//			case 0:
+//				// 严格控制时
+//				if (pc != null) {
+//					BigDecimal amount = this.editData.getAmount().setScale(2, BigDecimal.ROUND_HALF_UP);
+//					BigDecimal balance=(pc.getBalance()== null?FDCHelper.ZERO:pc.getBalance()).setScale(2, BigDecimal.ROUND_HALF_UP);
+//					BigDecimal onLoadAmount=getAccActOnLoadPcAmount(pc).setScale(2, BigDecimal.ROUND_HALF_UP);
+//					String detail="规划余额："+balance+"\n占用金额："+onLoadAmount;
+//					
+//					if (amount.compareTo(FDCHelper.subtract(balance, onLoadAmount)) > 0) {
+//						FDCMsgBox.showDetailAndOK(this, "合同签约金额超过关联的合约的（规划余额-占用金额），不允许提交！", detail, 2);
+//						SysUtil.abort();
+//					}
+//				} else if(isAbort){
+//					FDCMsgBox.showWarning(this, "未关联框架合约，不允许提交！");
+//					SysUtil.abort();
+//				}
+//				break;
+//			case 1:
+//				// 提示控制时
+//				if (pc != null ) {
+//					BigDecimal amount = this.editData.getAmount().setScale(2, BigDecimal.ROUND_HALF_UP);
+//					BigDecimal balance=(pc.getBalance()== null?FDCHelper.ZERO:pc.getBalance()).setScale(2, BigDecimal.ROUND_HALF_UP);
+//					BigDecimal onLoadAmount=getAccActOnLoadPcAmount(pc).setScale(2, BigDecimal.ROUND_HALF_UP);
+//					String detail="规划余额："+balance+"\n占用金额："+onLoadAmount;
+//					
+//					if (amount.compareTo(FDCHelper.subtract(balance, onLoadAmount)) > 0) {
+//						if(FDCMsgBox.showConfirm3a(this, "合同签约金额超过关联的合约的（规划余额-占用金额），请确认是否提交？",detail)== FDCMsgBox.CANCEL){
+//							SysUtil.abort();
+//						}
+//					}
+//				} else if(isAbort) {
+//					FDCMsgBox.showWarning(this, "未关联框架合约，不允许提交！");
+//					SysUtil.abort();
+//				}
+//				break;
+//			case 2:
+//				// 不控制时
+//				if (pc != null) {
+//					BigDecimal amount = this.editData.getAmount().setScale(2, BigDecimal.ROUND_HALF_UP);
+//					BigDecimal balance=(pc.getBalance()== null?FDCHelper.ZERO:pc.getBalance()).setScale(2, BigDecimal.ROUND_HALF_UP);
+//					BigDecimal onLoadAmount=getAccActOnLoadPcAmount(pc).setScale(2, BigDecimal.ROUND_HALF_UP);
+//					String detail="规划余额："+balance+"\n占用金额："+onLoadAmount;
+//					
+//					if (amount.compareTo(FDCHelper.subtract(balance, onLoadAmount)) > 0) {
+//						if(FDCMsgBox.showConfirm3a(this, "合同签约金额超过关联的合约的（规划余额-占用金额），请确认是否提交？",detail)== FDCMsgBox.CANCEL){
+//							SysUtil.abort();
+//						}
+//					}
+//				}
+//				break;
+//			}
+//		}
 	}
 	protected void verifyInputForSubmint()throws Exception {
 //		checkAmountForSubmit();
@@ -2322,22 +2322,22 @@ public class ContractWithoutTextEditUI extends
 				}
 			}
 		}
-		if(this.editData.getProgrammingContract()!=null){
-			Map param=new HashMap();
-			param.put("isContract", Boolean.FALSE);
-			param.put("contractId", this.editData.getProgrammingContract().getId().toString());
+//		if(this.editData.getProgrammingContract()!=null){
+//			Map param=new HashMap();
+//			param.put("isContract", Boolean.FALSE);
+//			param.put("contractId", this.editData.getProgrammingContract().getId().toString());
 			if(editData.getCurProject().getCompany()!=null){
-				param.put("orgId", editData.getCurProject().getCompany().getId().toString());
-			}
-			param.put("bizDate", this.pkbookedDate.getValue());
-			param.put("amount", this.txtamount.getBigDecimalValue());
-			Map result=ProjectMonthPlanGatherFactory.getRemoteInstance().checkPass(param);
-			if(result!=null&&result.get("isPass")!=null){
-				if(!((Boolean)result.get("isPass")).booleanValue()&&result.get("warning")!=null){
-					FDCMsgBox.showWarning(this,result.get("warning").toString());
-					SysUtil.abort();
-				}
-			}
+//				param.put("orgId", editData.getCurProject().getCompany().getId().toString());
+//			}
+//			param.put("bizDate", this.pkbookedDate.getValue());
+//			param.put("amount", this.txtamount.getBigDecimalValue());
+//			Map result=ProjectMonthPlanGatherFactory.getRemoteInstance().checkPass(param);
+//			if(result!=null&&result.get("isPass")!=null){
+//				if(!((Boolean)result.get("isPass")).booleanValue()&&result.get("warning")!=null){
+//					FDCMsgBox.showWarning(this,result.get("warning").toString());
+//					SysUtil.abort();
+//				}
+//			}
 		}
 		super.verifyInputForSubmint();
 	}
@@ -2419,7 +2419,7 @@ public class ContractWithoutTextEditUI extends
 
 		checkAmountForSave();
 		
-		super.verifyInput(e);
+//		super.verifyInput(e);
 		
 		checkProjStatus();
 	}
@@ -3301,42 +3301,42 @@ public class ContractWithoutTextEditUI extends
 			String projectId, String planNum, String payMatters)
 			throws BOSException, SQLException {
 		BigDecimal actPaied = FDCHelper.ZERO;
-		FDCSQLBuilder builderActPaied = new FDCSQLBuilder();
-		builderActPaied
-				.appendSql(" select sum(pay.FLocalAmount) as actPaied from t_cas_paymentbill as pay ");
-		builderActPaied
-				.appendSql(" left join T_CON_ContractWithoutText as con on con.FID = pay.FContractBillID ");
-		builderActPaied
-				.appendSql(" left join T_FNC_FDCDepConPayPlanNoCon as np on np.FID = con.FFdcDepConPlanID ");
-		builderActPaied
-				.appendSql(" left join T_FNC_FDCDepConPayPlanBill as pb on pb.FID = np.FHeadID ");
-		builderActPaied.appendSql(" where pay.FBillStatus = 15 ");
-		builderActPaied.appendSql(" and pay.FBizDate >= ");
-		builderActPaied.appendParam(firstDay);
-		builderActPaied.appendSql(" and pay.FBizDate <= ");
-		builderActPaied.appendParam(lastDay);
-		builderActPaied.appendSql(" and pay.FCurProjectID = ");
-		builderActPaied.appendParam(projectId);
-		builderActPaied.appendSql(" and pb.FNumber = ");
-		builderActPaied.appendParam(planNum);
-		builderActPaied.appendSql(" and np.FPayMatters = ");
-		builderActPaied.appendParam(payMatters);
-		// 查看状态查以前的
-		if (STATUS_VIEW.equals(getOprtState())) {
-			builderActPaied.appendSql(" and pay.FLastUpdateTime <= ");
-			builderActPaied.appendSql("{ts '");
-			builderActPaied.appendSql(FMConstants.FORMAT_TIME.format(editData
-					.getLastUpdateTime()));
-			builderActPaied.appendSql("' }");
-			// 此处精确到时分秒，所以不能用下句
-			// builderActPaied.appendParam(editData.getLastUpdateTime());
-		}
-		IRowSet rowSetActPaied = builderActPaied.executeQuery();
-		while (rowSetActPaied.next()) {
-			if (rowSetActPaied.getString("actPaied") != null) {
-				actPaied = rowSetActPaied.getBigDecimal("actPaied");
-			}
-		}
+//		FDCSQLBuilder builderActPaied = new FDCSQLBuilder();
+//		builderActPaied
+//				.appendSql(" select sum(pay.FLocalAmount) as actPaied from t_cas_paymentbill as pay ");
+//		builderActPaied
+//				.appendSql(" left join cT_CON_ContractWithoutText  as con on con.FID = pay.FContractBillID ");
+//		builderActPaied
+//				.appendSql(" left join T_FNC_FDCDepConPayPlanNoCon as np on np.FID = con.FFdcDepConPlanID ");
+//		builderActPaied
+//				.appendSql(" left join T_FNC_FDCDepConPayPlanBill as pb on pb.FID = np.FHeadID ");
+//		builderActPaied.appendSql(" where pay.FBillStatus = 15 ");
+//		builderActPaied.appendSql(" and pay.FBizDate >= ");
+//		builderActPaied.appendParam(firstDay);
+//		builderActPaied.appendSql(" and pay.FBizDate <= ");
+//		builderActPaied.appendParam(lastDay);
+//		builderActPaied.appendSql(" and pay.FCurProjectID = ");
+//		builderActPaied.appendParam(projectId);
+//		builderActPaied.appendSql(" and pb.FNumber = ");
+//		builderActPaied.appendParam(planNum);
+//		builderActPaied.appendSql(" and np.FPayMatters = ");
+//		builderActPaied.appendParam(payMatters);
+//		// 查看状态查以前的
+//		if (STATUS_VIEW.equals(getOprtState())) {
+//			builderActPaied.appendSql(" and pay.FLastUpdateTime <= ");
+//			builderActPaied.appendSql("{ts '");
+//			builderActPaied.appendSql(FMConstants.FORMAT_TIME.format(editData
+//					.getLastUpdateTime()));
+//			builderActPaied.appendSql("' }");
+//			// 此处精确到时分秒，所以不能用下句
+//			// builderActPaied.appendParam(editData.getLastUpdateTime());
+//		}
+//		IRowSet rowSetActPaied = builderActPaied.executeQuery();
+//		while (rowSetActPaied.next()) {
+//			if (rowSetActPaied.getString("actPaied") != null) {
+//				actPaied = rowSetActPaied.getBigDecimal("actPaied");
+//			}
+//		}
 		return actPaied;
 	}
 	
@@ -3354,45 +3354,45 @@ public class ContractWithoutTextEditUI extends
 			String projectId, String planNum, String payMatters) throws BOSException, SQLException {
 		
 		BigDecimal floatFund = FDCHelper.ZERO;
-		FDCSQLBuilder builderFloatFund = new FDCSQLBuilder();
-		builderFloatFund
-				.appendSql(" select sum(con.FAmount) as floatFund from T_CON_ContractWithoutText as con ");
-		builderFloatFund
-				.appendSql(" left join T_FNC_FDCDepConPayPlanNoCon as np on np.FID = con.FFdcDepConPlanID ");
-		builderFloatFund
-				.appendSql(" left join T_FNC_FDCDepConPayPlanBill as pb on pb.FID = np.FHeadID ");
-		builderFloatFund
-				.appendSql(" where (con.FState = '2SUBMITTED' or con.FState = '3AUDITTING') ");
-		builderFloatFund.appendSql(" and con.FBookedDate >= ");
-		builderFloatFund.appendParam(firstDay);
-		builderFloatFund.appendSql(" and con.FBookedDate <= ");
-		builderFloatFund.appendParam(lastDay);
-		builderFloatFund.appendSql(" and con.FCurProjectID = ");
-		builderFloatFund.appendParam(projectId);
-		builderFloatFund.appendSql(" and pb.FNumber =  ");
-		builderFloatFund.appendParam(planNum);
-		builderFloatFund.appendSql(" and np.FPayMatters = ");
-		builderFloatFund.appendParam(payMatters);
-		// 查看状态查以前的
-		if (STATUS_VIEW.equals(getOprtState())) {
-			builderFloatFund.appendSql(" and con.FLastUpdateTime <= ");
-			builderFloatFund.appendSql("{ts '");
-			builderFloatFund.appendSql(FMConstants.FORMAT_TIME.format(editData
-					.getLastUpdateTime()));
-			builderFloatFund.appendSql("' }");
-			// 此处精确到时分秒，所以不能用下句
-			// builderFloatFund.appendParam(editData.getLastUpdateTime());
-		}
-		if (editData.getId() != null) {
-			builderFloatFund.appendSql(" and con.FID != ");
-			builderFloatFund.appendParam(editData.getId().toString());
-		}
-		IRowSet rowSetFloatFund = builderFloatFund.executeQuery();
-		while (rowSetFloatFund.next()) {
-			if (rowSetFloatFund.getString("floatFund") != null) {
-				floatFund = rowSetFloatFund.getBigDecimal("floatFund");
-			}
-		}
+//		FDCSQLBuilder builderFloatFund = new FDCSQLBuilder();
+//		builderFloatFund
+//				.appendSql(" select sum(con.FAmount) as floatFund from cT_CON_ContractWithoutText  as con ");
+//		builderFloatFund
+//				.appendSql(" left join T_FNC_FDCDepConPayPlanNoCon as np on np.FID = con.FFdcDepConPlanID ");
+//		builderFloatFund
+//				.appendSql(" left join T_FNC_FDCDepConPayPlanBill as pb on pb.FID = np.FHeadID ");
+//		builderFloatFund
+//				.appendSql(" where (con.FState = '2SUBMITTED' or con.FState = '3AUDITTING') ");
+//		builderFloatFund.appendSql(" and con.FBookedDate >= ");
+//		builderFloatFund.appendParam(firstDay);
+//		builderFloatFund.appendSql(" and con.FBookedDate <= ");
+//		builderFloatFund.appendParam(lastDay);
+//		builderFloatFund.appendSql(" and con.FCurProjectID = ");
+//		builderFloatFund.appendParam(projectId);
+//		builderFloatFund.appendSql(" and pb.FNumber =  ");
+//		builderFloatFund.appendParam(planNum);
+//		builderFloatFund.appendSql(" and np.FPayMatters = ");
+//		builderFloatFund.appendParam(payMatters);
+//		// 查看状态查以前的
+//		if (STATUS_VIEW.equals(getOprtState())) {
+//			builderFloatFund.appendSql(" and con.FLastUpdateTime <= ");
+//			builderFloatFund.appendSql("{ts '");
+//			builderFloatFund.appendSql(FMConstants.FORMAT_TIME.format(editData
+//					.getLastUpdateTime()));
+//			builderFloatFund.appendSql("' }");
+//			// 此处精确到时分秒，所以不能用下句
+//			// builderFloatFund.appendParam(editData.getLastUpdateTime());
+//		}
+//		if (editData.getId() != null) {
+//			builderFloatFund.appendSql(" and con.FID != ");
+//			builderFloatFund.appendParam(editData.getId().toString());
+//		}
+//		IRowSet rowSetFloatFund = builderFloatFund.executeQuery();
+//		while (rowSetFloatFund.next()) {
+//			if (rowSetFloatFund.getString("floatFund") != null) {
+//				floatFund = rowSetFloatFund.getBigDecimal("floatFund");
+//			}
+//		}
 		return floatFund;
 	}
 	
@@ -3411,67 +3411,67 @@ public class ContractWithoutTextEditUI extends
 			String planNum, String payMatters) throws BOSException,
 			SQLException {
 		Map rt = new HashMap();
-		FDCDepConPayPlanNoContractInfo plan = (FDCDepConPayPlanNoContractInfo) prmtPlanProject
-				.getValue();
-		if (plan == null) {
-			CurProjectInfo prj = (CurProjectInfo) prmtcurProject.getValue();
-			String prjName = "";
-			if (prj != null) {
-				prjName = prj.getName();
-			}
-			rt.put("curProject", prjName);
-			AdminOrgUnitInfo dpt = (AdminOrgUnitInfo) prmtuseDepartment
-					.getValue();
-			String curDept = "";
-			if (dpt != null) {
-				curDept = dpt.getName();
-			}
-			rt.put("curDept", curDept);
-			SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM");
-			String planMonth = ft.format(editData.getBookedDate());
-			rt.put("planMonth", planMonth);
-			rt.put("localBudget", FDCHelper.ZERO);
-			return rt;
-		}
-		
-		BigDecimal localBudget = FDCHelper.ZERO;
-		FDCSQLBuilder builder = new FDCSQLBuilder();
-		builder
-				.appendSql("select prj.FName_l2 as prjName,admin.FName_l2 as curDept,entry.FMonth as planMonth,entry.FOfficialPay as localBudget ");
-		builder.appendSql("from T_FNC_FDCDepConPayPlanNoCon as con ");
-		builder
-				.appendSql("left join T_FNC_FDCDepConPayPlanBill as head on head.FID = con.FHeadID ");
-		builder
-				.appendSql("left join T_FNC_FDCDepConPayPlanNCEntry as entry on entry.FParentNC = con.FID ");
-		builder
-				.appendSql("left join T_ORG_Admin as admin on admin.FID = head.FDeptmentID ");
-		builder.appendSql(" left join T_FDC_CurProject as prj on prj.FID = con.FProjectID ");
-		builder
-				.appendSql("where ");
-		builder.appendSql(" entry.FMonth >= ");
-		builder.appendParam(firstDay);
-		builder.appendSql(" and entry.FMonth <= ");
-		builder.appendParam(lastDay);
-		// builder.appendSql(" and con.FProjectID = ");
-		// builder.appendParam(projectId);
-		builder.appendSql(" and con.FID = ");
-		builder.appendParam(plan.getId().toString());
-//		builder.appendSql(" and head.FNumber = ");
-//		builder.appendParam(planNum);
-		builder.appendSql(" order by head.FYear desc,head.FMonth DESC");
-		IRowSet rowSet = builder.executeQuery();
-		while (rowSet.next()) {
-			String curPrj = rowSet.getString("prjName");
-			rt.put("curProject", curPrj);
-			String curDept = rowSet.getString("curDept");
-			rt.put("curDept", curDept);
-			String planMonth = rowSet.getString("planMonth");
-			rt.put("planMonth", planMonth);
-			if (rowSet.getString("localBudget") != null) {
-				localBudget = rowSet.getBigDecimal("localBudget");
-				rt.put("localBudget", localBudget);
-			}
-		}
+//		FDCDepConPayPlanNoContractInfo plan = (FDCDepConPayPlanNoContractInfo) prmtPlanProject
+//				.getValue();
+//		if (plan == null) {
+//			CurProjectInfo prj = (CurProjectInfo) prmtcurProject.getValue();
+//			String prjName = "";
+//			if (prj != null) {
+//				prjName = prj.getName();
+//			}
+//			rt.put("curProject", prjName);
+//			AdminOrgUnitInfo dpt = (AdminOrgUnitInfo) prmtuseDepartment
+//					.getValue();
+//			String curDept = "";
+//			if (dpt != null) {
+//				curDept = dpt.getName();
+//			}
+//			rt.put("curDept", curDept);
+//			SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM");
+//			String planMonth = ft.format(editData.getBookedDate());
+//			rt.put("planMonth", planMonth);
+//			rt.put("localBudget", FDCHelper.ZERO);
+//			return rt;
+//		}
+//		
+//		BigDecimal localBudget = FDCHelper.ZERO;
+//		FDCSQLBuilder builder = new FDCSQLBuilder();
+//		builder
+//				.appendSql("select prj.FName_l2 as prjName,admin.FName_l2 as curDept,entry.FMonth as planMonth,entry.FOfficialPay as localBudget ");
+//		builder.appendSql("from T_FNC_FDCDepConPayPlanNoCon as con ");
+//		builder
+//				.appendSql("left join T_FNC_FDCDepConPayPlanBill as head on head.FID = con.FHeadID ");
+//		builder
+//				.appendSql("left join T_FNC_FDCDepConPayPlanNCEntry as entry on entry.FParentNC = con.FID ");
+//		builder
+//				.appendSql("left join T_ORG_Admin as admin on admin.FID = head.FDeptmentID ");
+//		builder.appendSql(" left join T_bd_PROJECT as prj on prj.FID = con.FProjectID ");
+//		builder
+//				.appendSql("where ");
+//		builder.appendSql(" entry.FMonth >= ");
+//		builder.appendParam(firstDay);
+//		builder.appendSql(" and entry.FMonth <= ");
+//		builder.appendParam(lastDay);
+//		// builder.appendSql(" and con.FProjectID = ");
+//		// builder.appendParam(projectId);
+//		builder.appendSql(" and con.FID = ");
+//		builder.appendParam(plan.getId().toString());
+////		builder.appendSql(" and head.FNumber = ");
+////		builder.appendParam(planNum);
+//		builder.appendSql(" order by head.FYear desc,head.FMonth DESC");
+//		IRowSet rowSet = builder.executeQuery();
+//		while (rowSet.next()) {
+//			String curPrj = rowSet.getString("prjName");
+//			rt.put("curProject", curPrj);
+//			String curDept = rowSet.getString("curDept");
+//			rt.put("curDept", curDept);
+//			String planMonth = rowSet.getString("planMonth");
+//			rt.put("planMonth", planMonth);
+//			if (rowSet.getString("localBudget") != null) {
+//				localBudget = rowSet.getBigDecimal("localBudget");
+//				rt.put("localBudget", localBudget);
+//			}
+//		}
 		return rt;
 	}
 	
@@ -3485,17 +3485,17 @@ public class ContractWithoutTextEditUI extends
 	
 	public void actionViewProgramContract_actionPerformed(ActionEvent e)
 			throws Exception {
-		if (this.editData.getProgrammingContract() == null) {
-			MsgBox.showInfo(this, "该合同没有关联框架合约!");
-			this.abort();
-		}
+//		if (this.editData.getProgrammingContract() == null) {
+//			MsgBox.showInfo(this, "该合同没有关联框架合约!");
+//			this.abort();
+//		}
 
 		UIContext uiContext = new UIContext(this);
 		IUIWindow uiWindow = null;
 		ContractWithoutTextInfo  contractWithoutTextInfo  = (ContractWithoutTextInfo ) editData;
-		ProgrammingContractInfo proContInfo = getProContInfo(contractWithoutTextInfo.getProgrammingContract().getId().toString());
-		contractWithoutTextInfo.setProgrammingContract(proContInfo);
-		uiContext.put("programmingContract", proContInfo);
+//		ProgrammingContractInfo proContInfo = getProContInfo(contractWithoutTextInfo.getProgrammingContract().getId().toString());
+//		contractWithoutTextInfo.setProgrammingContract(proContInfo);
+//		uiContext.put("programmingContract", proContInfo);
 		uiContext.put("programmingContractTemp", "programmingContractTemp");
 		uiWindow = UIFactory.createUIFactory(UIFactoryName.MODEL).create(ProgrammingContractEditUI.class.getName(), uiContext, null, OprtState.VIEW);
 		uiWindow.show();
@@ -3532,11 +3532,11 @@ public class ContractWithoutTextEditUI extends
 		//是否全期合同
 		uiWindow = UIFactory.createUIFactory(UIFactoryName.MODEL).create(ContractBillLinkProgContEditUI.class.getName(), uiContext, null,OprtState.EDIT);
 		uiWindow.show();
-		if (contractWithoutTextInfo.getProgrammingContract() != null) {
-			this.txtPCName.setText(contractWithoutTextInfo.getProgrammingContract().getName());
-		} else {
+//		if (contractWithoutTextInfo.getProgrammingContract() != null) {
+//			this.txtPCName.setText(contractWithoutTextInfo.getProgrammingContract().getName());
+//		} else {
 			this.txtPCName.setText(null);
-		}
+//		}
 	}
 	protected void prmtContractType_dataChanged(DataChangeEvent e) throws Exception {
 		boolean isChanged = true;
@@ -3546,32 +3546,32 @@ public class ContractWithoutTextEditUI extends
         }
         Set id=new HashSet();
 		ContractTypeInfo ct=(ContractTypeInfo) this.prmtContractType.getValue();
-		if(ct!=null){
-			if(this.editData.getProgrammingContract()!=null&&this.editData.getProgrammingContract().getContractType()!=null
-					&&!this.editData.getProgrammingContract().getContractType().getId().equals(ct.getId())){
-				this.editData.setProgrammingContract(null);
-				this.txtPCName.setText(null);
-				getPayPlanValue();
-			}
-			SelectorItemCollection sel=new SelectorItemCollection();
-			sel.add("entry.payContentType.*");
-			ct=ContractTypeFactory.getRemoteInstance().getContractTypeInfo(new ObjectUuidPK(ct.getId()),sel);
-			this.prmtPayContentType.setEnabled(true);
-			
-			for(int i=0;i<ct.getEntry().size();i++){
-				if(ct.getEntry().get(i).getPayContentType()!=null){
-					id.add(ct.getEntry().get(i).getPayContentType().getId().toString());
-				}
-			}
-			if(ct.getEntry().size()==1&&ct.getEntry().get(0).getPayContentType()!=null){
-				this.prmtPayContentType.setValue(ct.getEntry().get(0).getPayContentType());
-			}
-			
-			chkCostsplit.setSelected(ct.isIsCost());
-			
-		}else{
+//		if(ct!=null){
+//			if(this.editData.getProgrammingContract()!=null&&this.editData.getProgrammingContract().getContractType()!=null
+//					&&!this.editData.getProgrammingContract().getContractType().getId().equals(ct.getId())){
+//				this.editData.setProgrammingContract(null);
+//				this.txtPCName.setText(null);
+//				getPayPlanValue();
+//			}
+//			SelectorItemCollection sel=new SelectorItemCollection();
+//			sel.add("entry.payContentType.*");
+//			ct=ContractTypeFactory.getRemoteInstance().getContractTypeInfo(new ObjectUuidPK(ct.getId()),sel);
+//			this.prmtPayContentType.setEnabled(true);
+//			
+//			for(int i=0;i<ct.getEntry().size();i++){
+//				if(ct.getEntry().get(i).getPayContentType()!=null){
+//					id.add(ct.getEntry().get(i).getPayContentType().getId().toString());
+//				}
+//			}
+//			if(ct.getEntry().size()==1&&ct.getEntry().get(0).getPayContentType()!=null){
+//				this.prmtPayContentType.setValue(ct.getEntry().get(0).getPayContentType());
+//			}
+//			
+//			chkCostsplit.setSelected(ct.isIsCost());
+//			
+//		}else{
 			this.prmtPayContentType.setEnabled(false);
-		}
+//		}
 		
 		if(this.prmtPayContentType.getValue()!=null&&!id.contains(((PayContentTypeInfo)this.prmtPayContentType.getValue()).getId().toString())){
 			this.prmtPayContentType.setValue(null);

@@ -88,7 +88,7 @@ import com.kingdee.util.db.SQLUtils;
 public class ContractWithoutTextControllerBean extends
 		AbstractContractWithoutTextControllerBean {
 	private static Logger logger = Logger
-			.getLogger("com.kingdee.eas.fdc.contract.app.ContractWithoutTextControllerBean");
+			.getLogger("com.kingdee.eas.port.pm.contract.app.ContractWithoutTextControllerBean");
 	// 付款申请单编码
 	private String payReqNumber = new String("");
 
@@ -101,7 +101,7 @@ public class ContractWithoutTextControllerBean extends
 		IObjectPK pk = super._save(ctx, con);
 
 		con.setId(BOSUuid.read(pk.toString()));
-		createPayRequestBill(ctx, con, prbi, FDCBillStateEnum.SAVED);
+//		createPayRequestBill(ctx, con, prbi, FDCBillStateEnum.SAVED);
 
 		return pk;
 
@@ -111,7 +111,7 @@ public class ContractWithoutTextControllerBean extends
 		PayRequestBillInfo prbi = (PayRequestBillInfo) con.get("PayRequestBillInfo");
 		super._save(ctx, pk, model);
 		con.setId(BOSUuid.read(pk.toString()));
-		createPayRequestBill(ctx, con, prbi, FDCBillStateEnum.SAVED);
+//		createPayRequestBill(ctx, con, prbi, FDCBillStateEnum.SAVED);
 	}
 
 	protected void _submit(Context ctx, IObjectPK pk, IObjectValue model) throws BOSException, EASBizException {
@@ -121,7 +121,7 @@ public class ContractWithoutTextControllerBean extends
 		PayRequestBillInfo prbi = (PayRequestBillInfo) con.get("PayRequestBillInfo");
 		super._submit(ctx, pk, model);
 		con.setId(BOSUuid.read(pk.toString()));
-		createPayRequestBill(ctx, con, prbi, FDCBillStateEnum.SUBMITTED);
+//		createPayRequestBill(ctx, con, prbi, FDCBillStateEnum.SUBMITTED);
 	}
 
 	protected IObjectPK _submit(Context ctx, IObjectValue model)
@@ -137,7 +137,7 @@ public class ContractWithoutTextControllerBean extends
 		IObjectPK pk = super._submit(ctx, con);
 
 		con.setId(BOSUuid.read(pk.toString()));
-		createPayRequestBill(ctx, con, prbi, FDCBillStateEnum.SUBMITTED);
+//		createPayRequestBill(ctx, con, prbi, FDCBillStateEnum.SUBMITTED);
 
 		return pk;
 	}
@@ -174,8 +174,7 @@ public class ContractWithoutTextControllerBean extends
 		if (prbc.size() > 0) {
 			iPayReq.audit(prbc.get(0).getId());
 		}
-		ContractExecInfosFactory.getLocalInstance(ctx).updateContract(
-				ContractExecInfosInfo.EXECINFO_AUDIT, billId.toString());
+//		ContractExecInfosFactory.getLocalInstance(ctx).updateContract(ContractExecInfosInfo.EXECINFO_AUDIT, billId.toString());
 	}
 
 	
@@ -196,10 +195,11 @@ public class ContractWithoutTextControllerBean extends
 			SQLException {
 		String billIdStr = billId.toString();
 		ContractWithoutTextInfo contractWithoutTextInfo = this.getContractWithoutTextInfo(ctx, new ObjectUuidPK(billIdStr), getSic());
-		if (contractWithoutTextInfo.getProgrammingContract() == null)
-			return;
-		IProgrammingContract service = ProgrammingContractFactory.getLocalInstance(ctx);
-		ProgrammingContractInfo pcInfo = contractWithoutTextInfo.getProgrammingContract();
+//		if (contractWithoutTextInfo.getProgrammingContract() == null)
+//			return;
+//		IProgrammingContract service = ProgrammingContractFactory.getLocalInstance(ctx);
+//		ProgrammingContractInfo pcInfo = contractWithoutTextInfo.getProgrammingContract();
+		ProgrammingContractInfo pcInfo = null;
 		if (pcInfo == null)
 			return;
 		// 规划余额
@@ -292,7 +292,7 @@ public class ContractWithoutTextControllerBean extends
 //		BigDecimal  estimateAmount = pcInfo.getEstimateAmount();
 //		pcInfo.setEstimateAmount(FDCHelper.ZERO);
 //		pcInfo.setBalance(pcInfo.getBalance().add(estimateAmount));
-		service.updatePartial(pcInfo, sict);
+//		service.updatePartial(pcInfo, sict);
 		//对应的预估变动单变为是否最新为false
 //		FilterInfo filter = new FilterInfo();
 //		filter.getFilterItems().add(new FilterItemInfo("programmingContract.id",pcInfo.getId().toString()));
@@ -330,13 +330,13 @@ public class ContractWithoutTextControllerBean extends
 	
 	private String getNextVersionProg(Context ctx, String nextProgId, FDCSQLBuilder builder, IRowSet rowSet) throws BOSException, SQLException {
 		String tempId = null;
-		builder.clear();
-		builder.appendSql(" select fid from t_con_programmingContract where  ");
-		builder.appendParam("FSrcId", nextProgId);
-		rowSet = builder.executeQuery();
-		while (rowSet.next()) {
-			tempId = rowSet.getString("fid");
-		}
+//		builder.clear();
+//		builder.appendSql(" select fid from t_con_programmingContract where  ");
+//		builder.appendParam("FSrcId", nextProgId);
+//		rowSet = builder.executeQuery();
+//		while (rowSet.next()) {
+//			tempId = rowSet.getString("fid");
+//		}
 		return tempId;
 	}
 	// 反审核
@@ -422,17 +422,16 @@ public class ContractWithoutTextControllerBean extends
 		IObjectPK objectPK = super._addnew(ctx, model);
 
 		// 同步到合同基本资料，用于合同做核算项目
-		ContractBaseDataHelper.synToContractBaseData(ctx, true, objectPK
-				.toString());
+//		ContractBaseDataHelper.synToContractBaseData(ctx, true, objectPK.toString());
 
-		/** 添加反写ContractBaseDataID的代码 -by neo */
-		FDCSQLBuilder builder = new FDCSQLBuilder();
-		builder
-				.appendSql("update t_con_contractwithouttext set fcontractbasedataid ="
-						+ "(select fid from t_CON_contractbasedata where fcontractid = t_con_contractwithouttext.fid) "
-						+ "where");
-		builder.appendParam("fid", objectPK.toString());
-		builder.executeUpdate(ctx);
+//		/** 添加反写ContractBaseDataID的代码 -by neo */
+//		FDCSQLBuilder builder = new FDCSQLBuilder();
+//		builder
+//				.appendSql("update Ct_con_contractwithouttext set fcontractbasedataid ="
+//						+ "(select fid from t_CON_contractbasedata where fcontractid = ct_con_contractwithouttext.fid) "
+//						+ "where");
+//		builder.appendParam("fid", objectPK.toString());
+//		builder.executeUpdate(ctx);
 		/** 添加反写ContractBaseDataID的代码 -by neo */
 		return objectPK;
 	}
@@ -444,7 +443,7 @@ public class ContractWithoutTextControllerBean extends
 		super._update(ctx, pk, model);
 
 		// 同步到合同基本资料，用于合同做核算项目
-		ContractBaseDataHelper.synToContractBaseData(ctx, true, pk.toString());
+//		ContractBaseDataHelper.synToContractBaseData(ctx, true, pk.toString());
 	}
 
 	protected void _updatePartial(Context ctx, IObjectValue model,
@@ -454,7 +453,7 @@ public class ContractWithoutTextControllerBean extends
 
 		// 同步到合同基本资料，用于合同做核算项目
 		String id = ((FDCBillInfo) model).getId().toString();
-		ContractBaseDataHelper.synToContractBaseData(ctx, true, id);
+//		ContractBaseDataHelper.synToContractBaseData(ctx, true, id);
 
 	}
 
@@ -479,19 +478,19 @@ public class ContractWithoutTextControllerBean extends
 		buildSQL.appendSql(" select count(1) count from T_INV_InviteProject ");
 		buildSQL.appendSql(" where FProgrammingContractId = '" + proContId + "' ");
 		buildSQL.appendSql(" union ");
-		buildSQL.appendSql(" select count(1) count from T_CON_ContractWithoutText ");
+		buildSQL.appendSql(" select count(1) count from cT_CON_ContractWithoutText ");
 		buildSQL.appendSql(" where FProgrammingContract = '" + proContId + "' ");
 		int count = 0;
-		try {
-			IRowSet iRowSet = buildSQL.executeQuery();
-			while (iRowSet.next()) {
-				count += iRowSet.getInt("count");
-			}
-		} catch (BOSException e) {
-			logger.error(e);
-		} catch (SQLException e) {
-			logger.error(e);
-		}
+//		try {
+//			IRowSet iRowSet = buildSQL.executeQuery();
+//			while (iRowSet.next()) {
+//				count += iRowSet.getInt("count");
+//			}
+//		} catch (BOSException e) {
+//			logger.error(e);
+//		} catch (SQLException e) {
+//			logger.error(e);
+//		}
 		return count;
 	}
 
@@ -507,7 +506,7 @@ public class ContractWithoutTextControllerBean extends
 		sic.add("*");
 		sic.add("programmingContract.*");
 		builder.clear();
-		builder.appendSql("select fprogrammingContract from T_CON_ContractWithoutText where 1=1 and ");
+		builder.appendSql("select fprogrammingContract from cT_CON_ContractWithoutText where 1=1 and ");
 		builder.appendParam("fid", pk.toString());
 		IRowSet rowSet = builder.executeQuery();
 		while (rowSet.next()) {
@@ -520,7 +519,7 @@ public class ContractWithoutTextControllerBean extends
 	
 	private int isCitingByContractWithoutText(String proContId) {
 		FDCSQLBuilder buildSQL = new FDCSQLBuilder();
-		buildSQL.appendSql("select count(*) count from T_CON_ContractWithoutText ");
+		buildSQL.appendSql("select count(*) count from cT_CON_ContractWithoutText ");
 		buildSQL.appendSql("where FProgrammingContract = '" + proContId + "' ");
 		int count = 0;
 		try {
@@ -542,13 +541,13 @@ public class ContractWithoutTextControllerBean extends
 	 * @throws Exception
 	 */
 	private void updateOldProg(Context ctx, IObjectPK pk) throws Exception {
-		String checkReaPre = checkReaPre(ctx, pk);
-		if(checkReaPre!=null){
-			int linkContractWithoutText = isCitingByContractWithoutText(checkReaPre);// 本合约关联无文本合同招立项数
-			if (linkContractWithoutText <= 1 ) {
-				updateProgrammingContract(ctx, checkReaPre, 0);
-			}
-		}
+//		String checkReaPre = checkReaPre(ctx, pk);
+//		if(checkReaPre!=null){
+//			int linkContractWithoutText = isCitingByContractWithoutText(checkReaPre);// 本合约关联无文本合同招立项数
+//			if (linkContractWithoutText <= 1 ) {
+//				updateProgrammingContract(ctx, checkReaPre, 0);
+//			}
+//		}
 	}
 	
 	private String isUpdateNextProgState(Context ctx, String progId) throws Exception {
@@ -565,17 +564,17 @@ public class ContractWithoutTextControllerBean extends
 	
 	private boolean preVersionProg(Context ctx, String progId) throws BOSException, SQLException {
 		boolean isCityingProg = false;
-		int tempIsCiting = 0;
-		FDCSQLBuilder buildSQL = new FDCSQLBuilder(ctx);
-		buildSQL.appendSql(" select t1.FIsCiting isCiting from t_con_programmingContract t1 where t1.fid = (");
-		buildSQL.appendSql(" select t2.FSrcId from t_con_programmingContract t2 where t2.fid = '" + progId + "')");
-		IRowSet rowSet = buildSQL.executeQuery();
-		while (rowSet.next()) {
-			tempIsCiting = rowSet.getInt("isCiting");
-		}
-		if (tempIsCiting > 0) {
-			isCityingProg = true;
-		}
+//		int tempIsCiting = 0;
+//		FDCSQLBuilder buildSQL = new FDCSQLBuilder(ctx);
+//		buildSQL.appendSql(" select t1.FIsCiting isCiting from t_con_programmingContract t1 where t1.fid = (");
+//		buildSQL.appendSql(" select t2.FSrcId from t_con_programmingContract t2 where t2.fid = '" + progId + "')");
+//		IRowSet rowSet = buildSQL.executeQuery();
+//		while (rowSet.next()) {
+//			tempIsCiting = rowSet.getInt("isCiting");
+//		}
+//		if (tempIsCiting > 0) {
+//			isCityingProg = true;
+//		}
 		return isCityingProg;
 	}
 	
@@ -587,13 +586,13 @@ public class ContractWithoutTextControllerBean extends
 	 */
 	private void updateProgrammingContract(Context ctx, String proContId, int isCiting) {
 		FDCSQLBuilder buildSQL = new FDCSQLBuilder(ctx);
-		buildSQL.appendSql("update T_CON_ProgrammingContract set FIsWTCiting = " + isCiting + " ");
-		buildSQL.appendSql("where FID = '" + proContId + "' ");
-		try {
-			buildSQL.executeUpdate();
-		} catch (BOSException e) {
-			e.printStackTrace();
-		}
+//		buildSQL.appendSql("update T_CON_ProgrammingContract set FIsWTCiting = " + isCiting + " ");
+//		buildSQL.appendSql("where FID = '" + proContId + "' ");
+//		try {
+//			buildSQL.executeUpdate();
+//		} catch (BOSException e) {
+//			e.printStackTrace();
+//		}
 	}
 	protected void _cancel(Context ctx, IObjectPK pk) throws BOSException,
 			EASBizException {
@@ -603,11 +602,11 @@ public class ContractWithoutTextControllerBean extends
 		String sql = "delete t_con_contractbasedata where fcontractid = ?";
 		DbUtil.execute(ctx, sql, new Object[] { pk.toString() });
 
-		sql = "delete from T_CON_PayRequestBillEntry where fparentid in (select fid from T_CON_PayRequestBill where fcontractid =?) "; // TODO
+		sql = "delete from cT_fin_PayRequestBillEntry where fparentid in (select fid from cT_fin_PayRequestBill where fcontractid =?) "; // TODO
 		DbUtil.execute(ctx, sql, new Object[] { pk.toString() });
-		sql = "delete from T_CON_PayRequestBill where fcontractid =?";
+		sql = "delete from cT_fin_PayRequestBill where fcontractid =?";
 		DbUtil.execute(ctx, sql, new Object[] { pk.toString() });
-		sql = "delete from T_CON_ContractBaseData where fcontractid =?";
+		sql = "delete from cT_fin_ContractBaseData where fcontractid =?";
 		DbUtil.execute(ctx, sql, new Object[] { pk.toString() });
 
 	}
@@ -701,7 +700,7 @@ public class ContractWithoutTextControllerBean extends
 			throws BOSException, EASBizException {
 
 		// 删除之前的多余付款申请单
-		String sql = "delete from T_CON_PayRequestBill where FContractId = ? ";
+		String sql = "delete from CT_fi_PayRequestBill where FContractId = ? ";
 		Object[] params = new Object[] { con.getId().toString() };
 		DbUtil.execute(ctx, sql, params);
 		checkNumber(ctx, con.getNumber());
@@ -823,7 +822,7 @@ public class ContractWithoutTextControllerBean extends
 			prbi.getBgEntry().get(i).setId(null);
 			prbiNew.getBgEntry().add(prbi.getBgEntry().get(i));
 		}
-		PayRequestBillFactory.getLocalInstance(ctx).addnew(prbiNew);
+//		PayRequestBillFactory.getLocalInstance(ctx).addnew(prbiNew);
 
 	}
 
@@ -959,11 +958,11 @@ public class ContractWithoutTextControllerBean extends
 		if(contractBill.getId()!=null){
 			_builder.appendSql(" and bill.fcontractid!='"+contractBill.getId().toString()+"'");
 		}
-		rowSet = _builder.executeQuery();
-		while(rowSet.next()){
-			if(rowSet.getBigDecimal("payAmount")!=null)
-				return rowSet.getBigDecimal("payAmount");
-		}
+//		rowSet = _builder.executeQuery();
+//		while(rowSet.next()){
+//			if(rowSet.getBigDecimal("payAmount")!=null)
+//				return rowSet.getBigDecimal("payAmount");
+//		}
 		return FDCHelper.ZERO;
 	}
     protected PaymentBillInfo createTempPaymentBill(ContractWithoutTextInfo contractBill) throws BOSException{

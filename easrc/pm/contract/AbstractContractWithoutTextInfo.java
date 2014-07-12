@@ -300,28 +300,6 @@ public class AbstractContractWithoutTextInfo extends com.kingdee.eas.fdc.basedat
         put("useDepartment", item);
     }
     /**
-     * Object: 无文本合同 's 框架合约 property 
-     */
-    public com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo getProgrammingContract()
-    {
-        return (com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo)get("programmingContract");
-    }
-    public void setProgrammingContract(com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo item)
-    {
-        put("programmingContract", item);
-    }
-    /**
-     * Object: 无文本合同 's 合同月度滚动计划无合同分录 property 
-     */
-    public com.kingdee.eas.fdc.finance.FDCDepConPayPlanNoContractInfo getFdcDepConPlan()
-    {
-        return (com.kingdee.eas.fdc.finance.FDCDepConPayPlanNoContractInfo)get("fdcDepConPlan");
-    }
-    public void setFdcDepConPlan(com.kingdee.eas.fdc.finance.FDCDepConPayPlanNoContractInfo item)
-    {
-        put("fdcDepConPlan", item);
-    }
-    /**
      * Object:无文本合同's 是否预算控制property 
      */
     public boolean isIsBgControl()

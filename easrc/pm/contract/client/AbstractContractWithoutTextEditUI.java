@@ -1777,7 +1777,6 @@ contBgEntry.getContentPane().setLayout(new BorderLayout(0, 0));        contBgEnt
 		dataBinder.registerBinding("invoiceDate", java.util.Date.class, this.pkInvoiceDate, "value");
 		dataBinder.registerBinding("invoiceAmt", java.math.BigDecimal.class, this.txtInvoiceAmt, "value");
 		dataBinder.registerBinding("allInvoiceAmt", double.class, this.txtAllInvoiceAmt, "value");
-		dataBinder.registerBinding("fdcDepConPlan", com.kingdee.eas.fdc.finance.FDCDepConPayPlanNoContractInfo.class, this.prmtPlanProject, "data");
 		dataBinder.registerBinding("applierOrgUnit", com.kingdee.eas.basedata.org.AdminOrgUnitInfo.class, this.prmtApplierOrgUnit, "data");
 		dataBinder.registerBinding("applierCompany", com.kingdee.eas.basedata.org.CompanyOrgUnitInfo.class, this.prmtApplierCompany, "data");
 		dataBinder.registerBinding("costedCompany", com.kingdee.eas.basedata.org.CompanyOrgUnitInfo.class, this.prmtCostedCompany, "data");
@@ -1947,7 +1946,6 @@ contBgEntry.getContentPane().setLayout(new BorderLayout(0, 0));        contBgEnt
 		getValidateHelper().registerBindProperty("invoiceDate", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("invoiceAmt", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("allInvoiceAmt", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("fdcDepConPlan", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("applierOrgUnit", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("applierCompany", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("costedCompany", ValidateHelper.ON_SAVE);    
@@ -2299,13 +2297,6 @@ contBgEntry.getContentPane().setLayout(new BorderLayout(0, 0));        contBgEnt
         sic.add(new SelectorItemInfo("invoiceDate"));
         sic.add(new SelectorItemInfo("invoiceAmt"));
         sic.add(new SelectorItemInfo("allInvoiceAmt"));
-		if(selectorAll.equalsIgnoreCase("true"))
-		{
-			sic.add(new SelectorItemInfo("fdcDepConPlan.*"));
-		}
-		else{
-        	sic.add(new SelectorItemInfo("fdcDepConPlan.id"));
-		}
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
 			sic.add(new SelectorItemInfo("applierOrgUnit.*"));

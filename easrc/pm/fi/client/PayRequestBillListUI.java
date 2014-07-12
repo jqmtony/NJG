@@ -57,6 +57,7 @@ import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.eas.base.attachment.common.AttachmentClientManager;
 import com.kingdee.eas.base.attachment.common.AttachmentManagerFactory;
 import com.kingdee.eas.base.param.ParamControlFactory;
+import com.kingdee.eas.basedata.assistant.ProjectInfo;
 import com.kingdee.eas.basedata.org.FullOrgUnitFactory;
 import com.kingdee.eas.basedata.org.FullOrgUnitInfo;
 import com.kingdee.eas.basedata.org.OrgStructureInfo;
@@ -1301,7 +1302,7 @@ public class PayRequestBillListUI extends AbstractPayRequestBillListUI {
 				this.tblMain.setFormatXml(resHelperWithout.getString("tblMain.formatXml"));
 				this.tblMain.putBindContents("mainQuery", new String[] { "id", "bookedDate", "period.number", "state", "number", "billName", "contractType.name","contract.name", "currency.name", "originalAmount",
 						"amount", "receiveUnit.name","useDeptment","signDate", "isInvoice","currency.id", "currency.precision"});
-				mainQueryPK = new MetaDataPK("com.kingdee.eas.fdc.contract.app", "ContractWithoutTextQuery");
+				mainQueryPK = new MetaDataPK("com.kingdee.eas.port.pm.contract.app", "ContractWithoutTextQuery");
 				tblMain.checkParsed(true);
 
 			}
@@ -1315,10 +1316,8 @@ public class PayRequestBillListUI extends AbstractPayRequestBillListUI {
 				mainQuery.getFilter().getFilterItems().clear();
 				mainQuery.getSorter().clear();
 				this.tblMain.setFormatXml(resHelper.getString("tblMain.formatXml"));
-				this.tblMain.putBindContents("mainQuery", new String[] { "id", "bookedDate", "period.number", "state", "hasSettled", "contractType.name", "number", "name", "currency.name",
-						"originalAmount", "amount", "partB.name", "contractSource", "signDate", "landDeveloper.name", "partC.name", "costProperty", "contractPropert", "entrys.id", "currency.id",
-						"currency.precision" });
-				mainQueryPK = new MetaDataPK("com.kingdee.eas.fdc.contract.app", "ContractBillQuery");
+				this.tblMain.putBindContents("mainQuery",new String[] {"number","name","contractType.name","partB.name","curProject.name","signDate","respDept.name","respPerson.name","state","hasSettled","currency.name","srcAmount","originalAmount","exRate","orgUnit.number","orgUnit.name","curProject.number","contractType.longNumber","period.number","amount","costProperty","contractPropert","curProject.id","landDeveloper.number","landDeveloper.name","partB.number","partC.number","partC.name","id"});
+				mainQueryPK = new MetaDataPK("com.kingdee.eas.port.pm.contract.app", "ContractBillQuery");
 				tblMain.checkParsed(true);
 			}
 			super.treeContractType_valueChanged(e);
@@ -1768,16 +1767,16 @@ public class PayRequestBillListUI extends AbstractPayRequestBillListUI {
 				}
 			}
 			// 选择的是项目，取该项目及下级项目（如果有）下的所有合同
-			else if (projTreeNodeInfo instanceof CurProjectInfo) {
+			else if (projTreeNodeInfo instanceof ProjectInfo) {
 				id = projTreeNodeInfo.getId();
 				Set idSet = FDCClientUtils.genProjectIdSet(id);
 				FilterInfo f = new FilterInfo();
 				f.getFilterItems().add(new FilterItemInfo("curProject.id", idSet, CompareType.INCLUDE));
 				if (FDCUtils.getDefaultFDCParamByKey(null, companyID, FDCConstants.FDC_PARAM_CROSSPROJECTSPLIT)) {
-					String filterSplitSql = "select fcontractbillid from T_con_contractCostSplit head " + " inner join T_Con_contractCostSplitEntry entry on head.fid=entry.fparentid "
-							+ " inner join T_FDC_CostAccount acct on acct.fid=entry.fcostaccountid where acct.fcurProject in " + " (" + FDCClientUtils.getSQLIdSet(idSet) + ") and fstate<>'9INVALID'";
-					f.getFilterItems().add(new FilterItemInfo("id", filterSplitSql, CompareType.INNER));
-					f.setMaskString("(#0 or #1)");
+//					String filterSplitSql = "select fcontractbillid from T_con_contractCostSplit head " + " inner join T_Con_contractCostSplitEntry entry on head.fid=entry.fparentid "
+//							+ " inner join T_FDC_CostAccount acct on acct.fid=entry.fcostaccountid where acct.fcurProject in " + " (" + FDCClientUtils.getSQLIdSet(idSet) + ") and fstate<>'9INVALID'";
+//					f.getFilterItems().add(new FilterItemInfo("id", filterSplitSql, CompareType.INNER));
+//					f.setMaskString("(#0 or #1)");
 
 				}
 				if (filter != null) {
@@ -1803,7 +1802,7 @@ public class PayRequestBillListUI extends AbstractPayRequestBillListUI {
 
 		// 三方合同
 		if (!((ContractListBaseUI) this instanceof ContractBillListUI)) {
-			typefilter.appendFilterItem("isAmtWithoutCost", String.valueOf(0));
+//			typefilter.appendFilterItem("isAmtWithoutCost", String.valueOf(0));
 		}
 
 		if (filter != null && typefilter != null) {

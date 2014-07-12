@@ -65,22 +65,18 @@ AbstractContractWithoutTextListUI {
 		super();
 	}
 
-	
 	/**
 	 * output getEditUIName method
 	 */
 	protected String getEditUIName() {
-		return ContractWithoutTextEditUI.class
-				.getName();
+		return ContractWithoutTextEditUI.class.getName();
 	}
 
 	/**
 	 * output getBizInterface method
 	 */
-	protected com.kingdee.eas.framework.ICoreBase getBizInterface()
-			throws Exception {
-		return ContractWithoutTextFactory
-				.getRemoteInstance();
+	protected com.kingdee.eas.framework.ICoreBase getBizInterface()throws Exception {
+		return ContractWithoutTextFactory.getRemoteInstance();
 	}
 
 	/**
@@ -101,8 +97,7 @@ AbstractContractWithoutTextListUI {
 		//FDCHelper.formatTableNumber(getMainTable(), "amount");
 	
 		// 合同名称
-		int name_col_index = getMainTable().getColumn("billName")
-				.getColumnIndex();
+		int name_col_index = getMainTable().getColumn("billName").getColumnIndex();
 		getMainTable().getViewManager().setFreezeView(-1, name_col_index+1);
 	}
 	
@@ -356,76 +351,76 @@ AbstractContractWithoutTextListUI {
 			FDCMsgBox.showInfo("审批后合同关联合约规划参数未启用，不能进行合约规划关联！");
 			SysUtil.abort();
 		}
-		ProgrammingContractInfo pc = (ProgrammingContractInfo) contractBillInfo.getProgrammingContract();
-		IUIWindow uiWindow = null;
-		UIContext uiContext = new UIContext(this);
-		uiContext.put("contractWithoutTextInfo", contractBillInfo);
-		uiWindow = UIFactory.createUIFactory(UIFactoryName.MODEL).create(ContractBillLinkProgContEditUI.class.getName(), uiContext, null,OprtState.EDIT);
-		uiWindow.show();
-		if (contractBillInfo.getProgrammingContract() != null) {
-			Object object = uiWindow.getUIObject().getUIContext().get("cancel");
-			if (object != null) {
-				return;
-			} else {
-				String param = null;
-				SelectorItemCollection sict = new SelectorItemCollection();
-				sict.add("*");
-				sict.add("fullOrgUnit.*");
-				ObjectUuidPK pk = new ObjectUuidPK(contractBillInfo.getOrgUnit().getId());
-				param = ContextHelperFactory.getRemoteInstance().getStringParam("FDC228_ISSTRICTCONTROL", pk);
-				if (!com.kingdee.util.StringUtils.isEmpty(param)) {
-					if(pc!=null&&pc.getId().toString().equals(contractBillInfo.getProgrammingContract().getId().toString())){
-						return;
-					}
-					int i = Integer.parseInt(param);
-					switch (i) {
-					case 0:
-						// 严格控制时
-						if (contractBillInfo.getProgrammingContract() != null) {
-							if (contractBillInfo.getAmount().compareTo(FDCHelper.toBigDecimal(FDCHelper.toBigDecimal(contractBillInfo.getProgrammingContract().getBalance()))) > 0) {
-								FDCMsgBox.showWarning(this, "合同签约金额超过关联的合约控制余额！");
-								SysUtil.abort();
-							}
-						} else {
-							FDCMsgBox.showWarning(this, "未关联框架合约！");
-							SysUtil.abort();
-						}
-						break;
-					case 1:
-						// 提示控制时
-						if (contractBillInfo.getProgrammingContract() != null) {
-							if (contractBillInfo.getAmount().compareTo(
-									FDCHelper.toBigDecimal(contractBillInfo.getProgrammingContract().getBalance())) > 0) {
-								if (FDCMsgBox.showConfirm2(this, "合同签约金额超过关联的合约控制余额，请确认是否关联？") == FDCMsgBox.CANCEL) {
-									SysUtil.abort();
-								}
-							}
-						} else {
-							FDCMsgBox.showWarning(this, "未关联框架合约！");
-							SysUtil.abort();
-						}
-						break;
-					case 2:
-						// 不控制时
-						if (contractBillInfo.getProgrammingContract() != null) {
-							if (contractBillInfo.getAmount().compareTo(
-									FDCHelper.toBigDecimal(contractBillInfo.getProgrammingContract().getBalance())) > 0) {
-								if (FDCMsgBox.showConfirm2(this, "合同签约金额超过关联的合约控制余额，请确认是否关联？") == FDCMsgBox.CANCEL) {
-									SysUtil.abort();
-								}
-							}
-						}
-						break;
-					}
-					ContractWithoutTextFactory.getRemoteInstance().synReUpdateProgramming(contractBillInfo.getId().toString(), pc);
-					SelectorItemCollection sicz = new SelectorItemCollection();
-					sicz.add("programmingContract");
-					ContractWithoutTextFactory.getRemoteInstance().updatePartial(contractBillInfo, sicz);
-					FDCMsgBox.showInfo("关联框架合约成功！");
-					this.refresh(null);
-				} 
-			}
-		}
+//		ProgrammingContractInfo pc = (ProgrammingContractInfo) contractBillInfo.getProgrammingContract();
+//		IUIWindow uiWindow = null;
+//		UIContext uiContext = new UIContext(this);
+//		uiContext.put("contractWithoutTextInfo", contractBillInfo);
+//		uiWindow = UIFactory.createUIFactory(UIFactoryName.MODEL).create(ContractBillLinkProgContEditUI.class.getName(), uiContext, null,OprtState.EDIT);
+//		uiWindow.show();
+//		if (contractBillInfo.getProgrammingContract() != null) {
+//			Object object = uiWindow.getUIObject().getUIContext().get("cancel");
+//			if (object != null) {
+//				return;
+//			} else {
+//				String param = null;
+//				SelectorItemCollection sict = new SelectorItemCollection();
+//				sict.add("*");
+//				sict.add("fullOrgUnit.*");
+//				ObjectUuidPK pk = new ObjectUuidPK(contractBillInfo.getOrgUnit().getId());
+//				param = ContextHelperFactory.getRemoteInstance().getStringParam("FDC228_ISSTRICTCONTROL", pk);
+//				if (!com.kingdee.util.StringUtils.isEmpty(param)) {
+//					if(pc!=null&&pc.getId().toString().equals(contractBillInfo.getProgrammingContract().getId().toString())){
+//						return;
+//					}
+//					int i = Integer.parseInt(param);
+//					switch (i) {
+//					case 0:
+//						// 严格控制时
+//						if (contractBillInfo.getProgrammingContract() != null) {
+//							if (contractBillInfo.getAmount().compareTo(FDCHelper.toBigDecimal(FDCHelper.toBigDecimal(contractBillInfo.getProgrammingContract().getBalance()))) > 0) {
+//								FDCMsgBox.showWarning(this, "合同签约金额超过关联的合约控制余额！");
+//								SysUtil.abort();
+//							}
+//						} else {
+//							FDCMsgBox.showWarning(this, "未关联框架合约！");
+//							SysUtil.abort();
+//						}
+//						break;
+//					case 1:
+//						// 提示控制时
+//						if (contractBillInfo.getProgrammingContract() != null) {
+//							if (contractBillInfo.getAmount().compareTo(
+//									FDCHelper.toBigDecimal(contractBillInfo.getProgrammingContract().getBalance())) > 0) {
+//								if (FDCMsgBox.showConfirm2(this, "合同签约金额超过关联的合约控制余额，请确认是否关联？") == FDCMsgBox.CANCEL) {
+//									SysUtil.abort();
+//								}
+//							}
+//						} else {
+//							FDCMsgBox.showWarning(this, "未关联框架合约！");
+//							SysUtil.abort();
+//						}
+//						break;
+//					case 2:
+//						// 不控制时
+//						if (contractBillInfo.getProgrammingContract() != null) {
+//							if (contractBillInfo.getAmount().compareTo(
+//									FDCHelper.toBigDecimal(contractBillInfo.getProgrammingContract().getBalance())) > 0) {
+//								if (FDCMsgBox.showConfirm2(this, "合同签约金额超过关联的合约控制余额，请确认是否关联？") == FDCMsgBox.CANCEL) {
+//									SysUtil.abort();
+//								}
+//							}
+//						}
+//						break;
+//					}
+//					ContractWithoutTextFactory.getRemoteInstance().synReUpdateProgramming(contractBillInfo.getId().toString(), pc);
+//					SelectorItemCollection sicz = new SelectorItemCollection();
+//					sicz.add("programmingContract");
+//					ContractWithoutTextFactory.getRemoteInstance().updatePartial(contractBillInfo, sicz);
+//					FDCMsgBox.showInfo("关联框架合约成功！");
+//					this.refresh(null);
+//				} 
+//			}
+//		}
 	}
 	public void actionUnProgram_actionPerformed(ActionEvent e) throws Exception {
 		checkSelected();
@@ -439,19 +434,19 @@ AbstractContractWithoutTextListUI {
 			FDCMsgBox.showWarning(this,"已在工作流处理中，请稍后再试！");
 			SysUtil.abort();
 		}
-		SelectorItemCollection sic = new SelectorItemCollection();
-		sic.add("programmingContract.*");
-		ContractWithoutTextInfo contractBillInfo = ContractWithoutTextFactory.getRemoteInstance().getContractWithoutTextInfo(new ObjectUuidPK(selectedKeyValue), sic);
-		if(contractBillInfo.getProgrammingContract()==null){
-			FDCMsgBox.showWarning(this,"请选择关联过合约规划记录进行取消操作！");
-			SysUtil.abort();
-		}
-		ContractWithoutTextFactory.getRemoteInstance().synReUpdateProgramming(contractBillInfo.getId().toString(), contractBillInfo.getProgrammingContract());
-		SelectorItemCollection sel=new SelectorItemCollection();
-		sel.add("programmingContract");
-		contractBillInfo.setProgrammingContract(null);
-		ContractWithoutTextFactory.getRemoteInstance().updatePartial(contractBillInfo, sel);
-		FDCMsgBox.showInfo(this,"操作成功！");
+//		SelectorItemCollection sic = new SelectorItemCollection();
+//		sic.add("programmingContract.*");
+//		ContractWithoutTextInfo contractBillInfo = ContractWithoutTextFactory.getRemoteInstance().getContractWithoutTextInfo(new ObjectUuidPK(selectedKeyValue), sic);
+//		if(contractBillInfo.getProgrammingContract()==null){
+//			FDCMsgBox.showWarning(this,"请选择关联过合约规划记录进行取消操作！");
+//			SysUtil.abort();
+//		}
+//		ContractWithoutTextFactory.getRemoteInstance().synReUpdateProgramming(contractBillInfo.getId().toString(), contractBillInfo.getProgrammingContract());
+//		SelectorItemCollection sel=new SelectorItemCollection();
+//		sel.add("programmingContract");
+//		contractBillInfo.setProgrammingContract(null);
+//		ContractWithoutTextFactory.getRemoteInstance().updatePartial(contractBillInfo, sel);
+//		FDCMsgBox.showInfo(this,"操作成功！");
 		this.refresh(null);
 	}
 	protected boolean isFootVisible(){
