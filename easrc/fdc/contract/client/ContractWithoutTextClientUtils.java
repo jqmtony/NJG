@@ -14,25 +14,25 @@ import com.kingdee.eas.util.client.MsgBox;
 public class ContractWithoutTextClientUtils {
 
 	public static void checkRef(CoreUIObject ui, String id) {
-		boolean existsDeductBill = false;
-		boolean existsPayReqBill = false;
-		try {
-			FilterInfo filter2 = new FilterInfo();
-			filter2.getFilterItems().add(new FilterItemInfo("contractId", id));
-			existsDeductBill = DeductBillEntryFactory.getRemoteInstance().exists(filter2);
-			
-			//付款单 contractBillId
-			filter2 = new FilterInfo();
-			filter2.getFilterItems().add(new FilterItemInfo("contractBillId", id));
-			existsPayReqBill = PaymentBillFactory.getRemoteInstance().exists(filter2);
-
-		} catch (Exception e) {
-			ExceptionHandler.handle(e);
-		} 
-		
-		if(existsDeductBill || existsPayReqBill) {
-			MsgBox.showWarning(ui, ContractClientUtils.getRes("exist_ref"));
-			SysUtil.abort();
-		}
+//		boolean existsDeductBill = false;
+//		boolean existsPayReqBill = false;
+//		try {
+//			FilterInfo filter2 = new FilterInfo();
+//			filter2.getFilterItems().add(new FilterItemInfo("contractId", id));
+//			existsDeductBill = DeductBillEntryFactory.getRemoteInstance().exists(filter2);
+//			
+//			//付款单 contractBillId
+//			filter2 = new FilterInfo();
+//			filter2.getFilterItems().add(new FilterItemInfo("contractBillId", id));
+//			existsPayReqBill = PaymentBillFactory.getRemoteInstance().exists(filter2);
+//
+//		} catch (Exception e) {
+//			ExceptionHandler.handle(e);
+//		} 
+//		
+//		if(existsDeductBill || existsPayReqBill) {
+//			MsgBox.showWarning(ui, ContractClientUtils.getRes("exist_ref"));
+//			SysUtil.abort();
+//		}
 	}
 }

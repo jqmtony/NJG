@@ -442,8 +442,7 @@ public abstract class ProjectTreeListBaseUI extends
 		if (getProjSelectedTreeNode() != null
 				&& getProjSelectedTreeNode().getUserObject() instanceof CoreBaseInfo) {
 
-			CoreBaseInfo projTreeNodeInfo = (CoreBaseInfo) getProjSelectedTreeNode()
-					.getUserObject();
+			CoreBaseInfo projTreeNodeInfo = (CoreBaseInfo) getProjSelectedTreeNode().getUserObject();
 //			 选择的是成本中心，取该成本中心及下级成本中心（如果有）下的所有合同
 			if (projTreeNodeInfo instanceof OrgStructureInfo) {
 				BOSUuid id = ((OrgStructureInfo)projTreeNodeInfo).getUnit().getId();
@@ -478,11 +477,10 @@ public abstract class ProjectTreeListBaseUI extends
 //						CompareType.INCLUDE));
 //			}
 			// 选择的是项目，取该项目及下级项目（如果有）下的所有合同
-			else if (projTreeNodeInfo instanceof CurProjectInfo) {
+			else if (projTreeNodeInfo instanceof ProjectInfo) {
 				BOSUuid id = projTreeNodeInfo.getId();
 				Set idSet = FDCClientUtils.genProjectIdSet(id);
-				filterItems.add(new FilterItemInfo("curProject.id", idSet,
-						CompareType.INCLUDE));
+				filterItems.add(new FilterItemInfo("curProject.id", idSet,CompareType.INCLUDE));
 			}
 
 		}

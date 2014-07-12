@@ -729,9 +729,7 @@ public abstract class ContractListBaseUI extends AbstractContractListBaseUI {
 		treeSelectChange();
 	}
 
-	protected void treeContractType_valueChanged(TreeSelectionEvent e)
-			throws Exception {
-
+	protected void treeContractType_valueChanged(TreeSelectionEvent e) throws Exception {
 		super.treeContractType_valueChanged(e);
 		treeSelectChange();
 	}
@@ -782,7 +780,7 @@ public abstract class ContractListBaseUI extends AbstractContractListBaseUI {
 			/*
 			 * 没有合同时不能新增下游单据 sxhong
 			 */
-//			btnAddNew.setEnabled(false);
+			btnAddNew.setEnabled(false);
 		}
 	}
 	
@@ -882,14 +880,13 @@ public abstract class ContractListBaseUI extends AbstractContractListBaseUI {
 		FilterInfo filter = new FilterInfo();
 		FilterItemCollection filterItems = filter.getFilterItems();
 		Set set = getContractBillStateSet();
-//		filterItems.add(new FilterItemInfo("state", FDCBillStateEnum.AUDITTED_VALUE));
-//		filterItems.add(new FilterItemInfo("state", FDCBillStateEnum.STORED_VALUE));
-//		filterItems.add(new FilterItemInfo("state",set,CompareType.INCLUDE));
+		filterItems.add(new FilterItemInfo("state", FDCBillStateEnum.AUDITTED_VALUE));
+		filterItems.add(new FilterItemInfo("state",set,CompareType.INCLUDE));
 //		filterItems.add(new FilterItemInfo("contractType.isEnabled", Boolean.TRUE));
 //		filterItems.add(new FilterItemInfo("curProject.isEnabled", Boolean.TRUE));
 		
-/*		String maskString="(#0 or #1) and #2 and #3";
-		filter.setMaskString(maskString);*/
+		String maskString="(#0 or #1) ";
+		filter.setMaskString(maskString);
 		return filter;
 	}
 
