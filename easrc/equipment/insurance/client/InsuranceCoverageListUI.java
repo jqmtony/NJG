@@ -4,6 +4,8 @@
 package com.kingdee.eas.port.equipment.insurance.client;
 
 import java.awt.event.*;
+import java.util.ArrayList;
+
 import org.apache.log4j.Logger;
 
 import com.kingdee.bos.BOSException;
@@ -18,6 +20,8 @@ import com.kingdee.bos.dao.query.IQueryExecutor;
 import com.kingdee.eas.basedata.org.OrgConstants;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.framework.*;
+import com.kingdee.eas.tools.datatask.DatataskParameter;
+import com.kingdee.eas.tools.datatask.client.DatataskCaller;
 
 /**
  * output class name
@@ -625,5 +629,18 @@ public class InsuranceCoverageListUI extends AbstractInsuranceCoverageListUI
 			viewInfo = new EntityViewInfo();
 		return super.getQueryExecutor(arg0, viewInfo);
 		
+	}
+	
+	public void actionExcelBxmx_actionPerformed(ActionEvent e) throws Exception {
+		super.actionExcelBxmx_actionPerformed(e);
+		String strSolutionName = "eas.equ.008";
+		DatataskCaller task = new DatataskCaller();
+		task.setParentComponent(this);
+		DatataskParameter param = new DatataskParameter();
+		param.solutionName = strSolutionName;
+		param.alias = btnExcelBxmx.getText();
+		ArrayList paramList = new ArrayList();
+		paramList.add(param);
+		task.invoke(paramList, 0, true);
 	}
 }

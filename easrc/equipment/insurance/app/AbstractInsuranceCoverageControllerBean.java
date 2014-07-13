@@ -644,6 +644,26 @@ public abstract class AbstractInsuranceCoverageControllerBean extends XRBillBase
         }
     }
 
+    public void excelBxmx(Context ctx, InsuranceCoverageInfo model) throws BOSException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("d8276146-66b5-4ec7-9677-160a836c2534"), new Object[]{ctx, model});
+            invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
+            _excelBxmx(ctx, model);
+            }
+            invokeServiceAfter(svcCtx);
+        } catch (BOSException ex) {
+            throw ex;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected void _excelBxmx(Context ctx, IObjectValue model) throws BOSException
+    {    	
+        return;
+    }
+
     public XRBillBaseCollection getXRBillBaseCollection (Context ctx) throws BOSException
     {
     	return (XRBillBaseCollection)(getInsuranceCoverageCollection(ctx).cast(XRBillBaseCollection.class));

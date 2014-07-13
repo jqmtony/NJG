@@ -48,4 +48,5 @@ public interface IInsuranceCoverage extends IXRBillBase
     public void updateBigObject(IObjectPK pk, InsuranceCoverageInfo model) throws BOSException;
     public void updatePartial(InsuranceCoverageInfo model, SelectorItemCollection selector) throws BOSException, EASBizException;
     public String getBindingProperty() throws BOSException;
+    public void excelBxmx(InsuranceCoverageInfo model) throws BOSException;
 }

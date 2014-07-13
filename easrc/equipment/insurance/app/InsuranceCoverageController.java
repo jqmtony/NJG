@@ -53,4 +53,5 @@ public interface InsuranceCoverageController extends XRBillBaseController
     public void updateBigObject(Context ctx, IObjectPK pk, InsuranceCoverageInfo model) throws BOSException, RemoteException;
     public void updatePartial(Context ctx, InsuranceCoverageInfo model, SelectorItemCollection selector) throws BOSException, EASBizException, RemoteException;
     public String getBindingProperty(Context ctx) throws BOSException, RemoteException;
+    public void excelBxmx(Context ctx, InsuranceCoverageInfo model) throws BOSException, RemoteException;
 }

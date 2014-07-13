@@ -14,4 +14,9 @@ import com.kingdee.eas.framework.batchHandler.ResponseContext;
 public abstract class AbstractInsuranceCoverageListUIHandler extends com.kingdee.eas.xr.app.XRBillBaseListUIHandler
 
 {
+	public void handleActionExcelBxmx(RequestContext request,ResponseContext response, Context context) throws Exception {
+		_handleActionExcelBxmx(request,response,context);
+	}
+	protected void _handleActionExcelBxmx(RequestContext request,ResponseContext response, Context context) throws Exception {
+	}
 }

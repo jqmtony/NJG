@@ -87,6 +87,7 @@ public abstract class AbstractInsuranceCoverageEditUI extends com.kingdee.eas.xr
     protected com.kingdee.bos.ctrl.swing.KDScrollPane scrollPanexianzhongID;
     protected com.kingdee.bos.ctrl.swing.KDTextArea txtxianzhongID;
     protected com.kingdee.eas.port.equipment.insurance.InsuranceCoverageInfo editData = null;
+    protected ActionExcelBxmx actionExcelBxmx = null;
     /**
      * output class constructor
      */
@@ -136,6 +137,14 @@ public abstract class AbstractInsuranceCoverageEditUI extends com.kingdee.eas.xr
         actionUnAudit.putValue(ItemAction.NAME, _tempStr);
         this.actionUnAudit.setBindWorkFlow(true);
          this.actionUnAudit.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+        //actionExcelBxmx
+        this.actionExcelBxmx = new ActionExcelBxmx(this);
+        getActionManager().registerAction("actionExcelBxmx", actionExcelBxmx);
+        this.actionExcelBxmx.setExtendProperty("canForewarn", "true");
+        this.actionExcelBxmx.setExtendProperty("userDefined", "true");
+        this.actionExcelBxmx.setExtendProperty("isObjectUpdateLock", "false");
+         this.actionExcelBxmx.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+         this.actionExcelBxmx.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
         this.contCreator = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contCreateTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contLastUpdateUser = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -1202,6 +1211,15 @@ kdtE1.getCell(rowIndex,"tonnage").setValue(com.kingdee.bos.ui.face.UIRuleUtil.ge
     {
         super.actionUnAudit_actionPerformed(e);
     }
+    	
+
+    /**
+     * output actionExcelBxmx_actionPerformed method
+     */
+    public void actionExcelBxmx_actionPerformed(ActionEvent e) throws Exception
+    {
+        com.kingdee.eas.port.equipment.insurance.InsuranceCoverageFactory.getRemoteInstance().excelBxmx(editData);
+    }
 	public RequestContext prepareActionSubmit(IItemAction itemAction) throws Exception {
 			RequestContext request = super.prepareActionSubmit(itemAction);		
 		if (request != null) {
@@ -1223,6 +1241,47 @@ kdtE1.getCell(rowIndex,"tonnage").setValue(com.kingdee.bos.ui.face.UIRuleUtil.ge
 	
 	public boolean isPrepareActionUnAudit() {
     	return false;
+    }
+	public RequestContext prepareActionExcelBxmx(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionExcelBxmx() {
+    	return false;
+    }
+
+    /**
+     * output ActionExcelBxmx class
+     */     
+    protected class ActionExcelBxmx extends ItemAction {     
+    
+        public ActionExcelBxmx()
+        {
+            this(null);
+        }
+
+        public ActionExcelBxmx(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            _tempStr = resHelper.getString("ActionExcelBxmx.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionExcelBxmx.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionExcelBxmx.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractInsuranceCoverageEditUI.this, "ActionExcelBxmx", "actionExcelBxmx_actionPerformed", e);
+        }
     }
 
     /**
