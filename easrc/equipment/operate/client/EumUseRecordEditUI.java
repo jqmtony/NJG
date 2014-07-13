@@ -6,11 +6,14 @@ package com.kingdee.eas.port.equipment.operate.client;
 import java.awt.event.ActionEvent;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 import org.apache.log4j.Logger;
 
 import com.kingdee.bos.BOSException;
+import com.kingdee.bos.ctrl.data.engine.script.beanshell.function.datetime.MONTH;
+import com.kingdee.bos.ctrl.freechart.data.time.Month;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.swing.KDTextField;
@@ -22,10 +25,18 @@ import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
+import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.fi.fa.basedata.FaCatFactory;
 import com.kingdee.eas.fi.fa.basedata.IFaCat;
+import com.kingdee.eas.port.equipment.base.CzUnitFactory;
+import com.kingdee.eas.port.equipment.base.CzUnitInfo;
+import com.kingdee.eas.port.equipment.base.PowerUnitFactory;
+import com.kingdee.eas.port.equipment.base.PowerUnitInfo;
+import com.kingdee.eas.port.equipment.base.PuUnitFactory;
+import com.kingdee.eas.port.equipment.base.PuUnitInfo;
+import com.kingdee.eas.port.equipment.base.enumbase.CostType;
 import com.kingdee.eas.port.equipment.base.enumbase.sbStatusType;
 import com.kingdee.eas.port.equipment.record.EquIdCollection;
 import com.kingdee.eas.port.equipment.record.EquIdFactory;
@@ -101,6 +112,7 @@ public class EumUseRecordEditUI extends AbstractEumUseRecordEditUI {
 				row.getCell("eqmType").setValue(rowSet.getString("设备类型"));
 				getRepairOrder(row, equInfo);
 				getMetialAmount(row,equInfo);
+				getLastmonth(row,equInfo);
 			}
 		}
 	}
@@ -170,6 +182,51 @@ public class EumUseRecordEditUI extends AbstractEumUseRecordEditUI {
 			row.getCell("materialAmount").setValue(rowSet2.getBigDecimal("amount"));
      	}
 	}
+	
+	private void getLastmonth(IRow row,EquIdInfo info) throws BOSException, SQLException, EASBizException{
+		Calendar ca = Calendar.getInstance();
+		ca.setTime(this.pkBizDate.getSqlDate());
+	    ca.add(Calendar.MONTH, -1);  
+	    SimpleDateFormat df1 = new SimpleDateFormat("yyyy-MM-dd");
+		String month1 = (df1.format(ca.getTime())).substring(0, 7);
+	    StringBuffer sb2 = new StringBuffer();
+		sb2.append("/*dialect*/select a.CFEqmNameID 设备ID,");
+		sb2.append(" a.CFPowerCost 能耗量,a.CFCzCost 操作量,a.CFPowerUnitCost 能源单耗,");
+		sb2.append(" a.CFEqmTime 日历台时,a.CFEventTime 故障台时,a.CFUsageRate 使用率,");
+		sb2.append(" a.CFUseTime 使用台时,a.CFFaultRate 故障率,a.CFPowerUnitID 能耗量单位,");
+		sb2.append(" a.CFCzUnitID 操作量单位,a.CFPuUnitID 能源单耗单位,a.CFCostType 能耗类别");
+		sb2.append(" from CT_OPE_EumUseRecordEqmUse a");
+		sb2.append(" left join CT_OPE_EumUseRecord b on a.fparentid = b.fid");
+		sb2.append(" where a.CFEqmNameID = '"+info.getId()+"'");
+		sb2.append(" and to_char(b.fbizdate,'YYYY-MM')='"+month1+"'");
+		IRowSet rowSet2 = new XRSQLBuilder().appendSql(sb2.toString()).executeQuery();
+		while (rowSet2.next()) {
+			String id = rowSet2.getString("能耗量单位");
+			PowerUnitInfo puInfo = PowerUnitFactory.getRemoteInstance().getPowerUnitInfo(new ObjectUuidPK(id));
+			row.getCell("powerUnit").setValue(puInfo);
+			String id2 = rowSet2.getString("操作量单位");
+			CzUnitInfo czInfo = CzUnitFactory.getRemoteInstance().getCzUnitInfo(new ObjectUuidPK(id2));
+			row.getCell("czUnit").setValue(czInfo);
+			String id3 = rowSet2.getString("能源单耗单位");
+			PuUnitInfo punInfo = PuUnitFactory.getRemoteInstance().getPuUnitInfo(new ObjectUuidPK(id3));
+			row.getCell("puUnit").setValue(punInfo);
+			row.getCell("powerCost").setValue(rowSet2.getBigDecimal("能耗量"));
+			row.getCell("czCost").setValue(rowSet2.getBigDecimal("操作量"));
+			row.getCell("powerUnitCost").setValue(rowSet2.getBigDecimal("能源单耗"));
+			row.getCell("eqmTime").setValue(rowSet2.getBigDecimal("日历台时"));
+			row.getCell("EventTime").setValue(rowSet2.getBigDecimal("故障台时"));
+			row.getCell("usageRate").setValue(rowSet2.getBigDecimal("使用率"));
+			row.getCell("UseTime").setValue(rowSet2.getBigDecimal("使用台时"));
+			row.getCell("faultRate").setValue(rowSet2.getBigDecimal("故障率"));
+			if(rowSet2.getString("能耗类别").equals("1") ){
+				row.getCell("CostType").setValue(CostType.powerDriven);//电动机械
+			}else{
+				row.getCell("CostType").setValue(CostType.ICDriven);//内燃机械
+			}
+			
+     	}
+	}
+	
 	
 	/**
 	 * output loadFields method
