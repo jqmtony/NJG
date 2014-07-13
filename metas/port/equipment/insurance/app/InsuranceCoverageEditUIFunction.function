@@ -115,6 +115,42 @@
                 <key name="name" value="InsuranceCoverage" />
             </entityObjectRef>
         </operation>
+        <operation>
+            <name>excelBxmx</name>
+            <alias>functionObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageEditUIFunction].operations.operation[excelBxmx].alias</alias>
+            <description>functionObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageEditUIFunction].operations.operation[excelBxmx].description</description>
+            <reverseOperation />
+            <eventMethod>d8276146-66b5-4ec7-9677-160a836c2534</eventMethod>
+            <event>excelBxmxEvent</event>
+            <userDefined>true</userDefined>
+            <uiActionRef>
+                <id>3d21d35f-0444-4094-abea-f3c2921f50ccuiaf</id>
+                <uiStatus>EDIT</uiStatus>
+                <webUIStatus />
+                <userDefined>true</userDefined>
+                <uiObjectRef>
+                    <key name="package" value="com.kingdee.eas.port.equipment.insurance.client" />
+                    <key name="name" value="InsuranceCoverageEditUI" />
+                </uiObjectRef>
+                <actionRefName>ActionExcelBxmx</actionRefName>
+                <webActionRefName />
+                <parameters>
+                    <parameter>
+                        <name>billID</name>
+                        <alias>functionObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageEditUIFunction].operations.operation[excelBxmx].uiActionRef.parameters.parameter[billID].alias</alias>
+                        <description>functionObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageEditUIFunction].operations.operation[excelBxmx].uiActionRef.parameters.parameter[billID].description</description>
+                        <direction>in</direction>
+                        <dataType>BOSUuid</dataType>
+                        <metadataRef />
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </parameters>
+            </uiActionRef>
+            <entityObjectRef>
+                <key name="package" value="com.kingdee.eas.port.equipment.insurance.app" />
+                <key name="name" value="InsuranceCoverage" />
+            </entityObjectRef>
+        </operation>
     </operations>
     <resource>
         <rs key="functionObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageEditUIFunction].alias">
@@ -211,6 +247,35 @@
             <lang locale="zh_TW" value="單據內碼" />
         </rs>
         <rs key="functionObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageEditUIFunction].operations.operation[ActionUnAudit].uiActionRef.parameters.parameter[billID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据内码" />
+            <lang locale="zh_HK" value="單據內碼" />
+            <lang locale="zh_TW" value="單據內碼" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageEditUIFunction].operations.operation[excelBxmx].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="导入保险明细" />
+            <lang locale="zh_HK" value="導入保險明細" />
+            <lang locale="zh_TW" value="導入保險明細" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageEditUIFunction].operations.operation[excelBxmx].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageEditUIFunction].operations.operation[excelBxmx].extendedProperty.userDefined">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageEditUIFunction].operations.operation[excelBxmx].uiActionRef.parameters.parameter[billID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据内码" />
+            <lang locale="zh_HK" value="單據內碼" />
+            <lang locale="zh_TW" value="單據內碼" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageEditUIFunction].operations.operation[excelBxmx].uiActionRef.parameters.parameter[billID].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="单据内码" />
             <lang locale="zh_HK" value="單據內碼" />

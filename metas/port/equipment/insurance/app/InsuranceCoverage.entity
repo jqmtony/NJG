@@ -707,6 +707,32 @@
             <userDefinedLogic />
             <configured>false</configured>
         </method>
+        <method>
+            <name>excelBxmx</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].methods.method[excelBxmx].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].methods.method[excelBxmx].description</description>
+            <innerID>d8276146-66b5-4ec7-9677-160a836c2534</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].methods.method[excelBxmx].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].methods.method[excelBxmx].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage</metadataRef>
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
     </methods>
     <isAbstract>false</isAbstract>
     <bizUnitPK>com.kingdee.eas.port.equipment.insurance.InsuranceCoverage</bizUnitPK>
@@ -1064,6 +1090,48 @@
                 </formalParameter>
             </formalParameters>
         </event>
+        <event>
+            <name>excelBxmxEvent</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].events.event[excelBxmxEvent].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].events.event[excelBxmxEvent].description</description>
+            <userDefined>true</userDefined>
+            <eventMethods>
+                <eventMethod>
+                    <name>d8276146-66b5-4ec7-9677-160a836c2534</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].events.event[excelBxmxEvent].eventMethods.eventMethod[d8276146-66b5-4ec7-9677-160a836c2534].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].events.event[excelBxmxEvent].eventMethods.eventMethod[d8276146-66b5-4ec7-9677-160a836c2534].description</description>
+                    <entityMethodRef>
+                        <key name="name" value="excelBxmx" />
+                        <key name="innerID" value="d8276146-66b5-4ec7-9677-160a836c2534" />
+                    </entityMethodRef>
+                    <parameterMappings>
+                        <parameterMapping>
+                            <name />
+                            <alias>entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].events.event[excelBxmxEvent].eventMethods.eventMethod[d8276146-66b5-4ec7-9677-160a836c2534].parameterMappings.parameterMappingalias</alias>
+                            <description>entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].events.event[excelBxmxEvent].eventMethods.eventMethod[d8276146-66b5-4ec7-9677-160a836c2534].parameterMappings.parameterMappingdescription</description>
+                            <formalParameterInnerID>538d7955-ab52-4f0f-b17b-f7c86e5155fcevfp</formalParameterInnerID>
+                            <actualParameterIndex>0</actualParameterIndex>
+                            <isBOPK>true</isBOPK>
+                        </parameterMapping>
+                    </parameterMappings>
+                </eventMethod>
+            </eventMethods>
+            <formalParameters>
+                <formalParameter>
+                    <innerID>538d7955-ab52-4f0f-b17b-f7c86e5155fcevfp</innerID>
+                    <userDefined>true</userDefined>
+                    <parameter>
+                        <name>model</name>
+                        <alias>entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].events.event[excelBxmxEvent].formalParameters.formalParameter.parameter[model].alias</alias>
+                        <description>entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].events.event[excelBxmxEvent].formalParameters.formalParameter.parameter[model].description</description>
+                        <direction>in</direction>
+                        <dataType>ObjectValue</dataType>
+                        <metadataRef>com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage</metadataRef>
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </formalParameter>
+            </formalParameters>
+        </event>
     </events>
     <defaultView>
         <name />
@@ -1263,6 +1331,54 @@
             <lang locale="zh_CN" value="主键" />
             <lang locale="zh_HK" value="主鍵" />
             <lang locale="zh_TW" value="主鍵" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].events.event[excelBxmxEvent].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="导入保险明细事件" />
+            <lang locale="zh_HK" value="導入保險明細事件" />
+            <lang locale="zh_TW" value="導入保險明細事件" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].events.event[excelBxmxEvent].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].events.event[excelBxmxEvent].eventMethods.eventMethod[d8276146-66b5-4ec7-9677-160a836c2534].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].events.event[excelBxmxEvent].eventMethods.eventMethod[d8276146-66b5-4ec7-9677-160a836c2534].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].events.event[excelBxmxEvent].eventMethods.eventMethod[d8276146-66b5-4ec7-9677-160a836c2534].parameterMappings.parameterMappingalias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].events.event[excelBxmxEvent].eventMethods.eventMethod[d8276146-66b5-4ec7-9677-160a836c2534].parameterMappings.parameterMappingdescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].events.event[excelBxmxEvent].formalParameters.formalParameter.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].events.event[excelBxmxEvent].formalParameters.formalParameter.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].events.event[passAuditEvent].alias">
             <lang locale="en_US" value="null" />
@@ -1466,6 +1582,11 @@
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].extendedProperty.controllerBeanEx">
+            <lang locale="en_US" value="com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageControllerBeanEx" />
+            <lang locale="zh_CN" value="com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageControllerBeanEx" />
+            <lang locale="zh_TW" value="com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageControllerBeanEx" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].extendedProperty.defaultDisplayField">
             <lang locale="en_US" value="" />
             <lang locale="zh_CN" value="" />
@@ -1627,6 +1748,30 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].methods.method[delete].parameters.parameter[pk].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].methods.method[excelBxmx].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="导入保险明细" />
+            <lang locale="zh_HK" value="導入保險明細" />
+            <lang locale="zh_TW" value="導入保險明細" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].methods.method[excelBxmx].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].methods.method[excelBxmx].parameters.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].methods.method[excelBxmx].parameters.parameter[model].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
