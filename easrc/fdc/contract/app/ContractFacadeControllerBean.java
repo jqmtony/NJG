@@ -216,7 +216,7 @@ public class ContractFacadeControllerBean extends AbstractContractFacadeControll
 		Map result = null;
 		String contractId = (String)param.get("ContractBillId");
 		String id = (String)param.get("ID");
-		String sql = "select sum(FCurOriginalAmount) FOriginalAmount, sum(FCurSettlePrice) FSettlePrice  from t_con_contractSettlementbill where FContractBillId=? " ;
+		String sql = "select sum(FCurOriginalAmount) FOriginalAmount, sum(FCurSettlePrice) FSettlePrice  from ct_con_contractSettlementbill where FContractBillId=? " ;
 			
 		Object[] sqlParam = new Object[]{contractId};
 		if(id!=null){

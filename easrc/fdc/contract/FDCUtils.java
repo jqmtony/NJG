@@ -386,9 +386,6 @@ public class FDCUtils {
 //		进度管理完工工程量的确认是否严格控制
 		hmParamIn.put(FDCConstants.FDCSCH_PARAM_ISFILLBILLCONTROLSTRICT, comPK);
 		hmParamIn.put(FDCConstants.FDCSCH_PARAM_BASEONTASK, comPK);
-		hmParamIn.put(FDCConstants.FDC_PARAM_OLDCONTRACT_PROGRAM, null);
-		
-		hmParamIn.put(FDCConstants.FDC_PARAM_OLDCONTRACT_PROGRAM, comPK);
         IParamControl pc;
         if(ctx!=null)
         	pc = ParamControlFactory.getLocalInstance(ctx);
