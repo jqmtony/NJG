@@ -17,9 +17,10 @@ public class nowStatusType extends StringEnum
     public static final String WELL_VALUE = "1";//alias=良好
     public static final String GENERAL_VALUE = "2";//alias=一般
     public static final String WORSE_VALUE = "3";//alias=较差
-    public static final String RENT_VALUE = "4";//alias=已租赁
+    public static final String RENT_VALUE = "4";//alias=集团内租赁
     public static final String ASSETSTRAN_VALUE = "5";//alias=资产转移
     public static final String UNRENT_VALUE = "6";//alias=未租赁
+    public static final String OUTRENT_VALUE = "7";//alias=集团外租赁
 
     public static final nowStatusType NULL = new nowStatusType("NULL", NULL_VALUE);
     public static final nowStatusType well = new nowStatusType("well", WELL_VALUE);
@@ -28,6 +29,7 @@ public class nowStatusType extends StringEnum
     public static final nowStatusType rent = new nowStatusType("rent", RENT_VALUE);
     public static final nowStatusType assetstran = new nowStatusType("assetstran", ASSETSTRAN_VALUE);
     public static final nowStatusType unrent = new nowStatusType("unrent", UNRENT_VALUE);
+    public static final nowStatusType outrent = new nowStatusType("outrent", OUTRENT_VALUE);
 
     /**
      * construct function

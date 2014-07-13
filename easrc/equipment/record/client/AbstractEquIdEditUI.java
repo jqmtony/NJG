@@ -908,6 +908,16 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.prmtssOrgUnit.setEditFormat("$number$");		
         this.prmtssOrgUnit.setCommitFormat("$number$");		
         this.prmtssOrgUnit.setRequired(true);
+        this.prmtssOrgUnit.addDataChangeListener(new com.kingdee.bos.ctrl.swing.event.DataChangeListener() {
+            public void dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) {
+                try {
+                    prmtssOrgUnit_dataChanged(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                }
+            }
+        });
         // prmtjhOrgUnit		
         this.prmtjhOrgUnit.setQueryInfo("com.kingdee.eas.basedata.org.app.AdminItemQuery");		
         this.prmtjhOrgUnit.setVisible(true);		
@@ -2332,6 +2342,13 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
      * output chkspecial_stateChanged method
      */
     protected void chkspecial_stateChanged(javax.swing.event.ChangeEvent e) throws Exception
+    {
+    }
+
+    /**
+     * output prmtssOrgUnit_dataChanged method
+     */
+    protected void prmtssOrgUnit_dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) throws Exception
     {
     }
 

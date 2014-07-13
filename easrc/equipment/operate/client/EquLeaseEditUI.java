@@ -4,6 +4,9 @@
 package com.kingdee.eas.port.equipment.operate.client;
 
 import java.awt.event.*;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 import org.apache.log4j.Logger;
 
@@ -769,6 +772,29 @@ public class EquLeaseEditUI extends AbstractEquLeaseEditUI
 					if(rentPay.getSelectedItem().equals(RentPay.IRREGULAR)){
 						kdtE1.getHeadRow(0).getCell("amount").setValue("×â½ð×Ü¶î");
 					}
+					
+					if(pkleaseStart.getValue() != null && pkleaseEnd.getValue() != null){
+						SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");  
+						Date smdate=sdf.parse(sdf.format(this.pkleaseStart.getSqlDate()));  
+						Date bdate=sdf.parse(sdf.format(this.pkleaseEnd.getSqlDate()));  
+						Date date2 = new Date();
+						Date date1=sdf.parse(sdf.format(date2));
+					    Calendar cal = Calendar.getInstance();    
+					    cal.setTime(smdate);    
+					    long time1 = cal.getTimeInMillis();                 
+					    cal.setTime(date1);    
+					    long time2 = cal.getTimeInMillis(); 
+					    cal.setTime(bdate);    
+					    long time3 = cal.getTimeInMillis();     
+					    long between_days=(time2-time1)/(1000*3600*24);  
+					    long between_days1=(time3-time2)/(1000*3600*24);  
+					    txthaveRented.setValue(between_days);
+					    txtsurplus.setValue(between_days1);
+					}else{
+					    txthaveRented.setValue(null);
+					    txtsurplus.setValue(null);
+					}
+					
 	}
 	
 	public void kdtE1_Changed(int rowIndex, int colIndex) throws Exception {

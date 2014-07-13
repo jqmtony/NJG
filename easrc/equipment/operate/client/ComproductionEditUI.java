@@ -1099,6 +1099,7 @@ public class ComproductionEditUI extends AbstractComproductionEditUI {
 		this.kdtEntrys.getColumn("periodCon").getStyleAttributes().setNumberFormat("#,##0.0000");
 		this.kdtEntrys.getColumn("samePeriod").getStyleAttributes().setNumberFormat("#,##0.0000");
 		this.kdtEntrys.getColumn("excessSection").getStyleAttributes().setNumberFormat("#,##0.0000");
+		this.kdtEntrys.getColumn("stagePerformance").getStyleAttributes().setNumberFormat("#,##0.0000");
 
 		
 		

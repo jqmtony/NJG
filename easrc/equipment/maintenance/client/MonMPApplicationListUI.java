@@ -4,10 +4,32 @@
 package com.kingdee.eas.port.equipment.maintenance.client;
 
 import java.awt.event.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Vector;
+
 import org.apache.log4j.Logger;
+
+import com.kingdee.bos.BOSException;
+import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.framework.*;
+import com.kingdee.eas.port.equipment.maintenance.IMonMainPlan;
+import com.kingdee.eas.port.equipment.maintenance.IRepairOrder;
+import com.kingdee.eas.port.equipment.maintenance.MonMPApplicationInfo;
+import com.kingdee.eas.port.equipment.maintenance.MonMainPlanCollection;
+import com.kingdee.eas.port.equipment.maintenance.MonMainPlanFactory;
+import com.kingdee.eas.port.equipment.maintenance.RepairOrderCollection;
+import com.kingdee.eas.port.equipment.maintenance.RepairOrderFactory;
+import com.kingdee.eas.port.equipment.record.EquIdInfo;
+import com.kingdee.eas.port.equipment.uitl.ToolHelp;
+import com.kingdee.eas.util.SysUtil;
+import com.kingdee.eas.util.client.MsgBox;
+import com.kingdee.eas.xr.helper.Tool;
 
 /**
  * output class name
@@ -453,8 +475,61 @@ public class MonMPApplicationListUI extends AbstractMonMPApplicationListUI
      */
     public void actionTraceDown_actionPerformed(ActionEvent e) throws Exception
     {
-        super.actionTraceDown_actionPerformed(e);
+//    	  upRepairOrder();
+      super.actionTraceDown_actionPerformed(e);
     }
+    
+    
+    //月度维保计划申请单下查月度维保计划
+    private void upRepairOrder(){
+    	List<String> list = this.getSelectedIdValues();
+    	StringBuffer msg = new StringBuffer("");
+    	
+    	for (int i = 0; i < list.size(); i++)
+    	{
+    		ObjectUuidPK pk = new ObjectUuidPK(BOSUuid.read(list.get(i)));
+    		SelectorItemCollection sc = new SelectorItemCollection();
+		try 
+		{
+			Object o = getBizInterface().getValue(pk, sc);
+    		MonMPApplicationInfo monInfo = (MonMPApplicationInfo)o;
+			if(monInfo.getId()==null)
+			{
+				MsgBox.showWarning("请先保存单据！");SysUtil.abort();
+			}
+			String oql = "select id where sourceBillId='"+monInfo.getId()+"'";
+			IMonMainPlan IMonMainPlan = MonMainPlanFactory.getRemoteInstance();
+			Vector v1 = new Vector();
+
+			
+			MonMainPlanCollection mpColl = IMonMainPlan.getMonMainPlanCollection(oql);
+			for (int j = 0; j < mpColl.size(); j++) {
+				v1.add(mpColl.get(j).getId().toString());
+			}
+			HashMap idList = new HashMap();
+			if(v1.size()<1){
+				MsgBox.showInfo("没有目标单据！");
+				SysUtil.abort();
+			}
+			idList.put("A0CD335E",v1 );
+			ToolHelp.showTraceUI(this, idList, 0);
+			
+		} 
+		catch (EASBizException e) 
+		{
+			e.printStackTrace();
+		} 
+		catch (BOSException e) 
+		{
+			e.printStackTrace();
+		} 
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+		 }
+    	}
+	}
+    
 
     /**
      * output actionVoucher_actionPerformed

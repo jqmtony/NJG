@@ -495,6 +495,7 @@ public class EumUseRecordEditUI extends AbstractEumUseRecordEditUI {
 	 */
 	public void actionCopy_actionPerformed(ActionEvent e) throws Exception {
 		super.actionCopy_actionPerformed(e);
+		onLoad();
 	}
 
 	/**

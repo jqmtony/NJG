@@ -43,9 +43,12 @@ import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.IUIWindow;
 import com.kingdee.bos.ui.face.UIFactory;
 import com.kingdee.bos.util.BOSUuid;
+import com.kingdee.eas.basedata.assistant.AddressFactory;
+import com.kingdee.eas.basedata.assistant.AddressInfo;
 import com.kingdee.eas.basedata.assistant.client.F7MeasureUnitTreeDetailListUI;
 import com.kingdee.eas.basedata.master.cssp.client.F7SupplierSimpleSelector;
 import com.kingdee.eas.basedata.master.material.client.MaterialClientTools;
+import com.kingdee.eas.basedata.org.AdminOrgUnitFactory;
 import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
 import com.kingdee.eas.basedata.org.OrgConstants;
 import com.kingdee.eas.common.EASBizException;
@@ -143,7 +146,7 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 		combosbStatus.setEnabled(false);
 		pktextDate1.setEnabled(false);
 		testDay.setEnabled(false);
-		
+		combonowStatus.setEnabled(false);
 		this.txtcityPeriod.setPrecision(0);	
 		this.txtportPeriod.setPrecision(0);	
 
@@ -166,6 +169,19 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 		this.prmttype.setSelector(facatBox);
 	
 		setTzsbState(false);
+		//根据所属组织带出单位所在地址
+		if(prmtssOrgUnit.getValue() != null){
+			String id = ((AdminOrgUnitInfo)prmtssOrgUnit.getData()).getId().toString();
+			AdminOrgUnitInfo aoInfo = AdminOrgUnitFactory.getRemoteInstance().getAdminOrgUnitInfo(new ObjectUuidPK(id));
+			if(aoInfo.getAddress() != null){
+				String id1 = ((AddressInfo)aoInfo.getAddress()).getId().toString();
+				AddressInfo addInfo = AddressFactory.getRemoteInstance().getAddressInfo(new ObjectUuidPK(id1));
+				prmtaddress.setValue(addInfo);
+			}else{
+				prmtaddress.setValue(null);
+			}
+		}
+		
 		
 		
 		/**
@@ -1734,5 +1750,21 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 
 	}
 	
+	protected void prmtssOrgUnit_dataChanged(DataChangeEvent e)
+			throws Exception {
+		super.prmtssOrgUnit_dataChanged(e);
+		//根据所属组织带出单位所在地址
+		if(prmtssOrgUnit.getValue() != null){
+			String id = ((AdminOrgUnitInfo)prmtssOrgUnit.getData()).getId().toString();
+			AdminOrgUnitInfo aoInfo = AdminOrgUnitFactory.getRemoteInstance().getAdminOrgUnitInfo(new ObjectUuidPK(id));
+			if(aoInfo.getAddress() != null){
+				String id1 = ((AddressInfo)aoInfo.getAddress()).getId().toString();
+				AddressInfo addInfo = AddressFactory.getRemoteInstance().getAddressInfo(new ObjectUuidPK(id1));
+				prmtaddress.setValue(addInfo);
+			}else{
+				prmtaddress.setValue(null);
+			}
+		}
+	}
 	
 }
