@@ -46,6 +46,7 @@ import com.kingdee.eas.basedata.org.OrgType;
 import com.kingdee.eas.basedata.org.PositionMemberCollection;
 import com.kingdee.eas.basedata.org.PositionMemberFactory;
 import com.kingdee.eas.basedata.org.client.f7.AdminF7;
+import com.kingdee.eas.basedata.org.client.f7.CompanyF7;
 import com.kingdee.eas.basedata.person.PersonInfo;
 import com.kingdee.eas.basedata.person.client.PersonF7UI;
 import com.kingdee.eas.basedata.person.client.PersonPromptBox;
@@ -237,6 +238,62 @@ public class Tool {
 
 		// 只能选择明细的，增加监听交验
 
+//		if (bizPromptBox.getClientProperty("RespDeptDataChangeLisenter") == null) {
+//			RespDeptDataChangeLisenter ls = new RespDeptDataChangeLisenter(ui);
+//			bizPromptBox.addDataChangeListener(ls);
+//			bizPromptBox.putClientProperty("RespDeptDataChangeLisenter", ls);
+//		}
+	}
+	/**
+	 * 设置责任部门F7,只能选择明细节点
+	 *
+	 * @param bizPromptBox
+	 * @param ui
+	 */
+	public static void setRespCompanytF7(KDBizPromptBox bizPromptBox,
+			CoreUIObject ui, String cuId) {
+		bizPromptBox
+		.setQueryInfo("com.kingdee.eas.basedata.org.app.AdminOrgUnitQuery");
+		
+		EntityViewInfo view = new EntityViewInfo();
+		
+		SorterItemCollection sorc = view.getSorter();
+		SorterItemInfo sort = new SorterItemInfo("number");
+		sorc.add(sort);
+		FilterInfo filter = new FilterInfo();
+		
+		FilterItemCollection fic = filter.getFilterItems();
+		fic.add(new FilterItemInfo("isFreeze", new Integer(0)));
+		fic.add(new FilterItemInfo("isSealUp", new Integer(0)));
+		fic.add(new FilterItemInfo("isCompanyOrgUnit", new Integer(1)));
+		
+		if(cuId != null){
+			fic.add(new FilterItemInfo("CU.id", cuId));
+		}
+		
+		view.setFilter(filter);
+		bizPromptBox.setEntityViewInfo(view);
+		
+		CompanyF7 f7 = new CompanyF7(ui);
+		f7.showCheckBoxOfShowingAllOUs();
+		f7.setIsCUFilter(false);
+		f7.setRootUnitID(cuId);
+		
+		if(cuId != null) f7.setCurrentCUID(cuId);
+		
+		bizPromptBox.setSelector(f7);
+		SelectorItemCollection sic = bizPromptBox.getSelectorCollection();
+		if (sic == null) {
+			sic = new SelectorItemCollection();
+			sic.add(new SelectorItemInfo("number"));
+			sic.add(new SelectorItemInfo("name"));
+			bizPromptBox.setSelectorCollection(sic);
+		}
+		sic.add(new SelectorItemInfo("isLeaf"));
+		sic.add(new SelectorItemInfo("displayName"));
+		
+		// 只能选择明细的，增加监听交验
+		
 //		if (bizPromptBox.getClientProperty("RespDeptDataChangeLisenter") == null) {
 //			RespDeptDataChangeLisenter ls = new RespDeptDataChangeLisenter(ui);
 //			bizPromptBox.addDataChangeListener(ls);
