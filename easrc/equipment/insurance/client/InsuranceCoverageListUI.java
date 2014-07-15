@@ -22,6 +22,7 @@ import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.framework.*;
 import com.kingdee.eas.tools.datatask.DatataskParameter;
 import com.kingdee.eas.tools.datatask.client.DatataskCaller;
+import com.kingdee.eas.util.client.EASResource;
 
 /**
  * output class name
@@ -642,5 +643,10 @@ public class InsuranceCoverageListUI extends AbstractInsuranceCoverageListUI
 		ArrayList paramList = new ArrayList();
 		paramList.add(param);
 		task.invoke(paramList, 0, true);
+	}
+	
+	protected void initWorkButton() {
+		super.initWorkButton();
+		btnExcelBxmx.setIcon(EASResource.getIcon("imgTbtn_inputoutput"));
 	}
 }
