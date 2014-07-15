@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bizUnit xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.port.equipment.record</package>
+    <name>EquId</name>
+    <alias>bizUnit[com.kingdee.eas.port.equipment.record.EquId].alias</alias>
+    <description>bizUnit[com.kingdee.eas.port.equipment.record.EquId].description</description>
+    <userDefined>true</userDefined>
+    <bizType>BusinessBill</bizType>
+    <template>false</template>
+    <entityPK>com.kingdee.eas.port.equipment.record.app.EquId</entityPK>
+    <queryPK>com.kingdee.eas.port.equipment.record.app.EquIdQuery</queryPK>
+    <editUIPK>com.kingdee.eas.port.equipment.record.client.EquIdEditUI</editUIPK>
+    <listUIPK>com.kingdee.eas.port.equipment.record.client.EquIdListUI</listUIPK>
+    <webEditUIPK />
+    <webListUIPK />
+    <entityFunctionPK />
+    <editUIFunctionPK>com.kingdee.eas.port.equipment.record.app.EquIdEditUIFunction</editUIFunctionPK>
+    <listUIFunctionPK>com.kingdee.eas.port.equipment.record.app.EquIdListUIFunction</listUIFunctionPK>
+    <entryUIPK />
+    <versionDate />
+    <versionNumber />
+    <extendTablePKs />
+    <extendEntityPKs />
+    <extendQueryPKs />
+    <extendEditUIPKs />
+    <extendListUIPKs />
+    <menuPKList />
+    <bimTemplateType>MCoreBillBase</bimTemplateType>
+    <relatedTablePK />
+    <relatedEntityPK />
+    <relatedEditUIPK />
+    <genImplementCode>true</genImplementCode>
+    <webEditPagePK />
+    <webListPagePK />
+    <webPagePKS />
+    <webViewPagePK />
+    <webBriefPagePK />
+    <relatedWebEditPagePK />
+    <relatedQueryPK />
+    <resource>
+        <rs key="bizUnit[com.kingdee.eas.port.equipment.record.EquId].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="设备档案" />
+            <lang locale="zh_HK" value="設備檔案" />
+            <lang locale="zh_TW" value="設備檔案" />
+        </rs>
+        <rs key="bizUnit[com.kingdee.eas.port.equipment.record.EquId].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="记录设备的详细的静态信息和动态信息" />
+            <lang locale="zh_HK" value="記錄設備的詳細的靜態信息和動態信息" />
+            <lang locale="zh_TW" value="記錄設備的詳細的靜態信息和動態信息" />
+        </rs>
+        <rs key="bizUnit[com.kingdee.eas.port.equipment.record.EquId].extendedProperty.OrgType">
+            <lang locale="en_US" value="NONE" />
+            <lang locale="zh_CN" value="NONE" />
+            <lang locale="zh_TW" value="NONE" />
+        </rs>
+        <rs key="bizUnit[com.kingdee.eas.port.equipment.record.EquId].extendedProperty.codingRuleEnabled">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="bizUnit[com.kingdee.eas.port.equipment.record.EquId].extendedProperty.configured">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="bizUnit[com.kingdee.eas.port.equipment.record.EquId].extendedProperty.controllerBeanEx">
+            <lang locale="en_US" value="com.kingdee.eas.port.equipment.record.app.EquIdControllerBeanEx" />
+            <lang locale="zh_CN" value="com.kingdee.eas.port.equipment.record.app.EquIdControllerBeanEx" />
+            <lang locale="zh_TW" value="com.kingdee.eas.port.equipment.record.app.EquIdControllerBeanEx" />
+        </rs>
+        <rs key="bizUnit[com.kingdee.eas.port.equipment.record.EquId].extendedProperty.defaultDisplayField">
+            <lang locale="en_US" value="" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="" />
+        </rs>
+        <rs key="bizUnit[com.kingdee.eas.port.equipment.record.EquId].extendedProperty.defaultF7Query">
+            <lang locale="en_US" value="com.kingdee.eas.port.equipment.record.app.EquIdQuery" />
+            <lang locale="zh_CN" value="com.kingdee.eas.port.equipment.record.app.EquIdQuery" />
+            <lang locale="zh_TW" value="com.kingdee.eas.port.equipment.record.app.EquIdQuery" />
+        </rs>
+        <rs key="bizUnit[com.kingdee.eas.port.equipment.record.EquId].extendedProperty.editUI">
+            <lang locale="en_US" value="com.kingdee.eas.port.equipment.record.client.EquIdEditUI" />
+            <lang locale="zh_CN" value="com.kingdee.eas.port.equipment.record.client.EquIdEditUI" />
+            <lang locale="zh_TW" value="com.kingdee.eas.port.equipment.record.client.EquIdEditUI" />
+        </rs>
+        <rs key="bizUnit[com.kingdee.eas.port.equipment.record.EquId].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="bizUnit[com.kingdee.eas.port.equipment.record.EquId].extendedProperty.genBusinessImplCode">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="bizUnit[com.kingdee.eas.port.equipment.record.EquId].extendedProperty.isAsstAcctType">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="bizUnit[com.kingdee.eas.port.equipment.record.EquId].extendedProperty.isParamObject">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="bizUnit[com.kingdee.eas.port.equipment.record.EquId].extendedProperty.isUseCodeRule">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="bizUnit[com.kingdee.eas.port.equipment.record.EquId].extendedProperty.listUI">
+            <lang locale="en_US" value="com.kingdee.eas.port.equipment.record.client.EquIdListUI" />
+            <lang locale="zh_CN" value="com.kingdee.eas.port.equipment.record.client.EquIdListUI" />
+            <lang locale="zh_TW" value="com.kingdee.eas.port.equipment.record.client.EquIdListUI" />
+        </rs>
+        <rs key="bizUnit[com.kingdee.eas.port.equipment.record.EquId].extendedProperty.maxFieldIndex">
+            <lang locale="en_US" value="113" />
+            <lang locale="zh_CN" value="113" />
+            <lang locale="zh_TW" value="113" />
+        </rs>
+        <rs key="bizUnit[com.kingdee.eas.port.equipment.record.EquId].extendedProperty.useTableEditUI">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="bizUnit[com.kingdee.eas.port.equipment.record.EquId].extendedProperty.userDefined">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+    </resource>
+</bizUnit>
+
