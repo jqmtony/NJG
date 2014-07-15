@@ -14,6 +14,7 @@ import java.util.HashMap;
 import java.util.Vector;
 
 import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 import org.apache.log4j.Logger;
 
@@ -150,18 +151,6 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 		this.txtcityPeriod.setPrecision(0);	
 		this.txtportPeriod.setPrecision(0);	
 
-//		if(chkcityTest.getSelected() == 32){
-//			txtcityPeriod.setEnabled(true);
-//		}else{
-//			txtcityPeriod.setEnabled(false);
-//			txtcityPeriod.setValue(null);
-//		}
-//		if(chkportTest.getSelected() == 32){
-//			txtportPeriod.setEnabled(true);
-//		}else{
-//			txtportPeriod.setEnabled(false);
-//			txtportPeriod.setValue(null);
-//		}
 		super.onLoad();
 		FaCatPromptBox facatBox = new FaCatPromptBox();
 		facatBox.setACompanyOrgUnitInfo(SysContext.getSysContext()
@@ -259,41 +248,10 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 		kdworkButton.addAssistMenuItem(kdmenuItem7);
 		
 		this.toolBar.add(kdworkButton,8);
-
-//		if(chkspecial.getSelected() == 16){
-//			kDPanel11.setEnabled(true);	
-//		}else if(chkspecial.getSelected() == 32){
-//			kDPanel11.setEnabled(false);	
-//		}
-//		txtcityPeriod.setEnabled(false);
-//		txtportPeriod.setEnabled(false);
-//		//市检布尔
-//		chkcityTest.addActionListener(new ActionListener(){
-//			public void actionPerformed(ActionEvent e) {
-//				if(chkcityTest.getSelected() == 32){
-//					txtcityPeriod.setEnabled(true);
-//				}else{
-//					txtcityPeriod.setEnabled(false);
-//					txtcityPeriod.setValue(null);
-//				}
-//			}
-//		});
-//		//港检布尔
-//		chkportTest.addActionListener(new ActionListener(){
-//			public void actionPerformed(ActionEvent e) {
-//				if(chkportTest.getSelected() == 32){
-//					txtportPeriod.setEnabled(true);
-//				}else{
-//					txtportPeriod.setEnabled(false);
-//					txtportPeriod.setValue(null);
-//				}
-//			}
-//		});
 	
 		if(editData.isSpecial()){
 			txttzdaNumber.setEnabled(true);
 			txtcityPeriod.setEnabled(true);
-			pktextDate1.setEnabled(true);
 			txtzzsShortName.setEnabled(true);
 			prmttextType.setEnabled(true);
 			txtresponsible.setEnabled(true);
@@ -310,55 +268,39 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 			txttzdaNumber.setEnabled(false);
 			txttzdaNumber.setText(null);
 			txtcityPeriod.setEnabled(false);
-			pktextDate1.setEnabled(false);
+			txtcityPeriod.setValue(null);
 			txtzzsShortName.setEnabled(false);
+			txtzzsShortName.setText(null);
 			prmttextType.setEnabled(false);
+			prmttextType.setValue(null);
 			txtresponsible.setEnabled(false);
+			txtresponsible.setText(null);
 			chkcityTest.setEnabled(false);
+			chkcityTest.setSelected(false);
 			chkportTest.setEnabled(false);
+			chkportTest.setSelected(false);
 			txtcode.setEnabled(false);
+			txtcode.setText(null);
 			prmtspecialType.setEnabled(false);
+			prmtspecialType.setValue(null);
 			txttelePhoneNumber.setEnabled(false);
+			txttelePhoneNumber.setText(null);
 			pkactrueTime.setEnabled(false);
+			pkactrueTime.setValue(null);
 			prmtequTypeone.setEnabled(false);
+			prmtequTypeone.setValue(null);
 			tzsbStatus.setEnabled(false);
 		}
 		
-		chkspecial.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e) {
-				if(editData.isSpecial()){
-					txttzdaNumber.setEnabled(true);
-					txtcityPeriod.setEnabled(true);
-					pktextDate1.setEnabled(true);
-					txtzzsShortName.setEnabled(true);
-					prmttextType.setEnabled(true);
-					txtresponsible.setEnabled(true);
-					chkcityTest.setEnabled(true);
-					chkportTest.setEnabled(true);
-					txtcode.setEnabled(true);
-					prmtspecialType.setEnabled(true);
-					txttelePhoneNumber.setEnabled(true);
-					pkactrueTime.setEnabled(true);
-					prmtequTypeone.setEnabled(true);
-					tzsbStatus.setEnabled(true);
-				}
-				if(chkspecial.getSelected() ==16){
-					txttzdaNumber.setEnabled(false);
-					txtcityPeriod.setEnabled(false);
-					pktextDate1.setEnabled(false);
-					txtzzsShortName.setEnabled(false);
-					prmttextType.setEnabled(false);
-					txtresponsible.setEnabled(false);
-					chkcityTest.setEnabled(false);
-					chkportTest.setEnabled(false);
-					txtcode.setEnabled(false);
-					prmtspecialType.setEnabled(false);
-					txttelePhoneNumber.setEnabled(false);
-					pkactrueTime.setEnabled(false);
-					prmtequTypeone.setEnabled(false);
-					tzsbStatus.setEnabled(false);
+		chkspecial.addChangeListener(new ChangeListener(){
+
+			public void stateChanged(ChangeEvent e) {
+				if(e.getSource()!=null)
+				{
+					initDataStatus();
 				}
 			}
+			
 		});
 		
 		Tool.setRespDeptF7(this.prmtjhOrgUnit, this, SysContext.getSysContext().getCurrentCtrlUnit().getId().toString());
@@ -1128,6 +1070,52 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 		super.actionAddNew_actionPerformed(e);
 	}
 
+	protected void initDataStatus() {
+		super.initDataStatus();
+			if(chkspecial.isSelected()){
+				txttzdaNumber.setEnabled(true);
+				txtcityPeriod.setEnabled(true);
+				txtzzsShortName.setEnabled(true);
+				prmttextType.setEnabled(true);
+				txtresponsible.setEnabled(true);
+				chkcityTest.setEnabled(true);
+				chkportTest.setEnabled(true);
+				txtcode.setEnabled(true);
+				prmtspecialType.setEnabled(true);
+				txttelePhoneNumber.setEnabled(true);
+				pkactrueTime.setEnabled(true);
+				prmtequTypeone.setEnabled(true);
+				tzsbStatus.setEnabled(true);
+			}
+			else
+			{
+				txttzdaNumber.setEnabled(false);
+				txttzdaNumber.setText(null);
+				txtcityPeriod.setEnabled(false);
+				txtcityPeriod.setValue(null);
+				txtzzsShortName.setEnabled(false);
+				txtzzsShortName.setText(null);
+				prmttextType.setEnabled(false);
+				prmttextType.setValue(null);
+				txtresponsible.setEnabled(false);
+				txtresponsible.setText(null);
+				chkcityTest.setEnabled(false);
+				chkcityTest.setSelected(false);
+				chkportTest.setEnabled(false);
+				chkportTest.setSelected(false);
+				txtcode.setEnabled(false);
+				txtcode.setText(null);
+				prmtspecialType.setEnabled(false);
+				prmtspecialType.setValue(null);
+				txttelePhoneNumber.setEnabled(false);
+				txttelePhoneNumber.setText(null);
+				pkactrueTime.setEnabled(false);
+				pkactrueTime.setValue(null);
+				prmtequTypeone.setEnabled(false);
+				prmtequTypeone.setValue(null);
+				tzsbStatus.setEnabled(false);
+		}
+	}
 	/**
 	 * output actionEdit_actionPerformed
 	 */
