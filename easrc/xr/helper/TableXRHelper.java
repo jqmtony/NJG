@@ -30,7 +30,13 @@ import com.kingdee.bos.ctrl.swing.KDLayout;
 import com.kingdee.bos.ctrl.swing.KDPanel;
 import com.kingdee.bos.ctrl.swing.KDPopupMenu;
 import com.kingdee.bos.ctrl.swing.KDSeparator;
+import com.kingdee.bos.ctrl.swing.KDTree;
+import com.kingdee.bos.dao.query.IQueryExecutor;
+import com.kingdee.bos.dao.query.QueryExecutorFactory;
 import com.kingdee.bos.dao.query.SQLExecutorFactory;
+import com.kingdee.bos.metadata.IMetaDataPK;
+import com.kingdee.bos.metadata.MetaDataPK;
+import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.ui.face.ItemAction;
 import com.kingdee.eas.framework.client.CoreUI;
 import com.kingdee.eas.framework.client.multiDetail.DetailPanel;
@@ -39,6 +45,42 @@ import com.kingdee.jdbc.rowset.IRowSet;
 import com.kingdee.util.enums.EnumUtils;
 
 public class TableXRHelper {
+	/***
+	 * 绑定query 显示数据
+	 * tblMain: 显示记录的表格
+	 * queryName:表格上绑定的显示query
+	 * project:  单据中项目名称的属性名称
+	 * context： 上下文环境
+	 * **/
+    public static int showQueryDate(KDTable tblMain,String queryName,EntityViewInfo evi) throws Exception
+    {
+    	tblMain.setEnabled(false);
+    	tblMain.getSelectManager().setSelectMode(KDTSelectManager.ROW_SELECT);
+    	IMetaDataPK queryPK = new MetaDataPK(queryName);
+    	IQueryExecutor exec = QueryExecutorFactory.getRemoteInstance(queryPK );
+    	exec.option().isAutoIgnoreZero = true;
+    	exec.option().isAutoTranslateBoolean = true;
+    	exec.option().isAutoTranslateEnum = true; 
+        exec.setObjectView(evi);
+    	IRowSet rowSet = exec.executeQuery();
+    	IRow row = null;
+    	tblMain.removeRows();
+    	int maxLevel = 0;
+        for(int i=0; rowSet.next(); i++)
+        {
+        	row = tblMain.addRow();
+        	ResultSetMetaData o_dbMd = rowSet.getMetaData();
+        	int cols = o_dbMd.getColumnCount(); //取得query的字段数
+        	Object[] colname = new Object[cols]; //取得query的字段名称
+            for (int j = 1; j < cols+1; j++) {
+              colname[j-1] = o_dbMd.getColumnName(j);
+              if(colname[j-1]!=null && row.getCell(colname[j-1].toString())!=null
+            		  && rowSet.getObject(colname[j-1].toString())!=null)
+            		  row.getCell(colname[j-1].toString()).setValue(rowSet.getObject(colname[j-1].toString()));
+            }
+        }
+        return maxLevel+1;
+    }
 	//右键菜单定义
 	public static void addPopMenu(CoreUI ui,KDTable tblMain, ItemAction[] action)
     {
