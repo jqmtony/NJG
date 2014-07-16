@@ -5,6 +5,7 @@ package com.kingdee.eas.xr.client;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ItemListener;
+import java.util.ArrayList;
 import java.util.EventListener;
 import java.util.HashMap;
 import java.util.Map;
@@ -20,9 +21,12 @@ import com.kingdee.bos.ctrl.swing.KDDatePicker;
 import com.kingdee.bos.ctrl.swing.KDFormattedTextField;
 import com.kingdee.bos.ctrl.swing.KDPromptBox;
 import com.kingdee.bos.ctrl.swing.KDTextField;
+import com.kingdee.bos.ctrl.swing.StringUtils;
 import com.kingdee.bos.ctrl.swing.event.DataChangeListener;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.bos.metadata.IMetaDataPK;
+import com.kingdee.bos.metadata.MetaDataPK;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.eas.base.codingrule.CodingRuleException;
 import com.kingdee.eas.base.codingrule.CodingRuleManagerFactory;
@@ -478,5 +482,43 @@ public abstract class XRBillBaseEditUI extends AbstractXRBillBaseEditUI
 	public void actionCopy_actionPerformed(ActionEvent e) throws Exception {
 		editData.put("status", XRBillStatusEnum.ADD);
 		super.actionCopy_actionPerformed(e);
+	}
+	/**
+     * output actionPrint_actionPerformed method
+     */
+    public void actionPrint_actionPerformed(ActionEvent e) throws Exception
+    {
+        ArrayList idList = new ArrayList();
+    	if (editData != null && !StringUtils.isEmpty(editData.getString("id"))) {
+    		idList.add(editData.getString("id"));
+    	}
+        if (idList == null || idList.size() == 0 || getTDQueryPK() == null || getTDFileName() == null)
+            return;
+        com.kingdee.bos.ctrl.kdf.data.impl.BOSQueryDelegate data = new com.kingdee.eas.framework.util.CommonDataProvider(idList,getTDQueryPK());
+        com.kingdee.bos.ctrl.report.forapp.kdnote.client.KDNoteHelper appHlp = new com.kingdee.bos.ctrl.report.forapp.kdnote.client.KDNoteHelper();
+        appHlp.print(getTDFileName(), data, javax.swing.SwingUtilities.getWindowAncestor(this));
+    }
+    	
+
+    /**
+     * output actionPrintPreview_actionPerformed method
+     */
+    public void actionPrintPreview_actionPerformed(ActionEvent e) throws Exception
+    {
+        ArrayList idList = new ArrayList();
+        if (editData != null && !StringUtils.isEmpty(editData.getString("id"))) {
+    		idList.add(editData.getString("id"));
+    	}
+        if (idList == null || idList.size() == 0 || getTDQueryPK() == null || getTDFileName() == null)
+            return;
+        com.kingdee.bos.ctrl.kdf.data.impl.BOSQueryDelegate data = new com.kingdee.eas.framework.util.CommonDataProvider(idList,getTDQueryPK());
+        com.kingdee.bos.ctrl.report.forapp.kdnote.client.KDNoteHelper appHlp = new com.kingdee.bos.ctrl.report.forapp.kdnote.client.KDNoteHelper();
+        appHlp.printPreview(getTDFileName(), data, javax.swing.SwingUtilities.getWindowAncestor(this));
+    }
+    protected String getTDFileName() {
+    	return "/bim/xr/XRBillBase";
+	}
+    protected IMetaDataPK getTDQueryPK() {
+    	return new MetaDataPK("");
 	}
 }
