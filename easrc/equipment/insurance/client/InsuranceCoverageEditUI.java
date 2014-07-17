@@ -38,12 +38,15 @@ import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.swing.KDFileChooser;
 import com.kingdee.bos.ctrl.swing.KDTextField;
 import com.kingdee.bos.ctrl.swing.KDWorkButton;
+import com.kingdee.bos.ctrl.swing.StringUtils;
 import com.kingdee.bos.ctrl.swing.util.SimpleFileFilter;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
+import com.kingdee.bos.metadata.entity.SelectorItemCollection;
+import com.kingdee.bos.metadata.entity.SelectorItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.UIRuleUtil;
@@ -842,7 +845,8 @@ this.prmtinsurance.setEnabledMultiSelection(true);
 					Calendar  calendar  =  Calendar.getInstance();  
 		            calendar.setTime(SysUtil.getAppServerTime(null));  
 		            pkBizDate.setValue(calendar.getTime());
-		            txtyear.setValue(calendar.get(Calendar.YEAR));
+		            String year =  Integer.toString(calendar.get(Calendar.YEAR));
+		            txtyear.setText(year);
 		            prmtCU.setValue(SysContext.getSysContext().getCurrentCtrlUnit());
 				}
 	}
@@ -936,24 +940,29 @@ this.prmtinsurance.setEnabledMultiSelection(true);
 				IRow row = table.getRow(col);
 				map.put(((EquIdInfo)row.getCell("equNumber").getValue()).getNumber(), col);
 			}
-			for (int rowIndex = 1; rowIndex <= e_maxRow; rowIndex++) {
+			for (int rowIndex = 1; rowIndex <= e_maxRow; rowIndex++) 
+			{
 				Integer colInt = (Integer) e_colNameMap.get("设备编号");
-				Integer equInt = (Integer) e_colNameMap.get("投保金额");
-				
-				if (colInt == null||equInt==null) {
-					continue;
-				}
 				com.kingdee.bos.ctrl.common.variant.Variant cellRawVal = excelSheet.getCell(rowIndex, colInt.intValue(), true).getValue();
-				if (com.kingdee.bos.ctrl.common.variant.Variant.isNull(cellRawVal)) {
-					continue;
-				}
-				com.kingdee.bos.ctrl.common.variant.Variant equV = excelSheet.getCell(rowIndex, equInt.intValue(), true).getValue();
-				if (com.kingdee.bos.ctrl.common.variant.Variant.isNull(equV)) {
-					continue;
-				}
-				if(map.get(cellRawVal.toString())!=null&&table.getRow(map.get(cellRawVal.toString()))!=null)
+				if (!com.kingdee.bos.ctrl.common.variant.Variant.isNull(cellRawVal)) 
 				{
-					table.getRow(map.get(cellRawVal.toString())).getCell("insuranceAmount").setValue(equV.toString());
+					Integer equInt = (Integer) e_colNameMap.get("签单保额");
+					Integer equInt1 = (Integer) e_colNameMap.get("签单保费");
+					
+					com.kingdee.bos.ctrl.common.variant.Variant equV = excelSheet.getCell(rowIndex, equInt.intValue(), true).getValue();
+					if (!com.kingdee.bos.ctrl.common.variant.Variant.isNull(equV)) {
+						if(map.get(cellRawVal.toString())!=null&&table.getRow(map.get(cellRawVal.toString()))!=null)
+						{
+							table.getRow(map.get(cellRawVal.toString())).getCell("insuranceAmount").setValue(equV.toString());
+						}
+					}
+					com.kingdee.bos.ctrl.common.variant.Variant equV1 = excelSheet.getCell(rowIndex, equInt1.intValue(), true).getValue();
+					if (!com.kingdee.bos.ctrl.common.variant.Variant.isNull(equV1)) {
+						if(map.get(cellRawVal.toString())!=null&&table.getRow(map.get(cellRawVal.toString()))!=null)
+						{
+							table.getRow(map.get(cellRawVal.toString())).getCell("premium").setValue(equV1.toString());
+						}
+					}
 				}
 			}
 			return true;
@@ -1047,4 +1056,121 @@ this.prmtinsurance.setEnabledMultiSelection(true);
 				kdtE1.getCell(rowIndex, "useUnit").setValue(null);
 			}
 		}
+		
+		   /**
+	     * output getSelectors method
+	     */
+	    public SelectorItemCollection getSelectors()
+	    {
+	        SelectorItemCollection sic = new SelectorItemCollection();
+			String selectorAll = System.getProperty("selector.all");
+			if(StringUtils.isEmpty(selectorAll)){
+				selectorAll = "true";
+			}
+			if(selectorAll.equalsIgnoreCase("true"))
+			{
+				sic.add(new SelectorItemInfo("creator.*"));
+			}
+			else{
+	        	sic.add(new SelectorItemInfo("creator.id"));
+	        	sic.add(new SelectorItemInfo("creator.number"));
+	        	sic.add(new SelectorItemInfo("creator.name"));
+			}
+	        sic.add(new SelectorItemInfo("createTime"));
+			if(selectorAll.equalsIgnoreCase("true"))
+			{
+				sic.add(new SelectorItemInfo("lastUpdateUser.*"));
+			}
+			else{
+	        	sic.add(new SelectorItemInfo("lastUpdateUser.id"));
+	        	sic.add(new SelectorItemInfo("lastUpdateUser.number"));
+	        	sic.add(new SelectorItemInfo("lastUpdateUser.name"));
+			}
+	        sic.add(new SelectorItemInfo("lastUpdateTime"));
+			if(selectorAll.equalsIgnoreCase("true"))
+			{
+				sic.add(new SelectorItemInfo("CU.*"));
+			}
+			else{
+	        	sic.add(new SelectorItemInfo("CU.id"));
+	        	sic.add(new SelectorItemInfo("CU.number"));
+	        	sic.add(new SelectorItemInfo("CU.name"));
+			}
+	        sic.add(new SelectorItemInfo("number"));
+	        sic.add(new SelectorItemInfo("bizDate"));
+	        sic.add(new SelectorItemInfo("description"));
+			if(selectorAll.equalsIgnoreCase("true"))
+			{
+				sic.add(new SelectorItemInfo("auditor.*"));
+			}
+			else{
+	        	sic.add(new SelectorItemInfo("auditor.id"));
+	        	sic.add(new SelectorItemInfo("auditor.number"));
+	        	sic.add(new SelectorItemInfo("auditor.name"));
+			}
+	        sic.add(new SelectorItemInfo("status"));
+	        sic.add(new SelectorItemInfo("bizStatus"));
+	        sic.add(new SelectorItemInfo("auditTime"));
+			if(selectorAll.equalsIgnoreCase("true"))
+			{
+				sic.add(new SelectorItemInfo("insurance.*"));
+			}
+			else{
+	        	sic.add(new SelectorItemInfo("insurance.id"));
+	        	sic.add(new SelectorItemInfo("insurance.number"));
+	        	sic.add(new SelectorItemInfo("insurance.name"));
+			}
+			if(selectorAll.equalsIgnoreCase("true"))
+			{
+				sic.add(new SelectorItemInfo("insuranceCompany.*"));
+			}
+			else{
+	        	sic.add(new SelectorItemInfo("insuranceCompany.id"));
+	        	sic.add(new SelectorItemInfo("insuranceCompany.number"));
+	        	sic.add(new SelectorItemInfo("insuranceCompany.name"));
+			}
+	    	sic.add(new SelectorItemInfo("E1.seq"));
+			if(selectorAll.equalsIgnoreCase("true"))
+			{
+				sic.add(new SelectorItemInfo("E1.*"));
+			}
+			else{
+			}
+			if(selectorAll.equalsIgnoreCase("true"))
+			{
+				sic.add(new SelectorItemInfo("E1.useUnit.*"));
+			}
+			else{
+		    	sic.add(new SelectorItemInfo("E1.useUnit.id"));
+				sic.add(new SelectorItemInfo("E1.useUnit.name"));
+	        	sic.add(new SelectorItemInfo("E1.useUnit.number"));
+			}
+			if(selectorAll.equalsIgnoreCase("true"))
+			{
+				sic.add(new SelectorItemInfo("E1.equNumber.*"));
+			}
+			else{
+		    	sic.add(new SelectorItemInfo("E1.equNumber.id"));
+				sic.add(new SelectorItemInfo("E1.equNumber.number"));
+				sic.add(new SelectorItemInfo("E1.equNumber.name"));
+			}
+	    	sic.add(new SelectorItemInfo("E1.equType"));
+	    	sic.add(new SelectorItemInfo("E1.equName"));
+	    	sic.add(new SelectorItemInfo("E1.specModel"));
+	    	sic.add(new SelectorItemInfo("E1.factoryUseDate"));
+	    	sic.add(new SelectorItemInfo("E1.makeUnit"));
+	    	sic.add(new SelectorItemInfo("E1.tonnage"));
+	    	sic.add(new SelectorItemInfo("E1.originalValue"));
+	    	sic.add(new SelectorItemInfo("E1.presentValue"));
+	    	sic.add(new SelectorItemInfo("E1.insuranceAmount"));
+	    	sic.add(new SelectorItemInfo("E1.remark"));
+	    	sic.add(new SelectorItemInfo("E1.premium"));
+	        sic.add(new SelectorItemInfo("xianzhongID"));
+	        sic.add(new SelectorItemInfo("coverNumber"));
+	        sic.add(new SelectorItemInfo("contNumber"));
+	        sic.add(new SelectorItemInfo("effectDate"));
+	        sic.add(new SelectorItemInfo("endDate"));
+	        sic.add(new SelectorItemInfo("year"));
+	        return sic;
+	    }        
 }

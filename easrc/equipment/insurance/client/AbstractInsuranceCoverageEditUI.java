@@ -58,7 +58,6 @@ public abstract class AbstractInsuranceCoverageEditUI extends com.kingdee.eas.xr
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contStatus;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contBizStatus;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contAuditTime;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contyear;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer continsurance;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer continsuranceCompany;
     protected com.kingdee.bos.ctrl.swing.KDButton kDInsuranceDetail;
@@ -67,6 +66,11 @@ public abstract class AbstractInsuranceCoverageEditUI extends com.kingdee.eas.xr
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnImportExcel;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnExcel;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contxianzhongID;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contcoverNumber;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contcontNumber;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer conteffectDate;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contendDate;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contyear;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtCreator;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkCreateTime;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtLastUpdateUser;
@@ -79,13 +83,17 @@ public abstract class AbstractInsuranceCoverageEditUI extends com.kingdee.eas.xr
     protected com.kingdee.bos.ctrl.swing.KDComboBox comboStatus;
     protected com.kingdee.bos.ctrl.swing.KDComboBox comboBizStatus;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkAuditTime;
-    protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtyear;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtinsurance;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtinsuranceCompany;
     protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtE1;
 	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtE1_detailPanel = null;
     protected com.kingdee.bos.ctrl.swing.KDScrollPane scrollPanexianzhongID;
     protected com.kingdee.bos.ctrl.swing.KDTextArea txtxianzhongID;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txtcoverNumber;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txtcontNumber;
+    protected com.kingdee.bos.ctrl.swing.KDDatePicker pkeffectDate;
+    protected com.kingdee.bos.ctrl.swing.KDDatePicker pkendDate;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txtyear;
     protected com.kingdee.eas.port.equipment.insurance.InsuranceCoverageInfo editData = null;
     protected ActionExcelBxmx actionExcelBxmx = null;
     /**
@@ -157,7 +165,6 @@ public abstract class AbstractInsuranceCoverageEditUI extends com.kingdee.eas.xr
         this.contStatus = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contBizStatus = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contAuditTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contyear = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.continsurance = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.continsuranceCompany = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.kDInsuranceDetail = new com.kingdee.bos.ctrl.swing.KDButton();
@@ -166,6 +173,11 @@ public abstract class AbstractInsuranceCoverageEditUI extends com.kingdee.eas.xr
         this.btnImportExcel = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btnExcel = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.contxianzhongID = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contcoverNumber = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contcontNumber = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.conteffectDate = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contendDate = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contyear = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.prmtCreator = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.pkCreateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.prmtLastUpdateUser = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
@@ -178,12 +190,16 @@ public abstract class AbstractInsuranceCoverageEditUI extends com.kingdee.eas.xr
         this.comboStatus = new com.kingdee.bos.ctrl.swing.KDComboBox();
         this.comboBizStatus = new com.kingdee.bos.ctrl.swing.KDComboBox();
         this.pkAuditTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
-        this.txtyear = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
         this.prmtinsurance = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.prmtinsuranceCompany = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.kdtE1 = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.scrollPanexianzhongID = new com.kingdee.bos.ctrl.swing.KDScrollPane();
         this.txtxianzhongID = new com.kingdee.bos.ctrl.swing.KDTextArea();
+        this.txtcoverNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.txtcontNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.pkeffectDate = new com.kingdee.bos.ctrl.swing.KDDatePicker();
+        this.pkendDate = new com.kingdee.bos.ctrl.swing.KDDatePicker();
+        this.txtyear = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.contCreator.setName("contCreator");
         this.contCreateTime.setName("contCreateTime");
         this.contLastUpdateUser.setName("contLastUpdateUser");
@@ -196,7 +212,6 @@ public abstract class AbstractInsuranceCoverageEditUI extends com.kingdee.eas.xr
         this.contStatus.setName("contStatus");
         this.contBizStatus.setName("contBizStatus");
         this.contAuditTime.setName("contAuditTime");
-        this.contyear.setName("contyear");
         this.continsurance.setName("continsurance");
         this.continsuranceCompany.setName("continsuranceCompany");
         this.kDInsuranceDetail.setName("kDInsuranceDetail");
@@ -205,6 +220,11 @@ public abstract class AbstractInsuranceCoverageEditUI extends com.kingdee.eas.xr
         this.btnImportExcel.setName("btnImportExcel");
         this.btnExcel.setName("btnExcel");
         this.contxianzhongID.setName("contxianzhongID");
+        this.contcoverNumber.setName("contcoverNumber");
+        this.contcontNumber.setName("contcontNumber");
+        this.conteffectDate.setName("conteffectDate");
+        this.contendDate.setName("contendDate");
+        this.contyear.setName("contyear");
         this.prmtCreator.setName("prmtCreator");
         this.pkCreateTime.setName("pkCreateTime");
         this.prmtLastUpdateUser.setName("prmtLastUpdateUser");
@@ -217,12 +237,16 @@ public abstract class AbstractInsuranceCoverageEditUI extends com.kingdee.eas.xr
         this.comboStatus.setName("comboStatus");
         this.comboBizStatus.setName("comboBizStatus");
         this.pkAuditTime.setName("pkAuditTime");
-        this.txtyear.setName("txtyear");
         this.prmtinsurance.setName("prmtinsurance");
         this.prmtinsuranceCompany.setName("prmtinsuranceCompany");
         this.kdtE1.setName("kdtE1");
         this.scrollPanexianzhongID.setName("scrollPanexianzhongID");
         this.txtxianzhongID.setName("txtxianzhongID");
+        this.txtcoverNumber.setName("txtcoverNumber");
+        this.txtcontNumber.setName("txtcontNumber");
+        this.pkeffectDate.setName("pkeffectDate");
+        this.pkendDate.setName("pkendDate");
+        this.txtyear.setName("txtyear");
         // CoreUI
         // contCreator		
         this.contCreator.setBoundLabelText(resHelper.getString("contCreator.boundLabelText"));		
@@ -278,11 +302,6 @@ public abstract class AbstractInsuranceCoverageEditUI extends com.kingdee.eas.xr
         this.contAuditTime.setBoundLabelText(resHelper.getString("contAuditTime.boundLabelText"));		
         this.contAuditTime.setBoundLabelLength(100);		
         this.contAuditTime.setBoundLabelUnderline(true);
-        // contyear		
-        this.contyear.setBoundLabelText(resHelper.getString("contyear.boundLabelText"));		
-        this.contyear.setBoundLabelLength(100);		
-        this.contyear.setBoundLabelUnderline(true);		
-        this.contyear.setVisible(true);
         // continsurance		
         this.continsurance.setBoundLabelText(resHelper.getString("continsurance.boundLabelText"));		
         this.continsurance.setBoundLabelLength(100);		
@@ -344,6 +363,31 @@ public abstract class AbstractInsuranceCoverageEditUI extends com.kingdee.eas.xr
         this.contxianzhongID.setBoundLabelLength(100);		
         this.contxianzhongID.setBoundLabelUnderline(true);		
         this.contxianzhongID.setVisible(true);
+        // contcoverNumber		
+        this.contcoverNumber.setBoundLabelText(resHelper.getString("contcoverNumber.boundLabelText"));		
+        this.contcoverNumber.setBoundLabelLength(100);		
+        this.contcoverNumber.setBoundLabelUnderline(true);		
+        this.contcoverNumber.setVisible(true);
+        // contcontNumber		
+        this.contcontNumber.setBoundLabelText(resHelper.getString("contcontNumber.boundLabelText"));		
+        this.contcontNumber.setBoundLabelLength(100);		
+        this.contcontNumber.setBoundLabelUnderline(true);		
+        this.contcontNumber.setVisible(true);
+        // conteffectDate		
+        this.conteffectDate.setBoundLabelText(resHelper.getString("conteffectDate.boundLabelText"));		
+        this.conteffectDate.setBoundLabelLength(100);		
+        this.conteffectDate.setBoundLabelUnderline(true);		
+        this.conteffectDate.setVisible(true);
+        // contendDate		
+        this.contendDate.setBoundLabelText(resHelper.getString("contendDate.boundLabelText"));		
+        this.contendDate.setBoundLabelLength(100);		
+        this.contendDate.setBoundLabelUnderline(true);		
+        this.contendDate.setVisible(true);
+        // contyear		
+        this.contyear.setBoundLabelText(resHelper.getString("contyear.boundLabelText"));		
+        this.contyear.setBoundLabelLength(100);		
+        this.contyear.setBoundLabelUnderline(true);		
+        this.contyear.setVisible(true);
         // prmtCreator		
         this.prmtCreator.setEnabled(false);		
         this.prmtCreator.setCommitFormat("$name$");		
@@ -380,15 +424,8 @@ public abstract class AbstractInsuranceCoverageEditUI extends com.kingdee.eas.xr
         // pkAuditTime		
         this.pkAuditTime.setTimeEnabled(true);		
         this.pkAuditTime.setEnabled(false);
-        // txtyear		
-        this.txtyear.setVisible(true);		
-        this.txtyear.setHorizontalAlignment(2);		
-        this.txtyear.setDataType(0);		
-        this.txtyear.setSupportedEmpty(true);		
-        this.txtyear.setRequired(false);
         // prmtinsurance		
         this.prmtinsurance.setQueryInfo("com.kingdee.eas.port.equipment.base.app.InsuranceQuery");		
-        this.prmtinsurance.setVisible(true);		
         this.prmtinsurance.setEditable(true);		
         this.prmtinsurance.setDisplayFormat("$name$");		
         this.prmtinsurance.setEditFormat("$number$");		
@@ -396,14 +433,13 @@ public abstract class AbstractInsuranceCoverageEditUI extends com.kingdee.eas.xr
         this.prmtinsurance.setRequired(false);
         // prmtinsuranceCompany		
         this.prmtinsuranceCompany.setQueryInfo("com.kingdee.eas.port.equipment.base.app.InsuranceCompanyQuery");		
-        this.prmtinsuranceCompany.setVisible(true);		
         this.prmtinsuranceCompany.setEditable(true);		
         this.prmtinsuranceCompany.setDisplayFormat("$name$");		
         this.prmtinsuranceCompany.setEditFormat("$number$");		
         this.prmtinsuranceCompany.setCommitFormat("$number$");		
         this.prmtinsuranceCompany.setRequired(false);
         // kdtE1
-		String kdtE1StrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /><c:NumberFormat>&amp;int</c:NumberFormat></c:Style><c:Style id=\"sCol3\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol4\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol5\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol6\"><c:Protection locked=\"true\" /><c:NumberFormat>&amp;date</c:NumberFormat></c:Style><c:Style id=\"sCol7\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol8\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol9\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol10\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol11\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"useUnit\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"equNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"equType\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol3\" /><t:Column t:key=\"equName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol4\" /><t:Column t:key=\"specModel\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol5\" /><t:Column t:key=\"factoryUseDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol6\" /><t:Column t:key=\"makeUnit\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol7\" /><t:Column t:key=\"tonnage\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol8\" /><t:Column t:key=\"originalValue\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol9\" /><t:Column t:key=\"presentValue\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol10\" /><t:Column t:key=\"insuranceAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol11\" /><t:Column t:key=\"remark\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{useUnit}</t:Cell><t:Cell>$Resource{equNumber}</t:Cell><t:Cell>$Resource{equType}</t:Cell><t:Cell>$Resource{equName}</t:Cell><t:Cell>$Resource{specModel}</t:Cell><t:Cell>$Resource{factoryUseDate}</t:Cell><t:Cell>$Resource{makeUnit}</t:Cell><t:Cell>$Resource{tonnage}</t:Cell><t:Cell>$Resource{originalValue}</t:Cell><t:Cell>$Resource{presentValue}</t:Cell><t:Cell>$Resource{insuranceAmount}</t:Cell><t:Cell>$Resource{remark}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		String kdtE1StrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /><c:NumberFormat>&amp;int</c:NumberFormat></c:Style><c:Style id=\"sCol3\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol4\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol5\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol6\"><c:Protection locked=\"true\" /><c:NumberFormat>&amp;date</c:NumberFormat></c:Style><c:Style id=\"sCol7\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol8\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol9\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol10\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol11\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol12\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"useUnit\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"equNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"equType\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol3\" /><t:Column t:key=\"equName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol4\" /><t:Column t:key=\"specModel\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol5\" /><t:Column t:key=\"factoryUseDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol6\" /><t:Column t:key=\"makeUnit\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol7\" /><t:Column t:key=\"tonnage\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol8\" /><t:Column t:key=\"originalValue\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol9\" /><t:Column t:key=\"presentValue\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol10\" /><t:Column t:key=\"insuranceAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol11\" /><t:Column t:key=\"premium\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol12\" /><t:Column t:key=\"remark\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{useUnit}</t:Cell><t:Cell>$Resource{equNumber}</t:Cell><t:Cell>$Resource{equType}</t:Cell><t:Cell>$Resource{equName}</t:Cell><t:Cell>$Resource{specModel}</t:Cell><t:Cell>$Resource{factoryUseDate}</t:Cell><t:Cell>$Resource{makeUnit}</t:Cell><t:Cell>$Resource{tonnage}</t:Cell><t:Cell>$Resource{originalValue}</t:Cell><t:Cell>$Resource{presentValue}</t:Cell><t:Cell>$Resource{insuranceAmount}</t:Cell><t:Cell>$Resource{premium}</t:Cell><t:Cell>$Resource{remark}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.kdtE1.setFormatXml(resHelper.translateString("kdtE1",kdtE1StrXML));
         kdtE1.addKDTEditListener(new KDTEditAdapter() {
@@ -418,7 +454,7 @@ public abstract class AbstractInsuranceCoverageEditUI extends com.kingdee.eas.xr
 	});
 
 
-                this.kdtE1.putBindContents("editData",new String[] {"seq","useUnit","equNumber","equType","equName","specModel","factoryUseDate","makeUnit","tonnage","originalValue","presentValue","insuranceAmount","remark"});
+                this.kdtE1.putBindContents("editData",new String[] {"seq","useUnit","equNumber","equType","equName","specModel","factoryUseDate","makeUnit","tonnage","originalValue","presentValue","insuranceAmount","premium","remark"});
 
 
         this.kdtE1.checkParsed();
@@ -518,6 +554,17 @@ public abstract class AbstractInsuranceCoverageEditUI extends com.kingdee.eas.xr
         kdtE1_insuranceAmount_TextField.setPrecision(2);
         KDTDefaultCellEditor kdtE1_insuranceAmount_CellEditor = new KDTDefaultCellEditor(kdtE1_insuranceAmount_TextField);
         this.kdtE1.getColumn("insuranceAmount").setEditor(kdtE1_insuranceAmount_CellEditor);
+        KDFormattedTextField kdtE1_premium_TextField = new KDFormattedTextField();
+        kdtE1_premium_TextField.setName("kdtE1_premium_TextField");
+        kdtE1_premium_TextField.setVisible(true);
+        kdtE1_premium_TextField.setEditable(true);
+        kdtE1_premium_TextField.setHorizontalAlignment(2);
+        kdtE1_premium_TextField.setDataType(1);
+        	kdtE1_premium_TextField.setMinimumValue(new java.math.BigDecimal("-1.0E26"));
+        	kdtE1_premium_TextField.setMaximumValue(new java.math.BigDecimal("1.0E26"));
+        kdtE1_premium_TextField.setPrecision(2);
+        KDTDefaultCellEditor kdtE1_premium_CellEditor = new KDTDefaultCellEditor(kdtE1_premium_TextField);
+        this.kdtE1.getColumn("premium").setEditor(kdtE1_premium_CellEditor);
         KDTextField kdtE1_remark_TextField = new KDTextField();
         kdtE1_remark_TextField.setName("kdtE1_remark_TextField");
         kdtE1_remark_TextField.setMaxLength(100);
@@ -525,10 +572,26 @@ public abstract class AbstractInsuranceCoverageEditUI extends com.kingdee.eas.xr
         this.kdtE1.getColumn("remark").setEditor(kdtE1_remark_CellEditor);
         // scrollPanexianzhongID
         // txtxianzhongID		
-        this.txtxianzhongID.setVisible(true);		
         this.txtxianzhongID.setRequired(false);		
         this.txtxianzhongID.setMaxLength(500);
-        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {txtyear,prmtinsurance,prmtinsuranceCompany,kdtE1,prmtCU,pkLastUpdateTime,prmtLastUpdateUser,pkCreateTime,prmtCreator,prmtAuditor,txtDescription,pkBizDate,txtNumber,pkAuditTime,comboBizStatus,comboStatus}));
+        // txtcoverNumber		
+        this.txtcoverNumber.setHorizontalAlignment(2);		
+        this.txtcoverNumber.setMaxLength(100);		
+        this.txtcoverNumber.setRequired(false);
+        // txtcontNumber		
+        this.txtcontNumber.setHorizontalAlignment(2);		
+        this.txtcontNumber.setMaxLength(100);		
+        this.txtcontNumber.setRequired(false);
+        // pkeffectDate		
+        this.pkeffectDate.setRequired(false);
+        // pkendDate		
+        this.pkendDate.setRequired(false);
+        // txtyear		
+        this.txtyear.setVisible(true);		
+        this.txtyear.setHorizontalAlignment(2);		
+        this.txtyear.setMaxLength(100);		
+        this.txtyear.setRequired(false);
+        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {txtxianzhongID,prmtinsurance,prmtinsuranceCompany,prmtCU,pkLastUpdateTime,prmtLastUpdateUser,pkCreateTime,kdtE1,prmtCreator,prmtAuditor,txtDescription,pkBizDate,txtNumber,pkAuditTime,comboBizStatus,comboStatus,txtcoverNumber,txtcontNumber,pkeffectDate,pkendDate,txtyear}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
 		registerBindings();
@@ -569,36 +632,44 @@ public abstract class AbstractInsuranceCoverageEditUI extends com.kingdee.eas.xr
         this.add(contCU, new KDLayout.Constraints(736, 10, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contNumber.setBounds(new Rectangle(10, 10, 270, 19));
         this.add(contNumber, new KDLayout.Constraints(10, 10, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contBizDate.setBounds(new Rectangle(373, 10, 270, 19));
-        this.add(contBizDate, new KDLayout.Constraints(373, 10, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contBizDate.setBounds(new Rectangle(373, 32, 270, 19));
+        this.add(contBizDate, new KDLayout.Constraints(373, 32, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contDescription.setBounds(new Rectangle(10, 466, 270, 19));
         this.add(contDescription, new KDLayout.Constraints(10, 466, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         contAuditor.setBounds(new Rectangle(732, 418, 270, 19));
         this.add(contAuditor, new KDLayout.Constraints(732, 418, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contStatus.setBounds(new Rectangle(373, 34, 270, 19));
-        this.add(contStatus, new KDLayout.Constraints(373, 34, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contStatus.setBounds(new Rectangle(736, 32, 270, 19));
+        this.add(contStatus, new KDLayout.Constraints(736, 32, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contBizStatus.setBounds(new Rectangle(371, 466, 270, 19));
         this.add(contBizStatus, new KDLayout.Constraints(371, 466, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         contAuditTime.setBounds(new Rectangle(732, 442, 270, 19));
         this.add(contAuditTime, new KDLayout.Constraints(732, 442, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contyear.setBounds(new Rectangle(10, 34, 270, 19));
-        this.add(contyear, new KDLayout.Constraints(10, 34, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        continsurance.setBounds(new Rectangle(736, 34, 270, 19));
-        this.add(continsurance, new KDLayout.Constraints(736, 34, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        continsuranceCompany.setBounds(new Rectangle(10, 58, 270, 19));
-        this.add(continsuranceCompany, new KDLayout.Constraints(10, 58, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        continsurance.setBounds(new Rectangle(373, 76, 270, 19));
+        this.add(continsurance, new KDLayout.Constraints(373, 76, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        continsuranceCompany.setBounds(new Rectangle(10, 76, 270, 19));
+        this.add(continsuranceCompany, new KDLayout.Constraints(10, 76, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         kDInsuranceDetail.setBounds(new Rectangle(663, 477, 197, 21));
         this.add(kDInsuranceDetail, new KDLayout.Constraints(663, 477, 197, 21, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        kDContainer1.setBounds(new Rectangle(11, 80, 992, 334));
-        this.add(kDContainer1, new KDLayout.Constraints(11, 80, 992, 334, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        kDContainer1.setBounds(new Rectangle(11, 100, 992, 311));
+        this.add(kDContainer1, new KDLayout.Constraints(11, 100, 992, 311, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         btnExportExcel.setBounds(new Rectangle(887, 474, 101, 21));
         this.add(btnExportExcel, new KDLayout.Constraints(887, 474, 101, 21, 0));
-        btnImportExcel.setBounds(new Rectangle(566, 52, 22, 19));
-        this.add(btnImportExcel, new KDLayout.Constraints(566, 52, 22, 19, 0));
-        btnExcel.setBounds(new Rectangle(656, 59, 22, 19));
-        this.add(btnExcel, new KDLayout.Constraints(656, 59, 22, 19, 0));
+        btnImportExcel.setBounds(new Rectangle(672, 446, 22, 19));
+        this.add(btnImportExcel, new KDLayout.Constraints(672, 446, 22, 19, 0));
+        btnExcel.setBounds(new Rectangle(682, 425, 22, 19));
+        this.add(btnExcel, new KDLayout.Constraints(682, 425, 22, 19, 0));
         contxianzhongID.setBounds(new Rectangle(286, 482, 270, 19));
         this.add(contxianzhongID, new KDLayout.Constraints(286, 482, 270, 19, 0));
+        contcoverNumber.setBounds(new Rectangle(373, 10, 270, 19));
+        this.add(contcoverNumber, new KDLayout.Constraints(373, 10, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contcontNumber.setBounds(new Rectangle(10, 54, 270, 19));
+        this.add(contcontNumber, new KDLayout.Constraints(10, 54, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        conteffectDate.setBounds(new Rectangle(373, 54, 270, 19));
+        this.add(conteffectDate, new KDLayout.Constraints(373, 54, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contendDate.setBounds(new Rectangle(736, 54, 270, 19));
+        this.add(contendDate, new KDLayout.Constraints(736, 54, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contyear.setBounds(new Rectangle(10, 32, 270, 19));
+        this.add(contyear, new KDLayout.Constraints(10, 32, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         //contCreator
         contCreator.setBoundEditor(prmtCreator);
         //contCreateTime
@@ -623,8 +694,6 @@ public abstract class AbstractInsuranceCoverageEditUI extends com.kingdee.eas.xr
         contBizStatus.setBoundEditor(comboBizStatus);
         //contAuditTime
         contAuditTime.setBoundEditor(pkAuditTime);
-        //contyear
-        contyear.setBoundEditor(txtyear);
         //continsurance
         continsurance.setBoundEditor(prmtinsurance);
         //continsuranceCompany
@@ -636,6 +705,16 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kdtE1_de
         contxianzhongID.setBoundEditor(scrollPanexianzhongID);
         //scrollPanexianzhongID
         scrollPanexianzhongID.getViewport().add(txtxianzhongID, null);
+        //contcoverNumber
+        contcoverNumber.setBoundEditor(txtcoverNumber);
+        //contcontNumber
+        contcontNumber.setBoundEditor(txtcontNumber);
+        //conteffectDate
+        conteffectDate.setBoundEditor(pkeffectDate);
+        //contendDate
+        contendDate.setBoundEditor(pkendDate);
+        //contyear
+        contyear.setBoundEditor(txtyear);
 
     }
 
@@ -821,7 +900,6 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kdtE1_de
 		dataBinder.registerBinding("status", com.kingdee.eas.xr.app.XRBillStatusEnum.class, this.comboStatus, "selectedItem");
 		dataBinder.registerBinding("bizStatus", com.kingdee.eas.xr.app.XRBizActionEnum.class, this.comboBizStatus, "selectedItem");
 		dataBinder.registerBinding("auditTime", java.sql.Timestamp.class, this.pkAuditTime, "value");
-		dataBinder.registerBinding("year", int.class, this.txtyear, "value");
 		dataBinder.registerBinding("insurance", com.kingdee.eas.port.equipment.base.InsuranceInfo.class, this.prmtinsurance, "data");
 		dataBinder.registerBinding("insuranceCompany", com.kingdee.eas.port.equipment.base.InsuranceCompanyInfo.class, this.prmtinsuranceCompany, "data");
 		dataBinder.registerBinding("E1.seq", int.class, this.kdtE1, "seq.text");
@@ -838,7 +916,13 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kdtE1_de
 		dataBinder.registerBinding("E1.presentValue", java.math.BigDecimal.class, this.kdtE1, "presentValue.text");
 		dataBinder.registerBinding("E1.insuranceAmount", java.math.BigDecimal.class, this.kdtE1, "insuranceAmount.text");
 		dataBinder.registerBinding("E1.remark", String.class, this.kdtE1, "remark.text");
-		dataBinder.registerBinding("xianzhongID", String.class, this.txtxianzhongID, "text");		
+		dataBinder.registerBinding("E1.premium", java.math.BigDecimal.class, this.kdtE1, "premium.text");
+		dataBinder.registerBinding("xianzhongID", String.class, this.txtxianzhongID, "text");
+		dataBinder.registerBinding("coverNumber", String.class, this.txtcoverNumber, "text");
+		dataBinder.registerBinding("contNumber", String.class, this.txtcontNumber, "text");
+		dataBinder.registerBinding("effectDate", java.util.Date.class, this.pkeffectDate, "value");
+		dataBinder.registerBinding("endDate", java.util.Date.class, this.pkendDate, "value");
+		dataBinder.registerBinding("year", String.class, this.txtyear, "text");		
 	}
 	//Regiester UI State
 	private void registerUIState(){		
@@ -870,7 +954,7 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kdtE1_de
     public void onShow() throws Exception
     {
         super.onShow();
-        this.txtyear.requestFocusInWindow();
+        this.txtxianzhongID.requestFocusInWindow();
     }
 
 	
@@ -985,7 +1069,6 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kdtE1_de
 		getValidateHelper().registerBindProperty("status", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("bizStatus", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("auditTime", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("year", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("insurance", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("insuranceCompany", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("E1.seq", ValidateHelper.ON_SAVE);    
@@ -1002,7 +1085,13 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kdtE1_de
 		getValidateHelper().registerBindProperty("E1.presentValue", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("E1.insuranceAmount", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("E1.remark", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("xianzhongID", ValidateHelper.ON_SAVE);    		
+		getValidateHelper().registerBindProperty("E1.premium", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("xianzhongID", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("coverNumber", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("contNumber", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("effectDate", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("endDate", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("year", ValidateHelper.ON_SAVE);    		
 	}
 
 
@@ -1051,11 +1140,6 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kdtE1_de
     public void kdtE1_Changed(int rowIndex,int colIndex) throws Exception
     {
             if ("equNumber".equalsIgnoreCase(kdtE1.getColumn(colIndex).getKey())) {
-kdtE1.getCell(rowIndex,"equType").setValue(com.kingdee.bos.ui.face.UIRuleUtil.getString(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)kdtE1.getCell(rowIndex,"equNumber").getValue(),"eqmType.name")));
-
-}
-
-    if ("equNumber".equalsIgnoreCase(kdtE1.getColumn(colIndex).getKey())) {
 kdtE1.getCell(rowIndex,"equName").setValue(com.kingdee.bos.ui.face.UIRuleUtil.getString(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)kdtE1.getCell(rowIndex,"equNumber").getValue(),"name")));
 
 }
@@ -1077,6 +1161,11 @@ kdtE1.getCell(rowIndex,"makeUnit").setValue(com.kingdee.bos.ui.face.UIRuleUtil.g
 
     if ("equNumber".equalsIgnoreCase(kdtE1.getColumn(colIndex).getKey())) {
 kdtE1.getCell(rowIndex,"tonnage").setValue(com.kingdee.bos.ui.face.UIRuleUtil.getString(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)kdtE1.getCell(rowIndex,"equNumber").getValue(),"weight")));
+
+}
+
+    if ("equNumber".equalsIgnoreCase(kdtE1.getColumn(colIndex).getKey())) {
+kdtE1.getCell(rowIndex,"equType").setValue(com.kingdee.bos.ui.face.UIRuleUtil.getString(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)kdtE1.getCell(rowIndex,"equNumber").getValue(),"eqmType.name")));
 
 }
 
@@ -1136,7 +1225,6 @@ kdtE1.getCell(rowIndex,"tonnage").setValue(com.kingdee.bos.ui.face.UIRuleUtil.ge
         sic.add(new SelectorItemInfo("status"));
         sic.add(new SelectorItemInfo("bizStatus"));
         sic.add(new SelectorItemInfo("auditTime"));
-        sic.add(new SelectorItemInfo("year"));
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
 			sic.add(new SelectorItemInfo("insurance.*"));
@@ -1190,7 +1278,13 @@ kdtE1.getCell(rowIndex,"tonnage").setValue(com.kingdee.bos.ui.face.UIRuleUtil.ge
     	sic.add(new SelectorItemInfo("E1.presentValue"));
     	sic.add(new SelectorItemInfo("E1.insuranceAmount"));
     	sic.add(new SelectorItemInfo("E1.remark"));
+    	sic.add(new SelectorItemInfo("E1.premium"));
         sic.add(new SelectorItemInfo("xianzhongID"));
+        sic.add(new SelectorItemInfo("coverNumber"));
+        sic.add(new SelectorItemInfo("contNumber"));
+        sic.add(new SelectorItemInfo("effectDate"));
+        sic.add(new SelectorItemInfo("endDate"));
+        sic.add(new SelectorItemInfo("year"));
         return sic;
     }        
     	

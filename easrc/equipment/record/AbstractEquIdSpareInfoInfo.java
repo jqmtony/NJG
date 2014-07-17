@@ -50,6 +50,61 @@ public class AbstractEquIdSpareInfoInfo extends com.kingdee.eas.framework.CoreBi
     {
         setString("speModel", item);
     }
+    /**
+     * Object:备件信息's 数量property 
+     */
+    public int getShuliangone()
+    {
+        return getInt("shuliangone");
+    }
+    public void setShuliangone(int item)
+    {
+        setInt("shuliangone", item);
+    }
+    /**
+     * Object:备件信息's 用途property 
+     */
+    public String getUseyong()
+    {
+        return getString("useyong");
+    }
+    public void setUseyong(String item)
+    {
+        setString("useyong", item);
+    }
+    /**
+     * Object:备件信息's 厂家property 
+     */
+    public String getFachangjia()
+    {
+        return getString("fachangjia");
+    }
+    public void setFachangjia(String item)
+    {
+        setString("fachangjia", item);
+    }
+    /**
+     * Object:备件信息's 备注property 
+     */
+    public String getNoteone()
+    {
+        return getString("noteone");
+    }
+    public void setNoteone(String item)
+    {
+        setString("noteone", item);
+    }
+    /**
+     * Object:备件信息's 附件property 
+     */
+    public String getAttachone()
+    {
+        return getString("attachone");
+    }
+    public void setAttachone(String item)
+    {
+        setString("attachone", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("59736383");

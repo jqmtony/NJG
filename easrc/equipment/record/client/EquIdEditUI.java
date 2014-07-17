@@ -135,6 +135,8 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 		
 	}
 
+	
+	
 	/**
 	 * output storeFields method
 	 */
@@ -147,6 +149,7 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 		combosbStatus.setEnabled(false);
 		pktextDate1.setEnabled(false);
 		testDay.setEnabled(false);
+		 this.kdtE3.getColumn("seq").getStyleAttributes().setHided(true);
 		combonowStatus.setEnabled(false);
 		this.txtcityPeriod.setPrecision(0);	
 		this.txtportPeriod.setPrecision(0);	
@@ -1606,6 +1609,27 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 		}
 		sic.add(new SelectorItemInfo("SpareInfo.materialName"));
 		sic.add(new SelectorItemInfo("SpareInfo.speModel"));
+    	sic.add(new SelectorItemInfo("SpareInfo.shuliangone"));
+    	sic.add(new SelectorItemInfo("SpareInfo.useyong"));
+    	sic.add(new SelectorItemInfo("SpareInfo.fachangjia"));
+    	sic.add(new SelectorItemInfo("SpareInfo.noteone"));
+    	sic.add(new SelectorItemInfo("SpareInfo.attachone"));
+    	sic.add(new SelectorItemInfo("E3.seq"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("E3.*"));
+		}
+		else{
+		}
+    	sic.add(new SelectorItemInfo("E3.csmingcheng"));
+    	sic.add(new SelectorItemInfo("E3.csmodel"));
+    	sic.add(new SelectorItemInfo("E3.shuliang"));
+    	sic.add(new SelectorItemInfo("E3.power"));
+    	sic.add(new SelectorItemInfo("E3.speed"));
+    	sic.add(new SelectorItemInfo("E3.chuandong"));
+    	sic.add(new SelectorItemInfo("E3.zidong"));
+    	sic.add(new SelectorItemInfo("E3.madeFac"));
+    	sic.add(new SelectorItemInfo("E3.noteoo"));
 		sic.add(new SelectorItemInfo("ccNumber"));
 		sic.add(new SelectorItemInfo("tzdaNumber"));
 		sic.add(new SelectorItemInfo("cityPeriod"));

@@ -19,17 +19,6 @@ public class AbstractInsuranceCoverageInfo extends com.kingdee.eas.xr.XRBillBase
         put("E1", new com.kingdee.eas.port.equipment.insurance.InsuranceCoverageE1Collection());
     }
     /**
-     * Object:保险投保明细表's 年度property 
-     */
-    public int getYear()
-    {
-        return getInt("year");
-    }
-    public void setYear(int item)
-    {
-        setInt("year", item);
-    }
-    /**
      * Object: 保险投保明细表 's 险种 property 
      */
     public com.kingdee.eas.port.equipment.base.InsuranceInfo getInsurance()
@@ -68,6 +57,61 @@ public class AbstractInsuranceCoverageInfo extends com.kingdee.eas.xr.XRBillBase
     public void setXianzhongID(String item)
     {
         setString("xianzhongID", item);
+    }
+    /**
+     * Object:保险投保明细表's 投保单号property 
+     */
+    public String getCoverNumber()
+    {
+        return getString("coverNumber");
+    }
+    public void setCoverNumber(String item)
+    {
+        setString("coverNumber", item);
+    }
+    /**
+     * Object:保险投保明细表's 合同号码property 
+     */
+    public String getContNumber()
+    {
+        return getString("contNumber");
+    }
+    public void setContNumber(String item)
+    {
+        setString("contNumber", item);
+    }
+    /**
+     * Object:保险投保明细表's 起保日期property 
+     */
+    public java.util.Date getEffectDate()
+    {
+        return getDate("effectDate");
+    }
+    public void setEffectDate(java.util.Date item)
+    {
+        setDate("effectDate", item);
+    }
+    /**
+     * Object:保险投保明细表's 终保日期property 
+     */
+    public java.util.Date getEndDate()
+    {
+        return getDate("endDate");
+    }
+    public void setEndDate(java.util.Date item)
+    {
+        setDate("endDate", item);
+    }
+    /**
+     * Object:保险投保明细表's 年度property 
+     */
+    public String getYear()
+    {
+        return getString("year");
+    }
+    public void setYear(String item)
+    {
+        setString("year", item);
     }
     public BOSObjectType getBOSType()
     {

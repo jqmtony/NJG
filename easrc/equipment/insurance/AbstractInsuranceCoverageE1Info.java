@@ -51,7 +51,7 @@ public class AbstractInsuranceCoverageE1Info extends com.kingdee.eas.framework.C
         put("equNumber", item);
     }
     /**
-     * Object:第1个表体's 设备类型property 
+     * Object:第1个表体's 设备类别property 
      */
     public String getEquType()
     {
@@ -139,7 +139,7 @@ public class AbstractInsuranceCoverageE1Info extends com.kingdee.eas.framework.C
         setBigDecimal("presentValue", item);
     }
     /**
-     * Object:第1个表体's 投保金额property 
+     * Object:第1个表体's 签单保额property 
      */
     public java.math.BigDecimal getInsuranceAmount()
     {
@@ -159,6 +159,17 @@ public class AbstractInsuranceCoverageE1Info extends com.kingdee.eas.framework.C
     public void setRemark(String item)
     {
         setString("remark", item);
+    }
+    /**
+     * Object:第1个表体's 签单保费property 
+     */
+    public java.math.BigDecimal getPremium()
+    {
+        return getBigDecimal("premium");
+    }
+    public void setPremium(java.math.BigDecimal item)
+    {
+        setBigDecimal("premium", item);
     }
     public BOSObjectType getBOSType()
     {

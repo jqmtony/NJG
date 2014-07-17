@@ -17,6 +17,7 @@ public class AbstractEquIdInfo extends com.kingdee.eas.xr.XRBillBaseInfo impleme
     {
         super(pkField);
         put("TechnologyPar", new com.kingdee.eas.port.equipment.record.EquIdTechnologyParCollection());
+        put("E3", new com.kingdee.eas.port.equipment.record.EquIdE3Collection());
         put("SpareInfo", new com.kingdee.eas.port.equipment.record.EquIdSpareInfoCollection());
     }
     /**
@@ -786,6 +787,13 @@ public class AbstractEquIdInfo extends com.kingdee.eas.xr.XRBillBaseInfo impleme
     public void setEquTypeone(com.kingdee.eas.port.equipment.base.EquTypeInfo item)
     {
         put("equTypeone", item);
+    }
+    /**
+     * Object: 设备档案 's 第3个表体 property 
+     */
+    public com.kingdee.eas.port.equipment.record.EquIdE3Collection getE3()
+    {
+        return (com.kingdee.eas.port.equipment.record.EquIdE3Collection)get("E3");
     }
     public BOSObjectType getBOSType()
     {

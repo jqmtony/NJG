@@ -81,6 +81,7 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
     protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel1;
     protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel6;
     protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel7;
+    protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel2;
     protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel8;
     protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel10;
     protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel11;
@@ -199,6 +200,8 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
 	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtTechnologyPar_detailPanel = null;
     protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtSpareInfo;
 	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtSpareInfo_detailPanel = null;
+    protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtE3;
+	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtE3_detailPanel = null;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkdaytow;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkdayone;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker testDay;
@@ -344,6 +347,7 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.kDPanel1 = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.kDPanel6 = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.kDPanel7 = new com.kingdee.bos.ctrl.swing.KDPanel();
+        this.kDPanel2 = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.kDPanel8 = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.kDPanel10 = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.kDPanel11 = new com.kingdee.bos.ctrl.swing.KDPanel();
@@ -460,6 +464,7 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.txtEqmCategory = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.kdtTechnologyPar = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.kdtSpareInfo = new com.kingdee.bos.ctrl.kdf.table.KDTable();
+        this.kdtE3 = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.pkdaytow = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.pkdayone = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.testDay = new com.kingdee.bos.ctrl.swing.KDDatePicker();
@@ -498,6 +503,7 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.kDPanel1.setName("kDPanel1");
         this.kDPanel6.setName("kDPanel6");
         this.kDPanel7.setName("kDPanel7");
+        this.kDPanel2.setName("kDPanel2");
         this.kDPanel8.setName("kDPanel8");
         this.kDPanel10.setName("kDPanel10");
         this.kDPanel11.setName("kDPanel11");
@@ -614,6 +620,7 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.txtEqmCategory.setName("txtEqmCategory");
         this.kdtTechnologyPar.setName("kdtTechnologyPar");
         this.kdtSpareInfo.setName("kdtSpareInfo");
+        this.kdtE3.setName("kdtE3");
         this.pkdaytow.setName("pkdaytow");
         this.pkdayone.setName("pkdayone");
         this.testDay.setName("testDay");
@@ -755,6 +762,7 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         // kDPanel1
         // kDPanel6
         // kDPanel7
+        // kDPanel2
         // kDPanel8		
         this.kDPanel8.setBorder(new TitledBorder(BorderFactory.createEtchedBorder(new Color(255,255,255),new Color(148,145,140)), resHelper.getString("kDPanel8.border.title")));
         // kDPanel10		
@@ -1447,11 +1455,11 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         KDTDefaultCellEditor kdtTechnologyPar_parInfo_CellEditor = new KDTDefaultCellEditor(kdtTechnologyPar_parInfo_TextField);
         this.kdtTechnologyPar.getColumn("parInfo").setEditor(kdtTechnologyPar_parInfo_CellEditor);
         // kdtSpareInfo
-		String kdtSpareInfoStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /><c:NumberFormat>&amp;int</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"materialName\" t:width=\"333\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"speModel\" t:width=\"222\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{materialName}</t:Cell><t:Cell>$Resource{speModel}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		String kdtSpareInfoStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /><c:NumberFormat>&amp;int</c:NumberFormat></c:Style><c:Style id=\"sCol3\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"materialName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"speModel\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"shuliangone\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol3\" /><t:Column t:key=\"useyong\" t:width=\"180\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"fachangjia\" t:width=\"150\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"noteone\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"attachone\" t:width=\"150\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{materialName}</t:Cell><t:Cell>$Resource{speModel}</t:Cell><t:Cell>$Resource{shuliangone}</t:Cell><t:Cell>$Resource{useyong}</t:Cell><t:Cell>$Resource{fachangjia}</t:Cell><t:Cell>$Resource{noteone}</t:Cell><t:Cell>$Resource{attachone}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.kdtSpareInfo.setFormatXml(resHelper.translateString("kdtSpareInfo",kdtSpareInfoStrXML));
 
-                this.kdtSpareInfo.putBindContents("editData",new String[] {"seq","materialName","speModel"});
+                this.kdtSpareInfo.putBindContents("editData",new String[] {"seq","materialName","speModel","shuliangone","useyong","fachangjia","noteone","attachone"});
 
 
         this.kdtSpareInfo.checkParsed();
@@ -1465,6 +1473,91 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         kdtSpareInfo_speModel_TextField.setMaxLength(100);
         KDTDefaultCellEditor kdtSpareInfo_speModel_CellEditor = new KDTDefaultCellEditor(kdtSpareInfo_speModel_TextField);
         this.kdtSpareInfo.getColumn("speModel").setEditor(kdtSpareInfo_speModel_CellEditor);
+        KDFormattedTextField kdtSpareInfo_shuliangone_TextField = new KDFormattedTextField();
+        kdtSpareInfo_shuliangone_TextField.setName("kdtSpareInfo_shuliangone_TextField");
+        kdtSpareInfo_shuliangone_TextField.setVisible(true);
+        kdtSpareInfo_shuliangone_TextField.setEditable(true);
+        kdtSpareInfo_shuliangone_TextField.setHorizontalAlignment(2);
+        kdtSpareInfo_shuliangone_TextField.setDataType(0);
+        KDTDefaultCellEditor kdtSpareInfo_shuliangone_CellEditor = new KDTDefaultCellEditor(kdtSpareInfo_shuliangone_TextField);
+        this.kdtSpareInfo.getColumn("shuliangone").setEditor(kdtSpareInfo_shuliangone_CellEditor);
+        KDTextField kdtSpareInfo_useyong_TextField = new KDTextField();
+        kdtSpareInfo_useyong_TextField.setName("kdtSpareInfo_useyong_TextField");
+        kdtSpareInfo_useyong_TextField.setMaxLength(255);
+        KDTDefaultCellEditor kdtSpareInfo_useyong_CellEditor = new KDTDefaultCellEditor(kdtSpareInfo_useyong_TextField);
+        this.kdtSpareInfo.getColumn("useyong").setEditor(kdtSpareInfo_useyong_CellEditor);
+        KDTextField kdtSpareInfo_fachangjia_TextField = new KDTextField();
+        kdtSpareInfo_fachangjia_TextField.setName("kdtSpareInfo_fachangjia_TextField");
+        kdtSpareInfo_fachangjia_TextField.setMaxLength(100);
+        KDTDefaultCellEditor kdtSpareInfo_fachangjia_CellEditor = new KDTDefaultCellEditor(kdtSpareInfo_fachangjia_TextField);
+        this.kdtSpareInfo.getColumn("fachangjia").setEditor(kdtSpareInfo_fachangjia_CellEditor);
+        KDTextArea kdtSpareInfo_noteone_TextArea = new KDTextArea();
+        kdtSpareInfo_noteone_TextArea.setName("kdtSpareInfo_noteone_TextArea");
+        kdtSpareInfo_noteone_TextArea.setMaxLength(500);
+        KDTDefaultCellEditor kdtSpareInfo_noteone_CellEditor = new KDTDefaultCellEditor(kdtSpareInfo_noteone_TextArea);
+        this.kdtSpareInfo.getColumn("noteone").setEditor(kdtSpareInfo_noteone_CellEditor);
+        KDTextField kdtSpareInfo_attachone_TextField = new KDTextField();
+        kdtSpareInfo_attachone_TextField.setName("kdtSpareInfo_attachone_TextField");
+        kdtSpareInfo_attachone_TextField.setMaxLength(255);
+        KDTDefaultCellEditor kdtSpareInfo_attachone_CellEditor = new KDTDefaultCellEditor(kdtSpareInfo_attachone_TextField);
+        this.kdtSpareInfo.getColumn("attachone").setEditor(kdtSpareInfo_attachone_CellEditor);
+        // kdtE3
+		String kdtE3StrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style><c:Style id=\"sCol3\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"csmingcheng\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"csmodel\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"shuliang\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol3\" /><t:Column t:key=\"power\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"speed\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"chuandong\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"zidong\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"madeFac\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"noteoo\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{csmingcheng}</t:Cell><t:Cell>$Resource{csmodel}</t:Cell><t:Cell>$Resource{shuliang}</t:Cell><t:Cell>$Resource{power}</t:Cell><t:Cell>$Resource{speed}</t:Cell><t:Cell>$Resource{chuandong}</t:Cell><t:Cell>$Resource{zidong}</t:Cell><t:Cell>$Resource{madeFac}</t:Cell><t:Cell>$Resource{noteoo}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		
+        this.kdtE3.setFormatXml(resHelper.translateString("kdtE3",kdtE3StrXML));
+
+                this.kdtE3.putBindContents("editData",new String[] {"seq","csmingcheng","csmodel","shuliang","power","speed","chuandong","zidong","madeFac","noteoo"});
+
+
+        this.kdtE3.checkParsed();
+        KDTextField kdtE3_csmingcheng_TextField = new KDTextField();
+        kdtE3_csmingcheng_TextField.setName("kdtE3_csmingcheng_TextField");
+        kdtE3_csmingcheng_TextField.setMaxLength(100);
+        KDTDefaultCellEditor kdtE3_csmingcheng_CellEditor = new KDTDefaultCellEditor(kdtE3_csmingcheng_TextField);
+        this.kdtE3.getColumn("csmingcheng").setEditor(kdtE3_csmingcheng_CellEditor);
+        KDTextField kdtE3_csmodel_TextField = new KDTextField();
+        kdtE3_csmodel_TextField.setName("kdtE3_csmodel_TextField");
+        kdtE3_csmodel_TextField.setMaxLength(100);
+        KDTDefaultCellEditor kdtE3_csmodel_CellEditor = new KDTDefaultCellEditor(kdtE3_csmodel_TextField);
+        this.kdtE3.getColumn("csmodel").setEditor(kdtE3_csmodel_CellEditor);
+        KDFormattedTextField kdtE3_shuliang_TextField = new KDFormattedTextField();
+        kdtE3_shuliang_TextField.setName("kdtE3_shuliang_TextField");
+        kdtE3_shuliang_TextField.setVisible(true);
+        kdtE3_shuliang_TextField.setEditable(true);
+        kdtE3_shuliang_TextField.setHorizontalAlignment(2);
+        kdtE3_shuliang_TextField.setDataType(0);
+        KDTDefaultCellEditor kdtE3_shuliang_CellEditor = new KDTDefaultCellEditor(kdtE3_shuliang_TextField);
+        this.kdtE3.getColumn("shuliang").setEditor(kdtE3_shuliang_CellEditor);
+        KDTextField kdtE3_power_TextField = new KDTextField();
+        kdtE3_power_TextField.setName("kdtE3_power_TextField");
+        kdtE3_power_TextField.setMaxLength(100);
+        KDTDefaultCellEditor kdtE3_power_CellEditor = new KDTDefaultCellEditor(kdtE3_power_TextField);
+        this.kdtE3.getColumn("power").setEditor(kdtE3_power_CellEditor);
+        KDTextField kdtE3_speed_TextField = new KDTextField();
+        kdtE3_speed_TextField.setName("kdtE3_speed_TextField");
+        kdtE3_speed_TextField.setMaxLength(100);
+        KDTDefaultCellEditor kdtE3_speed_CellEditor = new KDTDefaultCellEditor(kdtE3_speed_TextField);
+        this.kdtE3.getColumn("speed").setEditor(kdtE3_speed_CellEditor);
+        KDTextField kdtE3_chuandong_TextField = new KDTextField();
+        kdtE3_chuandong_TextField.setName("kdtE3_chuandong_TextField");
+        kdtE3_chuandong_TextField.setMaxLength(100);
+        KDTDefaultCellEditor kdtE3_chuandong_CellEditor = new KDTDefaultCellEditor(kdtE3_chuandong_TextField);
+        this.kdtE3.getColumn("chuandong").setEditor(kdtE3_chuandong_CellEditor);
+        KDTextField kdtE3_zidong_TextField = new KDTextField();
+        kdtE3_zidong_TextField.setName("kdtE3_zidong_TextField");
+        kdtE3_zidong_TextField.setMaxLength(100);
+        KDTDefaultCellEditor kdtE3_zidong_CellEditor = new KDTDefaultCellEditor(kdtE3_zidong_TextField);
+        this.kdtE3.getColumn("zidong").setEditor(kdtE3_zidong_CellEditor);
+        KDTextField kdtE3_madeFac_TextField = new KDTextField();
+        kdtE3_madeFac_TextField.setName("kdtE3_madeFac_TextField");
+        kdtE3_madeFac_TextField.setMaxLength(100);
+        KDTDefaultCellEditor kdtE3_madeFac_CellEditor = new KDTDefaultCellEditor(kdtE3_madeFac_TextField);
+        this.kdtE3.getColumn("madeFac").setEditor(kdtE3_madeFac_CellEditor);
+        KDTextArea kdtE3_noteoo_TextArea = new KDTextArea();
+        kdtE3_noteoo_TextArea.setName("kdtE3_noteoo_TextArea");
+        kdtE3_noteoo_TextArea.setMaxLength(500);
+        KDTDefaultCellEditor kdtE3_noteoo_CellEditor = new KDTDefaultCellEditor(kdtE3_noteoo_TextArea);
+        this.kdtE3.getColumn("noteoo").setEditor(kdtE3_noteoo_CellEditor);
         // pkdaytow		
         this.pkdaytow.setRequired(false);		
         this.pkdaytow.setEnabled(false);
@@ -1593,6 +1686,7 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         kDTabbedPane1.add(kDPanel1, resHelper.getString("kDPanel1.constraints"));
         kDTabbedPane1.add(kDPanel6, resHelper.getString("kDPanel6.constraints"));
         kDTabbedPane1.add(kDPanel7, resHelper.getString("kDPanel7.constraints"));
+        kDTabbedPane1.add(kDPanel2, resHelper.getString("kDPanel2.constraints"));
         //kDPanel1
         kDPanel1.setLayout(new KDLayout());
         kDPanel1.putClientProperty("OriginalBounds", new Rectangle(0, 0, 992, 536));        kDPanel8.setBounds(new Rectangle(2, 3, 983, 177));
@@ -1837,6 +1931,10 @@ kDPanel6.setLayout(new BorderLayout(0, 0));        kdtTechnologyPar_detailPanel 
         //kDPanel7
 kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtSpareInfo,new com.kingdee.eas.port.equipment.record.EquIdSpareInfoInfo(),null,false);
         kDPanel7.add(kdtSpareInfo_detailPanel, BorderLayout.CENTER);
+        //kDPanel2
+        kDPanel2.setLayout(null);        kdtE3.setBounds(new Rectangle(-1, 0, 988, 535));
+        kdtE3_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtE3,new com.kingdee.eas.port.equipment.record.EquIdE3Info(),null,false);
+        kDPanel2.add(kdtE3_detailPanel, null);
         //contdaytow
         contdaytow.setBoundEditor(pkdaytow);
         //contdayone
@@ -2099,6 +2197,22 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
 		dataBinder.registerBinding("SpareInfo", com.kingdee.eas.port.equipment.record.EquIdSpareInfoInfo.class, this.kdtSpareInfo, "userObject");
 		dataBinder.registerBinding("SpareInfo.materialName", String.class, this.kdtSpareInfo, "materialName.text");
 		dataBinder.registerBinding("SpareInfo.speModel", String.class, this.kdtSpareInfo, "speModel.text");
+		dataBinder.registerBinding("SpareInfo.shuliangone", int.class, this.kdtSpareInfo, "shuliangone.text");
+		dataBinder.registerBinding("SpareInfo.useyong", String.class, this.kdtSpareInfo, "useyong.text");
+		dataBinder.registerBinding("SpareInfo.fachangjia", String.class, this.kdtSpareInfo, "fachangjia.text");
+		dataBinder.registerBinding("SpareInfo.noteone", String.class, this.kdtSpareInfo, "noteone.text");
+		dataBinder.registerBinding("SpareInfo.attachone", String.class, this.kdtSpareInfo, "attachone.text");
+		dataBinder.registerBinding("E3.seq", int.class, this.kdtE3, "seq.text");
+		dataBinder.registerBinding("E3", com.kingdee.eas.port.equipment.record.EquIdE3Info.class, this.kdtE3, "userObject");
+		dataBinder.registerBinding("E3.csmingcheng", String.class, this.kdtE3, "csmingcheng.text");
+		dataBinder.registerBinding("E3.csmodel", String.class, this.kdtE3, "csmodel.text");
+		dataBinder.registerBinding("E3.shuliang", int.class, this.kdtE3, "shuliang.text");
+		dataBinder.registerBinding("E3.power", String.class, this.kdtE3, "power.text");
+		dataBinder.registerBinding("E3.speed", String.class, this.kdtE3, "speed.text");
+		dataBinder.registerBinding("E3.chuandong", String.class, this.kdtE3, "chuandong.text");
+		dataBinder.registerBinding("E3.zidong", String.class, this.kdtE3, "zidong.text");
+		dataBinder.registerBinding("E3.madeFac", String.class, this.kdtE3, "madeFac.text");
+		dataBinder.registerBinding("E3.noteoo", String.class, this.kdtE3, "noteoo.text");
 		dataBinder.registerBinding("daytow", java.util.Date.class, this.pkdaytow, "value");
 		dataBinder.registerBinding("dayone", java.util.Date.class, this.pkdayone, "value");
 		dataBinder.registerBinding("testDay", java.util.Date.class, this.testDay, "value");
@@ -2316,6 +2430,22 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
 		getValidateHelper().registerBindProperty("SpareInfo", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("SpareInfo.materialName", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("SpareInfo.speModel", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("SpareInfo.shuliangone", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("SpareInfo.useyong", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("SpareInfo.fachangjia", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("SpareInfo.noteone", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("SpareInfo.attachone", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("E3.seq", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("E3", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("E3.csmingcheng", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("E3.csmodel", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("E3.shuliang", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("E3.power", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("E3.speed", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("E3.chuandong", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("E3.zidong", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("E3.madeFac", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("E3.noteoo", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("daytow", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("dayone", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("testDay", ValidateHelper.ON_SAVE);    
@@ -2666,6 +2796,27 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
 		}
     	sic.add(new SelectorItemInfo("SpareInfo.materialName"));
     	sic.add(new SelectorItemInfo("SpareInfo.speModel"));
+    	sic.add(new SelectorItemInfo("SpareInfo.shuliangone"));
+    	sic.add(new SelectorItemInfo("SpareInfo.useyong"));
+    	sic.add(new SelectorItemInfo("SpareInfo.fachangjia"));
+    	sic.add(new SelectorItemInfo("SpareInfo.noteone"));
+    	sic.add(new SelectorItemInfo("SpareInfo.attachone"));
+    	sic.add(new SelectorItemInfo("E3.seq"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("E3.*"));
+		}
+		else{
+		}
+    	sic.add(new SelectorItemInfo("E3.csmingcheng"));
+    	sic.add(new SelectorItemInfo("E3.csmodel"));
+    	sic.add(new SelectorItemInfo("E3.shuliang"));
+    	sic.add(new SelectorItemInfo("E3.power"));
+    	sic.add(new SelectorItemInfo("E3.speed"));
+    	sic.add(new SelectorItemInfo("E3.chuandong"));
+    	sic.add(new SelectorItemInfo("E3.zidong"));
+    	sic.add(new SelectorItemInfo("E3.madeFac"));
+    	sic.add(new SelectorItemInfo("E3.noteoo"));
         sic.add(new SelectorItemInfo("daytow"));
         sic.add(new SelectorItemInfo("dayone"));
         sic.add(new SelectorItemInfo("testDay"));
