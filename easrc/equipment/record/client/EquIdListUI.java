@@ -10,9 +10,11 @@ import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.io.File;
 import java.math.BigDecimal;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -669,26 +671,46 @@ public class EquIdListUI extends AbstractEquIdListUI
 	//根据所属组织隔离设备档案
 	protected IQueryExecutor getQueryExecutor(IMetaDataPK arg0,EntityViewInfo arg1) {
 		EntityViewInfo viewInfo = (EntityViewInfo)arg1.clone();
-		FilterInfo filInfo = new FilterInfo();
-		String id = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
-		filInfo.getFilterItems().add(new FilterItemInfo("ssOrgUnit.id",id ,CompareType.EQUALS));
-		if(viewInfo.getFilter()!=null)
-	    	{
-	    
-					try {
-						viewInfo.getFilter().mergeFilter(filInfo, "and");
-					} catch (BOSException e) {
-						e.printStackTrace();
-					}
-			
-	    	}
-	    	else
-	    	{
-	    		viewInfo.setFilter(filInfo);
-	    	}
-		if(OrgConstants.DEF_CU_ID.equals(id))
-			viewInfo =  (EntityViewInfo)arg1.clone();
-		return super.getQueryExecutor(arg0, viewInfo);
+	    FilterInfo filInfo = new FilterInfo();
+
+	    String id = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
+	    DateFormat FORMAT_TIME = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+	    Date date = null;
+	    try {
+	      date = SysUtil.getAppServerTime(null);
+	    } catch (EASBizException e1) {
+	      e1.printStackTrace();
+	    }
+
+	    StringBuffer sb = new StringBuffer();
+	    sb.append(" select CFEqmNumberID from cT_OPE_EqmIO  ");
+	    sb.append(" where CFInOrgUnitID='").append(id).append("'");
+	    sb.append(" and CFRentStart<={ts '" + FORMAT_TIME.format(date) + "'}");
+	    sb.append(" and CFRentEnd>={ts '" + FORMAT_TIME.format(date) + "'}");
+	    sb.append(" and fstatus = '4'");
+
+	    filInfo.getFilterItems().add(new FilterItemInfo("ssOrgUnit.id", id, CompareType.EQUALS));
+	    filInfo.getFilterItems().add(new FilterItemInfo("id", sb.toString(), CompareType.INNER));
+	    filInfo.setMaskString("#0 or #1");
+
+	    if (viewInfo.getFilter() != null)
+	    {
+	      try
+	      {
+	        viewInfo.getFilter().mergeFilter(filInfo, "and");
+	      } catch (BOSException e) {
+	        e.printStackTrace();
+	      }
+
+	    }
+	    else
+	    {
+	      viewInfo.setFilter(filInfo);
+	    }
+	    if ("00000000-0000-0000-0000-000000000000CCE7AED4".equals(id))
+	      viewInfo = (EntityViewInfo)arg1.clone();
+	    return super.getQueryExecutor(arg0, viewInfo);
 	}
 	
     public void onLoad() throws Exception {
