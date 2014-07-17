@@ -239,25 +239,11 @@
             <isMultilingual>false</isMultilingual>
             <isEncoded>false</isEncoded>
             <isNullable>false</isNullable>
-            <defaultValue />
+            <defaultValue>''</defaultValue>
             <sqlType>VARCHAR</sqlType>
             <length>44</length>
             <scale>0</scale>
             <precision>44</precision>
-        </column>
-        <column>
-            <name>CFYear</name>
-            <alias>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_InsuranceCoverage].columns.column[CFYear].alias</alias>
-            <description>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_InsuranceCoverage].columns.column[CFYear].description</description>
-            <userDefined>true</userDefined>
-            <isMultilingual>false</isMultilingual>
-            <isEncoded>false</isEncoded>
-            <isNullable>true</isNullable>
-            <defaultValue />
-            <sqlType>INT</sqlType>
-            <length>4</length>
-            <scale>0</scale>
-            <precision>10</precision>
         </column>
         <column>
             <name>CFInsuranceID</name>
@@ -298,6 +284,76 @@
             <defaultValue />
             <sqlType>NVARCHAR</sqlType>
             <length>500</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFCoverNumber</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_InsuranceCoverage].columns.column[CFCoverNumber].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_InsuranceCoverage].columns.column[CFCoverNumber].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>100</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFContNumber</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_InsuranceCoverage].columns.column[CFContNumber].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_InsuranceCoverage].columns.column[CFContNumber].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>100</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFEffectDate</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_InsuranceCoverage].columns.column[CFEffectDate].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_InsuranceCoverage].columns.column[CFEffectDate].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>DATETIME</sqlType>
+            <length>8</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFEndDate</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_InsuranceCoverage].columns.column[CFEndDate].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_InsuranceCoverage].columns.column[CFEndDate].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>DATETIME</sqlType>
+            <length>8</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFYear</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_InsuranceCoverage].columns.column[CFYear].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_InsuranceCoverage].columns.column[CFYear].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>100</length>
             <scale>0</scale>
             <precision>0</precision>
         </column>
@@ -456,6 +512,54 @@
             <lang locale="zh_CN" value="保险投保明细表" />
             <lang locale="zh_HK" value="保險投保明細表" />
             <lang locale="zh_TW" value="保險投保明細表" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_InsuranceCoverage].columns.column[CFContNumber].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合同号码" />
+            <lang locale="zh_HK" value="合同號碼" />
+            <lang locale="zh_TW" value="合同號碼" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_InsuranceCoverage].columns.column[CFContNumber].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合同号码" />
+            <lang locale="zh_HK" value="合同號碼" />
+            <lang locale="zh_TW" value="合同號碼" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_InsuranceCoverage].columns.column[CFCoverNumber].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="投保单号" />
+            <lang locale="zh_HK" value="投保單號" />
+            <lang locale="zh_TW" value="投保單號" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_InsuranceCoverage].columns.column[CFCoverNumber].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="投保单号" />
+            <lang locale="zh_HK" value="投保單號" />
+            <lang locale="zh_TW" value="投保單號" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_InsuranceCoverage].columns.column[CFEffectDate].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="起保日期" />
+            <lang locale="zh_HK" value="起保日期" />
+            <lang locale="zh_TW" value="起保日期" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_InsuranceCoverage].columns.column[CFEffectDate].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="起保日期" />
+            <lang locale="zh_HK" value="起保日期" />
+            <lang locale="zh_TW" value="起保日期" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_InsuranceCoverage].columns.column[CFEndDate].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="终保日期" />
+            <lang locale="zh_HK" value="終保日期" />
+            <lang locale="zh_TW" value="終保日期" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_InsuranceCoverage].columns.column[CFEndDate].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="终保日期" />
+            <lang locale="zh_HK" value="終保日期" />
+            <lang locale="zh_TW" value="終保日期" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_InsuranceCoverage].columns.column[CFInsuranceCompany].alias">
             <lang locale="en_US" value="null" />

@@ -745,26 +745,6 @@
         <key name="name" value="CT_INS_InsuranceCoverage" />
     </table>
     <properties>
-        <ownProperty>
-            <name>year</name>
-            <alias>entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[year].alias</alias>
-            <description>entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[year].description</description>
-            <userDefined>true</userDefined>
-            <configured>false</configured>
-            <dataType>Integer</dataType>
-            <metadataRef />
-            <isMultilingual>false</isMultilingual>
-            <isNullable>false</isNullable>
-            <formula />
-            <length>4</length>
-            <precision>10</precision>
-            <decimalDigits>0</decimalDigits>
-            <defaultValue>entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[year].defaultValue</defaultValue>
-            <displayFormat />
-            <mappingField>
-                <key name="name" value="CFYear" />
-            </mappingField>
-        </ownProperty>
         <linkProperty>
             <name>insurance</name>
             <alias>entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.linkProperty[insurance].alias</alias>
@@ -822,6 +802,106 @@
             <displayFormat />
             <mappingField>
                 <key name="name" value="CFXianzhongID" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>coverNumber</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[coverNumber].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[coverNumber].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>String</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>100</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[coverNumber].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFCoverNumber" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>contNumber</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[contNumber].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[contNumber].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>String</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>100</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[contNumber].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFContNumber" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>effectDate</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[effectDate].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[effectDate].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>Date</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>8</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[effectDate].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFEffectDate" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>endDate</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[endDate].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[endDate].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>Date</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>8</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[endDate].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFEndDate" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>year</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[year].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[year].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>String</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>100</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[year].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFYear" />
             </mappingField>
         </ownProperty>
     </properties>
@@ -1607,6 +1687,11 @@
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].extendedProperty.genBusinessImplCode">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].extendedProperty.isParamObject">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
@@ -2229,6 +2314,258 @@
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[contNumber].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合同号码" />
+            <lang locale="zh_HK" value="合同號碼" />
+            <lang locale="zh_TW" value="合同號碼" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[contNumber].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[contNumber].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合同号码" />
+            <lang locale="zh_HK" value="合同號碼" />
+            <lang locale="zh_TW" value="合同號碼" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[contNumber].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[contNumber].extendedProperty.bizDataType">
+            <lang locale="en_US" value="STRING" />
+            <lang locale="zh_CN" value="STRING" />
+            <lang locale="zh_TW" value="STRING" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[contNumber].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[contNumber].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[contNumber].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[contNumber].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[contNumber].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[contNumber].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[contNumber].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[coverNumber].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="投保单号" />
+            <lang locale="zh_HK" value="投保單號" />
+            <lang locale="zh_TW" value="投保單號" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[coverNumber].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[coverNumber].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="投保单号" />
+            <lang locale="zh_HK" value="投保單號" />
+            <lang locale="zh_TW" value="投保單號" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[coverNumber].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[coverNumber].extendedProperty.bizDataType">
+            <lang locale="en_US" value="STRING" />
+            <lang locale="zh_CN" value="STRING" />
+            <lang locale="zh_TW" value="STRING" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[coverNumber].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[coverNumber].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[coverNumber].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[coverNumber].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[coverNumber].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[coverNumber].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[coverNumber].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[effectDate].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="起保日期" />
+            <lang locale="zh_HK" value="起保日期" />
+            <lang locale="zh_TW" value="起保日期" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[effectDate].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[effectDate].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="起保日期" />
+            <lang locale="zh_HK" value="起保日期" />
+            <lang locale="zh_TW" value="起保日期" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[effectDate].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[effectDate].extendedProperty.bizDataType">
+            <lang locale="en_US" value="DATE" />
+            <lang locale="zh_CN" value="DATE" />
+            <lang locale="zh_TW" value="DATE" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[effectDate].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[effectDate].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[effectDate].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[effectDate].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[effectDate].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[effectDate].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[effectDate].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[endDate].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="终保日期" />
+            <lang locale="zh_HK" value="終保日期" />
+            <lang locale="zh_TW" value="終保日期" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[endDate].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[endDate].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="终保日期" />
+            <lang locale="zh_HK" value="終保日期" />
+            <lang locale="zh_TW" value="終保日期" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[endDate].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[endDate].extendedProperty.bizDataType">
+            <lang locale="en_US" value="DATE" />
+            <lang locale="zh_CN" value="DATE" />
+            <lang locale="zh_TW" value="DATE" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[endDate].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[endDate].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[endDate].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[endDate].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[endDate].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[endDate].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[endDate].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[xianzhongID].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="险种ID" />
@@ -2316,9 +2653,9 @@
             <lang locale="zh_TW" value="50" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[year].extendedProperty.bizDataType">
-            <lang locale="en_US" value="INTEGER" />
-            <lang locale="zh_CN" value="INTEGER" />
-            <lang locale="zh_TW" value="INTEGER" />
+            <lang locale="en_US" value="STRING" />
+            <lang locale="zh_CN" value="STRING" />
+            <lang locale="zh_TW" value="STRING" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[year].extendedProperty.enableFieldPermission">
             <lang locale="en_US" value="false" />
@@ -2341,9 +2678,9 @@
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[year].extendedProperty.isForWrittenBack">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverage].properties.ownProperty[year].extendedProperty.isInCode">
             <lang locale="en_US" value="false" />

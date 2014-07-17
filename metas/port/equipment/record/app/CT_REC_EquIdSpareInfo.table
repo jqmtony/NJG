@@ -91,6 +91,76 @@
             <scale>0</scale>
             <precision>0</precision>
         </column>
+        <column>
+            <name>CFShuliangone</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquIdSpareInfo].columns.column[CFShuliangone].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquIdSpareInfo].columns.column[CFShuliangone].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>INT</sqlType>
+            <length>4</length>
+            <scale>0</scale>
+            <precision>10</precision>
+        </column>
+        <column>
+            <name>CFUseyong</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquIdSpareInfo].columns.column[CFUseyong].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquIdSpareInfo].columns.column[CFUseyong].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>255</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFFachangjia</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquIdSpareInfo].columns.column[CFFachangjia].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquIdSpareInfo].columns.column[CFFachangjia].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>100</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFNoteone</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquIdSpareInfo].columns.column[CFNoteone].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquIdSpareInfo].columns.column[CFNoteone].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>500</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFAttachone</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquIdSpareInfo].columns.column[CFAttachone].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquIdSpareInfo].columns.column[CFAttachone].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>255</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
     </columns>
     <primaryKey>
         <name>CPK_REC_EquISIId1a</name>
@@ -112,6 +182,30 @@
             <lang locale="zh_HK" value="備件信息" />
             <lang locale="zh_TW" value="備件信息" />
         </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquIdSpareInfo].columns.column[CFAttachone].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="附件" />
+            <lang locale="zh_HK" value="附件" />
+            <lang locale="zh_TW" value="附件" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquIdSpareInfo].columns.column[CFAttachone].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="附件" />
+            <lang locale="zh_HK" value="附件" />
+            <lang locale="zh_TW" value="附件" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquIdSpareInfo].columns.column[CFFachangjia].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="厂家" />
+            <lang locale="zh_HK" value="廠家" />
+            <lang locale="zh_TW" value="廠家" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquIdSpareInfo].columns.column[CFFachangjia].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="厂家" />
+            <lang locale="zh_HK" value="廠家" />
+            <lang locale="zh_TW" value="廠家" />
+        </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquIdSpareInfo].columns.column[CFMaterialName].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="物料名称" />
@@ -124,6 +218,18 @@
             <lang locale="zh_HK" value="物料名稱" />
             <lang locale="zh_TW" value="物料名稱" />
         </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquIdSpareInfo].columns.column[CFNoteone].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="备注" />
+            <lang locale="zh_HK" value="備註" />
+            <lang locale="zh_TW" value="備註" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquIdSpareInfo].columns.column[CFNoteone].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="备注" />
+            <lang locale="zh_HK" value="備註" />
+            <lang locale="zh_TW" value="備註" />
+        </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquIdSpareInfo].columns.column[CFSeq].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="单据分录序列号" />
@@ -134,6 +240,18 @@
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquIdSpareInfo].columns.column[CFShuliangone].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="数量" />
+            <lang locale="zh_HK" value="數量" />
+            <lang locale="zh_TW" value="數量" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquIdSpareInfo].columns.column[CFShuliangone].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="数量" />
+            <lang locale="zh_HK" value="數量" />
+            <lang locale="zh_TW" value="數量" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquIdSpareInfo].columns.column[CFSpeModel].alias">
             <lang locale="en_US" value="null" />
@@ -146,6 +264,18 @@
             <lang locale="zh_CN" value="规格型号" />
             <lang locale="zh_HK" value="規格型號" />
             <lang locale="zh_TW" value="規格型號" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquIdSpareInfo].columns.column[CFUseyong].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="用途" />
+            <lang locale="zh_HK" value="用途" />
+            <lang locale="zh_TW" value="用途" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquIdSpareInfo].columns.column[CFUseyong].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="用途" />
+            <lang locale="zh_HK" value="用途" />
+            <lang locale="zh_TW" value="用途" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquIdSpareInfo].columns.column[FID].alias">
             <lang locale="en_US" value="null" />

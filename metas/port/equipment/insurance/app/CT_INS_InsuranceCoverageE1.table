@@ -15,7 +15,7 @@
             <isMultilingual>false</isMultilingual>
             <isEncoded>false</isEncoded>
             <isNullable>false</isNullable>
-            <defaultValue />
+            <defaultValue>''</defaultValue>
             <sqlType>VARCHAR</sqlType>
             <length>44</length>
             <scale>0</scale>
@@ -29,7 +29,7 @@
             <isMultilingual>false</isMultilingual>
             <isEncoded>false</isEncoded>
             <isNullable>false</isNullable>
-            <defaultValue />
+            <defaultValue>0</defaultValue>
             <sqlType>INT</sqlType>
             <length>4</length>
             <scale>0</scale>
@@ -43,7 +43,7 @@
             <isMultilingual>false</isMultilingual>
             <isEncoded>false</isEncoded>
             <isNullable>false</isNullable>
-            <defaultValue />
+            <defaultValue>''</defaultValue>
             <sqlType>VARCHAR</sqlType>
             <length>44</length>
             <scale>0</scale>
@@ -231,6 +231,20 @@
             <scale>0</scale>
             <precision>0</precision>
         </column>
+        <column>
+            <name>CFPremium</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_InsuranceCoverageE1].columns.column[CFPremium].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_InsuranceCoverageE1].columns.column[CFPremium].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NUMERIC</sqlType>
+            <length>28</length>
+            <scale>2</scale>
+            <precision>28</precision>
+        </column>
     </columns>
     <primaryKey>
         <name>CPK_INS_InsrnsCed8</name>
@@ -318,9 +332,9 @@
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_InsuranceCoverageE1].columns.column[CFEquType].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="设备类型" />
-            <lang locale="zh_HK" value="設備類型" />
-            <lang locale="zh_TW" value="設備類型" />
+            <lang locale="zh_CN" value="设备类别" />
+            <lang locale="zh_HK" value="設備類別" />
+            <lang locale="zh_TW" value="設備類別" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_InsuranceCoverageE1].columns.column[CFEquType].description">
             <lang locale="en_US" value="null" />
@@ -342,9 +356,9 @@
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_InsuranceCoverageE1].columns.column[CFInsuranceAmount].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="投保金额" />
-            <lang locale="zh_HK" value="投保金額" />
-            <lang locale="zh_TW" value="投保金額" />
+            <lang locale="zh_CN" value="签单保额" />
+            <lang locale="zh_HK" value="簽單保額" />
+            <lang locale="zh_TW" value="簽單保額" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_InsuranceCoverageE1].columns.column[CFInsuranceAmount].description">
             <lang locale="en_US" value="null" />
@@ -375,6 +389,18 @@
             <lang locale="zh_CN" value="原值" />
             <lang locale="zh_HK" value="原值" />
             <lang locale="zh_TW" value="原值" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_InsuranceCoverageE1].columns.column[CFPremium].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="签单保费" />
+            <lang locale="zh_HK" value="簽單保費" />
+            <lang locale="zh_TW" value="簽單保費" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_InsuranceCoverageE1].columns.column[CFPremium].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="签单保费" />
+            <lang locale="zh_HK" value="簽單保費" />
+            <lang locale="zh_TW" value="簽單保費" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_InsuranceCoverageE1].columns.column[CFPresentValue].alias">
             <lang locale="en_US" value="null" />

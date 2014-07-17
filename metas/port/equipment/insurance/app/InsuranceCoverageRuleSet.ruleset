@@ -528,6 +528,93 @@
             <valueType>String</valueType>
             <value>weight</value>
         </simpleExpression>
+        <groupExpression>
+            <id>6ec7b189-8a7a-49c0-8b45-e59f953e45ae</id>
+            <parentID />
+            <source>E1.equType=E1.equNumber.eqmType.name</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>fafdfca5-e2f3-4a28-bc72-9f78967e0392</id>
+            <parentID>6ec7b189-8a7a-49c0-8b45-e59f953e45ae</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>ca20584f-c6cc-44d4-983a-43926175bf7d</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>ca20584f-c6cc-44d4-983a-43926175bf7d</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>kdtE1.getCell(rowIndex,"equType")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>aa62298e-a885-453e-8587-c3f3e1a1913a</id>
+            <parentID>6ec7b189-8a7a-49c0-8b45-e59f953e45ae</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>c0ac2378-470c-4c0b-a463-33dcd316685d</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>b62a9d17-71bb-4462-93d0-d2296bc8cea4</id>
+                        <expressionID>1ebc110f-ecee-487b-9134-40ea818964f9</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>42586db4-54d8-4513-9b50-489a31ea7ecf</id>
+                        <expressionID>00f5250d-5ffc-4908-a288-fc86cf224ca2</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>c0ac2378-470c-4c0b-a463-33dcd316685d</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>1ebc110f-ecee-487b-9134-40ea818964f9</id>
+            <parentID />
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>1c7513d4-b220-4a7b-a81a-48bc16305557</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>1c7513d4-b220-4a7b-a81a-48bc16305557</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)kdtE1.getCell(rowIndex,"equNumber")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>00f5250d-5ffc-4908-a288-fc86cf224ca2</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>eqmType.name</value>
+        </simpleExpression>
     </expressions>
     <actions>
         <action>
@@ -572,22 +659,15 @@
             <description>ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].actions.action[E1_tonnage_ActionInfo].description</description>
             <expressionID>2b83190b-4252-40fe-952b-80ec2febdd0d</expressionID>
         </action>
+        <action>
+            <id>6e68dd43-0203-4157-87aa-b0f1457a408d</id>
+            <name>E1_equType_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].actions.action[E1_equType_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].actions.action[E1_equType_ActionInfo].description</description>
+            <expressionID>6ec7b189-8a7a-49c0-8b45-e59f953e45ae</expressionID>
+        </action>
     </actions>
     <rules>
-        <conditionRule>
-            <name>E1_equType_RuleInfo</name>
-            <alias>ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].rules.conditionRule[E1_equType_RuleInfo].alias</alias>
-            <description>ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].rules.conditionRule[E1_equType_RuleInfo].description</description>
-            <ruleType>withproperty</ruleType>
-            <eventObjectName />
-            <eventType>CHANGE</eventType>
-            <eventName>CHANGE</eventName>
-            <actions>
-                <action>
-                    <key name="id" value="296e92a8-0b16-4cdb-a5f3-08ee303e32b5" />
-                </action>
-            </actions>
-        </conditionRule>
         <conditionRule>
             <name>E1_equName_RuleInfo</name>
             <alias>ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].rules.conditionRule[E1_equName_RuleInfo].alias</alias>
@@ -655,6 +735,20 @@
             <actions>
                 <action>
                     <key name="id" value="5e59dc00-52fe-4d4c-a8ef-3bdc1baee2cb" />
+                </action>
+            </actions>
+        </conditionRule>
+        <conditionRule>
+            <name>E1_equType_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].rules.conditionRule[E1_equType_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageRuleSet].rules.conditionRule[E1_equType_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="6e68dd43-0203-4157-87aa-b0f1457a408d" />
                 </action>
             </actions>
         </conditionRule>
