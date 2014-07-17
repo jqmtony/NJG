@@ -794,7 +794,11 @@ public class EquLeaseEditUI extends AbstractEquLeaseEditUI
 					    txthaveRented.setValue(null);
 					    txtsurplus.setValue(null);
 					}
-					
+					txttheLessor.setRequired(true);
+					txttheLessee.setRequired(true);
+					pksigningDate.setRequired(true);
+					pkleaseStart.setRequired(true);
+					pkleaseEnd.setRequired(true);
 	}
 	
 	public void kdtE1_Changed(int rowIndex, int colIndex) throws Exception {
@@ -805,7 +809,7 @@ public class EquLeaseEditUI extends AbstractEquLeaseEditUI
 	}
 	
 	protected void verifyInput(ActionEvent e) throws Exception {
-		super.verifyInput(e);
+		
 		if(UIRuleUtil.isNull(this.pkleaseStart.getValue()))
 		{
 			MsgBox.showInfo("租赁开始日期不能为空！");
@@ -820,5 +824,21 @@ public class EquLeaseEditUI extends AbstractEquLeaseEditUI
 			MsgBox.showInfo("租赁开始日期不能晚于租赁结束日期！");
 			SysUtil.abort();
 		}
+		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(txttheLessor.getText())) {
+			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"出租方"});
+		}
+		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(txttheLessee.getText())) {
+			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"承租方"});
+		}
+		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(pksigningDate.getValue())) {
+			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"签订日期"});
+		}
+		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(pkleaseStart.getValue())) {
+			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"租赁开始日期"});
+		}
+		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(pkleaseEnd.getValue())) {
+			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"租赁结束日期"});
+		}
+		super.verifyInput(e);
 	}
 }

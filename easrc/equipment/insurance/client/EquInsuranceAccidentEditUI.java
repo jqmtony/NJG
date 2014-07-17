@@ -777,6 +777,7 @@ this.prmtinsurance.setEnabledMultiSelection(true);
 			 pklossDate.setValue(new Date());
 			 prmtCU.setValue(SysContext.getSysContext().getCurrentCtrlUnit());
 		 }
+		 prmtequNumber.setRequired(true);
 	}
 	
 	public void prmtequNumber_Changed() throws Exception {
@@ -846,4 +847,10 @@ this.prmtinsurance.setEnabledMultiSelection(true);
 		}
 	}
 	
+	protected void verifyInput(ActionEvent e) throws Exception {
+		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(prmtequNumber.getValue())) {
+			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"…Ë±∏±‡∫≈"});
+		}
+		super.verifyInput(e);
+	}
 }

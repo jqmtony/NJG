@@ -713,6 +713,9 @@ public class EqmScrapEditUI extends AbstractEqmScrapEditUI
 		 evi.setFilter(filter);
 		prmteqmNumber.setEntityViewInfo(evi);
 		prmteqmNumber.setRequired(true);
+		txteqmName.setRequired(true);
+		prmtssOrgUnit.setRequired(true);
+		txtDescription.setRequired(true);
 	}
 	
 	public void prmteqmNumber_Changed() throws Exception {
@@ -746,9 +749,18 @@ public class EqmScrapEditUI extends AbstractEqmScrapEditUI
 		}
 	}
 	protected void verifyInput(ActionEvent e) throws Exception {
-		super.verifyInput(e);
 		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(prmteqmNumber.getValue())) {
 			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"设备编号"});
 		}
+		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(txteqmName.getText())) {
+			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"设备名称"});
+		}
+		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(prmtssOrgUnit.getValue())) {
+			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"所属单位"});
+		}
+		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(txtDescription.getText())) {
+			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"报废说明"});
+		}
+		super.verifyInput(e);
 	}
 }

@@ -849,6 +849,35 @@ this.prmtinsurance.setEnabledMultiSelection(true);
 		            txtyear.setText(year);
 		            prmtCU.setValue(SysContext.getSysContext().getCurrentCtrlUnit());
 				}
+				
+				txtNumber.setRequired(true);
+				pkBizDate.setRequired(true);
+				pkeffectDate.setRequired(true);
+				pkendDate.setRequired(true);
+				prmtinsuranceCompany.setRequired(true);
+				prmtinsurance.setRequired(true);
+	}
+	
+	protected void verifyInput(ActionEvent e) throws Exception {
+		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(txtNumber.getText())) {
+			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"保单号码"});
+		}
+		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(pkBizDate.getValue())) {
+			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"签单日期"});
+		}
+		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(pkeffectDate.getValue())) {
+			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"起保日期"});
+		}
+		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(pkendDate.getValue())) {
+			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"终保日期"});
+		}
+		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(prmtinsuranceCompany.getValue())) {
+			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"保险公司"});
+		}
+		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(prmtinsurance.getValue())) {
+			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"险种"});
+		}
+		super.verifyInput(e);
 	}
 	
 	protected void btnExcel_actionPerformed(ActionEvent e) throws Exception {

@@ -723,6 +723,7 @@ public class EqmAccidentEditUI extends AbstractEqmAccidentEditUI
 		 filter.getFilterItems().add(new FilterItemInfo("sbStatus","1",CompareType.EQUALS));
 		 evi.setFilter(filter);
 		prmteqmName.setEntityViewInfo(evi);
+		prmteqmName.setRequired(true);
 	}
 
 	protected void verifyInput(ActionEvent e) throws Exception {
@@ -739,6 +740,9 @@ public class EqmAccidentEditUI extends AbstractEqmAccidentEditUI
 		if(pkendDate.getSqlDate().before(pkhappenDate.getSqlDate())){
 			MsgBox.showInfo("事故发生日期不能晚于事故结束日期！");
 			SysUtil.abort();
+		}
+		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(prmteqmName.getValue())) {
+			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"设备名称"});
 		}
 		super.verifyInput(e);
 	}
