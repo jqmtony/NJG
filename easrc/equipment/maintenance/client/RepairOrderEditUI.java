@@ -4,6 +4,8 @@
 package com.kingdee.eas.port.equipment.maintenance.client;
 
 import java.awt.event.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.apache.log4j.Logger;
@@ -739,8 +741,23 @@ public class RepairOrderEditUI extends AbstractRepairOrderEditUI
 		 EntityViewInfo evi = new EntityViewInfo();
 		 FilterInfo filter = new FilterInfo();
 		 String id = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
+		 DateFormat FORMAT_TIME = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		   Date date = null;
+		    try {
+		      date = SysUtil.getAppServerTime(null);
+		    } catch (EASBizException e1) {
+		      e1.printStackTrace();
+		    }
+		    StringBuffer sb = new StringBuffer();
+		    sb.append(" select CFEqmNumberID from cT_OPE_EqmIO  ");
+		    sb.append(" where CFInOrgUnitID='").append(id).append("'");
+		    sb.append(" and CFRentStart<={ts '" + FORMAT_TIME.format(date) + "'}");
+		    sb.append(" and CFRentEnd>={ts '" + FORMAT_TIME.format(date) + "'}");
+		    sb.append(" and fstatus = '4'");
 		 filter.getFilterItems().add(new FilterItemInfo("ssOrgUnit.id",id ,CompareType.EQUALS));
 		 filter.getFilterItems().add(new FilterItemInfo("sbStatus","1",CompareType.EQUALS));
+		 filter.getFilterItems().add(new FilterItemInfo("id", sb.toString(), CompareType.INNER));
+	 		filter.setMaskString("(#0 and #1) or #2");
 		 evi.setFilter(filter);
 		 prmtequName.setEntityViewInfo(evi);
 		 

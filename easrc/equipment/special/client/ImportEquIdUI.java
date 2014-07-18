@@ -293,10 +293,10 @@ public class ImportEquIdUI extends AbstractImportEquIdUI
 			row.getCell("endDate").setValue(equIdInfo.getTextDate1());
 		}
 		if(checktype.equals(checktype.port)&& equIdInfo.getDaytow() !=null){
-			row.getCell("planDate").setValue(equIdInfo.getDaytow());
+			row.getCell("planDate").setValue(equIdInfo.getDayone());
 		}
 		if(checktype.equals(checktype.port)&& equIdInfo.getTestDay() !=null){
-			row.getCell("endDate").setValue(equIdInfo.getTestDay());
+			row.getCell("endDate").setValue(equIdInfo.getTextDate1());
 		}
 		
 		
