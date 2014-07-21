@@ -707,6 +707,32 @@
             <userDefinedLogic />
             <configured>false</configured>
         </method>
+        <method>
+            <name>shengbao</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceDeclarationState].methods.method[shengbao].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceDeclarationState].methods.method[shengbao].description</description>
+            <innerID>f3eebaff-1166-4b80-adfd-2843e036ecdc</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceDeclarationState].methods.method[shengbao].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceDeclarationState].methods.method[shengbao].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.port.equipment.insurance.app.InsuranceDeclarationState</metadataRef>
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
     </methods>
     <isAbstract>false</isAbstract>
     <bizUnitPK>com.kingdee.eas.port.equipment.insurance.InsuranceDeclarationState</bizUnitPK>
@@ -1036,6 +1062,48 @@
                 </formalParameter>
             </formalParameters>
         </event>
+        <event>
+            <name>shengbaoEvent</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceDeclarationState].events.event[shengbaoEvent].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceDeclarationState].events.event[shengbaoEvent].description</description>
+            <userDefined>true</userDefined>
+            <eventMethods>
+                <eventMethod>
+                    <name>f3eebaff-1166-4b80-adfd-2843e036ecdc</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceDeclarationState].events.event[shengbaoEvent].eventMethods.eventMethod[f3eebaff-1166-4b80-adfd-2843e036ecdc].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceDeclarationState].events.event[shengbaoEvent].eventMethods.eventMethod[f3eebaff-1166-4b80-adfd-2843e036ecdc].description</description>
+                    <entityMethodRef>
+                        <key name="name" value="shengbao" />
+                        <key name="innerID" value="f3eebaff-1166-4b80-adfd-2843e036ecdc" />
+                    </entityMethodRef>
+                    <parameterMappings>
+                        <parameterMapping>
+                            <name />
+                            <alias>entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceDeclarationState].events.event[shengbaoEvent].eventMethods.eventMethod[f3eebaff-1166-4b80-adfd-2843e036ecdc].parameterMappings.parameterMappingalias</alias>
+                            <description>entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceDeclarationState].events.event[shengbaoEvent].eventMethods.eventMethod[f3eebaff-1166-4b80-adfd-2843e036ecdc].parameterMappings.parameterMappingdescription</description>
+                            <formalParameterInnerID>ee54637d-ff22-4539-9782-23b3a2dd7d7cevfp</formalParameterInnerID>
+                            <actualParameterIndex>0</actualParameterIndex>
+                            <isBOPK>true</isBOPK>
+                        </parameterMapping>
+                    </parameterMappings>
+                </eventMethod>
+            </eventMethods>
+            <formalParameters>
+                <formalParameter>
+                    <innerID>ee54637d-ff22-4539-9782-23b3a2dd7d7cevfp</innerID>
+                    <userDefined>true</userDefined>
+                    <parameter>
+                        <name>model</name>
+                        <alias>entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceDeclarationState].events.event[shengbaoEvent].formalParameters.formalParameter.parameter[model].alias</alias>
+                        <description>entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceDeclarationState].events.event[shengbaoEvent].formalParameters.formalParameter.parameter[model].description</description>
+                        <direction>in</direction>
+                        <dataType>ObjectValue</dataType>
+                        <metadataRef>com.kingdee.eas.port.equipment.insurance.app.InsuranceDeclarationState</metadataRef>
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </formalParameter>
+            </formalParameters>
+        </event>
     </events>
     <defaultView>
         <name />
@@ -1284,6 +1352,54 @@
             <lang locale="zh_HK" value="主鍵" />
             <lang locale="zh_TW" value="主鍵" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceDeclarationState].events.event[shengbaoEvent].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="导入保险申报明细事件" />
+            <lang locale="zh_HK" value="導入保險申報明細事件" />
+            <lang locale="zh_TW" value="導入保險申報明細事件" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceDeclarationState].events.event[shengbaoEvent].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceDeclarationState].events.event[shengbaoEvent].eventMethods.eventMethod[f3eebaff-1166-4b80-adfd-2843e036ecdc].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceDeclarationState].events.event[shengbaoEvent].eventMethods.eventMethod[f3eebaff-1166-4b80-adfd-2843e036ecdc].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceDeclarationState].events.event[shengbaoEvent].eventMethods.eventMethod[f3eebaff-1166-4b80-adfd-2843e036ecdc].parameterMappings.parameterMappingalias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceDeclarationState].events.event[shengbaoEvent].eventMethods.eventMethod[f3eebaff-1166-4b80-adfd-2843e036ecdc].parameterMappings.parameterMappingdescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceDeclarationState].events.event[shengbaoEvent].formalParameters.formalParameter.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceDeclarationState].events.event[shengbaoEvent].formalParameters.formalParameter.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceDeclarationState].events.event[submitEvent].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="提交" />
@@ -1437,6 +1553,11 @@
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceDeclarationState].extendedProperty.controllerBeanEx">
+            <lang locale="en_US" value="com.kingdee.eas.port.equipment.insurance.app.InsuranceDeclarationStateControllerBeanEx" />
+            <lang locale="zh_CN" value="com.kingdee.eas.port.equipment.insurance.app.InsuranceDeclarationStateControllerBeanEx" />
+            <lang locale="zh_TW" value="com.kingdee.eas.port.equipment.insurance.app.InsuranceDeclarationStateControllerBeanEx" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceDeclarationState].extendedProperty.defaultDisplayField">
             <lang locale="en_US" value="" />
@@ -1791,6 +1912,30 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceDeclarationState].methods.method[getValue].parameters.parameter[selector].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceDeclarationState].methods.method[shengbao].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="导入保险申报明细" />
+            <lang locale="zh_HK" value="導入保險申報明細" />
+            <lang locale="zh_TW" value="導入保險申報明細" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceDeclarationState].methods.method[shengbao].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceDeclarationState].methods.method[shengbao].parameters.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.InsuranceDeclarationState].methods.method[shengbao].parameters.parameter[model].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />

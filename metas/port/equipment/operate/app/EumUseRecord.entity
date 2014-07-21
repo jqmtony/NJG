@@ -707,6 +707,32 @@
             <userDefinedLogic />
             <configured>false</configured>
         </method>
+        <method>
+            <name>shiyong</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecord].methods.method[shiyong].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecord].methods.method[shiyong].description</description>
+            <innerID>6fd30b1e-d7a6-4f52-a385-9fbb17f118a4</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecord].methods.method[shiyong].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecord].methods.method[shiyong].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.port.equipment.operate.app.EumUseRecord</metadataRef>
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
     </methods>
     <isAbstract>false</isAbstract>
     <bizUnitPK>com.kingdee.eas.port.equipment.operate.EumUseRecord</bizUnitPK>
@@ -1038,6 +1064,48 @@
                 </formalParameter>
             </formalParameters>
         </event>
+        <event>
+            <name>shiyongEvent</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecord].events.event[shiyongEvent].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecord].events.event[shiyongEvent].description</description>
+            <userDefined>true</userDefined>
+            <eventMethods>
+                <eventMethod>
+                    <name>6fd30b1e-d7a6-4f52-a385-9fbb17f118a4</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecord].events.event[shiyongEvent].eventMethods.eventMethod[6fd30b1e-d7a6-4f52-a385-9fbb17f118a4].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecord].events.event[shiyongEvent].eventMethods.eventMethod[6fd30b1e-d7a6-4f52-a385-9fbb17f118a4].description</description>
+                    <entityMethodRef>
+                        <key name="name" value="shiyong" />
+                        <key name="innerID" value="6fd30b1e-d7a6-4f52-a385-9fbb17f118a4" />
+                    </entityMethodRef>
+                    <parameterMappings>
+                        <parameterMapping>
+                            <name />
+                            <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecord].events.event[shiyongEvent].eventMethods.eventMethod[6fd30b1e-d7a6-4f52-a385-9fbb17f118a4].parameterMappings.parameterMappingalias</alias>
+                            <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecord].events.event[shiyongEvent].eventMethods.eventMethod[6fd30b1e-d7a6-4f52-a385-9fbb17f118a4].parameterMappings.parameterMappingdescription</description>
+                            <formalParameterInnerID>37b0ed71-6b21-4f11-8052-fbb0fbbe4322evfp</formalParameterInnerID>
+                            <actualParameterIndex>0</actualParameterIndex>
+                            <isBOPK>true</isBOPK>
+                        </parameterMapping>
+                    </parameterMappings>
+                </eventMethod>
+            </eventMethods>
+            <formalParameters>
+                <formalParameter>
+                    <innerID>37b0ed71-6b21-4f11-8052-fbb0fbbe4322evfp</innerID>
+                    <userDefined>true</userDefined>
+                    <parameter>
+                        <name>model</name>
+                        <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecord].events.event[shiyongEvent].formalParameters.formalParameter.parameter[model].alias</alias>
+                        <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecord].events.event[shiyongEvent].formalParameters.formalParameter.parameter[model].description</description>
+                        <direction>in</direction>
+                        <dataType>ObjectValue</dataType>
+                        <metadataRef>com.kingdee.eas.port.equipment.operate.app.EumUseRecord</metadataRef>
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </formalParameter>
+            </formalParameters>
+        </event>
     </events>
     <defaultView>
         <name />
@@ -1285,6 +1353,54 @@
             <lang locale="zh_HK" value="主鍵" />
             <lang locale="zh_TW" value="主鍵" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecord].events.event[shiyongEvent].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="导入使用记录事件" />
+            <lang locale="zh_HK" value="導入使用記錄事件" />
+            <lang locale="zh_TW" value="導入使用記錄事件" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecord].events.event[shiyongEvent].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecord].events.event[shiyongEvent].eventMethods.eventMethod[6fd30b1e-d7a6-4f52-a385-9fbb17f118a4].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecord].events.event[shiyongEvent].eventMethods.eventMethod[6fd30b1e-d7a6-4f52-a385-9fbb17f118a4].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecord].events.event[shiyongEvent].eventMethods.eventMethod[6fd30b1e-d7a6-4f52-a385-9fbb17f118a4].parameterMappings.parameterMappingalias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecord].events.event[shiyongEvent].eventMethods.eventMethod[6fd30b1e-d7a6-4f52-a385-9fbb17f118a4].parameterMappings.parameterMappingdescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecord].events.event[shiyongEvent].formalParameters.formalParameter.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecord].events.event[shiyongEvent].formalParameters.formalParameter.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecord].events.event[submitEvent].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="提交" />
@@ -1438,6 +1554,11 @@
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecord].extendedProperty.controllerBeanEx">
+            <lang locale="en_US" value="com.kingdee.eas.port.equipment.operate.app.EumUseRecordControllerBeanEx" />
+            <lang locale="zh_CN" value="com.kingdee.eas.port.equipment.operate.app.EumUseRecordControllerBeanEx" />
+            <lang locale="zh_TW" value="com.kingdee.eas.port.equipment.operate.app.EumUseRecordControllerBeanEx" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecord].extendedProperty.defaultDisplayField">
             <lang locale="en_US" value="" />
@@ -1797,6 +1918,30 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecord].methods.method[getValue].parameters.parameter[selector].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecord].methods.method[shiyong].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="导入使用记录" />
+            <lang locale="zh_HK" value="導入使用記錄" />
+            <lang locale="zh_TW" value="導入使用記錄" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecord].methods.method[shiyong].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecord].methods.method[shiyong].parameters.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecord].methods.method[shiyong].parameters.parameter[model].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
