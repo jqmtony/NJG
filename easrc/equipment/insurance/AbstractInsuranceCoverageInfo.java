@@ -59,7 +59,7 @@ public class AbstractInsuranceCoverageInfo extends com.kingdee.eas.xr.XRBillBase
         setString("xianzhongID", item);
     }
     /**
-     * Object:保险投保明细表's 投保单号property 
+     * Object:保险投保明细表's 保单号码property 
      */
     public String getCoverNumber()
     {

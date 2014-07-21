@@ -764,6 +764,66 @@ public abstract class AbstractEquIdControllerBean extends XRBillBaseControllerBe
         return;
     }
 
+    public void zhuyao(Context ctx, EquIdInfo model) throws BOSException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("72fc4e66-386a-4de7-a58c-261d0d28fd4a"), new Object[]{ctx, model});
+            invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
+            _zhuyao(ctx, model);
+            }
+            invokeServiceAfter(svcCtx);
+        } catch (BOSException ex) {
+            throw ex;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected void _zhuyao(Context ctx, IObjectValue model) throws BOSException
+    {    	
+        return;
+    }
+
+    public void beijian(Context ctx, EquIdInfo model) throws BOSException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("720b6ef7-45fc-419a-a363-53c71708386d"), new Object[]{ctx, model});
+            invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
+            _beijian(ctx, model);
+            }
+            invokeServiceAfter(svcCtx);
+        } catch (BOSException ex) {
+            throw ex;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected void _beijian(Context ctx, IObjectValue model) throws BOSException
+    {    	
+        return;
+    }
+
+    public void xiangxi(Context ctx, EquIdInfo model) throws BOSException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("a7d7dfb7-7a39-443d-8a27-41311fde3f9c"), new Object[]{ctx, model});
+            invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
+            _xiangxi(ctx, model);
+            }
+            invokeServiceAfter(svcCtx);
+        } catch (BOSException ex) {
+            throw ex;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected void _xiangxi(Context ctx, IObjectValue model) throws BOSException
+    {    	
+        return;
+    }
+
     public XRBillBaseCollection getXRBillBaseCollection (Context ctx) throws BOSException
     {
     	return (XRBillBaseCollection)(getEquIdCollection(ctx).cast(XRBillBaseCollection.class));

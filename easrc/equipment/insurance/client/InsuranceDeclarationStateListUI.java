@@ -4,10 +4,15 @@
 package com.kingdee.eas.port.equipment.insurance.client;
 
 import java.awt.event.*;
+import java.util.ArrayList;
+
 import org.apache.log4j.Logger;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.eas.framework.*;
+import com.kingdee.eas.tools.datatask.DatataskParameter;
+import com.kingdee.eas.tools.datatask.client.DatataskCaller;
+import com.kingdee.eas.util.client.EASResource;
 
 /**
  * output class name
@@ -586,4 +591,20 @@ public class InsuranceDeclarationStateListUI extends AbstractInsuranceDeclaratio
         return objectValue;
     }
 
+    public void actionShengbao_actionPerformed(ActionEvent e) throws Exception {
+    	super.actionShengbao_actionPerformed(e);
+    	String strSolutionName = "eas.equ.005";
+		DatataskCaller task = new DatataskCaller();
+		task.setParentComponent(this);
+		DatataskParameter param = new DatataskParameter();
+		param.solutionName = strSolutionName;
+		param.alias = btnShengbao.getText();
+		ArrayList paramList = new ArrayList();
+		paramList.add(param);
+		task.invoke(paramList, 0, true);
+    }
+	protected void initWorkButton() {
+		super.initWorkButton();
+		btnShengbao.setIcon(EASResource.getIcon("imgTbtn_inputoutput"));
+	}
 }

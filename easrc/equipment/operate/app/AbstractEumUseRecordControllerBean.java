@@ -644,6 +644,26 @@ public abstract class AbstractEumUseRecordControllerBean extends XRBillBaseContr
         }
     }
 
+    public void shiyong(Context ctx, EumUseRecordInfo model) throws BOSException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("6fd30b1e-d7a6-4f52-a385-9fbb17f118a4"), new Object[]{ctx, model});
+            invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
+            _shiyong(ctx, model);
+            }
+            invokeServiceAfter(svcCtx);
+        } catch (BOSException ex) {
+            throw ex;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected void _shiyong(Context ctx, IObjectValue model) throws BOSException
+    {    	
+        return;
+    }
+
     public XRBillBaseCollection getXRBillBaseCollection (Context ctx) throws BOSException
     {
     	return (XRBillBaseCollection)(getEumUseRecordCollection(ctx).cast(XRBillBaseCollection.class));

@@ -215,6 +215,9 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
     protected ActionExcel actionExcel = null;
     protected ActionExcelFoced actionExcelFoced = null;
     protected ActionExcelEqu actionExcelEqu = null;
+    protected ActionZhuyao actionZhuyao = null;
+    protected ActionBeijian actionBeijian = null;
+    protected ActionXiangxi actionXiangxi = null;
     /**
      * output class constructor
      */
@@ -312,6 +315,30 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.actionExcelEqu.setExtendProperty("isObjectUpdateLock", "false");
          this.actionExcelEqu.addService(new com.kingdee.eas.framework.client.service.PermissionService());
          this.actionExcelEqu.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
+        //actionZhuyao
+        this.actionZhuyao = new ActionZhuyao(this);
+        getActionManager().registerAction("actionZhuyao", actionZhuyao);
+        this.actionZhuyao.setExtendProperty("canForewarn", "true");
+        this.actionZhuyao.setExtendProperty("userDefined", "true");
+        this.actionZhuyao.setExtendProperty("isObjectUpdateLock", "false");
+         this.actionZhuyao.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+         this.actionZhuyao.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
+        //actionBeijian
+        this.actionBeijian = new ActionBeijian(this);
+        getActionManager().registerAction("actionBeijian", actionBeijian);
+        this.actionBeijian.setExtendProperty("canForewarn", "true");
+        this.actionBeijian.setExtendProperty("userDefined", "true");
+        this.actionBeijian.setExtendProperty("isObjectUpdateLock", "false");
+         this.actionBeijian.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+         this.actionBeijian.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
+        //actionXiangxi
+        this.actionXiangxi = new ActionXiangxi(this);
+        getActionManager().registerAction("actionXiangxi", actionXiangxi);
+        this.actionXiangxi.setExtendProperty("canForewarn", "true");
+        this.actionXiangxi.setExtendProperty("userDefined", "true");
+        this.actionXiangxi.setExtendProperty("isObjectUpdateLock", "false");
+         this.actionXiangxi.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+         this.actionXiangxi.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
         this.contCreator = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contCreateTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contLastUpdateUser = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -2904,6 +2931,33 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
     {
         com.kingdee.eas.port.equipment.record.EquIdFactory.getRemoteInstance().excelEqu(editData);
     }
+    	
+
+    /**
+     * output actionZhuyao_actionPerformed method
+     */
+    public void actionZhuyao_actionPerformed(ActionEvent e) throws Exception
+    {
+        com.kingdee.eas.port.equipment.record.EquIdFactory.getRemoteInstance().zhuyao(editData);
+    }
+    	
+
+    /**
+     * output actionBeijian_actionPerformed method
+     */
+    public void actionBeijian_actionPerformed(ActionEvent e) throws Exception
+    {
+        com.kingdee.eas.port.equipment.record.EquIdFactory.getRemoteInstance().beijian(editData);
+    }
+    	
+
+    /**
+     * output actionXiangxi_actionPerformed method
+     */
+    public void actionXiangxi_actionPerformed(ActionEvent e) throws Exception
+    {
+        com.kingdee.eas.port.equipment.record.EquIdFactory.getRemoteInstance().xiangxi(editData);
+    }
 	public RequestContext prepareActionSubmit(IItemAction itemAction) throws Exception {
 			RequestContext request = super.prepareActionSubmit(itemAction);		
 		if (request != null) {
@@ -2990,6 +3044,39 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
     }
 	
 	public boolean isPrepareActionExcelEqu() {
+    	return false;
+    }
+	public RequestContext prepareActionZhuyao(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionZhuyao() {
+    	return false;
+    }
+	public RequestContext prepareActionBeijian(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionBeijian() {
+    	return false;
+    }
+	public RequestContext prepareActionXiangxi(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionXiangxi() {
     	return false;
     }
 
@@ -3170,6 +3257,96 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
         {
         	getUIContext().put("ORG.PK", getOrgPK(this));
             innerActionPerformed("eas", AbstractEquIdEditUI.this, "ActionExcelEqu", "actionExcelEqu_actionPerformed", e);
+        }
+    }
+
+    /**
+     * output ActionZhuyao class
+     */     
+    protected class ActionZhuyao extends ItemAction {     
+    
+        public ActionZhuyao()
+        {
+            this(null);
+        }
+
+        public ActionZhuyao(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            _tempStr = resHelper.getString("ActionZhuyao.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionZhuyao.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionZhuyao.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractEquIdEditUI.this, "ActionZhuyao", "actionZhuyao_actionPerformed", e);
+        }
+    }
+
+    /**
+     * output ActionBeijian class
+     */     
+    protected class ActionBeijian extends ItemAction {     
+    
+        public ActionBeijian()
+        {
+            this(null);
+        }
+
+        public ActionBeijian(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            _tempStr = resHelper.getString("ActionBeijian.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionBeijian.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionBeijian.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractEquIdEditUI.this, "ActionBeijian", "actionBeijian_actionPerformed", e);
+        }
+    }
+
+    /**
+     * output ActionXiangxi class
+     */     
+    protected class ActionXiangxi extends ItemAction {     
+    
+        public ActionXiangxi()
+        {
+            this(null);
+        }
+
+        public ActionXiangxi(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            _tempStr = resHelper.getString("ActionXiangxi.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionXiangxi.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionXiangxi.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractEquIdEditUI.this, "ActionXiangxi", "actionXiangxi_actionPerformed", e);
         }
     }
 

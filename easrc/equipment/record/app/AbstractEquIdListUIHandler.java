@@ -54,4 +54,19 @@ public abstract class AbstractEquIdListUIHandler extends com.kingdee.eas.xr.app.
 	}
 	protected void _handleActionExcelEqu(RequestContext request,ResponseContext response, Context context) throws Exception {
 	}
+	public void handleActionZhuyao(RequestContext request,ResponseContext response, Context context) throws Exception {
+		_handleActionZhuyao(request,response,context);
+	}
+	protected void _handleActionZhuyao(RequestContext request,ResponseContext response, Context context) throws Exception {
+	}
+	public void handleActionBeijian(RequestContext request,ResponseContext response, Context context) throws Exception {
+		_handleActionBeijian(request,response,context);
+	}
+	protected void _handleActionBeijian(RequestContext request,ResponseContext response, Context context) throws Exception {
+	}
+	public void handleActionXiangxi(RequestContext request,ResponseContext response, Context context) throws Exception {
+		_handleActionXiangxi(request,response,context);
+	}
+	protected void _handleActionXiangxi(RequestContext request,ResponseContext response, Context context) throws Exception {
+	}
 }

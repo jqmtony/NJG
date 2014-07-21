@@ -59,4 +59,7 @@ public interface EquIdController extends XRBillBaseController
     public void excel(Context ctx, EquIdInfo model) throws BOSException, RemoteException;
     public void excelFoced(Context ctx, EquIdInfo model) throws BOSException, RemoteException;
     public void excelEqu(Context ctx, EquIdInfo model) throws BOSException, RemoteException;
+    public void zhuyao(Context ctx, EquIdInfo model) throws BOSException, RemoteException;
+    public void beijian(Context ctx, EquIdInfo model) throws BOSException, RemoteException;
+    public void xiangxi(Context ctx, EquIdInfo model) throws BOSException, RemoteException;
 }

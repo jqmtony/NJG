@@ -644,6 +644,26 @@ public abstract class AbstractInsuranceDeclarationStateControllerBean extends XR
         }
     }
 
+    public void shengbao(Context ctx, InsuranceDeclarationStateInfo model) throws BOSException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("f3eebaff-1166-4b80-adfd-2843e036ecdc"), new Object[]{ctx, model});
+            invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
+            _shengbao(ctx, model);
+            }
+            invokeServiceAfter(svcCtx);
+        } catch (BOSException ex) {
+            throw ex;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected void _shengbao(Context ctx, IObjectValue model) throws BOSException
+    {    	
+        return;
+    }
+
     public XRBillBaseCollection getXRBillBaseCollection (Context ctx) throws BOSException
     {
     	return (XRBillBaseCollection)(getInsuranceDeclarationStateCollection(ctx).cast(XRBillBaseCollection.class));

@@ -48,4 +48,5 @@ public interface IInsuranceDeclarationState extends IXRBillBase
     public void updateBigObject(IObjectPK pk, InsuranceDeclarationStateInfo model) throws BOSException;
     public void updatePartial(InsuranceDeclarationStateInfo model, SelectorItemCollection selector) throws BOSException, EASBizException;
     public String getBindingProperty() throws BOSException;
+    public void shengbao(InsuranceDeclarationStateInfo model) throws BOSException;
 }

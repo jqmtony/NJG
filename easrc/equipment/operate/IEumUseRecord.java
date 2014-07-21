@@ -48,4 +48,5 @@ public interface IEumUseRecord extends IXRBillBase
     public void updateBigObject(IObjectPK pk, EumUseRecordInfo model) throws BOSException;
     public void updatePartial(EumUseRecordInfo model, SelectorItemCollection selector) throws BOSException, EASBizException;
     public String getBindingProperty() throws BOSException;
+    public void shiyong(EumUseRecordInfo model) throws BOSException;
 }

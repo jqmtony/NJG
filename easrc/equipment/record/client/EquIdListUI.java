@@ -797,6 +797,9 @@ public class EquIdListUI extends AbstractEquIdListUI
 		btnExcel.setIcon(EASResource.getIcon("imgTbtn_input"));
 		btnExcelFoced.setIcon(EASResource.getIcon("imgTbtn_dcdwj"));
 		btnExcelEqu.setIcon(EASResource.getIcon("imgTbtn_inputoutput"));
+		btnBeijian.setIcon(EASResource.getIcon("imgTbtn_inputoutput"));
+		btnZhuyao.setIcon(EASResource.getIcon("imgTbtn_inputoutput"));
+		btnXiangxi.setIcon(EASResource.getIcon("imgTbtn_inputoutput"));
 	}
 	
 	
@@ -1089,6 +1092,45 @@ public class EquIdListUI extends AbstractEquIdListUI
 		DatataskParameter param = new DatataskParameter();
 		param.solutionName = strSolutionName;
 		param.alias = btnExcelEqu.getText();
+		ArrayList paramList = new ArrayList();
+		paramList.add(param);
+		task.invoke(paramList, 0, true);
+	}
+	
+	public void actionZhuyao_actionPerformed(ActionEvent e) throws Exception {
+		super.actionZhuyao_actionPerformed(e);
+		String strSolutionName = "eas.equ.002";
+		DatataskCaller task = new DatataskCaller();
+		task.setParentComponent(this);
+		DatataskParameter param = new DatataskParameter();
+		param.solutionName = strSolutionName;
+		param.alias = btnZhuyao.getText();
+		ArrayList paramList = new ArrayList();
+		paramList.add(param);
+		task.invoke(paramList, 0, true);
+	}
+	
+	public void actionBeijian_actionPerformed(ActionEvent e) throws Exception {
+		super.actionBeijian_actionPerformed(e);
+		String strSolutionName = "eas.equ.003";
+		DatataskCaller task = new DatataskCaller();
+		task.setParentComponent(this);
+		DatataskParameter param = new DatataskParameter();
+		param.solutionName = strSolutionName;
+		param.alias = btnBeijian.getText();
+		ArrayList paramList = new ArrayList();
+		paramList.add(param);
+		task.invoke(paramList, 0, true);
+	}
+	
+	public void actionXiangxi_actionPerformed(ActionEvent e) throws Exception {
+		super.actionXiangxi_actionPerformed(e);
+		String strSolutionName = "eas.equ.004";
+		DatataskCaller task = new DatataskCaller();
+		task.setParentComponent(this);
+		DatataskParameter param = new DatataskParameter();
+		param.solutionName = strSolutionName;
+		param.alias = btnXiangxi.getText();
 		ArrayList paramList = new ArrayList();
 		paramList.add(param);
 		task.invoke(paramList, 0, true);

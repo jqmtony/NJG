@@ -77,6 +77,7 @@ public abstract class AbstractInsuranceDeclarationStateEditUI extends com.kingde
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkyear;
     protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txttotalAmountInsured;
     protected com.kingdee.eas.port.equipment.insurance.InsuranceDeclarationStateInfo editData = null;
+    protected ActionShengbao actionShengbao = null;
     /**
      * output class constructor
      */
@@ -126,6 +127,14 @@ public abstract class AbstractInsuranceDeclarationStateEditUI extends com.kingde
         actionUnAudit.putValue(ItemAction.NAME, _tempStr);
         this.actionUnAudit.setBindWorkFlow(true);
          this.actionUnAudit.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+        //actionShengbao
+        this.actionShengbao = new ActionShengbao(this);
+        getActionManager().registerAction("actionShengbao", actionShengbao);
+        this.actionShengbao.setExtendProperty("canForewarn", "true");
+        this.actionShengbao.setExtendProperty("userDefined", "true");
+        this.actionShengbao.setExtendProperty("isObjectUpdateLock", "false");
+         this.actionShengbao.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+         this.actionShengbao.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
         this.contCreator = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contCreateTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contLastUpdateUser = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -269,6 +278,14 @@ public abstract class AbstractInsuranceDeclarationStateEditUI extends com.kingde
 
 
         this.kdtE1.checkParsed();
+        KDFormattedTextField kdtE1_seq_TextField = new KDFormattedTextField();
+        kdtE1_seq_TextField.setName("kdtE1_seq_TextField");
+        kdtE1_seq_TextField.setVisible(true);
+        kdtE1_seq_TextField.setEditable(true);
+        kdtE1_seq_TextField.setHorizontalAlignment(2);
+        kdtE1_seq_TextField.setDataType(0);
+        KDTDefaultCellEditor kdtE1_seq_CellEditor = new KDTDefaultCellEditor(kdtE1_seq_TextField);
+        this.kdtE1.getColumn("seq").setEditor(kdtE1_seq_CellEditor);
         final KDBizPromptBox kdtE1_equNumber_PromptBox = new KDBizPromptBox();
         kdtE1_equNumber_PromptBox.setQueryInfo("com.kingdee.eas.port.equipment.record.app.EquIdQuery");
         kdtE1_equNumber_PromptBox.setVisible(true);
@@ -1015,6 +1032,15 @@ kdtE1.getCell(rowIndex,"factoryUseDate").setValue(com.kingdee.bos.ui.face.UIRule
     {
         super.actionUnAudit_actionPerformed(e);
     }
+    	
+
+    /**
+     * output actionShengbao_actionPerformed method
+     */
+    public void actionShengbao_actionPerformed(ActionEvent e) throws Exception
+    {
+        com.kingdee.eas.port.equipment.insurance.InsuranceDeclarationStateFactory.getRemoteInstance().shengbao(editData);
+    }
 	public RequestContext prepareActionSubmit(IItemAction itemAction) throws Exception {
 			RequestContext request = super.prepareActionSubmit(itemAction);		
 		if (request != null) {
@@ -1036,6 +1062,47 @@ kdtE1.getCell(rowIndex,"factoryUseDate").setValue(com.kingdee.bos.ui.face.UIRule
 	
 	public boolean isPrepareActionUnAudit() {
     	return false;
+    }
+	public RequestContext prepareActionShengbao(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionShengbao() {
+    	return false;
+    }
+
+    /**
+     * output ActionShengbao class
+     */     
+    protected class ActionShengbao extends ItemAction {     
+    
+        public ActionShengbao()
+        {
+            this(null);
+        }
+
+        public ActionShengbao(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            _tempStr = resHelper.getString("ActionShengbao.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionShengbao.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionShengbao.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractInsuranceDeclarationStateEditUI.this, "ActionShengbao", "actionShengbao_actionPerformed", e);
+        }
     }
 
     /**

@@ -465,4 +465,43 @@ public class EquId extends XRBillBase implements IEquId
             throw new EJBRemoteException(err);
         }
     }
+    /**
+     *引入主要技术参数-User defined method
+     *@param model model
+     */
+    public void zhuyao(EquIdInfo model) throws BOSException
+    {
+        try {
+            getController().zhuyao(getContext(), model);
+        }
+        catch(RemoteException err) {
+            throw new EJBRemoteException(err);
+        }
+    }
+    /**
+     *引入备件信息-User defined method
+     *@param model model
+     */
+    public void beijian(EquIdInfo model) throws BOSException
+    {
+        try {
+            getController().beijian(getContext(), model);
+        }
+        catch(RemoteException err) {
+            throw new EJBRemoteException(err);
+        }
+    }
+    /**
+     *引入详细技术参数-User defined method
+     *@param model model
+     */
+    public void xiangxi(EquIdInfo model) throws BOSException
+    {
+        try {
+            getController().xiangxi(getContext(), model);
+        }
+        catch(RemoteException err) {
+            throw new EJBRemoteException(err);
+        }
+    }
 }

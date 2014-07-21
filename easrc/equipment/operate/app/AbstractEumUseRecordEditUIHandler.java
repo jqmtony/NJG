@@ -14,4 +14,9 @@ import com.kingdee.eas.framework.batchHandler.ResponseContext;
 public abstract class AbstractEumUseRecordEditUIHandler extends com.kingdee.eas.xr.app.XRBillBaseEditUIHandler
 
 {
+	public void handleActionShiyong(RequestContext request,ResponseContext response, Context context) throws Exception {
+		_handleActionShiyong(request,response,context);
+	}
+	protected void _handleActionShiyong(RequestContext request,ResponseContext response, Context context) throws Exception {
+	}
 }

@@ -387,4 +387,17 @@ public class EumUseRecord extends XRBillBase implements IEumUseRecord
             throw new EJBRemoteException(err);
         }
     }
+    /**
+     *导入使用记录-User defined method
+     *@param model model
+     */
+    public void shiyong(EumUseRecordInfo model) throws BOSException
+    {
+        try {
+            getController().shiyong(getContext(), model);
+        }
+        catch(RemoteException err) {
+            throw new EJBRemoteException(err);
+        }
+    }
 }

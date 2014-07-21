@@ -14,4 +14,9 @@ import com.kingdee.eas.framework.batchHandler.ResponseContext;
 public abstract class AbstractInsuranceDeclarationStateEditUIHandler extends com.kingdee.eas.xr.app.XRBillBaseEditUIHandler
 
 {
+	public void handleActionShengbao(RequestContext request,ResponseContext response, Context context) throws Exception {
+		_handleActionShengbao(request,response,context);
+	}
+	protected void _handleActionShengbao(RequestContext request,ResponseContext response, Context context) throws Exception {
+	}
 }

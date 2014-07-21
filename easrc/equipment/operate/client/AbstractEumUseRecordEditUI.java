@@ -79,6 +79,7 @@ public abstract class AbstractEumUseRecordEditUI extends com.kingdee.eas.xr.clie
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtUseOrgUnit;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtreportTime;
     protected com.kingdee.eas.port.equipment.operate.EumUseRecordInfo editData = null;
+    protected ActionShiyong actionShiyong = null;
     /**
      * output class constructor
      */
@@ -128,6 +129,14 @@ public abstract class AbstractEumUseRecordEditUI extends com.kingdee.eas.xr.clie
         actionUnAudit.putValue(ItemAction.NAME, _tempStr);
         this.actionUnAudit.setBindWorkFlow(true);
          this.actionUnAudit.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+        //actionShiyong
+        this.actionShiyong = new ActionShiyong(this);
+        getActionManager().registerAction("actionShiyong", actionShiyong);
+        this.actionShiyong.setExtendProperty("canForewarn", "true");
+        this.actionShiyong.setExtendProperty("userDefined", "true");
+        this.actionShiyong.setExtendProperty("isObjectUpdateLock", "false");
+         this.actionShiyong.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+         this.actionShiyong.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
         this.contCreator = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contCreateTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contLastUpdateUser = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -1196,6 +1205,15 @@ vo.put("CostType","1");
     {
         super.actionUnAudit_actionPerformed(e);
     }
+    	
+
+    /**
+     * output actionShiyong_actionPerformed method
+     */
+    public void actionShiyong_actionPerformed(ActionEvent e) throws Exception
+    {
+        com.kingdee.eas.port.equipment.operate.EumUseRecordFactory.getRemoteInstance().shiyong(editData);
+    }
 	public RequestContext prepareActionSubmit(IItemAction itemAction) throws Exception {
 			RequestContext request = super.prepareActionSubmit(itemAction);		
 		if (request != null) {
@@ -1217,6 +1235,47 @@ vo.put("CostType","1");
 	
 	public boolean isPrepareActionUnAudit() {
     	return false;
+    }
+	public RequestContext prepareActionShiyong(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionShiyong() {
+    	return false;
+    }
+
+    /**
+     * output ActionShiyong class
+     */     
+    protected class ActionShiyong extends ItemAction {     
+    
+        public ActionShiyong()
+        {
+            this(null);
+        }
+
+        public ActionShiyong(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            _tempStr = resHelper.getString("ActionShiyong.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionShiyong.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionShiyong.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractEumUseRecordEditUI.this, "ActionShiyong", "actionShiyong_actionPerformed", e);
+        }
     }
 
     /**

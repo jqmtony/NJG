@@ -387,4 +387,17 @@ public class InsuranceDeclarationState extends XRBillBase implements IInsuranceD
             throw new EJBRemoteException(err);
         }
     }
+    /**
+     *导入保险申报明细-User defined method
+     *@param model model
+     */
+    public void shengbao(InsuranceDeclarationStateInfo model) throws BOSException
+    {
+        try {
+            getController().shengbao(getContext(), model);
+        }
+        catch(RemoteException err) {
+            throw new EJBRemoteException(err);
+        }
+    }
 }

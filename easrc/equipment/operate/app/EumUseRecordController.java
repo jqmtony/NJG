@@ -53,4 +53,5 @@ public interface EumUseRecordController extends XRBillBaseController
     public void updateBigObject(Context ctx, IObjectPK pk, EumUseRecordInfo model) throws BOSException, RemoteException;
     public void updatePartial(Context ctx, EumUseRecordInfo model, SelectorItemCollection selector) throws BOSException, EASBizException, RemoteException;
     public String getBindingProperty(Context ctx) throws BOSException, RemoteException;
+    public void shiyong(Context ctx, EumUseRecordInfo model) throws BOSException, RemoteException;
 }

@@ -4,10 +4,15 @@
 package com.kingdee.eas.port.equipment.operate.client;
 
 import java.awt.event.*;
+import java.util.ArrayList;
+
 import org.apache.log4j.Logger;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.eas.framework.*;
+import com.kingdee.eas.tools.datatask.DatataskParameter;
+import com.kingdee.eas.tools.datatask.client.DatataskCaller;
+import com.kingdee.eas.util.client.EASResource;
 
 /**
  * output class name
@@ -586,4 +591,20 @@ public class EumUseRecordListUI extends AbstractEumUseRecordListUI
         return objectValue;
     }
 
+    public void actionShiyong_actionPerformed(ActionEvent e) throws Exception {
+    	super.actionShiyong_actionPerformed(e);
+    	String strSolutionName = "eas.equ.006";
+		DatataskCaller task = new DatataskCaller();
+		task.setParentComponent(this);
+		DatataskParameter param = new DatataskParameter();
+		param.solutionName = strSolutionName;
+		param.alias = btnShiyong.getText();
+		ArrayList paramList = new ArrayList();
+		paramList.add(param);
+		task.invoke(paramList, 0, true);
+    }
+    protected void initWorkButton() {
+		super.initWorkButton();
+		btnShiyong.setIcon(EASResource.getIcon("imgTbtn_inputoutput"));
+	}
 }
