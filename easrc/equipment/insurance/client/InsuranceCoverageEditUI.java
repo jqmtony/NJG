@@ -801,7 +801,6 @@ this.prmtinsurance.setEnabledMultiSelection(true);
 	public void onLoad() throws Exception {
 		 this.kdtE1.getColumn("seq").getStyleAttributes().setHided(true);
 		 this.kdtE1.getColumn("useUnit").getStyleAttributes().setLocked(true);
-		 txtNumber.setEnabled(false);
 		super.onLoad();
 		
 		this.kDContainer1.setTitle("保险投保明细");

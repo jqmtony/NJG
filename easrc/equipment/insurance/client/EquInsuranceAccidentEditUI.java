@@ -36,6 +36,7 @@ import com.kingdee.eas.xr.helper.XRSQLBuilder;
 import com.kingdee.jdbc.rowset.IRowSet;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.swing.KDTextField;
+import com.kingdee.bos.ctrl.swing.event.DataChangeEvent;
 
 /**
  * output class name
@@ -760,7 +761,7 @@ this.prmtinsurance.setEnabledMultiSelection(true);
 	}
 
 	public void onLoad() throws Exception {
-		prmtpolicyNumber.setEnabled(false);
+//		prmtpolicyNumber.setEnabled(false);
 		prmtinsuranceCompany.setEnabled(false);
 		prmtinsurance.setEnabled(false);
 		txtequName.setEnabled(false);
@@ -778,6 +779,7 @@ this.prmtinsurance.setEnabledMultiSelection(true);
 			 prmtCU.setValue(SysContext.getSysContext().getCurrentCtrlUnit());
 		 }
 		 prmtequNumber.setRequired(true);
+		 prmtpolicyNumber.setRequired(true);
 	}
 	
 	public void prmtequNumber_Changed() throws Exception {
@@ -798,46 +800,53 @@ this.prmtinsurance.setEnabledMultiSelection(true);
 			 IRowSet rowSet = new XRSQLBuilder().appendSql(sb.toString()).executeQuery();
 			 while (rowSet.next()) {
 				 String id1 = rowSet.getString("fid");//保险投保明细表ID
+//				 if(id1 != null){
+//					 InsuranceCoverageInfo icInfo = InsuranceCoverageFactory.getRemoteInstance().getInsuranceCoverageInfo(new ObjectUuidPK(id1));
+//					 prmtpolicyNumber.setValue(icInfo);
+//				 }else{
+//					 prmtpolicyNumber.setValue(null);
+//				 }
 				 if(id1 != null){
-					 InsuranceCoverageInfo icInfo = InsuranceCoverageFactory.getRemoteInstance().getInsuranceCoverageInfo(new ObjectUuidPK(id1));
-					 prmtpolicyNumber.setValue(icInfo);
-				 }else{
-					 prmtpolicyNumber.setValue(null);
+					 EntityViewInfo evi = new EntityViewInfo();
+					 FilterInfo filter = new FilterInfo();
+					 filter.getFilterItems().add(new FilterItemInfo("id",id1 ,CompareType.EQUALS));
+					 evi.setFilter(filter);
+					 prmtpolicyNumber.setEntityViewInfo(evi);
 				 }
-				 String id2 = rowSet.getString("CFInsurancecompany");//保险公司ID
-				 if(id2 != null){
-					 InsuranceCompanyInfo iscInfo = InsuranceCompanyFactory.getRemoteInstance().getInsuranceCompanyInfo(new ObjectUuidPK(id2));
-					 prmtinsuranceCompany.setValue(iscInfo);
-				 }else{
-					 prmtinsuranceCompany.setValue(null);
-				 }
-				 String id3 = rowSet.getString("cfxianzhongid");//险种
-				 if(id3 != null){
-					 txtxianzhongID.setText(id3);
-				 }
-				
-					if(UIRuleUtil.isNotNull(this.txtxianzhongID.getText()))
-			        {
-			        	String spicId[] = (this.txtxianzhongID.getText().trim()).split("&");
-			        	try {
-			        		IInsurance IInsurance = InsuranceFactory.getRemoteInstance();
-			        		
-			        		InsuranceInfo objValue[] = new InsuranceInfo[spicId.length];
-			        		
-							for (int i = 0; i < spicId.length; i++) 
-							{
-								String oql ="select id,name,number where id='"+spicId[i]+"'";
-								objValue[i] = IInsurance.getInsuranceInfo(oql);
-							}
-							this.prmtinsurance.setValue(objValue);
-						} catch (BOSException e) {
-							e.printStackTrace();
-						} catch (EASBizException e) {
-							e.printStackTrace();
-						}
-			        }else{
-			        	this.prmtinsurance.setValue(null);
-			        }
+//					String id2 = rowSet.getString("CFInsurancecompany");//保险公司ID
+//				 if(id2 != null){
+//					 InsuranceCompanyInfo iscInfo = InsuranceCompanyFactory.getRemoteInstance().getInsuranceCompanyInfo(new ObjectUuidPK(id2));
+//					 prmtinsuranceCompany.setValue(iscInfo);
+//				 }else{
+//					 prmtinsuranceCompany.setValue(null);
+//				 }
+//				 String id3 = rowSet.getString("cfxianzhongid");//险种
+//				 if(id3 != null){
+//					 txtxianzhongID.setText(id3);
+//				 }
+//				
+//					if(UIRuleUtil.isNotNull(this.txtxianzhongID.getText()))
+//			        {
+//			        	String spicId[] = (this.txtxianzhongID.getText().trim()).split("&");
+//			        	try {
+//			        		IInsurance IInsurance = InsuranceFactory.getRemoteInstance();
+//			        		
+//			        		InsuranceInfo objValue[] = new InsuranceInfo[spicId.length];
+//			        		
+//							for (int i = 0; i < spicId.length; i++) 
+//							{
+//								String oql ="select id,name,number where id='"+spicId[i]+"'";
+//								objValue[i] = IInsurance.getInsuranceInfo(oql);
+//							}
+//							this.prmtinsurance.setValue(objValue);
+//						} catch (BOSException e) {
+//							e.printStackTrace();
+//						} catch (EASBizException e) {
+//							e.printStackTrace();
+//						}
+//			        }else{
+//			        	this.prmtinsurance.setValue(null);
+//			        }
 				 
 			 }
 		}else{
@@ -847,9 +856,44 @@ this.prmtinsurance.setEnabledMultiSelection(true);
 		}
 	}
 	
+	protected void prmtpolicyNumber_dataChanged(DataChangeEvent e)throws Exception {
+		super.prmtpolicyNumber_dataChanged(e);
+			if(prmtpolicyNumber.getValue() != null){
+				String idpo = ((InsuranceCoverageInfo)prmtpolicyNumber.getData()).getId().toString();
+				InsuranceCoverageInfo isInfo = InsuranceCoverageFactory.getRemoteInstance().getInsuranceCoverageInfo(new ObjectUuidPK(idpo));
+				if(isInfo.getXianzhongID() != null){
+					String spicId[] = (isInfo.getXianzhongID().trim()).split("&");
+		        		IInsurance IInsurance = InsuranceFactory.getRemoteInstance();
+		        		InsuranceInfo objValue[] = new InsuranceInfo[spicId.length];
+						for (int i = 0; i < spicId.length; i++) 
+						{
+							String oql ="select id,name,number where id='"+spicId[i]+"'";
+							objValue[i] = IInsurance.getInsuranceInfo(oql);
+						}
+						this.prmtinsurance.setValue(objValue);
+				}else{
+					prmtinsurance.setValue(null);
+				}
+				
+				if(isInfo.getInsuranceCompany() != null){
+					String idbx = ((InsuranceCompanyInfo)isInfo.getInsuranceCompany()).getId().toString();
+					InsuranceCompanyInfo incomInfo = InsuranceCompanyFactory.getRemoteInstance().getInsuranceCompanyInfo(new ObjectUuidPK(idbx));
+					prmtinsuranceCompany.setValue(incomInfo);
+				}else{
+					prmtinsuranceCompany.setValue(null);
+				}
+			}else{
+				prmtinsurance.setValue(null);
+				prmtinsuranceCompany.setValue(null);
+			}
+	}
+	
 	protected void verifyInput(ActionEvent e) throws Exception {
 		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(prmtequNumber.getValue())) {
 			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"设备编号"});
+		}
+		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(prmtpolicyNumber.getValue())) {
+			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"保单号"});
 		}
 		super.verifyInput(e);
 	}

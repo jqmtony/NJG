@@ -1592,6 +1592,15 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 			sic.add(new SelectorItemInfo("assetStatus.name"));
 			sic.add(new SelectorItemInfo("assetStatus.isDefault"));
 		}
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("specialType.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("specialType.id"));
+        	sic.add(new SelectorItemInfo("specialType.number"));
+        	sic.add(new SelectorItemInfo("specialType.name"));
+		}
 		sic.add(new SelectorItemInfo("assetValue"));
 		sic.add(new SelectorItemInfo("installCost"));
 		sic.add(new SelectorItemInfo("TechnologyPar.seq"));

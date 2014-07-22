@@ -416,6 +416,16 @@ public abstract class AbstractEquInsuranceAccidentEditUI extends com.kingdee.eas
         this.prmtpolicyNumber.setEditFormat("$number$");		
         this.prmtpolicyNumber.setCommitFormat("$number$");		
         this.prmtpolicyNumber.setRequired(false);
+        this.prmtpolicyNumber.addDataChangeListener(new com.kingdee.bos.ctrl.swing.event.DataChangeListener() {
+            public void dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) {
+                try {
+                    prmtpolicyNumber_dataChanged(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                }
+            }
+        });
         // prmtinsurance		
         this.prmtinsurance.setQueryInfo("com.kingdee.eas.port.equipment.base.app.InsuranceQuery");		
         this.prmtinsurance.setVisible(true);		
@@ -943,6 +953,13 @@ public abstract class AbstractEquInsuranceAccidentEditUI extends com.kingdee.eas
         } else if (STATUS_VIEW.equals(this.oprtState)) {
         } else if (STATUS_FINDVIEW.equals(this.oprtState)) {
         }
+    }
+
+    /**
+     * output prmtpolicyNumber_dataChanged method
+     */
+    protected void prmtpolicyNumber_dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) throws Exception
+    {
     }
 
 
