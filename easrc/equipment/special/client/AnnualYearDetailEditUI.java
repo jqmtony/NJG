@@ -974,6 +974,9 @@ public class AnnualYearDetailEditUI extends AbstractAnnualYearDetailEditUI
 						aeCollection.get(i).setActualDate(editData.getBizDate());
 						AnnualYearPlanEntryFactory.getRemoteInstance().update(new ObjectUuidPK(aeCollection.get(i).getId()), aeCollection.get(i));
 					}
+					EquIdInfo eiInfo = EquIdFactory.getRemoteInstance().getEquIdInfo(new ObjectUuidPK(id1));
+					eiInfo.setActrueTime(editData.getBizDate());
+					EquIdFactory.getRemoteInstance().update(new ObjectUuidPK(eiInfo.getId()), eiInfo);
 				}
 				
 			}
@@ -996,7 +999,26 @@ public class AnnualYearDetailEditUI extends AbstractAnnualYearDetailEditUI
 		storeFields();
 		editData.setStatus(XRBillStatusEnum.RELEASED);
 		AnnualYearDetailFactory.getRemoteInstance().update(new ObjectUuidPK(editData.getId()), editData);
-		
+		if(getUIContext().get("SId")!=null){
+			for (int j = 0; j < kdtEntry.getRowCount(); j++) {
+				String id3 = (String) getUIContext().get("SId");
+				AnnualYearPlanInfo annInfo = AnnualYearPlanFactory.getRemoteInstance().getAnnualYearPlanInfo(new ObjectUuidPK(id3));
+				AnnualYearPlanEntryCollection aeCollection = 	AnnualYearPlanEntryFactory.getRemoteInstance().getAnnualYearPlanEntryCollection("where parent = '"+annInfo.getId()+"'");
+				for(int i=0;i<aeCollection.size();i++){
+					String id1 = ((EquIdInfo)aeCollection.get(i).getZdaNumber()).getId().toString();
+					String id2 =  ((EquIdInfo)kdtEntry.getCell(j, "zdaNumber").getValue()).getId().toString();
+					if(id1.equals(id2)){
+						aeCollection.get(i).setActualDate(null);
+						AnnualYearPlanEntryFactory.getRemoteInstance().update(new ObjectUuidPK(aeCollection.get(i).getId()), aeCollection.get(i));
+					}
+					EquIdInfo eiInfo = EquIdFactory.getRemoteInstance().getEquIdInfo(new ObjectUuidPK(id1));
+					eiInfo.setActrueTime(null);
+					EquIdFactory.getRemoteInstance().update(new ObjectUuidPK(eiInfo.getId()), eiInfo);
+				}
+				
+			}
+	    
+	    }
 		this.setOprtState("EDIT");
 		loadData();
 		unLockUI();

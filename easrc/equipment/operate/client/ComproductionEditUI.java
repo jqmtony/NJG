@@ -38,6 +38,7 @@ import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
+import com.kingdee.eas.basedata.person.PersonInfo;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.port.equipment.operate.ComproductionInfo;
@@ -46,6 +47,7 @@ import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
 import com.kingdee.eas.xr.app.XRBillStatusEnum;
+import com.kingdee.eas.xr.helper.PersonXRHelper;
 import com.kingdee.eas.xr.helper.Tool;
 import com.kingdee.eas.xr.helper.XRSQLBuilder;
 import com.kingdee.eas.xr.helper.common.FDCUIWeightWorker;
@@ -89,6 +91,12 @@ public class ComproductionEditUI extends AbstractComproductionEditUI {
 		for (int i = 0; i < 2; i++) {
 			 if(this.kdtEntrys.getRowCount()>=2){
 				 this.kdtEntrys.getCell(i, "stagePerformance").getStyleAttributes().setBackground(a);
+			 }
+		}
+		for (int i = 0; i < 10; i++) {
+			 if(this.kdtEntrys.getRowCount()>=10){
+				 this.kdtEntrys.getCell(i, "samePerformance").getStyleAttributes().setBackground(a);
+				 this.kdtEntrys.getCell(i, "samePeriod").getStyleAttributes().setBackground(a);
 			 }
 		}
 		for (int i = 2; i < 9; i++) {
@@ -1011,6 +1019,7 @@ public class ComproductionEditUI extends AbstractComproductionEditUI {
 				IRow.getCell("project1").setValue(cleName[i]);
 			}
 			this.prmtreportingUnit.setValue(SysContext.getSysContext().getCurrentAdminUnit());
+			this.prmtCreator.setValue(SysContext.getSysContext().getCurrentUserInfo().getPerson());
 			setEntry();
 			setSumEntry();
 		}
