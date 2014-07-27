@@ -110,6 +110,7 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
     protected com.kingdee.bos.ctrl.swing.KDCheckBox chkisMainEqm;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contNumber;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer conparent;
+    protected com.kingdee.bos.ctrl.swing.KDCheckBox chkisbaoxian;
     protected com.kingdee.bos.ctrl.swing.KDTextArea txtsbDescription;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtname;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtssOrgUnit;
@@ -403,6 +404,7 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.chkisMainEqm = new com.kingdee.bos.ctrl.swing.KDCheckBox();
         this.contNumber = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.conparent = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.chkisbaoxian = new com.kingdee.bos.ctrl.swing.KDCheckBox();
         this.txtsbDescription = new com.kingdee.bos.ctrl.swing.KDTextArea();
         this.txtname = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.prmtssOrgUnit = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
@@ -559,6 +561,7 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.chkisMainEqm.setName("chkisMainEqm");
         this.contNumber.setName("contNumber");
         this.conparent.setName("conparent");
+        this.chkisbaoxian.setName("chkisbaoxian");
         this.txtsbDescription.setName("txtsbDescription");
         this.txtname.setName("txtname");
         this.prmtssOrgUnit.setName("prmtssOrgUnit");
@@ -926,6 +929,10 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.conparent.setBoundLabelLength(100);		
         this.conparent.setBoundLabelUnderline(true);		
         this.conparent.setVisible(true);
+        // chkisbaoxian		
+        this.chkisbaoxian.setText(resHelper.getString("chkisbaoxian.text"));		
+        this.chkisbaoxian.setVisible(true);		
+        this.chkisbaoxian.setHorizontalAlignment(2);
         // txtsbDescription		
         this.txtsbDescription.setVisible(true);		
         this.txtsbDescription.setRequired(false);		
@@ -1622,7 +1629,7 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         // btnRegistChange
         this.btnRegistChange.setAction((IItemAction)ActionProxyFactory.getProxy(actionRegistChange, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnRegistChange.setText(resHelper.getString("btnRegistChange.text"));
-        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmtCU,pkLastUpdateTime,prmtLastUpdateUser,pkCreateTime,prmtCreator,prmtAuditor,txtDescription,pkBizDate,pkAuditTime,comboBizStatus,comboStatus,kdtTechnologyPar,combosbStatus,txtinnerNumber,combonowStatus,txtzzsShortName,chkcityTest,chkportTest,txttzdaNumber,tzsbStatus,prmtasset,prmtassetStatus,txtassetValue,txtinstallCost,chkisMainEqm,txtEqmCategory,pktextDate1,pkdayone,pkdaytow,txttelePhoneNumber,pkactrueTime,txtresponsible,txtinStreet,prmttextType,prmtequTypeone}));
+        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmtCU,pkLastUpdateTime,prmtLastUpdateUser,pkCreateTime,prmtCreator,prmtAuditor,txtDescription,pkBizDate,pkAuditTime,comboBizStatus,comboStatus,kdtTechnologyPar,combosbStatus,txtinnerNumber,combonowStatus,txtzzsShortName,chkcityTest,chkportTest,txttzdaNumber,tzsbStatus,prmtasset,prmtassetStatus,txtassetValue,txtinstallCost,chkisMainEqm,txtEqmCategory,pktextDate1,pkdayone,pkdaytow,txttelePhoneNumber,pkactrueTime,txtresponsible,txtinStreet,prmttextType,prmtequTypeone,chkisbaoxian}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
 		registerBindings();
@@ -1774,6 +1781,8 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         kDPanel8.add(contNumber, new KDLayout.Constraints(11, 13, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         conparent.setBounds(new Rectangle(355, 118, 267, 19));
         kDPanel8.add(conparent, new KDLayout.Constraints(355, 118, 267, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        chkisbaoxian.setBounds(new Rectangle(699, 139, 270, 19));
+        kDPanel8.add(chkisbaoxian, new KDLayout.Constraints(699, 139, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         //consbDescription
         consbDescription.setBoundEditor(txtsbDescription);
         //conname
@@ -2160,6 +2169,7 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
 		dataBinder.registerBinding("auditTime", java.sql.Timestamp.class, this.pkAuditTime, "value");
 		dataBinder.registerBinding("special", boolean.class, this.chkspecial, "selected");
 		dataBinder.registerBinding("isMainEqm", boolean.class, this.chkisMainEqm, "selected");
+		dataBinder.registerBinding("isbaoxian", boolean.class, this.chkisbaoxian, "selected");
 		dataBinder.registerBinding("sbDescription", String.class, this.txtsbDescription, "text");
 		dataBinder.registerBinding("name", String.class, this.txtname, "text");
 		dataBinder.registerBinding("ssOrgUnit", com.kingdee.eas.basedata.org.AdminOrgUnitInfo.class, this.prmtssOrgUnit, "data");
@@ -2393,6 +2403,7 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
 		getValidateHelper().registerBindProperty("auditTime", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("special", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("isMainEqm", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("isbaoxian", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("sbDescription", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("name", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("ssOrgUnit", ValidateHelper.ON_SAVE);    
@@ -2604,6 +2615,7 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
         sic.add(new SelectorItemInfo("auditTime"));
         sic.add(new SelectorItemInfo("special"));
         sic.add(new SelectorItemInfo("isMainEqm"));
+        sic.add(new SelectorItemInfo("isbaoxian"));
         sic.add(new SelectorItemInfo("sbDescription"));
         sic.add(new SelectorItemInfo("name"));
 		if(selectorAll.equalsIgnoreCase("true"))

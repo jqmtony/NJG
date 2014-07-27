@@ -795,6 +795,17 @@ public class AbstractEquIdInfo extends com.kingdee.eas.xr.XRBillBaseInfo impleme
     {
         return (com.kingdee.eas.port.equipment.record.EquIdE3Collection)get("E3");
     }
+    /**
+     * Object:设备档案's 是否参加保险property 
+     */
+    public boolean isIsbaoxian()
+    {
+        return getBoolean("isbaoxian");
+    }
+    public void setIsbaoxian(boolean item)
+    {
+        setBoolean("isbaoxian", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("0ED4BEC2");

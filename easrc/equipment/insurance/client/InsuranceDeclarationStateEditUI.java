@@ -26,6 +26,7 @@ import com.kingdee.eas.framework.*;
 import com.kingdee.eas.port.equipment.base.enumbase.sbStatusType;
 import com.kingdee.eas.port.equipment.record.EquIdFactory;
 import com.kingdee.eas.port.equipment.record.EquIdInfo;
+import com.kingdee.eas.port.equipment.record.IEquId;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.MsgBox;
 import com.kingdee.eas.xr.app.XRBillStatusEnum;
@@ -33,6 +34,7 @@ import com.kingdee.eas.xr.helper.Tool;
 import com.kingdee.eas.xr.helper.XRSQLBuilder;
 import com.kingdee.jdbc.rowset.IRowSet;
 import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
+import com.kingdee.bos.ctrl.kdf.table.IRow;
 import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.swing.KDTextField;
@@ -722,6 +724,33 @@ public class InsuranceDeclarationStateEditUI extends AbstractInsuranceDeclaratio
     	if (OprtState.ADDNEW.equals(getOprtState())) {
     		this.prmtCU.setValue(SysContext.getSysContext().getCurrentCtrlUnit());
     		pkBizDate.setValue(new Date());
+    		String id = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
+			StringBuffer sb = new StringBuffer();
+			sb.append("/*dialect*/select");
+			sb.append(" a.fid 设备编号,b.fname_l2 设备类型,a.CFName 设备名称,a.CFInnerNumber 厂内编号,a.CFModel 规格型号,");
+			sb.append(" a.CFQyDate 投用日期,a.CFMader 制造商,a.CFWeight 重量,a.CFAssetValue 原值");
+			sb.append(" from CT_REC_EquId a");
+			sb.append(" left join T_FA_Cat b on a.CFEqmTypeID = b.fid");
+			sb.append(" where a.cfsbstatus = '1'");
+			sb.append(" and a.CFIsbaoxian = '1'");
+			sb.append(" and a.CFSsOrgUnitID = '"+id+"'");
+			IRowSet rowSet = new XRSQLBuilder().appendSql(sb.toString()).executeQuery();
+			this.kdtE1.removeRows();
+			IEquId iEquId = EquIdFactory.getRemoteInstance();
+			while (rowSet.next()) {
+				IRow row = this.kdtE1.addRow();
+				EquIdInfo equInfo = iEquId.getEquIdInfo(new ObjectUuidPK(rowSet.getString("设备编号")));
+				row.getCell("equNumber").setValue(equInfo);
+				row.getCell("equType").setValue(rowSet.getString("设备类型"));
+				row.getCell("equName").setValue(rowSet.getString("设备名称"));
+				row.getCell("userEquNumber").setValue(rowSet.getString("厂内编号"));
+				row.getCell("specModel").setValue(rowSet.getString("规格型号"));
+				row.getCell("factoryUseDate").setValue(rowSet.getDate("投用日期"));
+				row.getCell("makeUnit").setValue(rowSet.getString("制造商"));
+				row.getCell("tonnage").setValue(rowSet.getString("重量"));
+				row.getCell("originalValue").setValue(rowSet.getBigDecimal("原值"));
+				
+			}
     	}
     	//过滤不是已报废的设备
     	 KDBizPromptBox kdtE1_equNumber_PromptBox = new KDBizPromptBox();
