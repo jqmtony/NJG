@@ -2681,6 +2681,37 @@
                 <key name="name" value="EquIdQuery" />
             </query>
         </queryField>
+        <queryField>
+            <name>isbaoxian</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.record.app.EquIdQuery].units.queryField[isbaoxian].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Boolean</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>c588ee2d-d2fe-4960-b203-3a447bb5ddac</key>
+                    <parentUnit>
+                        <key name="name" value="isbaoxian" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="EquId" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="isbaoxian" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.record.app" />
+                <key name="name" value="EquIdQuery" />
+            </query>
+        </queryField>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -3878,6 +3909,22 @@
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.record.app.EquIdQuery].units.queryField[innerNumber].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.record.app.EquIdQuery].units.queryField[isbaoxian].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否参加保险" />
+            <lang locale="zh_HK" value="是否參加保險" />
+            <lang locale="zh_TW" value="是否參加保險" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.record.app.EquIdQuery].units.queryField[isbaoxian].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.record.app.EquIdQuery].units.queryField[isbaoxian].extendedProperty.isCommonQuerySorter">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />

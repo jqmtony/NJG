@@ -2938,6 +2938,61 @@
             </parent>
         </component>
         <component>
+            <name>chkisbaoxian</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[chkisbaoxian].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDCheckBox</classType>
+            <isContainer>false</isContainer>
+            <constraints>699,139,270,19,137</constraints>
+            <tabIndex>88</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>text</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[chkisbaoxian].properties.property[text].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[chkisbaoxian].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>horizontalAlignment</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[chkisbaoxian].properties.property[horizontalAlignment].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="kDPanel8" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>selected</propertyName>
+                    <propertyType>boolean</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>isbaoxian</bindingField>
+                    <fieldType>boolean</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
+        <component>
             <name>txtsbDescription</name>
             <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtsbDescription].alias</alias>
             <userDefined>true</userDefined>
@@ -9792,11 +9847,9 @@
             <herited>false</herited>
             <daemonRun>false</daemonRun>
             <actionExtendProperty>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;ExtendProperty&gt;&lt;item key="canForewarn" value="true" /&gt;&lt;item key="userDefined" value="true" /&gt;&lt;item key="isObjectUpdateLock" value="false" /&gt;&lt;/ExtendProperty&gt;
-</actionExtendProperty>
+&lt;ExtendProperty&gt;&lt;item key="canForewarn" value="true" /&gt;&lt;item key="userDefined" value="true" /&gt;&lt;item key="isObjectUpdateLock" value="false" /&gt;&lt;/ExtendProperty&gt;</actionExtendProperty>
             <services>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;root&gt;&lt;service class="com.kingdee.eas.framework.client.service.PermissionService" /&gt;&lt;service class="com.kingdee.eas.framework.client.service.ForewarnService" /&gt;&lt;/root&gt;
-</services>
+&lt;root&gt;&lt;service class="com.kingdee.eas.framework.client.service.PermissionService" /&gt;&lt;service class="com.kingdee.eas.framework.client.service.ForewarnService" /&gt;&lt;/root&gt;</services>
             <userDefined>true</userDefined>
             <userDefinedLogic />
             <oprtIntent />
@@ -9825,11 +9878,9 @@
             <herited>false</herited>
             <daemonRun>false</daemonRun>
             <actionExtendProperty>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;ExtendProperty&gt;&lt;item key="canForewarn" value="true" /&gt;&lt;item key="userDefined" value="true" /&gt;&lt;item key="isObjectUpdateLock" value="false" /&gt;&lt;/ExtendProperty&gt;
-</actionExtendProperty>
+&lt;ExtendProperty&gt;&lt;item key="canForewarn" value="true" /&gt;&lt;item key="userDefined" value="true" /&gt;&lt;item key="isObjectUpdateLock" value="false" /&gt;&lt;/ExtendProperty&gt;</actionExtendProperty>
             <services>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;root&gt;&lt;service class="com.kingdee.eas.framework.client.service.PermissionService" /&gt;&lt;service class="com.kingdee.eas.framework.client.service.ForewarnService" /&gt;&lt;/root&gt;
-</services>
+&lt;root&gt;&lt;service class="com.kingdee.eas.framework.client.service.PermissionService" /&gt;&lt;service class="com.kingdee.eas.framework.client.service.ForewarnService" /&gt;&lt;/root&gt;</services>
             <userDefined>true</userDefined>
             <userDefinedLogic />
             <oprtIntent />
@@ -9858,11 +9909,9 @@
             <herited>false</herited>
             <daemonRun>false</daemonRun>
             <actionExtendProperty>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;ExtendProperty&gt;&lt;item key="canForewarn" value="true" /&gt;&lt;item key="userDefined" value="true" /&gt;&lt;item key="isObjectUpdateLock" value="false" /&gt;&lt;/ExtendProperty&gt;
-</actionExtendProperty>
+&lt;ExtendProperty&gt;&lt;item key="canForewarn" value="true" /&gt;&lt;item key="userDefined" value="true" /&gt;&lt;item key="isObjectUpdateLock" value="false" /&gt;&lt;/ExtendProperty&gt;</actionExtendProperty>
             <services>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;root&gt;&lt;service class="com.kingdee.eas.framework.client.service.PermissionService" /&gt;&lt;service class="com.kingdee.eas.framework.client.service.ForewarnService" /&gt;&lt;/root&gt;
-</services>
+&lt;root&gt;&lt;service class="com.kingdee.eas.framework.client.service.PermissionService" /&gt;&lt;service class="com.kingdee.eas.framework.client.service.ForewarnService" /&gt;&lt;/root&gt;</services>
             <userDefined>true</userDefined>
             <userDefinedLogic />
             <oprtIntent />
@@ -10469,6 +10518,30 @@
             <lang locale="zh_TW" value="主要設備" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[chkisMainEqm].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[chkisbaoxian].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否参加保险" />
+            <lang locale="zh_HK" value="是否參加保險" />
+            <lang locale="zh_TW" value="是否參加保險" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[chkisbaoxian].properties.property[horizontalAlignment].value">
+            <lang locale="en_US" value="2" />
+            <lang locale="zh_CN" value="2" />
+            <lang locale="zh_HK" value="2" />
+            <lang locale="zh_TW" value="2" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[chkisbaoxian].properties.property[text].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否参加保险" />
+            <lang locale="zh_HK" value="是否參加保險" />
+            <lang locale="zh_TW" value="是否參加保險" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[chkisbaoxian].properties.property[visible].value">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_HK" value="true" />
