@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataTable xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.port.pm.invest.investplan.app</package>
+    <name>CT_INV_ProgrammingTEPE</name>
+    <alias>dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingTEPE].alias</alias>
+    <description>dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingTEPE].description</description>
+    <userDefined>true</userDefined>
+    <bizUnitPK />
+    <columns>
+        <column>
+            <name>FScale</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingTEPE].columns.column[FScale].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingTEPE].columns.column[FScale].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NUMERIC</sqlType>
+            <length>0</length>
+            <scale>0</scale>
+            <precision>21</precision>
+        </column>
+        <column>
+            <name>FCondition</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingTEPE].columns.column[FCondition].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingTEPE].columns.column[FCondition].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>80</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FDescription</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingTEPE].columns.column[FDescription].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingTEPE].columns.column[FDescription].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>80</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FPaymentTypeID</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingTEPE].columns.column[FPaymentTypeID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingTEPE].columns.column[FPaymentTypeID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FID</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingTEPE].columns.column[FID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingTEPE].columns.column[FID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue>''</defaultValue>
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FParentID</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingTEPE].columns.column[FParentID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingTEPE].columns.column[FParentID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+    </columns>
+    <primaryKey>
+        <name>CPK_INV_PrgrmTE8u</name>
+        <userDefined>true</userDefined>
+        <primaryKeyColumns>
+            <primaryKeyColumn>
+                <indexID>0</indexID>
+                <sortType>ASC</sortType>
+                <column>
+                    <key name="name" value="FID" />
+                </column>
+            </primaryKeyColumn>
+        </primaryKeyColumns>
+    </primaryKey>
+    <foreignKeys>
+        <foreignKey>
+            <name>CFK_INV_INVPTEPE8u</name>
+            <userDefined>true</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="T_FDC_PaymentType" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="FPaymentTypeID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
+    </foreignKeys>
+    <resource>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingTEPE].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="经济条款" />
+            <lang locale="zh_HK" value="經濟條款" />
+            <lang locale="zh_TW" value="經濟條款" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingTEPE].columns.column[FCondition].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingTEPE].columns.column[FCondition].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="付款条件" />
+            <lang locale="zh_HK" value="付款條件" />
+            <lang locale="zh_TW" value="付款條件" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingTEPE].columns.column[FDescription].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingTEPE].columns.column[FDescription].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="备注" />
+            <lang locale="zh_HK" value="備註" />
+            <lang locale="zh_TW" value="備註" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingTEPE].columns.column[FID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingTEPE].columns.column[FID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingTEPE].columns.column[FParentID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合约框架模板分录" />
+            <lang locale="zh_HK" value="合約框架範本分錄" />
+            <lang locale="zh_TW" value="合約框架範本分錄" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingTEPE].columns.column[FParentID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合约框架模板分录" />
+            <lang locale="zh_HK" value="合約框架範本分錄" />
+            <lang locale="zh_TW" value="合約框架範本分錄" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingTEPE].columns.column[FPaymentTypeID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingTEPE].columns.column[FPaymentTypeID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="付款类型" />
+            <lang locale="zh_HK" value="付款類型" />
+            <lang locale="zh_TW" value="付款類型" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingTEPE].columns.column[FScale].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingTEPE].columns.column[FScale].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="付款比例" />
+            <lang locale="zh_HK" value="付款比例" />
+            <lang locale="zh_TW" value="付款比例" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingTEPE].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合约框架模板分录经济条款" />
+            <lang locale="zh_HK" value="合約框架範本分錄經濟條款" />
+            <lang locale="zh_TW" value="合約框架範本分錄經濟條款" />
+        </rs>
+    </resource>
+</dataTable>
+

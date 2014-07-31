@@ -1,0 +1,1220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<joinQuery xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.port.pm.invest.app</package>
+    <name>ProjectAdjuestQuery</name>
+    <alias>joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].alias</alias>
+    <description>joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].description</description>
+    <userDefined>true</userDefined>
+    <reportDataSource />
+    <bizUnitPK>com.kingdee.eas.port.pm.invest.ProjectAdjuest</bizUnitPK>
+    <connectionProvider />
+    <subObjects>
+        <subEntity>
+            <name>ProjectAdjuest</name>
+            <alias>joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].subObjects.subEntity[ProjectAdjuest].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="ProjectAdjuestQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="ProjectAdjuest" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>auditor</name>
+            <alias>joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].subObjects.subEntity[auditor].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="ProjectAdjuestQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.base.permission.app" />
+                <key name="name" value="User" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>lastUpdateUser</name>
+            <alias>joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].subObjects.subEntity[lastUpdateUser].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="ProjectAdjuestQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.base.permission.app" />
+                <key name="name" value="User" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>creator</name>
+            <alias>joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].subObjects.subEntity[creator].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="ProjectAdjuestQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.base.permission.app" />
+                <key name="name" value="User" />
+            </entityRef>
+        </subEntity>
+    </subObjects>
+    <units>
+        <queryField>
+            <name>status</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[status].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Int</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>538d4f61-cd00-40af-a241-ff4504ba65d2</key>
+                    <parentUnit>
+                        <key name="name" value="status" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProjectAdjuest" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="status" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="ProjectAdjuestQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>number</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[number].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>19dbe509-f268-4cea-8fa6-7b6764c72623</key>
+                    <parentUnit>
+                        <key name="name" value="number" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProjectAdjuest" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="number" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="ProjectAdjuestQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>bizDate</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[bizDate].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Date</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>cb7f731a-431c-49a5-b7d5-381c3ffbc29c</key>
+                    <parentUnit>
+                        <key name="name" value="bizDate" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProjectAdjuest" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="bizDate" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="ProjectAdjuestQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>creator.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[creator.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>7adc4c92-9787-486e-ba95-3db724e75b36</key>
+                    <parentUnit>
+                        <key name="name" value="creator.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="creator" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="ProjectAdjuestQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>createTime</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[createTime].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Timestamp</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>49ba5ef1-f78b-4df1-9e0a-dfb8ea209208</key>
+                    <parentUnit>
+                        <key name="name" value="createTime" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProjectAdjuest" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="createTime" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="ProjectAdjuestQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>lastUpdateUser.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[lastUpdateUser.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>978ac494-6508-4912-86d0-4d934ca8fb6f</key>
+                    <parentUnit>
+                        <key name="name" value="lastUpdateUser.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="lastUpdateUser" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="ProjectAdjuestQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>lastUpdateTime</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[lastUpdateTime].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Timestamp</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>fed2a620-b4f9-4320-86d0-ad1a98a04ce9</key>
+                    <parentUnit>
+                        <key name="name" value="lastUpdateTime" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProjectAdjuest" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="lastUpdateTime" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="ProjectAdjuestQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>auditor.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[auditor.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>62e79ba2-0ff2-44e1-9435-6498d0029bd2</key>
+                    <parentUnit>
+                        <key name="name" value="auditor.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="auditor" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="ProjectAdjuestQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>auditTime</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[auditTime].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Timestamp</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>60bee6c4-14c8-4937-b5c6-052285fd7ad2</key>
+                    <parentUnit>
+                        <key name="name" value="auditTime" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProjectAdjuest" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="auditTime" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="ProjectAdjuestQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>id</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>21252636-7873-4b63-bc08-1d60f96d5bf5</key>
+                    <parentUnit>
+                        <key name="name" value="id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProjectAdjuest" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="ProjectAdjuestQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>5ffb10c2-9017-4af9-a5ab-adf2cfd35ac2</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.propertyUnit[5ffb10c2-9017-4af9-a5ab-adf2cfd35ac2].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>d44abb48-c7be-4c98-bab7-c129da3c1658</key>
+                    <parentUnit>
+                        <key name="name" value="5ffb10c2-9017-4af9-a5ab-adf2cfd35ac2" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProjectAdjuest" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="auditor" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="ProjectAdjuestQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>1e677688-0a37-405c-b842-4cbc1777feb8</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.propertyUnit[1e677688-0a37-405c-b842-4cbc1777feb8].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>daa653cc-8c66-4864-822c-9d8dc88b0657</key>
+                    <parentUnit>
+                        <key name="name" value="1e677688-0a37-405c-b842-4cbc1777feb8" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="auditor" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="ProjectAdjuestQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>4d2ea50d-87b6-4764-8511-ad9d75aa377a</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.propertyUnit[4d2ea50d-87b6-4764-8511-ad9d75aa377a].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>a15f96e0-b011-4ba2-918d-eae540539b4a</key>
+                    <parentUnit>
+                        <key name="name" value="4d2ea50d-87b6-4764-8511-ad9d75aa377a" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProjectAdjuest" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="lastUpdateUser" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="ProjectAdjuestQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>1616fe90-d3db-4e68-841c-68e3da457f4a</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.propertyUnit[1616fe90-d3db-4e68-841c-68e3da457f4a].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>9888e17a-1ee9-4a33-85d6-a4baa8a48cf4</key>
+                    <parentUnit>
+                        <key name="name" value="1616fe90-d3db-4e68-841c-68e3da457f4a" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="lastUpdateUser" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="ProjectAdjuestQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>e2d4e712-e3ae-494f-ac8e-5908534f9998</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.propertyUnit[e2d4e712-e3ae-494f-ac8e-5908534f9998].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>484cba99-61fc-4e13-a963-57ab22c6c7eb</key>
+                    <parentUnit>
+                        <key name="name" value="e2d4e712-e3ae-494f-ac8e-5908534f9998" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProjectAdjuest" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="creator" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="ProjectAdjuestQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>f231c185-16de-45db-a775-a716e2c6fa35</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.propertyUnit[f231c185-16de-45db-a775-a716e2c6fa35].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>e6167aea-3925-4565-98cf-2993cf436083</key>
+                    <parentUnit>
+                        <key name="name" value="f231c185-16de-45db-a775-a716e2c6fa35" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="creator" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="ProjectAdjuestQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>adjuestName</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[adjuestName].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>719df543-b0d7-4c3b-87d8-6a4469c881d2</key>
+                    <parentUnit>
+                        <key name="name" value="adjuestName" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProjectAdjuest" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="adjuestName" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="ProjectAdjuestQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>adjustType</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[adjustType].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>8b072ded-38db-484f-b069-ce769c01f1db</key>
+                    <parentUnit>
+                        <key name="name" value="adjustType" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProjectAdjuest" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="adjustType" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="ProjectAdjuestQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>originalAmount</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[originalAmount].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>d0620999-4de9-4c57-9fed-be3da203ec27</key>
+                    <parentUnit>
+                        <key name="name" value="originalAmount" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProjectAdjuest" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="originalAmount" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="ProjectAdjuestQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>adjustAmount</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[adjustAmount].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>fc80dc1e-c3ab-4139-879c-4f8e25a2d461</key>
+                    <parentUnit>
+                        <key name="name" value="adjustAmount" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProjectAdjuest" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="adjustAmount" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="ProjectAdjuestQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>adjustReson</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[adjustReson].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>8a3e404f-d0b4-436b-9bd2-0ce6c2382857</key>
+                    <parentUnit>
+                        <key name="name" value="adjustReson" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProjectAdjuest" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="adjustReson" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="ProjectAdjuestQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>content</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[content].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>828bee19-227e-4ea4-aa40-dd5a3a4a9673</key>
+                    <parentUnit>
+                        <key name="name" value="content" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProjectAdjuest" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="content" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="ProjectAdjuestQuery" />
+            </query>
+        </queryField>
+    </units>
+    <defaultFilter>
+        <name>defaultFilter</name>
+        <formulaString />
+        <query>
+            <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+            <key name="name" value="ProjectAdjuestQuery" />
+        </query>
+    </defaultFilter>
+    <defaultSorters>
+        <querySorterItem>
+            <propertyName>createTime</propertyName>
+            <sortType>DESC</sortType>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="ProjectAdjuestQuery" />
+            </query>
+            <configured>false</configured>
+        </querySorterItem>
+    </defaultSorters>
+    <queryPK>
+        <name>QueryPK</name>
+        <alias>joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].queryPK[QueryPK].alias</alias>
+        <description>joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].queryPK[QueryPK].description</description>
+        <keyProperties>
+            <queryField>
+                <key name="name" value="id" />
+            </queryField>
+        </keyProperties>
+    </queryPK>
+    <isDistinct>false</isDistinct>
+    <joins>
+        <join>
+            <name>29847dab-b3b8-4368-93ca-87f8bb379b46</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="ProjectAdjuest" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="auditor" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>296ebf95-b4de-49c2-a3dc-ea70caaf4160</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="5ffb10c2-9017-4af9-a5ab-adf2cfd35ac2" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="1e677688-0a37-405c-b842-4cbc1777feb8" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="29847dab-b3b8-4368-93ca-87f8bb379b46" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="ProjectAdjuestQuery" />
+            </query>
+        </join>
+        <join>
+            <name>69827004-67eb-4202-bb1d-d69e02503fb4</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="ProjectAdjuest" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="lastUpdateUser" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>7a2a2f5d-ff01-4dea-aac4-667f7a4de13c</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="4d2ea50d-87b6-4764-8511-ad9d75aa377a" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="1616fe90-d3db-4e68-841c-68e3da457f4a" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="69827004-67eb-4202-bb1d-d69e02503fb4" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="ProjectAdjuestQuery" />
+            </query>
+        </join>
+        <join>
+            <name>736d74bc-27e6-4a40-85bc-5e59e61fb692</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="ProjectAdjuest" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="creator" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>38978d75-8822-4238-ad3b-223abe1055e6</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="e2d4e712-e3ae-494f-ac8e-5908534f9998" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="f231c185-16de-45db-a775-a716e2c6fa35" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="736d74bc-27e6-4a40-85bc-5e59e61fb692" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="ProjectAdjuestQuery" />
+            </query>
+        </join>
+    </joins>
+    <resource>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目投资调整单" />
+            <lang locale="zh_HK" value="項目投資調整單" />
+            <lang locale="zh_TW" value="項目投資調整單" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].defaultSorters.querySorterItemextendedProperty.f7WindowTitle">
+            <lang locale="en_US" value="XR业务单据模版" />
+            <lang locale="zh_CN" value="XR业务单据模版" />
+            <lang locale="zh_TW" value="XR业务单据模版" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="基础单据Query" />
+            <lang locale="zh_HK" value="基礎單據Query" />
+            <lang locale="zh_TW" value="基礎單據Query" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].extendedProperty.F7WindowTitle">
+            <lang locale="en_US" value="com.kingdee.eas.port.pm.invest.client.InvestResource.ProjectAdjuestQueryF7WindowTitle" />
+            <lang locale="zh_CN" value="com.kingdee.eas.port.pm.invest.client.InvestResource.ProjectAdjuestQueryF7WindowTitle" />
+            <lang locale="zh_TW" value="com.kingdee.eas.port.pm.invest.client.InvestResource.ProjectAdjuestQueryF7WindowTitle" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].extendedProperty.f7WindowTitle">
+            <lang locale="en_US" value="项目投资调整单" />
+            <lang locale="zh_CN" value="项目投资调整单" />
+            <lang locale="zh_TW" value="项目投资调整单" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].queryPK[QueryPK].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].queryPK[QueryPK].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].subObjects.subEntity[ProjectAdjuest].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].subObjects.subEntity[auditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].subObjects.subEntity[creator].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].subObjects.subEntity[lastUpdateUser].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.propertyUnit[1616fe90-d3db-4e68-841c-68e3da457f4a].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.propertyUnit[1e677688-0a37-405c-b842-4cbc1777feb8].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.propertyUnit[4d2ea50d-87b6-4764-8511-ad9d75aa377a].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.propertyUnit[5ffb10c2-9017-4af9-a5ab-adf2cfd35ac2].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.propertyUnit[e2d4e712-e3ae-494f-ac8e-5908534f9998].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.propertyUnit[f231c185-16de-45db-a775-a716e2c6fa35].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[adjuestName].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="调整单名称" />
+            <lang locale="zh_HK" value="調整單名稱" />
+            <lang locale="zh_TW" value="調整單名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[adjuestName].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[adjuestName].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[adjustAmount].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="调整后金额" />
+            <lang locale="zh_HK" value="調整後金額" />
+            <lang locale="zh_TW" value="調整後金額" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[adjustAmount].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[adjustAmount].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[adjustReson].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="调整原因" />
+            <lang locale="zh_HK" value="調整原因" />
+            <lang locale="zh_TW" value="調整原因" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[adjustReson].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[adjustReson].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[adjustType].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="调整类型" />
+            <lang locale="zh_HK" value="調整類型" />
+            <lang locale="zh_TW" value="調整類型" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[adjustType].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[adjustType].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[auditTime].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="审核时间" />
+            <lang locale="zh_HK" value="審核時間" />
+            <lang locale="zh_TW" value="審核時間" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[auditTime].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[auditTime].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[auditor.name].displayName">
+            <lang locale="en_US" value="用户别名" />
+            <lang locale="zh_CN" value="审核人" />
+            <lang locale="zh_HK" value="審核人" />
+            <lang locale="zh_TW" value="審核人" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[auditor.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[bizDate].displayName">
+            <lang locale="en_US" value="" />
+            <lang locale="zh_CN" value="业务日期" />
+            <lang locale="zh_HK" value="業務日期" />
+            <lang locale="zh_TW" value="業務日期" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[bizDate].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[bizDate].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[content].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="调整内容" />
+            <lang locale="zh_HK" value="調整內容" />
+            <lang locale="zh_TW" value="調整內容" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[content].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[content].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[createTime].displayName">
+            <lang locale="en_US" value="createTime" />
+            <lang locale="zh_CN" value="制单时间" />
+            <lang locale="zh_HK" value="制單時間" />
+            <lang locale="zh_TW" value="制單時間" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[createTime].extendedProperty.colWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[createTime].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[createTime].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[createTime].extendedProperty.isDynCommonQuery">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[createTime].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[creator.name].displayName">
+            <lang locale="en_US" value="用户别名" />
+            <lang locale="zh_CN" value="制单人" />
+            <lang locale="zh_HK" value="制單人" />
+            <lang locale="zh_TW" value="制單人" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[creator.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[id].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="ID" />
+            <lang locale="zh_HK" value="ID" />
+            <lang locale="zh_TW" value="ID" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[lastUpdateTime].displayName">
+            <lang locale="en_US" value="lastUpdateTime" />
+            <lang locale="zh_CN" value="最后修改时间" />
+            <lang locale="zh_HK" value="最後修改時間" />
+            <lang locale="zh_TW" value="最後修改時間" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[lastUpdateTime].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[lastUpdateTime].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[lastUpdateUser.name].displayName">
+            <lang locale="en_US" value="用户别名" />
+            <lang locale="zh_CN" value="最后修改人" />
+            <lang locale="zh_HK" value="最後修改人" />
+            <lang locale="zh_TW" value="最後修改人" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[lastUpdateUser.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[number].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据编号" />
+            <lang locale="zh_HK" value="單據編號" />
+            <lang locale="zh_TW" value="單據編號" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[number].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[number].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[originalAmount].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="调整前金额" />
+            <lang locale="zh_HK" value="調整前金額" />
+            <lang locale="zh_TW" value="調整前金額" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[originalAmount].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[originalAmount].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[status].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据状态" />
+            <lang locale="zh_HK" value="單據狀態" />
+            <lang locale="zh_TW" value="單據狀態" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[status].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery].units.queryField[status].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+    </resource>
+</joinQuery>
+

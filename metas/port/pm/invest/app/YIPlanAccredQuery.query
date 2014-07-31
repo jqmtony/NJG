@@ -1,0 +1,1113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<joinQuery xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.port.pm.invest.app</package>
+    <name>YIPlanAccredQuery</name>
+    <alias>joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].alias</alias>
+    <description>joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].description</description>
+    <userDefined>true</userDefined>
+    <reportDataSource />
+    <bizUnitPK>com.kingdee.eas.port.pm.invest.YIPlanAccred</bizUnitPK>
+    <connectionProvider />
+    <subObjects>
+        <subEntity>
+            <name>YIPlanAccred</name>
+            <alias>joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].subObjects.subEntity[YIPlanAccred].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YIPlanAccredQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YIPlanAccred" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>auditor</name>
+            <alias>joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].subObjects.subEntity[auditor].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YIPlanAccredQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.base.permission.app" />
+                <key name="name" value="User" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>lastUpdateUser</name>
+            <alias>joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].subObjects.subEntity[lastUpdateUser].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YIPlanAccredQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.base.permission.app" />
+                <key name="name" value="User" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>creator</name>
+            <alias>joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].subObjects.subEntity[creator].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YIPlanAccredQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.base.permission.app" />
+                <key name="name" value="User" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>CU</name>
+            <alias>joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].subObjects.subEntity[CU].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YIPlanAccredQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.basedata.org.app" />
+                <key name="name" value="CtrlUnit" />
+            </entityRef>
+        </subEntity>
+    </subObjects>
+    <units>
+        <propertyUnit>
+            <name>5ffb10c2-9017-4af9-a5ab-adf2cfd35ac2</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].units.propertyUnit[5ffb10c2-9017-4af9-a5ab-adf2cfd35ac2].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>d44abb48-c7be-4c98-bab7-c129da3c1658</key>
+                    <parentUnit>
+                        <key name="name" value="5ffb10c2-9017-4af9-a5ab-adf2cfd35ac2" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="YIPlanAccred" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="auditor" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YIPlanAccredQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>1e677688-0a37-405c-b842-4cbc1777feb8</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].units.propertyUnit[1e677688-0a37-405c-b842-4cbc1777feb8].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>daa653cc-8c66-4864-822c-9d8dc88b0657</key>
+                    <parentUnit>
+                        <key name="name" value="1e677688-0a37-405c-b842-4cbc1777feb8" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="auditor" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YIPlanAccredQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>4d2ea50d-87b6-4764-8511-ad9d75aa377a</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].units.propertyUnit[4d2ea50d-87b6-4764-8511-ad9d75aa377a].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>a15f96e0-b011-4ba2-918d-eae540539b4a</key>
+                    <parentUnit>
+                        <key name="name" value="4d2ea50d-87b6-4764-8511-ad9d75aa377a" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="YIPlanAccred" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="lastUpdateUser" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YIPlanAccredQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>1616fe90-d3db-4e68-841c-68e3da457f4a</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].units.propertyUnit[1616fe90-d3db-4e68-841c-68e3da457f4a].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>9888e17a-1ee9-4a33-85d6-a4baa8a48cf4</key>
+                    <parentUnit>
+                        <key name="name" value="1616fe90-d3db-4e68-841c-68e3da457f4a" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="lastUpdateUser" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YIPlanAccredQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>e2d4e712-e3ae-494f-ac8e-5908534f9998</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].units.propertyUnit[e2d4e712-e3ae-494f-ac8e-5908534f9998].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>484cba99-61fc-4e13-a963-57ab22c6c7eb</key>
+                    <parentUnit>
+                        <key name="name" value="e2d4e712-e3ae-494f-ac8e-5908534f9998" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="YIPlanAccred" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="creator" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YIPlanAccredQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>f231c185-16de-45db-a775-a716e2c6fa35</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].units.propertyUnit[f231c185-16de-45db-a775-a716e2c6fa35].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>e6167aea-3925-4565-98cf-2993cf436083</key>
+                    <parentUnit>
+                        <key name="name" value="f231c185-16de-45db-a775-a716e2c6fa35" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="creator" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YIPlanAccredQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>254e050a-a59f-4caa-adcc-505b3f65c9d0</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].units.propertyUnit[254e050a-a59f-4caa-adcc-505b3f65c9d0].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>9590a1ca-62a4-4417-beb9-e77c36cb9afe</key>
+                    <parentUnit>
+                        <key name="name" value="254e050a-a59f-4caa-adcc-505b3f65c9d0" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="YIPlanAccred" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="CU" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YIPlanAccredQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>00a866a6-64e1-4f3f-a034-5740ab0d31ec</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].units.propertyUnit[00a866a6-64e1-4f3f-a034-5740ab0d31ec].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>9e9f7277-b57c-4e90-82ad-d2dccb799ddd</key>
+                    <parentUnit>
+                        <key name="name" value="00a866a6-64e1-4f3f-a034-5740ab0d31ec" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="CU" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YIPlanAccredQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>status</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].units.queryField[status].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Int</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>c90f3504-c045-4305-bfef-b2201c2a98e6</key>
+                    <parentUnit>
+                        <key name="name" value="status" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="YIPlanAccred" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="status" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YIPlanAccredQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>number</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].units.queryField[number].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>7e743293-1aca-486d-8732-2df41332c4cc</key>
+                    <parentUnit>
+                        <key name="name" value="number" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="YIPlanAccred" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="number" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YIPlanAccredQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>accredType</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].units.queryField[accredType].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>a64d9cc6-2713-47e1-8570-74433c750342</key>
+                    <parentUnit>
+                        <key name="name" value="accredType" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="YIPlanAccred" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="accredType" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YIPlanAccredQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>CU.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].units.queryField[CU.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>f8b3fb92-d6f0-494a-a306-2b37c97ef815</key>
+                    <parentUnit>
+                        <key name="name" value="CU.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="CU" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YIPlanAccredQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>creator.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].units.queryField[creator.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>83890261-9b88-4c3f-aa93-0dd0fda0158a</key>
+                    <parentUnit>
+                        <key name="name" value="creator.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="creator" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YIPlanAccredQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>createTime</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].units.queryField[createTime].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Timestamp</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>5a3165ca-e45d-4457-a626-495ce2f5138f</key>
+                    <parentUnit>
+                        <key name="name" value="createTime" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="YIPlanAccred" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="createTime" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YIPlanAccredQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>lastUpdateUser.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].units.queryField[lastUpdateUser.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>dc89ffca-7779-4843-9c80-7bc9254f02b9</key>
+                    <parentUnit>
+                        <key name="name" value="lastUpdateUser.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="lastUpdateUser" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YIPlanAccredQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>lastUpdateTime</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].units.queryField[lastUpdateTime].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Timestamp</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>25b04660-900b-4e1d-a30e-c750e0e5034f</key>
+                    <parentUnit>
+                        <key name="name" value="lastUpdateTime" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="YIPlanAccred" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="lastUpdateTime" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YIPlanAccredQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>auditor.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].units.queryField[auditor.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>7c557f4b-8926-41d5-8228-85735ca58c92</key>
+                    <parentUnit>
+                        <key name="name" value="auditor.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="auditor" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YIPlanAccredQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>accredDate</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].units.queryField[accredDate].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Date</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>531f0bbe-7ec6-4dca-a239-2760a0bc0b82</key>
+                    <parentUnit>
+                        <key name="name" value="accredDate" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="YIPlanAccred" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="accredDate" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YIPlanAccredQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>remark</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].units.queryField[remark].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>f4e64b9b-72f2-4e12-91fd-5c908c57c6f7</key>
+                    <parentUnit>
+                        <key name="name" value="remark" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="YIPlanAccred" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="remark" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YIPlanAccredQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>id</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].units.queryField[id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>aba12bd4-a1fb-4763-8f16-acccfde2ad83</key>
+                    <parentUnit>
+                        <key name="name" value="id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="YIPlanAccred" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YIPlanAccredQuery" />
+            </query>
+        </queryField>
+    </units>
+    <defaultFilter>
+        <name>defaultFilter</name>
+        <formulaString />
+        <query>
+            <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+            <key name="name" value="YIPlanAccredQuery" />
+        </query>
+    </defaultFilter>
+    <queryPK>
+        <name>QueryPK</name>
+        <alias>joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].queryPK[QueryPK].alias</alias>
+        <description>joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].queryPK[QueryPK].description</description>
+        <keyProperties>
+            <queryField>
+                <key name="name" value="id" />
+            </queryField>
+        </keyProperties>
+    </queryPK>
+    <isDistinct>false</isDistinct>
+    <joins>
+        <join>
+            <name>29847dab-b3b8-4368-93ca-87f8bb379b46</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="YIPlanAccred" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="auditor" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>296ebf95-b4de-49c2-a3dc-ea70caaf4160</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="5ffb10c2-9017-4af9-a5ab-adf2cfd35ac2" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="1e677688-0a37-405c-b842-4cbc1777feb8" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="29847dab-b3b8-4368-93ca-87f8bb379b46" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YIPlanAccredQuery" />
+            </query>
+        </join>
+        <join>
+            <name>69827004-67eb-4202-bb1d-d69e02503fb4</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="YIPlanAccred" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="lastUpdateUser" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>7a2a2f5d-ff01-4dea-aac4-667f7a4de13c</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="4d2ea50d-87b6-4764-8511-ad9d75aa377a" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="1616fe90-d3db-4e68-841c-68e3da457f4a" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="69827004-67eb-4202-bb1d-d69e02503fb4" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YIPlanAccredQuery" />
+            </query>
+        </join>
+        <join>
+            <name>736d74bc-27e6-4a40-85bc-5e59e61fb692</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="YIPlanAccred" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="creator" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>38978d75-8822-4238-ad3b-223abe1055e6</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="e2d4e712-e3ae-494f-ac8e-5908534f9998" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="f231c185-16de-45db-a775-a716e2c6fa35" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="736d74bc-27e6-4a40-85bc-5e59e61fb692" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YIPlanAccredQuery" />
+            </query>
+        </join>
+        <join>
+            <name>68f642a1-e453-4708-ac64-b9c74c74c11d</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="YIPlanAccred" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="CU" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>53eba324-783d-4280-907a-af62529e234f</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="254e050a-a59f-4caa-adcc-505b3f65c9d0" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="00a866a6-64e1-4f3f-a034-5740ab0d31ec" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="68f642a1-e453-4708-ac64-b9c74c74c11d" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YIPlanAccredQuery" />
+            </query>
+        </join>
+    </joins>
+    <resource>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="年度投资计划评审" />
+            <lang locale="zh_HK" value="年度投資計畫評審" />
+            <lang locale="zh_TW" value="年度投資計畫評審" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="基础单据Query" />
+            <lang locale="zh_HK" value="基礎單據Query" />
+            <lang locale="zh_TW" value="基礎單據Query" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].extendedProperty.F7WindowTitle">
+            <lang locale="en_US" value="com.kingdee.eas.port.pm.invest.client.InvestResource.YIPlanAccredQueryF7WindowTitle" />
+            <lang locale="zh_CN" value="com.kingdee.eas.port.pm.invest.client.InvestResource.YIPlanAccredQueryF7WindowTitle" />
+            <lang locale="zh_TW" value="com.kingdee.eas.port.pm.invest.client.InvestResource.YIPlanAccredQueryF7WindowTitle" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].extendedProperty.f7WindowTitle">
+            <lang locale="en_US" value="年度投资计划评审" />
+            <lang locale="zh_CN" value="年度投资计划评审" />
+            <lang locale="zh_TW" value="年度投资计划评审" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].queryPK[QueryPK].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].queryPK[QueryPK].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].subObjects.subEntity[CU].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].subObjects.subEntity[YIPlanAccred].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].subObjects.subEntity[auditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].subObjects.subEntity[creator].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].subObjects.subEntity[lastUpdateUser].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].units.propertyUnit[00a866a6-64e1-4f3f-a034-5740ab0d31ec].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].units.propertyUnit[1616fe90-d3db-4e68-841c-68e3da457f4a].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].units.propertyUnit[1e677688-0a37-405c-b842-4cbc1777feb8].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].units.propertyUnit[254e050a-a59f-4caa-adcc-505b3f65c9d0].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].units.propertyUnit[4d2ea50d-87b6-4764-8511-ad9d75aa377a].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].units.propertyUnit[5ffb10c2-9017-4af9-a5ab-adf2cfd35ac2].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].units.propertyUnit[e2d4e712-e3ae-494f-ac8e-5908534f9998].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].units.propertyUnit[f231c185-16de-45db-a775-a716e2c6fa35].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].units.queryField[CU.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="评审单位" />
+            <lang locale="zh_HK" value="評審單位" />
+            <lang locale="zh_TW" value="評審單位" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].units.queryField[accredDate].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="评审日期" />
+            <lang locale="zh_HK" value="評審日期" />
+            <lang locale="zh_TW" value="評審日期" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].units.queryField[accredDate].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].units.queryField[accredDate].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].units.queryField[accredType].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="评审类型" />
+            <lang locale="zh_HK" value="評審類型" />
+            <lang locale="zh_TW" value="評審類型" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].units.queryField[accredType].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].units.queryField[accredType].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].units.queryField[auditor.name].displayName">
+            <lang locale="en_US" value="用户别名" />
+            <lang locale="zh_CN" value="评审人" />
+            <lang locale="zh_HK" value="評審人" />
+            <lang locale="zh_TW" value="評審人" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].units.queryField[createTime].displayName">
+            <lang locale="en_US" value="createTime" />
+            <lang locale="zh_CN" value="创建时间" />
+            <lang locale="zh_HK" value="創建時間" />
+            <lang locale="zh_TW" value="創建時間" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].units.queryField[createTime].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].units.queryField[createTime].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].units.queryField[creator.name].displayName">
+            <lang locale="en_US" value="用户别名" />
+            <lang locale="zh_CN" value="创建人" />
+            <lang locale="zh_HK" value="創建人" />
+            <lang locale="zh_TW" value="創建人" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].units.queryField[id].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="ID" />
+            <lang locale="zh_HK" value="ID" />
+            <lang locale="zh_TW" value="ID" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].units.queryField[id].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].units.queryField[id].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].units.queryField[id].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].units.queryField[lastUpdateTime].displayName">
+            <lang locale="en_US" value="lastUpdateTime" />
+            <lang locale="zh_CN" value="最后修改时间" />
+            <lang locale="zh_HK" value="最後修改時間" />
+            <lang locale="zh_TW" value="最後修改時間" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].units.queryField[lastUpdateTime].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].units.queryField[lastUpdateTime].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].units.queryField[lastUpdateUser.name].displayName">
+            <lang locale="en_US" value="用户别名" />
+            <lang locale="zh_CN" value="最后修改人" />
+            <lang locale="zh_HK" value="最後修改人" />
+            <lang locale="zh_TW" value="最後修改人" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].units.queryField[number].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据编号" />
+            <lang locale="zh_HK" value="單據編號" />
+            <lang locale="zh_TW" value="單據編號" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].units.queryField[number].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].units.queryField[number].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].units.queryField[remark].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="备注" />
+            <lang locale="zh_HK" value="備註" />
+            <lang locale="zh_TW" value="備註" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].units.queryField[remark].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].units.queryField[remark].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].units.queryField[status].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据状态" />
+            <lang locale="zh_HK" value="單據狀態" />
+            <lang locale="zh_TW" value="單據狀態" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].units.queryField[status].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YIPlanAccredQuery].units.queryField[status].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+    </resource>
+</joinQuery>
+

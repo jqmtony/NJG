@@ -1,0 +1,2391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entityObject xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.port.pm.invest.app</package>
+    <name>ProjectAdjuest</name>
+    <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].alias</alias>
+    <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].description</description>
+    <userDefined>true</userDefined>
+    <bosType>3F94B9DC</bosType>
+    <stereoType>false</stereoType>
+    <businessImplName>com.kingdee.eas.port.pm.invest.ProjectAdjuest</businessImplName>
+    <businessControllerName>com.kingdee.eas.port.pm.invest.app.ProjectAdjuestController</businessControllerName>
+    <accessLevel>public</accessLevel>
+    <subClassingMode>normal</subClassingMode>
+    <methods>
+        <method>
+            <name>addnew</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[addnew].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[addnew].description</description>
+            <innerID>ea9e79e2-56cc-47bc-a60d-1993aefee112</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[addnew].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[addnew].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[addnew].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[addnew].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.port.pm.invest.app.ProjectAdjuest</metadataRef>
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>addnew</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[addnew].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[addnew].description</description>
+            <innerID>a272b90b-22e6-490a-ba6d-33dfe7d5aa4e</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>com.kingdee.bos.dao.IObjectPK</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[addnew].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[addnew].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.port.pm.invest.app.ProjectAdjuest</metadataRef>
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>audit</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[audit].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[audit].description</description>
+            <innerID>83eada8f-b33f-4680-a6a0-80c0aa229df7</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>void</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[audit].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[audit].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <exceptions>
+                <bizException>
+                    <key name="package" value="com.kingdee.eas.common" />
+                    <key name="name" value="EASBizException" />
+                </bizException>
+            </exceptions>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>delete</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[delete].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[delete].description</description>
+            <innerID>7df675d7-feb9-4dd7-b6be-93d7347203be</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[delete].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[delete].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>delete</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[delete].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[delete].description</description>
+            <innerID>b348e2f2-120b-4f9f-83ca-1dbcbda7c661</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>arrayPK</name>
+                    <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[delete].parameters.parameter[arrayPK].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[delete].parameters.parameter[arrayPK].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK[]</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>delete</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[delete].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[delete].description</description>
+            <innerID>fa59a5c7-3b4e-4aa0-bb58-020491e61695</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>com.kingdee.bos.dao.IObjectPK[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>filter</name>
+                    <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[delete].parameters.parameter[filter].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[delete].parameters.parameter[filter].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.FilterInfo</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>delete</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[delete].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[delete].description</description>
+            <innerID>e237fb7f-3f80-4380-94b4-3919a6b19b67</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>com.kingdee.bos.dao.IObjectPK[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>oql</name>
+                    <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[delete].parameters.parameter[oql].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[delete].parameters.parameter[oql].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>exists</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[exists].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[exists].description</description>
+            <innerID>a9986ec2-f86c-4a20-8553-8ebe6ceb6e00</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>Boolean</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[exists].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[exists].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>exists</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[exists].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[exists].description</description>
+            <innerID>c6eb4b66-565e-4922-8298-65fc55acc1b6</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>Boolean</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>filter</name>
+                    <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[exists].parameters.parameter[filter].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[exists].parameters.parameter[filter].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.FilterInfo</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>exists</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[exists].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[exists].description</description>
+            <innerID>83072250-b916-486e-b113-982c5e0fd040</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>Boolean</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>oql</name>
+                    <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[exists].parameters.parameter[oql].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[exists].parameters.parameter[oql].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <exceptions>
+                <bizException>
+                    <key name="package" value="com.kingdee.eas.common" />
+                    <key name="name" value="EASBizException" />
+                </bizException>
+            </exceptions>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getCollection</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getCollection].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getCollection].description</description>
+            <innerID>53475a32-a97c-4081-b1e1-64edc9404d94</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>ObjectCollection</returnValueType>
+            <metadataRef>com.kingdee.eas.port.pm.invest.app.ProjectAdjuest</metadataRef>
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getCollection</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getCollection].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getCollection].description</description>
+            <innerID>804dd5b9-4418-486c-841a-45d4c1652676</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>ObjectCollection</returnValueType>
+            <metadataRef>com.kingdee.eas.port.pm.invest.app.ProjectAdjuest</metadataRef>
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>view</name>
+                    <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getCollection].parameters.parameter[view].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getCollection].parameters.parameter[view].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.EntityViewInfo</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getCollection</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getCollection].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getCollection].description</description>
+            <innerID>2067afbe-1fc5-45cd-9156-0868b110dc3a</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>ObjectCollection</returnValueType>
+            <metadataRef>com.kingdee.eas.port.pm.invest.app.ProjectAdjuest</metadataRef>
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>oql</name>
+                    <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getCollection].parameters.parameter[oql].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getCollection].parameters.parameter[oql].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getPKList</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getPKList].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getPKList].description</description>
+            <innerID>2fdf1117-72c0-42d7-893e-b175eef3894f</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>com.kingdee.bos.dao.IObjectPK[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getPKList</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getPKList].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getPKList].description</description>
+            <innerID>4ee165ef-ca54-4c92-9bb3-73e43ac083e0</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>com.kingdee.bos.dao.IObjectPK[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>filter</name>
+                    <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getPKList].parameters.parameter[filter].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getPKList].parameters.parameter[filter].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.FilterInfo</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>sorter</name>
+                    <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getPKList].parameters.parameter[sorter].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getPKList].parameters.parameter[sorter].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.SorterItemCollection</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getPKList</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getPKList].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getPKList].description</description>
+            <innerID>f9511ea4-eb57-4a4a-9e0b-0cdc4f5122c6</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>com.kingdee.bos.dao.IObjectPK[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>oql</name>
+                    <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getPKList].parameters.parameter[oql].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getPKList].parameters.parameter[oql].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getValue</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getValue].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getValue].description</description>
+            <innerID>df6317bc-c803-420a-b79b-5cb01c777c96</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>ObjectValue</returnValueType>
+            <metadataRef>com.kingdee.eas.port.pm.invest.app.ProjectAdjuest</metadataRef>
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getValue].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getValue].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>selector</name>
+                    <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getValue].parameters.parameter[selector].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getValue].parameters.parameter[selector].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.SelectorItemCollection</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getValue</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getValue].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getValue].description</description>
+            <innerID>d1d3d908-dd3e-4fe6-8e6e-67a24dbaf8ee</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>ObjectValue</returnValueType>
+            <metadataRef>com.kingdee.eas.port.pm.invest.app.ProjectAdjuest</metadataRef>
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getValue].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getValue].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getValue</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getValue].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getValue].description</description>
+            <innerID>05a32bfc-ff91-451b-a27b-a8e41e1bc809</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>ObjectValue</returnValueType>
+            <metadataRef>com.kingdee.eas.port.pm.invest.app.ProjectAdjuest</metadataRef>
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>oql</name>
+                    <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getValue].parameters.parameter[oql].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getValue].parameters.parameter[oql].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>unAudit</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[unAudit].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[unAudit].description</description>
+            <innerID>f4448366-d0ba-4e20-ae63-65621e6a2544</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>void</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[unAudit].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[unAudit].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <exceptions>
+                <bizException>
+                    <key name="package" value="com.kingdee.eas.common" />
+                    <key name="name" value="EASBizException" />
+                </bizException>
+            </exceptions>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>unAudit</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[unAudit].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[unAudit].description</description>
+            <innerID>122e843e-24ac-41ff-a18c-065b81b58ad3</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>void</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pks</name>
+                    <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[unAudit].parameters.parameter[pks].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[unAudit].parameters.parameter[pks].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK[]</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <exceptions>
+                <bizException>
+                    <key name="package" value="com.kingdee.eas.common" />
+                    <key name="name" value="EASBizException" />
+                </bizException>
+            </exceptions>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>update</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[update].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[update].description</description>
+            <innerID>cf83fb47-593a-4ba0-8da3-19cbff989d08</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[update].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[update].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[update].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[update].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.port.pm.invest.app.ProjectAdjuest</metadataRef>
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>updateBigObject</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[updateBigObject].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[updateBigObject].description</description>
+            <innerID>6b18f534-caa8-43a5-86fe-deced981135a</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[updateBigObject].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[updateBigObject].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[updateBigObject].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[updateBigObject].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.port.pm.invest.app.ProjectAdjuest</metadataRef>
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>updatePartial</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[updatePartial].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[updatePartial].description</description>
+            <innerID>997f0a43-8422-464b-9ec8-107c21340211</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[updatePartial].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[updatePartial].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.port.pm.invest.app.ProjectAdjuest</metadataRef>
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>selector</name>
+                    <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[updatePartial].parameters.parameter[selector].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[updatePartial].parameters.parameter[selector].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.SelectorItemCollection</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getBindingProperty</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getBindingProperty].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getBindingProperty].description</description>
+            <innerID>c62354ae-65af-41f8-8a2a-8fb40b03a2bf</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>String</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <configured>false</configured>
+        </method>
+    </methods>
+    <isAbstract>false</isAbstract>
+    <bizUnitPK>com.kingdee.eas.port.pm.invest.ProjectAdjuest</bizUnitPK>
+    <baseEntity>
+        <key name="package" value="com.kingdee.eas.xr.app" />
+        <key name="name" value="XRBillBase" />
+    </baseEntity>
+    <table>
+        <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+        <key name="name" value="CT_INV_ProjectAdjuest" />
+    </table>
+    <properties>
+        <ownProperty>
+            <name>adjuestName</name>
+            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjuestName].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjuestName].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>String</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>100</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjuestName].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFAdjuestName" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>adjustType</name>
+            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjustType].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjustType].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>Enum</dataType>
+            <metadataRef>com.kingdee.eas.port.pm.base.coms.AdjustType</metadataRef>
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>80</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjustType].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFAdjustType" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>originalAmount</name>
+            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[originalAmount].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[originalAmount].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>BigDecimal</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>28</length>
+            <precision>28</precision>
+            <decimalDigits>2</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[originalAmount].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFOriginalAmount" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>adjustAmount</name>
+            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjustAmount].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjustAmount].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>BigDecimal</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>28</length>
+            <precision>28</precision>
+            <decimalDigits>2</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjustAmount].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFAdjustAmount" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>adjustReson</name>
+            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjustReson].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjustReson].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>String</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>1000</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjustReson].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFAdjustReson" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>content</name>
+            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[content].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[content].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>String</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>1000</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[content].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFContent" />
+            </mappingField>
+        </ownProperty>
+    </properties>
+    <logicalKey>
+        <name>id</name>
+        <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].logicalKey[id].alias</alias>
+        <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].logicalKey[id].description</description>
+        <keyClass>com.kingdee.bos.dao.IObjectPK</keyClass>
+        <userDefined>true</userDefined>
+        <keyProperties>
+            <baseProperty>
+                <key name="name" value="id" />
+            </baseProperty>
+        </keyProperties>
+    </logicalKey>
+    <events>
+        <event>
+            <name>submitEvent</name>
+            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[submitEvent].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[submitEvent].description</description>
+            <userDefined>true</userDefined>
+            <eventMethods>
+                <eventMethod>
+                    <name>dfd2c083-00fa-1000-e000-001fc0a813e6</name>
+                    <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[submitEvent].eventMethods.eventMethod[dfd2c083-00fa-1000-e000-001fc0a813e6].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[submitEvent].eventMethods.eventMethod[dfd2c083-00fa-1000-e000-001fc0a813e6].description</description>
+                    <entityMethodRef>
+                        <key name="name" value="submit" />
+                        <key name="innerID" value="dfd2c083-00fa-1000-e000-001fc0a813e6" />
+                    </entityMethodRef>
+                    <parameterMappings>
+                        <parameterMapping>
+                            <name />
+                            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[submitEvent].eventMethods.eventMethod[dfd2c083-00fa-1000-e000-001fc0a813e6].parameterMappings.parameterMappingalias</alias>
+                            <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[submitEvent].eventMethods.eventMethod[dfd2c083-00fa-1000-e000-001fc0a813e6].parameterMappings.parameterMappingdescription</description>
+                            <formalParameterInnerID />
+                            <actualParameterIndex>0</actualParameterIndex>
+                            <isBOPK>true</isBOPK>
+                        </parameterMapping>
+                    </parameterMappings>
+                </eventMethod>
+            </eventMethods>
+            <formalParameters>
+                <formalParameter>
+                    <innerID>819910b7-5daf-4748-99b8-dd5ca7819a7fevfp</innerID>
+                    <userDefined>true</userDefined>
+                    <parameter>
+                        <name>model</name>
+                        <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[submitEvent].formalParameters.formalParameter.parameter[model].alias</alias>
+                        <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[submitEvent].formalParameters.formalParameter.parameter[model].description</description>
+                        <direction>in</direction>
+                        <dataType>ObjectValue</dataType>
+                        <metadataRef>com.kingdee.eas.port.pm.invest.app.ProjectAdjuest</metadataRef>
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </formalParameter>
+            </formalParameters>
+        </event>
+        <event>
+            <name>deleteEvent</name>
+            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[deleteEvent].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[deleteEvent].description</description>
+            <userDefined>true</userDefined>
+            <eventMethods>
+                <eventMethod>
+                    <name>f8fb6ae6-25f7-4a32-b3c5-f6c2353e5535</name>
+                    <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[deleteEvent].eventMethods.eventMethod[f8fb6ae6-25f7-4a32-b3c5-f6c2353e5535].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[deleteEvent].eventMethods.eventMethod[f8fb6ae6-25f7-4a32-b3c5-f6c2353e5535].description</description>
+                    <entityMethodRef>
+                        <key name="name" value="delete" />
+                        <key name="innerID" value="7df675d7-feb9-4dd7-b6be-93d7347203be" />
+                    </entityMethodRef>
+                    <parameterMappings>
+                        <parameterMapping>
+                            <name />
+                            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[deleteEvent].eventMethods.eventMethod[f8fb6ae6-25f7-4a32-b3c5-f6c2353e5535].parameterMappings.parameterMappingalias</alias>
+                            <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[deleteEvent].eventMethods.eventMethod[f8fb6ae6-25f7-4a32-b3c5-f6c2353e5535].parameterMappings.parameterMappingdescription</description>
+                            <formalParameterInnerID />
+                            <actualParameterIndex>0</actualParameterIndex>
+                            <isBOPK>true</isBOPK>
+                        </parameterMapping>
+                    </parameterMappings>
+                </eventMethod>
+            </eventMethods>
+            <formalParameters>
+                <formalParameter>
+                    <innerID>86808ea8-79a2-4b63-9b41-5f470a4b0506evfp</innerID>
+                    <userDefined>true</userDefined>
+                    <parameter>
+                        <name>pk</name>
+                        <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[deleteEvent].formalParameters.formalParameter.parameter[pk].alias</alias>
+                        <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[deleteEvent].formalParameters.formalParameter.parameter[pk].description</description>
+                        <direction>in</direction>
+                        <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                        <metadataRef>com.kingdee.eas.port.pm.invest.app.ProjectAdjuest</metadataRef>
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </formalParameter>
+            </formalParameters>
+        </event>
+        <event>
+            <name>passAuditEvent</name>
+            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[passAuditEvent].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[passAuditEvent].description</description>
+            <userDefined>true</userDefined>
+            <eventMethods>
+                <eventMethod>
+                    <name>65ff41bd-1a11-4e6b-9f9f-8eaf00524c3b</name>
+                    <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[passAuditEvent].eventMethods.eventMethod[65ff41bd-1a11-4e6b-9f9f-8eaf00524c3b].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[passAuditEvent].eventMethods.eventMethod[65ff41bd-1a11-4e6b-9f9f-8eaf00524c3b].description</description>
+                    <entityMethodRef>
+                        <key name="name" value="audit" />
+                        <key name="innerID" value="83eada8f-b33f-4680-a6a0-80c0aa229df7" />
+                    </entityMethodRef>
+                    <parameterMappings>
+                        <parameterMapping>
+                            <name />
+                            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[passAuditEvent].eventMethods.eventMethod[65ff41bd-1a11-4e6b-9f9f-8eaf00524c3b].parameterMappings.parameterMappingalias</alias>
+                            <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[passAuditEvent].eventMethods.eventMethod[65ff41bd-1a11-4e6b-9f9f-8eaf00524c3b].parameterMappings.parameterMappingdescription</description>
+                            <formalParameterInnerID />
+                            <actualParameterIndex>0</actualParameterIndex>
+                            <isBOPK>true</isBOPK>
+                        </parameterMapping>
+                    </parameterMappings>
+                </eventMethod>
+            </eventMethods>
+            <formalParameters>
+                <formalParameter>
+                    <innerID>de3ced91-407c-40fd-b46d-a67d46978ccfevfp</innerID>
+                    <userDefined>true</userDefined>
+                    <parameter>
+                        <name>pk</name>
+                        <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[passAuditEvent].formalParameters.formalParameter.parameter[pk].alias</alias>
+                        <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[passAuditEvent].formalParameters.formalParameter.parameter[pk].description</description>
+                        <direction>in</direction>
+                        <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                        <metadataRef>com.kingdee.eas.port.pm.invest.app.ProjectAdjuest</metadataRef>
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </formalParameter>
+            </formalParameters>
+        </event>
+        <event>
+            <name>unpassAuditEvent</name>
+            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[unpassAuditEvent].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[unpassAuditEvent].description</description>
+            <userDefined>true</userDefined>
+            <eventMethods>
+                <eventMethod>
+                    <name>a2322acd-af55-4938-b770-b99e993b729a</name>
+                    <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[unpassAuditEvent].eventMethods.eventMethod[a2322acd-af55-4938-b770-b99e993b729a].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[unpassAuditEvent].eventMethods.eventMethod[a2322acd-af55-4938-b770-b99e993b729a].description</description>
+                    <entityMethodRef>
+                        <key name="name" value="unAudit" />
+                        <key name="innerID" value="f4448366-d0ba-4e20-ae63-65621e6a2544" />
+                    </entityMethodRef>
+                    <parameterMappings>
+                        <parameterMapping>
+                            <name />
+                            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[unpassAuditEvent].eventMethods.eventMethod[a2322acd-af55-4938-b770-b99e993b729a].parameterMappings.parameterMappingalias</alias>
+                            <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[unpassAuditEvent].eventMethods.eventMethod[a2322acd-af55-4938-b770-b99e993b729a].parameterMappings.parameterMappingdescription</description>
+                            <formalParameterInnerID />
+                            <actualParameterIndex>0</actualParameterIndex>
+                            <isBOPK>true</isBOPK>
+                        </parameterMapping>
+                    </parameterMappings>
+                </eventMethod>
+            </eventMethods>
+            <formalParameters>
+                <formalParameter>
+                    <innerID>388401d9-68e1-468f-9382-86a0a4fe25aeevfp</innerID>
+                    <userDefined>true</userDefined>
+                    <parameter>
+                        <name>pk</name>
+                        <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[unpassAuditEvent].formalParameters.formalParameter.parameter[pk].alias</alias>
+                        <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[unpassAuditEvent].formalParameters.formalParameter.parameter[pk].description</description>
+                        <direction>in</direction>
+                        <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                        <metadataRef>com.kingdee.eas.port.pm.invest.app.ProjectAdjuest</metadataRef>
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </formalParameter>
+            </formalParameters>
+        </event>
+        <event>
+            <name>auditEvent</name>
+            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[auditEvent].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[auditEvent].description</description>
+            <userDefined>true</userDefined>
+            <eventMethods>
+                <eventMethod>
+                    <name>65ff41bd-1a11-4e6b-9f9f-8eaf00524c3b</name>
+                    <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[auditEvent].eventMethods.eventMethod[65ff41bd-1a11-4e6b-9f9f-8eaf00524c3b].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[auditEvent].eventMethods.eventMethod[65ff41bd-1a11-4e6b-9f9f-8eaf00524c3b].description</description>
+                    <entityMethodRef>
+                        <key name="name" value="audit" />
+                        <key name="innerID" value="83eada8f-b33f-4680-a6a0-80c0aa229df7" />
+                    </entityMethodRef>
+                    <parameterMappings>
+                        <parameterMapping>
+                            <name />
+                            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[auditEvent].eventMethods.eventMethod[65ff41bd-1a11-4e6b-9f9f-8eaf00524c3b].parameterMappings.parameterMappingalias</alias>
+                            <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[auditEvent].eventMethods.eventMethod[65ff41bd-1a11-4e6b-9f9f-8eaf00524c3b].parameterMappings.parameterMappingdescription</description>
+                            <formalParameterInnerID />
+                            <actualParameterIndex>0</actualParameterIndex>
+                            <isBOPK>true</isBOPK>
+                        </parameterMapping>
+                    </parameterMappings>
+                </eventMethod>
+            </eventMethods>
+            <formalParameters>
+                <formalParameter>
+                    <innerID>6cb918f1-571e-4948-bcef-2347cd0f3838evfp</innerID>
+                    <userDefined>true</userDefined>
+                    <parameter>
+                        <name>model</name>
+                        <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[auditEvent].formalParameters.formalParameter.parameter[model].alias</alias>
+                        <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[auditEvent].formalParameters.formalParameter.parameter[model].description</description>
+                        <direction>in</direction>
+                        <dataType>ObjectValue</dataType>
+                        <metadataRef>com.kingdee.eas.port.pm.invest.app.ProjectAdjuest</metadataRef>
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </formalParameter>
+            </formalParameters>
+        </event>
+        <event>
+            <name>unAudit</name>
+            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[unAudit].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[unAudit].description</description>
+            <userDefined>true</userDefined>
+            <eventMethods>
+                <eventMethod>
+                    <name>a2322acd-af55-4938-b770-b99e993b729a</name>
+                    <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[unAudit].eventMethods.eventMethod[a2322acd-af55-4938-b770-b99e993b729a].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[unAudit].eventMethods.eventMethod[a2322acd-af55-4938-b770-b99e993b729a].description</description>
+                    <entityMethodRef>
+                        <key name="name" value="unAudit" />
+                        <key name="innerID" value="f4448366-d0ba-4e20-ae63-65621e6a2544" />
+                    </entityMethodRef>
+                    <parameterMappings>
+                        <parameterMapping>
+                            <name />
+                            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[unAudit].eventMethods.eventMethod[a2322acd-af55-4938-b770-b99e993b729a].parameterMappings.parameterMappingalias</alias>
+                            <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[unAudit].eventMethods.eventMethod[a2322acd-af55-4938-b770-b99e993b729a].parameterMappings.parameterMappingdescription</description>
+                            <formalParameterInnerID />
+                            <actualParameterIndex>0</actualParameterIndex>
+                            <isBOPK>true</isBOPK>
+                        </parameterMapping>
+                    </parameterMappings>
+                </eventMethod>
+            </eventMethods>
+            <formalParameters>
+                <formalParameter>
+                    <innerID>66a92be5-ea7b-4759-8e58-3a50b6647d89evfp</innerID>
+                    <userDefined>true</userDefined>
+                    <parameter>
+                        <name>model</name>
+                        <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[unAudit].formalParameters.formalParameter.parameter[model].alias</alias>
+                        <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[unAudit].formalParameters.formalParameter.parameter[model].description</description>
+                        <direction>in</direction>
+                        <dataType>ObjectValue</dataType>
+                        <metadataRef>com.kingdee.eas.port.pm.invest.app.ProjectAdjuest</metadataRef>
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </formalParameter>
+            </formalParameters>
+        </event>
+    </events>
+    <defaultView>
+        <name />
+        <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].defaultViewalias</alias>
+        <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].defaultViewdescription</description>
+        <filter>
+            <maskString />
+        </filter>
+    </defaultView>
+    <resource>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目投资调整单" />
+            <lang locale="zh_HK" value="項目投資調整單" />
+            <lang locale="zh_TW" value="項目投資調整單" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].defaultView.filterextendedProperty.OrgType">
+            <lang locale="en_US" value="NONE" />
+            <lang locale="zh_CN" value="NONE" />
+            <lang locale="zh_TW" value="NONE" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].defaultView.filterextendedProperty.codingRuleEnabled">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].defaultView.filterextendedProperty.defaultF7Query">
+            <lang locale="en_US" value="-" />
+            <lang locale="zh_CN" value="-" />
+            <lang locale="zh_TW" value="-" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].defaultView.filterextendedProperty.editUI">
+            <lang locale="en_US" value="-" />
+            <lang locale="zh_CN" value="-" />
+            <lang locale="zh_TW" value="-" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].defaultView.filterextendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].defaultView.filterextendedProperty.isParamObject">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].defaultView.filterextendedProperty.listUI">
+            <lang locale="en_US" value="-" />
+            <lang locale="zh_CN" value="-" />
+            <lang locale="zh_TW" value="-" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].defaultViewalias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].defaultViewdescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].defaultViewextendedProperty.OrgType">
+            <lang locale="en_US" value="NONE" />
+            <lang locale="zh_CN" value="NONE" />
+            <lang locale="zh_TW" value="NONE" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].defaultViewextendedProperty.codingRuleEnabled">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].defaultViewextendedProperty.defaultF7Query">
+            <lang locale="en_US" value="-" />
+            <lang locale="zh_CN" value="-" />
+            <lang locale="zh_TW" value="-" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].defaultViewextendedProperty.editUI">
+            <lang locale="en_US" value="-" />
+            <lang locale="zh_CN" value="-" />
+            <lang locale="zh_TW" value="-" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].defaultViewextendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].defaultViewextendedProperty.isParamObject">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].defaultViewextendedProperty.listUI">
+            <lang locale="en_US" value="-" />
+            <lang locale="zh_CN" value="-" />
+            <lang locale="zh_TW" value="-" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[auditEvent].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="审核" />
+            <lang locale="zh_HK" value="審核" />
+            <lang locale="zh_TW" value="審核" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[auditEvent].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="审核" />
+            <lang locale="zh_HK" value="審核" />
+            <lang locale="zh_TW" value="審核" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[auditEvent].eventMethods.eventMethod[65ff41bd-1a11-4e6b-9f9f-8eaf00524c3b].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[auditEvent].eventMethods.eventMethod[65ff41bd-1a11-4e6b-9f9f-8eaf00524c3b].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[auditEvent].eventMethods.eventMethod[65ff41bd-1a11-4e6b-9f9f-8eaf00524c3b].parameterMappings.parameterMappingalias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[auditEvent].eventMethods.eventMethod[65ff41bd-1a11-4e6b-9f9f-8eaf00524c3b].parameterMappings.parameterMappingdescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[auditEvent].formalParameters.formalParameter.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="值对象" />
+            <lang locale="zh_HK" value="值對象" />
+            <lang locale="zh_TW" value="值對象" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[auditEvent].formalParameters.formalParameter.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="值对象" />
+            <lang locale="zh_HK" value="值對象" />
+            <lang locale="zh_TW" value="值對象" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[deleteEvent].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="删除事件" />
+            <lang locale="zh_HK" value="刪除事件" />
+            <lang locale="zh_TW" value="刪除事件" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[deleteEvent].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="删除事件" />
+            <lang locale="zh_HK" value="刪除事件" />
+            <lang locale="zh_TW" value="刪除事件" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[deleteEvent].eventMethods.eventMethod[f8fb6ae6-25f7-4a32-b3c5-f6c2353e5535].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[deleteEvent].eventMethods.eventMethod[f8fb6ae6-25f7-4a32-b3c5-f6c2353e5535].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[deleteEvent].eventMethods.eventMethod[f8fb6ae6-25f7-4a32-b3c5-f6c2353e5535].parameterMappings.parameterMappingalias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[deleteEvent].eventMethods.eventMethod[f8fb6ae6-25f7-4a32-b3c5-f6c2353e5535].parameterMappings.parameterMappingdescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[deleteEvent].formalParameters.formalParameter.parameter[pk].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="主键" />
+            <lang locale="zh_HK" value="主鍵" />
+            <lang locale="zh_TW" value="主鍵" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[deleteEvent].formalParameters.formalParameter.parameter[pk].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="主键" />
+            <lang locale="zh_HK" value="主鍵" />
+            <lang locale="zh_TW" value="主鍵" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[passAuditEvent].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="审核通过事件" />
+            <lang locale="zh_HK" value="審核通過事件" />
+            <lang locale="zh_TW" value="審核通過事件" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[passAuditEvent].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="审核通过事件" />
+            <lang locale="zh_HK" value="審核通過事件" />
+            <lang locale="zh_TW" value="審核通過事件" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[passAuditEvent].eventMethods.eventMethod[65ff41bd-1a11-4e6b-9f9f-8eaf00524c3b].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[passAuditEvent].eventMethods.eventMethod[65ff41bd-1a11-4e6b-9f9f-8eaf00524c3b].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[passAuditEvent].eventMethods.eventMethod[65ff41bd-1a11-4e6b-9f9f-8eaf00524c3b].parameterMappings.parameterMappingalias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[passAuditEvent].eventMethods.eventMethod[65ff41bd-1a11-4e6b-9f9f-8eaf00524c3b].parameterMappings.parameterMappingdescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[passAuditEvent].formalParameters.formalParameter.parameter[pk].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="主键" />
+            <lang locale="zh_HK" value="主鍵" />
+            <lang locale="zh_TW" value="主鍵" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[passAuditEvent].formalParameters.formalParameter.parameter[pk].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="主键" />
+            <lang locale="zh_HK" value="主鍵" />
+            <lang locale="zh_TW" value="主鍵" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[submitEvent].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="提交" />
+            <lang locale="zh_HK" value="提交" />
+            <lang locale="zh_TW" value="提交" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[submitEvent].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="提交" />
+            <lang locale="zh_HK" value="提交" />
+            <lang locale="zh_TW" value="提交" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[submitEvent].eventMethods.eventMethod[dfd2c083-00fa-1000-e000-001fc0a813e6].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[submitEvent].eventMethods.eventMethod[dfd2c083-00fa-1000-e000-001fc0a813e6].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[submitEvent].eventMethods.eventMethod[dfd2c083-00fa-1000-e000-001fc0a813e6].parameterMappings.parameterMappingalias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[submitEvent].eventMethods.eventMethod[dfd2c083-00fa-1000-e000-001fc0a813e6].parameterMappings.parameterMappingdescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[submitEvent].formalParameters.formalParameter.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="值对象" />
+            <lang locale="zh_HK" value="值對象" />
+            <lang locale="zh_TW" value="值對象" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[submitEvent].formalParameters.formalParameter.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="值对象" />
+            <lang locale="zh_HK" value="值對象" />
+            <lang locale="zh_TW" value="值對象" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[unAudit].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="反审核" />
+            <lang locale="zh_HK" value="反審核" />
+            <lang locale="zh_TW" value="反審核" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[unAudit].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="反审核" />
+            <lang locale="zh_HK" value="反審核" />
+            <lang locale="zh_TW" value="反審核" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[unAudit].eventMethods.eventMethod[a2322acd-af55-4938-b770-b99e993b729a].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[unAudit].eventMethods.eventMethod[a2322acd-af55-4938-b770-b99e993b729a].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[unAudit].eventMethods.eventMethod[a2322acd-af55-4938-b770-b99e993b729a].parameterMappings.parameterMappingalias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[unAudit].eventMethods.eventMethod[a2322acd-af55-4938-b770-b99e993b729a].parameterMappings.parameterMappingdescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[unAudit].formalParameters.formalParameter.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="值对象" />
+            <lang locale="zh_HK" value="值對象" />
+            <lang locale="zh_TW" value="值對象" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[unAudit].formalParameters.formalParameter.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="值对象" />
+            <lang locale="zh_HK" value="值對象" />
+            <lang locale="zh_TW" value="值對象" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[unpassAuditEvent].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="反审核通过事件" />
+            <lang locale="zh_HK" value="反審核通過事件" />
+            <lang locale="zh_TW" value="反審核通過事件" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[unpassAuditEvent].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="反审核通过事件" />
+            <lang locale="zh_HK" value="反審核通過事件" />
+            <lang locale="zh_TW" value="反審核通過事件" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[unpassAuditEvent].eventMethods.eventMethod[a2322acd-af55-4938-b770-b99e993b729a].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[unpassAuditEvent].eventMethods.eventMethod[a2322acd-af55-4938-b770-b99e993b729a].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[unpassAuditEvent].eventMethods.eventMethod[a2322acd-af55-4938-b770-b99e993b729a].parameterMappings.parameterMappingalias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[unpassAuditEvent].eventMethods.eventMethod[a2322acd-af55-4938-b770-b99e993b729a].parameterMappings.parameterMappingdescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[unpassAuditEvent].formalParameters.formalParameter.parameter[pk].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="主键" />
+            <lang locale="zh_HK" value="主鍵" />
+            <lang locale="zh_TW" value="主鍵" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].events.event[unpassAuditEvent].formalParameters.formalParameter.parameter[pk].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="主键" />
+            <lang locale="zh_HK" value="主鍵" />
+            <lang locale="zh_TW" value="主鍵" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].extendedProperty.OrgType">
+            <lang locale="en_US" value="NONE" />
+            <lang locale="zh_CN" value="NONE" />
+            <lang locale="zh_TW" value="NONE" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].extendedProperty.codingRuleEnabled">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].extendedProperty.defaultDisplayField">
+            <lang locale="en_US" value="" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].extendedProperty.defaultF7Query">
+            <lang locale="en_US" value="com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery" />
+            <lang locale="zh_CN" value="com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery" />
+            <lang locale="zh_TW" value="com.kingdee.eas.port.pm.invest.app.ProjectAdjuestQuery" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].extendedProperty.editUI">
+            <lang locale="en_US" value="com.kingdee.eas.port.pm.invest.client.ProjectAdjuestEditUI" />
+            <lang locale="zh_CN" value="com.kingdee.eas.port.pm.invest.client.ProjectAdjuestEditUI" />
+            <lang locale="zh_TW" value="com.kingdee.eas.port.pm.invest.client.ProjectAdjuestEditUI" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].extendedProperty.isParamObject">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].extendedProperty.listUI">
+            <lang locale="en_US" value="com.kingdee.eas.port.pm.invest.client.ProjectAdjuestListUI" />
+            <lang locale="zh_CN" value="com.kingdee.eas.port.pm.invest.client.ProjectAdjuestListUI" />
+            <lang locale="zh_TW" value="com.kingdee.eas.port.pm.invest.client.ProjectAdjuestListUI" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].logicalKey[id].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="id" />
+            <lang locale="zh_HK" value="id" />
+            <lang locale="zh_TW" value="id" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].logicalKey[id].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[addnew].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[addnew].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[addnew].parameters.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[addnew].parameters.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[addnew].parameters.parameter[pk].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[addnew].parameters.parameter[pk].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[audit].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="审核" />
+            <lang locale="zh_HK" value="審核" />
+            <lang locale="zh_TW" value="審核" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[audit].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="注意EJB事务" />
+            <lang locale="zh_HK" value="注意EJB事務" />
+            <lang locale="zh_TW" value="注意EJB事務" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[audit].parameters.parameter[pk].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="主键" />
+            <lang locale="zh_HK" value="主鍵" />
+            <lang locale="zh_TW" value="主鍵" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[audit].parameters.parameter[pk].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="主键" />
+            <lang locale="zh_HK" value="主鍵" />
+            <lang locale="zh_TW" value="主鍵" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[delete].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[delete].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[delete].parameters.parameter[arrayPK].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[delete].parameters.parameter[arrayPK].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[delete].parameters.parameter[filter].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[delete].parameters.parameter[filter].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[delete].parameters.parameter[oql].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[delete].parameters.parameter[oql].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[delete].parameters.parameter[pk].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[delete].parameters.parameter[pk].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[exists].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[exists].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[exists].parameters.parameter[filter].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[exists].parameters.parameter[filter].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[exists].parameters.parameter[oql].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[exists].parameters.parameter[oql].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[exists].parameters.parameter[pk].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[exists].parameters.parameter[pk].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getBindingProperty].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="得到编码绑定属性" />
+            <lang locale="zh_HK" value="得到編碼綁定屬性" />
+            <lang locale="zh_TW" value="得到編碼綁定屬性" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getBindingProperty].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="得到编码绑定属性" />
+            <lang locale="zh_HK" value="得到編碼綁定屬性" />
+            <lang locale="zh_TW" value="得到編碼綁定屬性" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getCollection].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getCollection].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getCollection].parameters.parameter[oql].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getCollection].parameters.parameter[oql].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getCollection].parameters.parameter[view].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getCollection].parameters.parameter[view].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getPKList].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getPKList].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getPKList].parameters.parameter[filter].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getPKList].parameters.parameter[filter].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getPKList].parameters.parameter[oql].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getPKList].parameters.parameter[oql].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getPKList].parameters.parameter[sorter].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getPKList].parameters.parameter[sorter].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getValue].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getValue].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getValue].parameters.parameter[oql].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getValue].parameters.parameter[oql].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getValue].parameters.parameter[pk].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getValue].parameters.parameter[pk].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getValue].parameters.parameter[selector].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[getValue].parameters.parameter[selector].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[unAudit].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="批量反审核" />
+            <lang locale="zh_HK" value="批量反審核" />
+            <lang locale="zh_TW" value="批量反審核" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[unAudit].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="批量反审核" />
+            <lang locale="zh_HK" value="批量反審核" />
+            <lang locale="zh_TW" value="批量反審核" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[unAudit].parameters.parameter[pk].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="主键" />
+            <lang locale="zh_HK" value="主鍵" />
+            <lang locale="zh_TW" value="主鍵" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[unAudit].parameters.parameter[pk].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="主键" />
+            <lang locale="zh_HK" value="主鍵" />
+            <lang locale="zh_TW" value="主鍵" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[unAudit].parameters.parameter[pks].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="pks" />
+            <lang locale="zh_HK" value="pks" />
+            <lang locale="zh_TW" value="pks" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[unAudit].parameters.parameter[pks].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="pks" />
+            <lang locale="zh_HK" value="pks" />
+            <lang locale="zh_TW" value="pks" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[updateBigObject].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[updateBigObject].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[updateBigObject].parameters.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[updateBigObject].parameters.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[updateBigObject].parameters.parameter[pk].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[updateBigObject].parameters.parameter[pk].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[updatePartial].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[updatePartial].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[updatePartial].parameters.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[updatePartial].parameters.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[updatePartial].parameters.parameter[selector].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[updatePartial].parameters.parameter[selector].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[update].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[update].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[update].parameters.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[update].parameters.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[update].parameters.parameter[pk].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].methods.method[update].parameters.parameter[pk].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjuestName].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="调整单名称" />
+            <lang locale="zh_HK" value="調整單名稱" />
+            <lang locale="zh_TW" value="調整單名稱" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjuestName].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjuestName].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="文本" />
+            <lang locale="zh_HK" value="文本" />
+            <lang locale="zh_TW" value="文本" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjuestName].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjuestName].extendedProperty.bizDataType">
+            <lang locale="en_US" value="STRING" />
+            <lang locale="zh_CN" value="STRING" />
+            <lang locale="zh_TW" value="STRING" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjuestName].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjuestName].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjuestName].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjuestName].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjuestName].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjuestName].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjuestName].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjustAmount].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="调整后金额" />
+            <lang locale="zh_HK" value="調整後金額" />
+            <lang locale="zh_TW" value="調整後金額" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjustAmount].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjustAmount].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="文本" />
+            <lang locale="zh_HK" value="文本" />
+            <lang locale="zh_TW" value="文本" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjustAmount].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjustAmount].extendedProperty.bizDataType">
+            <lang locale="en_US" value="DECIMAL" />
+            <lang locale="zh_CN" value="DECIMAL" />
+            <lang locale="zh_TW" value="DECIMAL" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjustAmount].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjustAmount].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjustAmount].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjustAmount].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjustAmount].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjustAmount].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjustAmount].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjustReson].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="调整原因" />
+            <lang locale="zh_HK" value="調整原因" />
+            <lang locale="zh_TW" value="調整原因" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjustReson].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjustReson].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="备注" />
+            <lang locale="zh_HK" value="備註" />
+            <lang locale="zh_TW" value="備註" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjustReson].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjustReson].extendedProperty.bizDataType">
+            <lang locale="en_US" value="NOTE" />
+            <lang locale="zh_CN" value="NOTE" />
+            <lang locale="zh_TW" value="NOTE" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjustReson].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjustReson].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjustReson].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjustReson].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjustReson].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjustReson].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjustReson].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjustType].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="调整类型" />
+            <lang locale="zh_HK" value="調整類型" />
+            <lang locale="zh_TW" value="調整類型" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjustType].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="Estimates" />
+            <lang locale="zh_HK" value="Estimates" />
+            <lang locale="zh_TW" value="Estimates" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjustType].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="文本" />
+            <lang locale="zh_HK" value="文本" />
+            <lang locale="zh_TW" value="文本" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjustType].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjustType].extendedProperty.bizDataType">
+            <lang locale="en_US" value="ENUM" />
+            <lang locale="zh_CN" value="ENUM" />
+            <lang locale="zh_TW" value="ENUM" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjustType].extendedProperty.defaultValue">
+            <lang locale="en_US" value="Estimates" />
+            <lang locale="zh_CN" value="Estimates" />
+            <lang locale="zh_TW" value="Estimates" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjustType].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjustType].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjustType].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjustType].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjustType].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjustType].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[adjustType].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[content].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="调整内容" />
+            <lang locale="zh_HK" value="調整內容" />
+            <lang locale="zh_TW" value="調整內容" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[content].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[content].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="备注" />
+            <lang locale="zh_HK" value="備註" />
+            <lang locale="zh_TW" value="備註" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[content].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[content].extendedProperty.bizDataType">
+            <lang locale="en_US" value="NOTE" />
+            <lang locale="zh_CN" value="NOTE" />
+            <lang locale="zh_TW" value="NOTE" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[content].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[content].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[content].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[content].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[content].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[content].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[content].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[originalAmount].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="调整前金额" />
+            <lang locale="zh_HK" value="調整前金額" />
+            <lang locale="zh_TW" value="調整前金額" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[originalAmount].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[originalAmount].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="小数" />
+            <lang locale="zh_HK" value="小數" />
+            <lang locale="zh_TW" value="小數" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[originalAmount].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[originalAmount].extendedProperty.bizDataType">
+            <lang locale="en_US" value="DECIMAL" />
+            <lang locale="zh_CN" value="DECIMAL" />
+            <lang locale="zh_TW" value="DECIMAL" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[originalAmount].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[originalAmount].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[originalAmount].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[originalAmount].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[originalAmount].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[originalAmount].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectAdjuest].properties.ownProperty[originalAmount].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+    </resource>
+</entityObject>
+
