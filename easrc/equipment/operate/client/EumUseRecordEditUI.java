@@ -9,6 +9,9 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+
 import org.apache.log4j.Logger;
 
 import com.kingdee.bos.BOSException;
@@ -24,6 +27,7 @@ import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.OprtState;
@@ -64,6 +68,8 @@ public class EumUseRecordEditUI extends AbstractEumUseRecordEditUI {
 
 	public void onLoad() throws Exception {
 		 this.kdtEqmUse.getColumn("seq").getStyleAttributes().setHided(true);
+		 this.kdtEqmUse.getColumn("startTime").getStyleAttributes().setHided(true);
+		 this.kdtEqmUse.getColumn("endTime").getStyleAttributes().setHided(true);
 		 prmtUseOrgUnit.setEnabled(false);
 		super.onLoad();
 		if(getOprtState().equals(OprtState.ADDNEW)){
@@ -115,10 +121,35 @@ public class EumUseRecordEditUI extends AbstractEumUseRecordEditUI {
 //				getLastmonth(row,equInfo);
 			}
 		}
+		
+		if(chkinitialiRecord.isSelected()){
+			 this.kdtEqmUse.getColumn("startTime").getStyleAttributes().setHided(false);
+			 this.kdtEqmUse.getColumn("endTime").getStyleAttributes().setHided(false);
+		}else{
+			 this.kdtEqmUse.getColumn("startTime").getStyleAttributes().setHided(true);
+			 this.kdtEqmUse.getColumn("endTime").getStyleAttributes().setHided(true);
+		}
+		
 	}
 
+	
+		protected void chkinitialiRecord_stateChanged(ChangeEvent e)throws Exception {
+			super.chkinitialiRecord_stateChanged(e);
+			if(chkinitialiRecord.isSelected()){
+				 this.kdtEqmUse.getColumn("startTime").getStyleAttributes().setHided(false);
+				 this.kdtEqmUse.getColumn("endTime").getStyleAttributes().setHided(false);
+			}else{
+				 this.kdtEqmUse.getColumn("startTime").getStyleAttributes().setHided(true);
+				 this.kdtEqmUse.getColumn("endTime").getStyleAttributes().setHided(true);
+				   for(int i = 0; i <kdtEqmUse.getRowCount(); i++){
+					   kdtEqmUse.getCell(i, "startTime").setValue(null);
+					   kdtEqmUse.getCell(i, "endTime").setValue(null);
+				   }
+			}
+		}
+	
+	
 	protected void verifyInput(ActionEvent e) throws Exception {
-		super.verifyInput(e);
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 		String time = (df.format(this.pkBizDate.getSqlDate())).substring(0, 7);
 		String id = ((AdminOrgUnitInfo)prmtUseOrgUnit.getData()).getId().toString();
@@ -132,6 +163,30 @@ public class EumUseRecordEditUI extends AbstractEumUseRecordEditUI {
 			MsgBox.showInfo("本单位本月已有设备使用记录，不允许再新增!");
   			SysUtil.abort();
 		}
+		for (int i = 0; i <kdtEqmUse.getRowCount(); i++) {
+			if(chkinitialiRecord.isSelected()){
+				if(UIRuleUtil.isNull(kdtEqmUse.getCell(i, "startTime").getValue()))
+				{
+					MsgBox.showInfo("分录第{"+(i+1)+"}行的开始日期不能为空！");
+					SysUtil.abort();
+				}
+				if(UIRuleUtil.isNull(kdtEqmUse.getCell(i, "endTime").getValue()))
+				{
+					MsgBox.showInfo("分录第{"+(i+1)+"}行的截止日期不能为空！");
+					SysUtil.abort();
+				}
+				Date a = (Date) kdtEqmUse.getCell(i, "endTime").getValue();
+				Date b = (Date) kdtEqmUse.getCell(i, "startTime").getValue();
+				if(a.before(b)){
+					MsgBox.showInfo("分录第{"+(i+1)+"}行截止日期不能晚于开始日期！");
+					SysUtil.abort();
+				}
+			}
+		}
+		
+	
+		
+		super.verifyInput(e);
 	}
 	
 	private void getRepairOrder(IRow row,EquIdInfo info) throws BOSException, SQLException

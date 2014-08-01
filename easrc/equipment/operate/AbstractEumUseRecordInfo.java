@@ -58,6 +58,17 @@ public class AbstractEumUseRecordInfo extends com.kingdee.eas.xr.XRBillBaseInfo 
     {
         put("reportTime", item);
     }
+    /**
+     * Object:设备使用记录's 是否初始化记录property 
+     */
+    public boolean isInitialiRecord()
+    {
+        return getBoolean("initialiRecord");
+    }
+    public void setInitialiRecord(boolean item)
+    {
+        setBoolean("initialiRecord", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("3ABA977A");

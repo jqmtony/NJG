@@ -63,6 +63,7 @@ public abstract class AbstractEumUseRecordEditUI extends com.kingdee.eas.xr.clie
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contstaPerson;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contUseOrgUnit;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contreportTime;
+    protected com.kingdee.bos.ctrl.swing.KDCheckBox chkinitialiRecord;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtCreator;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkCreateTime;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtLastUpdateUser;
@@ -153,6 +154,7 @@ public abstract class AbstractEumUseRecordEditUI extends com.kingdee.eas.xr.clie
         this.contstaPerson = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contUseOrgUnit = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contreportTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.chkinitialiRecord = new com.kingdee.bos.ctrl.swing.KDCheckBox();
         this.prmtCreator = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.pkCreateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.prmtLastUpdateUser = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
@@ -184,6 +186,7 @@ public abstract class AbstractEumUseRecordEditUI extends com.kingdee.eas.xr.clie
         this.contstaPerson.setName("contstaPerson");
         this.contUseOrgUnit.setName("contUseOrgUnit");
         this.contreportTime.setName("contreportTime");
+        this.chkinitialiRecord.setName("chkinitialiRecord");
         this.prmtCreator.setName("prmtCreator");
         this.pkCreateTime.setName("pkCreateTime");
         this.prmtLastUpdateUser.setName("prmtLastUpdateUser");
@@ -258,11 +261,11 @@ public abstract class AbstractEumUseRecordEditUI extends com.kingdee.eas.xr.clie
         this.contAuditTime.setBoundLabelLength(100);		
         this.contAuditTime.setBoundLabelUnderline(true);
         // kdtEqmUse
-		String kdtEqmUseStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style><c:Style id=\"sCol3\"><c:Protection locked=\"true\" hidden=\"true\" /></c:Style><c:Style id=\"sCol5\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol7\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol9\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol12\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol13\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol14\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol15\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol16\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol17\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol18\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol19\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"eqmName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"eqmType\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"eqmCategory\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol3\" /><t:Column t:key=\"modelType\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"powerCost\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol5\" /><t:Column t:key=\"powerUnit\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"czCost\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol7\" /><t:Column t:key=\"czUnit\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"powerUnitCost\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol9\" /><t:Column t:key=\"puUnit\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"CostType\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"eqmTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol12\" /><t:Column t:key=\"EventTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol13\" /><t:Column t:key=\"usageRate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol14\" /><t:Column t:key=\"UseTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol15\" /><t:Column t:key=\"faultRate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol16\" /><t:Column t:key=\"materialAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol17\" /><t:Column t:key=\"selfAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol18\" /><t:Column t:key=\"outAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol19\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{eqmName}</t:Cell><t:Cell>$Resource{eqmType}</t:Cell><t:Cell>$Resource{eqmCategory}</t:Cell><t:Cell>$Resource{modelType}</t:Cell><t:Cell>$Resource{powerCost}</t:Cell><t:Cell>$Resource{powerUnit}</t:Cell><t:Cell>$Resource{czCost}</t:Cell><t:Cell>$Resource{czUnit}</t:Cell><t:Cell>$Resource{powerUnitCost}</t:Cell><t:Cell>$Resource{puUnit}</t:Cell><t:Cell>$Resource{CostType}</t:Cell><t:Cell>$Resource{eqmTime}</t:Cell><t:Cell>$Resource{EventTime}</t:Cell><t:Cell>$Resource{usageRate}</t:Cell><t:Cell>$Resource{UseTime}</t:Cell><t:Cell>$Resource{faultRate}</t:Cell><t:Cell>$Resource{materialAmount}</t:Cell><t:Cell>$Resource{selfAmount}</t:Cell><t:Cell>$Resource{outAmount}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		String kdtEqmUseStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style><c:Style id=\"sCol3\"><c:Protection locked=\"true\" hidden=\"true\" /></c:Style><c:Style id=\"sCol5\"><c:NumberFormat>&amp;date</c:NumberFormat></c:Style><c:Style id=\"sCol6\"><c:NumberFormat>&amp;date</c:NumberFormat></c:Style><c:Style id=\"sCol7\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol9\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol11\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol14\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol15\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol16\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol17\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol18\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol19\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol20\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol21\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"eqmName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"eqmType\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"eqmCategory\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol3\" /><t:Column t:key=\"modelType\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"startTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol5\" /><t:Column t:key=\"endTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol6\" /><t:Column t:key=\"powerCost\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol7\" /><t:Column t:key=\"powerUnit\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"czCost\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol9\" /><t:Column t:key=\"czUnit\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"powerUnitCost\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol11\" /><t:Column t:key=\"puUnit\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"CostType\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"eqmTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol14\" /><t:Column t:key=\"EventTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol15\" /><t:Column t:key=\"usageRate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol16\" /><t:Column t:key=\"UseTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol17\" /><t:Column t:key=\"faultRate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol18\" /><t:Column t:key=\"materialAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol19\" /><t:Column t:key=\"selfAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol20\" /><t:Column t:key=\"outAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol21\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{eqmName}</t:Cell><t:Cell>$Resource{eqmType}</t:Cell><t:Cell>$Resource{eqmCategory}</t:Cell><t:Cell>$Resource{modelType}</t:Cell><t:Cell>$Resource{startTime}</t:Cell><t:Cell>$Resource{endTime}</t:Cell><t:Cell>$Resource{powerCost}</t:Cell><t:Cell>$Resource{powerUnit}</t:Cell><t:Cell>$Resource{czCost}</t:Cell><t:Cell>$Resource{czUnit}</t:Cell><t:Cell>$Resource{powerUnitCost}</t:Cell><t:Cell>$Resource{puUnit}</t:Cell><t:Cell>$Resource{CostType}</t:Cell><t:Cell>$Resource{eqmTime}</t:Cell><t:Cell>$Resource{EventTime}</t:Cell><t:Cell>$Resource{usageRate}</t:Cell><t:Cell>$Resource{UseTime}</t:Cell><t:Cell>$Resource{faultRate}</t:Cell><t:Cell>$Resource{materialAmount}</t:Cell><t:Cell>$Resource{selfAmount}</t:Cell><t:Cell>$Resource{outAmount}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.kdtEqmUse.setFormatXml(resHelper.translateString("kdtEqmUse",kdtEqmUseStrXML));
 
-                this.kdtEqmUse.putBindContents("editData",new String[] {"seq","eqmName","eqmType","eqmCategory","modelType","powerCost","powerUnit","czCost","czUnit","powerUnitCost","puUnit","CostType","eqmTime","EventTime","usageRate","UseTime","faultRate","materialAmount","selfAmount","outAmount"});
+                this.kdtEqmUse.putBindContents("editData",new String[] {"seq","eqmName","eqmType","eqmCategory","modelType","startTime","endTime","powerCost","powerUnit","czCost","czUnit","powerUnitCost","puUnit","CostType","eqmTime","EventTime","usageRate","UseTime","faultRate","materialAmount","selfAmount","outAmount"});
 
 
         this.kdtEqmUse.checkParsed();
@@ -293,6 +296,18 @@ public abstract class AbstractEumUseRecordEditUI extends com.kingdee.eas.xr.clie
         kdtEqmUse_modelType_TextField.setMaxLength(100);
         KDTDefaultCellEditor kdtEqmUse_modelType_CellEditor = new KDTDefaultCellEditor(kdtEqmUse_modelType_TextField);
         this.kdtEqmUse.getColumn("modelType").setEditor(kdtEqmUse_modelType_CellEditor);
+        KDDatePicker kdtEqmUse_startTime_DatePicker = new KDDatePicker();
+        kdtEqmUse_startTime_DatePicker.setName("kdtEqmUse_startTime_DatePicker");
+        kdtEqmUse_startTime_DatePicker.setVisible(true);
+        kdtEqmUse_startTime_DatePicker.setEditable(true);
+        KDTDefaultCellEditor kdtEqmUse_startTime_CellEditor = new KDTDefaultCellEditor(kdtEqmUse_startTime_DatePicker);
+        this.kdtEqmUse.getColumn("startTime").setEditor(kdtEqmUse_startTime_CellEditor);
+        KDDatePicker kdtEqmUse_endTime_DatePicker = new KDDatePicker();
+        kdtEqmUse_endTime_DatePicker.setName("kdtEqmUse_endTime_DatePicker");
+        kdtEqmUse_endTime_DatePicker.setVisible(true);
+        kdtEqmUse_endTime_DatePicker.setEditable(true);
+        KDTDefaultCellEditor kdtEqmUse_endTime_CellEditor = new KDTDefaultCellEditor(kdtEqmUse_endTime_DatePicker);
+        this.kdtEqmUse.getColumn("endTime").setEditor(kdtEqmUse_endTime_CellEditor);
         KDFormattedTextField kdtEqmUse_powerCost_TextField = new KDFormattedTextField();
         kdtEqmUse_powerCost_TextField.setName("kdtEqmUse_powerCost_TextField");
         kdtEqmUse_powerCost_TextField.setVisible(true);
@@ -471,6 +486,19 @@ public abstract class AbstractEumUseRecordEditUI extends com.kingdee.eas.xr.clie
         this.contreportTime.setBoundLabelLength(100);		
         this.contreportTime.setBoundLabelUnderline(true);		
         this.contreportTime.setVisible(true);
+        // chkinitialiRecord		
+        this.chkinitialiRecord.setText(resHelper.getString("chkinitialiRecord.text"));		
+        this.chkinitialiRecord.setHorizontalAlignment(2);
+        this.chkinitialiRecord.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent e) {
+                try {
+                    chkinitialiRecord_stateChanged(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                }
+            }
+        });
         // prmtCreator		
         this.prmtCreator.setEnabled(false);		
         this.prmtCreator.setCommitFormat("$name$");		
@@ -543,7 +571,7 @@ public abstract class AbstractEumUseRecordEditUI extends com.kingdee.eas.xr.clie
         this.prmtreportTime.setEditFormat("$number$");		
         this.prmtreportTime.setCommitFormat("$number$");		
         this.prmtreportTime.setRequired(false);
-        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmtCU,pkLastUpdateTime,prmtLastUpdateUser,pkCreateTime,prmtCreator,prmtAuditor,txtDescription,pkBizDate,txtNumber,pkAuditTime,comboBizStatus,comboStatus,prmtstaPerson,prmtUseOrgUnit,prmtreportTime,kdtEqmUse}));
+        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmtCU,pkLastUpdateTime,prmtLastUpdateUser,pkCreateTime,prmtCreator,prmtAuditor,txtDescription,pkBizDate,txtNumber,pkAuditTime,comboBizStatus,comboStatus,prmtstaPerson,prmtUseOrgUnit,prmtreportTime,chkinitialiRecord,kdtEqmUse}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
 		registerBindings();
@@ -613,6 +641,8 @@ vo.put("CostType","1");
         this.add(contUseOrgUnit, new KDLayout.Constraints(39, 45, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contreportTime.setBounds(new Rectangle(371, 45, 270, 19));
         this.add(contreportTime, new KDLayout.Constraints(371, 45, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        chkinitialiRecord.setBounds(new Rectangle(702, 45, 270, 19));
+        this.add(chkinitialiRecord, new KDLayout.Constraints(702, 45, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         //contCreator
         contCreator.setBoundEditor(prmtCreator);
         //contCreateTime
@@ -837,6 +867,9 @@ vo.put("CostType","1");
 		dataBinder.registerBinding("EqmUse.selfAmount", java.math.BigDecimal.class, this.kdtEqmUse, "selfAmount.text");
 		dataBinder.registerBinding("EqmUse.outAmount", java.math.BigDecimal.class, this.kdtEqmUse, "outAmount.text");
 		dataBinder.registerBinding("EqmUse.eqmName", java.lang.Object.class, this.kdtEqmUse, "eqmName.text");
+		dataBinder.registerBinding("EqmUse.startTime", java.util.Date.class, this.kdtEqmUse, "startTime.text");
+		dataBinder.registerBinding("EqmUse.endTime", java.util.Date.class, this.kdtEqmUse, "endTime.text");
+		dataBinder.registerBinding("initialiRecord", boolean.class, this.chkinitialiRecord, "selected");
 		dataBinder.registerBinding("creator", com.kingdee.eas.base.permission.UserInfo.class, this.prmtCreator, "data");
 		dataBinder.registerBinding("createTime", java.sql.Timestamp.class, this.pkCreateTime, "value");
 		dataBinder.registerBinding("lastUpdateUser", com.kingdee.eas.base.permission.UserInfo.class, this.prmtLastUpdateUser, "data");
@@ -1007,6 +1040,9 @@ vo.put("CostType","1");
 		getValidateHelper().registerBindProperty("EqmUse.selfAmount", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("EqmUse.outAmount", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("EqmUse.eqmName", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("EqmUse.startTime", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("EqmUse.endTime", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("initialiRecord", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("creator", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("createTime", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("lastUpdateUser", ValidateHelper.ON_SAVE);    
@@ -1037,6 +1073,13 @@ vo.put("CostType","1");
         } else if (STATUS_VIEW.equals(this.oprtState)) {
         } else if (STATUS_FINDVIEW.equals(this.oprtState)) {
         }
+    }
+
+    /**
+     * output chkinitialiRecord_stateChanged method
+     */
+    protected void chkinitialiRecord_stateChanged(javax.swing.event.ChangeEvent e) throws Exception
+    {
     }
 
     /**
@@ -1114,6 +1157,9 @@ vo.put("CostType","1");
 			sic.add(new SelectorItemInfo("EqmUse.eqmName.name"));
         	sic.add(new SelectorItemInfo("EqmUse.eqmName.number"));
 		}
+    	sic.add(new SelectorItemInfo("EqmUse.startTime"));
+    	sic.add(new SelectorItemInfo("EqmUse.endTime"));
+        sic.add(new SelectorItemInfo("initialiRecord"));
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
 			sic.add(new SelectorItemInfo("creator.*"));

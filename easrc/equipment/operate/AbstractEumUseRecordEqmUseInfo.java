@@ -239,6 +239,28 @@ public class AbstractEumUseRecordEqmUseInfo extends com.kingdee.eas.framework.Co
     {
         put("eqmName", item);
     }
+    /**
+     * Object:设备使用记录's 开始日期property 
+     */
+    public java.util.Date getStartTime()
+    {
+        return getDate("startTime");
+    }
+    public void setStartTime(java.util.Date item)
+    {
+        setDate("startTime", item);
+    }
+    /**
+     * Object:设备使用记录's 截止日期property 
+     */
+    public java.util.Date getEndTime()
+    {
+        return getDate("endTime");
+    }
+    public void setEndTime(java.util.Date item)
+    {
+        setDate("endTime", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("460F30A0");
