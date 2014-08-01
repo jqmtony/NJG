@@ -83,6 +83,17 @@ public class AbstractRepairOrderE1Info extends com.kingdee.eas.framework.CoreBil
     {
         setString("remark", item);
     }
+    /**
+     * Object: Î¬ÐÞÃ÷Ï¸ 's ¹ÊÕÏ²¿Î» property 
+     */
+    public com.kingdee.eas.port.equipment.base.FaLocationInfo getFaLocation()
+    {
+        return (com.kingdee.eas.port.equipment.base.FaLocationInfo)get("FaLocation");
+    }
+    public void setFaLocation(com.kingdee.eas.port.equipment.base.FaLocationInfo item)
+    {
+        put("FaLocation", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("58358BBD");

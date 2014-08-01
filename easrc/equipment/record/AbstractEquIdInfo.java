@@ -320,17 +320,6 @@ public class AbstractEquIdInfo extends com.kingdee.eas.xr.XRBillBaseInfo impleme
         put("installer", item);
     }
     /**
-     * Object: 设备档案 's 调试单位 property 
-     */
-    public com.kingdee.eas.basedata.master.cssp.SupplierInfo getDebuger()
-    {
-        return (com.kingdee.eas.basedata.master.cssp.SupplierInfo)get("debuger");
-    }
-    public void setDebuger(com.kingdee.eas.basedata.master.cssp.SupplierInfo item)
-    {
-        put("debuger", item);
-    }
-    /**
      * Object:设备档案's 验收日期property 
      */
     public java.util.Date getCheckDate()
@@ -340,17 +329,6 @@ public class AbstractEquIdInfo extends com.kingdee.eas.xr.XRBillBaseInfo impleme
     public void setCheckDate(java.util.Date item)
     {
         setDate("checkDate", item);
-    }
-    /**
-     * Object:设备档案's 使用期限property 
-     */
-    public java.util.Date getDeadline()
-    {
-        return getDate("deadline");
-    }
-    public void setDeadline(java.util.Date item)
-    {
-        setDate("deadline", item);
     }
     /**
      * Object:设备档案's 来源单位property 
@@ -805,6 +783,61 @@ public class AbstractEquIdInfo extends com.kingdee.eas.xr.XRBillBaseInfo impleme
     public void setIsbaoxian(boolean item)
     {
         setBoolean("isbaoxian", item);
+    }
+    /**
+     * Object:设备档案's 资产现值property 
+     */
+    public java.math.BigDecimal getNowAmount()
+    {
+        return getBigDecimal("nowAmount");
+    }
+    public void setNowAmount(java.math.BigDecimal item)
+    {
+        setBigDecimal("nowAmount", item);
+    }
+    /**
+     * Object:设备档案's 折旧年限property 
+     */
+    public java.math.BigDecimal getOldYear()
+    {
+        return getBigDecimal("oldYear");
+    }
+    public void setOldYear(java.math.BigDecimal item)
+    {
+        setBigDecimal("oldYear", item);
+    }
+    /**
+     * Object:设备档案's 使用期限property 
+     */
+    public String getDeadline()
+    {
+        return getString("deadline");
+    }
+    public void setDeadline(String item)
+    {
+        setString("deadline", item);
+    }
+    /**
+     * Object:设备档案's 调试单位property 
+     */
+    public String getDebuger()
+    {
+        return getString("debuger");
+    }
+    public void setDebuger(String item)
+    {
+        setString("debuger", item);
+    }
+    /**
+     * Object:设备档案's 是否参与定检巡检property 
+     */
+    public boolean isIsccCheck()
+    {
+        return getBoolean("isccCheck");
+    }
+    public void setIsccCheck(boolean item)
+    {
+        setBoolean("isccCheck", item);
     }
     public BOSObjectType getBOSType()
     {

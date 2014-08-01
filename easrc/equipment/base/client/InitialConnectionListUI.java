@@ -6,6 +6,7 @@ package com.kingdee.eas.port.equipment.base.client;
 import java.awt.event.*;
 import org.apache.log4j.Logger;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.ctrl.kdf.table.KDTDataRequestManager;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.eas.framework.*;
 
@@ -434,4 +435,8 @@ public class InitialConnectionListUI extends AbstractInitialConnectionListUI
         return objectValue;
     }
 
+    public void onLoad() throws Exception {
+    	super.onLoad();
+    	this.tblMain.getDataRequestManager().setDataRequestMode(KDTDataRequestManager.REAL_MODE);
+    }
 }

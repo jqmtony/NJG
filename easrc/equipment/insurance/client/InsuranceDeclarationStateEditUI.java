@@ -719,6 +719,7 @@ public class InsuranceDeclarationStateEditUI extends AbstractInsuranceDeclaratio
 	 public void onLoad() throws Exception {
     	 this.kdtE1.getColumn("seq").getStyleAttributes().setHided(true);
     	 txttotalAmountInsured.setEnabled(false);
+    	 txtNumber.setEnabled(false);
     	 this.kdtE1.getColumn("originalValue").getStyleAttributes().setLocked(true);
     	super.onLoad();
     	if (OprtState.ADDNEW.equals(getOprtState())) {
@@ -728,7 +729,7 @@ public class InsuranceDeclarationStateEditUI extends AbstractInsuranceDeclaratio
 			StringBuffer sb = new StringBuffer();
 			sb.append("/*dialect*/select");
 			sb.append(" a.fid 设备编号,b.fname_l2 设备类型,a.CFName 设备名称,a.CFInnerNumber 厂内编号,a.CFModel 规格型号,");
-			sb.append(" a.CFQyDate 投用日期,a.CFMader 制造商,a.CFWeight 重量,a.CFAssetValue 原值");
+			sb.append(" a.CFQyDate 投用日期,a.CFMader 制造商,a.CFWeight 重量,a.CFAssetValue 原值,a.CFNowAmount 现值");
 			sb.append(" from CT_REC_EquId a");
 			sb.append(" left join T_FA_Cat b on a.CFEqmTypeID = b.fid");
 			sb.append(" where a.cfsbstatus = '1'");
@@ -749,7 +750,7 @@ public class InsuranceDeclarationStateEditUI extends AbstractInsuranceDeclaratio
 				row.getCell("makeUnit").setValue(rowSet.getString("制造商"));
 				row.getCell("tonnage").setValue(rowSet.getString("重量"));
 				row.getCell("originalValue").setValue(rowSet.getBigDecimal("原值"));
-				
+				row.getCell("presentValue").setValue(rowSet.getBigDecimal("现值"));
 			}
     	}
     	//过滤不是已报废的设备

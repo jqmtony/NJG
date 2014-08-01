@@ -132,6 +132,7 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 		tzsbStatus.setEnabled(true);
 		contdayone.setVisible(false);
 		contdaytow.setVisible(false);
+		pkactrueTime.setEnabled(false);
 		
 	}
 
@@ -153,7 +154,8 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 		combonowStatus.setEnabled(false);
 		this.txtcityPeriod.setPrecision(0);	
 		this.txtportPeriod.setPrecision(0);	
-
+		txtnowAmount.setEnabled(false);
+		txtoldYear.setEnabled(false);
 		super.onLoad();
 		FaCatPromptBox facatBox = new FaCatPromptBox();
 		facatBox.setACompanyOrgUnitInfo(SysContext.getSysContext()
@@ -263,7 +265,6 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 			txtcode.setEnabled(true);
 			prmtspecialType.setEnabled(true);
 			txttelePhoneNumber.setEnabled(true);
-			pkactrueTime.setEnabled(true);
 			prmtequTypeone.setEnabled(true);
 			tzsbStatus.setEnabled(true);
 		}
@@ -288,8 +289,6 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 			prmtspecialType.setValue(null);
 			txttelePhoneNumber.setEnabled(false);
 			txttelePhoneNumber.setText(null);
-			pkactrueTime.setEnabled(false);
-			pkactrueTime.setValue(null);
 			prmtequTypeone.setEnabled(false);
 			prmtequTypeone.setValue(null);
 			tzsbStatus.setEnabled(false);
@@ -315,7 +314,6 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 		
 		this.prmtsupplier.setSelector(new F7SupplierSimpleSelector(this,this.prmtsupplier));
 		this.prmtinstaller.setSelector(new F7SupplierSimpleSelector(this,this.prmtinstaller));
-		this.prmtdebuger.setSelector(new F7SupplierSimpleSelector(this,this.prmtdebuger));
 		
 		MaterialClientTools.setMeasureUnitF7(this, this.prmtunit);
 		
@@ -331,6 +329,25 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 			this.toolBar.setVisible(false);
 			this.toolBar.removeAllToolBarComponents();
 		}
+		if (prmtasset.getValue() !=null ) {
+			String id = ((FaCurCardInfo)prmtasset.getData()).getId().toString();
+			FaCurCardInfo facur = FaCurCardFactory.getRemoteInstance().getFaCurCardInfo(new ObjectUuidPK(id));
+			if(facur.getAssetValue() != null){
+				txtassetValue.setValue(facur.getAssetValue());
+			}
+			if(facur.getNeatValue()!=null){
+				txtnowAmount.setValue(facur.getNeatValue());
+			}
+		    if(facur.getUseYears()!=null){
+		    	txtoldYear.setValue(facur.getUseYears());
+		    }
+		    if(facur.getUseStatus() != null){
+		    	FaUseStatusInfo info = FaUseStatusFactory.getRemoteInstance().getFaUseStatusInfo(new ObjectUuidPK(facur.getUseStatus().getId()));
+				prmtassetStatus.setValue(info);
+		    }
+		
+		}
+	
 	}
 	
 	private void SelectorFaCard() throws Exception
@@ -746,7 +763,15 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 			return;
 		}
 		FaCurCardInfo facur = (FaCurCardInfo) prmtasset.getValue();
-		txtassetValue.setValue(facur.getAssetValue());
+		if(facur.getAssetValue() != null){
+			txtassetValue.setValue(facur.getAssetValue());
+		}
+		if(facur.getNeatValue()!=null){
+			txtnowAmount.setValue(facur.getNeatValue());
+		}
+	    if(facur.getUseYears()!=null){
+	    	txtoldYear.setValue(facur.getUseYears());
+	    }
 		FaUseStatusInfo info = FaUseStatusFactory.getRemoteInstance().getFaUseStatusInfo(new ObjectUuidPK(facur.getUseStatus().getId()));
 		prmtassetStatus.setValue(info);
 		
@@ -1086,7 +1111,6 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 				txtcode.setEnabled(true);
 				prmtspecialType.setEnabled(true);
 				txttelePhoneNumber.setEnabled(true);
-				pkactrueTime.setEnabled(true);
 				prmtequTypeone.setEnabled(true);
 				tzsbStatus.setEnabled(true);
 			}
@@ -1112,8 +1136,6 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 				prmtspecialType.setValue(null);
 				txttelePhoneNumber.setEnabled(false);
 				txttelePhoneNumber.setText(null);
-				pkactrueTime.setEnabled(false);
-				pkactrueTime.setValue(null);
 				prmtequTypeone.setEnabled(false);
 				prmtequTypeone.setValue(null);
 				tzsbStatus.setEnabled(false);
@@ -1438,8 +1460,13 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 		sic.add(new SelectorItemInfo("auditTime"));
 		sic.add(new SelectorItemInfo("special"));
 		sic.add(new SelectorItemInfo("isMainEqm"));
+		sic.add(new SelectorItemInfo("isbaoxian"));
 		sic.add(new SelectorItemInfo("parent"));
 		sic.add(new SelectorItemInfo("number"));
+		sic.add(new SelectorItemInfo("nowAmount"));
+		sic.add(new SelectorItemInfo("oldYear"));
+		sic.add(new SelectorItemInfo("deadline"));
+		sic.add(new SelectorItemInfo("debuger"));
 		sic.add(new SelectorItemInfo("name"));
 		if (selectorAll.equalsIgnoreCase("true")) {
 			sic.add(new SelectorItemInfo("ssOrgUnit.*"));
@@ -1562,19 +1589,12 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 			sic.add(new SelectorItemInfo("installer.number"));
 			sic.add(new SelectorItemInfo("installer.name"));
 		}
-		if (selectorAll.equalsIgnoreCase("true")) {
-			sic.add(new SelectorItemInfo("debuger.*"));
-		} else {
-			sic.add(new SelectorItemInfo("debuger.id"));
-			sic.add(new SelectorItemInfo("debuger.number"));
-			sic.add(new SelectorItemInfo("debuger.name"));
-		}
 		sic.add(new SelectorItemInfo("checkDate"));
-		sic.add(new SelectorItemInfo("deadline"));
 		sic.add(new SelectorItemInfo("sourceUnit"));
 		sic.add(new SelectorItemInfo("portTest"));
 		sic.add(new SelectorItemInfo("cityTest"));
 		sic.add(new SelectorItemInfo("testDay"));
+		sic.add(new SelectorItemInfo("isccCheck"));
 		sic.add(new SelectorItemInfo("tzdaNumber"));
 		sic.add(new SelectorItemInfo("tzsbStatus"));
 		if (selectorAll.equalsIgnoreCase("true")) {

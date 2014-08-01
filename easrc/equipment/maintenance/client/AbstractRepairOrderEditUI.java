@@ -433,11 +433,11 @@ public abstract class AbstractRepairOrderEditUI extends com.kingdee.eas.xr.clien
         this.contmaintenanceProgram.setBoundLabelUnderline(true);		
         this.contmaintenanceProgram.setVisible(true);
         // kdtE1
-		String kdtE1StrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style><c:Style id=\"sCol3\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"repairContent\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"replaceSparePart\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"workTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol3\" /><t:Column t:key=\"repairPerson\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"remark\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{repairContent}</t:Cell><t:Cell>$Resource{replaceSparePart}</t:Cell><t:Cell>$Resource{workTime}</t:Cell><t:Cell>$Resource{repairPerson}</t:Cell><t:Cell>$Resource{remark}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		String kdtE1StrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style><c:Style id=\"sCol4\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"FaLocation\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"repairContent\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"replaceSparePart\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"workTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol4\" /><t:Column t:key=\"repairPerson\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"remark\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{FaLocation}</t:Cell><t:Cell>$Resource{repairContent}</t:Cell><t:Cell>$Resource{replaceSparePart}</t:Cell><t:Cell>$Resource{workTime}</t:Cell><t:Cell>$Resource{repairPerson}</t:Cell><t:Cell>$Resource{remark}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.kdtE1.setFormatXml(resHelper.translateString("kdtE1",kdtE1StrXML));
 
-                this.kdtE1.putBindContents("editData",new String[] {"seq","repairContent","replaceSparePart","workTime","repairPerson","remark"});
+                this.kdtE1.putBindContents("editData",new String[] {"seq","FaLocation","repairContent","replaceSparePart","workTime","repairPerson","remark"});
 
 
         this.kdtE1.checkParsed();
@@ -449,6 +449,18 @@ public abstract class AbstractRepairOrderEditUI extends com.kingdee.eas.xr.clien
         kdtE1_seq_TextField.setDataType(0);
         KDTDefaultCellEditor kdtE1_seq_CellEditor = new KDTDefaultCellEditor(kdtE1_seq_TextField);
         this.kdtE1.getColumn("seq").setEditor(kdtE1_seq_CellEditor);
+        final KDBizPromptBox kdtE1_FaLocation_PromptBox = new KDBizPromptBox();
+        kdtE1_FaLocation_PromptBox.setQueryInfo("com.kingdee.eas.port.equipment.base.app.FaLocationQuery");
+        kdtE1_FaLocation_PromptBox.setVisible(true);
+        kdtE1_FaLocation_PromptBox.setEditable(true);
+        kdtE1_FaLocation_PromptBox.setDisplayFormat("$number$");
+        kdtE1_FaLocation_PromptBox.setEditFormat("$number$");
+        kdtE1_FaLocation_PromptBox.setCommitFormat("$number$");
+        KDTDefaultCellEditor kdtE1_FaLocation_CellEditor = new KDTDefaultCellEditor(kdtE1_FaLocation_PromptBox);
+        this.kdtE1.getColumn("FaLocation").setEditor(kdtE1_FaLocation_CellEditor);
+        ObjectValueRender kdtE1_FaLocation_OVR = new ObjectValueRender();
+        kdtE1_FaLocation_OVR.setFormat(new BizDataFormat("$name$"));
+        this.kdtE1.getColumn("FaLocation").setRenderer(kdtE1_FaLocation_OVR);
         KDTextField kdtE1_repairContent_TextField = new KDTextField();
         kdtE1_repairContent_TextField.setName("kdtE1_repairContent_TextField");
         kdtE1_repairContent_TextField.setMaxLength(100);
@@ -531,11 +543,9 @@ public abstract class AbstractRepairOrderEditUI extends com.kingdee.eas.xr.clien
         this.contslDepart.setVisible(true);
         // chkselfStudy		
         this.chkselfStudy.setText(resHelper.getString("chkselfStudy.text"));		
-        this.chkselfStudy.setVisible(true);		
         this.chkselfStudy.setHorizontalAlignment(2);
         // chkoutsourcing		
         this.chkoutsourcing.setText(resHelper.getString("chkoutsourcing.text"));		
-        this.chkoutsourcing.setVisible(true);		
         this.chkoutsourcing.setHorizontalAlignment(2);
         // contselfAmount		
         this.contselfAmount.setBoundLabelText(resHelper.getString("contselfAmount.boundLabelText"));		
@@ -585,7 +595,6 @@ public abstract class AbstractRepairOrderEditUI extends com.kingdee.eas.xr.clien
         this.pkAuditTime.setEnabled(false);
         // prmtequName		
         this.prmtequName.setQueryInfo("com.kingdee.eas.port.equipment.record.app.EquIdQuery");		
-        this.prmtequName.setVisible(true);		
         this.prmtequName.setEditable(true);		
         this.prmtequName.setDisplayFormat("$name$");		
         this.prmtequName.setEditFormat("$number$");		
@@ -603,18 +612,15 @@ public abstract class AbstractRepairOrderEditUI extends com.kingdee.eas.xr.clien
 	});
 
         // txtequModel		
-        this.txtequModel.setVisible(true);		
         this.txtequModel.setHorizontalAlignment(2);		
         this.txtequModel.setMaxLength(80);		
         this.txtequModel.setRequired(false);
         // txtequAddress		
-        this.txtequAddress.setVisible(true);		
         this.txtequAddress.setHorizontalAlignment(2);		
         this.txtequAddress.setMaxLength(80);		
         this.txtequAddress.setRequired(false);
         // prmtrepairDepart		
         this.prmtrepairDepart.setQueryInfo("com.kingdee.eas.basedata.org.app.AdminItemQuery");		
-        this.prmtrepairDepart.setVisible(true);		
         this.prmtrepairDepart.setEditable(true);		
         this.prmtrepairDepart.setDisplayFormat("$name$");		
         this.prmtrepairDepart.setEditFormat("$number$");		
@@ -622,7 +628,6 @@ public abstract class AbstractRepairOrderEditUI extends com.kingdee.eas.xr.clien
         this.prmtrepairDepart.setRequired(false);
         // prmtrepairPerson		
         this.prmtrepairPerson.setQueryInfo("com.kingdee.eas.basedata.person.app.PersonQuery");		
-        this.prmtrepairPerson.setVisible(true);		
         this.prmtrepairPerson.setEditable(true);		
         this.prmtrepairPerson.setDisplayFormat("$name$");		
         this.prmtrepairPerson.setEditFormat("$number$");		
@@ -639,16 +644,13 @@ public abstract class AbstractRepairOrderEditUI extends com.kingdee.eas.xr.clien
             }
         });
         // pkrepairTime		
-        this.pkrepairTime.setVisible(true);		
         this.pkrepairTime.setRequired(false);
         // txtrepairContent		
-        this.txtrepairContent.setVisible(true);		
         this.txtrepairContent.setHorizontalAlignment(2);		
         this.txtrepairContent.setMaxLength(255);		
         this.txtrepairContent.setRequired(false);
         // prmtassignee		
         this.prmtassignee.setQueryInfo("com.kingdee.eas.basedata.person.app.PersonQuery");		
-        this.prmtassignee.setVisible(true);		
         this.prmtassignee.setEditable(true);		
         this.prmtassignee.setDisplayFormat("$name$");		
         this.prmtassignee.setEditFormat("$number$");		
@@ -665,11 +667,9 @@ public abstract class AbstractRepairOrderEditUI extends com.kingdee.eas.xr.clien
             }
         });
         // pkacceptTime		
-        this.pkacceptTime.setVisible(true);		
         this.pkacceptTime.setRequired(false);
         // prmtmaintenanceType		
         this.prmtmaintenanceType.setQueryInfo("com.kingdee.eas.port.equipment.base.app.MaintenanceTypeQuery");		
-        this.prmtmaintenanceType.setVisible(true);		
         this.prmtmaintenanceType.setEditable(true);		
         this.prmtmaintenanceType.setDisplayFormat("$name$");		
         this.prmtmaintenanceType.setEditFormat("$number$");		
@@ -677,25 +677,20 @@ public abstract class AbstractRepairOrderEditUI extends com.kingdee.eas.xr.clien
         this.prmtmaintenanceType.setRequired(false);
         // scrollPanemaintenanceProgram
         // txtmaintenanceProgram		
-        this.txtmaintenanceProgram.setVisible(true);		
         this.txtmaintenanceProgram.setRequired(false);		
         this.txtmaintenanceProgram.setMaxLength(255);
         // scrollPaneBIMUDF0021
         // txtBIMUDF0021		
-        this.txtBIMUDF0021.setVisible(true);		
         this.txtBIMUDF0021.setRequired(false);		
         this.txtBIMUDF0021.setMaxLength(255);
         // pkrepairDate		
-        this.pkrepairDate.setVisible(true);		
         this.pkrepairDate.setRequired(false);
         // txtacceptSituation		
-        this.txtacceptSituation.setVisible(true);		
         this.txtacceptSituation.setHorizontalAlignment(2);		
         this.txtacceptSituation.setMaxLength(100);		
         this.txtacceptSituation.setRequired(false);
         // prmtdeliveryPerson		
         this.prmtdeliveryPerson.setQueryInfo("com.kingdee.eas.basedata.person.app.PersonQuery");		
-        this.prmtdeliveryPerson.setVisible(true);		
         this.prmtdeliveryPerson.setEditable(true);		
         this.prmtdeliveryPerson.setDisplayFormat("$name$");		
         this.prmtdeliveryPerson.setEditFormat("$number$");		
@@ -703,25 +698,21 @@ public abstract class AbstractRepairOrderEditUI extends com.kingdee.eas.xr.clien
         this.prmtdeliveryPerson.setRequired(false);
         // prmtrecipient		
         this.prmtrecipient.setQueryInfo("com.kingdee.eas.basedata.person.app.PersonQuery");		
-        this.prmtrecipient.setVisible(true);		
         this.prmtrecipient.setEditable(true);		
         this.prmtrecipient.setDisplayFormat("$name$");		
         this.prmtrecipient.setEditFormat("$number$");		
         this.prmtrecipient.setCommitFormat("$number$");		
         this.prmtrecipient.setRequired(false);
         // pktransferTime		
-        this.pktransferTime.setVisible(true);		
         this.pktransferTime.setRequired(false);
         // prmtslDepart		
         this.prmtslDepart.setQueryInfo("com.kingdee.eas.basedata.org.app.AdminItemQuery");		
-        this.prmtslDepart.setVisible(true);		
         this.prmtslDepart.setEditable(true);		
         this.prmtslDepart.setDisplayFormat("$name$");		
         this.prmtslDepart.setEditFormat("$number$");		
         this.prmtslDepart.setCommitFormat("$number$");		
         this.prmtslDepart.setRequired(false);
         // txtselfAmount		
-        this.txtselfAmount.setVisible(true);		
         this.txtselfAmount.setHorizontalAlignment(2);		
         this.txtselfAmount.setDataType(1);		
         this.txtselfAmount.setSupportedEmpty(true);		
@@ -730,7 +721,6 @@ public abstract class AbstractRepairOrderEditUI extends com.kingdee.eas.xr.clien
         this.txtselfAmount.setPrecision(2);		
         this.txtselfAmount.setRequired(false);
         // txtoutAmount		
-        this.txtoutAmount.setVisible(true);		
         this.txtoutAmount.setHorizontalAlignment(2);		
         this.txtoutAmount.setDataType(1);		
         this.txtoutAmount.setSupportedEmpty(true);		
@@ -738,7 +728,7 @@ public abstract class AbstractRepairOrderEditUI extends com.kingdee.eas.xr.clien
         this.txtoutAmount.setMaximumValue( new java.math.BigDecimal("1.0E18"));		
         this.txtoutAmount.setPrecision(2);		
         this.txtoutAmount.setRequired(false);
-        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmtequName,txtequModel,txtequAddress,prmtrepairDepart,prmtrepairPerson,pkrepairTime,txtrepairContent,prmtassignee,pkacceptTime,prmtmaintenanceType,kdtE1,txtmaintenanceProgram,prmtCU,pkLastUpdateTime,prmtLastUpdateUser,pkCreateTime,prmtCreator,prmtAuditor,txtDescription,pkBizDate,txtNumber,pkAuditTime,comboBizStatus,comboStatus,pkrepairDate,txtacceptSituation,prmtdeliveryPerson,prmtrecipient,pktransferTime,prmtslDepart,chkselfStudy,chkoutsourcing,txtselfAmount,txtoutAmount}));
+        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {txtBIMUDF0021,prmtequName,txtequModel,txtequAddress,prmtrepairDepart,prmtrepairPerson,pkrepairTime,txtrepairContent,prmtassignee,pkacceptTime,prmtmaintenanceType,txtmaintenanceProgram,prmtCU,pkLastUpdateTime,kdtE1,prmtLastUpdateUser,pkCreateTime,prmtCreator,prmtAuditor,txtDescription,pkBizDate,txtNumber,pkAuditTime,comboBizStatus,comboStatus,pkrepairDate,txtacceptSituation,prmtdeliveryPerson,prmtrecipient,pktransferTime,prmtslDepart,chkselfStudy,chkoutsourcing,txtselfAmount,txtoutAmount}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
 		registerBindings();
@@ -1086,6 +1076,7 @@ public abstract class AbstractRepairOrderEditUI extends com.kingdee.eas.xr.clien
 		dataBinder.registerBinding("E1.workTime", java.math.BigDecimal.class, this.kdtE1, "workTime.text");
 		dataBinder.registerBinding("E1.repairPerson", java.lang.Object.class, this.kdtE1, "repairPerson.text");
 		dataBinder.registerBinding("E1.remark", String.class, this.kdtE1, "remark.text");
+		dataBinder.registerBinding("E1.FaLocation", java.lang.Object.class, this.kdtE1, "FaLocation.text");
 		dataBinder.registerBinding("selfStudy", boolean.class, this.chkselfStudy, "selected");
 		dataBinder.registerBinding("outsourcing", boolean.class, this.chkoutsourcing, "selected");
 		dataBinder.registerBinding("creator", com.kingdee.eas.base.permission.UserInfo.class, this.prmtCreator, "data");
@@ -1151,7 +1142,7 @@ public abstract class AbstractRepairOrderEditUI extends com.kingdee.eas.xr.clien
     public void onShow() throws Exception
     {
         super.onShow();
-        this.prmtequName.requestFocusInWindow();
+        this.txtBIMUDF0021.requestFocusInWindow();
     }
 
 	
@@ -1261,6 +1252,7 @@ public abstract class AbstractRepairOrderEditUI extends com.kingdee.eas.xr.clien
 		getValidateHelper().registerBindProperty("E1.workTime", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("E1.repairPerson", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("E1.remark", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("E1.FaLocation", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("selfStudy", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("outsourcing", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("creator", ValidateHelper.ON_SAVE);    
@@ -1377,6 +1369,15 @@ public abstract class AbstractRepairOrderEditUI extends com.kingdee.eas.xr.clien
         	sic.add(new SelectorItemInfo("E1.repairPerson.number"));
 		}
     	sic.add(new SelectorItemInfo("E1.remark"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("E1.FaLocation.*"));
+		}
+		else{
+	    	sic.add(new SelectorItemInfo("E1.FaLocation.id"));
+			sic.add(new SelectorItemInfo("E1.FaLocation.name"));
+        	sic.add(new SelectorItemInfo("E1.FaLocation.number"));
+		}
         sic.add(new SelectorItemInfo("selfStudy"));
         sic.add(new SelectorItemInfo("outsourcing"));
 		if(selectorAll.equalsIgnoreCase("true"))

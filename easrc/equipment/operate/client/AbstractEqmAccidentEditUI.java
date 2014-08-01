@@ -675,12 +675,12 @@ public abstract class AbstractEqmAccidentEditUI extends com.kingdee.eas.xr.clien
         this.add(contstopTime, new KDLayout.Constraints(341, 130, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contaccidentDescription.setBounds(new Rectangle(10, 160, 412, 92));
         this.add(contaccidentDescription, new KDLayout.Constraints(10, 160, 412, 92, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contaccidentManagement.setBounds(new Rectangle(485, 160, 457, 92));
-        this.add(contaccidentManagement, new KDLayout.Constraints(485, 160, 457, 92, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contaccidentManagement.setBounds(new Rectangle(485, 269, 457, 92));
+        this.add(contaccidentManagement, new KDLayout.Constraints(485, 269, 457, 92, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contaccidentCause.setBounds(new Rectangle(10, 269, 412, 92));
         this.add(contaccidentCause, new KDLayout.Constraints(10, 269, 412, 92, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contResultCode.setBounds(new Rectangle(485, 269, 457, 92));
-        this.add(contResultCode, new KDLayout.Constraints(485, 269, 457, 92, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contResultCode.setBounds(new Rectangle(485, 160, 457, 92));
+        this.add(contResultCode, new KDLayout.Constraints(485, 160, 457, 92, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         //contCreator
         contCreator.setBoundEditor(prmtCreator);
         //contCreateTime

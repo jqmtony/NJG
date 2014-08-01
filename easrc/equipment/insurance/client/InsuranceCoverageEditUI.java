@@ -1075,7 +1075,12 @@ this.prmtinsurance.setEnabledMultiSelection(true);
 			if(kdtE1.getCell(rowIndex, "equNumber").getValue() != null){
 				String id = ((EquIdInfo)kdtE1.getCell(rowIndex, "equNumber").getValue()).getId().toString();
 				EquIdInfo eqInfo = EquIdFactory.getRemoteInstance().getEquIdInfo(new ObjectUuidPK(id));
-				kdtE1.getCell(rowIndex, "originalValue").setValue(eqInfo.getAssetValue());
+				if(eqInfo.getAssetValue() != null){
+					kdtE1.getCell(rowIndex, "originalValue").setValue(eqInfo.getAssetValue());
+				}
+				if(eqInfo.getNowAmount() != null){
+					kdtE1.getCell(rowIndex, "presentValue").setValue(eqInfo.getNowAmount());
+				}
 				if(eqInfo.getSsOrgUnit() != null){
 					String id2 = ((AdminOrgUnitInfo)eqInfo.getSsOrgUnit()).getId().toString();
 					AdminOrgUnitInfo aoInfo = AdminOrgUnitFactory.getRemoteInstance().getAdminOrgUnitInfo(new ObjectUuidPK(id2));
@@ -1084,6 +1089,7 @@ this.prmtinsurance.setEnabledMultiSelection(true);
 			}else{
 				kdtE1.getCell(rowIndex, "originalValue").setValue(null);
 				kdtE1.getCell(rowIndex, "useUnit").setValue(null);
+				kdtE1.getCell(rowIndex, "presentValue").setValue(null);
 			}
 		}
 		
