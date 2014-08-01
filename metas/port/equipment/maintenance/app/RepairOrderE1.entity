@@ -704,6 +704,20 @@
                 <key name="name" value="CFRemark" />
             </mappingField>
         </ownProperty>
+        <linkProperty>
+            <name>FaLocation</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderE1].properties.linkProperty[FaLocation].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderE1].properties.linkProperty[FaLocation].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <mappingField>
+                <key name="name" value="CFFaLocationID" />
+            </mappingField>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.port.equipment.maintenance.app" />
+                <key name="name" value="R_RepairOrderE1_FaLocation_FaLocation" />
+            </relationship>
+        </linkProperty>
     </properties>
     <logicalKey>
         <name>id</name>
@@ -1157,6 +1171,58 @@
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderE1].properties.linkProperty[FaLocation].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="故障部位" />
+            <lang locale="zh_HK" value="故障部位" />
+            <lang locale="zh_TW" value="故障部位" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderE1].properties.linkProperty[FaLocation].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="故障部位" />
+            <lang locale="zh_HK" value="故障部位" />
+            <lang locale="zh_TW" value="故障部位" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderE1].properties.linkProperty[FaLocation].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderE1].properties.linkProperty[FaLocation].extendedProperty.dataField">
+            <lang locale="en_US" value="name" />
+            <lang locale="zh_CN" value="name" />
+            <lang locale="zh_TW" value="name" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderE1].properties.linkProperty[FaLocation].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderE1].properties.linkProperty[FaLocation].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderE1].properties.linkProperty[FaLocation].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderE1].properties.linkProperty[FaLocation].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderE1].properties.linkProperty[FaLocation].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderE1].properties.linkProperty[FaLocation].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderE1].properties.linkProperty[parent].alias">
             <lang locale="en_US" value="null" />

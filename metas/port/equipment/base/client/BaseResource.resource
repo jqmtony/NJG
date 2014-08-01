@@ -72,6 +72,11 @@
             <value>i18nResource[com.kingdee.eas.port.equipment.base.client.BaseResource].resourceItems.resourceItem[InitialConnectionQueryF7WindowTitle].value</value>
             <userDefined>true</userDefined>
         </resourceItem>
+        <resourceItem>
+            <name>FaLocationQueryF7WindowTitle</name>
+            <value>i18nResource[com.kingdee.eas.port.equipment.base.client.BaseResource].resourceItems.resourceItem[FaLocationQueryF7WindowTitle].value</value>
+            <userDefined>true</userDefined>
+        </resourceItem>
     </resourceItems>
     <resource>
         <rs key="i18nResource[com.kingdee.eas.port.equipment.base.client.BaseResource].alias">
@@ -121,6 +126,12 @@
             <lang locale="zh_CN" value="设备类型" />
             <lang locale="zh_HK" value="設備類型" />
             <lang locale="zh_TW" value="設備類型" />
+        </rs>
+        <rs key="i18nResource[com.kingdee.eas.port.equipment.base.client.BaseResource].resourceItems.resourceItem[FaLocationQueryF7WindowTitle].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="故障部位" />
+            <lang locale="zh_HK" value="故障部位" />
+            <lang locale="zh_TW" value="故障部位" />
         </rs>
         <rs key="i18nResource[com.kingdee.eas.port.equipment.base.client.BaseResource].resourceItems.resourceItem[InitialConnectionQueryF7WindowTitle].value">
             <lang locale="en_US" value="null" />

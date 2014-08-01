@@ -624,37 +624,9 @@
             <precision>0</precision>
         </column>
         <column>
-            <name>CFDebugerID</name>
-            <alias>dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquId].columns.column[CFDebugerID].alias</alias>
-            <description>dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquId].columns.column[CFDebugerID].description</description>
-            <userDefined>true</userDefined>
-            <isMultilingual>false</isMultilingual>
-            <isEncoded>false</isEncoded>
-            <isNullable>true</isNullable>
-            <defaultValue />
-            <sqlType>VARCHAR</sqlType>
-            <length>44</length>
-            <scale>0</scale>
-            <precision>0</precision>
-        </column>
-        <column>
             <name>CFCheckDate</name>
             <alias>dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquId].columns.column[CFCheckDate].alias</alias>
             <description>dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquId].columns.column[CFCheckDate].description</description>
-            <userDefined>true</userDefined>
-            <isMultilingual>false</isMultilingual>
-            <isEncoded>false</isEncoded>
-            <isNullable>true</isNullable>
-            <defaultValue />
-            <sqlType>DATETIME</sqlType>
-            <length>8</length>
-            <scale>0</scale>
-            <precision>0</precision>
-        </column>
-        <column>
-            <name>CFDeadline</name>
-            <alias>dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquId].columns.column[CFDeadline].alias</alias>
-            <description>dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquId].columns.column[CFDeadline].description</description>
             <userDefined>true</userDefined>
             <isMultilingual>false</isMultilingual>
             <isEncoded>false</isEncoded>
@@ -1211,6 +1183,76 @@
             <scale>0</scale>
             <precision>0</precision>
         </column>
+        <column>
+            <name>CFNowAmount</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquId].columns.column[CFNowAmount].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquId].columns.column[CFNowAmount].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NUMERIC</sqlType>
+            <length>28</length>
+            <scale>10</scale>
+            <precision>28</precision>
+        </column>
+        <column>
+            <name>CFOldYear</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquId].columns.column[CFOldYear].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquId].columns.column[CFOldYear].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NUMERIC</sqlType>
+            <length>28</length>
+            <scale>10</scale>
+            <precision>28</precision>
+        </column>
+        <column>
+            <name>CFDeadline</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquId].columns.column[CFDeadline].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquId].columns.column[CFDeadline].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>100</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFDebuger</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquId].columns.column[CFDebuger].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquId].columns.column[CFDebuger].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>255</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFIsccCheck</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquId].columns.column[CFIsccCheck].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquId].columns.column[CFIsccCheck].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>INT</sqlType>
+            <length>1</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
     </columns>
     <primaryKey>
         <name>CPK_REC_EquIdIDeu2</name>
@@ -1550,25 +1592,6 @@
             </fkColumnPairs>
         </foreignKey>
         <foreignKey>
-            <name>CFK_REC_REC_EquI64</name>
-            <userDefined>true</userDefined>
-            <refTable>
-                <key name="package" value="com.kingdee.eas.basedata.master.cssp.app" />
-                <key name="name" value="T_BD_Supplier" />
-            </refTable>
-            <fkColumnPairs>
-                <fkColumnPair>
-                    <sequence>0</sequence>
-                    <refColumn>
-                        <key name="name" value="FID" />
-                    </refColumn>
-                    <fkColumn>
-                        <key name="name" value="CFDebugerID" />
-                    </fkColumn>
-                </fkColumnPair>
-            </fkColumnPairs>
-        </foreignKey>
-        <foreignKey>
             <name>CFK_REC_REC_EquIav</name>
             <userDefined>true</userDefined>
             <refTable>
@@ -1894,13 +1917,13 @@
             <lang locale="zh_HK" value="使用期限" />
             <lang locale="zh_TW" value="使用期限" />
         </rs>
-        <rs key="dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquId].columns.column[CFDebugerID].alias">
+        <rs key="dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquId].columns.column[CFDebuger].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="调试单位" />
             <lang locale="zh_HK" value="調試單位" />
             <lang locale="zh_TW" value="調試單位" />
         </rs>
-        <rs key="dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquId].columns.column[CFDebugerID].description">
+        <rs key="dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquId].columns.column[CFDebuger].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="调试单位" />
             <lang locale="zh_HK" value="調試單位" />
@@ -2038,6 +2061,18 @@
             <lang locale="zh_HK" value="是否參加保險" />
             <lang locale="zh_TW" value="是否參加保險" />
         </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquId].columns.column[CFIsccCheck].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否参与定检巡检" />
+            <lang locale="zh_HK" value="是否參與定檢巡檢" />
+            <lang locale="zh_TW" value="是否參與定檢巡檢" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquId].columns.column[CFIsccCheck].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否参与定检巡检" />
+            <lang locale="zh_HK" value="是否參與定檢巡檢" />
+            <lang locale="zh_TW" value="是否參與定檢巡檢" />
+        </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquId].columns.column[CFJhOrgUnitID].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="计划组织" />
@@ -2122,6 +2157,18 @@
             <lang locale="zh_HK" value="設備名稱" />
             <lang locale="zh_TW" value="設備名稱" />
         </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquId].columns.column[CFNowAmount].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="资产现值" />
+            <lang locale="zh_HK" value="資產現值" />
+            <lang locale="zh_TW" value="資產現值" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquId].columns.column[CFNowAmount].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="资产现值" />
+            <lang locale="zh_HK" value="資產現值" />
+            <lang locale="zh_TW" value="資產現值" />
+        </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquId].columns.column[CFNowStatus].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="目前现况" />
@@ -2133,6 +2180,18 @@
             <lang locale="zh_CN" value="目前现况" />
             <lang locale="zh_HK" value="目前現況" />
             <lang locale="zh_TW" value="目前現況" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquId].columns.column[CFOldYear].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="折旧年限" />
+            <lang locale="zh_HK" value="折舊年限" />
+            <lang locale="zh_TW" value="折舊年限" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquId].columns.column[CFOldYear].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="折旧年限" />
+            <lang locale="zh_HK" value="折舊年限" />
+            <lang locale="zh_TW" value="折舊年限" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquId].columns.column[CFParentID].alias">
             <lang locale="en_US" value="null" />

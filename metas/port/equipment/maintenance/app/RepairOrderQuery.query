@@ -217,6 +217,19 @@
                 <key name="name" value="AdminOrgUnit" />
             </entityRef>
         </subEntity>
+        <subEntity>
+            <name>E1_FaLocation</name>
+            <alias>joinQuery[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderQuery].subObjects.subEntity[E1_FaLocation].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.maintenance.app" />
+                <key name="name" value="RepairOrderQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.port.equipment.base.app" />
+                <key name="name" value="FaLocation" />
+            </entityRef>
+        </subEntity>
     </subObjects>
     <units>
         <queryField>
@@ -2358,6 +2371,99 @@
                 <key name="name" value="RepairOrderQuery" />
             </query>
         </queryField>
+        <queryField>
+            <name>E1.FaLocation.name</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderQuery].units.queryField[E1.FaLocation.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>aac82948-ca92-465b-be9e-85e6bf6b286b</key>
+                    <parentUnit>
+                        <key name="name" value="E1.FaLocation.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="E1_FaLocation" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.maintenance.app" />
+                <key name="name" value="RepairOrderQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>e57d1096-7be7-4457-b89c-40331c6f2678</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderQuery].units.propertyUnit[e57d1096-7be7-4457-b89c-40331c6f2678].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>c922ccc8-603e-4fe5-96ac-0ec9c509bb28</key>
+                    <parentUnit>
+                        <key name="name" value="e57d1096-7be7-4457-b89c-40331c6f2678" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="E1" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="FaLocation" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.maintenance.app" />
+                <key name="name" value="RepairOrderQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>68651b44-7854-4ef0-bb64-755a529efa92</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderQuery].units.propertyUnit[68651b44-7854-4ef0-bb64-755a529efa92].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>7f55d3e0-317e-48ae-894b-2a54199f9fd3</key>
+                    <parentUnit>
+                        <key name="name" value="68651b44-7854-4ef0-bb64-755a529efa92" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="E1_FaLocation" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.maintenance.app" />
+                <key name="name" value="RepairOrderQuery" />
+            </query>
+        </propertyUnit>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -2831,6 +2937,36 @@
                 <key name="name" value="RepairOrderQuery" />
             </query>
         </join>
+        <join>
+            <name>81d2e2d8-90eb-4482-a1fe-a6bcf8ff4440</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="E1" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="E1_FaLocation" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>17325ad9-bf64-4f2c-9881-96c697bb5ef3</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="e57d1096-7be7-4457-b89c-40331c6f2678" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="68651b44-7854-4ef0-bb64-755a529efa92" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="81d2e2d8-90eb-4482-a1fe-a6bcf8ff4440" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.maintenance.app" />
+                <key name="name" value="RepairOrderQuery" />
+            </query>
+        </join>
     </joins>
     <resource>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderQuery].alias">
@@ -2867,6 +3003,12 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderQuery].subObjects.subEntity[E1].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderQuery].subObjects.subEntity[E1_FaLocation].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -3040,6 +3182,12 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderQuery].units.propertyUnit[68651b44-7854-4ef0-bb64-755a529efa92].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderQuery].units.propertyUnit[6ed395b4-dcac-4707-b956-f814b056d403].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -3106,6 +3254,12 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderQuery].units.propertyUnit[e57d1096-7be7-4457-b89c-40331c6f2678].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderQuery].units.propertyUnit[ed124b9b-746b-4067-9c80-c5daf7a83fd0].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -3157,6 +3311,27 @@
             <lang locale="zh_CN" value="ID" />
             <lang locale="zh_HK" value="ID" />
             <lang locale="zh_TW" value="ID" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderQuery].units.queryField[E1.FaLocation.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="故障部位" />
+            <lang locale="zh_HK" value="故障部位" />
+            <lang locale="zh_TW" value="故障部位" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderQuery].units.queryField[E1.FaLocation.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderQuery].units.queryField[E1.FaLocation.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderQuery].units.queryField[E1.FaLocation.name].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderQuery].units.queryField[E1.remark].displayName">
             <lang locale="en_US" value="null" />
