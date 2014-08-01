@@ -983,6 +983,37 @@
                 <key name="name" value="EumUseRecordQuery" />
             </query>
         </propertyUnit>
+        <queryField>
+            <name>initialiRecord</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.operate.app.EumUseRecordQuery].units.queryField[initialiRecord].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Boolean</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>5baba131-e17b-4b0b-a1d5-cfafc858eeb1</key>
+                    <parentUnit>
+                        <key name="name" value="initialiRecord" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="EumUseRecord" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="initialiRecord" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.operate.app" />
+                <key name="name" value="EumUseRecordQuery" />
+            </query>
+        </queryField>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -1494,6 +1525,22 @@
             <lang locale="zh_CN" value="ID" />
             <lang locale="zh_HK" value="ID" />
             <lang locale="zh_TW" value="ID" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.EumUseRecordQuery].units.queryField[initialiRecord].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否初始化记录" />
+            <lang locale="zh_HK" value="是否初始化記錄" />
+            <lang locale="zh_TW" value="是否初始化記錄" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.EumUseRecordQuery].units.queryField[initialiRecord].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.EumUseRecordQuery].units.queryField[initialiRecord].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.EumUseRecordQuery].units.queryField[lastUpdateTime].displayName">
             <lang locale="en_US" value="lastUpdateTime" />
