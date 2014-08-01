@@ -724,6 +724,7 @@ public class InspectionEquEditUI extends AbstractInspectionEquEditUI
 		this.kdtE1.getColumn("seq").getStyleAttributes().setHided(true);
 		prmtuserDepatrt.setVisible(true);
 		super.onLoad();
+		this.setUITitle("设备巡检记录单");
 		if(getOprtState().equals(OprtState.ADDNEW)){
 			pkBizDate.setValue(new Date());
 			this.prmtCU.setValue(SysContext.getSysContext().getCurrentAdminUnit());
