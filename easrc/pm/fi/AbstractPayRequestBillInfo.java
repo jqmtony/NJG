@@ -640,17 +640,6 @@ public class AbstractPayRequestBillInfo extends com.kingdee.eas.fdc.basedata.FDC
         setString("usage", item);
     }
     /**
-     * Object: 付款申请单 's 付款申请单拆分 property 
-     */
-    public com.kingdee.eas.fdc.finance.PayRequestSplitInfo getPayRequestSplit()
-    {
-        return (com.kingdee.eas.fdc.finance.PayRequestSplitInfo)get("payRequestSplit");
-    }
-    public void setPayRequestSplit(com.kingdee.eas.fdc.finance.PayRequestSplitInfo item)
-    {
-        put("payRequestSplit", item);
-    }
-    /**
      * Object:付款申请单's 累计结算款property 
      */
     public java.math.BigDecimal getTotalSettlePrice()
@@ -671,17 +660,6 @@ public class AbstractPayRequestBillInfo extends com.kingdee.eas.fdc.basedata.FDC
     public void setActPaiedAmount(java.math.BigDecimal item)
     {
         setBigDecimal("actPaiedAmount", item);
-    }
-    /**
-     * Object: 付款申请单 's 合同付款计划 property 
-     */
-    public com.kingdee.eas.fdc.finance.ContractPayPlanInfo getConPayplan()
-    {
-        return (com.kingdee.eas.fdc.finance.ContractPayPlanInfo)get("conPayplan");
-    }
-    public void setConPayplan(com.kingdee.eas.fdc.finance.ContractPayPlanInfo item)
-    {
-        put("conPayplan", item);
     }
     /**
      * Object:付款申请单's 来源对象property 
@@ -850,28 +828,6 @@ public class AbstractPayRequestBillInfo extends com.kingdee.eas.fdc.basedata.FDC
     public com.kingdee.eas.port.pm.fi.PayRequestBillConfirmEntryCollection getConfirmEntry()
     {
         return (com.kingdee.eas.port.pm.fi.PayRequestBillConfirmEntryCollection)get("confirmEntry");
-    }
-    /**
-     * Object: 付款申请单 's 计划项目，存在 property 
-     */
-    public com.kingdee.eas.fdc.finance.FDCDepConPayPlanContractInfo getPlanHasCon()
-    {
-        return (com.kingdee.eas.fdc.finance.FDCDepConPayPlanContractInfo)get("planHasCon");
-    }
-    public void setPlanHasCon(com.kingdee.eas.fdc.finance.FDCDepConPayPlanContractInfo item)
-    {
-        put("planHasCon", item);
-    }
-    /**
-     * Object: 付款申请单 's 计划项目，不存在 property 
-     */
-    public com.kingdee.eas.fdc.finance.FDCDepConPayPlanUnsettledConInfo getPlanUnCon()
-    {
-        return (com.kingdee.eas.fdc.finance.FDCDepConPayPlanUnsettledConInfo)get("planUnCon");
-    }
-    public void setPlanUnCon(com.kingdee.eas.fdc.finance.FDCDepConPayPlanUnsettledConInfo item)
-    {
-        put("planUnCon", item);
     }
     /**
      * Object:付款申请单's 是否预算控制property 

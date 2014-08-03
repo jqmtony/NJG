@@ -250,17 +250,17 @@ public class PayRequestBillRowsetProvider extends FDCBillDataProvider {
 		filter.getFilterItems().add(new FilterItemInfo("state",FDCBillStateEnum.AUDITTED));
 		filter.getFilterItems().add(new FilterItemInfo("isGuerdoned",Boolean.TRUE));*/
 		view.setFilter(filter);
-		try {
+//		try {
 //			GuerdonBillCollection guerdonBillColl = GuerdonBillFactory.getRemoteInstance().getGuerdonBillCollection(view);
-			GuerdonOfPayReqBillCollection guerdonBillColl = GuerdonOfPayReqBillFactory.getRemoteInstance().getGuerdonOfPayReqBillCollection(view);
-			for (Iterator iter = guerdonBillColl.iterator(); iter.hasNext();)
-			{
-				GuerdonOfPayReqBillInfo guerdonBill = (GuerdonOfPayReqBillInfo) iter.next();
-				guerdonBillOriAmt = guerdonBillOriAmt.add(FDCHelper.toBigDecimal(guerdonBill.getOriginalAmount()));
-			}
-		} catch (BOSException e) {
-			e.printStackTrace();
-		}
+//			GuerdonOfPayReqBillCollection guerdonBillColl = GuerdonOfPayReqBillFactory.getRemoteInstance().getGuerdonOfPayReqBillCollection(view);
+//			for (Iterator iter = guerdonBillColl.iterator(); iter.hasNext();)
+//			{
+//				GuerdonOfPayReqBillInfo guerdonBill = (GuerdonOfPayReqBillInfo) iter.next();
+//				guerdonBillOriAmt = guerdonBillOriAmt.add(FDCHelper.toBigDecimal(guerdonBill.getOriginalAmount()));
+//			}
+//		} catch (BOSException e) {
+//			e.printStackTrace();
+//		}
 		return guerdonBillOriAmt;
 	}
 	private BigDecimal getCompensationOriAmt(String contractId){
@@ -276,17 +276,17 @@ public class PayRequestBillRowsetProvider extends FDCBillDataProvider {
 		filter.getFilterItems().add(new FilterItemInfo("state",FDCBillStateEnum.AUDITTED));
 		filter.getFilterItems().add(new FilterItemInfo("isCompensated",Boolean.TRUE));*/
 		view.setFilter(filter);
-		try {
-			CompensationOfPayReqBillCollection compenstionColl = CompensationOfPayReqBillFactory.getRemoteInstance().getCompensationOfPayReqBillCollection(view);
-//			CompensationBillCollection compenstionColl = CompensationBillFactory.getRemoteInstance().getCompensationBillCollection(view);
-			for (Iterator iter = compenstionColl.iterator(); iter.hasNext();)
-			{
-				CompensationOfPayReqBillInfo billInfo = (CompensationOfPayReqBillInfo) iter.next();
-				compensationBillOriAmt = compensationBillOriAmt.add(FDCHelper.toBigDecimal(billInfo.getOriginalAmount()));
-			}
-		} catch (BOSException e) {
-			e.printStackTrace();
-		}
+//		try {
+//			CompensationOfPayReqBillCollection compenstionColl = CompensationOfPayReqBillFactory.getRemoteInstance().getCompensationOfPayReqBillCollection(view);
+////			CompensationBillCollection compenstionColl = CompensationBillFactory.getRemoteInstance().getCompensationBillCollection(view);
+//			for (Iterator iter = compenstionColl.iterator(); iter.hasNext();)
+//			{
+//				CompensationOfPayReqBillInfo billInfo = (CompensationOfPayReqBillInfo) iter.next();
+//				compensationBillOriAmt = compensationBillOriAmt.add(FDCHelper.toBigDecimal(billInfo.getOriginalAmount()));
+//			}
+//		} catch (BOSException e) {
+//			e.printStackTrace();
+//		}
 		return compensationBillOriAmt;
 	}
 	private BigDecimal getDeductOriAmt(String contractId) {
@@ -296,16 +296,16 @@ public class PayRequestBillRowsetProvider extends FDCBillDataProvider {
 		FilterInfo filter=new FilterInfo();
 		filter.getFilterItems().add(new FilterItemInfo("payRequestBill.id",fdcBill.getId().toString()));
 		view.setFilter(filter);
-		try {
-			DeductOfPayReqBillCollection duductOfPayReqBillColl = DeductOfPayReqBillFactory.getRemoteInstance().getDeductOfPayReqBillCollection(view);
-			for (Iterator iter = duductOfPayReqBillColl.iterator(); iter.hasNext();)
-			{
-				DeductOfPayReqBillInfo billInfo = (DeductOfPayReqBillInfo) iter.next();
-				DeductOfPayReqBillOriAmt = DeductOfPayReqBillOriAmt.add(FDCHelper.toBigDecimal(billInfo.getOriginalAmount()));
-			}
-		} catch (BOSException e) {
-			e.printStackTrace();
-		}
+//		try {
+//			DeductOfPayReqBillCollection duductOfPayReqBillColl = DeductOfPayReqBillFactory.getRemoteInstance().getDeductOfPayReqBillCollection(view);
+//			for (Iterator iter = duductOfPayReqBillColl.iterator(); iter.hasNext();)
+//			{
+//				DeductOfPayReqBillInfo billInfo = (DeductOfPayReqBillInfo) iter.next();
+//				DeductOfPayReqBillOriAmt = DeductOfPayReqBillOriAmt.add(FDCHelper.toBigDecimal(billInfo.getOriginalAmount()));
+//			}
+//		} catch (BOSException e) {
+//			e.printStackTrace();
+//		}
 		return DeductOfPayReqBillOriAmt;
 	}
 	private void insert(DynamicRowSet drs,DeductOfPayReqBillInfo info,Map deductTypeSum) throws Exception{

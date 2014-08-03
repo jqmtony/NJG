@@ -1431,6 +1431,7 @@ public class PayRequestBillListUI extends AbstractPayRequestBillListUI {
 			payReqBillSet.add(payReqBill);
 		}
 
+		
 		boolean isCanPass = PayReqUtils.checkProjectPriceInContract(payReqBillSet, null);
 		if (!isCanPass) {
 			MsgBox.showError("合同实付款不能大于合同结算价【合同实付款 =已关闭的付款申请单对应的付款单合同内工程款合计 + 未关闭的付款申请单合同内工程款合计】");
@@ -1443,7 +1444,7 @@ public class PayRequestBillListUI extends AbstractPayRequestBillListUI {
 		 * 若未启用，则在提示之后允许提交、审批。 by jian_wen 2009.12.17
 		 */
 		// 一次取出
-		Map paramMap = FDCUtils.getDefaultFDCParam(null, orgUnit.getId().toString());
+		Map paramMap = FDCUtils.getDefaultFDCParam(null, SysContext.getSysContext().getCurrentFIUnit().getId().toString());
 		boolean b = FDCUtils.getParamValue(paramMap, FDCConstants.FDC_PARAM_ISCONTROLPAYMENT);
 		boolean bl = FDCUtils.getParamValue(paramMap, FDCConstants.FDC_PARAM_MORESETTER);
 		for (Iterator it = payReqBillSet.iterator(); it.hasNext();) {// 此循环只需执行一次

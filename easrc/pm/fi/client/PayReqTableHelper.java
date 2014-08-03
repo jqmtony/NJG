@@ -249,6 +249,11 @@ public final class PayReqTableHelper {
 	private void initFixTable(KDTable table) {
 		// 添加15行,在第9行插入应扣款项分录
 		table.addRows(15);
+		table.getRow(7).getStyleAttributes().setHided(true);
+		table.getRow(8).getStyleAttributes().setHided(true);
+		table.getRow(9).getStyleAttributes().setHided(true);
+		table.getRow(10).getStyleAttributes().setHided(true);
+		table.getRow(11).getStyleAttributes().setHided(true);
 		IRow row;
 		ICell cell;
 		// 第一列
@@ -911,13 +916,13 @@ public final class PayReqTableHelper {
 
 		try {
 			DeductTypeInfo info = null;
-			DeductTypeCollection c = deductTypeCollection;
-			for (int i = 0; i < c.size(); i++) {
-				// new Object[3]保存 0实付额,1累计额,2发生额,3发生额原币
-				info = c.get(i);
-				Object[] o = new Object[4];
-				map.put(info.getId().toString(), o);
-			}
+//			DeductTypeCollection c = deductTypeCollection;
+//			for (int i = 0; i < c.size(); i++) {
+//				// new Object[3]保存 0实付额,1累计额,2发生额,3发生额原币
+//				info = c.get(i);
+//				Object[] o = new Object[4];
+//				map.put(info.getId().toString(), o);
+//			}
 		} catch (Exception e) {
 			handUIException(e);
 		}
@@ -1512,7 +1517,7 @@ public final class PayReqTableHelper {
 			if(PayReqUtils.isContractBill(editData.getContractId())){
 				builder.clear();
 				builder=new FDCSQLBuilder();
-				builder.appendSql("select fprjPriceInConPaid as amount from T_CON_ContractBill where fid=?");
+				builder.appendSql("select fprjPriceInConPaid as amount from CT_CON_ContractBill where fid=?");
 				builder.addParam(editData.getContractId());
 				IRowSet rowSet = builder.executeQuery();
 				if(rowSet!=null&&rowSet.size()==1){
@@ -1681,23 +1686,23 @@ public final class PayReqTableHelper {
 //    		createTime.setHours(cal.getActualMaximum(Calendar.HOUR_OF_DAY)); //24小时制
 //    		createTime.setMinutes(cal.getActualMaximum(Calendar.MINUTE));
 //    		createTime.setSeconds(cal.getActualMaximum(Calendar.SECOND));
-    		filter.getFilterItems().add(new FilterItemInfo("payRequestBill.createTime",createTime,CompareType.LESS_EQUALS));
-    		GuerdonOfPayReqBillCollection c = GuerdonOfPayReqBillFactory.getRemoteInstance().getGuerdonOfPayReqBillCollection(view);
-    		for(int i=0;i<c.size();i++){
-    			GuerdonOfPayReqBillInfo info = c.get(i);
-    			if(info.getAmount()!=null){
-    				if(info.getPayRequestBill().getId().equals(editData.getId())){
-    					amount=amount.add(FDCHelper.toBigDecimal(info.getAmount()));
-    					originalamount = originalamount.add(FDCHelper.toBigDecimal(info.getOriginalAmount()));
-    				}else{
-	    				if(info.isHasPaid()){
-	    					lstPaidAmt=info.getAmount().add(lstPaidAmt);
-	    				}
-	    				
-	    				lstReqAmt=info.getAmount().add(lstReqAmt);
-    				}
-    			}
-    		}
+//    		filter.getFilterItems().add(new FilterItemInfo("payRequestBill.createTime",createTime,CompareType.LESS_EQUALS));
+//    		GuerdonOfPayReqBillCollection c = GuerdonOfPayReqBillFactory.getRemoteInstance().getGuerdonOfPayReqBillCollection(view);
+//    		for(int i=0;i<c.size();i++){
+//    			GuerdonOfPayReqBillInfo info = c.get(i);
+//    			if(info.getAmount()!=null){
+//    				if(info.getPayRequestBill().getId().equals(editData.getId())){
+//    					amount=amount.add(FDCHelper.toBigDecimal(info.getAmount()));
+//    					originalamount = originalamount.add(FDCHelper.toBigDecimal(info.getOriginalAmount()));
+//    				}else{
+//	    				if(info.isHasPaid()){
+//	    					lstPaidAmt=info.getAmount().add(lstPaidAmt);
+//	    				}
+//	    				
+//	    				lstReqAmt=info.getAmount().add(lstReqAmt);
+//    				}
+//    			}
+//    		}
     		if(amount.compareTo(FDCHelper.ZERO)==0){
     			amount=null;
     		}
@@ -1733,16 +1738,16 @@ public final class PayReqTableHelper {
 		BigDecimal lstPaidAmt=FDCHelper.ZERO;
 		BigDecimal lstReqAmt=FDCHelper.ZERO;
 		
-		for(int i=0;i<guerdonOfPayReqBillCollection.size();i++){
-			GuerdonOfPayReqBillInfo info = guerdonOfPayReqBillCollection.get(i);
-			if(info.getAmount()!=null){
-				if(info.isHasPaid()){
-					lstPaidAmt=info.getAmount().add(lstPaidAmt);
-				}
-				
-				lstReqAmt=info.getAmount().add(lstReqAmt);
-			}
-		}
+//		for(int i=0;i<guerdonOfPayReqBillCollection.size();i++){
+//			GuerdonOfPayReqBillInfo info = guerdonOfPayReqBillCollection.get(i);
+//			if(info.getAmount()!=null){
+//				if(info.isHasPaid()){
+//					lstPaidAmt=info.getAmount().add(lstPaidAmt);
+//				}
+//				
+//				lstReqAmt=info.getAmount().add(lstReqAmt);
+//			}
+//		}
 		if(lstPaidAmt.compareTo(FDCHelper.ZERO)==0){
 			lstPaidAmt=null;
 		}
@@ -1810,22 +1815,22 @@ public final class PayReqTableHelper {
 //    		createTime.setSeconds(cal.getActualMaximum(Calendar.SECOND));
     		filter.getFilterItems().add(new FilterItemInfo("payRequestBill.createTime",createTime,CompareType.LESS_EQUALS));
     		
-    		CompensationOfPayReqBillCollection c = CompensationOfPayReqBillFactory.getRemoteInstance().getCompensationOfPayReqBillCollection(view);
-    		for(int i=0;i<c.size();i++){
-    			CompensationOfPayReqBillInfo info = c.get(i);
-    			if(info.getAmount()!=null){
-    				if(info.getPayRequestBill().getId().equals(editData.getId())){
-    					amount=amount.add(FDCHelper.toBigDecimal(info.getAmount()));
-    					originalamount = originalamount.add(FDCHelper.toBigDecimal(info.getOriginalAmount()));
-    				}else{
-	    				if(info.isHasPaid()){
-	    					lstPaidAmt=info.getAmount().add(lstPaidAmt);
-	    				}
-	    				
-	    				lstReqAmt=info.getAmount().add(lstReqAmt);
-    				}
-    			}
-    		}
+//    		CompensationOfPayReqBillCollection c = CompensationOfPayReqBillFactory.getRemoteInstance().getCompensationOfPayReqBillCollection(view);
+//    		for(int i=0;i<c.size();i++){
+//    			CompensationOfPayReqBillInfo info = c.get(i);
+//    			if(info.getAmount()!=null){
+//    				if(info.getPayRequestBill().getId().equals(editData.getId())){
+//    					amount=amount.add(FDCHelper.toBigDecimal(info.getAmount()));
+//    					originalamount = originalamount.add(FDCHelper.toBigDecimal(info.getOriginalAmount()));
+//    				}else{
+//	    				if(info.isHasPaid()){
+//	    					lstPaidAmt=info.getAmount().add(lstPaidAmt);
+//	    				}
+//	    				
+//	    				lstReqAmt=info.getAmount().add(lstReqAmt);
+//    				}
+//    			}
+//    		}
     		if(amount.compareTo(FDCHelper.ZERO)==0){
     			amount=null;
     		}
@@ -1861,16 +1866,16 @@ public final class PayReqTableHelper {
 		//奖励单
 		BigDecimal lstPaidAmt=FDCHelper.ZERO;
 		BigDecimal lstReqAmt=FDCHelper.ZERO;
-		for(int i=0;i<compensationOfPayReqBillCollection.size();i++){
-			CompensationOfPayReqBillInfo info = compensationOfPayReqBillCollection.get(i);
-			if(info.getAmount()!=null){
-				if(info.isHasPaid()){
-					lstPaidAmt=info.getAmount().add(lstPaidAmt);
-				}
-				
-				lstReqAmt=info.getAmount().add(lstReqAmt);
-			}
-		}
+//		for(int i=0;i<compensationOfPayReqBillCollection.size();i++){
+//			CompensationOfPayReqBillInfo info = compensationOfPayReqBillCollection.get(i);
+//			if(info.getAmount()!=null){
+//				if(info.isHasPaid()){
+//					lstPaidAmt=info.getAmount().add(lstPaidAmt);
+//				}
+//				
+//				lstReqAmt=info.getAmount().add(lstReqAmt);
+//			}
+//		}
 		if(lstPaidAmt.compareTo(FDCHelper.ZERO)==0){
 			lstPaidAmt=null;
 		}
