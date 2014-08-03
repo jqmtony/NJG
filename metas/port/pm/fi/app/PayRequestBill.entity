@@ -1809,20 +1809,6 @@
                 <key name="name" value="FUsage" />
             </mappingField>
         </ownProperty>
-        <linkProperty>
-            <name>payRequestSplit</name>
-            <alias>entityObject[com.kingdee.eas.port.pm.fi.app.PayRequestBill].properties.linkProperty[payRequestSplit].alias</alias>
-            <description>entityObject[com.kingdee.eas.port.pm.fi.app.PayRequestBill].properties.linkProperty[payRequestSplit].description</description>
-            <userDefined>true</userDefined>
-            <configured>false</configured>
-            <mappingField>
-                <key name="name" value="FPayRequestSplitId" />
-            </mappingField>
-            <relationship>
-                <key name="package" value="com.kingdee.eas.port.pm.fi.app" />
-                <key name="name" value="R_PayRequestBill_PayRequestSplit_payRequestSplit" />
-            </relationship>
-        </linkProperty>
         <ownProperty>
             <name>totalSettlePrice</name>
             <alias>entityObject[com.kingdee.eas.port.pm.fi.app.PayRequestBill].properties.ownProperty[totalSettlePrice].alias</alias>
@@ -1863,20 +1849,6 @@
                 <key name="name" value="FActPaiedAmount" />
             </mappingField>
         </ownProperty>
-        <linkProperty>
-            <name>conPayplan</name>
-            <alias>entityObject[com.kingdee.eas.port.pm.fi.app.PayRequestBill].properties.linkProperty[conPayplan].alias</alias>
-            <description>entityObject[com.kingdee.eas.port.pm.fi.app.PayRequestBill].properties.linkProperty[conPayplan].description</description>
-            <userDefined>true</userDefined>
-            <configured>false</configured>
-            <mappingField>
-                <key name="name" value="FConPayPlanID" />
-            </mappingField>
-            <relationship>
-                <key name="package" value="com.kingdee.eas.port.pm.fi.app" />
-                <key name="name" value="R_PayRequestBill_ContractPayPlan_conPayplan" />
-            </relationship>
-        </linkProperty>
         <ownProperty>
             <name>source</name>
             <alias>entityObject[com.kingdee.eas.port.pm.fi.app.PayRequestBill].properties.ownProperty[source].alias</alias>
@@ -2165,34 +2137,6 @@
             <relationship>
                 <key name="package" value="com.kingdee.eas.port.pm.fi.app" />
                 <key name="name" value="R_PayRequestBill_PayRequestBillConfirmEntry_confirmEntry" />
-            </relationship>
-        </linkProperty>
-        <linkProperty>
-            <name>planHasCon</name>
-            <alias>entityObject[com.kingdee.eas.port.pm.fi.app.PayRequestBill].properties.linkProperty[planHasCon].alias</alias>
-            <description>entityObject[com.kingdee.eas.port.pm.fi.app.PayRequestBill].properties.linkProperty[planHasCon].description</description>
-            <userDefined>true</userDefined>
-            <configured>false</configured>
-            <mappingField>
-                <key name="name" value="FPlanHasCon" />
-            </mappingField>
-            <relationship>
-                <key name="package" value="com.kingdee.eas.port.pm.fi.app" />
-                <key name="name" value="R_PayRequestBill_FDCDepConPayPlanContract_planHasCon" />
-            </relationship>
-        </linkProperty>
-        <linkProperty>
-            <name>planUnCon</name>
-            <alias>entityObject[com.kingdee.eas.port.pm.fi.app.PayRequestBill].properties.linkProperty[planUnCon].alias</alias>
-            <description>entityObject[com.kingdee.eas.port.pm.fi.app.PayRequestBill].properties.linkProperty[planUnCon].description</description>
-            <userDefined>true</userDefined>
-            <configured>false</configured>
-            <mappingField>
-                <key name="name" value="FPlanUnCon" />
-            </mappingField>
-            <relationship>
-                <key name="package" value="com.kingdee.eas.port.pm.fi.app" />
-                <key name="name" value="R_PayRequestBill_FDCDepConPayPlanUnsettledCon_planUnCon" />
             </relationship>
         </linkProperty>
         <ownProperty>
@@ -4264,18 +4208,6 @@
             <lang locale="zh_HK" value="費用清單" />
             <lang locale="zh_TW" value="費用清單" />
         </rs>
-        <rs key="entityObject[com.kingdee.eas.port.pm.fi.app.PayRequestBill].properties.linkProperty[conPayplan].alias">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="合同付款计划" />
-            <lang locale="zh_HK" value="合同付款計畫" />
-            <lang locale="zh_TW" value="合同付款計畫" />
-        </rs>
-        <rs key="entityObject[com.kingdee.eas.port.pm.fi.app.PayRequestBill].properties.linkProperty[conPayplan].description">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="合同付款计划" />
-            <lang locale="zh_HK" value="合同付款計畫" />
-            <lang locale="zh_TW" value="合同付款計畫" />
-        </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.fi.app.PayRequestBill].properties.linkProperty[confirmEntry].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="材料确认单分录" />
@@ -4448,18 +4380,6 @@
             <lang locale="zh_HK" value="付款事項" />
             <lang locale="zh_TW" value="付款事項" />
         </rs>
-        <rs key="entityObject[com.kingdee.eas.port.pm.fi.app.PayRequestBill].properties.linkProperty[payRequestSplit].alias">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="付款申请单拆分" />
-            <lang locale="zh_HK" value="付款申請單拆分" />
-            <lang locale="zh_TW" value="付款申請單拆分" />
-        </rs>
-        <rs key="entityObject[com.kingdee.eas.port.pm.fi.app.PayRequestBill].properties.linkProperty[payRequestSplit].description">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="付款申请单拆分" />
-            <lang locale="zh_HK" value="付款申請單拆分" />
-            <lang locale="zh_TW" value="付款申請單拆分" />
-        </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.fi.app.PayRequestBill].properties.linkProperty[paymentType].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="付款类别" />
@@ -4483,30 +4403,6 @@
             <lang locale="zh_CN" value="职员" />
             <lang locale="zh_HK" value="職員" />
             <lang locale="zh_TW" value="職員" />
-        </rs>
-        <rs key="entityObject[com.kingdee.eas.port.pm.fi.app.PayRequestBill].properties.linkProperty[planHasCon].alias">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="计划项目，存在" />
-            <lang locale="zh_HK" value="計畫項目，存在" />
-            <lang locale="zh_TW" value="計畫項目，存在" />
-        </rs>
-        <rs key="entityObject[com.kingdee.eas.port.pm.fi.app.PayRequestBill].properties.linkProperty[planHasCon].description">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="计划项目，存在" />
-            <lang locale="zh_HK" value="計畫項目，存在" />
-            <lang locale="zh_TW" value="計畫項目，存在" />
-        </rs>
-        <rs key="entityObject[com.kingdee.eas.port.pm.fi.app.PayRequestBill].properties.linkProperty[planUnCon].alias">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="计划项目，不存在" />
-            <lang locale="zh_HK" value="計畫項目，不存在" />
-            <lang locale="zh_TW" value="計畫項目，不存在" />
-        </rs>
-        <rs key="entityObject[com.kingdee.eas.port.pm.fi.app.PayRequestBill].properties.linkProperty[planUnCon].description">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="计划项目，不存在" />
-            <lang locale="zh_HK" value="計畫項目，不存在" />
-            <lang locale="zh_TW" value="計畫項目，不存在" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.fi.app.PayRequestBill].properties.linkProperty[prjPayEntry].alias">
             <lang locale="en_US" value="null" />
@@ -5429,8 +5325,7 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.fi.app.PayRequestBill].properties.ownProperty[isBgControl].defaultValue">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.fi.app.PayRequestBill].properties.ownProperty[isBgControl].description">
@@ -6140,8 +6035,7 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.fi.app.PayRequestBill].properties.ownProperty[source].defaultValue">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.fi.app.PayRequestBill].properties.ownProperty[source].description">
@@ -6158,8 +6052,7 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.fi.app.PayRequestBill].properties.ownProperty[totalSettlePrice].defaultValue">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.fi.app.PayRequestBill].properties.ownProperty[totalSettlePrice].description">
