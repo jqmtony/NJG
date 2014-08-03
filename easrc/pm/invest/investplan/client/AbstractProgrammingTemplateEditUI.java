@@ -234,6 +234,11 @@ public abstract class AbstractProgrammingTemplateEditUI extends com.kingdee.eas.
 
 
         this.kdtEntires.checkParsed();
+        KDTextField kdtEntires_longNumber_TextField = new KDTextField();
+        kdtEntires_longNumber_TextField.setName("kdtEntires_longNumber_TextField");
+        kdtEntires_longNumber_TextField.setMaxLength(80);
+        KDTDefaultCellEditor kdtEntires_longNumber_CellEditor = new KDTDefaultCellEditor(kdtEntires_longNumber_TextField);
+        this.kdtEntires.getColumn("longNumber").setEditor(kdtEntires_longNumber_CellEditor);
         KDTextField kdtEntires_name_TextField = new KDTextField();
         kdtEntires_name_TextField.setName("kdtEntires_name_TextField");
         kdtEntires_name_TextField.setMaxLength(255);
@@ -249,6 +254,16 @@ public abstract class AbstractProgrammingTemplateEditUI extends com.kingdee.eas.
         kdtEntires_remark_TextField.setMaxLength(255);
         KDTDefaultCellEditor kdtEntires_remark_CellEditor = new KDTDefaultCellEditor(kdtEntires_remark_TextField);
         this.kdtEntires.getColumn("remark").setEditor(kdtEntires_remark_CellEditor);
+        KDTextField kdtEntires_number_TextField = new KDTextField();
+        kdtEntires_number_TextField.setName("kdtEntires_number_TextField");
+        kdtEntires_number_TextField.setMaxLength(80);
+        KDTDefaultCellEditor kdtEntires_number_CellEditor = new KDTDefaultCellEditor(kdtEntires_number_TextField);
+        this.kdtEntires.getColumn("number").setEditor(kdtEntires_number_CellEditor);
+        KDTextField kdtEntires_headNumber_TextField = new KDTextField();
+        kdtEntires_headNumber_TextField.setName("kdtEntires_headNumber_TextField");
+        kdtEntires_headNumber_TextField.setMaxLength(80);
+        KDTDefaultCellEditor kdtEntires_headNumber_CellEditor = new KDTDefaultCellEditor(kdtEntires_headNumber_TextField);
+        this.kdtEntires.getColumn("headNumber").setEditor(kdtEntires_headNumber_CellEditor);
         KDFormattedTextField kdtEntires_sortNumber_TextField = new KDFormattedTextField();
         kdtEntires_sortNumber_TextField.setName("kdtEntires_sortNumber_TextField");
         kdtEntires_sortNumber_TextField.setVisible(true);

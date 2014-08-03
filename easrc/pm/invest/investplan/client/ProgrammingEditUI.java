@@ -1555,30 +1555,25 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 			BigDecimal cumulative = UIRuleUtil.getBigDecimal(row.getCell( "cumulativeInvest").getValue());//累计投资
 			BigDecimal q = UIRuleUtil.getBigDecimal(row.getCell( "quantities").getValue());//数量
 			BigDecimal p = UIRuleUtil.getBigDecimal(row.getCell( "price").getValue());//单价
-			if(!key.equals("investAmount"))
+			if(key.equals("amount")){
+				if((UIRuleUtil.getBigDecimal(row.getCell("investAmount").getValue()).intValue()==0))
+					row.getCell( "investAmount").setValue(UIRuleUtil.getBigDecimal(row.getCell( "amount").getValue()));
+			}
+			if(key.equals("quantities")||key.equals("price"))
 			{
-				if(row.getCell( "price").getValue()==null||row.getCell( "quantities").getValue()==null)
-				{
-					if(getOprtState().equals(OprtState.ADDNEW))
-					{
-						row.getCell( "investAmount").setValue(amountBig);
-					}
-					else if(getOprtState().equals(OprtState.EDIT))
-					{
-						row.getCell( "investAmount").setValue(BigDecimal.ZERO);
-					}
-				}
-				else
+				if((UIRuleUtil.getBigDecimal(row.getCell("price").getValue()).intValue()!=0 
+						&& UIRuleUtil.getBigDecimal(row.getCell("quantities").getValue()).intValue()!=0))
 				{
 					row.getCell( "investAmount").setValue(p.multiply(q));
-					
 				}
 			}
 			BigDecimal investAm = UIRuleUtil.getBigDecimal(row.getCell( "investAmount").getValue());//本年度投资金额
 			row.getCell("balance").setValue(amountBig.subtract(cumulative).subtract(investAm));
-			if(row.getCell("price").getValue()!=null&&row.getCell("quantities").getValue()!=null)
+			if((UIRuleUtil.getBigDecimal(row.getCell("price").getValue()).intValue()!=0 
+							&& UIRuleUtil.getBigDecimal(row.getCell("quantities").getValue()).intValue()!=0))
 				row.getCell("investAmount").getStyleAttributes().setLocked(true);
-			
+			else
+				row.getCell("investAmount").getStyleAttributes().setLocked(false);
 			row.getCell("investProportion").setValue(amountBig.compareTo(BigDecimal.ZERO)==0?0:(investAm.divide(amountBig ,4, RoundingMode.HALF_UP)));
 			if(UIRuleUtil.getBigDecimal(row.getCell( "investAmount").getValue()).compareTo(UIRuleUtil.getBigDecimal((row.getCell("amount").getValue())))>0)
 			{
