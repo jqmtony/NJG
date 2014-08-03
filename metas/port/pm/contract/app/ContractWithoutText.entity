@@ -843,34 +843,6 @@
                 <key name="name" value="R_ContractWithoutText_AdminOrgUnit_useDepartment" />
             </relationship>
         </linkProperty>
-        <linkProperty>
-            <name>programmingContract</name>
-            <alias>entityObject[com.kingdee.eas.port.pm.contract.app.ContractWithoutText].properties.linkProperty[programmingContract].alias</alias>
-            <description>entityObject[com.kingdee.eas.port.pm.contract.app.ContractWithoutText].properties.linkProperty[programmingContract].description</description>
-            <userDefined>true</userDefined>
-            <configured>false</configured>
-            <mappingField>
-                <key name="name" value="FProgrammingContract" />
-            </mappingField>
-            <relationship>
-                <key name="package" value="com.kingdee.eas.port.pm.contract.app" />
-                <key name="name" value="R_ContractWithoutText_ProgrammingContract_programmingContract" />
-            </relationship>
-        </linkProperty>
-        <linkProperty>
-            <name>fdcDepConPlan</name>
-            <alias>entityObject[com.kingdee.eas.port.pm.contract.app.ContractWithoutText].properties.linkProperty[fdcDepConPlan].alias</alias>
-            <description>entityObject[com.kingdee.eas.port.pm.contract.app.ContractWithoutText].properties.linkProperty[fdcDepConPlan].description</description>
-            <userDefined>true</userDefined>
-            <configured>false</configured>
-            <mappingField>
-                <key name="name" value="FFdcDepConPlanID" />
-            </mappingField>
-            <relationship>
-                <key name="package" value="com.kingdee.eas.port.pm.contract.app" />
-                <key name="name" value="R_ContractWithoutText_FDCDepConPayPlanNoContract_fdcDepConPlan" />
-            </relationship>
-        </linkProperty>
         <ownProperty>
             <name>isBgControl</name>
             <alias>entityObject[com.kingdee.eas.port.pm.contract.app.ContractWithoutText].properties.ownProperty[isBgControl].alias</alias>
@@ -2625,18 +2597,6 @@
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractWithoutText].properties.linkProperty[fdcDepConPlan].alias">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="合同月度滚动计划无合同分录" />
-            <lang locale="zh_HK" value="合同月度滾動計畫無合同分錄" />
-            <lang locale="zh_TW" value="合同月度滾動計畫無合同分錄" />
-        </rs>
-        <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractWithoutText].properties.linkProperty[fdcDepConPlan].description">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="合同月度滚动计划无合同分录" />
-            <lang locale="zh_HK" value="合同月度滾動計畫無合同分錄" />
-            <lang locale="zh_TW" value="合同月度滾動計畫無合同分錄" />
-        </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractWithoutText].properties.linkProperty[payBillType].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="付款类型" />
@@ -2672,18 +2632,6 @@
             <lang locale="zh_CN" value="职员" />
             <lang locale="zh_HK" value="職員" />
             <lang locale="zh_TW" value="職員" />
-        </rs>
-        <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractWithoutText].properties.linkProperty[programmingContract].alias">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="框架合约" />
-            <lang locale="zh_HK" value="框架合約" />
-            <lang locale="zh_TW" value="框架合約" />
-        </rs>
-        <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractWithoutText].properties.linkProperty[programmingContract].description">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="框架合约" />
-            <lang locale="zh_HK" value="框架合約" />
-            <lang locale="zh_TW" value="框架合約" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractWithoutText].properties.linkProperty[receiveUnit].alias">
             <lang locale="en_US" value="null" />
@@ -3257,8 +3205,7 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractWithoutText].properties.ownProperty[invoiceNumber].defaultValue">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractWithoutText].properties.ownProperty[invoiceNumber].description">
@@ -3290,8 +3237,7 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractWithoutText].properties.ownProperty[isBgControl].defaultValue">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="是否预算控制" />
-            <lang locale="zh_HK" value="是否預算控制" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="是否預算控制" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractWithoutText].properties.ownProperty[isBgControl].description">
