@@ -1,0 +1,1727 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<joinQuery xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.basedata.assistant.app</package>
+    <name>F7ProjectQuery</name>
+    <alias>joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].alias</alias>
+    <description>joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].description</description>
+    <userDefined>true</userDefined>
+    <reportDataSource />
+    <bizUnitPK>com.kingdee.eas.basedata.assistant.Project</bizUnitPK>
+    <connectionProvider />
+    <subObjects>
+        <subEntity>
+            <name>Project</name>
+            <alias>joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].subObjects.subEntity[Project].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="F7ProjectQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="Project" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>parent</name>
+            <alias>joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].subObjects.subEntity[parent].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="F7ProjectQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="Project" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>CU</name>
+            <alias>joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].subObjects.subEntity[CU].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="F7ProjectQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.basedata.org.app" />
+                <key name="name" value="CtrlUnit" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>company</name>
+            <alias>joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].subObjects.subEntity[company].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="F7ProjectQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.basedata.org.app" />
+                <key name="name" value="CompanyOrgUnit" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>prjManager</name>
+            <alias>joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].subObjects.subEntity[prjManager].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="F7ProjectQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.basedata.person.app" />
+                <key name="name" value="Person" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>NJGyearInvest</name>
+            <alias>joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].subObjects.subEntity[NJGyearInvest].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="F7ProjectQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YearInvestPlan" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>NJGprojectType</name>
+            <alias>joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].subObjects.subEntity[NJGprojectType].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="F7ProjectQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
+                <key name="name" value="ProjectType" />
+            </entityRef>
+        </subEntity>
+    </subObjects>
+    <units>
+        <propertyUnit>
+            <name>NewUnit1</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.propertyUnit[NewUnit1].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit1" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Project" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="parent" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="F7ProjectQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUnit0</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.propertyUnit[NewUnit0].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit0" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="parent" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="F7ProjectQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>id</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Project" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="F7ProjectQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>simpleName</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[simpleName].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="simpleName" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Project" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="simpleName" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="F7ProjectQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>number</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[number].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="number" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Project" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="number" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="F7ProjectQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Project" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="F7ProjectQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>type</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[type].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Int</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="type" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Project" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="type" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="F7ProjectQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>status</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[status].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Int</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="status" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Project" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="status" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="F7ProjectQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>dutyPerson</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[dutyPerson].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="dutyPerson" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Project" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="dutyPerson" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="F7ProjectQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>description</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[description].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="description" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Project" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="description" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="F7ProjectQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>CU.id</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[CU.id].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="CU.id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="CU" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="F7ProjectQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>isLeaf</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[isLeaf].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Boolean</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="isLeaf" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Project" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="isLeaf" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="F7ProjectQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>isListItem</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[isListItem].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Boolean</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="isListItem" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Project" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="isListItem" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="F7ProjectQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>NewUnit6</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.propertyUnit[NewUnit6].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit6" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Project" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="prjManager" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="F7ProjectQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUnit7</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.propertyUnit[NewUnit7].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit7" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="prjManager" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="F7ProjectQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>prjManager.name</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[prjManager.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="prjManager.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="prjManager" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="F7ProjectQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>deafc042-02f6-4e24-9643-94b6dc0106f2</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.propertyUnit[deafc042-02f6-4e24-9643-94b6dc0106f2].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="deafc042-02f6-4e24-9643-94b6dc0106f2" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Project" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="CU" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="F7ProjectQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>be97df54-b804-4db4-87c0-4da266312295</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.propertyUnit[be97df54-b804-4db4-87c0-4da266312295].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="be97df54-b804-4db4-87c0-4da266312295" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="CU" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="F7ProjectQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>70e5efd2-3cce-43bc-91f4-1288331b791c</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.propertyUnit[70e5efd2-3cce-43bc-91f4-1288331b791c].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="70e5efd2-3cce-43bc-91f4-1288331b791c" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Project" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="company" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="F7ProjectQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>ca4019bb-fb11-4681-8faf-7cd50b9da72f</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.propertyUnit[ca4019bb-fb11-4681-8faf-7cd50b9da72f].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="ca4019bb-fb11-4681-8faf-7cd50b9da72f" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="company" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="F7ProjectQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>8861430a-3f81-4194-bf3c-f2a351bc6aa0</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.propertyUnit[8861430a-3f81-4194-bf3c-f2a351bc6aa0].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>b95ec5f9-0065-4e61-81fa-96ee9d1fbbc6</key>
+                    <parentUnit>
+                        <key name="name" value="8861430a-3f81-4194-bf3c-f2a351bc6aa0" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Project" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="NJGyearInvest" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="F7ProjectQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>811b2c6d-2a77-49bf-86c1-034a969401e5</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.propertyUnit[811b2c6d-2a77-49bf-86c1-034a969401e5].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>409c5cee-e7fb-4e9a-a159-9c1437601917</key>
+                    <parentUnit>
+                        <key name="name" value="811b2c6d-2a77-49bf-86c1-034a969401e5" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="NJGyearInvest" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="F7ProjectQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>NJGyearInvest.projectName</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[NJGyearInvest.projectName].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>e79abc74-f217-46f9-8924-f8990b4ee909</key>
+                    <parentUnit>
+                        <key name="name" value="NJGyearInvest.projectName" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="NJGyearInvest" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="projectName" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="F7ProjectQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>f4ba8962-e042-4fe3-ac23-721311fbc94a</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.propertyUnit[f4ba8962-e042-4fe3-ac23-721311fbc94a].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>78494e4a-8569-4c04-bccf-0e0c4f06a2dc</key>
+                    <parentUnit>
+                        <key name="name" value="f4ba8962-e042-4fe3-ac23-721311fbc94a" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Project" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="NJGprojectType" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="F7ProjectQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>6b18871d-3b64-4249-9d20-e68e5ca91a4b</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.propertyUnit[6b18871d-3b64-4249-9d20-e68e5ca91a4b].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>18487c5f-b646-49a0-a242-9c007c79a5c5</key>
+                    <parentUnit>
+                        <key name="name" value="6b18871d-3b64-4249-9d20-e68e5ca91a4b" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Project" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="NJGprojectType" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="F7ProjectQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>62dd7037-7d1d-4ad1-a219-081376e38a6b</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.propertyUnit[62dd7037-7d1d-4ad1-a219-081376e38a6b].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>dfbde7d8-5c71-45c6-963a-b11761e6528c</key>
+                    <parentUnit>
+                        <key name="name" value="62dd7037-7d1d-4ad1-a219-081376e38a6b" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="NJGprojectType" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="F7ProjectQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>NJGprojectType.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[NJGprojectType.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>7debceb5-6c1f-46e7-95b5-3e0447d66545</key>
+                    <parentUnit>
+                        <key name="name" value="NJGprojectType.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="NJGprojectType" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="F7ProjectQuery" />
+            </query>
+        </queryField>
+    </units>
+    <defaultFilter>
+        <name>defaultFilter</name>
+        <formulaString />
+        <query>
+            <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+            <key name="name" value="F7ProjectQuery" />
+        </query>
+    </defaultFilter>
+    <defaultSorters>
+        <querySorterItem>
+            <propertyName>number</propertyName>
+            <sortType>ASC</sortType>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="F7ProjectQuery" />
+            </query>
+            <configured>false</configured>
+        </querySorterItem>
+    </defaultSorters>
+    <queryPK>
+        <name>QueryPK</name>
+        <alias>joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].queryPK[QueryPK].alias</alias>
+        <description>joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].queryPK[QueryPK].description</description>
+        <keyProperties>
+            <queryField>
+                <key name="name" value="id" />
+            </queryField>
+        </keyProperties>
+    </queryPK>
+    <isDistinct>false</isDistinct>
+    <joins>
+        <join>
+            <name>NewJoin0</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="Project" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="parent" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>0</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="NewUnit1" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="NewUnit0" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="NewJoin0" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="F7ProjectQuery" />
+            </query>
+        </join>
+        <join>
+            <name>NewJoin1</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="Project" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="CU" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>0</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="deafc042-02f6-4e24-9643-94b6dc0106f2" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="be97df54-b804-4db4-87c0-4da266312295" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="NewJoin1" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="F7ProjectQuery" />
+            </query>
+        </join>
+        <join>
+            <name>NewJoin2</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="Project" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="company" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>0</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="70e5efd2-3cce-43bc-91f4-1288331b791c" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="ca4019bb-fb11-4681-8faf-7cd50b9da72f" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="NewJoin2" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="F7ProjectQuery" />
+            </query>
+        </join>
+        <join>
+            <name>NewJoin3</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="Project" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="prjManager" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>0</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="NewUnit6" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="NewUnit7" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="NewJoin3" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="F7ProjectQuery" />
+            </query>
+        </join>
+        <join>
+            <name>2910103c-d66b-4f57-8295-ef6f99081a16</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="Project" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="NJGyearInvest" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>77758dda-5b34-4c41-8fbb-61e2c5969ee5</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="8861430a-3f81-4194-bf3c-f2a351bc6aa0" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="811b2c6d-2a77-49bf-86c1-034a969401e5" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="2910103c-d66b-4f57-8295-ef6f99081a16" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="F7ProjectQuery" />
+            </query>
+        </join>
+        <join>
+            <name>4aa7ca51-a803-4ae6-9c6e-cd75b9f49974</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="Project" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="NJGprojectType" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>2b86c95e-aa37-45d9-99e7-1d14d799a83c</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="6b18871d-3b64-4249-9d20-e68e5ca91a4b" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="62dd7037-7d1d-4ad1-a219-081376e38a6b" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="4aa7ca51-a803-4ae6-9c6e-cd75b9f49974" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="F7ProjectQuery" />
+            </query>
+        </join>
+    </joins>
+    <resource>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].alias">
+            <lang locale="en_US" value="" />
+            <lang locale="zh_CN" value="项目查询" />
+            <lang locale="zh_HK" value="項目查詢" />
+            <lang locale="zh_TW" value="項目查詢" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].defaultSorters.querySorterItemextendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].defaultSorters.querySorterItemextendedProperty.F7WindowTitle">
+            <lang locale="en_US" value="项目查询界面" />
+            <lang locale="zh_CN" value="项目查询界面" />
+            <lang locale="zh_TW" value="项目查询界面" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].defaultSorters.querySorterItemextendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].defaultSorters.querySorterItemextendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].defaultSorters.querySorterItemextendedProperty.isUsingF7">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].defaultSorters.querySorterItemextendedProperty.isVisableInCommonQuery">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].defaultSorters.querySorterItemextendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].description">
+            <lang locale="en_US" value="" />
+            <lang locale="zh_CN" value="项目查询" />
+            <lang locale="zh_HK" value="項目查詢" />
+            <lang locale="zh_TW" value="項目查詢" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].extendedProperty.F7WindowTitle">
+            <lang locale="en_US" value="com.kingdee.eas.basedata.assistant.client.AssistantResource4.ProjectQuery" />
+            <lang locale="zh_CN" value="com.kingdee.eas.basedata.assistant.client.AssistantResource4.ProjectQuery" />
+            <lang locale="zh_TW" value="com.kingdee.eas.basedata.assistant.client.AssistantResource4.ProjectQuery" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].extendedProperty.f7WindowTitle">
+            <lang locale="en_US" value="项目" />
+            <lang locale="zh_CN" value="项目" />
+            <lang locale="zh_TW" value="项目" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].extendedProperty.isF7Maintain">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].extendedProperty.isVisableInCommonQuery">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].queryPK[QueryPK].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].queryPK[QueryPK].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].subObjects.subEntity[CU].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].subObjects.subEntity[NJGprojectType].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].subObjects.subEntity[NJGyearInvest].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].subObjects.subEntity[Project].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].subObjects.subEntity[company].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].subObjects.subEntity[parent].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].subObjects.subEntity[prjManager].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.propertyUnit[62dd7037-7d1d-4ad1-a219-081376e38a6b].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.propertyUnit[6b18871d-3b64-4249-9d20-e68e5ca91a4b].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.propertyUnit[70e5efd2-3cce-43bc-91f4-1288331b791c].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.propertyUnit[811b2c6d-2a77-49bf-86c1-034a969401e5].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.propertyUnit[8861430a-3f81-4194-bf3c-f2a351bc6aa0].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.propertyUnit[NewUnit0].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.propertyUnit[NewUnit1].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.propertyUnit[NewUnit6].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.propertyUnit[NewUnit7].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.propertyUnit[be97df54-b804-4db4-87c0-4da266312295].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.propertyUnit[ca4019bb-fb11-4681-8faf-7cd50b9da72f].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.propertyUnit[deafc042-02f6-4e24-9643-94b6dc0106f2].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.propertyUnit[f4ba8962-e042-4fe3-ac23-721311fbc94a].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[CU.id].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="ID" />
+            <lang locale="zh_HK" value="ID" />
+            <lang locale="zh_TW" value="ID" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[CU.id].extendedProperty.colWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[CU.id].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[CU.id].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[CU.id].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[CU.id].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[NJGprojectType.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目类别" />
+            <lang locale="zh_HK" value="項目類別" />
+            <lang locale="zh_TW" value="項目類別" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[NJGyearInvest.projectName].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="年度投资计划 " />
+            <lang locale="zh_HK" value="年度投資計畫 " />
+            <lang locale="zh_TW" value="年度投資計畫 " />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[description].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="描述" />
+            <lang locale="zh_HK" value="描述" />
+            <lang locale="zh_TW" value="描述" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[description].extendedProperty.colWidthInKDTable">
+            <lang locale="en_US" value="168" />
+            <lang locale="zh_CN" value="168" />
+            <lang locale="zh_TW" value="168" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[description].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[description].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[description].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[description].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[dutyPerson].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="执行人" />
+            <lang locale="zh_HK" value="執行人" />
+            <lang locale="zh_TW" value="執行人" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[dutyPerson].extendedProperty.colWidthInKDTable">
+            <lang locale="en_US" value="70" />
+            <lang locale="zh_CN" value="70" />
+            <lang locale="zh_TW" value="70" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[dutyPerson].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[dutyPerson].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[dutyPerson].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[dutyPerson].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[id].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="ID" />
+            <lang locale="zh_HK" value="ID" />
+            <lang locale="zh_TW" value="ID" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[id].extendedProperty.colWidthInKDTable">
+            <lang locale="en_US" value="0" />
+            <lang locale="zh_CN" value="0" />
+            <lang locale="zh_TW" value="0" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[id].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[id].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[id].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[id].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[id].propertyRefs.propertyRefextendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[isLeaf].displayName">
+            <lang locale="en_US" value="" />
+            <lang locale="zh_CN" value="是否叶子节点" />
+            <lang locale="zh_HK" value="是否葉子節點" />
+            <lang locale="zh_TW" value="是否葉子節點" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[isLeaf].extendedProperty.colWidthInKDTable">
+            <lang locale="en_US" value="0" />
+            <lang locale="zh_CN" value="0" />
+            <lang locale="zh_TW" value="0" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[isLeaf].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[isLeaf].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[isLeaf].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[isLeaf].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[isListItem].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否明细项目" />
+            <lang locale="zh_HK" value="是否明細項目" />
+            <lang locale="zh_TW" value="是否明細項目" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[isListItem].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[isListItem].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="名称" />
+            <lang locale="zh_HK" value="名稱" />
+            <lang locale="zh_TW" value="名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[name].extendedProperty.colWidthInKDTable">
+            <lang locale="en_US" value="120" />
+            <lang locale="zh_CN" value="120" />
+            <lang locale="zh_TW" value="120" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[name].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[name].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[number].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="编码" />
+            <lang locale="zh_HK" value="編碼" />
+            <lang locale="zh_TW" value="編碼" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[number].extendedProperty.colWidthInKDTable">
+            <lang locale="en_US" value="70" />
+            <lang locale="zh_CN" value="70" />
+            <lang locale="zh_TW" value="70" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[number].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[number].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[number].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[number].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[prjManager.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目经理" />
+            <lang locale="zh_HK" value="項目經理" />
+            <lang locale="zh_TW" value="項目經理" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[simpleName].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="简称" />
+            <lang locale="zh_HK" value="簡稱" />
+            <lang locale="zh_TW" value="簡稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[simpleName].extendedProperty.colWidthInKDTable">
+            <lang locale="en_US" value="0" />
+            <lang locale="zh_CN" value="0" />
+            <lang locale="zh_TW" value="0" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[simpleName].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[simpleName].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[simpleName].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[status].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="状态" />
+            <lang locale="zh_HK" value="狀態" />
+            <lang locale="zh_TW" value="狀態" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[status].extendedProperty.colWidthInKDTable">
+            <lang locale="en_US" value="70" />
+            <lang locale="zh_CN" value="70" />
+            <lang locale="zh_TW" value="70" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[status].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[status].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[status].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[status].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[type].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="类型" />
+            <lang locale="zh_HK" value="類型" />
+            <lang locale="zh_TW" value="類型" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[type].extendedProperty.colWidthInKDTable">
+            <lang locale="en_US" value="70" />
+            <lang locale="zh_CN" value="70" />
+            <lang locale="zh_TW" value="70" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[type].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[type].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[type].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.basedata.assistant.app.F7ProjectQuery].units.queryField[type].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+    </resource>
+</joinQuery>
+

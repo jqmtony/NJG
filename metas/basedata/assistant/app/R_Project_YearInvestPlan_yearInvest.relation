@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<relationship xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.basedata.assistant.app</package>
+    <name>R_Project_YearInvestPlan_yearInvest</name>
+    <alias>relationship[com.kingdee.eas.basedata.assistant.app.R_Project_YearInvestPlan_yearInvest].alias</alias>
+    <description>relationship[com.kingdee.eas.basedata.assistant.app.R_Project_YearInvestPlan_yearInvest].description</description>
+    <userDefined>true</userDefined>
+    <type>Association</type>
+    <clientCardinality>1</clientCardinality>
+    <supplierCardinality>0..1</supplierCardinality>
+    <xmlNodeRelationship />
+    <clientObject>
+        <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+        <key name="name" value="Project" />
+    </clientObject>
+    <supplierObject>
+        <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+        <key name="name" value="YearInvestPlan" />
+    </supplierObject>
+    <resource>
+        <rs key="relationship[com.kingdee.eas.basedata.assistant.app.R_Project_YearInvestPlan_yearInvest].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目_年度投资计划" />
+            <lang locale="zh_HK" value="項目_年度投資計畫" />
+            <lang locale="zh_TW" value="項目_年度投資計畫" />
+        </rs>
+        <rs key="relationship[com.kingdee.eas.basedata.assistant.app.R_Project_YearInvestPlan_yearInvest].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="relationship[com.kingdee.eas.basedata.assistant.app.R_Project_YearInvestPlan_yearInvest].extendedProperty.userDefined">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+    </resource>
+</relationship>
+
