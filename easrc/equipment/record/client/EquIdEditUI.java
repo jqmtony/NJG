@@ -133,7 +133,12 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 		contdayone.setVisible(false);
 		contdaytow.setVisible(false);
 		pkactrueTime.setEnabled(false);
-		
+		prmtjhOrgUnit.setEnabled(false);
+		prmtjhOrgUnit.setVisible(false);
+		prmtwxOrgUnit.setEnabled(false);
+		prmtwxOrgUnit.setVisible(false);
+		txtsize.setEnabled(false);
+		txtsize.setVisible(false);
 	}
 
 	
@@ -150,6 +155,12 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 		combosbStatus.setEnabled(false);
 		pktextDate1.setEnabled(false);
 		testDay.setEnabled(false);
+		prmtjhOrgUnit.setEnabled(false);
+		prmtjhOrgUnit.setVisible(false);
+		prmtwxOrgUnit.setEnabled(false);
+		prmtwxOrgUnit.setVisible(false);
+		txtsize.setEnabled(false);
+		txtsize.setVisible(false);
 		 this.kdtE3.getColumn("seq").getStyleAttributes().setHided(true);
 		combonowStatus.setEnabled(false);
 		this.txtcityPeriod.setPrecision(0);	
