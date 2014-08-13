@@ -1253,6 +1253,62 @@
             <scale>0</scale>
             <precision>0</precision>
         </column>
+        <column>
+            <name>CFCpgjzs</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquId].columns.column[CFCpgjzs].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquId].columns.column[CFCpgjzs].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>100</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFCpsyqh</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquId].columns.column[CFCpsyqh].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquId].columns.column[CFCpsyqh].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>100</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFCpsbh</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquId].columns.column[CFCpsbh].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquId].columns.column[CFCpsbh].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>100</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFChuanCheck</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquId].columns.column[CFChuanCheck].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquId].columns.column[CFChuanCheck].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>INT</sqlType>
+            <length>1</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
     </columns>
     <primaryKey>
         <name>CPK_REC_EquIdIDeu2</name>
@@ -1821,6 +1877,18 @@
             <lang locale="zh_HK" value="驗收日期" />
             <lang locale="zh_TW" value="驗收日期" />
         </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquId].columns.column[CFChuanCheck].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="船检" />
+            <lang locale="zh_HK" value="船檢" />
+            <lang locale="zh_TW" value="船檢" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquId].columns.column[CFChuanCheck].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="船检" />
+            <lang locale="zh_HK" value="船檢" />
+            <lang locale="zh_TW" value="船檢" />
+        </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquId].columns.column[CFCityPeriod].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="市检周期" />
@@ -1880,6 +1948,42 @@
             <lang locale="zh_CN" value="复杂系数f机" />
             <lang locale="zh_HK" value="複雜係數f機" />
             <lang locale="zh_TW" value="複雜係數f機" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquId].columns.column[CFCpgjzs].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="船舶国籍证书" />
+            <lang locale="zh_HK" value="船舶國籍證書" />
+            <lang locale="zh_TW" value="船舶國籍證書" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquId].columns.column[CFCpgjzs].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="船舶国籍证书" />
+            <lang locale="zh_HK" value="船舶國籍證書" />
+            <lang locale="zh_TW" value="船舶國籍證書" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquId].columns.column[CFCpsbh].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="船舶识别号" />
+            <lang locale="zh_HK" value="船舶識別號" />
+            <lang locale="zh_TW" value="船舶識別號" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquId].columns.column[CFCpsbh].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="船舶识别号" />
+            <lang locale="zh_HK" value="船舶識別號" />
+            <lang locale="zh_TW" value="船舶識別號" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquId].columns.column[CFCpsyqh].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="船舶所有权号" />
+            <lang locale="zh_HK" value="船舶所有權號" />
+            <lang locale="zh_TW" value="船舶所有權號" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquId].columns.column[CFCpsyqh].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="船舶所有权号" />
+            <lang locale="zh_HK" value="船舶所有權號" />
+            <lang locale="zh_TW" value="船舶所有權號" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_EquId].columns.column[CFDayone].alias">
             <lang locale="en_US" value="null" />
