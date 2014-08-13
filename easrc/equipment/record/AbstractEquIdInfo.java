@@ -839,6 +839,50 @@ public class AbstractEquIdInfo extends com.kingdee.eas.xr.XRBillBaseInfo impleme
     {
         setBoolean("isccCheck", item);
     }
+    /**
+     * Object:设备档案's 船舶国籍证书property 
+     */
+    public String getCpgjzs()
+    {
+        return getString("cpgjzs");
+    }
+    public void setCpgjzs(String item)
+    {
+        setString("cpgjzs", item);
+    }
+    /**
+     * Object:设备档案's 船舶所有权号property 
+     */
+    public String getCpsyqh()
+    {
+        return getString("cpsyqh");
+    }
+    public void setCpsyqh(String item)
+    {
+        setString("cpsyqh", item);
+    }
+    /**
+     * Object:设备档案's 船舶识别号property 
+     */
+    public String getCpsbh()
+    {
+        return getString("cpsbh");
+    }
+    public void setCpsbh(String item)
+    {
+        setString("cpsbh", item);
+    }
+    /**
+     * Object:设备档案's 船检property 
+     */
+    public boolean isChuanCheck()
+    {
+        return getBoolean("chuanCheck");
+    }
+    public void setChuanCheck(boolean item)
+    {
+        setBoolean("chuanCheck", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("0ED4BEC2");

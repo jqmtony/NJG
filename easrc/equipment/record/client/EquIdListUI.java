@@ -708,8 +708,12 @@ public class EquIdListUI extends AbstractEquIdListUI
 	    {
 	      viewInfo.setFilter(filInfo);
 	    }
-	    if ("00000000-0000-0000-0000-000000000000CCE7AED4".equals(id))
+	    if ("00000000-0000-0000-0000-000000000000CCE7AED4".equals(id)){
 	      viewInfo = (EntityViewInfo)arg1.clone();
+	    }
+	    if ("6vYAAAAAAQvM567U".equals(id)){
+		      viewInfo = (EntityViewInfo)arg1.clone();
+		    }
 	    return super.getQueryExecutor(arg0, viewInfo);
 	}
 	

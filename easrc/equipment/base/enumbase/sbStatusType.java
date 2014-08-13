@@ -15,13 +15,11 @@ public class sbStatusType extends StringEnum
 {
     public static final String INUSE_VALUE = "1";//alias=在用
     public static final String NOTUSE_VALUE = "2";//alias=停用
-    public static final String DISCARDED_VALUE = "3";//alias=已报废
-    public static final String REPAIR_VALUE = "4";//alias=维修中
+    public static final String DISCARDED_VALUE = "3";//alias=报废
 
     public static final sbStatusType inUse = new sbStatusType("inUse", INUSE_VALUE);
     public static final sbStatusType notUse = new sbStatusType("notUse", NOTUSE_VALUE);
     public static final sbStatusType discarded = new sbStatusType("discarded", DISCARDED_VALUE);
-    public static final sbStatusType repair = new sbStatusType("repair", REPAIR_VALUE);
 
     /**
      * construct function

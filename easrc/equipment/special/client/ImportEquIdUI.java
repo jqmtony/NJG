@@ -222,6 +222,11 @@ public class ImportEquIdUI extends AbstractImportEquIdUI
 						InitEntry(row, equIdInfo, CheckType.port);
 						selectIndex+=1;
 					}
+					if(equIdInfo.isChuanCheck())
+					{
+						InitEntry(row, equIdInfo, CheckType.chuan);
+						selectIndex+=1;
+					}
 				}
 				
 			}
@@ -296,6 +301,12 @@ public class ImportEquIdUI extends AbstractImportEquIdUI
 			row.getCell("planDate").setValue(equIdInfo.getDayone());
 		}
 		if(checktype.equals(checktype.port)&& equIdInfo.getTestDay() !=null){
+			row.getCell("endDate").setValue(equIdInfo.getTextDate1());
+		}
+		if(checktype.equals(checktype.chuan)&& equIdInfo.getDaytow() !=null){
+			row.getCell("planDate").setValue(equIdInfo.getDayone());
+		}
+		if(checktype.equals(checktype.chuan)&& equIdInfo.getTestDay() !=null){
 			row.getCell("endDate").setValue(equIdInfo.getTextDate1());
 		}
 		

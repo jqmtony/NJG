@@ -1731,8 +1731,8 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
         	  }
 		}
           if(editData.isSpecial()){
-        	  if(!editData.isCityTest()&&!editData.isPortTest()){
-        		  MsgBox.showInfo("当前设备为特种设备，请勾选特种设备属性的市检或港检！");
+        	  if(!editData.isCityTest()&&!editData.isPortTest()&&!editData.isChuanCheck()){
+        		  MsgBox.showInfo("当前设备为检验设备，请勾选检验设备属性的市检，港检或船检！");
    				  SysUtil.abort();
         	  }
         	  if(editData.isCityTest()&&editData.isPortTest()){
@@ -1747,6 +1747,13 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
         	 
         	  }
         	  if(editData.isPortTest()){
+        		  if(editData.getCityPeriod() ==null){
+	        		  MsgBox.showInfo("请填写周期！");
+	   				  SysUtil.abort();
+        		  }
+        	 
+        	  }
+        	  if(editData.isChuanCheck()){
         		  if(editData.getCityPeriod() ==null){
 	        		  MsgBox.showInfo("请填写周期！");
 	   				  SysUtil.abort();
@@ -1775,7 +1782,7 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 	public void actionRegistChange_actionPerformed(ActionEvent e)throws Exception {
 		super.actionRegistChange_actionPerformed(e);
 		if(chkspecial.getSelected() ==16){
-			 MsgBox.showInfo("特种设备才能变更！");
+			 MsgBox.showInfo("检验设备才能变更！");
 				SysUtil.abort();
 		}
 		IUIWindow uiWindow = null;

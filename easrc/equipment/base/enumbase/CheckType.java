@@ -15,9 +15,11 @@ public class CheckType extends StringEnum
 {
     public static final String CITY_VALUE = "10";//alias=ÊÐ¼ì
     public static final String PORT_VALUE = "20";//alias=¸Û¼ì
+    public static final String CHUAN_VALUE = "30";//alias=´¬¼ì
 
     public static final CheckType city = new CheckType("city", CITY_VALUE);
     public static final CheckType port = new CheckType("port", PORT_VALUE);
+    public static final CheckType chuan = new CheckType("chuan", CHUAN_VALUE);
 
     /**
      * construct function
