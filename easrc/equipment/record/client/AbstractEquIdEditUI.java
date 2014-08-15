@@ -1883,11 +1883,11 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         chkisccCheck.setBounds(new Rectangle(828, 132, 127, 19));
         kDPanel8.add(chkisccCheck, new KDLayout.Constraints(828, 132, 127, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         conusingDept.setBounds(new Rectangle(11, 112, 269, 19));
-        kDPanel8.add(conusingDept, new KDLayout.Constraints(11, 112, 269, 19, 0));
+        kDPanel8.add(conusingDept, new KDLayout.Constraints(11, 112, 269, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         conlocation.setBounds(new Rectangle(355, 112, 270, 19));
-        kDPanel8.add(conlocation, new KDLayout.Constraints(355, 112, 270, 19, 0));
+        kDPanel8.add(conlocation, new KDLayout.Constraints(355, 112, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         conaddress.setBounds(new Rectangle(699, 72, 270, 19));
-        kDPanel8.add(conaddress, new KDLayout.Constraints(699, 72, 270, 19, 0));
+        kDPanel8.add(conaddress, new KDLayout.Constraints(699, 72, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         //consbDescription
         consbDescription.setBoundEditor(txtsbDescription);
         //conname

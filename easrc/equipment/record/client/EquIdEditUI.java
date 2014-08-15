@@ -139,6 +139,8 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 		prmtwxOrgUnit.setVisible(false);
 		txtsize.setEnabled(false);
 		txtsize.setVisible(false);
+		consize.setVisible(false);
+		conwxOrgUnit.setVisible(false);
 	}
 
 	
@@ -1478,6 +1480,10 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 		sic.add(new SelectorItemInfo("oldYear"));
 		sic.add(new SelectorItemInfo("deadline"));
 		sic.add(new SelectorItemInfo("debuger"));
+		sic.add(new SelectorItemInfo("cpgjzs"));
+		sic.add(new SelectorItemInfo("cpsyqh"));
+		sic.add(new SelectorItemInfo("cpsbh"));
+		sic.add(new SelectorItemInfo("chuanCheck"));
 		sic.add(new SelectorItemInfo("name"));
 		if (selectorAll.equalsIgnoreCase("true")) {
 			sic.add(new SelectorItemInfo("ssOrgUnit.*"));
