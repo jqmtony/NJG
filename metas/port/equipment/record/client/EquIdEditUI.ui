@@ -1895,7 +1895,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>12,132,614,19,261</constraints>
+            <constraints>12,132,269,19,261</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -2650,7 +2650,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>699,92,270,19,137</constraints>
+            <constraints>355,132,270,19,385</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -3088,6 +3088,55 @@
                     <name>visible</name>
                     <type>boolean</type>
                     <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[conaddress].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="kDPanel8" />
+            </parent>
+        </component>
+        <component>
+            <name>contuseUnit</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contuseUnit].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>699,92,270,19,137</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>boundLabelText</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contuseUnit].properties.property[boundLabelText].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelLength</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contuseUnit].properties.property[boundLabelLength].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelUnderline</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contuseUnit].properties.property[boundLabelUnderline].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contuseUnit].properties.property[visible].value</value>
                     <isMultiLan>false</isMultiLan>
                     <userDefined>true</userDefined>
                 </property>
@@ -4480,6 +4529,103 @@
                     <userDefined>true</userDefined>
                 </propertyBinding>
             </propertyBindings>
+        </component>
+        <component>
+            <name>prmtuseUnit</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[prmtuseUnit].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox</classType>
+            <isContainer>false</isContainer>
+            <constraints>7</constraints>
+            <tabIndex>98</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>queryInfo</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[prmtuseUnit].properties.property[queryInfo].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[prmtuseUnit].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>editable</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[prmtuseUnit].properties.property[editable].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>displayFormat</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[prmtuseUnit].properties.property[displayFormat].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>editFormat</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[prmtuseUnit].properties.property[editFormat].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>commitFormat</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[prmtuseUnit].properties.property[commitFormat].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>required</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[prmtuseUnit].properties.property[required].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="contuseUnit" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>data</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>useUnit</bindingField>
+                    <fieldType>com.kingdee.eas.basedata.org.AdminOrgUnitInfo</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+            <eventBindings>
+                <eventBinding>
+                    <name>dataChanged</name>
+                    <eventType>com.kingdee.bos.ctrl.swing.event.DataChangeEvent</eventType>
+                    <scene />
+                    <listenerType>com.kingdee.bos.ctrl.swing.event.DataChangeListener</listenerType>
+                    <listenerAdapter>com.kingdee.bos.ctrl.swing.event.DataChangeListener</listenerAdapter>
+                    <methodName>prmtuseUnit_dataChanged</methodName>
+                    <code />
+                    <isBindWorkFlow>false</isBindWorkFlow>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </eventBinding>
+            </eventBindings>
         </component>
         <component>
             <name>conmader</name>
@@ -13480,6 +13626,36 @@
             <lang locale="zh_HK" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contuseUnit].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contuseUnit].properties.property[boundLabelLength].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contuseUnit].properties.property[boundLabelText].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="使用单位" />
+            <lang locale="zh_HK" value="使用單位" />
+            <lang locale="zh_TW" value="使用單位" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contuseUnit].properties.property[boundLabelUnderline].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contuseUnit].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contype].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -14901,6 +15077,54 @@
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[prmtunit].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[prmtuseUnit].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="使用单位" />
+            <lang locale="zh_HK" value="使用單位" />
+            <lang locale="zh_TW" value="使用單位" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[prmtuseUnit].properties.property[commitFormat].value">
+            <lang locale="en_US" value="$number$" />
+            <lang locale="zh_CN" value="$number$" />
+            <lang locale="zh_HK" value="$number$" />
+            <lang locale="zh_TW" value="$number$" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[prmtuseUnit].properties.property[displayFormat].value">
+            <lang locale="en_US" value="$name$" />
+            <lang locale="zh_CN" value="$name$" />
+            <lang locale="zh_HK" value="$name$" />
+            <lang locale="zh_TW" value="$name$" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[prmtuseUnit].properties.property[editFormat].value">
+            <lang locale="en_US" value="$number$" />
+            <lang locale="zh_CN" value="$number$" />
+            <lang locale="zh_HK" value="$number$" />
+            <lang locale="zh_TW" value="$number$" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[prmtuseUnit].properties.property[editable].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[prmtuseUnit].properties.property[queryInfo].value">
+            <lang locale="en_US" value="com.kingdee.eas.basedata.org.app.AdminItemQuery" />
+            <lang locale="zh_CN" value="com.kingdee.eas.basedata.org.app.AdminItemQuery" />
+            <lang locale="zh_HK" value="com.kingdee.eas.basedata.org.app.AdminItemQuery" />
+            <lang locale="zh_TW" value="com.kingdee.eas.basedata.org.app.AdminItemQuery" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[prmtuseUnit].properties.property[required].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[prmtuseUnit].properties.property[visible].value">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_HK" value="true" />

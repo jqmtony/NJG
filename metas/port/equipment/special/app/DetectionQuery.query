@@ -100,6 +100,19 @@
                 <key name="name" value="EqmType" />
             </entityRef>
         </subEntity>
+        <subEntity>
+            <name>E2</name>
+            <alias>joinQuery[com.kingdee.eas.port.equipment.special.app.DetectionQuery].subObjects.subEntity[E2].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.special.app" />
+                <key name="name" value="DetectionQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.port.equipment.special.app" />
+                <key name="name" value="DetectionE2" />
+            </entityRef>
+        </subEntity>
     </subObjects>
     <units>
         <queryField>
@@ -1187,6 +1200,99 @@
                 <key name="name" value="DetectionQuery" />
             </query>
         </queryField>
+        <propertyUnit>
+            <name>3fdadc08-550b-4885-87d9-b87f59df55d9</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.special.app.DetectionQuery].units.propertyUnit[3fdadc08-550b-4885-87d9-b87f59df55d9].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>63d4d221-8c33-41d5-b971-b43d49f7bf85</key>
+                    <parentUnit>
+                        <key name="name" value="3fdadc08-550b-4885-87d9-b87f59df55d9" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Detection" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.special.app" />
+                <key name="name" value="DetectionQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>44254eb0-b6d1-4def-9dac-99972c85a667</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.special.app.DetectionQuery].units.propertyUnit[44254eb0-b6d1-4def-9dac-99972c85a667].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>32df6d94-c69b-4c58-9135-5be9d6aebc4b</key>
+                    <parentUnit>
+                        <key name="name" value="44254eb0-b6d1-4def-9dac-99972c85a667" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="E2" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="parent" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.special.app" />
+                <key name="name" value="DetectionQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>E2.useUnit</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.special.app.DetectionQuery].units.queryField[E2.useUnit].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>abb1ed7f-d99b-436b-9c4b-69cd8807cf25</key>
+                    <parentUnit>
+                        <key name="name" value="E2.useUnit" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="E2" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="useUnit" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.special.app" />
+                <key name="name" value="DetectionQuery" />
+            </query>
+        </queryField>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -1390,6 +1496,36 @@
                 <key name="name" value="DetectionQuery" />
             </query>
         </join>
+        <join>
+            <name>3f085ca0-6090-411f-9af3-3f306a6ee465</name>
+            <formulaString>#0</formulaString>
+            <type>INNER JOIN</type>
+            <leftObject>
+                <key name="name" value="Detection" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="E2" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>0332d217-591f-4184-b4c2-7a5e2cf75094</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="3fdadc08-550b-4885-87d9-b87f59df55d9" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="44254eb0-b6d1-4def-9dac-99972c85a667" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="3f085ca0-6090-411f-9af3-3f306a6ee465" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.special.app" />
+                <key name="name" value="DetectionQuery" />
+            </query>
+        </join>
     </joins>
     <resource>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.DetectionQuery].alias">
@@ -1438,6 +1574,12 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.DetectionQuery].subObjects.subEntity[E1_deviceType].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.DetectionQuery].subObjects.subEntity[E2].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -1492,6 +1634,18 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.DetectionQuery].units.propertyUnit[3c0a9076-ca78-4eb9-83cf-efdbe178abb6].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.DetectionQuery].units.propertyUnit[3fdadc08-550b-4885-87d9-b87f59df55d9].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.DetectionQuery].units.propertyUnit[44254eb0-b6d1-4def-9dac-99972c85a667].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -1719,6 +1873,12 @@
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.DetectionQuery].units.queryField[E2.useUnit].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="使用单位" />
+            <lang locale="zh_HK" value="使用單位" />
+            <lang locale="zh_TW" value="使用單位" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.DetectionQuery].units.queryField[actualDate].displayName">
             <lang locale="en_US" value="null" />

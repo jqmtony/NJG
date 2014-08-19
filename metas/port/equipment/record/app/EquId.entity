@@ -2398,6 +2398,20 @@
                 <key name="name" value="CFChuanCheck" />
             </mappingField>
         </ownProperty>
+        <linkProperty>
+            <name>useUnit</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.linkProperty[useUnit].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.linkProperty[useUnit].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <mappingField>
+                <key name="name" value="CFUseUnitID" />
+            </mappingField>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.port.equipment.record.app" />
+                <key name="name" value="R_EquId_AdminOrgUnit_useUnit" />
+            </relationship>
+        </linkProperty>
     </properties>
     <logicalKey>
         <name>id</name>
@@ -4891,6 +4905,58 @@
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.linkProperty[unit].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.linkProperty[useUnit].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="使用单位" />
+            <lang locale="zh_HK" value="使用單位" />
+            <lang locale="zh_TW" value="使用單位" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.linkProperty[useUnit].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="使用单位" />
+            <lang locale="zh_HK" value="使用單位" />
+            <lang locale="zh_TW" value="使用單位" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.linkProperty[useUnit].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.linkProperty[useUnit].extendedProperty.dataField">
+            <lang locale="en_US" value="name" />
+            <lang locale="zh_CN" value="name" />
+            <lang locale="zh_TW" value="name" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.linkProperty[useUnit].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.linkProperty[useUnit].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.linkProperty[useUnit].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.linkProperty[useUnit].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.linkProperty[useUnit].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.EquId].properties.linkProperty[useUnit].extendedProperty.isVisibleForKDTable">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
