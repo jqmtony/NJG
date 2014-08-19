@@ -883,6 +883,17 @@ public class AbstractEquIdInfo extends com.kingdee.eas.xr.XRBillBaseInfo impleme
     {
         setBoolean("chuanCheck", item);
     }
+    /**
+     * Object: 设备档案 's 使用单位 property 
+     */
+    public com.kingdee.eas.basedata.org.AdminOrgUnitInfo getUseUnit()
+    {
+        return (com.kingdee.eas.basedata.org.AdminOrgUnitInfo)get("useUnit");
+    }
+    public void setUseUnit(com.kingdee.eas.basedata.org.AdminOrgUnitInfo item)
+    {
+        put("useUnit", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("0ED4BEC2");

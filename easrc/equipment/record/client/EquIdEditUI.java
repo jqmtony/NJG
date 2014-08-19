@@ -171,14 +171,26 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 		txtoldYear.setEnabled(false);
 		super.onLoad();
 		FaCatPromptBox facatBox = new FaCatPromptBox();
-		facatBox.setACompanyOrgUnitInfo(SysContext.getSysContext()
-				.getCurrentFIUnit());
+		facatBox.setACompanyOrgUnitInfo(SysContext.getSysContext().getCurrentFIUnit());
 		this.prmttype.setSelector(facatBox);
 	
+		
+		if (OprtState.ADDNEW.equals(getOprtState())) {
+			this.prmtssOrgUnit.setValue(SysContext.getSysContext().getCurrentAdminUnit());
+			this.prmtuseUnit.setValue(SysContext.getSysContext().getCurrentAdminUnit());
+		}
+		
+		 EntityViewInfo evi = new EntityViewInfo();
+		 FilterInfo filter = new FilterInfo();
+		 String idaa = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
+		 filter.getFilterItems().add(new FilterItemInfo("company.id",idaa ,CompareType.EQUALS));
+		 evi.setFilter(filter);
+		 prmtasset.setEntityViewInfo(evi);
+		
 		setTzsbState(false);
-		//根据所属组织带出单位所在地址
-		if(prmtssOrgUnit.getValue() != null){
-			String id = ((AdminOrgUnitInfo)prmtssOrgUnit.getData()).getId().toString();
+		//根据使用组织带出单位所在地址
+		if(prmtuseUnit.getValue() != null){
+			String id = ((AdminOrgUnitInfo)prmtuseUnit.getData()).getId().toString();
 			AdminOrgUnitInfo aoInfo = AdminOrgUnitFactory.getRemoteInstance().getAdminOrgUnitInfo(new ObjectUuidPK(id));
 			if(aoInfo.getAddress() != null){
 				String id1 = ((AddressInfo)aoInfo.getAddress()).getId().toString();
@@ -322,6 +334,7 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 		Tool.setRespDeptF7(this.prmtwxOrgUnit, this, SysContext.getSysContext().getCurrentCtrlUnit().getId().toString());
 		Tool.setRespDeptF7(this.prmtwxDept, this, SysContext.getSysContext().getCurrentCtrlUnit().getId().toString());
 		Tool.setRespDeptF7(this.prmtssOrgUnit, this, SysContext.getSysContext().getCurrentCtrlUnit().getId().toString());
+		Tool.setRespDeptF7(this.prmtuseUnit, this, SysContext.getSysContext().getCurrentCtrlUnit().getId().toString());
 		Tool.setRespDeptF7(this.prmtusingDept, this, SysContext.getSysContext().getCurrentCtrlUnit().getId().toString());
 		Tool.setPersonF7(this.prmtresPerson, this, SysContext.getSysContext().getCurrentCtrlUnit().getId().toString());
 		
@@ -1770,13 +1783,6 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
         		  }
         	 
         	  }
-        	  if(editData.isChuanCheck()){
-        		  if(editData.getCityPeriod() ==null){
-	        		  MsgBox.showInfo("请填写周期！");
-	   				  SysUtil.abort();
-        		  }
-        	 
-        	  }
         	
           }
 
@@ -1791,6 +1797,9 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 		}
 		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(prmtssOrgUnit.getData())) {
 			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"所属单位"});
+		}
+		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(prmtuseUnit.getData())) {
+			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"使用单位"});
 		}
       	super.verifyInput(e);
 	}
@@ -1815,12 +1824,11 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 
 	}
 	
-	protected void prmtssOrgUnit_dataChanged(DataChangeEvent e)
-			throws Exception {
-		super.prmtssOrgUnit_dataChanged(e);
-		//根据所属组织带出单位所在地址
-		if(prmtssOrgUnit.getValue() != null){
-			String id = ((AdminOrgUnitInfo)prmtssOrgUnit.getData()).getId().toString();
+	protected void prmtuseUnit_dataChanged(DataChangeEvent e) throws Exception {
+		super.prmtuseUnit_dataChanged(e);
+		//根据使用单位带出单位所在地址
+		if(prmtuseUnit.getValue() != null){
+			String id = ((AdminOrgUnitInfo)prmtuseUnit.getData()).getId().toString();
 			AdminOrgUnitInfo aoInfo = AdminOrgUnitFactory.getRemoteInstance().getAdminOrgUnitInfo(new ObjectUuidPK(id));
 			if(aoInfo.getAddress() != null){
 				String id1 = ((AddressInfo)aoInfo.getAddress()).getId().toString();
@@ -1831,5 +1839,23 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 			}
 		}
 	}
+	
+	
+//	protected void prmtssOrgUnit_dataChanged(DataChangeEvent e)
+//			throws Exception {
+//		super.prmtssOrgUnit_dataChanged(e);
+//		//根据所属组织带出单位所在地址
+//		if(prmtssOrgUnit.getValue() != null){
+//			String id = ((AdminOrgUnitInfo)prmtssOrgUnit.getData()).getId().toString();
+//			AdminOrgUnitInfo aoInfo = AdminOrgUnitFactory.getRemoteInstance().getAdminOrgUnitInfo(new ObjectUuidPK(id));
+//			if(aoInfo.getAddress() != null){
+//				String id1 = ((AddressInfo)aoInfo.getAddress()).getId().toString();
+//				AddressInfo addInfo = AddressFactory.getRemoteInstance().getAddressInfo(new ObjectUuidPK(id1));
+//				prmtaddress.setValue(addInfo);
+//			}else{
+//				prmtaddress.setValue(null);
+//			}
+//		}
+//	}
 	
 }

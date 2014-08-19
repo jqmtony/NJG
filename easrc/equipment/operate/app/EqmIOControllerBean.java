@@ -62,8 +62,12 @@ public class EqmIOControllerBean extends AbstractEqmIOControllerBean
     		}
     		if(eoInfo.getTransferType().equals(TransferType.assetstran)&&eoInfo.getInOrgUnit()!=null&&eoInfo.getUseingOrgUnit()!=null&&eoInfo.getInstallAdress() != null){
     			edInfo.setSsOrgUnit(eoInfo.getInOrgUnit());
+    			edInfo.setUseUnit(eoInfo.getInOrgUnit());
         		edInfo.setUsingDept(eoInfo.getUseingOrgUnit());
         		edInfo.setLocation(eoInfo.getInstallAdress());
+    		}
+    		if(eoInfo.getTransferType().equals(TransferType.group)&&eoInfo.getInOrgUnit()!=null&&eoInfo.getUseingOrgUnit()!=null&&eoInfo.getInstallAdress() != null){
+    			edInfo.setUseUnit(eoInfo.getInOrgUnit());
     		}
     		
     		EquIdFactory.getLocalInstance(ctx).update(new ObjectUuidPK(edInfo.getId()), edInfo);
@@ -80,6 +84,7 @@ public class EqmIOControllerBean extends AbstractEqmIOControllerBean
     		EquIdInfo edInfo = EquIdFactory.getLocalInstance(ctx).getEquIdInfo(new ObjectUuidPK(id));
     		if(eoInfo.getTransferType().equals(TransferType.assetstran)&&eoInfo.getOutOrgUnit()!=null&&eoInfo.getOldUseingDept()!=null&&eoInfo.getOldInstallAdress()!=null){
     			edInfo.setSsOrgUnit(eoInfo.getOutOrgUnit());
+    			edInfo.setUseUnit(eoInfo.getOutOrgUnit());
         		edInfo.setUsingDept(eoInfo.getOldUseingDept());
         		edInfo.setLocation(eoInfo.getOldInstallAdress());
     		}

@@ -753,10 +753,10 @@ public class InspectionEquEditUI extends AbstractInspectionEquEditUI
 	        kdtE1_equNumber_PromptBox.setCommitFormat("$number$");
 	   	     EntityViewInfo evi = new EntityViewInfo();
 			 FilterInfo filter = new FilterInfo();
-			 filter.getFilterItems().add(new FilterItemInfo("sbStatus","1",CompareType.EQUALS));
+//			 filter.getFilterItems().add(new FilterItemInfo("sbStatus","1",CompareType.EQUALS));
 	 		 filter.getFilterItems().add(new FilterItemInfo("ssOrgUnit.id",id ,CompareType.EQUALS));
 	 		 filter.getFilterItems().add(new FilterItemInfo("isccCheck","1" ,CompareType.EQUALS));
-	 		filter.getFilterItems().add(new FilterItemInfo("id", sb.toString(), CompareType.INNER));
+//	 		filter.getFilterItems().add(new FilterItemInfo("id", sb.toString(), CompareType.INNER));
 	 		 evi.setFilter(filter);
 	 		 kdtE1_equNumber_PromptBox.setEntityViewInfo(evi);
 	 		 KDTDefaultCellEditor kdtEntry_feeType_CellEditor = new KDTDefaultCellEditor(kdtE1_equNumber_PromptBox);

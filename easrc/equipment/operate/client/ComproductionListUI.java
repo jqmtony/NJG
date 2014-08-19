@@ -852,6 +852,11 @@ protected void checkCanEdit(ComproductionInfo billInfo)
     ((IComproduction)getBizInterface()).passAudit(pk, null);
 }
     
+    //去除CU隔离
+	protected boolean isIgnoreCUFilter() {
+		return true;
+	}
+    
   //根据填报单位隔离公司产能表
 	protected IQueryExecutor getQueryExecutor(IMetaDataPK arg0,EntityViewInfo arg1) {
 		EntityViewInfo viewInfo = (EntityViewInfo)arg1.clone();
@@ -873,8 +878,15 @@ protected void checkCanEdit(ComproductionInfo billInfo)
 	    	{
 	    		viewInfo.setFilter(filInfo);
 	    	}
-		if(OrgConstants.DEF_CU_ID.equals(id))
-			viewInfo = new EntityViewInfo();
+//		if(OrgConstants.DEF_CU_ID.equals(id)){
+//			 viewInfo = new EntityViewInfo();
+//			}
+		   if ("00000000-0000-0000-0000-000000000000CCE7AED4".equals(id)){
+			      viewInfo = (EntityViewInfo)arg1.clone();
+			    }
+		  if ("6vYAAAAAAQvM567U".equals(id)){
+		      viewInfo = (EntityViewInfo)arg1.clone();
+		    }
 		return super.getQueryExecutor(arg0, viewInfo);
 	}
 	

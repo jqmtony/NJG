@@ -749,7 +749,7 @@ public class SpecialChangeEditUI extends AbstractSpecialChangeEditUI
 	   	 EntityViewInfo evi = new EntityViewInfo();
 			 FilterInfo filter = new FilterInfo();
 			 filter.getFilterItems().add(new FilterItemInfo("special","1",CompareType.EQUALS));
-			 filter.getFilterItems().add(new FilterItemInfo("sbStatus","1",CompareType.EQUALS));
+//			 filter.getFilterItems().add(new FilterItemInfo("sbStatus","1",CompareType.EQUALS));
 			 String id = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
 	 		 filter.getFilterItems().add(new FilterItemInfo("ssOrgUnit.id",id ,CompareType.EQUALS));
 			 evi.setFilter(filter);

@@ -770,7 +770,7 @@ this.prmtinsurance.setEnabledMultiSelection(true);
 		 FilterInfo filter = new FilterInfo();
 		 String id = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
 		 filter.getFilterItems().add(new FilterItemInfo("ssOrgUnit.id",id ,CompareType.EQUALS));
-		 filter.getFilterItems().add(new FilterItemInfo("sbStatus","1",CompareType.EQUALS));
+//		 filter.getFilterItems().add(new FilterItemInfo("sbStatus","1",CompareType.EQUALS));
 		 evi.setFilter(filter);
 		 prmtequNumber.setEntityViewInfo(evi);
 		 if(getOprtState().equals(OprtState.ADDNEW)){

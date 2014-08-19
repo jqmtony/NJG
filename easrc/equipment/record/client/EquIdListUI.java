@@ -3,6 +3,7 @@
  */
 package com.kingdee.eas.port.equipment.record.client;
 
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dialog;
 import java.awt.Frame;
@@ -22,6 +23,9 @@ import java.util.Map;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingUtilities;
+import javax.swing.event.TreeSelectionEvent;
+import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.TreeNode;
 
 import org.apache.log4j.Logger;
 
@@ -38,9 +42,11 @@ import com.kingdee.bos.ctrl.kdf.table.IColumn;
 import com.kingdee.bos.ctrl.kdf.table.KDTMenuManager;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.swing.KDFileChooser;
+import com.kingdee.bos.ctrl.swing.tree.DefaultKingdeeTreeNode;
 import com.kingdee.bos.ctrl.swing.util.SimpleFileFilter;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.dao.query.IQueryExecutor;
+import com.kingdee.bos.db.ViewInfo;
 import com.kingdee.bos.metadata.IMetaDataPK;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.metadata.entity.FilterInfo;
@@ -65,7 +71,13 @@ import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.custom.fi.AssetCardCollection;
 import com.kingdee.eas.custom.fi.AssetCardFactory;
 import com.kingdee.eas.custom.fi.AssetCardInfo;
+import com.kingdee.eas.fi.fa.basedata.FaCatFactory;
+import com.kingdee.eas.fi.fa.basedata.FaCatInfo;
 import com.kingdee.eas.fi.newrpt.client.designer.io.WizzardIO;
+import com.kingdee.eas.framework.client.tree.DefaultLNTreeNodeCtrl;
+import com.kingdee.eas.framework.client.tree.ITreeBuilder;
+import com.kingdee.eas.framework.client.tree.KDTreeNode;
+import com.kingdee.eas.framework.client.tree.TreeBuilderFactory;
 import com.kingdee.eas.port.equipment.base.client.ImportFaCardUI;
 import com.kingdee.eas.port.equipment.base.enumbase.sbStatusType;
 import com.kingdee.eas.port.equipment.record.EquIdFactory;
@@ -85,6 +97,7 @@ public class EquIdListUI extends AbstractEquIdListUI
 {
     private static final Logger logger = CoreUIObject.getLogger(EquIdListUI.class);
     
+    private Color a = new Color(238,205,125);
     /**
      * output class constructor
      */
@@ -104,7 +117,11 @@ public class EquIdListUI extends AbstractEquIdListUI
     {
         super.storeFields();
     }
+    
 
+    
+    
+    
     /**
      * output tblMain_tableClicked method
      */
@@ -722,7 +739,47 @@ public class EquIdListUI extends AbstractEquIdListUI
     	this.btnImportFacard.setEnabled(true);
     	this.btnImportFacard.setIcon(EASResource.getIcon("imgTbtn_importcyclostyle"));    
     	this.btnImportCard.setEnabled(true);
+    	
+    	InitTree();
     }
+    
+    
+    private void InitTree() throws Exception
+    {
+    	
+    	FilterInfo filter = new FilterInfo();
+    	ITreeBuilder treebuild = TreeBuilderFactory.createTreeBuilder(new DefaultLNTreeNodeCtrl(FaCatFactory.getRemoteInstance()), 2147483647, 5, filter);
+
+    	KDTreeNode rootNode = new KDTreeNode("固定资产类别");
+    	((DefaultTreeModel)this.kDTree1.getModel()).setRoot(rootNode);
+    	
+    	treebuild.buildTree(this.kDTree1);
+    	
+    	this.kDTree1.expandAllNodes(true, (TreeNode) this.kDTree1.getModel().getRoot());
+    	this.kDTree1.setSelectionRow(0);
+    }
+	  
+    protected void kDTree1_valueChanged(TreeSelectionEvent e) throws Exception {
+	    	super.kDTree1_valueChanged(e);
+	    	
+	    	DefaultKingdeeTreeNode  typeNode  =	(DefaultKingdeeTreeNode) kDTree1.getLastSelectedPathComponent();
+			
+		     FaCatInfo type  = null;
+			if(typeNode!=null){
+				if(!typeNode.getUserObject().equals("固定资产类别")){
+					type =  (FaCatInfo) typeNode.getUserObject();
+					 FilterInfo filter = new FilterInfo();
+					 filter.getFilterItems().add(new FilterItemInfo("eqmType.longNumber",type.getLongNumber()+"%" ,CompareType.LIKE));
+					mainQuery.setFilter(filter);
+					execQuery();
+				}else{
+					 FilterInfo filter = new FilterInfo();
+					mainQuery.setFilter(filter);
+					execQuery();
+				}
+					
+			}
+	    }
     
     /**
      * zhangjuan

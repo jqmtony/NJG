@@ -876,6 +876,10 @@ public class AnnualYearDetailEditUI extends AbstractAnnualYearDetailEditUI
 				{
 					InitEntry(row, eqInfo, CheckType.port);
 				}
+				if(eqInfo.isChuanCheck())
+				{
+					InitEntry(row, eqInfo, CheckType.chuan);
+				}
 			}
 			EntityViewFilterEquId();
 		}
@@ -911,6 +915,12 @@ public class AnnualYearDetailEditUI extends AbstractAnnualYearDetailEditUI
 		if(checktype.equals(checktype.port)&& equIdInfo.getTestDay() !=null){
 			row.getCell("endDate").setValue(equIdInfo.getTestDay());
 		}
+		if(checktype.equals(checktype.chuan)&& equIdInfo.getDaytow() !=null){
+			row.getCell("planDate").setValue(equIdInfo.getDaytow());
+		}
+		if(checktype.equals(checktype.chuan)&& equIdInfo.getTestDay() !=null){
+			row.getCell("endDate").setValue(equIdInfo.getTestDay());
+		}
 	}
 	
 	private void EntityViewFilterEquId()
@@ -933,7 +943,7 @@ public class AnnualYearDetailEditUI extends AbstractAnnualYearDetailEditUI
         
    	    EntityViewInfo evi = new EntityViewInfo();
 		 FilterInfo filter = new FilterInfo();
-		 filter.getFilterItems().add(new FilterItemInfo("sbStatus","1",CompareType.EQUALS));
+//		 filter.getFilterItems().add(new FilterItemInfo("sbStatus","1",CompareType.EQUALS));
 		 String id = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
  		 filter.getFilterItems().add(new FilterItemInfo("ssOrgUnit.id",id ,CompareType.EQUALS));
  		 filter.getFilterItems().add(new FilterItemInfo("special",1 ,CompareType.EQUALS));

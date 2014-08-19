@@ -436,6 +436,6 @@ public class EquTypeListUI extends AbstractEquTypeListUI
 
     public void onLoad() throws Exception {
     	super.onLoad();
-    	this.setUITitle("特种设备名称");
+    	this.setUITitle("检验设备名称");
     }
 }

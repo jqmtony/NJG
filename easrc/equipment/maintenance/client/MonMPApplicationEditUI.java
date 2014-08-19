@@ -748,10 +748,10 @@ public class MonMPApplicationEditUI extends AbstractMonMPApplicationEditUI
 		    sb.append(" and CFRentStart<={ts '" + FORMAT_TIME.format(date) + "'}");
 		    sb.append(" and CFRentEnd>={ts '" + FORMAT_TIME.format(date) + "'}");
 		    sb.append(" and fstatus = '4'");
-		 filter.getFilterItems().add(new FilterItemInfo("sbStatus","1",CompareType.EQUALS));
+//		 filter.getFilterItems().add(new FilterItemInfo("sbStatus","1",CompareType.EQUALS));
  		 filter.getFilterItems().add(new FilterItemInfo("ssOrgUnit.id",id ,CompareType.EQUALS));
  		 filter.getFilterItems().add(new FilterItemInfo("id", sb.toString(), CompareType.INNER));
- 		filter.setMaskString("(#0 and #1) or #2");
+ 		filter.setMaskString("(#0 or #1)");
 		 evi.setFilter(filter);
 		kdtE1_equNumber_PromptBox.setEntityViewInfo(evi);
 		 KDTDefaultCellEditor kdtEntry_feeType_CellEditor = new KDTDefaultCellEditor(kdtE1_equNumber_PromptBox);
