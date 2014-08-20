@@ -748,6 +748,8 @@ public class EquIdListUI extends AbstractEquIdListUI
     {
     	
     	FilterInfo filter = new FilterInfo();
+    	filter.getFilterItems().add(new FilterItemInfo("company.id",SysContext.getSysContext().getCurrentFIUnit().getId()));
+    	
     	ITreeBuilder treebuild = TreeBuilderFactory.createTreeBuilder(new DefaultLNTreeNodeCtrl(FaCatFactory.getRemoteInstance()), 2147483647, 5, filter);
 
     	KDTreeNode rootNode = new KDTreeNode("固定资产类别");

@@ -426,4 +426,9 @@ public class SpecialTypeEditUI extends AbstractSpecialTypeEditUI
         return objectValue;
     }
 
+    public void onLoad() throws Exception {
+    	super.onLoad();
+    	this.setUITitle("检验设备类型");
+    }
+    
 }

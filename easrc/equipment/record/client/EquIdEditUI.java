@@ -1611,6 +1611,15 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 			sic.add(new SelectorItemInfo("supplier.number"));
 			sic.add(new SelectorItemInfo("supplier.name"));
 		}
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("useUnit.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("useUnit.id"));
+        	sic.add(new SelectorItemInfo("useUnit.number"));
+        	sic.add(new SelectorItemInfo("useUnit.name"));
+		}
 		sic.add(new SelectorItemInfo("reachedDate"));
 		if (selectorAll.equalsIgnoreCase("true")) {
 			sic.add(new SelectorItemInfo("installer.*"));
