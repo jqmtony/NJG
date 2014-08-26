@@ -3053,7 +3053,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>699,72,270,19,137</constraints>
+            <constraints>699,92,270,19,137</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -3102,7 +3102,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>699,92,270,19,137</constraints>
+            <constraints>699,72,270,19,137</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -7459,7 +7459,7 @@
             <name>txtratedWeight</name>
             <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtratedWeight].alias</alias>
             <userDefined>true</userDefined>
-            <classType>com.kingdee.bos.ctrl.swing.KDFormattedTextField</classType>
+            <classType>com.kingdee.bos.ctrl.swing.KDTextField</classType>
             <isContainer>false</isContainer>
             <constraints>7</constraints>
             <tabIndex>0</tabIndex>
@@ -7470,75 +7470,17 @@
                 <type>XYLayout</type>
                 <value />
             </layoutInfo>
-            <properties>
-                <property>
-                    <name>visible</name>
-                    <type>boolean</type>
-                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtratedWeight].properties.property[visible].value</value>
-                    <isMultiLan>false</isMultiLan>
-                    <userDefined>true</userDefined>
-                </property>
-                <property>
-                    <name>horizontalAlignment</name>
-                    <type>int</type>
-                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtratedWeight].properties.property[horizontalAlignment].value</value>
-                    <isMultiLan>false</isMultiLan>
-                    <userDefined>true</userDefined>
-                </property>
-                <property>
-                    <name>dataType</name>
-                    <type>int</type>
-                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtratedWeight].properties.property[dataType].value</value>
-                    <isMultiLan>false</isMultiLan>
-                    <userDefined>true</userDefined>
-                </property>
-                <property>
-                    <name>supportedEmpty</name>
-                    <type>boolean</type>
-                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtratedWeight].properties.property[supportedEmpty].value</value>
-                    <isMultiLan>false</isMultiLan>
-                    <userDefined>true</userDefined>
-                </property>
-                <property>
-                    <name>minimumValue</name>
-                    <type>java.math.BigDecimal</type>
-                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtratedWeight].properties.property[minimumValue].value</value>
-                    <isMultiLan>false</isMultiLan>
-                    <userDefined>true</userDefined>
-                </property>
-                <property>
-                    <name>maximumValue</name>
-                    <type>java.math.BigDecimal</type>
-                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtratedWeight].properties.property[maximumValue].value</value>
-                    <isMultiLan>false</isMultiLan>
-                    <userDefined>true</userDefined>
-                </property>
-                <property>
-                    <name>precision</name>
-                    <type>int</type>
-                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtratedWeight].properties.property[precision].value</value>
-                    <isMultiLan>false</isMultiLan>
-                    <userDefined>true</userDefined>
-                </property>
-                <property>
-                    <name>required</name>
-                    <type>boolean</type>
-                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtratedWeight].properties.property[required].value</value>
-                    <isMultiLan>false</isMultiLan>
-                    <userDefined>true</userDefined>
-                </property>
-            </properties>
             <parent>
                 <key name="name" value="contratedWeight" />
             </parent>
             <propertyBindings>
                 <propertyBinding>
-                    <propertyName>value</propertyName>
-                    <propertyType>java.lang.Object</propertyType>
+                    <propertyName>text</propertyName>
+                    <propertyType>java.lang.String</propertyType>
                     <bindingObject>editData</bindingObject>
                     <bindingField>ratedWeight</bindingField>
-                    <fieldType>java.math.BigDecimal</fieldType>
-                    <accessType>2</accessType>
+                    <fieldType>String</fieldType>
+                    <accessType />
                     <autoMode>false</autoMode>
                     <herited>false</herited>
                     <userDefined>true</userDefined>
@@ -16193,57 +16135,9 @@
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtratedWeight].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="额定起载重量(t)" />
-            <lang locale="zh_HK" value="額定起載重量(t)" />
-            <lang locale="zh_TW" value="額定起載重量(t)" />
-        </rs>
-        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtratedWeight].properties.property[dataType].value">
-            <lang locale="en_US" value="1" />
-            <lang locale="zh_CN" value="1" />
-            <lang locale="zh_HK" value="1" />
-            <lang locale="zh_TW" value="1" />
-        </rs>
-        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtratedWeight].properties.property[horizontalAlignment].value">
-            <lang locale="en_US" value="2" />
-            <lang locale="zh_CN" value="2" />
-            <lang locale="zh_HK" value="2" />
-            <lang locale="zh_TW" value="2" />
-        </rs>
-        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtratedWeight].properties.property[maximumValue].value">
-            <lang locale="en_US" value="&quot;1.0E26&quot;" />
-            <lang locale="zh_CN" value="&quot;1.0E26&quot;" />
-            <lang locale="zh_HK" value="&quot;1.0E26&quot;" />
-            <lang locale="zh_TW" value="&quot;1.0E26&quot;" />
-        </rs>
-        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtratedWeight].properties.property[minimumValue].value">
-            <lang locale="en_US" value="&quot;-1.0E26&quot;" />
-            <lang locale="zh_CN" value="&quot;-1.0E26&quot;" />
-            <lang locale="zh_HK" value="&quot;-1.0E26&quot;" />
-            <lang locale="zh_TW" value="&quot;-1.0E26&quot;" />
-        </rs>
-        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtratedWeight].properties.property[precision].value">
-            <lang locale="en_US" value="2" />
-            <lang locale="zh_CN" value="2" />
-            <lang locale="zh_HK" value="2" />
-            <lang locale="zh_TW" value="2" />
-        </rs>
-        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtratedWeight].properties.property[required].value">
-            <lang locale="en_US" value="false" />
-            <lang locale="zh_CN" value="false" />
-            <lang locale="zh_HK" value="false" />
-            <lang locale="zh_TW" value="false" />
-        </rs>
-        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtratedWeight].properties.property[supportedEmpty].value">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_HK" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtratedWeight].properties.property[visible].value">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_HK" value="true" />
-            <lang locale="zh_TW" value="true" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtresponsible].alias">
             <lang locale="en_US" value="null" />
