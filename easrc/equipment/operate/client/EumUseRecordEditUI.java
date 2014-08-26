@@ -16,8 +16,10 @@ import org.apache.log4j.Logger;
 
 import com.kingdee.bos.BOSException;
 import com.kingdee.bos.ctrl.data.engine.script.beanshell.function.datetime.MONTH;
+import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
 import com.kingdee.bos.ctrl.freechart.data.time.Month;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
+import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.swing.KDTextField;
 import com.kingdee.bos.dao.IObjectValue;
@@ -120,6 +122,26 @@ public class EumUseRecordEditUI extends AbstractEumUseRecordEditUI {
 				getMetialAmount(row,equInfo);
 //				getLastmonth(row,equInfo);
 			}
+			
+			//过滤不是已报废的设备
+	    	 KDBizPromptBox kdtE1_equNumber_PromptBox = new KDBizPromptBox();
+	         kdtE1_equNumber_PromptBox.setQueryInfo("com.kingdee.eas.port.equipment.record.app.EquIdQuery");
+	         kdtE1_equNumber_PromptBox.setVisible(true);
+	         kdtE1_equNumber_PromptBox.setEditable(true);
+	         kdtE1_equNumber_PromptBox.setDisplayFormat("$number$");
+	         kdtE1_equNumber_PromptBox.setEditFormat("$number$");
+	         kdtE1_equNumber_PromptBox.setCommitFormat("$number$");
+	    	 EntityViewInfo evi = new EntityViewInfo();
+	 		 FilterInfo filter = new FilterInfo();
+//	 		 filter.getFilterItems().add(new FilterItemInfo("sbStatus","1",CompareType.EQUALS));
+	 		 filter.getFilterItems().add(new FilterItemInfo("ssOrgUnit.id",id ,CompareType.EQUALS));
+	 		 filter.getFilterItems().add(new FilterItemInfo("useUnit.id",id ,CompareType.EQUALS));
+//	 		 filter.getFilterItems().add(new FilterItemInfo("isMainEqm",1 ,CompareType.EQUALS));
+	 		 filter.setMaskString("(#0 or #1)");
+	 		 evi.setFilter(filter);
+	 		kdtE1_equNumber_PromptBox.setEntityViewInfo(evi);
+	 		 KDTDefaultCellEditor kdtEntry_feeType_CellEditor = new KDTDefaultCellEditor(kdtE1_equNumber_PromptBox);
+	 		 kdtEqmUse.getColumn("eqmName").setEditor(kdtEntry_feeType_CellEditor);
 		}
 		
 		if(chkinitialiRecord.isSelected()){

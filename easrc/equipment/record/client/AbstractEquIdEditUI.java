@@ -186,7 +186,7 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
     protected com.kingdee.bos.ctrl.swing.KDTextField txtcode;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtengineNumber;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtcarNumber;
-    protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtratedWeight;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txtratedWeight;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pktextDate1;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtzzsShortName;
     protected com.kingdee.bos.ctrl.swing.KDTextField txttelePhoneNumber;
@@ -494,7 +494,7 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.txtcode = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtengineNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtcarNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
-        this.txtratedWeight = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
+        this.txtratedWeight = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.pktextDate1 = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.txtzzsShortName = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txttelePhoneNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
@@ -1425,15 +1425,7 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.txtcarNumber.setHorizontalAlignment(2);		
         this.txtcarNumber.setMaxLength(100);		
         this.txtcarNumber.setRequired(false);
-        // txtratedWeight		
-        this.txtratedWeight.setVisible(true);		
-        this.txtratedWeight.setHorizontalAlignment(2);		
-        this.txtratedWeight.setDataType(1);		
-        this.txtratedWeight.setSupportedEmpty(true);		
-        this.txtratedWeight.setMinimumValue( new java.math.BigDecimal("-1.0E26"));		
-        this.txtratedWeight.setMaximumValue( new java.math.BigDecimal("1.0E26"));		
-        this.txtratedWeight.setPrecision(2);		
-        this.txtratedWeight.setRequired(false);
+        // txtratedWeight
         // pktextDate1		
         this.pktextDate1.setVisible(true);		
         this.pktextDate1.setRequired(false);
@@ -1915,10 +1907,10 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         kDPanel8.add(conusingDept, new KDLayout.Constraints(11, 112, 269, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         conlocation.setBounds(new Rectangle(355, 112, 270, 19));
         kDPanel8.add(conlocation, new KDLayout.Constraints(355, 112, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        conaddress.setBounds(new Rectangle(699, 72, 270, 19));
-        kDPanel8.add(conaddress, new KDLayout.Constraints(699, 72, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contuseUnit.setBounds(new Rectangle(699, 92, 270, 19));
-        kDPanel8.add(contuseUnit, new KDLayout.Constraints(699, 92, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        conaddress.setBounds(new Rectangle(699, 92, 270, 19));
+        kDPanel8.add(conaddress, new KDLayout.Constraints(699, 92, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contuseUnit.setBounds(new Rectangle(699, 72, 270, 19));
+        kDPanel8.add(contuseUnit, new KDLayout.Constraints(699, 72, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         //consbDescription
         consbDescription.setBoundEditor(txtsbDescription);
         //conname
@@ -2371,7 +2363,7 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
 		dataBinder.registerBinding("code", String.class, this.txtcode, "text");
 		dataBinder.registerBinding("engineNumber", String.class, this.txtengineNumber, "text");
 		dataBinder.registerBinding("carNumber", String.class, this.txtcarNumber, "text");
-		dataBinder.registerBinding("ratedWeight", java.math.BigDecimal.class, this.txtratedWeight, "value");
+		dataBinder.registerBinding("ratedWeight", String.class, this.txtratedWeight, "text");
 		dataBinder.registerBinding("textDate1", java.util.Date.class, this.pktextDate1, "value");
 		dataBinder.registerBinding("zzsShortName", String.class, this.txtzzsShortName, "text");
 		dataBinder.registerBinding("telePhoneNumber", String.class, this.txttelePhoneNumber, "text");

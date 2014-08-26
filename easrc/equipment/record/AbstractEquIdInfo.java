@@ -659,13 +659,13 @@ public class AbstractEquIdInfo extends com.kingdee.eas.xr.XRBillBaseInfo impleme
     /**
      * Object:设备档案's 额定起载重量(t)property 
      */
-    public java.math.BigDecimal getRatedWeight()
+    public String getRatedWeight()
     {
-        return getBigDecimal("ratedWeight");
+        return getString("ratedWeight");
     }
-    public void setRatedWeight(java.math.BigDecimal item)
+    public void setRatedWeight(String item)
     {
-        setBigDecimal("ratedWeight", item);
+        setString("ratedWeight", item);
     }
     /**
      * Object:设备档案's 市检到期检测日期property 

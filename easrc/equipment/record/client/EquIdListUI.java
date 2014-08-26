@@ -26,6 +26,7 @@ import javax.swing.SwingUtilities;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreeNode;
+import javax.swing.tree.TreePath;
 
 import org.apache.log4j.Logger;
 
@@ -41,6 +42,8 @@ import com.kingdee.bos.ctrl.kdf.read.POIXlsReader;
 import com.kingdee.bos.ctrl.kdf.table.IColumn;
 import com.kingdee.bos.ctrl.kdf.table.KDTMenuManager;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
+import com.kingdee.bos.ctrl.kdf.table.event.KDTDataFillListener;
+import com.kingdee.bos.ctrl.kdf.table.event.KDTDataRequestEvent;
 import com.kingdee.bos.ctrl.swing.KDFileChooser;
 import com.kingdee.bos.ctrl.swing.tree.DefaultKingdeeTreeNode;
 import com.kingdee.bos.ctrl.swing.util.SimpleFileFilter;
@@ -74,6 +77,7 @@ import com.kingdee.eas.custom.fi.AssetCardInfo;
 import com.kingdee.eas.fi.fa.basedata.FaCatFactory;
 import com.kingdee.eas.fi.fa.basedata.FaCatInfo;
 import com.kingdee.eas.fi.newrpt.client.designer.io.WizzardIO;
+import com.kingdee.eas.framework.client.TreePathUtil;
 import com.kingdee.eas.framework.client.tree.DefaultLNTreeNodeCtrl;
 import com.kingdee.eas.framework.client.tree.ITreeBuilder;
 import com.kingdee.eas.framework.client.tree.KDTreeNode;
@@ -130,13 +134,7 @@ public class EquIdListUI extends AbstractEquIdListUI
         super.tblMain_tableClicked(e);
     }
 
-    /**
-     * output tblMain_tableSelectChanged method
-     */
-    protected void tblMain_tableSelectChanged(com.kingdee.bos.ctrl.kdf.table.event.KDTSelectEvent e) throws Exception
-    {
-        super.tblMain_tableSelectChanged(e);
-    }
+    
 
     /**
      * output menuItemImportData_actionPerformed method
@@ -735,6 +733,21 @@ public class EquIdListUI extends AbstractEquIdListUI
 	}
 	
     public void onLoad() throws Exception {
+    	
+    	tblMain.addKDTDataFillListener(new KDTDataFillListener() {
+            public void afterDataFill(KDTDataRequestEvent e)
+            {
+                try
+                {
+                    tblMain_afterDataFill(e);
+                }
+                catch(Exception exc)
+                {
+                    handUIException(exc);
+                }
+            }
+        });
+    	
     	super.onLoad();
     	this.btnImportFacard.setEnabled(true);
     	this.btnImportFacard.setIcon(EASResource.getIcon("imgTbtn_importcyclostyle"));    
@@ -760,6 +773,65 @@ public class EquIdListUI extends AbstractEquIdListUI
     	this.kDTree1.expandAllNodes(true, (TreeNode) this.kDTree1.getModel().getRoot());
     	this.kDTree1.setSelectionRow(0);
     }
+    
+    
+    /**
+     * output tblMain_tableSelectChanged method
+     */
+    protected void tblMain_tableSelectChanged(com.kingdee.bos.ctrl.kdf.table.event.KDTSelectEvent e) throws Exception
+    {
+        super.tblMain_tableSelectChanged(e);
+        
+        String id = this.getSelectedKeyValue();
+        
+        if(id==null)
+        	return;
+        
+        EquIdInfo Info = EquIdFactory.getRemoteInstance().getEquIdInfo(new ObjectUuidPK(id));
+        
+       if( Info.getEqmType()==null)
+    	   return;
+       
+       String facatId =  Info.getEqmType().getId().toString();
+       
+       Object[] newTreePath = null;
+       
+       KDTreeNode root = (KDTreeNode) this.kDTree1.getModel().getRoot();
+       
+       KDTreeNode treeNodes[] = {root };root.getPath();
+       
+       for (int j = 0; j < treeNodes.length; j++)
+       {
+    	   KDTreeNode kdNode =  treeNodes[j];
+    	   
+    	   if(kdNode.getUserObject() instanceof FaCatInfo)
+    	   {
+    		  String treeFacatId = ( (FaCatInfo)kdNode.getUserObject()).getId().toString();
+    		  
+    		  if(treeFacatId.equals(facatId))
+    		  {
+    			  newTreePath = kdNode.getUserObjectPath();
+    			  break;
+    		  }
+    	   }
+       }
+       
+       if(newTreePath!=null)
+    	   this.kDTree1.setSelectionPath(new TreePath(newTreePath));
+    }
+    
+    private void tblMain_afterDataFill(KDTDataRequestEvent e){
+        for (int i = e.getFirstRow(); i <= e.getLastRow(); i++)
+        {
+        	 if (UIRuleUtil.isNotNull(this.tblMain.getRow(i).getCell("sbStatus").getValue())) 
+        	 {
+        		 String status = UIRuleUtil.getString(this.tblMain.getRow(i).getCell("sbStatus").getValue());
+        		 
+        		 if(status.equals("Í£ÓÃ"))
+        			 this.tblMain.getRow(i).getStyleAttributes().setBackground(Color.RED);
+        	 }
+        }
+}
 	  
     protected void kDTree1_valueChanged(TreeSelectionEvent e) throws Exception {
 	    	super.kDTree1_valueChanged(e);

@@ -820,16 +820,16 @@ public class RepairOrderEditUI extends AbstractRepairOrderEditUI
 			MsgBox.showInfo("请勾选自修或者委外修理！");
 			SysUtil.abort();
 		}
-		if(editData.isSelfStudy()&&editData.isOutsourcing()){
-			if(txtselfAmount.getBigDecimalValue() ==null&&txtoutAmount.getBigDecimalValue() ==null){
-				MsgBox.showInfo("请填写自修费用和委外修理费用！");
-				SysUtil.abort();
-			}
-		}
-		if(editData.isSelfStudy()&&txtselfAmount.getBigDecimalValue() ==null){
-			MsgBox.showInfo("请填写自修费用！");
-			SysUtil.abort();
-		}
+//		if(editData.isSelfStudy()&&editData.isOutsourcing()){
+//			if(txtselfAmount.getBigDecimalValue() ==null&&txtoutAmount.getBigDecimalValue() ==null){
+//				MsgBox.showInfo("请填写自修费用和委外修理费用！");
+//				SysUtil.abort();
+//			}
+//		}
+//		if(editData.isSelfStudy()&&txtselfAmount.getBigDecimalValue() ==null){
+//			MsgBox.showInfo("请填写自修费用！");
+//			SysUtil.abort();
+//		}
 		if(editData.isOutsourcing()&&txtoutAmount.getBigDecimalValue() ==null){
 			MsgBox.showInfo("请填写委外修理费用！");
 			SysUtil.abort();

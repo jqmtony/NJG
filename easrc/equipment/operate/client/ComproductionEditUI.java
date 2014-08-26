@@ -88,23 +88,23 @@ public class ComproductionEditUI extends AbstractComproductionEditUI {
 			this.kdtEntrys.getRow(i).getStyleAttributes().setLocked(true);
 			this.kdtEntrys.getRow(i).getStyleAttributes().setBackground(Color.yellow);
 		}
-		for (int i = 0; i < 2; i++) {
+		for (int j = 0; j < 2; j++) {
 			 if(this.kdtEntrys.getRowCount()>=2){
-				 this.kdtEntrys.getCell(i, "stagePerformance").getStyleAttributes().setBackground(a);
+				 this.kdtEntrys.getCell(j, "stagePerformance").getStyleAttributes().setBackground(a);
 			 }
 		}
-		for (int i = 0; i < 10; i++) {
-			 if(this.kdtEntrys.getRowCount()>=10){
-				 this.kdtEntrys.getCell(i, "samePerformance").getStyleAttributes().setBackground(a);
-				 this.kdtEntrys.getCell(i, "samePeriod").getStyleAttributes().setBackground(a);
-			 }
+		for (int k = 0; k < 10; k++) {
+			 if(this.kdtEntrys.getRowCount()>=9){
+				 this.kdtEntrys.getCell(k, "samePerformance").getStyleAttributes().setBackground(a);
+				 this.kdtEntrys.getCell(k, "samePeriod").getStyleAttributes().setBackground(a);
+				 }
 		}
-		for (int i = 2; i < 9; i++) {
+		for (int l = 2; l < 9; l++) {
 			 if(this.kdtEntrys.getRowCount()>=7){
-				 this.kdtEntrys.getCell(i, "proEnergy").getStyleAttributes().setBackground(a);
-				 this.kdtEntrys.getCell(i, "fzproEnergy").getStyleAttributes().setBackground(a);
-				 this.kdtEntrys.getCell(i, "lifeEnergy").getStyleAttributes().setBackground(a);
-				 this.kdtEntrys.getCell(i, "otherEnergy").getStyleAttributes().setBackground(a);
+				 this.kdtEntrys.getCell(l, "proEnergy").getStyleAttributes().setBackground(a);
+				 this.kdtEntrys.getCell(l, "fzproEnergy").getStyleAttributes().setBackground(a);
+				 this.kdtEntrys.getCell(l, "lifeEnergy").getStyleAttributes().setBackground(a);
+				 this.kdtEntrys.getCell(l, "otherEnergy").getStyleAttributes().setBackground(a);
 			 }
 		}
 		
@@ -1067,7 +1067,12 @@ public class ComproductionEditUI extends AbstractComproductionEditUI {
 				 this.kdtEntrys.getCell(i, "stagePerformance").getStyleAttributes().setBackground(a);
 			 }
 		}
-		
+		for (int k = 0; k < 10; k++) {
+			 if(this.kdtEntrys.getRowCount()>=10){
+				 this.kdtEntrys.getCell(k, "samePerformance").getStyleAttributes().setBackground(a);
+				 this.kdtEntrys.getCell(k, "samePeriod").getStyleAttributes().setBackground(a);
+				 }
+		}
 		for (int i = 2; i < 9; i++) {
 			 if(this.kdtEntrys.getRowCount()>=7){
 				 this.kdtEntrys.getCell(i, "proEnergy").getStyleAttributes().setBackground(a);
