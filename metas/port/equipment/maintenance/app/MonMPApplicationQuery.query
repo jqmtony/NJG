@@ -1412,6 +1412,37 @@
                 <key name="name" value="MonMPApplicationQuery" />
             </query>
         </queryField>
+        <queryField>
+            <name>E1.implemUnit</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.maintenance.app.MonMPApplicationQuery].units.queryField[E1.implemUnit].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>80f806a1-e275-4da5-963f-48faf8b168ef</key>
+                    <parentUnit>
+                        <key name="name" value="E1.implemUnit" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="E1" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="implemUnit" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.maintenance.app" />
+                <key name="name" value="MonMPApplicationQuery" />
+            </query>
+        </queryField>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -1941,6 +1972,22 @@
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.MonMPApplicationQuery].units.queryField[E1.equNumber.number].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.MonMPApplicationQuery].units.queryField[E1.implemUnit].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="实施单位" />
+            <lang locale="zh_HK" value="實施單位" />
+            <lang locale="zh_TW" value="實施單位" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.MonMPApplicationQuery].units.queryField[E1.implemUnit].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.MonMPApplicationQuery].units.queryField[E1.implemUnit].extendedProperty.isCommonQuerySorter">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />

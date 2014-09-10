@@ -1045,10 +1045,53 @@
                 <key name="name" value="AttactQuery" />
             </query>
         </queryField>
+        <queryField>
+            <name>RegulationsEntry.seq</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.queryField[RegulationsEntry.seq].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Int</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>d0209266-f255-41c0-a915-735647c3e6bb</key>
+                    <parentUnit>
+                        <key name="name" value="RegulationsEntry.seq" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RegulationsEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="seq" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="AttactQuery" />
+            </query>
+        </queryField>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
         <formulaString />
+        <filterItems>
+            <queryFilterItem>
+                <propertyName>RegulationsEntry.seq</propertyName>
+                <compareType>is not</compareType>
+                <compareValue>null</compareValue>
+                <userDefined>true</userDefined>
+                <filter>
+                    <key name="name" value="defaultFilter" />
+                </filter>
+                <configured>false</configured>
+            </queryFilterItem>
+        </filterItems>
         <query>
             <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
             <key name="name" value="AttactQuery" />
@@ -1449,6 +1492,12 @@
             <lang locale="zh_CN" value="ID" />
             <lang locale="zh_HK" value="ID" />
             <lang locale="zh_TW" value="ID" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.queryField[RegulationsEntry.seq].displayName">
+            <lang locale="en_US" value="sequence" />
+            <lang locale="zh_CN" value="单据分录序列号" />
+            <lang locale="zh_HK" value="單據分錄序列號" />
+            <lang locale="zh_TW" value="單據分錄序列號" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.AttactQuery].units.queryField[attachment.createTime].displayName">
             <lang locale="en_US" value="createTime" />

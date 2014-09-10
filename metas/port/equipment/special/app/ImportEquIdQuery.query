@@ -639,6 +639,37 @@
                 <key name="name" value="ImportEquIdQuery" />
             </query>
         </queryField>
+        <queryField>
+            <name>sbStatus</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.special.app.ImportEquIdQuery].units.queryField[sbStatus].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>37903344-73e1-4ec8-9931-3e4a9f71ca4d</key>
+                    <parentUnit>
+                        <key name="name" value="sbStatus" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="EquId" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="sbStatus" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.special.app" />
+                <key name="name" value="ImportEquIdQuery" />
+            </query>
+        </queryField>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -955,6 +986,22 @@
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.ImportEquIdQuery].units.queryField[qyDate].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.ImportEquIdQuery].units.queryField[sbStatus].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="设备状态" />
+            <lang locale="zh_HK" value="設備狀態" />
+            <lang locale="zh_TW" value="設備狀態" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.ImportEquIdQuery].units.queryField[sbStatus].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.ImportEquIdQuery].units.queryField[sbStatus].extendedProperty.isCommonQuerySorter">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
