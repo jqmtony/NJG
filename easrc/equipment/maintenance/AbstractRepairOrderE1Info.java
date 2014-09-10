@@ -105,6 +105,28 @@ public class AbstractRepairOrderE1Info extends com.kingdee.eas.framework.CoreBil
     {
         setString("wxfa", item);
     }
+    /**
+     * Object:维修明细's 是否委外property 
+     */
+    public boolean isSfww()
+    {
+        return getBoolean("sfww");
+    }
+    public void setSfww(boolean item)
+    {
+        setBoolean("sfww", item);
+    }
+    /**
+     * Object:维修明细's 修理费用property 
+     */
+    public java.math.BigDecimal getXlAmount()
+    {
+        return getBigDecimal("xlAmount");
+    }
+    public void setXlAmount(java.math.BigDecimal item)
+    {
+        setBigDecimal("xlAmount", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("58358BBD");

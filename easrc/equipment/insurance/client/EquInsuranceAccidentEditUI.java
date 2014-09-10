@@ -31,6 +31,7 @@ import com.kingdee.eas.port.equipment.base.InsuranceInfo;
 import com.kingdee.eas.port.equipment.insurance.InsuranceCoverageFactory;
 import com.kingdee.eas.port.equipment.insurance.InsuranceCoverageInfo;
 import com.kingdee.eas.port.equipment.record.EquIdInfo;
+import com.kingdee.eas.port.equipment.uitl.ToolHelp;
 import com.kingdee.eas.xr.helper.Tool;
 import com.kingdee.eas.xr.helper.XRSQLBuilder;
 import com.kingdee.jdbc.rowset.IRowSet;
@@ -772,7 +773,8 @@ this.prmtinsurance.setEnabledMultiSelection(true);
 		 filter.getFilterItems().add(new FilterItemInfo("ssOrgUnit.id",id ,CompareType.EQUALS));
 //		 filter.getFilterItems().add(new FilterItemInfo("sbStatus","1",CompareType.EQUALS));
 		 evi.setFilter(filter);
-		 prmtequNumber.setEntityViewInfo(evi);
+//		 prmtequNumber.setEntityViewInfo(evi);
+		 prmtequNumber.setSelector(ToolHelp.initPrmtEquIdByF7Color(evi, false)); 
 		 if(getOprtState().equals(OprtState.ADDNEW)){
 			 pkBizDate.setValue(new Date());
 			 pklossDate.setValue(new Date());

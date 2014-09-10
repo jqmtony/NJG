@@ -23,6 +23,7 @@ import com.kingdee.eas.framework.*;
 import com.kingdee.eas.port.equipment.base.enumbase.sbStatusType;
 import com.kingdee.eas.port.equipment.record.EquIdFactory;
 import com.kingdee.eas.port.equipment.record.EquIdInfo;
+import com.kingdee.eas.port.equipment.uitl.ToolHelp;
 import com.kingdee.eas.xr.helper.Tool;
 import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
 import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
@@ -711,7 +712,7 @@ public class EqmScrapEditUI extends AbstractEqmScrapEditUI
 		 filter.getFilterItems().add(new FilterItemInfo("ssOrgUnit.id",id ,CompareType.EQUALS));
 //		 filter.getFilterItems().add(new FilterItemInfo("sbStatus","1",CompareType.EQUALS));
 		 evi.setFilter(filter);
-		prmteqmNumber.setEntityViewInfo(evi);
+		 prmteqmNumber.setSelector(ToolHelp.initPrmtEquIdByF7Color(evi, false)); 
 		prmteqmNumber.setRequired(true);
 		txteqmName.setRequired(true);
 		prmtssOrgUnit.setRequired(true);

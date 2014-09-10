@@ -243,6 +243,17 @@ public class AbstractAnnualYearDetailEntryInfo extends com.kingdee.eas.framework
         setString("result", item.getValue());
 		}
     }
+    /**
+     * Object:年度检测明细's 实际检测日期property 
+     */
+    public java.util.Date getSjjcrq()
+    {
+        return getDate("sjjcrq");
+    }
+    public void setSjjcrq(java.util.Date item)
+    {
+        setDate("sjjcrq", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("1022BC1B");

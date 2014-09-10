@@ -22,6 +22,7 @@ import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.cp.bc.BizCollUtil;
 import com.kingdee.eas.framework.*;
+import com.kingdee.eas.port.equipment.uitl.ToolHelp;
 import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.xr.app.XRBillStatusEnum;
@@ -733,8 +734,13 @@ public class RepairOrderEditUI extends AbstractRepairOrderEditUI
 	public void onLoad() throws Exception {
 		prmtslDepart.setEnabled(false);
 		this.kdtE1.getColumn("seq").getStyleAttributes().setHided(true);
+		this.kdtE1.getColumn("FaLocation").getStyleAttributes().setHided(true);
 		txtrepairContent.setVisible(false);
 		txtmaintenanceProgram.setVisible(false);
+		chkselfStudy.setVisible(false);
+		chkoutsourcing.setVisible(false);
+		txtselfAmount.setVisible(false);
+		txtoutAmount.setVisible(false);
 		if(getOprtState().equals(OprtState.ADDNEW)){
 		    txtselfAmount.setEnabled(false);
 		    txtoutAmount.setEnabled(false);
@@ -763,6 +769,7 @@ public class RepairOrderEditUI extends AbstractRepairOrderEditUI
 	 		filter.setMaskString("(#0 or #2");
 		 evi.setFilter(filter);
 		 prmtequName.setEntityViewInfo(evi);
+//		 prmtequName.setSelector(ToolHelp.initPrmtEquIdByF7Color(evi, false)); 
 		 
 		   KDBizPromptBox kdtE1_repairPerson_PromptBox = new KDBizPromptBox();
 	        kdtE1_repairPerson_PromptBox.setQueryInfo("com.kingdee.eas.basedata.person.app.PersonQuery");
@@ -779,50 +786,50 @@ public class RepairOrderEditUI extends AbstractRepairOrderEditUI
 		Tool.setPersonF7(this.prmtrepairPerson, this, SysContext.getSysContext().getCurrentCtrlUnit().getId().toString());
 		Tool.setPersonF7(this.prmtdeliveryPerson, this, SysContext.getSysContext().getCurrentCtrlUnit().getId().toString());
 		Tool.setPersonF7(this.prmtrecipient, this, SysContext.getSysContext().getCurrentCtrlUnit().getId().toString());
-		if(chkselfStudy.getSelected() == 32){
-			txtselfAmount.setEnabled(true);
-		}else{
-			 txtselfAmount.setEnabled(false);
-			 txtselfAmount.setValue(null);
-		}
-		if(chkoutsourcing.getSelected() == 32){
-			 txtoutAmount.setEnabled(true);
-		}else{
-			txtoutAmount.setEnabled(false);
-			txtoutAmount.setValue(null);
-		}
-		
-		//自修
-		chkselfStudy.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e) {
-				if(chkselfStudy.getSelected() == 32){
-					 txtselfAmount.setEnabled(true);
-				}else{
-					 txtselfAmount.setEnabled(false);
-					 txtselfAmount.setValue(null);
-				}
-			}
-		});
-		//委外修理
-		chkoutsourcing.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e) {
-				if(chkoutsourcing.getSelected() == 32){
-					 txtoutAmount.setEnabled(true);
-				}else{
-					txtoutAmount.setEnabled(false);
-					txtoutAmount.setValue(null);
-				}
-			}
-		});
+//		if(chkselfStudy.getSelected() == 32){
+//			txtselfAmount.setEnabled(true);
+//		}else{
+//			 txtselfAmount.setEnabled(false);
+//			 txtselfAmount.setValue(null);
+//		}
+//		if(chkoutsourcing.getSelected() == 32){
+//			 txtoutAmount.setEnabled(true);
+//		}else{
+//			txtoutAmount.setEnabled(false);
+//			txtoutAmount.setValue(null);
+//		}
+//		
+//		//自修
+//		chkselfStudy.addActionListener(new ActionListener(){
+//			public void actionPerformed(ActionEvent e) {
+//				if(chkselfStudy.getSelected() == 32){
+//					 txtselfAmount.setEnabled(true);
+//				}else{
+//					 txtselfAmount.setEnabled(false);
+//					 txtselfAmount.setValue(null);
+//				}
+//			}
+//		});
+//		//委外修理
+//		chkoutsourcing.addActionListener(new ActionListener(){
+//			public void actionPerformed(ActionEvent e) {
+//				if(chkoutsourcing.getSelected() == 32){
+//					 txtoutAmount.setEnabled(true);
+//				}else{
+//					txtoutAmount.setEnabled(false);
+//					txtoutAmount.setValue(null);
+//				}
+//			}
+//		});
 	}
 	
 
 	protected void verifyInput(ActionEvent e) throws Exception {
 		super.verifyInput(e);
-		if(!editData.isSelfStudy()&&!editData.isOutsourcing()){
-			MsgBox.showInfo("请勾选自修或者委外修理！");
-			SysUtil.abort();
-		}
+//		if(!editData.isSelfStudy()&&!editData.isOutsourcing()){
+//			MsgBox.showInfo("请勾选自修或者委外修理！");
+//			SysUtil.abort();
+//		}
 //		if(editData.isSelfStudy()&&editData.isOutsourcing()){
 //			if(txtselfAmount.getBigDecimalValue() ==null&&txtoutAmount.getBigDecimalValue() ==null){
 //				MsgBox.showInfo("请填写自修费用和委外修理费用！");
@@ -833,10 +840,10 @@ public class RepairOrderEditUI extends AbstractRepairOrderEditUI
 //			MsgBox.showInfo("请填写自修费用！");
 //			SysUtil.abort();
 //		}
-		if(editData.isOutsourcing()&&txtoutAmount.getBigDecimalValue() ==null){
-			MsgBox.showInfo("请填写委外修理费用！");
-			SysUtil.abort();
-		}
+//		if(editData.isOutsourcing()&&txtoutAmount.getBigDecimalValue() ==null){
+//			MsgBox.showInfo("请填写委外修理费用！");
+//			SysUtil.abort();
+//		}
 	
 	   	
 	}

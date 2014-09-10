@@ -957,7 +957,7 @@ public class EquIdListUI extends AbstractEquIdListUI
 			btnExportExcel();
     }
 
-	String colName[] = {"设备编码","设备名称","到期检测日期"};
+	String colName[] = {"设备档案号","到期检测日期"};
 	/**
 	 * 导出模板
 	  **/
@@ -1096,7 +1096,7 @@ public class EquIdListUI extends AbstractEquIdListUI
 			
 			for (int rowIndex = 1; rowIndex <= e_maxRow; rowIndex++) {
 				Integer colInt = (Integer) e_colNameMap.get(colName[0]);
-				Integer colcityInt = (Integer) e_colNameMap.get(colName[2]);
+				Integer colcityInt = (Integer) e_colNameMap.get(colName[1]);
 //				Integer colhongkInt = (Integer) e_colNameMap.get(colName[3]);
 
 				if (colInt == null) {
@@ -1109,9 +1109,9 @@ public class EquIdListUI extends AbstractEquIdListUI
 				String citycellRawVal = excelSheet.getCell(rowIndex, colcityInt.intValue(), true).getDisplayFormula();
 //				String hongkcellRawVal = excelSheet.getCell(rowIndex, colhongkInt.intValue(), true).getDisplayFormula();
 				String colValue = cellRawVal.toString();
-				if(iEquId.exists("where number='"+colValue+"'"))
+				if(iEquId.exists("where tzdaNumber='"+colValue+"'"))
 				{
-					EquIdInfo equInfo = iEquId.getEquIdCollection("where number='"+colValue+"'").get(0);
+					EquIdInfo equInfo = iEquId.getEquIdCollection("where tzdaNumber='"+colValue+"'").get(0);
 //					BigDecimal portperiod = equInfo.getPortPeriod()!=null?equInfo.getPortPeriod():BigDecimal.ZERO;
 					BigDecimal ctyPeriod = equInfo.getCityPeriod()!=null?equInfo.getCityPeriod():BigDecimal.ZERO;
 					

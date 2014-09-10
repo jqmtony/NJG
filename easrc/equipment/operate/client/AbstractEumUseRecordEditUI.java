@@ -62,8 +62,9 @@ public abstract class AbstractEumUseRecordEditUI extends com.kingdee.eas.xr.clie
 	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtEqmUse_detailPanel = null;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contstaPerson;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contUseOrgUnit;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contreportTime;
     protected com.kingdee.bos.ctrl.swing.KDCheckBox chkinitialiRecord;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contreportTime;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contreportMonth;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtCreator;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkCreateTime;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtLastUpdateUser;
@@ -79,6 +80,7 @@ public abstract class AbstractEumUseRecordEditUI extends com.kingdee.eas.xr.clie
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtstaPerson;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtUseOrgUnit;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtreportTime;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtreportMonth;
     protected com.kingdee.eas.port.equipment.operate.EumUseRecordInfo editData = null;
     protected ActionShiyong actionShiyong = null;
     /**
@@ -153,8 +155,9 @@ public abstract class AbstractEumUseRecordEditUI extends com.kingdee.eas.xr.clie
         this.kdtEqmUse = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.contstaPerson = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contUseOrgUnit = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contreportTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.chkinitialiRecord = new com.kingdee.bos.ctrl.swing.KDCheckBox();
+        this.contreportTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contreportMonth = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.prmtCreator = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.pkCreateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.prmtLastUpdateUser = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
@@ -170,6 +173,7 @@ public abstract class AbstractEumUseRecordEditUI extends com.kingdee.eas.xr.clie
         this.prmtstaPerson = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.prmtUseOrgUnit = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.prmtreportTime = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.prmtreportMonth = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.contCreator.setName("contCreator");
         this.contCreateTime.setName("contCreateTime");
         this.contLastUpdateUser.setName("contLastUpdateUser");
@@ -185,8 +189,9 @@ public abstract class AbstractEumUseRecordEditUI extends com.kingdee.eas.xr.clie
         this.kdtEqmUse.setName("kdtEqmUse");
         this.contstaPerson.setName("contstaPerson");
         this.contUseOrgUnit.setName("contUseOrgUnit");
-        this.contreportTime.setName("contreportTime");
         this.chkinitialiRecord.setName("chkinitialiRecord");
+        this.contreportTime.setName("contreportTime");
+        this.contreportMonth.setName("contreportMonth");
         this.prmtCreator.setName("prmtCreator");
         this.pkCreateTime.setName("pkCreateTime");
         this.prmtLastUpdateUser.setName("prmtLastUpdateUser");
@@ -202,6 +207,7 @@ public abstract class AbstractEumUseRecordEditUI extends com.kingdee.eas.xr.clie
         this.prmtstaPerson.setName("prmtstaPerson");
         this.prmtUseOrgUnit.setName("prmtUseOrgUnit");
         this.prmtreportTime.setName("prmtreportTime");
+        this.prmtreportMonth.setName("prmtreportMonth");
         // CoreUI
         // contCreator		
         this.contCreator.setBoundLabelText(resHelper.getString("contCreator.boundLabelText"));		
@@ -481,11 +487,6 @@ public abstract class AbstractEumUseRecordEditUI extends com.kingdee.eas.xr.clie
         this.contUseOrgUnit.setBoundLabelLength(100);		
         this.contUseOrgUnit.setBoundLabelUnderline(true);		
         this.contUseOrgUnit.setVisible(true);
-        // contreportTime		
-        this.contreportTime.setBoundLabelText(resHelper.getString("contreportTime.boundLabelText"));		
-        this.contreportTime.setBoundLabelLength(100);		
-        this.contreportTime.setBoundLabelUnderline(true);		
-        this.contreportTime.setVisible(true);
         // chkinitialiRecord		
         this.chkinitialiRecord.setText(resHelper.getString("chkinitialiRecord.text"));		
         this.chkinitialiRecord.setHorizontalAlignment(2);
@@ -499,6 +500,16 @@ public abstract class AbstractEumUseRecordEditUI extends com.kingdee.eas.xr.clie
                 }
             }
         });
+        // contreportTime		
+        this.contreportTime.setBoundLabelText(resHelper.getString("contreportTime.boundLabelText"));		
+        this.contreportTime.setBoundLabelLength(100);		
+        this.contreportTime.setBoundLabelUnderline(true);		
+        this.contreportTime.setVisible(true);
+        // contreportMonth		
+        this.contreportMonth.setBoundLabelText(resHelper.getString("contreportMonth.boundLabelText"));		
+        this.contreportMonth.setBoundLabelLength(100);		
+        this.contreportMonth.setBoundLabelUnderline(true);		
+        this.contreportMonth.setVisible(true);
         // prmtCreator		
         this.prmtCreator.setEnabled(false);		
         this.prmtCreator.setCommitFormat("$name$");		
@@ -565,13 +576,22 @@ public abstract class AbstractEumUseRecordEditUI extends com.kingdee.eas.xr.clie
         this.prmtUseOrgUnit.setCommitFormat("$number$");		
         this.prmtUseOrgUnit.setRequired(false);
         // prmtreportTime		
-        this.prmtreportTime.setQueryInfo("com.kingdee.eas.port.equipment.base.app.QuarterTimeQuery");		
+        this.prmtreportTime.setQueryInfo("com.kingdee.eas.port.equipment.base.app.MonthTimeQuery");		
+        this.prmtreportTime.setVisible(true);		
         this.prmtreportTime.setEditable(true);		
         this.prmtreportTime.setDisplayFormat("$name$");		
         this.prmtreportTime.setEditFormat("$number$");		
         this.prmtreportTime.setCommitFormat("$number$");		
         this.prmtreportTime.setRequired(false);
-        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmtCU,pkLastUpdateTime,prmtLastUpdateUser,pkCreateTime,prmtCreator,prmtAuditor,txtDescription,pkBizDate,txtNumber,pkAuditTime,comboBizStatus,comboStatus,prmtstaPerson,prmtUseOrgUnit,prmtreportTime,chkinitialiRecord,kdtEqmUse}));
+        // prmtreportMonth		
+        this.prmtreportMonth.setQueryInfo("com.kingdee.eas.port.equipment.base.app.MonthTimeQuery");		
+        this.prmtreportMonth.setVisible(true);		
+        this.prmtreportMonth.setEditable(true);		
+        this.prmtreportMonth.setDisplayFormat("$name$");		
+        this.prmtreportMonth.setEditFormat("$number$");		
+        this.prmtreportMonth.setCommitFormat("$number$");		
+        this.prmtreportMonth.setRequired(false);
+        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmtCU,pkLastUpdateTime,prmtLastUpdateUser,pkCreateTime,prmtCreator,prmtAuditor,txtDescription,pkBizDate,txtNumber,pkAuditTime,comboBizStatus,comboStatus,prmtstaPerson,prmtUseOrgUnit,chkinitialiRecord,kdtEqmUse,prmtreportTime,prmtreportMonth}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
 		registerBindings();
@@ -639,10 +659,12 @@ vo.put("CostType","1");
         this.add(contstaPerson, new KDLayout.Constraints(702, 13, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contUseOrgUnit.setBounds(new Rectangle(39, 45, 270, 19));
         this.add(contUseOrgUnit, new KDLayout.Constraints(39, 45, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contreportTime.setBounds(new Rectangle(371, 45, 270, 19));
-        this.add(contreportTime, new KDLayout.Constraints(371, 45, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         chkinitialiRecord.setBounds(new Rectangle(702, 45, 270, 19));
         this.add(chkinitialiRecord, new KDLayout.Constraints(702, 45, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contreportTime.setBounds(new Rectangle(919, 40, 270, 19));
+        this.add(contreportTime, new KDLayout.Constraints(919, 40, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contreportMonth.setBounds(new Rectangle(371, 45, 270, 19));
+        this.add(contreportMonth, new KDLayout.Constraints(371, 45, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         //contCreator
         contCreator.setBoundEditor(prmtCreator);
         //contCreateTime
@@ -673,6 +695,8 @@ vo.put("CostType","1");
         contUseOrgUnit.setBoundEditor(prmtUseOrgUnit);
         //contreportTime
         contreportTime.setBoundEditor(prmtreportTime);
+        //contreportMonth
+        contreportMonth.setBoundEditor(prmtreportMonth);
 
     }
 
@@ -884,7 +908,8 @@ vo.put("CostType","1");
 		dataBinder.registerBinding("auditTime", java.sql.Timestamp.class, this.pkAuditTime, "value");
 		dataBinder.registerBinding("staPerson", com.kingdee.eas.basedata.person.PersonInfo.class, this.prmtstaPerson, "data");
 		dataBinder.registerBinding("UseOrgUnit", com.kingdee.eas.basedata.org.AdminOrgUnitInfo.class, this.prmtUseOrgUnit, "data");
-		dataBinder.registerBinding("reportTime", com.kingdee.eas.port.equipment.base.QuarterTimeInfo.class, this.prmtreportTime, "data");		
+		dataBinder.registerBinding("reportTime", com.kingdee.eas.port.equipment.base.MonthTimeInfo.class, this.prmtreportTime, "data");
+		dataBinder.registerBinding("reportMonth", com.kingdee.eas.port.equipment.base.MonthTimeInfo.class, this.prmtreportMonth, "data");		
 	}
 	//Regiester UI State
 	private void registerUIState(){		
@@ -1057,7 +1082,8 @@ vo.put("CostType","1");
 		getValidateHelper().registerBindProperty("auditTime", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("staPerson", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("UseOrgUnit", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("reportTime", ValidateHelper.ON_SAVE);    		
+		getValidateHelper().registerBindProperty("reportTime", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("reportMonth", ValidateHelper.ON_SAVE);    		
 	}
 
 
@@ -1230,6 +1256,15 @@ vo.put("CostType","1");
         	sic.add(new SelectorItemInfo("reportTime.id"));
         	sic.add(new SelectorItemInfo("reportTime.number"));
         	sic.add(new SelectorItemInfo("reportTime.name"));
+		}
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("reportMonth.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("reportMonth.id"));
+        	sic.add(new SelectorItemInfo("reportMonth.number"));
+        	sic.add(new SelectorItemInfo("reportMonth.name"));
 		}
         return sic;
     }        

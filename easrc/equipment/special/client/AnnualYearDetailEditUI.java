@@ -5,6 +5,7 @@ package com.kingdee.eas.port.equipment.special.client;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -42,6 +43,7 @@ import com.kingdee.eas.port.equipment.special.AnnualYearPlanEntryInfo;
 import com.kingdee.eas.port.equipment.special.AnnualYearPlanFactory;
 import com.kingdee.eas.port.equipment.special.AnnualYearPlanInfo;
 import com.kingdee.eas.port.equipment.special.IAnnualYearDetail;
+import com.kingdee.eas.port.equipment.uitl.ToolHelp;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
@@ -711,10 +713,13 @@ public class AnnualYearDetailEditUI extends AbstractAnnualYearDetailEditUI
 
 	public void onLoad() throws Exception {
 		txtNumber.setEnabled(false);
+		pkBizDate.setVisible(false);
+		contBizDate.setVisible(false);
 		this.kdtEntry.getColumn("seq").getStyleAttributes().setHided(true);
 		this.kdtEntry.getColumn("check").getStyleAttributes().setLocked(true);
-		this.kdtEntry.getColumn("planDate").getStyleAttributes().setLocked(true);
+//		this.kdtEntry.getColumn("planDate").getStyleAttributes().setLocked(true);
 		this.kdtEntry.getColumn("endDate").getStyleAttributes().setLocked(true);
+		this.kdtEntry.getColumn("sjjcrq").getStyleAttributes().setLocked(true);
 		this.kdtEntry.getColumn("checkType").getStyleAttributes().setLocked(true);
 		this.kdtEntry.getColumn("beizhu").getStyleAttributes().setLocked(true);
 		this.kdtEntry.getColumn("result").getStyleAttributes().setLocked(true);
@@ -771,7 +776,8 @@ public class AnnualYearDetailEditUI extends AbstractAnnualYearDetailEditUI
 			this.kdtEntry.getColumn("beizhu").getStyleAttributes().setLocked(true);
 			this.kdtEntry.getColumn("result").getStyleAttributes().setLocked(false);
 			this.kdtEntry.getColumn("check").getStyleAttributes().setLocked(false);
-			this.pkBizDate.setEnabled(true);
+			this.kdtEntry.getColumn("sjjcrq").getStyleAttributes().setLocked(false);
+//			this.pkBizDate.setEnabled(true);
 		
 			
 //			this.kdtEntry_detailPanel.getAddNewLineButton().setEnabled(false);
@@ -950,7 +956,8 @@ public class AnnualYearDetailEditUI extends AbstractAnnualYearDetailEditUI
  		 filter.getFilterItems().add(new FilterItemInfo("id",set ,CompareType.NOTINCLUDE));
 		 evi.setFilter(filter);
 		 
-		kdtE1_equNumber_PromptBox.setEntityViewInfo(evi);
+//		kdtE1_equNumber_PromptBox.setEntityViewInfo(evi);
+		 kdtE1_equNumber_PromptBox.setSelector(ToolHelp.initPrmtEquIdByF7Color(evi, false));
 		 KDTDefaultCellEditor kdtEntry_feeType_CellEditor = new KDTDefaultCellEditor(kdtE1_equNumber_PromptBox);
 		 kdtEntry.getColumn("zdaNumber").setEditor(kdtEntry_feeType_CellEditor);
 	}
@@ -981,11 +988,11 @@ public class AnnualYearDetailEditUI extends AbstractAnnualYearDetailEditUI
 					String id1 = ((EquIdInfo)aeCollection.get(i).getZdaNumber()).getId().toString();
 					String id2 =  ((EquIdInfo)kdtEntry.getCell(j, "zdaNumber").getValue()).getId().toString();
 					if(id1.equals(id2)){
-						aeCollection.get(i).setActualDate(editData.getBizDate());
+						aeCollection.get(i).setActualDate((Date) kdtEntry.getCell(j, "sjjcrq").getValue());
 						AnnualYearPlanEntryFactory.getRemoteInstance().update(new ObjectUuidPK(aeCollection.get(i).getId()), aeCollection.get(i));
 					}
 					EquIdInfo eiInfo = EquIdFactory.getRemoteInstance().getEquIdInfo(new ObjectUuidPK(id1));
-					eiInfo.setActrueTime(editData.getBizDate());
+					eiInfo.setActrueTime((Date) kdtEntry.getCell(j, "sjjcrq").getValue());
 					EquIdFactory.getRemoteInstance().update(new ObjectUuidPK(eiInfo.getId()), eiInfo);
 				}
 				

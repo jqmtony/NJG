@@ -50,6 +50,7 @@ import com.kingdee.eas.port.equipment.special.AnnualYearPlanEntryCollection;
 import com.kingdee.eas.port.equipment.special.AnnualYearPlanEntryFactory;
 import com.kingdee.eas.port.equipment.special.AnnualYearPlanEntryInfo;
 import com.kingdee.eas.port.equipment.special.IAnnualYearPlanEntry;
+import com.kingdee.eas.port.equipment.uitl.ToolHelp;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
@@ -781,7 +782,8 @@ public class AnnualYearFeeEditUI extends AbstractAnnualYearFeeEditUI
 			 String id = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
 	 		 filter.getFilterItems().add(new FilterItemInfo("ssOrgUnit.id",id ,CompareType.EQUALS));
 			 evi.setFilter(filter);
-			kdtE1_equNumber_PromptBox.setEntityViewInfo(evi);
+//			kdtE1_equNumber_PromptBox.setEntityViewInfo(evi);
+			 kdtE1_equNumber_PromptBox.setSelector(ToolHelp.initPrmtEquIdByF7Color(evi, false));
 			 KDTDefaultCellEditor kdtEntry_feeType_CellEditor = new KDTDefaultCellEditor(kdtE1_equNumber_PromptBox);
 			 kdtEntry.getColumn("zdaNumber").setEditor(kdtEntry_feeType_CellEditor);
 			 

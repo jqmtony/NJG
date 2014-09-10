@@ -23,6 +23,7 @@ import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.framework.*;
 import com.kingdee.eas.port.equipment.record.EquIdFactory;
 import com.kingdee.eas.port.equipment.record.EquIdInfo;
+import com.kingdee.eas.port.equipment.uitl.ToolHelp;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.MsgBox;
 import com.kingdee.eas.xr.helper.Tool;
@@ -720,9 +721,10 @@ public class EqmAccidentEditUI extends AbstractEqmAccidentEditUI
 		 FilterInfo filter = new FilterInfo();
 		 String id = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
 		 filter.getFilterItems().add(new FilterItemInfo("ssOrgUnit.id",id ,CompareType.EQUALS));
-		 filter.getFilterItems().add(new FilterItemInfo("sbStatus","1",CompareType.EQUALS));
+//		 filter.getFilterItems().add(new FilterItemInfo("sbStatus","1",CompareType.EQUALS));
 		 evi.setFilter(filter);
-		prmteqmName.setEntityViewInfo(evi);
+//		prmteqmName.setEntityViewInfo(evi);
+		prmteqmName.setSelector(ToolHelp.initPrmtEquIdByF7Color(evi, false)); 
 		prmteqmName.setRequired(true);
 	}
 

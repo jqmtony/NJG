@@ -23,6 +23,7 @@ import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.framework.*;
+import com.kingdee.eas.port.equipment.uitl.ToolHelp;
 import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.xr.helper.PersonXRHelper;
@@ -759,7 +760,8 @@ public class InspectionEquEditUI extends AbstractInspectionEquEditUI
 	 		 filter.getFilterItems().add(new FilterItemInfo("isccCheck","1" ,CompareType.EQUALS));
 //	 		filter.getFilterItems().add(new FilterItemInfo("id", sb.toString(), CompareType.INNER));
 	 		 evi.setFilter(filter);
-	 		 kdtE1_equNumber_PromptBox.setEntityViewInfo(evi);
+//	 		 kdtE1_equNumber_PromptBox.setEntityViewInfo(evi);
+	 		kdtE1_equNumber_PromptBox.setSelector(ToolHelp.initPrmtEquIdByF7Color(evi, false));
 	 		 KDTDefaultCellEditor kdtEntry_feeType_CellEditor = new KDTDefaultCellEditor(kdtE1_equNumber_PromptBox);
 	 		 kdtE1.getColumn("equNumber").setEditor(kdtEntry_feeType_CellEditor);
 	 		 

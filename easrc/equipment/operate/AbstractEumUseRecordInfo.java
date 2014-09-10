@@ -48,17 +48,6 @@ public class AbstractEumUseRecordInfo extends com.kingdee.eas.xr.XRBillBaseInfo 
         put("UseOrgUnit", item);
     }
     /**
-     * Object: 设备使用记录 's 报表时间 property 
-     */
-    public com.kingdee.eas.port.equipment.base.QuarterTimeInfo getReportTime()
-    {
-        return (com.kingdee.eas.port.equipment.base.QuarterTimeInfo)get("reportTime");
-    }
-    public void setReportTime(com.kingdee.eas.port.equipment.base.QuarterTimeInfo item)
-    {
-        put("reportTime", item);
-    }
-    /**
      * Object:设备使用记录's 是否初始化记录property 
      */
     public boolean isInitialiRecord()
@@ -68,6 +57,28 @@ public class AbstractEumUseRecordInfo extends com.kingdee.eas.xr.XRBillBaseInfo 
     public void setInitialiRecord(boolean item)
     {
         setBoolean("initialiRecord", item);
+    }
+    /**
+     * Object: 设备使用记录 's 报表月份 property 
+     */
+    public com.kingdee.eas.port.equipment.base.MonthTimeInfo getReportTime()
+    {
+        return (com.kingdee.eas.port.equipment.base.MonthTimeInfo)get("reportTime");
+    }
+    public void setReportTime(com.kingdee.eas.port.equipment.base.MonthTimeInfo item)
+    {
+        put("reportTime", item);
+    }
+    /**
+     * Object: 设备使用记录 's 报表月份 property 
+     */
+    public com.kingdee.eas.port.equipment.base.MonthTimeInfo getReportMonth()
+    {
+        return (com.kingdee.eas.port.equipment.base.MonthTimeInfo)get("reportMonth");
+    }
+    public void setReportMonth(com.kingdee.eas.port.equipment.base.MonthTimeInfo item)
+    {
+        put("reportMonth", item);
     }
     public BOSObjectType getBOSType()
     {

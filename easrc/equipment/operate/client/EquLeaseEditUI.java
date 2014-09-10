@@ -21,6 +21,7 @@ import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.framework.*;
 import com.kingdee.eas.port.equipment.base.enumbase.RentPay;
+import com.kingdee.eas.port.equipment.uitl.ToolHelp;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.MsgBox;
 import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
@@ -723,11 +724,12 @@ public class EquLeaseEditUI extends AbstractEquLeaseEditUI
 	        kdtE1_equNumber_PromptBox.setCommitFormat("$number$");
 	   	     EntityViewInfo evi = new EntityViewInfo();
 			 FilterInfo filter = new FilterInfo();
-			 filter.getFilterItems().add(new FilterItemInfo("sbStatus","1",CompareType.EQUALS));
+//			 filter.getFilterItems().add(new FilterItemInfo("sbStatus","1",CompareType.EQUALS));
 			 String id = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
 	 		 filter.getFilterItems().add(new FilterItemInfo("ssOrgUnit.id",id ,CompareType.EQUALS));
 			 evi.setFilter(filter);
-			 kdtE1_equNumber_PromptBox.setEntityViewInfo(evi);
+//			 kdtE1_equNumber_PromptBox.setEntityViewInfo(evi);
+			 kdtE1_equNumber_PromptBox.setSelector(ToolHelp.initPrmtEquIdByF7Color(evi, false));
 			 KDTDefaultCellEditor kdtEntry_feeType_CellEditor = new KDTDefaultCellEditor(kdtE1_equNumber_PromptBox);
 			 kdtE1.getColumn("equNumber").setEditor(kdtEntry_feeType_CellEditor);
 			

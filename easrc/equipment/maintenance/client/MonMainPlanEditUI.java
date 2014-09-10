@@ -34,6 +34,7 @@ import com.kingdee.eas.port.equipment.special.AnnualYearPlanEntryInfo;
 import com.kingdee.eas.port.equipment.special.DetectionE2Factory;
 import com.kingdee.eas.port.equipment.special.IAnnualYearDetail;
 import com.kingdee.eas.port.equipment.special.IDetectionE2;
+import com.kingdee.eas.port.equipment.uitl.ToolHelp;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.xr.app.XRBillStatusEnum;
 import com.kingdee.eas.xr.helper.Tool;
@@ -760,7 +761,8 @@ public class MonMainPlanEditUI extends AbstractMonMainPlanEditUI
 	 		 filter.getFilterItems().add(new FilterItemInfo("id", sb.toString(), CompareType.INNER));
 	  		filter.setMaskString("(#0 or #1)");
 			 evi.setFilter(filter);
-			kdtE1_equNumber_PromptBox.setEntityViewInfo(evi);
+//			kdtE1_equNumber_PromptBox.setEntityViewInfo(evi);
+			kdtE1_equNumber_PromptBox.setSelector(ToolHelp.initPrmtEquIdByF7Color(evi, false));
 			 KDTDefaultCellEditor kdtEntry_feeType_CellEditor = new KDTDefaultCellEditor(kdtE1_equNumber_PromptBox);
 			 kdtE1.getColumn("equNumber").setEditor(kdtEntry_feeType_CellEditor);
 			 if(getOprtState().equals(OprtState.ADDNEW)){

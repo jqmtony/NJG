@@ -48,6 +48,7 @@ import com.kingdee.eas.port.equipment.record.EquIdCollection;
 import com.kingdee.eas.port.equipment.record.EquIdFactory;
 import com.kingdee.eas.port.equipment.record.EquIdInfo;
 import com.kingdee.eas.port.equipment.record.IEquId;
+import com.kingdee.eas.port.equipment.uitl.ToolHelp;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.MsgBox;
 import com.kingdee.eas.xr.helper.Tool;
@@ -139,7 +140,8 @@ public class EumUseRecordEditUI extends AbstractEumUseRecordEditUI {
 //	 		 filter.getFilterItems().add(new FilterItemInfo("isMainEqm",1 ,CompareType.EQUALS));
 	 		 filter.setMaskString("(#0 or #1)");
 	 		 evi.setFilter(filter);
-	 		kdtE1_equNumber_PromptBox.setEntityViewInfo(evi);
+//        	kdtE1_equNumber_PromptBox.setEntityViewInfo(evi);
+	 		kdtE1_equNumber_PromptBox.setSelector(ToolHelp.initPrmtEquIdByF7Color(evi, false));
 	 		 KDTDefaultCellEditor kdtEntry_feeType_CellEditor = new KDTDefaultCellEditor(kdtE1_equNumber_PromptBox);
 	 		 kdtEqmUse.getColumn("eqmName").setEditor(kdtEntry_feeType_CellEditor);
 		}

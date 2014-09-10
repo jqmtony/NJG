@@ -267,6 +267,17 @@ public class AbstractRepairOrderInfo extends com.kingdee.eas.xr.XRBillBaseInfo i
     {
         setBigDecimal("outAmount", item);
     }
+    /**
+     * Object:维修单's 是否计划内property 
+     */
+    public boolean isSfjhn()
+    {
+        return getBoolean("sfjhn");
+    }
+    public void setSfjhn(boolean item)
+    {
+        setBoolean("sfjhn", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("F96E9B71");

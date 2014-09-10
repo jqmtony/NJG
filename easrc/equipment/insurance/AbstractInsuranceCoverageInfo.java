@@ -113,6 +113,28 @@ public class AbstractInsuranceCoverageInfo extends com.kingdee.eas.xr.XRBillBase
     {
         setString("year", item);
     }
+    /**
+     * Object: 保险投保明细表 's 投保人名称 property 
+     */
+    public com.kingdee.eas.basedata.org.CompanyOrgUnitInfo getTbrmc()
+    {
+        return (com.kingdee.eas.basedata.org.CompanyOrgUnitInfo)get("tbrmc");
+    }
+    public void setTbrmc(com.kingdee.eas.basedata.org.CompanyOrgUnitInfo item)
+    {
+        put("tbrmc", item);
+    }
+    /**
+     * Object:保险投保明细表's 险种代码property 
+     */
+    public String getXzdm()
+    {
+        return getString("xzdm");
+    }
+    public void setXzdm(String item)
+    {
+        setString("xzdm", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("46F6E919");
