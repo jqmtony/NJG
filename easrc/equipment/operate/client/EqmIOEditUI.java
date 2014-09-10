@@ -23,6 +23,7 @@ import com.kingdee.eas.cp.bc.BizCollUtil;
 import com.kingdee.eas.framework.*;
 import com.kingdee.eas.port.equipment.base.enumbase.TransferType;
 import com.kingdee.eas.port.equipment.record.EquIdInfo;
+import com.kingdee.eas.port.equipment.uitl.ToolHelp;
 import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.xr.helper.Tool;
@@ -747,7 +748,10 @@ public class EqmIOEditUI extends AbstractEqmIOEditUI
 		 filter.getFilterItems().add(new FilterItemInfo("ssOrgUnit.id",id ,CompareType.EQUALS));
 //		 filter.getFilterItems().add(new FilterItemInfo("sbStatus","1",CompareType.EQUALS));
 		 evi.setFilter(filter);
-		prmteqmNumber.setEntityViewInfo(evi);
+//		prmteqmNumber.setEntityViewInfo(evi);
+		 //设置停用设备背景颜色
+		 
+		prmteqmNumber.setSelector(ToolHelp.initPrmtEquIdByF7Color(evi, false)); 
 		
 		Tool.setRespDeptF7(this.prmtInOrgUnit, this, null);
 		

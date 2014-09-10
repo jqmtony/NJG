@@ -857,7 +857,6 @@ protected void checkCanEdit(ComproductionInfo billInfo)
 		return true;
 	}
     
-  //根据填报单位隔离公司产能表
 	protected IQueryExecutor getQueryExecutor(IMetaDataPK arg0,EntityViewInfo arg1) {
 		EntityViewInfo viewInfo = (EntityViewInfo)arg1.clone();
 		FilterInfo filInfo = new FilterInfo();

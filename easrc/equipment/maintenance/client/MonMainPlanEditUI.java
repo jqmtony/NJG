@@ -731,6 +731,7 @@ public class MonMainPlanEditUI extends AbstractMonMainPlanEditUI
 		this.kdtE1.getColumn("actualCompleteT").getStyleAttributes().setLocked(true);
 		this.kdtE1.getColumn("complete").getStyleAttributes().setLocked(true);
 		super.onLoad();
+		this.setUITitle("Î¬±£¼Æ»®");
 		 KDBizPromptBox kdtE1_equNumber_PromptBox = new KDBizPromptBox();
 	        kdtE1_equNumber_PromptBox.setQueryInfo("com.kingdee.eas.port.equipment.record.app.EquIdQuery");
 	        kdtE1_equNumber_PromptBox.setVisible(true);

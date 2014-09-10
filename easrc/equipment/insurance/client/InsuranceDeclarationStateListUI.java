@@ -7,8 +7,17 @@ import java.awt.event.*;
 import java.util.ArrayList;
 
 import org.apache.log4j.Logger;
+
+import com.kingdee.bos.BOSException;
+import com.kingdee.bos.metadata.IMetaDataPK;
+import com.kingdee.bos.metadata.entity.EntityViewInfo;
+import com.kingdee.bos.metadata.entity.FilterInfo;
+import com.kingdee.bos.metadata.entity.FilterItemInfo;
+import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.bos.dao.query.IQueryExecutor;
+import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.framework.*;
 import com.kingdee.eas.tools.datatask.DatataskParameter;
 import com.kingdee.eas.tools.datatask.client.DatataskCaller;
@@ -607,4 +616,39 @@ public class InsuranceDeclarationStateListUI extends AbstractInsuranceDeclaratio
 		super.initWorkButton();
 		btnShengbao.setIcon(EASResource.getIcon("imgTbtn_inputoutput"));
 	}
+	
+	 //»•≥˝CU∏Ù¿Î
+	protected boolean isIgnoreCUFilter() {
+		return true;
+	}
+    
+	protected IQueryExecutor getQueryExecutor(IMetaDataPK arg0,EntityViewInfo arg1) {
+		EntityViewInfo viewInfo = (EntityViewInfo)arg1.clone();
+		FilterInfo filInfo = new FilterInfo();
+		String id = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
+		filInfo.getFilterItems().add(new FilterItemInfo("CU.id",id ,CompareType.EQUALS));
+		if(viewInfo.getFilter()!=null)
+	    	{
+	    
+					try {
+						viewInfo.getFilter().mergeFilter(filInfo, "and");
+					} catch (BOSException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+			
+	    	}
+	    	else
+	    	{
+	    		viewInfo.setFilter(filInfo);
+	    	}
+		   if ("00000000-0000-0000-0000-000000000000CCE7AED4".equals(id)){
+			      viewInfo = (EntityViewInfo)arg1.clone();
+			    }
+		  if ("6vYAAAAAAQvM567U".equals(id)){
+		      viewInfo = (EntityViewInfo)arg1.clone();
+		    }
+		return super.getQueryExecutor(arg0, viewInfo);
+	}
+	
 }

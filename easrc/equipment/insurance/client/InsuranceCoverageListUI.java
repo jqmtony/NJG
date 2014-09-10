@@ -611,6 +611,8 @@ public class InsuranceCoverageListUI extends AbstractInsuranceCoverageListUI
 		FilterInfo filInfo = new FilterInfo();
 		String id = SysContext.getSysContext().getCurrentAdminUnit().getId().toString();
 		filInfo.getFilterItems().add(new FilterItemInfo("cu.id",id ,CompareType.EQUALS));
+		filInfo.getFilterItems().add(new FilterItemInfo("E1.useUnit.id",id ,CompareType.EQUALS));
+		filInfo.setMaskString("#0 or #1");
 		if(viewInfo.getFilter()!=null)
 	    	{
 	    
@@ -626,8 +628,12 @@ public class InsuranceCoverageListUI extends AbstractInsuranceCoverageListUI
 	    	{
 	    		viewInfo.setFilter(filInfo);
 	    	}
-		if(OrgConstants.DEF_CU_ID.equals(id))
-			viewInfo = new EntityViewInfo();
+	    if ("00000000-0000-0000-0000-000000000000CCE7AED4".equals(id)){
+		      viewInfo = (EntityViewInfo)arg1.clone();
+		    }
+		    if ("6vYAAAAAAQvM567U".equals(id)){
+			      viewInfo = (EntityViewInfo)arg1.clone();
+			    }
 		return super.getQueryExecutor(arg0, viewInfo);
 		
 	}

@@ -105,6 +105,17 @@ public class AbstractMonMPApplicationE1Info extends com.kingdee.eas.framework.Co
     {
         setString("remark", item);
     }
+    /**
+     * Object:月度维保计划申请's 实施单位property 
+     */
+    public String getImplemUnit()
+    {
+        return getString("implemUnit");
+    }
+    public void setImplemUnit(String item)
+    {
+        setString("implemUnit", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("B99906BD");

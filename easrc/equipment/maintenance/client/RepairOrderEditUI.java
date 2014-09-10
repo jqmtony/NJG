@@ -733,11 +733,14 @@ public class RepairOrderEditUI extends AbstractRepairOrderEditUI
 	public void onLoad() throws Exception {
 		prmtslDepart.setEnabled(false);
 		this.kdtE1.getColumn("seq").getStyleAttributes().setHided(true);
+		txtrepairContent.setVisible(false);
+		txtmaintenanceProgram.setVisible(false);
 		if(getOprtState().equals(OprtState.ADDNEW)){
 		    txtselfAmount.setEnabled(false);
 		    txtoutAmount.setEnabled(false);
 		}
 		super.onLoad();
+		this.setUITitle("维保任务单");
 		 EntityViewInfo evi = new EntityViewInfo();
 		 FilterInfo filter = new FilterInfo();
 		 String id = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();

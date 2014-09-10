@@ -8,7 +8,7 @@ import java.awt.Dialog;
 import java.awt.Frame;
 import java.awt.Point;
 import java.awt.Rectangle;
-import java.awt.event.ActionEvent;
+import java.awt.event.*;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -27,13 +27,6 @@ import javax.swing.SwingUtilities;
 import org.apache.log4j.Logger;
 
 import com.kingdee.bos.BOSException;
-import com.kingdee.bos.ctrl.kdf.data.event.RequestRowSetEvent;
-import com.kingdee.bos.ctrl.kdf.table.BasicView;
-import com.kingdee.bos.ctrl.kdf.table.ICell;
-import com.kingdee.bos.ctrl.kdf.table.KDTable;
-import com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent;
-import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
-import com.kingdee.bos.dao.query.IQueryExecutor;
 import com.kingdee.bos.metadata.IMetaDataPK;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.metadata.entity.FilterInfo;
@@ -44,6 +37,12 @@ import com.kingdee.bos.ui.face.IUIWindow;
 import com.kingdee.bos.ui.face.UIFactory;
 import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.util.BOSUuid;
+import com.kingdee.bos.ctrl.kdf.table.BasicView;
+import com.kingdee.bos.ctrl.kdf.table.ICell;
+import com.kingdee.bos.ctrl.kdf.table.KDTable;
+import com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent;
+import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.bos.dao.query.IQueryExecutor;
 import com.kingdee.eas.base.attachment.AttachmentFactory;
 import com.kingdee.eas.base.attachment.AttachmentFtpFacadeFactory;
 import com.kingdee.eas.base.attachment.BizobjectFacadeFactory;
@@ -63,7 +62,7 @@ import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.common.client.UIContext;
 import com.kingdee.eas.common.client.UIFactoryName;
-import com.kingdee.eas.framework.ICoreBase;
+import com.kingdee.eas.framework.*;
 import com.kingdee.eas.port.equipment.special.RegulationsEntryFactory;
 import com.kingdee.eas.port.equipment.special.RegulationsEntryInfo;
 import com.kingdee.eas.port.equipment.special.RegulationsInfo;
@@ -77,18 +76,18 @@ import com.kingdee.util.StringUtils;
 /**
  * output class name
  */
-public class AttachmentNjpListUI extends AbstractAttachmentNjpListUI
+public class BxTlUI extends AbstractBxTlUI
 {
-    private static final Logger logger = CoreUIObject.getLogger(AttachmentNjpListUI.class);
-    private FileGetter fg;
+    private static final Logger logger = CoreUIObject.getLogger(BxTlUI.class);
+    
     /**
      * output class constructor
      */
-    public AttachmentNjpListUI() throws Exception
+    public BxTlUI() throws Exception
     {
         super();
     }
-    
+
     public void onLoad() throws Exception {
     	super.onLoad();
     	
@@ -110,11 +109,15 @@ public class AttachmentNjpListUI extends AbstractAttachmentNjpListUI
     	this.actionEdit.setVisible(false);
     	this.actionRemove.setVisible(false);
     	
-    	this.setUITitle("设备法规制度");
+    	this.setUITitle("保险条例");
     }
-	
-    protected void kDTable1_doRequestRowSet(RequestRowSetEvent e) {
-    	
+    
+    /**
+     * output storeFields method
+     */
+    public void storeFields()
+    {
+        super.storeFields();
     }
     
     protected void tblMain_tableClicked(KDTMouseEvent e) throws Exception {
@@ -162,7 +165,7 @@ public class AttachmentNjpListUI extends AbstractAttachmentNjpListUI
     	EntityViewInfo newInfo = (EntityViewInfo)viewInfo.clone();
     	FilterInfo filInfo = new FilterInfo();
     	CtrlUnitInfo CTRLiNFO  = SysContext.getSysContext().getCurrentCtrlUnit();
-    	filInfo.getFilterItems().add(new FilterItemInfo("RegulationsEntry.beizhu",null,CompareType.IS));
+    	filInfo.getFilterItems().add(new FilterItemInfo("RegulationsEntry.beizhu","保险条例",CompareType.EQUALS));
     	filInfo.getFilterItems().add(new FilterItemInfo("cu.longNumber",CTRLiNFO.getLongNumber()+"%",CompareType.LIKE));
     	filInfo.getFilterItems().add(new FilterItemInfo("cu.id",OrgConstants.DEF_CU_ID,CompareType.EQUALS));
     	filInfo.setMaskString("#0 and (#1 or #2)");
@@ -289,6 +292,7 @@ public class AttachmentNjpListUI extends AbstractAttachmentNjpListUI
     	
     	entryInfo.setId(BOSUuid.create(entryInfo.getBOSType()));
     	entryInfo.setParent(info);
+    	entryInfo.setBeizhu("保险条例");
     	
     	AttachmentClientManager attachmentClientManager = AttachmentManagerFactory.getClientManager();
     	attachmentClientManager.showUploadFilesUI(this, entryInfo.getId().toString());
@@ -466,5 +470,5 @@ public class AttachmentNjpListUI extends AbstractAttachmentNjpListUI
 	      
 	}  
 	
-	 
+
 }

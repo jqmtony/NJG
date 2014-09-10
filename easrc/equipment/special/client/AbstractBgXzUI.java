@@ -43,9 +43,9 @@ import com.kingdee.bos.appframework.uip.UINavigator;
 /**
  * output class name
  */
-public abstract class AbstractAttachmentNjpListUI extends com.kingdee.eas.framework.client.ListUI
+public abstract class AbstractBgXzUI extends com.kingdee.eas.framework.client.ListUI
 {
-    private static final Logger logger = CoreUIObject.getLogger(AbstractAttachmentNjpListUI.class);
+    private static final Logger logger = CoreUIObject.getLogger(AbstractBgXzUI.class);
     protected com.kingdee.bos.ctrl.swing.KDContainer kDContainer1;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnAddAtttachment;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnViewAtttachment;
@@ -62,7 +62,7 @@ public abstract class AbstractAttachmentNjpListUI extends com.kingdee.eas.framew
     /**
      * output class constructor
      */
-    public AbstractAttachmentNjpListUI() throws Exception
+    public AbstractBgXzUI() throws Exception
     {
         super();
         this.defaultObjectName = "mainQuery";
@@ -76,7 +76,7 @@ public abstract class AbstractAttachmentNjpListUI extends com.kingdee.eas.framew
      */
     private void jbInit() throws Exception
     {
-        this.resHelper = new ResourceBundleHelper(AbstractAttachmentNjpListUI.class.getName());
+        this.resHelper = new ResourceBundleHelper(AbstractBgXzUI.class.getName());
         this.setUITitle(resHelper.getString("this.title"));
         mainQueryPK = new MetaDataPK("com.kingdee.eas.port.equipment.rpt", "AttactQuery");
         queryAttactQueryPK = new MetaDataPK("com.kingdee.eas.port.equipment.rpt", "AttactQuery");
@@ -292,7 +292,7 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
 	private void registerUIState(){		
 	}
 	public String getUIHandlerClassName() {
-	    return "com.kingdee.eas.port.equipment.special.app.AttachmentNjpListUIHandler";
+	    return "com.kingdee.eas.port.equipment.special.app.BgXzUIHandler";
 	}
 	public IUIActionPostman prepareInit() {
 		IUIActionPostman clientHanlder = super.prepareInit();
@@ -519,7 +519,7 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
         public void actionPerformed(ActionEvent e)
         {
         	getUIContext().put("ORG.PK", getOrgPK(this));
-            innerActionPerformed("eas", AbstractAttachmentNjpListUI.this, "actionAddAtttachment", "actionAddAtttachment_actionPerformed", e);
+            innerActionPerformed("eas", AbstractBgXzUI.this, "actionAddAtttachment", "actionAddAtttachment_actionPerformed", e);
         }
     }
 
@@ -550,7 +550,7 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
         public void actionPerformed(ActionEvent e)
         {
         	getUIContext().put("ORG.PK", getOrgPK(this));
-            innerActionPerformed("eas", AbstractAttachmentNjpListUI.this, "actionViewAtttachment", "actionViewAtttachment_actionPerformed", e);
+            innerActionPerformed("eas", AbstractBgXzUI.this, "actionViewAtttachment", "actionViewAtttachment_actionPerformed", e);
         }
     }
 
@@ -581,7 +581,7 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
         public void actionPerformed(ActionEvent e)
         {
         	getUIContext().put("ORG.PK", getOrgPK(this));
-            innerActionPerformed("eas", AbstractAttachmentNjpListUI.this, "actionAttRemove", "actionAttRemove_actionPerformed", e);
+            innerActionPerformed("eas", AbstractBgXzUI.this, "actionAttRemove", "actionAttRemove_actionPerformed", e);
         }
     }
 
@@ -612,7 +612,7 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
         public void actionPerformed(ActionEvent e)
         {
         	getUIContext().put("ORG.PK", getOrgPK(this));
-            innerActionPerformed("eas", AbstractAttachmentNjpListUI.this, "actionDow", "actionDow_actionPerformed", e);
+            innerActionPerformed("eas", AbstractBgXzUI.this, "actionDow", "actionDow_actionPerformed", e);
         }
     }
 
@@ -643,7 +643,7 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
         public void actionPerformed(ActionEvent e)
         {
         	getUIContext().put("ORG.PK", getOrgPK(this));
-            innerActionPerformed("eas", AbstractAttachmentNjpListUI.this, "actionOpen", "actionOpen_actionPerformed", e);
+            innerActionPerformed("eas", AbstractBgXzUI.this, "actionOpen", "actionOpen_actionPerformed", e);
         }
     }
 
@@ -652,7 +652,7 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
      */
     public IMetaDataPK getMetaDataPK()
     {
-        return new MetaDataPK("com.kingdee.eas.port.equipment.special.client", "AttachmentNjpListUI");
+        return new MetaDataPK("com.kingdee.eas.port.equipment.special.client", "BgXzUI");
     }
 
 

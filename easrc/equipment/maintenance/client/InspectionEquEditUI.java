@@ -722,6 +722,7 @@ public class InspectionEquEditUI extends AbstractInspectionEquEditUI
 		txtNumber.setEnabled(false);
 		pkBizDate.setEnabled(false);
 		this.kdtE1.getColumn("seq").getStyleAttributes().setHided(true);
+		this.kdtE1.getColumn("xunjianResult").getStyleAttributes().setHided(true);
 		prmtuserDepatrt.setVisible(true);
 		super.onLoad();
 		this.setUITitle("设备巡检记录单");

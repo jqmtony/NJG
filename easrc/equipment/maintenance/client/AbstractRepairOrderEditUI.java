@@ -433,11 +433,11 @@ public abstract class AbstractRepairOrderEditUI extends com.kingdee.eas.xr.clien
         this.contmaintenanceProgram.setBoundLabelUnderline(true);		
         this.contmaintenanceProgram.setVisible(true);
         // kdtE1
-		String kdtE1StrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style><c:Style id=\"sCol4\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"FaLocation\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"repairContent\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"replaceSparePart\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"workTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol4\" /><t:Column t:key=\"repairPerson\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"remark\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{FaLocation}</t:Cell><t:Cell>$Resource{repairContent}</t:Cell><t:Cell>$Resource{replaceSparePart}</t:Cell><t:Cell>$Resource{workTime}</t:Cell><t:Cell>$Resource{repairPerson}</t:Cell><t:Cell>$Resource{remark}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		String kdtE1StrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style><c:Style id=\"sCol5\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"FaLocation\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"repairContent\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"wxfa\" t:width=\"220\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"replaceSparePart\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"workTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol5\" /><t:Column t:key=\"repairPerson\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"remark\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{FaLocation}</t:Cell><t:Cell>$Resource{repairContent}</t:Cell><t:Cell>$Resource{wxfa}</t:Cell><t:Cell>$Resource{replaceSparePart}</t:Cell><t:Cell>$Resource{workTime}</t:Cell><t:Cell>$Resource{repairPerson}</t:Cell><t:Cell>$Resource{remark}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.kdtE1.setFormatXml(resHelper.translateString("kdtE1",kdtE1StrXML));
 
-                this.kdtE1.putBindContents("editData",new String[] {"seq","FaLocation","repairContent","replaceSparePart","workTime","repairPerson","remark"});
+                this.kdtE1.putBindContents("editData",new String[] {"seq","FaLocation","repairContent","wxfa","replaceSparePart","workTime","repairPerson","remark"});
 
 
         this.kdtE1.checkParsed();
@@ -466,6 +466,11 @@ public abstract class AbstractRepairOrderEditUI extends com.kingdee.eas.xr.clien
         kdtE1_repairContent_TextField.setMaxLength(100);
         KDTDefaultCellEditor kdtE1_repairContent_CellEditor = new KDTDefaultCellEditor(kdtE1_repairContent_TextField);
         this.kdtE1.getColumn("repairContent").setEditor(kdtE1_repairContent_CellEditor);
+        KDTextArea kdtE1_wxfa_TextArea = new KDTextArea();
+        kdtE1_wxfa_TextArea.setName("kdtE1_wxfa_TextArea");
+        kdtE1_wxfa_TextArea.setMaxLength(2000);
+        KDTDefaultCellEditor kdtE1_wxfa_CellEditor = new KDTDefaultCellEditor(kdtE1_wxfa_TextArea);
+        this.kdtE1.getColumn("wxfa").setEditor(kdtE1_wxfa_CellEditor);
         final KDBizPromptBox kdtE1_replaceSparePart_PromptBox = new KDBizPromptBox();
         kdtE1_replaceSparePart_PromptBox.setQueryInfo("com.kingdee.eas.basedata.master.material.app.F7MaterialBaseInfoQuery");
         kdtE1_replaceSparePart_PromptBox.setVisible(true);
@@ -728,7 +733,7 @@ public abstract class AbstractRepairOrderEditUI extends com.kingdee.eas.xr.clien
         this.txtoutAmount.setMaximumValue( new java.math.BigDecimal("1.0E18"));		
         this.txtoutAmount.setPrecision(2);		
         this.txtoutAmount.setRequired(false);
-        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {txtBIMUDF0021,prmtequName,txtequModel,txtequAddress,prmtrepairDepart,prmtrepairPerson,pkrepairTime,txtrepairContent,prmtassignee,pkacceptTime,prmtmaintenanceType,txtmaintenanceProgram,prmtCU,pkLastUpdateTime,kdtE1,prmtLastUpdateUser,pkCreateTime,prmtCreator,prmtAuditor,txtDescription,pkBizDate,txtNumber,pkAuditTime,comboBizStatus,comboStatus,pkrepairDate,txtacceptSituation,prmtdeliveryPerson,prmtrecipient,pktransferTime,prmtslDepart,chkselfStudy,chkoutsourcing,txtselfAmount,txtoutAmount}));
+        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {txtBIMUDF0021,prmtequName,txtequModel,txtequAddress,prmtrepairDepart,prmtrepairPerson,pkrepairTime,txtrepairContent,prmtassignee,pkacceptTime,prmtmaintenanceType,txtmaintenanceProgram,prmtCU,pkLastUpdateTime,prmtLastUpdateUser,pkCreateTime,prmtCreator,prmtAuditor,txtDescription,kdtE1,pkBizDate,txtNumber,pkAuditTime,comboBizStatus,comboStatus,pkrepairDate,txtacceptSituation,prmtdeliveryPerson,prmtrecipient,pktransferTime,prmtslDepart,chkselfStudy,chkoutsourcing,txtselfAmount,txtoutAmount}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
 		registerBindings();
@@ -775,37 +780,37 @@ public abstract class AbstractRepairOrderEditUI extends com.kingdee.eas.xr.clien
         this.add(contDescription, new KDLayout.Constraints(10, 538, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         contAuditor.setBounds(new Rectangle(341, 490, 270, 19));
         this.add(contAuditor, new KDLayout.Constraints(341, 490, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contStatus.setBounds(new Rectangle(672, 34, 270, 19));
-        this.add(contStatus, new KDLayout.Constraints(672, 34, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contStatus.setBounds(new Rectangle(672, 117, 270, 19));
+        this.add(contStatus, new KDLayout.Constraints(672, 117, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contBizStatus.setBounds(new Rectangle(672, 514, 270, 19));
         this.add(contBizStatus, new KDLayout.Constraints(672, 514, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         contAuditTime.setBounds(new Rectangle(341, 514, 270, 19));
         this.add(contAuditTime, new KDLayout.Constraints(341, 514, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contequName.setBounds(new Rectangle(10, 34, 270, 19));
-        this.add(contequName, new KDLayout.Constraints(10, 34, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contequName.setBounds(new Rectangle(10, 36, 270, 19));
+        this.add(contequName, new KDLayout.Constraints(10, 36, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contequModel.setBounds(new Rectangle(341, 34, 270, 19));
         this.add(contequModel, new KDLayout.Constraints(341, 34, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contequAddress.setBounds(new Rectangle(10, 58, 270, 19));
-        this.add(contequAddress, new KDLayout.Constraints(10, 58, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contrepairDepart.setBounds(new Rectangle(672, 58, 270, 19));
-        this.add(contrepairDepart, new KDLayout.Constraints(672, 58, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contrepairPerson.setBounds(new Rectangle(341, 58, 270, 19));
-        this.add(contrepairPerson, new KDLayout.Constraints(341, 58, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contrepairTime.setBounds(new Rectangle(10, 82, 270, 19));
-        this.add(contrepairTime, new KDLayout.Constraints(10, 82, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contrepairContent.setBounds(new Rectangle(10, 106, 270, 19));
-        this.add(contrepairContent, new KDLayout.Constraints(10, 106, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contassignee.setBounds(new Rectangle(341, 82, 270, 19));
-        this.add(contassignee, new KDLayout.Constraints(341, 82, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contacceptTime.setBounds(new Rectangle(672, 82, 270, 19));
-        this.add(contacceptTime, new KDLayout.Constraints(672, 82, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contmaintenanceType.setBounds(new Rectangle(672, 106, 270, 19));
-        this.add(contmaintenanceType, new KDLayout.Constraints(672, 106, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contmaintenanceProgram.setBounds(new Rectangle(10, 130, 601, 66));
-        this.add(contmaintenanceProgram, new KDLayout.Constraints(10, 130, 601, 66, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        kdtE1.setBounds(new Rectangle(10, 210, 922, 170));
+        contequAddress.setBounds(new Rectangle(672, 35, 270, 19));
+        this.add(contequAddress, new KDLayout.Constraints(672, 35, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contrepairDepart.setBounds(new Rectangle(341, 62, 270, 19));
+        this.add(contrepairDepart, new KDLayout.Constraints(341, 62, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contrepairPerson.setBounds(new Rectangle(10, 62, 270, 19));
+        this.add(contrepairPerson, new KDLayout.Constraints(10, 62, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contrepairTime.setBounds(new Rectangle(672, 62, 270, 19));
+        this.add(contrepairTime, new KDLayout.Constraints(672, 62, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contrepairContent.setBounds(new Rectangle(953, 193, 270, 19));
+        this.add(contrepairContent, new KDLayout.Constraints(953, 193, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contassignee.setBounds(new Rectangle(10, 88, 270, 19));
+        this.add(contassignee, new KDLayout.Constraints(10, 88, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contacceptTime.setBounds(new Rectangle(672, 88, 270, 19));
+        this.add(contacceptTime, new KDLayout.Constraints(672, 88, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contmaintenanceType.setBounds(new Rectangle(341, 117, 270, 19));
+        this.add(contmaintenanceType, new KDLayout.Constraints(341, 117, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contmaintenanceProgram.setBounds(new Rectangle(965, 227, 601, 66));
+        this.add(contmaintenanceProgram, new KDLayout.Constraints(965, 227, 601, 66, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kdtE1.setBounds(new Rectangle(10, 172, 922, 208));
         kdtE1_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtE1,new com.kingdee.eas.port.equipment.maintenance.RepairOrderE1Info(),null,false);
-        this.add(kdtE1_detailPanel, new KDLayout.Constraints(10, 210, 922, 170, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        this.add(kdtE1_detailPanel, new KDLayout.Constraints(10, 172, 922, 208, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         contBIMUDF0021.setBounds(new Rectangle(10, 394, 922, 37));
         this.add(contBIMUDF0021, new KDLayout.Constraints(10, 394, 922, 37, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contrepairDate.setBounds(new Rectangle(341, 442, 270, 19));
@@ -818,16 +823,16 @@ public abstract class AbstractRepairOrderEditUI extends com.kingdee.eas.xr.clien
         this.add(contrecipient, new KDLayout.Constraints(10, 466, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         conttransferTime.setBounds(new Rectangle(341, 466, 270, 19));
         this.add(conttransferTime, new KDLayout.Constraints(341, 466, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contslDepart.setBounds(new Rectangle(341, 106, 270, 19));
-        this.add(contslDepart, new KDLayout.Constraints(341, 106, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        chkselfStudy.setBounds(new Rectangle(674, 130, 93, 19));
-        this.add(chkselfStudy, new KDLayout.Constraints(674, 130, 93, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        chkoutsourcing.setBounds(new Rectangle(841, 130, 101, 19));
-        this.add(chkoutsourcing, new KDLayout.Constraints(841, 130, 101, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contselfAmount.setBounds(new Rectangle(674, 148, 270, 19));
-        this.add(contselfAmount, new KDLayout.Constraints(674, 148, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contoutAmount.setBounds(new Rectangle(674, 177, 270, 19));
-        this.add(contoutAmount, new KDLayout.Constraints(674, 177, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contslDepart.setBounds(new Rectangle(341, 88, 270, 19));
+        this.add(contslDepart, new KDLayout.Constraints(341, 88, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        chkselfStudy.setBounds(new Rectangle(10, 117, 93, 19));
+        this.add(chkselfStudy, new KDLayout.Constraints(10, 117, 93, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        chkoutsourcing.setBounds(new Rectangle(181, 117, 101, 19));
+        this.add(chkoutsourcing, new KDLayout.Constraints(181, 117, 101, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contselfAmount.setBounds(new Rectangle(10, 143, 270, 19));
+        this.add(contselfAmount, new KDLayout.Constraints(10, 143, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contoutAmount.setBounds(new Rectangle(341, 143, 270, 19));
+        this.add(contoutAmount, new KDLayout.Constraints(341, 143, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         //contCreator
         contCreator.setBoundEditor(prmtCreator);
         //contCreateTime
@@ -1077,6 +1082,7 @@ public abstract class AbstractRepairOrderEditUI extends com.kingdee.eas.xr.clien
 		dataBinder.registerBinding("E1.repairPerson", java.lang.Object.class, this.kdtE1, "repairPerson.text");
 		dataBinder.registerBinding("E1.remark", String.class, this.kdtE1, "remark.text");
 		dataBinder.registerBinding("E1.FaLocation", java.lang.Object.class, this.kdtE1, "FaLocation.text");
+		dataBinder.registerBinding("E1.wxfa", String.class, this.kdtE1, "wxfa.text");
 		dataBinder.registerBinding("selfStudy", boolean.class, this.chkselfStudy, "selected");
 		dataBinder.registerBinding("outsourcing", boolean.class, this.chkoutsourcing, "selected");
 		dataBinder.registerBinding("creator", com.kingdee.eas.base.permission.UserInfo.class, this.prmtCreator, "data");
@@ -1253,6 +1259,7 @@ public abstract class AbstractRepairOrderEditUI extends com.kingdee.eas.xr.clien
 		getValidateHelper().registerBindProperty("E1.repairPerson", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("E1.remark", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("E1.FaLocation", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("E1.wxfa", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("selfStudy", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("outsourcing", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("creator", ValidateHelper.ON_SAVE);    
@@ -1378,6 +1385,7 @@ public abstract class AbstractRepairOrderEditUI extends com.kingdee.eas.xr.clien
 			sic.add(new SelectorItemInfo("E1.FaLocation.name"));
         	sic.add(new SelectorItemInfo("E1.FaLocation.number"));
 		}
+    	sic.add(new SelectorItemInfo("E1.wxfa"));
         sic.add(new SelectorItemInfo("selfStudy"));
         sic.add(new SelectorItemInfo("outsourcing"));
 		if(selectorAll.equalsIgnoreCase("true"))

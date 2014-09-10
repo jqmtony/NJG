@@ -1597,6 +1597,16 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
 		String kdtSpareInfoStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /><c:NumberFormat>&amp;int</c:NumberFormat></c:Style><c:Style id=\"sCol3\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"materialName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"speModel\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"shuliangone\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol3\" /><t:Column t:key=\"useyong\" t:width=\"180\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"fachangjia\" t:width=\"150\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"noteone\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"attachone\" t:width=\"150\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{materialName}</t:Cell><t:Cell>$Resource{speModel}</t:Cell><t:Cell>$Resource{shuliangone}</t:Cell><t:Cell>$Resource{useyong}</t:Cell><t:Cell>$Resource{fachangjia}</t:Cell><t:Cell>$Resource{noteone}</t:Cell><t:Cell>$Resource{attachone}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.kdtSpareInfo.setFormatXml(resHelper.translateString("kdtSpareInfo",kdtSpareInfoStrXML));
+        this.kdtSpareInfo.addKDTMouseListener(new com.kingdee.bos.ctrl.kdf.table.event.KDTMouseListener() {
+            public void tableClicked(com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent e) {
+                try {
+                    kdtSpareInfo_tableClicked(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                }
+            }
+        });
 
                 this.kdtSpareInfo.putBindContents("editData",new String[] {"seq","materialName","speModel","shuliangone","useyong","fachangjia","noteone","attachone"});
 
@@ -1851,12 +1861,12 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         kDPanel1.setLayout(new KDLayout());
         kDPanel1.putClientProperty("OriginalBounds", new Rectangle(0, 0, 992, 528));        kDPanel8.setBounds(new Rectangle(2, 3, 983, 166));
         kDPanel1.add(kDPanel8, new KDLayout.Constraints(2, 3, 983, 166, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        kDPanel10.setBounds(new Rectangle(2, 176, 983, 111));
-        kDPanel1.add(kDPanel10, new KDLayout.Constraints(2, 176, 983, 111, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        kDPanel11.setBounds(new Rectangle(2, 292, 983, 155));
-        kDPanel1.add(kDPanel11, new KDLayout.Constraints(2, 292, 983, 155, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        kDPanel3.setBounds(new Rectangle(2, 451, 983, 75));
-        kDPanel1.add(kDPanel3, new KDLayout.Constraints(2, 451, 983, 75, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        kDPanel10.setBounds(new Rectangle(2, 170, 983, 111));
+        kDPanel1.add(kDPanel10, new KDLayout.Constraints(2, 170, 983, 111, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        kDPanel11.setBounds(new Rectangle(2, 282, 983, 155));
+        kDPanel1.add(kDPanel11, new KDLayout.Constraints(2, 282, 983, 155, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        kDPanel3.setBounds(new Rectangle(2, 438, 983, 88));
+        kDPanel1.add(kDPanel3, new KDLayout.Constraints(2, 438, 983, 88, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         contEqmCategory.setBounds(new Rectangle(966, 319, 270, 19));
         kDPanel1.add(contEqmCategory, new KDLayout.Constraints(966, 319, 270, 19, 0));
         //kDPanel8
@@ -1955,7 +1965,7 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         contuseUnit.setBoundEditor(prmtuseUnit);
         //kDPanel10
         kDPanel10.setLayout(new KDLayout());
-        kDPanel10.putClientProperty("OriginalBounds", new Rectangle(2, 176, 983, 111));        conmader.setBounds(new Rectangle(11, 13, 270, 19));
+        kDPanel10.putClientProperty("OriginalBounds", new Rectangle(2, 170, 983, 111));        conmader.setBounds(new Rectangle(11, 13, 270, 19));
         kDPanel10.add(conmader, new KDLayout.Constraints(11, 13, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         conmadedCountry.setBounds(new Rectangle(355, 13, 270, 19));
         kDPanel10.add(conmadedCountry, new KDLayout.Constraints(355, 13, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
@@ -2001,7 +2011,7 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         contdebuger.setBoundEditor(txtdebuger);
         //kDPanel11
         kDPanel11.setLayout(new KDLayout());
-        kDPanel11.putClientProperty("OriginalBounds", new Rectangle(2, 292, 983, 155));        chkportTest.setBounds(new Rectangle(286, 39, 65, 19));
+        kDPanel11.putClientProperty("OriginalBounds", new Rectangle(2, 282, 983, 155));        chkportTest.setBounds(new Rectangle(286, 39, 65, 19));
         kDPanel11.add(chkportTest, new KDLayout.Constraints(286, 39, 65, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         chkcityTest.setBounds(new Rectangle(286, 19, 67, 19));
         kDPanel11.add(chkcityTest, new KDLayout.Constraints(286, 19, 67, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
@@ -2085,7 +2095,7 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         contcpsbh.setBoundEditor(txtcpsbh);
         //kDPanel3
         kDPanel3.setLayout(new KDLayout());
-        kDPanel3.putClientProperty("OriginalBounds", new Rectangle(2, 451, 983, 75));        contasset.setBounds(new Rectangle(11, 15, 270, 19));
+        kDPanel3.putClientProperty("OriginalBounds", new Rectangle(2, 438, 983, 88));        contasset.setBounds(new Rectangle(11, 15, 270, 19));
         kDPanel3.add(contasset, new KDLayout.Constraints(11, 15, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contassetStatus.setBounds(new Rectangle(699, 15, 270, 19));
         kDPanel3.add(contassetStatus, new KDLayout.Constraints(699, 15, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
@@ -2712,6 +2722,14 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
      */
     protected void prmtasset_dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) throws Exception
     {
+    }
+
+    /**
+     * output kdtSpareInfo_tableClicked method
+     */
+    protected void kdtSpareInfo_tableClicked(com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent e) throws Exception
+    {
+        //write your code here1
     }
 
     /**

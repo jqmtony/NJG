@@ -94,6 +94,17 @@ public class AbstractRepairOrderE1Info extends com.kingdee.eas.framework.CoreBil
     {
         put("FaLocation", item);
     }
+    /**
+     * Object:维修明细's 维修方案及技术要求property 
+     */
+    public String getWxfa()
+    {
+        return getString("wxfa");
+    }
+    public void setWxfa(String item)
+    {
+        setString("wxfa", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("58358BBD");

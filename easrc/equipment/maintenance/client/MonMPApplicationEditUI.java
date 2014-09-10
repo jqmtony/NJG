@@ -723,7 +723,7 @@ public class MonMPApplicationEditUI extends AbstractMonMPApplicationEditUI
 		 txtplanTotalCost.setEnabled(false);
 		super.onLoad();
 		//过滤不是已报废的设备
-	
+		this.setUITitle("维保计划申请单");
 
    	 KDBizPromptBox kdtE1_equNumber_PromptBox = new KDBizPromptBox();
         kdtE1_equNumber_PromptBox.setQueryInfo("com.kingdee.eas.port.equipment.record.app.EquIdQuery");

@@ -3,6 +3,7 @@
  */
 package com.kingdee.eas.port.equipment.special.client;
 
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dialog;
 import java.awt.event.ActionEvent;
@@ -15,6 +16,7 @@ import javax.swing.SwingUtilities;
 import org.apache.log4j.Logger;
 
 import com.kingdee.bos.BOSException;
+import com.kingdee.bos.ctrl.kdf.table.ICell;
 import com.kingdee.bos.ctrl.kdf.table.IColumn;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
 import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
@@ -172,6 +174,15 @@ public class ImportEquIdUI extends AbstractImportEquIdUI
 		for (int i = e.getFirstRow(); i <= e.getLastRow(); i++)
 		{
 			this.tblMain.getCell(i, "selectAll").setValue(Boolean.FALSE);
+			
+			ICell cellP = this.tblMain.getRow(i).getCell("sbStatus");
+			
+			if(cellP != null  &&  cellP.getValue() != null){
+				String status = UIRuleUtil.getString(cellP.getValue());
+        		 
+        		 if(status.equals("Í£ÓÃ"))
+        			 this.tblMain.getRow(i).getStyleAttributes().setBackground(Color.RED);
+			}
 		}
 	}
 	

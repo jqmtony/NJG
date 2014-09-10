@@ -3,9 +3,11 @@
  */
 package com.kingdee.eas.port.equipment.record.client;
 
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -20,7 +22,10 @@ import org.apache.log4j.Logger;
 
 import com.kingdee.bos.BOSException;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
+import com.kingdee.bos.ctrl.kdf.table.KDTSelectBlock;
+import com.kingdee.bos.ctrl.kdf.table.KDTStyleConstants;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
+import com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent;
 import com.kingdee.bos.ctrl.swing.KDCheckBox;
 import com.kingdee.bos.ctrl.swing.KDFormattedTextField;
 import com.kingdee.bos.ctrl.swing.KDMenuItem;
@@ -44,6 +49,12 @@ import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.IUIWindow;
 import com.kingdee.bos.ui.face.UIFactory;
 import com.kingdee.bos.util.BOSUuid;
+import com.kingdee.eas.base.attachment.BizobjectFacadeFactory;
+import com.kingdee.eas.base.attachment.BoAttchAssoCollection;
+import com.kingdee.eas.base.attachment.BoAttchAssoFactory;
+import com.kingdee.eas.base.attachment.client.AttachmentUIContextInfo;
+import com.kingdee.eas.base.attachment.common.AttachmentClientManager;
+import com.kingdee.eas.base.attachment.common.AttachmentManagerFactory;
 import com.kingdee.eas.basedata.assistant.AddressFactory;
 import com.kingdee.eas.basedata.assistant.AddressInfo;
 import com.kingdee.eas.basedata.assistant.client.F7MeasureUnitTreeDetailListUI;
@@ -88,6 +99,8 @@ import com.kingdee.eas.port.equipment.operate.EqmScrapFactory;
 import com.kingdee.eas.port.equipment.operate.IEqmAccident;
 import com.kingdee.eas.port.equipment.operate.IEqmIO;
 import com.kingdee.eas.port.equipment.operate.IEqmScrap;
+import com.kingdee.eas.port.equipment.record.EquIdSpareInfoCollection;
+import com.kingdee.eas.port.equipment.record.EquIdSpareInfoInfo;
 import com.kingdee.eas.port.equipment.special.AnnualYearDetailEntryCollection;
 import com.kingdee.eas.port.equipment.special.AnnualYearDetailEntryFactory;
 import com.kingdee.eas.port.equipment.special.IAnnualYearDetailEntry;
@@ -141,6 +154,12 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 		txtsize.setVisible(false);
 		consize.setVisible(false);
 		conwxOrgUnit.setVisible(false);
+		
+		try {
+			loadSupplierAttachList();
+		} catch (BOSException e) {
+			e.printStackTrace();
+		}
 	}
 
 	
@@ -374,6 +393,8 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 		
 		}
 	
+		
+		InitAttactByTable();
 	}
 	
 	private void SelectorFaCard() throws Exception
@@ -1849,6 +1870,215 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 		}
 	}
 	
+	private void InitAttactByTable() {
+		KDWorkButton btnaddnew = this.kdtSpareInfo_detailPanel.getAddNewLineButton();
+		KDWorkButton btninsert = this.kdtSpareInfo_detailPanel.getInsertLineButton();
+		KDWorkButton btnremove = this.kdtSpareInfo_detailPanel.getRemoveLinesButton();
+		
+		if(btnaddnew.getActionListeners()[0]!=null)
+			btnaddnew.removeActionListener(btnaddnew.getActionListeners()[0]);
+		if(btninsert.getActionListeners()[0]!=null)
+			btninsert.removeActionListener(btninsert.getActionListeners()[0]);
+		if(btnremove.getActionListeners()[0]!=null)
+			btnremove.removeActionListener(btnremove.getActionListeners()[0]);
+		
+		btnaddnew.addActionListener(new ActionListener(){
+
+			public void actionPerformed(ActionEvent e) {
+				try {
+					actionAttachListAddLine_actionPerformed(e);
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+			}
+			
+		});
+		btninsert.addActionListener(new ActionListener(){
+			
+			public void actionPerformed(ActionEvent e) {
+				try {
+					actionAttachListInsertLine_actionPerformed(e);
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+			}
+			
+		});
+		btnremove.addActionListener(new ActionListener(){
+			
+			public void actionPerformed(ActionEvent e) {
+				try {
+					actionAttachListRemoveLine_actionPerformed(e);
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+			}
+			
+		});
+		
+		 this.kdtSpareInfo.getColumn("attachone").getStyleAttributes().setLocked(true);
+		 this.kdtSpareInfo.getColumn("attachone").getStyleAttributes().setFontColor(Color.BLUE);
+		 this.kdtSpareInfo.getColumn("attachone").getStyleAttributes().setUnderline(true);
+	}
+	
+	public void actionAttachListAddLine_actionPerformed(ActionEvent e) throws Exception {
+		kdTableAddRow(this.kdtSpareInfo);
+	}
+	public void actionAttachListInsertLine_actionPerformed(ActionEvent e) throws Exception {
+		kdTableInsertLine(this.kdtSpareInfo);
+	}
+	public void actionAttachListRemoveLine_actionPerformed(ActionEvent e) throws Exception {
+		kdTableDeleteRow(this.kdtSpareInfo);
+	}
+	
+	  private void kdTableAddRow(KDTable table) {
+			if(!getOprtState().equals(OprtState.VIEW)){
+				IRow row=table.addRow();
+				EquIdSpareInfoInfo info=new EquIdSpareInfoInfo();
+				info.setId(BOSUuid.create(info.getBOSType()));
+				row.setUserObject(info);
+			}
+		}
+	  
+	  
+		private void kdTableInsertLine(KDTable table){
+			if(!getOprtState().equals(OprtState.VIEW)){
+				if(table == null)
+		            return;
+		        IRow row = null;
+		        if(table.getSelectManager().size() > 0)
+		        {
+		            int top = table.getSelectManager().get().getTop();
+		            if(isTableColumnSelected(table))
+		                row = table.addRow();
+		            else
+		                row = table.addRow(top);
+		        } else
+		        {
+		            row = table.addRow();
+		        }
+		        EquIdSpareInfoInfo info=new EquIdSpareInfoInfo();
+				info.setId(BOSUuid.create(info.getBOSType()));
+				row.setUserObject(info);
+			}
+		}
+		protected final boolean TableColumnSelected(KDTable table)
+	    {
+	        if(table.getSelectManager().size() > 0)
+	        {
+	            KDTSelectBlock block = table.getSelectManager().get();
+	            if(block.getMode() == 4 || block.getMode() == 8)
+	                return true;
+	        }
+	        return false;
+	    }
+		private boolean confirmRemove(Component comp){
+			return MsgBox.isYes(MsgBox.showConfirm2(comp, "是否删除所选分录？"));
+		}
+		private void kdTableDeleteRow(KDTable table) {
+			if(!getOprtState().equals(OprtState.VIEW)){
+		        if(table.getSelectManager().size() == 0 || isTableColumnSelected(table)){
+		            MsgBox.showInfo(this, EASResource.getString("com.kingdee.eas.framework.FrameWorkResource.Msg_NoneEntry"));
+		            return;
+		        }
+		        if(confirmRemove(this)){
+		            int top = table.getSelectManager().get().getBeginRow();
+		            int bottom = table.getSelectManager().get().getEndRow();
+		            for(int i = top; i <= bottom; i++){
+		                if(table.getRow(top) == null)
+		                {
+		                    MsgBox.showInfo(this, EASResource.getString("com.kingdee.eas.framework.FrameWorkResource.Msg_NoneEntry"));
+		                    return;
+		                }
+		                try {
+							deleteAttachment(((EquIdSpareInfoInfo)table.getRow(top).getUserObject()).getId().toString());
+						} catch (EASBizException e) {
+							e.printStackTrace();
+						} catch (BOSException e) {
+							e.printStackTrace();
+						}
+		                table.removeRow(top);
+		            }
+		        }
+			}
+		}
+		
+		protected void deleteAttachment(String id) throws BOSException, EASBizException{
+			EntityViewInfo view=new EntityViewInfo();
+			FilterInfo filter = new FilterInfo();
+			
+			filter.getFilterItems().add(new FilterItemInfo("boID" , id));
+			view.setFilter(filter);
+			BoAttchAssoCollection col=BoAttchAssoFactory.getRemoteInstance().getBoAttchAssoCollection(view);
+			if(col.size()>0){
+				for(int i=0;i<col.size();i++){
+					EntityViewInfo attview=new EntityViewInfo();
+					FilterInfo attfilter = new FilterInfo();
+					
+					attfilter.getFilterItems().add(new FilterItemInfo("attachment.id" , col.get(i).getAttachment().getId().toString()));
+					attview.setFilter(attfilter);
+					BoAttchAssoCollection attcol=BoAttchAssoFactory.getRemoteInstance().getBoAttchAssoCollection(attview);
+					if(attcol.size()==1){
+						BizobjectFacadeFactory.getRemoteInstance().delTempAttachment(id);
+					}else if(attcol.size()>1){
+						BoAttchAssoFactory.getRemoteInstance().delete(filter);
+					}
+				}
+			}
+		}
+	
+	protected void kdtSpareInfo_tableClicked(KDTMouseEvent e) throws Exception {
+		if (e.getType() == KDTStyleConstants.BODY_ROW && e.getButton() == MouseEvent.BUTTON1 && e.getClickCount() == 2&&
+				this.kdtSpareInfo.getColumnKey(e.getColIndex()).equals("attachone")) {
+			if(((EquIdSpareInfoInfo)this.kdtSpareInfo.getRow(e.getRowIndex()).getUserObject()).getId()==null){return;};
+			String id=((EquIdSpareInfoInfo)this.kdtSpareInfo.getRow(e.getRowIndex()).getUserObject()).getId().toString();
+			AttachmentClientManager acm = AttachmentManagerFactory.getClientManager();
+	        boolean isEdit = false;
+	        if(OprtState.EDIT.equals(getOprtState()) || OprtState.ADDNEW.equals(getOprtState()))
+	            isEdit = true;
+	        AttachmentUIContextInfo info = new AttachmentUIContextInfo();
+	        info.setBoID(id);
+	        info.setEdit(isEdit);
+	        String multi = (String)getUIContext().get("MultiapproveAttachment");
+	        if(multi != null && multi.equals("true")){
+	        	acm.showAttachmentListUIByBoIDNoAlready(this, info);
+	        }else{
+	        	acm.showAttachmentListUIByBoID(this, info);
+	        }
+	        this.kdtSpareInfo.getRow(e.getRowIndex()).getCell("attachone").setValue(loadAttachment(id));
+		}
+	}
+	
+    protected void storeSupplierAttachList(){
+    	
+    }
+    	
+    	
+    	protected void loadSupplierAttachList() throws BOSException{
+    		for (int i = 0; i <this.kdtSpareInfo.getRowCount(); i++) 
+    		{
+    			IRow row = this.kdtSpareInfo.getRow(i);
+    			if(row.getUserObject()!=null)
+    				row.getCell("attachone").setValue(loadAttachment(((EquIdSpareInfoInfo)row.getUserObject()).getId().toString()));
+			}
+    	}
+	
+    	
+    	protected String loadAttachment(String id) throws BOSException{
+    		EntityViewInfo view = new EntityViewInfo();
+    		FilterInfo filter = new FilterInfo();
+    		filter.getFilterItems().add(new FilterItemInfo("boID", id));
+    		view.setFilter(filter);
+    		SelectorItemCollection sels = new SelectorItemCollection();
+    		sels.add("attachment.name");
+    		view.setSelector(sels);
+    		BoAttchAssoCollection col = BoAttchAssoFactory.getRemoteInstance().getBoAttchAssoCollection(view);
+    		String name="";
+    		for(int i=0;i<col.size();i++){
+    			name=name+"("+(i+1)+"）."+col.get(i).getAttachment().getName()+"；";
+    		}
+    		return name;
+    	}
 	
 //	protected void prmtssOrgUnit_dataChanged(DataChangeEvent e)
 //			throws Exception {

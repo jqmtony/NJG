@@ -24,9 +24,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingUtilities;
 import javax.swing.event.TreeSelectionEvent;
+import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreeNode;
-import javax.swing.tree.TreePath;
 
 import org.apache.log4j.Logger;
 
@@ -49,12 +49,12 @@ import com.kingdee.bos.ctrl.swing.tree.DefaultKingdeeTreeNode;
 import com.kingdee.bos.ctrl.swing.util.SimpleFileFilter;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.dao.query.IQueryExecutor;
-import com.kingdee.bos.db.ViewInfo;
 import com.kingdee.bos.metadata.IMetaDataPK;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
+import com.kingdee.bos.metadata.entity.SelectorItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.IUIWindow;
@@ -65,7 +65,6 @@ import com.kingdee.eas.base.permission.client.longtime.ILongTimeTask;
 import com.kingdee.eas.base.permission.client.longtime.LongTimeDialog;
 import com.kingdee.eas.basedata.org.AdminOrgUnitFactory;
 import com.kingdee.eas.basedata.org.IAdminOrgUnit;
-import com.kingdee.eas.basedata.org.OrgConstants;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
@@ -77,7 +76,6 @@ import com.kingdee.eas.custom.fi.AssetCardInfo;
 import com.kingdee.eas.fi.fa.basedata.FaCatFactory;
 import com.kingdee.eas.fi.fa.basedata.FaCatInfo;
 import com.kingdee.eas.fi.newrpt.client.designer.io.WizzardIO;
-import com.kingdee.eas.framework.client.TreePathUtil;
 import com.kingdee.eas.framework.client.tree.DefaultLNTreeNodeCtrl;
 import com.kingdee.eas.framework.client.tree.ITreeBuilder;
 import com.kingdee.eas.framework.client.tree.KDTreeNode;
@@ -102,6 +100,8 @@ public class EquIdListUI extends AbstractEquIdListUI
     private static final Logger logger = CoreUIObject.getLogger(EquIdListUI.class);
     
     private Color a = new Color(238,205,125);
+    
+    private boolean flse = true;
     /**
      * output class constructor
      */
@@ -770,7 +770,7 @@ public class EquIdListUI extends AbstractEquIdListUI
     	
     	treebuild.buildTree(this.kDTree1);
     	
-    	this.kDTree1.expandAllNodes(true, (TreeNode) this.kDTree1.getModel().getRoot());
+    	this.kDTree1.expandAllNodes(false, (TreeNode) this.kDTree1.getModel().getRoot());
     	this.kDTree1.setSelectionRow(0);
     }
     
@@ -780,45 +780,58 @@ public class EquIdListUI extends AbstractEquIdListUI
      */
     protected void tblMain_tableSelectChanged(com.kingdee.bos.ctrl.kdf.table.event.KDTSelectEvent e) throws Exception
     {
-        super.tblMain_tableSelectChanged(e);
-        
+    	checkSelected();
+    	
+    	flse = true;
         String id = this.getSelectedKeyValue();
         
-        if(id==null)
-        	return;
-        
-        EquIdInfo Info = EquIdFactory.getRemoteInstance().getEquIdInfo(new ObjectUuidPK(id));
-        
+        SelectorItemCollection sic = new SelectorItemCollection();
+        sic.add(new SelectorItemInfo("id"));
+        sic.add(new SelectorItemInfo("eqmType.id"));
+		sic.add(new SelectorItemInfo("eqmType.number"));
+		sic.add(new SelectorItemInfo("eqmType.longNumber"));
+		
+        EquIdInfo Info = EquIdFactory.getRemoteInstance().getEquIdInfo(new ObjectUuidPK(id),sic);
        if( Info.getEqmType()==null)
     	   return;
        
-       String facatId =  Info.getEqmType().getId().toString();
+       DefaultKingdeeTreeNode root = (DefaultKingdeeTreeNode) this.kDTree1.getModel().getRoot();
        
-       Object[] newTreePath = null;
+       String facatId =  Info.getEqmType().getLongNumber();
+       this.kDTree1.expandAllNodes(false, (TreeNode) this.kDTree1.getModel().getRoot());
        
-       KDTreeNode root = (KDTreeNode) this.kDTree1.getModel().getRoot();
+       getSelectFaCatNode(root, facatId);
        
-       KDTreeNode treeNodes[] = {root };root.getPath();
-       
-       for (int j = 0; j < treeNodes.length; j++)
-       {
-    	   KDTreeNode kdNode =  treeNodes[j];
-    	   
-    	   if(kdNode.getUserObject() instanceof FaCatInfo)
-    	   {
-    		  String treeFacatId = ( (FaCatInfo)kdNode.getUserObject()).getId().toString();
-    		  
-    		  if(treeFacatId.equals(facatId))
-    		  {
-    			  newTreePath = kdNode.getUserObjectPath();
-    			  break;
-    		  }
-    	   }
-       }
-       
-       if(newTreePath!=null)
-    	   this.kDTree1.setSelectionPath(new TreePath(newTreePath));
+       flse = false;
     }
+    
+    private int inxex = 1;
+    
+	private void getSelectFaCatNode(DefaultKingdeeTreeNode node,String facatId) {
+
+		for (int i = 0; i < node.getChildCount(); i++) {
+			DefaultKingdeeTreeNode curNode = (DefaultKingdeeTreeNode) node.getChildAt(i);
+			
+			inxex +=1;
+			Object obj = curNode.getUserObject();
+			if(obj==null )
+				continue;
+			if( obj instanceof FaCatInfo )
+			{
+				String lastLongNumber = ((FaCatInfo)obj).getLongNumber();
+				
+				
+				if(lastLongNumber.equals(facatId))
+				{
+					this.kDTree1.setSelectionNode(curNode);
+					break;
+				}
+			}
+			if (curNode.getChildCount() > 0) {
+				getSelectFaCatNode(curNode,facatId);
+			}
+		}
+	}
     
     private void tblMain_afterDataFill(KDTDataRequestEvent e){
         for (int i = e.getFirstRow(); i <= e.getLastRow(); i++)
@@ -834,9 +847,11 @@ public class EquIdListUI extends AbstractEquIdListUI
 }
 	  
     protected void kDTree1_valueChanged(TreeSelectionEvent e) throws Exception {
-	    	super.kDTree1_valueChanged(e);
-	    	
+    	
 	    	DefaultKingdeeTreeNode  typeNode  =	(DefaultKingdeeTreeNode) kDTree1.getLastSelectedPathComponent();
+	    	
+	    	if(flse)
+	    		return;
 			
 		     FaCatInfo type  = null;
 			if(typeNode!=null){
@@ -851,7 +866,6 @@ public class EquIdListUI extends AbstractEquIdListUI
 					mainQuery.setFilter(filter);
 					execQuery();
 				}
-					
 			}
 	    }
     

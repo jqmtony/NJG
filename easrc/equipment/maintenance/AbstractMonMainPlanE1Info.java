@@ -106,7 +106,7 @@ public class AbstractMonMainPlanE1Info extends com.kingdee.eas.framework.CoreBil
         setBigDecimal("planCost", item);
     }
     /**
-     * Object: 月度维保计划单 's 实施部门 property 
+     * Object: 月度维保计划单 's 实施单位 property 
      */
     public com.kingdee.eas.basedata.org.AdminOrgUnitInfo getImplementDepart()
     {
