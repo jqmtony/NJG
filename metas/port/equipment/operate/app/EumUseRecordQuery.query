@@ -110,7 +110,20 @@
             </query>
             <entityRef>
                 <key name="package" value="com.kingdee.eas.port.equipment.base.app" />
-                <key name="name" value="QuarterTime" />
+                <key name="name" value="MonthTime" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>reportMonth</name>
+            <alias>joinQuery[com.kingdee.eas.port.equipment.operate.app.EumUseRecordQuery].subObjects.subEntity[reportMonth].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.operate.app" />
+                <key name="name" value="EumUseRecordQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.port.equipment.base.app" />
+                <key name="name" value="MonthTime" />
             </entityRef>
         </subEntity>
     </subObjects>
@@ -891,99 +904,6 @@
             </query>
         </propertyUnit>
         <queryField>
-            <name>reportTime.name</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.equipment.operate.app.EumUseRecordQuery].units.queryField[reportTime.name].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>a3d013a7-8330-4129-bb34-ca738feda40b</key>
-                    <parentUnit>
-                        <key name="name" value="reportTime.name" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="reportTime" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="name" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.equipment.operate.app" />
-                <key name="name" value="EumUseRecordQuery" />
-            </query>
-        </queryField>
-        <propertyUnit>
-            <name>85c34bf6-588d-4732-be0b-59e0dab394ab</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.equipment.operate.app.EumUseRecordQuery].units.propertyUnit[85c34bf6-588d-4732-be0b-59e0dab394ab].displayName</displayName>
-            <groupType />
-            <isSelector>false</isSelector>
-            <isFilter>false</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType />
-            <propertyRefs>
-                <propertyRef>
-                    <key>78940aa6-8369-453e-b10e-9fb14f078a19</key>
-                    <parentUnit>
-                        <key name="name" value="85c34bf6-588d-4732-be0b-59e0dab394ab" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="EumUseRecord" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="reportTime" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.equipment.operate.app" />
-                <key name="name" value="EumUseRecordQuery" />
-            </query>
-        </propertyUnit>
-        <propertyUnit>
-            <name>3a9aedf3-a214-483d-ac69-0497e4f10e41</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.equipment.operate.app.EumUseRecordQuery].units.propertyUnit[3a9aedf3-a214-483d-ac69-0497e4f10e41].displayName</displayName>
-            <groupType />
-            <isSelector>false</isSelector>
-            <isFilter>false</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType />
-            <propertyRefs>
-                <propertyRef>
-                    <key>1d042d1a-09ba-48d4-adb2-9621c8efcc94</key>
-                    <parentUnit>
-                        <key name="name" value="3a9aedf3-a214-483d-ac69-0497e4f10e41" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="reportTime" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="id" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.equipment.operate.app" />
-                <key name="name" value="EumUseRecordQuery" />
-            </query>
-        </propertyUnit>
-        <queryField>
             <name>initialiRecord</name>
             <userDefined>true</userDefined>
             <formulaString>#0</formulaString>
@@ -1014,6 +934,192 @@
                 <key name="name" value="EumUseRecordQuery" />
             </query>
         </queryField>
+        <queryField>
+            <name>reportTime.name</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.operate.app.EumUseRecordQuery].units.queryField[reportTime.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>2edf499e-bf0d-4290-9a59-cff4ed808b0a</key>
+                    <parentUnit>
+                        <key name="name" value="reportTime.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="reportTime" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.operate.app" />
+                <key name="name" value="EumUseRecordQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>57c0eddd-b9c0-4c99-b56c-065e1994eca9</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.operate.app.EumUseRecordQuery].units.propertyUnit[57c0eddd-b9c0-4c99-b56c-065e1994eca9].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>7957b7eb-5d2b-44a3-a23a-56e8570afeb0</key>
+                    <parentUnit>
+                        <key name="name" value="57c0eddd-b9c0-4c99-b56c-065e1994eca9" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="EumUseRecord" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="reportTime" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.operate.app" />
+                <key name="name" value="EumUseRecordQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>f78da7a1-fa34-43e2-8be5-7e9d1c9e374f</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.operate.app.EumUseRecordQuery].units.propertyUnit[f78da7a1-fa34-43e2-8be5-7e9d1c9e374f].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>d5c546e1-8da3-4817-8dac-4d9f016bab00</key>
+                    <parentUnit>
+                        <key name="name" value="f78da7a1-fa34-43e2-8be5-7e9d1c9e374f" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="reportTime" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.operate.app" />
+                <key name="name" value="EumUseRecordQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>reportMonth.name</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.operate.app.EumUseRecordQuery].units.queryField[reportMonth.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>544eba1e-e77c-42b3-aef7-709a9b0656b4</key>
+                    <parentUnit>
+                        <key name="name" value="reportMonth.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="reportMonth" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.operate.app" />
+                <key name="name" value="EumUseRecordQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>bcd9d9b6-b2b3-40fb-b799-85d793a29d25</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.operate.app.EumUseRecordQuery].units.propertyUnit[bcd9d9b6-b2b3-40fb-b799-85d793a29d25].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>276bc349-bd54-4daa-a7f5-a160790d1e99</key>
+                    <parentUnit>
+                        <key name="name" value="bcd9d9b6-b2b3-40fb-b799-85d793a29d25" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="EumUseRecord" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="reportMonth" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.operate.app" />
+                <key name="name" value="EumUseRecordQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>d7c035a5-6324-4790-9946-ee39a4a2fdd1</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.operate.app.EumUseRecordQuery].units.propertyUnit[d7c035a5-6324-4790-9946-ee39a4a2fdd1].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>296b6a4e-d3bc-4284-a9ec-6d306d3e6658</key>
+                    <parentUnit>
+                        <key name="name" value="d7c035a5-6324-4790-9946-ee39a4a2fdd1" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="reportMonth" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.operate.app" />
+                <key name="name" value="EumUseRecordQuery" />
+            </query>
+        </propertyUnit>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -1218,7 +1324,7 @@
             </query>
         </join>
         <join>
-            <name>3ce3456a-5a21-4d7f-9f9b-65ccef602d58</name>
+            <name>9dc66c34-7a2a-4197-ae55-7a65d211f8d8</name>
             <formulaString>#0</formulaString>
             <type>LEFT OUTER JOIN</type>
             <leftObject>
@@ -1229,16 +1335,46 @@
             </rightObject>
             <joinItems>
                 <joinItem>
-                    <name>bfaa7d10-7c3e-443f-a622-c8e106ead983</name>
+                    <name>c591dae1-3997-46ef-b3aa-66eea8fc8f3d</name>
                     <compareType>=</compareType>
                     <leftField>
-                        <key name="name" value="85c34bf6-588d-4732-be0b-59e0dab394ab" />
+                        <key name="name" value="57c0eddd-b9c0-4c99-b56c-065e1994eca9" />
                     </leftField>
                     <rightField>
-                        <key name="name" value="3a9aedf3-a214-483d-ac69-0497e4f10e41" />
+                        <key name="name" value="f78da7a1-fa34-43e2-8be5-7e9d1c9e374f" />
                     </rightField>
                     <join>
-                        <key name="name" value="3ce3456a-5a21-4d7f-9f9b-65ccef602d58" />
+                        <key name="name" value="9dc66c34-7a2a-4197-ae55-7a65d211f8d8" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.operate.app" />
+                <key name="name" value="EumUseRecordQuery" />
+            </query>
+        </join>
+        <join>
+            <name>0d5f1208-ba50-4ea7-9126-36ec56c28f49</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="EumUseRecord" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="reportMonth" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>32331b1b-0caf-4c45-9d92-6011bde20de6</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="bcd9d9b6-b2b3-40fb-b799-85d793a29d25" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="d7c035a5-6324-4790-9946-ee39a4a2fdd1" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="0d5f1208-ba50-4ea7-9126-36ec56c28f49" />
                     </join>
                 </joinItem>
             </joinItems>
@@ -1312,6 +1448,12 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.EumUseRecordQuery].subObjects.subEntity[reportMonth].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.EumUseRecordQuery].subObjects.subEntity[reportTime].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -1348,13 +1490,13 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.EumUseRecordQuery].units.propertyUnit[3a9aedf3-a214-483d-ac69-0497e4f10e41].displayName">
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.EumUseRecordQuery].units.propertyUnit[4d2ea50d-87b6-4764-8511-ad9d75aa377a].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.EumUseRecordQuery].units.propertyUnit[4d2ea50d-87b6-4764-8511-ad9d75aa377a].displayName">
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.EumUseRecordQuery].units.propertyUnit[57c0eddd-b9c0-4c99-b56c-065e1994eca9].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -1378,13 +1520,19 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.EumUseRecordQuery].units.propertyUnit[85c34bf6-588d-4732-be0b-59e0dab394ab].displayName">
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.EumUseRecordQuery].units.propertyUnit[8c584cc3-b871-4f3d-b836-0524db3f45fd].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.EumUseRecordQuery].units.propertyUnit[8c584cc3-b871-4f3d-b836-0524db3f45fd].displayName">
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.EumUseRecordQuery].units.propertyUnit[bcd9d9b6-b2b3-40fb-b799-85d793a29d25].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.EumUseRecordQuery].units.propertyUnit[d7c035a5-6324-4790-9946-ee39a4a2fdd1].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -1403,6 +1551,12 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.EumUseRecordQuery].units.propertyUnit[f231c185-16de-45db-a775-a716e2c6fa35].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.EumUseRecordQuery].units.propertyUnit[f78da7a1-fa34-43e2-8be5-7e9d1c9e374f].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -1585,11 +1739,32 @@
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.EumUseRecordQuery].units.queryField[reportMonth.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="报表月份" />
+            <lang locale="zh_HK" value="報表月份" />
+            <lang locale="zh_TW" value="報表月份" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.EumUseRecordQuery].units.queryField[reportMonth.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.EumUseRecordQuery].units.queryField[reportMonth.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.EumUseRecordQuery].units.queryField[reportMonth.name].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.EumUseRecordQuery].units.queryField[reportTime.name].displayName">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="报表时间" />
-            <lang locale="zh_HK" value="報表時間" />
-            <lang locale="zh_TW" value="報表時間" />
+            <lang locale="zh_CN" value="报表月份" />
+            <lang locale="zh_HK" value="報表月份" />
+            <lang locale="zh_TW" value="報表月份" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.EumUseRecordQuery].units.queryField[reportTime.name].extendedProperty.isCommonQueryFilter">
             <lang locale="en_US" value="true" />

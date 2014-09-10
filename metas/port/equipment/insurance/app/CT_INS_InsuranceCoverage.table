@@ -357,6 +357,34 @@
             <scale>0</scale>
             <precision>0</precision>
         </column>
+        <column>
+            <name>CFTbrmcID</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_InsuranceCoverage].columns.column[CFTbrmcID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_InsuranceCoverage].columns.column[CFTbrmcID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFXzdm</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_InsuranceCoverage].columns.column[CFXzdm].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_InsuranceCoverage].columns.column[CFXzdm].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>100</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
     </columns>
     <primaryKey>
         <name>CPK_INS_InsrnsCki8</name>
@@ -505,6 +533,25 @@
                 </fkColumnPair>
             </fkColumnPairs>
         </foreignKey>
+        <foreignKey>
+            <name>CFK_INS_INSICBrm8v</name>
+            <userDefined>true</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.basedata.org" />
+                <key name="name" value="T_ORG_Company" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="CFTbrmcID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
     </foreignKeys>
     <resource>
         <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_InsuranceCoverage].alias">
@@ -585,6 +632,18 @@
             <lang locale="zh_HK" value="險種" />
             <lang locale="zh_TW" value="險種" />
         </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_InsuranceCoverage].columns.column[CFTbrmcID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="投保人名称" />
+            <lang locale="zh_HK" value="投保人名稱" />
+            <lang locale="zh_TW" value="投保人名稱" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_InsuranceCoverage].columns.column[CFTbrmcID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="投保人名称" />
+            <lang locale="zh_HK" value="投保人名稱" />
+            <lang locale="zh_TW" value="投保人名稱" />
+        </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_InsuranceCoverage].columns.column[CFXianzhongID].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="险种ID" />
@@ -596,6 +655,18 @@
             <lang locale="zh_CN" value="文本" />
             <lang locale="zh_HK" value="文本" />
             <lang locale="zh_TW" value="文本" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_InsuranceCoverage].columns.column[CFXzdm].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="险种代码" />
+            <lang locale="zh_HK" value="險種代碼" />
+            <lang locale="zh_TW" value="險種代碼" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_InsuranceCoverage].columns.column[CFXzdm].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="险种代码" />
+            <lang locale="zh_HK" value="險種代碼" />
+            <lang locale="zh_TW" value="險種代碼" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.insurance.app.CT_INS_InsuranceCoverage].columns.column[CFYear].alias">
             <lang locale="en_US" value="null" />

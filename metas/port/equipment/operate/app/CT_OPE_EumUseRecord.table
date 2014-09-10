@@ -274,6 +274,20 @@
             <precision>0</precision>
         </column>
         <column>
+            <name>CFInitialiRecord</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_EumUseRecord].columns.column[CFInitialiRecord].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_EumUseRecord].columns.column[CFInitialiRecord].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>INT</sqlType>
+            <length>1</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
             <name>CFReportTimeID</name>
             <alias>dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_EumUseRecord].columns.column[CFReportTimeID].alias</alias>
             <description>dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_EumUseRecord].columns.column[CFReportTimeID].description</description>
@@ -288,16 +302,16 @@
             <precision>0</precision>
         </column>
         <column>
-            <name>CFInitialiRecord</name>
-            <alias>dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_EumUseRecord].columns.column[CFInitialiRecord].alias</alias>
-            <description>dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_EumUseRecord].columns.column[CFInitialiRecord].description</description>
+            <name>CFReportMonthID</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_EumUseRecord].columns.column[CFReportMonthID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_EumUseRecord].columns.column[CFReportMonthID].description</description>
             <userDefined>true</userDefined>
             <isMultilingual>false</isMultilingual>
             <isEncoded>false</isEncoded>
             <isNullable>true</isNullable>
             <defaultValue />
-            <sqlType>INT</sqlType>
-            <length>1</length>
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
             <scale>0</scale>
             <precision>0</precision>
         </column>
@@ -450,11 +464,11 @@
             </fkColumnPairs>
         </foreignKey>
         <foreignKey>
-            <name>CFK_OPE_OPEEUREpol</name>
+            <name>CFK_OPE_OPEEUREptb</name>
             <userDefined>true</userDefined>
             <refTable>
                 <key name="package" value="com.kingdee.eas.port.equipment.base.app" />
-                <key name="name" value="CT_BAS_QuarterTime" />
+                <key name="name" value="CT_BAS_MonthTime" />
             </refTable>
             <fkColumnPairs>
                 <fkColumnPair>
@@ -464,6 +478,25 @@
                     </refColumn>
                     <fkColumn>
                         <key name="name" value="CFReportTimeID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
+        <foreignKey>
+            <name>CFK_OPE_OPEEUREp2b</name>
+            <userDefined>true</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.port.equipment.base.app" />
+                <key name="name" value="CT_BAS_MonthTime" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="CFReportMonthID" />
                     </fkColumn>
                 </fkColumnPair>
             </fkColumnPairs>
@@ -488,17 +521,29 @@
             <lang locale="zh_HK" value="是否初始化記錄" />
             <lang locale="zh_TW" value="是否初始化記錄" />
         </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_EumUseRecord].columns.column[CFReportMonthID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="报表月份" />
+            <lang locale="zh_HK" value="報表月份" />
+            <lang locale="zh_TW" value="報表月份" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_EumUseRecord].columns.column[CFReportMonthID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="报表月份" />
+            <lang locale="zh_HK" value="報表月份" />
+            <lang locale="zh_TW" value="報表月份" />
+        </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_EumUseRecord].columns.column[CFReportTimeID].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="报表时间" />
-            <lang locale="zh_HK" value="報表時間" />
-            <lang locale="zh_TW" value="報表時間" />
+            <lang locale="zh_CN" value="报表月份" />
+            <lang locale="zh_HK" value="報表月份" />
+            <lang locale="zh_TW" value="報表月份" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_EumUseRecord].columns.column[CFReportTimeID].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="报表时间" />
-            <lang locale="zh_HK" value="報表時間" />
-            <lang locale="zh_TW" value="報表時間" />
+            <lang locale="zh_CN" value="报表月份" />
+            <lang locale="zh_HK" value="報表月份" />
+            <lang locale="zh_TW" value="報表月份" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_EumUseRecord].columns.column[CFStaPersonID].alias">
             <lang locale="en_US" value="null" />

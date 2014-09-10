@@ -784,20 +784,6 @@
                 <key name="name" value="R_EumUseRecord_AdminOrgUnit_UseOrgUnit" />
             </relationship>
         </linkProperty>
-        <linkProperty>
-            <name>reportTime</name>
-            <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecord].properties.linkProperty[reportTime].alias</alias>
-            <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecord].properties.linkProperty[reportTime].description</description>
-            <userDefined>true</userDefined>
-            <configured>false</configured>
-            <mappingField>
-                <key name="name" value="CFReportTimeID" />
-            </mappingField>
-            <relationship>
-                <key name="package" value="com.kingdee.eas.port.equipment.operate.app" />
-                <key name="name" value="R_EumUseRecord_QuarterTime_reportTime" />
-            </relationship>
-        </linkProperty>
         <ownProperty>
             <name>initialiRecord</name>
             <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecord].properties.ownProperty[initialiRecord].alias</alias>
@@ -818,6 +804,34 @@
                 <key name="name" value="CFInitialiRecord" />
             </mappingField>
         </ownProperty>
+        <linkProperty>
+            <name>reportTime</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecord].properties.linkProperty[reportTime].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecord].properties.linkProperty[reportTime].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <mappingField>
+                <key name="name" value="CFReportTimeID" />
+            </mappingField>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.port.equipment.operate.app" />
+                <key name="name" value="R_EumUseRecord_MonthTime_reportTime" />
+            </relationship>
+        </linkProperty>
+        <linkProperty>
+            <name>reportMonth</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecord].properties.linkProperty[reportMonth].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecord].properties.linkProperty[reportMonth].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <mappingField>
+                <key name="name" value="CFReportMonthID" />
+            </mappingField>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.port.equipment.operate.app" />
+                <key name="name" value="R_EumUseRecord_MonthTime_reportMonth" />
+            </relationship>
+        </linkProperty>
     </properties>
     <logicalKey>
         <name>id</name>
@@ -2174,17 +2188,69 @@
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecord].properties.linkProperty[reportMonth].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="报表月份" />
+            <lang locale="zh_HK" value="報表月份" />
+            <lang locale="zh_TW" value="報表月份" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecord].properties.linkProperty[reportMonth].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="报表月份" />
+            <lang locale="zh_HK" value="報表月份" />
+            <lang locale="zh_TW" value="報表月份" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecord].properties.linkProperty[reportMonth].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecord].properties.linkProperty[reportMonth].extendedProperty.dataField">
+            <lang locale="en_US" value="name" />
+            <lang locale="zh_CN" value="name" />
+            <lang locale="zh_TW" value="name" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecord].properties.linkProperty[reportMonth].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecord].properties.linkProperty[reportMonth].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecord].properties.linkProperty[reportMonth].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecord].properties.linkProperty[reportMonth].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecord].properties.linkProperty[reportMonth].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecord].properties.linkProperty[reportMonth].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecord].properties.linkProperty[reportTime].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="报表时间" />
-            <lang locale="zh_HK" value="報表時間" />
-            <lang locale="zh_TW" value="報表時間" />
+            <lang locale="zh_CN" value="报表月份" />
+            <lang locale="zh_HK" value="報表月份" />
+            <lang locale="zh_TW" value="報表月份" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecord].properties.linkProperty[reportTime].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="报表时间" />
-            <lang locale="zh_HK" value="報表時間" />
-            <lang locale="zh_TW" value="報表時間" />
+            <lang locale="zh_CN" value="报表月份" />
+            <lang locale="zh_HK" value="報表月份" />
+            <lang locale="zh_TW" value="報表月份" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EumUseRecord].properties.linkProperty[reportTime].extendedProperty.ColWidthInKDTable">
             <lang locale="en_US" value="50" />

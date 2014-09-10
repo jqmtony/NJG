@@ -139,6 +139,19 @@
                 <key name="name" value="EquId" />
             </entityRef>
         </subEntity>
+        <subEntity>
+            <name>tbrmc</name>
+            <alias>joinQuery[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageQuery].subObjects.subEntity[tbrmc].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.insurance.app" />
+                <key name="name" value="InsuranceCoverageQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.basedata.org.app" />
+                <key name="name" value="CompanyOrgUnit" />
+            </entityRef>
+        </subEntity>
     </subObjects>
     <units>
         <queryField>
@@ -1722,6 +1735,130 @@
                 <key name="name" value="InsuranceCoverageQuery" />
             </query>
         </queryField>
+        <queryField>
+            <name>tbrmc.name</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageQuery].units.queryField[tbrmc.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>d09597dc-5980-4e72-b5ea-0507e509b449</key>
+                    <parentUnit>
+                        <key name="name" value="tbrmc.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="tbrmc" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.insurance.app" />
+                <key name="name" value="InsuranceCoverageQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>1e4482e8-6e88-4cc2-b810-d71f5db0cf2b</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageQuery].units.propertyUnit[1e4482e8-6e88-4cc2-b810-d71f5db0cf2b].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>5a969369-36f7-4fde-bcef-82313f2db07b</key>
+                    <parentUnit>
+                        <key name="name" value="1e4482e8-6e88-4cc2-b810-d71f5db0cf2b" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="InsuranceCoverage" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="tbrmc" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.insurance.app" />
+                <key name="name" value="InsuranceCoverageQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>1e0da49d-153d-48bd-9067-4a9ac44a9daa</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageQuery].units.propertyUnit[1e0da49d-153d-48bd-9067-4a9ac44a9daa].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>3ac3ab73-d848-4ffd-8209-306ed9577dc4</key>
+                    <parentUnit>
+                        <key name="name" value="1e0da49d-153d-48bd-9067-4a9ac44a9daa" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="tbrmc" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.insurance.app" />
+                <key name="name" value="InsuranceCoverageQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>xzdm</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageQuery].units.queryField[xzdm].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>d9d26bc5-6b5b-4832-9950-92d595186ec2</key>
+                    <parentUnit>
+                        <key name="name" value="xzdm" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="InsuranceCoverage" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="xzdm" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.insurance.app" />
+                <key name="name" value="InsuranceCoverageQuery" />
+            </query>
+        </queryField>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -2015,6 +2152,36 @@
                 <key name="name" value="InsuranceCoverageQuery" />
             </query>
         </join>
+        <join>
+            <name>53d95e9f-cecb-4dcc-9f71-cc3817b610a5</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="InsuranceCoverage" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="tbrmc" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>016e2581-35c5-4271-a791-3f418ed50026</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="1e4482e8-6e88-4cc2-b810-d71f5db0cf2b" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="1e0da49d-153d-48bd-9067-4a9ac44a9daa" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="53d95e9f-cecb-4dcc-9f71-cc3817b610a5" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.insurance.app" />
+                <key name="name" value="InsuranceCoverageQuery" />
+            </query>
+        </join>
     </joins>
     <resource>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageQuery].alias">
@@ -2104,6 +2271,12 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageQuery].subObjects.subEntity[tbrmc].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageQuery].units.propertyUnit[00a866a6-64e1-4f3f-a034-5740ab0d31ec].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -2123,6 +2296,18 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageQuery].units.propertyUnit[189d8c6c-00e3-477b-9116-fa572616e027].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageQuery].units.propertyUnit[1e0da49d-153d-48bd-9067-4a9ac44a9daa].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageQuery].units.propertyUnit[1e4482e8-6e88-4cc2-b810-d71f5db0cf2b].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -2708,6 +2893,27 @@
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageQuery].units.queryField[tbrmc.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="投保人名称" />
+            <lang locale="zh_HK" value="投保人名稱" />
+            <lang locale="zh_TW" value="投保人名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageQuery].units.queryField[tbrmc.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageQuery].units.queryField[tbrmc.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageQuery].units.queryField[tbrmc.name].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageQuery].units.queryField[xianzhongID].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="险种ID" />
@@ -2720,6 +2926,22 @@
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageQuery].units.queryField[xianzhongID].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageQuery].units.queryField[xzdm].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="险种代码" />
+            <lang locale="zh_HK" value="險種代碼" />
+            <lang locale="zh_TW" value="險種代碼" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageQuery].units.queryField[xzdm].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageQuery].units.queryField[xzdm].extendedProperty.isCommonQuerySorter">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
