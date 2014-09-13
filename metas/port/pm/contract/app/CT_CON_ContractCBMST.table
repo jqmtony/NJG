@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataTable xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.port.pm.contract.app</package>
+    <name>CT_CON_ContractCBMST</name>
+    <alias>dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractCBMST].alias</alias>
+    <description>dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractCBMST].description</description>
+    <userDefined>true</userDefined>
+    <bizUnitPK />
+    <columns>
+        <column>
+            <name>FParentID</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractCBMST].columns.column[FParentID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractCBMST].columns.column[FParentID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>44</precision>
+        </column>
+        <column>
+            <name>FSpecialtyTypeID</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractCBMST].columns.column[FSpecialtyTypeID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractCBMST].columns.column[FSpecialtyTypeID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FContracChangeParentID</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractCBMST].columns.column[FContracChangeParentID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractCBMST].columns.column[FContracChangeParentID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>44</precision>
+        </column>
+        <column>
+            <name>FSeq</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractCBMST].columns.column[FSeq].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractCBMST].columns.column[FSeq].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>INT</sqlType>
+            <length>4</length>
+            <scale>0</scale>
+            <precision>4</precision>
+        </column>
+        <column>
+            <name>FID</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractCBMST].columns.column[FID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractCBMST].columns.column[FID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>44</precision>
+        </column>
+    </columns>
+    <primaryKey>
+        <name>CPK_CON_CntrCBMnbd</name>
+        <userDefined>true</userDefined>
+        <primaryKeyColumns>
+            <primaryKeyColumn>
+                <indexID>0</indexID>
+                <sortType>ASC</sortType>
+                <column>
+                    <key name="name" value="FID" />
+                </column>
+            </primaryKeyColumn>
+        </primaryKeyColumns>
+    </primaryKey>
+    <resource>
+        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractCBMST].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="专业类型分录" />
+            <lang locale="zh_TW" value="專業類型分錄" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractCBMST].columns.column[FContracChangeParentID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractCBMST].columns.column[FContracChangeParentID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="变更指令单" />
+            <lang locale="zh_TW" value="變更指令單" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractCBMST].columns.column[FID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="ID" />
+            <lang locale="zh_TW" value="ID" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractCBMST].columns.column[FID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractCBMST].columns.column[FParentID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractCBMST].columns.column[FParentID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractCBMST].columns.column[FSeq].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据分录序列号" />
+            <lang locale="zh_TW" value="單據分錄序列號" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractCBMST].columns.column[FSeq].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据分录序列号（定义为序列属性即使用{seq}）" />
+            <lang locale="zh_TW" value="單據分錄序列號（定義為序列屬性即使用{seq}）" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractCBMST].columns.column[FSpecialtyTypeID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractCBMST].columns.column[FSpecialtyTypeID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="专业类型  " />
+            <lang locale="zh_TW" value="專業類型  " />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractCBMST].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="专业类型分录" />
+            <lang locale="zh_TW" value="專業類型分錄" />
+        </rs>
+    </resource>
+</dataTable>
+
