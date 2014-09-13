@@ -67,7 +67,6 @@ import com.kingdee.bos.ui.face.IUIWindow;
 import com.kingdee.bos.ui.face.UIException;
 import com.kingdee.bos.ui.face.UIFactory;
 import com.kingdee.bos.util.BOSUuid;
-import com.kingdee.eas.auto4s.bdm.pbd.CustomerTypeEnum;
 import com.kingdee.eas.base.codingrule.CodingRuleManagerFactory;
 import com.kingdee.eas.base.codingrule.ICodingRuleManager;
 import com.kingdee.eas.base.permission.UserCollection;
