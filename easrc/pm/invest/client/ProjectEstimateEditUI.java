@@ -37,8 +37,10 @@ import com.kingdee.eas.port.pm.base.InvestYearInfo;
 import com.kingdee.eas.port.pm.base.ProjectTypeFactory;
 import com.kingdee.eas.port.pm.base.ProjectTypeInfo;
 import com.kingdee.eas.port.pm.invest.ProjectEstimateFactory;
+import com.kingdee.eas.port.pm.invest.YearInvestPlanCollection;
 import com.kingdee.eas.port.pm.invest.YearInvestPlanFactory;
 import com.kingdee.eas.port.pm.invest.YearInvestPlanInfo;
+import com.kingdee.eas.port.pm.invest.investplan.IProgramming;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingFactory;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingInfo;
 import com.kingdee.eas.port.pm.invest.investplan.client.ProgrammingEditUI;
@@ -204,8 +206,9 @@ public class ProjectEstimateEditUI extends AbstractProjectEstimateEditUI
 					if(kdtable.getSelectedComponent().getName().equals("kDPanel1"))
 					{
 						MsgBox.showWarning("单据未保存，请先保存！");
-						kDTabbedPane1.setSelectedComponent(kDPanel2);
 						SysUtil.abort();
+						kDTabbedPane1.setSelectedComponent(kDPanel2);
+						
 					}
 					if(!kdtable.getSelectedComponent().getName().equals("kDPanel1"))
 						return;
@@ -230,30 +233,28 @@ public class ProjectEstimateEditUI extends AbstractProjectEstimateEditUI
 				BOSUuid yearID =((InvestYearInfo)prmtyear.getValue()).getId();
 				InvestYearInfo  newYearInfo = InvestYearFactory.getRemoteInstance().getInvestYearInfo(new ObjectUuidPK(yearID));
 				uiContext.put("year",newYearInfo);
-				//加载投资规划编辑界面
-		    	String oql = "where SourceBillId='"+editData.getId()+"'";
-		    	boolean flse = false;
-		    	if(ProgrammingFactory.getRemoteInstance().exists(oql))
-		    	{
-		    		uiContext.put("ID", ProgrammingFactory.getRemoteInstance().getProgrammingCollection(oql).get(0).getId());
-		    		flse = true;
-		    	}
-				if(flse){
-					String oql1 = "where SourceBillId ='"+editData.getId().toString()+"'  ";
-					ProgrammingInfo ProgrammingInfo=ProgrammingFactory.getRemoteInstance().getProgrammingCollection(oql1).get(0);
-					uiContext.put("ID", ProgrammingInfo.getId());
+				IProgramming iProgramming = ProgrammingFactory.getRemoteInstance();
+		        String oql = "select id where projectNumber='"+projectInfo.getNumber()+"'" ;
+		        oql = oql +" order by version desc ";
+		        ProgrammingInfo pmInfo = iProgramming.getProgrammingCollection(oql).get(0);
+				if(iProgramming.exists("where sourceBillId='"+editData.getId()+"'"))
+				{
+					ProgrammingInfo programming = iProgramming.getProgrammingInfo("where sourceBillId='"+editData.getId()+"'");
+					uiContext.put("ID", programming.getId());
+			    	uiContext.put("yearPlanId",editData.getId().toString());
+			    	programmingEditUI = (ProgrammingEditUI) UIFactoryHelper.initUIObject(ProgrammingEditUI.class.getName(), uiContext, null, "EDIT");
+			    	kDScrollPane1.setViewportView(programmingEditUI);
+			    	kDScrollPane1.setKeyBoardControl(true);
+			    	kDScrollPane1.setEnabled(false);
 				}else{
-					String oql1 = "where projectNumber='"+projectInfo.getNumber()+"' order by createTime desc ";
-					ProgrammingInfo ProgrammingInfo=ProgrammingFactory.getRemoteInstance().getProgrammingCollection(oql1).get(0);
-					uiContext.put("ID", ProgrammingInfo.getId());
+			    	uiContext.put("ID", pmInfo.getId());
+			    	uiContext.put("yearPlanId",editData.getId().toString());
+			    	programmingEditUI = (ProgrammingEditUI) UIFactoryHelper.initUIObject(ProgrammingEditUI.class.getName(), uiContext, null, "EDIT");
+			    	kDScrollPane1.setViewportView(programmingEditUI);
+			    	kDScrollPane1.setKeyBoardControl(true);
+			    	kDScrollPane1.setEnabled(false);
+			        programmingEditUI.actionCopy_actionPerformed(null);
 				}
-		        programmingEditUI = (ProgrammingEditUI) UIFactoryHelper.initUIObject(ProgrammingEditUI.class.getName(), uiContext, null,"EDIT");
-		    	kDScrollPane1.setViewportView(programmingEditUI);
-		    	kDScrollPane1.setKeyBoardControl(true);
-		    	kDScrollPane1.setEnabled(false);
-		    	if(!flse){
-		    	  programmingEditUI.actionCopy_actionPerformed(null);	
-		    	}
 			}
 		}
 	}
@@ -503,7 +504,6 @@ public class ProjectEstimateEditUI extends AbstractProjectEstimateEditUI
 	 */
 	public void actionSave_actionPerformed(ActionEvent e) throws Exception {
 		super.actionSave_actionPerformed(e);
-		setPortProject(null);
 		if(programmingEditUI!=null)
 			programmingEditUI.actionSave_actionPerformed(e);
 	}
@@ -513,7 +513,6 @@ public class ProjectEstimateEditUI extends AbstractProjectEstimateEditUI
 	 */
 	public void actionSubmit_actionPerformed(ActionEvent e) throws Exception {
 		super.actionSubmit_actionPerformed(e);
-		setPortProject(null);
 		if(programmingEditUI!=null)
 			programmingEditUI.actionSubmit_actionPerformed(e);
 	}

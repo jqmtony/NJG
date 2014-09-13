@@ -254,6 +254,8 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
     	    }
     	}	
 		super.verifyInput(e);
+		if(programmingEditUI!=null)
+			programmingEditUI.verifyDataBySave();
 	}
 
 	/**
@@ -325,14 +327,10 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 			kDScrollPane1.setViewportView(null);
 			String number = this.txtNumber.getText();
 			UIContext uiContext = new UIContext(this);
-			uiContext.put("UIName", "YearInvestPlanEditUI");
 			uiContext.put("proAmount", this.txtamount);
 			uiContext.put("proInvestAmount", this.txtinvestAmount);
 			uiContext.put("proAddAmount", this.txtaddInvestAmount);
 			uiContext.put("proBalance", this.txtbalance);
-			uiContext.put("proNumber",number);
-			uiContext.put("proname", this.txtprojectName.getText());
-			uiContext.put("modify", this.txtprojectName.getText());
 			//新建项目
 			if(prmtportProject.getValue()==null){
 				//加载投资规划编辑界面
@@ -343,10 +341,7 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 		    		uiContext.put("ID", ProgrammingFactory.getRemoteInstance().getProgrammingCollection(oql).get(0).getId());
 		    		flse = false;
 		    	}
-		    	else
-		    	{
-		    		uiContext.put("yearPlanId",editData.getId().toString());
-		    	}
+		    	uiContext.put("yearPlanId",editData.getId().toString());
 		        programmingEditUI = (ProgrammingEditUI) UIFactoryHelper.initUIObject(ProgrammingEditUI.class.getName(), uiContext, null, flse?"ADDNEW":getOprtState());
 		        kDScrollPane1.setViewportView(programmingEditUI);
 		        kDScrollPane1.setKeyBoardControl(true);
@@ -360,33 +355,27 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 				ProjectInfo projectInfo = (ProjectInfo)prmtportProject.getValue();
 				YearInvestPlanInfo yearInvestPlanInfo = (YearInvestPlanInfo)projectInfo.getNJGyearInvest();
 				yearInvestPlanInfo = YearInvestPlanFactory.getRemoteInstance().getYearInvestPlanInfo(new ObjectUuidPK(yearInvestPlanInfo.getId()));
-		        String oql = "select number,year.id,year.number,year.name where (number='"+yearInvestPlanInfo.getNumber()+"' or portProject.number='"+
-		        yearInvestPlanInfo.getNumber()+"')  and objectState='8'" ;
-		        if(editData.getId()!=null)
-		        	oql = oql + "and id<>'"+editData.getId()+"'";
-		        oql = oql +" order by year.number desc ";
-				YearInvestPlanCollection coll = YearInvestPlanFactory.getRemoteInstance().getYearInvestPlanCollection(oql);
-				YearInvestPlanInfo pro = coll.get(0);
-				InvestYearInfo  newYearInfo = InvestYearFactory.getRemoteInstance().getInvestYearInfo("where name ='"+String.valueOf(Integer.parseInt(pro.getYear().getName())+1)+"'");
-				if(!iProgramming.exists("where sourceBillId='"+pro.getId()+"'"))
+		        String oql = "select id where projectNumber='"+projectInfo.getNumber()+"'" ;
+		        oql = oql +" order by version desc ";
+		        ProgrammingInfo pmInfo = iProgramming.getProgrammingCollection(oql).get(0);
+				if(iProgramming.exists("where sourceBillId='"+editData.getId()+"'"))
 				{
-					MsgBox.showWarning("没有对应的项目!");
-					this.prmtyear.setValue(null);
-					kDScrollPane1.setViewportView(null);
-					SysUtil.abort();
+					ProgrammingInfo programming = iProgramming.getProgrammingInfo("where sourceBillId='"+editData.getId().toString()+"'");
+					uiContext.put("ID", programming.getId());
+			    	uiContext.put("yearPlanId",editData.getId().toString());
+			    	programmingEditUI = (ProgrammingEditUI) UIFactoryHelper.initUIObject(ProgrammingEditUI.class.getName(), uiContext, null, "EDIT");
+			    	kDScrollPane1.setViewportView(programmingEditUI);
+			    	kDScrollPane1.setKeyBoardControl(true);
+			    	kDScrollPane1.setEnabled(false);
+				}else{
+			    	uiContext.put("ID", pmInfo.getId());
+			    	uiContext.put("yearPlanId",editData.getId().toString());
+			    	programmingEditUI = (ProgrammingEditUI) UIFactoryHelper.initUIObject(ProgrammingEditUI.class.getName(), uiContext, null, "EDIT");
+			    	kDScrollPane1.setViewportView(programmingEditUI);
+			    	kDScrollPane1.setKeyBoardControl(true);
+			    	kDScrollPane1.setEnabled(false);
+			        programmingEditUI.actionCopy_actionPerformed(null);
 				}
-				ProgrammingInfo pmInfo = iProgramming.getProgrammingCollection("where sourceBillId='"+pro.getId()+"'").get(0);
-				uiContext.put("UIName", "YearInvestPlanEditUI");
-		    	uiContext.put("ID", pmInfo.getId());
-		    	uiContext.put("year",newYearInfo);
-		    	uiContext.put("yearPlanId",editData.getId().toString());
-		    	uiContext.put("proNumber",number);
-				uiContext.put("proname", this.txtprojectName.getText());
-		    	programmingEditUI = (ProgrammingEditUI) UIFactoryHelper.initUIObject(ProgrammingEditUI.class.getName(), uiContext, null, "EDIT");
-		    	kDScrollPane1.setViewportView(programmingEditUI);
-		    	kDScrollPane1.setKeyBoardControl(true);
-		    	kDScrollPane1.setEnabled(false);
-		        programmingEditUI.actionCopy_actionPerformed(null);
 			}
 			
 		}
@@ -646,7 +635,6 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 	 */
 	public void actionSave_actionPerformed(ActionEvent e) throws Exception {
 		super.actionSave_actionPerformed(e);
-		setPortProject(null);
 		if(programmingEditUI!=null)
 			programmingEditUI.actionSave_actionPerformed(e);
 	}
@@ -656,7 +644,6 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 	 */
 	public void actionSubmit_actionPerformed(ActionEvent e) throws Exception {
 		super.actionSubmit_actionPerformed(e);
-		setPortProject(null);
 		if(programmingEditUI!=null)
 			programmingEditUI.actionSubmit_actionPerformed(e);
 	}

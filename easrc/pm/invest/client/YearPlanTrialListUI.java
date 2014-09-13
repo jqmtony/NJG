@@ -14,6 +14,7 @@ import com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent;
 import com.kingdee.bos.ctrl.swing.KDCheckBox;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
+import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.common.client.UIFactoryName;
@@ -51,21 +52,18 @@ public class YearPlanTrialListUI extends AbstractYearPlanTrialListUI
     	actionRemove.setVisible(false);
     }
     
-    
-//    protected FilterInfo getDefaultFilterForQuery() {
-//    	String id = SysContext.getSysContext().getCurrentAdminUnit().getId().toString();
-//    	FilterInfo filter = super.getDefaultFilterForQuery();
-//		FilterInfo comfilter = new FilterInfo();
-//		comfilter.getFilterItems().add(new FilterItemInfo("objectState",ObjectStateEnum.DECLARED_VALUE));
-//		comfilter.getFilterItems().add(new FilterItemInfo("objectState",ObjectStateEnum.AUDIT_VALUE));
-//		comfilter.setMaskString("#0 or #1");
-//		try {
-//			filter.mergeFilter(comfilter, "and");
-//		} catch (BOSException e) {
-//			e.printStackTrace();
-//		}
-//    	return filter;
-//	}
+    protected FilterInfo getDefaultFilterForQuery() {
+    	FilterInfo defFilter = new FilterInfo();
+    	FilterInfo  filter = new FilterInfo();
+    	String cuNumber=SysContext.getSysContext().getCurrentCtrlUnit().getLongNumber();
+    	filter.getFilterItems().add(new FilterItemInfo("CU.longnumber",cuNumber+"%",CompareType.LIKE));
+    	try {
+			defFilter.mergeFilter(filter, "and");
+		} catch (BOSException e) {
+			e.printStackTrace();
+		}
+    	return defFilter;
+    }
     
     protected void execQuery() {
     	super.execQuery();

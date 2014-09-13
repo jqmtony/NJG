@@ -1095,6 +1095,7 @@ public class ContractSettlementBillListUI extends
 		super.onLoad();
 		this.actionQuery.setEnabled(true);
 		this.actionQuery.setVisible(true);
+		this.setUITitle("合同结算单");
 	}	
 
 	protected boolean isOnlyQueryAudited() {

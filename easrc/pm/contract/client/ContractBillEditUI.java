@@ -1858,7 +1858,7 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 				filter.getFilterItems().add(
 						new FilterItemInfo("CU.id", set, CompareType.INCLUDE));
 				view.setFilter(filter);
-				f7.setEntityViewInfo(view);
+//				f7.setEntityViewInfo(view);
 			}
 		});
 		prmtlandDeveloper.addCommitListener(new CommitListener() {
@@ -1878,7 +1878,7 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 				filter.getFilterItems().add(
 						new FilterItemInfo("CU.id", set, CompareType.INCLUDE));
 				view.setFilter(filter);
-				f7.setEntityViewInfo(view);
+//				f7.setEntityViewInfo(view);
 			}
 		});
 
@@ -1886,8 +1886,8 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 				canSelectOtherOrgPerson ? null : cuId);
 		FDCClientUtils.setRespDeptF7(prmtCreateOrg, this,
 				canSelectOtherOrgPerson ? null : cuId);
-		FDCClientUtils.setPersonF7(prmtRespPerson, this,
-				canSelectOtherOrgPerson ? null : cuId);
+//		FDCClientUtils.setPersonF7(prmtRespPerson, this,
+//				canSelectOtherOrgPerson ? null : cuId);
 
 		actionAddLine.setEnabled(false);
 		actionAddLine.setVisible(false);
@@ -2244,6 +2244,7 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		ContractContentFactory.getRemoteInstance().delete(filter);
 		
 		ContractModelInfo contractModel = (ContractModelInfo)prmtModel.getValue();
+//		prmtModel.setValue(ContractModelFactory.getRemoteInstance().getContractModelInfo(new ObjectUuidPK(contractModel)));
 		if(contractModel!=null){
 			//利用合同范本ID 去找合同范本
 			EntityViewInfo viewInfo = new EntityViewInfo();
@@ -2352,6 +2353,7 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 			return;
 		}
 		prmtModel.setValue(null);
+		prmtModel.setEnabled(true);
 		ContractTypeInfo info = (ContractTypeInfo) newValue;
 		if(info!=null){
 			if(ContractTypeOrgTypeEnum.BIGRANGE.equals(info.getOrgType())||ContractTypeOrgTypeEnum.SMALLRANGE.equals(info.getOrgType())){

@@ -109,17 +109,6 @@ public class ProgrammingImportUI extends AbstractProgrammingImportUI
 		DataChangeListener dataChangeListener = (DataChangeListener) uiContext.get("dataChangeListener");
 		//导入模板的时候默认是没有目标成本的
 		ProgrammingEditUI editUI = (ProgrammingEditUI)uiContext.get("Owner");
-//		editUI.prmtAimCost.removeDataChangeListener(dataChangeListener);
-//		editUI.prmtAimCost.setValue(null);
-//		editUI.prmtAimCost.addDataChangeListener(dataChangeListener);
-//		AimCostInfo aimCost = (AimCostInfo) uiContext.get("aimCost"); // 目标成本
-//		aimCost = null;
-//		programming.setAimCost(aimCost);
-//		ProjectInfo project = (ProjectInfo) uiContext.get("project"); // 框架合约的关联的工程项目
-//		if (programming == null || project == null) {
-//			return;
-//		}
-		
 		FilterInfo filter = new FilterInfo();
 		filter.getFilterItems().add(new FilterItemInfo("parent", getSelectedKeyValue()));
 		
@@ -128,7 +117,7 @@ public class ProgrammingImportUI extends AbstractProgrammingImportUI
 		evi.setFilter(filter);
 		
 		ProgrammingTemplateEntireCollection templateEntireCollection = 
-			ProgrammingTemplateEntireFactory.getRemoteInstance().getProgrammingTemplateEntireCollection(evi);
+		ProgrammingTemplateEntireFactory.getRemoteInstance().getProgrammingTemplateEntireCollection(evi);
 		
 		templateImport(programming, templateEntireCollection, null);
 		MsgBox.showInfo(this, "导入成功");
@@ -141,7 +130,7 @@ public class ProgrammingImportUI extends AbstractProgrammingImportUI
 		ProgrammingEntryCollection entries = programming.getEntries();
 		entries.clear();
 		
-		YearInvestPlanInfo planInfo = (YearInvestPlanInfo)getUIContext().get("planInfo");
+		InvestPlanBaseInfo planInfo = (InvestPlanBaseInfo)getUIContext().get("planInfo");
 		
 		for (int i = 0, size = templateEntryCollection.size(); i < size; i++) {
 			ProgrammingTemplateEntireInfo templateEntry = templateEntryCollection.get(i);
@@ -158,7 +147,7 @@ public class ProgrammingImportUI extends AbstractProgrammingImportUI
 				newCostEntryInfo.setProject(planInfo.getProjectName());
 				newCostEntryInfo.setContract(programmingEntry);
 				newCostEntryInfo.setNumber(planInfo.getNumber());
-				newCostEntryInfo.setInvestYear(InvestYearFactory.getRemoteInstance().getInvestYearInfo(new ObjectUuidPK(planInfo.getYear().getId())));
+				newCostEntryInfo.setInvestYear(InvestYearFactory.getRemoteInstance().getInvestYearInfo(new ObjectUuidPK(planInfo.getYearIdt())));
 				newCostEntryInfo.setGoalCost(BigDecimal.ZERO);//投资总额
 				newCostEntryInfo.setAssigned(BigDecimal.ZERO);// 累计投资（不含本年）
 				newCostEntryInfo.setContractAssign(BigDecimal.ZERO);//本年度投资金额

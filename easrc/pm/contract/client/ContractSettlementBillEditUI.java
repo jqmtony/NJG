@@ -495,7 +495,7 @@ public class ContractSettlementBillEditUI extends
 
 		txtProj.setText(curProjectInfo.getDisplayName());
 		FullOrgUnitInfo costOrg = FDCClientUtils.getCostOrgByProj(curProjectInfo.getId().toString());
-		txtOrgUnit.setText(costOrg.getDisplayName());
+//		txtOrgUnit.setText(curProjectInfo.getCompany().getDisplayName());
 		editData.setOrgUnit(costOrg);
 		editData.setCU(curProjectInfo.getCU());
 

@@ -5,8 +5,14 @@ package com.kingdee.eas.port.pm.invest.client;
 
 import java.awt.event.*;
 import org.apache.log4j.Logger;
+
+import com.kingdee.bos.BOSException;
+import com.kingdee.bos.metadata.entity.FilterInfo;
+import com.kingdee.bos.metadata.entity.FilterItemInfo;
+import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.framework.*;
 
@@ -30,7 +36,18 @@ public class YearPlanApproveListUI extends AbstractYearPlanApproveListUI
     	actionEdit.setVisible(false);
     	actionRemove.setVisible(false);
     }
-
+    protected FilterInfo getDefaultFilterForQuery() {
+    	FilterInfo defFilter = new FilterInfo();
+    	FilterInfo  filter = new FilterInfo();
+    	String cuNumber=SysContext.getSysContext().getCurrentCtrlUnit().getLongNumber();
+    	filter.getFilterItems().add(new FilterItemInfo("CU.longnumber",cuNumber+"%",CompareType.LIKE));
+    	try {
+			defFilter.mergeFilter(filter, "and");
+		} catch (BOSException e) {
+			e.printStackTrace();
+		}
+    	return defFilter;
+    }
     /**
      * output storeFields method
      */

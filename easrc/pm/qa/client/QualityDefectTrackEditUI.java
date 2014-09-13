@@ -85,8 +85,8 @@ public class QualityDefectTrackEditUI extends AbstractQualityDefectTrackEditUI {
 				prmtprojectName, "项目名称");
 		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this,
 				txtquestionName, "问题名称");
-		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this,
-				prmtquestionType, "问题类型");
+//		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this,
+//				prmtquestionType, "问题类型");
 		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this,
 				prmtrespondDepart, "责任部门");
 		super.verifyInput(e);

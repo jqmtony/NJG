@@ -1147,9 +1147,9 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
     	String id = this.editData.getId().toString();
     	YIPlanAccredInfo Info =YIPlanAccredFactory.getRemoteInstance().getYIPlanAccredInfo(new ObjectUuidPK(id));
     	AccredTypeEnum accredType = Info.getAccredType();
-    	if(accredType.equals(AccredTypeEnum.accred)||accredType.equals(AccredTypeEnum.trial)){
-    		throw new EASBizException(new NumericExceptionSubItem("100",accredType.getAlias()+"不能反审核！"));
-    	}
+//    	if(accredType.equals(AccredTypeEnum.accred)||accredType.equals(AccredTypeEnum.trial)){
+//    		throw new EASBizException(new NumericExceptionSubItem("100",accredType.getAlias()+"不能反审核！"));
+//    	}
     	super.actionUnAudit_actionPerformed(e);
     }
 
