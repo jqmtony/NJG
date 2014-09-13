@@ -22,6 +22,8 @@ public class CommonXRHelper {
 	
     public static final DateFormat FORMAT_DAY = new SimpleDateFormat("yyyy-MM-dd");
     
+    public static final DateFormat FORMATDAY = new SimpleDateFormat("yyyyMMdd");
+    
     public static final DateFormat FORMAT_TIME = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     public static final DateFormat FORMAT_MONTH = new SimpleDateFormat("yyyy-MM");

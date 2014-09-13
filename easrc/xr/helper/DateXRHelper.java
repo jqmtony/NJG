@@ -562,7 +562,7 @@ public class DateXRHelper {
 			d = getDayBegin();
 		} else {
 			try {
-				d = CommonXRHelper.FORMAT_DAY.parse(s);
+				d = new SimpleDateFormat("yyyy-MM-dd").parse(s);
 			} catch (ParseException e) {
 				try {
 					d = new SimpleDateFormat().parse(s);
