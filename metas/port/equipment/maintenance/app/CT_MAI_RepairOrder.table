@@ -567,6 +567,34 @@
             <scale>0</scale>
             <precision>0</precision>
         </column>
+        <column>
+            <name>CFBaoxiurenID</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrder].columns.column[CFBaoxiurenID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrder].columns.column[CFBaoxiurenID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFBaoxiuTime</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrder].columns.column[CFBaoxiuTime].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrder].columns.column[CFBaoxiuTime].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>DATETIME</sqlType>
+            <length>8</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
     </columns>
     <primaryKey>
         <name>CPK_MAI_RepairOuoq</name>
@@ -829,6 +857,25 @@
                 </fkColumnPair>
             </fkColumnPairs>
         </foreignKey>
+        <foreignKey>
+            <name>CFK_MAI_MAIROAxr2h</name>
+            <userDefined>true</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.basedata.person" />
+                <key name="name" value="T_BD_Person" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="CFBaoxiurenID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
     </foreignKeys>
     <resource>
         <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrder].alias">
@@ -884,6 +931,30 @@
             <lang locale="zh_CN" value="备注" />
             <lang locale="zh_HK" value="備註" />
             <lang locale="zh_TW" value="備註" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrder].columns.column[CFBaoxiuTime].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="保修时间" />
+            <lang locale="zh_HK" value="保修時間" />
+            <lang locale="zh_TW" value="保修時間" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrder].columns.column[CFBaoxiuTime].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="保修时间" />
+            <lang locale="zh_HK" value="保修時間" />
+            <lang locale="zh_TW" value="保修時間" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrder].columns.column[CFBaoxiurenID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="报修人" />
+            <lang locale="zh_HK" value="報修人" />
+            <lang locale="zh_TW" value="報修人" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrder].columns.column[CFBaoxiurenID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="报修人" />
+            <lang locale="zh_HK" value="報修人" />
+            <lang locale="zh_TW" value="報修人" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrder].columns.column[CFDeliveryPersonID].alias">
             <lang locale="en_US" value="null" />

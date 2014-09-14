@@ -1722,6 +1722,34 @@
             </parent>
         </component>
         <component>
+            <name>kDPanel4</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDPanel4].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDPanel</classType>
+            <isContainer>true</isContainer>
+            <constraints>检验设备参数</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>layout6</name>
+                <type>KDLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>font</name>
+                    <type>java.awt.Font</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDPanel4].properties.property[font].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="kDTabbedPane1" />
+            </parent>
+        </component>
+        <component>
             <name>kDPanel8</name>
             <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDPanel8].alias</alias>
             <userDefined>true</userDefined>
@@ -8189,7 +8217,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>11,15,270,19,261</constraints>
+            <constraints>11,13,270,19,261</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -8238,7 +8266,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>699,15,270,19,137</constraints>
+            <constraints>699,13,270,19,137</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -8287,7 +8315,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>355,15,270,19,385</constraints>
+            <constraints>355,13,270,19,385</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -8336,7 +8364,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>11,39,270,19,261</constraints>
+            <constraints>11,34,270,19,261</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -8385,7 +8413,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>355,39,270,19,385</constraints>
+            <constraints>355,34,270,19,385</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -9182,9 +9210,7 @@
                     <listenerType>com.kingdee.bos.ctrl.kdf.table.event.KDTMouseListener</listenerType>
                     <listenerAdapter>com.kingdee.bos.ctrl.kdf.table.event.KDTMouseListener</listenerAdapter>
                     <methodName>kdtSpareInfo_tableClicked</methodName>
-                    <code>
-      //write your code here1
-</code>
+                    <code>//write your code here1</code>
                     <isBindWorkFlow>false</isBindWorkFlow>
                     <herited>false</herited>
                     <userDefined>true</userDefined>
@@ -9334,6 +9360,1615 @@
                     <propertyType>java.lang.Object</propertyType>
                     <bindingObject>editData</bindingObject>
                     <bindingField>E3.noteoo</bindingField>
+                    <fieldType>String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
+        <component>
+            <name>kDLabel1</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel1].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDLabel</classType>
+            <isContainer>false</isContainer>
+            <constraints>38,93,116,26,261</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>text</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel1].properties.property[text].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>font</name>
+                    <type>java.awt.Font</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel1].properties.property[font].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="kDPanel4" />
+            </parent>
+        </component>
+        <component>
+            <name>kDSeparator8</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDSeparator8].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDSeparator</classType>
+            <isContainer>false</isContainer>
+            <constraints>33,121,674,5,261</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <parent>
+                <key name="name" value="kDPanel4" />
+            </parent>
+        </component>
+        <component>
+            <name>kDLabel2</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel2].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDLabel</classType>
+            <isContainer>false</isContainer>
+            <constraints>38,205,100,19,261</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>text</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel2].properties.property[text].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>font</name>
+                    <type>java.awt.Font</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel2].properties.property[font].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="kDPanel4" />
+            </parent>
+        </component>
+        <component>
+            <name>kDSeparator9</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDSeparator9].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDSeparator</classType>
+            <isContainer>false</isContainer>
+            <constraints>33,228,671,10,261</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <parent>
+                <key name="name" value="kDPanel4" />
+            </parent>
+        </component>
+        <component>
+            <name>contgongzuojibie</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contgongzuojibie].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>38,242,270,19,261</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>boundLabelText</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contgongzuojibie].properties.property[boundLabelText].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelLength</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contgongzuojibie].properties.property[boundLabelLength].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelUnderline</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contgongzuojibie].properties.property[boundLabelUnderline].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contgongzuojibie].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="kDPanel4" />
+            </parent>
+        </component>
+        <component>
+            <name>contkuadu</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contkuadu].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>401,242,270,19,385</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>boundLabelText</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contkuadu].properties.property[boundLabelText].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelLength</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contkuadu].properties.property[boundLabelLength].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelUnderline</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contkuadu].properties.property[boundLabelUnderline].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contkuadu].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="kDPanel4" />
+            </parent>
+        </component>
+        <component>
+            <name>kDLabel3</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel3].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDLabel</classType>
+            <isContainer>false</isContainer>
+            <constraints>675,238,39,19,0</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>text</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel3].properties.property[text].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>font</name>
+                    <type>java.awt.Font</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel3].properties.property[font].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="kDPanel4" />
+            </parent>
+        </component>
+        <component>
+            <name>contxuanbichangdu</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contxuanbichangdu].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>38,275,270,19,261</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>boundLabelText</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contxuanbichangdu].properties.property[boundLabelText].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelLength</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contxuanbichangdu].properties.property[boundLabelLength].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelUnderline</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contxuanbichangdu].properties.property[boundLabelUnderline].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contxuanbichangdu].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="kDPanel4" />
+            </parent>
+        </component>
+        <component>
+            <name>kDLabel4</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel4].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDLabel</classType>
+            <isContainer>false</isContainer>
+            <constraints>312,273,54,19,385</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>text</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel4].properties.property[text].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>font</name>
+                    <type>java.awt.Font</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel4].properties.property[font].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="kDPanel4" />
+            </parent>
+        </component>
+        <component>
+            <name>contqishengaodu</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contqishengaodu].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>401,275,270,19,385</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>boundLabelText</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contqishengaodu].properties.property[boundLabelText].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelLength</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contqishengaodu].properties.property[boundLabelLength].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelUnderline</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contqishengaodu].properties.property[boundLabelUnderline].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contqishengaodu].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="kDPanel4" />
+            </parent>
+        </component>
+        <component>
+            <name>kDLabel5</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel5].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDLabel</classType>
+            <isContainer>false</isContainer>
+            <constraints>675,273,39,19,137</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>text</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel5].properties.property[text].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>font</name>
+                    <type>java.awt.Font</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel5].properties.property[font].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="kDPanel4" />
+            </parent>
+        </component>
+        <component>
+            <name>contdacheguidao</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contdacheguidao].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>38,308,270,19,261</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>boundLabelText</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contdacheguidao].properties.property[boundLabelText].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelLength</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contdacheguidao].properties.property[boundLabelLength].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelUnderline</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contdacheguidao].properties.property[boundLabelUnderline].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contdacheguidao].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="kDPanel4" />
+            </parent>
+        </component>
+        <component>
+            <name>kDLabel6</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel6].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDLabel</classType>
+            <isContainer>false</isContainer>
+            <constraints>312,306,52,19,385</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>text</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel6].properties.property[text].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>font</name>
+                    <type>java.awt.Font</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel6].properties.property[font].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="kDPanel4" />
+            </parent>
+        </component>
+        <component>
+            <name>contqizhongliju</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contqizhongliju].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>401,308,270,19,385</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>boundLabelText</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contqizhongliju].properties.property[boundLabelText].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelLength</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contqizhongliju].properties.property[boundLabelLength].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelUnderline</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contqizhongliju].properties.property[boundLabelUnderline].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contqizhongliju].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="kDPanel4" />
+            </parent>
+        </component>
+        <component>
+            <name>kDLabel7</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel7].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDLabel</classType>
+            <isContainer>false</isContainer>
+            <constraints>675,306,53,19,137</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>text</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel7].properties.property[text].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>font</name>
+                    <type>java.awt.Font</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel7].properties.property[font].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="kDPanel4" />
+            </parent>
+        </component>
+        <component>
+            <name>contzuida</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contzuida].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>38,341,270,19,261</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>boundLabelText</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contzuida].properties.property[boundLabelText].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelLength</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contzuida].properties.property[boundLabelLength].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelUnderline</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contzuida].properties.property[boundLabelUnderline].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contzuida].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="kDPanel4" />
+            </parent>
+        </component>
+        <component>
+            <name>contzuixiao</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contzuixiao].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>401,341,270,19,385</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>boundLabelText</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contzuixiao].properties.property[boundLabelText].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelLength</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contzuixiao].properties.property[boundLabelLength].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelUnderline</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contzuixiao].properties.property[boundLabelUnderline].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contzuixiao].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="kDPanel4" />
+            </parent>
+        </component>
+        <component>
+            <name>kDLabel8</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel8].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDLabel</classType>
+            <isContainer>false</isContainer>
+            <constraints>312,339,50,19,385</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>text</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel8].properties.property[text].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>font</name>
+                    <type>java.awt.Font</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel8].properties.property[font].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="kDPanel4" />
+            </parent>
+        </component>
+        <component>
+            <name>kDLabel9</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel9].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDLabel</classType>
+            <isContainer>false</isContainer>
+            <constraints>675,339,49,19,137</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>text</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel9].properties.property[text].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>font</name>
+                    <type>java.awt.Font</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel9].properties.property[font].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="kDPanel4" />
+            </parent>
+        </component>
+        <component>
+            <name>contedusudu</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contedusudu].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>38,130,270,19,261</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>boundLabelText</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contedusudu].properties.property[boundLabelText].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelLength</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contedusudu].properties.property[boundLabelLength].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelUnderline</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contedusudu].properties.property[boundLabelUnderline].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contedusudu].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="kDPanel4" />
+            </parent>
+        </component>
+        <component>
+            <name>kDLabel10</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel10].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDLabel</classType>
+            <isContainer>false</isContainer>
+            <constraints>312,128,100,19,137</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>text</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel10].properties.property[text].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>font</name>
+                    <type>java.awt.Font</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel10].properties.property[font].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="kDPanel4" />
+            </parent>
+        </component>
+        <component>
+            <name>contzuzhijigou</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contzuzhijigou].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>38,24,270,19,261</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>boundLabelText</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contzuzhijigou].properties.property[boundLabelText].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelLength</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contzuzhijigou].properties.property[boundLabelLength].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelUnderline</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contzuzhijigou].properties.property[boundLabelUnderline].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contzuzhijigou].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="kDPanel4" />
+            </parent>
+        </component>
+        <component>
+            <name>contyouzhengbianma</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contyouzhengbianma].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>401,24,270,19,385</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>boundLabelText</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contyouzhengbianma].properties.property[boundLabelText].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelLength</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contyouzhengbianma].properties.property[boundLabelLength].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelUnderline</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contyouzhengbianma].properties.property[boundLabelUnderline].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contyouzhengbianma].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="kDPanel4" />
+            </parent>
+        </component>
+        <component>
+            <name>txtgongzuojibie</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtgongzuojibie].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDTextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>3</constraints>
+            <tabIndex>99</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtgongzuojibie].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>horizontalAlignment</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtgongzuojibie].properties.property[horizontalAlignment].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>maxLength</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtgongzuojibie].properties.property[maxLength].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>required</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtgongzuojibie].properties.property[required].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="contgongzuojibie" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>text</propertyName>
+                    <propertyType>java.lang.String</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>gongzuojibie</bindingField>
+                    <fieldType>String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
+        <component>
+            <name>txtkuadu</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtkuadu].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDTextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>3</constraints>
+            <tabIndex>100</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtkuadu].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>horizontalAlignment</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtkuadu].properties.property[horizontalAlignment].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>maxLength</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtkuadu].properties.property[maxLength].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>required</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtkuadu].properties.property[required].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="contkuadu" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>text</propertyName>
+                    <propertyType>java.lang.String</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>kuadu</bindingField>
+                    <fieldType>String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
+        <component>
+            <name>txtxuanbichangdu</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtxuanbichangdu].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDTextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>3</constraints>
+            <tabIndex>101</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtxuanbichangdu].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>horizontalAlignment</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtxuanbichangdu].properties.property[horizontalAlignment].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>maxLength</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtxuanbichangdu].properties.property[maxLength].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>required</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtxuanbichangdu].properties.property[required].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="contxuanbichangdu" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>text</propertyName>
+                    <propertyType>java.lang.String</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>xuanbichangdu</bindingField>
+                    <fieldType>String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
+        <component>
+            <name>txtqishengaodu</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtqishengaodu].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDTextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>3</constraints>
+            <tabIndex>102</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtqishengaodu].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>horizontalAlignment</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtqishengaodu].properties.property[horizontalAlignment].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>maxLength</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtqishengaodu].properties.property[maxLength].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>required</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtqishengaodu].properties.property[required].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="contqishengaodu" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>text</propertyName>
+                    <propertyType>java.lang.String</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>qishengaodu</bindingField>
+                    <fieldType>String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
+        <component>
+            <name>txtdacheguidao</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtdacheguidao].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDTextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>3</constraints>
+            <tabIndex>103</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtdacheguidao].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>horizontalAlignment</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtdacheguidao].properties.property[horizontalAlignment].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>maxLength</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtdacheguidao].properties.property[maxLength].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>required</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtdacheguidao].properties.property[required].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="contdacheguidao" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>text</propertyName>
+                    <propertyType>java.lang.String</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>dacheguidao</bindingField>
+                    <fieldType>String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
+        <component>
+            <name>txtqizhongliju</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtqizhongliju].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDTextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>3</constraints>
+            <tabIndex>104</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtqizhongliju].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>horizontalAlignment</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtqizhongliju].properties.property[horizontalAlignment].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>maxLength</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtqizhongliju].properties.property[maxLength].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>required</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtqizhongliju].properties.property[required].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="contqizhongliju" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>text</propertyName>
+                    <propertyType>java.lang.String</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>qizhongliju</bindingField>
+                    <fieldType>String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
+        <component>
+            <name>txtzuida</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtzuida].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDTextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>3</constraints>
+            <tabIndex>105</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtzuida].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>horizontalAlignment</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtzuida].properties.property[horizontalAlignment].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>maxLength</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtzuida].properties.property[maxLength].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>required</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtzuida].properties.property[required].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="contzuida" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>text</propertyName>
+                    <propertyType>java.lang.String</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>zuida</bindingField>
+                    <fieldType>String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
+        <component>
+            <name>txtzuixiao</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtzuixiao].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDTextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>3</constraints>
+            <tabIndex>106</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtzuixiao].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>horizontalAlignment</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtzuixiao].properties.property[horizontalAlignment].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>maxLength</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtzuixiao].properties.property[maxLength].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>required</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtzuixiao].properties.property[required].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="contzuixiao" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>text</propertyName>
+                    <propertyType>java.lang.String</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>zuixiao</bindingField>
+                    <fieldType>String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
+        <component>
+            <name>txtedusudu</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtedusudu].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDTextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>3</constraints>
+            <tabIndex>107</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtedusudu].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>horizontalAlignment</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtedusudu].properties.property[horizontalAlignment].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>maxLength</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtedusudu].properties.property[maxLength].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>required</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtedusudu].properties.property[required].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="contedusudu" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>text</propertyName>
+                    <propertyType>java.lang.String</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>edusudu</bindingField>
+                    <fieldType>String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
+        <component>
+            <name>txtzuzhijigou</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtzuzhijigou].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDTextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>3</constraints>
+            <tabIndex>108</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtzuzhijigou].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>horizontalAlignment</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtzuzhijigou].properties.property[horizontalAlignment].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>maxLength</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtzuzhijigou].properties.property[maxLength].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>required</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtzuzhijigou].properties.property[required].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="contzuzhijigou" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>text</propertyName>
+                    <propertyType>java.lang.String</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>zuzhijigou</bindingField>
+                    <fieldType>String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
+        <component>
+            <name>txtyouzhengbianma</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtyouzhengbianma].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDTextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>3</constraints>
+            <tabIndex>109</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtyouzhengbianma].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>horizontalAlignment</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtyouzhengbianma].properties.property[horizontalAlignment].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>maxLength</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtyouzhengbianma].properties.property[maxLength].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>required</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtyouzhengbianma].properties.property[required].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="contyouzhengbianma" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>text</propertyName>
+                    <propertyType>java.lang.String</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>youzhengbianma</bindingField>
                     <fieldType>String</fieldType>
                     <accessType>2</accessType>
                     <autoMode>false</autoMode>
@@ -12900,6 +14535,36 @@
             <lang locale="zh_HK" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contdacheguidao].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contdacheguidao].properties.property[boundLabelLength].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contdacheguidao].properties.property[boundLabelText].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="大车轨道长度单侧" />
+            <lang locale="zh_HK" value="大車軌道長度單側" />
+            <lang locale="zh_TW" value="大車軌道長度單側" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contdacheguidao].properties.property[boundLabelUnderline].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contdacheguidao].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contdayone].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -13032,6 +14697,36 @@
             <lang locale="zh_HK" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contedusudu].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contedusudu].properties.property[boundLabelLength].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contedusudu].properties.property[boundLabelText].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="额度速度" />
+            <lang locale="zh_HK" value="額度速度" />
+            <lang locale="zh_TW" value="額度速度" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contedusudu].properties.property[boundLabelUnderline].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contedusudu].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contengineNumber].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -13092,6 +14787,36 @@
             <lang locale="zh_HK" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contgongzuojibie].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contgongzuojibie].properties.property[boundLabelLength].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contgongzuojibie].properties.property[boundLabelText].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="工作级别" />
+            <lang locale="zh_HK" value="工作級別" />
+            <lang locale="zh_TW" value="工作級別" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contgongzuojibie].properties.property[boundLabelUnderline].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contgongzuojibie].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[continStreet].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -13106,9 +14831,9 @@
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[continStreet].properties.property[boundLabelText].value">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="设备所在街道/乡镇" />
-            <lang locale="zh_HK" value="設備所在街道/鄉鎮" />
-            <lang locale="zh_TW" value="設備所在街道/鄉鎮" />
+            <lang locale="zh_CN" value="设备所在地区" />
+            <lang locale="zh_HK" value="設備所在地區" />
+            <lang locale="zh_TW" value="設備所在地區" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[continStreet].properties.property[boundLabelUnderline].value">
             <lang locale="en_US" value="true" />
@@ -13181,6 +14906,36 @@
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contkuadu].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contkuadu].properties.property[boundLabelLength].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contkuadu].properties.property[boundLabelText].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="跨度" />
+            <lang locale="zh_HK" value="跨度" />
+            <lang locale="zh_TW" value="跨度" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contkuadu].properties.property[boundLabelUnderline].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contkuadu].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contnowAmount].alias">
             <lang locale="en_US" value="null" />
@@ -13307,6 +15062,66 @@
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contqishengaodu].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contqishengaodu].properties.property[boundLabelLength].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contqishengaodu].properties.property[boundLabelText].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="起升高度" />
+            <lang locale="zh_HK" value="起升高度" />
+            <lang locale="zh_TW" value="起升高度" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contqishengaodu].properties.property[boundLabelUnderline].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contqishengaodu].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contqizhongliju].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contqizhongliju].properties.property[boundLabelLength].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contqizhongliju].properties.property[boundLabelText].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="起重力矩" />
+            <lang locale="zh_HK" value="起重力矩" />
+            <lang locale="zh_TW" value="起重力矩" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contqizhongliju].properties.property[boundLabelUnderline].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contqizhongliju].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contratedWeight].alias">
             <lang locale="en_US" value="null" />
@@ -13614,6 +15429,66 @@
             <lang locale="zh_HK" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contxuanbichangdu].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contxuanbichangdu].properties.property[boundLabelLength].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contxuanbichangdu].properties.property[boundLabelText].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="悬臂长度" />
+            <lang locale="zh_HK" value="懸臂長度" />
+            <lang locale="zh_TW" value="懸臂長度" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contxuanbichangdu].properties.property[boundLabelUnderline].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contxuanbichangdu].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contyouzhengbianma].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contyouzhengbianma].properties.property[boundLabelLength].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contyouzhengbianma].properties.property[boundLabelText].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="邮政编码" />
+            <lang locale="zh_HK" value="郵遞區號" />
+            <lang locale="zh_TW" value="郵遞區號" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contyouzhengbianma].properties.property[boundLabelUnderline].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contyouzhengbianma].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contype].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -13639,6 +15514,96 @@
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contype].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contzuida].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contzuida].properties.property[boundLabelLength].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contzuida].properties.property[boundLabelText].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="最大工作幅度" />
+            <lang locale="zh_HK" value="最大工作幅度" />
+            <lang locale="zh_TW" value="最大工作幅度" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contzuida].properties.property[boundLabelUnderline].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contzuida].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contzuixiao].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contzuixiao].properties.property[boundLabelLength].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contzuixiao].properties.property[boundLabelText].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="最小工作幅度" />
+            <lang locale="zh_HK" value="最小工作幅度" />
+            <lang locale="zh_TW" value="最小工作幅度" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contzuixiao].properties.property[boundLabelUnderline].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contzuixiao].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contzuzhijigou].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contzuzhijigou].properties.property[boundLabelLength].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contzuzhijigou].properties.property[boundLabelText].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="组织机构代码" />
+            <lang locale="zh_HK" value="組織機構代碼" />
+            <lang locale="zh_TW" value="組織機構代碼" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contzuzhijigou].properties.property[boundLabelUnderline].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[contzuzhijigou].properties.property[visible].value">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_HK" value="true" />
@@ -13842,6 +15807,186 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel10].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel10].properties.property[font].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="family=宋体,name=宋体,style=0,size=18" />
+            <lang locale="zh_HK" value="family=宋體,name=宋體,style=0,size=18" />
+            <lang locale="zh_TW" value="family=宋體,name=宋體,style=0,size=18" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel10].properties.property[text].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="km/h" />
+            <lang locale="zh_HK" value="km/h" />
+            <lang locale="zh_TW" value="km/h" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel1].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel1].properties.property[font].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="family=Dialog,name=Dialog,style=1,size=12" />
+            <lang locale="zh_HK" value="family=Dialog,name=Dialog,style=1,size=12" />
+            <lang locale="zh_TW" value="family=Dialog,name=Dialog,style=1,size=12" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel1].properties.property[text].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="厂内机动车辆" />
+            <lang locale="zh_HK" value="廠內機動車輛" />
+            <lang locale="zh_TW" value="廠內機動車輛" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel2].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel2].properties.property[font].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="family=Dialog,name=Dialog,style=1,size=12" />
+            <lang locale="zh_HK" value="family=Dialog,name=Dialog,style=1,size=12" />
+            <lang locale="zh_TW" value="family=Dialog,name=Dialog,style=1,size=12" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel2].properties.property[text].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="起重机械" />
+            <lang locale="zh_HK" value="起重機械" />
+            <lang locale="zh_TW" value="起重機械" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel3].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel3].properties.property[font].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="family=宋体,name=宋体,style=0,size=20" />
+            <lang locale="zh_HK" value="family=宋體,name=宋體,style=0,size=20" />
+            <lang locale="zh_TW" value="family=宋體,name=宋體,style=0,size=20" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel3].properties.property[text].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="m" />
+            <lang locale="zh_HK" value="m" />
+            <lang locale="zh_TW" value="m" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel4].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel4].properties.property[font].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="family=宋体,name=宋体,style=0,size=20" />
+            <lang locale="zh_HK" value="family=宋體,name=宋體,style=0,size=20" />
+            <lang locale="zh_TW" value="family=宋體,name=宋體,style=0,size=20" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel4].properties.property[text].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="m" />
+            <lang locale="zh_HK" value="m" />
+            <lang locale="zh_TW" value="m" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel5].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel5].properties.property[font].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="family=宋体,name=宋体,style=0,size=20" />
+            <lang locale="zh_HK" value="family=宋體,name=宋體,style=0,size=20" />
+            <lang locale="zh_TW" value="family=宋體,name=宋體,style=0,size=20" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel5].properties.property[text].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="m" />
+            <lang locale="zh_HK" value="m" />
+            <lang locale="zh_TW" value="m" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel6].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel6].properties.property[font].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="family=宋体,name=宋体,style=0,size=20" />
+            <lang locale="zh_HK" value="family=宋體,name=宋體,style=0,size=20" />
+            <lang locale="zh_TW" value="family=宋體,name=宋體,style=0,size=20" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel6].properties.property[text].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="m" />
+            <lang locale="zh_HK" value="m" />
+            <lang locale="zh_TW" value="m" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel7].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel7].properties.property[font].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="family=宋体,name=宋体,style=0,size=20" />
+            <lang locale="zh_HK" value="family=宋體,name=宋體,style=0,size=20" />
+            <lang locale="zh_TW" value="family=宋體,name=宋體,style=0,size=20" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel7].properties.property[text].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="tm" />
+            <lang locale="zh_HK" value="tm" />
+            <lang locale="zh_TW" value="tm" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel8].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel8].properties.property[font].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="family=宋体,name=宋体,style=0,size=20" />
+            <lang locale="zh_HK" value="family=宋體,name=宋體,style=0,size=20" />
+            <lang locale="zh_TW" value="family=宋體,name=宋體,style=0,size=20" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel8].properties.property[text].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="m" />
+            <lang locale="zh_HK" value="m" />
+            <lang locale="zh_TW" value="m" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel9].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel9].properties.property[font].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="family=宋体,name=宋体,style=0,size=20" />
+            <lang locale="zh_HK" value="family=宋體,name=宋體,style=0,size=20" />
+            <lang locale="zh_TW" value="family=宋體,name=宋體,style=0,size=20" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDLabel9].properties.property[text].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="m" />
+            <lang locale="zh_HK" value="m" />
+            <lang locale="zh_TW" value="m" />
+        </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDPanel10].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -13890,6 +16035,18 @@
             <lang locale="zh_HK" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &lt;Border&gt;&lt;Type&gt;6&lt;/Type&gt;&lt;Name&gt;Custom&lt;/Name&gt;&lt;CustomType&gt;62&lt;/CustomType&gt;&lt;Title&gt;財務數據&lt;/Title&gt;&lt;Options&gt;&lt;Width&gt;0&lt;/Width&gt;&lt;HighlightOuter R=&quot;255&quot; G=&quot;255&quot; B=&quot;255&quot; /&gt;&lt;ShadowOuter R=&quot;148&quot; G=&quot;145&quot; B=&quot;140&quot; /&gt;&lt;/Options&gt;&lt;/Border&gt; " />
             <lang locale="zh_TW" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &lt;Border&gt;&lt;Type&gt;6&lt;/Type&gt;&lt;Name&gt;Custom&lt;/Name&gt;&lt;CustomType&gt;62&lt;/CustomType&gt;&lt;Title&gt;財務數據&lt;/Title&gt;&lt;Options&gt;&lt;Width&gt;0&lt;/Width&gt;&lt;HighlightOuter R=&quot;255&quot; G=&quot;255&quot; B=&quot;255&quot; /&gt;&lt;ShadowOuter R=&quot;148&quot; G=&quot;145&quot; B=&quot;140&quot; /&gt;&lt;/Options&gt;&lt;/Border&gt; " />
         </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDPanel4].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDPanel4].properties.property[font].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="family=Dialog,name=Dialog,style=0,size=12" />
+            <lang locale="zh_HK" value="family=Dialog,name=Dialog,style=0,size=12" />
+            <lang locale="zh_TW" value="family=Dialog,name=Dialog,style=0,size=12" />
+        </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDPanel6].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -13913,6 +16070,18 @@
             <lang locale="zh_CN" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &lt;Border&gt;&lt;Type&gt;6&lt;/Type&gt;&lt;Name&gt;Custom&lt;/Name&gt;&lt;CustomType&gt;62&lt;/CustomType&gt;&lt;Title&gt;常规数据&lt;/Title&gt;&lt;Options&gt;&lt;Width&gt;0&lt;/Width&gt;&lt;HighlightOuter R=&quot;255&quot; G=&quot;255&quot; B=&quot;255&quot; /&gt;&lt;ShadowOuter R=&quot;148&quot; G=&quot;145&quot; B=&quot;140&quot; /&gt;&lt;/Options&gt;&lt;/Border&gt; " />
             <lang locale="zh_HK" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &lt;Border&gt;&lt;Type&gt;6&lt;/Type&gt;&lt;Name&gt;Custom&lt;/Name&gt;&lt;CustomType&gt;62&lt;/CustomType&gt;&lt;Title&gt;常規數據&lt;/Title&gt;&lt;Options&gt;&lt;Width&gt;0&lt;/Width&gt;&lt;HighlightOuter R=&quot;255&quot; G=&quot;255&quot; B=&quot;255&quot; /&gt;&lt;ShadowOuter R=&quot;148&quot; G=&quot;145&quot; B=&quot;140&quot; /&gt;&lt;/Options&gt;&lt;/Border&gt; " />
             <lang locale="zh_TW" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &lt;Border&gt;&lt;Type&gt;6&lt;/Type&gt;&lt;Name&gt;Custom&lt;/Name&gt;&lt;CustomType&gt;62&lt;/CustomType&gt;&lt;Title&gt;常規數據&lt;/Title&gt;&lt;Options&gt;&lt;Width&gt;0&lt;/Width&gt;&lt;HighlightOuter R=&quot;255&quot; G=&quot;255&quot; B=&quot;255&quot; /&gt;&lt;ShadowOuter R=&quot;148&quot; G=&quot;145&quot; B=&quot;140&quot; /&gt;&lt;/Options&gt;&lt;/Border&gt; " />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDSeparator8].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDSeparator9].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[kDSeparatorCloud].alias">
             <lang locale="en_US" value="null" />
@@ -15663,6 +17832,36 @@
             <lang locale="zh_HK" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtdacheguidao].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="大车轨道长度单侧" />
+            <lang locale="zh_HK" value="大車軌道長度單側" />
+            <lang locale="zh_TW" value="大車軌道長度單側" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtdacheguidao].properties.property[horizontalAlignment].value">
+            <lang locale="en_US" value="2" />
+            <lang locale="zh_CN" value="2" />
+            <lang locale="zh_HK" value="2" />
+            <lang locale="zh_TW" value="2" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtdacheguidao].properties.property[maxLength].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtdacheguidao].properties.property[required].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtdacheguidao].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtdeadline].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="使用期限" />
@@ -15723,6 +17922,36 @@
             <lang locale="zh_HK" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtedusudu].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="额度速度" />
+            <lang locale="zh_HK" value="額度速度" />
+            <lang locale="zh_TW" value="額度速度" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtedusudu].properties.property[horizontalAlignment].value">
+            <lang locale="en_US" value="2" />
+            <lang locale="zh_CN" value="2" />
+            <lang locale="zh_HK" value="2" />
+            <lang locale="zh_TW" value="2" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtedusudu].properties.property[maxLength].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtedusudu].properties.property[required].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtedusudu].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtengineNumber].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="发动机编号" />
@@ -15748,6 +17977,36 @@
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtengineNumber].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtgongzuojibie].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="工作级别" />
+            <lang locale="zh_HK" value="工作級別" />
+            <lang locale="zh_TW" value="工作級別" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtgongzuojibie].properties.property[horizontalAlignment].value">
+            <lang locale="en_US" value="2" />
+            <lang locale="zh_CN" value="2" />
+            <lang locale="zh_HK" value="2" />
+            <lang locale="zh_TW" value="2" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtgongzuojibie].properties.property[maxLength].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtgongzuojibie].properties.property[required].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtgongzuojibie].properties.property[visible].value">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_HK" value="true" />
@@ -15862,6 +18121,36 @@
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtinstallCost].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtkuadu].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="跨度" />
+            <lang locale="zh_HK" value="跨度" />
+            <lang locale="zh_TW" value="跨度" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtkuadu].properties.property[horizontalAlignment].value">
+            <lang locale="en_US" value="2" />
+            <lang locale="zh_CN" value="2" />
+            <lang locale="zh_HK" value="2" />
+            <lang locale="zh_TW" value="2" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtkuadu].properties.property[maxLength].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtkuadu].properties.property[required].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtkuadu].properties.property[visible].value">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_HK" value="true" />
@@ -16149,11 +18438,71 @@
             <lang locale="zh_HK" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtqishengaodu].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="起升高度" />
+            <lang locale="zh_HK" value="起升高度" />
+            <lang locale="zh_TW" value="起升高度" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtqishengaodu].properties.property[horizontalAlignment].value">
+            <lang locale="en_US" value="2" />
+            <lang locale="zh_CN" value="2" />
+            <lang locale="zh_HK" value="2" />
+            <lang locale="zh_TW" value="2" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtqishengaodu].properties.property[maxLength].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtqishengaodu].properties.property[required].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtqishengaodu].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtqizhongliju].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="起重力矩" />
+            <lang locale="zh_HK" value="起重力矩" />
+            <lang locale="zh_TW" value="起重力矩" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtqizhongliju].properties.property[horizontalAlignment].value">
+            <lang locale="en_US" value="2" />
+            <lang locale="zh_CN" value="2" />
+            <lang locale="zh_HK" value="2" />
+            <lang locale="zh_TW" value="2" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtqizhongliju].properties.property[maxLength].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtqizhongliju].properties.property[required].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtqizhongliju].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtratedWeight].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="额定起载重量(t)" />
+            <lang locale="zh_HK" value="額定起載重量(t)" />
+            <lang locale="zh_TW" value="額定起載重量(t)" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtresponsible].alias">
             <lang locale="en_US" value="null" />
@@ -16384,6 +18733,156 @@
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtweight].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtxuanbichangdu].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="悬臂长度" />
+            <lang locale="zh_HK" value="懸臂長度" />
+            <lang locale="zh_TW" value="懸臂長度" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtxuanbichangdu].properties.property[horizontalAlignment].value">
+            <lang locale="en_US" value="2" />
+            <lang locale="zh_CN" value="2" />
+            <lang locale="zh_HK" value="2" />
+            <lang locale="zh_TW" value="2" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtxuanbichangdu].properties.property[maxLength].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtxuanbichangdu].properties.property[required].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtxuanbichangdu].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtyouzhengbianma].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="邮政编码" />
+            <lang locale="zh_HK" value="郵遞區號" />
+            <lang locale="zh_TW" value="郵遞區號" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtyouzhengbianma].properties.property[horizontalAlignment].value">
+            <lang locale="en_US" value="2" />
+            <lang locale="zh_CN" value="2" />
+            <lang locale="zh_HK" value="2" />
+            <lang locale="zh_TW" value="2" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtyouzhengbianma].properties.property[maxLength].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtyouzhengbianma].properties.property[required].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtyouzhengbianma].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtzuida].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="最大工作幅度" />
+            <lang locale="zh_HK" value="最大工作幅度" />
+            <lang locale="zh_TW" value="最大工作幅度" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtzuida].properties.property[horizontalAlignment].value">
+            <lang locale="en_US" value="2" />
+            <lang locale="zh_CN" value="2" />
+            <lang locale="zh_HK" value="2" />
+            <lang locale="zh_TW" value="2" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtzuida].properties.property[maxLength].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtzuida].properties.property[required].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtzuida].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtzuixiao].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="最小 工作幅度" />
+            <lang locale="zh_HK" value="最小 工作幅度" />
+            <lang locale="zh_TW" value="最小 工作幅度" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtzuixiao].properties.property[horizontalAlignment].value">
+            <lang locale="en_US" value="2" />
+            <lang locale="zh_CN" value="2" />
+            <lang locale="zh_HK" value="2" />
+            <lang locale="zh_TW" value="2" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtzuixiao].properties.property[maxLength].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtzuixiao].properties.property[required].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtzuixiao].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtzuzhijigou].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="组织机构代码" />
+            <lang locale="zh_HK" value="組織機構代碼" />
+            <lang locale="zh_TW" value="組織機構代碼" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtzuzhijigou].properties.property[horizontalAlignment].value">
+            <lang locale="en_US" value="2" />
+            <lang locale="zh_CN" value="2" />
+            <lang locale="zh_HK" value="2" />
+            <lang locale="zh_TW" value="2" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtzuzhijigou].properties.property[maxLength].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtzuzhijigou].properties.property[required].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.EquIdEditUI].components.component[txtzuzhijigou].properties.property[visible].value">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_HK" value="true" />
