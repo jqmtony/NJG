@@ -1,7 +1,10 @@
 package com.kingdee.eas.port.pm.invest.app;
 
 import java.sql.Timestamp;
-import java.util.Date;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Locale;
+import java.util.Set;
 
 import org.apache.log4j.Logger;
 
@@ -9,7 +12,20 @@ import com.kingdee.bos.BOSException;
 import com.kingdee.bos.Context;
 import com.kingdee.bos.dao.IObjectPK;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.bos.metadata.MetaDataLoaderFactory;
+import com.kingdee.bos.metadata.entity.EntityViewInfo;
+import com.kingdee.bos.metadata.entity.FilterInfo;
+import com.kingdee.bos.metadata.entity.FilterItemInfo;
+import com.kingdee.bos.metadata.entity.SelectorItemInfo;
+import com.kingdee.bos.metadata.management.LanguageCollection;
+import com.kingdee.bos.metadata.management.SolutionInfo;
+import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.util.BOSUuid;
+import com.kingdee.bos.workflow.participant.Person;
+import com.kingdee.eas.base.permission.IUser;
+import com.kingdee.eas.base.permission.UserCollection;
+import com.kingdee.eas.base.permission.UserFactory;
+import com.kingdee.eas.base.permission.UserInfo;
 import com.kingdee.eas.basedata.assistant.IProject;
 import com.kingdee.eas.basedata.assistant.ProjectFactory;
 import com.kingdee.eas.basedata.assistant.ProjectInfo;
@@ -25,13 +41,14 @@ import com.kingdee.eas.port.pm.invest.AccredTypeEnum;
 import com.kingdee.eas.port.pm.invest.IYearInvestPlan;
 import com.kingdee.eas.port.pm.invest.ObjectStateEnum;
 import com.kingdee.eas.port.pm.invest.YIPlanAccredE1Collection;
+import com.kingdee.eas.port.pm.invest.YIPlanAccredE1E2Info;
 import com.kingdee.eas.port.pm.invest.YIPlanAccredE1Info;
 import com.kingdee.eas.port.pm.invest.YIPlanAccredFactory;
 import com.kingdee.eas.port.pm.invest.YIPlanAccredInfo;
 import com.kingdee.eas.port.pm.invest.YearInvestPlanE3Info;
 import com.kingdee.eas.port.pm.invest.YearInvestPlanFactory;
 import com.kingdee.eas.port.pm.invest.YearInvestPlanInfo;
-import com.kingdee.eas.util.app.ContextUtil;
+import com.kingdee.eas.xr.app.XRBillStatusEnum;
 import com.kingdee.util.NumericExceptionSubItem;
 
 public class YIPlanAccredControllerBean extends AbstractYIPlanAccredControllerBean
@@ -53,8 +70,21 @@ public class YIPlanAccredControllerBean extends AbstractYIPlanAccredControllerBe
     	YIPlanAccredE1Collection coll =Info.getE1();
     		for (int i = 0; i <coll.size(); i++) {
 					YIPlanAccredE1Info yipInfo = coll.get(i);
+					
+					
 					BOSUuid yipid =yipInfo.getProjectName().getId();
 		    		YearInvestPlanInfo planInfo = YearInvestPlan.getYearInvestPlanInfo(new ObjectUuidPK(yipid));
+		    		
+		    		if(yipInfo.getAccredResu().equals(ObjectStateEnum.complement))
+		    		{
+		    			planInfo.setStatus(XRBillStatusEnum.TEMPORARILYSAVED);
+		    			planInfo.setDescription(planInfo.getObjectState().getValue());
+		    		}
+		    		else
+		    		{
+		    			planInfo.setDescription("");
+		    		}
+		    		
 		    		planInfo.setObjectState(yipInfo.getAccredResu());
 		    		YearInvestPlan.update(new ObjectUuidPK(yipid), planInfo);
 		    		if(planInfo.getObjectState().equals(ObjectStateEnum.complement)){
@@ -219,6 +249,7 @@ public class YIPlanAccredControllerBean extends AbstractYIPlanAccredControllerBe
     			proInfo.setScheduleStartDate(planInfo.getPlanStartDate());
     			proInfo.setSchedulEndDate(planInfo.getPlanEndDate());
     			proInfo.setNJGyearInvest(planInfo);
+    			proInfo.setIsSysCreate(Boolean.TRUE);
     			proInfo.setNJGprojectType(IProjectType.getProjectTypeInfo("select id,name,number where id='"+e1Info.getProjectType().getId().toString()+"'"));
     			
     			if(planInfo.getPortProject()!=null)
@@ -250,4 +281,108 @@ public class YIPlanAccredControllerBean extends AbstractYIPlanAccredControllerBe
     	
     }   
     
+    
+    protected Object _getAuditPersonCollection(Context ctx, IObjectPK pk)throws BOSException {
+    	
+    	Object obj = null;
+		try 
+		{
+			obj = getUserCollection(ctx, getPersonIdCollection(ctx,pk));
+		} 
+		catch (EASBizException e) {
+			e.printStackTrace();
+		}
+    	
+    	return obj;
+    }
+    
+    private Object getUserCollection(Context ctx, Set<String> set) throws EASBizException, BOSException
+    {
+    	Iterator<String> iter = set.iterator();
+    	
+    	Person[] stPs=new Person[100];
+    	
+    	int index = 0;
+    	while(iter.hasNext())
+    	{
+    		String personId = iter.next().toString();
+    		
+    		UserCollection userColl = getUsersByPerson(ctx, personId);
+    		
+    		if (null == userColl || 0 == userColl.size()) {
+				continue;
+			}
+    		Person wfPerson = new Person();
+			Locale locales[] = getContextLocales(ctx);
+			UserInfo user = userColl.get(0);
+			wfPerson.setUserId(user.getId().toString());
+			for (int i = 0; i < locales.length; i++)
+				wfPerson.setUserName(locales[i], user.getName(locales[i]));
+			if (user.getPerson() != null) {
+				wfPerson.setEmployeeId(user.getPerson().getId().toString());
+				for (int i = 0; i < locales.length; i++)
+					wfPerson.setEmployeeName(locales[i], user.getPerson().getName(locales[i]));
+			}
+			if(wfPerson!=null){
+				stPs[index]=wfPerson;
+				index+=1;
+			}
+    	}
+    	return stPs;
+    }
+    
+    private Set getPersonIdCollection(Context ctx, IObjectPK pk) throws EASBizException, BOSException
+    {
+    	YIPlanAccredInfo yiplanInfo = getYIPlanAccredInfo(ctx, pk);
+    	
+    	Set<String> set = new HashSet<String>();
+    	
+    	for (int i = 0; i < yiplanInfo.getE1().size(); i++) 
+    	{
+    		YIPlanAccredE1Info YIPlanAccredE1Info = yiplanInfo.getE1().get(i);
+    		
+    		for (int j = 0; j < YIPlanAccredE1Info.getE2().size(); j++) 
+    		{
+    			YIPlanAccredE1E2Info YIPlanAccredE1E2Info = YIPlanAccredE1Info.getE2().get(j);
+    			
+    			if(UIRuleUtil.isNotNull(YIPlanAccredE1E2Info.getAccredPerson()))
+    				set.add(YIPlanAccredE1E2Info.getAccredPerson().getId().toString());
+			}
+		}
+    	return set;
+    }
+    
+    
+    private UserCollection getUsersByPerson(Context context, String personId)throws BOSException {
+		UserCollection userColl = null;
+		IUser iUser = UserFactory.getLocalInstance(context);
+		FilterInfo filter = new FilterInfo();
+		filter.getFilterItems().add(
+				new FilterItemInfo("isDelete", new Integer(0)));
+		filter.getFilterItems().add(
+				new FilterItemInfo("person.id", personId.trim()));
+		EntityViewInfo env = new EntityViewInfo();
+		env.setFilter(filter);
+		env.getSelector().add(new SelectorItemInfo("id"));
+		env.getSelector().add(new SelectorItemInfo("name"));
+		env.getSelector().add(new SelectorItemInfo("person.name"));
+		userColl = iUser.getUserCollection(env);
+		
+		return userColl;
+	}
+    
+    
+    public static Locale[] getContextLocales(Context ctx) {
+		Locale locales[] = null;
+		SolutionInfo solu = MetaDataLoaderFactory.getLocalMetaDataLoader(ctx).getSolution();
+		if (solu != null) {
+			LanguageCollection langs = solu.getLanguages();
+			if (langs != null) {
+				locales = new Locale[langs.size()];
+				for (int i = 0; i < langs.size(); i++)
+					locales[i] = langs.get(i).getLocale();
+			}
+		}
+		return locales;
+	}
 }
