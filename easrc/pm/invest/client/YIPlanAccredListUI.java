@@ -9,11 +9,22 @@ import org.apache.log4j.Logger;
 
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.ui.face.IUIFactory;
+import com.kingdee.bos.ui.face.IUIWindow;
+import com.kingdee.bos.ui.face.UIException;
+import com.kingdee.bos.ui.face.UIFactory;
+import com.kingdee.bos.workflow.ProcessInstInfo;
+import com.kingdee.bos.workflow.monitor.client.JumpTargetActivityUI;
+import com.kingdee.bos.workflow.service.ormrpc.EnactmentServiceFactory;
+import com.kingdee.bos.workflow.service.ormrpc.IEnactmentService;
 import com.kingdee.eas.common.EASBizException;
-import com.kingdee.eas.common.client.UIFactoryName;
+import com.kingdee.eas.common.client.OprtState;
+import com.kingdee.eas.common.client.UIContext;
 import com.kingdee.eas.port.pm.invest.AccredTypeEnum;
 import com.kingdee.eas.port.pm.invest.YIPlanAccredFactory;
 import com.kingdee.eas.port.pm.invest.YIPlanAccredInfo;
+import com.kingdee.eas.util.client.EASResource;
+import com.kingdee.eas.util.client.MsgBox;
 import com.kingdee.util.NumericExceptionSubItem;
 
 /**
@@ -39,6 +50,15 @@ public class YIPlanAccredListUI extends AbstractYIPlanAccredListUI
         super.storeFields();
     }
     
+    public void onLoad() throws Exception {
+    	super.onLoad();
+    	
+    	this.btnCreateTo.setText("流程跳转");
+    	this.btnCreateTo.setToolTipText("流程跳转");
+    	this.btnCreateTo.setIcon(EASResource.getIcon("imgTbtn_linkviewbill"));
+    	
+    	this.toolBar.add(this.btnCreateTo,29);
+    }
     
 
     /**
@@ -438,7 +458,29 @@ public class YIPlanAccredListUI extends AbstractYIPlanAccredListUI
      */
     public void actionCreateTo_actionPerformed(ActionEvent e) throws Exception
     {
-        super.actionCreateTo_actionPerformed(e);
+//        super.actionCreateTo_actionPerformed(e);
+    	checkSelected();
+    	
+    	IEnactmentService service2 = EnactmentServiceFactory.createRemoteEnactService();
+        ProcessInstInfo[] procInsts = service2.getProcessInstanceByHoldedObjectId(this.getSelectedKeyValue());
+        
+        if(null != procInsts &&  procInsts.length > 0)
+        {
+        	ProcessInstInfo inst = procInsts[0];
+        	
+        	String instId = inst.getProcInstId();
+        	
+        	UIContext uiContext = new UIContext(this);
+        	uiContext.put("procInstId", instId);
+        	IUIFactory uiFactory = UIFactory.createUIFactory("com.kingdee.eas.base.uiframe.client.UIModelDialogFactory");
+        	uiWindow = uiFactory.create(JumpTargetActivityUI.class.getName(), uiContext, null, OprtState.ADDNEW);
+        	
+    		uiWindow.show();
+        }
+        else
+        {
+        	MsgBox.showWarning("沒有流程运行！");
+        }
     }
 
     /**
