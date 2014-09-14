@@ -1324,7 +1324,8 @@ public class ContractBillControllerBean extends AbstractContractBillControllerBe
         		&& iCodingRuleManager.isUseIntermitNumber(info, curOrgId,bindingProperty)) {
             iCodingRuleManager.recycleNumber(info, curOrgId, bindingProperty,"",info.getNumber());
         }else {
-        	curOrgId = (info).getCurProject().getCompany().getId().toString();
+        	ProjectInfo project = ProjectFactory.getLocalInstance(ctx).getProjectInfo(new ObjectUuidPK((info).getCurProject().getId()));
+        	curOrgId = project.getCompany().getId().toString();
         	
             if ((info).getCodeType()!=null && iCodingRuleManager.isExist(info, curOrgId,bindingProperty)
             		&& iCodingRuleManager.isUseIntermitNumber(info, curOrgId,bindingProperty)) {
