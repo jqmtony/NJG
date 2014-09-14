@@ -127,6 +127,50 @@ public class AbstractRepairOrderE1Info extends com.kingdee.eas.framework.CoreBil
     {
         setBigDecimal("xlAmount", item);
     }
+    /**
+     * Object:维修明细's 故障情况property 
+     */
+    public String getGuzhangqingkuang()
+    {
+        return getString("guzhangqingkuang");
+    }
+    public void setGuzhangqingkuang(String item)
+    {
+        setString("guzhangqingkuang", item);
+    }
+    /**
+     * Object:维修明细's 备件规格型号property 
+     */
+    public String getModel()
+    {
+        return getString("model");
+    }
+    public void setModel(String item)
+    {
+        setString("model", item);
+    }
+    /**
+     * Object:维修明细's 更换备件数量property 
+     */
+    public java.math.BigDecimal getShuliang()
+    {
+        return getBigDecimal("shuliang");
+    }
+    public void setShuliang(java.math.BigDecimal item)
+    {
+        setBigDecimal("shuliang", item);
+    }
+    /**
+     * Object:维修明细's 预警周期(天)property 
+     */
+    public String getYujingzhouqi()
+    {
+        return getString("yujingzhouqi");
+    }
+    public void setYujingzhouqi(String item)
+    {
+        setString("yujingzhouqi", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("58358BBD");

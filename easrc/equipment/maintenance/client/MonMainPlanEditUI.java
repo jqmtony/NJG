@@ -728,9 +728,11 @@ public class MonMainPlanEditUI extends AbstractMonMainPlanEditUI
 
 	public void onLoad() throws Exception {
 		this.kdtE1.getColumn("seq").getStyleAttributes().setHided(true);
-		this.kdtE1.getColumn("implementDepart").getStyleAttributes().setLocked(true);
+//		this.kdtE1.getColumn("implementDepart").getStyleAttributes().setLocked(true);
 		this.kdtE1.getColumn("actualCompleteT").getStyleAttributes().setLocked(true);
 		this.kdtE1.getColumn("complete").getStyleAttributes().setLocked(true);
+		this.kdtE1.getColumn("actualCompleteT").getStyleAttributes().setHided(true);
+		this.kdtE1.getColumn("complete").getStyleAttributes().setHided(true);
 		super.onLoad();
 		this.setUITitle("维保计划");
 		 KDBizPromptBox kdtE1_equNumber_PromptBox = new KDBizPromptBox();
@@ -806,9 +808,12 @@ public class MonMainPlanEditUI extends AbstractMonMainPlanEditUI
 			
 			XRBillStatusEnum status = detailInfo.getStatus();
 			//作废
-			if(status.equals(XRBillStatusEnum.DELETED))
+			if(status.equals(XRBillStatusEnum.DELETED)){
 				row.getStyleAttributes().setBackground(b);
-				
+			}
+			if(status.equals(XRBillStatusEnum.AUDITED)){
+				row.getStyleAttributes().setBackground(Color.green);
+			}
 		}
 	}
 }

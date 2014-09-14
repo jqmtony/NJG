@@ -188,6 +188,8 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 		this.txtportPeriod.setPrecision(0);	
 		txtnowAmount.setEnabled(false);
 		txtoldYear.setEnabled(false);
+		txtzuzhijigou.setEnabled(false);
+		txtyouzhengbianma.setEnabled(false);
 		super.onLoad();
 		FaCatPromptBox facatBox = new FaCatPromptBox();
 		facatBox.setACompanyOrgUnitInfo(SysContext.getSysContext().getCurrentFIUnit());
@@ -217,6 +219,17 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 				prmtaddress.setValue(addInfo);
 			}else{
 				prmtaddress.setValue(null);
+			}
+			if(aoInfo.getOrgCode() != null){
+				txtzuzhijigou.setText(aoInfo.getOrgCode());
+			}else{
+				txtzuzhijigou.setText(null);
+			}
+			
+			if(aoInfo.getZipCode() !=null){
+				txtyouzhengbianma.setText(aoInfo.getZipCode());
+			}else{
+				txtyouzhengbianma.setText(null);
 			}
 		}
 		
@@ -1738,6 +1751,17 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 		sic.add(new SelectorItemInfo("responsible"));
 		sic.add(new SelectorItemInfo("inStreet"));
 		sic.add(new SelectorItemInfo("inspectorOne"));
+		sic.add(new SelectorItemInfo("gongzuojibie"));
+		sic.add(new SelectorItemInfo("kuadu"));
+		sic.add(new SelectorItemInfo("xuanbichangdu"));
+		sic.add(new SelectorItemInfo("qishengaodu"));
+		sic.add(new SelectorItemInfo("dacheguidao"));
+		sic.add(new SelectorItemInfo("qizhongliju"));
+		sic.add(new SelectorItemInfo("zuida"));
+		sic.add(new SelectorItemInfo("zuixiao"));
+		sic.add(new SelectorItemInfo("edusudu"));
+		sic.add(new SelectorItemInfo("zuzhijigou"));
+		sic.add(new SelectorItemInfo("youzhengbianma"));
 		return sic;
 	}
 	
@@ -1866,6 +1890,17 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 				prmtaddress.setValue(addInfo);
 			}else{
 				prmtaddress.setValue(null);
+			}
+			if(aoInfo.getOrgCode() != null){
+				txtzuzhijigou.setText(aoInfo.getOrgCode());
+			}else{
+				txtzuzhijigou.setText(null);
+			}
+			
+			if(aoInfo.getZipCode() !=null){
+				txtyouzhengbianma.setText(aoInfo.getZipCode());
+			}else{
+				txtyouzhengbianma.setText(null);
 			}
 		}
 	}

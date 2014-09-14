@@ -56,19 +56,19 @@ public class MonMainPlanControllerBean extends AbstractMonMainPlanControllerBean
         Logger.getLogger("com.kingdee.eas.port.equipment.maintenance.app.MonMainPlanControllerBean");
     protected void _audit(Context ctx, IObjectPK pk) throws BOSException,EASBizException {
     	super._audit(ctx, pk);
-    IBOTMapping botMapping = BOTMappingFactory.getLocalInstance(ctx);
-	BOTMappingInfo botInfo = (BOTMappingInfo) botMapping.getValue("where name='NJP00023'");
-	if(botInfo== null)
-	{
-		throw new EASBizException(new NumericExceptionSubItem("100","规则错误，请检查BOTP！"));
-	}
-	try {
-		String oql = "where id='"+pk.toString()+"'";
-		CoreBillBaseCollection eqcollection = MonMainPlanFactory.getLocalInstance(ctx).getCoreBillBaseCollection(oql);
-		generateDestBill(ctx, "A0CD335E", "F96E9B71",eqcollection , new ObjectUuidPK(botInfo.getId()));
-	} catch (Exception e) {
-		e.printStackTrace();
-	}
+//    IBOTMapping botMapping = BOTMappingFactory.getLocalInstance(ctx);
+//	BOTMappingInfo botInfo = (BOTMappingInfo) botMapping.getValue("where name='NJP00023'");
+//	if(botInfo== null)
+//	{
+//		throw new EASBizException(new NumericExceptionSubItem("100","规则错误，请检查BOTP！"));
+//	}
+//	try {
+//		String oql = "where id='"+pk.toString()+"'";
+//		CoreBillBaseCollection eqcollection = MonMainPlanFactory.getLocalInstance(ctx).getCoreBillBaseCollection(oql);
+//		generateDestBill(ctx, "A0CD335E", "F96E9B71",eqcollection , new ObjectUuidPK(botInfo.getId()));
+//	} catch (Exception e) {
+//		e.printStackTrace();
+//	}
 }
 
 protected void _unAudit(Context ctx, IObjectPK pk) throws BOSException,EASBizException {

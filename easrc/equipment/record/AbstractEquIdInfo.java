@@ -894,6 +894,127 @@ public class AbstractEquIdInfo extends com.kingdee.eas.xr.XRBillBaseInfo impleme
     {
         put("useUnit", item);
     }
+    /**
+     * Object:设备档案's 工作级别property 
+     */
+    public String getGongzuojibie()
+    {
+        return getString("gongzuojibie");
+    }
+    public void setGongzuojibie(String item)
+    {
+        setString("gongzuojibie", item);
+    }
+    /**
+     * Object:设备档案's 跨度property 
+     */
+    public String getKuadu()
+    {
+        return getString("kuadu");
+    }
+    public void setKuadu(String item)
+    {
+        setString("kuadu", item);
+    }
+    /**
+     * Object:设备档案's 悬臂长度property 
+     */
+    public String getXuanbichangdu()
+    {
+        return getString("xuanbichangdu");
+    }
+    public void setXuanbichangdu(String item)
+    {
+        setString("xuanbichangdu", item);
+    }
+    /**
+     * Object:设备档案's 起升高度property 
+     */
+    public String getQishengaodu()
+    {
+        return getString("qishengaodu");
+    }
+    public void setQishengaodu(String item)
+    {
+        setString("qishengaodu", item);
+    }
+    /**
+     * Object:设备档案's 大车轨道长度单侧property 
+     */
+    public String getDacheguidao()
+    {
+        return getString("dacheguidao");
+    }
+    public void setDacheguidao(String item)
+    {
+        setString("dacheguidao", item);
+    }
+    /**
+     * Object:设备档案's 起重力矩property 
+     */
+    public String getQizhongliju()
+    {
+        return getString("qizhongliju");
+    }
+    public void setQizhongliju(String item)
+    {
+        setString("qizhongliju", item);
+    }
+    /**
+     * Object:设备档案's 最大工作幅度property 
+     */
+    public String getZuida()
+    {
+        return getString("zuida");
+    }
+    public void setZuida(String item)
+    {
+        setString("zuida", item);
+    }
+    /**
+     * Object:设备档案's 最小 工作幅度property 
+     */
+    public String getZuixiao()
+    {
+        return getString("zuixiao");
+    }
+    public void setZuixiao(String item)
+    {
+        setString("zuixiao", item);
+    }
+    /**
+     * Object:设备档案's 额度速度property 
+     */
+    public String getEdusudu()
+    {
+        return getString("edusudu");
+    }
+    public void setEdusudu(String item)
+    {
+        setString("edusudu", item);
+    }
+    /**
+     * Object:设备档案's 组织机构代码property 
+     */
+    public String getZuzhijigou()
+    {
+        return getString("zuzhijigou");
+    }
+    public void setZuzhijigou(String item)
+    {
+        setString("zuzhijigou", item);
+    }
+    /**
+     * Object:设备档案's 邮政编码property 
+     */
+    public String getYouzhengbianma()
+    {
+        return getString("youzhengbianma");
+    }
+    public void setYouzhengbianma(String item)
+    {
+        setString("youzhengbianma", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("0ED4BEC2");

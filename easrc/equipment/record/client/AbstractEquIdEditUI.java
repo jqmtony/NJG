@@ -84,6 +84,7 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
     protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel6;
     protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel7;
     protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel2;
+    protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel4;
     protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel8;
     protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel10;
     protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel11;
@@ -215,6 +216,40 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
 	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtSpareInfo_detailPanel = null;
     protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtE3;
 	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtE3_detailPanel = null;
+    protected com.kingdee.bos.ctrl.swing.KDLabel kDLabel1;
+    protected com.kingdee.bos.ctrl.swing.KDSeparator kDSeparator8;
+    protected com.kingdee.bos.ctrl.swing.KDLabel kDLabel2;
+    protected com.kingdee.bos.ctrl.swing.KDSeparator kDSeparator9;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contgongzuojibie;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contkuadu;
+    protected com.kingdee.bos.ctrl.swing.KDLabel kDLabel3;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contxuanbichangdu;
+    protected com.kingdee.bos.ctrl.swing.KDLabel kDLabel4;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contqishengaodu;
+    protected com.kingdee.bos.ctrl.swing.KDLabel kDLabel5;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contdacheguidao;
+    protected com.kingdee.bos.ctrl.swing.KDLabel kDLabel6;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contqizhongliju;
+    protected com.kingdee.bos.ctrl.swing.KDLabel kDLabel7;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contzuida;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contzuixiao;
+    protected com.kingdee.bos.ctrl.swing.KDLabel kDLabel8;
+    protected com.kingdee.bos.ctrl.swing.KDLabel kDLabel9;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contedusudu;
+    protected com.kingdee.bos.ctrl.swing.KDLabel kDLabel10;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contzuzhijigou;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contyouzhengbianma;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txtgongzuojibie;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txtkuadu;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txtxuanbichangdu;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txtqishengaodu;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txtdacheguidao;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txtqizhongliju;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txtzuida;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txtzuixiao;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txtedusudu;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txtzuzhijigou;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txtyouzhengbianma;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkdaytow;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkdayone;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker testDay;
@@ -392,6 +427,7 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.kDPanel6 = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.kDPanel7 = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.kDPanel2 = new com.kingdee.bos.ctrl.swing.KDPanel();
+        this.kDPanel4 = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.kDPanel8 = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.kDPanel10 = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.kDPanel11 = new com.kingdee.bos.ctrl.swing.KDPanel();
@@ -520,6 +556,40 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.kdtTechnologyPar = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.kdtSpareInfo = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.kdtE3 = new com.kingdee.bos.ctrl.kdf.table.KDTable();
+        this.kDLabel1 = new com.kingdee.bos.ctrl.swing.KDLabel();
+        this.kDSeparator8 = new com.kingdee.bos.ctrl.swing.KDSeparator();
+        this.kDLabel2 = new com.kingdee.bos.ctrl.swing.KDLabel();
+        this.kDSeparator9 = new com.kingdee.bos.ctrl.swing.KDSeparator();
+        this.contgongzuojibie = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contkuadu = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.kDLabel3 = new com.kingdee.bos.ctrl.swing.KDLabel();
+        this.contxuanbichangdu = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.kDLabel4 = new com.kingdee.bos.ctrl.swing.KDLabel();
+        this.contqishengaodu = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.kDLabel5 = new com.kingdee.bos.ctrl.swing.KDLabel();
+        this.contdacheguidao = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.kDLabel6 = new com.kingdee.bos.ctrl.swing.KDLabel();
+        this.contqizhongliju = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.kDLabel7 = new com.kingdee.bos.ctrl.swing.KDLabel();
+        this.contzuida = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contzuixiao = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.kDLabel8 = new com.kingdee.bos.ctrl.swing.KDLabel();
+        this.kDLabel9 = new com.kingdee.bos.ctrl.swing.KDLabel();
+        this.contedusudu = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.kDLabel10 = new com.kingdee.bos.ctrl.swing.KDLabel();
+        this.contzuzhijigou = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contyouzhengbianma = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.txtgongzuojibie = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.txtkuadu = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.txtxuanbichangdu = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.txtqishengaodu = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.txtdacheguidao = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.txtqizhongliju = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.txtzuida = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.txtzuixiao = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.txtedusudu = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.txtzuzhijigou = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.txtyouzhengbianma = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.pkdaytow = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.pkdayone = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.testDay = new com.kingdee.bos.ctrl.swing.KDDatePicker();
@@ -563,6 +633,7 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.kDPanel6.setName("kDPanel6");
         this.kDPanel7.setName("kDPanel7");
         this.kDPanel2.setName("kDPanel2");
+        this.kDPanel4.setName("kDPanel4");
         this.kDPanel8.setName("kDPanel8");
         this.kDPanel10.setName("kDPanel10");
         this.kDPanel11.setName("kDPanel11");
@@ -691,6 +762,40 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.kdtTechnologyPar.setName("kdtTechnologyPar");
         this.kdtSpareInfo.setName("kdtSpareInfo");
         this.kdtE3.setName("kdtE3");
+        this.kDLabel1.setName("kDLabel1");
+        this.kDSeparator8.setName("kDSeparator8");
+        this.kDLabel2.setName("kDLabel2");
+        this.kDSeparator9.setName("kDSeparator9");
+        this.contgongzuojibie.setName("contgongzuojibie");
+        this.contkuadu.setName("contkuadu");
+        this.kDLabel3.setName("kDLabel3");
+        this.contxuanbichangdu.setName("contxuanbichangdu");
+        this.kDLabel4.setName("kDLabel4");
+        this.contqishengaodu.setName("contqishengaodu");
+        this.kDLabel5.setName("kDLabel5");
+        this.contdacheguidao.setName("contdacheguidao");
+        this.kDLabel6.setName("kDLabel6");
+        this.contqizhongliju.setName("contqizhongliju");
+        this.kDLabel7.setName("kDLabel7");
+        this.contzuida.setName("contzuida");
+        this.contzuixiao.setName("contzuixiao");
+        this.kDLabel8.setName("kDLabel8");
+        this.kDLabel9.setName("kDLabel9");
+        this.contedusudu.setName("contedusudu");
+        this.kDLabel10.setName("kDLabel10");
+        this.contzuzhijigou.setName("contzuzhijigou");
+        this.contyouzhengbianma.setName("contyouzhengbianma");
+        this.txtgongzuojibie.setName("txtgongzuojibie");
+        this.txtkuadu.setName("txtkuadu");
+        this.txtxuanbichangdu.setName("txtxuanbichangdu");
+        this.txtqishengaodu.setName("txtqishengaodu");
+        this.txtdacheguidao.setName("txtdacheguidao");
+        this.txtqizhongliju.setName("txtqizhongliju");
+        this.txtzuida.setName("txtzuida");
+        this.txtzuixiao.setName("txtzuixiao");
+        this.txtedusudu.setName("txtedusudu");
+        this.txtzuzhijigou.setName("txtzuzhijigou");
+        this.txtyouzhengbianma.setName("txtyouzhengbianma");
         this.pkdaytow.setName("pkdaytow");
         this.pkdayone.setName("pkdayone");
         this.testDay.setName("testDay");
@@ -845,6 +950,8 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         // kDPanel6
         // kDPanel7
         // kDPanel2
+        // kDPanel4		
+        this.kDPanel4.setFont(resHelper.getFont("kDPanel4.font"));
         // kDPanel8		
         this.kDPanel8.setBorder(new TitledBorder(BorderFactory.createEtchedBorder(new Color(255,255,255),new Color(148,145,140)), resHelper.getString("kDPanel8.border.title")));
         // kDPanel10		
@@ -1707,6 +1814,148 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         kdtE3_noteoo_TextArea.setMaxLength(500);
         KDTDefaultCellEditor kdtE3_noteoo_CellEditor = new KDTDefaultCellEditor(kdtE3_noteoo_TextArea);
         this.kdtE3.getColumn("noteoo").setEditor(kdtE3_noteoo_CellEditor);
+        // kDLabel1		
+        this.kDLabel1.setText(resHelper.getString("kDLabel1.text"));		
+        this.kDLabel1.setFont(resHelper.getFont("kDLabel1.font"));
+        // kDSeparator8
+        // kDLabel2		
+        this.kDLabel2.setText(resHelper.getString("kDLabel2.text"));		
+        this.kDLabel2.setFont(resHelper.getFont("kDLabel2.font"));
+        // kDSeparator9
+        // contgongzuojibie		
+        this.contgongzuojibie.setBoundLabelText(resHelper.getString("contgongzuojibie.boundLabelText"));		
+        this.contgongzuojibie.setBoundLabelLength(100);		
+        this.contgongzuojibie.setBoundLabelUnderline(true);		
+        this.contgongzuojibie.setVisible(true);
+        // contkuadu		
+        this.contkuadu.setBoundLabelText(resHelper.getString("contkuadu.boundLabelText"));		
+        this.contkuadu.setBoundLabelLength(100);		
+        this.contkuadu.setBoundLabelUnderline(true);		
+        this.contkuadu.setVisible(true);
+        // kDLabel3		
+        this.kDLabel3.setText(resHelper.getString("kDLabel3.text"));		
+        this.kDLabel3.setFont(resHelper.getFont("kDLabel3.font"));
+        // contxuanbichangdu		
+        this.contxuanbichangdu.setBoundLabelText(resHelper.getString("contxuanbichangdu.boundLabelText"));		
+        this.contxuanbichangdu.setBoundLabelLength(100);		
+        this.contxuanbichangdu.setBoundLabelUnderline(true);		
+        this.contxuanbichangdu.setVisible(true);
+        // kDLabel4		
+        this.kDLabel4.setText(resHelper.getString("kDLabel4.text"));		
+        this.kDLabel4.setFont(resHelper.getFont("kDLabel4.font"));
+        // contqishengaodu		
+        this.contqishengaodu.setBoundLabelText(resHelper.getString("contqishengaodu.boundLabelText"));		
+        this.contqishengaodu.setBoundLabelLength(100);		
+        this.contqishengaodu.setBoundLabelUnderline(true);		
+        this.contqishengaodu.setVisible(true);
+        // kDLabel5		
+        this.kDLabel5.setText(resHelper.getString("kDLabel5.text"));		
+        this.kDLabel5.setFont(resHelper.getFont("kDLabel5.font"));
+        // contdacheguidao		
+        this.contdacheguidao.setBoundLabelText(resHelper.getString("contdacheguidao.boundLabelText"));		
+        this.contdacheguidao.setBoundLabelLength(100);		
+        this.contdacheguidao.setBoundLabelUnderline(true);		
+        this.contdacheguidao.setVisible(true);
+        // kDLabel6		
+        this.kDLabel6.setText(resHelper.getString("kDLabel6.text"));		
+        this.kDLabel6.setFont(resHelper.getFont("kDLabel6.font"));
+        // contqizhongliju		
+        this.contqizhongliju.setBoundLabelText(resHelper.getString("contqizhongliju.boundLabelText"));		
+        this.contqizhongliju.setBoundLabelLength(100);		
+        this.contqizhongliju.setBoundLabelUnderline(true);		
+        this.contqizhongliju.setVisible(true);
+        // kDLabel7		
+        this.kDLabel7.setText(resHelper.getString("kDLabel7.text"));		
+        this.kDLabel7.setFont(resHelper.getFont("kDLabel7.font"));
+        // contzuida		
+        this.contzuida.setBoundLabelText(resHelper.getString("contzuida.boundLabelText"));		
+        this.contzuida.setBoundLabelLength(100);		
+        this.contzuida.setBoundLabelUnderline(true);		
+        this.contzuida.setVisible(true);
+        // contzuixiao		
+        this.contzuixiao.setBoundLabelText(resHelper.getString("contzuixiao.boundLabelText"));		
+        this.contzuixiao.setBoundLabelLength(100);		
+        this.contzuixiao.setBoundLabelUnderline(true);		
+        this.contzuixiao.setVisible(true);
+        // kDLabel8		
+        this.kDLabel8.setText(resHelper.getString("kDLabel8.text"));		
+        this.kDLabel8.setFont(resHelper.getFont("kDLabel8.font"));
+        // kDLabel9		
+        this.kDLabel9.setText(resHelper.getString("kDLabel9.text"));		
+        this.kDLabel9.setFont(resHelper.getFont("kDLabel9.font"));
+        // contedusudu		
+        this.contedusudu.setBoundLabelText(resHelper.getString("contedusudu.boundLabelText"));		
+        this.contedusudu.setBoundLabelLength(100);		
+        this.contedusudu.setBoundLabelUnderline(true);		
+        this.contedusudu.setVisible(true);
+        // kDLabel10		
+        this.kDLabel10.setText(resHelper.getString("kDLabel10.text"));		
+        this.kDLabel10.setFont(resHelper.getFont("kDLabel10.font"));
+        // contzuzhijigou		
+        this.contzuzhijigou.setBoundLabelText(resHelper.getString("contzuzhijigou.boundLabelText"));		
+        this.contzuzhijigou.setBoundLabelLength(100);		
+        this.contzuzhijigou.setBoundLabelUnderline(true);		
+        this.contzuzhijigou.setVisible(true);
+        // contyouzhengbianma		
+        this.contyouzhengbianma.setBoundLabelText(resHelper.getString("contyouzhengbianma.boundLabelText"));		
+        this.contyouzhengbianma.setBoundLabelLength(100);		
+        this.contyouzhengbianma.setBoundLabelUnderline(true);		
+        this.contyouzhengbianma.setVisible(true);
+        // txtgongzuojibie		
+        this.txtgongzuojibie.setVisible(true);		
+        this.txtgongzuojibie.setHorizontalAlignment(2);		
+        this.txtgongzuojibie.setMaxLength(100);		
+        this.txtgongzuojibie.setRequired(false);
+        // txtkuadu		
+        this.txtkuadu.setVisible(true);		
+        this.txtkuadu.setHorizontalAlignment(2);		
+        this.txtkuadu.setMaxLength(100);		
+        this.txtkuadu.setRequired(false);
+        // txtxuanbichangdu		
+        this.txtxuanbichangdu.setVisible(true);		
+        this.txtxuanbichangdu.setHorizontalAlignment(2);		
+        this.txtxuanbichangdu.setMaxLength(100);		
+        this.txtxuanbichangdu.setRequired(false);
+        // txtqishengaodu		
+        this.txtqishengaodu.setVisible(true);		
+        this.txtqishengaodu.setHorizontalAlignment(2);		
+        this.txtqishengaodu.setMaxLength(100);		
+        this.txtqishengaodu.setRequired(false);
+        // txtdacheguidao		
+        this.txtdacheguidao.setVisible(true);		
+        this.txtdacheguidao.setHorizontalAlignment(2);		
+        this.txtdacheguidao.setMaxLength(100);		
+        this.txtdacheguidao.setRequired(false);
+        // txtqizhongliju		
+        this.txtqizhongliju.setVisible(true);		
+        this.txtqizhongliju.setHorizontalAlignment(2);		
+        this.txtqizhongliju.setMaxLength(100);		
+        this.txtqizhongliju.setRequired(false);
+        // txtzuida		
+        this.txtzuida.setVisible(true);		
+        this.txtzuida.setHorizontalAlignment(2);		
+        this.txtzuida.setMaxLength(100);		
+        this.txtzuida.setRequired(false);
+        // txtzuixiao		
+        this.txtzuixiao.setVisible(true);		
+        this.txtzuixiao.setHorizontalAlignment(2);		
+        this.txtzuixiao.setMaxLength(100);		
+        this.txtzuixiao.setRequired(false);
+        // txtedusudu		
+        this.txtedusudu.setVisible(true);		
+        this.txtedusudu.setHorizontalAlignment(2);		
+        this.txtedusudu.setMaxLength(100);		
+        this.txtedusudu.setRequired(false);
+        // txtzuzhijigou		
+        this.txtzuzhijigou.setVisible(true);		
+        this.txtzuzhijigou.setHorizontalAlignment(2);		
+        this.txtzuzhijigou.setMaxLength(100);		
+        this.txtzuzhijigou.setRequired(false);
+        // txtyouzhengbianma		
+        this.txtyouzhengbianma.setVisible(true);		
+        this.txtyouzhengbianma.setHorizontalAlignment(2);		
+        this.txtyouzhengbianma.setMaxLength(100);		
+        this.txtyouzhengbianma.setRequired(false);
         // pkdaytow		
         this.pkdaytow.setRequired(false);		
         this.pkdaytow.setEnabled(false);
@@ -1761,7 +2010,7 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         // btnRegistChange
         this.btnRegistChange.setAction((IItemAction)ActionProxyFactory.getProxy(actionRegistChange, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnRegistChange.setText(resHelper.getString("btnRegistChange.text"));
-        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmtCU,pkLastUpdateTime,prmtLastUpdateUser,pkCreateTime,prmtCreator,prmtAuditor,txtDescription,pkBizDate,pkAuditTime,comboBizStatus,comboStatus,kdtTechnologyPar,combosbStatus,txtinnerNumber,combonowStatus,txtzzsShortName,chkcityTest,chkportTest,txttzdaNumber,tzsbStatus,prmtasset,prmtassetStatus,txtassetValue,txtinstallCost,chkisMainEqm,txtEqmCategory,pktextDate1,pkdayone,pkdaytow,txttelePhoneNumber,pkactrueTime,txtresponsible,txtinStreet,prmttextType,prmtequTypeone,chkisbaoxian,txtnowAmount,txtoldYear,txtdeadline,txtdebuger,chkisccCheck,txtcpgjzs,txtcpsyqh,txtcpsbh,chkchuanCheck,prmtuseUnit}));
+        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmtCU,pkLastUpdateTime,prmtLastUpdateUser,pkCreateTime,prmtCreator,prmtAuditor,txtDescription,pkBizDate,pkAuditTime,comboBizStatus,comboStatus,kdtTechnologyPar,combosbStatus,txtinnerNumber,combonowStatus,txtzzsShortName,chkcityTest,chkportTest,txttzdaNumber,tzsbStatus,prmtasset,prmtassetStatus,txtassetValue,txtinstallCost,chkisMainEqm,txtEqmCategory,pktextDate1,pkdayone,pkdaytow,txttelePhoneNumber,pkactrueTime,txtresponsible,txtinStreet,prmttextType,prmtequTypeone,chkisbaoxian,txtnowAmount,txtoldYear,txtdeadline,txtdebuger,chkisccCheck,txtcpgjzs,txtcpsyqh,txtcpsbh,chkchuanCheck,prmtuseUnit,txtgongzuojibie,txtkuadu,txtxuanbichangdu,txtqishengaodu,txtdacheguidao,txtqizhongliju,txtzuida,txtzuixiao,txtedusudu,txtzuzhijigou,txtyouzhengbianma}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
 		registerBindings();
@@ -1857,6 +2106,7 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         kDTabbedPane1.add(kDPanel6, resHelper.getString("kDPanel6.constraints"));
         kDTabbedPane1.add(kDPanel7, resHelper.getString("kDPanel7.constraints"));
         kDTabbedPane1.add(kDPanel2, resHelper.getString("kDPanel2.constraints"));
+        kDTabbedPane1.add(kDPanel4, resHelper.getString("kDPanel4.constraints"));
         //kDPanel1
         kDPanel1.setLayout(new KDLayout());
         kDPanel1.putClientProperty("OriginalBounds", new Rectangle(0, 0, 992, 528));        kDPanel8.setBounds(new Rectangle(2, 3, 983, 166));
@@ -2095,16 +2345,16 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         contcpsbh.setBoundEditor(txtcpsbh);
         //kDPanel3
         kDPanel3.setLayout(new KDLayout());
-        kDPanel3.putClientProperty("OriginalBounds", new Rectangle(2, 438, 983, 88));        contasset.setBounds(new Rectangle(11, 15, 270, 19));
-        kDPanel3.add(contasset, new KDLayout.Constraints(11, 15, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contassetStatus.setBounds(new Rectangle(699, 15, 270, 19));
-        kDPanel3.add(contassetStatus, new KDLayout.Constraints(699, 15, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contassetValue.setBounds(new Rectangle(355, 15, 270, 19));
-        kDPanel3.add(contassetValue, new KDLayout.Constraints(355, 15, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contnowAmount.setBounds(new Rectangle(11, 39, 270, 19));
-        kDPanel3.add(contnowAmount, new KDLayout.Constraints(11, 39, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contoldYear.setBounds(new Rectangle(355, 39, 270, 19));
-        kDPanel3.add(contoldYear, new KDLayout.Constraints(355, 39, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDPanel3.putClientProperty("OriginalBounds", new Rectangle(2, 438, 983, 88));        contasset.setBounds(new Rectangle(11, 13, 270, 19));
+        kDPanel3.add(contasset, new KDLayout.Constraints(11, 13, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contassetStatus.setBounds(new Rectangle(699, 13, 270, 19));
+        kDPanel3.add(contassetStatus, new KDLayout.Constraints(699, 13, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contassetValue.setBounds(new Rectangle(355, 13, 270, 19));
+        kDPanel3.add(contassetValue, new KDLayout.Constraints(355, 13, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contnowAmount.setBounds(new Rectangle(11, 34, 270, 19));
+        kDPanel3.add(contnowAmount, new KDLayout.Constraints(11, 34, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contoldYear.setBounds(new Rectangle(355, 34, 270, 19));
+        kDPanel3.add(contoldYear, new KDLayout.Constraints(355, 34, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         //contasset
         contasset.setBoundEditor(prmtasset);
         //contassetStatus
@@ -2127,6 +2377,76 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
         kDPanel2.setLayout(null);        kdtE3.setBounds(new Rectangle(-1, 0, 988, 527));
         kdtE3_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtE3,new com.kingdee.eas.port.equipment.record.EquIdE3Info(),null,false);
         kDPanel2.add(kdtE3_detailPanel, null);
+        //kDPanel4
+        kDPanel4.setLayout(new KDLayout());
+        kDPanel4.putClientProperty("OriginalBounds", new Rectangle(0, 0, 992, 528));        kDLabel1.setBounds(new Rectangle(38, 93, 116, 26));
+        kDPanel4.add(kDLabel1, new KDLayout.Constraints(38, 93, 116, 26, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDSeparator8.setBounds(new Rectangle(33, 121, 674, 5));
+        kDPanel4.add(kDSeparator8, new KDLayout.Constraints(33, 121, 674, 5, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabel2.setBounds(new Rectangle(38, 205, 100, 19));
+        kDPanel4.add(kDLabel2, new KDLayout.Constraints(38, 205, 100, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDSeparator9.setBounds(new Rectangle(33, 228, 671, 10));
+        kDPanel4.add(kDSeparator9, new KDLayout.Constraints(33, 228, 671, 10, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contgongzuojibie.setBounds(new Rectangle(38, 242, 270, 19));
+        kDPanel4.add(contgongzuojibie, new KDLayout.Constraints(38, 242, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contkuadu.setBounds(new Rectangle(401, 242, 270, 19));
+        kDPanel4.add(contkuadu, new KDLayout.Constraints(401, 242, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabel3.setBounds(new Rectangle(675, 238, 39, 19));
+        kDPanel4.add(kDLabel3, new KDLayout.Constraints(675, 238, 39, 19, 0));
+        contxuanbichangdu.setBounds(new Rectangle(38, 275, 270, 19));
+        kDPanel4.add(contxuanbichangdu, new KDLayout.Constraints(38, 275, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabel4.setBounds(new Rectangle(312, 273, 54, 19));
+        kDPanel4.add(kDLabel4, new KDLayout.Constraints(312, 273, 54, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contqishengaodu.setBounds(new Rectangle(401, 275, 270, 19));
+        kDPanel4.add(contqishengaodu, new KDLayout.Constraints(401, 275, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabel5.setBounds(new Rectangle(675, 273, 39, 19));
+        kDPanel4.add(kDLabel5, new KDLayout.Constraints(675, 273, 39, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contdacheguidao.setBounds(new Rectangle(38, 308, 270, 19));
+        kDPanel4.add(contdacheguidao, new KDLayout.Constraints(38, 308, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabel6.setBounds(new Rectangle(312, 306, 52, 19));
+        kDPanel4.add(kDLabel6, new KDLayout.Constraints(312, 306, 52, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contqizhongliju.setBounds(new Rectangle(401, 308, 270, 19));
+        kDPanel4.add(contqizhongliju, new KDLayout.Constraints(401, 308, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabel7.setBounds(new Rectangle(675, 306, 53, 19));
+        kDPanel4.add(kDLabel7, new KDLayout.Constraints(675, 306, 53, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contzuida.setBounds(new Rectangle(38, 341, 270, 19));
+        kDPanel4.add(contzuida, new KDLayout.Constraints(38, 341, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contzuixiao.setBounds(new Rectangle(401, 341, 270, 19));
+        kDPanel4.add(contzuixiao, new KDLayout.Constraints(401, 341, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabel8.setBounds(new Rectangle(312, 339, 50, 19));
+        kDPanel4.add(kDLabel8, new KDLayout.Constraints(312, 339, 50, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabel9.setBounds(new Rectangle(675, 339, 49, 19));
+        kDPanel4.add(kDLabel9, new KDLayout.Constraints(675, 339, 49, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contedusudu.setBounds(new Rectangle(38, 130, 270, 19));
+        kDPanel4.add(contedusudu, new KDLayout.Constraints(38, 130, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabel10.setBounds(new Rectangle(312, 128, 100, 19));
+        kDPanel4.add(kDLabel10, new KDLayout.Constraints(312, 128, 100, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contzuzhijigou.setBounds(new Rectangle(38, 24, 270, 19));
+        kDPanel4.add(contzuzhijigou, new KDLayout.Constraints(38, 24, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contyouzhengbianma.setBounds(new Rectangle(401, 24, 270, 19));
+        kDPanel4.add(contyouzhengbianma, new KDLayout.Constraints(401, 24, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        //contgongzuojibie
+        contgongzuojibie.setBoundEditor(txtgongzuojibie);
+        //contkuadu
+        contkuadu.setBoundEditor(txtkuadu);
+        //contxuanbichangdu
+        contxuanbichangdu.setBoundEditor(txtxuanbichangdu);
+        //contqishengaodu
+        contqishengaodu.setBoundEditor(txtqishengaodu);
+        //contdacheguidao
+        contdacheguidao.setBoundEditor(txtdacheguidao);
+        //contqizhongliju
+        contqizhongliju.setBoundEditor(txtqizhongliju);
+        //contzuida
+        contzuida.setBoundEditor(txtzuida);
+        //contzuixiao
+        contzuixiao.setBoundEditor(txtzuixiao);
+        //contedusudu
+        contedusudu.setBoundEditor(txtedusudu);
+        //contzuzhijigou
+        contzuzhijigou.setBoundEditor(txtzuzhijigou);
+        //contyouzhengbianma
+        contyouzhengbianma.setBoundEditor(txtyouzhengbianma);
         //contdaytow
         contdaytow.setBoundEditor(pkdaytow);
         //contdayone
@@ -2416,6 +2736,17 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
 		dataBinder.registerBinding("E3.zidong", String.class, this.kdtE3, "zidong.text");
 		dataBinder.registerBinding("E3.madeFac", String.class, this.kdtE3, "madeFac.text");
 		dataBinder.registerBinding("E3.noteoo", String.class, this.kdtE3, "noteoo.text");
+		dataBinder.registerBinding("gongzuojibie", String.class, this.txtgongzuojibie, "text");
+		dataBinder.registerBinding("kuadu", String.class, this.txtkuadu, "text");
+		dataBinder.registerBinding("xuanbichangdu", String.class, this.txtxuanbichangdu, "text");
+		dataBinder.registerBinding("qishengaodu", String.class, this.txtqishengaodu, "text");
+		dataBinder.registerBinding("dacheguidao", String.class, this.txtdacheguidao, "text");
+		dataBinder.registerBinding("qizhongliju", String.class, this.txtqizhongliju, "text");
+		dataBinder.registerBinding("zuida", String.class, this.txtzuida, "text");
+		dataBinder.registerBinding("zuixiao", String.class, this.txtzuixiao, "text");
+		dataBinder.registerBinding("edusudu", String.class, this.txtedusudu, "text");
+		dataBinder.registerBinding("zuzhijigou", String.class, this.txtzuzhijigou, "text");
+		dataBinder.registerBinding("youzhengbianma", String.class, this.txtyouzhengbianma, "text");
 		dataBinder.registerBinding("daytow", java.util.Date.class, this.pkdaytow, "value");
 		dataBinder.registerBinding("dayone", java.util.Date.class, this.pkdayone, "value");
 		dataBinder.registerBinding("testDay", java.util.Date.class, this.testDay, "value");
@@ -2658,6 +2989,17 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
 		getValidateHelper().registerBindProperty("E3.zidong", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("E3.madeFac", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("E3.noteoo", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("gongzuojibie", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("kuadu", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("xuanbichangdu", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("qishengaodu", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("dacheguidao", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("qizhongliju", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("zuida", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("zuixiao", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("edusudu", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("zuzhijigou", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("youzhengbianma", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("daytow", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("dayone", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("testDay", ValidateHelper.ON_SAVE);    
@@ -3045,6 +3387,17 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
     	sic.add(new SelectorItemInfo("E3.zidong"));
     	sic.add(new SelectorItemInfo("E3.madeFac"));
     	sic.add(new SelectorItemInfo("E3.noteoo"));
+        sic.add(new SelectorItemInfo("gongzuojibie"));
+        sic.add(new SelectorItemInfo("kuadu"));
+        sic.add(new SelectorItemInfo("xuanbichangdu"));
+        sic.add(new SelectorItemInfo("qishengaodu"));
+        sic.add(new SelectorItemInfo("dacheguidao"));
+        sic.add(new SelectorItemInfo("qizhongliju"));
+        sic.add(new SelectorItemInfo("zuida"));
+        sic.add(new SelectorItemInfo("zuixiao"));
+        sic.add(new SelectorItemInfo("edusudu"));
+        sic.add(new SelectorItemInfo("zuzhijigou"));
+        sic.add(new SelectorItemInfo("youzhengbianma"));
         sic.add(new SelectorItemInfo("daytow"));
         sic.add(new SelectorItemInfo("dayone"));
         sic.add(new SelectorItemInfo("testDay"));

@@ -138,6 +138,17 @@ public class AbstractMonMainPlanE1Info extends com.kingdee.eas.framework.CoreBil
     {
         setString("complete", item);
     }
+    /**
+     * Object:月度维保计划单's 备注property 
+     */
+    public String getNote()
+    {
+        return getString("note");
+    }
+    public void setNote(String item)
+    {
+        setString("note", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("A24DDC6A");

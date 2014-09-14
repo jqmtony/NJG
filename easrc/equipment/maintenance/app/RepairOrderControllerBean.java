@@ -94,42 +94,31 @@ public class RepairOrderControllerBean extends AbstractRepairOrderControllerBean
   
 		protected void _audit(Context ctx, IObjectPK pk) throws BOSException,EASBizException {
 			super._audit(ctx, pk);
-			RepairOrderInfo roInfo = getRepairOrderInfo(ctx, pk);
-				if(roInfo.getSourceBillId() != null){
-					IObjectValue billInfo = (IObjectValue) DynamicObjectFactory.getLocalInstance(ctx).getValue(new ObjectUuidPK(roInfo.getSourceBillId() ).getObjectType(), new ObjectUuidPK(roInfo.getSourceBillId()));
-					if(billInfo instanceof MonMainPlanE1Info)
-					{
-						MonMainPlanE1Info mmeInfo = MonMainPlanE1Factory.getLocalInstance(ctx).getMonMainPlanE1Info(new ObjectUuidPK(roInfo.getSourceBillId()));
-						if(roInfo.getTransferTime()!=null){
-							mmeInfo.setActualCompleteT(roInfo.getTransferTime());
-						}
-						if(roInfo.getAcceptSituation() !=null){
-							mmeInfo.setComplete(roInfo.getAcceptSituation());
-						}
-						if(roInfo.getSlDepart() !=null){
-							String id = ((AdminOrgUnitInfo)roInfo.getSlDepart()).getId().toString();
-							AdminOrgUnitInfo aoInfo = AdminOrgUnitFactory.getLocalInstance(ctx).getAdminOrgUnitInfo(new ObjectUuidPK(id));
-							mmeInfo.setImplementDepart(aoInfo);
-						}
-						MonMainPlanE1Factory.getLocalInstance(ctx).update((new ObjectUuidPK(mmeInfo.getId())),mmeInfo);
-					}
-				}
+//			RepairOrderInfo roInfo = getRepairOrderInfo(ctx, pk);
+//				if(roInfo.getSourceBillId() != null){
+//					IObjectValue billInfo = (IObjectValue) DynamicObjectFactory.getLocalInstance(ctx).getValue(new ObjectUuidPK(roInfo.getSourceBillId() ).getObjectType(), new ObjectUuidPK(roInfo.getSourceBillId()));
+//					if(billInfo instanceof MonMainPlanE1Info)
+//					{
+//						MonMainPlanE1Info mmeInfo = MonMainPlanE1Factory.getLocalInstance(ctx).getMonMainPlanE1Info(new ObjectUuidPK(roInfo.getSourceBillId()));
+//						
+//					}
+//				}
 		}
 		
 		protected void _unAudit(Context ctx, IObjectPK pk) throws BOSException,EASBizException {
 			super._unAudit(ctx, pk);
-			RepairOrderInfo roInfo = getRepairOrderInfo(ctx, pk);
-			if(roInfo.getSourceBillId() != null){
-				IObjectValue billInfo = (IObjectValue) DynamicObjectFactory.getLocalInstance(ctx).getValue(new ObjectUuidPK(roInfo.getSourceBillId() ).getObjectType(), new ObjectUuidPK(roInfo.getSourceBillId()));
-					if(billInfo instanceof MonMainPlanE1Info)
-					{
-					MonMainPlanE1Info mmeInfo = MonMainPlanE1Factory.getLocalInstance(ctx).getMonMainPlanE1Info(new ObjectUuidPK(roInfo.getSourceBillId()));
-					mmeInfo.setActualCompleteT(null);
-					mmeInfo.setComplete(null);
-					mmeInfo.setImplementDepart(null);
-					MonMainPlanE1Factory.getLocalInstance(ctx).update((new ObjectUuidPK(mmeInfo.getId())),mmeInfo);
-					}
-			}
+//			RepairOrderInfo roInfo = getRepairOrderInfo(ctx, pk);
+//			if(roInfo.getSourceBillId() != null){
+//				IObjectValue billInfo = (IObjectValue) DynamicObjectFactory.getLocalInstance(ctx).getValue(new ObjectUuidPK(roInfo.getSourceBillId() ).getObjectType(), new ObjectUuidPK(roInfo.getSourceBillId()));
+//					if(billInfo instanceof MonMainPlanE1Info)
+//					{
+//					MonMainPlanE1Info mmeInfo = MonMainPlanE1Factory.getLocalInstance(ctx).getMonMainPlanE1Info(new ObjectUuidPK(roInfo.getSourceBillId()));
+//					mmeInfo.setActualCompleteT(null);
+//					mmeInfo.setComplete(null);
+//					mmeInfo.setImplementDepart(null);
+//					MonMainPlanE1Factory.getLocalInstance(ctx).update((new ObjectUuidPK(mmeInfo.getId())),mmeInfo);
+//					}
+//			}
 		}
 		
 	//×÷·Ï

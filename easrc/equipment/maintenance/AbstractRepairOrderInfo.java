@@ -278,6 +278,28 @@ public class AbstractRepairOrderInfo extends com.kingdee.eas.xr.XRBillBaseInfo i
     {
         setBoolean("sfjhn", item);
     }
+    /**
+     * Object: 维修单 's 报修人 property 
+     */
+    public com.kingdee.eas.basedata.person.PersonInfo getBaoxiuren()
+    {
+        return (com.kingdee.eas.basedata.person.PersonInfo)get("baoxiuren");
+    }
+    public void setBaoxiuren(com.kingdee.eas.basedata.person.PersonInfo item)
+    {
+        put("baoxiuren", item);
+    }
+    /**
+     * Object:维修单's 保修时间property 
+     */
+    public java.util.Date getBaoxiuTime()
+    {
+        return getDate("baoxiuTime");
+    }
+    public void setBaoxiuTime(java.util.Date item)
+    {
+        setDate("baoxiuTime", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("F96E9B71");

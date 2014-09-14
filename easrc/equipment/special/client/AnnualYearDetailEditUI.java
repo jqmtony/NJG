@@ -17,6 +17,7 @@ import com.kingdee.bos.ctrl.kdf.table.IRow;
 import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent;
+import com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent;
 import com.kingdee.bos.ctrl.swing.KDTextField;
 import com.kingdee.bos.ctrl.swing.KDWorkButton;
 import com.kingdee.bos.dao.DataAccessException;
@@ -27,13 +28,19 @@ import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.ui.face.IUIWindow;
+import com.kingdee.bos.ui.face.UIFactory;
 import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.util.BOSUuid;
+import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
+import com.kingdee.eas.common.client.UIContext;
+import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.port.equipment.base.enumbase.CheckResult;
 import com.kingdee.eas.port.equipment.base.enumbase.CheckType;
 import com.kingdee.eas.port.equipment.record.EquIdFactory;
 import com.kingdee.eas.port.equipment.record.EquIdInfo;
+import com.kingdee.eas.port.equipment.record.client.EquIdEditUI;
 import com.kingdee.eas.port.equipment.special.AnnualYearDetailEntryInfo;
 import com.kingdee.eas.port.equipment.special.AnnualYearDetailFactory;
 import com.kingdee.eas.port.equipment.special.AnnualYearDetailInfo;
@@ -989,6 +996,7 @@ public class AnnualYearDetailEditUI extends AbstractAnnualYearDetailEditUI
 					String id2 =  ((EquIdInfo)kdtEntry.getCell(j, "zdaNumber").getValue()).getId().toString();
 					if(id1.equals(id2)){
 						aeCollection.get(i).setActualDate((Date) kdtEntry.getCell(j, "sjjcrq").getValue());
+						aeCollection.get(i).setPlanDate((Date) kdtEntry.getCell(j, "planDate").getValue());
 						AnnualYearPlanEntryFactory.getRemoteInstance().update(new ObjectUuidPK(aeCollection.get(i).getId()), aeCollection.get(i));
 					}
 					EquIdInfo eiInfo = EquIdFactory.getRemoteInstance().getEquIdInfo(new ObjectUuidPK(id1));
@@ -1217,6 +1225,28 @@ public class AnnualYearDetailEditUI extends AbstractAnnualYearDetailEditUI
 		setSaved(true);
     }
     
+    
+	protected void kdtEntry_tableClicked(KDTMouseEvent e) throws Exception {
+		super.kdtEntry_tableClicked(e);
+		 if ((e.getButton() == 1) && (e.getClickCount() == 2))
+	        {
+			  if(editData.getId() ==null){
+				  MsgBox.showInfo("请先保存单据！");
+					SysUtil.abort();
+			  }else{
+			  if(e.getRowIndex() != -1){
+				  if(kdtEntry.getCell(e.getRowIndex(), "zdaNumber").getValue() !=null){
+				    String id = ((EquIdInfo)kdtEntry.getCell(e.getRowIndex(), "zdaNumber").getValue()).getId().toString();
+					IUIWindow uiWindow = null;
+					UIContext context = new UIContext(this);
+					context.put("ID", id);
+					context.put("anid", editData.getId().toString());
+					uiWindow = UIFactory.createUIFactory(UIFactoryName.MODEL).create(EquIdEditUI.class.getName(), context, null, OprtState.VIEW);
+					uiWindow.show(); 
+				  }
+			    }
+			  }
+	        }
 
- 
+	}
 }

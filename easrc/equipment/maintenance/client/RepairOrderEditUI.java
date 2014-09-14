@@ -735,12 +735,13 @@ public class RepairOrderEditUI extends AbstractRepairOrderEditUI
 		prmtslDepart.setEnabled(false);
 		this.kdtE1.getColumn("seq").getStyleAttributes().setHided(true);
 		this.kdtE1.getColumn("FaLocation").getStyleAttributes().setHided(true);
-		txtrepairContent.setVisible(false);
 		txtmaintenanceProgram.setVisible(false);
 		chkselfStudy.setVisible(false);
 		chkoutsourcing.setVisible(false);
 		txtselfAmount.setVisible(false);
 		txtoutAmount.setVisible(false);
+		contoutAmount.setVisible(false);
+		contmaintenanceProgram.setVisible(false);
 		if(getOprtState().equals(OprtState.ADDNEW)){
 		    txtselfAmount.setEnabled(false);
 		    txtoutAmount.setEnabled(false);
@@ -785,6 +786,7 @@ public class RepairOrderEditUI extends AbstractRepairOrderEditUI
 		Tool.setPersonF7(this.prmtassignee, this, SysContext.getSysContext().getCurrentCtrlUnit().getId().toString());
 		Tool.setPersonF7(this.prmtrepairPerson, this, SysContext.getSysContext().getCurrentCtrlUnit().getId().toString());
 		Tool.setPersonF7(this.prmtdeliveryPerson, this, SysContext.getSysContext().getCurrentCtrlUnit().getId().toString());
+		Tool.setPersonF7(this.prmtbaoxiuren, this, SysContext.getSysContext().getCurrentCtrlUnit().getId().toString());
 		Tool.setPersonF7(this.prmtrecipient, this, SysContext.getSysContext().getCurrentCtrlUnit().getId().toString());
 //		if(chkselfStudy.getSelected() == 32){
 //			txtselfAmount.setEnabled(true);
