@@ -7,7 +7,6 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
@@ -17,6 +16,7 @@ import java.util.Set;
 import org.apache.log4j.Logger;
 
 import com.kingdee.bos.BOSException;
+import com.kingdee.bos.ctrl.kdf.table.IRow;
 import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
 import com.kingdee.bos.ctrl.kdf.table.KDTSelectBlock;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
@@ -37,8 +37,8 @@ import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
 import com.kingdee.eas.basedata.person.PersonInfo;
-import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.OprtState;
+import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.hr.emp.client.EmployeeMultiF7PromptBox;
 import com.kingdee.eas.port.pm.base.ReviewerE1Collection;
 import com.kingdee.eas.port.pm.base.ReviewerE1Factory;
@@ -54,7 +54,7 @@ import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
 import com.kingdee.eas.xr.helper.ClientVerifyXRHelper;
 import com.kingdee.eas.xr.helper.PersonXRHelper;
-import com.kingdee.util.NumericExceptionSubItem;
+import com.kingdee.eas.xr.helper.WorkflowXRHelper;
 
 /**
  * output class name
@@ -245,31 +245,37 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
 		int rowindex= 1;
 		for (int i = 0; i < this.kdtE1.getRowCount(); i++) 
 		{
-			ClientVerifyXRHelper.verifyKDTCellNull(this, this.kdtE1, i, "accredResu");
+//			ClientVerifyXRHelper.verifyKDTCellNull(this, this.kdtE1, i, "accredResu");
+			
+			if(UIRuleUtil.isNull(this.kdtE1.getCell(i, "accredResu").getValue()))
+				continue;
 			ObjectStateEnum objState = (ObjectStateEnum)UIRuleUtil.getObject(this.kdtE1.getCell(i, "accredResu").getValue());
 			if(objState.equals(ObjectStateEnum.complement)||objState.equals(ObjectStateEnum.veto))
 			{
 				if(UIRuleUtil.isNull(this.kdtE1.getCell(i, "projectConclude").getValue()))
 				{
-					MsgBox.showWarning("第{"+rowindex+"}行评审结果为{"+objState.getAlias()+"}的项目结论不能为空！");SysUtil.abort();
+					MsgBox.showWarning("投资信息第{"+rowindex+"}行评审结果为{"+objState.getAlias()+"}的项目结论不能为空！");SysUtil.abort();
 				}
 			}
 			rowindex+=1;
 		}
 		
-		for (int j = 0; j < this.kdtE2.getRowCount(); j++) 
-		{
-			ClientVerifyXRHelper.verifyKDTCellNull(this, this.kdtE2, j, "accreConclu");
-			ObjectStateEnum objState = (ObjectStateEnum)UIRuleUtil.getObject(this.kdtE2.getCell(j, "accreConclu").getValue());
-			if(objState.equals(ObjectStateEnum.complement)||objState.equals(ObjectStateEnum.veto))
-			{
-				if(UIRuleUtil.isNull(this.kdtE2.getCell(j, "opinion").getValue()))
-				{
-					MsgBox.showWarning("第{"+rowindex+"}行评审结论为{"+objState.getAlias()+"}的意见不能为空！");SysUtil.abort();
-				}
-			}
-			rowindex+=1;
-		}
+		rowindex= 1;
+//		for (int j = 0; j < this.kdtE2.getRowCount(); j++) 
+//		{
+//			ClientVerifyXRHelper.verifyKDTCellNull(this, this.kdtE2, j, "accreConclu");
+//			ObjectStateEnum objState = (ObjectStateEnum)UIRuleUtil.getObject(this.kdtE2.getCell(j, "accreConclu").getValue());
+//			if(objState.equals(ObjectStateEnum.complement)||objState.equals(ObjectStateEnum.veto))
+//			{
+//				if(UIRuleUtil.isNull(this.kdtE2.getCell(j, "opinion").getValue()))
+//				{
+//					MsgBox.showWarning("评审信息第{"+rowindex+"}行评审结论为{"+objState.getAlias()+"}的意见不能为空！");SysUtil.abort();
+//				}
+//			}
+//			rowindex+=1;
+//		}
+		
+		
 //		ClientVerifyHelper.verifyEmpty(this, this.pkaccredDate);
 		super.verifyInput(e);
 	}
@@ -549,7 +555,25 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
     }
     protected void kdtE1_tableClicked(KDTMouseEvent e) throws Exception {
     	super.kdtE1_tableClicked(e);
+    	if(!WorkflowXRHelper.isFromWF(this))
+    		return;
+    	PersonInfo personInfo = SysContext.getSysContext().getCurrentUserInfo().getPerson();
     	
+    	if(personInfo==null||personInfo.getId()==null)
+    		return;
+    	String personId = personInfo.getId().toString();
+    	
+    	for (int i = 0; i < this.kdtE2.getRowCount(); i++)
+    	{
+    		IRow row = this.kdtE2.getRow(i);
+    		
+    		if(UIRuleUtil.isNull(row.getCell("accredPerson").getValue()))
+    			continue;
+			String kdpersonId = ((PersonInfo)row.getCell("accredPerson").getValue()).getId().toString();
+			
+			if(!kdpersonId.equals(personId))
+				row.getStyleAttributes().setHided(true);
+		}
     }
     /**
      * output menuItemEnterToNextRow_itemStateChanged method
