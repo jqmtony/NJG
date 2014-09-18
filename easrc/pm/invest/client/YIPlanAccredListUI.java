@@ -473,7 +473,7 @@ public class YIPlanAccredListUI extends AbstractYIPlanAccredListUI
         	UIContext uiContext = new UIContext(this);
         	uiContext.put("procInstId", instId);
         	IUIFactory uiFactory = UIFactory.createUIFactory("com.kingdee.eas.base.uiframe.client.UIModelDialogFactory");
-        	uiWindow = uiFactory.create(JumpTargetActivityUI.class.getName(), uiContext, null, OprtState.ADDNEW);
+        	IUIWindow uiWindow = uiFactory.create(JumpTargetActivityUI.class.getName(), uiContext, null, OprtState.ADDNEW);
         	
     		uiWindow.show();
         }
