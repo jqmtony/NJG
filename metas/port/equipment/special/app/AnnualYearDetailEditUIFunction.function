@@ -295,6 +295,78 @@
                 <key name="name" value="AnnualYearDetail" />
             </entityObjectRef>
         </operation>
+        <operation>
+            <name>xiada</name>
+            <alias>functionObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailEditUIFunction].operations.operation[xiada].alias</alias>
+            <description>functionObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailEditUIFunction].operations.operation[xiada].description</description>
+            <reverseOperation />
+            <eventMethod>9ba4cf55-ac19-455f-8b36-2b29cab239ac</eventMethod>
+            <event>xiadaEvent</event>
+            <userDefined>true</userDefined>
+            <uiActionRef>
+                <id>d195e5eb-ef3c-4a9c-99b9-6a5ce11bc088uiaf</id>
+                <uiStatus>EDIT</uiStatus>
+                <webUIStatus />
+                <userDefined>true</userDefined>
+                <uiObjectRef>
+                    <key name="package" value="com.kingdee.eas.port.equipment.special.client" />
+                    <key name="name" value="AnnualYearDetailEditUI" />
+                </uiObjectRef>
+                <actionRefName>ActionXiada</actionRefName>
+                <webActionRefName />
+                <parameters>
+                    <parameter>
+                        <name>billID</name>
+                        <alias>functionObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailEditUIFunction].operations.operation[xiada].uiActionRef.parameters.parameter[billID].alias</alias>
+                        <description>functionObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailEditUIFunction].operations.operation[xiada].uiActionRef.parameters.parameter[billID].description</description>
+                        <direction>in</direction>
+                        <dataType>BOSUuid</dataType>
+                        <metadataRef />
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </parameters>
+            </uiActionRef>
+            <entityObjectRef>
+                <key name="package" value="com.kingdee.eas.port.equipment.special.app" />
+                <key name="name" value="AnnualYearDetail" />
+            </entityObjectRef>
+        </operation>
+        <operation>
+            <name>fanxiada</name>
+            <alias>functionObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailEditUIFunction].operations.operation[fanxiada].alias</alias>
+            <description>functionObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailEditUIFunction].operations.operation[fanxiada].description</description>
+            <reverseOperation />
+            <eventMethod>d0e40962-da0d-49cd-a3ba-98a753dcc73a</eventMethod>
+            <event>fanxiadaEvent</event>
+            <userDefined>true</userDefined>
+            <uiActionRef>
+                <id>b7ba8b1e-15f9-48f7-bd76-1e957150d6fauiaf</id>
+                <uiStatus>EDIT</uiStatus>
+                <webUIStatus />
+                <userDefined>true</userDefined>
+                <uiObjectRef>
+                    <key name="package" value="com.kingdee.eas.port.equipment.special.client" />
+                    <key name="name" value="AnnualYearDetailEditUI" />
+                </uiObjectRef>
+                <actionRefName>ActionFanxiada</actionRefName>
+                <webActionRefName />
+                <parameters>
+                    <parameter>
+                        <name>billID</name>
+                        <alias>functionObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailEditUIFunction].operations.operation[fanxiada].uiActionRef.parameters.parameter[billID].alias</alias>
+                        <description>functionObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailEditUIFunction].operations.operation[fanxiada].uiActionRef.parameters.parameter[billID].description</description>
+                        <direction>in</direction>
+                        <dataType>BOSUuid</dataType>
+                        <metadataRef />
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </parameters>
+            </uiActionRef>
+            <entityObjectRef>
+                <key name="package" value="com.kingdee.eas.port.equipment.special.app" />
+                <key name="name" value="AnnualYearDetail" />
+            </entityObjectRef>
+        </operation>
     </operations>
     <resource>
         <rs key="functionObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailEditUIFunction].alias">
@@ -483,6 +555,35 @@
             <lang locale="zh_HK" value="單據內碼" />
             <lang locale="zh_TW" value="單據內碼" />
         </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailEditUIFunction].operations.operation[fanxiada].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="反下达" />
+            <lang locale="zh_HK" value="反下達" />
+            <lang locale="zh_TW" value="反下達" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailEditUIFunction].operations.operation[fanxiada].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailEditUIFunction].operations.operation[fanxiada].extendedProperty.userDefined">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailEditUIFunction].operations.operation[fanxiada].uiActionRef.parameters.parameter[billID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据内码" />
+            <lang locale="zh_HK" value="單據內碼" />
+            <lang locale="zh_TW" value="單據內碼" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailEditUIFunction].operations.operation[fanxiada].uiActionRef.parameters.parameter[billID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据内码" />
+            <lang locale="zh_HK" value="單據內碼" />
+            <lang locale="zh_TW" value="單據內碼" />
+        </rs>
         <rs key="functionObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailEditUIFunction].operations.operation[unConfirm].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="反确认" />
@@ -536,6 +637,35 @@
             <lang locale="zh_TW" value="單據內碼" />
         </rs>
         <rs key="functionObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailEditUIFunction].operations.operation[unConfirmation].uiActionRef.parameters.parameter[billID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据内码" />
+            <lang locale="zh_HK" value="單據內碼" />
+            <lang locale="zh_TW" value="單據內碼" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailEditUIFunction].operations.operation[xiada].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="下达" />
+            <lang locale="zh_HK" value="下達" />
+            <lang locale="zh_TW" value="下達" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailEditUIFunction].operations.operation[xiada].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailEditUIFunction].operations.operation[xiada].extendedProperty.userDefined">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailEditUIFunction].operations.operation[xiada].uiActionRef.parameters.parameter[billID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据内码" />
+            <lang locale="zh_HK" value="單據內碼" />
+            <lang locale="zh_TW" value="單據內碼" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailEditUIFunction].operations.operation[xiada].uiActionRef.parameters.parameter[billID].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="单据内码" />
             <lang locale="zh_HK" value="單據內碼" />

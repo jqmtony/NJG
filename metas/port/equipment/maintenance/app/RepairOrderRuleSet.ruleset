@@ -267,6 +267,93 @@
             <valueType>String</valueType>
             <value>model</value>
         </simpleExpression>
+        <groupExpression>
+            <id>818392f7-2781-4fa7-b4bc-d551f9dd7968</id>
+            <parentID />
+            <source>E1.jlUnit=E1.replaceSparePart.baseUnit.name</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>4be56be7-4807-444d-87e6-7dc20a8ffcc8</id>
+            <parentID>818392f7-2781-4fa7-b4bc-d551f9dd7968</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>50242f3d-bb16-4c80-adf5-a34120e3f826</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>50242f3d-bb16-4c80-adf5-a34120e3f826</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>kdtE1.getCell(rowIndex,"jlUnit")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>2269d34c-1d19-47b6-9e1b-c34741da7225</id>
+            <parentID>818392f7-2781-4fa7-b4bc-d551f9dd7968</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>2f90e99c-55d0-46d6-9e42-1490eb3b057b</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>469ea6c8-b9ca-4578-acad-549e30adf130</id>
+                        <expressionID>529371db-8351-4bfd-93fd-e691d3dc2a92</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>88eb8dac-8b04-4d3a-9cfa-ebab2a7edf1e</id>
+                        <expressionID>f4554864-bbe3-4ea5-99ec-6c2aa4002b77</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>2f90e99c-55d0-46d6-9e42-1490eb3b057b</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>529371db-8351-4bfd-93fd-e691d3dc2a92</id>
+            <parentID />
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>7e79728a-6bd8-4d25-8327-64502e9253e2</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>7e79728a-6bd8-4d25-8327-64502e9253e2</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)kdtE1.getCell(rowIndex,"replaceSparePart")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>f4554864-bbe3-4ea5-99ec-6c2aa4002b77</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>baseUnit.name</value>
+        </simpleExpression>
     </expressions>
     <actions>
         <action>
@@ -289,6 +376,13 @@
             <alias>ruleSet[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderRuleSet].actions.action[E1_model_ActionInfo].alias</alias>
             <description>ruleSet[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderRuleSet].actions.action[E1_model_ActionInfo].description</description>
             <expressionID>dc8002d3-7bf5-4885-b9d5-0d99f1a48ef9</expressionID>
+        </action>
+        <action>
+            <id>ba966a2d-a737-4357-a60d-d17c0799b299</id>
+            <name>E1_jlUnit_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderRuleSet].actions.action[E1_jlUnit_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderRuleSet].actions.action[E1_jlUnit_ActionInfo].description</description>
+            <expressionID>818392f7-2781-4fa7-b4bc-d551f9dd7968</expressionID>
         </action>
     </actions>
     <rules>
@@ -334,8 +428,34 @@
                 </action>
             </actions>
         </conditionRule>
+        <conditionRule>
+            <name>E1_jlUnit_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderRuleSet].rules.conditionRule[E1_jlUnit_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderRuleSet].rules.conditionRule[E1_jlUnit_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="ba966a2d-a737-4357-a60d-d17c0799b299" />
+                </action>
+            </actions>
+        </conditionRule>
     </rules>
     <resource>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderRuleSet].actions.action[E1_jlUnit_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_baseUnit" />
+            <lang locale="zh_HK" value="攜帶字段屬性_baseUnit" />
+            <lang locale="zh_TW" value="攜帶字段屬性_baseUnit" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderRuleSet].actions.action[E1_jlUnit_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
         <rs key="ruleSet[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderRuleSet].actions.action[E1_model_ActionInfo].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="携带字段属性_model" />
@@ -383,6 +503,28 @@
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderRuleSet].rules.conditionRule[E1_jlUnit_RuleInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_baseUnit" />
+            <lang locale="zh_HK" value="攜帶字段屬性_baseUnit" />
+            <lang locale="zh_TW" value="攜帶字段屬性_baseUnit" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderRuleSet].rules.conditionRule[E1_jlUnit_RuleInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderRuleSet].rules.conditionRule[E1_jlUnit_RuleInfo].extendedProperty.columnName">
+            <lang locale="en_US" value="replaceSparePart" />
+            <lang locale="zh_CN" value="replaceSparePart" />
+            <lang locale="zh_TW" value="replaceSparePart" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderRuleSet].rules.conditionRule[E1_jlUnit_RuleInfo].extendedProperty.userDefined">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="ruleSet[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderRuleSet].rules.conditionRule[E1_model_RuleInfo].alias">
             <lang locale="en_US" value="null" />

@@ -87,6 +87,32 @@
                 <key name="name" value="AnnualYearPlanEntry" />
             </entityRef>
         </subEntity>
+        <subEntity>
+            <name>parent</name>
+            <alias>joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].subObjects.subEntity[parent].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.special.app" />
+                <key name="name" value="AnnualYearPlanQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.port.equipment.special.app" />
+                <key name="name" value="AnnualYearPlan" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>zdaNumber</name>
+            <alias>joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].subObjects.subEntity[zdaNumber].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.special.app" />
+                <key name="name" value="AnnualYearPlanQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.port.equipment.record.app" />
+                <key name="name" value="EquId" />
+            </entityRef>
+        </subEntity>
     </subObjects>
     <units>
         <queryField>
@@ -741,6 +767,37 @@
             </query>
         </propertyUnit>
         <queryField>
+            <name>zdaNumber.tzdaNumber</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.queryField[zdaNumber.tzdaNumber].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>6d20dbd2-4e13-42ff-bc3e-eda72716bb6d</key>
+                    <parentUnit>
+                        <key name="name" value="zdaNumber.tzdaNumber" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="zdaNumber" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="tzdaNumber" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.special.app" />
+                <key name="name" value="AnnualYearPlanQuery" />
+            </query>
+        </queryField>
+        <queryField>
             <name>Entry.equipmentName</name>
             <userDefined>true</userDefined>
             <formulaString />
@@ -1267,6 +1324,130 @@
                 <key name="name" value="AnnualYearPlanQuery" />
             </query>
         </queryField>
+        <propertyUnit>
+            <name>7a96542b-804a-41e2-b101-df0d51f6a9a5</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.propertyUnit[7a96542b-804a-41e2-b101-df0d51f6a9a5].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>ccaa8ad2-0319-4b33-8256-853ee1860d48</key>
+                    <parentUnit>
+                        <key name="name" value="7a96542b-804a-41e2-b101-df0d51f6a9a5" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Entry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="parent" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.special.app" />
+                <key name="name" value="AnnualYearPlanQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>b3cbe6d6-4da8-480a-9d60-f2d739c66151</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.propertyUnit[b3cbe6d6-4da8-480a-9d60-f2d739c66151].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>a0b2c7fe-c367-4da0-939e-b748b9a81fef</key>
+                    <parentUnit>
+                        <key name="name" value="b3cbe6d6-4da8-480a-9d60-f2d739c66151" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="parent" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.special.app" />
+                <key name="name" value="AnnualYearPlanQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>904f97c1-652e-4ebb-a52a-89064847e133</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.propertyUnit[904f97c1-652e-4ebb-a52a-89064847e133].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>4dc73adb-4cb0-4e7f-99f0-684759521a80</key>
+                    <parentUnit>
+                        <key name="name" value="904f97c1-652e-4ebb-a52a-89064847e133" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Entry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="zdaNumber" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.special.app" />
+                <key name="name" value="AnnualYearPlanQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>91ded9b2-8d05-4ec9-84c4-6b287884e426</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.propertyUnit[91ded9b2-8d05-4ec9-84c4-6b287884e426].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>2260f9c5-8540-485b-8cb9-0e7fb71d7974</key>
+                    <parentUnit>
+                        <key name="name" value="91ded9b2-8d05-4ec9-84c4-6b287884e426" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="zdaNumber" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.special.app" />
+                <key name="name" value="AnnualYearPlanQuery" />
+            </query>
+        </propertyUnit>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -1440,6 +1621,66 @@
                 <key name="name" value="AnnualYearPlanQuery" />
             </query>
         </join>
+        <join>
+            <name>b6f2b95e-9cdd-4f8b-9031-9d177a376717</name>
+            <formulaString>#0</formulaString>
+            <type>INNER JOIN</type>
+            <leftObject>
+                <key name="name" value="Entry" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="parent" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>2904f5b7-3ec8-4652-a9dc-323a0037c43c</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="7a96542b-804a-41e2-b101-df0d51f6a9a5" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="b3cbe6d6-4da8-480a-9d60-f2d739c66151" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="b6f2b95e-9cdd-4f8b-9031-9d177a376717" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.special.app" />
+                <key name="name" value="AnnualYearPlanQuery" />
+            </query>
+        </join>
+        <join>
+            <name>4b8b0490-b01c-4b00-a322-04077cfe8caa</name>
+            <formulaString>#0</formulaString>
+            <type>INNER JOIN</type>
+            <leftObject>
+                <key name="name" value="Entry" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="zdaNumber" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>6d589d64-500f-4e28-85fa-3b34a9aca2a7</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="904f97c1-652e-4ebb-a52a-89064847e133" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="91ded9b2-8d05-4ec9-84c4-6b287884e426" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="4b8b0490-b01c-4b00-a322-04077cfe8caa" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.special.app" />
+                <key name="name" value="AnnualYearPlanQuery" />
+            </query>
+        </join>
     </joins>
     <resource>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].alias">
@@ -1505,6 +1746,18 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].subObjects.subEntity[parent].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].subObjects.subEntity[zdaNumber].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.propertyUnit[00a866a6-64e1-4f3f-a034-5740ab0d31ec].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -1548,6 +1801,30 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.propertyUnit[5ffb10c2-9017-4af9-a5ab-adf2cfd35ac2].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.propertyUnit[7a96542b-804a-41e2-b101-df0d51f6a9a5].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.propertyUnit[904f97c1-652e-4ebb-a52a-89064847e133].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.propertyUnit[91ded9b2-8d05-4ec9-84c4-6b287884e426].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.propertyUnit[b3cbe6d6-4da8-480a-9d60-f2d739c66151].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -1992,6 +2269,12 @@
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearPlanQuery].units.queryField[zdaNumber.tzdaNumber].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="设备档案号" />
+            <lang locale="zh_HK" value="設備檔案號" />
+            <lang locale="zh_TW" value="設備檔案號" />
         </rs>
     </resource>
 </joinQuery>

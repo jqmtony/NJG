@@ -1138,6 +1138,76 @@ com.kingdee.eas.port.equipment.special.AnnualYearDetailFactory.getRemoteInstance
             <isEntryAction>false</isEntryAction>
             <batchMethodName />
         </action>
+        <action>
+            <instanceName>actionXiada</instanceName>
+            <className>ActionXiada</className>
+            <name>uiObject[com.kingdee.eas.port.equipment.special.client.AnnualYearDetailListUI].actions.action[actionXiada].name</name>
+            <enabled>true</enabled>
+            <actionPerformed>if (getSelectedKeyValue() == null) return;
+com.kingdee.eas.port.equipment.special.AnnualYearDetailInfo editData = (com.kingdee.eas.port.equipment.special.AnnualYearDetailInfo)getBizInterface().getValue(new com.kingdee.bos.dao.ormapping.ObjectUuidPK(BOSUuid.read(getSelectedKeyValue())));
+com.kingdee.eas.port.equipment.special.AnnualYearDetailFactory.getRemoteInstance().xiada(editData);</actionPerformed>
+            <beforeActionPerformed />
+            <afterActionPerformed />
+            <finallyActionPerformed />
+            <actionCommandKey />
+            <acceleratorKey />
+            <mnemonicKey />
+            <smallIcon>uiObject[com.kingdee.eas.port.equipment.special.client.AnnualYearDetailListUI].actions.action[actionXiada].smallIcon</smallIcon>
+            <shortDescription>uiObject[com.kingdee.eas.port.equipment.special.client.AnnualYearDetailListUI].actions.action[actionXiada].shortDescription</shortDescription>
+            <longDescription>uiObject[com.kingdee.eas.port.equipment.special.client.AnnualYearDetailListUI].actions.action[actionXiada].longDescription</longDescription>
+            <isBindWorkFlow>false</isBindWorkFlow>
+            <herited>false</herited>
+            <daemonRun>false</daemonRun>
+            <actionExtendProperty>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;ExtendProperty&gt;&lt;item key="canForewarn" value="true" /&gt;&lt;item key="userDefined" value="true" /&gt;&lt;item key="isObjectUpdateLock" value="false" /&gt;&lt;/ExtendProperty&gt;
+</actionExtendProperty>
+            <services>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root&gt;&lt;service class="com.kingdee.eas.framework.client.service.PermissionService" /&gt;&lt;service class="com.kingdee.eas.framework.client.service.ForewarnService" /&gt;&lt;/root&gt;
+</services>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <oprtIntent />
+            <nextUI />
+            <isUIPNavigator>false</isUIPNavigator>
+            <isBatchAction>false</isBatchAction>
+            <isEntryAction>false</isEntryAction>
+            <batchMethodName />
+        </action>
+        <action>
+            <instanceName>actionFanxiada</instanceName>
+            <className>ActionFanxiada</className>
+            <name>uiObject[com.kingdee.eas.port.equipment.special.client.AnnualYearDetailListUI].actions.action[actionFanxiada].name</name>
+            <enabled>true</enabled>
+            <actionPerformed>if (getSelectedKeyValue() == null) return;
+com.kingdee.eas.port.equipment.special.AnnualYearDetailInfo editData = (com.kingdee.eas.port.equipment.special.AnnualYearDetailInfo)getBizInterface().getValue(new com.kingdee.bos.dao.ormapping.ObjectUuidPK(BOSUuid.read(getSelectedKeyValue())));
+com.kingdee.eas.port.equipment.special.AnnualYearDetailFactory.getRemoteInstance().fanxiada(editData);</actionPerformed>
+            <beforeActionPerformed />
+            <afterActionPerformed />
+            <finallyActionPerformed />
+            <actionCommandKey />
+            <acceleratorKey />
+            <mnemonicKey />
+            <smallIcon>uiObject[com.kingdee.eas.port.equipment.special.client.AnnualYearDetailListUI].actions.action[actionFanxiada].smallIcon</smallIcon>
+            <shortDescription>uiObject[com.kingdee.eas.port.equipment.special.client.AnnualYearDetailListUI].actions.action[actionFanxiada].shortDescription</shortDescription>
+            <longDescription>uiObject[com.kingdee.eas.port.equipment.special.client.AnnualYearDetailListUI].actions.action[actionFanxiada].longDescription</longDescription>
+            <isBindWorkFlow>false</isBindWorkFlow>
+            <herited>false</herited>
+            <daemonRun>false</daemonRun>
+            <actionExtendProperty>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;ExtendProperty&gt;&lt;item key="canForewarn" value="true" /&gt;&lt;item key="userDefined" value="true" /&gt;&lt;item key="isObjectUpdateLock" value="false" /&gt;&lt;/ExtendProperty&gt;
+</actionExtendProperty>
+            <services>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root&gt;&lt;service class="com.kingdee.eas.framework.client.service.PermissionService" /&gt;&lt;service class="com.kingdee.eas.framework.client.service.ForewarnService" /&gt;&lt;/root&gt;
+</services>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <oprtIntent />
+            <nextUI />
+            <isUIPNavigator>false</isUIPNavigator>
+            <isBatchAction>false</isBatchAction>
+            <isEntryAction>false</isEntryAction>
+            <batchMethodName />
+        </action>
     </actions>
     <resource>
         <rs key="uiObject[com.kingdee.eas.port.equipment.special.client.AnnualYearDetailListUI].actions.action[actionConfirm].longDescription">
@@ -1212,6 +1282,30 @@ com.kingdee.eas.port.equipment.special.AnnualYearDetailFactory.getRemoteInstance
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.special.client.AnnualYearDetailListUI].actions.action[actionFanxiada].longDescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.special.client.AnnualYearDetailListUI].actions.action[actionFanxiada].name">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="反下达" />
+            <lang locale="zh_HK" value="反下達" />
+            <lang locale="zh_TW" value="反下達" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.special.client.AnnualYearDetailListUI].actions.action[actionFanxiada].shortDescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.special.client.AnnualYearDetailListUI].actions.action[actionFanxiada].smallIcon">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.special.client.AnnualYearDetailListUI].actions.action[actionRemove].longDescription">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="删除" />
@@ -1279,6 +1373,30 @@ com.kingdee.eas.port.equipment.special.AnnualYearDetailFactory.getRemoteInstance
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.special.client.AnnualYearDetailListUI].actions.action[actionUnConfirmation].smallIcon">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.special.client.AnnualYearDetailListUI].actions.action[actionXiada].longDescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.special.client.AnnualYearDetailListUI].actions.action[actionXiada].name">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="下达" />
+            <lang locale="zh_HK" value="下達" />
+            <lang locale="zh_TW" value="下達" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.special.client.AnnualYearDetailListUI].actions.action[actionXiada].shortDescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.special.client.AnnualYearDetailListUI].actions.action[actionXiada].smallIcon">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />

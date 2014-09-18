@@ -837,6 +837,58 @@
             </parameters>
             <configured>false</configured>
         </method>
+        <method>
+            <name>xiada</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].methods.method[xiada].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].methods.method[xiada].description</description>
+            <innerID>9ba4cf55-ac19-455f-8b36-2b29cab239ac</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].methods.method[xiada].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].methods.method[xiada].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.port.equipment.special.app.AnnualYearDetail</metadataRef>
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>fanxiada</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].methods.method[fanxiada].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].methods.method[fanxiada].description</description>
+            <innerID>d0e40962-da0d-49cd-a3ba-98a753dcc73a</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].methods.method[fanxiada].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].methods.method[fanxiada].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.port.equipment.special.app.AnnualYearDetail</metadataRef>
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
     </methods>
     <isAbstract>false</isAbstract>
     <bizUnitPK>com.kingdee.eas.port.equipment.special.AnnualYearDetail</bizUnitPK>
@@ -1370,6 +1422,90 @@
                 </formalParameter>
             </formalParameters>
         </event>
+        <event>
+            <name>xiadaEvent</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[xiadaEvent].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[xiadaEvent].description</description>
+            <userDefined>true</userDefined>
+            <eventMethods>
+                <eventMethod>
+                    <name>9ba4cf55-ac19-455f-8b36-2b29cab239ac</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[xiadaEvent].eventMethods.eventMethod[9ba4cf55-ac19-455f-8b36-2b29cab239ac].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[xiadaEvent].eventMethods.eventMethod[9ba4cf55-ac19-455f-8b36-2b29cab239ac].description</description>
+                    <entityMethodRef>
+                        <key name="name" value="xiada" />
+                        <key name="innerID" value="9ba4cf55-ac19-455f-8b36-2b29cab239ac" />
+                    </entityMethodRef>
+                    <parameterMappings>
+                        <parameterMapping>
+                            <name />
+                            <alias>entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[xiadaEvent].eventMethods.eventMethod[9ba4cf55-ac19-455f-8b36-2b29cab239ac].parameterMappings.parameterMappingalias</alias>
+                            <description>entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[xiadaEvent].eventMethods.eventMethod[9ba4cf55-ac19-455f-8b36-2b29cab239ac].parameterMappings.parameterMappingdescription</description>
+                            <formalParameterInnerID>fc7c4664-3c5a-44ff-94f7-cdaac7ef9615evfp</formalParameterInnerID>
+                            <actualParameterIndex>0</actualParameterIndex>
+                            <isBOPK>true</isBOPK>
+                        </parameterMapping>
+                    </parameterMappings>
+                </eventMethod>
+            </eventMethods>
+            <formalParameters>
+                <formalParameter>
+                    <innerID>fc7c4664-3c5a-44ff-94f7-cdaac7ef9615evfp</innerID>
+                    <userDefined>true</userDefined>
+                    <parameter>
+                        <name>model</name>
+                        <alias>entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[xiadaEvent].formalParameters.formalParameter.parameter[model].alias</alias>
+                        <description>entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[xiadaEvent].formalParameters.formalParameter.parameter[model].description</description>
+                        <direction>in</direction>
+                        <dataType>ObjectValue</dataType>
+                        <metadataRef>com.kingdee.eas.port.equipment.special.app.AnnualYearDetail</metadataRef>
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </formalParameter>
+            </formalParameters>
+        </event>
+        <event>
+            <name>fanxiadaEvent</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[fanxiadaEvent].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[fanxiadaEvent].description</description>
+            <userDefined>true</userDefined>
+            <eventMethods>
+                <eventMethod>
+                    <name>d0e40962-da0d-49cd-a3ba-98a753dcc73a</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[fanxiadaEvent].eventMethods.eventMethod[d0e40962-da0d-49cd-a3ba-98a753dcc73a].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[fanxiadaEvent].eventMethods.eventMethod[d0e40962-da0d-49cd-a3ba-98a753dcc73a].description</description>
+                    <entityMethodRef>
+                        <key name="name" value="fanxiada" />
+                        <key name="innerID" value="d0e40962-da0d-49cd-a3ba-98a753dcc73a" />
+                    </entityMethodRef>
+                    <parameterMappings>
+                        <parameterMapping>
+                            <name />
+                            <alias>entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[fanxiadaEvent].eventMethods.eventMethod[d0e40962-da0d-49cd-a3ba-98a753dcc73a].parameterMappings.parameterMappingalias</alias>
+                            <description>entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[fanxiadaEvent].eventMethods.eventMethod[d0e40962-da0d-49cd-a3ba-98a753dcc73a].parameterMappings.parameterMappingdescription</description>
+                            <formalParameterInnerID>388a3716-f170-40a7-a0bd-b190140592a8evfp</formalParameterInnerID>
+                            <actualParameterIndex>0</actualParameterIndex>
+                            <isBOPK>true</isBOPK>
+                        </parameterMapping>
+                    </parameterMappings>
+                </eventMethod>
+            </eventMethods>
+            <formalParameters>
+                <formalParameter>
+                    <innerID>388a3716-f170-40a7-a0bd-b190140592a8evfp</innerID>
+                    <userDefined>true</userDefined>
+                    <parameter>
+                        <name>model</name>
+                        <alias>entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[fanxiadaEvent].formalParameters.formalParameter.parameter[model].alias</alias>
+                        <description>entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[fanxiadaEvent].formalParameters.formalParameter.parameter[model].description</description>
+                        <direction>in</direction>
+                        <dataType>ObjectValue</dataType>
+                        <metadataRef>com.kingdee.eas.port.equipment.special.app.AnnualYearDetail</metadataRef>
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </formalParameter>
+            </formalParameters>
+        </event>
     </events>
     <defaultView>
         <name />
@@ -1713,6 +1849,54 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[fanxiadaEvent].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="反下达事件" />
+            <lang locale="zh_HK" value="反下達事件" />
+            <lang locale="zh_TW" value="反下達事件" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[fanxiadaEvent].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[fanxiadaEvent].eventMethods.eventMethod[d0e40962-da0d-49cd-a3ba-98a753dcc73a].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[fanxiadaEvent].eventMethods.eventMethod[d0e40962-da0d-49cd-a3ba-98a753dcc73a].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[fanxiadaEvent].eventMethods.eventMethod[d0e40962-da0d-49cd-a3ba-98a753dcc73a].parameterMappings.parameterMappingalias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[fanxiadaEvent].eventMethods.eventMethod[d0e40962-da0d-49cd-a3ba-98a753dcc73a].parameterMappings.parameterMappingdescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[fanxiadaEvent].formalParameters.formalParameter.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[fanxiadaEvent].formalParameters.formalParameter.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[passAuditEvent].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="审核通过事件" />
@@ -2000,6 +2184,54 @@
             <lang locale="zh_CN" value="主键" />
             <lang locale="zh_HK" value="主鍵" />
             <lang locale="zh_TW" value="主鍵" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[xiadaEvent].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="下达事件" />
+            <lang locale="zh_HK" value="下達事件" />
+            <lang locale="zh_TW" value="下達事件" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[xiadaEvent].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[xiadaEvent].eventMethods.eventMethod[9ba4cf55-ac19-455f-8b36-2b29cab239ac].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[xiadaEvent].eventMethods.eventMethod[9ba4cf55-ac19-455f-8b36-2b29cab239ac].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[xiadaEvent].eventMethods.eventMethod[9ba4cf55-ac19-455f-8b36-2b29cab239ac].parameterMappings.parameterMappingalias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[xiadaEvent].eventMethods.eventMethod[9ba4cf55-ac19-455f-8b36-2b29cab239ac].parameterMappings.parameterMappingdescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[xiadaEvent].formalParameters.formalParameter.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].events.event[xiadaEvent].formalParameters.formalParameter.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].extendedProperty.OrgType">
             <lang locale="en_US" value="NONE" />
@@ -2297,6 +2529,30 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].methods.method[exists].parameters.parameter[pk].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].methods.method[fanxiada].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="反下达" />
+            <lang locale="zh_HK" value="反下達" />
+            <lang locale="zh_TW" value="反下達" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].methods.method[fanxiada].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].methods.method[fanxiada].parameters.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].methods.method[fanxiada].parameters.parameter[model].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -2633,6 +2889,30 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].methods.method[update].parameters.parameter[pk].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].methods.method[xiada].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="下达" />
+            <lang locale="zh_HK" value="下達" />
+            <lang locale="zh_TW" value="下達" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].methods.method[xiada].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].methods.method[xiada].parameters.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.special.app.AnnualYearDetail].methods.method[xiada].parameters.parameter[model].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
