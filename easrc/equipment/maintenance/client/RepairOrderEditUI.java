@@ -781,6 +781,23 @@ public class RepairOrderEditUI extends AbstractRepairOrderEditUI
 	        kdtE1_repairPerson_PromptBox.setCommitFormat("$number$");
 	        KDTDefaultCellEditor kdtE1_repairPerson_CellEditor = new KDTDefaultCellEditor(kdtE1_repairPerson_PromptBox);
 	        kdtE1.getColumn("repairPerson").setEditor(kdtE1_repairPerson_CellEditor);
+	        
+	        String id1 = SysContext.getSysContext().getCurrentStorageUnit().getId().toString();
+	        KDBizPromptBox kdtE1_replaceSparePart_PromptBox = new KDBizPromptBox();
+	        kdtE1_replaceSparePart_PromptBox.setQueryInfo("com.kingdee.eas.port.equipment.rpt.F7MaterialQuery");
+//	        kdtE1_replaceSparePart_PromptBox.setQueryInfo("com.kingdee.eas.fi.rpt.app.F7MaterialQuery");
+	        kdtE1_replaceSparePart_PromptBox.setVisible(true);
+	        kdtE1_replaceSparePart_PromptBox.setEditable(true);
+	        kdtE1_replaceSparePart_PromptBox.setDisplayFormat("$number$");
+	        kdtE1_replaceSparePart_PromptBox.setEditFormat("$number$");
+	        kdtE1_replaceSparePart_PromptBox.setCommitFormat("$number$");
+	   	     EntityViewInfo evi1 = new EntityViewInfo();
+			 FilterInfo filter1 = new FilterInfo();
+	 		 filter1.getFilterItems().add(new FilterItemInfo("Storage.id",id1 ,CompareType.EQUALS));
+			 evi1.setFilter(filter1);
+			 kdtE1_replaceSparePart_PromptBox.setEntityViewInfo(evi1);
+			 KDTDefaultCellEditor kdtEntry_feeType_CellEditor = new KDTDefaultCellEditor(kdtE1_replaceSparePart_PromptBox);
+			 kdtE1.getColumn("replaceSparePart").setEditor(kdtEntry_feeType_CellEditor);
 		 
 	    Tool.setPersonF7(kdtE1_repairPerson_PromptBox, this, SysContext.getSysContext().getCurrentCtrlUnit().getId().toString());
 		Tool.setPersonF7(this.prmtassignee, this, SysContext.getSysContext().getCurrentCtrlUnit().getId().toString());

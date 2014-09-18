@@ -38,6 +38,7 @@ import com.kingdee.bos.ctrl.swing.event.SelectorEvent;
 import com.kingdee.bos.ctrl.swing.event.SelectorListener;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.bos.metadata.IMetaDataPK;
 import com.kingdee.bos.metadata.MetaDataPK;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.metadata.entity.FilterInfo;
@@ -99,6 +100,7 @@ import com.kingdee.eas.port.equipment.operate.EqmScrapFactory;
 import com.kingdee.eas.port.equipment.operate.IEqmAccident;
 import com.kingdee.eas.port.equipment.operate.IEqmIO;
 import com.kingdee.eas.port.equipment.operate.IEqmScrap;
+import com.kingdee.eas.port.equipment.record.EquIdFactory;
 import com.kingdee.eas.port.equipment.record.EquIdSpareInfoCollection;
 import com.kingdee.eas.port.equipment.record.EquIdSpareInfoInfo;
 import com.kingdee.eas.port.equipment.special.AnnualYearDetailEntryCollection;
@@ -2131,5 +2133,9 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 //			}
 //		}
 //	}
+    	
+    	 protected IMetaDataPK getTDQueryPK() {
+    	    	return new MetaDataPK("com.kingdee.eas.port.equipment.record.app.EquPrientQuery");
+    		}
 	
 }
