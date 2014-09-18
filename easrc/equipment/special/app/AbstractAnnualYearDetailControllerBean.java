@@ -744,6 +744,46 @@ public abstract class AbstractAnnualYearDetailControllerBean extends XRBillBaseC
         return;
     }
 
+    public void xiada(Context ctx, AnnualYearDetailInfo model) throws BOSException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("9ba4cf55-ac19-455f-8b36-2b29cab239ac"), new Object[]{ctx, model});
+            invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
+            _xiada(ctx, model);
+            }
+            invokeServiceAfter(svcCtx);
+        } catch (BOSException ex) {
+            throw ex;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected void _xiada(Context ctx, IObjectValue model) throws BOSException
+    {    	
+        return;
+    }
+
+    public void fanxiada(Context ctx, AnnualYearDetailInfo model) throws BOSException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("d0e40962-da0d-49cd-a3ba-98a753dcc73a"), new Object[]{ctx, model});
+            invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
+            _fanxiada(ctx, model);
+            }
+            invokeServiceAfter(svcCtx);
+        } catch (BOSException ex) {
+            throw ex;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected void _fanxiada(Context ctx, IObjectValue model) throws BOSException
+    {    	
+        return;
+    }
+
     public XRBillBaseCollection getXRBillBaseCollection (Context ctx) throws BOSException
     {
     	return (XRBillBaseCollection)(getAnnualYearDetailCollection(ctx).cast(XRBillBaseCollection.class));

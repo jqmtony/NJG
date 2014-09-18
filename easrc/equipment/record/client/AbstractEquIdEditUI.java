@@ -2392,7 +2392,7 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
         contkuadu.setBounds(new Rectangle(401, 242, 270, 19));
         kDPanel4.add(contkuadu, new KDLayout.Constraints(401, 242, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         kDLabel3.setBounds(new Rectangle(675, 238, 39, 19));
-        kDPanel4.add(kDLabel3, new KDLayout.Constraints(675, 238, 39, 19, 0));
+        kDPanel4.add(kDLabel3, new KDLayout.Constraints(675, 238, 39, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contxuanbichangdu.setBounds(new Rectangle(38, 275, 270, 19));
         kDPanel4.add(contxuanbichangdu, new KDLayout.Constraints(38, 275, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         kDLabel4.setBounds(new Rectangle(312, 273, 54, 19));

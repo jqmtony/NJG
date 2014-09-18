@@ -452,4 +452,30 @@ public class AnnualYearDetail extends XRBillBase implements IAnnualYearDetail
             throw new EJBRemoteException(err);
         }
     }
+    /**
+     *下达-User defined method
+     *@param model model
+     */
+    public void xiada(AnnualYearDetailInfo model) throws BOSException
+    {
+        try {
+            getController().xiada(getContext(), model);
+        }
+        catch(RemoteException err) {
+            throw new EJBRemoteException(err);
+        }
+    }
+    /**
+     *反下达-User defined method
+     *@param model model
+     */
+    public void fanxiada(AnnualYearDetailInfo model) throws BOSException
+    {
+        try {
+            getController().fanxiada(getContext(), model);
+        }
+        catch(RemoteException err) {
+            throw new EJBRemoteException(err);
+        }
+    }
 }

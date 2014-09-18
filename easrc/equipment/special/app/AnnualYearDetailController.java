@@ -58,4 +58,6 @@ public interface AnnualYearDetailController extends XRBillBaseController
     public void unConfirmation(Context ctx, AnnualYearDetailInfo model) throws BOSException, RemoteException;
     public void confirm(Context ctx, AnnualYearDetailInfo model) throws BOSException, RemoteException;
     public void unConfirm(Context ctx, AnnualYearDetailInfo model) throws BOSException, RemoteException;
+    public void xiada(Context ctx, AnnualYearDetailInfo model) throws BOSException, RemoteException;
+    public void fanxiada(Context ctx, AnnualYearDetailInfo model) throws BOSException, RemoteException;
 }

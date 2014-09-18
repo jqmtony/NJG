@@ -171,6 +171,17 @@ public class AbstractRepairOrderE1Info extends com.kingdee.eas.framework.CoreBil
     {
         setString("yujingzhouqi", item);
     }
+    /**
+     * Object:维修明细's 计量单位property 
+     */
+    public String getJlUnit()
+    {
+        return getString("jlUnit");
+    }
+    public void setJlUnit(String item)
+    {
+        setString("jlUnit", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("58358BBD");

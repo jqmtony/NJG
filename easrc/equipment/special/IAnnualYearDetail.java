@@ -53,4 +53,6 @@ public interface IAnnualYearDetail extends IXRBillBase
     public void unConfirmation(AnnualYearDetailInfo model) throws BOSException;
     public void confirm(AnnualYearDetailInfo model) throws BOSException;
     public void unConfirm(AnnualYearDetailInfo model) throws BOSException;
+    public void xiada(AnnualYearDetailInfo model) throws BOSException;
+    public void fanxiada(AnnualYearDetailInfo model) throws BOSException;
 }

@@ -39,4 +39,14 @@ public abstract class AbstractAnnualYearDetailListUIHandler extends com.kingdee.
 	}
 	protected void _handleActionUnConfirm(RequestContext request,ResponseContext response, Context context) throws Exception {
 	}
+	public void handleActionXiada(RequestContext request,ResponseContext response, Context context) throws Exception {
+		_handleActionXiada(request,response,context);
+	}
+	protected void _handleActionXiada(RequestContext request,ResponseContext response, Context context) throws Exception {
+	}
+	public void handleActionFanxiada(RequestContext request,ResponseContext response, Context context) throws Exception {
+		_handleActionFanxiada(request,response,context);
+	}
+	protected void _handleActionFanxiada(RequestContext request,ResponseContext response, Context context) throws Exception {
+	}
 }

@@ -87,6 +87,8 @@ public abstract class AbstractAnnualYearDetailEditUI extends com.kingdee.eas.xr.
     protected ActionUnConfirmation actionUnConfirmation = null;
     protected ActionConfirm actionConfirm = null;
     protected ActionUnConfirm actionUnConfirm = null;
+    protected ActionXiada actionXiada = null;
+    protected ActionFanxiada actionFanxiada = null;
     /**
      * output class constructor
      */
@@ -176,6 +178,22 @@ public abstract class AbstractAnnualYearDetailEditUI extends com.kingdee.eas.xr.
         this.actionUnConfirm.setExtendProperty("isObjectUpdateLock", "false");
          this.actionUnConfirm.addService(new com.kingdee.eas.framework.client.service.PermissionService());
          this.actionUnConfirm.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
+        //actionXiada
+        this.actionXiada = new ActionXiada(this);
+        getActionManager().registerAction("actionXiada", actionXiada);
+        this.actionXiada.setExtendProperty("canForewarn", "true");
+        this.actionXiada.setExtendProperty("userDefined", "true");
+        this.actionXiada.setExtendProperty("isObjectUpdateLock", "false");
+         this.actionXiada.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+         this.actionXiada.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
+        //actionFanxiada
+        this.actionFanxiada = new ActionFanxiada(this);
+        getActionManager().registerAction("actionFanxiada", actionFanxiada);
+        this.actionFanxiada.setExtendProperty("canForewarn", "true");
+        this.actionFanxiada.setExtendProperty("userDefined", "true");
+        this.actionFanxiada.setExtendProperty("isObjectUpdateLock", "false");
+         this.actionFanxiada.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+         this.actionFanxiada.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
         this.contCreator = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contCreateTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contLastUpdateUser = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -338,6 +356,14 @@ public abstract class AbstractAnnualYearDetailEditUI extends com.kingdee.eas.xr.
 
 
         this.kdtEntry.checkParsed();
+        KDFormattedTextField kdtEntry_seq_TextField = new KDFormattedTextField();
+        kdtEntry_seq_TextField.setName("kdtEntry_seq_TextField");
+        kdtEntry_seq_TextField.setVisible(true);
+        kdtEntry_seq_TextField.setEditable(true);
+        kdtEntry_seq_TextField.setHorizontalAlignment(2);
+        kdtEntry_seq_TextField.setDataType(0);
+        KDTDefaultCellEditor kdtEntry_seq_CellEditor = new KDTDefaultCellEditor(kdtEntry_seq_TextField);
+        this.kdtEntry.getColumn("seq").setEditor(kdtEntry_seq_CellEditor);
         final KDBizPromptBox kdtEntry_zdaNumber_PromptBox = new KDBizPromptBox();
         kdtEntry_zdaNumber_PromptBox.setQueryInfo("com.kingdee.eas.port.equipment.record.app.EquIdQuery");
         kdtEntry_zdaNumber_PromptBox.setVisible(true);
@@ -509,7 +535,8 @@ public abstract class AbstractAnnualYearDetailEditUI extends com.kingdee.eas.xr.
         this.prmtuseDpatmen.setEditFormat("$number$");		
         this.prmtuseDpatmen.setCommitFormat("$number$");		
         this.prmtuseDpatmen.setRequired(false);
-        // btnIssued		
+        // btnIssued
+        this.btnIssued.setAction((IItemAction)ActionProxyFactory.getProxy(actionXiada, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnIssued.setText(resHelper.getString("btnIssued.text"));
         this.btnIssued.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent e) {
@@ -523,7 +550,8 @@ public abstract class AbstractAnnualYearDetailEditUI extends com.kingdee.eas.xr.
                 }
             }
         });
-        // btnUnIssued		
+        // btnUnIssued
+        this.btnUnIssued.setAction((IItemAction)ActionProxyFactory.getProxy(actionFanxiada, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnUnIssued.setText(resHelper.getString("btnUnIssued.text"));
         this.btnUnIssued.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent e) {
@@ -1310,6 +1338,24 @@ kdtEntry.getCell(rowIndex,"createUnit").setValue(com.kingdee.bos.ui.face.UIRuleU
     {
         com.kingdee.eas.port.equipment.special.AnnualYearDetailFactory.getRemoteInstance().unConfirm(editData);
     }
+    	
+
+    /**
+     * output actionXiada_actionPerformed method
+     */
+    public void actionXiada_actionPerformed(ActionEvent e) throws Exception
+    {
+        com.kingdee.eas.port.equipment.special.AnnualYearDetailFactory.getRemoteInstance().xiada(editData);
+    }
+    	
+
+    /**
+     * output actionFanxiada_actionPerformed method
+     */
+    public void actionFanxiada_actionPerformed(ActionEvent e) throws Exception
+    {
+        com.kingdee.eas.port.equipment.special.AnnualYearDetailFactory.getRemoteInstance().fanxiada(editData);
+    }
 	public RequestContext prepareActionSubmit(IItemAction itemAction) throws Exception {
 			RequestContext request = super.prepareActionSubmit(itemAction);		
 		if (request != null) {
@@ -1385,6 +1431,28 @@ kdtEntry.getCell(rowIndex,"createUnit").setValue(com.kingdee.bos.ui.face.UIRuleU
     }
 	
 	public boolean isPrepareActionUnConfirm() {
+    	return false;
+    }
+	public RequestContext prepareActionXiada(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionXiada() {
+    	return false;
+    }
+	public RequestContext prepareActionFanxiada(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionFanxiada() {
     	return false;
     }
 
@@ -1535,6 +1603,66 @@ kdtEntry.getCell(rowIndex,"createUnit").setValue(com.kingdee.bos.ui.face.UIRuleU
         {
         	getUIContext().put("ORG.PK", getOrgPK(this));
             innerActionPerformed("eas", AbstractAnnualYearDetailEditUI.this, "ActionUnConfirm", "actionUnConfirm_actionPerformed", e);
+        }
+    }
+
+    /**
+     * output ActionXiada class
+     */     
+    protected class ActionXiada extends ItemAction {     
+    
+        public ActionXiada()
+        {
+            this(null);
+        }
+
+        public ActionXiada(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            _tempStr = resHelper.getString("ActionXiada.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionXiada.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionXiada.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractAnnualYearDetailEditUI.this, "ActionXiada", "actionXiada_actionPerformed", e);
+        }
+    }
+
+    /**
+     * output ActionFanxiada class
+     */     
+    protected class ActionFanxiada extends ItemAction {     
+    
+        public ActionFanxiada()
+        {
+            this(null);
+        }
+
+        public ActionFanxiada(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            _tempStr = resHelper.getString("ActionFanxiada.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionFanxiada.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionFanxiada.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractAnnualYearDetailEditUI.this, "ActionFanxiada", "actionFanxiada_actionPerformed", e);
         }
     }
 
