@@ -1,0 +1,1622 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<joinQuery xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.port.equipment.rpt</package>
+    <name>F7MaterialQuery</name>
+    <alias>joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].alias</alias>
+    <description>joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].description</description>
+    <userDefined>true</userDefined>
+    <reportDataSource />
+    <bizUnitPK />
+    <connectionProvider />
+    <subObjects>
+        <subEntity>
+            <name>Material</name>
+            <alias>joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].subObjects.subEntity[Material].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.basedata.master.material.app" />
+                <key name="name" value="Material" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>materialGroupDetails</name>
+            <alias>joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].subObjects.subEntity[materialGroupDetails].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.basedata.master.material.app" />
+                <key name="name" value="MaterialGroupDetial" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>materialGroupStandard</name>
+            <alias>joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].subObjects.subEntity[materialGroupStandard].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.basedata.master.material.app" />
+                <key name="name" value="MaterialGroupStandard" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>materialGroup</name>
+            <alias>joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].subObjects.subEntity[materialGroup].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.basedata.master.material.app" />
+                <key name="name" value="MaterialGroup" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>MaterialInventory</name>
+            <alias>joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].subObjects.subEntity[MaterialInventory].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.basedata.master.material.app" />
+                <key name="name" value="MaterialInventory" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>Storage</name>
+            <alias>joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].subObjects.subEntity[Storage].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.basedata.org.app" />
+                <key name="name" value="StorageOrgUnit" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>Inventory</name>
+            <alias>joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].subObjects.subEntity[Inventory].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.scm.im.inv.app" />
+                <key name="name" value="Inventory" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>baseUnit</name>
+            <alias>joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].subObjects.subEntity[baseUnit].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="MeasureUnit" />
+            </entityRef>
+        </subEntity>
+        <subQuery>
+            <name>PricePurInWarehs</name>
+            <alias>joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].subObjects.subQuery[PricePurInWarehs].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </query>
+            <unionType />
+            <queryRef>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7PricePurInWarehsQuery" />
+            </queryRef>
+        </subQuery>
+    </subObjects>
+    <units>
+        <queryField>
+            <name>number</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.queryField[number].displayName</displayName>
+            <groupType>None</groupType>
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="number" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Material" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="number" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.queryField[name].displayName</displayName>
+            <groupType>None</groupType>
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Material" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>model</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.queryField[model].displayName</displayName>
+            <groupType>None</groupType>
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>decf4d97-d1bf-46f5-bb1f-6730e175f7b2</key>
+                    <parentUnit>
+                        <key name="name" value="model" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Material" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="model" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>baseUnit.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.queryField[baseUnit.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>975db7be-b9fe-42e2-908d-db69c4e7be99</key>
+                    <parentUnit>
+                        <key name="name" value="baseUnit.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="baseUnit" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>warrantnumber</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.queryField[warrantnumber].displayName</displayName>
+            <groupType>None</groupType>
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>6a0e17d2-bc8a-4bf5-b251-a3da444ab35e</key>
+                    <parentUnit>
+                        <key name="name" value="warrantnumber" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Material" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="warrantnumber" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>Storage.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.queryField[Storage.name].displayName</displayName>
+            <groupType>None</groupType>
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>80be3c74-c12d-4649-b64b-1994595fe558</key>
+                    <parentUnit>
+                        <key name="name" value="Storage.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Storage" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>PricePurInWarehs.entry.price</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.queryField[PricePurInWarehs.entry.price].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>cbc5d31a-f3ba-41d7-8331-4e24e29abde9</key>
+                    <subQuery>
+                        <key name="name" value="PricePurInWarehs" />
+                    </subQuery>
+                    <refUnit>
+                        <key name="name" value="entry.price" />
+                    </refUnit>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>Inventory.curStoreQty</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.queryField[Inventory.curStoreQty].displayName</displayName>
+            <groupType>None</groupType>
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>34ee6664-6338-4b42-bb3a-b1071893f846</key>
+                    <parentUnit>
+                        <key name="name" value="Inventory.curStoreQty" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Inventory" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="curStoreQty" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>id</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.queryField[id].displayName</displayName>
+            <groupType>None</groupType>
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Material" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>2e412d86-a3d0-4c1f-8c72-adcf34d473f4</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.propertyUnit[2e412d86-a3d0-4c1f-8c72-adcf34d473f4].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="2e412d86-a3d0-4c1f-8c72-adcf34d473f4" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Material" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>d0e9e885-2ed5-465c-9b45-02890def84f7</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.propertyUnit[d0e9e885-2ed5-465c-9b45-02890def84f7].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="d0e9e885-2ed5-465c-9b45-02890def84f7" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="materialGroupDetails" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="material" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>ad1f9b6c-21bd-4a61-8ec2-066055fed760</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.propertyUnit[ad1f9b6c-21bd-4a61-8ec2-066055fed760].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="ad1f9b6c-21bd-4a61-8ec2-066055fed760" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="materialGroupDetails" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="materialGroupStandard" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>b851e800-52b2-40c0-8c2a-e4aea916741b</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.propertyUnit[b851e800-52b2-40c0-8c2a-e4aea916741b].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="b851e800-52b2-40c0-8c2a-e4aea916741b" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="materialGroupStandard" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>41873e55-953f-45c5-9424-30527203ed40</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.propertyUnit[41873e55-953f-45c5-9424-30527203ed40].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="41873e55-953f-45c5-9424-30527203ed40" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="materialGroupDetails" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="materialGroup" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>fdca2e24-f143-4ed2-ae39-4a7db9979a12</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.propertyUnit[fdca2e24-f143-4ed2-ae39-4a7db9979a12].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="fdca2e24-f143-4ed2-ae39-4a7db9979a12" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="materialGroup" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>e9ba1c3a-b063-4c84-b84a-9b2418241788</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.propertyUnit[e9ba1c3a-b063-4c84-b84a-9b2418241788].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>a54b4d1a-86d5-47f4-b163-7939ad59460f</key>
+                    <parentUnit>
+                        <key name="name" value="e9ba1c3a-b063-4c84-b84a-9b2418241788" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Material" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>f611d2c4-c493-4aeb-9f6a-85ccdd5e3bdc</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.propertyUnit[f611d2c4-c493-4aeb-9f6a-85ccdd5e3bdc].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>93ad5d91-fb19-4997-a092-39bcac706884</key>
+                    <parentUnit>
+                        <key name="name" value="f611d2c4-c493-4aeb-9f6a-85ccdd5e3bdc" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="MaterialInventory" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="material" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>e6c1bec3-501b-4387-90f9-f261a4d26130</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.propertyUnit[e6c1bec3-501b-4387-90f9-f261a4d26130].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>dab40d05-21ec-4d0f-aa32-aaa8be637640</key>
+                    <parentUnit>
+                        <key name="name" value="e6c1bec3-501b-4387-90f9-f261a4d26130" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="MaterialInventory" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="orgUnit" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>074ab0a6-463d-4634-be07-8809984564a9</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.propertyUnit[074ab0a6-463d-4634-be07-8809984564a9].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>39dd671f-8691-4959-b7fa-87772e77dea4</key>
+                    <parentUnit>
+                        <key name="name" value="074ab0a6-463d-4634-be07-8809984564a9" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Storage" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>c873b948-8c08-4fa8-8ccd-41f124c7befa</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.propertyUnit[c873b948-8c08-4fa8-8ccd-41f124c7befa].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>77721772-e0ac-4bc7-87c7-8c9f5cdc752e</key>
+                    <parentUnit>
+                        <key name="name" value="c873b948-8c08-4fa8-8ccd-41f124c7befa" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="MaterialInventory" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="material" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>52f84b8b-362c-49ec-a178-177abfaf55a2</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.propertyUnit[52f84b8b-362c-49ec-a178-177abfaf55a2].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>4572a251-bdd4-4fee-bce6-2505f89486a9</key>
+                    <parentUnit>
+                        <key name="name" value="52f84b8b-362c-49ec-a178-177abfaf55a2" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Inventory" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="material" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>d400b09a-e5b4-48e1-a1c4-587fb441070e</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.propertyUnit[d400b09a-e5b4-48e1-a1c4-587fb441070e].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>3a0fd650-2164-487a-8471-744b724e7767</key>
+                    <parentUnit>
+                        <key name="name" value="d400b09a-e5b4-48e1-a1c4-587fb441070e" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="MaterialInventory" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="orgUnit" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>13408904-fca3-4aa1-8c1e-4e6ce8a2d4a9</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.propertyUnit[13408904-fca3-4aa1-8c1e-4e6ce8a2d4a9].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>a78014a0-e8a8-4b8d-8509-61fc9722d6b2</key>
+                    <parentUnit>
+                        <key name="name" value="13408904-fca3-4aa1-8c1e-4e6ce8a2d4a9" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Inventory" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="storageOrgUnit" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>Storage.id</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.queryField[Storage.id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>5bc6483f-81b6-44b2-a0ab-7936a369ab4e</key>
+                    <parentUnit>
+                        <key name="name" value="Storage.id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Storage" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>051c330e-53c4-4183-9e86-5bd7ac367545</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.propertyUnit[051c330e-53c4-4183-9e86-5bd7ac367545].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>32d46f40-14ae-4677-ae7b-d71077cada0e</key>
+                    <parentUnit>
+                        <key name="name" value="051c330e-53c4-4183-9e86-5bd7ac367545" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Material" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="baseUnit" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>797518d3-6148-4493-a328-acd476ce471c</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.propertyUnit[797518d3-6148-4493-a328-acd476ce471c].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>d50f530b-3f70-44c1-98ae-b2b3548e5f73</key>
+                    <parentUnit>
+                        <key name="name" value="797518d3-6148-4493-a328-acd476ce471c" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="baseUnit" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>13a67115-7ced-4188-9946-941e62ee85af</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.propertyUnit[13a67115-7ced-4188-9946-941e62ee85af].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>263ef24d-c0a9-4217-9d81-08b524ff4508</key>
+                    <parentUnit>
+                        <key name="name" value="13a67115-7ced-4188-9946-941e62ee85af" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Material" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>aa30c98d-260c-40b2-aee4-ed141d9bc369</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.propertyUnit[aa30c98d-260c-40b2-aee4-ed141d9bc369].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>6f72b0a4-b1e2-4d63-8b0c-cea6ee479bbc</key>
+                    <parentUnit>
+                        <key name="name" value="aa30c98d-260c-40b2-aee4-ed141d9bc369" />
+                    </parentUnit>
+                    <subQuery>
+                        <key name="name" value="PricePurInWarehs" />
+                    </subQuery>
+                    <refUnit>
+                        <key name="name" value="material.id" />
+                    </refUnit>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>PricePurInWarehs.auditTime</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.queryField[PricePurInWarehs.auditTime].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Timestamp</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>b1dcc548-0b48-4835-a6a7-0e8cf1f13655</key>
+                    <subQuery>
+                        <key name="name" value="PricePurInWarehs" />
+                    </subQuery>
+                    <refUnit>
+                        <key name="name" value="auditTime" />
+                    </refUnit>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </query>
+        </queryField>
+    </units>
+    <defaultFilter>
+        <name>defaultFilter</name>
+        <formulaString />
+        <query>
+            <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+            <key name="name" value="F7MaterialQuery" />
+        </query>
+    </defaultFilter>
+    <defaultSorters>
+        <querySorterItem>
+            <propertyName>number</propertyName>
+            <sortType>ASC</sortType>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </query>
+            <configured>false</configured>
+        </querySorterItem>
+    </defaultSorters>
+    <queryPK>
+        <name>QueryPK</name>
+        <alias>joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].queryPK[QueryPK].alias</alias>
+        <description>joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].queryPK[QueryPK].description</description>
+        <keyProperties>
+            <queryField>
+                <key name="name" value="id" />
+            </queryField>
+        </keyProperties>
+    </queryPK>
+    <isDistinct>true</isDistinct>
+    <joins>
+        <join>
+            <name>NewJoin0</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="Material" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="materialGroupDetails" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>0</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="2e412d86-a3d0-4c1f-8c72-adcf34d473f4" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="d0e9e885-2ed5-465c-9b45-02890def84f7" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="NewJoin0" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </query>
+        </join>
+        <join>
+            <name>NewJoin1</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="materialGroupDetails" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="materialGroupStandard" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>0</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="ad1f9b6c-21bd-4a61-8ec2-066055fed760" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="b851e800-52b2-40c0-8c2a-e4aea916741b" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="NewJoin1" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </query>
+        </join>
+        <join>
+            <name>NewJoin2</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="materialGroupDetails" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="materialGroup" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>0</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="41873e55-953f-45c5-9424-30527203ed40" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="fdca2e24-f143-4ed2-ae39-4a7db9979a12" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="NewJoin2" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </query>
+        </join>
+        <join>
+            <name>f066c29a-b12f-4709-8712-463cf39fab39</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="Material" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="MaterialInventory" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>eb1479a9-b6e7-4eb0-844c-7fd3471873c7</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="e9ba1c3a-b063-4c84-b84a-9b2418241788" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="f611d2c4-c493-4aeb-9f6a-85ccdd5e3bdc" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="f066c29a-b12f-4709-8712-463cf39fab39" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </query>
+        </join>
+        <join>
+            <name>54051c71-dd49-4292-a09a-404ead63b2c8</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="MaterialInventory" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="Storage" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>8056ebc0-49be-4c0f-b81f-1524face582c</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="e6c1bec3-501b-4387-90f9-f261a4d26130" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="074ab0a6-463d-4634-be07-8809984564a9" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="54051c71-dd49-4292-a09a-404ead63b2c8" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </query>
+        </join>
+        <join>
+            <name>0a58c932-3452-4eea-b271-7d65ca5ca53f</name>
+            <formulaString>#0 and #1</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="MaterialInventory" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="Inventory" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>922fbc88-1b8f-493a-9b13-fb03506043a8</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="c873b948-8c08-4fa8-8ccd-41f124c7befa" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="52f84b8b-362c-49ec-a178-177abfaf55a2" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="0a58c932-3452-4eea-b271-7d65ca5ca53f" />
+                    </join>
+                </joinItem>
+                <joinItem>
+                    <name>994aaf5d-f6dd-41c5-beb8-2cad88314c62</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="d400b09a-e5b4-48e1-a1c4-587fb441070e" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="13408904-fca3-4aa1-8c1e-4e6ce8a2d4a9" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="0a58c932-3452-4eea-b271-7d65ca5ca53f" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </query>
+        </join>
+        <join>
+            <name>6b0f0069-144e-4c64-948d-d60aa4857956</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="Material" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="baseUnit" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>11e4d5a3-3e4a-40b8-81c3-0ae8211d90ef</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="051c330e-53c4-4183-9e86-5bd7ac367545" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="797518d3-6148-4493-a328-acd476ce471c" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="6b0f0069-144e-4c64-948d-d60aa4857956" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </query>
+        </join>
+        <join>
+            <name>736feeb0-6b0a-4c6b-adc5-0e53297cdfbe</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="Material" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="PricePurInWarehs" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>2fe3b747-e33c-4316-b1d3-3ab93d3a2901</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="13a67115-7ced-4188-9946-941e62ee85af" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="aa30c98d-260c-40b2-aee4-ed141d9bc369" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="736feeb0-6b0a-4c6b-adc5-0e53297cdfbe" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </query>
+        </join>
+    </joins>
+    <resource>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="物料查询" />
+            <lang locale="zh_HK" value="物料查詢" />
+            <lang locale="zh_TW" value="物料查詢" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].defaultSorters.querySorterItemextendedProperty.f7WindowTitle">
+            <lang locale="en_US" value="物料" />
+            <lang locale="zh_CN" value="物料" />
+            <lang locale="zh_TW" value="物料" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="查询即时库存、单据" />
+            <lang locale="zh_HK" value="查詢即時庫存、單據" />
+            <lang locale="zh_TW" value="查詢即時庫存、單據" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].extendedProperty.f7WindowTitle">
+            <lang locale="en_US" value="物料" />
+            <lang locale="zh_CN" value="物料" />
+            <lang locale="zh_TW" value="物料" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].queryPK[QueryPK].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].queryPK[QueryPK].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].subObjects.subEntity[Inventory].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].subObjects.subEntity[MaterialInventory].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].subObjects.subEntity[Material].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].subObjects.subEntity[Storage].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].subObjects.subEntity[baseUnit].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].subObjects.subEntity[materialGroupDetails].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].subObjects.subEntity[materialGroupStandard].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].subObjects.subEntity[materialGroup].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].subObjects.subQuery[PricePurInWarehs].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.propertyUnit[051c330e-53c4-4183-9e86-5bd7ac367545].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.propertyUnit[074ab0a6-463d-4634-be07-8809984564a9].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.propertyUnit[13408904-fca3-4aa1-8c1e-4e6ce8a2d4a9].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.propertyUnit[13a67115-7ced-4188-9946-941e62ee85af].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.propertyUnit[2e412d86-a3d0-4c1f-8c72-adcf34d473f4].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.propertyUnit[41873e55-953f-45c5-9424-30527203ed40].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.propertyUnit[52f84b8b-362c-49ec-a178-177abfaf55a2].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.propertyUnit[797518d3-6148-4493-a328-acd476ce471c].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.propertyUnit[aa30c98d-260c-40b2-aee4-ed141d9bc369].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.propertyUnit[ad1f9b6c-21bd-4a61-8ec2-066055fed760].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.propertyUnit[b851e800-52b2-40c0-8c2a-e4aea916741b].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.propertyUnit[c873b948-8c08-4fa8-8ccd-41f124c7befa].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.propertyUnit[d0e9e885-2ed5-465c-9b45-02890def84f7].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.propertyUnit[d400b09a-e5b4-48e1-a1c4-587fb441070e].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.propertyUnit[e6c1bec3-501b-4387-90f9-f261a4d26130].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.propertyUnit[e9ba1c3a-b063-4c84-b84a-9b2418241788].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.propertyUnit[f611d2c4-c493-4aeb-9f6a-85ccdd5e3bdc].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.propertyUnit[fdca2e24-f143-4ed2-ae39-4a7db9979a12].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.queryField[Inventory.curStoreQty].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="库存数量" />
+            <lang locale="zh_HK" value="庫存數量" />
+            <lang locale="zh_TW" value="庫存數量" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.queryField[PricePurInWarehs.auditTime].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="审核时间" />
+            <lang locale="zh_HK" value="審核時間" />
+            <lang locale="zh_TW" value="審核時間" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.queryField[PricePurInWarehs.auditTime].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.queryField[PricePurInWarehs.entry.price].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单价" />
+            <lang locale="zh_HK" value="單價" />
+            <lang locale="zh_TW" value="單價" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.queryField[Storage.id].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="ID" />
+            <lang locale="zh_HK" value="ID" />
+            <lang locale="zh_TW" value="ID" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.queryField[Storage.id].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.queryField[Storage.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="库存组织" />
+            <lang locale="zh_HK" value="庫存組織" />
+            <lang locale="zh_TW" value="庫存組織" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.queryField[baseUnit.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="名称" />
+            <lang locale="zh_HK" value="名稱" />
+            <lang locale="zh_TW" value="名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.queryField[id].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="ID" />
+            <lang locale="zh_HK" value="ID" />
+            <lang locale="zh_TW" value="ID" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.queryField[id].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.queryField[model].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="规格型号" />
+            <lang locale="zh_HK" value="規格型號" />
+            <lang locale="zh_TW" value="規格型號" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.queryField[name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="名称" />
+            <lang locale="zh_HK" value="名稱" />
+            <lang locale="zh_TW" value="名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.queryField[name].extendedProperty.colWidthInKDTable">
+            <lang locale="en_US" value="120" />
+            <lang locale="zh_CN" value="120" />
+            <lang locale="zh_TW" value="120" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.queryField[name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.queryField[name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.queryField[number].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="编码" />
+            <lang locale="zh_HK" value="編碼" />
+            <lang locale="zh_TW" value="編碼" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.queryField[number].extendedProperty.colWidthInKDTable">
+            <lang locale="en_US" value="120" />
+            <lang locale="zh_CN" value="120" />
+            <lang locale="zh_TW" value="120" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.queryField[number].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.queryField[number].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.rpt.F7MaterialQuery].units.queryField[warrantnumber].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="品牌" />
+            <lang locale="zh_HK" value="品牌" />
+            <lang locale="zh_TW" value="品牌" />
+        </rs>
+    </resource>
+</joinQuery>
+

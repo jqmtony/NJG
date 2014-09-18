@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<joinQuery xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.port.equipment.record.app</package>
+    <name>equprientone</name>
+    <alias>joinQuery[com.kingdee.eas.port.equipment.record.app.equprientone].alias</alias>
+    <description>joinQuery[com.kingdee.eas.port.equipment.record.app.equprientone].description</description>
+    <userDefined>true</userDefined>
+    <reportDataSource />
+    <bizUnitPK />
+    <connectionProvider />
+    <subObjects>
+        <subEntity>
+            <name>EquId</name>
+            <alias>joinQuery[com.kingdee.eas.port.equipment.record.app.equprientone].subObjects.subEntity[EquId].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.record.app" />
+                <key name="name" value="equprientone" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.port.equipment.record.app" />
+                <key name="name" value="EquId" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>address</name>
+            <alias>joinQuery[com.kingdee.eas.port.equipment.record.app.equprientone].subObjects.subEntity[address].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.record.app" />
+                <key name="name" value="equprientone" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="Address" />
+            </entityRef>
+        </subEntity>
+    </subObjects>
+    <units>
+        <propertyUnit>
+            <name>d12460eb-6bb7-447a-996f-c7ed99e96094</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.record.app.equprientone].units.propertyUnit[d12460eb-6bb7-447a-996f-c7ed99e96094].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>3c4611cb-74df-4931-a93b-08e2198505c1</key>
+                    <parentUnit>
+                        <key name="name" value="d12460eb-6bb7-447a-996f-c7ed99e96094" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="EquId" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="address" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.record.app" />
+                <key name="name" value="equprientone" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>013b01bc-8f0d-459b-8d3c-399e626e30fe</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.record.app.equprientone].units.propertyUnit[013b01bc-8f0d-459b-8d3c-399e626e30fe].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>8e8035b7-9477-4b84-8c9f-f4ea5aed6a30</key>
+                    <parentUnit>
+                        <key name="name" value="013b01bc-8f0d-459b-8d3c-399e626e30fe" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="address" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.record.app" />
+                <key name="name" value="equprientone" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>location</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.record.app.equprientone].units.queryField[location].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>1d1cddde-e7e9-4aee-b963-b7bca79ba948</key>
+                    <parentUnit>
+                        <key name="name" value="location" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="EquId" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="location" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.record.app" />
+                <key name="name" value="equprientone" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>mader</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.record.app.equprientone].units.queryField[mader].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>7c285034-2810-45e0-9ea9-ba35b5a18657</key>
+                    <parentUnit>
+                        <key name="name" value="mader" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="EquId" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="mader" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.record.app" />
+                <key name="name" value="equprientone" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>inStreet</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.record.app.equprientone].units.queryField[inStreet].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>68a5117f-6197-463c-812c-36ee9e05cd82</key>
+                    <parentUnit>
+                        <key name="name" value="inStreet" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="EquId" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="inStreet" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.record.app" />
+                <key name="name" value="equprientone" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>address.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.record.app.equprientone].units.queryField[address.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>8255a1e6-9d76-4bd4-b94d-a3aad4ac3d5b</key>
+                    <parentUnit>
+                        <key name="name" value="address.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="address" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.record.app" />
+                <key name="name" value="equprientone" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>id</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.record.app.equprientone].units.queryField[id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>4e6e2cbd-e704-42ed-80dd-6614d542d4e0</key>
+                    <parentUnit>
+                        <key name="name" value="id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="EquId" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.record.app" />
+                <key name="name" value="equprientone" />
+            </query>
+        </queryField>
+    </units>
+    <defaultFilter>
+        <name>defaultFilter</name>
+        <formulaString />
+        <query>
+            <key name="package" value="com.kingdee.eas.port.equipment.record.app" />
+            <key name="name" value="equprientone" />
+        </query>
+    </defaultFilter>
+    <isDistinct>false</isDistinct>
+    <joins>
+        <join>
+            <name>34e71064-406b-4c2a-b9f9-b28c3f434c99</name>
+            <formulaString>#0</formulaString>
+            <type>INNER JOIN</type>
+            <leftObject>
+                <key name="name" value="EquId" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="address" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>345b1669-8cf1-44ae-bd77-53221976f7d2</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="d12460eb-6bb7-447a-996f-c7ed99e96094" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="013b01bc-8f0d-459b-8d3c-399e626e30fe" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="34e71064-406b-4c2a-b9f9-b28c3f434c99" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.record.app" />
+                <key name="name" value="equprientone" />
+            </query>
+        </join>
+    </joins>
+    <resource>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.record.app.equprientone].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="设备档案剩余" />
+            <lang locale="zh_HK" value="設備檔案剩餘" />
+            <lang locale="zh_TW" value="設備檔案剩餘" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.record.app.equprientone].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.record.app.equprientone].subObjects.subEntity[EquId].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.record.app.equprientone].subObjects.subEntity[address].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.record.app.equprientone].units.propertyUnit[013b01bc-8f0d-459b-8d3c-399e626e30fe].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.record.app.equprientone].units.propertyUnit[d12460eb-6bb7-447a-996f-c7ed99e96094].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.record.app.equprientone].units.queryField[address.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="名称" />
+            <lang locale="zh_HK" value="名稱" />
+            <lang locale="zh_TW" value="名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.record.app.equprientone].units.queryField[id].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="ID" />
+            <lang locale="zh_HK" value="ID" />
+            <lang locale="zh_TW" value="ID" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.record.app.equprientone].units.queryField[inStreet].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="设备所在街道/乡镇" />
+            <lang locale="zh_HK" value="設備所在街道/鄉鎮" />
+            <lang locale="zh_TW" value="設備所在街道/鄉鎮" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.record.app.equprientone].units.queryField[location].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="设备使用地点" />
+            <lang locale="zh_HK" value="設備使用地點" />
+            <lang locale="zh_TW" value="設備使用地點" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.record.app.equprientone].units.queryField[mader].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="制造商" />
+            <lang locale="zh_HK" value="製造商" />
+            <lang locale="zh_TW" value="製造商" />
+        </rs>
+    </resource>
+</joinQuery>
+

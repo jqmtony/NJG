@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unionQuery xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.port.equipment.rpt</package>
+    <name>NewF7MaterialQuery</name>
+    <alias>unionQuery[com.kingdee.eas.port.equipment.rpt.NewF7MaterialQuery].alias</alias>
+    <description>unionQuery[com.kingdee.eas.port.equipment.rpt.NewF7MaterialQuery].description</description>
+    <userDefined>true</userDefined>
+    <reportDataSource />
+    <bizUnitPK />
+    <connectionProvider />
+    <subObjects>
+        <subQuery>
+            <name>F7MaterialQuery</name>
+            <alias>unionQuery[com.kingdee.eas.port.equipment.rpt.NewF7MaterialQuery].subObjects.subQuery[F7MaterialQuery].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="NewF7MaterialQuery" />
+            </query>
+            <unionType>main</unionType>
+            <queryRef>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </queryRef>
+        </subQuery>
+        <subQuery>
+            <name>F7PricePurInWarehsQuery</name>
+            <alias>unionQuery[com.kingdee.eas.port.equipment.rpt.NewF7MaterialQuery].subObjects.subQuery[F7PricePurInWarehsQuery].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="NewF7MaterialQuery" />
+            </query>
+            <unionType />
+            <queryRef>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7PricePurInWarehsQuery" />
+            </queryRef>
+        </subQuery>
+    </subObjects>
+    <units>
+        <queryField>
+            <name>number</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>unionQuery[com.kingdee.eas.port.equipment.rpt.NewF7MaterialQuery].units.queryField[number].displayName</displayName>
+            <groupType>None</groupType>
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>48d864a6-7352-4b8a-aa93-b10381c82eaa</key>
+                    <subQuery>
+                        <key name="name" value="F7MaterialQuery" />
+                    </subQuery>
+                    <refUnit>
+                        <key name="name" value="number" />
+                    </refUnit>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>unionQuery[com.kingdee.eas.port.equipment.rpt.NewF7MaterialQuery].units.queryField[name].displayName</displayName>
+            <groupType>None</groupType>
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>757d0a04-ae6b-450e-ba8a-5fe385724f7e</key>
+                    <subQuery>
+                        <key name="name" value="F7MaterialQuery" />
+                    </subQuery>
+                    <refUnit>
+                        <key name="name" value="name" />
+                    </refUnit>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>model</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>unionQuery[com.kingdee.eas.port.equipment.rpt.NewF7MaterialQuery].units.queryField[model].displayName</displayName>
+            <groupType>None</groupType>
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>36c997ae-d953-43f6-a009-590369923b43</key>
+                    <subQuery>
+                        <key name="name" value="F7MaterialQuery" />
+                    </subQuery>
+                    <refUnit>
+                        <key name="name" value="model" />
+                    </refUnit>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>warrantnumber</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>unionQuery[com.kingdee.eas.port.equipment.rpt.NewF7MaterialQuery].units.queryField[warrantnumber].displayName</displayName>
+            <groupType>None</groupType>
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>46bd54a8-555b-48a1-a864-c2dd07f3d6ea</key>
+                    <subQuery>
+                        <key name="name" value="F7MaterialQuery" />
+                    </subQuery>
+                    <refUnit>
+                        <key name="name" value="warrantnumber" />
+                    </refUnit>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>Storage.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>unionQuery[com.kingdee.eas.port.equipment.rpt.NewF7MaterialQuery].units.queryField[Storage.name].displayName</displayName>
+            <groupType>None</groupType>
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>d511bb04-2ae4-4766-a28f-f76148817626</key>
+                    <subQuery>
+                        <key name="name" value="F7MaterialQuery" />
+                    </subQuery>
+                    <refUnit>
+                        <key name="name" value="Storage.name" />
+                    </refUnit>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>Inventory.amount</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>unionQuery[com.kingdee.eas.port.equipment.rpt.NewF7MaterialQuery].units.queryField[Inventory.amount].displayName</displayName>
+            <groupType>None</groupType>
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>9a110d34-1e94-4632-b400-624316b13f0a</key>
+                    <subQuery>
+                        <key name="name" value="F7MaterialQuery" />
+                    </subQuery>
+                    <refUnit>
+                        <key name="name" value="Inventory.amount" />
+                    </refUnit>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>Inventory.curStoreQty</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>unionQuery[com.kingdee.eas.port.equipment.rpt.NewF7MaterialQuery].units.queryField[Inventory.curStoreQty].displayName</displayName>
+            <groupType>None</groupType>
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>671c0eac-2d05-4fdc-ab11-c97fe1e52895</key>
+                    <subQuery>
+                        <key name="name" value="F7MaterialQuery" />
+                    </subQuery>
+                    <refUnit>
+                        <key name="name" value="Inventory.curStoreQty" />
+                    </refUnit>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>id</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>unionQuery[com.kingdee.eas.port.equipment.rpt.NewF7MaterialQuery].units.queryField[id].displayName</displayName>
+            <groupType>None</groupType>
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>864ac3f3-60d5-4738-9341-937741ad0ce3</key>
+                    <subQuery>
+                        <key name="name" value="F7MaterialQuery" />
+                    </subQuery>
+                    <refUnit>
+                        <key name="name" value="id" />
+                    </refUnit>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>Storage.id</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>unionQuery[com.kingdee.eas.port.equipment.rpt.NewF7MaterialQuery].units.queryField[Storage.id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>afce2c50-c73b-4434-9b95-6813c3b12567</key>
+                    <subQuery>
+                        <key name="name" value="F7MaterialQuery" />
+                    </subQuery>
+                    <refUnit>
+                        <key name="name" value="Storage.id" />
+                    </refUnit>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>baseUnit.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>unionQuery[com.kingdee.eas.port.equipment.rpt.NewF7MaterialQuery].units.queryField[baseUnit.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>975db7be-b9fe-42e2-908d-db69c4e7be99</key>
+                    <parentUnit>
+                        <key name="name" value="baseUnit.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="baseUnit" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="F7MaterialQuery" />
+            </query>
+        </queryField>
+    </units>
+    <defaultFilter>
+        <name>defaultFilter</name>
+        <formulaString />
+        <query>
+            <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+            <key name="name" value="NewF7MaterialQuery" />
+        </query>
+    </defaultFilter>
+    <defaultSorters>
+        <querySorterItem>
+            <propertyName>number</propertyName>
+            <sortType>ASC</sortType>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.rpt" />
+                <key name="name" value="NewF7MaterialQuery" />
+            </query>
+            <configured>false</configured>
+        </querySorterItem>
+    </defaultSorters>
+    <formulaString>#0 union #1</formulaString>
+    <resource>
+        <rs key="unionQuery[com.kingdee.eas.port.equipment.rpt.NewF7MaterialQuery].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="物料查询" />
+            <lang locale="zh_HK" value="物料查詢" />
+            <lang locale="zh_TW" value="物料查詢" />
+        </rs>
+        <rs key="unionQuery[com.kingdee.eas.port.equipment.rpt.NewF7MaterialQuery].defaultSorters.querySorterItemextendedProperty.f7WindowTitle">
+            <lang locale="en_US" value="物料查询" />
+            <lang locale="zh_CN" value="物料查询" />
+            <lang locale="zh_TW" value="物料查询" />
+        </rs>
+        <rs key="unionQuery[com.kingdee.eas.port.equipment.rpt.NewF7MaterialQuery].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="unionQuery[com.kingdee.eas.port.equipment.rpt.NewF7MaterialQuery].extendedProperty.f7WindowTitle">
+            <lang locale="en_US" value="物料查询" />
+            <lang locale="zh_CN" value="物料查询" />
+            <lang locale="zh_TW" value="物料查询" />
+        </rs>
+        <rs key="unionQuery[com.kingdee.eas.port.equipment.rpt.NewF7MaterialQuery].subObjects.subQuery[F7MaterialQuery].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="unionQuery[com.kingdee.eas.port.equipment.rpt.NewF7MaterialQuery].subObjects.subQuery[F7PricePurInWarehsQuery].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="unionQuery[com.kingdee.eas.port.equipment.rpt.NewF7MaterialQuery].units.queryField[Inventory.amount].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单价" />
+            <lang locale="zh_HK" value="單價" />
+            <lang locale="zh_TW" value="單價" />
+        </rs>
+        <rs key="unionQuery[com.kingdee.eas.port.equipment.rpt.NewF7MaterialQuery].units.queryField[Inventory.curStoreQty].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="库存数量" />
+            <lang locale="zh_HK" value="庫存數量" />
+            <lang locale="zh_TW" value="庫存數量" />
+        </rs>
+        <rs key="unionQuery[com.kingdee.eas.port.equipment.rpt.NewF7MaterialQuery].units.queryField[Storage.id].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="ID" />
+            <lang locale="zh_HK" value="ID" />
+            <lang locale="zh_TW" value="ID" />
+        </rs>
+        <rs key="unionQuery[com.kingdee.eas.port.equipment.rpt.NewF7MaterialQuery].units.queryField[Storage.id].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="unionQuery[com.kingdee.eas.port.equipment.rpt.NewF7MaterialQuery].units.queryField[Storage.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="库存组织" />
+            <lang locale="zh_HK" value="庫存組織" />
+            <lang locale="zh_TW" value="庫存組織" />
+        </rs>
+        <rs key="unionQuery[com.kingdee.eas.port.equipment.rpt.NewF7MaterialQuery].units.queryField[baseUnit.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="名称" />
+            <lang locale="zh_HK" value="名稱" />
+            <lang locale="zh_TW" value="名稱" />
+        </rs>
+        <rs key="unionQuery[com.kingdee.eas.port.equipment.rpt.NewF7MaterialQuery].units.queryField[id].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="ID" />
+            <lang locale="zh_HK" value="ID" />
+            <lang locale="zh_TW" value="ID" />
+        </rs>
+        <rs key="unionQuery[com.kingdee.eas.port.equipment.rpt.NewF7MaterialQuery].units.queryField[id].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="unionQuery[com.kingdee.eas.port.equipment.rpt.NewF7MaterialQuery].units.queryField[model].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="规格型号" />
+            <lang locale="zh_HK" value="規格型號" />
+            <lang locale="zh_TW" value="規格型號" />
+        </rs>
+        <rs key="unionQuery[com.kingdee.eas.port.equipment.rpt.NewF7MaterialQuery].units.queryField[name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="名称" />
+            <lang locale="zh_HK" value="名稱" />
+            <lang locale="zh_TW" value="名稱" />
+        </rs>
+        <rs key="unionQuery[com.kingdee.eas.port.equipment.rpt.NewF7MaterialQuery].units.queryField[name].extendedProperty.colWidthInKDTable">
+            <lang locale="en_US" value="120" />
+            <lang locale="zh_CN" value="120" />
+            <lang locale="zh_TW" value="120" />
+        </rs>
+        <rs key="unionQuery[com.kingdee.eas.port.equipment.rpt.NewF7MaterialQuery].units.queryField[name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="unionQuery[com.kingdee.eas.port.equipment.rpt.NewF7MaterialQuery].units.queryField[name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="unionQuery[com.kingdee.eas.port.equipment.rpt.NewF7MaterialQuery].units.queryField[number].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="编码" />
+            <lang locale="zh_HK" value="編碼" />
+            <lang locale="zh_TW" value="編碼" />
+        </rs>
+        <rs key="unionQuery[com.kingdee.eas.port.equipment.rpt.NewF7MaterialQuery].units.queryField[number].extendedProperty.colWidthInKDTable">
+            <lang locale="en_US" value="120" />
+            <lang locale="zh_CN" value="120" />
+            <lang locale="zh_TW" value="120" />
+        </rs>
+        <rs key="unionQuery[com.kingdee.eas.port.equipment.rpt.NewF7MaterialQuery].units.queryField[number].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="unionQuery[com.kingdee.eas.port.equipment.rpt.NewF7MaterialQuery].units.queryField[number].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="unionQuery[com.kingdee.eas.port.equipment.rpt.NewF7MaterialQuery].units.queryField[warrantnumber].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="品牌" />
+            <lang locale="zh_HK" value="品牌" />
+            <lang locale="zh_TW" value="品牌" />
+        </rs>
+    </resource>
+</unionQuery>
+
