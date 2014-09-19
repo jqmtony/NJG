@@ -22,6 +22,7 @@ import org.apache.log4j.Logger;
 
 import com.kingdee.bos.BOSException;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
+import com.kingdee.bos.ctrl.kdf.table.KDTDataRequestManager;
 import com.kingdee.bos.ctrl.kdf.table.KDTSelectBlock;
 import com.kingdee.bos.ctrl.kdf.table.KDTStyleConstants;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
@@ -410,6 +411,7 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 	
 		
 		InitAttactByTable();
+		
 	}
 	
 	private void SelectorFaCard() throws Exception
