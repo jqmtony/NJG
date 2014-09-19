@@ -298,22 +298,22 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
 		btnperson.setSize(new Dimension(140, 19));
 		btnperson.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
-				try {
-					EntityViewInfo evInfo = new EntityViewInfo();
-					FilterInfo filter = new FilterInfo();
-					Set set = new HashSet();
-					ReviewerE1Collection revE1Coll = ReviewerE1Factory.getRemoteInstance().getReviewerE1Collection();
-					for (int i = 0; i < revE1Coll.size(); i++) {
-						ReviewerE1Info e1Info = revE1Coll.get(i);
-						set.add(e1Info.getJudges().getId().toString());
-					}
-					filter.getFilterItems().add(new FilterItemInfo("id",set,CompareType.INCLUDE));
-					evInfo.setFilter(filter);
+//				try {
+//					EntityViewInfo evInfo = new EntityViewInfo();
+//					FilterInfo filter = new FilterInfo();
+//					Set set = new HashSet();
+//					ReviewerE1Collection revE1Coll = ReviewerE1Factory.getRemoteInstance().getReviewerE1Collection();
+//					for (int i = 0; i < revE1Coll.size(); i++) {
+//						ReviewerE1Info e1Info = revE1Coll.get(i);
+//						set.add(e1Info.getJudges().getId().toString());
+//					}
+//					filter.getFilterItems().add(new FilterItemInfo("id",set,CompareType.INCLUDE));
+//					evInfo.setFilter(filter);
 					EmployeeMultiF7PromptBox person = new EmployeeMultiF7PromptBox();
 					person.setIsSingleSelect(false);
 					person.showNoPositionPerson(false);
-					person.setIsShowAllAdmin(true);
-					person.setNopositionPersonFilter(filter);
+					person.setIsShowAllAdmin(true); 
+//					person.setNopositionPersonFilter(filter);
 					person.show();
 					if(person.getData() instanceof Object[]&&((Object[]) person.getData()).length>0){
 						Object[] obj = (Object[]) person.getData();
@@ -339,9 +339,9 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
 						storeFields();
 						loadFields();
 					}
-				} catch (BOSException e1) {
-					e1.printStackTrace();
-				}
+//				} catch (BOSException e1) {
+//					e1.printStackTrace();
+//				}
 			}
 		});
 		
@@ -571,8 +571,8 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
     			continue;
 			String kdpersonId = ((PersonInfo)row.getCell("accredPerson").getValue()).getId().toString();
 			
-			if(!kdpersonId.equals(personId))
-				row.getStyleAttributes().setHided(true);
+//			if(!kdpersonId.equals(personId))
+//				row.getStyleAttributes().setHided(true);
 		}
     }
     /**
