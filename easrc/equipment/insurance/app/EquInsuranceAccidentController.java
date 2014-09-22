@@ -53,4 +53,5 @@ public interface EquInsuranceAccidentController extends XRBillBaseController
     public void updateBigObject(Context ctx, IObjectPK pk, EquInsuranceAccidentInfo model) throws BOSException, RemoteException;
     public void updatePartial(Context ctx, EquInsuranceAccidentInfo model, SelectorItemCollection selector) throws BOSException, EASBizException, RemoteException;
     public String getBindingProperty(Context ctx) throws BOSException, RemoteException;
+    public void equInfomation(Context ctx, EquInsuranceAccidentInfo model) throws BOSException, RemoteException;
 }

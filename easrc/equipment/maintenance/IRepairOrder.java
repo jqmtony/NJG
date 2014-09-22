@@ -50,4 +50,5 @@ public interface IRepairOrder extends IXRBillBase
     public String getBindingProperty() throws BOSException;
     public void toVoid(RepairOrderInfo model) throws BOSException;
     public void unToVoid(RepairOrderInfo model) throws BOSException;
+    public void equInfomation(RepairOrderInfo model) throws BOSException;
 }

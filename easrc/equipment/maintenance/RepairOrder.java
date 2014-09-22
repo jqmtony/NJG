@@ -413,4 +413,17 @@ public class RepairOrder extends XRBillBase implements IRepairOrder
             throw new EJBRemoteException(err);
         }
     }
+    /**
+     *查看设备档案-User defined method
+     *@param model model
+     */
+    public void equInfomation(RepairOrderInfo model) throws BOSException
+    {
+        try {
+            getController().equInfomation(getContext(), model);
+        }
+        catch(RemoteException err) {
+            throw new EJBRemoteException(err);
+        }
+    }
 }

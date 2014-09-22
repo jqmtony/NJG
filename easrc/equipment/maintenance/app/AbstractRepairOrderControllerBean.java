@@ -684,6 +684,26 @@ public abstract class AbstractRepairOrderControllerBean extends XRBillBaseContro
         return;
     }
 
+    public void equInfomation(Context ctx, RepairOrderInfo model) throws BOSException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("0dfbfaef-ad8c-423c-bce1-3f4dd44b59c3"), new Object[]{ctx, model});
+            invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
+            _equInfomation(ctx, model);
+            }
+            invokeServiceAfter(svcCtx);
+        } catch (BOSException ex) {
+            throw ex;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected void _equInfomation(Context ctx, IObjectValue model) throws BOSException
+    {    	
+        return;
+    }
+
     public XRBillBaseCollection getXRBillBaseCollection (Context ctx) throws BOSException
     {
     	return (XRBillBaseCollection)(getRepairOrderCollection(ctx).cast(XRBillBaseCollection.class));

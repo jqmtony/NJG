@@ -92,7 +92,9 @@ public abstract class AbstractEquInsuranceAccidentEditUI extends com.kingdee.eas
     protected com.kingdee.bos.ctrl.swing.KDTextArea txtdescriptionIncident;
     protected com.kingdee.bos.ctrl.swing.KDScrollPane scrollPanexianzhongID;
     protected com.kingdee.bos.ctrl.swing.KDTextArea txtxianzhongID;
+    protected com.kingdee.bos.ctrl.swing.KDWorkButton btnEquInfomation;
     protected com.kingdee.eas.port.equipment.insurance.EquInsuranceAccidentInfo editData = null;
+    protected ActionEquInfomation actionEquInfomation = null;
     /**
      * output class constructor
      */
@@ -142,6 +144,14 @@ public abstract class AbstractEquInsuranceAccidentEditUI extends com.kingdee.eas
         actionUnAudit.putValue(ItemAction.NAME, _tempStr);
         this.actionUnAudit.setBindWorkFlow(true);
          this.actionUnAudit.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+        //actionEquInfomation
+        this.actionEquInfomation = new ActionEquInfomation(this);
+        getActionManager().registerAction("actionEquInfomation", actionEquInfomation);
+        this.actionEquInfomation.setExtendProperty("canForewarn", "true");
+        this.actionEquInfomation.setExtendProperty("userDefined", "true");
+        this.actionEquInfomation.setExtendProperty("isObjectUpdateLock", "false");
+         this.actionEquInfomation.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+         this.actionEquInfomation.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
         this.contCreator = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contCreateTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contLastUpdateUser = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -188,6 +198,7 @@ public abstract class AbstractEquInsuranceAccidentEditUI extends com.kingdee.eas
         this.txtdescriptionIncident = new com.kingdee.bos.ctrl.swing.KDTextArea();
         this.scrollPanexianzhongID = new com.kingdee.bos.ctrl.swing.KDScrollPane();
         this.txtxianzhongID = new com.kingdee.bos.ctrl.swing.KDTextArea();
+        this.btnEquInfomation = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.contCreator.setName("contCreator");
         this.contCreateTime.setName("contCreateTime");
         this.contLastUpdateUser.setName("contLastUpdateUser");
@@ -234,6 +245,7 @@ public abstract class AbstractEquInsuranceAccidentEditUI extends com.kingdee.eas
         this.txtdescriptionIncident.setName("txtdescriptionIncident");
         this.scrollPanexianzhongID.setName("scrollPanexianzhongID");
         this.txtxianzhongID.setName("txtxianzhongID");
+        this.btnEquInfomation.setName("btnEquInfomation");
         // CoreUI
         // contCreator		
         this.contCreator.setBoundLabelText(resHelper.getString("contCreator.boundLabelText"));		
@@ -466,6 +478,9 @@ public abstract class AbstractEquInsuranceAccidentEditUI extends com.kingdee.eas
         this.txtxianzhongID.setRequired(false);		
         this.txtxianzhongID.setMaxLength(500);		
         this.txtxianzhongID.setEnabled(false);
+        // btnEquInfomation
+        this.btnEquInfomation.setAction((IItemAction)ActionProxyFactory.getProxy(actionEquInfomation, new Class[] { IItemAction.class }, getServiceContext()));		
+        this.btnEquInfomation.setText(resHelper.getString("btnEquInfomation.text"));
         this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmtequNumber,txtequName,prmtinsuranceCompany,prmtpolicyNumber,prmtinsurance,pklossDate,txtexpectedLoss,txtclaimAmount,txtdescriptionIncident,txtxianzhongID}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
@@ -718,6 +733,7 @@ public abstract class AbstractEquInsuranceAccidentEditUI extends com.kingdee.eas
         this.toolBar.add(btnAttachment);
         this.toolBar.add(btnAudit);
         this.toolBar.add(btnUnAudit);
+        this.toolBar.add(btnEquInfomation);
         this.toolBar.add(separatorFW1);
         this.toolBar.add(btnPageSetup);
         this.toolBar.add(btnPrint);
@@ -1088,6 +1104,15 @@ public abstract class AbstractEquInsuranceAccidentEditUI extends com.kingdee.eas
     {
         super.actionUnAudit_actionPerformed(e);
     }
+    	
+
+    /**
+     * output actionEquInfomation_actionPerformed method
+     */
+    public void actionEquInfomation_actionPerformed(ActionEvent e) throws Exception
+    {
+        com.kingdee.eas.port.equipment.insurance.EquInsuranceAccidentFactory.getRemoteInstance().equInfomation(editData);
+    }
 	public RequestContext prepareActionSubmit(IItemAction itemAction) throws Exception {
 			RequestContext request = super.prepareActionSubmit(itemAction);		
 		if (request != null) {
@@ -1109,6 +1134,47 @@ public abstract class AbstractEquInsuranceAccidentEditUI extends com.kingdee.eas
 	
 	public boolean isPrepareActionUnAudit() {
     	return false;
+    }
+	public RequestContext prepareActionEquInfomation(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionEquInfomation() {
+    	return false;
+    }
+
+    /**
+     * output ActionEquInfomation class
+     */     
+    protected class ActionEquInfomation extends ItemAction {     
+    
+        public ActionEquInfomation()
+        {
+            this(null);
+        }
+
+        public ActionEquInfomation(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            _tempStr = resHelper.getString("ActionEquInfomation.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionEquInfomation.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionEquInfomation.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractEquInsuranceAccidentEditUI.this, "ActionEquInfomation", "actionEquInfomation_actionPerformed", e);
+        }
     }
 
     /**

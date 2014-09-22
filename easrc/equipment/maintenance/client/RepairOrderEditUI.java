@@ -4,8 +4,10 @@
 package com.kingdee.eas.port.equipment.maintenance.client;
 
 import java.awt.event.*;
+import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 import org.apache.log4j.Logger;
@@ -15,16 +17,24 @@ import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.ui.face.IUIWindow;
+import com.kingdee.bos.ui.face.UIFactory;
+import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.eas.basedata.person.PersonInfo;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
+import com.kingdee.eas.common.client.UIContext;
+import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.cp.bc.BizCollUtil;
 import com.kingdee.eas.framework.*;
+import com.kingdee.eas.port.equipment.record.EquIdInfo;
+import com.kingdee.eas.port.equipment.record.client.EquIdEditUI;
 import com.kingdee.eas.port.equipment.uitl.ToolHelp;
 import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
 import com.kingdee.eas.util.SysUtil;
+import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.xr.app.XRBillStatusEnum;
 import com.kingdee.eas.xr.helper.PersonXRHelper;
 import com.kingdee.eas.xr.helper.Tool;
@@ -731,10 +741,16 @@ public class RepairOrderEditUI extends AbstractRepairOrderEditUI
 		return null;
 	}
 
+	protected void initWorkButton() {
+		super.initWorkButton();
+		btnequInfomation.setIcon(EASResource.getIcon("imgTbtn_list"));
+	}
+	
 	public void onLoad() throws Exception {
 		prmtslDepart.setEnabled(false);
 		this.kdtE1.getColumn("seq").getStyleAttributes().setHided(true);
 		this.kdtE1.getColumn("FaLocation").getStyleAttributes().setHided(true);
+		this.kdtE1.getColumn("yujingDate").getStyleAttributes().setHided(true);
 		txtmaintenanceProgram.setVisible(false);
 		chkselfStudy.setVisible(false);
 		chkoutsourcing.setVisible(false);
@@ -845,26 +861,20 @@ public class RepairOrderEditUI extends AbstractRepairOrderEditUI
 
 	protected void verifyInput(ActionEvent e) throws Exception {
 		super.verifyInput(e);
-//		if(!editData.isSelfStudy()&&!editData.isOutsourcing()){
-//			MsgBox.showInfo("请勾选自修或者委外修理！");
-//			SysUtil.abort();
-//		}
-//		if(editData.isSelfStudy()&&editData.isOutsourcing()){
-//			if(txtselfAmount.getBigDecimalValue() ==null&&txtoutAmount.getBigDecimalValue() ==null){
-//				MsgBox.showInfo("请填写自修费用和委外修理费用！");
-//				SysUtil.abort();
-//			}
-//		}
-//		if(editData.isSelfStudy()&&txtselfAmount.getBigDecimalValue() ==null){
-//			MsgBox.showInfo("请填写自修费用！");
-//			SysUtil.abort();
-//		}
-//		if(editData.isOutsourcing()&&txtoutAmount.getBigDecimalValue() ==null){
-//			MsgBox.showInfo("请填写委外修理费用！");
-//			SysUtil.abort();
-//		}
-	
-	   	
+		Calendar ca = Calendar.getInstance();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		if (pkBizDate.getValue() != null) {
+			for (int i = 0; i < kdtE1.getRowCount(); i++) {
+				if(kdtE1.getCell(i, "yujingzhouqi").getValue() != null ){
+					String date = sdf.format(pkBizDate.getValue());
+					BigDecimal yujingzhouqi = UIRuleUtil.getBigDecimal(kdtE1.getCell(i, "yujingzhouqi").getValue());
+					ca.setTime(sdf.parse(date));
+					ca.add(Calendar.DATE,yujingzhouqi.intValue());
+					Date date1 = ca.getTime();
+					kdtE1.getCell(i, "yujingDate").setValue(date1);
+				}
+			}
+		}
 	}
 	
 	protected void prmtassignee_dataChanged(DataChangeEvent e) throws Exception {
@@ -882,5 +892,23 @@ public class RepairOrderEditUI extends AbstractRepairOrderEditUI
 			this.prmtrepairDepart.setValue(PersonXRHelper.getPosiMemByDeptUser((PersonInfo)e.getNewValue()));
 		else
 			this.prmtrepairDepart.setValue(null);
+	}
+	
+	public void actionEquInfomation_actionPerformed(ActionEvent e)
+			throws Exception {
+		super.actionEquInfomation_actionPerformed(e);
+		 if(editData.getId() ==null){
+			  MsgBox.showInfo("请先保存单据！");
+				SysUtil.abort();
+		  }
+			  if(prmtequName.getValue() !=null){
+			    String id = ((EquIdInfo)prmtequName.getData()).getId().toString();
+				IUIWindow uiWindow = null;
+				UIContext context = new UIContext(this);
+				context.put("ID", id);
+				context.put("anid", editData.getId().toString());
+				uiWindow = UIFactory.createUIFactory(UIFactoryName.MODEL).create(EquIdEditUI.class.getName(), context, null, OprtState.VIEW);
+				uiWindow.show(); 
+			  }
 	}
 }

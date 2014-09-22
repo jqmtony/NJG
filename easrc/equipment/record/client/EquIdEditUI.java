@@ -193,6 +193,12 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 		txtoldYear.setEnabled(false);
 		txtzuzhijigou.setEnabled(false);
 		txtyouzhengbianma.setEnabled(false);
+		contresponsible.setVisible(false);
+		txtresponsible.setVisible(false);
+		conttelePhoneNumber.setVisible(false);
+		txttelePhoneNumber.setVisible(false);
+		contzzsShortName.setVisible(false);
+		txtzzsShortName.setVisible(false);
 		super.onLoad();
 		FaCatPromptBox facatBox = new FaCatPromptBox();
 		facatBox.setACompanyOrgUnitInfo(SysContext.getSysContext().getCurrentFIUnit());

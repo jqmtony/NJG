@@ -254,6 +254,16 @@ public abstract class AbstractInspectionEquEditUI extends com.kingdee.eas.xr.cli
 		}
 	});
 
+        this.kdtE1.addKDTMouseListener(new com.kingdee.bos.ctrl.kdf.table.event.KDTMouseListener() {
+            public void tableClicked(com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent e) {
+                try {
+                    kdtE1_tableClicked(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                }
+            }
+        });
 
                 this.kdtE1.putBindContents("editData",new String[] {"seq","equNumber","equName","model","incPerson","xunjianResult","question"});
 
@@ -835,6 +845,13 @@ vo.put("xunjianResult","10");
         } else if (STATUS_VIEW.equals(this.oprtState)) {
         } else if (STATUS_FINDVIEW.equals(this.oprtState)) {
         }
+    }
+
+    /**
+     * output kdtE1_tableClicked method
+     */
+    protected void kdtE1_tableClicked(com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent e) throws Exception
+    {
     }
 
 

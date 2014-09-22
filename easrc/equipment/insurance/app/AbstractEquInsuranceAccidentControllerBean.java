@@ -644,6 +644,26 @@ public abstract class AbstractEquInsuranceAccidentControllerBean extends XRBillB
         }
     }
 
+    public void equInfomation(Context ctx, EquInsuranceAccidentInfo model) throws BOSException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("3ae27ab4-5405-4099-a790-956b2e63eefc"), new Object[]{ctx, model});
+            invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
+            _equInfomation(ctx, model);
+            }
+            invokeServiceAfter(svcCtx);
+        } catch (BOSException ex) {
+            throw ex;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected void _equInfomation(Context ctx, IObjectValue model) throws BOSException
+    {    	
+        return;
+    }
+
     public XRBillBaseCollection getXRBillBaseCollection (Context ctx) throws BOSException
     {
     	return (XRBillBaseCollection)(getEquInsuranceAccidentCollection(ctx).cast(XRBillBaseCollection.class));

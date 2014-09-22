@@ -15,14 +15,23 @@ import org.apache.log4j.Logger;
 
 import com.kingdee.bos.ctrl.kdf.table.IRow;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
+import com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent;
 import com.kingdee.bos.ctrl.swing.KDLayout;
 import com.kingdee.bos.ctrl.swing.KDTextField;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.ui.face.IUIWindow;
+import com.kingdee.bos.ui.face.UIFactory;
 import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
+import com.kingdee.eas.common.client.UIContext;
+import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.fi.fa.basedata.FaCatFactory;
+import com.kingdee.eas.port.equipment.record.EquIdInfo;
+import com.kingdee.eas.port.equipment.record.client.EquIdEditUI;
+import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
+import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.xr.helper.Tool;
 import com.kingdee.eas.xr.helper.XRSQLBuilder;
 import com.kingdee.jdbc.rowset.IRowSet;
@@ -859,4 +868,28 @@ public class DetectionEditUI extends AbstractDetectionEditUI
 		return sql;
 	}
 
+	protected void kdtE2_tableClicked(KDTMouseEvent e) throws Exception {
+		super.kdtE2_tableClicked(e);
+		 if ((e.getButton() == 1) && (e.getClickCount() == 2))
+	        {
+			  if(editData.getId() ==null){
+				  MsgBox.showInfo("请先保存单据！");
+					SysUtil.abort();
+			  }else{
+			  if(e.getRowIndex() != -1){
+				  if(kdtE2.getCell(e.getRowIndex(), "zdaNumber").getValue() !=null){
+				    String id = ((EquIdInfo)kdtE2.getCell(e.getRowIndex(), "zdaNumber").getValue()).getId().toString();
+					IUIWindow uiWindow = null;
+					UIContext context = new UIContext(this);
+					context.put("ID", id);
+					context.put("anid", editData.getId().toString());
+					uiWindow = UIFactory.createUIFactory(UIFactoryName.MODEL).create(EquIdEditUI.class.getName(), context, null, OprtState.VIEW);
+					uiWindow.show(); 
+				  }
+			    }
+			  }
+	        }
+
+	}
+	
 }

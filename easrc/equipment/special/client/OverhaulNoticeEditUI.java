@@ -17,6 +17,7 @@ import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
 import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
+import com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent;
 import com.kingdee.bos.ctrl.swing.KDTextField;
 import com.kingdee.bos.ctrl.swing.KDWorkButton;
 import com.kingdee.bos.dao.IObjectValue;
@@ -41,9 +42,11 @@ import com.kingdee.eas.port.equipment.base.enumbase.CheckType;
 import com.kingdee.eas.port.equipment.record.EquIdFactory;
 import com.kingdee.eas.port.equipment.record.EquIdInfo;
 import com.kingdee.eas.port.equipment.record.IEquId;
+import com.kingdee.eas.port.equipment.record.client.EquIdEditUI;
 import com.kingdee.eas.port.equipment.special.OverhaulNoticeFactory;
 import com.kingdee.eas.port.equipment.uitl.ToolHelp;
 import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
+import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.xr.app.XRBillStatusEnum;
 import com.kingdee.eas.xr.helper.Tool;
@@ -929,4 +932,28 @@ public class OverhaulNoticeEditUI extends AbstractOverhaulNoticeEditUI
 		});
 	}
 
+	protected void kdtEntry_tableClicked(KDTMouseEvent e) throws Exception {
+		super.kdtEntry_tableClicked(e);
+		  if ((e.getButton() == 1) && (e.getClickCount() == 2))
+	        {
+			  if(editData.getId() ==null){
+				  MsgBox.showInfo("请先保存单据！");
+					SysUtil.abort();
+			  }else{
+			  if(e.getRowIndex() != -1){
+				  if(kdtEntry.getCell(e.getRowIndex(), "zdaNumber").getValue() !=null){
+				    String id = ((EquIdInfo)kdtEntry.getCell(e.getRowIndex(), "zdaNumber").getValue()).getId().toString();
+					IUIWindow uiWindow = null;
+					UIContext context = new UIContext(this);
+					context.put("ID", id);
+					context.put("anid", editData.getId().toString());
+					uiWindow = UIFactory.createUIFactory(UIFactoryName.MODEL).create(EquIdEditUI.class.getName(), context, null, OprtState.VIEW);
+					uiWindow.show(); 
+				  }
+			    }
+			  }
+	        }
+
+	}
+	
 }

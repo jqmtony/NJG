@@ -390,19 +390,21 @@ public abstract class AbstractOverhaulNoticeEditUI extends com.kingdee.eas.xr.cl
 		}
 	});
 
+        this.kdtEntry.addKDTMouseListener(new com.kingdee.bos.ctrl.kdf.table.event.KDTMouseListener() {
+            public void tableClicked(com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent e) {
+                try {
+                    kdtEntry_tableClicked(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                }
+            }
+        });
 
                 this.kdtEntry.putBindContents("editData",new String[] {"seq","zdaNumber","equipmentName","testResults","noCheckItem","checkContent","beizhu"});
 
 
         this.kdtEntry.checkParsed();
-        KDFormattedTextField kdtEntry_seq_TextField = new KDFormattedTextField();
-        kdtEntry_seq_TextField.setName("kdtEntry_seq_TextField");
-        kdtEntry_seq_TextField.setVisible(true);
-        kdtEntry_seq_TextField.setEditable(true);
-        kdtEntry_seq_TextField.setHorizontalAlignment(2);
-        kdtEntry_seq_TextField.setDataType(0);
-        KDTDefaultCellEditor kdtEntry_seq_CellEditor = new KDTDefaultCellEditor(kdtEntry_seq_TextField);
-        this.kdtEntry.getColumn("seq").setEditor(kdtEntry_seq_CellEditor);
         final KDBizPromptBox kdtEntry_zdaNumber_PromptBox = new KDBizPromptBox();
         kdtEntry_zdaNumber_PromptBox.setQueryInfo("com.kingdee.eas.port.equipment.record.app.EquIdQuery");
         kdtEntry_zdaNumber_PromptBox.setVisible(true);
@@ -959,6 +961,13 @@ vo.put("testResults","0");
         } else if (STATUS_VIEW.equals(this.oprtState)) {
         } else if (STATUS_FINDVIEW.equals(this.oprtState)) {
         }
+    }
+
+    /**
+     * output kdtEntry_tableClicked method
+     */
+    protected void kdtEntry_tableClicked(com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent e) throws Exception
+    {
     }
 
 

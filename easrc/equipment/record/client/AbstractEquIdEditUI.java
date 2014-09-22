@@ -69,6 +69,7 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contportPeriod;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer continstallCost;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer conjhOrgUnit;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer conttelePhoneNumber;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtCreator;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkCreateTime;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtLastUpdateUser;
@@ -170,7 +171,6 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contratedWeight;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer conttextDate1;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contzzsShortName;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer conttelePhoneNumber;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contactrueTime;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contresponsible;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer continStreet;
@@ -190,7 +190,6 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
     protected com.kingdee.bos.ctrl.swing.KDTextField txtratedWeight;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pktextDate1;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtzzsShortName;
-    protected com.kingdee.bos.ctrl.swing.KDTextField txttelePhoneNumber;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkactrueTime;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtresponsible;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtinStreet;
@@ -257,6 +256,7 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
     protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtportPeriod;
     protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtinstallCost;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtjhOrgUnit;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txttelePhoneNumber;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnRegistChange;
     protected com.kingdee.eas.port.equipment.record.EquIdInfo editData = null;
     protected ActionInUse actionInUse = null;
@@ -412,6 +412,7 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.contportPeriod = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.continstallCost = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.conjhOrgUnit = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.conttelePhoneNumber = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.prmtCreator = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.pkCreateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.prmtLastUpdateUser = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
@@ -513,7 +514,6 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.contratedWeight = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.conttextDate1 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contzzsShortName = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.conttelePhoneNumber = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contactrueTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contresponsible = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.continStreet = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -533,7 +533,6 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.txtratedWeight = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.pktextDate1 = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.txtzzsShortName = new com.kingdee.bos.ctrl.swing.KDTextField();
-        this.txttelePhoneNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.pkactrueTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.txtresponsible = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtinStreet = new com.kingdee.bos.ctrl.swing.KDTextField();
@@ -597,6 +596,7 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.txtportPeriod = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
         this.txtinstallCost = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
         this.prmtjhOrgUnit = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.txttelePhoneNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.btnRegistChange = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.contCreator.setName("contCreator");
         this.contCreateTime.setName("contCreateTime");
@@ -618,6 +618,7 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.contportPeriod.setName("contportPeriod");
         this.continstallCost.setName("continstallCost");
         this.conjhOrgUnit.setName("conjhOrgUnit");
+        this.conttelePhoneNumber.setName("conttelePhoneNumber");
         this.prmtCreator.setName("prmtCreator");
         this.pkCreateTime.setName("pkCreateTime");
         this.prmtLastUpdateUser.setName("prmtLastUpdateUser");
@@ -719,7 +720,6 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.contratedWeight.setName("contratedWeight");
         this.conttextDate1.setName("conttextDate1");
         this.contzzsShortName.setName("contzzsShortName");
-        this.conttelePhoneNumber.setName("conttelePhoneNumber");
         this.contactrueTime.setName("contactrueTime");
         this.contresponsible.setName("contresponsible");
         this.continStreet.setName("continStreet");
@@ -739,7 +739,6 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.txtratedWeight.setName("txtratedWeight");
         this.pktextDate1.setName("pktextDate1");
         this.txtzzsShortName.setName("txtzzsShortName");
-        this.txttelePhoneNumber.setName("txttelePhoneNumber");
         this.pkactrueTime.setName("pkactrueTime");
         this.txtresponsible.setName("txtresponsible");
         this.txtinStreet.setName("txtinStreet");
@@ -803,6 +802,7 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.txtportPeriod.setName("txtportPeriod");
         this.txtinstallCost.setName("txtinstallCost");
         this.prmtjhOrgUnit.setName("prmtjhOrgUnit");
+        this.txttelePhoneNumber.setName("txttelePhoneNumber");
         this.btnRegistChange.setName("btnRegistChange");
         // CoreUI
         // contCreator		
@@ -907,6 +907,11 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.conjhOrgUnit.setBoundLabelLength(100);		
         this.conjhOrgUnit.setBoundLabelUnderline(true);		
         this.conjhOrgUnit.setVisible(true);
+        // conttelePhoneNumber		
+        this.conttelePhoneNumber.setBoundLabelText(resHelper.getString("conttelePhoneNumber.boundLabelText"));		
+        this.conttelePhoneNumber.setBoundLabelLength(70);		
+        this.conttelePhoneNumber.setBoundLabelUnderline(true);		
+        this.conttelePhoneNumber.setVisible(true);
         // prmtCreator		
         this.prmtCreator.setEnabled(false);		
         this.prmtCreator.setCommitFormat("$name$");		
@@ -1432,11 +1437,6 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.contzzsShortName.setBoundLabelLength(80);		
         this.contzzsShortName.setBoundLabelUnderline(true);		
         this.contzzsShortName.setVisible(true);
-        // conttelePhoneNumber		
-        this.conttelePhoneNumber.setBoundLabelText(resHelper.getString("conttelePhoneNumber.boundLabelText"));		
-        this.conttelePhoneNumber.setBoundLabelLength(70);		
-        this.conttelePhoneNumber.setBoundLabelUnderline(true);		
-        this.conttelePhoneNumber.setVisible(true);
         // contactrueTime		
         this.contactrueTime.setBoundLabelText(resHelper.getString("contactrueTime.boundLabelText"));		
         this.contactrueTime.setBoundLabelLength(75);		
@@ -1541,11 +1541,6 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.txtzzsShortName.setHorizontalAlignment(2);		
         this.txtzzsShortName.setMaxLength(100);		
         this.txtzzsShortName.setRequired(false);
-        // txttelePhoneNumber		
-        this.txttelePhoneNumber.setVisible(true);		
-        this.txttelePhoneNumber.setHorizontalAlignment(2);		
-        this.txttelePhoneNumber.setMaxLength(100);		
-        this.txttelePhoneNumber.setRequired(false);
         // pkactrueTime		
         this.pkactrueTime.setVisible(true);		
         this.pkactrueTime.setRequired(false);
@@ -2007,6 +2002,11 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.prmtjhOrgUnit.setEditFormat("$number$");		
         this.prmtjhOrgUnit.setCommitFormat("$number$");		
         this.prmtjhOrgUnit.setRequired(true);
+        // txttelePhoneNumber		
+        this.txttelePhoneNumber.setVisible(true);		
+        this.txttelePhoneNumber.setHorizontalAlignment(2);		
+        this.txttelePhoneNumber.setMaxLength(100);		
+        this.txttelePhoneNumber.setRequired(false);
         // btnRegistChange
         this.btnRegistChange.setAction((IItemAction)ActionProxyFactory.getProxy(actionRegistChange, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnRegistChange.setText(resHelper.getString("btnRegistChange.text"));
@@ -2079,6 +2079,8 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.add(continstallCost, new KDLayout.Constraints(972, 522, 89, 19, 0));
         conjhOrgUnit.setBounds(new Rectangle(939, 165, 270, 19));
         this.add(conjhOrgUnit, new KDLayout.Constraints(939, 165, 270, 19, 0));
+        conttelePhoneNumber.setBounds(new Rectangle(964, 462, 270, 19));
+        this.add(conttelePhoneNumber, new KDLayout.Constraints(964, 462, 270, 19, 0));
         //contCreator
         contCreator.setBoundEditor(prmtCreator);
         //contCreateTime
@@ -2113,10 +2115,10 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         kDPanel1.add(kDPanel8, new KDLayout.Constraints(2, 3, 983, 166, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         kDPanel10.setBounds(new Rectangle(2, 170, 983, 111));
         kDPanel1.add(kDPanel10, new KDLayout.Constraints(2, 170, 983, 111, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        kDPanel11.setBounds(new Rectangle(2, 282, 983, 155));
-        kDPanel1.add(kDPanel11, new KDLayout.Constraints(2, 282, 983, 155, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        kDPanel3.setBounds(new Rectangle(2, 438, 983, 88));
-        kDPanel1.add(kDPanel3, new KDLayout.Constraints(2, 438, 983, 88, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        kDPanel11.setBounds(new Rectangle(2, 282, 983, 134));
+        kDPanel1.add(kDPanel11, new KDLayout.Constraints(2, 282, 983, 134, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        kDPanel3.setBounds(new Rectangle(2, 420, 983, 94));
+        kDPanel1.add(kDPanel3, new KDLayout.Constraints(2, 420, 983, 94, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         contEqmCategory.setBounds(new Rectangle(966, 319, 270, 19));
         kDPanel1.add(contEqmCategory, new KDLayout.Constraints(966, 319, 270, 19, 0));
         //kDPanel8
@@ -2261,7 +2263,7 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         contdebuger.setBoundEditor(txtdebuger);
         //kDPanel11
         kDPanel11.setLayout(new KDLayout());
-        kDPanel11.putClientProperty("OriginalBounds", new Rectangle(2, 282, 983, 155));        chkportTest.setBounds(new Rectangle(286, 39, 65, 19));
+        kDPanel11.putClientProperty("OriginalBounds", new Rectangle(2, 282, 983, 134));        chkportTest.setBounds(new Rectangle(286, 39, 65, 19));
         kDPanel11.add(chkportTest, new KDLayout.Constraints(286, 39, 65, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         chkcityTest.setBounds(new Rectangle(286, 19, 67, 19));
         kDPanel11.add(chkcityTest, new KDLayout.Constraints(286, 19, 67, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
@@ -2283,28 +2285,26 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         kDPanel11.add(contratedWeight, new KDLayout.Constraints(700, 17, 268, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         conttextDate1.setBounds(new Rectangle(95, 37, 185, 19));
         kDPanel11.add(conttextDate1, new KDLayout.Constraints(95, 37, 185, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contzzsShortName.setBounds(new Rectangle(11, 57, 268, 19));
-        kDPanel11.add(contzzsShortName, new KDLayout.Constraints(11, 57, 268, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        conttelePhoneNumber.setBounds(new Rectangle(355, 57, 270, 19));
-        kDPanel11.add(conttelePhoneNumber, new KDLayout.Constraints(355, 57, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contactrueTime.setBounds(new Rectangle(355, 77, 271, 19));
-        kDPanel11.add(contactrueTime, new KDLayout.Constraints(355, 77, 271, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contresponsible.setBounds(new Rectangle(11, 97, 270, 19));
-        kDPanel11.add(contresponsible, new KDLayout.Constraints(11, 97, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        continStreet.setBounds(new Rectangle(700, 97, 268, 19));
-        kDPanel11.add(continStreet, new KDLayout.Constraints(700, 97, 268, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        conttextType.setBounds(new Rectangle(11, 77, 270, 19));
-        kDPanel11.add(conttextType, new KDLayout.Constraints(11, 77, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contequTypeone.setBounds(new Rectangle(355, 97, 270, 19));
-        kDPanel11.add(contequTypeone, new KDLayout.Constraints(355, 97, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contcpgjzs.setBounds(new Rectangle(11, 117, 270, 19));
-        kDPanel11.add(contcpgjzs, new KDLayout.Constraints(11, 117, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contcpsyqh.setBounds(new Rectangle(355, 117, 270, 19));
-        kDPanel11.add(contcpsyqh, new KDLayout.Constraints(355, 117, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contcpsbh.setBounds(new Rectangle(700, 117, 270, 19));
-        kDPanel11.add(contcpsbh, new KDLayout.Constraints(700, 117, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        chkchuanCheck.setBounds(new Rectangle(286, 117, 59, 19));
-        kDPanel11.add(chkchuanCheck, new KDLayout.Constraints(286, 117, 59, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contzzsShortName.setBounds(new Rectangle(918, 135, 268, 19));
+        kDPanel11.add(contzzsShortName, new KDLayout.Constraints(918, 135, 268, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contactrueTime.setBounds(new Rectangle(355, 57, 271, 19));
+        kDPanel11.add(contactrueTime, new KDLayout.Constraints(355, 57, 271, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contresponsible.setBounds(new Rectangle(917, 133, 270, 19));
+        kDPanel11.add(contresponsible, new KDLayout.Constraints(917, 133, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        continStreet.setBounds(new Rectangle(11, 77, 268, 19));
+        kDPanel11.add(continStreet, new KDLayout.Constraints(11, 77, 268, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        conttextType.setBounds(new Rectangle(11, 57, 270, 19));
+        kDPanel11.add(conttextType, new KDLayout.Constraints(11, 57, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contequTypeone.setBounds(new Rectangle(355, 77, 270, 19));
+        kDPanel11.add(contequTypeone, new KDLayout.Constraints(355, 77, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contcpgjzs.setBounds(new Rectangle(11, 98, 270, 19));
+        kDPanel11.add(contcpgjzs, new KDLayout.Constraints(11, 98, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contcpsyqh.setBounds(new Rectangle(355, 98, 270, 19));
+        kDPanel11.add(contcpsyqh, new KDLayout.Constraints(355, 98, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contcpsbh.setBounds(new Rectangle(700, 98, 270, 19));
+        kDPanel11.add(contcpsbh, new KDLayout.Constraints(700, 98, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        chkchuanCheck.setBounds(new Rectangle(286, 98, 59, 19));
+        kDPanel11.add(chkchuanCheck, new KDLayout.Constraints(286, 98, 59, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         //conttzdaNumber
         conttzdaNumber.setBoundEditor(txttzdaNumber);
         //conttzsbStatus
@@ -2325,8 +2325,6 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         conttextDate1.setBoundEditor(pktextDate1);
         //contzzsShortName
         contzzsShortName.setBoundEditor(txtzzsShortName);
-        //conttelePhoneNumber
-        conttelePhoneNumber.setBoundEditor(txttelePhoneNumber);
         //contactrueTime
         contactrueTime.setBoundEditor(pkactrueTime);
         //contresponsible
@@ -2345,7 +2343,7 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         contcpsbh.setBoundEditor(txtcpsbh);
         //kDPanel3
         kDPanel3.setLayout(new KDLayout());
-        kDPanel3.putClientProperty("OriginalBounds", new Rectangle(2, 438, 983, 88));        contasset.setBounds(new Rectangle(11, 13, 270, 19));
+        kDPanel3.putClientProperty("OriginalBounds", new Rectangle(2, 420, 983, 94));        contasset.setBounds(new Rectangle(11, 13, 270, 19));
         kDPanel3.add(contasset, new KDLayout.Constraints(11, 13, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contassetStatus.setBounds(new Rectangle(699, 13, 270, 19));
         kDPanel3.add(contassetStatus, new KDLayout.Constraints(699, 13, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
@@ -2461,6 +2459,8 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
         continstallCost.setBoundEditor(txtinstallCost);
         //conjhOrgUnit
         conjhOrgUnit.setBoundEditor(prmtjhOrgUnit);
+        //conttelePhoneNumber
+        conttelePhoneNumber.setBoundEditor(txttelePhoneNumber);
 
     }
 
@@ -2696,7 +2696,6 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
 		dataBinder.registerBinding("ratedWeight", String.class, this.txtratedWeight, "text");
 		dataBinder.registerBinding("textDate1", java.util.Date.class, this.pktextDate1, "value");
 		dataBinder.registerBinding("zzsShortName", String.class, this.txtzzsShortName, "text");
-		dataBinder.registerBinding("telePhoneNumber", String.class, this.txttelePhoneNumber, "text");
 		dataBinder.registerBinding("actrueTime", java.util.Date.class, this.pkactrueTime, "value");
 		dataBinder.registerBinding("responsible", String.class, this.txtresponsible, "text");
 		dataBinder.registerBinding("inStreet", String.class, this.txtinStreet, "text");
@@ -2753,7 +2752,8 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
 		dataBinder.registerBinding("resPerson", com.kingdee.eas.basedata.person.PersonInfo.class, this.prmtresPerson, "data");
 		dataBinder.registerBinding("portPeriod", java.math.BigDecimal.class, this.txtportPeriod, "value");
 		dataBinder.registerBinding("installCost", java.math.BigDecimal.class, this.txtinstallCost, "value");
-		dataBinder.registerBinding("jhOrgUnit", com.kingdee.eas.basedata.org.AdminOrgUnitInfo.class, this.prmtjhOrgUnit, "data");		
+		dataBinder.registerBinding("jhOrgUnit", com.kingdee.eas.basedata.org.AdminOrgUnitInfo.class, this.prmtjhOrgUnit, "data");
+		dataBinder.registerBinding("telePhoneNumber", String.class, this.txttelePhoneNumber, "text");		
 	}
 	//Regiester UI State
 	private void registerUIState(){		
@@ -2949,7 +2949,6 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
 		getValidateHelper().registerBindProperty("ratedWeight", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("textDate1", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("zzsShortName", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("telePhoneNumber", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("actrueTime", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("responsible", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("inStreet", ValidateHelper.ON_SAVE);    
@@ -3006,7 +3005,8 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
 		getValidateHelper().registerBindProperty("resPerson", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("portPeriod", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("installCost", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("jhOrgUnit", ValidateHelper.ON_SAVE);    		
+		getValidateHelper().registerBindProperty("jhOrgUnit", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("telePhoneNumber", ValidateHelper.ON_SAVE);    		
 	}
 
 
@@ -3300,7 +3300,6 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
         sic.add(new SelectorItemInfo("ratedWeight"));
         sic.add(new SelectorItemInfo("textDate1"));
         sic.add(new SelectorItemInfo("zzsShortName"));
-        sic.add(new SelectorItemInfo("telePhoneNumber"));
         sic.add(new SelectorItemInfo("actrueTime"));
         sic.add(new SelectorItemInfo("responsible"));
         sic.add(new SelectorItemInfo("inStreet"));
@@ -3421,6 +3420,7 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
         	sic.add(new SelectorItemInfo("jhOrgUnit.number"));
         	sic.add(new SelectorItemInfo("jhOrgUnit.name"));
 		}
+        sic.add(new SelectorItemInfo("telePhoneNumber"));
         return sic;
     }        
     	

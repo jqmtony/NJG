@@ -182,6 +182,17 @@ public class AbstractRepairOrderE1Info extends com.kingdee.eas.framework.CoreBil
     {
         setString("jlUnit", item);
     }
+    /**
+     * Object:Î¬ÐÞÃ÷Ï¸'s Ô¤¾¯ÈÕÆÚproperty 
+     */
+    public java.util.Date getYujingDate()
+    {
+        return getDate("yujingDate");
+    }
+    public void setYujingDate(java.util.Date item)
+    {
+        setDate("yujingDate", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("58358BBD");

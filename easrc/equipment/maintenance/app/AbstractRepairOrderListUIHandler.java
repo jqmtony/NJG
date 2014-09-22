@@ -24,4 +24,9 @@ public abstract class AbstractRepairOrderListUIHandler extends com.kingdee.eas.x
 	}
 	protected void _handleActionUnToVoid(RequestContext request,ResponseContext response, Context context) throws Exception {
 	}
+	public void handleActionEquInfomation(RequestContext request,ResponseContext response, Context context) throws Exception {
+		_handleActionEquInfomation(request,response,context);
+	}
+	protected void _handleActionEquInfomation(RequestContext request,ResponseContext response, Context context) throws Exception {
+	}
 }

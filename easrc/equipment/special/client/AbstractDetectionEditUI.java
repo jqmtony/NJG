@@ -428,6 +428,16 @@ public abstract class AbstractDetectionEditUI extends com.kingdee.eas.xr.client.
 		}
 	});
 
+        this.kdtE2.addKDTMouseListener(new com.kingdee.bos.ctrl.kdf.table.event.KDTMouseListener() {
+            public void tableClicked(com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent e) {
+                try {
+                    kdtE2_tableClicked(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                }
+            }
+        });
 
                 this.kdtE2.putBindContents("editData",new String[] {"seq","zdaNumber","deviceName","useUnit","planDate","endDate","userNumber","model","commDate","madeUnit","testCategory","check","testResults","note"});
 
@@ -1009,6 +1019,13 @@ vo.put("testResults","10");
         } else if (STATUS_VIEW.equals(this.oprtState)) {
         } else if (STATUS_FINDVIEW.equals(this.oprtState)) {
         }
+    }
+
+    /**
+     * output kdtE2_tableClicked method
+     */
+    protected void kdtE2_tableClicked(com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent e) throws Exception
+    {
     }
 
 

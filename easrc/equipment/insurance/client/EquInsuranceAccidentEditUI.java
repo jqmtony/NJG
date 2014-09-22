@@ -14,6 +14,8 @@ import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.ui.face.IUIWindow;
+import com.kingdee.bos.ui.face.UIFactory;
 import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
@@ -22,6 +24,8 @@ import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
+import com.kingdee.eas.common.client.UIContext;
+import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.framework.*;
 import com.kingdee.eas.port.equipment.base.IInsurance;
 import com.kingdee.eas.port.equipment.base.InsuranceCompanyFactory;
@@ -31,7 +35,11 @@ import com.kingdee.eas.port.equipment.base.InsuranceInfo;
 import com.kingdee.eas.port.equipment.insurance.InsuranceCoverageFactory;
 import com.kingdee.eas.port.equipment.insurance.InsuranceCoverageInfo;
 import com.kingdee.eas.port.equipment.record.EquIdInfo;
+import com.kingdee.eas.port.equipment.record.client.EquIdEditUI;
 import com.kingdee.eas.port.equipment.uitl.ToolHelp;
+import com.kingdee.eas.util.SysUtil;
+import com.kingdee.eas.util.client.EASResource;
+import com.kingdee.eas.util.client.MsgBox;
 import com.kingdee.eas.xr.helper.Tool;
 import com.kingdee.eas.xr.helper.XRSQLBuilder;
 import com.kingdee.jdbc.rowset.IRowSet;
@@ -761,6 +769,11 @@ this.prmtinsurance.setEnabledMultiSelection(true);
 		return null;
 	}
 
+	protected void initWorkButton() {
+		super.initWorkButton();
+		btnEquInfomation.setIcon(EASResource.getIcon("imgTbtn_list"));
+	}
+	
 	public void onLoad() throws Exception {
 //		prmtpolicyNumber.setEnabled(false);
 		prmtinsuranceCompany.setEnabled(false);
@@ -898,5 +911,23 @@ this.prmtinsurance.setEnabledMultiSelection(true);
 			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"保单号"});
 		}
 		super.verifyInput(e);
+	}
+	
+	public void actionEquInfomation_actionPerformed(ActionEvent e)
+			throws Exception {
+		super.actionEquInfomation_actionPerformed(e);
+			  if(editData.getId() ==null){
+				  MsgBox.showInfo("请先保存单据！");
+					SysUtil.abort();
+			  }
+				  if(prmtequNumber.getValue() !=null){
+				    String id = ((EquIdInfo)prmtequNumber.getData()).getId().toString();
+					IUIWindow uiWindow = null;
+					UIContext context = new UIContext(this);
+					context.put("ID", id);
+					context.put("anid", editData.getId().toString());
+					uiWindow = UIFactory.createUIFactory(UIFactoryName.MODEL).create(EquIdEditUI.class.getName(), context, null, OprtState.VIEW);
+					uiWindow.show(); 
+				  }
 	}
 }
