@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<facade xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.bpmdemo.webservers</package>
+    <name>getInfoFacade</name>
+    <alias>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].alias</alias>
+    <description>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].description</description>
+    <userDefined>true</userDefined>
+    <bosType>2969D79D</bosType>
+    <stereoType>false</stereoType>
+    <businessImplName>com.kingdee.eas.bpmdemo.webservers.getInfoFacade</businessImplName>
+    <businessControllerName>com.kingdee.eas.bpmdemo.webservers.getInfoFacadeController</businessControllerName>
+    <accessLevel>public</accessLevel>
+    <subClassingMode>normal</subClassingMode>
+    <methods>
+        <method>
+            <name>GetbillInfo</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[GetbillInfo].alias</alias>
+            <description>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[GetbillInfo].description</description>
+            <innerID>d3896e21-4bd9-4240-b093-005cd26357b7</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>String[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>strBSID</name>
+                    <alias>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[GetbillInfo].parameters.parameter[strBSID].alias</alias>
+                    <description>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[GetbillInfo].parameters.parameter[strBSID].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>strBOID</name>
+                    <alias>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[GetbillInfo].parameters.parameter[strBOID].alias</alias>
+                    <description>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[GetbillInfo].parameters.parameter[strBOID].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>GetrRelatedBillInfo</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[GetrRelatedBillInfo].alias</alias>
+            <description>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[GetrRelatedBillInfo].description</description>
+            <innerID>aa283911-ff38-4c41-bf63-86381f0ea98d</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>String[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>strBTID</name>
+                    <alias>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[GetrRelatedBillInfo].parameters.parameter[strBTID].alias</alias>
+                    <description>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[GetrRelatedBillInfo].parameters.parameter[strBTID].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>strBOID</name>
+                    <alias>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[GetrRelatedBillInfo].parameters.parameter[strBOID].alias</alias>
+                    <description>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[GetrRelatedBillInfo].parameters.parameter[strBOID].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>strRelatedCode</name>
+                    <alias>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[GetrRelatedBillInfo].parameters.parameter[strRelatedCode].alias</alias>
+                    <description>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[GetrRelatedBillInfo].parameters.parameter[strRelatedCode].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>SubmitResult</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[SubmitResult].alias</alias>
+            <description>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[SubmitResult].description</description>
+            <innerID>8faacda0-4c1e-4cfc-ad19-8a4475f3b4df</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>String[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>strBSID</name>
+                    <alias>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[SubmitResult].parameters.parameter[strBSID].alias</alias>
+                    <description>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[SubmitResult].parameters.parameter[strBSID].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>strBOID</name>
+                    <alias>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[SubmitResult].parameters.parameter[strBOID].alias</alias>
+                    <description>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[SubmitResult].parameters.parameter[strBOID].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>bSuccess</name>
+                    <alias>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[SubmitResult].parameters.parameter[bSuccess].alias</alias>
+                    <description>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[SubmitResult].parameters.parameter[bSuccess].description</description>
+                    <direction>in</direction>
+                    <dataType>boolean</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>iProcInstID</name>
+                    <alias>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[SubmitResult].parameters.parameter[iProcInstID].alias</alias>
+                    <description>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[SubmitResult].parameters.parameter[iProcInstID].description</description>
+                    <direction>in</direction>
+                    <dataType>int</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>procURL</name>
+                    <alias>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[SubmitResult].parameters.parameter[procURL].alias</alias>
+                    <description>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[SubmitResult].parameters.parameter[procURL].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>strMessage</name>
+                    <alias>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[SubmitResult].parameters.parameter[strMessage].alias</alias>
+                    <description>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[SubmitResult].parameters.parameter[strMessage].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>ApproveClose</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[ApproveClose].alias</alias>
+            <description>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[ApproveClose].description</description>
+            <innerID>45bb8340-f348-406c-97de-558c07e3de7f</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>String[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>strBSID</name>
+                    <alias>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[ApproveClose].parameters.parameter[strBSID].alias</alias>
+                    <description>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[ApproveClose].parameters.parameter[strBSID].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>strBOID</name>
+                    <alias>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[ApproveClose].parameters.parameter[strBOID].alias</alias>
+                    <description>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[ApproveClose].parameters.parameter[strBOID].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>iProcInstID</name>
+                    <alias>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[ApproveClose].parameters.parameter[iProcInstID].alias</alias>
+                    <description>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[ApproveClose].parameters.parameter[iProcInstID].description</description>
+                    <direction>in</direction>
+                    <dataType>int</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>eProcessInstanceResult</name>
+                    <alias>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[ApproveClose].parameters.parameter[eProcessInstanceResult].alias</alias>
+                    <description>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[ApproveClose].parameters.parameter[eProcessInstanceResult].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>strComment</name>
+                    <alias>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[ApproveClose].parameters.parameter[strComment].alias</alias>
+                    <description>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[ApproveClose].parameters.parameter[strComment].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>dtTime</name>
+                    <alias>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[ApproveClose].parameters.parameter[dtTime].alias</alias>
+                    <description>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[ApproveClose].parameters.parameter[dtTime].description</description>
+                    <direction>in</direction>
+                    <dataType>Date</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+    </methods>
+    <resource>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="BPM接口" />
+            <lang locale="zh_HK" value="BPM介面" />
+            <lang locale="zh_TW" value="BPM介面" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].extendedProperty.userDefined">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[ApproveClose].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="审批结果" />
+            <lang locale="zh_HK" value="審批結果" />
+            <lang locale="zh_TW" value="審批結果" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[ApproveClose].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="K2在流程审批结束后（包括审批通过，不同意或被删除），调用ERP的Close接口,向业务系统汇报审批结果" />
+            <lang locale="zh_HK" value="K2在流程審批結束後（包括審批通過，不同意或被刪除），調用ERP的Close介面,向業務系統彙報審批結果" />
+            <lang locale="zh_TW" value="K2在流程審批結束後（包括審批通過，不同意或被刪除），調用ERP的Close介面,向業務系統彙報審批結果" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[ApproveClose].parameters.parameter[dtTime].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="审批时间" />
+            <lang locale="zh_HK" value="審批時間" />
+            <lang locale="zh_TW" value="審批時間" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[ApproveClose].parameters.parameter[dtTime].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[ApproveClose].parameters.parameter[eProcessInstanceResult].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="流程审批结果" />
+            <lang locale="zh_HK" value="流程審批結果" />
+            <lang locale="zh_TW" value="流程審批結果" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[ApproveClose].parameters.parameter[eProcessInstanceResult].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="流程审批结果" />
+            <lang locale="zh_HK" value="流程審批結果" />
+            <lang locale="zh_TW" value="流程審批結果" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[ApproveClose].parameters.parameter[iProcInstID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="流程实例ID" />
+            <lang locale="zh_HK" value="流程實例ID" />
+            <lang locale="zh_TW" value="流程實例ID" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[ApproveClose].parameters.parameter[iProcInstID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[ApproveClose].parameters.parameter[strBOID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="业务对象ID" />
+            <lang locale="zh_HK" value="業務對象ID" />
+            <lang locale="zh_TW" value="業務對象ID" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[ApproveClose].parameters.parameter[strBOID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[ApproveClose].parameters.parameter[strBSID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="业务系统ID" />
+            <lang locale="zh_HK" value="業務系統ID" />
+            <lang locale="zh_TW" value="業務系統ID" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[ApproveClose].parameters.parameter[strBSID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[ApproveClose].parameters.parameter[strComment].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="备注信息" />
+            <lang locale="zh_HK" value="備註信息" />
+            <lang locale="zh_TW" value="備註信息" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[ApproveClose].parameters.parameter[strComment].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="为K2接口提供的信息反馈" />
+            <lang locale="zh_HK" value="為K2介面提供的資訊反饋" />
+            <lang locale="zh_TW" value="為K2介面提供的資訊反饋" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[GetbillInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="获取与BMP相关单据数据" />
+            <lang locale="zh_HK" value="獲取與BMP相關單據數據" />
+            <lang locale="zh_TW" value="獲取與BMP相關單據數據" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[GetbillInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="返回与业务对象对应的所有业务JOSN格式数据" />
+            <lang locale="zh_HK" value="返回與業務對象對應的所有業務JOSN格式數據" />
+            <lang locale="zh_TW" value="返回與業務對象對應的所有業務JOSN格式數據" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[GetbillInfo].parameters.parameter[strBOID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="业务实例ID" />
+            <lang locale="zh_HK" value="業務實例ID" />
+            <lang locale="zh_TW" value="業務實例ID" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[GetbillInfo].parameters.parameter[strBOID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[GetbillInfo].parameters.parameter[strBSID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="业务系统类型ID" />
+            <lang locale="zh_HK" value="業務系統類型ID" />
+            <lang locale="zh_TW" value="業務系統類型ID" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[GetbillInfo].parameters.parameter[strBSID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[GetrRelatedBillInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="查看单据关联信息" />
+            <lang locale="zh_HK" value="查看單據關聯信息" />
+            <lang locale="zh_TW" value="查看單據關聯信息" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[GetrRelatedBillInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="查看单据关联信息" />
+            <lang locale="zh_HK" value="查看單據關聯信息" />
+            <lang locale="zh_TW" value="查看單據關聯信息" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[GetrRelatedBillInfo].parameters.parameter[strBOID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据ID（业务对象ID）" />
+            <lang locale="zh_HK" value="單據ID（業務對象ID）" />
+            <lang locale="zh_TW" value="單據ID（業務對象ID）" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[GetrRelatedBillInfo].parameters.parameter[strBOID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[GetrRelatedBillInfo].parameters.parameter[strBTID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据类型（业务表单ID）" />
+            <lang locale="zh_HK" value="單據類型（業務表單ID）" />
+            <lang locale="zh_TW" value="單據類型（業務表單ID）" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[GetrRelatedBillInfo].parameters.parameter[strBTID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[GetrRelatedBillInfo].parameters.parameter[strRelatedCode].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="关联页签编码" />
+            <lang locale="zh_HK" value="關聯頁簽編碼" />
+            <lang locale="zh_TW" value="關聯頁簽編碼" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[GetrRelatedBillInfo].parameters.parameter[strRelatedCode].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="关联页签编码（如：SEL_Contract结算单_合同信息；）" />
+            <lang locale="zh_HK" value="關聯頁簽編碼（如：SEL_Contract結算單_合同信息；）" />
+            <lang locale="zh_TW" value="關聯頁簽編碼（如：SEL_Contract結算單_合同信息；）" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[SubmitResult].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="提交结果" />
+            <lang locale="zh_HK" value="提交結果" />
+            <lang locale="zh_TW" value="提交結果" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[SubmitResult].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[SubmitResult].parameters.parameter[bSuccess].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否成功" />
+            <lang locale="zh_HK" value="是否成功" />
+            <lang locale="zh_TW" value="是否成功" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[SubmitResult].parameters.parameter[bSuccess].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="创建流程实例是否成功" />
+            <lang locale="zh_HK" value="創建流程實例是否成功" />
+            <lang locale="zh_TW" value="創建流程實例是否成功" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[SubmitResult].parameters.parameter[iProcInstID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="创建的流程实例ID" />
+            <lang locale="zh_HK" value="創建的流程實例ID" />
+            <lang locale="zh_TW" value="創建的流程實例ID" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[SubmitResult].parameters.parameter[iProcInstID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="该业务对象对应的创建的流程实例ID。如果创建失败，则该值无效，置0" />
+            <lang locale="zh_HK" value="該業務對象對應的創建的流程實例ID。如果創建失敗，則該值無效，置0" />
+            <lang locale="zh_TW" value="該業務對象對應的創建的流程實例ID。如果創建失敗，則該值無效，置0" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[SubmitResult].parameters.parameter[procURL].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="BPM流程URL" />
+            <lang locale="zh_HK" value="BPM流程URL" />
+            <lang locale="zh_TW" value="BPM流程URL" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[SubmitResult].parameters.parameter[procURL].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="K2 返回的BPM流程URL" />
+            <lang locale="zh_HK" value="K2 返回的BPM流程URL" />
+            <lang locale="zh_TW" value="K2 返回的BPM流程URL" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[SubmitResult].parameters.parameter[strBOID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据ID" />
+            <lang locale="zh_HK" value="單據ID" />
+            <lang locale="zh_TW" value="單據ID" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[SubmitResult].parameters.parameter[strBOID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[SubmitResult].parameters.parameter[strBSID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="业务系统ID" />
+            <lang locale="zh_HK" value="業務系統ID" />
+            <lang locale="zh_TW" value="業務系統ID" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[SubmitResult].parameters.parameter[strBSID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[SubmitResult].parameters.parameter[strMessage].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="返回信息" />
+            <lang locale="zh_HK" value="返回信息" />
+            <lang locale="zh_TW" value="返回信息" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[SubmitResult].parameters.parameter[strMessage].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="为K2接口提供的信息反馈" />
+            <lang locale="zh_HK" value="為K2介面提供的資訊反饋" />
+            <lang locale="zh_TW" value="為K2介面提供的資訊反饋" />
+        </rs>
+    </resource>
+</facade>
+
