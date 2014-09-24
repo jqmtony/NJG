@@ -51,17 +51,6 @@ public class AbstractEquInsuranceAccidentInfo extends com.kingdee.eas.xr.XRBillB
         put("insuranceCompany", item);
     }
     /**
-     * Object: 设备保险事故记录 's 保单号 property 
-     */
-    public com.kingdee.eas.port.equipment.insurance.InsuranceCoverageInfo getPolicyNumber()
-    {
-        return (com.kingdee.eas.port.equipment.insurance.InsuranceCoverageInfo)get("policyNumber");
-    }
-    public void setPolicyNumber(com.kingdee.eas.port.equipment.insurance.InsuranceCoverageInfo item)
-    {
-        put("policyNumber", item);
-    }
-    /**
      * Object: 设备保险事故记录 's 险种 property 
      */
     public com.kingdee.eas.port.equipment.base.InsuranceInfo getInsurance()
@@ -126,6 +115,17 @@ public class AbstractEquInsuranceAccidentInfo extends com.kingdee.eas.xr.XRBillB
     public void setXianzhongID(String item)
     {
         setString("xianzhongID", item);
+    }
+    /**
+     * Object: 设备保险事故记录 's 保单号 property 
+     */
+    public com.kingdee.eas.port.equipment.insurance.InsuranceCoverageInfo getPolicyNumber()
+    {
+        return (com.kingdee.eas.port.equipment.insurance.InsuranceCoverageInfo)get("policyNumber");
+    }
+    public void setPolicyNumber(com.kingdee.eas.port.equipment.insurance.InsuranceCoverageInfo item)
+    {
+        put("policyNumber", item);
     }
     public BOSObjectType getBOSType()
     {

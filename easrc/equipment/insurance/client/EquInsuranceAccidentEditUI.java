@@ -4,6 +4,8 @@
 package com.kingdee.eas.port.equipment.insurance.client;
 
 import java.awt.event.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.apache.log4j.Logger;
@@ -43,7 +45,10 @@ import com.kingdee.eas.util.client.MsgBox;
 import com.kingdee.eas.xr.helper.Tool;
 import com.kingdee.eas.xr.helper.XRSQLBuilder;
 import com.kingdee.jdbc.rowset.IRowSet;
+import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
+import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
+import com.kingdee.bos.ctrl.swing.KDPromptSelector;
 import com.kingdee.bos.ctrl.swing.KDTextField;
 import com.kingdee.bos.ctrl.swing.event.DataChangeEvent;
 
@@ -780,6 +785,17 @@ this.prmtinsurance.setEnabledMultiSelection(true);
 		prmtinsurance.setEnabled(false);
 		txtequName.setEnabled(false);
 		super.onLoad();
+		
+//	 	 KDBizPromptBox kdtE1_equNumber_PromptBox = new KDBizPromptBox();
+//	        kdtE1_equNumber_PromptBox.setQueryInfo("com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageQuery");
+//	        kdtE1_equNumber_PromptBox.setVisible(true);
+//	        kdtE1_equNumber_PromptBox.setEditable(true);
+//	        kdtE1_equNumber_PromptBox.setDisplayFormat("$coverNumber$");
+//	        kdtE1_equNumber_PromptBox.setEditFormat("$coverNumber$");
+//	        kdtE1_equNumber_PromptBox.setCommitFormat("$coverNumber$");
+//			 KDPromptSelector kdtEntry_feeType_CellEditor = new KDTDefaultCellEditor(kdtE1_equNumber_PromptBox);
+//			 prmtpolicyNumber.setSelector(kdtEntry_feeType_CellEditor);
+		
 		 EntityViewInfo evi = new EntityViewInfo();
 		 FilterInfo filter = new FilterInfo();
 		 String id = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
@@ -788,6 +804,14 @@ this.prmtinsurance.setEnabledMultiSelection(true);
 		 evi.setFilter(filter);
 //		 prmtequNumber.setEntityViewInfo(evi);
 		 prmtequNumber.setSelector(ToolHelp.initPrmtEquIdByF7Color(evi, false)); 
+		 
+//		 
+		 EntityViewInfo evi1 = new EntityViewInfo();
+		 FilterInfo filter1 = new FilterInfo();
+		 filter1.getFilterItems().add(new FilterItemInfo("E1.useUnit.id",id ,CompareType.EQUALS));
+		 evi1.setFilter(filter1);
+		 prmtpolicyNumber.setEntityViewInfo(evi1);
+		 
 		 if(getOprtState().equals(OprtState.ADDNEW)){
 			 pkBizDate.setValue(new Date());
 			 pklossDate.setValue(new Date());

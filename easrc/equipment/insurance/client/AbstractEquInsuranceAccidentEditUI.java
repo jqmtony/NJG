@@ -61,13 +61,13 @@ public abstract class AbstractEquInsuranceAccidentEditUI extends com.kingdee.eas
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contequNumber;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contequName;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer continsuranceCompany;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contpolicyNumber;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer continsurance;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contlossDate;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contexpectedLoss;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contclaimAmount;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contdescriptionIncident;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contxianzhongID;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contpolicyNumber;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtCreator;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkCreateTime;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtLastUpdateUser;
@@ -83,7 +83,6 @@ public abstract class AbstractEquInsuranceAccidentEditUI extends com.kingdee.eas
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtequNumber;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtequName;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtinsuranceCompany;
-    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtpolicyNumber;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtinsurance;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pklossDate;
     protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtexpectedLoss;
@@ -92,6 +91,7 @@ public abstract class AbstractEquInsuranceAccidentEditUI extends com.kingdee.eas
     protected com.kingdee.bos.ctrl.swing.KDTextArea txtdescriptionIncident;
     protected com.kingdee.bos.ctrl.swing.KDScrollPane scrollPanexianzhongID;
     protected com.kingdee.bos.ctrl.swing.KDTextArea txtxianzhongID;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtpolicyNumber;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnEquInfomation;
     protected com.kingdee.eas.port.equipment.insurance.EquInsuranceAccidentInfo editData = null;
     protected ActionEquInfomation actionEquInfomation = null;
@@ -167,13 +167,13 @@ public abstract class AbstractEquInsuranceAccidentEditUI extends com.kingdee.eas
         this.contequNumber = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contequName = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.continsuranceCompany = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contpolicyNumber = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.continsurance = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contlossDate = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contexpectedLoss = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contclaimAmount = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contdescriptionIncident = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contxianzhongID = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contpolicyNumber = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.prmtCreator = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.pkCreateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.prmtLastUpdateUser = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
@@ -189,7 +189,6 @@ public abstract class AbstractEquInsuranceAccidentEditUI extends com.kingdee.eas
         this.prmtequNumber = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.txtequName = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.prmtinsuranceCompany = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
-        this.prmtpolicyNumber = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.prmtinsurance = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.pklossDate = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.txtexpectedLoss = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
@@ -198,6 +197,7 @@ public abstract class AbstractEquInsuranceAccidentEditUI extends com.kingdee.eas
         this.txtdescriptionIncident = new com.kingdee.bos.ctrl.swing.KDTextArea();
         this.scrollPanexianzhongID = new com.kingdee.bos.ctrl.swing.KDScrollPane();
         this.txtxianzhongID = new com.kingdee.bos.ctrl.swing.KDTextArea();
+        this.prmtpolicyNumber = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.btnEquInfomation = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.contCreator.setName("contCreator");
         this.contCreateTime.setName("contCreateTime");
@@ -214,13 +214,13 @@ public abstract class AbstractEquInsuranceAccidentEditUI extends com.kingdee.eas
         this.contequNumber.setName("contequNumber");
         this.contequName.setName("contequName");
         this.continsuranceCompany.setName("continsuranceCompany");
-        this.contpolicyNumber.setName("contpolicyNumber");
         this.continsurance.setName("continsurance");
         this.contlossDate.setName("contlossDate");
         this.contexpectedLoss.setName("contexpectedLoss");
         this.contclaimAmount.setName("contclaimAmount");
         this.contdescriptionIncident.setName("contdescriptionIncident");
         this.contxianzhongID.setName("contxianzhongID");
+        this.contpolicyNumber.setName("contpolicyNumber");
         this.prmtCreator.setName("prmtCreator");
         this.pkCreateTime.setName("pkCreateTime");
         this.prmtLastUpdateUser.setName("prmtLastUpdateUser");
@@ -236,7 +236,6 @@ public abstract class AbstractEquInsuranceAccidentEditUI extends com.kingdee.eas
         this.prmtequNumber.setName("prmtequNumber");
         this.txtequName.setName("txtequName");
         this.prmtinsuranceCompany.setName("prmtinsuranceCompany");
-        this.prmtpolicyNumber.setName("prmtpolicyNumber");
         this.prmtinsurance.setName("prmtinsurance");
         this.pklossDate.setName("pklossDate");
         this.txtexpectedLoss.setName("txtexpectedLoss");
@@ -245,6 +244,7 @@ public abstract class AbstractEquInsuranceAccidentEditUI extends com.kingdee.eas
         this.txtdescriptionIncident.setName("txtdescriptionIncident");
         this.scrollPanexianzhongID.setName("scrollPanexianzhongID");
         this.txtxianzhongID.setName("txtxianzhongID");
+        this.prmtpolicyNumber.setName("prmtpolicyNumber");
         this.btnEquInfomation.setName("btnEquInfomation");
         // CoreUI
         // contCreator		
@@ -316,11 +316,6 @@ public abstract class AbstractEquInsuranceAccidentEditUI extends com.kingdee.eas
         this.continsuranceCompany.setBoundLabelLength(100);		
         this.continsuranceCompany.setBoundLabelUnderline(true);		
         this.continsuranceCompany.setVisible(true);
-        // contpolicyNumber		
-        this.contpolicyNumber.setBoundLabelText(resHelper.getString("contpolicyNumber.boundLabelText"));		
-        this.contpolicyNumber.setBoundLabelLength(100);		
-        this.contpolicyNumber.setBoundLabelUnderline(true);		
-        this.contpolicyNumber.setVisible(true);
         // continsurance		
         this.continsurance.setBoundLabelText(resHelper.getString("continsurance.boundLabelText"));		
         this.continsurance.setBoundLabelLength(100);		
@@ -352,6 +347,11 @@ public abstract class AbstractEquInsuranceAccidentEditUI extends com.kingdee.eas
         this.contxianzhongID.setBoundLabelUnderline(true);		
         this.contxianzhongID.setVisible(false);		
         this.contxianzhongID.setEnabled(false);
+        // contpolicyNumber		
+        this.contpolicyNumber.setBoundLabelText(resHelper.getString("contpolicyNumber.boundLabelText"));		
+        this.contpolicyNumber.setBoundLabelLength(100);		
+        this.contpolicyNumber.setBoundLabelUnderline(true);		
+        this.contpolicyNumber.setVisible(true);
         // prmtCreator		
         this.prmtCreator.setEnabled(false);		
         this.prmtCreator.setCommitFormat("$name$");		
@@ -420,24 +420,6 @@ public abstract class AbstractEquInsuranceAccidentEditUI extends com.kingdee.eas
         this.prmtinsuranceCompany.setEditFormat("$number$");		
         this.prmtinsuranceCompany.setCommitFormat("$number$");		
         this.prmtinsuranceCompany.setRequired(false);
-        // prmtpolicyNumber		
-        this.prmtpolicyNumber.setQueryInfo("com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageQuery");		
-        this.prmtpolicyNumber.setVisible(true);		
-        this.prmtpolicyNumber.setEditable(true);		
-        this.prmtpolicyNumber.setDisplayFormat("$number$");		
-        this.prmtpolicyNumber.setEditFormat("$number$");		
-        this.prmtpolicyNumber.setCommitFormat("$number$");		
-        this.prmtpolicyNumber.setRequired(false);
-        this.prmtpolicyNumber.addDataChangeListener(new com.kingdee.bos.ctrl.swing.event.DataChangeListener() {
-            public void dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) {
-                try {
-                    prmtpolicyNumber_dataChanged(e);
-                } catch (Exception exc) {
-                    handUIException(exc);
-                } finally {
-                }
-            }
-        });
         // prmtinsurance		
         this.prmtinsurance.setQueryInfo("com.kingdee.eas.port.equipment.base.app.InsuranceQuery");		
         this.prmtinsurance.setVisible(true);		
@@ -478,10 +460,28 @@ public abstract class AbstractEquInsuranceAccidentEditUI extends com.kingdee.eas
         this.txtxianzhongID.setRequired(false);		
         this.txtxianzhongID.setMaxLength(500);		
         this.txtxianzhongID.setEnabled(false);
+        // prmtpolicyNumber		
+        this.prmtpolicyNumber.setQueryInfo("com.kingdee.eas.port.equipment.insurance.app.InsuranceCoverageQuery");		
+        this.prmtpolicyNumber.setVisible(true);		
+        this.prmtpolicyNumber.setEditable(true);		
+        this.prmtpolicyNumber.setDisplayFormat("$coverNumber$");		
+        this.prmtpolicyNumber.setEditFormat("$number$");		
+        this.prmtpolicyNumber.setCommitFormat("$number$");		
+        this.prmtpolicyNumber.setRequired(false);
+        this.prmtpolicyNumber.addDataChangeListener(new com.kingdee.bos.ctrl.swing.event.DataChangeListener() {
+            public void dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) {
+                try {
+                    prmtpolicyNumber_dataChanged(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                }
+            }
+        });
         // btnEquInfomation
         this.btnEquInfomation.setAction((IItemAction)ActionProxyFactory.getProxy(actionEquInfomation, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnEquInfomation.setText(resHelper.getString("btnEquInfomation.text"));
-        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmtequNumber,txtequName,prmtinsuranceCompany,prmtpolicyNumber,prmtinsurance,pklossDate,txtexpectedLoss,txtclaimAmount,txtdescriptionIncident,txtxianzhongID}));
+        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmtequNumber,txtequName,prmtinsuranceCompany,prmtinsurance,pklossDate,txtexpectedLoss,txtclaimAmount,txtdescriptionIncident,txtxianzhongID,prmtpolicyNumber}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
 		registerBindings();
@@ -540,8 +540,6 @@ public abstract class AbstractEquInsuranceAccidentEditUI extends com.kingdee.eas
         this.add(contequName, new KDLayout.Constraints(672, 34, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         continsuranceCompany.setBounds(new Rectangle(10, 58, 270, 19));
         this.add(continsuranceCompany, new KDLayout.Constraints(10, 58, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contpolicyNumber.setBounds(new Rectangle(341, 58, 270, 19));
-        this.add(contpolicyNumber, new KDLayout.Constraints(341, 58, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         continsurance.setBounds(new Rectangle(672, 58, 270, 19));
         this.add(continsurance, new KDLayout.Constraints(672, 58, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contlossDate.setBounds(new Rectangle(10, 82, 270, 19));
@@ -554,6 +552,8 @@ public abstract class AbstractEquInsuranceAccidentEditUI extends com.kingdee.eas
         this.add(contdescriptionIncident, new KDLayout.Constraints(10, 106, 931, 97, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contxianzhongID.setBounds(new Rectangle(312, 291, 270, 19));
         this.add(contxianzhongID, new KDLayout.Constraints(312, 291, 270, 19, 0));
+        contpolicyNumber.setBounds(new Rectangle(341, 58, 270, 19));
+        this.add(contpolicyNumber, new KDLayout.Constraints(341, 58, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         //contCreator
         contCreator.setBoundEditor(prmtCreator);
         //contCreateTime
@@ -584,8 +584,6 @@ public abstract class AbstractEquInsuranceAccidentEditUI extends com.kingdee.eas
         contequName.setBoundEditor(txtequName);
         //continsuranceCompany
         continsuranceCompany.setBoundEditor(prmtinsuranceCompany);
-        //contpolicyNumber
-        contpolicyNumber.setBoundEditor(prmtpolicyNumber);
         //continsurance
         continsurance.setBoundEditor(prmtinsurance);
         //contlossDate
@@ -602,6 +600,8 @@ public abstract class AbstractEquInsuranceAccidentEditUI extends com.kingdee.eas
         contxianzhongID.setBoundEditor(scrollPanexianzhongID);
         //scrollPanexianzhongID
         scrollPanexianzhongID.getViewport().add(txtxianzhongID, null);
+        //contpolicyNumber
+        contpolicyNumber.setBoundEditor(prmtpolicyNumber);
 
     }
 
@@ -791,13 +791,13 @@ public abstract class AbstractEquInsuranceAccidentEditUI extends com.kingdee.eas
 		dataBinder.registerBinding("equNumber", com.kingdee.eas.port.equipment.record.EquIdInfo.class, this.prmtequNumber, "data");
 		dataBinder.registerBinding("equName", String.class, this.txtequName, "text");
 		dataBinder.registerBinding("insuranceCompany", com.kingdee.eas.port.equipment.base.InsuranceCompanyInfo.class, this.prmtinsuranceCompany, "data");
-		dataBinder.registerBinding("policyNumber", com.kingdee.eas.port.equipment.insurance.InsuranceCoverageInfo.class, this.prmtpolicyNumber, "data");
 		dataBinder.registerBinding("insurance", com.kingdee.eas.port.equipment.base.InsuranceInfo.class, this.prmtinsurance, "data");
 		dataBinder.registerBinding("lossDate", java.util.Date.class, this.pklossDate, "value");
 		dataBinder.registerBinding("expectedLoss", java.math.BigDecimal.class, this.txtexpectedLoss, "value");
 		dataBinder.registerBinding("claimAmount", java.math.BigDecimal.class, this.txtclaimAmount, "value");
 		dataBinder.registerBinding("descriptionIncident", String.class, this.txtdescriptionIncident, "text");
-		dataBinder.registerBinding("xianzhongID", String.class, this.txtxianzhongID, "text");		
+		dataBinder.registerBinding("xianzhongID", String.class, this.txtxianzhongID, "text");
+		dataBinder.registerBinding("policyNumber", com.kingdee.eas.port.equipment.insurance.InsuranceCoverageInfo.class, this.prmtpolicyNumber, "data");		
 	}
 	//Regiester UI State
 	private void registerUIState(){		
@@ -947,13 +947,13 @@ public abstract class AbstractEquInsuranceAccidentEditUI extends com.kingdee.eas
 		getValidateHelper().registerBindProperty("equNumber", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("equName", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("insuranceCompany", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("policyNumber", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("insurance", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("lossDate", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("expectedLoss", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("claimAmount", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("descriptionIncident", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("xianzhongID", ValidateHelper.ON_SAVE);    		
+		getValidateHelper().registerBindProperty("xianzhongID", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("policyNumber", ValidateHelper.ON_SAVE);    		
 	}
 
 
@@ -1064,14 +1064,6 @@ public abstract class AbstractEquInsuranceAccidentEditUI extends com.kingdee.eas
 		}
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
-			sic.add(new SelectorItemInfo("policyNumber.*"));
-		}
-		else{
-        	sic.add(new SelectorItemInfo("policyNumber.id"));
-        	sic.add(new SelectorItemInfo("policyNumber.number"));
-		}
-		if(selectorAll.equalsIgnoreCase("true"))
-		{
 			sic.add(new SelectorItemInfo("insurance.*"));
 		}
 		else{
@@ -1084,6 +1076,15 @@ public abstract class AbstractEquInsuranceAccidentEditUI extends com.kingdee.eas
         sic.add(new SelectorItemInfo("claimAmount"));
         sic.add(new SelectorItemInfo("descriptionIncident"));
         sic.add(new SelectorItemInfo("xianzhongID"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("policyNumber.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("policyNumber.id"));
+        	sic.add(new SelectorItemInfo("policyNumber.number"));
+        	sic.add(new SelectorItemInfo("policyNumber.coverNumber"));
+		}
         return sic;
     }        
     	
