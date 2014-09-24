@@ -794,20 +794,6 @@
             </relationship>
         </linkProperty>
         <linkProperty>
-            <name>policyNumber</name>
-            <alias>entityObject[com.kingdee.eas.port.equipment.insurance.app.EquInsuranceAccident].properties.linkProperty[policyNumber].alias</alias>
-            <description>entityObject[com.kingdee.eas.port.equipment.insurance.app.EquInsuranceAccident].properties.linkProperty[policyNumber].description</description>
-            <userDefined>true</userDefined>
-            <configured>false</configured>
-            <mappingField>
-                <key name="name" value="CFPolicyNumberID" />
-            </mappingField>
-            <relationship>
-                <key name="package" value="com.kingdee.eas.port.equipment.insurance.app" />
-                <key name="name" value="R_EquInsuranceAccident_InsuranceCoverage_policyNumber" />
-            </relationship>
-        </linkProperty>
-        <linkProperty>
             <name>insurance</name>
             <alias>entityObject[com.kingdee.eas.port.equipment.insurance.app.EquInsuranceAccident].properties.linkProperty[insurance].alias</alias>
             <description>entityObject[com.kingdee.eas.port.equipment.insurance.app.EquInsuranceAccident].properties.linkProperty[insurance].description</description>
@@ -921,6 +907,20 @@
                 <key name="name" value="CFXianzhongID" />
             </mappingField>
         </ownProperty>
+        <linkProperty>
+            <name>policyNumber</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.insurance.app.EquInsuranceAccident].properties.linkProperty[policyNumber].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.insurance.app.EquInsuranceAccident].properties.linkProperty[policyNumber].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <mappingField>
+                <key name="name" value="CFPolicyNumberID" />
+            </mappingField>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.port.equipment.insurance.app" />
+                <key name="name" value="R_EquInsuranceAccident_InsuranceCoverage_policyNumber" />
+            </relationship>
+        </linkProperty>
     </properties>
     <logicalKey>
         <name>id</name>
@@ -2379,9 +2379,9 @@
             <lang locale="zh_TW" value="50" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.EquInsuranceAccident].properties.linkProperty[policyNumber].extendedProperty.dataField">
-            <lang locale="en_US" value="number" />
-            <lang locale="zh_CN" value="number" />
-            <lang locale="zh_TW" value="number" />
+            <lang locale="en_US" value="coverNumber" />
+            <lang locale="zh_CN" value="coverNumber" />
+            <lang locale="zh_TW" value="coverNumber" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.insurance.app.EquInsuranceAccident].properties.linkProperty[policyNumber].extendedProperty.isForGrouping">
             <lang locale="en_US" value="false" />
