@@ -768,7 +768,10 @@ public class AnnualYearDetailListUI extends AbstractAnnualYearDetailListUI
 		String id = SysContext.getSysContext().getCurrentAdminUnit().getId().toString();
 		filInfo.getFilterItems().add(new FilterItemInfo("useDpatmen.id",id ,CompareType.EQUALS));
        filInfo.getFilterItems().add(new FilterItemInfo("status",5 ,CompareType.EQUALS));
-       filInfo.setMaskString("#0 and #1");
+       filInfo.getFilterItems().add(new FilterItemInfo("status",90 ,CompareType.EQUALS));
+       filInfo.getFilterItems().add(new FilterItemInfo("status",10,CompareType.EQUALS));
+       filInfo.getFilterItems().add(new FilterItemInfo("status",11 ,CompareType.EQUALS));
+       filInfo.setMaskString("#0 and (#1 or #2 or #3 or #4)");
 		if(viewInfo.getFilter()!=null)
 	    	{
 	    
