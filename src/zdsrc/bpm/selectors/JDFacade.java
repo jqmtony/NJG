@@ -7,7 +7,7 @@ import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.eas.bpm.BillBaseSelector;
 
-public class JDFacade implements BillBaseSelector{
+public class JDFacade implements BillBaseSelector {
 
 	public String[] ApproveClose(Context ctx, String strBSID,
 			IObjectValue billInfo, int procInstID,
@@ -51,5 +51,6 @@ public class JDFacade implements BillBaseSelector{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 
 }

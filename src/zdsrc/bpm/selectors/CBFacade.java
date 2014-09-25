@@ -34,8 +34,9 @@ public class CBFacade implements BillBaseSelector {
 		return null;
 	}
 
-	public String[] ApproveBack(Context ctx, String strBTID,
-			IObjectValue billInfo, String strXML) {
+
+	public String[] ApproveBack(Context ctx, String strBTID, String strBOID,
+			String strXML) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -45,5 +46,14 @@ public class CBFacade implements BillBaseSelector {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
+	public String[] ApproveBack(Context ctx, String strBTID,
+			IObjectValue billInfo, String strXML) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 
 }
