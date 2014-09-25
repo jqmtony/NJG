@@ -1,5 +1,6 @@
 package com.kingdee.eas.bpm;
 
+import java.rmi.RemoteException;
 import java.util.Date;
 
 import com.kingdee.bos.BOSException;
@@ -13,4 +14,5 @@ public interface BillBaseSelector {
 	public String[] ApproveClose(Context ctx, String strBSID,IObjectValue billInfo,int procInstID, String processInstanceResult, String strComment,Date dtTime);
 	public String[] GetbillInfo(Context ctx, String strBSID,IObjectValue billInfo) ;
 	public String[] GetrRelatedBillInfo(Context ctx, String strBTID,IObjectValue billInfo, String strRelatedCode) ;
+	public String[] ApproveBack(Context ctx, String strBTID, String strBOID, String strXML);
 }

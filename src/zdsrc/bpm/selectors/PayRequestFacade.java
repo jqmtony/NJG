@@ -319,6 +319,13 @@ public class PayRequestFacade implements BillBaseSelector {
 		return sic;
     }
 
+
+	public String[] GetrRelatedBillInfo(Context ctx, String strBTID,
+			IObjectValue billInfo, String strRelatedCode) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 
 }

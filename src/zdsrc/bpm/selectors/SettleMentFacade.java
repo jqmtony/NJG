@@ -20,16 +20,6 @@ import com.kingdee.eas.bpm.BPMLogFactory;
 import com.kingdee.eas.bpm.BPMLogInfo;
 import com.kingdee.eas.bpm.BillBaseSelector;
 import com.kingdee.eas.bpm.common.StringUtilBPM;
-import com.kingdee.eas.bpmdemo.ContractsettlementAssEntryFactory;
-import com.kingdee.eas.bpmdemo.ContractsettlementAssEntryInfo;
-import com.kingdee.eas.bpmdemo.ContractsettlementFactory;
-import com.kingdee.eas.bpmdemo.ContractsettlementInfo;
-import com.kingdee.eas.bpmdemo.ContractsettlementJlEntryFactory;
-import com.kingdee.eas.bpmdemo.ContractsettlementJlEntryInfo;
-import com.kingdee.eas.bpmdemo.ContractsettlementOtherEntryFactory;
-import com.kingdee.eas.bpmdemo.ContractsettlementOtherEntryInfo;
-import com.kingdee.eas.bpmdemo.ContractsettlementSettlementEntryFactory;
-import com.kingdee.eas.bpmdemo.ContractsettlementSettlementEntryInfo;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
@@ -648,6 +638,12 @@ public class SettleMentFacade implements BillBaseSelector {
 		sic.add(new SelectorItemInfo("isFinalSettle"));
 		sic.add(new SelectorItemInfo("Creator"));
 		return sic;
+	}
+
+	public String[] GetrRelatedBillInfo(Context ctx, String strBTID,
+			IObjectValue billInfo, String strRelatedCode) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

@@ -426,6 +426,18 @@ public class ContractFacade implements BillBaseSelector {
 		return sic;
     }
 
+
+	public String[] GetrRelatedBillInfo(Context ctx, String strBTID,
+			IObjectValue billInfo, String strRelatedCode) {
+		return null;
+	}
+
+
+	public String[] ApproveBack(Context ctx, String strBTID, String strBOID,
+			String strXML) {
+		return null;
+	}
+
 	
 
 }

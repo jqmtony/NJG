@@ -14,11 +14,6 @@ import com.kingdee.eas.bpm.BPMLogFactory;
 import com.kingdee.eas.bpm.BPMLogInfo;
 import com.kingdee.eas.bpm.BillBaseSelector;
 import com.kingdee.eas.bpm.common.StringUtilBPM;
-import com.kingdee.eas.bpmdemo.ChangeVisaAppAssEntryInfo;
-import com.kingdee.eas.bpmdemo.ChangeVisaAppEntryFactory;
-import com.kingdee.eas.bpmdemo.ChangeVisaAppEntryInfo;
-import com.kingdee.eas.bpmdemo.ChangeVisaAppFactory;
-import com.kingdee.eas.bpmdemo.ChangeVisaAppInfo;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
@@ -417,6 +412,12 @@ public class ChangeVisaFacade implements BillBaseSelector {
 		sic.add(new SelectorItemInfo("Entrys.DutyOrg.number"));
 		sic.add(new SelectorItemInfo("Entrys.IsSureChangeAmt"));
 		return sic;
+	}
+
+	public String[] GetrRelatedBillInfo(Context ctx, String strBTID,
+			IObjectValue billInfo, String strRelatedCode) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
