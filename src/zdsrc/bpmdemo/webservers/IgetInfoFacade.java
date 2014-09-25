@@ -19,4 +19,5 @@ public interface IgetInfoFacade extends IBizCtrl
     public String[] GetrRelatedBillInfo(String strBTID, String strBOID, String strRelatedCode) throws BOSException;
     public String[] SubmitResult(String strBSID, String strBOID, boolean bSuccess, int iProcInstID, String procURL, String strMessage) throws BOSException;
     public String[] ApproveClose(String strBSID, String strBOID, int iProcInstID, String eProcessInstanceResult, String strComment, Date dtTime) throws BOSException;
+    public String[] ApproveBack(String strBTID, String strBOID, String strXML) throws BOSException;
 }

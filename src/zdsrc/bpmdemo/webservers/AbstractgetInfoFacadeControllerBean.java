@@ -124,4 +124,26 @@ public abstract class AbstractgetInfoFacadeControllerBean extends AbstractBizCon
         return null;
     }
 
+    public String[] ApproveBack(Context ctx, String strBTID, String strBOID, String strXML) throws BOSException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("4b985e7e-da40-4180-9fa1-177e87d4121a"), new Object[]{ctx, strBTID, strBOID, strXML});
+            invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
+            String[] retValue = (String[])_ApproveBack(ctx, strBTID, strBOID, strXML);
+            svcCtx.setMethodReturnValue(retValue);
+            }
+            invokeServiceAfter(svcCtx);
+            return (String[])svcCtx.getMethodReturnValue();
+        } catch (BOSException ex) {
+            throw ex;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected String[] _ApproveBack(Context ctx, String strBTID, String strBOID, String strXML) throws BOSException
+    {    	
+        return null;
+    }
+
 }

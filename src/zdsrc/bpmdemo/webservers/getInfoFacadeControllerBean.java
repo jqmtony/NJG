@@ -109,10 +109,12 @@ public class getInfoFacadeControllerBean extends AbstractgetInfoFacadeController
 		}
 	}
 	
-	protected String[] _GetrRelatedBillInfo(Context ctx, String strBTID,
-			String strBOID, String strRelatedCode) throws BOSException {
+	protected String[] _GetrRelatedBillInfo(Context ctx, String strBTID,String strBOID, String strRelatedCode) throws BOSException {
 		return super._GetrRelatedBillInfo(ctx, strBTID, strBOID, strRelatedCode);
 	}
+	protected String[] _ApproveBack(Context ctx, String strBTID,String strBOID, String strXML) throws BOSException {
+		return super._ApproveBack(ctx, strBTID, strBOID, strXML);
+	}
 	
-
+	
 }

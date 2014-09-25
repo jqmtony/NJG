@@ -22,4 +22,5 @@ public interface getInfoFacadeController extends BizController
     public String[] GetrRelatedBillInfo(Context ctx, String strBTID, String strBOID, String strRelatedCode) throws BOSException, RemoteException;
     public String[] SubmitResult(Context ctx, String strBSID, String strBOID, boolean bSuccess, int iProcInstID, String procURL, String strMessage) throws BOSException, RemoteException;
     public String[] ApproveClose(Context ctx, String strBSID, String strBOID, int iProcInstID, String eProcessInstanceResult, String strComment, Date dtTime) throws BOSException, RemoteException;
+    public String[] ApproveBack(Context ctx, String strBTID, String strBOID, String strXML) throws BOSException, RemoteException;
 }

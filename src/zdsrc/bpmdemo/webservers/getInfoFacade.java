@@ -103,4 +103,20 @@ public class getInfoFacade extends AbstractBizCtrl implements IgetInfoFacade
             throw new EJBRemoteException(err);
         }
     }
+    /**
+     *BPM审批反写-User defined method
+     *@param strBTID 单据类型
+     *@param strBOID 单据ID
+     *@param strXML 单据相关XML
+     *@return
+     */
+    public String[] ApproveBack(String strBTID, String strBOID, String strXML) throws BOSException
+    {
+        try {
+            return getController().ApproveBack(getContext(), strBTID, strBOID, strXML);
+        }
+        catch(RemoteException err) {
+            throw new EJBRemoteException(err);
+        }
+    }
 }

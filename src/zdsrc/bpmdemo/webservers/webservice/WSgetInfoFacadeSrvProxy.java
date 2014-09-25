@@ -1,6 +1,6 @@
 package com.kingdee.eas.bpmdemo.webservers.webservice;
 
-import org.apache.axis.Message;
+import  org.apache.axis.Message;
 
 import org.apache.axis.MessageContext;
 
@@ -60,6 +60,18 @@ public class WSgetInfoFacadeSrvProxy {
             iProcInstID,
             procURL,
             strMessage);
+        }
+        catch( Throwable e ) {
+            throw new WSInvokeException( e ) ;
+        }
+    }
+
+    public String[] ApproveBack( String strBTID , String strBOID , String strXML ) throws WSInvokeException {
+        try {
+            return getController().ApproveBack(
+            strBTID,
+            strBOID,
+            strXML);
         }
         catch( Throwable e ) {
             throw new WSInvokeException( e ) ;
