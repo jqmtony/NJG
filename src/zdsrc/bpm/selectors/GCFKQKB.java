@@ -34,4 +34,16 @@ public class GCFKQKB implements BillBaseSelector{
 		return null;
 	}
 
+	public String[] ApproveBack(Context ctx, String strBTID,
+			IObjectValue billInfo, String strXML) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String[] GetrRelatedBillInfo(Context ctx, String strBTID,
+			IObjectValue billInfo, String strRelatedCode) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

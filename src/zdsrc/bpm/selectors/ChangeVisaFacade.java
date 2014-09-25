@@ -420,4 +420,10 @@ public class ChangeVisaFacade implements BillBaseSelector {
 		return null;
 	}
 
+	public String[] ApproveBack(Context ctx, String strBTID,
+			IObjectValue billInfo, String strXML) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

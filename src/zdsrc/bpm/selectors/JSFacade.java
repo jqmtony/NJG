@@ -6,7 +6,9 @@ import com.kingdee.bos.Context;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.eas.bpm.BillBaseSelector;
-
+/**
+ * 
+ * */
 public class JSFacade implements BillBaseSelector {
 
 	public String[] ApproveClose(Context ctx, String strBSID,
@@ -30,6 +32,18 @@ public class JSFacade implements BillBaseSelector {
 	}
 
 	public SelectorItemCollection getSelectors() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String[] ApproveBack(Context ctx, String strBTID,
+			IObjectValue billInfo, String strXML) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String[] GetrRelatedBillInfo(Context ctx, String strBTID,
+			IObjectValue billInfo, String strRelatedCode) {
 		// TODO Auto-generated method stub
 		return null;
 	}
