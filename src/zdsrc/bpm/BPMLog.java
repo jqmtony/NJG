@@ -44,7 +44,6 @@ public class BPMLog extends DataBase implements IBPMLog
     /**
      *ȡֵ-System defined method
      *@param pk ȡֵ
-      *@return 2014-9-25AM huliyun
      *@return
      */
     public BPMLogInfo getBPMLogInfo(IObjectPK pk) throws BOSException, EASBizException
