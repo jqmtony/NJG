@@ -199,7 +199,7 @@ public class ChangeVisaFacade implements BillBaseSelector {
 					xml.append("<Supp>" + entry.getSeq()
 							+ "</Supp>\n");
 					
-					xml.append("<Name>"); 
+					xml.append("<Name>登记信息"); 
 					    xml.append("<item>\n");
 			            		      xml.append("<ContractIDName>合同号</ContractIDName>\n");
 			            		      xml.append("<ContractNameName>合同名称</ContractNameName>\n");
@@ -221,7 +221,7 @@ public class ChangeVisaFacade implements BillBaseSelector {
 			            		      xml.append("<IsSureChangeAmtName>责任归属部门</IsSureChangeAmtName>\n");
 					    xml.append("<item>\n");
 					xml.append("</Name>\n");
-					xml.append("<Content>");
+					xml.append("<Content>测算信息");
 					    xml.append("<item>\n");
                  					    xml.append("<ContractID>"+ entry.getContractBill().getId()+ "</ContractID>\n");
           		                        xml.append("<ContractName>"+ entry.getContractBill().getName()+ "</ContractName>\n");
