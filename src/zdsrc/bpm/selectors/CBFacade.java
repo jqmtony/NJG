@@ -18,7 +18,7 @@ public class CBFacade implements BillBaseSelector {
 
 	public String[] GetbillInfo(Context ctx, String strBSID,
 			IObjectValue billInfo) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 

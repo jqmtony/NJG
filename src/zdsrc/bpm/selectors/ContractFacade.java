@@ -168,13 +168,14 @@ public class ContractFacade implements BillBaseSelector {
 			}
 			try{
 				DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-    			xml.append("<DATA>\n"); 
-    			xml.append("<OrgName>"+StringUtilBPM.isNULl(Info.getLandDeveloper().getName())+"</OrgName>\n");
+    			xml.append("<DATA>\n");
+    			xml.append("<OrgName>"+StringUtilBPM.isNULl(Info.getOrgUnit().getName())+"</OrgName>\n");
+    			//xml.append("<OrgName>"+StringUtilBPM.isNULl(Info.getLandDeveloper().getName())+"</OrgName>\n");
     			xml.append("<DeptName>"+StringUtilBPM.isNULl(Info.getRespDept().getName())+"</DeptName>\n");
     			xml.append("<ApplyDate>"+dateFormat.format(Info.getCreateTime())+"</ApplyDate>\n");
     			xml.append("<Applicant>"+StringUtilBPM.isNULl(Info.getCreator().getName())+"</Applicant>\n");
     			xml.append("<Position>合约部经理</Position>\n");
-    			xml.append("<Topic>"+StringUtilBPM.isNULl(Info.getName())+"-合同审批单"+"</Topic>\n");
+    			xml.append("<Topic>"+StringUtilBPM.isNULl(Info.getName())+"</Topic>\n");
     			xml.append("<CompanyName>"+StringUtilBPM.isNULl(Info.getLandDeveloper().getName())+"</CompanyName>\n");
     			xml.append("<Phase>"+StringUtilBPM.isNULl(Info.getCurProject().getName())+"</Phase>\n");
     			xml.append("<OrgCode>"+StringUtilBPM.isNULl(Info.getOrgUnit().getNumber().split("-")[0])+"</OrgCode>\n");
@@ -217,7 +218,7 @@ public class ContractFacade implements BillBaseSelector {
     			xml.append("<contractNature>"+StringUtilBPM.isNULl(Info.getContractPropert().getAlias())+"</contractNature>\n");
     			xml.append("<currencyType>"+StringUtilBPM.isNULl(Info.getCurrency().getName())+"</currencyType>\n");
     			xml.append("<rate>"+Info.getExRate()+"</rate>\n");
-    			
+    			xml.append("<isCoseSplit>"+Info.isIsCoseSplit()+"</isCoseSplit>\n");
     			xml.append("<billEntries>\n");
     			for(int i=0;i<Info.getEntrys().size();i++){
     				ContractBillEntryInfo entry = Info.getEntrys().get(i);
@@ -423,6 +424,7 @@ public class ContractFacade implements BillBaseSelector {
 		sic.add(new SelectorItemInfo("bail.entry.id"));
 		sic.add(new SelectorItemInfo("bail.amount"));
 		sic.add(new SelectorItemInfo("bail.prop"));
+		sic.add(new SelectorItemInfo("IsCoseSplit"));
 		return sic;
     }
 
