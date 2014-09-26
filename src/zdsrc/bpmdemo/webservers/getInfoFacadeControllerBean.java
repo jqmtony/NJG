@@ -15,6 +15,7 @@ import com.kingdee.eas.bpm.BPMLogFactory;
 import com.kingdee.eas.bpm.BPMLogInfo;
 import com.kingdee.eas.bpm.selectors.ChangeVisaFacade;
 import com.kingdee.eas.bpm.selectors.ContractFacade;
+import com.kingdee.eas.bpm.selectors.ContractReviseFacade;
 import com.kingdee.eas.bpm.selectors.SettleMentFacade;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
@@ -24,6 +25,7 @@ import com.kingdee.eas.fdc.contract.ContractBillEntryFactory;
 import com.kingdee.eas.fdc.contract.ContractBillEntryInfo;
 import com.kingdee.eas.fdc.contract.ContractBillFactory;
 import com.kingdee.eas.fdc.contract.ContractBillInfo;
+import com.kingdee.eas.fdc.contract.ContractBillReviseInfo;
 import com.kingdee.eas.fdc.contract.ContractSettlementBillInfo;
 
 public class getInfoFacadeControllerBean extends AbstractgetInfoFacadeControllerBean
@@ -53,6 +55,10 @@ public class getInfoFacadeControllerBean extends AbstractgetInfoFacadeController
 			{
 				str = new SettleMentFacade().SubmitResult(ctx, strBSID, billInfo, success, procInstID, procURL, strMessage);
 			}
+			if(billInfo instanceof ContractBillReviseInfo)
+			{
+				str = new ContractReviseFacade().SubmitResult(ctx, strBSID, billInfo, success, procInstID, procURL, strMessage);
+			}
 			return str;
 		}
 		
@@ -80,6 +86,10 @@ public class getInfoFacadeControllerBean extends AbstractgetInfoFacadeController
 			{
 				str = new SettleMentFacade().ApproveClose(ctx, strBSID, billInfo, procInstID, processInstanceResult, strComment, dtTime);
 			}
+			if(billInfo instanceof ContractBillReviseInfo)
+			{
+				str = new ContractReviseFacade().ApproveClose(ctx, strBSID, billInfo, procInstID, processInstanceResult, strComment, dtTime);
+			}
 			return str;
 		}
 	}
@@ -104,6 +114,10 @@ public class getInfoFacadeControllerBean extends AbstractgetInfoFacadeController
 			if(billInfo instanceof ContractSettlementBillInfo)
 			{
 				str = new SettleMentFacade().GetbillInfo(ctx, strBSID, billInfo);
+			}
+			if(billInfo instanceof ContractBillReviseInfo)
+			{
+				str = new ContractReviseFacade().GetbillInfo(ctx, strBSID, billInfo);
 			}
 			return str;
 		}
