@@ -408,27 +408,27 @@ public abstract class AbstractMarketSupplierStockEditUI extends com.kingdee.eas.
         this.kdtEntryAtt.setName("kdtEntryAtt");
         this.prmtLevel.setName("prmtLevel");
         // CoreUI		
+        this.btnTraceUp.setVisible(false);		
+        this.btnTraceDown.setVisible(false);		
+        this.btnCreateTo.setVisible(true);		
         this.btnAddLine.setVisible(false);		
         this.btnCopyLine.setVisible(false);		
         this.btnInsertLine.setVisible(false);		
         this.btnRemoveLine.setVisible(false);		
-        this.btnTraceUp.setVisible(false);		
-        this.btnTraceDown.setVisible(false);		
         this.btnAuditResult.setVisible(false);		
         this.separator1.setVisible(false);		
+        this.menuItemCreateTo.setVisible(true);		
         this.separator3.setVisible(false);		
         this.menuItemTraceUp.setVisible(false);		
         this.menuItemTraceDown.setVisible(false);		
-        this.menuItemViewSubmitProccess.setVisible(false);		
-        this.menuItemViewDoProccess.setVisible(false);		
-        this.menuItemAuditResult.setVisible(false);		
         this.menuTable1.setVisible(false);		
         this.menuItemAddLine.setVisible(false);		
+        this.menuItemCopyLine.setVisible(false);		
         this.menuItemInsertLine.setVisible(false);		
         this.menuItemRemoveLine.setVisible(false);		
-        this.btnCreateTo.setVisible(true);		
-        this.menuItemCreateTo.setVisible(true);		
-        this.menuItemCopyLine.setVisible(false);
+        this.menuItemViewSubmitProccess.setVisible(false);		
+        this.menuItemViewDoProccess.setVisible(false);		
+        this.menuItemAuditResult.setVisible(false);
         // contDescription		
         this.contDescription.setBoundLabelText(resHelper.getString("contDescription.boundLabelText"));		
         this.contDescription.setBoundLabelLength(100);		
@@ -1017,7 +1017,7 @@ kDPanel1.setLayout(new BorderLayout(0, 0));        kDPanel1.add(kDScrollPane1, B
         kDScrollPane1.getViewport().add(kDPanel4, null);
         //kDPanel4
         kDPanel4.setLayout(new KDLayout());
-        kDPanel4.putClientProperty("OriginalBounds", new Rectangle(0, 0, 1013, 1010));        kDPanel3.setBounds(new Rectangle(3, 3, 991, 310));
+        kDPanel4.putClientProperty("OriginalBounds", new Rectangle(0, 0, 1006, 1010));        kDPanel3.setBounds(new Rectangle(3, 3, 991, 310));
         kDPanel4.add(kDPanel3, new KDLayout.Constraints(3, 3, 991, 310, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         contLastUpdateUser.setBounds(new Rectangle(363, 949, 270, 19));
         kDPanel4.add(contLastUpdateUser, new KDLayout.Constraints(363, 949, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
@@ -1329,8 +1329,9 @@ kDContainer5.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
         this.toolBar.add(btnAddNew);
         this.toolBar.add(btnCloud);
         this.toolBar.add(btnEdit);
-        this.toolBar.add(kDSeparatorCloud);
+        this.toolBar.add(btnXunTong);
         this.toolBar.add(btnSave);
+        this.toolBar.add(kDSeparatorCloud);
         this.toolBar.add(btnReset);
         this.toolBar.add(btnSubmit);
         this.toolBar.add(btnCopy);

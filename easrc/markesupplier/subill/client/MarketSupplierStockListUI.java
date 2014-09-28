@@ -20,6 +20,7 @@ import javax.swing.tree.TreeModel;
 import org.apache.log4j.Logger;
 
 import com.kingdee.bos.BOSException;
+import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
 import com.kingdee.bos.ctrl.swing.KDTree;
 import com.kingdee.bos.ctrl.swing.tree.DefaultKingdeeTreeNode;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
@@ -36,19 +37,23 @@ import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.metadata.query.QueryInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
-import com.kingdee.bos.ui.face.IUIWindow;
 import com.kingdee.bos.ui.face.ItemAction;
-import com.kingdee.bos.ui.face.UIFactory;
+import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.bos.workflow.ProcessInstInfo;
 import com.kingdee.bos.workflow.service.ormrpc.EnactmentServiceFactory;
 import com.kingdee.bos.workflow.service.ormrpc.IEnactmentService;
 import com.kingdee.eas.base.attachment.util.UICreator;
+import com.kingdee.eas.base.codingrule.CodingRuleManagerFactory;
+import com.kingdee.eas.base.codingrule.ICodingRuleManager;
 import com.kingdee.eas.base.permission.client.longtime.ILongTimeTask;
 import com.kingdee.eas.base.uiframe.client.UIFactoryHelper;
 import com.kingdee.eas.basedata.framework.client.DListClientControlStrategy;
 import com.kingdee.eas.basedata.master.cssp.SupplierFactory;
 import com.kingdee.eas.basedata.master.cssp.SupplierInfo;
+import com.kingdee.eas.basedata.master.cssp.client.F7SupplierSimpleSelector;
+import com.kingdee.eas.basedata.org.CompanyOrgUnitInfo;
 import com.kingdee.eas.basedata.org.NewOrgUtils;
+import com.kingdee.eas.basedata.org.OrgConstants;
 import com.kingdee.eas.basedata.org.OrgStructureInfo;
 import com.kingdee.eas.basedata.org.OrgUnitInfo;
 import com.kingdee.eas.basedata.org.OrgViewType;
@@ -226,6 +231,9 @@ public class MarketSupplierStockListUI extends AbstractMarketSupplierStockListUI
 		this.actionNextPerson.setVisible(false);//下一步处理人
 		this.actionTraceDown.setVisible(false);//流程图
 		this.actionWorkFlowG.setVisible(false);//流程图
+		
+		this.btnEditLevel.setText("引入主数据供应商");
+		this.btnEditLevel.setToolTipText("引入主数据供应商");
 		
 		
         this.orgTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
@@ -429,7 +437,9 @@ public class MarketSupplierStockListUI extends AbstractMarketSupplierStockListUI
 		return super.getQueryExecutor(queryPK, viewInfo);
 	}
 	
-	
+	protected boolean isIgnoreCUFilter() {
+		return true;
+	}
 	/**
 	 * 批量提交
 	 * @param e
@@ -474,14 +484,71 @@ public class MarketSupplierStockListUI extends AbstractMarketSupplierStockListUI
 	}
 	
 	public void actionEditLevel_actionPerformed(ActionEvent e) throws Exception {
-		checkSelected();
-		ArrayList id = getSelectedIdValues();
-		UIContext uiContext = new UIContext(this);
-		uiContext.put("id", id);
-		IUIWindow uiWindow = UIFactory.createUIFactory(UIFactoryName.MODEL).create(SupplierLevelUI.class.getName(), uiContext, null, OprtState.VIEW);
-		uiWindow.show();
+//		checkSelected();
+//		ArrayList id = getSelectedIdValues();
+//		UIContext uiContext = new UIContext(this);
+//		uiContext.put("id", id);
+//		IUIWindow uiWindow = UIFactory.createUIFactory(UIFactoryName.MODEL).create(SupplierLevelUI.class.getName(), uiContext, null, OprtState.VIEW);
+//		uiWindow.show();
+//		
+//		this.refresh(null);
 		
-		this.refresh(null);
+		KDBizPromptBox suppBox = new KDBizPromptBox();
+		suppBox.setQueryInfo("com.kingdee.eas.port.pm.invite.app.JudgesExamineQuery");
+		F7SupplierSimpleSelector f7supplier = new F7SupplierSimpleSelector(this,suppBox);
+		suppBox.setSelector(f7supplier);
+		suppBox.setDataBySelector();
+		
+		SupplierInfo obj = (SupplierInfo)suppBox.getData();
+		
+		if(obj==null)
+			return;
+		
+		SupplierInfo supplierInfo = SupplierFactory.getRemoteInstance().getSupplierInfo(new ObjectUuidPK(obj.getId()));
+		
+		
+		PurchaseOrgUnitInfo org = SysContext.getSysContext().getCurrentPurchaseUnit();
+		
+		String oql = "select id where supplierName='"+supplierInfo.getName()+"' and PurchaseOrgUnit.id='"+org.getId()+"'";
+		if(MarketSupplierStockFactory.getRemoteInstance().exists(oql))
+		{
+			MsgBox.showWarning("当前供应商已在【"+org.getName()+"】存在，不需要引入！");
+		}
+		
+		SupplierInvoiceTypeTreeInfo treeInfo = SupplierInvoiceTypeTreeFactory.getRemoteInstance().getSupplierInvoiceTypeTreeInfo("where number='default'");
+		ICodingRuleManager codingRuleManager = CodingRuleManagerFactory.getRemoteInstance();
+		
+		MarketSupplierStockInfo Info = new MarketSupplierStockInfo();
+		Info.setCU(SysContext.getSysContext().getCurrentCtrlUnit());
+		Info.setNumber(codingRuleManager.getNumber(Info, OrgConstants.DEF_CU_ID));
+		Info.setInviteType(treeInfo);
+		Info.setPurchaseOrgUnit(org);
+		Info.setSupplierName(supplierInfo.getName());
+		Info.setId(BOSUuid.create(Info.getBOSType()));
+		
+		if(supplierInfo.getProvince()!=null)
+			Info.setProvince(supplierInfo.getProvince().getName());
+		if(supplierInfo.getCity()!=null)
+			Info.setProvince(supplierInfo.getCity().getName());
+		if(supplierInfo.getAddress()!=null)
+			Info.setAddress(supplierInfo.getAddress());
+		
+		Info.setState(SupplierState.audit);
+		
+		Info.setEnterpriseMaster(supplierInfo.getArtificialPerson());
+		Info.setBusinessNum(supplierInfo.getBusiLicence());
+		Info.setBizRegisterNo(supplierInfo.getBizRegisterNo());
+		Info.setSysSupplier(supplierInfo);
+		Info.setAuditDate(SysUtil.getAppServerTime(null));
+		Info.setAuditor(SysContext.getSysContext().getCurrentUserInfo());
+		
+		MarketSupplierStockFactory.getRemoteInstance().submit(Info);
+		
+		Info.setState(SupplierState.audit);
+		MarketSupplierStockFactory.getRemoteInstance().update(new ObjectUuidPK(Info.getId()), Info);
+		
+		refresh(null);
+		MsgBox.showInfo("引入成功！\n 供应商名称:"+supplierInfo.getName()+" 组织："+org.getName()+"");
 	}
 	
 	/**
@@ -536,7 +603,7 @@ public class MarketSupplierStockListUI extends AbstractMarketSupplierStockListUI
     protected com.kingdee.bos.dao.IObjectValue createNewData()
     {
         com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockInfo objectValue = new com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockInfo();
-		
+        objectValue.setCU(SysContext.getSysContext().getCurrentCtrlUnit());
         return objectValue;
     }
 

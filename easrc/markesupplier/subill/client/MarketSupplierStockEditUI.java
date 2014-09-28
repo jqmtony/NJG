@@ -13,6 +13,8 @@ import java.awt.event.MouseEvent;
 import java.sql.Timestamp;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.swing.KeyStroke;
 
@@ -24,6 +26,7 @@ import com.kingdee.bos.ctrl.kdf.table.KDTStyleConstants;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent;
 import com.kingdee.bos.ctrl.swing.KDContainer;
+import com.kingdee.bos.ctrl.swing.KDScrollPane;
 import com.kingdee.bos.dao.IObjectCollection;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
@@ -42,12 +45,14 @@ import com.kingdee.eas.base.attachment.client.AttachmentUIContextInfo;
 import com.kingdee.eas.base.attachment.common.AttachmentClientManager;
 import com.kingdee.eas.base.attachment.common.AttachmentManagerFactory;
 import com.kingdee.eas.base.core.fm.ClientVerifyHelper;
+import com.kingdee.eas.base.uiframe.client.UIFactoryHelper;
 import com.kingdee.eas.basedata.org.OrgStructureInfo;
 import com.kingdee.eas.basedata.org.PurchaseOrgUnitFactory;
 import com.kingdee.eas.basedata.org.PurchaseOrgUnitInfo;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
+import com.kingdee.eas.common.client.UIContext;
 import com.kingdee.eas.cp.bc.BizCollUtil;
 import com.kingdee.eas.framework.client.multiDetail.DetailPanel;
 import com.kingdee.eas.port.markesupplier.subase.MarketSupplierAttachListCollection;
@@ -62,6 +67,9 @@ import com.kingdee.eas.port.markesupplier.subase.SupplierState;
 import com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockEntryAttCollection;
 import com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockEntryAttInfo;
 import com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockInfo;
+import com.kingdee.eas.port.pm.invite.WinInviteReportUnitCollection;
+import com.kingdee.eas.port.pm.invite.WinInviteReportUnitFactory;
+import com.kingdee.eas.port.pm.invite.client.WinInviteReportListUI;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
@@ -105,6 +113,7 @@ public class MarketSupplierStockEditUI extends AbstractMarketSupplierStockEditUI
         this.kDScrollPane1.setPreferredSize(new Dimension(1013,1010));
         
         this.kDScrollPane1.getViewport().add(kDPanel4, null);
+        this.kDTabbedPane1.remove(kDPanel2);
         
     	
     	initButton();
@@ -112,6 +121,32 @@ public class MarketSupplierStockEditUI extends AbstractMarketSupplierStockEditUI
     	setF7Filter();
     	
     	setRequiredState();
+    	
+    	if(editData.getId()!=null)
+    	{
+    		Set idSet = new HashSet();
+    		String oql = "where unitName.id = '"+editData.getId()+"'";
+    		WinInviteReportUnitCollection collection = WinInviteReportUnitFactory.getRemoteInstance().getWinInviteReportUnitCollection(oql);
+    		for (int i = 0; i < collection.size(); i++) 
+    			idSet.add(collection.get(i).getParent().getId());
+//    		
+    		KDScrollPane panel=new KDScrollPane();
+			panel.setName("中标单位核备表");
+			panel.setMinimumSize(new Dimension(1013,600));		
+			panel.setPreferredSize(new Dimension(1013,600));
+	        this.kDTabbedPane1.add(panel,"中标单位核备表");
+	        
+	        if(idSet.size()>0)
+	        {
+	        	UIContext uiContext = new UIContext(this);
+	        	uiContext.put("IDSET", idSet);
+	        	WinInviteReportListUI ui = (WinInviteReportListUI) UIFactoryHelper.initUIObject(WinInviteReportListUI.class.getName(), uiContext, null,OprtState.VIEW);
+	        	panel.setViewportView(ui);
+	        	panel.setKeyBoardControl(true);
+	        	panel.setEnabled(false);
+	        }
+    	}
+    	
     }
     
     private void setF7Filter()
@@ -150,12 +185,12 @@ public class MarketSupplierStockEditUI extends AbstractMarketSupplierStockEditUI
     	this.prmtInviteType.setRequired(true);
     	this.prmtPurchaseOrgUnit.setRequired(true);
     	this.txtLinkPhone.setRequired(true);
-    	this.prmtQuaLevel.setRequired(true);
-    	this.prmtVisibility.setRequired(true);
+//    	this.prmtQuaLevel.setRequired(true);
+//    	this.prmtVisibility.setRequired(true);
     	this.txtEnterpriseMaster.setRequired(true);
-    	this.txtboEnterpriseKind.setRequired(true);
-    	this.prmtServiceType.setRequired(true);
-    	this.prmtSupplierSplAreaEntry.setRequired(true);
+//    	this.txtboEnterpriseKind.setRequired(true);
+//    	this.prmtServiceType.setRequired(true);
+//    	this.prmtSupplierSplAreaEntry.setRequired(true);
     	this.prmtSupplierFileType.setRequired(true);
     	
     	this.kdtEntrys.getColumn("peopleSum").setRequired(true);
@@ -552,46 +587,46 @@ public class MarketSupplierStockEditUI extends AbstractMarketSupplierStockEditUI
     {
     	verifyInputForSave();
     	ClientVerifyHelper.verifyEmpty(this, this.txtLinkPhone);
-		ClientVerifyHelper.verifyEmpty(this, this.prmtQuaLevel);
-		ClientVerifyHelper.verifyEmpty(this, this.prmtVisibility);
+//		ClientVerifyHelper.verifyEmpty(this, this.prmtQuaLevel);
+//		ClientVerifyHelper.verifyEmpty(this, this.prmtVisibility);
 		ClientVerifyHelper.verifyEmpty(this, this.txtEnterpriseMaster);
-		ClientVerifyHelper.verifyEmpty(this, this.txtboEnterpriseKind);
-		ClientVerifyHelper.verifyEmpty(this, this.prmtServiceType);
-		ClientVerifyHelper.verifyEmpty(this, this.prmtSupplierSplAreaEntry);
+//		ClientVerifyHelper.verifyEmpty(this, this.txtboEnterpriseKind);
+//		ClientVerifyHelper.verifyEmpty(this, this.prmtServiceType);
+//		ClientVerifyHelper.verifyEmpty(this, this.prmtSupplierSplAreaEntry);
 		ClientVerifyHelper.verifyEmpty(this, this.prmtSupplierFileType);
 		
-		if(this.kdtEntrys.getRowCount()<1)
-		{
-			MsgBox.showWarning("表体人数信息不能为空！");SysUtil.abort();
-		}
-		if(this.kdtEntryPerson.getRowCount()<1)
-		{
-			MsgBox.showWarning("表体职员构成不能为空！");SysUtil.abort();
-		}
-		if(this.kdtEntryAtt.getRowCount()<1)
-		{
-			MsgBox.showWarning("表体附件清单不能为空！");SysUtil.abort();
-		}
+//		if(this.kdtEntrys.getRowCount()<1)
+//		{
+//			MsgBox.showWarning("表体人数信息不能为空！");SysUtil.abort();
+//		}
+//		if(this.kdtEntryPerson.getRowCount()<1)
+//		{
+//			MsgBox.showWarning("表体职员构成不能为空！");SysUtil.abort();
+//		}
+//		if(this.kdtEntryAtt.getRowCount()<1)
+//		{
+//			MsgBox.showWarning("表体附件清单不能为空！");SysUtil.abort();
+//		}
 		
-		boolean isDefault=true;
-		for(int i=0;i<this.kdtEntryPerson.getRowCount();i++){
-			IRow row=this.kdtEntryPerson.getRow(i);
-			if(((Boolean)row.getCell("isDefault").getValue()).booleanValue()){
-				isDefault=false;
-				if(row.getCell("personName").getValue()==null||row.getCell("personName").getValue().toString().trim().equals("")){
-					MsgBox.showWarning(this,"授权联系人姓名不能为空！");
-					SysUtil.abort();
-				}
-				if(row.getCell("phone").getValue()==null||row.getCell("phone").getValue().toString().trim().equals("")){
-					MsgBox.showWarning(this,"授权联系人手机不能为空！");
-					SysUtil.abort();
-				}
-			}
-		}
-		if(isDefault){
-			MsgBox.showWarning(this,"授权联系人不能为空！");
-			SysUtil.abort();
-		}
+//		boolean isDefault=true;
+//		for(int i=0;i<this.kdtEntryPerson.getRowCount();i++){
+//			IRow row=this.kdtEntryPerson.getRow(i);
+//			if(((Boolean)row.getCell("isDefault").getValue()).booleanValue()){
+//				isDefault=false;
+//				if(row.getCell("personName").getValue()==null||row.getCell("personName").getValue().toString().trim().equals("")){
+//					MsgBox.showWarning(this,"授权联系人姓名不能为空！");
+//					SysUtil.abort();
+//				}
+//				if(row.getCell("phone").getValue()==null||row.getCell("phone").getValue().toString().trim().equals("")){
+//					MsgBox.showWarning(this,"授权联系人手机不能为空！");
+//					SysUtil.abort();
+//				}
+//			}
+//		}
+//		if(isDefault){
+//			MsgBox.showWarning(this,"授权联系人不能为空！");
+//			SysUtil.abort();
+//		}
 		
 //		ClientVerifyHelper.verifyInput(this, this.kdtEntrys, "peopleSum");
 //		ClientVerifyHelper.verifyInput(this, this.kdtEntryPerson, "personName");
