@@ -105,6 +105,72 @@ public class AbstractInvitePlanInfo extends com.kingdee.eas.xr.XRBillBaseInfo im
     {
         put("project", item);
     }
+    /**
+     * Object: 招标计划 's 招标方式 property 
+     */
+    public com.kingdee.eas.port.pm.base.InviteTypeInfo getInviteType()
+    {
+        return (com.kingdee.eas.port.pm.base.InviteTypeInfo)get("inviteType");
+    }
+    public void setInviteType(com.kingdee.eas.port.pm.base.InviteTypeInfo item)
+    {
+        put("inviteType", item);
+    }
+    /**
+     * Object:招标计划's 入围邀请property 
+     */
+    public boolean isShortlistedInv()
+    {
+        return getBoolean("ShortlistedInv");
+    }
+    public void setShortlistedInv(boolean item)
+    {
+        setBoolean("ShortlistedInv", item);
+    }
+    /**
+     * Object:招标计划's 商务标完成property 
+     */
+    public java.util.Date getBusinessFinish()
+    {
+        return getDate("BusinessFinish");
+    }
+    public void setBusinessFinish(java.util.Date item)
+    {
+        setDate("BusinessFinish", item);
+    }
+    /**
+     * Object:招标计划's 开标日期property 
+     */
+    public java.util.Date getOpeningBidTime()
+    {
+        return getDate("openingBidTime");
+    }
+    public void setOpeningBidTime(java.util.Date item)
+    {
+        setDate("openingBidTime", item);
+    }
+    /**
+     * Object:招标计划's 发标日期property 
+     */
+    public java.util.Date getSendOutTime()
+    {
+        return getDate("SendOutTime");
+    }
+    public void setSendOutTime(java.util.Date item)
+    {
+        setDate("SendOutTime", item);
+    }
+    /**
+     * Object:招标计划's 定标日期property 
+     */
+    public java.util.Date getScalingTime()
+    {
+        return getDate("scalingTime");
+    }
+    public void setScalingTime(java.util.Date item)
+    {
+        setDate("scalingTime", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("61F9E3DB");
