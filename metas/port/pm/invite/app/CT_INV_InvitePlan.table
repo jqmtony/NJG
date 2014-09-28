@@ -357,6 +357,90 @@
             <scale>0</scale>
             <precision>44</precision>
         </column>
+        <column>
+            <name>CFInviteTypeID</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFInviteTypeID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFInviteTypeID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFShortlistedInv</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFShortlistedInv].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFShortlistedInv].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>INT</sqlType>
+            <length>1</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFBusinessFinish</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFBusinessFinish].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFBusinessFinish].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>DATETIME</sqlType>
+            <length>8</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFOpeningBidTime</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFOpeningBidTime].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFOpeningBidTime].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>DATETIME</sqlType>
+            <length>8</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFSendOutTime</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFSendOutTime].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFSendOutTime].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>DATETIME</sqlType>
+            <length>8</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFScalingTime</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFScalingTime].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFScalingTime].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>DATETIME</sqlType>
+            <length>8</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
     </columns>
     <primaryKey>
         <name>PK_InvitePlan</name>
@@ -524,6 +608,25 @@
                 </fkColumnPair>
             </fkColumnPairs>
         </foreignKey>
+        <foreignKey>
+            <name>CFK_INV_INVIPNvt86</name>
+            <userDefined>true</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
+                <key name="name" value="CT_BAS_InviteType" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="CFInviteTypeID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
     </foreignKeys>
     <resource>
         <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].alias">
@@ -543,6 +646,18 @@
             <lang locale="zh_CN" value="备注" />
             <lang locale="zh_HK" value="備註" />
             <lang locale="zh_TW" value="備註" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFBusinessFinish].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="商务标完成" />
+            <lang locale="zh_HK" value="商務標完成" />
+            <lang locale="zh_TW" value="商務標完成" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFBusinessFinish].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="布尔" />
+            <lang locale="zh_HK" value="布爾" />
+            <lang locale="zh_TW" value="布爾" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFDepartmentID].alias">
             <lang locale="en_US" value="null" />
@@ -580,6 +695,30 @@
             <lang locale="zh_HK" value="進場日期" />
             <lang locale="zh_TW" value="進場日期" />
         </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFInviteTypeID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="招标方式" />
+            <lang locale="zh_HK" value="招標方式" />
+            <lang locale="zh_TW" value="招標方式" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFInviteTypeID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="文本" />
+            <lang locale="zh_HK" value="文本" />
+            <lang locale="zh_TW" value="文本" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFOpeningBidTime].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="开标日期" />
+            <lang locale="zh_HK" value="開標日期" />
+            <lang locale="zh_TW" value="開標日期" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFOpeningBidTime].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="日期" />
+            <lang locale="zh_HK" value="日期" />
+            <lang locale="zh_TW" value="日期" />
+        </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFPlanName].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="计划名称" />
@@ -616,6 +755,42 @@
             <lang locale="zh_HK" value="責任人" />
             <lang locale="zh_TW" value="責任人" />
         </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFScalingTime].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="定标日期" />
+            <lang locale="zh_HK" value="定標日期" />
+            <lang locale="zh_TW" value="定標日期" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFScalingTime].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="日期" />
+            <lang locale="zh_HK" value="日期" />
+            <lang locale="zh_TW" value="日期" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFSendOutTime].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="发标日期" />
+            <lang locale="zh_HK" value="發標日期" />
+            <lang locale="zh_TW" value="發標日期" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFSendOutTime].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="日期" />
+            <lang locale="zh_HK" value="日期" />
+            <lang locale="zh_TW" value="日期" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFShortlistedInv].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="入围邀请" />
+            <lang locale="zh_HK" value="入圍邀請" />
+            <lang locale="zh_TW" value="入圍邀請" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFShortlistedInv].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="布尔" />
+            <lang locale="zh_HK" value="布爾" />
+            <lang locale="zh_TW" value="布爾" />
+        </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFStartDate].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="计划开始日期" />
@@ -642,9 +817,9 @@
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[FAuditorID].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="审核人" />
+            <lang locale="zh_HK" value="審核人" />
+            <lang locale="zh_TW" value="審核人" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[FAuditorID].description">
             <lang locale="en_US" value="null" />
@@ -678,9 +853,9 @@
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[FControlUnitID].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="控制单元" />
+            <lang locale="zh_HK" value="控制單元" />
+            <lang locale="zh_TW" value="控制單元" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[FControlUnitID].description">
             <lang locale="en_US" value="null" />
@@ -702,9 +877,9 @@
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[FCreatorID].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="创建者" />
+            <lang locale="zh_HK" value="創建者" />
+            <lang locale="zh_TW" value="創建者" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[FCreatorID].description">
             <lang locale="en_US" value="null" />
@@ -726,9 +901,9 @@
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[FHandlerID].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="经手人" />
+            <lang locale="zh_HK" value="經手人" />
+            <lang locale="zh_TW" value="經手人" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[FHandlerID].description">
             <lang locale="en_US" value="null" />
@@ -773,9 +948,9 @@
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[FLastUpdateUserID].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="最后修改者" />
+            <lang locale="zh_HK" value="最後修改者" />
+            <lang locale="zh_TW" value="最後修改者" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[FLastUpdateUserID].description">
             <lang locale="en_US" value="null" />

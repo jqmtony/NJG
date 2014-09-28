@@ -23,19 +23,6 @@
             </entityRef>
         </subEntity>
         <subEntity>
-            <name>Entry</name>
-            <alias>joinQuery[com.kingdee.eas.port.pm.base.app.EvaluationTemplateQuery].subObjects.subEntity[Entry].alias</alias>
-            <userDefined>true</userDefined>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
-                <key name="name" value="EvaluationTemplateQuery" />
-            </query>
-            <entityRef>
-                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
-                <key name="name" value="EvaluationTemplateEntry" />
-            </entityRef>
-        </subEntity>
-        <subEntity>
             <name>CU</name>
             <alias>joinQuery[com.kingdee.eas.port.pm.base.app.EvaluationTemplateQuery].subObjects.subEntity[CU].alias</alias>
             <userDefined>true</userDefined>
@@ -102,68 +89,6 @@
         </subEntity>
     </subObjects>
     <units>
-        <propertyUnit>
-            <name>e42861f0-2b2f-4276-918b-4bed1db7f38c</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.base.app.EvaluationTemplateQuery].units.propertyUnit[e42861f0-2b2f-4276-918b-4bed1db7f38c].displayName</displayName>
-            <groupType />
-            <isSelector>false</isSelector>
-            <isFilter>false</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>bd04a334-52fe-4ed4-bb63-2e4f6bd69527</key>
-                    <parentUnit>
-                        <key name="name" value="e42861f0-2b2f-4276-918b-4bed1db7f38c" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="EvaluationTemplate" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="id" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
-                <key name="name" value="EvaluationTemplateQuery" />
-            </query>
-        </propertyUnit>
-        <propertyUnit>
-            <name>5bbfb8e4-021a-403e-9e1f-b95f3b9a4f52</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.base.app.EvaluationTemplateQuery].units.propertyUnit[5bbfb8e4-021a-403e-9e1f-b95f3b9a4f52].displayName</displayName>
-            <groupType />
-            <isSelector>false</isSelector>
-            <isFilter>false</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>ccc6144b-7e88-4a90-915d-70cb35c37166</key>
-                    <parentUnit>
-                        <key name="name" value="5bbfb8e4-021a-403e-9e1f-b95f3b9a4f52" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="Entry" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="parent" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
-                <key name="name" value="EvaluationTemplateQuery" />
-            </query>
-        </propertyUnit>
         <propertyUnit>
             <name>75e050f8-ab21-4558-b5ad-796097127468</name>
             <userDefined>true</userDefined>
@@ -630,121 +555,28 @@
             </query>
         </queryField>
         <queryField>
-            <name>Entry.indicatorName</name>
+            <name>use</name>
             <userDefined>true</userDefined>
-            <formulaString />
+            <formulaString>#0</formulaString>
             <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.base.app.EvaluationTemplateQuery].units.queryField[Entry.indicatorName].displayName</displayName>
+            <displayName>joinQuery[com.kingdee.eas.port.pm.base.app.EvaluationTemplateQuery].units.queryField[use].displayName</displayName>
             <groupType />
             <isSelector>true</isSelector>
             <isFilter>true</isFilter>
-            <isSorter>false</isSorter>
+            <isSorter>true</isSorter>
             <isParameter>false</isParameter>
-            <returnType>String</returnType>
+            <returnType>Boolean</returnType>
             <propertyRefs>
                 <propertyRef>
-                    <key>a983297d-eabc-46dd-91b2-c796c2502385</key>
+                    <key>08b0b5a5-1e0c-4bc9-a498-964db2c0da5d</key>
                     <parentUnit>
-                        <key name="name" value="Entry.indicatorName" />
+                        <key name="name" value="use" />
                     </parentUnit>
                     <subEntity>
-                        <key name="name" value="Entry" />
+                        <key name="name" value="EvaluationTemplate" />
                     </subEntity>
                     <refProperty>
-                        <key name="name" value="indicatorName" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
-                <key name="name" value="EvaluationTemplateQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>Entry.weight</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.base.app.EvaluationTemplateQuery].units.queryField[Entry.weight].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>Number</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>84c8a583-3a8e-49b9-bb2c-3f62ea1c4dab</key>
-                    <parentUnit>
-                        <key name="name" value="Entry.weight" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="Entry" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="weight" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
-                <key name="name" value="EvaluationTemplateQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>Entry.comment</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.base.app.EvaluationTemplateQuery].units.queryField[Entry.comment].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>f84012b8-c5ae-43f2-8557-395b7c2edd4b</key>
-                    <parentUnit>
-                        <key name="name" value="Entry.comment" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="Entry" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="comment" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
-                <key name="name" value="EvaluationTemplateQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>Entry.seq</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.base.app.EvaluationTemplateQuery].units.queryField[Entry.seq].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>Int</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>3ca477ce-b762-469e-a89b-02b908da7f27</key>
-                    <parentUnit>
-                        <key name="name" value="Entry.seq" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="Entry" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="seq" />
+                        <key name="name" value="use" />
                     </refProperty>
                 </propertyRef>
             </propertyRefs>
@@ -776,37 +608,6 @@
                     </subEntity>
                     <refProperty>
                         <key name="name" value="id" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
-                <key name="name" value="EvaluationTemplateQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>name</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.base.app.EvaluationTemplateQuery].units.queryField[name].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>6bf7836d-d5c9-42c4-a7be-564cbf03187c</key>
-                    <parentUnit>
-                        <key name="name" value="name" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="EvaluationTemplate" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="name" />
                     </refProperty>
                 </propertyRef>
             </propertyRefs>
@@ -878,68 +679,6 @@
             </query>
         </queryField>
         <queryField>
-            <name>lastUpdateUser.name</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.base.app.EvaluationTemplateQuery].units.queryField[lastUpdateUser.name].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>30836064-432a-4145-8f47-ef389569b17a</key>
-                    <parentUnit>
-                        <key name="name" value="lastUpdateUser.name" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="lastUpdateUser" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="name" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
-                <key name="name" value="EvaluationTemplateQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>lastUpdateTime</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.base.app.EvaluationTemplateQuery].units.queryField[lastUpdateTime].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>Timestamp</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>bbe63dfb-fbdb-45eb-852e-2f8570590bae</key>
-                    <parentUnit>
-                        <key name="name" value="lastUpdateTime" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="EvaluationTemplate" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="lastUpdateTime" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
-                <key name="name" value="EvaluationTemplateQuery" />
-            </query>
-        </queryField>
-        <queryField>
             <name>id</name>
             <userDefined>true</userDefined>
             <formulaString />
@@ -970,37 +709,6 @@
                 <key name="name" value="EvaluationTemplateQuery" />
             </query>
         </queryField>
-        <queryField>
-            <name>use</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.base.app.EvaluationTemplateQuery].units.queryField[use].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>Boolean</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>08b0b5a5-1e0c-4bc9-a498-964db2c0da5d</key>
-                    <parentUnit>
-                        <key name="name" value="use" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="EvaluationTemplate" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="use" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
-                <key name="name" value="EvaluationTemplateQuery" />
-            </query>
-        </queryField>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -1022,36 +730,6 @@
     </queryPK>
     <isDistinct>false</isDistinct>
     <joins>
-        <join>
-            <name>45311088-b3ed-43a1-9435-e52726efbda1</name>
-            <formulaString>#0</formulaString>
-            <type>LEFT OUTER JOIN</type>
-            <leftObject>
-                <key name="name" value="EvaluationTemplate" />
-            </leftObject>
-            <rightObject>
-                <key name="name" value="Entry" />
-            </rightObject>
-            <joinItems>
-                <joinItem>
-                    <name>91d2aa12-8676-41d6-9bb8-50b98411d1a1</name>
-                    <compareType>=</compareType>
-                    <leftField>
-                        <key name="name" value="e42861f0-2b2f-4276-918b-4bed1db7f38c" />
-                    </leftField>
-                    <rightField>
-                        <key name="name" value="5bbfb8e4-021a-403e-9e1f-b95f3b9a4f52" />
-                    </rightField>
-                    <join>
-                        <key name="name" value="45311088-b3ed-43a1-9435-e52726efbda1" />
-                    </join>
-                </joinItem>
-            </joinItems>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
-                <key name="name" value="EvaluationTemplateQuery" />
-            </query>
-        </join>
         <join>
             <name>22b5d390-ce66-465f-822a-1e086c344a06</name>
             <formulaString>#0</formulaString>
@@ -1239,12 +917,6 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.EvaluationTemplateQuery].subObjects.subEntity[Entry].alias">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.EvaluationTemplateQuery].subObjects.subEntity[EvaluationTemplate].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -1293,12 +965,6 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.EvaluationTemplateQuery].units.propertyUnit[5bbfb8e4-021a-403e-9e1f-b95f3b9a4f52].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.EvaluationTemplateQuery].units.propertyUnit[5bea1728-6f73-418b-bf78-a8f3633eb427].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -1341,76 +1007,6 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.EvaluationTemplateQuery].units.propertyUnit[e42861f0-2b2f-4276-918b-4bed1db7f38c].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.EvaluationTemplateQuery].units.queryField[Entry.comment].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="备注" />
-            <lang locale="zh_HK" value="備註" />
-            <lang locale="zh_TW" value="備註" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.EvaluationTemplateQuery].units.queryField[Entry.comment].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.EvaluationTemplateQuery].units.queryField[Entry.comment].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.EvaluationTemplateQuery].units.queryField[Entry.indicatorName].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="评标指标名称" />
-            <lang locale="zh_HK" value="評標指標名稱" />
-            <lang locale="zh_TW" value="評標指標名稱" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.EvaluationTemplateQuery].units.queryField[Entry.indicatorName].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.EvaluationTemplateQuery].units.queryField[Entry.indicatorName].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.EvaluationTemplateQuery].units.queryField[Entry.seq].displayName">
-            <lang locale="en_US" value="sequence" />
-            <lang locale="zh_CN" value="单据分录序列号" />
-            <lang locale="zh_HK" value="單據分錄序列號" />
-            <lang locale="zh_TW" value="單據分錄序列號" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.EvaluationTemplateQuery].units.queryField[Entry.seq].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.EvaluationTemplateQuery].units.queryField[Entry.seq].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.EvaluationTemplateQuery].units.queryField[Entry.weight].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="权重" />
-            <lang locale="zh_HK" value="權重" />
-            <lang locale="zh_TW" value="權重" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.EvaluationTemplateQuery].units.queryField[Entry.weight].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.EvaluationTemplateQuery].units.queryField[Entry.weight].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.EvaluationTemplateQuery].units.queryField[comment].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="备注" />
@@ -1445,9 +1041,9 @@
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.EvaluationTemplateQuery].units.queryField[creator.name].displayName">
             <lang locale="en_US" value="用户别名" />
-            <lang locale="zh_CN" value="用户实名" />
-            <lang locale="zh_HK" value="用戶實名" />
-            <lang locale="zh_TW" value="用戶實名" />
+            <lang locale="zh_CN" value="创建人" />
+            <lang locale="zh_HK" value="創建人" />
+            <lang locale="zh_TW" value="創建人" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.EvaluationTemplateQuery].units.queryField[id].displayName">
             <lang locale="en_US" value="null" />
@@ -1467,44 +1063,6 @@
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.EvaluationTemplateQuery].units.queryField[isWeight].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.EvaluationTemplateQuery].units.queryField[lastUpdateTime].displayName">
-            <lang locale="en_US" value="lastUpdateTime" />
-            <lang locale="zh_CN" value="最后修改时间" />
-            <lang locale="zh_HK" value="最後修改時間" />
-            <lang locale="zh_TW" value="最後修改時間" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.EvaluationTemplateQuery].units.queryField[lastUpdateTime].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.EvaluationTemplateQuery].units.queryField[lastUpdateTime].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.EvaluationTemplateQuery].units.queryField[lastUpdateUser.name].displayName">
-            <lang locale="en_US" value="用户别名" />
-            <lang locale="zh_CN" value="用户实名" />
-            <lang locale="zh_HK" value="用戶實名" />
-            <lang locale="zh_TW" value="用戶實名" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.EvaluationTemplateQuery].units.queryField[name].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="名称" />
-            <lang locale="zh_HK" value="名稱" />
-            <lang locale="zh_TW" value="名稱" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.EvaluationTemplateQuery].units.queryField[name].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.EvaluationTemplateQuery].units.queryField[name].extendedProperty.isCommonQuerySorter">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
@@ -1543,9 +1101,9 @@
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.EvaluationTemplateQuery].units.queryField[templateType.name].displayName">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="名称" />
-            <lang locale="zh_HK" value="名稱" />
-            <lang locale="zh_TW" value="名稱" />
+            <lang locale="zh_CN" value="模板类别" />
+            <lang locale="zh_HK" value="範本類別" />
+            <lang locale="zh_TW" value="範本類別" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.EvaluationTemplateQuery].units.queryField[templateType.name].extendedProperty.isCommonQueryFilter">
             <lang locale="en_US" value="true" />

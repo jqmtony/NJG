@@ -6,7 +6,7 @@
     <description>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].description</description>
     <userDefined>true</userDefined>
     <reportDataSource />
-    <bizUnitPK />
+    <bizUnitPK>com.kingdee.eas.port.pm.invite.OpenRegistration</bizUnitPK>
     <connectionProvider />
     <subObjects>
         <subEntity>
@@ -542,68 +542,6 @@
             </query>
         </queryField>
         <queryField>
-            <name>endDate</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[endDate].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>Date</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>17039bc8-9a3b-48ec-a23d-bfc4a05b69e6</key>
-                    <parentUnit>
-                        <key name="name" value="endDate" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="OpenRegistration" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="endDate" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="OpenRegistrationQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>coefficient</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[coefficient].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>28215a49-01b8-47ab-9e30-cc4906046203</key>
-                    <parentUnit>
-                        <key name="name" value="coefficient" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="OpenRegistration" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="coefficient" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="OpenRegistrationQuery" />
-            </query>
-        </queryField>
-        <queryField>
             <name>creator.name</name>
             <userDefined>true</userDefined>
             <formulaString />
@@ -970,6 +908,11 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].extendedProperty.f7WindowTitle">
+            <lang locale="en_US" value="开标登记" />
+            <lang locale="zh_CN" value="开标登记" />
+            <lang locale="zh_TW" value="开标登记" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].queryPK[QueryPK].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -1066,17 +1009,21 @@
             <lang locale="zh_HK" value="審核時間" />
             <lang locale="zh_TW" value="審核時間" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[auditTime].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[auditTime].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[auditor.name].displayName">
             <lang locale="en_US" value="用户别名" />
             <lang locale="zh_CN" value="审核人" />
             <lang locale="zh_HK" value="審核人" />
             <lang locale="zh_TW" value="審核人" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[coefficient].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="评标基准系数X" />
-            <lang locale="zh_HK" value="評標基準係數X" />
-            <lang locale="zh_TW" value="評標基準係數X" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[createTime].displayName">
             <lang locale="en_US" value="createTime" />
@@ -1084,17 +1031,21 @@
             <lang locale="zh_HK" value="創建時間" />
             <lang locale="zh_TW" value="創建時間" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[createTime].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[createTime].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[creator.name].displayName">
             <lang locale="en_US" value="用户别名" />
             <lang locale="zh_CN" value="创建人" />
             <lang locale="zh_HK" value="創建人" />
             <lang locale="zh_TW" value="創建人" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[endDate].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="截标开标时间" />
-            <lang locale="zh_HK" value="截標開標時間" />
-            <lang locale="zh_TW" value="截標開標時間" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[id].displayName">
             <lang locale="en_US" value="null" />
@@ -1108,6 +1059,16 @@
             <lang locale="zh_HK" value="最後修改時間" />
             <lang locale="zh_TW" value="最後修改時間" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[lastUpdateTime].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[lastUpdateTime].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[lastUpdateUser.name].displayName">
             <lang locale="en_US" value="用户别名" />
             <lang locale="zh_CN" value="最后修改人" />
@@ -1120,11 +1081,31 @@
             <lang locale="zh_HK" value="單據編號" />
             <lang locale="zh_TW" value="單據編號" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[number].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[number].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[opDate].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="开标时间" />
             <lang locale="zh_HK" value="開標時間" />
             <lang locale="zh_TW" value="開標時間" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[opDate].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[opDate].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[opLocation].displayName">
             <lang locale="en_US" value="null" />
@@ -1132,11 +1113,31 @@
             <lang locale="zh_HK" value="開標地點" />
             <lang locale="zh_TW" value="開標地點" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[opLocation].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[opLocation].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[regName].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="开标登记名称" />
             <lang locale="zh_HK" value="開標登記名稱" />
             <lang locale="zh_TW" value="開標登記名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[regName].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[regName].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[reportName.reportName].displayName">
             <lang locale="en_US" value="null" />
@@ -1144,17 +1145,47 @@
             <lang locale="zh_HK" value="招標方案名稱" />
             <lang locale="zh_TW" value="招標方案名稱" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[reportName.reportName].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[reportName.reportName].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[reportNumber].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="招标编码" />
             <lang locale="zh_HK" value="招標編碼" />
             <lang locale="zh_TW" value="招標編碼" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[reportNumber].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[reportNumber].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[status].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="单据状态" />
             <lang locale="zh_HK" value="單據狀態" />
             <lang locale="zh_TW" value="單據狀態" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[status].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.OpenRegistrationQuery].units.queryField[status].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
     </resource>
 </joinQuery>

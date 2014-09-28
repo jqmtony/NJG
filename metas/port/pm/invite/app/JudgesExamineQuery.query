@@ -101,19 +101,6 @@
             </entityRef>
         </subEntity>
         <subEntity>
-            <name>EntryIndicators</name>
-            <alias>joinQuery[com.kingdee.eas.port.pm.invite.app.JudgesExamineQuery].subObjects.subEntity[EntryIndicators].alias</alias>
-            <userDefined>true</userDefined>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="JudgesExamineQuery" />
-            </query>
-            <entityRef>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="JudgesExamineEntryIndicator" />
-            </entityRef>
-        </subEntity>
-        <subEntity>
             <name>invitePerson</name>
             <alias>joinQuery[com.kingdee.eas.port.pm.invite.app.JudgesExamineQuery].subObjects.subEntity[invitePerson].alias</alias>
             <userDefined>true</userDefined>
@@ -284,11 +271,11 @@
             </query>
         </queryField>
         <queryField>
-            <name>judgeName.personName</name>
+            <name>ppr</name>
             <userDefined>true</userDefined>
             <formulaString>#0</formulaString>
             <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.JudgesExamineQuery].units.queryField[judgeName.personName].displayName</displayName>
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.JudgesExamineQuery].units.queryField[ppr].displayName</displayName>
             <groupType />
             <isSelector>true</isSelector>
             <isFilter>true</isFilter>
@@ -297,15 +284,15 @@
             <returnType>String</returnType>
             <propertyRefs>
                 <propertyRef>
-                    <key>925df55b-3c5a-4c9c-a627-097166dc8ae6</key>
+                    <key>69d11293-ba15-4706-8001-eea3b2fe5b88</key>
                     <parentUnit>
-                        <key name="name" value="judgeName.personName" />
+                        <key name="name" value="ppr" />
                     </parentUnit>
                     <subEntity>
-                        <key name="name" value="judgeName" />
+                        <key name="name" value="JudgesExamine" />
                     </subEntity>
                     <refProperty>
-                        <key name="name" value="personName" />
+                        <key name="name" value="ppr" />
                     </refProperty>
                 </propertyRef>
             </propertyRefs>
@@ -1058,192 +1045,6 @@
                 <key name="name" value="JudgesExamineQuery" />
             </query>
         </propertyUnit>
-        <queryField>
-            <name>EntryIndicators.seq</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.JudgesExamineQuery].units.queryField[EntryIndicators.seq].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>Int</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>e0ed84e5-3315-4788-8e1b-31ec264bada8</key>
-                    <parentUnit>
-                        <key name="name" value="EntryIndicators.seq" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="EntryIndicators" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="seq" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="JudgesExamineQuery" />
-            </query>
-        </queryField>
-        <propertyUnit>
-            <name>d43a9e68-f2ef-4566-98e1-a1d41fd86184</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.JudgesExamineQuery].units.propertyUnit[d43a9e68-f2ef-4566-98e1-a1d41fd86184].displayName</displayName>
-            <groupType />
-            <isSelector>false</isSelector>
-            <isFilter>false</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType />
-            <propertyRefs>
-                <propertyRef>
-                    <key>ce2def33-c04c-4557-b978-4781068dbae0</key>
-                    <parentUnit>
-                        <key name="name" value="d43a9e68-f2ef-4566-98e1-a1d41fd86184" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="JudgesExamine" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="id" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="JudgesExamineQuery" />
-            </query>
-        </propertyUnit>
-        <propertyUnit>
-            <name>8f552a1a-55be-4137-96c1-763e8bf8d306</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.JudgesExamineQuery].units.propertyUnit[8f552a1a-55be-4137-96c1-763e8bf8d306].displayName</displayName>
-            <groupType />
-            <isSelector>false</isSelector>
-            <isFilter>false</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType />
-            <propertyRefs>
-                <propertyRef>
-                    <key>b54b9c94-4129-42b6-8f21-cfe148402031</key>
-                    <parentUnit>
-                        <key name="name" value="8f552a1a-55be-4137-96c1-763e8bf8d306" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="EntryIndicators" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="parent" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="JudgesExamineQuery" />
-            </query>
-        </propertyUnit>
-        <queryField>
-            <name>EntryIndicators.examCategory</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.JudgesExamineQuery].units.queryField[EntryIndicators.examCategory].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>20b16a7b-3bdd-409c-b664-f1884d94bf15</key>
-                    <parentUnit>
-                        <key name="name" value="EntryIndicators.examCategory" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="EntryIndicators" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="examCategory" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="JudgesExamineQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>EntryIndicators.examIndicators</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.JudgesExamineQuery].units.queryField[EntryIndicators.examIndicators].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>257b381f-e91e-4cea-9a97-8963880b0aa9</key>
-                    <parentUnit>
-                        <key name="name" value="EntryIndicators.examIndicators" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="EntryIndicators" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="examIndicators" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="JudgesExamineQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>EntryIndicators.record</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.JudgesExamineQuery].units.queryField[EntryIndicators.record].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>0e71f823-faac-4af6-a321-cc7fc512f8d8</key>
-                    <parentUnit>
-                        <key name="name" value="EntryIndicators.record" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="EntryIndicators" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="record" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="JudgesExamineQuery" />
-            </query>
-        </queryField>
         <propertyUnit>
             <name>173c60d0-26a2-4645-ac70-8937ec8649c1</name>
             <userDefined>true</userDefined>
@@ -1510,36 +1311,6 @@
             </query>
         </join>
         <join>
-            <name>c07eea05-6180-4dbd-84a8-5305cff6e3cf</name>
-            <formulaString>#0</formulaString>
-            <type>LEFT OUTER JOIN</type>
-            <leftObject>
-                <key name="name" value="JudgesExamine" />
-            </leftObject>
-            <rightObject>
-                <key name="name" value="EntryIndicators" />
-            </rightObject>
-            <joinItems>
-                <joinItem>
-                    <name>6aa94811-1aa3-4f44-a463-eef6734c1a64</name>
-                    <compareType>=</compareType>
-                    <leftField>
-                        <key name="name" value="d43a9e68-f2ef-4566-98e1-a1d41fd86184" />
-                    </leftField>
-                    <rightField>
-                        <key name="name" value="8f552a1a-55be-4137-96c1-763e8bf8d306" />
-                    </rightField>
-                    <join>
-                        <key name="name" value="c07eea05-6180-4dbd-84a8-5305cff6e3cf" />
-                    </join>
-                </joinItem>
-            </joinItems>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="JudgesExamineQuery" />
-            </query>
-        </join>
-        <join>
             <name>318766c8-8b6d-4d34-86f8-9d9f4125ad2e</name>
             <formulaString>#0</formulaString>
             <type>LEFT OUTER JOIN</type>
@@ -1599,12 +1370,6 @@
             <lang locale="zh_TW" value="专家现场考核表" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.JudgesExamineQuery].subObjects.subEntity[CU].alias">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.JudgesExamineQuery].subObjects.subEntity[EntryIndicators].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -1712,12 +1477,6 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.JudgesExamineQuery].units.propertyUnit[8f552a1a-55be-4137-96c1-763e8bf8d306].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.JudgesExamineQuery].units.propertyUnit[a5002c96-367f-45b4-8d01-ff21108a1a49].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -1725,12 +1484,6 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.JudgesExamineQuery].units.propertyUnit[cf438058-3565-4743-b088-af8e33863157].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.JudgesExamineQuery].units.propertyUnit[d43a9e68-f2ef-4566-98e1-a1d41fd86184].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -1753,70 +1506,6 @@
             <lang locale="zh_CN" value="ID" />
             <lang locale="zh_HK" value="ID" />
             <lang locale="zh_TW" value="ID" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.JudgesExamineQuery].units.queryField[EntryIndicators.examCategory].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="考核类别" />
-            <lang locale="zh_HK" value="考核類別" />
-            <lang locale="zh_TW" value="考核類別" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.JudgesExamineQuery].units.queryField[EntryIndicators.examCategory].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.JudgesExamineQuery].units.queryField[EntryIndicators.examCategory].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.JudgesExamineQuery].units.queryField[EntryIndicators.examIndicators].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="考核细目" />
-            <lang locale="zh_HK" value="考核細目" />
-            <lang locale="zh_TW" value="考核細目" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.JudgesExamineQuery].units.queryField[EntryIndicators.examIndicators].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.JudgesExamineQuery].units.queryField[EntryIndicators.examIndicators].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.JudgesExamineQuery].units.queryField[EntryIndicators.record].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="考核记录" />
-            <lang locale="zh_HK" value="考核記錄" />
-            <lang locale="zh_TW" value="考核記錄" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.JudgesExamineQuery].units.queryField[EntryIndicators.record].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.JudgesExamineQuery].units.queryField[EntryIndicators.record].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.JudgesExamineQuery].units.queryField[EntryIndicators.seq].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="单据分录序列号" />
-            <lang locale="zh_HK" value="單據分錄序列號" />
-            <lang locale="zh_TW" value="單據分錄序列號" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.JudgesExamineQuery].units.queryField[EntryIndicators.seq].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.JudgesExamineQuery].units.queryField[EntryIndicators.seq].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.JudgesExamineQuery].units.queryField[auditTime].displayName">
             <lang locale="en_US" value="null" />
@@ -1962,27 +1651,6 @@
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.JudgesExamineQuery].units.queryField[judgeName.personName].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="被考核专家姓名" />
-            <lang locale="zh_HK" value="被考核專家姓名" />
-            <lang locale="zh_TW" value="被考核專家姓名" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.JudgesExamineQuery].units.queryField[judgeName.personName].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.JudgesExamineQuery].units.queryField[judgeName.personName].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.JudgesExamineQuery].units.queryField[judgeName.personName].extendedProperty.isUsingF7">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.JudgesExamineQuery].units.queryField[lastUpdateTime].displayName">
             <lang locale="en_US" value="lastUpdateTime" />
             <lang locale="zh_CN" value="最后修改时间" />
@@ -2022,6 +1690,22 @@
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.JudgesExamineQuery].units.queryField[number].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.JudgesExamineQuery].units.queryField[ppr].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="被考核专家姓名" />
+            <lang locale="zh_HK" value="被考核專家姓名" />
+            <lang locale="zh_TW" value="被考核專家姓名" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.JudgesExamineQuery].units.queryField[ppr].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.JudgesExamineQuery].units.queryField[ppr].extendedProperty.isCommonQuerySorter">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />

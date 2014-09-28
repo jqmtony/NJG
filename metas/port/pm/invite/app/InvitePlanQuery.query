@@ -113,6 +113,19 @@
                 <key name="name" value="Project" />
             </entityRef>
         </subEntity>
+        <subEntity>
+            <name>inviteType</name>
+            <alias>joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].subObjects.subEntity[inviteType].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="InvitePlanQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
+                <key name="name" value="InviteType" />
+            </entityRef>
+        </subEntity>
     </subObjects>
     <units>
         <queryField>
@@ -1138,6 +1151,254 @@
                 <key name="name" value="InvitePlanQuery" />
             </query>
         </propertyUnit>
+        <queryField>
+            <name>inviteType.name</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[inviteType.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>6d2739e8-8e11-465a-b645-452aceea4cc2</key>
+                    <parentUnit>
+                        <key name="name" value="inviteType.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="inviteType" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="InvitePlanQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>376b85f4-fe1f-45aa-b5a1-6e350400a356</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.propertyUnit[376b85f4-fe1f-45aa-b5a1-6e350400a356].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>ebf00e13-70be-472b-abb4-c23b9edba9c9</key>
+                    <parentUnit>
+                        <key name="name" value="376b85f4-fe1f-45aa-b5a1-6e350400a356" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="InvitePlan" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="inviteType" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="InvitePlanQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>2eac0fa4-9431-48b3-96e0-e93b5b55f1f2</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.propertyUnit[2eac0fa4-9431-48b3-96e0-e93b5b55f1f2].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>1ae604e4-5f70-4486-a05a-07b6b3e8e4e2</key>
+                    <parentUnit>
+                        <key name="name" value="2eac0fa4-9431-48b3-96e0-e93b5b55f1f2" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="inviteType" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="InvitePlanQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>ShortlistedInv</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[ShortlistedInv].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Boolean</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>da65faff-1991-4146-9df7-4870840a1be0</key>
+                    <parentUnit>
+                        <key name="name" value="ShortlistedInv" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="InvitePlan" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="ShortlistedInv" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="InvitePlanQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>BusinessFinish</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[BusinessFinish].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Date</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>87961b21-1d21-4b73-a7f2-2cca74e83e5b</key>
+                    <parentUnit>
+                        <key name="name" value="BusinessFinish" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="InvitePlan" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="BusinessFinish" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="InvitePlanQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>openingBidTime</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[openingBidTime].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Date</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>f0b7d323-44c7-4fed-9694-cf260574a3d5</key>
+                    <parentUnit>
+                        <key name="name" value="openingBidTime" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="InvitePlan" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="openingBidTime" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="InvitePlanQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>SendOutTime</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[SendOutTime].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Date</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>579732bf-4651-4eed-8b71-f36f0e03cfff</key>
+                    <parentUnit>
+                        <key name="name" value="SendOutTime" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="InvitePlan" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="SendOutTime" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="InvitePlanQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>scalingTime</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[scalingTime].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Date</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>f70d6aa9-001e-45e2-b266-7d9336443ec5</key>
+                    <parentUnit>
+                        <key name="name" value="scalingTime" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="InvitePlan" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="scalingTime" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="InvitePlanQuery" />
+            </query>
+        </queryField>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -1371,6 +1632,36 @@
                 <key name="name" value="InvitePlanQuery" />
             </query>
         </join>
+        <join>
+            <name>3846aa9a-7286-4c21-9e5f-b799e66a96c6</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="InvitePlan" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="inviteType" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>3338d091-4175-4e8c-b060-4f89ceda2508</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="376b85f4-fe1f-45aa-b5a1-6e350400a356" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="2eac0fa4-9431-48b3-96e0-e93b5b55f1f2" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="3846aa9a-7286-4c21-9e5f-b799e66a96c6" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="InvitePlanQuery" />
+            </query>
+        </join>
     </joins>
     <resource>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].alias">
@@ -1430,6 +1721,12 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].subObjects.subEntity[inviteType].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].subObjects.subEntity[lastUpdateUser].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -1479,6 +1776,18 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.propertyUnit[254e050a-a59f-4caa-adcc-505b3f65c9d0].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.propertyUnit[2eac0fa4-9431-48b3-96e0-e93b5b55f1f2].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.propertyUnit[376b85f4-fe1f-45aa-b5a1-6e350400a356].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -1548,11 +1857,59 @@
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[BusinessFinish].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="商务标完成" />
+            <lang locale="zh_HK" value="商務標完成" />
+            <lang locale="zh_TW" value="商務標完成" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[BusinessFinish].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[BusinessFinish].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[CU.id].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="ID" />
             <lang locale="zh_HK" value="ID" />
             <lang locale="zh_TW" value="ID" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[SendOutTime].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="发标日期" />
+            <lang locale="zh_HK" value="發標日期" />
+            <lang locale="zh_TW" value="發標日期" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[SendOutTime].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[SendOutTime].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[ShortlistedInv].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="入围邀请" />
+            <lang locale="zh_HK" value="入圍邀請" />
+            <lang locale="zh_TW" value="入圍邀請" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[ShortlistedInv].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[ShortlistedInv].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[auditTime].displayName">
             <lang locale="en_US" value="null" />
@@ -1698,6 +2055,27 @@
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[inviteType.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="招标方式" />
+            <lang locale="zh_HK" value="招標方式" />
+            <lang locale="zh_TW" value="招標方式" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[inviteType.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[inviteType.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[inviteType.name].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[lastUpdateTime].displayName">
             <lang locale="en_US" value="lastUpdateTime" />
             <lang locale="zh_CN" value="最后修改时间" />
@@ -1741,6 +2119,22 @@
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[openingBidTime].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="开标日期" />
+            <lang locale="zh_HK" value="開標日期" />
+            <lang locale="zh_TW" value="開標日期" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[openingBidTime].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[openingBidTime].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[planName].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="计划名称" />
@@ -1763,6 +2157,16 @@
             <lang locale="zh_HK" value="所屬項目" />
             <lang locale="zh_TW" value="所屬項目" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[project.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[project.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[response.name].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="责任人" />
@@ -1780,6 +2184,22 @@
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[response.name].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[scalingTime].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="定标日期" />
+            <lang locale="zh_HK" value="定標日期" />
+            <lang locale="zh_TW" value="定標日期" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[scalingTime].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[scalingTime].extendedProperty.isCommonQuerySorter">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />

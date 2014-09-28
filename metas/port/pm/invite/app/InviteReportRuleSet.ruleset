@@ -441,6 +441,93 @@
             <valueType>String</valueType>
             <value>number</value>
         </simpleExpression>
+        <groupExpression>
+            <id>b4f6d034-ef90-4986-a822-04fb73fb779f</id>
+            <parentID />
+            <source>E6.EvaluationType=E6.EvaluationName.evalType</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>b1259038-3482-433b-b8dc-cb7ebdf2b15d</id>
+            <parentID>b4f6d034-ef90-4986-a822-04fb73fb779f</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>5c5e490c-7f5a-4431-b7c4-1c0195aa9fff</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>5c5e490c-7f5a-4431-b7c4-1c0195aa9fff</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>kdtE6.getCell(rowIndex,"EvaluationType")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>04c64b29-0354-443a-8b90-76de9c411132</id>
+            <parentID>b4f6d034-ef90-4986-a822-04fb73fb779f</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>27edcbcf-ee5e-4163-bb4e-1a87e36c8c0a</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>8e1bf457-9154-4fe9-9fc2-7b7d29e0bcfb</id>
+                        <expressionID>ec21874a-ea54-4b4f-8d83-403a832b958e</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>166657b4-1209-4601-8f59-6265622e7acb</id>
+                        <expressionID>b93b41cc-3aeb-4a44-8f22-0c20bc82e867</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>27edcbcf-ee5e-4163-bb4e-1a87e36c8c0a</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>ec21874a-ea54-4b4f-8d83-403a832b958e</id>
+            <parentID />
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>73541a95-d300-4e05-a033-5e21cf227446</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>73541a95-d300-4e05-a033-5e21cf227446</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)kdtE6.getCell(rowIndex,"EvaluationName")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>b93b41cc-3aeb-4a44-8f22-0c20bc82e867</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>evalType</value>
+        </simpleExpression>
     </expressions>
     <actions>
         <action>
@@ -478,8 +565,29 @@
             <description>ruleSet[com.kingdee.eas.port.pm.invite.app.InviteReportRuleSet].actions.action[InviteReport_projectNumber_ActionInfo].description</description>
             <expressionID>c9aac7e0-7d3b-4eb8-97ee-c55efd130217</expressionID>
         </action>
+        <action>
+            <id>c508c970-11b3-44c5-ab33-c438f1269737</id>
+            <name>E6_EvaluationType_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.pm.invite.app.InviteReportRuleSet].actions.action[E6_EvaluationType_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.pm.invite.app.InviteReportRuleSet].actions.action[E6_EvaluationType_ActionInfo].description</description>
+            <expressionID>b4f6d034-ef90-4986-a822-04fb73fb779f</expressionID>
+        </action>
     </actions>
     <rules>
+        <conditionRule>
+            <name>InviteReport_projectNumber_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.pm.invite.app.InviteReportRuleSet].rules.conditionRule[InviteReport_projectNumber_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.pm.invite.app.InviteReportRuleSet].rules.conditionRule[InviteReport_projectNumber_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="c7c18ce7-5965-4783-af9b-e6ef7c955dea" />
+                </action>
+            </actions>
+        </conditionRule>
         <conditionRule>
             <name>Entry3_department_RuleInfo</name>
             <alias>ruleSet[com.kingdee.eas.port.pm.invite.app.InviteReportRuleSet].rules.conditionRule[Entry3_department_RuleInfo].alias</alias>
@@ -495,21 +603,33 @@
             </actions>
         </conditionRule>
         <conditionRule>
-            <name>InviteReport_projectNumber_RuleInfo</name>
-            <alias>ruleSet[com.kingdee.eas.port.pm.invite.app.InviteReportRuleSet].rules.conditionRule[InviteReport_projectNumber_RuleInfo].alias</alias>
-            <description>ruleSet[com.kingdee.eas.port.pm.invite.app.InviteReportRuleSet].rules.conditionRule[InviteReport_projectNumber_RuleInfo].description</description>
+            <name>E6_EvaluationType_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.pm.invite.app.InviteReportRuleSet].rules.conditionRule[E6_EvaluationType_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.pm.invite.app.InviteReportRuleSet].rules.conditionRule[E6_EvaluationType_RuleInfo].description</description>
             <ruleType>withproperty</ruleType>
             <eventObjectName />
             <eventType>CHANGE</eventType>
             <eventName>CHANGE</eventName>
             <actions>
                 <action>
-                    <key name="id" value="c7c18ce7-5965-4783-af9b-e6ef7c955dea" />
+                    <key name="id" value="c508c970-11b3-44c5-ab33-c438f1269737" />
                 </action>
             </actions>
         </conditionRule>
     </rules>
     <resource>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.InviteReportRuleSet].actions.action[E6_EvaluationType_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_evalType" />
+            <lang locale="zh_HK" value="攜帶字段屬性_evalType" />
+            <lang locale="zh_TW" value="攜帶字段屬性_evalType" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.InviteReportRuleSet].actions.action[E6_EvaluationType_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
         <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.InviteReportRuleSet].actions.action[Entry3_department_ActionInfo].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="携带字段属性_curDep" />
@@ -545,6 +665,28 @@
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.InviteReportRuleSet].rules.conditionRule[E6_EvaluationType_RuleInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_evalType" />
+            <lang locale="zh_HK" value="攜帶字段屬性_evalType" />
+            <lang locale="zh_TW" value="攜帶字段屬性_evalType" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.InviteReportRuleSet].rules.conditionRule[E6_EvaluationType_RuleInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.InviteReportRuleSet].rules.conditionRule[E6_EvaluationType_RuleInfo].extendedProperty.columnName">
+            <lang locale="en_US" value="EvaluationName" />
+            <lang locale="zh_CN" value="EvaluationName" />
+            <lang locale="zh_TW" value="EvaluationName" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.InviteReportRuleSet].rules.conditionRule[E6_EvaluationType_RuleInfo].extendedProperty.userDefined">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.InviteReportRuleSet].rules.conditionRule[Entry3_department_RuleInfo].alias">
             <lang locale="en_US" value="null" />

@@ -810,6 +810,46 @@
                 <key name="name" value="R_OpenRegistrationEntry_MarketSupplierStock_supplierName" />
             </relationship>
         </linkProperty>
+        <ownProperty>
+            <name>isPresent</name>
+            <alias>entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistrationEntry].properties.ownProperty[isPresent].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistrationEntry].properties.ownProperty[isPresent].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>Boolean</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>1</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistrationEntry].properties.ownProperty[isPresent].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFIsPresent" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>isQualified</name>
+            <alias>entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistrationEntry].properties.ownProperty[isQualified].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistrationEntry].properties.ownProperty[isQualified].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>Boolean</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>1</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistrationEntry].properties.ownProperty[isQualified].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFIsQualified" />
+            </mappingField>
+        </ownProperty>
     </properties>
     <logicalKey>
         <name>id</name>
@@ -1575,6 +1615,132 @@
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistrationEntry].properties.ownProperty[directions].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistrationEntry].properties.ownProperty[isPresent].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否到场" />
+            <lang locale="zh_HK" value="是否到場" />
+            <lang locale="zh_TW" value="是否到場" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistrationEntry].properties.ownProperty[isPresent].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistrationEntry].properties.ownProperty[isPresent].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否到场" />
+            <lang locale="zh_HK" value="是否到場" />
+            <lang locale="zh_TW" value="是否到場" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistrationEntry].properties.ownProperty[isPresent].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistrationEntry].properties.ownProperty[isPresent].extendedProperty.bizDataType">
+            <lang locale="en_US" value="BOOLEAN" />
+            <lang locale="zh_CN" value="BOOLEAN" />
+            <lang locale="zh_TW" value="BOOLEAN" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistrationEntry].properties.ownProperty[isPresent].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistrationEntry].properties.ownProperty[isPresent].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistrationEntry].properties.ownProperty[isPresent].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistrationEntry].properties.ownProperty[isPresent].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistrationEntry].properties.ownProperty[isPresent].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistrationEntry].properties.ownProperty[isPresent].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistrationEntry].properties.ownProperty[isPresent].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistrationEntry].properties.ownProperty[isQualified].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否合格" />
+            <lang locale="zh_HK" value="是否合格" />
+            <lang locale="zh_TW" value="是否合格" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistrationEntry].properties.ownProperty[isQualified].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistrationEntry].properties.ownProperty[isQualified].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否合格" />
+            <lang locale="zh_HK" value="是否合格" />
+            <lang locale="zh_TW" value="是否合格" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistrationEntry].properties.ownProperty[isQualified].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistrationEntry].properties.ownProperty[isQualified].extendedProperty.bizDataType">
+            <lang locale="en_US" value="BOOLEAN" />
+            <lang locale="zh_CN" value="BOOLEAN" />
+            <lang locale="zh_TW" value="BOOLEAN" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistrationEntry].properties.ownProperty[isQualified].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistrationEntry].properties.ownProperty[isQualified].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistrationEntry].properties.ownProperty[isQualified].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistrationEntry].properties.ownProperty[isQualified].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistrationEntry].properties.ownProperty[isQualified].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistrationEntry].properties.ownProperty[isQualified].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.OpenRegistrationEntry].properties.ownProperty[isQualified].extendedProperty.isVisibleForKDTable">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
