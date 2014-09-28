@@ -154,6 +154,7 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 		EntityViewInfo view = new EntityViewInfo();
 		view.setFilter(filter);
 		this.prmtportProject.setEntityViewInfo(view);
+		
 	}
 	
 	public void actionInvestPlan_actionPerformed(ActionEvent e)throws Exception {

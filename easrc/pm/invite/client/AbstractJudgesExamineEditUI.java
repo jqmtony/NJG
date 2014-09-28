@@ -71,6 +71,7 @@ public abstract class AbstractJudgesExamineEditUI extends com.kingdee.eas.xr.cli
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer continvitePerson;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contprjOrg;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contStatus;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contppr;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtCreator;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkCreateTime;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtLastUpdateUser;
@@ -88,6 +89,8 @@ public abstract class AbstractJudgesExamineEditUI extends com.kingdee.eas.xr.cli
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtinvitePerson;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtprjOrg;
     protected com.kingdee.bos.ctrl.swing.KDComboBox comboStatus;
+    protected com.kingdee.bos.ctrl.swing.KDScrollPane scrollPaneppr;
+    protected com.kingdee.bos.ctrl.swing.KDTextArea txtppr;
     protected com.kingdee.eas.port.pm.invite.JudgesExamineInfo editData = null;
     /**
      * output class constructor
@@ -163,6 +166,7 @@ public abstract class AbstractJudgesExamineEditUI extends com.kingdee.eas.xr.cli
         this.continvitePerson = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contprjOrg = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contStatus = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contppr = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.prmtCreator = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.pkCreateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.prmtLastUpdateUser = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
@@ -179,6 +183,8 @@ public abstract class AbstractJudgesExamineEditUI extends com.kingdee.eas.xr.cli
         this.prmtinvitePerson = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.txtprjOrg = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.comboStatus = new com.kingdee.bos.ctrl.swing.KDComboBox();
+        this.scrollPaneppr = new com.kingdee.bos.ctrl.swing.KDScrollPane();
+        this.txtppr = new com.kingdee.bos.ctrl.swing.KDTextArea();
         this.contCU.setName("contCU");
         this.contBizDate.setName("contBizDate");
         this.contDescription.setName("contDescription");
@@ -204,6 +210,7 @@ public abstract class AbstractJudgesExamineEditUI extends com.kingdee.eas.xr.cli
         this.continvitePerson.setName("continvitePerson");
         this.contprjOrg.setName("contprjOrg");
         this.contStatus.setName("contStatus");
+        this.contppr.setName("contppr");
         this.prmtCreator.setName("prmtCreator");
         this.pkCreateTime.setName("pkCreateTime");
         this.prmtLastUpdateUser.setName("prmtLastUpdateUser");
@@ -220,6 +227,8 @@ public abstract class AbstractJudgesExamineEditUI extends com.kingdee.eas.xr.cli
         this.prmtinvitePerson.setName("prmtinvitePerson");
         this.txtprjOrg.setName("txtprjOrg");
         this.comboStatus.setName("comboStatus");
+        this.scrollPaneppr.setName("scrollPaneppr");
+        this.txtppr.setName("txtppr");
         // CoreUI		
         this.setPreferredSize(new Dimension(938,476));
         // contCU		
@@ -299,7 +308,7 @@ public abstract class AbstractJudgesExamineEditUI extends com.kingdee.eas.xr.cli
         this.contjudgeName.setBoundLabelText(resHelper.getString("contjudgeName.boundLabelText"));		
         this.contjudgeName.setBoundLabelLength(100);		
         this.contjudgeName.setBoundLabelUnderline(true);		
-        this.contjudgeName.setVisible(true);
+        this.contjudgeName.setVisible(false);
         // contreportName		
         this.contreportName.setBoundLabelText(resHelper.getString("contreportName.boundLabelText"));		
         this.contreportName.setBoundLabelLength(100);		
@@ -320,6 +329,12 @@ public abstract class AbstractJudgesExamineEditUI extends com.kingdee.eas.xr.cli
         this.contStatus.setBoundLabelLength(100);		
         this.contStatus.setBoundLabelUnderline(true);		
         this.contStatus.setEnabled(false);
+        // contppr		
+        this.contppr.setBoundLabelText(resHelper.getString("contppr.boundLabelText"));		
+        this.contppr.setBoundLabelLength(16);		
+        this.contppr.setBoundLabelUnderline(true);		
+        this.contppr.setVisible(true);		
+        this.contppr.setBoundLabelAlignment(8);
         // prmtCreator		
         this.prmtCreator.setEnabled(false);		
         this.prmtCreator.setCommitFormat("$name$");		
@@ -488,6 +503,11 @@ public abstract class AbstractJudgesExamineEditUI extends com.kingdee.eas.xr.cli
         // comboStatus		
         this.comboStatus.addItems(EnumUtils.getEnumList("com.kingdee.eas.xr.app.XRBillStatusEnum").toArray());		
         this.comboStatus.setEnabled(false);
+        // scrollPaneppr
+        // txtppr		
+        this.txtppr.setVisible(true);		
+        this.txtppr.setRequired(false);		
+        this.txtppr.setMaxLength(255);
         this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmtreportName,txtprjOrg,txtprjName,prmtjudgeName,txtcheckPerson,pkevaDate,prmtinvitePerson}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
@@ -537,38 +557,40 @@ public abstract class AbstractJudgesExamineEditUI extends com.kingdee.eas.xr.cli
         contBizStatus.setBoundEditor(comboBizStatus);
         //kDPanel1
         kDPanel1.setLayout(new KDLayout());
-        kDPanel1.putClientProperty("OriginalBounds", new Rectangle(3, 3, 938, 475));        contCreator.setBounds(new Rectangle(23, 375, 270, 19));
-        kDPanel1.add(contCreator, new KDLayout.Constraints(23, 375, 270, 19, 0));
-        contCreateTime.setBounds(new Rectangle(23, 404, 270, 19));
-        kDPanel1.add(contCreateTime, new KDLayout.Constraints(23, 404, 270, 19, 0));
-        contLastUpdateUser.setBounds(new Rectangle(326, 375, 270, 19));
-        kDPanel1.add(contLastUpdateUser, new KDLayout.Constraints(326, 375, 270, 19, 0));
-        contLastUpdateTime.setBounds(new Rectangle(326, 404, 270, 19));
-        kDPanel1.add(contLastUpdateTime, new KDLayout.Constraints(326, 404, 270, 19, 0));
-        contAuditor.setBounds(new Rectangle(629, 375, 270, 19));
-        kDPanel1.add(contAuditor, new KDLayout.Constraints(629, 375, 270, 19, 0));
-        contAuditTime.setBounds(new Rectangle(629, 404, 270, 19));
-        kDPanel1.add(contAuditTime, new KDLayout.Constraints(629, 404, 270, 19, 0));
-        kDContainer1.setBounds(new Rectangle(13, 112, 909, 241));
-        kDPanel1.add(kDContainer1, new KDLayout.Constraints(13, 112, 909, 241, 0));
-        contcheckPerson.setBounds(new Rectangle(23, 77, 270, 19));
-        kDPanel1.add(contcheckPerson, new KDLayout.Constraints(23, 77, 270, 19, 0));
-        contprjName.setBounds(new Rectangle(23, 49, 270, 19));
-        kDPanel1.add(contprjName, new KDLayout.Constraints(23, 49, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contNumber.setBounds(new Rectangle(22, 22, 270, 19));
-        kDPanel1.add(contNumber, new KDLayout.Constraints(22, 22, 270, 19, 0));
-        contevaDate.setBounds(new Rectangle(326, 77, 270, 19));
-        kDPanel1.add(contevaDate, new KDLayout.Constraints(326, 77, 270, 19, 0));
-        contjudgeName.setBounds(new Rectangle(327, 49, 270, 19));
-        kDPanel1.add(contjudgeName, new KDLayout.Constraints(327, 49, 270, 19, 0));
-        contreportName.setBounds(new Rectangle(326, 22, 270, 19));
-        kDPanel1.add(contreportName, new KDLayout.Constraints(326, 22, 270, 19, 0));
-        continvitePerson.setBounds(new Rectangle(631, 49, 270, 19));
-        kDPanel1.add(continvitePerson, new KDLayout.Constraints(631, 49, 270, 19, 0));
-        contprjOrg.setBounds(new Rectangle(630, 22, 270, 19));
-        kDPanel1.add(contprjOrg, new KDLayout.Constraints(630, 22, 270, 19, 0));
-        contStatus.setBounds(new Rectangle(629, 77, 270, 19));
-        kDPanel1.add(contStatus, new KDLayout.Constraints(629, 77, 270, 19, 0));
+        kDPanel1.putClientProperty("OriginalBounds", new Rectangle(3, 3, 938, 475));        contCreator.setBounds(new Rectangle(13, 410, 270, 19));
+        kDPanel1.add(contCreator, new KDLayout.Constraints(13, 410, 270, 19, 0));
+        contCreateTime.setBounds(new Rectangle(13, 439, 270, 19));
+        kDPanel1.add(contCreateTime, new KDLayout.Constraints(13, 439, 270, 19, 0));
+        contLastUpdateUser.setBounds(new Rectangle(332, 410, 270, 19));
+        kDPanel1.add(contLastUpdateUser, new KDLayout.Constraints(332, 410, 270, 19, 0));
+        contLastUpdateTime.setBounds(new Rectangle(332, 439, 270, 19));
+        kDPanel1.add(contLastUpdateTime, new KDLayout.Constraints(332, 439, 270, 19, 0));
+        contAuditor.setBounds(new Rectangle(652, 410, 270, 19));
+        kDPanel1.add(contAuditor, new KDLayout.Constraints(652, 410, 270, 19, 0));
+        contAuditTime.setBounds(new Rectangle(652, 439, 270, 19));
+        kDPanel1.add(contAuditTime, new KDLayout.Constraints(652, 439, 270, 19, 0));
+        kDContainer1.setBounds(new Rectangle(13, 136, 909, 269));
+        kDPanel1.add(kDContainer1, new KDLayout.Constraints(13, 136, 909, 269, 0));
+        contcheckPerson.setBounds(new Rectangle(14, 82, 270, 19));
+        kDPanel1.add(contcheckPerson, new KDLayout.Constraints(14, 82, 270, 19, 0));
+        contprjName.setBounds(new Rectangle(14, 52, 270, 19));
+        kDPanel1.add(contprjName, new KDLayout.Constraints(14, 52, 270, 19, 0));
+        contNumber.setBounds(new Rectangle(14, 22, 270, 19));
+        kDPanel1.add(contNumber, new KDLayout.Constraints(14, 22, 270, 19, 0));
+        contevaDate.setBounds(new Rectangle(333, 45, 270, 19));
+        kDPanel1.add(contevaDate, new KDLayout.Constraints(333, 45, 270, 19, 0));
+        contjudgeName.setBounds(new Rectangle(596, 15, 270, 19));
+        kDPanel1.add(contjudgeName, new KDLayout.Constraints(596, 15, 270, 19, 0));
+        contreportName.setBounds(new Rectangle(333, 22, 270, 19));
+        kDPanel1.add(contreportName, new KDLayout.Constraints(333, 22, 270, 19, 0));
+        continvitePerson.setBounds(new Rectangle(14, 114, 270, 19));
+        kDPanel1.add(continvitePerson, new KDLayout.Constraints(14, 114, 270, 19, 0));
+        contprjOrg.setBounds(new Rectangle(652, 22, 270, 19));
+        kDPanel1.add(contprjOrg, new KDLayout.Constraints(652, 22, 270, 19, 0));
+        contStatus.setBounds(new Rectangle(652, 45, 270, 19));
+        kDPanel1.add(contStatus, new KDLayout.Constraints(652, 45, 270, 19, 0));
+        contppr.setBounds(new Rectangle(333, 65, 590, 68));
+        kDPanel1.add(contppr, new KDLayout.Constraints(333, 65, 590, 68, 0));
         //contCreator
         contCreator.setBoundEditor(prmtCreator);
         //contCreateTime
@@ -610,6 +632,10 @@ vo.put("record","1");
         contprjOrg.setBoundEditor(txtprjOrg);
         //contStatus
         contStatus.setBoundEditor(comboStatus);
+        //contppr
+        contppr.setBoundEditor(scrollPaneppr);
+        //scrollPaneppr
+        scrollPaneppr.getViewport().add(txtppr, null);
 
     }
 
@@ -730,8 +756,9 @@ vo.put("record","1");
         this.toolBar.add(btnAddNew);
         this.toolBar.add(btnCloud);
         this.toolBar.add(btnEdit);
-        this.toolBar.add(kDSeparatorCloud);
+        this.toolBar.add(btnXunTong);
         this.toolBar.add(btnSave);
+        this.toolBar.add(kDSeparatorCloud);
         this.toolBar.add(btnReset);
         this.toolBar.add(btnSubmit);
         this.toolBar.add(btnCopy);
@@ -806,7 +833,8 @@ vo.put("record","1");
 		dataBinder.registerBinding("reportName", com.kingdee.eas.port.pm.invite.InviteReportInfo.class, this.prmtreportName, "data");
 		dataBinder.registerBinding("invitePerson", com.kingdee.eas.port.pm.base.JudgesInfo.class, this.prmtinvitePerson, "data");
 		dataBinder.registerBinding("prjOrg", String.class, this.txtprjOrg, "text");
-		dataBinder.registerBinding("status", com.kingdee.eas.xr.app.XRBillStatusEnum.class, this.comboStatus, "selectedItem");		
+		dataBinder.registerBinding("status", com.kingdee.eas.xr.app.XRBillStatusEnum.class, this.comboStatus, "selectedItem");
+		dataBinder.registerBinding("ppr", String.class, this.txtppr, "text");		
 	}
 	//Regiester UI State
 	private void registerUIState(){		
@@ -964,7 +992,8 @@ vo.put("record","1");
 		getValidateHelper().registerBindProperty("reportName", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("invitePerson", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("prjOrg", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("status", ValidateHelper.ON_SAVE);    		
+		getValidateHelper().registerBindProperty("status", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("ppr", ValidateHelper.ON_SAVE);    		
 	}
 
 
@@ -1106,6 +1135,7 @@ vo.put("record","1");
 		}
         sic.add(new SelectorItemInfo("prjOrg"));
         sic.add(new SelectorItemInfo("status"));
+        sic.add(new SelectorItemInfo("ppr"));
         return sic;
     }        
     	

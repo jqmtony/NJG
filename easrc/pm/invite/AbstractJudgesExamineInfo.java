@@ -102,6 +102,17 @@ public class AbstractJudgesExamineInfo extends com.kingdee.eas.xr.XRBillBaseInfo
     {
         put("invitePerson", item);
     }
+    /**
+     * Object:专家现场考核表's 被考核专家姓名property 
+     */
+    public String getPpr()
+    {
+        return getString("ppr");
+    }
+    public void setPpr(String item)
+    {
+        setString("ppr", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("279694DC");

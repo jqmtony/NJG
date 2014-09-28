@@ -61,6 +61,17 @@ public class AbstractEvaluationEntryValidInfo extends com.kingdee.eas.framework.
     {
         setString("judges", item);
     }
+    /**
+     * Object:符合性审查分录's 备注property 
+     */
+    public String getRemake()
+    {
+        return getString("remake");
+    }
+    public void setRemake(String item)
+    {
+        setString("remake", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("A85941CF");

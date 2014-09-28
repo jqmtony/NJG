@@ -63,6 +63,9 @@ public class WinInviteReportListUI extends AbstractWinInviteReportListUI
     	// TODO Auto-generated method stub
     	super.onLoad();
     	buildProjectTree();
+    	
+    	if(getUIContext().get("IDSET") != null)
+    		kDTreeView1.setVisible(false); 
     	if(this.kDTree1.getRowCount()>0){
     		this.kDTree1.setSelectionRow(0);
     		this.kDTree1.expandAllNodes(true, (TreeNode) this.kDTree1.getModel().getRoot());
@@ -116,6 +119,12 @@ public class WinInviteReportListUI extends AbstractWinInviteReportListUI
     	// TODO Auto-generated method stub
     	EntityViewInfo newViewInfo = (EntityViewInfo) viewInfo.clone();
     	FilterInfo filterInfo = new FilterInfo();
+    	
+    	if(getUIContext().get("IDSET")!=null)
+    	{
+    		filterInfo.getFilterItems().add(new FilterItemInfo("id",getUIContext().get("IDSET"),CompareType.INCLUDE));
+    	}
+    	
     	DefaultKingdeeTreeNode treeNode = (DefaultKingdeeTreeNode)this.kDTree1.getLastSelectedPathComponent();
     	if(treeNode!=null)
     	{

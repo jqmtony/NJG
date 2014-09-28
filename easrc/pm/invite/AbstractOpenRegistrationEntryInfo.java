@@ -138,6 +138,28 @@ public class AbstractOpenRegistrationEntryInfo extends com.kingdee.eas.framework
     {
         put("supplierName", item);
     }
+    /**
+     * Object:招标单位信息's 是否到场property 
+     */
+    public boolean isIsPresent()
+    {
+        return getBoolean("isPresent");
+    }
+    public void setIsPresent(boolean item)
+    {
+        setBoolean("isPresent", item);
+    }
+    /**
+     * Object:招标单位信息's 是否合格property 
+     */
+    public boolean isIsQualified()
+    {
+        return getBoolean("isQualified");
+    }
+    public void setIsQualified(boolean item)
+    {
+        setBoolean("isQualified", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("3DE52066");

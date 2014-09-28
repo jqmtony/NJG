@@ -19,6 +19,7 @@ public class AbstractInviteReportInfo extends com.kingdee.eas.xr.XRBillBaseInfo 
         put("Entry4", new com.kingdee.eas.port.pm.invite.InviteReportEntry4Collection());
         put("Entry1", new com.kingdee.eas.port.pm.invite.InviteReportEntry1Collection());
         put("Entry5", new com.kingdee.eas.port.pm.invite.InviteReportEntry5Collection());
+        put("E6", new com.kingdee.eas.port.pm.invite.InviteReportE6Collection());
         put("Entry3", new com.kingdee.eas.port.pm.invite.InviteReportEntry3Collection());
         put("Entry2", new com.kingdee.eas.port.pm.invite.InviteReportEntry2Collection());
     }
@@ -333,6 +334,24 @@ public class AbstractInviteReportInfo extends com.kingdee.eas.xr.XRBillBaseInfo 
     public void setProjectNumber(String item)
     {
         setString("projectNumber", item);
+    }
+    /**
+     * Object:招标方案申报's 资质要求property 
+     */
+    public String getQualificationRequemt()
+    {
+        return getString("QualificationRequemt");
+    }
+    public void setQualificationRequemt(String item)
+    {
+        setString("QualificationRequemt", item);
+    }
+    /**
+     * Object: 招标方案申报 's 评审指标信息 property 
+     */
+    public com.kingdee.eas.port.pm.invite.InviteReportE6Collection getE6()
+    {
+        return (com.kingdee.eas.port.pm.invite.InviteReportE6Collection)get("E6");
     }
     public BOSObjectType getBOSType()
     {

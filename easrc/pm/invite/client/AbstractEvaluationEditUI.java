@@ -319,22 +319,14 @@ public abstract class AbstractEvaluationEditUI extends com.kingdee.eas.xr.client
         this.contevaDate.setBoundLabelUnderline(true);		
         this.contevaDate.setVisible(true);
         // kdtEntryValid
-		String kdtEntryValidStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"judges\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"indicators\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"valid\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{judges}</t:Cell><t:Cell>$Resource{indicators}</t:Cell><t:Cell>$Resource{valid}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		String kdtEntryValidStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"judges\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"indicators\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"valid\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"remake\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{judges}</t:Cell><t:Cell>$Resource{indicators}</t:Cell><t:Cell>$Resource{valid}</t:Cell><t:Cell>$Resource{remake}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.kdtEntryValid.setFormatXml(resHelper.translateString("kdtEntryValid",kdtEntryValidStrXML));
 
-                this.kdtEntryValid.putBindContents("editData",new String[] {"seq","judges","indicators","valid"});
+                this.kdtEntryValid.putBindContents("editData",new String[] {"seq","judges","indicators","valid","remake"});
 
 
         this.kdtEntryValid.checkParsed();
-        KDFormattedTextField kdtEntryValid_seq_TextField = new KDFormattedTextField();
-        kdtEntryValid_seq_TextField.setName("kdtEntryValid_seq_TextField");
-        kdtEntryValid_seq_TextField.setVisible(true);
-        kdtEntryValid_seq_TextField.setEditable(true);
-        kdtEntryValid_seq_TextField.setHorizontalAlignment(2);
-        kdtEntryValid_seq_TextField.setDataType(0);
-        KDTDefaultCellEditor kdtEntryValid_seq_CellEditor = new KDTDefaultCellEditor(kdtEntryValid_seq_TextField);
-        this.kdtEntryValid.getColumn("seq").setEditor(kdtEntryValid_seq_CellEditor);
         KDTextField kdtEntryValid_judges_TextField = new KDTextField();
         kdtEntryValid_judges_TextField.setName("kdtEntryValid_judges_TextField");
         kdtEntryValid_judges_TextField.setMaxLength(100);
@@ -350,6 +342,11 @@ public abstract class AbstractEvaluationEditUI extends com.kingdee.eas.xr.client
         kdtEntryValid_valid_TextField.setMaxLength(200);
         KDTDefaultCellEditor kdtEntryValid_valid_CellEditor = new KDTDefaultCellEditor(kdtEntryValid_valid_TextField);
         this.kdtEntryValid.getColumn("valid").setEditor(kdtEntryValid_valid_CellEditor);
+        KDTextField kdtEntryValid_remake_TextField = new KDTextField();
+        kdtEntryValid_remake_TextField.setName("kdtEntryValid_remake_TextField");
+        kdtEntryValid_remake_TextField.setMaxLength(100);
+        KDTDefaultCellEditor kdtEntryValid_remake_CellEditor = new KDTDefaultCellEditor(kdtEntryValid_remake_TextField);
+        this.kdtEntryValid.getColumn("remake").setEditor(kdtEntryValid_remake_CellEditor);
         // kdtEntryUnit
 		String kdtEntryUnitStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"enterprise\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{enterprise}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
@@ -359,14 +356,6 @@ public abstract class AbstractEvaluationEditUI extends com.kingdee.eas.xr.client
 
 
         this.kdtEntryUnit.checkParsed();
-        KDFormattedTextField kdtEntryUnit_seq_TextField = new KDFormattedTextField();
-        kdtEntryUnit_seq_TextField.setName("kdtEntryUnit_seq_TextField");
-        kdtEntryUnit_seq_TextField.setVisible(true);
-        kdtEntryUnit_seq_TextField.setEditable(true);
-        kdtEntryUnit_seq_TextField.setHorizontalAlignment(2);
-        kdtEntryUnit_seq_TextField.setDataType(0);
-        KDTDefaultCellEditor kdtEntryUnit_seq_CellEditor = new KDTDefaultCellEditor(kdtEntryUnit_seq_TextField);
-        this.kdtEntryUnit.getColumn("seq").setEditor(kdtEntryUnit_seq_CellEditor);
         KDTextField kdtEntryUnit_enterprise_TextField = new KDTextField();
         kdtEntryUnit_enterprise_TextField.setName("kdtEntryUnit_enterprise_TextField");
         kdtEntryUnit_enterprise_TextField.setMaxLength(200);
@@ -381,14 +370,6 @@ public abstract class AbstractEvaluationEditUI extends com.kingdee.eas.xr.client
 
 
         this.kdtEntryScore.checkParsed();
-        KDFormattedTextField kdtEntryScore_seq_TextField = new KDFormattedTextField();
-        kdtEntryScore_seq_TextField.setName("kdtEntryScore_seq_TextField");
-        kdtEntryScore_seq_TextField.setVisible(true);
-        kdtEntryScore_seq_TextField.setEditable(true);
-        kdtEntryScore_seq_TextField.setHorizontalAlignment(2);
-        kdtEntryScore_seq_TextField.setDataType(0);
-        KDTDefaultCellEditor kdtEntryScore_seq_CellEditor = new KDTDefaultCellEditor(kdtEntryScore_seq_TextField);
-        this.kdtEntryScore.getColumn("seq").setEditor(kdtEntryScore_seq_CellEditor);
         KDTextField kdtEntryScore_judges_TextField = new KDTextField();
         kdtEntryScore_judges_TextField.setName("kdtEntryScore_judges_TextField");
         kdtEntryScore_judges_TextField.setMaxLength(100);
@@ -420,14 +401,6 @@ public abstract class AbstractEvaluationEditUI extends com.kingdee.eas.xr.client
 
 
         this.kdtEntryTotal.checkParsed();
-        KDFormattedTextField kdtEntryTotal_seq_TextField = new KDFormattedTextField();
-        kdtEntryTotal_seq_TextField.setName("kdtEntryTotal_seq_TextField");
-        kdtEntryTotal_seq_TextField.setVisible(true);
-        kdtEntryTotal_seq_TextField.setEditable(true);
-        kdtEntryTotal_seq_TextField.setHorizontalAlignment(2);
-        kdtEntryTotal_seq_TextField.setDataType(0);
-        KDTDefaultCellEditor kdtEntryTotal_seq_CellEditor = new KDTDefaultCellEditor(kdtEntryTotal_seq_TextField);
-        this.kdtEntryTotal.getColumn("seq").setEditor(kdtEntryTotal_seq_CellEditor);
         KDTextField kdtEntryTotal_indicators_TextField = new KDTextField();
         kdtEntryTotal_indicators_TextField.setName("kdtEntryTotal_indicators_TextField");
         kdtEntryTotal_indicators_TextField.setMaxLength(100);
@@ -818,6 +791,7 @@ kDContainer2.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
     {
         this.toolBar.add(btnPageSetup);
         this.toolBar.add(btnCloud);
+        this.toolBar.add(btnXunTong);
         this.toolBar.add(kDSeparatorCloud);
         this.toolBar.add(btnAddNew);
         this.toolBar.add(btnEdit);
@@ -838,32 +812,32 @@ kDContainer2.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
         this.toolBar.add(separatorFW2);
         this.toolBar.add(separatorFW3);
         this.toolBar.add(btnReset);
+        this.toolBar.add(btnTraceUp);
+        this.toolBar.add(btnTraceDown);
+        this.toolBar.add(btnWorkFlowG);
+        this.toolBar.add(btnSignature);
+        this.toolBar.add(btnViewSignature);
+        this.toolBar.add(separatorFW4);
+        this.toolBar.add(btnNumberSign);
+        this.toolBar.add(separatorFW7);
+        this.toolBar.add(btnCreateFrom);
+        this.toolBar.add(btnCopyFrom);
+        this.toolBar.add(btnCreateTo);
+        this.toolBar.add(separatorFW5);
+        this.toolBar.add(separatorFW8);
         this.toolBar.add(btnAddLine);
         this.toolBar.add(btnCopyLine);
         this.toolBar.add(btnInsertLine);
         this.toolBar.add(btnRemoveLine);
-        this.toolBar.add(btnCreateFrom);
-        this.toolBar.add(btnCopyFrom);
-        this.toolBar.add(btnTraceUp);
-        this.toolBar.add(btnTraceDown);
-        this.toolBar.add(btnAuditResult);
-        this.toolBar.add(btnWFViewdoProccess);
-        this.toolBar.add(btnWFViewSubmitProccess);
-        this.toolBar.add(btnMultiapprove);
-        this.toolBar.add(btnNextPerson);
+        this.toolBar.add(separatorFW6);
+        this.toolBar.add(separatorFW9);
         this.toolBar.add(btnVoucher);
         this.toolBar.add(btnDelVoucher);
-        this.toolBar.add(btnWorkFlowG);
-        this.toolBar.add(separatorFW6);
-        this.toolBar.add(separatorFW4);
-        this.toolBar.add(separatorFW5);
-        this.toolBar.add(separatorFW8);
-        this.toolBar.add(separatorFW9);
-        this.toolBar.add(separatorFW7);
-        this.toolBar.add(btnCreateTo);
-        this.toolBar.add(btnSignature);
-        this.toolBar.add(btnViewSignature);
-        this.toolBar.add(btnNumberSign);
+        this.toolBar.add(btnAuditResult);
+        this.toolBar.add(btnMultiapprove);
+        this.toolBar.add(btnWFViewdoProccess);
+        this.toolBar.add(btnWFViewSubmitProccess);
+        this.toolBar.add(btnNextPerson);
         this.toolBar.add(btnAudit);
         this.toolBar.add(btnUnAudit);
 
@@ -878,6 +852,7 @@ kDContainer2.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
 		dataBinder.registerBinding("EntryValid.indicators", String.class, this.kdtEntryValid, "indicators.text");
 		dataBinder.registerBinding("EntryValid.valid", String.class, this.kdtEntryValid, "valid.text");
 		dataBinder.registerBinding("EntryValid.judges", String.class, this.kdtEntryValid, "judges.text");
+		dataBinder.registerBinding("EntryValid.remake", String.class, this.kdtEntryValid, "remake.text");
 		dataBinder.registerBinding("EntryUnit.seq", int.class, this.kdtEntryUnit, "seq.text");
 		dataBinder.registerBinding("EntryUnit", com.kingdee.eas.port.pm.invite.EvaluationEntryUnitInfo.class, this.kdtEntryUnit, "userObject");
 		dataBinder.registerBinding("EntryUnit.enterprise", String.class, this.kdtEntryUnit, "enterprise.text");
@@ -1047,6 +1022,7 @@ kDContainer2.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
 		getValidateHelper().registerBindProperty("EntryValid.indicators", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("EntryValid.valid", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("EntryValid.judges", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("EntryValid.remake", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("EntryUnit.seq", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("EntryUnit", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("EntryUnit.enterprise", ValidateHelper.ON_SAVE);    
@@ -1148,6 +1124,7 @@ kDContainer2.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
     	sic.add(new SelectorItemInfo("EntryValid.indicators"));
     	sic.add(new SelectorItemInfo("EntryValid.valid"));
     	sic.add(new SelectorItemInfo("EntryValid.judges"));
+    	sic.add(new SelectorItemInfo("EntryValid.remake"));
     	sic.add(new SelectorItemInfo("EntryUnit.seq"));
 		if(selectorAll.equalsIgnoreCase("true"))
 		{

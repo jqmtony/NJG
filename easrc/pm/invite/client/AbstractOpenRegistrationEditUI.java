@@ -300,7 +300,7 @@ public abstract class AbstractOpenRegistrationEditUI extends com.kingdee.eas.xr.
         this.contendDate.setBoundLabelText(resHelper.getString("contendDate.boundLabelText"));		
         this.contendDate.setBoundLabelLength(100);		
         this.contendDate.setBoundLabelUnderline(true);		
-        this.contendDate.setVisible(true);
+        this.contendDate.setVisible(false);
         // contNumber		
         this.contNumber.setBoundLabelText(resHelper.getString("contNumber.boundLabelText"));		
         this.contNumber.setBoundLabelLength(100);		
@@ -343,10 +343,9 @@ public abstract class AbstractOpenRegistrationEditUI extends com.kingdee.eas.xr.
         this.contcoefficient.setBoundLabelText(resHelper.getString("contcoefficient.boundLabelText"));		
         this.contcoefficient.setBoundLabelLength(100);		
         this.contcoefficient.setBoundLabelUnderline(true);		
-        this.contcoefficient.setVisible(true);
+        this.contcoefficient.setVisible(false);
         // chkcancel		
         this.chkcancel.setText(resHelper.getString("chkcancel.text"));		
-        this.chkcancel.setVisible(true);		
         this.chkcancel.setHorizontalAlignment(2);
         // prmtreportName		
         this.prmtreportName.setQueryInfo("com.kingdee.eas.port.pm.invite.app.InviteReportQuery");		
@@ -389,22 +388,14 @@ public abstract class AbstractOpenRegistrationEditUI extends com.kingdee.eas.xr.
         this.comboStatus.addItems(EnumUtils.getEnumList("com.kingdee.eas.xr.app.XRBillStatusEnum").toArray());		
         this.comboStatus.setEnabled(false);
         // kdtEntry
-		String kdtEntryStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"0\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"supplierName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"contact\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"telephone\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"payDeposit\" t:width=\"115\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"deposit\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"quotedPrice\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"prjPeriod\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"quality\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"directions\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"comment\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{supplierName}</t:Cell><t:Cell>$Resource{contact}</t:Cell><t:Cell>$Resource{telephone}</t:Cell><t:Cell>$Resource{payDeposit}</t:Cell><t:Cell>$Resource{deposit}</t:Cell><t:Cell>$Resource{quotedPrice}</t:Cell><t:Cell>$Resource{prjPeriod}</t:Cell><t:Cell>$Resource{quality}</t:Cell><t:Cell>$Resource{directions}</t:Cell><t:Cell>$Resource{comment}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		String kdtEntryStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"0\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"supplierName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"contact\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"telephone\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"payDeposit\" t:width=\"115\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"isPresent\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"isQualified\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"deposit\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"quotedPrice\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"prjPeriod\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"quality\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"directions\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"comment\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{supplierName}</t:Cell><t:Cell>$Resource{contact}</t:Cell><t:Cell>$Resource{telephone}</t:Cell><t:Cell>$Resource{payDeposit}</t:Cell><t:Cell>$Resource{isPresent}</t:Cell><t:Cell>$Resource{isQualified}</t:Cell><t:Cell>$Resource{deposit}</t:Cell><t:Cell>$Resource{quotedPrice}</t:Cell><t:Cell>$Resource{prjPeriod}</t:Cell><t:Cell>$Resource{quality}</t:Cell><t:Cell>$Resource{directions}</t:Cell><t:Cell>$Resource{comment}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.kdtEntry.setFormatXml(resHelper.translateString("kdtEntry",kdtEntryStrXML));
 
-                this.kdtEntry.putBindContents("editData",new String[] {"seq","supplierName","contact","telephone","payDeposit","deposit","quotedPrice","prjPeriod","quality","directions","comment"});
+                this.kdtEntry.putBindContents("editData",new String[] {"seq","supplierName","contact","telephone","payDeposit","isPresent","isQualified","deposit","quotedPrice","prjPeriod","quality","directions","comment"});
 
 
         this.kdtEntry.checkParsed();
-        KDFormattedTextField kdtEntry_seq_TextField = new KDFormattedTextField();
-        kdtEntry_seq_TextField.setName("kdtEntry_seq_TextField");
-        kdtEntry_seq_TextField.setVisible(true);
-        kdtEntry_seq_TextField.setEditable(true);
-        kdtEntry_seq_TextField.setHorizontalAlignment(2);
-        kdtEntry_seq_TextField.setDataType(0);
-        KDTDefaultCellEditor kdtEntry_seq_CellEditor = new KDTDefaultCellEditor(kdtEntry_seq_TextField);
-        this.kdtEntry.getColumn("seq").setEditor(kdtEntry_seq_CellEditor);
         final KDBizPromptBox kdtEntry_supplierName_PromptBox = new KDBizPromptBox();
         kdtEntry_supplierName_PromptBox.setQueryInfo("com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStockQuery");
         kdtEntry_supplierName_PromptBox.setVisible(true);
@@ -431,6 +422,14 @@ public abstract class AbstractOpenRegistrationEditUI extends com.kingdee.eas.xr.
         kdtEntry_payDeposit_CheckBox.setName("kdtEntry_payDeposit_CheckBox");
         KDTDefaultCellEditor kdtEntry_payDeposit_CellEditor = new KDTDefaultCellEditor(kdtEntry_payDeposit_CheckBox);
         this.kdtEntry.getColumn("payDeposit").setEditor(kdtEntry_payDeposit_CellEditor);
+        KDCheckBox kdtEntry_isPresent_CheckBox = new KDCheckBox();
+        kdtEntry_isPresent_CheckBox.setName("kdtEntry_isPresent_CheckBox");
+        KDTDefaultCellEditor kdtEntry_isPresent_CellEditor = new KDTDefaultCellEditor(kdtEntry_isPresent_CheckBox);
+        this.kdtEntry.getColumn("isPresent").setEditor(kdtEntry_isPresent_CellEditor);
+        KDCheckBox kdtEntry_isQualified_CheckBox = new KDCheckBox();
+        kdtEntry_isQualified_CheckBox.setName("kdtEntry_isQualified_CheckBox");
+        KDTDefaultCellEditor kdtEntry_isQualified_CellEditor = new KDTDefaultCellEditor(kdtEntry_isQualified_CheckBox);
+        this.kdtEntry.getColumn("isQualified").setEditor(kdtEntry_isQualified_CellEditor);
         KDTextField kdtEntry_deposit_TextField = new KDTextField();
         kdtEntry_deposit_TextField.setName("kdtEntry_deposit_TextField");
         kdtEntry_deposit_TextField.setMaxLength(100);
@@ -482,19 +481,17 @@ public abstract class AbstractOpenRegistrationEditUI extends com.kingdee.eas.xr.
         this.txtreportNumber.setMaxLength(80);		
         this.txtreportNumber.setRequired(false);
         // txtregName		
-        this.txtregName.setVisible(true);		
         this.txtregName.setHorizontalAlignment(2);		
         this.txtregName.setMaxLength(100);		
         this.txtregName.setRequired(false);
         // txtcoefficient		
-        this.txtcoefficient.setVisible(true);		
         this.txtcoefficient.setHorizontalAlignment(2);		
         this.txtcoefficient.setMaxLength(100);		
         this.txtcoefficient.setRequired(false);
         // btnDoCancel
         this.btnDoCancel.setAction((IItemAction)ActionProxyFactory.getProxy(actionDoCancel, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnDoCancel.setText(resHelper.getString("btnDoCancel.text"));
-        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {comboStatus,comboBizStatus,pkAuditTime,txtNumber,pkBizDate,txtDescription,prmtAuditor,prmtCreator,pkCreateTime,prmtLastUpdateUser,pkLastUpdateTime,prmtCU,txtopLocation,pkopDate,prmtreportName,pkendDate,txtreportNumber,kdtEntry,txtregName,txtcoefficient,chkcancel}));
+        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {comboStatus,comboBizStatus,pkAuditTime,txtNumber,pkBizDate,txtDescription,prmtAuditor,prmtCreator,pkCreateTime,prmtLastUpdateUser,pkLastUpdateTime,prmtCU,txtopLocation,pkopDate,prmtreportName,pkendDate,txtreportNumber,txtregName,txtcoefficient,chkcancel,kdtEntry}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
 		registerBindings();
@@ -553,34 +550,34 @@ public abstract class AbstractOpenRegistrationEditUI extends com.kingdee.eas.xr.
         kDPanel1.setLayout(new KDLayout());
         kDPanel1.putClientProperty("OriginalBounds", new Rectangle(2, 2, 953, 439));        contreportName.setBounds(new Rectangle(338, 47, 270, 19));
         kDPanel1.add(contreportName, new KDLayout.Constraints(338, 47, 270, 19, 0));
-        contopLocation.setBounds(new Rectangle(652, 22, 270, 19));
-        kDPanel1.add(contopLocation, new KDLayout.Constraints(652, 22, 270, 19, 0));
-        contopDate.setBounds(new Rectangle(24, 47, 270, 19));
-        kDPanel1.add(contopDate, new KDLayout.Constraints(24, 47, 270, 19, 0));
-        contendDate.setBounds(new Rectangle(24, 73, 270, 19));
-        kDPanel1.add(contendDate, new KDLayout.Constraints(24, 73, 270, 19, 0));
-        contNumber.setBounds(new Rectangle(24, 22, 270, 19));
-        kDPanel1.add(contNumber, new KDLayout.Constraints(24, 22, 270, 19, 0));
-        contStatus.setBounds(new Rectangle(652, 73, 270, 19));
-        kDPanel1.add(contStatus, new KDLayout.Constraints(652, 73, 270, 19, 0));
-        kDContainer1.setBounds(new Rectangle(12, 127, 927, 221));
-        kDPanel1.add(kDContainer1, new KDLayout.Constraints(12, 127, 927, 221, 0));
-        contCreator.setBounds(new Rectangle(24, 359, 270, 19));
-        kDPanel1.add(contCreator, new KDLayout.Constraints(24, 359, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contAuditor.setBounds(new Rectangle(652, 359, 270, 19));
-        kDPanel1.add(contAuditor, new KDLayout.Constraints(652, 359, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contAuditTime.setBounds(new Rectangle(652, 385, 270, 19));
-        kDPanel1.add(contAuditTime, new KDLayout.Constraints(652, 385, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contCreateTime.setBounds(new Rectangle(24, 385, 270, 19));
-        kDPanel1.add(contCreateTime, new KDLayout.Constraints(24, 385, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contreportNumber.setBounds(new Rectangle(652, 47, 270, 19));
-        kDPanel1.add(contreportNumber, new KDLayout.Constraints(652, 47, 270, 19, 0));
+        contopLocation.setBounds(new Rectangle(670, 22, 270, 19));
+        kDPanel1.add(contopLocation, new KDLayout.Constraints(670, 22, 270, 19, 0));
+        contopDate.setBounds(new Rectangle(13, 41, 270, 19));
+        kDPanel1.add(contopDate, new KDLayout.Constraints(13, 41, 270, 19, 0));
+        contendDate.setBounds(new Rectangle(589, 98, 270, 19));
+        kDPanel1.add(contendDate, new KDLayout.Constraints(589, 98, 270, 19, 0));
+        contNumber.setBounds(new Rectangle(13, 16, 270, 19));
+        kDPanel1.add(contNumber, new KDLayout.Constraints(13, 16, 270, 19, 0));
+        contStatus.setBounds(new Rectangle(13, 67, 270, 19));
+        kDPanel1.add(contStatus, new KDLayout.Constraints(13, 67, 270, 19, 0));
+        kDContainer1.setBounds(new Rectangle(13, 89, 927, 286));
+        kDPanel1.add(kDContainer1, new KDLayout.Constraints(13, 89, 927, 286, 0));
+        contCreator.setBounds(new Rectangle(13, 380, 270, 19));
+        kDPanel1.add(contCreator, new KDLayout.Constraints(13, 380, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contAuditor.setBounds(new Rectangle(338, 380, 270, 19));
+        kDPanel1.add(contAuditor, new KDLayout.Constraints(338, 380, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contAuditTime.setBounds(new Rectangle(338, 406, 270, 19));
+        kDPanel1.add(contAuditTime, new KDLayout.Constraints(338, 406, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contCreateTime.setBounds(new Rectangle(13, 406, 270, 19));
+        kDPanel1.add(contCreateTime, new KDLayout.Constraints(13, 406, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contreportNumber.setBounds(new Rectangle(670, 47, 270, 19));
+        kDPanel1.add(contreportNumber, new KDLayout.Constraints(670, 47, 270, 19, 0));
         contregName.setBounds(new Rectangle(338, 22, 270, 19));
         kDPanel1.add(contregName, new KDLayout.Constraints(338, 22, 270, 19, 0));
-        contcoefficient.setBounds(new Rectangle(338, 73, 270, 19));
-        kDPanel1.add(contcoefficient, new KDLayout.Constraints(338, 73, 270, 19, 0));
-        chkcancel.setBounds(new Rectangle(24, 100, 270, 19));
-        kDPanel1.add(chkcancel, new KDLayout.Constraints(24, 100, 270, 19, 0));
+        contcoefficient.setBounds(new Rectangle(348, 90, 270, 19));
+        kDPanel1.add(contcoefficient, new KDLayout.Constraints(348, 90, 270, 19, 0));
+        chkcancel.setBounds(new Rectangle(338, 67, 270, 19));
+        kDPanel1.add(chkcancel, new KDLayout.Constraints(338, 67, 270, 19, 0));
         //contreportName
         contreportName.setBoundEditor(prmtreportName);
         //contopLocation
@@ -730,8 +727,9 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
         this.toolBar.add(btnAddNew);
         this.toolBar.add(btnCloud);
         this.toolBar.add(btnEdit);
-        this.toolBar.add(kDSeparatorCloud);
+        this.toolBar.add(btnXunTong);
         this.toolBar.add(btnSave);
+        this.toolBar.add(kDSeparatorCloud);
         this.toolBar.add(btnReset);
         this.toolBar.add(btnSubmit);
         this.toolBar.add(btnCopy);
@@ -809,6 +807,8 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
 		dataBinder.registerBinding("Entry.telephone", String.class, this.kdtEntry, "telephone.text");
 		dataBinder.registerBinding("Entry.prjPeriod", String.class, this.kdtEntry, "prjPeriod.text");
 		dataBinder.registerBinding("Entry.supplierName", java.lang.Object.class, this.kdtEntry, "supplierName.text");
+		dataBinder.registerBinding("Entry.isPresent", boolean.class, this.kdtEntry, "isPresent.text");
+		dataBinder.registerBinding("Entry.isQualified", boolean.class, this.kdtEntry, "isQualified.text");
 		dataBinder.registerBinding("creator", com.kingdee.eas.base.permission.UserInfo.class, this.prmtCreator, "data");
 		dataBinder.registerBinding("auditor", com.kingdee.eas.base.permission.UserInfo.class, this.prmtAuditor, "data");
 		dataBinder.registerBinding("auditTime", java.sql.Timestamp.class, this.pkAuditTime, "value");
@@ -975,6 +975,8 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
 		getValidateHelper().registerBindProperty("Entry.telephone", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("Entry.prjPeriod", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("Entry.supplierName", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("Entry.isPresent", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("Entry.isQualified", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("creator", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("auditor", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("auditTime", ValidateHelper.ON_SAVE);    
@@ -1089,6 +1091,8 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
 			sic.add(new SelectorItemInfo("Entry.supplierName.supplierName"));
         	sic.add(new SelectorItemInfo("Entry.supplierName.number"));
 		}
+    	sic.add(new SelectorItemInfo("Entry.isPresent"));
+    	sic.add(new SelectorItemInfo("Entry.isQualified"));
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
 			sic.add(new SelectorItemInfo("creator.*"));

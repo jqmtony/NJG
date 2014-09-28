@@ -74,6 +74,9 @@ public class OpenRegistrationEditUI extends AbstractOpenRegistrationEditUI
     		prmtreportName.setEntityViewInfo(evi);
 		}
     	com.kingdee.eas.port.pm.invite.client.InviteReportEditUI.initContainerButton(this.kDContainer1, this.kdtEntry_detailPanel);
+    	
+    	this.pkopDate.setTimeEnabled(true);
+    	this.pkopDate.setDatePattern("yyyy-MM-dd HH:mm");
     }
     private void initConpoment() {
     	chkcancel.setEnabled(false);
@@ -98,15 +101,15 @@ public class OpenRegistrationEditUI extends AbstractOpenRegistrationEditUI
     	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, prmtreportName, "招标方案");
     	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, txtopLocation, "开标地点");
     	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, pkopDate, "开标时间");
-    	if(judgeSolution.integrate.equals(invite.getJudgeSolution())) {
-    		//综合评分时评标系数必填
-    		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, txtcoefficient, "评标系数");
-    		BigDecimal coffient = new BigDecimal(txtcoefficient.getText());
-    		if(coffient.compareTo(new BigDecimal(0.9)) < 0 || coffient.compareTo(new BigDecimal(1.0)) > 0) {
-    			MsgBox.showWarning("评标系数大于等于0.9小于等于1!!");
-    			SysUtil.abort();
-    		}
-    	}
+//    	if(judgeSolution.integrate.equals(invite.getJudgeSolution())) {
+//    		//综合评分时评标系数必填
+//    		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, txtcoefficient, "评标系数");
+//    		BigDecimal coffient = new BigDecimal(txtcoefficient.getText());
+//    		if(coffient.compareTo(new BigDecimal(0.9)) < 0 || coffient.compareTo(new BigDecimal(1.0)) > 0) {
+//    			MsgBox.showWarning("评标系数大于等于0.9小于等于1!!");
+//    			SysUtil.abort();
+//    		}
+//    	}
     	
     	for(int i = 0; i < this.kdtEntry.getRowCount(); i++) {
     		IRow row = this.kdtEntry.getRow(i);

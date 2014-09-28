@@ -3,25 +3,24 @@
  */
 package com.kingdee.eas.port.pm.invite.client;
 
-import java.awt.event.*;
-import java.util.Collections;
-import java.util.HashMap;
+import java.awt.event.ActionEvent;
 import java.util.HashSet;
-import java.util.Iterator;
 
 import org.apache.log4j.Logger;
 
+import com.kingdee.bos.ctrl.kdf.table.IRow;
+import com.kingdee.bos.ctrl.kdf.table.KDTable;
+import com.kingdee.bos.ctrl.swing.KDTextField;
+import com.kingdee.bos.ctrl.swing.event.DataChangeEvent;
+import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
-import com.kingdee.bos.util.BOSUuid;
-import com.kingdee.bos.dao.IObjectValue;
-import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.eas.basedata.assistant.ProjectInfo;
 import com.kingdee.eas.common.client.OprtState;
-import com.kingdee.eas.framework.*;
 import com.kingdee.eas.port.pm.base.ExamineIndicatorsCollection;
 import com.kingdee.eas.port.pm.base.ExamineIndicatorsFactory;
 import com.kingdee.eas.port.pm.base.ExamineIndicatorsInfo;
@@ -29,6 +28,9 @@ import com.kingdee.eas.port.pm.base.ExamineIndicatorsTreeCollection;
 import com.kingdee.eas.port.pm.base.ExamineIndicatorsTreeFactory;
 import com.kingdee.eas.port.pm.base.ExamineIndicatorsTreeInfo;
 import com.kingdee.eas.port.pm.base.IExamineIndicators;
+import com.kingdee.eas.port.pm.base.IJudges;
+import com.kingdee.eas.port.pm.base.JudgesFactory;
+import com.kingdee.eas.port.pm.base.JudgesInfo;
 import com.kingdee.eas.port.pm.invite.EvaluationCollection;
 import com.kingdee.eas.port.pm.invite.EvaluationFactory;
 import com.kingdee.eas.port.pm.invite.EvaluationInfo;
@@ -39,14 +41,6 @@ import com.kingdee.eas.port.pm.invite.JudgesComfirmEntryCollection;
 import com.kingdee.eas.port.pm.invite.JudgesComfirmEntryInfo;
 import com.kingdee.eas.port.pm.invite.JudgesComfirmFactory;
 import com.kingdee.eas.port.pm.invite.JudgesComfirmInfo;
-import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
-import com.kingdee.eas.util.SysUtil;
-import com.kingdee.bos.ctrl.kdf.table.IRow;
-import com.kingdee.bos.ctrl.kdf.table.KDTable;
-import com.kingdee.bos.ctrl.swing.KDTextField;
-import com.kingdee.bos.ctrl.swing.event.DataChangeEvent;
-import com.kingdee.bos.ctrl.swing.event.SelectorEvent;
-import com.kingdee.bos.ctrl.swing.event.SelectorListener;
 
 /**
  * output class name
@@ -69,6 +63,7 @@ public class JudgesExamineEditUI extends AbstractJudgesExamineEditUI
     	btnAddNew.setVisible(false);
     	txtprjName.setEnabled(false);
     	txtprjOrg.setEnabled(false);
+    	txtppr.setEditable(false);
     	
     	prmtreportName.setRequired(true);
     	prmtinvitePerson.setRequired(true);
@@ -120,8 +115,24 @@ public class JudgesExamineEditUI extends AbstractJudgesExamineEditUI
     protected void prmtreportName_dataChanged(DataChangeEvent e)
     		throws Exception {
     	super.prmtreportName_dataChanged(e);
+    	
+    	if(this.prmtreportName.getValue()==null)
+    		return;
+    	
     	InviteReportInfo reportInfo = (InviteReportInfo) this.prmtreportName.getValue(); 
     	reportInfo = InviteReportFactory.getRemoteInstance().getInviteReportInfo(new ObjectUuidPK(reportInfo.getId()));
+    	
+    	String totalPerson = "";
+    	
+    	IJudges IJudges = JudgesFactory.getRemoteInstance();
+    	
+    	for (int i = 0; i < reportInfo.getEntry3().size(); i++) 
+    	{
+    		JudgesInfo judInfo = reportInfo.getEntry3().get(i).getInvitePerson();
+    		totalPerson = (totalPerson.length()>0?totalPerson+";":"")+(judInfo!=null?IJudges.getJudgesInfo(new ObjectUuidPK(judInfo.getId())).getPersonName():"");
+		}
+    	this.txtppr.setText(totalPerson);
+    	
     	String oql = "where planName.id = '" + reportInfo.getId() + "'";
     	JudgesComfirmCollection juColl = JudgesComfirmFactory.getRemoteInstance().getJudgesComfirmCollection(oql);
     	JudgesComfirmInfo juinfo = juColl.get(0);
@@ -166,7 +177,7 @@ public class JudgesExamineEditUI extends AbstractJudgesExamineEditUI
     protected void verifyInput(ActionEvent actionevent) throws Exception {
     	// TODO Auto-generated method stub
     	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, prmtreportName, "招标方案");
-    	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, prmtjudgeName, "被考核专家");
+//    	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, prmtjudgeName, "被考核专家");
     	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, prmtinvitePerson, "招标办监督人员");
     	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, pkevaDate, "评标日期");
     	super.verifyInput(actionevent);

@@ -50,6 +50,19 @@ public class AbstractInviteReportEntry5Info extends com.kingdee.eas.framework.Co
     {
         put("judgeType", item);
     }
+    /**
+     * Object:专家构成信息's 确定方式property 
+     */
+    public com.kingdee.eas.port.pm.invite.determineThenWay getDetermineThenWay()
+    {
+        return com.kingdee.eas.port.pm.invite.determineThenWay.getEnum(getString("determineThenWay"));
+    }
+    public void setDetermineThenWay(com.kingdee.eas.port.pm.invite.determineThenWay item)
+    {
+		if (item != null) {
+        setString("determineThenWay", item.getValue());
+		}
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("76421709");

@@ -22,6 +22,7 @@ import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.swing.KDContainer;
 import com.kingdee.bos.ctrl.swing.KDTextField;
 import com.kingdee.bos.ctrl.swing.KDWorkButton;
+import com.kingdee.bos.ctrl.swing.event.DataChangeEvent;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
@@ -29,13 +30,16 @@ import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.eas.base.uiframe.client.UIFactoryHelper;
 import com.kingdee.eas.basedata.assistant.ProjectInfo;
 import com.kingdee.eas.basedata.org.AdminOrgUnitFactory;
 import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
 import com.kingdee.eas.basedata.org.IAdminOrgUnit;
 import com.kingdee.eas.basedata.org.client.f7.AdminF7;
 import com.kingdee.eas.common.EASBizException;
+import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
+import com.kingdee.eas.common.client.UIContext;
 import com.kingdee.eas.port.pm.base.IJudges;
 import com.kingdee.eas.port.pm.base.IJudgesTree;
 import com.kingdee.eas.port.pm.base.JudgesFactory;
@@ -95,7 +99,7 @@ public class JudgesComfirmEditUI extends AbstractJudgesComfirmEditUI
  		f7.setRootUnitID(SysContext.getSysContext().getCurrentAdminUnit().getId().toString());
  		this.prmtdepartment.setSelector(f7);
  		
-    	this.setPreferredSize(new Dimension(645, 560));
+//    	this.setPreferredSize(new Dimension(645, 560));
     	
     	//过滤项目下对应的招标方案
     	ProjectInfo info = (ProjectInfo) getUIContext().get("treeInfo");
@@ -107,6 +111,19 @@ public class JudgesComfirmEditUI extends AbstractJudgesComfirmEditUI
 			prmtplanName.setEntityViewInfo(evi);
 		}
 //    	InitWorkButton(this.kDContainer2);
+    }
+    
+    protected void prmtplanName_dataChanged(DataChangeEvent e) throws Exception {
+    	super.prmtplanName_dataChanged(e);
+    	if(prmtplanName.getValue()==null)
+    		return;
+    	InviteReportInfo Info = (InviteReportInfo)prmtplanName.getValue();
+    	
+		UIContext uiContext = new UIContext(this);
+		uiContext.put("ID", Info.getId());
+		InviteReportEditUI ui = (InviteReportEditUI)UIFactoryHelper.initUIObject(InviteReportEditUI.class.getName(), uiContext, null,OprtState.VIEW);
+		
+		kDContainer3.getContentPane().add(ui.getkdtEntry5(), BorderLayout.CENTER);
     }
     
     @Override
@@ -173,7 +190,8 @@ public class JudgesComfirmEditUI extends AbstractJudgesComfirmEditUI
 						for(int i = 0; i < coll.size(); i++) {
 				    		InviteReportEntry3Info entryInfo = coll.get(i);
 				    		IRow row = kdtEntry.addRow();
-				    	
+				    		if(entryInfo.getInvitePerson()==null)
+				    			continue;
 							JudgesInfo person = ijudges.getJudgesInfo(new ObjectUuidPK(entryInfo.getInvitePerson().getId()));
 							row.getCell("judgeNumber").setValue(person);
 							row.getCell("judgesName").setValue(person.getPersonName());
