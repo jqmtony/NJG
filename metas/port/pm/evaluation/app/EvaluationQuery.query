@@ -846,6 +846,68 @@
                 <key name="name" value="EvaluationQuery" />
             </query>
         </queryField>
+        <queryField>
+            <name>E1.planDesc</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.evaluation.app.EvaluationQuery].units.queryField[E1.planDesc].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>b750d457-eef7-48fd-a9ba-25adb4e84cd5</key>
+                    <parentUnit>
+                        <key name="name" value="E1.planDesc" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="E1" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="planDesc" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.evaluation.app" />
+                <key name="name" value="EvaluationQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>E1.factDesc</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.evaluation.app.EvaluationQuery].units.queryField[E1.factDesc].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>7d4959e6-484c-4c62-82c6-d3c528979bfe</key>
+                    <parentUnit>
+                        <key name="name" value="E1.factDesc" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="E1" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="factDesc" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.evaluation.app" />
+                <key name="name" value="EvaluationQuery" />
+            </query>
+        </queryField>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -1197,6 +1259,38 @@
             <lang locale="zh_CN" value="ID" />
             <lang locale="zh_HK" value="ID" />
             <lang locale="zh_TW" value="ID" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.evaluation.app.EvaluationQuery].units.queryField[E1.factDesc].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="实际完成情况" />
+            <lang locale="zh_HK" value="實際完成情況" />
+            <lang locale="zh_TW" value="實際完成情況" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.evaluation.app.EvaluationQuery].units.queryField[E1.factDesc].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.evaluation.app.EvaluationQuery].units.queryField[E1.factDesc].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.evaluation.app.EvaluationQuery].units.queryField[E1.planDesc].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="计划完成情况" />
+            <lang locale="zh_HK" value="計畫完成情況" />
+            <lang locale="zh_TW" value="計畫完成情況" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.evaluation.app.EvaluationQuery].units.queryField[E1.planDesc].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.evaluation.app.EvaluationQuery].units.queryField[E1.planDesc].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.evaluation.app.EvaluationQuery].units.queryField[auditTime].displayName">
             <lang locale="en_US" value="null" />

@@ -77,6 +77,16 @@
             <value>i18nResource[com.kingdee.eas.port.pm.base.client.BaseResource].resourceItems.resourceItem[InvestYearQueryF7WindowTitle].value</value>
             <userDefined>true</userDefined>
         </resourceItem>
+        <resourceItem>
+            <name>CompanyPropertyQueryF7WindowTitle</name>
+            <value>i18nResource[com.kingdee.eas.port.pm.base.client.BaseResource].resourceItems.resourceItem[CompanyPropertyQueryF7WindowTitle].value</value>
+            <userDefined>true</userDefined>
+        </resourceItem>
+        <resourceItem>
+            <name>CompanySetupQueryF7WindowTitle</name>
+            <value>i18nResource[com.kingdee.eas.port.pm.base.client.BaseResource].resourceItems.resourceItem[CompanySetupQueryF7WindowTitle].value</value>
+            <userDefined>true</userDefined>
+        </resourceItem>
     </resourceItems>
     <resource>
         <rs key="i18nResource[com.kingdee.eas.port.pm.base.client.BaseResource].alias">
@@ -96,6 +106,18 @@
             <lang locale="zh_CN" value="建设性质" />
             <lang locale="zh_HK" value="建設性質" />
             <lang locale="zh_TW" value="建設性質" />
+        </rs>
+        <rs key="i18nResource[com.kingdee.eas.port.pm.base.client.BaseResource].resourceItems.resourceItem[CompanyPropertyQueryF7WindowTitle].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="公司性质" />
+            <lang locale="zh_HK" value="公司性質" />
+            <lang locale="zh_TW" value="公司性質" />
+        </rs>
+        <rs key="i18nResource[com.kingdee.eas.port.pm.base.client.BaseResource].resourceItems.resourceItem[CompanySetupQueryF7WindowTitle].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="公司性质维护" />
+            <lang locale="zh_HK" value="公司性質維護" />
+            <lang locale="zh_TW" value="公司性質維護" />
         </rs>
         <rs key="i18nResource[com.kingdee.eas.port.pm.base.client.BaseResource].resourceItems.resourceItem[CostTypeQueryF7WindowTitle].value">
             <lang locale="en_US" value="null" />

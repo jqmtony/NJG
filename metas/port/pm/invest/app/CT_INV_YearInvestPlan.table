@@ -567,6 +567,48 @@
             <scale>2</scale>
             <precision>28</precision>
         </column>
+        <column>
+            <name>CFCompanyPropertyI</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YearInvestPlan].columns.column[CFCompanyPropertyI].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YearInvestPlan].columns.column[CFCompanyPropertyI].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFSeq</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YearInvestPlan].columns.column[CFSeq].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YearInvestPlan].columns.column[CFSeq].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NUMERIC</sqlType>
+            <length>28</length>
+            <scale>1</scale>
+            <precision>28</precision>
+        </column>
+        <column>
+            <name>CFDesc</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YearInvestPlan].columns.column[CFDesc].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YearInvestPlan].columns.column[CFDesc].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>500</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
     </columns>
     <primaryKey>
         <name>PK_YearInvestPlan</name>
@@ -829,6 +871,25 @@
                 </fkColumnPair>
             </fkColumnPairs>
         </foreignKey>
+        <foreignKey>
+            <name>CFK_INV_INVYIPOmks</name>
+            <userDefined>true</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
+                <key name="name" value="CT_BAS_CompanyProperty" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="CFCompanyPropertyI" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
     </foreignKeys>
     <resource>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YearInvestPlan].alias">
@@ -933,6 +994,18 @@
             <lang locale="zh_HK" value="小數" />
             <lang locale="zh_TW" value="小數" />
         </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YearInvestPlan].columns.column[CFCompanyPropertyI].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="公司性质" />
+            <lang locale="zh_HK" value="公司性質" />
+            <lang locale="zh_TW" value="公司性質" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YearInvestPlan].columns.column[CFCompanyPropertyI].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="文本" />
+            <lang locale="zh_HK" value="文本" />
+            <lang locale="zh_TW" value="文本" />
+        </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YearInvestPlan].columns.column[CFCostTempID].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="费用模板" />
@@ -944,6 +1017,18 @@
             <lang locale="zh_CN" value="费用模板" />
             <lang locale="zh_HK" value="費用範本" />
             <lang locale="zh_TW" value="費用範本" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YearInvestPlan].columns.column[CFDesc].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="填写说明" />
+            <lang locale="zh_HK" value="填寫說明" />
+            <lang locale="zh_TW" value="填寫說明" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YearInvestPlan].columns.column[CFDesc].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="备注" />
+            <lang locale="zh_HK" value="備註" />
+            <lang locale="zh_TW" value="備註" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YearInvestPlan].columns.column[CFFundSourceID].alias">
             <lang locale="en_US" value="null" />
@@ -1100,6 +1185,18 @@
             <lang locale="zh_CN" value="备注" />
             <lang locale="zh_HK" value="備註" />
             <lang locale="zh_TW" value="備註" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YearInvestPlan].columns.column[CFSeq].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="序号" />
+            <lang locale="zh_HK" value="序號" />
+            <lang locale="zh_TW" value="序號" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YearInvestPlan].columns.column[CFSeq].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="序号" />
+            <lang locale="zh_HK" value="序號" />
+            <lang locale="zh_TW" value="序號" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YearInvestPlan].columns.column[CFYearID].alias">
             <lang locale="en_US" value="null" />
