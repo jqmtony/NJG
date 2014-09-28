@@ -265,7 +265,7 @@ public abstract class AbstractInvitePlanEditUI extends com.kingdee.eas.xr.client
         this.pkAuditTime.setName("pkAuditTime");
         this.prmtAuditor.setName("prmtAuditor");
         // CoreUI		
-        this.setPreferredSize(new Dimension(613,420));
+        this.setPreferredSize(new Dimension(902,455));
         // contLastUpdateUser		
         this.contLastUpdateUser.setBoundLabelText(resHelper.getString("contLastUpdateUser.boundLabelText"));		
         this.contLastUpdateUser.setBoundLabelLength(100);		
