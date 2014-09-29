@@ -556,7 +556,7 @@ public abstract class AbstractEvaluationEditUI extends com.kingdee.eas.xr.client
 		if (bars != null) {
 			list.addAll(java.util.Arrays.asList(bars));
 		}
-		list.add(this.kDToolBar1);
+//		list.add(this.kDToolBar1);
 		return (com.kingdee.bos.ctrl.swing.KDToolBar[])list.toArray(new com.kingdee.bos.ctrl.swing.KDToolBar[list.size()]);
 	}
 

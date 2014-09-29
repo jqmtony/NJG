@@ -83,6 +83,8 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
     	super.onLoad();
     	this.kDTable3.setEnabled(false);
     	
+    	this.kDToolBar1.setVisible(false);
+    	
     	this.kDTable2.addKDTEditListener(new com.kingdee.bos.ctrl.kdf.table.event.KDTEditAdapter() {
             public void editStopped(com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent e) {
                 try {
