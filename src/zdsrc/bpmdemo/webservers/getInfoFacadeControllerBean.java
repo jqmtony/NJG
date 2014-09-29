@@ -13,7 +13,7 @@ import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.framework.DynamicObjectFactory;
 import com.kingdee.eas.bpm.BPMLogFactory;
 import com.kingdee.eas.bpm.BPMLogInfo;
-import com.kingdee.eas.bpm.selectors.ChangeVisaFacade;
+import com.kingdee.eas.bpm.selectors.ChangeAuditFacade;
 import com.kingdee.eas.bpm.selectors.ContractFacade;
 import com.kingdee.eas.bpm.selectors.ContractReviseFacade;
 import com.kingdee.eas.bpm.selectors.SettleMentFacade;
@@ -49,7 +49,7 @@ public class getInfoFacadeControllerBean extends AbstractgetInfoFacadeController
 			}
 			if(billInfo instanceof ChangeAuditBillInfo)
 			{
-				str = new ChangeVisaFacade().SubmitResult(ctx, strBSID, billInfo, success, procInstID, procURL, strMessage);
+				str = new ChangeAuditFacade().SubmitResult(ctx, strBSID, billInfo, success, procInstID, procURL, strMessage);
 			}
 			if(billInfo instanceof ContractSettlementBillInfo)
 			{
@@ -80,7 +80,7 @@ public class getInfoFacadeControllerBean extends AbstractgetInfoFacadeController
 			}
 			if(billInfo instanceof ChangeAuditBillInfo)
 			{
-				str = new ChangeVisaFacade().ApproveClose(ctx, strBSID, billInfo, procInstID, processInstanceResult, strComment, dtTime);
+				str = new ChangeAuditFacade().ApproveClose(ctx, strBSID, billInfo, procInstID, processInstanceResult, strComment, dtTime);
 			}
 			if(billInfo instanceof ContractSettlementBillInfo)
 			{
@@ -109,7 +109,7 @@ public class getInfoFacadeControllerBean extends AbstractgetInfoFacadeController
 			}
 			if(billInfo instanceof ChangeAuditBillInfo)
 			{
-				str = new ChangeVisaFacade().GetbillInfo(ctx, strBSID, billInfo);
+				str = new ChangeAuditFacade().GetbillInfo(ctx, strBSID, billInfo);
 			}
 			if(billInfo instanceof ContractSettlementBillInfo)
 			{
