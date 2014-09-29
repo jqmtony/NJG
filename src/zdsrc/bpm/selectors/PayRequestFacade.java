@@ -166,7 +166,7 @@ public class PayRequestFacade implements BillBaseSelector {
 				DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
     			xml.append("<DATA>\n"); 
     			xml.append("<OrgName>"+StringUtilBPM.isNULl(Info.getOrgUnit().getName())+"</OrgName>\n");
-    			xml.append("<useDepartment>"+StringUtilBPM.isNULl(Info.getUseDepartment().getName())+"</useDepartment>\n");
+    			xml.append("<Department>"+StringUtilBPM.isNULl(Info.getUseDepartment().getName())+"</Department>\n");
     			xml.append("<ApplyDate>"+dateFormat.format(Info.getCreateTime())+"</ApplyDate>\n");
     			xml.append("<Applicant>"+StringUtilBPM.isNULl(Info.getCreator().getName())+"</Applicant>\n");
     			
@@ -183,15 +183,12 @@ public class PayRequestFacade implements BillBaseSelector {
     			xml.append("<settlementType>"+StringUtilBPM.isNULl(Info.getSettlementType().getName())+"</settlementType>\n");//合同类型
     			xml.append("<receiveUnit>"+StringUtilBPM.isNULl(Info.getSupplier().getName())+"</receiveUnit>\n");//收款单位
     			xml.append("<recBank>"+StringUtilBPM.isNULl(Info.getRecBank())+"</recBank>\n");//收款银行
-    			xml.append("<recAccount>"+StringUtilBPM.isNULl(Info.getRecAccount())+"</recAccount>\n");//收款银行
+    			xml.append("<recAccount>"+StringUtilBPM.isNULl(Info.getRecAccount())+"</recAccount>\n");//收款账号
     			xml.append("<realSupplier>"+StringUtilBPM.isNULl(Info.getRealSupplier().getName())+"</realSupplier>\n");//实际收款单位
-    			xml.append("<Desc>"+StringUtilBPM.isNULl(Info.getDescription())+"</Desc>\n");//收款银行
+    			xml.append("<Desc>"+StringUtilBPM.isNULl(Info.getDescription())+"</Desc>\n");//
     			xml.append("<usage>"+StringUtilBPM.isNULl(Info.getUsage())+"</usage>\n");//用途
-    			xml.append("<Desc>"+StringUtilBPM.isNULl(Info.getDescription())+"</Desc>\n");//收款银行
-    			xml.append("<Desc>"+StringUtilBPM.isNULl(Info.getDescription())+"</Desc>\n");//收款银行
     			
-    			
-    			
+   
     			xml.append("<currency>"+StringUtilBPM.isNULl(Info.getCurrency().getName())+"</currency>\n");//币别
     			xml.append("<exchangeRate>"+Info.getExchangeRate()+"</exchangeRate>\n");//汇率
     			xml.append("<originalAmount>"+Info.getOriginalAmount()+"</originalAmount>\n");//原币金额
@@ -222,10 +219,10 @@ public class PayRequestFacade implements BillBaseSelector {
     				xml.append("<AllPaymentProportion>"+Info.getAllReqPercent()+"</AllPaymentProportion>\n");
     			if(Info.getAllInvoiceOriAmt()!=null)//累计发票原币/本币
     				xml.append("<allinvoiceOriAmt>"+Info.getAllInvoiceOriAmt()+"</allinvoiceOriAmt>\n");
-    			if(Info.getPlanHasCon()!=null)//预算项目
-    				xml.append("<PlanHasCon>"+Info.getPlanHasCon()+"</PlanHasCon>\n");
-    			if(Info.getMoneyDesc()!=null)//备注
-    				xml.append("<MoneyDesc>"+Info.getMoneyDesc()+"</MoneyDesc>\n");
+    			if(Info.getPlanHasCon()!=null)
+    				xml.append("<PlanHasCon>"+Info.getPlanHasCon()+"</PlanHasCon>\n");//预算项目
+    			if(Info.getMoneyDesc()!=null)
+    				xml.append("<MoneyDesc>"+Info.getMoneyDesc()+"</MoneyDesc>\n");//备注
     			
     			
     			xml.append("<billEntries>\n");

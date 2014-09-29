@@ -12,6 +12,7 @@ import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
+import com.kingdee.bos.metadata.entity.SelectorItemInfo;
 import com.kingdee.eas.bpm.BPMLogFactory;
 import com.kingdee.eas.bpm.BPMLogInfo;
 import com.kingdee.eas.bpm.BillBaseSelector;
@@ -28,6 +29,9 @@ import com.kingdee.eas.fdc.contract.ChangeSupplierEntryInfo;
 import com.kingdee.eas.fdc.contract.ContractSettlementBillFactory;
 import com.kingdee.eas.fdc.contract.ContractSettlementBillInfo;
 import com.kingdee.eas.fdc.contract.PayRequestBillEntryFactory;
+import com.kingdee.eas.fdc.contract.PayRequestBillEntryInfo;
+import com.kingdee.eas.fdc.contract.PayRequestBillFactory;
+import com.kingdee.eas.fdc.contract.PayRequestBillInfo;
 import com.kingdee.eas.fdc.finance.PaymentPrjPayEntryCollection;
 import com.kingdee.eas.fdc.finance.PaymentPrjPayEntryFactory;
 import com.kingdee.eas.fdc.finance.PaymentPrjPayEntryInfo;
@@ -42,110 +46,126 @@ public class FKFacade implements BillBaseSelector {
 	public String[] ApproveClose(Context ctx, String strBSID,
 			IObjectValue billInfo, int procInstID,
 			String processInstanceResult, String strComment, Date dtTime) {
-		// TODO Auto-generated method stub
-       return null;
+		PayRequestBillInfo Info = (PayRequestBillInfo)billInfo;
+    	String[] str = new String[3];
+    	str[0] = "Y";
+		try {
+			try{
+				Info = PayRequestBillFactory.getLocalInstance(ctx).getPayRequestBillInfo(new ObjectUuidPK(Info.getId()),getSelectors());
+			}catch (EASBizException e) {
+				str[2] = "根据单据getSelectors获取对象数据，请检查getSelectors方法中属性是否正确,并查看服务器log日志！";
+				e.printStackTrace();
+			}
+			try{
+				if("1".equals(processInstanceResult)){
+					if(FDCBillStateEnum.AUDITTING.equals(Info.getState()))
+						Info.setState(FDCBillStateEnum.AUDITTED);
+					else{
+						str[2] = "审批通过失败，该记录状态不是审批中！";
+						str[0] = "N";
+					}
+				}
+				if("0".equals(processInstanceResult)){
+					if(FDCBillStateEnum.AUDITTING.equals(Info.getState()))
+						Info.setState(FDCBillStateEnum.INVALID);
+					else{
+						str[2] = "审批不通过失败，该记录状态不是审批中！";
+						str[0] = "N";
+					}
+				}
+				if("2".equals(processInstanceResult)){
+					if(FDCBillStateEnum.AUDITTING.equals(Info.getState()))
+						Info.setState(FDCBillStateEnum.BACK);
+					else{
+						str[2] = "审批打回失败，该记录状态不是审批中！";
+						str[0] = "N";
+					}
+				}
+				if("3".equals(processInstanceResult)){
+					if(FDCBillStateEnum.AUDITTING.equals(Info.getState()))
+						Info.setState(FDCBillStateEnum.SAVED);
+					else{
+						str[2] = "撤销失败，该记录状态不是审批中！";
+						str[0] = "N";
+					}
+				}
+				String sql = " update t_con_payrequestbill set fState='"+Info.getState().getValue()+"' where fid='"+Info.getId()+"'";
+				FDCSQLBuilder bu = new FDCSQLBuilder(ctx);
+				bu.appendSql(sql);
+				bu.executeUpdate(ctx);
+			}
+			catch (BOSException e) {
+				str[2] = "根据单据state值更新状态sql失败，请检查getState方法是否有值,并查看服务器log日志！";
+				e.printStackTrace();
+			}
+		}catch (Exception e) {
+			str[2] = "其他异常，请查看服务器log日志！";
+			e.printStackTrace();
+		}finally{
+			BPMLogInfo log = new BPMLogInfo();
+			try {
+				log.setLogDate(new Date());
+				log.setName("合同单据ID："+Info.getId()+"; 编号："+Info.getNumber());
+				log.setDescription("BPM结果："+processInstanceResult+"; EAS结果:"+str[0]+"; 错误信息"+str[1]+str[2]);
+				log.setSimpleName("BPM流程号："+procInstID+";BPM反馈信息:"+strComment);
+				log.setBeizhu("调用接口方法：ApproveClose");
+				BPMLogFactory.getLocalInstance(ctx).save(log);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return str;
 	}
 
 	public String[] GetbillInfo(Context ctx, String strBSID,
 			IObjectValue billInfo) {
-		PaymentBillInfo Info = (PaymentBillInfo) billInfo;
-		String[] str = new String[3];
-		str[0] = "Y";
-		StringBuffer xml = new StringBuffer();
+		PayRequestBillInfo Info = (PayRequestBillInfo)billInfo;
+    	String[] str = new String[3];
+    	str[0] = "Y";
+    	StringBuffer xml = new StringBuffer();
 		try {
-			try {
-				Info = PaymentBillFactory.getLocalInstance(ctx)
-						.getPaymentBillInfo(new ObjectUuidPK(Info.getId()),
-								getSelectors());
-			} catch (EASBizException e) {
+			try{
+				Info = PayRequestBillFactory.getLocalInstance(ctx).getPayRequestBillInfo(new ObjectUuidPK(Info.getId()),getSelectors());
+			}catch (EASBizException e) {
 				str[2] = "根据单据getSelectors获取对象数据，请检查getSelectors方法中属性是否正确,并查看服务器log日志！";
 				e.printStackTrace();
 			}
 			DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-			xml.append("<DATA>\n");
-			xml.append("<BillStatus>"
-					+ Info.getBillStatus().getName()
-					+ "</BillStatus>\n"); // 状态
-			xml.append("<PaymentNumebr>" + Info.getNumber()
-					+ "</PaymentNumebr>\n"); // 付款单编码
-			xml.append("<RequestBillNumber>" + Info.getNumber()
-					+ "</RequestBillNumber>\n"); // 申请单编码
-			xml.append("<VoucherNumber>" + Info.getVoucherNumber()
-					+ "</VoucherNumber>\n"); // 凭证号
-			xml.append("<Currency>" + Info.getCurrency().getName()
-					+ "</Currency>\n"); // 币别
-			xml.append("<Amount>" + Info.getAmount()
-					+ "</Amount>\n"); // 原币金额
-			xml.append("<ExchangeRate>" + Info.getExchangeRate()
-					+ "</ExchangeRate>\n"); // 汇率
-	        xml.append("<LocalAmt>" + Info.getLocalAmt()
-			        + "</LocalAmt>\n"); // 本位币金额
-			xml.append("<BizDate>" + Info.getBizDate()
-					+ "</BizDate>\n"); // 业务日期
-			xml.append("<PayDate>" + Info.getPayDate()
-					+ "</PayDate>\n"); // 付款日期
-			xml.append("<Creator>" + Info.getCreator()
-					+ "</Creator>\n"); // 制单人
-			xml.append("<CreateTime>" + Info.getCreateTime()
-					+ "</CreateTime>\n"); // 制单时间
-			xml.append("<PayeeBank>" + Info.getPayeeBank()
-					+ "</PayeeBank>\n"); // 收款银行
-			xml.append("<PayeeAccountBankO>"
-					+ Info.getPayeeAccountBankO().getName()
-					+ "</PayeeAccountBankO>\n"); // 收款银行账户
-			xml.append("<Auditor>" + Info.getAuditor()
-					+ "</Auditor>\n"); // 审核人
-			xml.append("<AuditDate>" + Info.getAuditDate()
-					+ "</AuditDate>\n"); // 审核日期
-			xml.append("<billEntries>\n");
-			for(int i=0;i<Info.getEntries().size();i++){
-				PaymentBillEntryInfo entry=Info.getEntries().get(i);
-				entry = PaymentBillEntryFactory.getLocalInstance(ctx).getPaymentBillEntryInfo(new ObjectUuidPK(entry.getId()));
-				
-			}
-			
-			
-			
-			
-	/*		EntityViewInfo entryavevi = new EntityViewInfo();    
-			FilterInfo entryavfilter = new FilterInfo();
-			entryavfilter.getFilterItems().add(
-					new FilterItemInfo("parent", Info.getEntries()));
-			entryavevi.setFilter(entryavfilter);
-			PaymentPrjPayEntryCollection entryavc = PaymentPrjPayEntryFactory
-					.getRemoteInstance()
-					.getPaymentPrjPayEntryCollection(entryavevi);
-			for (int j = 0; j < entryavc.size(); j++) {
-				PaymentPrjPayEntryInfo entryinfo = entryavc.get(j);
-				xml.append("<InvoiceNumber>"
-						+ entryinfo.getInvoiceNumber()
-						+ "</VoucherNumber>\n"); // 发票号码
-				xml.append("<InvoiceAmt >" + entryinfo.getInvoiceAmt()
-						+ "</VoucherNumber>\n"); // 发票金额本位币
-			}
-			xml.append("<ActFdcPayeeName>"
-					+ Info.getActFdcPayeeName().getName()
-					+ "</ActFdcPayeeName>\n"); // 收款单位
-			xml.append("<SJActFdcPayeeName>"
-					+ Info.getActFdcPayeeName().getName()
-					+ "</SJActFdcPayeeName>\n"); // 实际收款单位
-			xml.append("<Description>" + Info.getDescription()
-					+ "</Description>\n"); // 说明
-		*/	
-			xml.append("</DATA>");
+			xml.append("<DATA>\n");     			
+			xml.append("<bizdate>"+dateFormat.format(Info.getBizDate())+"</bizdate>\n");  //业务日期
+			xml.append("<State>"+Info.getState().getName()+"</State>\n");  //状态
+			xml.append("<Number>"+Info.getNumber()+"</Number>\n");//付款单编码
+			xml.append("<SNumber>"+Info.getNumber()+"</SNumber>\n");//申请单编码
+			xml.append("<ContractNo>"+Info.getContractNo()+"</ContractNo>\n");//凭证号
+			xml.append("<Currency>"+StringUtilBPM.isNULl(Info.getCurrency().getName())+"</Currency>\n"); //币别
+			xml.append("<OriginalAmount>"+Info.getOriginalAmount()+"</OriginalAmount>\n");// 原币
+			xml.append("<Amount>"+Info.getAmount()+"</Amount>\n");//本位币
+			xml.append("<exchangeRate>"+Info.getExchangeRate()+"</exchangeRate>\n");//汇率
+			xml.append("<invoiceAmt>"+Info.getInvoiceAmt()+"</invoiceAmt>\n");//发票金额
+			if(Info.getInvoiceNumber()!=null)//发票号
+				xml.append("<invoiceNumber>"+Info.getInvoiceNumber()+"</invoiceNumber>\n");
+			xml.append("<PayDate>"+dateFormat.format(Info.getPayDate())+"</PayDate>\n");//付款日期
+			xml.append("<Supplier>"+StringUtilBPM.isNULl(Info.getSupplier().getName())+"</Supplier>\n");//收款单位
+			xml.append("<realSupplier>"+StringUtilBPM.isNULl(Info.getRealSupplier().getName())+"</realSupplier>\n");//实际收款单位
+			xml.append("<Creator>"+StringUtilBPM.isNULl(Info.getCreator().getName())+"</Creator>\n");//制单人
+			xml.append("<CreateTime>"+Info.getCreateTime()+"</CreateTime>\n");//制单日期
+			xml.append("<Usage>"+Info.getUsage()+"</Usage>\n");//付款说明(用途)
+			xml.append("<recBank>"+StringUtilBPM.isNULl(Info.getRecBank())+"</recBank>\n");//收款银行
+			xml.append("<recAccount>"+StringUtilBPM.isNULl(Info.getRecAccount())+"</RecAccount>\n");//收款账号
+			xml.append("<Auditor>"+StringUtilBPM.isNULl(Info.getAuditor().getName())+"</Auditor>\n");//审核人
+			xml.append("<AuditTime>"+dateFormat.format(Info.getAuditTime())+"</AuditTime>\n");//审核日期
+			xml.append("</DATA>"); 
 			str[1] = xml.toString();
-		} catch (Exception e) {
+		}catch (Exception e) {
 			str[0] = "N";
 			str[2] = "其他异常，请查看服务器log日志！";
 			e.printStackTrace();
-		} finally {
+		}finally{
 			BPMLogInfo log = new BPMLogInfo();
 			try {
 				log.setLogDate(new Date());
-				log.setName("合同单据ID：" + Info.getId() + "; 编号："
-						+ Info.getNumber());
-				log.setDescription("EAS结果:" + str[0] + "; 错误信息" + str[1]
-						+ str[2]);
+				log.setName("合同单据ID："+Info.getId()+"; 编号："+Info.getNumber());
+				log.setDescription("EAS结果:"+str[0]+"; 错误信息"+str[1]+str[2]);
 				log.setBeizhu("调用接口方法：GetbillInfo");
 				BPMLogFactory.getLocalInstance(ctx).save(log);
 			} catch (Exception e) {
@@ -158,15 +178,86 @@ public class FKFacade implements BillBaseSelector {
 	public String[] SubmitResult(Context ctx, String strBSID,
 			IObjectValue billInfo, boolean success, int procInstID,
 			String procURL, String strMessage) {
-		// TODO Auto-generated method stub
-		return null;
+		PayRequestBillInfo Info = (PayRequestBillInfo)billInfo;
+    	String[] str = new String[3];
+    	str[0] = "Y";
+		try {
+			try{
+				Info = PayRequestBillFactory.getLocalInstance(ctx).getPayRequestBillInfo(new ObjectUuidPK(Info.getId()),getSelectors());
+			}catch (EASBizException e) {
+				str[0] = "N";
+				str[2] = "根据单据getSelectors获取对象数据，请检查getSelectors方法中属性是否正确,并查看服务器log日志！";
+				e.printStackTrace();
+			}
+			try{
+				Info.setState(FDCBillStateEnum.AUDITTING);
+				String sql = " update t_con_payrequestbill set fState='"+Info.getState().getValue()+"'" +
+						", fDescription='"+procURL+"' " +
+						", FSourceFunction='"+procInstID+"' where fid='"+Info.getId()+"'";
+				FDCSQLBuilder bu = new FDCSQLBuilder(ctx);
+				bu.appendSql(sql);
+				bu.executeUpdate(ctx);
+			}
+			catch (BOSException e) {
+				str[0] = "N";
+				str[2] = "根据单据state值更新状态sql失败，请检查getState方法是否有值,并查看服务器log日志！";
+				e.printStackTrace();
+			}
+		}catch (Exception e) {
+			str[0] = "N";
+			str[2] = "其他异常，请查看服务器log日志！";
+			e.printStackTrace();
+		}finally{
+			BPMLogInfo log = new BPMLogInfo();
+			try {
+				log.setLogDate(new Date());
+				log.setName("合同单据ID："+Info.getId()+"; 编号："+Info.getNumber());
+				log.setDescription("BPM结果："+success+"; EAS结果:"+str[0]+"; 错误信息:"+str[1]+str[2]);
+				log.setSimpleName("BPM流程号："+procInstID+";流程URL:"+procURL);
+				log.setBeizhu("调用接口方法：_SubmitResult");
+				BPMLogFactory.getLocalInstance(ctx).save(log);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return str;
 	}
 
 	public SelectorItemCollection getSelectors() {
-		// TODO Auto-generated method stub
-		return null;
+		SelectorItemCollection sic = new SelectorItemCollection();
+		sic.add(new SelectorItemInfo("bizdate"));
+		sic.add(new SelectorItemInfo("State.id"));
+		sic.add(new SelectorItemInfo("State.name"));
+		sic.add(new SelectorItemInfo("State.number"));
+		sic.add(new SelectorItemInfo("Number"));
+		sic.add(new SelectorItemInfo("ContractNo"));
+		sic.add(new SelectorItemInfo("Currency.id"));
+		sic.add(new SelectorItemInfo("Currency.name"));
+		sic.add(new SelectorItemInfo("Currency.number"));
+		sic.add(new SelectorItemInfo("OriginalAmount"));
+		sic.add(new SelectorItemInfo("Amount"));
+		sic.add(new SelectorItemInfo("exchangeRate"));
+		sic.add(new SelectorItemInfo("invoiceAmt"));
+		sic.add(new SelectorItemInfo("invoiceNumber"));
+		
+		sic.add(new SelectorItemInfo("PayDate"));
+		sic.add(new SelectorItemInfo("Supplier"));
+		sic.add(new SelectorItemInfo("realSupplier.id"));
+		sic.add(new SelectorItemInfo("realSupplier.name"));
+		sic.add(new SelectorItemInfo("realSupplier.number"));
+		sic.add(new SelectorItemInfo("Creator.id"));
+		sic.add(new SelectorItemInfo("Creator.name"));
+		sic.add(new SelectorItemInfo("Creator.number"));
+		sic.add(new SelectorItemInfo("CreateTime"));
+		sic.add(new SelectorItemInfo("Usage"));
+		sic.add(new SelectorItemInfo("recBank"));
+		sic.add(new SelectorItemInfo("recAccount"));
+		sic.add(new SelectorItemInfo("Auditor.id"));
+		sic.add(new SelectorItemInfo("Auditor.name"));
+		sic.add(new SelectorItemInfo("Auditor.number"));
+		sic.add(new SelectorItemInfo("AuditTime"));
+		return sic;
 	}
-
 
 	public String[] ApproveBack(Context ctx, String strBTID, String strBOID,
 			String strXML) {
@@ -180,17 +271,10 @@ public class FKFacade implements BillBaseSelector {
 		return null;
 	}
 
-
 	public String[] ApproveBack(Context ctx, String strBTID,
 			IObjectValue billInfo, String strXML) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-
-	
-
-
-
 
 }
