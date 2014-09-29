@@ -3,29 +3,46 @@
  */
 package com.kingdee.eas.port.pm.base.client;
 
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
 
 import javax.swing.event.ChangeEvent;
 
 import org.apache.log4j.Logger;
-import com.kingdee.bos.ui.face.CoreUIObject;
+
+import com.kingdee.bos.BOSException;
+import com.kingdee.bos.ctrl.swing.event.DataChangeEvent;
 import com.kingdee.bos.dao.IObjectValue;
-import com.kingdee.eas.framework.*;
+import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.bos.metadata.entity.EntityViewInfo;
+import com.kingdee.bos.metadata.entity.FilterInfo;
+import com.kingdee.bos.metadata.entity.FilterItemInfo;
+import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.eas.basedata.hraux.DiplomaFactory;
+import com.kingdee.eas.basedata.hraux.DiplomaInfo;
+import com.kingdee.eas.basedata.org.AdminOrgUnitCollection;
+import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
+import com.kingdee.eas.basedata.org.OrgConstants;
+import com.kingdee.eas.basedata.org.PositionInfo;
+import com.kingdee.eas.basedata.org.PositionMemberCollection;
+import com.kingdee.eas.basedata.org.PositionMemberFactory;
+import com.kingdee.eas.basedata.org.PositionMemberInfo;
+import com.kingdee.eas.basedata.org.client.f7.AdminF7;
+import com.kingdee.eas.basedata.person.PersonFactory;
+import com.kingdee.eas.basedata.person.PersonInfo;
+import com.kingdee.eas.common.client.SysContext;
+import com.kingdee.eas.common.client.UIContext;
+import com.kingdee.eas.hr.base.TechnicalPostInfo;
+import com.kingdee.eas.hr.emp.PersonContactMethodCollection;
+import com.kingdee.eas.hr.emp.PersonContactMethodFactory;
+import com.kingdee.eas.hr.emp.PersonContactMethodInfo;
+import com.kingdee.eas.hr.emp.PersonTechnicalPostCollection;
+import com.kingdee.eas.hr.emp.PersonTechnicalPostFactory;
+import com.kingdee.eas.hr.emp.PersonTechnicalPostInfo;
 import com.kingdee.eas.hr.emp.client.EmployeeMultiF7PromptBox;
 import com.kingdee.eas.port.pm.base.JudgesTreeInfo;
 import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
 import com.kingdee.eas.util.SysUtil;
-import com.kingdee.bos.metadata.entity.FilterInfo;
-import com.kingdee.bos.metadata.entity.FilterItemInfo;
-import com.kingdee.bos.metadata.entity.SelectorItemCollection;
-import com.kingdee.bos.metadata.entity.SelectorItemInfo;
-import com.kingdee.bos.metadata.query.util.CompareType;
-import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
-import com.kingdee.eas.basedata.org.OrgConstants;
-import com.kingdee.eas.basedata.org.client.f7.AdminF7;
-import com.kingdee.eas.common.client.OprtState;
-import com.kingdee.eas.common.client.SysContext;
-import com.kingdee.eas.common.client.UIContext;
+import com.kingdee.eas.xr.helper.PersonXRHelper;
 
 /**
  * output class name
@@ -101,9 +118,69 @@ public class JudgesEditUI extends AbstractJudgesEditUI
   		this.prmtcurDep.setSelector(f7);
     }
     
-    @Override
-    protected void chkisOuter_stateChanged(ChangeEvent e) throws Exception {
-    	// TODO Auto-generated method stub
+    
+	protected void prmtjuName_dataChanged(DataChangeEvent e) throws Exception {
+		super.prmtjuName_dataChanged(e);
+		PersonInfo person = (PersonInfo)prmtjuName.getValue();
+		if(person!=null){
+			person = PersonFactory.getRemoteInstance().getPersonInfo(new ObjectUuidPK(person.getId()));
+			String personid = person.getId().toString();
+			DiplomaInfo diplomaInfo = person.getHighestDegree();
+			diplomaInfo = DiplomaFactory.getRemoteInstance().getDiplomaInfo(new ObjectUuidPK(diplomaInfo.getId()));
+			sex.setSelectedItem(person.getGender());
+			pkbirthday.setValue(person.getBirthday());
+			prmteducation.setValue(diplomaInfo);
+			txtprofession.setText(getPositionInfo(personid).getName());
+			txttechLevel.setText(getPersonTechnicalPostInfo(personid).getName());
+			AdminOrgUnitCollection orgColl = PersonXRHelper.getDepartmentByUserCollection(person);
+			AdminOrgUnitInfo adminInfo = orgColl.get(0);
+			prmtcurDep.setValue(adminInfo);
+			PersonContactMethodInfo info = getPersonContactMethodInfo(personid);
+			txttelephone.setText(info.getOfficePhone());
+			txtmobile.setText(info.getMobile());
+		}
+	}
+	PositionInfo getPositionInfo(String personid){
+		PositionMemberInfo info = new PositionMemberInfo();
+		PositionInfo position = new PositionInfo();
+		try {
+			PositionMemberCollection coll = PositionMemberFactory.getRemoteInstance().getPositionMemberCollection("select Position.name where person.id='"+personid+"'");
+			info = coll.get(0);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} 
+		if(info.getPosition()!=null)
+			position = info.getPosition();
+		return position;
+	}
+	
+	TechnicalPostInfo getPersonTechnicalPostInfo(String personid){
+		PersonTechnicalPostInfo info = new PersonTechnicalPostInfo();
+		TechnicalPostInfo technical = new TechnicalPostInfo();
+		try {
+			PersonTechnicalPostCollection coll = PersonTechnicalPostFactory.getRemoteInstance().getPersonTechnicalPostCollection("select TechnicalPost.name where person.id='"+personid+"'");
+			info = coll.get(0);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} 
+		if(info.getTechnicalPost()!=null)
+			technical = info.getTechnicalPost();
+		return technical;
+	}
+	PersonContactMethodInfo getPersonContactMethodInfo(String personid){
+		EntityViewInfo view = new EntityViewInfo();
+		FilterInfo filter = new FilterInfo();
+		filter.getFilterItems().add(new FilterItemInfo("person.id", personid));
+		view.setFilter(filter);
+		PersonContactMethodCollection pcmCol = null;
+		try {
+			pcmCol = PersonContactMethodFactory.getRemoteInstance().getPersonContactMethodCollection(view);
+		} catch (BOSException e) {
+			e.printStackTrace();
+		}
+		return pcmCol.get(0);
+	}
+	protected void chkisOuter_stateChanged(ChangeEvent e) throws Exception {
     	super.chkisOuter_stateChanged(e);
     	if(chkisOuter.isSelected()) {
     		contjuName.setVisible(false);

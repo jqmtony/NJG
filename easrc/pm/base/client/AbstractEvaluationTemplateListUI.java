@@ -288,7 +288,6 @@ pnlTable.setLayout(new BorderLayout(0, 0));        pnlTable.add(tblMain, BorderL
         this.toolBar.add(btnAddNew);
         this.toolBar.add(btnCloud);
         this.toolBar.add(btnGroupAddNew);
-        this.toolBar.add(btnXunTong);
         this.toolBar.add(btnGroupView);
         this.toolBar.add(kDSeparatorCloud);
         this.toolBar.add(btnGroupEdit);

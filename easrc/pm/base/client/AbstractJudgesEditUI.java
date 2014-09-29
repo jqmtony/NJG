@@ -306,6 +306,16 @@ public abstract class AbstractJudgesEditUI extends com.kingdee.eas.framework.cli
 		}
 	});
 
+        this.prmtjuName.addDataChangeListener(new com.kingdee.bos.ctrl.swing.event.DataChangeListener() {
+            public void dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) {
+                try {
+                    prmtjuName_dataChanged(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                }
+            }
+        });
         // sex		
         this.sex.setVisible(true);		
         this.sex.addItems(EnumUtils.getEnumList("com.kingdee.eas.basedata.person.Genders").toArray());		
@@ -815,6 +825,13 @@ public abstract class AbstractJudgesEditUI extends com.kingdee.eas.framework.cli
      * output chkisOuter_stateChanged method
      */
     protected void chkisOuter_stateChanged(javax.swing.event.ChangeEvent e) throws Exception
+    {
+    }
+
+    /**
+     * output prmtjuName_dataChanged method
+     */
+    protected void prmtjuName_dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) throws Exception
     {
     }
 

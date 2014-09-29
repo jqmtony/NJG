@@ -14,10 +14,14 @@ import com.kingdee.util.enums.StringEnum;
 public class PlanTypeEnum extends StringEnum
 {
     public static final String YEARPLAN_VALUE = "10";//alias=年度计划
-    public static final String ADDPLAN_VALUE = "20";//alias=追加计划
+    public static final String ADDPLAN_VALUE = "20";//alias=新增项目计划
+    public static final String CHANGE_VALUE = "30";//alias=变更项目计划
+    public static final String ADJUST_VALUE = "40";//alias=项目调整计划
 
     public static final PlanTypeEnum yearPlan = new PlanTypeEnum("yearPlan", YEARPLAN_VALUE);
     public static final PlanTypeEnum addPlan = new PlanTypeEnum("addPlan", ADDPLAN_VALUE);
+    public static final PlanTypeEnum change = new PlanTypeEnum("change", CHANGE_VALUE);
+    public static final PlanTypeEnum adjust = new PlanTypeEnum("adjust", ADJUST_VALUE);
 
     /**
      * construct function

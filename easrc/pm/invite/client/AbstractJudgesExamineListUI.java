@@ -253,7 +253,6 @@ public abstract class AbstractJudgesExamineListUI extends com.kingdee.eas.xr.cli
         this.toolBar.add(btnAddNew);
         this.toolBar.add(btnCloud);
         this.toolBar.add(btnView);
-        this.toolBar.add(btnXunTong);
         this.toolBar.add(btnEdit);
         this.toolBar.add(kDSeparatorCloud);
         this.toolBar.add(btnRemove);

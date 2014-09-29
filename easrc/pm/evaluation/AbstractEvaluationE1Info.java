@@ -65,6 +65,28 @@ public class AbstractEvaluationE1Info extends com.kingdee.eas.framework.CoreBill
         setString("projectImportance", item.getValue());
 		}
     }
+    /**
+     * Object:项目成功度评价表's 计划完成情况property 
+     */
+    public String getPlanDesc()
+    {
+        return getString("planDesc");
+    }
+    public void setPlanDesc(String item)
+    {
+        setString("planDesc", item);
+    }
+    /**
+     * Object:项目成功度评价表's 实际完成情况property 
+     */
+    public String getFactDesc()
+    {
+        return getString("factDesc");
+    }
+    public void setFactDesc(String item)
+    {
+        setString("factDesc", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("FAC1353E");

@@ -444,7 +444,6 @@ public abstract class AbstractEvaluationTemplateEditUI extends com.kingdee.eas.f
         this.toolBar.add(btnAddNew);
         this.toolBar.add(btnCloud);
         this.toolBar.add(btnEdit);
-        this.toolBar.add(btnXunTong);
         this.toolBar.add(btnReset);
         this.toolBar.add(kDSeparatorCloud);
         this.toolBar.add(btnSave);

@@ -231,11 +231,11 @@ public abstract class AbstractEvaluationEditUI extends com.kingdee.eas.xr.client
         this.contAuditTime.setBoundLabelLength(100);		
         this.contAuditTime.setBoundLabelUnderline(true);
         // kdtE1
-		String kdtE1StrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"apIndex\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"rate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"projectImportance\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{apIndex}</t:Cell><t:Cell>$Resource{rate}</t:Cell><t:Cell>$Resource{projectImportance}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		String kdtE1StrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"apIndex\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"planDesc\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"factDesc\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"rate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"projectImportance\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{apIndex}</t:Cell><t:Cell>$Resource{planDesc}</t:Cell><t:Cell>$Resource{factDesc}</t:Cell><t:Cell>$Resource{rate}</t:Cell><t:Cell>$Resource{projectImportance}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.kdtE1.setFormatXml(resHelper.translateString("kdtE1",kdtE1StrXML));
 
-                this.kdtE1.putBindContents("editData",new String[] {"seq","apIndex","rate","projectImportance"});
+                this.kdtE1.putBindContents("editData",new String[] {"seq","apIndex","planDesc","factDesc","rate","projectImportance"});
 
 
         this.kdtE1.checkParsed();
@@ -244,6 +244,16 @@ public abstract class AbstractEvaluationEditUI extends com.kingdee.eas.xr.client
         kdtE1_apIndex_TextField.setMaxLength(100);
         KDTDefaultCellEditor kdtE1_apIndex_CellEditor = new KDTDefaultCellEditor(kdtE1_apIndex_TextField);
         this.kdtE1.getColumn("apIndex").setEditor(kdtE1_apIndex_CellEditor);
+        KDTextArea kdtE1_planDesc_TextArea = new KDTextArea();
+        kdtE1_planDesc_TextArea.setName("kdtE1_planDesc_TextArea");
+        kdtE1_planDesc_TextArea.setMaxLength(500);
+        KDTDefaultCellEditor kdtE1_planDesc_CellEditor = new KDTDefaultCellEditor(kdtE1_planDesc_TextArea);
+        this.kdtE1.getColumn("planDesc").setEditor(kdtE1_planDesc_CellEditor);
+        KDTextArea kdtE1_factDesc_TextArea = new KDTextArea();
+        kdtE1_factDesc_TextArea.setName("kdtE1_factDesc_TextArea");
+        kdtE1_factDesc_TextArea.setMaxLength(500);
+        KDTDefaultCellEditor kdtE1_factDesc_CellEditor = new KDTDefaultCellEditor(kdtE1_factDesc_TextArea);
+        this.kdtE1.getColumn("factDesc").setEditor(kdtE1_factDesc_CellEditor);
         KDComboBox kdtE1_rate_ComboBox = new KDComboBox();
         kdtE1_rate_ComboBox.setName("kdtE1_rate_ComboBox");
         kdtE1_rate_ComboBox.setVisible(true);
@@ -299,7 +309,6 @@ public abstract class AbstractEvaluationEditUI extends com.kingdee.eas.xr.client
         this.pkAuditTime.setEnabled(false);
         // prmtprojectName		
         this.prmtprojectName.setQueryInfo("com.kingdee.eas.basedata.assistant.app.F7ProjectQuery");		
-        this.prmtprojectName.setVisible(true);		
         this.prmtprojectName.setEditable(true);		
         this.prmtprojectName.setDisplayFormat("$name$");		
         this.prmtprojectName.setEditFormat("$number$");		
@@ -586,6 +595,8 @@ vo.put("projectImportance","1");
 		dataBinder.registerBinding("E1.apIndex", String.class, this.kdtE1, "apIndex.text");
 		dataBinder.registerBinding("E1.rate", com.kingdee.util.enums.Enum.class, this.kdtE1, "rate.text");
 		dataBinder.registerBinding("E1.projectImportance", com.kingdee.util.enums.Enum.class, this.kdtE1, "projectImportance.text");
+		dataBinder.registerBinding("E1.planDesc", String.class, this.kdtE1, "planDesc.text");
+		dataBinder.registerBinding("E1.factDesc", String.class, this.kdtE1, "factDesc.text");
 		dataBinder.registerBinding("creator", com.kingdee.eas.base.permission.UserInfo.class, this.prmtCreator, "data");
 		dataBinder.registerBinding("createTime", java.sql.Timestamp.class, this.pkCreateTime, "value");
 		dataBinder.registerBinding("lastUpdateUser", com.kingdee.eas.base.permission.UserInfo.class, this.prmtLastUpdateUser, "data");
@@ -738,6 +749,8 @@ vo.put("projectImportance","1");
 		getValidateHelper().registerBindProperty("E1.apIndex", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("E1.rate", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("E1.projectImportance", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("E1.planDesc", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("E1.factDesc", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("creator", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("createTime", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("lastUpdateUser", ValidateHelper.ON_SAVE);    
@@ -795,6 +808,8 @@ vo.put("projectImportance","1");
     	sic.add(new SelectorItemInfo("E1.apIndex"));
     	sic.add(new SelectorItemInfo("E1.rate"));
     	sic.add(new SelectorItemInfo("E1.projectImportance"));
+    	sic.add(new SelectorItemInfo("E1.planDesc"));
+    	sic.add(new SelectorItemInfo("E1.factDesc"));
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
 			sic.add(new SelectorItemInfo("creator.*"));

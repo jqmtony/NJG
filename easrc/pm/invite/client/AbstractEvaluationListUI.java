@@ -253,7 +253,6 @@ public abstract class AbstractEvaluationListUI extends com.kingdee.eas.xr.client
         this.toolBar.add(btnAddNew);
         this.toolBar.add(btnCloud);
         this.toolBar.add(btnView);
-        this.toolBar.add(btnXunTong);
         this.toolBar.add(btnEdit);
         this.toolBar.add(kDSeparatorCloud);
         this.toolBar.add(btnRemove);
