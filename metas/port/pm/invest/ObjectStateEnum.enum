@@ -62,6 +62,30 @@
             <userDefined>true</userDefined>
             <value>9</value>
         </enumValue>
+        <enumValue>
+            <name>adjusted</name>
+            <alias>bizEnum[com.kingdee.eas.port.pm.invest.ObjectStateEnum].enumValues.enumValue[adjusted].alias</alias>
+            <userDefined>true</userDefined>
+            <value>10</value>
+        </enumValue>
+        <enumValue>
+            <name>stop</name>
+            <alias>bizEnum[com.kingdee.eas.port.pm.invest.ObjectStateEnum].enumValues.enumValue[stop].alias</alias>
+            <userDefined>true</userDefined>
+            <value>11</value>
+        </enumValue>
+        <enumValue>
+            <name>acceptance</name>
+            <alias>bizEnum[com.kingdee.eas.port.pm.invest.ObjectStateEnum].enumValues.enumValue[acceptance].alias</alias>
+            <userDefined>true</userDefined>
+            <value>12</value>
+        </enumValue>
+        <enumValue>
+            <name>cancel</name>
+            <alias>bizEnum[com.kingdee.eas.port.pm.invest.ObjectStateEnum].enumValues.enumValue[cancel].alias</alias>
+            <userDefined>true</userDefined>
+            <value>13</value>
+        </enumValue>
     </enumValues>
     <resource>
         <rs key="bizEnum[com.kingdee.eas.port.pm.invest.ObjectStateEnum].alias">
@@ -72,15 +96,26 @@
         </rs>
         <rs key="bizEnum[com.kingdee.eas.port.pm.invest.ObjectStateEnum].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="bizEnum[com.kingdee.eas.port.pm.invest.ObjectStateEnum].enumValues.enumValue[acceptance].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="已验收" />
+            <lang locale="zh_HK" value="已驗收" />
+            <lang locale="zh_TW" value="已驗收" />
         </rs>
         <rs key="bizEnum[com.kingdee.eas.port.pm.invest.ObjectStateEnum].enumValues.enumValue[accredit].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="评审通过" />
             <lang locale="zh_HK" value="評審通過" />
             <lang locale="zh_TW" value="評審通過" />
+        </rs>
+        <rs key="bizEnum[com.kingdee.eas.port.pm.invest.ObjectStateEnum].enumValues.enumValue[adjusted].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="已被调整" />
+            <lang locale="zh_HK" value="已被調整" />
+            <lang locale="zh_TW" value="已被調整" />
         </rs>
         <rs key="bizEnum[com.kingdee.eas.port.pm.invest.ObjectStateEnum].enumValues.enumValue[approval].alias">
             <lang locale="en_US" value="null" />
@@ -100,6 +135,12 @@
             <lang locale="zh_HK" value="初審中" />
             <lang locale="zh_TW" value="初審中" />
         </rs>
+        <rs key="bizEnum[com.kingdee.eas.port.pm.invest.ObjectStateEnum].enumValues.enumValue[cancel].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="已中止" />
+            <lang locale="zh_HK" value="已中止" />
+            <lang locale="zh_TW" value="已中止" />
+        </rs>
         <rs key="bizEnum[com.kingdee.eas.port.pm.invest.ObjectStateEnum].enumValues.enumValue[complement].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="补充完善" />
@@ -117,6 +158,12 @@
             <lang locale="zh_CN" value="申报中" />
             <lang locale="zh_HK" value="申報中" />
             <lang locale="zh_TW" value="申報中" />
+        </rs>
+        <rs key="bizEnum[com.kingdee.eas.port.pm.invest.ObjectStateEnum].enumValues.enumValue[stop].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="暂缓" />
+            <lang locale="zh_HK" value="暫緩" />
+            <lang locale="zh_TW" value="暫緩" />
         </rs>
         <rs key="bizEnum[com.kingdee.eas.port.pm.invest.ObjectStateEnum].enumValues.enumValue[throughAudit].alias">
             <lang locale="en_US" value="null" />
