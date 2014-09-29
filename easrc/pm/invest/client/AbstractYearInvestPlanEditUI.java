@@ -95,6 +95,8 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contStatus;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contyear;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contbalance;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contcompanyProperty;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contseq;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtNumber;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkBizDate;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtbuildType;
@@ -121,6 +123,8 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
     protected com.kingdee.bos.ctrl.swing.KDComboBox comboStatus;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtyear;
     protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtbalance;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtcompanyProperty;
+    protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtseq;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contanalyse;
     protected com.kingdee.bos.ctrl.swing.KDScrollPane scrollPaneanalyse;
     protected com.kingdee.bos.ctrl.swing.KDTextArea txtanalyse;
@@ -129,6 +133,9 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
     protected com.kingdee.bos.ctrl.swing.KDTextArea txtscheme;
     protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtE2;
 	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtE2_detailPanel = null;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contdesc;
+    protected com.kingdee.bos.ctrl.swing.KDScrollPane scrollPanedesc;
+    protected com.kingdee.bos.ctrl.swing.KDTextArea txtdesc;
     protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtE3;
 	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtE3_detailPanel = null;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtremark;
@@ -232,6 +239,8 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
         this.contStatus = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contyear = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contbalance = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contcompanyProperty = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contseq = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.txtNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.pkBizDate = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.prmtbuildType = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
@@ -257,6 +266,8 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
         this.comboStatus = new com.kingdee.bos.ctrl.swing.KDComboBox();
         this.prmtyear = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.txtbalance = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
+        this.prmtcompanyProperty = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.txtseq = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
         this.contanalyse = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.scrollPaneanalyse = new com.kingdee.bos.ctrl.swing.KDScrollPane();
         this.txtanalyse = new com.kingdee.bos.ctrl.swing.KDTextArea();
@@ -264,6 +275,9 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
         this.scrollPanescheme = new com.kingdee.bos.ctrl.swing.KDScrollPane();
         this.txtscheme = new com.kingdee.bos.ctrl.swing.KDTextArea();
         this.kdtE2 = new com.kingdee.bos.ctrl.kdf.table.KDTable();
+        this.contdesc = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.scrollPanedesc = new com.kingdee.bos.ctrl.swing.KDScrollPane();
+        this.txtdesc = new com.kingdee.bos.ctrl.swing.KDTextArea();
         this.kdtE3 = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.txtremark = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.prmtcostTemp = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
@@ -316,6 +330,8 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
         this.contStatus.setName("contStatus");
         this.contyear.setName("contyear");
         this.contbalance.setName("contbalance");
+        this.contcompanyProperty.setName("contcompanyProperty");
+        this.contseq.setName("contseq");
         this.txtNumber.setName("txtNumber");
         this.pkBizDate.setName("pkBizDate");
         this.prmtbuildType.setName("prmtbuildType");
@@ -341,6 +357,8 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
         this.comboStatus.setName("comboStatus");
         this.prmtyear.setName("prmtyear");
         this.txtbalance.setName("txtbalance");
+        this.prmtcompanyProperty.setName("prmtcompanyProperty");
+        this.txtseq.setName("txtseq");
         this.contanalyse.setName("contanalyse");
         this.scrollPaneanalyse.setName("scrollPaneanalyse");
         this.txtanalyse.setName("txtanalyse");
@@ -348,6 +366,9 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
         this.scrollPanescheme.setName("scrollPanescheme");
         this.txtscheme.setName("txtscheme");
         this.kdtE2.setName("kdtE2");
+        this.contdesc.setName("contdesc");
+        this.scrollPanedesc.setName("scrollPanedesc");
+        this.txtdesc.setName("txtdesc");
         this.kdtE3.setName("kdtE3");
         this.txtremark.setName("txtremark");
         this.prmtcostTemp.setName("prmtcostTemp");
@@ -564,6 +585,17 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
         this.contbalance.setBoundLabelLength(100);		
         this.contbalance.setBoundLabelUnderline(true);		
         this.contbalance.setVisible(true);
+        // contcompanyProperty		
+        this.contcompanyProperty.setBoundLabelText(resHelper.getString("contcompanyProperty.boundLabelText"));		
+        this.contcompanyProperty.setBoundLabelLength(100);		
+        this.contcompanyProperty.setBoundLabelUnderline(true);		
+        this.contcompanyProperty.setVisible(true);
+        // contseq		
+        this.contseq.setBoundLabelText(resHelper.getString("contseq.boundLabelText"));		
+        this.contseq.setBoundLabelLength(30);		
+        this.contseq.setBoundLabelUnderline(true);		
+        this.contseq.setVisible(true);		
+        this.contseq.setForeground(new java.awt.Color(255,0,0));
         // txtNumber		
         this.txtNumber.setRequired(true);		
         this.txtNumber.setEditable(false);
@@ -658,6 +690,16 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
         this.prmtprojectType.setEditFormat("$number$");		
         this.prmtprojectType.setCommitFormat("$number$");		
         this.prmtprojectType.setRequired(true);
+        this.prmtprojectType.addDataChangeListener(new com.kingdee.bos.ctrl.swing.event.DataChangeListener() {
+            public void dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) {
+                try {
+                    prmtprojectType_dataChanged(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                }
+            }
+        });
         // txtaddInvestAmount		
         this.txtaddInvestAmount.setHorizontalAlignment(2);		
         this.txtaddInvestAmount.setDataType(1);		
@@ -695,6 +737,16 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
         // planType		
         this.planType.addItems(EnumUtils.getEnumList("com.kingdee.eas.port.pm.base.coms.PlanTypeEnum").toArray());		
         this.planType.setRequired(true);
+        this.planType.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent e) {
+                try {
+                    planType_itemStateChanged(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                }
+            }
+        });
         // objectState		
         this.objectState.addItems(EnumUtils.getEnumList("com.kingdee.eas.port.pm.invest.ObjectStateEnum").toArray());		
         this.objectState.setRequired(true);		
@@ -802,6 +854,24 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
         this.txtbalance.setMaximumValue( new java.math.BigDecimal("1.0E26"));		
         this.txtbalance.setPrecision(2);		
         this.txtbalance.setRequired(false);
+        // prmtcompanyProperty		
+        this.prmtcompanyProperty.setQueryInfo("com.kingdee.eas.port.pm.base.app.CompanyPropertyQuery");		
+        this.prmtcompanyProperty.setVisible(true);		
+        this.prmtcompanyProperty.setEditable(true);		
+        this.prmtcompanyProperty.setDisplayFormat("$name$");		
+        this.prmtcompanyProperty.setEditFormat("$number$");		
+        this.prmtcompanyProperty.setCommitFormat("$number$");		
+        this.prmtcompanyProperty.setRequired(false);
+        // txtseq		
+        this.txtseq.setVisible(true);		
+        this.txtseq.setHorizontalAlignment(2);		
+        this.txtseq.setDataType(1);		
+        this.txtseq.setSupportedEmpty(true);		
+        this.txtseq.setMinimumValue( new java.math.BigDecimal("-1.0E27"));		
+        this.txtseq.setMaximumValue( new java.math.BigDecimal("1.0E27"));		
+        this.txtseq.setPrecision(1);		
+        this.txtseq.setRequired(false);		
+        this.txtseq.setForeground(new java.awt.Color(255,0,0));
         // contanalyse		
         this.contanalyse.setBoundLabelText(resHelper.getString("contanalyse.boundLabelText"));		
         this.contanalyse.setBoundLabelLength(100);		
@@ -829,6 +899,16 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
 
 
         this.kdtE2.checkParsed();
+        // contdesc		
+        this.contdesc.setBoundLabelText(resHelper.getString("contdesc.boundLabelText"));		
+        this.contdesc.setBoundLabelLength(100);		
+        this.contdesc.setBoundLabelUnderline(true);		
+        this.contdesc.setVisible(true);
+        // scrollPanedesc
+        // txtdesc		
+        this.txtdesc.setVisible(true);		
+        this.txtdesc.setRequired(false);		
+        this.txtdesc.setMaxLength(500);
         // kdtE3
 		String kdtE3StrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /><c:NumberFormat>&amp;int</c:NumberFormat></c:Style><c:Style id=\"sCol3\"><c:NumberFormat>&amp;date</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"reviewStage\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"accredConclusion\" t:width=\"300\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"reviewTime\" t:width=\"150\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol3\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{reviewStage}</t:Cell><t:Cell>$Resource{accredConclusion}</t:Cell><t:Cell>$Resource{reviewTime}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
@@ -958,8 +1038,8 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
         kDPanel1.add(contBizDate, new KDLayout.Constraints(13, 135, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contbuildType.setBounds(new Rectangle(696, 135, 270, 19));
         kDPanel1.add(contbuildType, new KDLayout.Constraints(696, 135, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contprojectName.setBounds(new Rectangle(13, 5, 611, 19));
-        kDPanel1.add(contprojectName, new KDLayout.Constraints(13, 5, 611, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contprojectName.setBounds(new Rectangle(13, 5, 523, 19));
+        kDPanel1.add(contprojectName, new KDLayout.Constraints(13, 5, 523, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contportProject.setBounds(new Rectangle(696, 191, 270, 19));
         kDPanel1.add(contportProject, new KDLayout.Constraints(696, 191, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contfundSource.setBounds(new Rectangle(354, 83, 270, 19));
@@ -982,8 +1062,8 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
         kDPanel1.add(contchancedAmount, new KDLayout.Constraints(354, 135, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contBIMUDF0027.setBounds(new Rectangle(13, 215, 957, 306));
         kDPanel1.add(contBIMUDF0027, new KDLayout.Constraints(13, 215, 957, 306, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contaddress.setBounds(new Rectangle(13, 191, 611, 19));
-        kDPanel1.add(contaddress, new KDLayout.Constraints(13, 191, 611, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contaddress.setBounds(new Rectangle(13, 191, 270, 19));
+        kDPanel1.add(contaddress, new KDLayout.Constraints(13, 191, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contplanType.setBounds(new Rectangle(354, 31, 270, 19));
         kDPanel1.add(contplanType, new KDLayout.Constraints(354, 31, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contobjectState.setBounds(new Rectangle(696, 31, 270, 19));
@@ -1000,6 +1080,10 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
         kDPanel1.add(contyear, new KDLayout.Constraints(696, 163, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contbalance.setBounds(new Rectangle(696, 109, 270, 19));
         kDPanel1.add(contbalance, new KDLayout.Constraints(696, 109, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contcompanyProperty.setBounds(new Rectangle(354, 191, 270, 19));
+        kDPanel1.add(contcompanyProperty, new KDLayout.Constraints(354, 191, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contseq.setBounds(new Rectangle(545, 5, 79, 19));
+        kDPanel1.add(contseq, new KDLayout.Constraints(545, 5, 79, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         //contNumber
         contNumber.setBoundEditor(txtNumber);
         //contBizDate
@@ -1051,6 +1135,10 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
         contyear.setBoundEditor(prmtyear);
         //contbalance
         contbalance.setBoundEditor(txtbalance);
+        //contcompanyProperty
+        contcompanyProperty.setBoundEditor(prmtcompanyProperty);
+        //contseq
+        contseq.setBoundEditor(txtseq);
         //kDPanel2
         kDPanel2.setLayout(null);        contanalyse.setBounds(new Rectangle(4, 6, 962, 385));
         kDPanel2.add(contanalyse, null);
@@ -1067,9 +1155,15 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
         scrollPanescheme.getViewport().add(txtscheme, null);
         //kDPanel5
         kDPanel5.setLayout(new KDLayout());
-        kDPanel5.putClientProperty("OriginalBounds", new Rectangle(0, 0, 985, 538));        kdtE2.setBounds(new Rectangle(1, 2, 600, 465));
+        kDPanel5.putClientProperty("OriginalBounds", new Rectangle(0, 0, 985, 538));        kdtE2.setBounds(new Rectangle(3, 108, 600, 423));
         kdtE2_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtE2,new com.kingdee.eas.port.pm.invest.YearInvestPlanE2Info(),null,false);
-        kDPanel5.add(kdtE2_detailPanel, new KDLayout.Constraints(1, 2, 600, 465, 0));
+        kDPanel5.add(kdtE2_detailPanel, new KDLayout.Constraints(3, 108, 600, 423, 0));
+        contdesc.setBounds(new Rectangle(5, 6, 601, 90));
+        kDPanel5.add(contdesc, new KDLayout.Constraints(5, 6, 601, 90, 0));
+        //contdesc
+        contdesc.setBoundEditor(scrollPanedesc);
+        //scrollPanedesc
+        scrollPanedesc.getViewport().add(txtdesc, null);
         //kDPanel4
         kDPanel4.setLayout(new KDLayout());
         kDPanel4.putClientProperty("OriginalBounds", new Rectangle(0, 0, 985, 538));        kdtE3.setBounds(new Rectangle(1, -1, 550, 376));
@@ -1300,12 +1394,15 @@ vo.put("reviewStage","1");
 		dataBinder.registerBinding("status", com.kingdee.eas.xr.app.XRBillStatusEnum.class, this.comboStatus, "selectedItem");
 		dataBinder.registerBinding("year", com.kingdee.eas.port.pm.base.InvestYearInfo.class, this.prmtyear, "data");
 		dataBinder.registerBinding("balance", java.math.BigDecimal.class, this.txtbalance, "value");
+		dataBinder.registerBinding("companyProperty", com.kingdee.eas.port.pm.base.CompanyPropertyInfo.class, this.prmtcompanyProperty, "data");
+		dataBinder.registerBinding("seq", java.math.BigDecimal.class, this.txtseq, "value");
 		dataBinder.registerBinding("analyse", String.class, this.txtanalyse, "text");
 		dataBinder.registerBinding("scheme", String.class, this.txtscheme, "text");
 		dataBinder.registerBinding("E2.seq", int.class, this.kdtE2, "seq.text");
 		dataBinder.registerBinding("E2", com.kingdee.eas.port.pm.invest.YearInvestPlanE2Info.class, this.kdtE2, "userObject");
 		dataBinder.registerBinding("E2.apIndex", String.class, this.kdtE2, "apIndex.text");
 		dataBinder.registerBinding("E2.planComplete", String.class, this.kdtE2, "planComplete.text");
+		dataBinder.registerBinding("desc", String.class, this.txtdesc, "text");
 		dataBinder.registerBinding("E3.seq", int.class, this.kdtE3, "seq.text");
 		dataBinder.registerBinding("E3", com.kingdee.eas.port.pm.invest.YearInvestPlanE3Info.class, this.kdtE3, "userObject");
 		dataBinder.registerBinding("E3.reviewTime", java.util.Date.class, this.kdtE3, "reviewTime.text");
@@ -1487,12 +1584,15 @@ vo.put("reviewStage","1");
 		getValidateHelper().registerBindProperty("status", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("year", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("balance", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("companyProperty", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("seq", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("analyse", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("scheme", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("E2.seq", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("E2", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("E2.apIndex", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("E2.planComplete", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("desc", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("E3.seq", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("E3", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("E3.reviewTime", ValidateHelper.ON_SAVE);    
@@ -1542,6 +1642,20 @@ vo.put("reviewStage","1");
      * output prmtrequestPerson_dataChanged method
      */
     protected void prmtrequestPerson_dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) throws Exception
+    {
+    }
+
+    /**
+     * output prmtprojectType_dataChanged method
+     */
+    protected void prmtprojectType_dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) throws Exception
+    {
+    }
+
+    /**
+     * output planType_itemStateChanged method
+     */
+    protected void planType_itemStateChanged(java.awt.event.ItemEvent e) throws Exception
     {
     }
 
@@ -1735,6 +1849,16 @@ vo.put("reviewStage","1");
         	sic.add(new SelectorItemInfo("year.name"));
 		}
         sic.add(new SelectorItemInfo("balance"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("companyProperty.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("companyProperty.id"));
+        	sic.add(new SelectorItemInfo("companyProperty.number"));
+        	sic.add(new SelectorItemInfo("companyProperty.name"));
+		}
+        sic.add(new SelectorItemInfo("seq"));
         sic.add(new SelectorItemInfo("analyse"));
         sic.add(new SelectorItemInfo("scheme"));
     	sic.add(new SelectorItemInfo("E2.seq"));
@@ -1746,6 +1870,7 @@ vo.put("reviewStage","1");
 		}
     	sic.add(new SelectorItemInfo("E2.apIndex"));
     	sic.add(new SelectorItemInfo("E2.planComplete"));
+        sic.add(new SelectorItemInfo("desc"));
     	sic.add(new SelectorItemInfo("E3.seq"));
 		if(selectorAll.equalsIgnoreCase("true"))
 		{

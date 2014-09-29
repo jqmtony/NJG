@@ -64,6 +64,7 @@ public abstract class AbstractYIPlanAccredEditUI extends com.kingdee.eas.xr.clie
     protected com.kingdee.bos.ctrl.swing.KDContainer kDContainer1;
     protected com.kingdee.bos.ctrl.swing.KDContainer kDContainer2;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contremark;
+    protected com.kingdee.bos.ctrl.swing.KDWorkButton btnEditProject;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtCreator;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkCreateTime;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtLastUpdateUser;
@@ -88,6 +89,7 @@ public abstract class AbstractYIPlanAccredEditUI extends com.kingdee.eas.xr.clie
     protected com.kingdee.bos.ctrl.swing.KDTextArea accredInformation;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtremark;
     protected com.kingdee.eas.port.pm.invest.YIPlanAccredInfo editData = null;
+    protected ActionEditProject actionEditProject = null;
     /**
      * output class constructor
      */
@@ -137,6 +139,10 @@ public abstract class AbstractYIPlanAccredEditUI extends com.kingdee.eas.xr.clie
         actionUnAudit.putValue(ItemAction.NAME, _tempStr);
         this.actionUnAudit.setBindWorkFlow(true);
          this.actionUnAudit.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+        //actionEditProject
+        this.actionEditProject = new ActionEditProject(this);
+        getActionManager().registerAction("actionEditProject", actionEditProject);
+         this.actionEditProject.addService(new com.kingdee.eas.framework.client.service.PermissionService());
         this.contCreator = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contCreateTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contLastUpdateUser = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -155,6 +161,7 @@ public abstract class AbstractYIPlanAccredEditUI extends com.kingdee.eas.xr.clie
         this.kDContainer1 = new com.kingdee.bos.ctrl.swing.KDContainer();
         this.kDContainer2 = new com.kingdee.bos.ctrl.swing.KDContainer();
         this.contremark = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.btnEditProject = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.prmtCreator = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.pkCreateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.prmtLastUpdateUser = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
@@ -194,6 +201,7 @@ public abstract class AbstractYIPlanAccredEditUI extends com.kingdee.eas.xr.clie
         this.kDContainer1.setName("kDContainer1");
         this.kDContainer2.setName("kDContainer2");
         this.contremark.setName("contremark");
+        this.btnEditProject.setName("btnEditProject");
         this.prmtCreator.setName("prmtCreator");
         this.pkCreateTime.setName("pkCreateTime");
         this.prmtLastUpdateUser.setName("prmtLastUpdateUser");
@@ -292,6 +300,20 @@ public abstract class AbstractYIPlanAccredEditUI extends com.kingdee.eas.xr.clie
         this.contremark.setBoundLabelLength(100);		
         this.contremark.setBoundLabelUnderline(true);		
         this.contremark.setVisible(true);
+        // btnEditProject		
+        this.btnEditProject.setText(resHelper.getString("btnEditProject.text"));
+        this.btnEditProject.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+                beforeActionPerformed(e);
+                try {
+                    btnEditProject_actionPerformed(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                    afterActionPerformed(e);
+                }
+            }
+        });
         // prmtCreator		
         this.prmtCreator.setEnabled(false);		
         this.prmtCreator.setCommitFormat("$name$");		
@@ -580,6 +602,8 @@ public abstract class AbstractYIPlanAccredEditUI extends com.kingdee.eas.xr.clie
         this.add(kDContainer2, new KDLayout.Constraints(14, 452, 923, 206, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         contremark.setBounds(new Rectangle(319, 708, 270, 19));
         this.add(contremark, new KDLayout.Constraints(319, 708, 270, 19, 0));
+        btnEditProject.setBounds(new Rectangle(602, 41, 68, 19));
+        this.add(btnEditProject, new KDLayout.Constraints(602, 41, 68, 19, 0));
         //contCreator
         contCreator.setBoundEditor(prmtCreator);
         //contCreateTime
@@ -1030,6 +1054,13 @@ vo.put("accreConclu","1");
     }
 
     /**
+     * output btnEditProject_actionPerformed method
+     */
+    protected void btnEditProject_actionPerformed(java.awt.event.ActionEvent e) throws Exception
+    {
+    }
+
+    /**
      * output prmtaccredPerson_dataChanged method
      */
     protected void prmtaccredPerson_dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) throws Exception
@@ -1220,6 +1251,14 @@ vo.put("accreConclu","1");
     {
         super.actionUnAudit_actionPerformed(e);
     }
+    	
+
+    /**
+     * output actionEditProject_actionPerformed method
+     */
+    public void actionEditProject_actionPerformed(ActionEvent e) throws Exception
+    {
+    }
 	public RequestContext prepareActionSubmit(IItemAction itemAction) throws Exception {
 			RequestContext request = super.prepareActionSubmit(itemAction);		
 		if (request != null) {
@@ -1241,6 +1280,47 @@ vo.put("accreConclu","1");
 	
 	public boolean isPrepareActionUnAudit() {
     	return false;
+    }
+	public RequestContext prepareActionEditProject(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionEditProject() {
+    	return false;
+    }
+
+    /**
+     * output ActionEditProject class
+     */     
+    protected class ActionEditProject extends ItemAction {     
+    
+        public ActionEditProject()
+        {
+            this(null);
+        }
+
+        public ActionEditProject(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            _tempStr = resHelper.getString("ActionEditProject.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionEditProject.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionEditProject.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractYIPlanAccredEditUI.this, "ActionEditProject", "actionEditProject_actionPerformed", e);
+        }
     }
 
     /**

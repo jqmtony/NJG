@@ -22,6 +22,10 @@ public class ObjectStateEnum extends StringEnum
     public static final String COMPLEMENT_VALUE = "7";//alias=补充完善
     public static final String APPROVAL_VALUE = "8";//alias=已立项
     public static final String VETO_VALUE = "9";//alias=否决
+    public static final String ADJUSTED_VALUE = "10";//alias=已被调整
+    public static final String STOP_VALUE = "11";//alias=暂缓
+    public static final String ACCEPTANCE_VALUE = "12";//alias=已验收
+    public static final String CANCEL_VALUE = "13";//alias=已中止
 
     public static final ObjectStateEnum save = new ObjectStateEnum("save", SAVE_VALUE);
     public static final ObjectStateEnum declared = new ObjectStateEnum("declared", DECLARED_VALUE);
@@ -32,6 +36,10 @@ public class ObjectStateEnum extends StringEnum
     public static final ObjectStateEnum complement = new ObjectStateEnum("complement", COMPLEMENT_VALUE);
     public static final ObjectStateEnum approval = new ObjectStateEnum("approval", APPROVAL_VALUE);
     public static final ObjectStateEnum veto = new ObjectStateEnum("veto", VETO_VALUE);
+    public static final ObjectStateEnum adjusted = new ObjectStateEnum("adjusted", ADJUSTED_VALUE);
+    public static final ObjectStateEnum stop = new ObjectStateEnum("stop", STOP_VALUE);
+    public static final ObjectStateEnum acceptance = new ObjectStateEnum("acceptance", ACCEPTANCE_VALUE);
+    public static final ObjectStateEnum cancel = new ObjectStateEnum("cancel", CANCEL_VALUE);
 
     /**
      * construct function

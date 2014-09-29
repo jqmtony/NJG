@@ -298,6 +298,39 @@ public class AbstractYearInvestPlanInfo extends com.kingdee.eas.xr.XRBillBaseInf
     {
         setBigDecimal("balance", item);
     }
+    /**
+     * Object: 年度投资计划 's 公司性质 property 
+     */
+    public com.kingdee.eas.port.pm.base.CompanyPropertyInfo getCompanyProperty()
+    {
+        return (com.kingdee.eas.port.pm.base.CompanyPropertyInfo)get("companyProperty");
+    }
+    public void setCompanyProperty(com.kingdee.eas.port.pm.base.CompanyPropertyInfo item)
+    {
+        put("companyProperty", item);
+    }
+    /**
+     * Object:年度投资计划's 序号property 
+     */
+    public java.math.BigDecimal getSeq()
+    {
+        return getBigDecimal("seq");
+    }
+    public void setSeq(java.math.BigDecimal item)
+    {
+        setBigDecimal("seq", item);
+    }
+    /**
+     * Object:年度投资计划's 填写说明property 
+     */
+    public String getDesc()
+    {
+        return getString("desc");
+    }
+    public void setDesc(String item)
+    {
+        setString("desc", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("5047FDF8");
