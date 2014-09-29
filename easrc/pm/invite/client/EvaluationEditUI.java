@@ -38,12 +38,14 @@ import com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockFactory;
 import com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockInfo;
 import com.kingdee.eas.port.pm.base.EvaluationIndicatorsFactory;
 import com.kingdee.eas.port.pm.base.EvaluationTemplateEntryCollection;
-import com.kingdee.eas.port.pm.base.EvaluationTemplateEntryInfo;
 import com.kingdee.eas.port.pm.base.EvaluationTemplateFactory;
 import com.kingdee.eas.port.pm.base.EvaluationTemplateInfo;
+import com.kingdee.eas.port.pm.invite.EvaluationFactory;
 import com.kingdee.eas.port.pm.invite.IInviteReport;
 import com.kingdee.eas.port.pm.invite.InviteReportE6Collection;
 import com.kingdee.eas.port.pm.invite.InviteReportE6Info;
+import com.kingdee.eas.port.pm.invite.InviteReportE7Collection;
+import com.kingdee.eas.port.pm.invite.InviteReportE7Info;
 import com.kingdee.eas.port.pm.invite.InviteReportFactory;
 import com.kingdee.eas.port.pm.invite.InviteReportInfo;
 import com.kingdee.eas.port.pm.invite.JudgesComfirmCollection;
@@ -57,7 +59,6 @@ import com.kingdee.eas.port.pm.invite.OpenRegistrationEntryInfo;
 import com.kingdee.eas.port.pm.invite.OpenRegistrationFactory;
 import com.kingdee.eas.port.pm.invite.OpenRegistrationInfo;
 import com.kingdee.eas.port.pm.invite.judgeSolution;
-import com.kingdee.eas.port.pm.invite.util.CellSumExpr;
 import com.kingdee.eas.port.pm.utils.FDCClientHelper;
 import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
 import com.kingdee.eas.util.SysUtil;
@@ -101,6 +102,7 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
     		FilterInfo filter = new FilterInfo();
     		evi.setFilter(filter);
     		filter.getFilterItems().add(new FilterItemInfo("proName.longnumber", info.getLongNumber()+"%", CompareType.LIKE));
+    		filter.getFilterItems().add(new FilterItemInfo("status", "4", CompareType.EQUALS));
     		prmtinviteReport.setEntityViewInfo(evi);
 		}
     }
@@ -129,6 +131,16 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
     	// TODO Auto-generated method stub
     	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, prmtinviteReport, "招标方案");
     	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, pkevaDate, "评标日期");
+    	
+    	InviteReportInfo planInfo = (InviteReportInfo)prmtinviteReport.getValue();
+		
+		String oql = "select id where inviteReport.id='"+planInfo.getId()+"'";
+		if(editData.getId()!=null)
+			oql = oql+"and id <>'"+editData.getId()+"'";
+		if(EvaluationFactory.getRemoteInstance().exists(oql))
+		{
+			MsgBox.showWarning("当前招标方案申报<"+planInfo.getReportName()+">已有对应的评标，不允许重复评标！");SysUtil.abort();
+		}
     	super.verifyInput(e);
     }
     public void prmtinviteReport_Changed() throws Exception {
@@ -156,9 +168,9 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
     		JudgesComfirmEntryCollection judgeComEntryColl = judgeComInfo.getEntry();//专家确定分录
     		
     		//获取符合性审查模板
-    		EvaluationTemplateInfo evaTempInfo = reportInfo.getEvaTemplate();
-			evaTempInfo = EvaluationTemplateFactory.getRemoteInstance().getEvaluationTemplateInfo(new ObjectUuidPK(evaTempInfo.getId()));
-			EvaluationTemplateEntryCollection evaTmpEntryColl = evaTempInfo.getEntry();
+    		InviteReportE7Collection evaTmpEntryColl = reportInfo.getE7();
+//			evaTempInfo = EvaluationTemplateFactory.getRemoteInstance().getEvaluationTemplateInfo(new ObjectUuidPK(evaTempInfo.getId()));
+//			EvaluationTemplateEntryCollection evaTmpEntryColl = evaTempInfo.getEntry();
     		
     		//过滤该招标方案对应的开标登记信息
 //    		evi = new EntityViewInfo();
@@ -214,10 +226,10 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
     			JudgesComfirmEntryInfo juEntryInfo = judgeComEntryColl.get(i);
     			juEntryInfo.getJuName();
     			for(int j = 0; j < evaTmpEntryColl.size(); j++) {
-    				EvaluationTemplateEntryInfo evaEntryInfo = evaTmpEntryColl.get(j);
+    				InviteReportE7Info evaEntryInfo = evaTmpEntryColl.get(j);
     				IRow rowAdd = this.kDTable1.addRow();
     				rowAdd.getCell("Judges").setValue(juEntryInfo.getJudgesName());
-    				rowAdd.getCell("Indicator").setValue(evaEntryInfo.getIndicatorName());
+    				rowAdd.getCell("Indicator").setValue(evaEntryInfo.getEvaluationName());
     			}
     			IRow rowAdd = this.kDTable1.addRow();
 				rowAdd.getCell("Judges").setValue(juEntryInfo.getJuName());
@@ -299,8 +311,7 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
         				InviteReportE6Info InviteEntryInfo = InviteTempCollection.get(j);
         				IRow rowAdd = this.kDTable2.addRow();
         				rowAdd.getCell("Judges").setValue(juEntryInfo.getJudgesName());
-        				if(InviteEntryInfo.getEvaluationName()!=null)
-        					rowAdd.getCell("Indicator").setValue(EvaluationIndicatorsFactory.getRemoteInstance().getEvaluationIndicatorsInfo(new ObjectUuidPK(InviteEntryInfo.getEvaluationName().getId())).getName());
+        				rowAdd.getCell("Indicator").setValue(InviteEntryInfo.getEvaluationNameTex());
         				rowAdd.getCell("fullScore").setValue(InviteEntryInfo.getWeight());
         			}
         			IRow rowAdd = this.kDTable2.addRow();
@@ -389,9 +400,7 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
      	IInviteReport iinviteReport = InviteReportFactory.getRemoteInstance();
      	reportInfo = iinviteReport.getInviteReportInfo(new ObjectUuidPK(reportInfo.getId()));//招标方案完整信息
      	//获取符合性审查模板
-     	EvaluationTemplateInfo evaTempInfo = reportInfo.getEvaTemplate();
-     	evaTempInfo = EvaluationTemplateFactory.getRemoteInstance().getEvaluationTemplateInfo(new ObjectUuidPK(evaTempInfo.getId()));
- 		int count = evaTempInfo.getEntry().size() + 1;//指标数+评审结果行
+ 		int count = reportInfo.getE7().size() + 1;//指标数+评审结果行
  		//自动 得出符合性评审结果s
  		for(int c = 2; c < this.kDTable1.getColumnCount()-1; c++) {
  			for(int r = 0; r < this.kDTable1.getRowCount(); r += count) {
@@ -495,15 +504,14 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
         	}
         	//获取符合性审查模板
         	InviteReportInfo reportInfo = (InviteReportInfo) this.prmtinviteReport.getValue();
-        	EvaluationTemplateInfo evaTempInfo = reportInfo.getEvaTemplate();
 			try {
-				evaTempInfo = EvaluationTemplateFactory.getRemoteInstance().getEvaluationTemplateInfo(new ObjectUuidPK(evaTempInfo.getId()));
+				reportInfo = InviteReportFactory.getRemoteInstance().getInviteReportInfo(new ObjectUuidPK(reportInfo.getId()));//招标方案完整信息
 			} catch (EASBizException e) {
 				e.printStackTrace();
 			} catch (BOSException e) {
 				e.printStackTrace();
 			}
-			EvaluationTemplateEntryCollection evaTmpEntryColl = evaTempInfo.getEntry();
+			InviteReportE7Collection evaTmpEntryColl = reportInfo.getE7();
         	//设置符合性审查评委融合
     		for(int i = 0; i < kDTable1.getRowCount(); i += evaTmpEntryColl.size() + 1) {
     			kDTable1.getMergeManager().mergeBlock(i, 0, evaTmpEntryColl.size()+i, 0);
@@ -1028,7 +1036,7 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
     		ArrayList<String> price = new ArrayList<String>();//存放有效报价(通过符合性审查的)
     		IRow rowPrice = this.kDTable3.getRow(0);//总分分录报价行
 			IRow rowValid = this.kDTable3.getRow(1);//总分分录符合性审查结果行
-			BigDecimal coefficient = new BigDecimal(openRegInfo.getCoefficient());
+//			BigDecimal coefficient = new BigDecimal(openRegInfo.getCoefficient());
     		for(int i = 1; i < this.kDTable3.getColumnCount(); i++) {
     			if("合格".equals(rowValid.getCell(i).getValue().toString().trim()))
     				price.add(rowPrice.getCell(i).getValue().toString().trim());
@@ -1044,7 +1052,7 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
 	    		for(int i = rmLow; i < price.size()-rmHigh; i++) {
 	    			basePrice = basePrice.add(new BigDecimal(price.get(i)));
 	    		}
-	    		basePrice = basePrice.divide(new BigDecimal(validCount), 2, BigDecimal.ROUND_HALF_UP).multiply(coefficient);
+	    		basePrice = basePrice.divide(new BigDecimal(validCount), 2, BigDecimal.ROUND_HALF_UP);
 	    	    this.txtbasePrice.setValue(basePrice);
     		}
     		

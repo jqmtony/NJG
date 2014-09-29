@@ -20,6 +20,7 @@ import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
 import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
+import com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent;
 import com.kingdee.bos.ctrl.kdf.util.render.ObjectValueRender;
 import com.kingdee.bos.ctrl.swing.KDContainer;
@@ -30,7 +31,6 @@ import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
-import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.UIException;
@@ -51,11 +51,18 @@ import com.kingdee.eas.hr.emp.client.EmployeeMultiF7PromptBox;
 import com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockInfo;
 import com.kingdee.eas.port.markesupplier.subill.client.MarketSupplierStockEditUI;
 import com.kingdee.eas.port.pm.base.EvaluationIndicatorsFactory;
+import com.kingdee.eas.port.pm.base.EvaluationIndicatorsInfo;
+import com.kingdee.eas.port.pm.base.EvaluationIndicatorsTreeFactory;
+import com.kingdee.eas.port.pm.base.EvaluationIndicatorsTreeInfo;
 import com.kingdee.eas.port.pm.base.EvaluationTemplateEntryInfo;
 import com.kingdee.eas.port.pm.base.EvaluationTemplateInfo;
 import com.kingdee.eas.port.pm.base.IEvaluationIndicators;
+import com.kingdee.eas.port.pm.base.IEvaluationIndicatorsTree;
+import com.kingdee.eas.port.pm.base.InviteTypeFactory;
 import com.kingdee.eas.port.pm.base.InviteTypeInfo;
 import com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI;
+import com.kingdee.eas.port.pm.invite.InvitePlanInfo;
+import com.kingdee.eas.port.pm.invite.InviteReportFactory;
 import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
 import com.kingdee.eas.util.SysUtil;
 
@@ -90,6 +97,7 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI {
 		this.txtreportName.setRequired(true);
 		this.prmtproName.setRequired(true);
 		this.prmtuseOrg.setRequired(true);
+		this.prmtinvitePlan.setRequired(true);
 		this.prmtdevOrg.setEnabled(false);
 		this.prmtinviteType.setRequired(true);
 		this.prmtvalidTemplate.setRequired(true);
@@ -107,6 +115,8 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI {
 		this.contBizStatus.setVisible(false);
 		this.contDescription.setVisible(false);
 		this.kDContainer6.getContentPane().add(kdtE6, BorderLayout.CENTER);
+		this.kDContainer7.getContentPane().add(kdtE7, BorderLayout.CENTER);
+		this.kdtE7.getColumn("weight").getStyleAttributes().setHided(true);
 		this.kDButton1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
@@ -169,11 +179,14 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI {
 				}
 			}
 		});
-		// EntityViewInfo view = new EntityViewInfo();
-		// FilterInfo filInfo = new FilterInfo();
-		// filInfo.getFilterItems().add(new
-		// FilterItemInfo("level","2",CompareType.EQUALS));
-		// view.setFilter(filInfo);
+		 EntityViewInfo view = new EntityViewInfo();
+		 FilterInfo filInfo = new FilterInfo();
+		 filInfo.getFilterItems().add(new
+		 FilterItemInfo("status","4",CompareType.EQUALS));
+		 view.setFilter(filInfo);
+		 
+		 this.prmtinvitePlan.setEntityViewInfo(view);
+		 
 		// 重构分录专家类别
 		final KDBizPromptBox kdtE5_judgeType_PromptBox = new KDBizPromptBox();
 		kdtE5_judgeType_PromptBox
@@ -218,6 +231,7 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI {
 		initContainerButton(kDContainer4, kdtEntry1_detailPanel);
 		initContainerButton(kDContainer5, kdtEntry4_detailPanel);
 		initContainerButton(kDContainer6, kdtE6_detailPanel);
+		initContainerButton(kDContainer7, kdtE7_detailPanel);
 
 		AdminF7 f7 = new AdminF7(this);
 		f7.showCheckBoxOfShowingAllOUs();
@@ -227,10 +241,13 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI {
 		this.prmtuseOrg.setSelector(f7);
 		
 		
-		this.kdtE6.getColumn("EvaluationName").setRequired(true);
+		this.kdtE7.getColumn("EvaluationName").setRequired(true);
+		this.kdtE6.getColumn("evaluationNameTex").setRequired(true);
 		this.kdtE6.getColumn("weight").setRequired(true);
+		this.kdtE6.getColumn("EvaluationType").getStyleAttributes().setLocked(false);
 		
 		setTableToSumField(kdtE6, new String []{"weight"});
+		setTableToSumField(kdtE7, new String []{"weight"});
 		
 		
 		this.kdtEntry2.getColumn("evaEnterprise").getStyleAttributes().setUnderline(true);
@@ -286,13 +303,26 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI {
 	protected void verifyInput(ActionEvent e) throws Exception {
 		// TODO Auto-generated method stub
 		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this,
-				txtreportName, "招标方案申报名称");
+				txtreportName, "标段名称");
 		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this,
-				prmtproName, "项目信息");
+				prmtproName, "项目名称");
 		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this,
-				prmtuseOrg, "使用单位");
+				prmtuseOrg, "招标单位");
 		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this,
 				prmtinviteType, "招标方式");
+		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this,
+				prmtinvitePlan, "招标计划");
+		
+		InvitePlanInfo planInfo = (InvitePlanInfo)prmtinvitePlan.getValue();
+		
+		String oql = "select id where invitePlan.id='"+planInfo.getId()+"'";
+		if(editData.getId()!=null)
+			oql = oql+"and id <>'"+editData.getId()+"'";
+		if(InviteReportFactory.getRemoteInstance().exists(oql))
+		{
+			MsgBox.showWarning("当前招标计划<"+planInfo.getPlanName()+">已有对应的招标方案申报，不允许重复申报！");SysUtil.abort();
+		}
+		
 		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this,
 				prmtvalidTemplate, "符合性审查模板");
 		if (this.judgeSolution.getSelectedItem().equals(
@@ -324,15 +354,16 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI {
 				this, kdtEntry3, "invitePerson");
 		
 		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyKDTColumnNull(
-				this, kdtE6, "EvaluationName");
+				this, kdtE6, "evaluationNameTex");
 		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyKDTColumnNull(
 				this, kdtE6, "weight");
+		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyKDTColumnNull(
+				this, kdtE7, "EvaluationName");
 
 		if(UIRuleUtil.sum(kdtE6, "weight")!=100)
 		{
 			MsgBox.showWarning("评标办法内评审指标信息权重比不等于100，不能保存、提交！");SysUtil.abort();
 		}
-		
 		super.verifyInput(e);
 	}
 
@@ -370,7 +401,7 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI {
 		
 		boolean isShowWarn=false;
         boolean isUpdate=false;
-        if(this.kdtE6.getRowCount()>0){
+        if(this.kdtE6.getRowCount()>0 ){
         	isShowWarn=true;
         }
         if(isShowWarn){
@@ -384,6 +415,7 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI {
         if(isUpdate){
         	this.kdtE6.removeRows();
         	IEvaluationIndicators IEvaluationIndicators = EvaluationIndicatorsFactory.getRemoteInstance();
+        	IEvaluationIndicatorsTree itree = EvaluationIndicatorsTreeFactory.getRemoteInstance();
         	for (int i = 0; i < Info.getEntry().size(); i++) 
         	{
         		EvaluationTemplateEntryInfo entryInfo = Info.getEntry().get(i);
@@ -391,13 +423,80 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI {
         		IRow row = this.kdtE6.addRow();
         		
         		if(entryInfo.getIndicatorType()!=null)
-        			row.getCell("EvaluationName").setValue(IEvaluationIndicators.getEvaluationIndicatorsInfo(new ObjectUuidPK(entryInfo.getIndicatorType().getId())));
-        		row.getCell("weight").setValue(entryInfo.getWeight());
-        		row.getCell("remake").setValue(entryInfo.getComment());
-        		row.getCell("EvaluationType").setValue(UIRuleUtil.getString(UIRuleUtil.getProperty((IObjectValue)row.getCell("EvaluationName").getValue(),"evalType")));
-        		
+        		{
+        			
+        			EvaluationIndicatorsInfo EvaluationIndicatorsInfo = IEvaluationIndicators.getEvaluationIndicatorsInfo(new ObjectUuidPK(entryInfo.getIndicatorType().getId()));
+        			
+        			EvaluationIndicatorsTreeInfo treeInfo = itree.getEvaluationIndicatorsTreeInfo(new ObjectUuidPK(EvaluationIndicatorsInfo.getTreeid().getId()));
+        			
+        			row.getCell("evaluationNameTex").setValue(EvaluationIndicatorsInfo.getName());
+        			row.getCell("weight").setValue(entryInfo.getWeight());
+        			row.getCell("remake").setValue(entryInfo.getComment());
+        			row.getCell("EvaluationType").setValue(treeInfo.getName());
+        		}
 			}
         }
+	}
+	
+	protected void prmtvalidTemplate_dataChanged(DataChangeEvent e)throws Exception {
+		super.prmtvalidTemplate_dataChanged(e);
+		
+		 boolean isChanged = BizCollUtil.isF7ValueChanged(e);
+        if(!isChanged||e.getNewValue()==null)
+        	return;
+		
+		EvaluationTemplateInfo Info = (EvaluationTemplateInfo)e.getNewValue();
+		
+		boolean isShowWarn=false;
+        boolean isUpdate=false;
+        if( this.kdtE7.getRowCount()>0){
+        	isShowWarn=true;
+        }
+        if(isShowWarn){
+        	if(MsgBox.showConfirm2(this, "评审模板改变会覆盖评标办法内符合性审查页签，是否继续？")== JOptionPane.YES_OPTION){
+        		isUpdate=true;
+            }
+        }else{
+        	isUpdate=true;
+        }
+        
+        if(isUpdate){
+        	this.kdtE7.removeRows();
+        	IEvaluationIndicators IEvaluationIndicators = EvaluationIndicatorsFactory.getRemoteInstance();
+        	IEvaluationIndicatorsTree itree = EvaluationIndicatorsTreeFactory.getRemoteInstance();
+        	for (int i = 0; i < Info.getEntry().size(); i++) 
+        	{
+        		EvaluationTemplateEntryInfo entryInfo = Info.getEntry().get(i);
+        		
+        		IRow row1 = this.kdtE7.addRow();
+        		
+        		if(entryInfo.getIndicatorType()!=null)
+        		{
+        			
+        			EvaluationIndicatorsInfo EvaluationIndicatorsInfo = IEvaluationIndicators.getEvaluationIndicatorsInfo(new ObjectUuidPK(entryInfo.getIndicatorType().getId()));
+        			
+        			EvaluationIndicatorsTreeInfo treeInfo = itree.getEvaluationIndicatorsTreeInfo(new ObjectUuidPK(EvaluationIndicatorsInfo.getTreeid().getId()));
+        			
+        			row1.getCell("EvaluationName").setValue(EvaluationIndicatorsInfo.getName());
+        			row1.getCell("weight").setValue(entryInfo.getWeight());
+        			row1.getCell("remake").setValue(entryInfo.getComment());
+        			row1.getCell("EvaluationType").setValue(treeInfo.getName());
+        		}
+			}
+        }
+	
+	}
+	
+	protected void prmtinvitePlan_dataChanged(DataChangeEvent e)throws Exception {
+		super.prmtinvitePlan_dataChanged(e);
+		boolean isChanged = BizCollUtil.isF7ValueChanged(e);
+        if(!isChanged||e.getNewValue()==null)
+        	return;
+		InvitePlanInfo Info = (InvitePlanInfo)e.getNewValue();
+		
+		if(Info.getInviteType()==null)
+			return;
+		this.prmtinviteType.setValue(InviteTypeFactory.getRemoteInstance().getInviteTypeInfo(new ObjectUuidPK(Info.getInviteType().getId())));
 	}
 	
 	public void kdtE6_Changed(int rowIndex, int colIndex) throws Exception {
@@ -405,6 +504,11 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI {
 		
 		setTableToSumField(kdtE6, new String []{"weight"});
 		
+	}
+	
+	protected void kdtE7_editStopped(KDTEditEvent e) throws Exception {
+		super.kdtE7_editStopped(e);
+		setTableToSumField(kdtE7, new String []{"weight"});
 	}
 	
 	/**

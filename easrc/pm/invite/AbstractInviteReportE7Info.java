@@ -7,18 +7,18 @@ import com.kingdee.util.TypeConversionUtils;
 import com.kingdee.bos.util.BOSObjectType;
 
 
-public class AbstractInviteReportE6Info extends com.kingdee.eas.framework.CoreBillEntryBaseInfo implements Serializable 
+public class AbstractInviteReportE7Info extends com.kingdee.eas.framework.CoreBillEntryBaseInfo implements Serializable 
 {
-    public AbstractInviteReportE6Info()
+    public AbstractInviteReportE7Info()
     {
         this("id");
     }
-    protected AbstractInviteReportE6Info(String pkField)
+    protected AbstractInviteReportE7Info(String pkField)
     {
         super(pkField);
     }
     /**
-     * Object: 评审指标信息 's null property 
+     * Object: 符合性审查 's null property 
      */
     public com.kingdee.eas.port.pm.invite.InviteReportInfo getParent()
     {
@@ -29,18 +29,18 @@ public class AbstractInviteReportE6Info extends com.kingdee.eas.framework.CoreBi
         put("parent", item);
     }
     /**
-     * Object: 评审指标信息 's 评审指标名称 property 
+     * Object:符合性审查's 评审指标名称property 
      */
-    public com.kingdee.eas.port.pm.base.EvaluationIndicatorsInfo getEvaluationName()
+    public String getEvaluationName()
     {
-        return (com.kingdee.eas.port.pm.base.EvaluationIndicatorsInfo)get("EvaluationName");
+        return getString("EvaluationName");
     }
-    public void setEvaluationName(com.kingdee.eas.port.pm.base.EvaluationIndicatorsInfo item)
+    public void setEvaluationName(String item)
     {
-        put("EvaluationName", item);
+        setString("EvaluationName", item);
     }
     /**
-     * Object:评审指标信息's 评审指标类型property 
+     * Object:符合性审查's 评审指标类型property 
      */
     public String getEvaluationType()
     {
@@ -51,7 +51,7 @@ public class AbstractInviteReportE6Info extends com.kingdee.eas.framework.CoreBi
         setString("EvaluationType", item);
     }
     /**
-     * Object:评审指标信息's 权重property 
+     * Object:符合性审查's 权重property 
      */
     public java.math.BigDecimal getWeight()
     {
@@ -62,7 +62,7 @@ public class AbstractInviteReportE6Info extends com.kingdee.eas.framework.CoreBi
         setBigDecimal("weight", item);
     }
     /**
-     * Object:评审指标信息's 备注property 
+     * Object:符合性审查's 备注property 
      */
     public String getRemake()
     {
@@ -72,19 +72,8 @@ public class AbstractInviteReportE6Info extends com.kingdee.eas.framework.CoreBi
     {
         setString("remake", item);
     }
-    /**
-     * Object:评审指标信息's 评审指标名称property 
-     */
-    public String getEvaluationNameTex()
-    {
-        return getString("evaluationNameTex");
-    }
-    public void setEvaluationNameTex(String item)
-    {
-        setString("evaluationNameTex", item);
-    }
     public BOSObjectType getBOSType()
     {
-        return new BOSObjectType("BFB19077");
+        return new BOSObjectType("BFB19078");
     }
 }

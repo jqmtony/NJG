@@ -47,12 +47,15 @@ import com.kingdee.eas.port.pm.base.JudgesInfo;
 import com.kingdee.eas.port.pm.base.JudgesTreeFactory;
 import com.kingdee.eas.port.pm.base.JudgesTreeInfo;
 import com.kingdee.eas.port.pm.invite.IInviteReportEntry5;
+import com.kingdee.eas.port.pm.invite.InvitePlanInfo;
 import com.kingdee.eas.port.pm.invite.InviteReportEntry3Collection;
 import com.kingdee.eas.port.pm.invite.InviteReportEntry3Info;
 import com.kingdee.eas.port.pm.invite.InviteReportEntry5Collection;
 import com.kingdee.eas.port.pm.invite.InviteReportEntry5Factory;
 import com.kingdee.eas.port.pm.invite.InviteReportEntry5Info;
+import com.kingdee.eas.port.pm.invite.InviteReportFactory;
 import com.kingdee.eas.port.pm.invite.InviteReportInfo;
+import com.kingdee.eas.port.pm.invite.JudgesComfirmFactory;
 import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
@@ -108,6 +111,7 @@ public class JudgesComfirmEditUI extends AbstractJudgesComfirmEditUI
     		FilterInfo filter = new FilterInfo();
     		evi.setFilter(filter);
     		filter.getFilterItems().add(new FilterItemInfo("proName.longnumber", info.getLongNumber()+"%", CompareType.LIKE));
+    		filter.getFilterItems().add(new FilterItemInfo("status","4", CompareType.EQUALS));
 			prmtplanName.setEntityViewInfo(evi);
 		}
 //    	InitWorkButton(this.kDContainer2);
@@ -131,6 +135,16 @@ public class JudgesComfirmEditUI extends AbstractJudgesComfirmEditUI
     	// TODO Auto-generated method stub
     	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, prmtplanName, "招标方案");
     	InviteReportInfo reportInfo = (InviteReportInfo) this.prmtplanName.getValue();
+    	
+		String oql = "select id where planName.id='"+reportInfo.getId()+"'";
+		if(editData.getId()!=null)
+			oql = oql+"and id <>'"+editData.getId()+"'";
+		if(JudgesComfirmFactory.getRemoteInstance().exists(oql))
+		{
+			MsgBox.showWarning("招标方案<"+reportInfo.getReportName()+">已有对应的评标专家确认单，不允许重复录入！");SysUtil.abort();
+		}
+		
+    	
     	InviteReportEntry5Collection judgeColl = reportInfo.getEntry5();
     	
     	//校验专家信息是否与招标方案申报中的相符合

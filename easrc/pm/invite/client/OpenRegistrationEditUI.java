@@ -30,11 +30,13 @@ import com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockEntryPersonI
 import com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockFactory;
 import com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockInfo;
 import com.kingdee.eas.port.pm.invite.IInviteReportEntry2;
+import com.kingdee.eas.port.pm.invite.InvitePlanInfo;
 import com.kingdee.eas.port.pm.invite.InviteReportEntry2Collection;
 import com.kingdee.eas.port.pm.invite.InviteReportEntry2Factory;
 import com.kingdee.eas.port.pm.invite.InviteReportEntry2Info;
 import com.kingdee.eas.port.pm.invite.InviteReportFactory;
 import com.kingdee.eas.port.pm.invite.InviteReportInfo;
+import com.kingdee.eas.port.pm.invite.OpenRegistrationFactory;
 import com.kingdee.eas.port.pm.invite.judgeSolution;
 import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
 import com.kingdee.eas.util.SysUtil;
@@ -71,6 +73,7 @@ public class OpenRegistrationEditUI extends AbstractOpenRegistrationEditUI
     		FilterInfo filter = new FilterInfo();
     		evi.setFilter(filter);
     		filter.getFilterItems().add(new FilterItemInfo("proName.longnumber", info.getLongNumber()+"%", CompareType.LIKE));
+    		filter.getFilterItems().add(new FilterItemInfo("status","4", CompareType.EQUALS));
     		prmtreportName.setEntityViewInfo(evi);
 		}
     	com.kingdee.eas.port.pm.invite.client.InviteReportEditUI.initContainerButton(this.kDContainer1, this.kdtEntry_detailPanel);
@@ -96,11 +99,22 @@ public class OpenRegistrationEditUI extends AbstractOpenRegistrationEditUI
 
     protected void verifyInput(ActionEvent e) throws Exception {
     	// TODO Auto-generated method stub
-    	InviteReportInfo invite = (InviteReportInfo) this.prmtreportName.getValue();
     	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, txtregName, "开标登记名称");
     	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, prmtreportName, "招标方案");
     	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, txtopLocation, "开标地点");
     	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, pkopDate, "开标时间");
+    	
+    	InviteReportInfo planInfo = (InviteReportInfo)prmtreportName.getValue();
+		
+		String oql = "select id where reportName.id='"+planInfo.getId()+"' and cancel<>'1'";
+		if(editData.getId()!=null)
+			oql = oql+"and id <>'"+editData.getId()+"'";
+		if(OpenRegistrationFactory.getRemoteInstance().exists(oql))
+		{
+			MsgBox.showWarning("当前开标登记<"+planInfo.getReportName()+">已有对应的开标登记，不允许重复登记！");SysUtil.abort();
+		}
+		
+    	
 //    	if(judgeSolution.integrate.equals(invite.getJudgeSolution())) {
 //    		//综合评分时评标系数必填
 //    		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, txtcoefficient, "评标系数");

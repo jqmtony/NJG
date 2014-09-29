@@ -95,7 +95,7 @@ public class InviteReportListUI extends AbstractInviteReportListUI
     @Override
     protected String getEditUIModal() {
     	// TODO Auto-generated method stub
-    	return UIFactoryName.NEWWIN;
+    	return UIFactoryName.NEWTAB;
     }
     
     @Override

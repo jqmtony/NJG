@@ -17,6 +17,7 @@ public class AbstractInviteReportInfo extends com.kingdee.eas.xr.XRBillBaseInfo 
     {
         super(pkField);
         put("Entry4", new com.kingdee.eas.port.pm.invite.InviteReportEntry4Collection());
+        put("E7", new com.kingdee.eas.port.pm.invite.InviteReportE7Collection());
         put("Entry1", new com.kingdee.eas.port.pm.invite.InviteReportEntry1Collection());
         put("Entry5", new com.kingdee.eas.port.pm.invite.InviteReportEntry5Collection());
         put("E6", new com.kingdee.eas.port.pm.invite.InviteReportE6Collection());
@@ -352,6 +353,24 @@ public class AbstractInviteReportInfo extends com.kingdee.eas.xr.XRBillBaseInfo 
     public com.kingdee.eas.port.pm.invite.InviteReportE6Collection getE6()
     {
         return (com.kingdee.eas.port.pm.invite.InviteReportE6Collection)get("E6");
+    }
+    /**
+     * Object: 招标方案申报 's 符合性审查 property 
+     */
+    public com.kingdee.eas.port.pm.invite.InviteReportE7Collection getE7()
+    {
+        return (com.kingdee.eas.port.pm.invite.InviteReportE7Collection)get("E7");
+    }
+    /**
+     * Object: 招标方案申报 's 招标计划 property 
+     */
+    public com.kingdee.eas.port.pm.invite.InvitePlanInfo getInvitePlan()
+    {
+        return (com.kingdee.eas.port.pm.invite.InvitePlanInfo)get("invitePlan");
+    }
+    public void setInvitePlan(com.kingdee.eas.port.pm.invite.InvitePlanInfo item)
+    {
+        put("invitePlan", item);
     }
     public BOSObjectType getBOSType()
     {

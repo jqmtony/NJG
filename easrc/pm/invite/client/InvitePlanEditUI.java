@@ -59,6 +59,8 @@ public class InvitePlanEditUI extends AbstractInvitePlanEditUI
     	initConpoment();
     	super.onLoad();
     	initFilter();
+    	
+    	this.prmtinviteType.setRequired(true);
     }
     private void initConpoment() {
     	btnCopyLine.setVisible(false);
@@ -114,6 +116,10 @@ public class InvitePlanEditUI extends AbstractInvitePlanEditUI
     	}
     	if(prmtproject.getValue() == null) {
     		MsgBox.showWarning("所属项目不能为空");
+    		SysUtil.abort();
+    	}
+    	if(prmtinviteType.getValue() == null) {
+    		MsgBox.showWarning("招标方式不能为空");
     		SysUtil.abort();
     	}
     	if(editData.getStartDate() != null && editData.getEndDate() != null && editData.getStartDate().after(editData.getEndDate()))
