@@ -34,11 +34,16 @@ import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.ui.face.UIException;
+import com.kingdee.bos.ui.face.UIFactory;
 import com.kingdee.bos.ui.face.UIRuleUtil;
+import com.kingdee.eas.basedata.assistant.ProjectInfo;
+import com.kingdee.eas.basedata.assistant.client.ProjectEditUI;
 import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
 import com.kingdee.eas.basedata.person.PersonInfo;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
+import com.kingdee.eas.common.client.UIContext;
 import com.kingdee.eas.hr.emp.client.EmployeeMultiF7PromptBox;
 import com.kingdee.eas.port.pm.base.ReviewerE1Collection;
 import com.kingdee.eas.port.pm.base.ReviewerE1Factory;
@@ -49,6 +54,8 @@ import com.kingdee.eas.port.pm.invest.YIPlanAccredE1E2Info;
 import com.kingdee.eas.port.pm.invest.YIPlanAccredE1Info;
 import com.kingdee.eas.port.pm.invest.YIPlanAccredFactory;
 import com.kingdee.eas.port.pm.invest.YIPlanAccredInfo;
+import com.kingdee.eas.port.pm.invest.YearInvestPlanFactory;
+import com.kingdee.eas.port.pm.invest.YearInvestPlanInfo;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
@@ -132,9 +139,9 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
 			ReviewerE1Info e1Info = revE1Coll.get(i);
 			set.add(e1Info.getJudges().getId().toString());
 		}
-		filter.getFilterItems().add(new FilterItemInfo("id",set,CompareType.INCLUDE));
-		evInfo.setFilter(filter);
-		prmtaccredPerson.setEntityViewInfo(evInfo);
+//		filter.getFilterItems().add(new FilterItemInfo("id",set,CompareType.INCLUDE));
+//		evInfo.setFilter(filter);
+//		prmtaccredPerson.setEntityViewInfo(evInfo);
 		
 		this.kDContainer1.getContentPane().add(this.kdtE1,BorderLayout.CENTER);
 		this.kDContainer2.getContentPane().add(this.kdtE2,BorderLayout.CENTER);
@@ -192,7 +199,8 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
 	        kdtE2_accreConclu_ComboBox.addItems(listE2.toArray());
 	        KDTDefaultCellEditor kdtE2_accreConclu_CellEditor = new KDTDefaultCellEditor(kdtE2_accreConclu_ComboBox);
 	        this.kdtE2.getColumn("accreConclu").setEditor(kdtE2_accreConclu_CellEditor);
-	        
+	    actionSave.setEnabled(true);
+	    btnSave.setEnabled(true);
 	}
 	/**
 	 * 分录“accredResu”列值改变时“projectConclude”列值默认带出“同意”
@@ -245,8 +253,6 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
 		int rowindex= 1;
 		for (int i = 0; i < this.kdtE1.getRowCount(); i++) 
 		{
-//			ClientVerifyXRHelper.verifyKDTCellNull(this, this.kdtE1, i, "accredResu");
-			
 			if(UIRuleUtil.isNull(this.kdtE1.getCell(i, "accredResu").getValue()))
 				continue;
 			ObjectStateEnum objState = (ObjectStateEnum)UIRuleUtil.getObject(this.kdtE1.getCell(i, "accredResu").getValue());
@@ -261,23 +267,27 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
 		}
 		
 		rowindex= 1;
-//		for (int j = 0; j < this.kdtE2.getRowCount(); j++) 
-//		{
-//			ClientVerifyXRHelper.verifyKDTCellNull(this, this.kdtE2, j, "accreConclu");
-//			ObjectStateEnum objState = (ObjectStateEnum)UIRuleUtil.getObject(this.kdtE2.getCell(j, "accreConclu").getValue());
-//			if(objState.equals(ObjectStateEnum.complement)||objState.equals(ObjectStateEnum.veto))
-//			{
-//				if(UIRuleUtil.isNull(this.kdtE2.getCell(j, "opinion").getValue()))
-//				{
-//					MsgBox.showWarning("评审信息第{"+rowindex+"}行评审结论为{"+objState.getAlias()+"}的意见不能为空！");SysUtil.abort();
-//				}
-//			}
-//			rowindex+=1;
-//		}
-		
-		
-//		ClientVerifyHelper.verifyEmpty(this, this.pkaccredDate);
 		super.verifyInput(e);
+	}
+	
+	/**
+	 * 评审中 有权限直接修改项目
+	 * 生成新版本
+	 * */
+	protected void btnEditProject_actionPerformed(ActionEvent e) throws Exception {
+		super.btnEditProject_actionPerformed(e);
+		UIContext context = new UIContext(this);
+		int rowIndex = kdtE1.getSelectManager().getActiveRowIndex();
+		if(kdtE1.getRow(rowIndex)!=null){
+			YearInvestPlanInfo info = (YearInvestPlanInfo)kdtE1.getRow(rowIndex).getCell("projectName").getValue();
+			info = YearInvestPlanFactory.getRemoteInstance().getYearInvestPlanInfo(new ObjectUuidPK(info.getId()));
+			context.put("projectInfo", info);
+			try {
+				UIFactory.createUIFactory().create(YearInvestPlanEditUI.class.getName(), context, null,OprtState.ADDNEW).show();
+			} catch (UIException e1) {
+				e1.printStackTrace();
+			}
+		}
 	}
 	
 	protected void initProWorkButton(KDContainer container, boolean flse) {
@@ -289,6 +299,11 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
 		btnAddRowinfo.setEnabled((OprtState.EDIT.equals(getOprtState()) || OprtState.ADDNEW.equals(getOprtState())) ? true : false);
 		btnInsertRowinfo.setEnabled((OprtState.EDIT.equals(getOprtState()) || OprtState.ADDNEW.equals(getOprtState())) ? true : false);
 		btnDeleteRowinfo.setEnabled((OprtState.EDIT.equals(getOprtState()) || OprtState.ADDNEW.equals(getOprtState())) ? true : false);
+		
+		btnEditProject.setSize(new Dimension(140, 19));
+		btnEditProject.setIcon(EASResource.getIcon("imgTbtn_edit"));
+		container.addButton(btnEditProject);
+		
 		btnperson.setEnabled((OprtState.EDIT.equals(getOprtState()) || OprtState.ADDNEW.equals(getOprtState())) ? true : false);
 		btnApprove.setEnabled((OprtState.EDIT.equals(getOprtState()))||OprtState.ADDNEW.equals(getOprtState()) ? true : false);
 		
@@ -298,22 +313,22 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
 		btnperson.setSize(new Dimension(140, 19));
 		btnperson.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
-//				try {
-//					EntityViewInfo evInfo = new EntityViewInfo();
-//					FilterInfo filter = new FilterInfo();
-//					Set set = new HashSet();
-//					ReviewerE1Collection revE1Coll = ReviewerE1Factory.getRemoteInstance().getReviewerE1Collection();
-//					for (int i = 0; i < revE1Coll.size(); i++) {
-//						ReviewerE1Info e1Info = revE1Coll.get(i);
-//						set.add(e1Info.getJudges().getId().toString());
-//					}
-//					filter.getFilterItems().add(new FilterItemInfo("id",set,CompareType.INCLUDE));
+				try {
+					EntityViewInfo evInfo = new EntityViewInfo();
+					FilterInfo filter = new FilterInfo();
+					Set set = new HashSet();
+					ReviewerE1Collection revE1Coll = ReviewerE1Factory.getRemoteInstance().getReviewerE1Collection();
+					for (int i = 0; i < revE1Coll.size(); i++) {
+						ReviewerE1Info e1Info = revE1Coll.get(i);
+						set.add(e1Info.getJudges().getId().toString());
+					}
+					filter.getFilterItems().add(new FilterItemInfo("id",set,CompareType.INCLUDE));
 //					evInfo.setFilter(filter);
+
 					EmployeeMultiF7PromptBox person = new EmployeeMultiF7PromptBox();
 					person.setIsSingleSelect(false);
 					person.showNoPositionPerson(false);
-					person.setIsShowAllAdmin(true); 
-//					person.setNopositionPersonFilter(filter);
+					person.setIsShowAllAdmin(true);
 					person.show();
 					if(person.getData() instanceof Object[]&&((Object[]) person.getData()).length>0){
 						Object[] obj = (Object[]) person.getData();
@@ -339,9 +354,9 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
 						storeFields();
 						loadFields();
 					}
-//				} catch (BOSException e1) {
-//					e1.printStackTrace();
-//				}
+				}catch (Exception e1) {
+					e1.printStackTrace();
+				}
 			}
 		});
 		

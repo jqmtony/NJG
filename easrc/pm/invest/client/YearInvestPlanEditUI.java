@@ -9,35 +9,31 @@ import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import javax.swing.event.AncestorEvent;
 import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 
 import org.apache.log4j.Logger;
 
 import com.kingdee.bos.BOSException;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent;
-import com.kingdee.bos.ctrl.swing.KDPanel;
 import com.kingdee.bos.ctrl.swing.KDTabbedPane;
 import com.kingdee.bos.ctrl.swing.KDTextField;
+import com.kingdee.bos.ctrl.swing.KDWorkButton;
 import com.kingdee.bos.ctrl.swing.event.DataChangeEvent;
 import com.kingdee.bos.dao.AbstractObjectValue;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
-import com.kingdee.bos.metadata.data.SortType;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
-import com.kingdee.bos.metadata.entity.SorterItemCollection;
-import com.kingdee.bos.metadata.entity.SorterItemInfo;
-import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.eas.base.core.fm.ClientVerifyHelper;
 import com.kingdee.eas.base.permission.UserInfo;
 import com.kingdee.eas.base.uiframe.client.UIFactoryHelper;
+import com.kingdee.eas.basedata.assistant.IProject;
+import com.kingdee.eas.basedata.assistant.ProjectFactory;
 import com.kingdee.eas.basedata.assistant.ProjectInfo;
 import com.kingdee.eas.basedata.org.AdminOrgUnitCollection;
 import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
@@ -48,16 +44,19 @@ import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.common.client.UIContext;
 import com.kingdee.eas.cp.bc.BizCollUtil;
 import com.kingdee.eas.port.pm.base.BuildTypeInfo;
-import com.kingdee.eas.port.pm.base.InvestYearFactory;
+import com.kingdee.eas.port.pm.base.CompanyPropertyFactory;
+import com.kingdee.eas.port.pm.base.CompanyPropertyInfo;
+import com.kingdee.eas.port.pm.base.CompanySetupEntryCollection;
+import com.kingdee.eas.port.pm.base.CompanySetupEntryFactory;
 import com.kingdee.eas.port.pm.base.InvestYearInfo;
+import com.kingdee.eas.port.pm.base.ProjectTypeInfo;
+import com.kingdee.eas.port.pm.base.coms.PlanTypeEnum;
 import com.kingdee.eas.port.pm.invest.ObjectStateEnum;
-import com.kingdee.eas.port.pm.invest.YearInvestPlanCollection;
 import com.kingdee.eas.port.pm.invest.YearInvestPlanFactory;
 import com.kingdee.eas.port.pm.invest.YearInvestPlanInfo;
 import com.kingdee.eas.port.pm.invest.investplan.IProgramming;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingFactory;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingInfo;
-import com.kingdee.eas.port.pm.invest.investplan.ProgrammingCollection;
 import com.kingdee.eas.port.pm.invest.investplan.client.ProgrammingEditUI;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.MsgBox;
@@ -127,9 +126,11 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 			prmtportProject.setValue(null);
 			contportProject.setVisible(false);
 		}
-
+		String cuid = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
 		if (getOprtState().equals(OprtState.ADDNEW))
 		{
+			if(getUIContext().get("projectInfo")!=null)
+				txtNumber.setText(editData.getNumber()+"_01");
 			UserInfo user = SysContext.getSysContext().getCurrentUserInfo();
 			if (user.getPerson() != null) 
 			{//申请人带出申请单位
@@ -138,7 +139,22 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 				AdminOrgUnitCollection orgColl = PersonXRHelper.getDepartmentByUserCollection(person);
 				AdminOrgUnitInfo adminInfo = orgColl.get(0);
 				prmtrequestOrg.setValue(adminInfo);
-				prmtCU.setValue(SysContext.getSysContext().getCurrentCtrlUnit());
+			}
+			EntityViewInfo evInfo = new EntityViewInfo();
+			FilterInfo filter = new FilterInfo();
+			filter.getFilterItems().add(new FilterItemInfo("cu.id",cuid));
+			evInfo.setFilter(filter);
+			prmtrequestPerson.setEntityViewInfo(evInfo);
+			prmtCU.setValue(SysContext.getSysContext().getCurrentCtrlUnit());
+			CompanySetupEntryCollection coll = CompanySetupEntryFactory.getRemoteInstance().getCompanySetupEntryCollection(" where company.id ='"+cuid+"'");
+			if(coll!=null && coll.size()>0){
+				if( coll.get(0).getCompanyProperty()!=null){
+					String id = coll.get(0).getCompanyProperty().getId().toString();
+					CompanyPropertyInfo pro = CompanyPropertyFactory.getRemoteInstance().getCompanyPropertyInfo(new ObjectUuidPK(id));
+					prmtcompanyProperty.setValue(pro);
+				}else{
+					MsgBox.showInfo("本公司未维护公司性质！");
+				}
 			}
 		}
 		else if (getOprtState().equals(OprtState.VIEW))
@@ -150,11 +166,11 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 		this.kDContainer1.getContentPane().setVisible(false);
 		
 		FilterInfo filter = new FilterInfo();
-		filter.getFilterItems().add(new FilterItemInfo("NJGprojectType.name","基本建设",com.kingdee.bos.metadata.query.util.CompareType.EQUALS));
+		filter.getFilterItems().add(new FilterItemInfo("company.id",cuid));
 		EntityViewInfo view = new EntityViewInfo();
 		view.setFilter(filter);
 		this.prmtportProject.setEntityViewInfo(view);
-		
+		txtseq.setRequired(true);
 	}
 	
 	public void actionInvestPlan_actionPerformed(ActionEvent e)throws Exception {
@@ -177,18 +193,56 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 	protected void prmtcostTemp_dataChanged(DataChangeEvent e) throws Exception {
 	}
 	/**
+	 * 项目类型
+	 */
+	protected void prmtprojectType_dataChanged(DataChangeEvent e) throws Exception {
+		super.prmtprojectType_dataChanged(e);
+		if (prmtprojectType.getValue() != null) 
+		{
+			ProjectTypeInfo ptInfo = (ProjectTypeInfo) prmtprojectType.getValue();
+			if (ptInfo.getName().equals("基本建设前期")) //基本建设前期
+			{
+				String projectName = txtprojectName.getText();
+				if (prmtbuildType.getValue() != null) 
+				{
+					BuildTypeInfo bdtinfo = (BuildTypeInfo) prmtbuildType.getValue();
+					if (bdtinfo.getNumber().equals("002")) //续建项目
+					{
+						prmtprojectType.setValue(null);
+						MsgBox.showInfo("基本建设前期为新建项目，不能为续建项目！");
+					}
+				}
+			}else{
+				prmtbuildType.setEnabled(true);
+			} 
+		}
+	}
+	/**
 	 * 建设性质为续建项目时显示出项目信息字段
 	 */
 	protected void prmtbuildType_dataChanged(DataChangeEvent e)throws Exception {
 		super.prmtbuildType_dataChanged(e);
+		PlanTypeEnum plantype = (PlanTypeEnum)planType.getSelectedItem();
+		BuildTypeInfo bdtinfo = (BuildTypeInfo) prmtbuildType.getValue();
 		if (prmtbuildType.getValue() != null) 
 		{
-			BuildTypeInfo bdtinfo = (BuildTypeInfo) prmtbuildType.getValue();
-			if (bdtinfo.getNumber().equals("002")) 
+			if (bdtinfo.getNumber().equals("002")) //续建项目
 			{
 				prmtportProject.setVisible(true);
 				contportProject.setVisible(true);
-			} 
+				if (prmtprojectType.getValue() != null) 
+				{
+					ProjectTypeInfo ptInfo = (ProjectTypeInfo) prmtprojectType.getValue();
+					if (ptInfo.getName().equals("基本建设前期")) //基本建设前期
+					{
+						prmtbuildType.setValue(null);
+						MsgBox.showInfo("基本建设前期为新建项目，不能为续建项目！");
+					}
+				}
+			}else if(PlanTypeEnum.change.equals(plantype)||PlanTypeEnum.adjust.equals(plantype)){
+				prmtportProject.setVisible(true);
+				contportProject.setVisible(true);
+			}
 			else 
 			{
 				prmtportProject.setVisible(false);
@@ -225,16 +279,38 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 	protected void kdtEntry_editStopped(KDTEditEvent e) throws Exception {
 		super.kdtEntry_editStopped(e);
 	}
+	protected void planType_itemStateChanged(ItemEvent e) throws Exception {
+		super.planType_itemStateChanged(e);
+		PlanTypeEnum plantype = (PlanTypeEnum)planType.getSelectedItem();
+		if(PlanTypeEnum.change.equals(plantype)||PlanTypeEnum.adjust.equals(plantype)){
+			prmtportProject.setVisible(true);
+			contportProject.setVisible(true);
+		}else{
+			prmtportProject.setVisible(false);
+			contportProject.setVisible(false);
+		}
+	}
 	/**
 	 * 校验信息
 	 */
 	protected void verifyInput(ActionEvent e) throws Exception {
+		PlanTypeEnum plantype = (PlanTypeEnum)planType.getSelectedItem();
+		if(e!=null){
+			KDWorkButton btn = (KDWorkButton)e.getSource();
+			if(btn.getText().equals("提交")){
+				if(PlanTypeEnum.change.equals(plantype)||PlanTypeEnum.adjust.equals(plantype)){
+					ClientVerifyHelper.verifyEmpty(this, this.prmtportProject);
+				}
+			}
+		}
 		BigDecimal a = UIRuleUtil.getBigDecimal((this.txtinvestAmount.getValue()));
 		BigDecimal c = UIRuleUtil.getBigDecimal((this.txtamount.getValue()));
 		if(a.compareTo(c)<0)
 		{
-			MsgBox.showWarning("项目投资总金额不能小于本年计划投资金额");abort();
+			MsgBox.showWarning("项目投资总金额不能小于本年计划投资金额");
+			abort();
 		}
+		ClientVerifyHelper.verifyEmpty(this, this.txtseq);
     	ClientVerifyHelper.verifyEmpty(this, this.pkplanStartDate);
     	ClientVerifyHelper.verifyEmpty(this, this.pkplanEndDate);
     	ClientVerifyHelper.verifyEmpty(this, this.pkBizDate);
@@ -254,6 +330,16 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
     	    	MsgBox.showWarning("计划完工日期不能早于计划开工日期！");abort();
     	    }
     	}	
+    	String cuid = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
+    	String yearid = ((InvestYearInfo)prmtyear.getValue()).getId().toString();
+    	BigDecimal seq = (BigDecimal)txtseq.getValue();
+		String oql = " where cu.id='"+cuid+"' and year.id='"+yearid+"' and seq='"+seq+"' and id<>'"+editData.getId()+"' " +
+				" and planType not in ('"+ObjectStateEnum.VETO_VALUE+"','"+ObjectStateEnum.ADJUSTED_VALUE+"')" +
+				" and sourcebillid is null ";
+		if(getBizInterface().exists(oql) && !(PlanTypeEnum.change.equals(plantype)||PlanTypeEnum.adjust.equals(plantype))){
+			MsgBox.showWarning("本年度该项目序号已经存在，请重新编号！");
+			abort();
+		}
 		super.verifyInput(e);
 		if(programmingEditUI!=null)
 			programmingEditUI.verifyDataBySave();
@@ -332,8 +418,10 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 			uiContext.put("proInvestAmount", this.txtinvestAmount);
 			uiContext.put("proAddAmount", this.txtaddInvestAmount);
 			uiContext.put("proBalance", this.txtbalance);
+			PlanTypeEnum plantype = (PlanTypeEnum)planType.getSelectedItem();
 			//新建项目
-			if(prmtportProject.getValue()==null){
+			if(prmtportProject.getValue()==null 
+						|| (prmtportProject.getValue()!=null && PlanTypeEnum.change.equals(plantype))){
 				//加载投资规划编辑界面
 		    	String oql = "where SourceBillId='"+editData.getId()+"'";
 		    	boolean flse = true;
@@ -349,7 +437,7 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 		        kDScrollPane1.setEnabled(false);
 			}
 			//续建项目
-			else
+			if((prmtportProject.getValue()!=null && !PlanTypeEnum.change.equals(plantype)))
 			{
 				verifyInput(null);
 				IProgramming iProgramming = ProgrammingFactory.getRemoteInstance();
@@ -987,6 +1075,21 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 	 */
 	protected com.kingdee.bos.dao.IObjectValue createNewData() {
 		com.kingdee.eas.port.pm.invest.YearInvestPlanInfo objectValue = new com.kingdee.eas.port.pm.invest.YearInvestPlanInfo();
+		if(getUIContext().get("projectInfo")!=null){
+			objectValue = (YearInvestPlanInfo)getUIContext().get("projectInfo");
+			try {
+				IProject Iproject = ProjectFactory.getRemoteInstance();
+				objectValue = YearInvestPlanFactory.getRemoteInstance().getYearInvestPlanInfo(new ObjectUuidPK(objectValue.getId()),getSelectors());
+				objectValue.setSourceBillId(objectValue.getId().toString());
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		objectValue.setDesc("项目后评估要基本能体现以下内容："+
+				"\n1、预算执行情况对比分析（并附表说明）"+
+				"\n2、主要经济、技术指标实现情况对比分析（并附表说明）"+
+				"\n3、主要偏差、问题及原因分析（项目从申报、实施、竣工验收、试运营各阶段出现的偏差、问题及原因分析）"+
+				"\n4、项目自评估报告（作为附件插入）");
 		objectValue.setCreator((com.kingdee.eas.base.permission.UserInfo) (com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentUser()));
 		objectValue.setObjectState(ObjectStateEnum.save);
 		objectValue.setBizDate(new Date());
