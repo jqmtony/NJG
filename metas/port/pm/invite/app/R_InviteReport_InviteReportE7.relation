@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <relationship xmlns="com.kingdee.bos.metadata">
     <package>com.kingdee.eas.port.pm.invite.app</package>
-    <name>R_InviteReportE6_EvaluationIndicators_EvaluationName</name>
-    <alias>relationship[com.kingdee.eas.port.pm.invite.app.R_InviteReportE6_EvaluationIndicators_EvaluationName].alias</alias>
-    <description>relationship[com.kingdee.eas.port.pm.invite.app.R_InviteReportE6_EvaluationIndicators_EvaluationName].description</description>
+    <name>R_InviteReport_InviteReportE7</name>
+    <alias>relationship[com.kingdee.eas.port.pm.invite.app.R_InviteReport_InviteReportE7].alias</alias>
+    <description>relationship[com.kingdee.eas.port.pm.invite.app.R_InviteReport_InviteReportE7].description</description>
     <userDefined>true</userDefined>
-    <type>Association</type>
+    <type>Composition</type>
     <clientCardinality>1</clientCardinality>
-    <supplierCardinality>0..1</supplierCardinality>
+    <supplierCardinality>0..*</supplierCardinality>
     <xmlNodeRelationship />
     <clientObject>
         <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-        <key name="name" value="InviteReportE6" />
+        <key name="name" value="InviteReport" />
     </clientObject>
     <supplierObject>
-        <key name="package" value="com.kingdee.eas.port.pm.base.app" />
-        <key name="name" value="EvaluationIndicators" />
+        <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+        <key name="name" value="InviteReportE7" />
     </supplierObject>
     <resource>
-        <rs key="relationship[com.kingdee.eas.port.pm.invite.app.R_InviteReportE6_EvaluationIndicators_EvaluationName].alias">
+        <rs key="relationship[com.kingdee.eas.port.pm.invite.app.R_InviteReport_InviteReportE7].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="relationship[com.kingdee.eas.port.pm.invite.app.R_InviteReportE6_EvaluationIndicators_EvaluationName].description">
+        <rs key="relationship[com.kingdee.eas.port.pm.invite.app.R_InviteReport_InviteReportE7].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />

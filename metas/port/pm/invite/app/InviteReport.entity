@@ -1263,6 +1263,31 @@
                 <key name="name" value="R_InviteReport_InviteReportE6" />
             </relationship>
         </linkProperty>
+        <linkProperty>
+            <name>E7</name>
+            <alias>entityObject[com.kingdee.eas.port.pm.invite.app.InviteReport].properties.linkProperty[E7].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invite.app.InviteReport].properties.linkProperty[E7].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="R_InviteReport_InviteReportE7" />
+            </relationship>
+        </linkProperty>
+        <linkProperty>
+            <name>invitePlan</name>
+            <alias>entityObject[com.kingdee.eas.port.pm.invite.app.InviteReport].properties.linkProperty[invitePlan].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invite.app.InviteReport].properties.linkProperty[invitePlan].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <mappingField>
+                <key name="name" value="CFInvitePlanID" />
+            </mappingField>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="R_InviteReport_InvitePlan_invitePlan" />
+            </relationship>
+        </linkProperty>
     </properties>
     <logicalKey>
         <name>id</name>
@@ -2448,6 +2473,17 @@
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.InviteReport].properties.linkProperty[E7].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="符合性审查" />
+            <lang locale="zh_HK" value="符合性審查" />
+            <lang locale="zh_TW" value="符合性審查" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.InviteReport].properties.linkProperty[E7].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.InviteReport].properties.linkProperty[Entry1].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="分录1" />
@@ -2655,6 +2691,58 @@
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.InviteReport].properties.linkProperty[evaTemplate].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.InviteReport].properties.linkProperty[invitePlan].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="招标计划" />
+            <lang locale="zh_HK" value="招標計畫" />
+            <lang locale="zh_TW" value="招標計畫" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.InviteReport].properties.linkProperty[invitePlan].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="文本" />
+            <lang locale="zh_HK" value="文本" />
+            <lang locale="zh_TW" value="文本" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.InviteReport].properties.linkProperty[invitePlan].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.InviteReport].properties.linkProperty[invitePlan].extendedProperty.dataField">
+            <lang locale="en_US" value="planName" />
+            <lang locale="zh_CN" value="planName" />
+            <lang locale="zh_TW" value="planName" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.InviteReport].properties.linkProperty[invitePlan].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.InviteReport].properties.linkProperty[invitePlan].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.InviteReport].properties.linkProperty[invitePlan].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.InviteReport].properties.linkProperty[invitePlan].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.InviteReport].properties.linkProperty[invitePlan].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.InviteReport].properties.linkProperty[invitePlan].extendedProperty.isVisibleForKDTable">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
