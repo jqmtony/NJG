@@ -2647,6 +2647,22 @@
                     <userDefined>true</userDefined>
                 </propertyBinding>
             </propertyBindings>
+            <eventBindings>
+                <eventBinding>
+                    <name>actionPerformed</name>
+                    <eventType>java.awt.event.ActionEvent</eventType>
+                    <scene />
+                    <listenerType>java.awt.event.ActionListener</listenerType>
+                    <listenerAdapter>java.awt.event.ActionListener</listenerAdapter>
+                    <methodName>judgeSolution_actionPerformed</methodName>
+                    <code>
+      //write your code here1
+</code>
+                    <isBindWorkFlow>false</isBindWorkFlow>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </eventBinding>
+            </eventBindings>
         </component>
         <component>
             <name>prmtevaTemplate</name>
@@ -3961,7 +3977,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>360,38,270,19,384</constraints>
+            <constraints>360,38,185,19,384</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -4010,7 +4026,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>696,38,270,19,136</constraints>
+            <constraints>570,38,185,19,384</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -4143,6 +4159,55 @@
                     <name>visible</name>
                     <type>boolean</type>
                     <value>uiObject[com.kingdee.eas.port.pm.invite.client.InviteReportEditUI].components.component[contreduLow].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="kDPanel5" />
+            </parent>
+        </component>
+        <component>
+            <name>contcoefficient</name>
+            <alias>uiObject[com.kingdee.eas.port.pm.invite.client.InviteReportEditUI].components.component[contcoefficient].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>781,38,185,19,136</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>boundLabelText</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.invite.client.InviteReportEditUI].components.component[contcoefficient].properties.property[boundLabelText].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelLength</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.invite.client.InviteReportEditUI].components.component[contcoefficient].properties.property[boundLabelLength].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelUnderline</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.invite.client.InviteReportEditUI].components.component[contcoefficient].properties.property[boundLabelUnderline].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.invite.client.InviteReportEditUI].components.component[contcoefficient].properties.property[visible].value</value>
                     <isMultiLan>false</isMultiLan>
                     <userDefined>true</userDefined>
                 </property>
@@ -4474,6 +4539,96 @@
                     <bindingObject>editData</bindingObject>
                     <bindingField>reduLow</bindingField>
                     <fieldType>String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
+        <component>
+            <name>txtcoefficient</name>
+            <alias>uiObject[com.kingdee.eas.port.pm.invite.client.InviteReportEditUI].components.component[txtcoefficient].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDFormattedTextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>7</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.invite.client.InviteReportEditUI].components.component[txtcoefficient].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>horizontalAlignment</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.invite.client.InviteReportEditUI].components.component[txtcoefficient].properties.property[horizontalAlignment].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>dataType</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.invite.client.InviteReportEditUI].components.component[txtcoefficient].properties.property[dataType].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>supportedEmpty</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.invite.client.InviteReportEditUI].components.component[txtcoefficient].properties.property[supportedEmpty].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>minimumValue</name>
+                    <type>java.math.BigDecimal</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.invite.client.InviteReportEditUI].components.component[txtcoefficient].properties.property[minimumValue].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>maximumValue</name>
+                    <type>java.math.BigDecimal</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.invite.client.InviteReportEditUI].components.component[txtcoefficient].properties.property[maximumValue].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>precision</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.invite.client.InviteReportEditUI].components.component[txtcoefficient].properties.property[precision].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>required</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.invite.client.InviteReportEditUI].components.component[txtcoefficient].properties.property[required].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="contcoefficient" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>value</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>coefficient</bindingField>
+                    <fieldType>java.math.BigDecimal</fieldType>
                     <accessType>2</accessType>
                     <autoMode>false</autoMode>
                     <herited>false</herited>
@@ -4901,9 +5056,7 @@
                     <listenerType>com.kingdee.bos.ctrl.swing.event.DataChangeListener</listenerType>
                     <listenerAdapter>com.kingdee.bos.ctrl.swing.event.DataChangeListener</listenerAdapter>
                     <methodName>prmtinvitePlan_dataChanged</methodName>
-                    <code>
-      //write your code here1
-</code>
+                    <code>//write your code here1</code>
                     <isBindWorkFlow>false</isBindWorkFlow>
                     <herited>false</herited>
                     <userDefined>true</userDefined>
@@ -5888,6 +6041,36 @@
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.pm.invite.client.InviteReportEditUI].components.component[contbusinessScore].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invite.client.InviteReportEditUI].components.component[contcoefficient].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invite.client.InviteReportEditUI].components.component[contcoefficient].properties.property[boundLabelLength].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invite.client.InviteReportEditUI].components.component[contcoefficient].properties.property[boundLabelText].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="评标基准系数X" />
+            <lang locale="zh_HK" value="評標基準係數X" />
+            <lang locale="zh_TW" value="評標基準係數X" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invite.client.InviteReportEditUI].components.component[contcoefficient].properties.property[boundLabelUnderline].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invite.client.InviteReportEditUI].components.component[contcoefficient].properties.property[visible].value">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_HK" value="true" />
@@ -7537,6 +7720,60 @@
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invite.client.InviteReportEditUI].components.component[txtcoefficient].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="评标基准系数X" />
+            <lang locale="zh_HK" value="評標基準係數X" />
+            <lang locale="zh_TW" value="評標基準係數X" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invite.client.InviteReportEditUI].components.component[txtcoefficient].properties.property[dataType].value">
+            <lang locale="en_US" value="1" />
+            <lang locale="zh_CN" value="1" />
+            <lang locale="zh_HK" value="1" />
+            <lang locale="zh_TW" value="1" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invite.client.InviteReportEditUI].components.component[txtcoefficient].properties.property[horizontalAlignment].value">
+            <lang locale="en_US" value="2" />
+            <lang locale="zh_CN" value="2" />
+            <lang locale="zh_HK" value="2" />
+            <lang locale="zh_TW" value="2" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invite.client.InviteReportEditUI].components.component[txtcoefficient].properties.property[maximumValue].value">
+            <lang locale="en_US" value="&quot;1.0E26&quot;" />
+            <lang locale="zh_CN" value="&quot;1.0E26&quot;" />
+            <lang locale="zh_HK" value="&quot;1.0E26&quot;" />
+            <lang locale="zh_TW" value="&quot;1.0E26&quot;" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invite.client.InviteReportEditUI].components.component[txtcoefficient].properties.property[minimumValue].value">
+            <lang locale="en_US" value="&quot;-1.0E26&quot;" />
+            <lang locale="zh_CN" value="&quot;-1.0E26&quot;" />
+            <lang locale="zh_HK" value="&quot;-1.0E26&quot;" />
+            <lang locale="zh_TW" value="&quot;-1.0E26&quot;" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invite.client.InviteReportEditUI].components.component[txtcoefficient].properties.property[precision].value">
+            <lang locale="en_US" value="2" />
+            <lang locale="zh_CN" value="2" />
+            <lang locale="zh_HK" value="2" />
+            <lang locale="zh_TW" value="2" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invite.client.InviteReportEditUI].components.component[txtcoefficient].properties.property[required].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invite.client.InviteReportEditUI].components.component[txtcoefficient].properties.property[supportedEmpty].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invite.client.InviteReportEditUI].components.component[txtcoefficient].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.pm.invite.client.InviteReportEditUI].components.component[txtinviteBudget].alias">
             <lang locale="en_US" value="null" />
