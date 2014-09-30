@@ -166,24 +166,32 @@ public class PayRequestFacade implements BillBaseSelector {
 				DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
     			xml.append("<DATA>\n"); 
     			xml.append("<OrgName>"+StringUtilBPM.isNULl(Info.getOrgUnit().getName())+"</OrgName>\n");
+    			if(Info.getUseDepartment()!=null)
     			xml.append("<Department>"+StringUtilBPM.isNULl(Info.getUseDepartment().getName())+"</Department>\n");
     			xml.append("<ApplyDate>"+dateFormat.format(Info.getCreateTime())+"</ApplyDate>\n");
     			xml.append("<Applicant>"+StringUtilBPM.isNULl(Info.getCreator().getName())+"</Applicant>\n");
     			
     			xml.append("<Position>合约部经理</Position>\n");
     			xml.append("<Topic>"+StringUtilBPM.isNULl(Info.getName())+"-付款申请审批单"+"</Topic>\n");
+    			if(Info.getCurProject()!=null)
     			xml.append("<curProject>"+StringUtilBPM.isNULl(Info.getCurProject().getName())+"</curProject>\n");
     			xml.append("<contractNo>"+StringUtilBPM.isNULl(Info.getContractNo())+"</contractNo>\n");
     			xml.append("<bizdate>"+dateFormat.format(Info.getBizDate())+"</bizdate>\n");
     			xml.append("<payDate>"+dateFormat.format(Info.getPayDate())+"</payDate>\n");//付款日期
     			xml.append("<period>"+Info.getPeriod().getNumber()+"</period>\n");//申请期间
-    			xml.append("<isdifferplace>"+dateFormat.format(Info.getIsDifferPlace().getName())+"</isdifferplace>\n");//同城异地
+    			if(Info.getIsDifferPlace()!=null)
+    			xml.append("<isdifferplace>"+StringUtilBPM.isNULl(Info.getIsDifferPlace().getName())+"</isdifferplace>\n");//同城异地
     			xml.append("<number>"+StringUtilBPM.isNULl(Info.getNumber())+"</number>\n");
+    			if(Info.getPaymentType()!=null)
     			xml.append("<PaymentType>"+StringUtilBPM.isNULl(Info.getPaymentType().getName())+"</PaymentType>\n");//付款类型
+    			if(Info.getSettlementType()!=null)
     			xml.append("<settlementType>"+StringUtilBPM.isNULl(Info.getSettlementType().getName())+"</settlementType>\n");//合同类型
-    			xml.append("<receiveUnit>"+StringUtilBPM.isNULl(Info.getSupplier().getName())+"</receiveUnit>\n");//收款单位
+    			if(Info.getSupplier()!=null)
+    			xml.append("<supplier>"+StringUtilBPM.isNULl(Info.getSupplier().getName())+"</supplier>\n");//收款单位
+    			
     			xml.append("<recBank>"+StringUtilBPM.isNULl(Info.getRecBank())+"</recBank>\n");//收款银行
     			xml.append("<recAccount>"+StringUtilBPM.isNULl(Info.getRecAccount())+"</recAccount>\n");//收款账号
+    			if(Info.getRealSupplier()!=null)
     			xml.append("<realSupplier>"+StringUtilBPM.isNULl(Info.getRealSupplier().getName())+"</realSupplier>\n");//实际收款单位
     			xml.append("<Desc>"+StringUtilBPM.isNULl(Info.getDescription())+"</Desc>\n");//
     			xml.append("<usage>"+StringUtilBPM.isNULl(Info.getUsage())+"</usage>\n");//用途
@@ -197,9 +205,8 @@ public class PayRequestFacade implements BillBaseSelector {
     			xml.append("<amount>"+Info.getAmount()+"</amount>\n");//本币金额
     			xml.append("<grtAmount>"+Info.getGrtAmount()+"</grtAmount>\n");//本币金额
     			xml.append("<capitalAmount>"+Info.getCapitalAmount()+"</capitalAmount>\n");//大写金额
-    			
-    			xml.append("<isRespite>"+dateFormat.format(Info.getUrgentDegree().getName())+"</isRespite>\n");//是否加急
-    			xml.append("<IsPay>"+dateFormat.format(Info.isIsPay())+"</IsPay>\n");//提交付款
+    			xml.append("<isRespite>"+Info.isIsRespite()+"</isRespite>\n");//是否加急
+    			xml.append("<IsPay>"+Info.isIsPay()+"</IsPay>\n");//是否提交付款
     			
     			if(Info.getPaymentProportion()!=null)//进度款付款比例
     				xml.append("<paymentProportion>"+Info.getPaymentProportion()+"</paymentProportion>\n");
@@ -273,31 +280,23 @@ public class PayRequestFacade implements BillBaseSelector {
 
 	public SelectorItemCollection getSelectors() {
 		SelectorItemCollection sic = new SelectorItemCollection();
-		sic.add(new SelectorItemInfo("*"));
 		sic.add(new SelectorItemInfo("orgUnit.id"));
 		sic.add(new SelectorItemInfo("orgUnit.number"));
 		sic.add(new SelectorItemInfo("orgUnit.name"));
-		sic.add(new SelectorItemInfo("creator.id"));
-		sic.add(new SelectorItemInfo("creator.number"));
-		sic.add(new SelectorItemInfo("creator.name"));
 		sic.add(new SelectorItemInfo("curProject.id"));
 		sic.add(new SelectorItemInfo("curProject.number"));
 		sic.add(new SelectorItemInfo("curProject.name"));
-		 sic.add(new SelectorItemInfo("currency.id"));
-		 sic.add(new SelectorItemInfo("currency.number"));
-		 sic.add(new SelectorItemInfo("currency.name"));
+
 				
 		sic.add(new SelectorItemInfo("useDepartment.id"));
 		sic.add(new SelectorItemInfo("useDepartment.number"));
-		sic.add(new SelectorItemInfo("useDepartment.name"));
-		sic.add(new SelectorItemInfo("period.id"));
-		sic.add(new SelectorItemInfo("period.number"));
+		sic.add(new SelectorItemInfo("useDepartment.name"));			
+		sic.add(new SelectorItemInfo("currency.id"));
+		sic.add(new SelectorItemInfo("currency.number"));
+		sic.add(new SelectorItemInfo("currency.name"));
+		sic.add(new SelectorItemInfo("period"));
 		sic.add(new SelectorItemInfo("creator.name"));
-		sic.add(new SelectorItemInfo("paymentType.id"));
-		sic.add(new SelectorItemInfo("paymentType.number"));
 		sic.add(new SelectorItemInfo("paymentType.name"));
-		sic.add(new SelectorItemInfo("settlementType.id"));
-		sic.add(new SelectorItemInfo("settlementType.number"));
 		sic.add(new SelectorItemInfo("settlementType.name"));
 		sic.add(new SelectorItemInfo("supplier.id"));
 		sic.add(new SelectorItemInfo("supplier.number"));
@@ -305,14 +304,38 @@ public class PayRequestFacade implements BillBaseSelector {
 		sic.add(new SelectorItemInfo("realSupplier.id"));
 		sic.add(new SelectorItemInfo("realSupplier.number"));
 		sic.add(new SelectorItemInfo("realSupplier.name"));
+		sic.add(new SelectorItemInfo("Name"));
+		sic.add(new SelectorItemInfo("Number"));
+		sic.add(new SelectorItemInfo("IsDifferPlace.name"));
+		sic.add(new SelectorItemInfo("ContractNo"));
+		sic.add(new SelectorItemInfo("BizDate"));
+		sic.add(new SelectorItemInfo("PayDate"));
+		sic.add(new SelectorItemInfo("IsPay"));
+		sic.add(new SelectorItemInfo("IsRespite"));
+		sic.add(new SelectorItemInfo("CreateTime"));
+		sic.add(new SelectorItemInfo("recAccount"));
+		sic.add(new SelectorItemInfo("RecBank"));
+		sic.add(new SelectorItemInfo("Description"));
+		sic.add(new SelectorItemInfo("Usage"));
+		sic.add(new SelectorItemInfo("ExchangeRate"));
+		sic.add(new SelectorItemInfo("OriginalAmount"));
+		sic.add(new SelectorItemInfo("InvoiceAmt"));
+		sic.add(new SelectorItemInfo("AllInvoiceAmt"));
+		sic.add(new SelectorItemInfo("Amount"));
+		sic.add(new SelectorItemInfo("GrtAmount"));
+		sic.add(new SelectorItemInfo("CapitalAmount"));
+		sic.add(new SelectorItemInfo("PaymentProportion"));
+		sic.add(new SelectorItemInfo("CompletePrjAmt"));
+		sic.add(new SelectorItemInfo("TotalSettlePrice"));
+		sic.add(new SelectorItemInfo("InvoiceNumber"));
+		sic.add(new SelectorItemInfo("InvoiceOriAmt"));
+		sic.add(new SelectorItemInfo("InvoiceDate"));
+		sic.add(new SelectorItemInfo("CompletePrjAmt"));
+		sic.add(new SelectorItemInfo("AllReqPercent"));
+		sic.add(new SelectorItemInfo("AllInvoiceOriAmt"));
+		sic.add(new SelectorItemInfo("PlanHasCon.name"));
+		sic.add(new SelectorItemInfo("MoneyDesc"));
 		
-		sic.add(new SelectorItemInfo("recAccount.id"));
-		sic.add(new SelectorItemInfo("recAccount.number"));
-		sic.add(new SelectorItemInfo("recAccount.name"));
-		
-		sic.add(new SelectorItemInfo("planHasCon.id"));
-		sic.add(new SelectorItemInfo("planHasCon.number"));
-		sic.add(new SelectorItemInfo("planHasCon.name"));
 		return sic;
     }
 

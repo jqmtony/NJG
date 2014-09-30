@@ -262,7 +262,6 @@ public class ContractReviseFacade implements BillBaseSelector{
 
 	public SelectorItemCollection getSelectors() {
 		SelectorItemCollection sic = new SelectorItemCollection();
-		sic.add(new SelectorItemInfo("*"));
 		sic.add(new SelectorItemInfo("LandDeveloper.id"));
 		sic.add(new SelectorItemInfo("LandDeveloper.number"));
 		sic.add(new SelectorItemInfo("LandDeveloper.name"));
@@ -292,6 +291,8 @@ public class ContractReviseFacade implements BillBaseSelector{
 		 sic.add(new SelectorItemInfo("PartC.id"));
 		 sic.add(new SelectorItemInfo("PartC.name"));
 		 sic.add(new SelectorItemInfo("PartC.number"));
+		 sic.add(new SelectorItemInfo("Period"));
+		 
 		 
 		 sic.add(new SelectorItemInfo("BizDate"));
 		 sic.add(new SelectorItemInfo("GrtRate"));
@@ -324,9 +325,9 @@ public class ContractReviseFacade implements BillBaseSelector{
 		 sic.add(new SelectorItemInfo("ReviseReason"));
 		 
 		 
-		 sic.add(new SelectorItemInfo("entry.Detail"));
-		 sic.add(new SelectorItemInfo("entry.Content"));
-		 sic.add(new SelectorItemInfo("entry.Desc"));
+		 sic.add(new SelectorItemInfo("Detail"));
+		 sic.add(new SelectorItemInfo("Content"));
+		 sic.add(new SelectorItemInfo("Desc"));
 		return sic;
 	}
 

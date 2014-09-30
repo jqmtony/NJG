@@ -172,9 +172,15 @@ public class ContractFacade implements BillBaseSelector {
     			xml.append("<OrgName>"+StringUtilBPM.isNULl(Info.getOrgUnit().getName())+"</OrgName>\n");
     			//xml.append("<OrgName>"+StringUtilBPM.isNULl(Info.getLandDeveloper().getName())+"</OrgName>\n");
     			xml.append("<DeptName>"+StringUtilBPM.isNULl(Info.getRespDept().getName())+"</DeptName>\n");
+    			xml.append("<respDept>"+StringUtilBPM.isNULl(Info.getRespDept().getName())+"</respDept>\n");
     			xml.append("<ApplyDate>"+dateFormat.format(Info.getCreateTime())+"</ApplyDate>\n");
     			xml.append("<Applicant>"+StringUtilBPM.isNULl(Info.getCreator().getName())+"</Applicant>\n");
-    			xml.append("<Position>合约部经理</Position>\n");
+    			xml.append("<ApplicantID>"+Info.getCreator().getId()+"</ApplicantID>\n");
+    			xml.append("<isPartAMaterialCon>"+Info.isIsPartAMaterialCon()+"<isPartAMaterialCon/>\n");
+    			xml.append("<creator>"+StringUtilBPM.isNULl(Info.getCreator().getName())+"</creator>\n");
+    			xml.append("<createTime>"+dateFormat.format(Info.getCreateTime())+"</createTime>\n");
+    			
+    			//xml.append("<Position></Position>\n");
     			xml.append("<Topic>"+StringUtilBPM.isNULl(Info.getName())+"</Topic>\n");
     			xml.append("<CompanyName>"+StringUtilBPM.isNULl(Info.getLandDeveloper().getName())+"</CompanyName>\n");
     			xml.append("<Phase>"+StringUtilBPM.isNULl(Info.getCurProject().getName())+"</Phase>\n");
@@ -424,7 +430,6 @@ public class ContractFacade implements BillBaseSelector {
 		sic.add(new SelectorItemInfo("bail.entry.id"));
 		sic.add(new SelectorItemInfo("bail.amount"));
 		sic.add(new SelectorItemInfo("bail.prop"));
-		sic.add(new SelectorItemInfo("IsCoseSplit"));
 		return sic;
     }
 
