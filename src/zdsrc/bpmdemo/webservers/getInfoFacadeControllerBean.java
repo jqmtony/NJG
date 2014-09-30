@@ -16,6 +16,8 @@ import com.kingdee.eas.bpm.BPMLogInfo;
 import com.kingdee.eas.bpm.selectors.ChangeAuditFacade;
 import com.kingdee.eas.bpm.selectors.ContractFacade;
 import com.kingdee.eas.bpm.selectors.ContractReviseFacade;
+import com.kingdee.eas.bpm.selectors.ContractWithoutTextFacade;
+import com.kingdee.eas.bpm.selectors.PayRequestFacade;
 import com.kingdee.eas.bpm.selectors.SettleMentFacade;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
@@ -27,6 +29,8 @@ import com.kingdee.eas.fdc.contract.ContractBillFactory;
 import com.kingdee.eas.fdc.contract.ContractBillInfo;
 import com.kingdee.eas.fdc.contract.ContractBillReviseInfo;
 import com.kingdee.eas.fdc.contract.ContractSettlementBillInfo;
+import com.kingdee.eas.fdc.contract.ContractWithoutTextInfo;
+import com.kingdee.eas.fdc.contract.PayRequestBillInfo;
 
 public class getInfoFacadeControllerBean extends AbstractgetInfoFacadeControllerBean
 {
@@ -51,9 +55,19 @@ public class getInfoFacadeControllerBean extends AbstractgetInfoFacadeController
 			{
 				str = new ChangeAuditFacade().SubmitResult(ctx, strBSID, billInfo, success, procInstID, procURL, strMessage);
 			}
-			if(billInfo instanceof ContractSettlementBillInfo)
+			//if(billInfo instanceof ContractSettlementBillInfo)
+			//{
+			//	str = new SettleMentFacade().SubmitResult(ctx, strBSID, billInfo, success, procInstID, procURL, strMessage);
+			//}
+			
+			
+			if(billInfo instanceof PayRequestBillInfo)
 			{
-				str = new SettleMentFacade().SubmitResult(ctx, strBSID, billInfo, success, procInstID, procURL, strMessage);
+				str = new PayRequestFacade().SubmitResult(ctx, strBSID, billInfo, success, procInstID, procURL, strMessage);
+			}
+			if(billInfo instanceof ContractWithoutTextInfo)
+			{
+				str = new ContractWithoutTextFacade().SubmitResult(ctx, strBSID, billInfo, success, procInstID, procURL, strMessage);
 			}
 			if(billInfo instanceof ContractBillReviseInfo)
 			{
@@ -82,10 +96,18 @@ public class getInfoFacadeControllerBean extends AbstractgetInfoFacadeController
 			{
 				str = new ChangeAuditFacade().ApproveClose(ctx, strBSID, billInfo, procInstID, processInstanceResult, strComment, dtTime);
 			}
-			if(billInfo instanceof ContractSettlementBillInfo)
-			{
-				str = new SettleMentFacade().ApproveClose(ctx, strBSID, billInfo, procInstID, processInstanceResult, strComment, dtTime);
+			//if(billInfo instanceof ContractSettlementBillInfo)
+			//{
+			//	str = new SettleMentFacade().ApproveClose(ctx, strBSID, billInfo, procInstID, processInstanceResult, strComment, dtTime);
+			//}
+			
+			if(billInfo instanceof PayRequestBillInfo){
+				str = new PayRequestFacade().ApproveClose(ctx, strBSID, billInfo, procInstID, processInstanceResult, strComment, dtTime);
 			}
+			if(billInfo instanceof ContractWithoutTextInfo){
+				str = new ContractWithoutTextFacade().ApproveClose(ctx, strBSID, billInfo, procInstID, processInstanceResult, strComment, dtTime);
+			}
+			
 			if(billInfo instanceof ContractBillReviseInfo)
 			{
 				str = new ContractReviseFacade().ApproveClose(ctx, strBSID, billInfo, procInstID, processInstanceResult, strComment, dtTime);
@@ -111,9 +133,17 @@ public class getInfoFacadeControllerBean extends AbstractgetInfoFacadeController
 			{
 				str = new ChangeAuditFacade().GetbillInfo(ctx, strBSID, billInfo);
 			}
-			if(billInfo instanceof ContractSettlementBillInfo)
+			//if(billInfo instanceof ContractSettlementBillInfo)
+			//{
+			//	str = new SettleMentFacade().GetbillInfo(ctx, strBSID, billInfo);
+			//}
+			if(billInfo instanceof PayRequestBillInfo)
 			{
-				str = new SettleMentFacade().GetbillInfo(ctx, strBSID, billInfo);
+				str = new PayRequestFacade().GetbillInfo(ctx, strBSID, billInfo);
+			}
+			if(billInfo instanceof ContractWithoutTextInfo)
+			{
+				str = new ContractWithoutTextFacade().GetbillInfo(ctx, strBSID, billInfo);
 			}
 			if(billInfo instanceof ContractBillReviseInfo)
 			{
