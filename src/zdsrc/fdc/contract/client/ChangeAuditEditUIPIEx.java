@@ -1,31 +1,31 @@
 package com.kingdee.eas.fdc.contract.client;
 
 import java.awt.event.ActionEvent;
-import java.net.URL;
-
 
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.eas.bpmdemo.ChangeVisaAppFactory;
+import com.kingdee.eas.bpmdemo.ChangeVisaAppInfo;
 import com.kingdee.eas.bpmdemo.JBrowserHelper.JFrameBrowser;
+import com.kingdee.eas.bpmdemo.client.ChangeVisaAppEditUI;
 import com.kingdee.eas.bpmdemo.webservers.getInfoFacadeFactory;
 import com.kingdee.eas.bpmdemo.webservers.serviceclient.BPMServiceForERPLocator;
 import com.kingdee.eas.bpmdemo.webservers.serviceclient.BPMServiceForERPSoap;
-import com.kingdee.eas.bpmdemo.webservers.serviceclient.EASLoginProxy;
-import com.kingdee.eas.bpmdemo.webservers.serviceclient.EASLoginProxyServiceLocator;
-import com.kingdee.eas.bpmdemo.webservers.serviceclient.WSContext;
-import com.kingdee.eas.bpmdemo.webservers.serviceclient.WSgetInfoFacadeSrvProxy;
-import com.kingdee.eas.bpmdemo.webservers.serviceclient.WSgetInfoFacadeSrvProxyServiceLocator;
 import com.kingdee.eas.fdc.basedata.ContractTypeInfo;
-import com.kingdee.eas.fdc.contract.PayRequestBillFactory;
-import com.kingdee.eas.util.client.MsgBox;
+import com.kingdee.eas.fdc.contract.ChangeAuditBillFactory;
+import com.kingdee.eas.fdc.contract.ContractBillFactory;
+import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
 
-public class PayRequestBillEditUIPIEx extends PayRequestBillEditUI{
+public class ChangeAuditEditUIPIEx extends ChangeAuditEditUI{
+    
+	
+	
 	private ContractTypeInfo typeInfo;
 	private boolean isShiGong = false;
 	private boolean isFenBao = false;
 	private boolean isZongBao = false;
-	
-	public PayRequestBillEditUIPIEx() throws Exception {
+	public ChangeAuditEditUIPIEx() throws Exception {
 		super();
+		// TODO Auto-generated constructor stub
 	}
 	
 	public void onLoad() throws Exception {
@@ -41,8 +41,8 @@ public class PayRequestBillEditUIPIEx extends PayRequestBillEditUI{
 	   	this.btnLast.setVisible(false);
 	   	this.btnFirst.setVisible(false);
 	}
-
-    private void InitButton()
+	
+	private void InitButton()
     {
     	this.actionCreateTo.setVisible(false);
     	this.actionCreateFrom.setVisible(false);
@@ -55,27 +55,27 @@ public class PayRequestBillEditUIPIEx extends PayRequestBillEditUI{
     	this.btnAttachment.setText("撤销BPM流程");
     	this.btnAttachment.setToolTipText("撤销BPM流程");
     }
-    /**
-     * 撤销BPM流程
-     * 用EAS中的附件按钮替代的
-     *
+	
+	/**
+     * 撤销流程
      */
     public void actionAttachment_actionPerformed(ActionEvent e) throws Exception {
     	BPMServiceForERPSoap  login = new BPMServiceForERPLocator().getBPMServiceForERPSoap();
-    	editData = PayRequestBillFactory.getRemoteInstance().getPayRequestBillInfo(new ObjectUuidPK(editData.getId()));
-    	login.withdraw("FK01", editData.getId().toString(), editData.getSourceFunction());
+    	editData = ChangeAuditBillFactory.getRemoteInstance().getChangeAuditBillInfo(new ObjectUuidPK(editData.getId()));
+    	login.withdraw("HT01", editData.getId().toString(), editData.getSourceFunction());
     }
+    
     /**
      * 提交BMP
      */
     public void actionSubmit_actionPerformed(ActionEvent e) throws Exception {
     	super.actionSubmit_actionPerformed(e);
     	
-    	//String[] xml = getInfoFacadeFactory.getRemoteInstance().GetbillInfo("",editData.getId().toString());
-    	//String [] str1= getInfoFacadeFactory.getRemoteInstance().ApproveClose("", "dYkAAAAAhPINbdH0", 1, "1", "",null);
-    	//MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
-    	String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=FK01";
-    	creatFrame(url);
+    	String[] xml = getInfoFacadeFactory.getRemoteInstance().GetbillInfo("",editData.getId().toString());
+    	String [] str1= getInfoFacadeFactory.getRemoteInstance().ApproveClose("", "dYkAAAAAhPINbdH0", 1, "1", "",null);
+    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
+    	//String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=HT01";
+    	//creatFrame(url);
     	
     }
     
@@ -90,7 +90,7 @@ public class PayRequestBillEditUIPIEx extends PayRequestBillEditUI{
      * 流程图
      */
     public void actionWorkFlowG_actionPerformed(ActionEvent e) throws Exception {
-    	editData = PayRequestBillFactory.getRemoteInstance().getPayRequestBillInfo(new ObjectUuidPK(editData.getId()));
+    	editData = ChangeAuditBillFactory.getRemoteInstance().getChangeAuditBillInfo(new ObjectUuidPK(editData.getId()));
     	String url = editData.getDescription();
     	creatFrame(url);
     }
@@ -108,14 +108,14 @@ public class PayRequestBillEditUIPIEx extends PayRequestBillEditUI{
 //	    	WSgetInfoFacadeSrvProxy pay = new WSgetInfoFacadeSrvProxyServiceLocator().getWSgetInfoFacade(new URL("http://127.0.0.1:56898/ormrpc/services/WSgetInfoFacade"));
 //	    	str1 = pay.getbillInfo("", editData.getId().toString());
 //	    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
-//	    	String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=FK01";
+//	    	String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=HT01";
 //	    	str1 = pay.submitResult("", editData.getId().toString(), true, 1,url, "dYkAAAAAmMgNbdH0");
 //	    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
 //	    	str1 = pay.approveClose("", editData.getId().toString(), 1, "0", "",null);
 //	    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
 //	    }
     	
-    	editData = PayRequestBillFactory.getRemoteInstance().getPayRequestBillInfo(new ObjectUuidPK(editData.getId()));
+    	editData = ChangeAuditBillFactory.getRemoteInstance().getChangeAuditBillInfo(new ObjectUuidPK(editData.getId()));
     	String url = editData.getDescription();
     	creatFrame(url);
     }
@@ -133,4 +133,5 @@ public class PayRequestBillEditUIPIEx extends PayRequestBillEditUI{
     	
     	jf.OpenJBrowser(this);
     }
+
 }

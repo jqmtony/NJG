@@ -4,11 +4,13 @@ import java.awt.event.ActionEvent;
 
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.eas.bpmdemo.JBrowserHelper.JFrameBrowser;
+import com.kingdee.eas.bpmdemo.webservers.getInfoFacadeFactory;
 import com.kingdee.eas.bpmdemo.webservers.serviceclient.BPMServiceForERPLocator;
 import com.kingdee.eas.bpmdemo.webservers.serviceclient.BPMServiceForERPSoap;
 import com.kingdee.eas.fdc.basedata.ContractTypeInfo;
 //import com.kingdee.eas.fdc.contract.ContractBillFactory;
 import com.kingdee.eas.fdc.contract.ContractBillReviseFactory;
+import com.kingdee.eas.util.client.MsgBox;
 
 public class ContractBillReviseEditUIPIEx extends ContractBillReviseEditUI{
 	
@@ -64,8 +66,12 @@ public class ContractBillReviseEditUIPIEx extends ContractBillReviseEditUI{
      * Ã·ΩªBMP
      */
     public void actionSubmit_actionPerformed(ActionEvent arg0) throws Exception {
-    	String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=HT01";
-    	creatFrame(url);
+    	
+    	String[] xml = getInfoFacadeFactory.getRemoteInstance().GetbillInfo("",editData.getId().toString());
+    	String [] str1= getInfoFacadeFactory.getRemoteInstance().ApproveClose("", "dYkAAAAAhPINbdH0", 1, "1", "",null);
+    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
+    	//String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=HT01";
+    	//creatFrame(url);
     };
      
    // public void actionSubmit_actionPerformed(ActionEvent e) throws Exception {
