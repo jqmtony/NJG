@@ -135,12 +135,14 @@ public abstract class AbstractInviteReportEditUI extends com.kingdee.eas.xr.clie
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer conttechScore;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contreduHigh;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contreduLow;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contcoefficient;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtrmhigh;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtrmlow;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtbusinessScore;
     protected com.kingdee.bos.ctrl.swing.KDTextField txttechScore;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtreduHigh;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtreduLow;
+    protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtcoefficient;
     protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel8;
     protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel7;
     protected com.kingdee.bos.ctrl.swing.KDContainer kDContainer7;
@@ -294,12 +296,14 @@ public abstract class AbstractInviteReportEditUI extends com.kingdee.eas.xr.clie
         this.conttechScore = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contreduHigh = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contreduLow = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contcoefficient = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.txtrmhigh = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtrmlow = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtbusinessScore = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txttechScore = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtreduHigh = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtreduLow = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.txtcoefficient = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
         this.kDPanel8 = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.kDPanel7 = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.kDContainer7 = new com.kingdee.bos.ctrl.swing.KDContainer();
@@ -399,12 +403,14 @@ public abstract class AbstractInviteReportEditUI extends com.kingdee.eas.xr.clie
         this.conttechScore.setName("conttechScore");
         this.contreduHigh.setName("contreduHigh");
         this.contreduLow.setName("contreduLow");
+        this.contcoefficient.setName("contcoefficient");
         this.txtrmhigh.setName("txtrmhigh");
         this.txtrmlow.setName("txtrmlow");
         this.txtbusinessScore.setName("txtbusinessScore");
         this.txttechScore.setName("txttechScore");
         this.txtreduHigh.setName("txtreduHigh");
         this.txtreduLow.setName("txtreduLow");
+        this.txtcoefficient.setName("txtcoefficient");
         this.kDPanel8.setName("kDPanel8");
         this.kDPanel7.setName("kDPanel7");
         this.kDContainer7.setName("kDContainer7");
@@ -658,6 +664,18 @@ public abstract class AbstractInviteReportEditUI extends com.kingdee.eas.xr.clie
         // judgeSolution		
         this.judgeSolution.addItems(EnumUtils.getEnumList("com.kingdee.eas.port.pm.invite.judgeSolution").toArray());		
         this.judgeSolution.setRequired(false);
+        this.judgeSolution.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+                beforeActionPerformed(e);
+                try {
+                    judgeSolution_actionPerformed(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                    afterActionPerformed(e);
+                }
+            }
+        });
         // prmtevaTemplate		
         this.prmtevaTemplate.setQueryInfo("com.kingdee.eas.port.pm.base.app.EvaluationTemplateQuery");		
         this.prmtevaTemplate.setEditable(true);		
@@ -938,6 +956,11 @@ public abstract class AbstractInviteReportEditUI extends com.kingdee.eas.xr.clie
         this.contreduLow.setBoundLabelLength(100);		
         this.contreduLow.setBoundLabelUnderline(true);		
         this.contreduLow.setVisible(true);
+        // contcoefficient		
+        this.contcoefficient.setBoundLabelText(resHelper.getString("contcoefficient.boundLabelText"));		
+        this.contcoefficient.setBoundLabelLength(100);		
+        this.contcoefficient.setBoundLabelUnderline(true);		
+        this.contcoefficient.setVisible(true);
         // txtrmhigh		
         this.txtrmhigh.setHorizontalAlignment(2);		
         this.txtrmhigh.setMaxLength(100);		
@@ -962,6 +985,15 @@ public abstract class AbstractInviteReportEditUI extends com.kingdee.eas.xr.clie
         this.txtreduLow.setHorizontalAlignment(2);		
         this.txtreduLow.setMaxLength(100);		
         this.txtreduLow.setRequired(false);
+        // txtcoefficient		
+        this.txtcoefficient.setVisible(true);		
+        this.txtcoefficient.setHorizontalAlignment(2);		
+        this.txtcoefficient.setDataType(1);		
+        this.txtcoefficient.setSupportedEmpty(true);		
+        this.txtcoefficient.setMinimumValue( new java.math.BigDecimal("-1.0E26"));		
+        this.txtcoefficient.setMaximumValue( new java.math.BigDecimal("1.0E26"));		
+        this.txtcoefficient.setPrecision(2);		
+        this.txtcoefficient.setRequired(false);
         // kDPanel8
         // kDPanel7
         // kDContainer7		
@@ -1350,14 +1382,16 @@ vo.put("determineThenWay","extracting");
         kDPanel5.add(contrmhigh, new KDLayout.Constraints(24, 15, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contrmlow.setBounds(new Rectangle(360, 15, 270, 19));
         kDPanel5.add(contrmlow, new KDLayout.Constraints(360, 15, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contbusinessScore.setBounds(new Rectangle(360, 38, 270, 19));
-        kDPanel5.add(contbusinessScore, new KDLayout.Constraints(360, 38, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        conttechScore.setBounds(new Rectangle(696, 38, 270, 19));
-        kDPanel5.add(conttechScore, new KDLayout.Constraints(696, 38, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contbusinessScore.setBounds(new Rectangle(360, 38, 185, 19));
+        kDPanel5.add(contbusinessScore, new KDLayout.Constraints(360, 38, 185, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        conttechScore.setBounds(new Rectangle(570, 38, 185, 19));
+        kDPanel5.add(conttechScore, new KDLayout.Constraints(570, 38, 185, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contreduHigh.setBounds(new Rectangle(696, 15, 270, 19));
         kDPanel5.add(contreduHigh, new KDLayout.Constraints(696, 15, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contreduLow.setBounds(new Rectangle(24, 38, 270, 19));
         kDPanel5.add(contreduLow, new KDLayout.Constraints(24, 38, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contcoefficient.setBounds(new Rectangle(781, 38, 185, 19));
+        kDPanel5.add(contcoefficient, new KDLayout.Constraints(781, 38, 185, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         //contrmhigh
         contrmhigh.setBoundEditor(txtrmhigh);
         //contrmlow
@@ -1370,6 +1404,8 @@ vo.put("determineThenWay","extracting");
         contreduHigh.setBoundEditor(txtreduHigh);
         //contreduLow
         contreduLow.setBoundEditor(txtreduLow);
+        //contcoefficient
+        contcoefficient.setBoundEditor(txtcoefficient);
         //kDTabbedPane3
         kDTabbedPane3.add(kDPanel8, resHelper.getString("kDPanel8.constraints"));
         kDTabbedPane3.add(kDPanel7, resHelper.getString("kDPanel7.constraints"));
@@ -1623,6 +1659,7 @@ kDContainer4.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
 		dataBinder.registerBinding("techScore", String.class, this.txttechScore, "text");
 		dataBinder.registerBinding("reduHigh", String.class, this.txtreduHigh, "text");
 		dataBinder.registerBinding("reduLow", String.class, this.txtreduLow, "text");
+		dataBinder.registerBinding("coefficient", java.math.BigDecimal.class, this.txtcoefficient, "value");
 		dataBinder.registerBinding("E7.seq", int.class, this.kdtE7, "seq.text");
 		dataBinder.registerBinding("E7", com.kingdee.eas.port.pm.invite.InviteReportE7Info.class, this.kdtE7, "userObject");
 		dataBinder.registerBinding("E7.EvaluationName", String.class, this.kdtE7, "EvaluationName.text");
@@ -1828,6 +1865,7 @@ kDContainer4.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
 		getValidateHelper().registerBindProperty("techScore", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("reduHigh", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("reduLow", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("coefficient", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("E7.seq", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("E7", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("E7.EvaluationName", ValidateHelper.ON_SAVE);    
@@ -1870,6 +1908,14 @@ kDContainer4.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
      * output prmtinviteType_dataChanged method
      */
     protected void prmtinviteType_dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) throws Exception
+    {
+        //write your code here1
+    }
+
+    /**
+     * output judgeSolution_actionPerformed method
+     */
+    protected void judgeSolution_actionPerformed(java.awt.event.ActionEvent e) throws Exception
     {
         //write your code here1
     }
@@ -2133,6 +2179,7 @@ kdtE6.getCell(rowIndex,"EvaluationType").setValue(com.kingdee.bos.ui.face.UIRule
         sic.add(new SelectorItemInfo("techScore"));
         sic.add(new SelectorItemInfo("reduHigh"));
         sic.add(new SelectorItemInfo("reduLow"));
+        sic.add(new SelectorItemInfo("coefficient"));
     	sic.add(new SelectorItemInfo("E7.seq"));
 		if(selectorAll.equalsIgnoreCase("true"))
 		{

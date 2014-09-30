@@ -76,6 +76,12 @@ public class EvaluationTemplateListUI extends AbstractEvaluationTemplateListUI
         super.storeFields();
     }
 
+    
+    @Override
+    protected boolean isIgnoreCUFilter() {
+    	// TODO Auto-generated method stub
+    	return true;
+    }
     /**
      * output tblMain_tableClicked method
      */

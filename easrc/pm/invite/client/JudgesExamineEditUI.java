@@ -19,6 +19,7 @@ import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.eas.basedata.assistant.ProjectInfo;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.port.pm.base.ExamineIndicatorsCollection;
@@ -107,6 +108,7 @@ public class JudgesExamineEditUI extends AbstractJudgesExamineEditUI
     		FilterInfo filter = new FilterInfo();
     		evi.setFilter(filter);
     		filter.getFilterItems().add(new FilterItemInfo("proName.longnumber", info.getLongNumber()+"%", CompareType.LIKE));
+    		filter.getFilterItems().add(new FilterItemInfo("status", "4", CompareType.EQUALS));
 			prmtreportName.setEntityViewInfo(evi);
 		}
     	com.kingdee.eas.port.pm.invite.client.InviteReportEditUI.initContainerButton(this.kDContainer1, this.kdtEntryIndicators_detailPanel);
@@ -131,9 +133,22 @@ public class JudgesExamineEditUI extends AbstractJudgesExamineEditUI
     		JudgesInfo judInfo = reportInfo.getEntry3().get(i).getInvitePerson();
     		totalPerson = (totalPerson.length()>0?totalPerson+";":"")+(judInfo!=null?IJudges.getJudgesInfo(new ObjectUuidPK(judInfo.getId())).getPersonName():"");
 		}
-    	this.txtppr.setText(totalPerson);
+    	String pbPerosn = "";
     	
-    	String oql = "where planName.id = '" + reportInfo.getId() + "'";
+		String oql = "where planName.id='"+reportInfo.getId()+"' and status='4'";
+		JudgesComfirmCollection judCollection = JudgesComfirmFactory.getRemoteInstance().getJudgesComfirmCollection(oql);
+		if(judCollection.size()>0)
+		{
+			for (int i = 0; i < judCollection.get(0).getEntry().size(); i++) 
+			{
+				JudgesComfirmEntryInfo entryInfo = judCollection.get(0).getEntry().get(i);
+				pbPerosn = (pbPerosn.length()>0?pbPerosn+";":"")+(UIRuleUtil.isNotNull(entryInfo.getJudgesName())?entryInfo.getJudgesName():"");
+				
+			}
+		}
+    	this.txtppr.setText("招标项目组成员："+totalPerson+"； 评标专家："+pbPerosn);
+    	
+    	oql = "where planName.id = '" + reportInfo.getId() + "'";
     	JudgesComfirmCollection juColl = JudgesComfirmFactory.getRemoteInstance().getJudgesComfirmCollection(oql);
     	JudgesComfirmInfo juinfo = juColl.get(0);
     	JudgesComfirmEntryCollection juEntryColl = juinfo.getEntry();

@@ -63,6 +63,7 @@ import com.kingdee.eas.port.pm.base.InviteTypeInfo;
 import com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI;
 import com.kingdee.eas.port.pm.invite.InvitePlanInfo;
 import com.kingdee.eas.port.pm.invite.InviteReportFactory;
+import com.kingdee.eas.port.pm.invite.judgeSolution;
 import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
 import com.kingdee.eas.util.SysUtil;
 
@@ -146,36 +147,6 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
-				}
-			}
-		});
-		judgeSolution.addItemListener(new ItemListener() {
-			public void itemStateChanged(ItemEvent e) {
-				// TODO Auto-generated method stub
-				if (e.getItem().equals(
-						com.kingdee.eas.port.pm.invite.judgeSolution.lowest)) {
-					txtrmhigh.setEnabled(false);
-					txtrmlow.setEnabled(false);
-					txtreduHigh.setEnabled(false);
-					txtreduLow.setEnabled(false);
-					txtbusinessScore.setEnabled(false);
-					txttechScore.setEnabled(false);
-					prmtevaTemplate.setEnabled(false);
-				} else if (e.getItem().equals(
-						com.kingdee.eas.port.pm.invite.judgeSolution.integrate)) {
-					prmtevaTemplate.setEnabled(true);
-					txtrmhigh.setEnabled(true);
-					txtrmlow.setEnabled(true);
-					txtreduHigh.setEnabled(true);
-					txtreduLow.setEnabled(true);
-					txtbusinessScore.setEnabled(true);
-					txttechScore.setEnabled(true);
-					txtrmhigh.setRequired(true);
-					txtrmlow.setRequired(true);
-					txtreduHigh.setRequired(true);
-					txtreduLow.setRequired(true);
-					txtbusinessScore.setRequired(true);
-					txttechScore.setRequired(true);
 				}
 			}
 		});
@@ -364,9 +335,67 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI {
 		{
 			MsgBox.showWarning("评标办法内评审指标信息权重比不等于100，不能保存、提交！");SysUtil.abort();
 		}
+		
+		judgeSolution jud = (judgeSolution)judgeSolution.getSelectedItem();
+    	if(jud.getValue().equals("1")) {
+    		//综合评分时评标系数必填
+    		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, txtcoefficient, "评标基准系数X");
+    		BigDecimal coffient = new BigDecimal(txtcoefficient.getText());
+    		if(coffient.compareTo(new BigDecimal(0.9)) < 0 || coffient.compareTo(new BigDecimal(1.0)) > 0) {
+    			MsgBox.showWarning("评标基准系数X大于等于0.9小于等于1!!");
+    			SysUtil.abort();
+    		}
+    	}
+    	
+		
 		super.verifyInput(e);
 	}
 
+	protected void judgeSolution_actionPerformed(ActionEvent e)throws Exception {
+		super.judgeSolution_actionPerformed(e);
+		if(this.judgeSolution.getSelectedItem()==null)
+			return;
+		
+		judgeSolution jus = (judgeSolution)this.judgeSolution.getSelectedItem();
+		if (jus.equals(
+				com.kingdee.eas.port.pm.invite.judgeSolution.lowest)) {
+			txtrmhigh.setEnabled(false);
+			txtrmlow.setEnabled(false);
+			txtreduHigh.setEnabled(false);
+			txtreduLow.setEnabled(false);
+			txtbusinessScore.setEnabled(false);
+			txttechScore.setEnabled(false);
+			prmtevaTemplate.setEnabled(false);
+			txtcoefficient.setEnabled(false);
+			txtcoefficient.setValue(null);
+			prmtevaTemplate.setValue(null);
+			txtrmhigh.setText(null);
+			txtrmlow.setText(null);
+			txtreduHigh.setText(null);
+			txtreduLow.setText(null);
+			txtbusinessScore.setText(null);
+			txttechScore.setText(null);
+			this.kdtE6.removeRows();
+		} else if (jus.equals(
+				com.kingdee.eas.port.pm.invite.judgeSolution.integrate)) {
+			txtcoefficient.setEnabled(true);
+			prmtevaTemplate.setEnabled(true);
+			txtrmhigh.setEnabled(true);
+			txtrmlow.setEnabled(true);
+			txtreduHigh.setEnabled(true);
+			txtreduLow.setEnabled(true);
+			txtbusinessScore.setEnabled(true);
+			txttechScore.setEnabled(true);
+			txtrmhigh.setRequired(true);
+			txtrmlow.setRequired(true);
+			txtreduHigh.setRequired(true);
+			txtreduLow.setRequired(true);
+			txtbusinessScore.setRequired(true);
+			txttechScore.setRequired(true);
+			txtcoefficient.setRequired(true);
+		}
+	}
+	
 	protected void kdtEntry2_tableClicked(KDTMouseEvent e) throws Exception {
 		super.kdtEntry2_tableClicked(e);
 		
@@ -436,6 +465,7 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI {
         		}
 			}
         }
+        setTableToSumField(kdtE6, new String []{"weight"});
 	}
 	
 	protected void prmtvalidTemplate_dataChanged(DataChangeEvent e)throws Exception {

@@ -499,7 +499,7 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
 //        				rowAdd.getCell("Indicator").getStyleAttributes().setBackground(Color.RED);
         				rowAdd.getStyleAttributes().setLocked(true);
         				rowAdd.getStyleAttributes().setBackground(FDCClientHelper.KDTABLE_DISABLE_BG_COLOR);
-        			}
+        			} 
         		}
         	}
         	//获取符合性审查模板
@@ -1036,28 +1036,34 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
     		ArrayList<String> price = new ArrayList<String>();//存放有效报价(通过符合性审查的)
     		IRow rowPrice = this.kDTable3.getRow(0);//总分分录报价行
 			IRow rowValid = this.kDTable3.getRow(1);//总分分录符合性审查结果行
-//			BigDecimal coefficient = new BigDecimal(openRegInfo.getCoefficient());
+			BigDecimal coefficient = reportInfo.getCoefficient()!=null?reportInfo.getCoefficient():BigDecimal.ZERO;
+			int a = 0;
     		for(int i = 1; i < this.kDTable3.getColumnCount(); i++) {
     			if("合格".equals(rowValid.getCell(i).getValue().toString().trim()))
     				price.add(rowPrice.getCell(i).getValue().toString().trim());
+    			else
+    				a+=1;
     		}
 
     		Collections.sort(price);
     		BigDecimal basePrice = new BigDecimal(0);
     		int rmLow = Integer.parseInt(reportInfo.getRmlow());//去除几个最低
     		int rmHigh = Integer.parseInt(reportInfo.getRmhigh());//去除几个最高
-    		int validCount = price.size() - rmLow - rmHigh;
+    		int validCount = price.size() - (rmLow+rmHigh-a);
     		if(validCount > 0) {
 	    		basePrice = new BigDecimal(0);
-	    		for(int i = rmLow; i < price.size()-rmHigh; i++) {
+	    		for(int i = rmLow; i < price.size()-(rmHigh-a); i++) {
 	    			basePrice = basePrice.add(new BigDecimal(price.get(i)));
 	    		}
-	    		basePrice = basePrice.divide(new BigDecimal(validCount), 2, BigDecimal.ROUND_HALF_UP);
+	    		basePrice = basePrice.divide(new BigDecimal(validCount), 2, BigDecimal.ROUND_HALF_UP).multiply(coefficient);;
 	    	    this.txtbasePrice.setValue(basePrice);
     		}
     		
     		//计算得分(商务分，总分)
-    		BigDecimal businessScore = new BigDecimal(reportInfo.getBusinessScore());//商务分满分
+//    		BigDecimal businessScore = new BigDecimal(reportInfo.getBusinessScore());//商务分满分
+    		BigDecimal businessScore = new BigDecimal("100");//商务分满分
+    		BigDecimal BusinessScoQz = new BigDecimal(reportInfo.getBusinessScore()).divide(new BigDecimal("100"));//商务分权重
+    		BigDecimal TechScoreQz = new BigDecimal(reportInfo.getTechScore()).divide(new BigDecimal("100"));//技术分权重
     		if(basePrice.compareTo(new BigDecimal(0)) > 0) {
 	    		for(int c = 1; c < this.kDTable3.getColumnCount(); c++) {
 	    			BigDecimal techScore = new BigDecimal(this.kDTable3.getRow(2).getCell(c).getValue().toString());//技术分
@@ -1075,7 +1081,8 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
 	    			}
 	    			if(this.kDTable3.getRow(1).getCell(c).getValue().equals("合格")) {
 	    				this.kDTable3.getRow(3).getCell(c).setValue(score.toString());//总分分录商务分
-	    				this.kDTable3.getRow(4).getCell(c).setValue(score.add(techScore).toString());//总分行
+	    				this.kDTable3.getRow(4).getCell(c).setValue(score.multiply(BusinessScoQz).add(techScore.multiply(TechScoreQz)));//总分行
+						
 	    			} else {
 	    				this.kDTable3.getRow(2).getCell(c).setValue(0);
 	    				this.kDTable3.getRow(3).getCell(c).setValue(0);//总分分录商务分
@@ -1090,7 +1097,7 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
     					if("合格".equals(rowvalid.getCell(c).getValue().toString().trim())) {
     						BigDecimal score = new BigDecimal(reportInfo.getBusinessScore());
     						kDTable3.getRow(3).getCell(c).setValue(score.toPlainString());
-    						kDTable3.getRow(4).getCell(c).setValue(score.add(new BigDecimal(rowTech.getCell(c).getValue().toString())));
+    						kDTable3.getRow(4).getCell(c).setValue(score.multiply(BusinessScoQz).add(new BigDecimal(rowTech.getCell(c).getValue().toString()).multiply(TechScoreQz)));
     						kDTable3.getRow(5).getCell(c).setValue("1");
     					}
     				}

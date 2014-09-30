@@ -372,6 +372,17 @@ public class AbstractInviteReportInfo extends com.kingdee.eas.xr.XRBillBaseInfo 
     {
         put("invitePlan", item);
     }
+    /**
+     * Object:招标方案申报's 评标基准系数Xproperty 
+     */
+    public java.math.BigDecimal getCoefficient()
+    {
+        return getBigDecimal("coefficient");
+    }
+    public void setCoefficient(java.math.BigDecimal item)
+    {
+        setBigDecimal("coefficient", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("CE1E4966");
