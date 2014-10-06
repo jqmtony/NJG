@@ -250,7 +250,7 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 		 * 实现功能：添加菜单下拉按钮，展现相关联单据；
 		 */
 		KDWorkButton kdworkButton = new KDWorkButton("历史记录关联查看");
-		KDMenuItem kdmenuItem1 = new KDMenuItem("设备修理单");
+		KDMenuItem kdmenuItem1 = new KDMenuItem("维保任务单");
 		KDMenuItem kdmenuItem2 = new KDMenuItem("设备事故单");
 		KDMenuItem kdmenuItem3 = new KDMenuItem("设备投保明细表");
 		KDMenuItem kdmenuItem4 = new KDMenuItem("设备保险事故记录");
@@ -554,7 +554,7 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 			}
 			HashMap idList = new HashMap();
 			if(v1.size()<1){
-				MsgBox.showWarning("当前所选数据没有关联设备修理单！");
+				MsgBox.showWarning("当前所选数据没有关联维保任务单！");
 				SysUtil.abort();
 			}
 			idList.put("F96E9B71",v1 );
@@ -1678,6 +1678,8 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 		sic.add(new SelectorItemInfo("cityTest"));
 		sic.add(new SelectorItemInfo("testDay"));
 		sic.add(new SelectorItemInfo("isccCheck"));
+		sic.add(new SelectorItemInfo("carGuanSuo"));
+		sic.add(new SelectorItemInfo("yibiao"));
 		sic.add(new SelectorItemInfo("tzdaNumber"));
 		sic.add(new SelectorItemInfo("tzsbStatus"));
 		if (selectorAll.equalsIgnoreCase("true")) {
@@ -1825,8 +1827,8 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
         	  }
 		}
           if(editData.isSpecial()){
-        	  if(!editData.isCityTest()&&!editData.isPortTest()&&!editData.isChuanCheck()){
-        		  MsgBox.showInfo("当前设备为检验设备，请勾选检验设备属性的市检，港检或船检！");
+        	  if(!editData.isCityTest()&&!editData.isPortTest()&&!editData.isChuanCheck()&&!editData.isCarGuanSuo()&&!editData.isYibiao()){
+        		  MsgBox.showInfo("当前设备为检验设备，请勾选检验设备属性的市检、港检、船检、车管所或者仪表！");
    				  SysUtil.abort();
         	  }
         	  if(editData.isCityTest()&&editData.isPortTest()){

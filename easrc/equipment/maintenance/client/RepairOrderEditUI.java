@@ -755,6 +755,7 @@ public class RepairOrderEditUI extends AbstractRepairOrderEditUI
 		chkselfStudy.setVisible(false);
 		chkoutsourcing.setVisible(false);
 		txtselfAmount.setVisible(false);
+		contselfAmount.setVisible(false);
 		txtoutAmount.setVisible(false);
 		contoutAmount.setVisible(false);
 		contmaintenanceProgram.setVisible(false);
@@ -783,7 +784,7 @@ public class RepairOrderEditUI extends AbstractRepairOrderEditUI
 		 filter.getFilterItems().add(new FilterItemInfo("ssOrgUnit.id",id ,CompareType.EQUALS));
 //		 filter.getFilterItems().add(new FilterItemInfo("sbStatus","1",CompareType.EQUALS));
 		 filter.getFilterItems().add(new FilterItemInfo("id", sb.toString(), CompareType.INNER));
-	 		filter.setMaskString("(#0 or #2");
+	 	 filter.setMaskString("#0 or #1");
 		 evi.setFilter(filter);
 		 prmtequName.setEntityViewInfo(evi);
 //		 prmtequName.setSelector(ToolHelp.initPrmtEquIdByF7Color(evi, false)); 

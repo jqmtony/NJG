@@ -1015,6 +1015,28 @@ public class AbstractEquIdInfo extends com.kingdee.eas.xr.XRBillBaseInfo impleme
     {
         setString("youzhengbianma", item);
     }
+    /**
+     * Object:设备档案's 车管所property 
+     */
+    public boolean isCarGuanSuo()
+    {
+        return getBoolean("carGuanSuo");
+    }
+    public void setCarGuanSuo(boolean item)
+    {
+        setBoolean("carGuanSuo", item);
+    }
+    /**
+     * Object:设备档案's 仪表property 
+     */
+    public boolean isYibiao()
+    {
+        return getBoolean("yibiao");
+    }
+    public void setYibiao(boolean item)
+    {
+        setBoolean("yibiao", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("0ED4BEC2");

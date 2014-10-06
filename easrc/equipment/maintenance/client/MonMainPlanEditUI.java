@@ -736,10 +736,10 @@ public class MonMainPlanEditUI extends AbstractMonMainPlanEditUI
 	public void onLoad() throws Exception {
 		this.kdtE1.getColumn("seq").getStyleAttributes().setHided(true);
 //		this.kdtE1.getColumn("implementDepart").getStyleAttributes().setLocked(true);
-		this.kdtE1.getColumn("actualCompleteT").getStyleAttributes().setLocked(true);
-		this.kdtE1.getColumn("complete").getStyleAttributes().setLocked(true);
-		this.kdtE1.getColumn("actualCompleteT").getStyleAttributes().setHided(true);
-		this.kdtE1.getColumn("complete").getStyleAttributes().setHided(true);
+//		this.kdtE1.getColumn("actualCompleteT").getStyleAttributes().setLocked(true);
+//		this.kdtE1.getColumn("complete").getStyleAttributes().setLocked(true);
+//		this.kdtE1.getColumn("actualCompleteT").getStyleAttributes().setHided(true);
+//		this.kdtE1.getColumn("complete").getStyleAttributes().setHided(true);
 		super.onLoad();
 		this.setUITitle("Î¬±£¼Æ»®");
 		 KDBizPromptBox kdtE1_equNumber_PromptBox = new KDBizPromptBox();

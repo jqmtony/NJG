@@ -644,6 +644,26 @@ public abstract class AbstractEqmAccidentControllerBean extends XRBillBaseContro
         }
     }
 
+    public void equInfomation(Context ctx, EqmAccidentInfo model) throws BOSException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("6bbaed78-cd1e-4bd3-a158-6033c911323a"), new Object[]{ctx, model});
+            invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
+            _equInfomation(ctx, model);
+            }
+            invokeServiceAfter(svcCtx);
+        } catch (BOSException ex) {
+            throw ex;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected void _equInfomation(Context ctx, IObjectValue model) throws BOSException
+    {    	
+        return;
+    }
+
     public XRBillBaseCollection getXRBillBaseCollection (Context ctx) throws BOSException
     {
     	return (XRBillBaseCollection)(getEqmAccidentCollection(ctx).cast(XRBillBaseCollection.class));

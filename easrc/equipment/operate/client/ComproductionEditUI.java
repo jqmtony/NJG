@@ -1311,6 +1311,7 @@ public class ComproductionEditUI extends AbstractComproductionEditUI {
 				kdtEntrys.getCell(0, "periodCon").setValue(Double.parseDouble(String.valueOf((bbbb.compareTo(BigDecimal.ZERO))!=0?aaaa.divide(bbbb,  4, BigDecimal.ROUND_UP):BigDecimal.ZERO)));
 				kdtEntrys.getCell(1, "periodCon").setValue(Double.parseDouble(String.valueOf((bbbb.compareTo(BigDecimal.ZERO))!=0?aaaa.divide(bbbb,  4, BigDecimal.ROUND_UP):BigDecimal.ZERO)));
 				
+				
 				//吞吐量的去年同期单耗=能耗折算量合计（吨标煤）去年同期实绩/吞吐量去年实绩
 				BigDecimal aaaaa = UIRuleUtil.getBigDecimal(kdtEntrys.getCell(9, "samePerformance").getValue());
 				BigDecimal bbbbb = UIRuleUtil.getBigDecimal(kdtEntrys.getCell(0, "samePerformance").getValue());

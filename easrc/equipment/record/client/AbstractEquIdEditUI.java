@@ -180,6 +180,8 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contcpsyqh;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contcpsbh;
     protected com.kingdee.bos.ctrl.swing.KDCheckBox chkchuanCheck;
+    protected com.kingdee.bos.ctrl.swing.KDCheckBox chkcarGuanSuo;
+    protected com.kingdee.bos.ctrl.swing.KDCheckBox chkyibiao;
     protected com.kingdee.bos.ctrl.swing.KDTextField txttzdaNumber;
     protected com.kingdee.bos.ctrl.swing.KDComboBox tzsbStatus;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtspecialType;
@@ -523,6 +525,8 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.contcpsyqh = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contcpsbh = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.chkchuanCheck = new com.kingdee.bos.ctrl.swing.KDCheckBox();
+        this.chkcarGuanSuo = new com.kingdee.bos.ctrl.swing.KDCheckBox();
+        this.chkyibiao = new com.kingdee.bos.ctrl.swing.KDCheckBox();
         this.txttzdaNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.tzsbStatus = new com.kingdee.bos.ctrl.swing.KDComboBox();
         this.prmtspecialType = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
@@ -729,6 +733,8 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.contcpsyqh.setName("contcpsyqh");
         this.contcpsbh.setName("contcpsbh");
         this.chkchuanCheck.setName("chkchuanCheck");
+        this.chkcarGuanSuo.setName("chkcarGuanSuo");
+        this.chkyibiao.setName("chkyibiao");
         this.txttzdaNumber.setName("txttzdaNumber");
         this.tzsbStatus.setName("tzsbStatus");
         this.prmtspecialType.setName("prmtspecialType");
@@ -1481,6 +1487,14 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         this.chkchuanCheck.setText(resHelper.getString("chkchuanCheck.text"));		
         this.chkchuanCheck.setVisible(true);		
         this.chkchuanCheck.setHorizontalAlignment(2);
+        // chkcarGuanSuo		
+        this.chkcarGuanSuo.setText(resHelper.getString("chkcarGuanSuo.text"));		
+        this.chkcarGuanSuo.setVisible(true);		
+        this.chkcarGuanSuo.setHorizontalAlignment(2);
+        // chkyibiao		
+        this.chkyibiao.setText(resHelper.getString("chkyibiao.text"));		
+        this.chkyibiao.setVisible(true);		
+        this.chkyibiao.setHorizontalAlignment(2);
         // txttzdaNumber		
         this.txttzdaNumber.setVisible(true);		
         this.txttzdaNumber.setHorizontalAlignment(2);		
@@ -2010,7 +2024,7 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         // btnRegistChange
         this.btnRegistChange.setAction((IItemAction)ActionProxyFactory.getProxy(actionRegistChange, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnRegistChange.setText(resHelper.getString("btnRegistChange.text"));
-        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmtCU,pkLastUpdateTime,prmtLastUpdateUser,pkCreateTime,prmtCreator,prmtAuditor,txtDescription,pkBizDate,pkAuditTime,comboBizStatus,comboStatus,kdtTechnologyPar,combosbStatus,txtinnerNumber,combonowStatus,txtzzsShortName,chkcityTest,chkportTest,txttzdaNumber,tzsbStatus,prmtasset,prmtassetStatus,txtassetValue,txtinstallCost,chkisMainEqm,txtEqmCategory,pktextDate1,pkdayone,pkdaytow,txttelePhoneNumber,pkactrueTime,txtresponsible,txtinStreet,prmttextType,prmtequTypeone,chkisbaoxian,txtnowAmount,txtoldYear,txtdeadline,txtdebuger,chkisccCheck,txtcpgjzs,txtcpsyqh,txtcpsbh,chkchuanCheck,prmtuseUnit,txtgongzuojibie,txtkuadu,txtxuanbichangdu,txtqishengaodu,txtdacheguidao,txtqizhongliju,txtzuida,txtzuixiao,txtedusudu,txtzuzhijigou,txtyouzhengbianma}));
+        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmtCU,pkLastUpdateTime,prmtLastUpdateUser,pkCreateTime,prmtCreator,prmtAuditor,txtDescription,pkBizDate,pkAuditTime,comboBizStatus,comboStatus,kdtTechnologyPar,combosbStatus,txtinnerNumber,combonowStatus,txtzzsShortName,chkcityTest,chkportTest,txttzdaNumber,tzsbStatus,prmtasset,prmtassetStatus,txtassetValue,txtinstallCost,chkisMainEqm,txtEqmCategory,pktextDate1,pkdayone,pkdaytow,txttelePhoneNumber,pkactrueTime,txtresponsible,txtinStreet,prmttextType,prmtequTypeone,chkisbaoxian,txtnowAmount,txtoldYear,txtdeadline,txtdebuger,chkisccCheck,txtcpgjzs,txtcpsyqh,txtcpsbh,chkchuanCheck,prmtuseUnit,txtgongzuojibie,txtkuadu,txtxuanbichangdu,txtqishengaodu,txtdacheguidao,txtqizhongliju,txtzuida,txtzuixiao,txtedusudu,txtzuzhijigou,txtyouzhengbianma,chkcarGuanSuo,chkyibiao}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
 		registerBindings();
@@ -2305,6 +2319,10 @@ public abstract class AbstractEquIdEditUI extends com.kingdee.eas.xr.client.XRBi
         kDPanel11.add(contcpsbh, new KDLayout.Constraints(700, 98, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         chkchuanCheck.setBounds(new Rectangle(286, 98, 59, 19));
         kDPanel11.add(chkchuanCheck, new KDLayout.Constraints(286, 98, 59, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        chkcarGuanSuo.setBounds(new Rectangle(286, 57, 64, 19));
+        kDPanel11.add(chkcarGuanSuo, new KDLayout.Constraints(286, 57, 64, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        chkyibiao.setBounds(new Rectangle(286, 77, 59, 19));
+        kDPanel11.add(chkyibiao, new KDLayout.Constraints(286, 77, 59, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         //conttzdaNumber
         conttzdaNumber.setBoundEditor(txttzdaNumber);
         //conttzsbStatus
@@ -2686,6 +2704,8 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
 		dataBinder.registerBinding("portTest", boolean.class, this.chkportTest, "selected");
 		dataBinder.registerBinding("cityTest", boolean.class, this.chkcityTest, "selected");
 		dataBinder.registerBinding("chuanCheck", boolean.class, this.chkchuanCheck, "selected");
+		dataBinder.registerBinding("carGuanSuo", boolean.class, this.chkcarGuanSuo, "selected");
+		dataBinder.registerBinding("yibiao", boolean.class, this.chkyibiao, "selected");
 		dataBinder.registerBinding("tzdaNumber", String.class, this.txttzdaNumber, "text");
 		dataBinder.registerBinding("tzsbStatus", com.kingdee.eas.port.equipment.base.enumbase.sbStatusType.class, this.tzsbStatus, "selectedItem");
 		dataBinder.registerBinding("specialType", com.kingdee.eas.port.equipment.base.SpecialTypeInfo.class, this.prmtspecialType, "data");
@@ -2939,6 +2959,8 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
 		getValidateHelper().registerBindProperty("portTest", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("cityTest", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("chuanCheck", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("carGuanSuo", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("yibiao", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("tzdaNumber", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("tzsbStatus", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("specialType", ValidateHelper.ON_SAVE);    
@@ -3282,6 +3304,8 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kdtSpareInfo_detailPanel = (c
         sic.add(new SelectorItemInfo("portTest"));
         sic.add(new SelectorItemInfo("cityTest"));
         sic.add(new SelectorItemInfo("chuanCheck"));
+        sic.add(new SelectorItemInfo("carGuanSuo"));
+        sic.add(new SelectorItemInfo("yibiao"));
         sic.add(new SelectorItemInfo("tzdaNumber"));
         sic.add(new SelectorItemInfo("tzsbStatus"));
 		if(selectorAll.equalsIgnoreCase("true"))

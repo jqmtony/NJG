@@ -82,6 +82,17 @@ public class AbstractComproductionInfo extends com.kingdee.eas.framework.CoreBil
         setInt("state", item.getValue());
 		}
     }
+    /**
+     * Object: 公司产能报表 's 报表月份 property 
+     */
+    public com.kingdee.eas.port.equipment.base.MonthTimeInfo getReportMonth()
+    {
+        return (com.kingdee.eas.port.equipment.base.MonthTimeInfo)get("reportMonth");
+    }
+    public void setReportMonth(com.kingdee.eas.port.equipment.base.MonthTimeInfo item)
+    {
+        put("reportMonth", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("232E84DB");

@@ -110,7 +110,9 @@ public abstract class AbstractEqmAccidentEditUI extends com.kingdee.eas.xr.clien
     protected com.kingdee.bos.ctrl.swing.KDTextArea txtaccidentCause;
     protected com.kingdee.bos.ctrl.swing.KDScrollPane scrollPaneResultCode;
     protected com.kingdee.bos.ctrl.swing.KDTextArea txtResultCode;
+    protected com.kingdee.bos.ctrl.swing.KDWorkButton btnEquInfomation;
     protected com.kingdee.eas.port.equipment.operate.EqmAccidentInfo editData = null;
+    protected ActionEquInfomation actionEquInfomation = null;
     /**
      * output class constructor
      */
@@ -160,6 +162,14 @@ public abstract class AbstractEqmAccidentEditUI extends com.kingdee.eas.xr.clien
         actionUnAudit.putValue(ItemAction.NAME, _tempStr);
         this.actionUnAudit.setBindWorkFlow(true);
          this.actionUnAudit.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+        //actionEquInfomation
+        this.actionEquInfomation = new ActionEquInfomation(this);
+        getActionManager().registerAction("actionEquInfomation", actionEquInfomation);
+        this.actionEquInfomation.setExtendProperty("canForewarn", "true");
+        this.actionEquInfomation.setExtendProperty("userDefined", "true");
+        this.actionEquInfomation.setExtendProperty("isObjectUpdateLock", "false");
+         this.actionEquInfomation.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+         this.actionEquInfomation.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
         this.contCreator = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contCreateTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contLastUpdateUser = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -224,6 +234,7 @@ public abstract class AbstractEqmAccidentEditUI extends com.kingdee.eas.xr.clien
         this.txtaccidentCause = new com.kingdee.bos.ctrl.swing.KDTextArea();
         this.scrollPaneResultCode = new com.kingdee.bos.ctrl.swing.KDScrollPane();
         this.txtResultCode = new com.kingdee.bos.ctrl.swing.KDTextArea();
+        this.btnEquInfomation = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.contCreator.setName("contCreator");
         this.contCreateTime.setName("contCreateTime");
         this.contLastUpdateUser.setName("contLastUpdateUser");
@@ -288,6 +299,7 @@ public abstract class AbstractEqmAccidentEditUI extends com.kingdee.eas.xr.clien
         this.txtaccidentCause.setName("txtaccidentCause");
         this.scrollPaneResultCode.setName("scrollPaneResultCode");
         this.txtResultCode.setName("txtResultCode");
+        this.btnEquInfomation.setName("btnEquInfomation");
         // CoreUI
         // contCreator		
         this.contCreator.setBoundLabelText(resHelper.getString("contCreator.boundLabelText"));		
@@ -592,6 +604,9 @@ public abstract class AbstractEqmAccidentEditUI extends com.kingdee.eas.xr.clien
         this.txtResultCode.setVisible(true);		
         this.txtResultCode.setRequired(false);		
         this.txtResultCode.setMaxLength(255);
+        // btnEquInfomation
+        this.btnEquInfomation.setAction((IItemAction)ActionProxyFactory.getProxy(actionEquInfomation, new Class[] { IItemAction.class }, getServiceContext()));		
+        this.btnEquInfomation.setText(resHelper.getString("btnEquInfomation.text"));
         this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmteqmName,txteqmNumner,txteqmType,txteqmModelType,txteqmAdress,prmtuseingDept,prmtaccidentType,prmtinputPerson,prmtssOrgUnit,prmtaccidentNature,pkhappenDate,pkendDate,txtloss,txtstopTime,txtaccidentDescription,txtaccidentManagement,txtaccidentCause,txtResultCode}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
@@ -880,6 +895,7 @@ public abstract class AbstractEqmAccidentEditUI extends com.kingdee.eas.xr.clien
         this.toolBar.add(btnAttachment);
         this.toolBar.add(btnAudit);
         this.toolBar.add(btnUnAudit);
+        this.toolBar.add(btnEquInfomation);
         this.toolBar.add(separatorFW1);
         this.toolBar.add(btnPageSetup);
         this.toolBar.add(btnPrint);
@@ -1290,6 +1306,15 @@ public abstract class AbstractEqmAccidentEditUI extends com.kingdee.eas.xr.clien
     {
         super.actionUnAudit_actionPerformed(e);
     }
+    	
+
+    /**
+     * output actionEquInfomation_actionPerformed method
+     */
+    public void actionEquInfomation_actionPerformed(ActionEvent e) throws Exception
+    {
+        com.kingdee.eas.port.equipment.operate.EqmAccidentFactory.getRemoteInstance().equInfomation(editData);
+    }
 	public RequestContext prepareActionSubmit(IItemAction itemAction) throws Exception {
 			RequestContext request = super.prepareActionSubmit(itemAction);		
 		if (request != null) {
@@ -1311,6 +1336,47 @@ public abstract class AbstractEqmAccidentEditUI extends com.kingdee.eas.xr.clien
 	
 	public boolean isPrepareActionUnAudit() {
     	return false;
+    }
+	public RequestContext prepareActionEquInfomation(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionEquInfomation() {
+    	return false;
+    }
+
+    /**
+     * output ActionEquInfomation class
+     */     
+    protected class ActionEquInfomation extends ItemAction {     
+    
+        public ActionEquInfomation()
+        {
+            this(null);
+        }
+
+        public ActionEquInfomation(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            _tempStr = resHelper.getString("ActionEquInfomation.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionEquInfomation.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionEquInfomation.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractEqmAccidentEditUI.this, "ActionEquInfomation", "actionEquInfomation_actionPerformed", e);
+        }
     }
 
     /**

@@ -48,4 +48,5 @@ public interface IEqmAccident extends IXRBillBase
     public void updateBigObject(IObjectPK pk, EqmAccidentInfo model) throws BOSException;
     public void updatePartial(EqmAccidentInfo model, SelectorItemCollection selector) throws BOSException, EASBizException;
     public String getBindingProperty() throws BOSException;
+    public void equInfomation(EqmAccidentInfo model) throws BOSException;
 }

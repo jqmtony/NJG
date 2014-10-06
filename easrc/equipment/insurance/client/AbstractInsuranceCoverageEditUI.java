@@ -73,6 +73,8 @@ public abstract class AbstractInsuranceCoverageEditUI extends com.kingdee.eas.xr
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contyear;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer conttbrmc;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contxzdm;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contbaodanNo;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contxianzhongTwo;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtCreator;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkCreateTime;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtLastUpdateUser;
@@ -98,6 +100,8 @@ public abstract class AbstractInsuranceCoverageEditUI extends com.kingdee.eas.xr
     protected com.kingdee.bos.ctrl.swing.KDTextField txtyear;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmttbrmc;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtxzdm;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txtbaodanNo;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtxianzhongTwo;
     protected com.kingdee.eas.port.equipment.insurance.InsuranceCoverageInfo editData = null;
     protected ActionExcelBxmx actionExcelBxmx = null;
     /**
@@ -184,6 +188,8 @@ public abstract class AbstractInsuranceCoverageEditUI extends com.kingdee.eas.xr
         this.contyear = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.conttbrmc = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contxzdm = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contbaodanNo = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contxianzhongTwo = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.prmtCreator = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.pkCreateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.prmtLastUpdateUser = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
@@ -208,6 +214,8 @@ public abstract class AbstractInsuranceCoverageEditUI extends com.kingdee.eas.xr
         this.txtyear = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.prmttbrmc = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.txtxzdm = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.txtbaodanNo = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.prmtxianzhongTwo = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.contCreator.setName("contCreator");
         this.contCreateTime.setName("contCreateTime");
         this.contLastUpdateUser.setName("contLastUpdateUser");
@@ -235,6 +243,8 @@ public abstract class AbstractInsuranceCoverageEditUI extends com.kingdee.eas.xr
         this.contyear.setName("contyear");
         this.conttbrmc.setName("conttbrmc");
         this.contxzdm.setName("contxzdm");
+        this.contbaodanNo.setName("contbaodanNo");
+        this.contxianzhongTwo.setName("contxianzhongTwo");
         this.prmtCreator.setName("prmtCreator");
         this.pkCreateTime.setName("pkCreateTime");
         this.prmtLastUpdateUser.setName("prmtLastUpdateUser");
@@ -259,6 +269,8 @@ public abstract class AbstractInsuranceCoverageEditUI extends com.kingdee.eas.xr
         this.txtyear.setName("txtyear");
         this.prmttbrmc.setName("prmttbrmc");
         this.txtxzdm.setName("txtxzdm");
+        this.txtbaodanNo.setName("txtbaodanNo");
+        this.prmtxianzhongTwo.setName("prmtxianzhongTwo");
         // CoreUI
         // contCreator		
         this.contCreator.setBoundLabelText(resHelper.getString("contCreator.boundLabelText"));		
@@ -410,6 +422,16 @@ public abstract class AbstractInsuranceCoverageEditUI extends com.kingdee.eas.xr
         this.contxzdm.setBoundLabelLength(100);		
         this.contxzdm.setBoundLabelUnderline(true);		
         this.contxzdm.setVisible(true);
+        // contbaodanNo		
+        this.contbaodanNo.setBoundLabelText(resHelper.getString("contbaodanNo.boundLabelText"));		
+        this.contbaodanNo.setBoundLabelLength(100);		
+        this.contbaodanNo.setBoundLabelUnderline(true);		
+        this.contbaodanNo.setVisible(true);
+        // contxianzhongTwo		
+        this.contxianzhongTwo.setBoundLabelText(resHelper.getString("contxianzhongTwo.boundLabelText"));		
+        this.contxianzhongTwo.setBoundLabelLength(100);		
+        this.contxianzhongTwo.setBoundLabelUnderline(true);		
+        this.contxianzhongTwo.setVisible(true);
         // prmtCreator		
         this.prmtCreator.setEnabled(false);		
         this.prmtCreator.setCommitFormat("$name$");		
@@ -490,6 +512,14 @@ public abstract class AbstractInsuranceCoverageEditUI extends com.kingdee.eas.xr
 
 
         this.kdtE1.checkParsed();
+        KDFormattedTextField kdtE1_seq_TextField = new KDFormattedTextField();
+        kdtE1_seq_TextField.setName("kdtE1_seq_TextField");
+        kdtE1_seq_TextField.setVisible(true);
+        kdtE1_seq_TextField.setEditable(true);
+        kdtE1_seq_TextField.setHorizontalAlignment(2);
+        kdtE1_seq_TextField.setDataType(0);
+        KDTDefaultCellEditor kdtE1_seq_CellEditor = new KDTDefaultCellEditor(kdtE1_seq_TextField);
+        this.kdtE1.getColumn("seq").setEditor(kdtE1_seq_CellEditor);
         final KDBizPromptBox kdtE1_useUnit_PromptBox = new KDBizPromptBox();
         kdtE1_useUnit_PromptBox.setQueryInfo("com.kingdee.eas.basedata.org.app.AdminItemQuery");
         kdtE1_useUnit_PromptBox.setVisible(true);
@@ -628,7 +658,20 @@ public abstract class AbstractInsuranceCoverageEditUI extends com.kingdee.eas.xr
         this.txtxzdm.setHorizontalAlignment(2);		
         this.txtxzdm.setMaxLength(100);		
         this.txtxzdm.setRequired(false);
-        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {txtxianzhongID,prmtinsurance,prmtinsuranceCompany,prmtCU,pkLastUpdateTime,prmtLastUpdateUser,pkCreateTime,kdtE1,prmtCreator,prmtAuditor,txtDescription,pkBizDate,txtNumber,pkAuditTime,comboBizStatus,comboStatus,txtcoverNumber,txtcontNumber,pkeffectDate,pkendDate,txtyear,prmttbrmc,txtxzdm}));
+        // txtbaodanNo		
+        this.txtbaodanNo.setVisible(true);		
+        this.txtbaodanNo.setHorizontalAlignment(2);		
+        this.txtbaodanNo.setMaxLength(100);		
+        this.txtbaodanNo.setRequired(false);
+        // prmtxianzhongTwo		
+        this.prmtxianzhongTwo.setQueryInfo("com.kingdee.eas.port.equipment.base.app.InsuranceQuery");		
+        this.prmtxianzhongTwo.setVisible(true);		
+        this.prmtxianzhongTwo.setEditable(true);		
+        this.prmtxianzhongTwo.setDisplayFormat("$name$");		
+        this.prmtxianzhongTwo.setEditFormat("$number$");		
+        this.prmtxianzhongTwo.setCommitFormat("$number$");		
+        this.prmtxianzhongTwo.setRequired(false);
+        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {txtxianzhongID,prmtinsurance,prmtinsuranceCompany,prmtCU,pkLastUpdateTime,prmtLastUpdateUser,pkCreateTime,kdtE1,prmtCreator,prmtAuditor,txtDescription,pkBizDate,txtNumber,pkAuditTime,comboBizStatus,comboStatus,txtcoverNumber,txtcontNumber,pkeffectDate,pkendDate,txtyear,prmttbrmc,txtxzdm,txtbaodanNo,prmtxianzhongTwo}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
 		registerBindings();
@@ -665,26 +708,26 @@ public abstract class AbstractInsuranceCoverageEditUI extends com.kingdee.eas.xr
         this.add(contLastUpdateUser, new KDLayout.Constraints(371, 418, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contLastUpdateTime.setBounds(new Rectangle(371, 442, 270, 19));
         this.add(contLastUpdateTime, new KDLayout.Constraints(371, 442, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contCU.setBounds(new Rectangle(736, 10, 270, 19));
-        this.add(contCU, new KDLayout.Constraints(736, 10, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contNumber.setBounds(new Rectangle(373, 76, 270, 19));
-        this.add(contNumber, new KDLayout.Constraints(373, 76, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contBizDate.setBounds(new Rectangle(373, 10, 270, 19));
-        this.add(contBizDate, new KDLayout.Constraints(373, 10, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contCU.setBounds(new Rectangle(736, 6, 270, 19));
+        this.add(contCU, new KDLayout.Constraints(736, 6, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contNumber.setBounds(new Rectangle(10, 6, 270, 19));
+        this.add(contNumber, new KDLayout.Constraints(10, 6, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contBizDate.setBounds(new Rectangle(10, 52, 270, 19));
+        this.add(contBizDate, new KDLayout.Constraints(10, 52, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contDescription.setBounds(new Rectangle(10, 466, 270, 19));
         this.add(contDescription, new KDLayout.Constraints(10, 466, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         contAuditor.setBounds(new Rectangle(732, 418, 270, 19));
         this.add(contAuditor, new KDLayout.Constraints(732, 418, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contStatus.setBounds(new Rectangle(736, 32, 270, 19));
-        this.add(contStatus, new KDLayout.Constraints(736, 32, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contStatus.setBounds(new Rectangle(736, 29, 270, 19));
+        this.add(contStatus, new KDLayout.Constraints(736, 29, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contBizStatus.setBounds(new Rectangle(371, 466, 270, 19));
         this.add(contBizStatus, new KDLayout.Constraints(371, 466, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         contAuditTime.setBounds(new Rectangle(732, 442, 270, 19));
         this.add(contAuditTime, new KDLayout.Constraints(732, 442, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        continsurance.setBounds(new Rectangle(373, 32, 270, 19));
-        this.add(continsurance, new KDLayout.Constraints(373, 32, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        continsuranceCompany.setBounds(new Rectangle(10, 76, 270, 19));
-        this.add(continsuranceCompany, new KDLayout.Constraints(10, 76, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        continsurance.setBounds(new Rectangle(366, 75, 270, 19));
+        this.add(continsurance, new KDLayout.Constraints(366, 75, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        continsuranceCompany.setBounds(new Rectangle(366, 29, 270, 19));
+        this.add(continsuranceCompany, new KDLayout.Constraints(366, 29, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         kDInsuranceDetail.setBounds(new Rectangle(663, 477, 197, 21));
         this.add(kDInsuranceDetail, new KDLayout.Constraints(663, 477, 197, 21, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         kDContainer1.setBounds(new Rectangle(11, 122, 992, 289));
@@ -697,20 +740,24 @@ public abstract class AbstractInsuranceCoverageEditUI extends com.kingdee.eas.xr
         this.add(btnExcel, new KDLayout.Constraints(682, 425, 22, 19, 0));
         contxianzhongID.setBounds(new Rectangle(286, 482, 270, 19));
         this.add(contxianzhongID, new KDLayout.Constraints(286, 482, 270, 19, 0));
-        contcoverNumber.setBounds(new Rectangle(10, 10, 270, 19));
-        this.add(contcoverNumber, new KDLayout.Constraints(10, 10, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contcontNumber.setBounds(new Rectangle(10, 54, 270, 19));
-        this.add(contcontNumber, new KDLayout.Constraints(10, 54, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        conteffectDate.setBounds(new Rectangle(373, 54, 270, 19));
-        this.add(conteffectDate, new KDLayout.Constraints(373, 54, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contendDate.setBounds(new Rectangle(736, 54, 270, 19));
-        this.add(contendDate, new KDLayout.Constraints(736, 54, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contyear.setBounds(new Rectangle(10, 32, 270, 19));
-        this.add(contyear, new KDLayout.Constraints(10, 32, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        conttbrmc.setBounds(new Rectangle(736, 76, 270, 19));
-        this.add(conttbrmc, new KDLayout.Constraints(736, 76, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contxzdm.setBounds(new Rectangle(10, 99, 270, 19));
-        this.add(contxzdm, new KDLayout.Constraints(10, 99, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contcoverNumber.setBounds(new Rectangle(10, 75, 270, 19));
+        this.add(contcoverNumber, new KDLayout.Constraints(10, 75, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contcontNumber.setBounds(new Rectangle(366, 6, 270, 19));
+        this.add(contcontNumber, new KDLayout.Constraints(366, 6, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        conteffectDate.setBounds(new Rectangle(366, 52, 270, 19));
+        this.add(conteffectDate, new KDLayout.Constraints(366, 52, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contendDate.setBounds(new Rectangle(736, 52, 270, 19));
+        this.add(contendDate, new KDLayout.Constraints(736, 52, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contyear.setBounds(new Rectangle(10, 29, 270, 19));
+        this.add(contyear, new KDLayout.Constraints(10, 29, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        conttbrmc.setBounds(new Rectangle(736, 75, 270, 19));
+        this.add(conttbrmc, new KDLayout.Constraints(736, 75, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contxzdm.setBounds(new Rectangle(736, 99, 270, 19));
+        this.add(contxzdm, new KDLayout.Constraints(736, 99, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contbaodanNo.setBounds(new Rectangle(10, 99, 270, 19));
+        this.add(contbaodanNo, new KDLayout.Constraints(10, 99, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contxianzhongTwo.setBounds(new Rectangle(366, 99, 270, 19));
+        this.add(contxianzhongTwo, new KDLayout.Constraints(366, 99, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         //contCreator
         contCreator.setBoundEditor(prmtCreator);
         //contCreateTime
@@ -760,6 +807,10 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kdtE1_de
         conttbrmc.setBoundEditor(prmttbrmc);
         //contxzdm
         contxzdm.setBoundEditor(txtxzdm);
+        //contbaodanNo
+        contbaodanNo.setBoundEditor(txtbaodanNo);
+        //contxianzhongTwo
+        contxianzhongTwo.setBoundEditor(prmtxianzhongTwo);
 
     }
 
@@ -969,7 +1020,9 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kdtE1_de
 		dataBinder.registerBinding("endDate", java.util.Date.class, this.pkendDate, "value");
 		dataBinder.registerBinding("year", String.class, this.txtyear, "text");
 		dataBinder.registerBinding("tbrmc", com.kingdee.eas.basedata.org.CompanyOrgUnitInfo.class, this.prmttbrmc, "data");
-		dataBinder.registerBinding("xzdm", String.class, this.txtxzdm, "text");		
+		dataBinder.registerBinding("xzdm", String.class, this.txtxzdm, "text");
+		dataBinder.registerBinding("baodanNo", String.class, this.txtbaodanNo, "text");
+		dataBinder.registerBinding("xianzhongTwo", com.kingdee.eas.port.equipment.base.InsuranceInfo.class, this.prmtxianzhongTwo, "data");		
 	}
 	//Regiester UI State
 	private void registerUIState(){		
@@ -1140,7 +1193,9 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kdtE1_de
 		getValidateHelper().registerBindProperty("endDate", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("year", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("tbrmc", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("xzdm", ValidateHelper.ON_SAVE);    		
+		getValidateHelper().registerBindProperty("xzdm", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("baodanNo", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("xianzhongTwo", ValidateHelper.ON_SAVE);    		
 	}
 
 
@@ -1351,6 +1406,16 @@ kdtE1.getCell(rowIndex,"equType").setValue(com.kingdee.bos.ui.face.UIRuleUtil.ge
         	sic.add(new SelectorItemInfo("tbrmc.name"));
 		}
         sic.add(new SelectorItemInfo("xzdm"));
+        sic.add(new SelectorItemInfo("baodanNo"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("xianzhongTwo.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("xianzhongTwo.id"));
+        	sic.add(new SelectorItemInfo("xianzhongTwo.number"));
+        	sic.add(new SelectorItemInfo("xianzhongTwo.name"));
+		}
         return sic;
     }        
     	

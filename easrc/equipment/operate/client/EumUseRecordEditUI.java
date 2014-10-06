@@ -21,20 +21,28 @@ import com.kingdee.bos.ctrl.freechart.data.time.Month;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
 import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
+import com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent;
+import com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent;
 import com.kingdee.bos.ctrl.swing.KDTextField;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
+import com.kingdee.bos.metadata.facade.FacadeInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.ui.face.IUIWindow;
+import com.kingdee.bos.ui.face.UIFactory;
 import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
+import com.kingdee.eas.common.client.UIContext;
+import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.fi.fa.basedata.FaCatFactory;
+import com.kingdee.eas.fi.fa.basedata.FaCatInfo;
 import com.kingdee.eas.fi.fa.basedata.IFaCat;
 import com.kingdee.eas.port.equipment.base.CzUnitFactory;
 import com.kingdee.eas.port.equipment.base.CzUnitInfo;
@@ -48,6 +56,7 @@ import com.kingdee.eas.port.equipment.record.EquIdCollection;
 import com.kingdee.eas.port.equipment.record.EquIdFactory;
 import com.kingdee.eas.port.equipment.record.EquIdInfo;
 import com.kingdee.eas.port.equipment.record.IEquId;
+import com.kingdee.eas.port.equipment.record.client.EquIdEditUI;
 import com.kingdee.eas.port.equipment.uitl.ToolHelp;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.MsgBox;
@@ -933,7 +942,44 @@ public class EumUseRecordEditUI extends AbstractEumUseRecordEditUI {
 		return txtNumber;
 	}
 	
-	
+	protected void kdtEqmUse_editStopped(KDTEditEvent e) throws Exception {
+		super.kdtEqmUse_editStopped(e);
+		for (int i = 0; i < kdtEqmUse.getRowCount(); i++) {
+			if(kdtEqmUse.getCell(i, "eqmName").getValue() != null){
+				String id = ((EquIdInfo)kdtEqmUse.getCell(i, "eqmName").getValue()).getId().toString();
+				EquIdInfo equInfo = EquIdFactory.getRemoteInstance().getEquIdInfo(new ObjectUuidPK(id));
+					if(equInfo.getEqmType() != null){
+						String id1 = ((FaCatInfo)equInfo.getEqmType()).getId().toString();
+						FaCatInfo fcInfo = FaCatFactory.getRemoteInstance().getFaCatInfo(new ObjectUuidPK(id1));
+						kdtEqmUse.getCell(i, "eqmType").setValue(fcInfo.getName());
+					}
+					kdtEqmUse.getCell(i, "modelType").setValue(equInfo.getModel());
+			}
+		}
+	}
+
+	protected void kdtEqmUse_tableClicked(KDTMouseEvent e) throws Exception {
+		super.kdtEqmUse_tableClicked(e);
+		  if ((e.getButton() == 1) && (e.getClickCount() == 2))
+	        {
+			  if(editData.getId() ==null){
+				  MsgBox.showInfo("请先保存单据！");
+					SysUtil.abort();
+			  }else{
+			  if(e.getRowIndex() != -1){
+				  if(kdtEqmUse.getCell(e.getRowIndex(), "eqmName").getValue() !=null){
+				    String id = ((EquIdInfo)kdtEqmUse.getCell(e.getRowIndex(), "eqmName").getValue()).getId().toString();
+					IUIWindow uiWindow = null;
+					UIContext context = new UIContext(this);
+					context.put("ID", id);
+					context.put("anid", editData.getId().toString());
+					uiWindow = UIFactory.createUIFactory(UIFactoryName.MODEL).create(EquIdEditUI.class.getName(), context, null, OprtState.VIEW);
+					uiWindow.show(); 
+				  }
+			    }
+			  }
+	        }
+	}
 	
 
 }

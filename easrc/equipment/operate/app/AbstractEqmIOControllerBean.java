@@ -644,6 +644,26 @@ public abstract class AbstractEqmIOControllerBean extends XRBillBaseControllerBe
         }
     }
 
+    public void equInfomation(Context ctx, EqmIOInfo model) throws BOSException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("0f5eb70d-e189-410a-b02f-4dbd73dd08ac"), new Object[]{ctx, model});
+            invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
+            _equInfomation(ctx, model);
+            }
+            invokeServiceAfter(svcCtx);
+        } catch (BOSException ex) {
+            throw ex;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected void _equInfomation(Context ctx, IObjectValue model) throws BOSException
+    {    	
+        return;
+    }
+
     public XRBillBaseCollection getXRBillBaseCollection (Context ctx) throws BOSException
     {
     	return (XRBillBaseCollection)(getEqmIOCollection(ctx).cast(XRBillBaseCollection.class));

@@ -53,4 +53,5 @@ public interface EqmScrapController extends XRBillBaseController
     public void updateBigObject(Context ctx, IObjectPK pk, EqmScrapInfo model) throws BOSException, RemoteException;
     public void updatePartial(Context ctx, EqmScrapInfo model, SelectorItemCollection selector) throws BOSException, EASBizException, RemoteException;
     public String getBindingProperty(Context ctx) throws BOSException, RemoteException;
+    public void equInfomation(Context ctx, EqmScrapInfo model) throws BOSException, RemoteException;
 }

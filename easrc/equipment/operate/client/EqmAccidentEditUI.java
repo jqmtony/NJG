@@ -25,6 +25,7 @@ import com.kingdee.eas.port.equipment.record.EquIdFactory;
 import com.kingdee.eas.port.equipment.record.EquIdInfo;
 import com.kingdee.eas.port.equipment.uitl.ToolHelp;
 import com.kingdee.eas.util.SysUtil;
+import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
 import com.kingdee.eas.xr.helper.Tool;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
@@ -703,6 +704,11 @@ public class EqmAccidentEditUI extends AbstractEqmAccidentEditUI
 		return txtNumber;
 	}
 
+	protected void initWorkButton() {
+		super.initWorkButton();
+		btnEquInfomation.setIcon(EASResource.getIcon("imgTbtn_list"));
+	}
+	
 	public void onLoad() throws Exception {
 		txteqmNumner.setEnabled(false);
 		txteqmType.setEnabled(false);

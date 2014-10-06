@@ -92,7 +92,9 @@ public abstract class AbstractEqmIOEditUI extends com.kingdee.eas.xr.client.XRBi
     protected com.kingdee.bos.ctrl.swing.KDComboBox transferType;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkrentStart;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkrentEnd;
+    protected com.kingdee.bos.ctrl.swing.KDWorkButton btnEquInfomation;
     protected com.kingdee.eas.port.equipment.operate.EqmIOInfo editData = null;
+    protected ActionEquInfomation actionEquInfomation = null;
     /**
      * output class constructor
      */
@@ -142,6 +144,14 @@ public abstract class AbstractEqmIOEditUI extends com.kingdee.eas.xr.client.XRBi
         actionUnAudit.putValue(ItemAction.NAME, _tempStr);
         this.actionUnAudit.setBindWorkFlow(true);
          this.actionUnAudit.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+        //actionEquInfomation
+        this.actionEquInfomation = new ActionEquInfomation(this);
+        getActionManager().registerAction("actionEquInfomation", actionEquInfomation);
+        this.actionEquInfomation.setExtendProperty("canForewarn", "true");
+        this.actionEquInfomation.setExtendProperty("userDefined", "true");
+        this.actionEquInfomation.setExtendProperty("isObjectUpdateLock", "false");
+         this.actionEquInfomation.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+         this.actionEquInfomation.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
         this.contCreator = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contCreateTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contLastUpdateUser = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -188,6 +198,7 @@ public abstract class AbstractEqmIOEditUI extends com.kingdee.eas.xr.client.XRBi
         this.transferType = new com.kingdee.bos.ctrl.swing.KDComboBox();
         this.pkrentStart = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.pkrentEnd = new com.kingdee.bos.ctrl.swing.KDDatePicker();
+        this.btnEquInfomation = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.contCreator.setName("contCreator");
         this.contCreateTime.setName("contCreateTime");
         this.contLastUpdateUser.setName("contLastUpdateUser");
@@ -234,6 +245,7 @@ public abstract class AbstractEqmIOEditUI extends com.kingdee.eas.xr.client.XRBi
         this.transferType.setName("transferType");
         this.pkrentStart.setName("pkrentStart");
         this.pkrentEnd.setName("pkrentEnd");
+        this.btnEquInfomation.setName("btnEquInfomation");
         // CoreUI
         // contCreator		
         this.contCreator.setBoundLabelText(resHelper.getString("contCreator.boundLabelText"));		
@@ -484,6 +496,9 @@ public abstract class AbstractEqmIOEditUI extends com.kingdee.eas.xr.client.XRBi
         // pkrentEnd		
         this.pkrentEnd.setVisible(true);		
         this.pkrentEnd.setRequired(false);
+        // btnEquInfomation
+        this.btnEquInfomation.setAction((IItemAction)ActionProxyFactory.getProxy(actionEquInfomation, new Class[] { IItemAction.class }, getServiceContext()));		
+        this.btnEquInfomation.setText(resHelper.getString("btnEquInfomation.text"));
         this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmteqmNumber,txteqmName,prmtoutOrgUnit,prmtoldUseingDept,txtoldInstallAdress,prmtInOrgUnit,prmtuseingOrgUnit,txtinstallAdress,transferType,pkrentStart,pkrentEnd}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
@@ -736,6 +751,7 @@ public abstract class AbstractEqmIOEditUI extends com.kingdee.eas.xr.client.XRBi
         this.toolBar.add(btnAttachment);
         this.toolBar.add(btnAudit);
         this.toolBar.add(btnUnAudit);
+        this.toolBar.add(btnEquInfomation);
         this.toolBar.add(separatorFW1);
         this.toolBar.add(btnPageSetup);
         this.toolBar.add(btnPrint);
@@ -1126,6 +1142,15 @@ public abstract class AbstractEqmIOEditUI extends com.kingdee.eas.xr.client.XRBi
     {
         super.actionUnAudit_actionPerformed(e);
     }
+    	
+
+    /**
+     * output actionEquInfomation_actionPerformed method
+     */
+    public void actionEquInfomation_actionPerformed(ActionEvent e) throws Exception
+    {
+        com.kingdee.eas.port.equipment.operate.EqmIOFactory.getRemoteInstance().equInfomation(editData);
+    }
 	public RequestContext prepareActionSubmit(IItemAction itemAction) throws Exception {
 			RequestContext request = super.prepareActionSubmit(itemAction);		
 		if (request != null) {
@@ -1147,6 +1172,47 @@ public abstract class AbstractEqmIOEditUI extends com.kingdee.eas.xr.client.XRBi
 	
 	public boolean isPrepareActionUnAudit() {
     	return false;
+    }
+	public RequestContext prepareActionEquInfomation(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionEquInfomation() {
+    	return false;
+    }
+
+    /**
+     * output ActionEquInfomation class
+     */     
+    protected class ActionEquInfomation extends ItemAction {     
+    
+        public ActionEquInfomation()
+        {
+            this(null);
+        }
+
+        public ActionEquInfomation(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            _tempStr = resHelper.getString("ActionEquInfomation.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionEquInfomation.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionEquInfomation.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractEqmIOEditUI.this, "ActionEquInfomation", "actionEquInfomation_actionPerformed", e);
+        }
     }
 
     /**

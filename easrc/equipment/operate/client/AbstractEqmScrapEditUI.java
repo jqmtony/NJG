@@ -78,7 +78,9 @@ public abstract class AbstractEqmScrapEditUI extends com.kingdee.eas.xr.client.X
     protected com.kingdee.bos.ctrl.swing.KDTextField txteqmName;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtssOrgUnit;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtusedDept;
+    protected com.kingdee.bos.ctrl.swing.KDWorkButton btnEquInfomation;
     protected com.kingdee.eas.port.equipment.operate.EqmScrapInfo editData = null;
+    protected ActionEquInfomation actionEquInfomation = null;
     /**
      * output class constructor
      */
@@ -128,6 +130,14 @@ public abstract class AbstractEqmScrapEditUI extends com.kingdee.eas.xr.client.X
         actionUnAudit.putValue(ItemAction.NAME, _tempStr);
         this.actionUnAudit.setBindWorkFlow(true);
          this.actionUnAudit.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+        //actionEquInfomation
+        this.actionEquInfomation = new ActionEquInfomation(this);
+        getActionManager().registerAction("actionEquInfomation", actionEquInfomation);
+        this.actionEquInfomation.setExtendProperty("canForewarn", "true");
+        this.actionEquInfomation.setExtendProperty("userDefined", "true");
+        this.actionEquInfomation.setExtendProperty("isObjectUpdateLock", "false");
+         this.actionEquInfomation.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+         this.actionEquInfomation.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
         this.contCreator = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contCreateTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contLastUpdateUser = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -160,6 +170,7 @@ public abstract class AbstractEqmScrapEditUI extends com.kingdee.eas.xr.client.X
         this.txteqmName = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.prmtssOrgUnit = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.prmtusedDept = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.btnEquInfomation = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.contCreator.setName("contCreator");
         this.contCreateTime.setName("contCreateTime");
         this.contLastUpdateUser.setName("contLastUpdateUser");
@@ -192,6 +203,7 @@ public abstract class AbstractEqmScrapEditUI extends com.kingdee.eas.xr.client.X
         this.txteqmName.setName("txteqmName");
         this.prmtssOrgUnit.setName("prmtssOrgUnit");
         this.prmtusedDept.setName("prmtusedDept");
+        this.btnEquInfomation.setName("btnEquInfomation");
         // CoreUI
         // contCreator		
         this.contCreator.setBoundLabelText(resHelper.getString("contCreator.boundLabelText"));		
@@ -341,6 +353,9 @@ public abstract class AbstractEqmScrapEditUI extends com.kingdee.eas.xr.client.X
         this.prmtusedDept.setEditFormat("$number$");		
         this.prmtusedDept.setCommitFormat("$number$");		
         this.prmtusedDept.setRequired(false);
+        // btnEquInfomation
+        this.btnEquInfomation.setAction((IItemAction)ActionProxyFactory.getProxy(actionEquInfomation, new Class[] { IItemAction.class }, getServiceContext()));		
+        this.btnEquInfomation.setText(resHelper.getString("btnEquInfomation.text"));
         this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmteqmNumber,txteqmName,prmtssOrgUnit,prmtusedDept}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
@@ -565,6 +580,7 @@ public abstract class AbstractEqmScrapEditUI extends com.kingdee.eas.xr.client.X
         this.toolBar.add(btnAttachment);
         this.toolBar.add(btnAudit);
         this.toolBar.add(btnUnAudit);
+        this.toolBar.add(btnEquInfomation);
         this.toolBar.add(separatorFW1);
         this.toolBar.add(btnPageSetup);
         this.toolBar.add(btnPrint);
@@ -903,6 +919,15 @@ public abstract class AbstractEqmScrapEditUI extends com.kingdee.eas.xr.client.X
     {
         super.actionUnAudit_actionPerformed(e);
     }
+    	
+
+    /**
+     * output actionEquInfomation_actionPerformed method
+     */
+    public void actionEquInfomation_actionPerformed(ActionEvent e) throws Exception
+    {
+        com.kingdee.eas.port.equipment.operate.EqmScrapFactory.getRemoteInstance().equInfomation(editData);
+    }
 	public RequestContext prepareActionSubmit(IItemAction itemAction) throws Exception {
 			RequestContext request = super.prepareActionSubmit(itemAction);		
 		if (request != null) {
@@ -924,6 +949,47 @@ public abstract class AbstractEqmScrapEditUI extends com.kingdee.eas.xr.client.X
 	
 	public boolean isPrepareActionUnAudit() {
     	return false;
+    }
+	public RequestContext prepareActionEquInfomation(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionEquInfomation() {
+    	return false;
+    }
+
+    /**
+     * output ActionEquInfomation class
+     */     
+    protected class ActionEquInfomation extends ItemAction {     
+    
+        public ActionEquInfomation()
+        {
+            this(null);
+        }
+
+        public ActionEquInfomation(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            _tempStr = resHelper.getString("ActionEquInfomation.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionEquInfomation.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionEquInfomation.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractEqmScrapEditUI.this, "ActionEquInfomation", "actionEquInfomation_actionPerformed", e);
+        }
     }
 
     /**

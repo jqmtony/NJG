@@ -48,4 +48,5 @@ public interface IEqmIO extends IXRBillBase
     public void updateBigObject(IObjectPK pk, EqmIOInfo model) throws BOSException;
     public void updatePartial(EqmIOInfo model, SelectorItemCollection selector) throws BOSException, EASBizException;
     public String getBindingProperty() throws BOSException;
+    public void equInfomation(EqmIOInfo model) throws BOSException;
 }

@@ -387,4 +387,17 @@ public class EqmScrap extends XRBillBase implements IEqmScrap
             throw new EJBRemoteException(err);
         }
     }
+    /**
+     *查看设备档案-User defined method
+     *@param model model
+     */
+    public void equInfomation(EqmScrapInfo model) throws BOSException
+    {
+        try {
+            getController().equInfomation(getContext(), model);
+        }
+        catch(RemoteException err) {
+            throw new EJBRemoteException(err);
+        }
+    }
 }

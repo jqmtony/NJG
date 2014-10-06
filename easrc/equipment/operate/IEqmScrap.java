@@ -48,4 +48,5 @@ public interface IEqmScrap extends IXRBillBase
     public void updateBigObject(IObjectPK pk, EqmScrapInfo model) throws BOSException;
     public void updatePartial(EqmScrapInfo model, SelectorItemCollection selector) throws BOSException, EASBizException;
     public String getBindingProperty() throws BOSException;
+    public void equInfomation(EqmScrapInfo model) throws BOSException;
 }

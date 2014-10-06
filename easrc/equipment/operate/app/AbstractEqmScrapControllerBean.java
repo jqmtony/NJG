@@ -644,6 +644,26 @@ public abstract class AbstractEqmScrapControllerBean extends XRBillBaseControlle
         }
     }
 
+    public void equInfomation(Context ctx, EqmScrapInfo model) throws BOSException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("4c176f96-d043-49e1-b262-6cfda734149d"), new Object[]{ctx, model});
+            invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
+            _equInfomation(ctx, model);
+            }
+            invokeServiceAfter(svcCtx);
+        } catch (BOSException ex) {
+            throw ex;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected void _equInfomation(Context ctx, IObjectValue model) throws BOSException
+    {    	
+        return;
+    }
+
     public XRBillBaseCollection getXRBillBaseCollection (Context ctx) throws BOSException
     {
     	return (XRBillBaseCollection)(getEqmScrapCollection(ctx).cast(XRBillBaseCollection.class));
