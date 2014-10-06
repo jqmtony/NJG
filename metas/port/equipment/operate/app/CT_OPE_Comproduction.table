@@ -273,6 +273,20 @@
             <scale>0</scale>
             <precision>0</precision>
         </column>
+        <column>
+            <name>CFReportMonthID</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_Comproduction].columns.column[CFReportMonthID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_Comproduction].columns.column[CFReportMonthID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
     </columns>
     <primaryKey>
         <name>CPK_OPE_Cmprdcx4vo</name>
@@ -402,6 +416,25 @@
                 </fkColumnPair>
             </fkColumnPairs>
         </foreignKey>
+        <foreignKey>
+            <name>CFK_OPE_OPECEprthr</name>
+            <userDefined>true</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.port.equipment.base.app" />
+                <key name="name" value="CT_BAS_MonthTime" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="CFReportMonthID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
     </foreignKeys>
     <resource>
         <rs key="dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_Comproduction].alias">
@@ -433,6 +466,18 @@
             <lang locale="zh_CN" value="能耗上升或下降幅度较大的原因分析说明：" />
             <lang locale="zh_HK" value="能耗上升或下降幅度較大的原因分析說明：" />
             <lang locale="zh_TW" value="能耗上升或下降幅度較大的原因分析說明：" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_Comproduction].columns.column[CFReportMonthID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="报表月份" />
+            <lang locale="zh_HK" value="報表月份" />
+            <lang locale="zh_TW" value="報表月份" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_Comproduction].columns.column[CFReportMonthID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="报表月份" />
+            <lang locale="zh_HK" value="報表月份" />
+            <lang locale="zh_TW" value="報表月份" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_Comproduction].columns.column[CFReportingUnitID].alias">
             <lang locale="en_US" value="null" />

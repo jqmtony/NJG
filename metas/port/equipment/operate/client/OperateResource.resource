@@ -37,6 +37,11 @@
             <value>i18nResource[com.kingdee.eas.port.equipment.operate.client.OperateResource].resourceItems.resourceItem[EquLeaseQueryF7WindowTitle].value</value>
             <userDefined>true</userDefined>
         </resourceItem>
+        <resourceItem>
+            <name>ShipFuelQueryF7WindowTitle</name>
+            <value>i18nResource[com.kingdee.eas.port.equipment.operate.client.OperateResource].resourceItems.resourceItem[ShipFuelQueryF7WindowTitle].value</value>
+            <userDefined>true</userDefined>
+        </resourceItem>
     </resourceItems>
     <resource>
         <rs key="i18nResource[com.kingdee.eas.port.equipment.operate.client.OperateResource].alias">
@@ -86,6 +91,12 @@
             <lang locale="zh_CN" value="设备使用记录" />
             <lang locale="zh_HK" value="設備使用記錄" />
             <lang locale="zh_TW" value="設備使用記錄" />
+        </rs>
+        <rs key="i18nResource[com.kingdee.eas.port.equipment.operate.client.OperateResource].resourceItems.resourceItem[ShipFuelQueryF7WindowTitle].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="船舶燃润料消耗月报表" />
+            <lang locale="zh_HK" value="船舶燃潤料消耗月報表" />
+            <lang locale="zh_TW" value="船舶燃潤料消耗月報表" />
         </rs>
     </resource>
 </i18nResource>

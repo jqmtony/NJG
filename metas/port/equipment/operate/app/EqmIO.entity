@@ -707,6 +707,32 @@
             <userDefinedLogic />
             <configured>false</configured>
         </method>
+        <method>
+            <name>equInfomation</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].methods.method[equInfomation].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].methods.method[equInfomation].description</description>
+            <innerID>0f5eb70d-e189-410a-b02f-4dbd73dd08ac</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].methods.method[equInfomation].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].methods.method[equInfomation].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.port.equipment.operate.app.EqmIO</metadataRef>
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
     </methods>
     <isAbstract>false</isAbstract>
     <bizUnitPK>com.kingdee.eas.port.equipment.operate.EqmIO</bizUnitPK>
@@ -1175,6 +1201,48 @@
                 </formalParameter>
             </formalParameters>
         </event>
+        <event>
+            <name>equInfomationEvent</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].events.event[equInfomationEvent].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].events.event[equInfomationEvent].description</description>
+            <userDefined>true</userDefined>
+            <eventMethods>
+                <eventMethod>
+                    <name>0f5eb70d-e189-410a-b02f-4dbd73dd08ac</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].events.event[equInfomationEvent].eventMethods.eventMethod[0f5eb70d-e189-410a-b02f-4dbd73dd08ac].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].events.event[equInfomationEvent].eventMethods.eventMethod[0f5eb70d-e189-410a-b02f-4dbd73dd08ac].description</description>
+                    <entityMethodRef>
+                        <key name="name" value="equInfomation" />
+                        <key name="innerID" value="0f5eb70d-e189-410a-b02f-4dbd73dd08ac" />
+                    </entityMethodRef>
+                    <parameterMappings>
+                        <parameterMapping>
+                            <name />
+                            <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].events.event[equInfomationEvent].eventMethods.eventMethod[0f5eb70d-e189-410a-b02f-4dbd73dd08ac].parameterMappings.parameterMappingalias</alias>
+                            <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].events.event[equInfomationEvent].eventMethods.eventMethod[0f5eb70d-e189-410a-b02f-4dbd73dd08ac].parameterMappings.parameterMappingdescription</description>
+                            <formalParameterInnerID>3a616599-46ca-45e9-be3d-2d7201902b89evfp</formalParameterInnerID>
+                            <actualParameterIndex>0</actualParameterIndex>
+                            <isBOPK>true</isBOPK>
+                        </parameterMapping>
+                    </parameterMappings>
+                </eventMethod>
+            </eventMethods>
+            <formalParameters>
+                <formalParameter>
+                    <innerID>3a616599-46ca-45e9-be3d-2d7201902b89evfp</innerID>
+                    <userDefined>true</userDefined>
+                    <parameter>
+                        <name>model</name>
+                        <alias>entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].events.event[equInfomationEvent].formalParameters.formalParameter.parameter[model].alias</alias>
+                        <description>entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].events.event[equInfomationEvent].formalParameters.formalParameter.parameter[model].description</description>
+                        <direction>in</direction>
+                        <dataType>ObjectValue</dataType>
+                        <metadataRef>com.kingdee.eas.port.equipment.operate.app.EqmIO</metadataRef>
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </formalParameter>
+            </formalParameters>
+        </event>
     </events>
     <defaultView>
         <name />
@@ -1373,6 +1441,54 @@
             <lang locale="zh_CN" value="主键" />
             <lang locale="zh_HK" value="主鍵" />
             <lang locale="zh_TW" value="主鍵" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].events.event[equInfomationEvent].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="查看设备档案事件" />
+            <lang locale="zh_HK" value="查看設備檔案事件" />
+            <lang locale="zh_TW" value="查看設備檔案事件" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].events.event[equInfomationEvent].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].events.event[equInfomationEvent].eventMethods.eventMethod[0f5eb70d-e189-410a-b02f-4dbd73dd08ac].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].events.event[equInfomationEvent].eventMethods.eventMethod[0f5eb70d-e189-410a-b02f-4dbd73dd08ac].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].events.event[equInfomationEvent].eventMethods.eventMethod[0f5eb70d-e189-410a-b02f-4dbd73dd08ac].parameterMappings.parameterMappingalias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].events.event[equInfomationEvent].eventMethods.eventMethod[0f5eb70d-e189-410a-b02f-4dbd73dd08ac].parameterMappings.parameterMappingdescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].events.event[equInfomationEvent].formalParameters.formalParameter.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].events.event[equInfomationEvent].formalParameters.formalParameter.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].events.event[passAuditEvent].alias">
             <lang locale="en_US" value="null" />
@@ -1576,6 +1692,11 @@
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].extendedProperty.controllerBeanEx">
+            <lang locale="en_US" value="com.kingdee.eas.port.equipment.operate.app.EqmIOControllerBeanEx" />
+            <lang locale="zh_CN" value="com.kingdee.eas.port.equipment.operate.app.EqmIOControllerBeanEx" />
+            <lang locale="zh_TW" value="com.kingdee.eas.port.equipment.operate.app.EqmIOControllerBeanEx" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].extendedProperty.defaultDisplayField">
             <lang locale="en_US" value="" />
             <lang locale="zh_CN" value="" />
@@ -1732,6 +1853,30 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].methods.method[delete].parameters.parameter[pk].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].methods.method[equInfomation].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="查看设备档案" />
+            <lang locale="zh_HK" value="查看設備檔案" />
+            <lang locale="zh_TW" value="查看設備檔案" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].methods.method[equInfomation].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].methods.method[equInfomation].parameters.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.operate.app.EqmIO].methods.method[equInfomation].parameters.parameter[model].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />

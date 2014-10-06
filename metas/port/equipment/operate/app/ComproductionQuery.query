@@ -87,6 +87,19 @@
                 <key name="name" value="AdminOrgUnit" />
             </entityRef>
         </subEntity>
+        <subEntity>
+            <name>reportMonth</name>
+            <alias>joinQuery[com.kingdee.eas.port.equipment.operate.app.ComproductionQuery].subObjects.subEntity[reportMonth].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.operate.app" />
+                <key name="name" value="ComproductionQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.port.equipment.base.app" />
+                <key name="name" value="MonthTime" />
+            </entityRef>
+        </subEntity>
     </subObjects>
     <units>
         <propertyUnit>
@@ -988,6 +1001,99 @@
                 <key name="name" value="ComproductionQuery" />
             </query>
         </queryField>
+        <queryField>
+            <name>reportMonth.name</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.operate.app.ComproductionQuery].units.queryField[reportMonth.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>68cb0df5-0212-4a02-947f-8ce1afca3ab1</key>
+                    <parentUnit>
+                        <key name="name" value="reportMonth.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="reportMonth" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.operate.app" />
+                <key name="name" value="ComproductionQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>b1d4f5ca-aa95-44c0-8519-92a6c92a956f</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.operate.app.ComproductionQuery].units.propertyUnit[b1d4f5ca-aa95-44c0-8519-92a6c92a956f].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0df2dd03-1908-4a47-93b1-bdc37f089e4f</key>
+                    <parentUnit>
+                        <key name="name" value="b1d4f5ca-aa95-44c0-8519-92a6c92a956f" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Comproduction" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="reportMonth" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.operate.app" />
+                <key name="name" value="ComproductionQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>cf4ce485-837d-4ef1-8a6a-d858cc667900</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.operate.app.ComproductionQuery].units.propertyUnit[cf4ce485-837d-4ef1-8a6a-d858cc667900].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>d2b00956-c97b-4132-a70c-dbf910ad3803</key>
+                    <parentUnit>
+                        <key name="name" value="cf4ce485-837d-4ef1-8a6a-d858cc667900" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="reportMonth" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.operate.app" />
+                <key name="name" value="ComproductionQuery" />
+            </query>
+        </propertyUnit>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -1171,6 +1277,36 @@
                 <key name="name" value="ComproductionQuery" />
             </query>
         </join>
+        <join>
+            <name>86603340-9cf7-4fe9-b66c-78cf7654e4f1</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="Comproduction" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="reportMonth" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>08ba478d-4115-4501-a926-94a048e97127</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="b1d4f5ca-aa95-44c0-8519-92a6c92a956f" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="cf4ce485-837d-4ef1-8a6a-d858cc667900" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="86603340-9cf7-4fe9-b66c-78cf7654e4f1" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.operate.app" />
+                <key name="name" value="ComproductionQuery" />
+            </query>
+        </join>
     </joins>
     <resource>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.ComproductionQuery].alias">
@@ -1242,6 +1378,12 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.ComproductionQuery].subObjects.subEntity[reportMonth].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.ComproductionQuery].subObjects.subEntity[reportingUnit].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -1297,6 +1439,18 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.ComproductionQuery].units.propertyUnit[NewUnit9].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.ComproductionQuery].units.propertyUnit[b1d4f5ca-aa95-44c0-8519-92a6c92a956f].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.ComproductionQuery].units.propertyUnit[cf4ce485-837d-4ef1-8a6a-d858cc667900].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -1486,6 +1640,27 @@
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.ComproductionQuery].units.queryField[number].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.ComproductionQuery].units.queryField[reportMonth.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="报表月份" />
+            <lang locale="zh_HK" value="報表月份" />
+            <lang locale="zh_TW" value="報表月份" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.ComproductionQuery].units.queryField[reportMonth.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.ComproductionQuery].units.queryField[reportMonth.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.ComproductionQuery].units.queryField[reportMonth.name].extendedProperty.isUsingF7">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
