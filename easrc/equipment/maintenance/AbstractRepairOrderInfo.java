@@ -300,6 +300,39 @@ public class AbstractRepairOrderInfo extends com.kingdee.eas.xr.XRBillBaseInfo i
     {
         setDate("baoxiuTime", item);
     }
+    /**
+     * Object:维修单's 实际开工日期property 
+     */
+    public java.util.Date getActualStartTime()
+    {
+        return getDate("actualStartTime");
+    }
+    public void setActualStartTime(java.util.Date item)
+    {
+        setDate("actualStartTime", item);
+    }
+    /**
+     * Object:维修单's 实际完工日期property 
+     */
+    public java.util.Date getActualEndTime()
+    {
+        return getDate("actualEndTime");
+    }
+    public void setActualEndTime(java.util.Date item)
+    {
+        setDate("actualEndTime", item);
+    }
+    /**
+     * Object:维修单's 计划开工日期property 
+     */
+    public java.util.Date getPlanStartTime()
+    {
+        return getDate("planStartTime");
+    }
+    public void setPlanStartTime(java.util.Date item)
+    {
+        setDate("planStartTime", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("F96E9B71");

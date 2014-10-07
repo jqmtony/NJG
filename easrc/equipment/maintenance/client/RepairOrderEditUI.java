@@ -759,6 +759,16 @@ public class RepairOrderEditUI extends AbstractRepairOrderEditUI
 		txtoutAmount.setVisible(false);
 		contoutAmount.setVisible(false);
 		contmaintenanceProgram.setVisible(false);
+		prmtequName.setVisible(false);
+		contequName.setVisible(false);
+		txtequModel.setVisible(false);
+		contequModel.setVisible(false);
+		txtequAddress.setVisible(false);
+		contequAddress.setVisible(false);
+		pkrepairDate.setVisible(false);
+		contrepairDate.setVisible(false);
+		pktransferTime.setVisible(false);
+		conttransferTime.setVisible(false);
 		if(getOprtState().equals(OprtState.ADDNEW)){
 		    txtselfAmount.setEnabled(false);
 		    txtoutAmount.setEnabled(false);

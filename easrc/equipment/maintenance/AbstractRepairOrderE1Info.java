@@ -193,6 +193,39 @@ public class AbstractRepairOrderE1Info extends com.kingdee.eas.framework.CoreBil
     {
         setDate("yujingDate", item);
     }
+    /**
+     * Object: 维修明细 's 设备名称 property 
+     */
+    public com.kingdee.eas.port.equipment.record.EquIdInfo getEquNameOne()
+    {
+        return (com.kingdee.eas.port.equipment.record.EquIdInfo)get("equNameOne");
+    }
+    public void setEquNameOne(com.kingdee.eas.port.equipment.record.EquIdInfo item)
+    {
+        put("equNameOne", item);
+    }
+    /**
+     * Object:维修明细's 厂内编号property 
+     */
+    public String getChangNumber()
+    {
+        return getString("changNumber");
+    }
+    public void setChangNumber(String item)
+    {
+        setString("changNumber", item);
+    }
+    /**
+     * Object:维修明细's 备件更换property 
+     */
+    public String getBeijiangenghuan()
+    {
+        return getString("beijiangenghuan");
+    }
+    public void setBeijiangenghuan(String item)
+    {
+        setString("beijiangenghuan", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("58358BBD");
