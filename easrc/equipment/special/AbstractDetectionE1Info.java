@@ -138,6 +138,138 @@ public class AbstractDetectionE1Info extends com.kingdee.eas.framework.CoreBillE
     {
         setString("deviceType1", item);
     }
+    /**
+     * Object:第1个表体's 计划数property 
+     */
+    public java.math.BigDecimal getPlanNumber3()
+    {
+        return getBigDecimal("planNumber3");
+    }
+    public void setPlanNumber3(java.math.BigDecimal item)
+    {
+        setBigDecimal("planNumber3", item);
+    }
+    /**
+     * Object:第1个表体's 实际数property 
+     */
+    public java.math.BigDecimal getActualNumber3()
+    {
+        return getBigDecimal("actualNumber3");
+    }
+    public void setActualNumber3(java.math.BigDecimal item)
+    {
+        setBigDecimal("actualNumber3", item);
+    }
+    /**
+     * Object:第1个表体's 合格数property 
+     */
+    public java.math.BigDecimal getQualifiedNumber3()
+    {
+        return getBigDecimal("qualifiedNumber3");
+    }
+    public void setQualifiedNumber3(java.math.BigDecimal item)
+    {
+        setBigDecimal("qualifiedNumber3", item);
+    }
+    /**
+     * Object:第1个表体's 合格率property 
+     */
+    public java.math.BigDecimal getQualifiedRate3()
+    {
+        return getBigDecimal("qualifiedRate3");
+    }
+    public void setQualifiedRate3(java.math.BigDecimal item)
+    {
+        setBigDecimal("qualifiedRate3", item);
+    }
+    /**
+     * Object:第1个表体's 计划数property 
+     */
+    public java.math.BigDecimal getPlanNumber4()
+    {
+        return getBigDecimal("planNumber4");
+    }
+    public void setPlanNumber4(java.math.BigDecimal item)
+    {
+        setBigDecimal("planNumber4", item);
+    }
+    /**
+     * Object:第1个表体's 实际数property 
+     */
+    public java.math.BigDecimal getActualNumber4()
+    {
+        return getBigDecimal("actualNumber4");
+    }
+    public void setActualNumber4(java.math.BigDecimal item)
+    {
+        setBigDecimal("actualNumber4", item);
+    }
+    /**
+     * Object:第1个表体's 合格数property 
+     */
+    public java.math.BigDecimal getQualifiedNumber4()
+    {
+        return getBigDecimal("qualifiedNumber4");
+    }
+    public void setQualifiedNumber4(java.math.BigDecimal item)
+    {
+        setBigDecimal("qualifiedNumber4", item);
+    }
+    /**
+     * Object:第1个表体's 合格率property 
+     */
+    public java.math.BigDecimal getQualifiedRate4()
+    {
+        return getBigDecimal("qualifiedRate4");
+    }
+    public void setQualifiedRate4(java.math.BigDecimal item)
+    {
+        setBigDecimal("qualifiedRate4", item);
+    }
+    /**
+     * Object:第1个表体's 计划数property 
+     */
+    public java.math.BigDecimal getPlanNumber5()
+    {
+        return getBigDecimal("planNumber5");
+    }
+    public void setPlanNumber5(java.math.BigDecimal item)
+    {
+        setBigDecimal("planNumber5", item);
+    }
+    /**
+     * Object:第1个表体's 实际数property 
+     */
+    public java.math.BigDecimal getActualNumber5()
+    {
+        return getBigDecimal("actualNumber5");
+    }
+    public void setActualNumber5(java.math.BigDecimal item)
+    {
+        setBigDecimal("actualNumber5", item);
+    }
+    /**
+     * Object:第1个表体's 合格数property 
+     */
+    public java.math.BigDecimal getQualifiedNumber5()
+    {
+        return getBigDecimal("qualifiedNumber5");
+    }
+    public void setQualifiedNumber5(java.math.BigDecimal item)
+    {
+        setBigDecimal("qualifiedNumber5", item);
+    }
+    /**
+     * Object:第1个表体's 合格率property 
+     */
+    public java.math.BigDecimal getQualifiedRate5()
+    {
+        return getBigDecimal("qualifiedRate5");
+    }
+    public void setQualifiedRate5(java.math.BigDecimal item)
+    {
+        setBigDecimal("qualifiedRate5", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("3B0E3727");

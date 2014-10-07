@@ -1831,8 +1831,8 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
         		  MsgBox.showInfo("当前设备为检验设备，请勾选检验设备属性的市检、港检、船检、车管所或者仪表！");
    				  SysUtil.abort();
         	  }
-        	  if(editData.isCityTest()&&editData.isPortTest()){
-        		  MsgBox.showInfo("不能同时勾选市检和港检！");
+        	  if(editData.isCityTest()&&editData.isPortTest()&&editData.isChuanCheck()&&editData.isCarGuanSuo()&&editData.isYibiao()){
+        		  MsgBox.showInfo("不能同时勾选市检、港检、船检、车管所和仪表！");
    				  SysUtil.abort();
         	  }
         	  if(editData.isCityTest()){

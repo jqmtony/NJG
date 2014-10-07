@@ -738,6 +738,12 @@ public class DetectionEditUI extends AbstractDetectionEditUI
 			String oql10 = getsql("10",editData.getId().toString(),id);
 			//港检
 			String oql20 = getsql("20",editData.getId().toString(),id);
+			//船检
+			String oql30 = getsql("30",editData.getId().toString(),id);
+			//车管所
+			String oql40 = getsql("40",editData.getId().toString(),id);
+			//仪表
+			String oql50 = getsql("50",editData.getId().toString(),id);
 			IRow row = this.kdtE1.addRow();
 			String oql = "select id,name,number where id='"+id+"'";
 			row.getCell("deviceType1").setValue(FaCatFactory.getRemoteInstance().getFaCatCollection(oql).get(0).getName());
@@ -759,6 +765,33 @@ public class DetectionEditUI extends AbstractDetectionEditUI
 				row.getCell("actualNumber2").setValue(newrowset.getString("实际数"));
 				row.getCell("qualifiedNumber2").setValue(newrowset.getString("合格数"));
 				row.getCell("qualifiedRate2").setValue(newrowset.getString("合格率"));
+			}
+			//船检
+			newrowset = new XRSQLBuilder().appendSql(oql30).executeQuery();
+			while(newrowset.next())
+			{
+				row.getCell("planNumber3").setValue(newrowset.getString("计划数"));
+				row.getCell("actualNumber3").setValue(newrowset.getString("实际数"));
+				row.getCell("qualifiedNumber3").setValue(newrowset.getString("合格数"));
+				row.getCell("qualifiedRate3").setValue(newrowset.getString("合格率"));
+			}
+			//车管所
+			newrowset = new XRSQLBuilder().appendSql(oql40).executeQuery();
+			while(newrowset.next())
+			{
+				row.getCell("planNumber4").setValue(newrowset.getString("计划数"));
+				row.getCell("actualNumber4").setValue(newrowset.getString("实际数"));
+				row.getCell("qualifiedNumber4").setValue(newrowset.getString("合格数"));
+				row.getCell("qualifiedRate4").setValue(newrowset.getString("合格率"));
+			}
+			//仪表
+			newrowset = new XRSQLBuilder().appendSql(oql50).executeQuery();
+			while(newrowset.next())
+			{
+				row.getCell("planNumber5").setValue(newrowset.getString("计划数"));
+				row.getCell("actualNumber5").setValue(newrowset.getString("实际数"));
+				row.getCell("qualifiedNumber5").setValue(newrowset.getString("合格数"));
+				row.getCell("qualifiedRate5").setValue(newrowset.getString("合格率"));
 			}
 		}
 	}
@@ -790,6 +823,12 @@ public class DetectionEditUI extends AbstractDetectionEditUI
 			String oql10 = getsql("10",editData.getId().toString(),id);
 			//港检
 			String oql20 = getsql("20",editData.getId().toString(),id);
+			//船检
+			String oql30 = getsql("30",editData.getId().toString(),id);
+			//车管所
+			String oql40 = getsql("40",editData.getId().toString(),id);
+			//仪表
+			String oql50 = getsql("50",editData.getId().toString(),id);
 			IRow row = this.kdtE1.addRow();
 			String oql = "select id,name,number where id='"+id+"'";
 			row.getCell("deviceType1").setValue(FaCatFactory.getRemoteInstance().getFaCatCollection(oql).get(0).getName());
@@ -812,6 +851,33 @@ public class DetectionEditUI extends AbstractDetectionEditUI
 				row.getCell("qualifiedNumber2").setValue(newrowset.getString("合格数"));
 				row.getCell("qualifiedRate2").setValue(newrowset.getString("合格率"));
 			}
+			//船检
+			newrowset = new XRSQLBuilder().appendSql(oql30).executeQuery();
+			while(newrowset.next())
+			{
+				row.getCell("planNumber3").setValue(newrowset.getString("计划数"));
+				row.getCell("actualNumber3").setValue(newrowset.getString("实际数"));
+				row.getCell("qualifiedNumber3").setValue(newrowset.getString("合格数"));
+				row.getCell("qualifiedRate3").setValue(newrowset.getString("合格率"));
+			}
+			//车管所
+			newrowset = new XRSQLBuilder().appendSql(oql40).executeQuery();
+			while(newrowset.next())
+			{
+				row.getCell("planNumber4").setValue(newrowset.getString("计划数"));
+				row.getCell("actualNumber4").setValue(newrowset.getString("实际数"));
+				row.getCell("qualifiedNumber4").setValue(newrowset.getString("合格数"));
+				row.getCell("qualifiedRate4").setValue(newrowset.getString("合格率"));
+			}
+			//仪表
+			newrowset = new XRSQLBuilder().appendSql(oql50).executeQuery();
+			while(newrowset.next())
+			{
+				row.getCell("planNumber5").setValue(newrowset.getString("计划数"));
+				row.getCell("actualNumber5").setValue(newrowset.getString("实际数"));
+				row.getCell("qualifiedNumber5").setValue(newrowset.getString("合格数"));
+				row.getCell("qualifiedRate5").setValue(newrowset.getString("合格率"));
+			}
 		}
     }
 
@@ -826,7 +892,7 @@ public class DetectionEditUI extends AbstractDetectionEditUI
 	/**
 	 * 
 	 * @param type
-	 * type =10 是市检，20是港检
+	 * type =10 是市检，20是港检，30是船检，40是车管所，50是仪表
 	 * @return
 	 */
 	private String getsql(String type,String editId,String typeID){
