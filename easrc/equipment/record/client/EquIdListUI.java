@@ -102,6 +102,11 @@ public class EquIdListUI extends AbstractEquIdListUI
     private Color a = new Color(238,205,125);
     
     private boolean flse = true;
+    
+    /**
+     * 更新检测日期有不符合的档案号提示信息
+     */
+    private StringBuffer excelImportMsg = new StringBuffer();
     /**
      * output class constructor
      */
@@ -1045,7 +1050,10 @@ public class EquIdListUI extends AbstractEquIdListUI
 				public void afterExec(Object arg0) throws Exception {
 					Boolean bol=(Boolean)arg0;
 					if(bol){
-						MsgBox.showInfo("更新成功！");
+						if(excelImportMsg!=null&&!"".equals(excelImportMsg.toString().trim()))
+							MsgBox.showConfirm3a("部分设备档案号不存在，请查看详细信息！", excelImportMsg.toString());
+						else
+							MsgBox.showInfo("更新成功！");
 					}
 				}
 				public Object exec() throws Exception {
@@ -1094,6 +1102,8 @@ public class EquIdListUI extends AbstractEquIdListUI
 			Calendar ca = Calendar.getInstance();
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 			
+			excelImportMsg = new StringBuffer();
+			
 			for (int rowIndex = 1; rowIndex <= e_maxRow; rowIndex++) {
 				Integer colInt = (Integer) e_colNameMap.get(colName[0]);
 				Integer colcityInt = (Integer) e_colNameMap.get(colName[1]);
@@ -1131,9 +1141,18 @@ public class EquIdListUI extends AbstractEquIdListUI
 					
 					iEquId.update(new ObjectUuidPK(equInfo.getId()), equInfo);
 				}
+				else
+				{
+//					if(excelImportMsg!=null&&!"".equals(excelImportMsg.toString().trim()))
+//					else
+//						excelImportMsg.append("设备档案号："+colValue+"\n");
+					excelImportMsg.append("设备档案号："+colValue+"；到期检测日期："+citycellRawVal+" 设备档案号不存在！\n");
+				}
 			}
 			return true;
 		}
+		
+		
 		
 		 public static String showExcelSelectDlg(CoreUIObject ui)
          {
