@@ -32,9 +32,9 @@ import com.kingdee.eas.framework.*;
 import com.kingdee.eas.port.equipment.record.EquIdInfo;
 import com.kingdee.eas.port.equipment.record.client.EquIdEditUI;
 import com.kingdee.eas.port.equipment.uitl.ToolHelp;
-import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
+import com.kingdee.eas.util.client.MsgBox;
 import com.kingdee.eas.xr.app.XRBillStatusEnum;
 import com.kingdee.eas.xr.helper.PersonXRHelper;
 import com.kingdee.eas.xr.helper.Tool;
@@ -328,6 +328,13 @@ public class RepairOrderEditUI extends AbstractRepairOrderEditUI
      */
     public void actionSubmit_actionPerformed(ActionEvent e) throws Exception
     {
+    	if(UIRuleUtil.isNull(txtacceptSituation.getText())){
+    		MsgBox.showInfo("验收情况不能为空!");
+  			SysUtil.abort();
+    	}
+    	if(UIRuleUtil.isNull(pkactualEndTime.getValue())){
+    		MsgBox.showInfo("实际完工日期不能为空!");
+    	}
         super.actionSubmit_actionPerformed(e);
     }
 

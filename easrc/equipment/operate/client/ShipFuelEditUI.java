@@ -4,8 +4,11 @@
 package com.kingdee.eas.port.equipment.operate.client;
 
 import java.awt.event.*;
+import java.math.BigDecimal;
+
 import org.apache.log4j.Logger;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.eas.framework.*;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
@@ -682,6 +685,93 @@ public class ShipFuelEditUI extends AbstractShipFuelEditUI
 	protected KDTextField getNumberCtrl() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	public void onLoad() throws Exception {
+		txtintoTotal.setEnabled(false);
+		txttotalConsum.setEnabled(false);
+		txtmonthBalance.setEnabled(false);
+		txtgzdel.setEnabled(false);
+		txtxyzdel.setEnabled(false);
+		txtmonthBalance.setEnabled(false);
+		super.onLoad();
+		txtzhione.setRequired(true);
+		txtqione.setRequired(true);
+		txtmiduone.setRequired(true);
+		txtzhitwo.setRequired(true);
+		txtqitwo.setRequired(true);
+		txtmidutwo.setRequired(true);
+		txtqithree.setRequired(true);
+		txtzhithree.setRequired(true);
+		txtmiduthree.setRequired(true);
+		txtqifour.setRequired(true);
+		txtzhifour.setRequired(true);
+		txtmidufour.setRequired(true);
+		
+	}
+	protected void verifyInput(ActionEvent e) throws Exception {
+		BigDecimal bigzhione = getBigDecimal(txtzhione.getText());
+		BigDecimal bigqione = getBigDecimal(txtqione.getText());
+		BigDecimal bigmiduone = getBigDecimal(txtmiduone.getText());
+		BigDecimal bigzhitwo = getBigDecimal(txtzhitwo.getText());
+		BigDecimal bigqitwo = getBigDecimal(txtqitwo.getText());
+		BigDecimal bigmidutwo = getBigDecimal(txtmidutwo.getText());
+		BigDecimal bigintoTotal = (bigzhione.subtract(bigqione)).multiply(bigmiduone).add((bigzhitwo.subtract(bigqitwo)).multiply(bigmidutwo));
+		txtintoTotal.setText(String.valueOf(bigintoTotal));//领入合计=(止-起)*密度+(止-起)*密度
+		
+		BigDecimal biglastMonth = getBigDecimal(txtlastMonth.getText());
+		BigDecimal bigzhithree = getBigDecimal(txtzhithree.getText());
+		BigDecimal bigqithree = getBigDecimal(txtqithree.getText());
+		BigDecimal bigmiduthree = getBigDecimal(txtmiduthree.getText());
+		BigDecimal bigzhifour = getBigDecimal(txtzhifour.getText());
+		BigDecimal bigqifour = getBigDecimal(txtqifour.getText());
+		BigDecimal bigmidufour = getBigDecimal(txtmidufour.getText());
+		BigDecimal bigtotalConsum = (bigzhithree.subtract(bigqithree)).multiply(bigmiduthree).add((bigzhifour.subtract(bigqifour)).multiply(bigmidufour));
+		txttotalConsum.setText(String.valueOf(bigtotalConsum));//消耗合计=(止-起)*密度+(止-起)*密度
+		
+		txttotalConsum.setText(String.valueOf(biglastMonth.add(bigintoTotal).subtract(bigtotalConsum)));//本月结存=上月结存+领入合计-消耗合计
+		
+		
+		BigDecimal bigportShipment = getBigDecimal(txtportShipment.getText());
+		BigDecimal biggzde = getBigDecimal(txtgzde.getText());
+		BigDecimal biggzdel = bigportShipment.multiply(biggzde);
+		txtgzdel.setText(String.valueOf(biggzdel));//港作运时定额量=港作运时实绩*港作运时定额
+		
+		BigDecimal bigsmallTransport = getBigDecimal(txtsmallTransport.getText());
+		BigDecimal bigxyzde = getBigDecimal(txtxyzde.getText());
+		BigDecimal bigxyzdel = bigsmallTransport.multiply(bigxyzde);
+		txtxyzdel.setText(String.valueOf(bigxyzdel));//小运转运时定额量=小运转运时实绩*小运转运时定额
+		
+		BigDecimal bigTotal = bigportShipment.add(bigsmallTransport);
+		BigDecimal bighjde = biggzde.add(bigxyzde);
+		txtTotal.setText(String.valueOf(bigTotal));
+		txthjde.setText(String.valueOf(bighjde));
+		txthjdel.setText(String.valueOf(bigTotal.multiply(bighjde)));//合计定额量=合计实绩*合计定额
+		
+		txtzhdel.setText(String.valueOf(bigTotal.multiply(bighjde)));//综合定额量=合计定额量
+		
+		txtshiyongliang.setText(String.valueOf(bigtotalConsum));//实用量 = 消耗合计
+		
+		BigDecimal bigzhdel = getBigDecimal(txtzhdel.getText());
+		BigDecimal bigshiyongliang = getBigDecimal(txtshiyongliang.getText());
+		BigDecimal abc = bigzhdel.subtract(bigshiyongliang);
+		if(abc.compareTo(BigDecimal.ZERO) == 1){
+			txtjieyou.setText(String.valueOf(abc));
+		}
+		if(abc.compareTo(BigDecimal.ZERO) == -1){
+			txtchaohao.setText(String.valueOf(abc));
+		}
+		super.verifyInput(e);
+	}
+
+	
+
+	public static BigDecimal getBigDecimal(String value) 
+	{
+		if (value == null||"".equals(value.trim()))
+			return new BigDecimal(0.0D);
+		else
+			return new BigDecimal(value);
 	}
 
 }

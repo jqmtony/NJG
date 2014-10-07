@@ -100,13 +100,13 @@ public class RepairOrderControllerBean extends AbstractRepairOrderControllerBean
 					if(billInfo instanceof MonMainPlanE1Info)
 					{
 						MonMainPlanE1Info mmeInfo = MonMainPlanE1Factory.getLocalInstance(ctx).getMonMainPlanE1Info(new ObjectUuidPK(roInfo.getSourceBillId()));
-//						if(){
-//							
-//						}
-//						if(){
-//							
-//						}
-						
+						if(roInfo.getActualEndTime() != null ){
+							mmeInfo.setActualCompleteT(roInfo.getActualEndTime());
+						}
+						if(roInfo.getAcceptSituation() != null){
+							mmeInfo.setComplete(roInfo.getAcceptSituation());
+						}
+						MonMainPlanE1Factory.getLocalInstance(ctx).update((new ObjectUuidPK(mmeInfo.getId())),mmeInfo);
 					}
 				}
 		}
@@ -121,7 +121,7 @@ public class RepairOrderControllerBean extends AbstractRepairOrderControllerBean
 					MonMainPlanE1Info mmeInfo = MonMainPlanE1Factory.getLocalInstance(ctx).getMonMainPlanE1Info(new ObjectUuidPK(roInfo.getSourceBillId()));
 					mmeInfo.setActualCompleteT(null);
 					mmeInfo.setComplete(null);
-					mmeInfo.setImplementDepart(null);
+//					mmeInfo.setImplementDepart(null);
 					MonMainPlanE1Factory.getLocalInstance(ctx).update((new ObjectUuidPK(mmeInfo.getId())),mmeInfo);
 					}
 			}
