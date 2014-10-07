@@ -3,7 +3,9 @@
  */
 package com.kingdee.eas.port.equipment.maintenance.client;
 
-import java.awt.event.*;
+import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -12,6 +14,20 @@ import java.util.Date;
 
 import org.apache.log4j.Logger;
 
+import com.kingdee.bos.ctrl.extendcontrols.BizDataFormat;
+import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
+import com.kingdee.bos.ctrl.kdf.table.ICell;
+import com.kingdee.bos.ctrl.kdf.table.IRow;
+import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
+import com.kingdee.bos.ctrl.kdf.table.KDTSelectBlock;
+import com.kingdee.bos.ctrl.kdf.table.KDTable;
+import com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent;
+import com.kingdee.bos.ctrl.kdf.util.render.ObjectValueRender;
+import com.kingdee.bos.ctrl.swing.KDPanel;
+import com.kingdee.bos.ctrl.swing.KDTextField;
+import com.kingdee.bos.ctrl.swing.KDWorkButton;
+import com.kingdee.bos.ctrl.swing.event.DataChangeEvent;
+import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
@@ -20,7 +36,8 @@ import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.IUIWindow;
 import com.kingdee.bos.ui.face.UIFactory;
 import com.kingdee.bos.ui.face.UIRuleUtil;
-import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.eas.basedata.master.material.client.F7MaterialSimpleSelector;
+import com.kingdee.eas.basedata.org.CtrlUnitInfo;
 import com.kingdee.eas.basedata.person.PersonInfo;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.OprtState;
@@ -28,7 +45,6 @@ import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.common.client.UIContext;
 import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.cp.bc.BizCollUtil;
-import com.kingdee.eas.framework.*;
 import com.kingdee.eas.port.equipment.record.EquIdInfo;
 import com.kingdee.eas.port.equipment.record.client.EquIdEditUI;
 import com.kingdee.eas.port.equipment.uitl.ToolHelp;
@@ -38,12 +54,6 @@ import com.kingdee.eas.util.client.MsgBox;
 import com.kingdee.eas.xr.app.XRBillStatusEnum;
 import com.kingdee.eas.xr.helper.PersonXRHelper;
 import com.kingdee.eas.xr.helper.Tool;
-import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
-import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
-import com.kingdee.bos.ctrl.kdf.table.KDTable;
-import com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent;
-import com.kingdee.bos.ctrl.swing.KDTextField;
-import com.kingdee.bos.ctrl.swing.event.DataChangeEvent;
 
 /**
  * output class name
@@ -808,6 +818,20 @@ public class RepairOrderEditUI extends AbstractRepairOrderEditUI
 		 prmtequName.setEntityViewInfo(evi);
 //		 prmtequName.setSelector(ToolHelp.initPrmtEquIdByF7Color(evi, false)); 
 		 
+		 KDBizPromptBox kdtE1_equNameOne_PromptBox = new KDBizPromptBox();
+	        kdtE1_equNameOne_PromptBox.setQueryInfo("com.kingdee.eas.port.equipment.record.app.EquIdQuery");
+	        kdtE1_equNameOne_PromptBox.setVisible(true);
+	        kdtE1_equNameOne_PromptBox.setEditable(true);
+	        kdtE1_equNameOne_PromptBox.setDisplayFormat("$number$");
+	        kdtE1_equNameOne_PromptBox.setEditFormat("$number$");
+	        kdtE1_equNameOne_PromptBox.setCommitFormat("$number$");
+	        kdtE1_equNameOne_PromptBox.setSelector(ToolHelp.initPrmtEquIdByF7Color(evi, false)); 
+	        KDTDefaultCellEditor kdtE1_equNameOne_CellEditor = new KDTDefaultCellEditor(kdtE1_equNameOne_PromptBox);
+	        this.kdtE1.getColumn("equNameOne").setEditor(kdtE1_equNameOne_CellEditor);
+	        ObjectValueRender kdtE1_equNameOne_OVR = new ObjectValueRender();
+	        kdtE1_equNameOne_OVR.setFormat(new BizDataFormat("$name$"));
+	        this.kdtE1.getColumn("equNameOne").setRenderer(kdtE1_equNameOne_OVR);
+		 
 		   KDBizPromptBox kdtE1_repairPerson_PromptBox = new KDBizPromptBox();
 	        kdtE1_repairPerson_PromptBox.setQueryInfo("com.kingdee.eas.basedata.person.app.PersonQuery");
 	        kdtE1_repairPerson_PromptBox.setVisible(true);
@@ -818,7 +842,7 @@ public class RepairOrderEditUI extends AbstractRepairOrderEditUI
 	        KDTDefaultCellEditor kdtE1_repairPerson_CellEditor = new KDTDefaultCellEditor(kdtE1_repairPerson_PromptBox);
 	        kdtE1.getColumn("repairPerson").setEditor(kdtE1_repairPerson_CellEditor);
 	        
-	        String id1 = SysContext.getSysContext().getCurrentStorageUnit().getId().toString();
+//	        String id1 = SysContext.getSysContext().getCurrentStorageUnit().getId().toString();
 	        KDBizPromptBox kdtE1_replaceSparePart_PromptBox = new KDBizPromptBox();
 	        kdtE1_replaceSparePart_PromptBox.setQueryInfo("com.kingdee.eas.port.equipment.rpt.F7MaterialQuery");
 //	        kdtE1_replaceSparePart_PromptBox.setQueryInfo("com.kingdee.eas.fi.rpt.app.F7MaterialQuery");
@@ -827,11 +851,12 @@ public class RepairOrderEditUI extends AbstractRepairOrderEditUI
 	        kdtE1_replaceSparePart_PromptBox.setDisplayFormat("$number$");
 	        kdtE1_replaceSparePart_PromptBox.setEditFormat("$number$");
 	        kdtE1_replaceSparePart_PromptBox.setCommitFormat("$number$");
-	   	     EntityViewInfo evi1 = new EntityViewInfo();
-			 FilterInfo filter1 = new FilterInfo();
-	 		 filter1.getFilterItems().add(new FilterItemInfo("Storage.id",id1 ,CompareType.EQUALS));
-			 evi1.setFilter(filter1);
-			 kdtE1_replaceSparePart_PromptBox.setEntityViewInfo(evi1);
+	        kdtE1_replaceSparePart_PromptBox.setSelector(new F7MaterialSimpleSelector(this,kdtE1_replaceSparePart_PromptBox));
+//	   	     EntityViewInfo evi1 = new EntityViewInfo();
+//			 FilterInfo filter1 = new FilterInfo();
+//	 		 filter1.getFilterItems().add(new FilterItemInfo("Storage.id",id1 ,CompareType.EQUALS));
+//			 evi1.setFilter(filter1);
+//			 kdtE1_replaceSparePart_PromptBox.setEntityViewInfo(evi1);
 			 KDTDefaultCellEditor kdtEntry_feeType_CellEditor = new KDTDefaultCellEditor(kdtE1_replaceSparePart_PromptBox);
 			 kdtE1.getColumn("replaceSparePart").setEditor(kdtEntry_feeType_CellEditor);
 		 
@@ -876,6 +901,83 @@ public class RepairOrderEditUI extends AbstractRepairOrderEditUI
 //				}
 //			}
 //		});
+		
+		KDWorkButton copyEntryLine = new KDWorkButton("复制分录");
+		copyEntryLine.setIcon(EASResource.getIcon("imgTbtn_copyline"));
+		
+		copyEntryLine.addActionListener(new ActionListener(){
+
+			public void actionPerformed(ActionEvent e) {
+				try {
+            		int rowIndex = kdtE1.getSelectManager().getActiveRowIndex();
+            		if(rowIndex==-1){MsgBox.showWarning("请选择分录行复制！");SysUtil.abort();}else{
+            			KDTSelectBlock sb;
+                    	int size = kdtE1.getSelectManager().size(); 
+                    	for (int i = 0; i < size; i++){
+                    		sb = kdtE1.getSelectManager().get(i);
+                    		int top = sb.getTop(); // 选择块最上边行索引
+                    		int bottom = sb.getBottom(); // 选择块最下边行索引
+                    		for (int j = top; j <= bottom; j++) {
+                    			IRow row = kdtE1.getRow(j);
+                    			IRow Copyrow = kdtE1.addRow();
+                    			for(int cellIndex = 0; cellIndex < kdtE1.getColumnCount(); cellIndex++){
+                    				String cellName = kdtE1.getColumnKey(cellIndex);
+//        							if(!cellName.equals("CostType") &&!cellName.equals("CostCategories") && !cellName.equals("dep") )
+//        								continue;
+        							ICell copyFromCell = row.getCell(cellName);
+        							if(copyFromCell != null){
+        								Object orgValue = copyFromCell.getValue();
+        								Copyrow.getCell(cellName).setValue(orgValue);
+        				            }
+        				        }
+            				}
+                    	}
+            		}
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+			}
+			
+		});
+		
+		Component com[] = kdtE1_detailPanel.getComponents();
+		
+		for (int i = 0; i < com.length; i++) 
+		{
+			if(com[i] instanceof KDPanel)
+			{
+				KDPanel panle = (KDPanel)com[i];
+				if(panle.getName().equals("controlPanel"))
+					panle.add(copyEntryLine, new com.kingdee.bos.ctrl.swing.KDLayout.Constraints(kdtE1.getBounds().width - 174, 5, 82, 19, 9));
+			}
+		}
+		
+		setIsHideCell();
+	}
+	
+	private void setIsHideCell()
+	{
+		CtrlUnitInfo Info = (CtrlUnitInfo)this.prmtCU.getValue();
+		if(Info==null)
+			return;
+		
+		if(Info.getName().contains("轮驳公司"))
+		{
+			this.kdtE1.getColumn("replaceSparePart").getStyleAttributes().setHided(true);
+			this.kdtE1.getColumn("beijiangenghuan").getStyleAttributes().setHided(false);
+			
+			this.kdtE1.getColumn("model").getStyleAttributes().setLocked(false);
+			this.kdtE1.getColumn("jlUnit").getStyleAttributes().setLocked(false);
+			
+		}
+		else
+		{
+			this.kdtE1.getColumn("replaceSparePart").getStyleAttributes().setHided(false);
+			this.kdtE1.getColumn("beijiangenghuan").getStyleAttributes().setHided(true);
+			
+			this.kdtE1.getColumn("model").getStyleAttributes().setLocked(true);
+			this.kdtE1.getColumn("jlUnit").getStyleAttributes().setLocked(true);
+		}
 	}
 	
 
@@ -932,10 +1034,16 @@ public class RepairOrderEditUI extends AbstractRepairOrderEditUI
 			  }
 	}
 	
+	public void kdtE1_Changed(int rowIndex, int colIndex) throws Exception {
+		super.kdtE1_Changed(rowIndex, colIndex);
+	}
+	
 	protected void kdtE1_tableClicked(KDTMouseEvent e) throws Exception {
 		super.kdtE1_tableClicked(e);
 		  if ((e.getButton() == 1) && (e.getClickCount() == 2))
 	        {
+			  if(!kdtE1.getColumnKey(e.getColIndex()).equals("equNameOne"))
+				  return;
 			  if(editData.getId() ==null){
 				  MsgBox.showInfo("请先保存单据！");
 					SysUtil.abort();
