@@ -595,6 +595,48 @@
             <scale>0</scale>
             <precision>0</precision>
         </column>
+        <column>
+            <name>CFActualStartTime</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrder].columns.column[CFActualStartTime].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrder].columns.column[CFActualStartTime].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>DATETIME</sqlType>
+            <length>8</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFActualEndTime</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrder].columns.column[CFActualEndTime].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrder].columns.column[CFActualEndTime].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>DATETIME</sqlType>
+            <length>8</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFPlanStartTime</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrder].columns.column[CFPlanStartTime].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrder].columns.column[CFPlanStartTime].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>DATETIME</sqlType>
+            <length>8</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
     </columns>
     <primaryKey>
         <name>CPK_MAI_RepairOuoq</name>
@@ -908,6 +950,30 @@
             <lang locale="zh_HK" value="受理時間" />
             <lang locale="zh_TW" value="受理時間" />
         </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrder].columns.column[CFActualEndTime].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="实际完工日期" />
+            <lang locale="zh_HK" value="實際完工日期" />
+            <lang locale="zh_TW" value="實際完工日期" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrder].columns.column[CFActualEndTime].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="实际完工日期" />
+            <lang locale="zh_HK" value="實際完工日期" />
+            <lang locale="zh_TW" value="實際完工日期" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrder].columns.column[CFActualStartTime].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="实际开工日期" />
+            <lang locale="zh_HK" value="實際開工日期" />
+            <lang locale="zh_TW" value="實際開工日期" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrder].columns.column[CFActualStartTime].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="实际开工日期" />
+            <lang locale="zh_HK" value="實際開工日期" />
+            <lang locale="zh_TW" value="實際開工日期" />
+        </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrder].columns.column[CFAssigneeID].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="受理人" />
@@ -1051,6 +1117,18 @@
             <lang locale="zh_CN" value="委外修理" />
             <lang locale="zh_HK" value="委外修理" />
             <lang locale="zh_TW" value="委外修理" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrder].columns.column[CFPlanStartTime].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="计划开工日期" />
+            <lang locale="zh_HK" value="計畫開工日期" />
+            <lang locale="zh_TW" value="計畫開工日期" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrder].columns.column[CFPlanStartTime].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="计划开工日期" />
+            <lang locale="zh_HK" value="計畫開工日期" />
+            <lang locale="zh_TW" value="計畫開工日期" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrder].columns.column[CFRecipientID].alias">
             <lang locale="en_US" value="null" />

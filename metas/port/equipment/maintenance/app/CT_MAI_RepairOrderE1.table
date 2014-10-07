@@ -273,6 +273,48 @@
             <scale>0</scale>
             <precision>0</precision>
         </column>
+        <column>
+            <name>CFEquNameOneID</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrderE1].columns.column[CFEquNameOneID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrderE1].columns.column[CFEquNameOneID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFChangNumber</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrderE1].columns.column[CFChangNumber].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrderE1].columns.column[CFChangNumber].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>80</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFBeijiangenghuan</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrderE1].columns.column[CFBeijiangenghuan].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrderE1].columns.column[CFBeijiangenghuan].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>100</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
     </columns>
     <primaryKey>
         <name>CPK_MAI_RprOE1I6fe</name>
@@ -345,6 +387,25 @@
                 </fkColumnPair>
             </fkColumnPairs>
         </foreignKey>
+        <foreignKey>
+            <name>CFK_MAI_MAIROE1Q10</name>
+            <userDefined>true</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.port.equipment.record.app" />
+                <key name="name" value="CT_REC_EquId" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="CFEquNameOneID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
     </foreignKeys>
     <resource>
         <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrderE1].alias">
@@ -352,6 +413,42 @@
             <lang locale="zh_CN" value="维修明细" />
             <lang locale="zh_HK" value="維修明細" />
             <lang locale="zh_TW" value="維修明細" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrderE1].columns.column[CFBeijiangenghuan].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="备件更换" />
+            <lang locale="zh_HK" value="備件更換" />
+            <lang locale="zh_TW" value="備件更換" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrderE1].columns.column[CFBeijiangenghuan].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="备件更换" />
+            <lang locale="zh_HK" value="備件更換" />
+            <lang locale="zh_TW" value="備件更換" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrderE1].columns.column[CFChangNumber].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="厂内编号" />
+            <lang locale="zh_HK" value="廠內編號" />
+            <lang locale="zh_TW" value="廠內編號" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrderE1].columns.column[CFChangNumber].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="厂内编号" />
+            <lang locale="zh_HK" value="廠內編號" />
+            <lang locale="zh_TW" value="廠內編號" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrderE1].columns.column[CFEquNameOneID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="设备名称" />
+            <lang locale="zh_HK" value="設備名稱" />
+            <lang locale="zh_TW" value="設備名稱" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrderE1].columns.column[CFEquNameOneID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="设备名称" />
+            <lang locale="zh_HK" value="設備名稱" />
+            <lang locale="zh_TW" value="設備名稱" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrderE1].columns.column[CFFaLocationID].alias">
             <lang locale="en_US" value="null" />
