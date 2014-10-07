@@ -41,6 +41,7 @@ import com.kingdee.eas.xr.helper.Tool;
 import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
 import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
+import com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent;
 import com.kingdee.bos.ctrl.swing.KDTextField;
 import com.kingdee.bos.ctrl.swing.event.DataChangeEvent;
 
@@ -769,6 +770,7 @@ public class RepairOrderEditUI extends AbstractRepairOrderEditUI
 		contrepairDate.setVisible(false);
 		pktransferTime.setVisible(false);
 		conttransferTime.setVisible(false);
+		btnequInfomation.setVisible(false);
 		if(getOprtState().equals(OprtState.ADDNEW)){
 		    txtselfAmount.setEnabled(false);
 		    txtoutAmount.setEnabled(false);
@@ -921,5 +923,28 @@ public class RepairOrderEditUI extends AbstractRepairOrderEditUI
 				uiWindow = UIFactory.createUIFactory(UIFactoryName.MODEL).create(EquIdEditUI.class.getName(), context, null, OprtState.VIEW);
 				uiWindow.show(); 
 			  }
+	}
+	
+	protected void kdtE1_tableClicked(KDTMouseEvent e) throws Exception {
+		super.kdtE1_tableClicked(e);
+		  if ((e.getButton() == 1) && (e.getClickCount() == 2))
+	        {
+			  if(editData.getId() ==null){
+				  MsgBox.showInfo("请先保存单据！");
+					SysUtil.abort();
+			  }else{
+			  if(e.getRowIndex() != -1){
+				  if(kdtE1.getCell(e.getRowIndex(), "equNameOne").getValue() !=null){
+				    String id = ((EquIdInfo)kdtE1.getCell(e.getRowIndex(), "equNameOne").getValue()).getId().toString();
+					IUIWindow uiWindow = null;
+					UIContext context = new UIContext(this);
+					context.put("ID", id);
+					context.put("anid", editData.getId().toString());
+					uiWindow = UIFactory.createUIFactory(UIFactoryName.MODEL).create(EquIdEditUI.class.getName(), context, null, OprtState.VIEW);
+					uiWindow.show(); 
+				  }
+			    }
+			  }
+	        }
 	}
 }

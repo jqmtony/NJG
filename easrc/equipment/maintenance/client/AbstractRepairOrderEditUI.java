@@ -492,6 +492,16 @@ public abstract class AbstractRepairOrderEditUI extends com.kingdee.eas.xr.clien
 		}
 	});
 
+        this.kdtE1.addKDTMouseListener(new com.kingdee.bos.ctrl.kdf.table.event.KDTMouseListener() {
+            public void tableClicked(com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent e) {
+                try {
+                    kdtE1_tableClicked(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                }
+            }
+        });
 
                 this.kdtE1.putBindContents("editData",new String[] {"seq","equNameOne","changNumber","FaLocation","guzhangqingkuang","repairContent","wxfa","replaceSparePart","beijiangenghuan","model","shuliang","jlUnit","workTime","repairPerson","sfww","xlAmount","yujingzhouqi","remark","yujingDate"});
 
@@ -1534,6 +1544,13 @@ public abstract class AbstractRepairOrderEditUI extends com.kingdee.eas.xr.clien
         } else if (STATUS_VIEW.equals(this.oprtState)) {
         } else if (STATUS_FINDVIEW.equals(this.oprtState)) {
         }
+    }
+
+    /**
+     * output kdtE1_tableClicked method
+     */
+    protected void kdtE1_tableClicked(com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent e) throws Exception
+    {
     }
 
     /**
