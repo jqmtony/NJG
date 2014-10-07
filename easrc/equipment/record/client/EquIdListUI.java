@@ -849,7 +849,7 @@ public class EquIdListUI extends AbstractEquIdListUI
         			 this.tblMain.getRow(i).getStyleAttributes().setBackground(Color.RED);
         	 }
         }
-}
+    }
 	  
     protected void kDTree1_valueChanged(TreeSelectionEvent e) throws Exception {
     	

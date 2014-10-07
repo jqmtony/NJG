@@ -3,20 +3,41 @@
  */
 package com.kingdee.eas.port.equipment.maintenance.client;
 
-import java.awt.event.*;
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+
 import org.apache.log4j.Logger;
 
 import com.kingdee.bos.BOSException;
+import com.kingdee.bos.ctrl.kdf.table.event.KDTDataFillListener;
+import com.kingdee.bos.ctrl.kdf.table.event.KDTDataRequestEvent;
+import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.bos.dao.query.IQueryExecutor;
 import com.kingdee.bos.metadata.IMetaDataPK;
+import com.kingdee.bos.metadata.bot.BOTMappingFactory;
+import com.kingdee.bos.metadata.bot.BOTMappingInfo;
+import com.kingdee.bos.metadata.bot.IBOTMapping;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
-import com.kingdee.bos.dao.IObjectValue;
-import com.kingdee.bos.dao.query.IQueryExecutor;
+import com.kingdee.bos.ui.face.UIRuleUtil;
+import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.SysContext;
-import com.kingdee.eas.framework.*;
+import com.kingdee.eas.framework.CoreBillBaseCollection;
+import com.kingdee.eas.port.equipment.maintenance.IMonMainPlanE1;
+import com.kingdee.eas.port.equipment.maintenance.IRepairOrderE1;
+import com.kingdee.eas.port.equipment.maintenance.MonMainPlanCollection;
+import com.kingdee.eas.port.equipment.maintenance.MonMainPlanE1Collection;
+import com.kingdee.eas.port.equipment.maintenance.MonMainPlanE1Factory;
+import com.kingdee.eas.port.equipment.maintenance.MonMainPlanFactory;
+import com.kingdee.eas.port.equipment.maintenance.MonMainPlanInfo;
+import com.kingdee.eas.port.equipment.maintenance.RepairOrderE1Factory;
+import com.kingdee.eas.port.equipment.uitl.ToolHelp;
+import com.kingdee.eas.util.SysUtil;
+import com.kingdee.eas.util.client.KDTableUtil;
+import com.kingdee.eas.util.client.MsgBox;
 
 /**
  * output class name
@@ -25,6 +46,8 @@ public class MonMainPlanListUI extends AbstractMonMainPlanListUI
 {
     private static final Logger logger = CoreUIObject.getLogger(MonMainPlanListUI.class);
     
+    
+    private IRepairOrderE1 IRepairOrderE1 = RepairOrderE1Factory.getRemoteInstance();
     /**
      * output class constructor
      */
@@ -438,7 +461,61 @@ public class MonMainPlanListUI extends AbstractMonMainPlanListUI
      */
     public void actionCreateTo_actionPerformed(ActionEvent e) throws Exception
     {
-        super.actionCreateTo_actionPerformed(e);
+//        super.actionCreateTo_actionPerformed(e);
+    	checkSelected();
+    	int selectIndex[] = KDTableUtil.getSelectedRows(tblMain);
+    	
+    	StringBuffer sb = new StringBuffer();
+    	String innerId = "'null'";
+    	String billId = "'null'";
+    	
+    	for (int j = 0; j < selectIndex.length; j++) 
+    	{
+    		String entryId = UIRuleUtil.getString(this.tblMain.getRow(selectIndex[j]).getCell("E1.id").getValue());
+    		if(IRepairOrderE1.exists("select id where sourceBillID='"+entryId+"'"))
+    			sb.append("第<"+(selectIndex[j]+1)+">行，颜色标记为绿色的已经生成维保任务了！	\n");
+    		else
+    		{
+    			innerId = innerId+",'"+entryId+"'";
+    			billId = billId+",'"+UIRuleUtil.getString(this.tblMain.getRow(selectIndex[j]).getCell("id").getValue())+"'";
+    		}
+		}
+    	
+    	if(sb!=null&&!"".equals(sb.toString().trim()))
+    	{
+    		MsgBox.showConfirm3a("有不满足条件的记录，请查看详细信息！", sb.toString());
+    		return;
+    	}
+    	else
+    	{
+    		IBOTMapping botMapping = BOTMappingFactory.getRemoteInstance();
+    		BOTMappingInfo botInfo = (BOTMappingInfo) botMapping.getValue("where name='NJP00023'");
+    		if(botInfo== null)
+    		{
+    			MsgBox.showWarning("规则错误，请检查BOTP！");SysUtil.abort();
+    		}
+    		
+    		IMonMainPlanE1 IMonMainPlanE1 = MonMainPlanE1Factory.getRemoteInstance();
+    		
+    		CoreBillBaseCollection eqcollection = MonMainPlanFactory.getRemoteInstance().getCoreBillBaseCollection("where id in("+billId+")");
+    		
+    		for (int i = 0; i < eqcollection.size(); i++)
+    		{
+    			MonMainPlanInfo Info = (MonMainPlanInfo)eqcollection.get(i);
+    			String oql = "where id in("+innerId+") and parent.id='"+Info.getId()+"'";
+    			
+    			MonMainPlanE1Collection e1Collection = IMonMainPlanE1.getMonMainPlanE1Collection(oql);
+    			Info.getE1().clear();
+    			for (int j = 0; j < e1Collection.size(); j++) 
+    			{
+    				Info.getE1().add(e1Collection.get(j));
+				}
+			}
+    		ToolHelp.generateDestBill("A0CD335E", "F96E9B71",eqcollection , new ObjectUuidPK(botInfo.getId()));
+    		MsgBox.showInfo("生成维保任务成功！");
+    		
+    		refresh(null);
+    	}
     }
 
     /**
@@ -596,14 +673,52 @@ public class MonMainPlanListUI extends AbstractMonMainPlanListUI
     }
 
     public void onLoad() throws Exception {
+    	tblMain.addKDTDataFillListener(new KDTDataFillListener() {
+            public void afterDataFill(KDTDataRequestEvent e)
+            {
+                try
+                {
+                    tblMain_afterDataFill(e);
+                }
+                catch(Exception exc)
+                {
+                    handUIException(exc);
+                }
+            }
+        });
     	super.onLoad();
     	this.setUITitle("维保计划");
+    	
+    	this.btnCreateTo.setText("生成维保任务单");
+    	this.btnCreateTo.setToolTipText("生成维保任务单");
     }
     
     //去除CU隔离
 	protected boolean isIgnoreCUFilter() {
 		return true;
 	}
+	
+	
+    private void tblMain_afterDataFill(KDTDataRequestEvent e){
+        for (int i = e.getFirstRow(); i <= e.getLastRow(); i++)
+        {
+        	 if (UIRuleUtil.isNotNull(this.tblMain.getRow(i).getCell("E1.id").getValue())) 
+        	 {
+        		 String entryId = UIRuleUtil.getString(this.tblMain.getRow(i).getCell("E1.id").getValue());
+        		 try
+        		 {
+					if(IRepairOrderE1.exists("select id where sourceBillID='"+entryId+"'"))
+						 this.tblMain.getRow(i).getStyleAttributes().setBackground(Color.green);
+        		 } catch (EASBizException e1) 
+        		 {
+        			 e1.printStackTrace();
+        		 } catch (BOSException e1)
+        		 {
+        			 e1.printStackTrace();
+        		 }
+        	 }
+        }
+    }
     
 	protected IQueryExecutor getQueryExecutor(IMetaDataPK arg0,EntityViewInfo arg1) {
 		EntityViewInfo viewInfo = (EntityViewInfo)arg1.clone();

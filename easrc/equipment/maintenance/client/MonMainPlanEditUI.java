@@ -73,13 +73,13 @@ public class MonMainPlanEditUI extends AbstractMonMainPlanEditUI
     {
         super.loadFields();
         txtplanTotalCost.setEnabled(false);
-        try {
-			setRowColor();
-		} catch (EASBizException e) {
-			e.printStackTrace();
-		} catch (BOSException e) {
-			e.printStackTrace();
-		}
+//        try {
+//			setRowColor();
+//		} catch (EASBizException e) {
+//			e.printStackTrace();
+//		} catch (BOSException e) {
+//			e.printStackTrace();
+//		}
     }
 
     /**
