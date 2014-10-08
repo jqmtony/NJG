@@ -341,11 +341,13 @@ public abstract class AbstractProgrammingEditUI extends com.kingdee.eas.fdc.base
         // contName		
         this.contName.setBoundLabelText(resHelper.getString("contName.boundLabelText"));		
         this.contName.setBoundLabelLength(100);		
-        this.contName.setBoundLabelUnderline(true);
+        this.contName.setBoundLabelUnderline(true);		
+        this.contName.setVisible(false);
         // contVersion		
         this.contVersion.setBoundLabelText(resHelper.getString("contVersion.boundLabelText"));		
         this.contVersion.setBoundLabelLength(100);		
-        this.contVersion.setBoundLabelUnderline(true);
+        this.contVersion.setBoundLabelUnderline(true);		
+        this.contVersion.setVisible(false);
         // contProject		
         this.contProject.setBoundLabelText(resHelper.getString("contProject.boundLabelText"));		
         this.contProject.setBoundLabelLength(100);		
@@ -400,12 +402,12 @@ public abstract class AbstractProgrammingEditUI extends com.kingdee.eas.fdc.base
         this.contprojectName.setBoundLabelText(resHelper.getString("contprojectName.boundLabelText"));		
         this.contprojectName.setBoundLabelLength(100);		
         this.contprojectName.setBoundLabelUnderline(true);		
-        this.contprojectName.setVisible(true);
+        this.contprojectName.setVisible(false);
         // contprojectNumber		
         this.contprojectNumber.setBoundLabelText(resHelper.getString("contprojectNumber.boundLabelText"));		
         this.contprojectNumber.setBoundLabelLength(100);		
         this.contprojectNumber.setBoundLabelUnderline(true);		
-        this.contprojectNumber.setVisible(true);
+        this.contprojectNumber.setVisible(false);
         // txtNumber
         // txtName		
         this.txtName.setRequired(true);
@@ -480,16 +482,6 @@ public abstract class AbstractProgrammingEditUI extends com.kingdee.eas.fdc.base
 
 
         this.kdtEntries.checkParsed();
-        KDTextField kdtEntries_longNumber_TextField = new KDTextField();
-        kdtEntries_longNumber_TextField.setName("kdtEntries_longNumber_TextField");
-        kdtEntries_longNumber_TextField.setMaxLength(80);
-        KDTDefaultCellEditor kdtEntries_longNumber_CellEditor = new KDTDefaultCellEditor(kdtEntries_longNumber_TextField);
-        this.kdtEntries.getColumn("longNumber").setEditor(kdtEntries_longNumber_CellEditor);
-        KDTextField kdtEntries_name_TextField = new KDTextField();
-        kdtEntries_name_TextField.setName("kdtEntries_name_TextField");
-        kdtEntries_name_TextField.setMaxLength(255);
-        KDTDefaultCellEditor kdtEntries_name_CellEditor = new KDTDefaultCellEditor(kdtEntries_name_TextField);
-        this.kdtEntries.getColumn("name").setEditor(kdtEntries_name_CellEditor);
         KDTextField kdtEntries_costAccount_TextField = new KDTextField();
         kdtEntries_costAccount_TextField.setName("kdtEntries_costAccount_TextField");
         kdtEntries_costAccount_TextField.setMaxLength(512);
@@ -696,16 +688,6 @@ public abstract class AbstractProgrammingEditUI extends com.kingdee.eas.fdc.base
         kdtEntries_soldPerSquare_TextField.setPrecision(8);
         KDTDefaultCellEditor kdtEntries_soldPerSquare_CellEditor = new KDTDefaultCellEditor(kdtEntries_soldPerSquare_TextField);
         this.kdtEntries.getColumn("soldPerSquare").setEditor(kdtEntries_soldPerSquare_CellEditor);
-        KDTextField kdtEntries_remark_TextField = new KDTextField();
-        kdtEntries_remark_TextField.setName("kdtEntries_remark_TextField");
-        kdtEntries_remark_TextField.setMaxLength(255);
-        KDTDefaultCellEditor kdtEntries_remark_CellEditor = new KDTDefaultCellEditor(kdtEntries_remark_TextField);
-        this.kdtEntries.getColumn("remark").setEditor(kdtEntries_remark_CellEditor);
-        KDTextField kdtEntries_number_TextField = new KDTextField();
-        kdtEntries_number_TextField.setName("kdtEntries_number_TextField");
-        kdtEntries_number_TextField.setMaxLength(80);
-        KDTDefaultCellEditor kdtEntries_number_CellEditor = new KDTDefaultCellEditor(kdtEntries_number_TextField);
-        this.kdtEntries.getColumn("number").setEditor(kdtEntries_number_CellEditor);
         KDFormattedTextField kdtEntries_citeVersion_TextField = new KDFormattedTextField();
         kdtEntries_citeVersion_TextField.setName("kdtEntries_citeVersion_TextField");
         kdtEntries_citeVersion_TextField.setVisible(true);
@@ -714,11 +696,6 @@ public abstract class AbstractProgrammingEditUI extends com.kingdee.eas.fdc.base
         kdtEntries_citeVersion_TextField.setDataType(0);
         KDTDefaultCellEditor kdtEntries_citeVersion_CellEditor = new KDTDefaultCellEditor(kdtEntries_citeVersion_TextField);
         this.kdtEntries.getColumn("citeVersion").setEditor(kdtEntries_citeVersion_CellEditor);
-        KDTextField kdtEntries_headNumber_TextField = new KDTextField();
-        kdtEntries_headNumber_TextField.setName("kdtEntries_headNumber_TextField");
-        kdtEntries_headNumber_TextField.setMaxLength(80);
-        KDTDefaultCellEditor kdtEntries_headNumber_CellEditor = new KDTDefaultCellEditor(kdtEntries_headNumber_TextField);
-        this.kdtEntries.getColumn("headNumber").setEditor(kdtEntries_headNumber_CellEditor);
         KDFormattedTextField kdtEntries_sortNumber_TextField = new KDFormattedTextField();
         kdtEntries_sortNumber_TextField.setName("kdtEntries_sortNumber_TextField");
         kdtEntries_sortNumber_TextField.setVisible(true);
@@ -955,8 +932,8 @@ public abstract class AbstractProgrammingEditUI extends com.kingdee.eas.fdc.base
         this.add(kdtVerCompareEntry, new KDLayout.Constraints(754, 35, 197, 31, 0));
         kDLabelContainer3.setBounds(new Rectangle(688, 3, 250, 20));
         this.add(kDLabelContainer3, new KDLayout.Constraints(688, 3, 250, 20, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        conProgramming.setBounds(new Rectangle(9, 59, 996, 579));
-        this.add(conProgramming, new KDLayout.Constraints(9, 59, 996, 579, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        conProgramming.setBounds(new Rectangle(9, 6, 996, 632));
+        this.add(conProgramming, new KDLayout.Constraints(9, 6, 996, 632, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         kDTabbedPane1.setBounds(new Rectangle(672, 11, 23, 42));
         this.add(kDTabbedPane1, new KDLayout.Constraints(672, 11, 23, 42, 0));
         contprojectName.setBounds(new Rectangle(390, 30, 270, 19));
@@ -987,7 +964,7 @@ conProgramming.getContentPane().setLayout(new BorderLayout(0, 0));        conPro
         kDSplitPane1.add(kdtEntries, "top");
         kDSplitPane1.add(colorPanel, "bottom");
         colorPanel.setLayout(new KDLayout());
-        colorPanel.putClientProperty("OriginalBounds", new Rectangle(0, 0, 995, 188));        //kDTabbedPane1
+        colorPanel.putClientProperty("OriginalBounds", new Rectangle(0, 0, 995, 241));        //kDTabbedPane1
         kDTabbedPane1.add(kDScrollPane1, resHelper.getString("kDScrollPane1.constraints"));
         kDTabbedPane1.add(conCompare, resHelper.getString("conCompare.constraints"));
         kDTabbedPane1.add(kDPanel1, resHelper.getString("kDPanel1.constraints"));

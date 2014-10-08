@@ -101,6 +101,7 @@ import com.kingdee.eas.port.pm.invest.ProjectBudget2Info;
 import com.kingdee.eas.port.pm.invest.ProjectEstimateInfo;
 import com.kingdee.eas.port.pm.invest.ProjectStartRequestInfo;
 import com.kingdee.eas.port.pm.invest.YearInvestPlanInfo;
+import com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI;
 import com.kingdee.eas.port.pm.invest.investplan.IProgramming;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryCollection;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryCostEntryInfo;
@@ -135,6 +136,8 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 	private KDFormattedTextField investL = null;//累计投资
 	private KDFormattedTextField investY = null;//投资余额
 	private KDFormattedTextField investGS = null;//估算金额
+	private KDFormattedTextField investTZ = null;//调整金额
+	private String isAdjust = "0";
 	
     protected KDWorkButton btnAddnewLine;
     protected KDWorkButton btnInsertLines;
@@ -146,7 +149,7 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
     
     private static InvestPlanBaseInfo planInfo = new InvestPlanBaseInfo();
     private ProjectEstimateInfo EstimateInfo = null;
-    
+    private YearInvestPlanEditUI YearInvestPlanEditUI = null;
 	public ProgrammingEditUI() throws Exception {
 		super();
 	}
@@ -188,6 +191,9 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
     	investL = (KDFormattedTextField) getUIContext().get("proAddAmount");
     	investY = (KDFormattedTextField) getUIContext().get("proBalance");
     	investGS = (KDFormattedTextField) getUIContext().get("proEstimate");
+    	investTZ = (KDFormattedTextField) getUIContext().get("txtchancedAmount");
+    	isAdjust = (String)getUIContext().get("isAdjust");
+    	YearInvestPlanEditUI = (YearInvestPlanEditUI) getUIContext().get("UI");
 
 		if (this.getUIContext().get("modify") != null) {
 			this.actionImport.setEnabled(false);
@@ -1546,14 +1552,17 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 			//将分录部分金额值传递到年度投资计划
 			if(investZ!=null)
 				investZ.setValue(UIRuleUtil.getBigDecimal(this.kdtEntries.getFootRow(0).getCell("amount").getValue()));//投资总金额
-			if(investB!=null)
+			if(investB!=null && !"1".equals(isAdjust))
 				investB.setValue(UIRuleUtil.getBigDecimal(this.kdtEntries.getFootRow(0).getCell("investAmount").getValue()));//本年度投资金额
+			if(investTZ!=null)
+				investTZ.setValue(UIRuleUtil.getBigDecimal(this.kdtEntries.getFootRow(0).getCell("investAmount").getValue()));//调整金额
 			if(investL!=null)
 				investL.setValue(UIRuleUtil.getBigDecimal(this.kdtEntries.getFootRow(0).getCell("cumulativeInvest").getValue()));//累计投资
 			if(investY!=null)
 				investY.setValue(UIRuleUtil.getBigDecimal(this.kdtEntries.getFootRow(0).getCell("balance").getValue()));//投资余额
 			if(investGS!=null)
 				investGS.setValue(UIRuleUtil.getBigDecimal(this.kdtEntries.getFootRow(0).getCell("investAmount").getValue()));//估算金额
+			
 		}
 		//------
     	if(colIndex == kdtEntries.getColumnIndex(LONGNUMBER)){
@@ -2306,11 +2315,7 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
      */
 	public void actionSubmit_actionPerformed(ActionEvent e) throws Exception {
 		
-//		verifyControlParam();
 		verifyDataBySave();
-//		if (StringUtils.isEmpty(txtProjectName.getText())) {
-//			throw new EASBizException(new NumericExceptionSubItem("1", "工程项目不能为空"));
-//		}
 		if (StringUtils.isEmpty(txtVersion.getText())) {
 			throw new EASBizException(new NumericExceptionSubItem("1", "版本号不能为空"));
 		}

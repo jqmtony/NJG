@@ -57,6 +57,7 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
     protected com.kingdee.bos.ctrl.swing.KDTabbedPane kDTabbedPane1;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contremark;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contcostTemp;
+    protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel6;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtCreator;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkCreateTime;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtLastUpdateUser;
@@ -71,60 +72,24 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
     protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel3;
     protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel5;
     protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel4;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contNumber;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contBizDate;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contbuildType;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contprojectName;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contportProject;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contfundSource;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contplanStartDate;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contplanEndDate;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contrequestPerson;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contrequestOrg;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contprojectType;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contaddInvestAmount;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contamount;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contchancedAmount;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contBIMUDF0027;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contaddress;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contplanType;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contobjectState;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contCU;
     protected com.kingdee.bos.ctrl.swing.KDContainer kDContainer1;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer continvestAmount;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contStatus;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contyear;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contbalance;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contcompanyProperty;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contseq;
-    protected com.kingdee.bos.ctrl.swing.KDTextField txtNumber;
-    protected com.kingdee.bos.ctrl.swing.KDDatePicker pkBizDate;
-    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtbuildType;
-    protected com.kingdee.bos.ctrl.swing.KDTextField txtprojectName;
-    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtportProject;
-    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtfundSource;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contStatus;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contBizDate;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkplanStartDate;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkplanEndDate;
-    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtrequestPerson;
-    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtrequestOrg;
-    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtprojectType;
-    protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtaddInvestAmount;
-    protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtamount;
-    protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtchancedAmount;
     protected com.kingdee.bos.ctrl.swing.KDScrollPane scrollPaneBIMUDF0027;
     protected com.kingdee.bos.ctrl.swing.KDTextArea txtBIMUDF0027;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtaddress;
-    protected com.kingdee.bos.ctrl.swing.KDComboBox planType;
-    protected com.kingdee.bos.ctrl.swing.KDComboBox objectState;
-    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtCU;
     protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtEntry;
 	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtEntry_detailPanel = null;
-    protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtinvestAmount;
-    protected com.kingdee.bos.ctrl.swing.KDComboBox comboStatus;
-    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtyear;
-    protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtbalance;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtcompanyProperty;
-    protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtseq;
+    protected com.kingdee.bos.ctrl.swing.KDComboBox comboStatus;
+    protected com.kingdee.bos.ctrl.swing.KDDatePicker pkBizDate;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contanalyse;
     protected com.kingdee.bos.ctrl.swing.KDScrollPane scrollPaneanalyse;
     protected com.kingdee.bos.ctrl.swing.KDTextArea txtanalyse;
@@ -140,6 +105,42 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
 	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtE3_detailPanel = null;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtremark;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtcostTemp;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contyear;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contportProject;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contamount;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer continvestAmount;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contrequestPerson;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contNumber;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contplanType;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contrequestOrg;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contfundSource;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contaddInvestAmount;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contchancedAmount;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contbuildType;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contbalance;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contprojectType;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contCU;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contobjectState;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contseq;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contprojectName;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtyear;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtportProject;
+    protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtamount;
+    protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtinvestAmount;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtrequestPerson;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txtNumber;
+    protected com.kingdee.bos.ctrl.swing.KDComboBox planType;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtrequestOrg;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtfundSource;
+    protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtaddInvestAmount;
+    protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtchancedAmount;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtbuildType;
+    protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtbalance;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtprojectType;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtCU;
+    protected com.kingdee.bos.ctrl.swing.KDComboBox objectState;
+    protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtseq;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txtprojectName;
     protected com.kingdee.eas.port.pm.invest.YearInvestPlanInfo editData = null;
     /**
      * output class constructor
@@ -201,6 +202,7 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
         this.kDTabbedPane1 = new com.kingdee.bos.ctrl.swing.KDTabbedPane();
         this.contremark = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contcostTemp = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.kDPanel6 = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.prmtCreator = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.pkCreateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.prmtLastUpdateUser = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
@@ -215,59 +217,23 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
         this.kDPanel3 = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.kDPanel5 = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.kDPanel4 = new com.kingdee.bos.ctrl.swing.KDPanel();
-        this.contNumber = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contBizDate = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contbuildType = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contprojectName = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contportProject = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contfundSource = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contplanStartDate = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contplanEndDate = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contrequestPerson = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contrequestOrg = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contprojectType = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contaddInvestAmount = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contamount = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contchancedAmount = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contBIMUDF0027 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contaddress = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contplanType = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contobjectState = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contCU = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.kDContainer1 = new com.kingdee.bos.ctrl.swing.KDContainer();
-        this.continvestAmount = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contStatus = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contyear = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contbalance = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contcompanyProperty = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contseq = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.txtNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
-        this.pkBizDate = new com.kingdee.bos.ctrl.swing.KDDatePicker();
-        this.prmtbuildType = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
-        this.txtprojectName = new com.kingdee.bos.ctrl.swing.KDTextField();
-        this.prmtportProject = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
-        this.prmtfundSource = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.contStatus = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contBizDate = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.pkplanStartDate = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.pkplanEndDate = new com.kingdee.bos.ctrl.swing.KDDatePicker();
-        this.prmtrequestPerson = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
-        this.prmtrequestOrg = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
-        this.prmtprojectType = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
-        this.txtaddInvestAmount = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
-        this.txtamount = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
-        this.txtchancedAmount = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
         this.scrollPaneBIMUDF0027 = new com.kingdee.bos.ctrl.swing.KDScrollPane();
         this.txtBIMUDF0027 = new com.kingdee.bos.ctrl.swing.KDTextArea();
         this.txtaddress = new com.kingdee.bos.ctrl.swing.KDTextField();
-        this.planType = new com.kingdee.bos.ctrl.swing.KDComboBox();
-        this.objectState = new com.kingdee.bos.ctrl.swing.KDComboBox();
-        this.prmtCU = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.kdtEntry = new com.kingdee.bos.ctrl.kdf.table.KDTable();
-        this.txtinvestAmount = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
-        this.comboStatus = new com.kingdee.bos.ctrl.swing.KDComboBox();
-        this.prmtyear = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
-        this.txtbalance = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
         this.prmtcompanyProperty = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
-        this.txtseq = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
+        this.comboStatus = new com.kingdee.bos.ctrl.swing.KDComboBox();
+        this.pkBizDate = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.contanalyse = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.scrollPaneanalyse = new com.kingdee.bos.ctrl.swing.KDScrollPane();
         this.txtanalyse = new com.kingdee.bos.ctrl.swing.KDTextArea();
@@ -281,6 +247,42 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
         this.kdtE3 = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.txtremark = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.prmtcostTemp = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.contyear = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contportProject = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contamount = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.continvestAmount = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contrequestPerson = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contNumber = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contplanType = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contrequestOrg = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contfundSource = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contaddInvestAmount = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contchancedAmount = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contbuildType = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contbalance = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contprojectType = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contCU = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contobjectState = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contseq = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contprojectName = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.prmtyear = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.prmtportProject = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.txtamount = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
+        this.txtinvestAmount = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
+        this.prmtrequestPerson = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.txtNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.planType = new com.kingdee.bos.ctrl.swing.KDComboBox();
+        this.prmtrequestOrg = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.prmtfundSource = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.txtaddInvestAmount = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
+        this.txtchancedAmount = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
+        this.prmtbuildType = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.txtbalance = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
+        this.prmtprojectType = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.prmtCU = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.objectState = new com.kingdee.bos.ctrl.swing.KDComboBox();
+        this.txtseq = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
+        this.txtprojectName = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.contCreator.setName("contCreator");
         this.contCreateTime.setName("contCreateTime");
         this.contLastUpdateUser.setName("contLastUpdateUser");
@@ -292,6 +294,7 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
         this.kDTabbedPane1.setName("kDTabbedPane1");
         this.contremark.setName("contremark");
         this.contcostTemp.setName("contcostTemp");
+        this.kDPanel6.setName("kDPanel6");
         this.prmtCreator.setName("prmtCreator");
         this.pkCreateTime.setName("pkCreateTime");
         this.prmtLastUpdateUser.setName("prmtLastUpdateUser");
@@ -306,59 +309,23 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
         this.kDPanel3.setName("kDPanel3");
         this.kDPanel5.setName("kDPanel5");
         this.kDPanel4.setName("kDPanel4");
-        this.contNumber.setName("contNumber");
-        this.contBizDate.setName("contBizDate");
-        this.contbuildType.setName("contbuildType");
-        this.contprojectName.setName("contprojectName");
-        this.contportProject.setName("contportProject");
-        this.contfundSource.setName("contfundSource");
         this.contplanStartDate.setName("contplanStartDate");
         this.contplanEndDate.setName("contplanEndDate");
-        this.contrequestPerson.setName("contrequestPerson");
-        this.contrequestOrg.setName("contrequestOrg");
-        this.contprojectType.setName("contprojectType");
-        this.contaddInvestAmount.setName("contaddInvestAmount");
-        this.contamount.setName("contamount");
-        this.contchancedAmount.setName("contchancedAmount");
         this.contBIMUDF0027.setName("contBIMUDF0027");
         this.contaddress.setName("contaddress");
-        this.contplanType.setName("contplanType");
-        this.contobjectState.setName("contobjectState");
-        this.contCU.setName("contCU");
         this.kDContainer1.setName("kDContainer1");
-        this.continvestAmount.setName("continvestAmount");
-        this.contStatus.setName("contStatus");
-        this.contyear.setName("contyear");
-        this.contbalance.setName("contbalance");
         this.contcompanyProperty.setName("contcompanyProperty");
-        this.contseq.setName("contseq");
-        this.txtNumber.setName("txtNumber");
-        this.pkBizDate.setName("pkBizDate");
-        this.prmtbuildType.setName("prmtbuildType");
-        this.txtprojectName.setName("txtprojectName");
-        this.prmtportProject.setName("prmtportProject");
-        this.prmtfundSource.setName("prmtfundSource");
+        this.contStatus.setName("contStatus");
+        this.contBizDate.setName("contBizDate");
         this.pkplanStartDate.setName("pkplanStartDate");
         this.pkplanEndDate.setName("pkplanEndDate");
-        this.prmtrequestPerson.setName("prmtrequestPerson");
-        this.prmtrequestOrg.setName("prmtrequestOrg");
-        this.prmtprojectType.setName("prmtprojectType");
-        this.txtaddInvestAmount.setName("txtaddInvestAmount");
-        this.txtamount.setName("txtamount");
-        this.txtchancedAmount.setName("txtchancedAmount");
         this.scrollPaneBIMUDF0027.setName("scrollPaneBIMUDF0027");
         this.txtBIMUDF0027.setName("txtBIMUDF0027");
         this.txtaddress.setName("txtaddress");
-        this.planType.setName("planType");
-        this.objectState.setName("objectState");
-        this.prmtCU.setName("prmtCU");
         this.kdtEntry.setName("kdtEntry");
-        this.txtinvestAmount.setName("txtinvestAmount");
-        this.comboStatus.setName("comboStatus");
-        this.prmtyear.setName("prmtyear");
-        this.txtbalance.setName("txtbalance");
         this.prmtcompanyProperty.setName("prmtcompanyProperty");
-        this.txtseq.setName("txtseq");
+        this.comboStatus.setName("comboStatus");
+        this.pkBizDate.setName("pkBizDate");
         this.contanalyse.setName("contanalyse");
         this.scrollPaneanalyse.setName("scrollPaneanalyse");
         this.txtanalyse.setName("txtanalyse");
@@ -372,6 +339,42 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
         this.kdtE3.setName("kdtE3");
         this.txtremark.setName("txtremark");
         this.prmtcostTemp.setName("prmtcostTemp");
+        this.contyear.setName("contyear");
+        this.contportProject.setName("contportProject");
+        this.contamount.setName("contamount");
+        this.continvestAmount.setName("continvestAmount");
+        this.contrequestPerson.setName("contrequestPerson");
+        this.contNumber.setName("contNumber");
+        this.contplanType.setName("contplanType");
+        this.contrequestOrg.setName("contrequestOrg");
+        this.contfundSource.setName("contfundSource");
+        this.contaddInvestAmount.setName("contaddInvestAmount");
+        this.contchancedAmount.setName("contchancedAmount");
+        this.contbuildType.setName("contbuildType");
+        this.contbalance.setName("contbalance");
+        this.contprojectType.setName("contprojectType");
+        this.contCU.setName("contCU");
+        this.contobjectState.setName("contobjectState");
+        this.contseq.setName("contseq");
+        this.contprojectName.setName("contprojectName");
+        this.prmtyear.setName("prmtyear");
+        this.prmtportProject.setName("prmtportProject");
+        this.txtamount.setName("txtamount");
+        this.txtinvestAmount.setName("txtinvestAmount");
+        this.prmtrequestPerson.setName("prmtrequestPerson");
+        this.txtNumber.setName("txtNumber");
+        this.planType.setName("planType");
+        this.prmtrequestOrg.setName("prmtrequestOrg");
+        this.prmtfundSource.setName("prmtfundSource");
+        this.txtaddInvestAmount.setName("txtaddInvestAmount");
+        this.txtchancedAmount.setName("txtchancedAmount");
+        this.prmtbuildType.setName("prmtbuildType");
+        this.txtbalance.setName("txtbalance");
+        this.prmtprojectType.setName("prmtprojectType");
+        this.prmtCU.setName("prmtCU");
+        this.objectState.setName("objectState");
+        this.txtseq.setName("txtseq");
+        this.txtprojectName.setName("txtprojectName");
         // CoreUI
         // contCreator		
         this.contCreator.setBoundLabelText(resHelper.getString("contCreator.boundLabelText"));		
@@ -428,6 +431,8 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
         this.contcostTemp.setBoundLabelLength(100);		
         this.contcostTemp.setBoundLabelUnderline(true);		
         this.contcostTemp.setVisible(true);
+        // kDPanel6		
+        this.kDPanel6.setBorder(BorderFactory.createLineBorder(new Color(0,0,0),1));
         // prmtCreator		
         this.prmtCreator.setEnabled(false);		
         this.prmtCreator.setCommitFormat("$name$");		
@@ -468,34 +473,6 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
         // kDPanel3
         // kDPanel5
         // kDPanel4
-        // contNumber		
-        this.contNumber.setBoundLabelText(resHelper.getString("contNumber.boundLabelText"));		
-        this.contNumber.setBoundLabelLength(100);		
-        this.contNumber.setBoundLabelUnderline(true);
-        // contBizDate		
-        this.contBizDate.setBoundLabelText(resHelper.getString("contBizDate.boundLabelText"));		
-        this.contBizDate.setBoundLabelLength(100);		
-        this.contBizDate.setBoundLabelUnderline(true);
-        // contbuildType		
-        this.contbuildType.setBoundLabelText(resHelper.getString("contbuildType.boundLabelText"));		
-        this.contbuildType.setBoundLabelLength(100);		
-        this.contbuildType.setBoundLabelUnderline(true);		
-        this.contbuildType.setVisible(true);
-        // contprojectName		
-        this.contprojectName.setBoundLabelText(resHelper.getString("contprojectName.boundLabelText"));		
-        this.contprojectName.setBoundLabelLength(100);		
-        this.contprojectName.setBoundLabelUnderline(true);		
-        this.contprojectName.setVisible(true);
-        // contportProject		
-        this.contportProject.setBoundLabelText(resHelper.getString("contportProject.boundLabelText"));		
-        this.contportProject.setBoundLabelLength(100);		
-        this.contportProject.setBoundLabelUnderline(true);		
-        this.contportProject.setVisible(true);
-        // contfundSource		
-        this.contfundSource.setBoundLabelText(resHelper.getString("contfundSource.boundLabelText"));		
-        this.contfundSource.setBoundLabelLength(100);		
-        this.contfundSource.setBoundLabelUnderline(true);		
-        this.contfundSource.setVisible(true);
         // contplanStartDate		
         this.contplanStartDate.setBoundLabelText(resHelper.getString("contplanStartDate.boundLabelText"));		
         this.contplanStartDate.setBoundLabelLength(100);		
@@ -506,36 +483,6 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
         this.contplanEndDate.setBoundLabelLength(100);		
         this.contplanEndDate.setBoundLabelUnderline(true);		
         this.contplanEndDate.setVisible(true);
-        // contrequestPerson		
-        this.contrequestPerson.setBoundLabelText(resHelper.getString("contrequestPerson.boundLabelText"));		
-        this.contrequestPerson.setBoundLabelLength(100);		
-        this.contrequestPerson.setBoundLabelUnderline(true);		
-        this.contrequestPerson.setVisible(true);
-        // contrequestOrg		
-        this.contrequestOrg.setBoundLabelText(resHelper.getString("contrequestOrg.boundLabelText"));		
-        this.contrequestOrg.setBoundLabelLength(100);		
-        this.contrequestOrg.setBoundLabelUnderline(true);		
-        this.contrequestOrg.setVisible(true);
-        // contprojectType		
-        this.contprojectType.setBoundLabelText(resHelper.getString("contprojectType.boundLabelText"));		
-        this.contprojectType.setBoundLabelLength(100);		
-        this.contprojectType.setBoundLabelUnderline(true);		
-        this.contprojectType.setVisible(true);
-        // contaddInvestAmount		
-        this.contaddInvestAmount.setBoundLabelText(resHelper.getString("contaddInvestAmount.boundLabelText"));		
-        this.contaddInvestAmount.setBoundLabelLength(140);		
-        this.contaddInvestAmount.setBoundLabelUnderline(true);		
-        this.contaddInvestAmount.setVisible(true);
-        // contamount		
-        this.contamount.setBoundLabelText(resHelper.getString("contamount.boundLabelText"));		
-        this.contamount.setBoundLabelLength(100);		
-        this.contamount.setBoundLabelUnderline(true);		
-        this.contamount.setVisible(true);
-        // contchancedAmount		
-        this.contchancedAmount.setBoundLabelText(resHelper.getString("contchancedAmount.boundLabelText"));		
-        this.contchancedAmount.setBoundLabelLength(100);		
-        this.contchancedAmount.setBoundLabelUnderline(true);		
-        this.contchancedAmount.setVisible(true);
         // contBIMUDF0027		
         this.contBIMUDF0027.setBoundLabelText(resHelper.getString("contBIMUDF0027.boundLabelText"));		
         this.contBIMUDF0027.setBoundLabelLength(16);		
@@ -547,185 +494,27 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
         this.contaddress.setBoundLabelLength(100);		
         this.contaddress.setBoundLabelUnderline(true);		
         this.contaddress.setVisible(true);
-        // contplanType		
-        this.contplanType.setBoundLabelText(resHelper.getString("contplanType.boundLabelText"));		
-        this.contplanType.setBoundLabelLength(100);		
-        this.contplanType.setBoundLabelUnderline(true);		
-        this.contplanType.setVisible(true);
-        // contobjectState		
-        this.contobjectState.setBoundLabelText(resHelper.getString("contobjectState.boundLabelText"));		
-        this.contobjectState.setBoundLabelLength(100);		
-        this.contobjectState.setBoundLabelUnderline(true);		
-        this.contobjectState.setVisible(true);
-        // contCU		
-        this.contCU.setBoundLabelText(resHelper.getString("contCU.boundLabelText"));		
-        this.contCU.setBoundLabelLength(100);		
-        this.contCU.setBoundLabelUnderline(true);
         // kDContainer1		
         this.kDContainer1.setTitle(resHelper.getString("kDContainer1.title"));		
         this.kDContainer1.setEnableActive(false);
-        // continvestAmount		
-        this.continvestAmount.setBoundLabelText(resHelper.getString("continvestAmount.boundLabelText"));		
-        this.continvestAmount.setBoundLabelLength(100);		
-        this.continvestAmount.setBoundLabelUnderline(true);		
-        this.continvestAmount.setVisible(true);
-        // contStatus		
-        this.contStatus.setBoundLabelText(resHelper.getString("contStatus.boundLabelText"));		
-        this.contStatus.setBoundLabelLength(100);		
-        this.contStatus.setBoundLabelUnderline(true);		
-        this.contStatus.setEnabled(false);
-        // contyear		
-        this.contyear.setBoundLabelText(resHelper.getString("contyear.boundLabelText"));		
-        this.contyear.setBoundLabelLength(100);		
-        this.contyear.setBoundLabelUnderline(true);		
-        this.contyear.setVisible(true);		
-        this.contyear.setVerifyInputWhenFocusTarget(false);
-        // contbalance		
-        this.contbalance.setBoundLabelText(resHelper.getString("contbalance.boundLabelText"));		
-        this.contbalance.setBoundLabelLength(100);		
-        this.contbalance.setBoundLabelUnderline(true);		
-        this.contbalance.setVisible(true);
         // contcompanyProperty		
         this.contcompanyProperty.setBoundLabelText(resHelper.getString("contcompanyProperty.boundLabelText"));		
         this.contcompanyProperty.setBoundLabelLength(100);		
         this.contcompanyProperty.setBoundLabelUnderline(true);		
         this.contcompanyProperty.setVisible(true);
-        // contseq		
-        this.contseq.setBoundLabelText(resHelper.getString("contseq.boundLabelText"));		
-        this.contseq.setBoundLabelLength(30);		
-        this.contseq.setBoundLabelUnderline(true);		
-        this.contseq.setVisible(true);		
-        this.contseq.setForeground(new java.awt.Color(255,0,0));
-        // txtNumber		
-        this.txtNumber.setRequired(true);		
-        this.txtNumber.setEditable(false);
-        // pkBizDate		
-        this.pkBizDate.setRequired(true);
-        // prmtbuildType		
-        this.prmtbuildType.setQueryInfo("com.kingdee.eas.port.pm.base.app.BuildTypeQuery");		
-        this.prmtbuildType.setEditable(true);		
-        this.prmtbuildType.setDisplayFormat("$name$");		
-        this.prmtbuildType.setEditFormat("$number$");		
-        this.prmtbuildType.setCommitFormat("$number$");		
-        this.prmtbuildType.setRequired(true);
-        this.prmtbuildType.addDataChangeListener(new com.kingdee.bos.ctrl.swing.event.DataChangeListener() {
-            public void dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) {
-                try {
-                    prmtbuildType_dataChanged(e);
-                } catch (Exception exc) {
-                    handUIException(exc);
-                } finally {
-                }
-            }
-        });
-        // txtprojectName		
-        this.txtprojectName.setHorizontalAlignment(2);		
-        this.txtprojectName.setMaxLength(100);		
-        this.txtprojectName.setRequired(true);
-        // prmtportProject		
-        this.prmtportProject.setQueryInfo("com.kingdee.eas.basedata.assistant.app.ProjectQuery");		
-        this.prmtportProject.setEditable(true);		
-        this.prmtportProject.setDisplayFormat("$name$");		
-        this.prmtportProject.setEditFormat("$number$");		
-        this.prmtportProject.setCommitFormat("$number$");		
-        this.prmtportProject.setRequired(true);
-        this.prmtportProject.addDataChangeListener(new com.kingdee.bos.ctrl.swing.event.DataChangeListener() {
-            public void dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) {
-                try {
-                    prmtportProject_dataChanged(e);
-                } catch (Exception exc) {
-                    handUIException(exc);
-                } finally {
-                }
-            }
-        });
-        // prmtfundSource		
-        this.prmtfundSource.setQueryInfo("com.kingdee.eas.port.pm.base.app.FundSourceQuery");		
-        this.prmtfundSource.setEditable(true);		
-        this.prmtfundSource.setDisplayFormat("$name$");		
-        this.prmtfundSource.setEditFormat("$number$");		
-        this.prmtfundSource.setCommitFormat("$number$");		
-        this.prmtfundSource.setRequired(true);
+        // contStatus		
+        this.contStatus.setBoundLabelText(resHelper.getString("contStatus.boundLabelText"));		
+        this.contStatus.setBoundLabelLength(100);		
+        this.contStatus.setBoundLabelUnderline(true);		
+        this.contStatus.setEnabled(false);
+        // contBizDate		
+        this.contBizDate.setBoundLabelText(resHelper.getString("contBizDate.boundLabelText"));		
+        this.contBizDate.setBoundLabelLength(100);		
+        this.contBizDate.setBoundLabelUnderline(true);
         // pkplanStartDate		
         this.pkplanStartDate.setRequired(false);
         // pkplanEndDate		
         this.pkplanEndDate.setRequired(false);
-        // prmtrequestPerson		
-        this.prmtrequestPerson.setQueryInfo("com.kingdee.eas.basedata.person.app.PersonQuery");		
-        this.prmtrequestPerson.setEditable(true);		
-        this.prmtrequestPerson.setDisplayFormat("$name$");		
-        this.prmtrequestPerson.setEditFormat("$number$");		
-        this.prmtrequestPerson.setCommitFormat("$number$");		
-        this.prmtrequestPerson.setRequired(true);
-        prmtrequestPerson.addDataChangeListener(new DataChangeListener() {
-		public void dataChanged(DataChangeEvent e) {
-			try {
-				prmtrequestPerson_Changed();
-			}
-			catch (Exception exc) {
-				handUIException(exc);
-			}
-		}
-	});
-
-        this.prmtrequestPerson.addDataChangeListener(new com.kingdee.bos.ctrl.swing.event.DataChangeListener() {
-            public void dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) {
-                try {
-                    prmtrequestPerson_dataChanged(e);
-                } catch (Exception exc) {
-                    handUIException(exc);
-                } finally {
-                }
-            }
-        });
-        // prmtrequestOrg		
-        this.prmtrequestOrg.setQueryInfo("com.kingdee.eas.basedata.org.app.AdminItemQuery");		
-        this.prmtrequestOrg.setDisplayFormat("$name$");		
-        this.prmtrequestOrg.setEditFormat("$number$");		
-        this.prmtrequestOrg.setCommitFormat("$number$");		
-        this.prmtrequestOrg.setRequired(true);
-        // prmtprojectType		
-        this.prmtprojectType.setQueryInfo("com.kingdee.eas.port.pm.base.app.ProjectTypeQuery");		
-        this.prmtprojectType.setDisplayFormat("$name$");		
-        this.prmtprojectType.setEditFormat("$number$");		
-        this.prmtprojectType.setCommitFormat("$number$");		
-        this.prmtprojectType.setRequired(true);
-        this.prmtprojectType.addDataChangeListener(new com.kingdee.bos.ctrl.swing.event.DataChangeListener() {
-            public void dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) {
-                try {
-                    prmtprojectType_dataChanged(e);
-                } catch (Exception exc) {
-                    handUIException(exc);
-                } finally {
-                }
-            }
-        });
-        // txtaddInvestAmount		
-        this.txtaddInvestAmount.setHorizontalAlignment(2);		
-        this.txtaddInvestAmount.setDataType(1);		
-        this.txtaddInvestAmount.setSupportedEmpty(true);		
-        this.txtaddInvestAmount.setMinimumValue( new java.math.BigDecimal("-1.0E26"));		
-        this.txtaddInvestAmount.setMaximumValue( new java.math.BigDecimal("1.0E26"));		
-        this.txtaddInvestAmount.setPrecision(2);		
-        this.txtaddInvestAmount.setRequired(false);		
-        this.txtaddInvestAmount.setEditable(false);		
-        this.txtaddInvestAmount.setEnabled(false);
-        // txtamount		
-        this.txtamount.setHorizontalAlignment(2);		
-        this.txtamount.setDataType(1);		
-        this.txtamount.setSupportedEmpty(true);		
-        this.txtamount.setMinimumValue( new java.math.BigDecimal("-1.0E26"));		
-        this.txtamount.setMaximumValue( new java.math.BigDecimal("1.0E26"));		
-        this.txtamount.setPrecision(2);		
-        this.txtamount.setRequired(false);
-        // txtchancedAmount		
-        this.txtchancedAmount.setHorizontalAlignment(2);		
-        this.txtchancedAmount.setDataType(1);		
-        this.txtchancedAmount.setSupportedEmpty(true);		
-        this.txtchancedAmount.setMinimumValue( new java.math.BigDecimal("-1.0E26"));		
-        this.txtchancedAmount.setMaximumValue( new java.math.BigDecimal("1.0E26"));		
-        this.txtchancedAmount.setPrecision(2);		
-        this.txtchancedAmount.setRequired(false);
         // scrollPaneBIMUDF0027
         // txtBIMUDF0027		
         this.txtBIMUDF0027.setRequired(false);		
@@ -734,36 +523,6 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
         this.txtaddress.setHorizontalAlignment(2);		
         this.txtaddress.setMaxLength(200);		
         this.txtaddress.setRequired(false);
-        // planType		
-        this.planType.addItems(EnumUtils.getEnumList("com.kingdee.eas.port.pm.base.coms.PlanTypeEnum").toArray());		
-        this.planType.setRequired(true);
-        this.planType.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent e) {
-                try {
-                    planType_itemStateChanged(e);
-                } catch (Exception exc) {
-                    handUIException(exc);
-                } finally {
-                }
-            }
-        });
-        // objectState		
-        this.objectState.addItems(EnumUtils.getEnumList("com.kingdee.eas.port.pm.invest.ObjectStateEnum").toArray());		
-        this.objectState.setRequired(true);		
-        this.objectState.setEnabled(false);
-        this.objectState.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent e) {
-                try {
-                    objectState_itemStateChanged(e);
-                } catch (Exception exc) {
-                    handUIException(exc);
-                } finally {
-                }
-            }
-        });
-        // prmtCU		
-        this.prmtCU.setQueryInfo("com.kingdee.eas.basedata.framework.app.CtrlUnitQuery");		
-        this.prmtCU.setRequired(true);
         // kdtEntry
 		String kdtEntryStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /><c:NumberFormat>&amp;int</c:NumberFormat></c:Style><c:Style id=\"sCol3\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol4\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol5\"><c:NumberFormat>&amp;date</c:NumberFormat></c:Style><c:Style id=\"sCol6\"><c:NumberFormat>&amp;date</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"costType\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"costName\" t:width=\"150\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"estimate\" t:width=\"150\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol3\" /><t:Column t:key=\"yearInvestBudget\" t:width=\"150\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol4\" /><t:Column t:key=\"planStartT\" t:width=\"150\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol5\" /><t:Column t:key=\"acceptTime\" t:width=\"150\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol6\" /><t:Column t:key=\"description\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{costType}</t:Cell><t:Cell>$Resource{costName}</t:Cell><t:Cell>$Resource{estimate}</t:Cell><t:Cell>$Resource{yearInvestBudget}</t:Cell><t:Cell>$Resource{planStartT}</t:Cell><t:Cell>$Resource{acceptTime}</t:Cell><t:Cell>$Resource{description}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
@@ -816,44 +575,6 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
         kdtEntry_acceptTime_DatePicker.setEditable(true);
         KDTDefaultCellEditor kdtEntry_acceptTime_CellEditor = new KDTDefaultCellEditor(kdtEntry_acceptTime_DatePicker);
         this.kdtEntry.getColumn("acceptTime").setEditor(kdtEntry_acceptTime_CellEditor);
-        // txtinvestAmount		
-        this.txtinvestAmount.setHorizontalAlignment(2);		
-        this.txtinvestAmount.setDataType(1);		
-        this.txtinvestAmount.setSupportedEmpty(true);		
-        this.txtinvestAmount.setMinimumValue( new java.math.BigDecimal("-1.0E26"));		
-        this.txtinvestAmount.setMaximumValue( new java.math.BigDecimal("1.0E26"));		
-        this.txtinvestAmount.setPrecision(2);		
-        this.txtinvestAmount.setRequired(false);
-        // comboStatus		
-        this.comboStatus.addItems(EnumUtils.getEnumList("com.kingdee.eas.xr.app.XRBillStatusEnum").toArray());		
-        this.comboStatus.setEnabled(false);
-        // prmtyear		
-        this.prmtyear.setQueryInfo("com.kingdee.eas.port.pm.base.app.InvestYearQuery");		
-        this.prmtyear.setVisible(true);		
-        this.prmtyear.setEditable(true);		
-        this.prmtyear.setDisplayFormat("$name$");		
-        this.prmtyear.setEditFormat("$number$");		
-        this.prmtyear.setCommitFormat("$number$");		
-        this.prmtyear.setRequired(true);
-        this.prmtyear.addDataChangeListener(new com.kingdee.bos.ctrl.swing.event.DataChangeListener() {
-            public void dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) {
-                try {
-                    prmtyear_dataChanged(e);
-                } catch (Exception exc) {
-                    handUIException(exc);
-                } finally {
-                }
-            }
-        });
-        // txtbalance		
-        this.txtbalance.setVisible(true);		
-        this.txtbalance.setHorizontalAlignment(2);		
-        this.txtbalance.setDataType(1);		
-        this.txtbalance.setSupportedEmpty(true);		
-        this.txtbalance.setMinimumValue( new java.math.BigDecimal("-1.0E26"));		
-        this.txtbalance.setMaximumValue( new java.math.BigDecimal("1.0E26"));		
-        this.txtbalance.setPrecision(2);		
-        this.txtbalance.setRequired(false);
         // prmtcompanyProperty		
         this.prmtcompanyProperty.setQueryInfo("com.kingdee.eas.port.pm.base.app.CompanyPropertyQuery");		
         this.prmtcompanyProperty.setVisible(true);		
@@ -862,16 +583,11 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
         this.prmtcompanyProperty.setEditFormat("$number$");		
         this.prmtcompanyProperty.setCommitFormat("$number$");		
         this.prmtcompanyProperty.setRequired(false);
-        // txtseq		
-        this.txtseq.setVisible(true);		
-        this.txtseq.setHorizontalAlignment(2);		
-        this.txtseq.setDataType(1);		
-        this.txtseq.setSupportedEmpty(true);		
-        this.txtseq.setMinimumValue( new java.math.BigDecimal("-1.0E27"));		
-        this.txtseq.setMaximumValue( new java.math.BigDecimal("1.0E27"));		
-        this.txtseq.setPrecision(1);		
-        this.txtseq.setRequired(false);		
-        this.txtseq.setForeground(new java.awt.Color(255,0,0));
+        // comboStatus		
+        this.comboStatus.addItems(EnumUtils.getEnumList("com.kingdee.eas.xr.app.XRBillStatusEnum").toArray());		
+        this.comboStatus.setEnabled(false);
+        // pkBizDate		
+        this.pkBizDate.setRequired(true);
         // contanalyse		
         this.contanalyse.setBoundLabelText(resHelper.getString("contanalyse.boundLabelText"));		
         this.contanalyse.setBoundLabelLength(100);		
@@ -956,6 +672,296 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
                 }
             }
         });
+        // contyear		
+        this.contyear.setBoundLabelText(resHelper.getString("contyear.boundLabelText"));		
+        this.contyear.setBoundLabelLength(100);		
+        this.contyear.setBoundLabelUnderline(true);		
+        this.contyear.setVisible(true);		
+        this.contyear.setVerifyInputWhenFocusTarget(false);
+        // contportProject		
+        this.contportProject.setBoundLabelText(resHelper.getString("contportProject.boundLabelText"));		
+        this.contportProject.setBoundLabelLength(100);		
+        this.contportProject.setBoundLabelUnderline(true);		
+        this.contportProject.setVisible(true);
+        // contamount		
+        this.contamount.setBoundLabelText(resHelper.getString("contamount.boundLabelText"));		
+        this.contamount.setBoundLabelLength(100);		
+        this.contamount.setBoundLabelUnderline(true);		
+        this.contamount.setVisible(true);
+        // continvestAmount		
+        this.continvestAmount.setBoundLabelText(resHelper.getString("continvestAmount.boundLabelText"));		
+        this.continvestAmount.setBoundLabelLength(100);		
+        this.continvestAmount.setBoundLabelUnderline(true);		
+        this.continvestAmount.setVisible(true);
+        // contrequestPerson		
+        this.contrequestPerson.setBoundLabelText(resHelper.getString("contrequestPerson.boundLabelText"));		
+        this.contrequestPerson.setBoundLabelLength(100);		
+        this.contrequestPerson.setBoundLabelUnderline(true);		
+        this.contrequestPerson.setVisible(true);
+        // contNumber		
+        this.contNumber.setBoundLabelText(resHelper.getString("contNumber.boundLabelText"));		
+        this.contNumber.setBoundLabelLength(100);		
+        this.contNumber.setBoundLabelUnderline(true);
+        // contplanType		
+        this.contplanType.setBoundLabelText(resHelper.getString("contplanType.boundLabelText"));		
+        this.contplanType.setBoundLabelLength(100);		
+        this.contplanType.setBoundLabelUnderline(true);		
+        this.contplanType.setVisible(true);
+        // contrequestOrg		
+        this.contrequestOrg.setBoundLabelText(resHelper.getString("contrequestOrg.boundLabelText"));		
+        this.contrequestOrg.setBoundLabelLength(100);		
+        this.contrequestOrg.setBoundLabelUnderline(true);		
+        this.contrequestOrg.setVisible(true);
+        // contfundSource		
+        this.contfundSource.setBoundLabelText(resHelper.getString("contfundSource.boundLabelText"));		
+        this.contfundSource.setBoundLabelLength(100);		
+        this.contfundSource.setBoundLabelUnderline(true);		
+        this.contfundSource.setVisible(true);
+        // contaddInvestAmount		
+        this.contaddInvestAmount.setBoundLabelText(resHelper.getString("contaddInvestAmount.boundLabelText"));		
+        this.contaddInvestAmount.setBoundLabelLength(140);		
+        this.contaddInvestAmount.setBoundLabelUnderline(true);		
+        this.contaddInvestAmount.setVisible(true);
+        // contchancedAmount		
+        this.contchancedAmount.setBoundLabelText(resHelper.getString("contchancedAmount.boundLabelText"));		
+        this.contchancedAmount.setBoundLabelLength(100);		
+        this.contchancedAmount.setBoundLabelUnderline(true);		
+        this.contchancedAmount.setEnabled(false);
+        // contbuildType		
+        this.contbuildType.setBoundLabelText(resHelper.getString("contbuildType.boundLabelText"));		
+        this.contbuildType.setBoundLabelLength(100);		
+        this.contbuildType.setBoundLabelUnderline(true);		
+        this.contbuildType.setVisible(true);
+        // contbalance		
+        this.contbalance.setBoundLabelText(resHelper.getString("contbalance.boundLabelText"));		
+        this.contbalance.setBoundLabelLength(100);		
+        this.contbalance.setBoundLabelUnderline(true);		
+        this.contbalance.setVisible(true);
+        // contprojectType		
+        this.contprojectType.setBoundLabelText(resHelper.getString("contprojectType.boundLabelText"));		
+        this.contprojectType.setBoundLabelLength(100);		
+        this.contprojectType.setBoundLabelUnderline(true);		
+        this.contprojectType.setVisible(true);
+        // contCU		
+        this.contCU.setBoundLabelText(resHelper.getString("contCU.boundLabelText"));		
+        this.contCU.setBoundLabelLength(100);		
+        this.contCU.setBoundLabelUnderline(true);
+        // contobjectState		
+        this.contobjectState.setBoundLabelText(resHelper.getString("contobjectState.boundLabelText"));		
+        this.contobjectState.setBoundLabelLength(100);		
+        this.contobjectState.setBoundLabelUnderline(true);		
+        this.contobjectState.setVisible(true);
+        // contseq		
+        this.contseq.setBoundLabelText(resHelper.getString("contseq.boundLabelText"));		
+        this.contseq.setBoundLabelLength(30);		
+        this.contseq.setBoundLabelUnderline(true);		
+        this.contseq.setVisible(true);		
+        this.contseq.setForeground(new java.awt.Color(255,0,0));
+        // contprojectName		
+        this.contprojectName.setBoundLabelText(resHelper.getString("contprojectName.boundLabelText"));		
+        this.contprojectName.setBoundLabelLength(100);		
+        this.contprojectName.setBoundLabelUnderline(true);		
+        this.contprojectName.setVisible(true);
+        // prmtyear		
+        this.prmtyear.setQueryInfo("com.kingdee.eas.port.pm.base.app.InvestYearQuery");		
+        this.prmtyear.setVisible(true);		
+        this.prmtyear.setEditable(true);		
+        this.prmtyear.setDisplayFormat("$name$");		
+        this.prmtyear.setEditFormat("$number$");		
+        this.prmtyear.setCommitFormat("$number$");		
+        this.prmtyear.setRequired(true);
+        this.prmtyear.addDataChangeListener(new com.kingdee.bos.ctrl.swing.event.DataChangeListener() {
+            public void dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) {
+                try {
+                    prmtyear_dataChanged(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                }
+            }
+        });
+        // prmtportProject		
+        this.prmtportProject.setQueryInfo("com.kingdee.eas.basedata.assistant.app.ProjectQuery");		
+        this.prmtportProject.setEditable(true);		
+        this.prmtportProject.setDisplayFormat("$name$");		
+        this.prmtportProject.setEditFormat("$number$");		
+        this.prmtportProject.setCommitFormat("$number$");		
+        this.prmtportProject.setRequired(true);
+        this.prmtportProject.addDataChangeListener(new com.kingdee.bos.ctrl.swing.event.DataChangeListener() {
+            public void dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) {
+                try {
+                    prmtportProject_dataChanged(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                }
+            }
+        });
+        // txtamount		
+        this.txtamount.setHorizontalAlignment(2);		
+        this.txtamount.setDataType(1);		
+        this.txtamount.setSupportedEmpty(true);		
+        this.txtamount.setMinimumValue( new java.math.BigDecimal("-1.0E26"));		
+        this.txtamount.setMaximumValue( new java.math.BigDecimal("1.0E26"));		
+        this.txtamount.setPrecision(2);		
+        this.txtamount.setRequired(false);
+        // txtinvestAmount		
+        this.txtinvestAmount.setHorizontalAlignment(2);		
+        this.txtinvestAmount.setDataType(1);		
+        this.txtinvestAmount.setSupportedEmpty(true);		
+        this.txtinvestAmount.setMinimumValue( new java.math.BigDecimal("-1.0E26"));		
+        this.txtinvestAmount.setMaximumValue( new java.math.BigDecimal("1.0E26"));		
+        this.txtinvestAmount.setPrecision(2);		
+        this.txtinvestAmount.setRequired(false);
+        // prmtrequestPerson		
+        this.prmtrequestPerson.setQueryInfo("com.kingdee.eas.basedata.person.app.PersonQuery");		
+        this.prmtrequestPerson.setEditable(true);		
+        this.prmtrequestPerson.setDisplayFormat("$name$");		
+        this.prmtrequestPerson.setEditFormat("$number$");		
+        this.prmtrequestPerson.setCommitFormat("$number$");		
+        this.prmtrequestPerson.setRequired(true);
+        prmtrequestPerson.addDataChangeListener(new DataChangeListener() {
+		public void dataChanged(DataChangeEvent e) {
+			try {
+				prmtrequestPerson_Changed();
+			}
+			catch (Exception exc) {
+				handUIException(exc);
+			}
+		}
+	});
+
+        this.prmtrequestPerson.addDataChangeListener(new com.kingdee.bos.ctrl.swing.event.DataChangeListener() {
+            public void dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) {
+                try {
+                    prmtrequestPerson_dataChanged(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                }
+            }
+        });
+        // txtNumber		
+        this.txtNumber.setRequired(true);		
+        this.txtNumber.setEditable(false);
+        // planType		
+        this.planType.addItems(EnumUtils.getEnumList("com.kingdee.eas.port.pm.base.coms.PlanTypeEnum").toArray());		
+        this.planType.setRequired(true);
+        this.planType.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent e) {
+                try {
+                    planType_itemStateChanged(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                }
+            }
+        });
+        // prmtrequestOrg		
+        this.prmtrequestOrg.setQueryInfo("com.kingdee.eas.basedata.org.app.AdminItemQuery");		
+        this.prmtrequestOrg.setDisplayFormat("$name$");		
+        this.prmtrequestOrg.setEditFormat("$number$");		
+        this.prmtrequestOrg.setCommitFormat("$number$");		
+        this.prmtrequestOrg.setRequired(true);
+        // prmtfundSource		
+        this.prmtfundSource.setQueryInfo("com.kingdee.eas.port.pm.base.app.FundSourceQuery");		
+        this.prmtfundSource.setEditable(true);		
+        this.prmtfundSource.setDisplayFormat("$name$");		
+        this.prmtfundSource.setEditFormat("$number$");		
+        this.prmtfundSource.setCommitFormat("$number$");		
+        this.prmtfundSource.setRequired(true);
+        // txtaddInvestAmount		
+        this.txtaddInvestAmount.setHorizontalAlignment(2);		
+        this.txtaddInvestAmount.setDataType(1);		
+        this.txtaddInvestAmount.setSupportedEmpty(true);		
+        this.txtaddInvestAmount.setMinimumValue( new java.math.BigDecimal("-1.0E26"));		
+        this.txtaddInvestAmount.setMaximumValue( new java.math.BigDecimal("1.0E26"));		
+        this.txtaddInvestAmount.setPrecision(2);		
+        this.txtaddInvestAmount.setRequired(false);		
+        this.txtaddInvestAmount.setEditable(false);		
+        this.txtaddInvestAmount.setEnabled(false);
+        // txtchancedAmount		
+        this.txtchancedAmount.setHorizontalAlignment(2);		
+        this.txtchancedAmount.setDataType(1);		
+        this.txtchancedAmount.setSupportedEmpty(true);		
+        this.txtchancedAmount.setMinimumValue( new java.math.BigDecimal("-1.0E26"));		
+        this.txtchancedAmount.setMaximumValue( new java.math.BigDecimal("1.0E26"));		
+        this.txtchancedAmount.setPrecision(2);		
+        this.txtchancedAmount.setRequired(false);		
+        this.txtchancedAmount.setEnabled(false);
+        // prmtbuildType		
+        this.prmtbuildType.setQueryInfo("com.kingdee.eas.port.pm.base.app.BuildTypeQuery");		
+        this.prmtbuildType.setEditable(true);		
+        this.prmtbuildType.setDisplayFormat("$name$");		
+        this.prmtbuildType.setEditFormat("$number$");		
+        this.prmtbuildType.setCommitFormat("$number$");		
+        this.prmtbuildType.setRequired(true);
+        this.prmtbuildType.addDataChangeListener(new com.kingdee.bos.ctrl.swing.event.DataChangeListener() {
+            public void dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) {
+                try {
+                    prmtbuildType_dataChanged(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                }
+            }
+        });
+        // txtbalance		
+        this.txtbalance.setVisible(true);		
+        this.txtbalance.setHorizontalAlignment(2);		
+        this.txtbalance.setDataType(1);		
+        this.txtbalance.setSupportedEmpty(true);		
+        this.txtbalance.setMinimumValue( new java.math.BigDecimal("-1.0E26"));		
+        this.txtbalance.setMaximumValue( new java.math.BigDecimal("1.0E26"));		
+        this.txtbalance.setPrecision(2);		
+        this.txtbalance.setRequired(false);
+        // prmtprojectType		
+        this.prmtprojectType.setQueryInfo("com.kingdee.eas.port.pm.base.app.ProjectTypeQuery");		
+        this.prmtprojectType.setDisplayFormat("$name$");		
+        this.prmtprojectType.setEditFormat("$number$");		
+        this.prmtprojectType.setCommitFormat("$number$");		
+        this.prmtprojectType.setRequired(true);
+        this.prmtprojectType.addDataChangeListener(new com.kingdee.bos.ctrl.swing.event.DataChangeListener() {
+            public void dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) {
+                try {
+                    prmtprojectType_dataChanged(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                }
+            }
+        });
+        // prmtCU		
+        this.prmtCU.setQueryInfo("com.kingdee.eas.basedata.framework.app.CtrlUnitQuery");		
+        this.prmtCU.setRequired(true);
+        // objectState		
+        this.objectState.addItems(EnumUtils.getEnumList("com.kingdee.eas.port.pm.invest.ObjectStateEnum").toArray());		
+        this.objectState.setRequired(true);		
+        this.objectState.setEnabled(false);
+        this.objectState.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent e) {
+                try {
+                    objectState_itemStateChanged(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                }
+            }
+        });
+        // txtseq		
+        this.txtseq.setVisible(true);		
+        this.txtseq.setHorizontalAlignment(2);		
+        this.txtseq.setDataType(1);		
+        this.txtseq.setSupportedEmpty(true);		
+        this.txtseq.setMinimumValue( new java.math.BigDecimal("-1.0E27"));		
+        this.txtseq.setMaximumValue( new java.math.BigDecimal("1.0E27"));		
+        this.txtseq.setPrecision(1);		
+        this.txtseq.setRequired(false);		
+        this.txtseq.setForeground(new java.awt.Color(255,0,0));
+        // txtprojectName		
+        this.txtprojectName.setHorizontalAlignment(2);		
+        this.txtprojectName.setMaxLength(100);		
+        this.txtprojectName.setRequired(true);
         this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {txtaddress,txtBIMUDF0027,txtchancedAmount,txtamount,txtaddInvestAmount,prmtprojectType,prmtrequestOrg,prmtrequestPerson,pkplanEndDate,pkplanStartDate,prmtfundSource,prmtportProject,prmtCU,pkLastUpdateTime,prmtLastUpdateUser,pkCreateTime,prmtCreator,prmtAuditor,txtDescription,pkBizDate,txtNumber,pkAuditTime,comboBizStatus,comboStatus,txtprojectName,prmtbuildType,txtscheme,txtanalyse,planType,objectState,prmtcostTemp,txtinvestAmount,txtremark,kdtEntry,kdtE2,kdtE3,prmtyear,txtbalance}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
@@ -985,28 +991,30 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
         this.setBounds(new Rectangle(-26, 10, 1041, 653));
         this.setLayout(new KDLayout());
         this.putClientProperty("OriginalBounds", new Rectangle(-26, 10, 1041, 653));
-        contCreator.setBounds(new Rectangle(8, 584, 270, 19));
-        this.add(contCreator, new KDLayout.Constraints(8, 584, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contCreateTime.setBounds(new Rectangle(8, 612, 270, 19));
-        this.add(contCreateTime, new KDLayout.Constraints(8, 612, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contLastUpdateUser.setBounds(new Rectangle(378, 584, 270, 19));
-        this.add(contLastUpdateUser, new KDLayout.Constraints(378, 584, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contLastUpdateTime.setBounds(new Rectangle(378, 612, 270, 19));
-        this.add(contLastUpdateTime, new KDLayout.Constraints(378, 612, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contCreator.setBounds(new Rectangle(8, 593, 270, 19));
+        this.add(contCreator, new KDLayout.Constraints(8, 593, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contCreateTime.setBounds(new Rectangle(8, 621, 270, 19));
+        this.add(contCreateTime, new KDLayout.Constraints(8, 621, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contLastUpdateUser.setBounds(new Rectangle(378, 593, 270, 19));
+        this.add(contLastUpdateUser, new KDLayout.Constraints(378, 593, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contLastUpdateTime.setBounds(new Rectangle(378, 621, 270, 19));
+        this.add(contLastUpdateTime, new KDLayout.Constraints(378, 621, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contDescription.setBounds(new Rectangle(8, 627, 270, 19));
         this.add(contDescription, new KDLayout.Constraints(8, 627, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        contAuditor.setBounds(new Rectangle(748, 584, 270, 19));
-        this.add(contAuditor, new KDLayout.Constraints(748, 584, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contAuditor.setBounds(new Rectangle(748, 593, 270, 19));
+        this.add(contAuditor, new KDLayout.Constraints(748, 593, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contBizStatus.setBounds(new Rectangle(285, 631, 270, 19));
         this.add(contBizStatus, new KDLayout.Constraints(285, 631, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        contAuditTime.setBounds(new Rectangle(748, 612, 270, 19));
-        this.add(contAuditTime, new KDLayout.Constraints(748, 612, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        kDTabbedPane1.setBounds(new Rectangle(10, 10, 986, 571));
-        this.add(kDTabbedPane1, new KDLayout.Constraints(10, 10, 986, 571, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        contAuditTime.setBounds(new Rectangle(748, 621, 270, 19));
+        this.add(contAuditTime, new KDLayout.Constraints(748, 621, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        kDTabbedPane1.setBounds(new Rectangle(10, 190, 1009, 400));
+        this.add(kDTabbedPane1, new KDLayout.Constraints(10, 190, 1009, 400, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         contremark.setBounds(new Rectangle(571, 633, 270, 19));
         this.add(contremark, new KDLayout.Constraints(571, 633, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contcostTemp.setBounds(new Rectangle(294, 607, 68, 19));
-        this.add(contcostTemp, new KDLayout.Constraints(294, 607, 68, 19, 0));
+        contcostTemp.setBounds(new Rectangle(863, 632, 68, 19));
+        this.add(contcostTemp, new KDLayout.Constraints(863, 632, 68, 19, 0));
+        kDPanel6.setBounds(new Rectangle(14, 3, 1004, 179));
+        this.add(kDPanel6, new KDLayout.Constraints(14, 3, 1004, 179, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         //contCreator
         contCreator.setBoundEditor(prmtCreator);
         //contCreateTime
@@ -1032,143 +1040,73 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
         kDTabbedPane1.add(kDPanel4, resHelper.getString("kDPanel4.constraints"));
         //kDPanel1
         kDPanel1.setLayout(new KDLayout());
-        kDPanel1.putClientProperty("OriginalBounds", new Rectangle(0, 0, 985, 538));        contNumber.setBounds(new Rectangle(13, 31, 270, 19));
-        kDPanel1.add(contNumber, new KDLayout.Constraints(13, 31, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contBizDate.setBounds(new Rectangle(13, 135, 270, 19));
-        kDPanel1.add(contBizDate, new KDLayout.Constraints(13, 135, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contbuildType.setBounds(new Rectangle(696, 135, 270, 19));
-        kDPanel1.add(contbuildType, new KDLayout.Constraints(696, 135, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contprojectName.setBounds(new Rectangle(13, 5, 523, 19));
-        kDPanel1.add(contprojectName, new KDLayout.Constraints(13, 5, 523, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contportProject.setBounds(new Rectangle(696, 191, 270, 19));
-        kDPanel1.add(contportProject, new KDLayout.Constraints(696, 191, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contfundSource.setBounds(new Rectangle(354, 83, 270, 19));
-        kDPanel1.add(contfundSource, new KDLayout.Constraints(354, 83, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contplanStartDate.setBounds(new Rectangle(13, 163, 270, 19));
-        kDPanel1.add(contplanStartDate, new KDLayout.Constraints(13, 163, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contplanEndDate.setBounds(new Rectangle(354, 163, 270, 19));
-        kDPanel1.add(contplanEndDate, new KDLayout.Constraints(354, 163, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contrequestPerson.setBounds(new Rectangle(13, 57, 270, 19));
-        kDPanel1.add(contrequestPerson, new KDLayout.Constraints(13, 57, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contrequestOrg.setBounds(new Rectangle(354, 57, 270, 19));
-        kDPanel1.add(contrequestOrg, new KDLayout.Constraints(354, 57, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contprojectType.setBounds(new Rectangle(696, 83, 270, 19));
-        kDPanel1.add(contprojectType, new KDLayout.Constraints(696, 83, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contaddInvestAmount.setBounds(new Rectangle(354, 109, 270, 19));
-        kDPanel1.add(contaddInvestAmount, new KDLayout.Constraints(354, 109, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contamount.setBounds(new Rectangle(13, 109, 270, 19));
-        kDPanel1.add(contamount, new KDLayout.Constraints(13, 109, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contchancedAmount.setBounds(new Rectangle(354, 135, 270, 19));
-        kDPanel1.add(contchancedAmount, new KDLayout.Constraints(354, 135, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contBIMUDF0027.setBounds(new Rectangle(13, 215, 957, 306));
-        kDPanel1.add(contBIMUDF0027, new KDLayout.Constraints(13, 215, 957, 306, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contaddress.setBounds(new Rectangle(13, 191, 270, 19));
-        kDPanel1.add(contaddress, new KDLayout.Constraints(13, 191, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contplanType.setBounds(new Rectangle(354, 31, 270, 19));
-        kDPanel1.add(contplanType, new KDLayout.Constraints(354, 31, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contobjectState.setBounds(new Rectangle(696, 31, 270, 19));
-        kDPanel1.add(contobjectState, new KDLayout.Constraints(696, 31, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contCU.setBounds(new Rectangle(696, 57, 270, 19));
-        kDPanel1.add(contCU, new KDLayout.Constraints(696, 57, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        kDPanel1.putClientProperty("OriginalBounds", new Rectangle(0, 0, 1008, 367));        contplanStartDate.setBounds(new Rectangle(5, 10, 270, 19));
+        kDPanel1.add(contplanStartDate, new KDLayout.Constraints(5, 10, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contplanEndDate.setBounds(new Rectangle(346, 10, 270, 19));
+        kDPanel1.add(contplanEndDate, new KDLayout.Constraints(346, 10, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contBIMUDF0027.setBounds(new Rectangle(5, 62, 957, 298));
+        kDPanel1.add(contBIMUDF0027, new KDLayout.Constraints(5, 62, 957, 298, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        contaddress.setBounds(new Rectangle(5, 38, 270, 19));
+        kDPanel1.add(contaddress, new KDLayout.Constraints(5, 38, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         kDContainer1.setBounds(new Rectangle(4, 526, 957, 9));
         kDPanel1.add(kDContainer1, new KDLayout.Constraints(4, 526, 957, 9, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        continvestAmount.setBounds(new Rectangle(13, 83, 270, 19));
-        kDPanel1.add(continvestAmount, new KDLayout.Constraints(13, 83, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contStatus.setBounds(new Rectangle(696, 5, 270, 19));
-        kDPanel1.add(contStatus, new KDLayout.Constraints(696, 5, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contyear.setBounds(new Rectangle(696, 163, 270, 19));
-        kDPanel1.add(contyear, new KDLayout.Constraints(696, 163, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contbalance.setBounds(new Rectangle(696, 109, 270, 19));
-        kDPanel1.add(contbalance, new KDLayout.Constraints(696, 109, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contcompanyProperty.setBounds(new Rectangle(354, 191, 270, 19));
-        kDPanel1.add(contcompanyProperty, new KDLayout.Constraints(354, 191, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contseq.setBounds(new Rectangle(545, 5, 79, 19));
-        kDPanel1.add(contseq, new KDLayout.Constraints(545, 5, 79, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        //contNumber
-        contNumber.setBoundEditor(txtNumber);
-        //contBizDate
-        contBizDate.setBoundEditor(pkBizDate);
-        //contbuildType
-        contbuildType.setBoundEditor(prmtbuildType);
-        //contprojectName
-        contprojectName.setBoundEditor(txtprojectName);
-        //contportProject
-        contportProject.setBoundEditor(prmtportProject);
-        //contfundSource
-        contfundSource.setBoundEditor(prmtfundSource);
+        contcompanyProperty.setBounds(new Rectangle(346, 38, 270, 19));
+        kDPanel1.add(contcompanyProperty, new KDLayout.Constraints(346, 38, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contStatus.setBounds(new Rectangle(695, 38, 270, 19));
+        kDPanel1.add(contStatus, new KDLayout.Constraints(695, 38, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contBizDate.setBounds(new Rectangle(695, 10, 270, 19));
+        kDPanel1.add(contBizDate, new KDLayout.Constraints(695, 10, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         //contplanStartDate
         contplanStartDate.setBoundEditor(pkplanStartDate);
         //contplanEndDate
         contplanEndDate.setBoundEditor(pkplanEndDate);
-        //contrequestPerson
-        contrequestPerson.setBoundEditor(prmtrequestPerson);
-        //contrequestOrg
-        contrequestOrg.setBoundEditor(prmtrequestOrg);
-        //contprojectType
-        contprojectType.setBoundEditor(prmtprojectType);
-        //contaddInvestAmount
-        contaddInvestAmount.setBoundEditor(txtaddInvestAmount);
-        //contamount
-        contamount.setBoundEditor(txtamount);
-        //contchancedAmount
-        contchancedAmount.setBoundEditor(txtchancedAmount);
         //contBIMUDF0027
         contBIMUDF0027.setBoundEditor(scrollPaneBIMUDF0027);
         //scrollPaneBIMUDF0027
         scrollPaneBIMUDF0027.getViewport().add(txtBIMUDF0027, null);
         //contaddress
         contaddress.setBoundEditor(txtaddress);
-        //contplanType
-        contplanType.setBoundEditor(planType);
-        //contobjectState
-        contobjectState.setBoundEditor(objectState);
-        //contCU
-        contCU.setBoundEditor(prmtCU);
         //kDContainer1
 kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtEntry,new com.kingdee.eas.port.pm.invest.YearInvestPlanEntryInfo(),null,false);
         kDContainer1.getContentPane().add(kdtEntry_detailPanel, BorderLayout.CENTER);
-        //continvestAmount
-        continvestAmount.setBoundEditor(txtinvestAmount);
-        //contStatus
-        contStatus.setBoundEditor(comboStatus);
-        //contyear
-        contyear.setBoundEditor(prmtyear);
-        //contbalance
-        contbalance.setBoundEditor(txtbalance);
         //contcompanyProperty
         contcompanyProperty.setBoundEditor(prmtcompanyProperty);
-        //contseq
-        contseq.setBoundEditor(txtseq);
+        //contStatus
+        contStatus.setBoundEditor(comboStatus);
+        //contBizDate
+        contBizDate.setBoundEditor(pkBizDate);
         //kDPanel2
-        kDPanel2.setLayout(null);        contanalyse.setBounds(new Rectangle(4, 6, 962, 385));
-        kDPanel2.add(contanalyse, null);
+        kDPanel2.setLayout(new KDLayout());
+        kDPanel2.putClientProperty("OriginalBounds", new Rectangle(0, 0, 1008, 367));        contanalyse.setBounds(new Rectangle(4, 6, 962, 354));
+        kDPanel2.add(contanalyse, new KDLayout.Constraints(4, 6, 962, 354, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         //contanalyse
         contanalyse.setBoundEditor(scrollPaneanalyse);
         //scrollPaneanalyse
         scrollPaneanalyse.getViewport().add(txtanalyse, null);
         //kDPanel3
-        kDPanel3.setLayout(null);        contscheme.setBounds(new Rectangle(4, 4, 962, 393));
-        kDPanel3.add(contscheme, null);
+        kDPanel3.setLayout(new KDLayout());
+        kDPanel3.putClientProperty("OriginalBounds", new Rectangle(0, 0, 1008, 367));        contscheme.setBounds(new Rectangle(4, 4, 962, 357));
+        kDPanel3.add(contscheme, new KDLayout.Constraints(4, 4, 962, 357, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         //contscheme
         contscheme.setBoundEditor(scrollPanescheme);
         //scrollPanescheme
         scrollPanescheme.getViewport().add(txtscheme, null);
         //kDPanel5
         kDPanel5.setLayout(new KDLayout());
-        kDPanel5.putClientProperty("OriginalBounds", new Rectangle(0, 0, 985, 538));        kdtE2.setBounds(new Rectangle(3, 108, 600, 423));
+        kDPanel5.putClientProperty("OriginalBounds", new Rectangle(0, 0, 1008, 367));        kdtE2.setBounds(new Rectangle(3, 108, 971, 251));
         kdtE2_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtE2,new com.kingdee.eas.port.pm.invest.YearInvestPlanE2Info(),null,false);
-        kDPanel5.add(kdtE2_detailPanel, new KDLayout.Constraints(3, 108, 600, 423, 0));
-        contdesc.setBounds(new Rectangle(5, 6, 601, 90));
-        kDPanel5.add(contdesc, new KDLayout.Constraints(5, 6, 601, 90, 0));
+        kDPanel5.add(kdtE2_detailPanel, new KDLayout.Constraints(3, 108, 971, 251, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        contdesc.setBounds(new Rectangle(5, 6, 970, 90));
+        kDPanel5.add(contdesc, new KDLayout.Constraints(5, 6, 970, 90, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         //contdesc
         contdesc.setBoundEditor(scrollPanedesc);
         //scrollPanedesc
         scrollPanedesc.getViewport().add(txtdesc, null);
         //kDPanel4
         kDPanel4.setLayout(new KDLayout());
-        kDPanel4.putClientProperty("OriginalBounds", new Rectangle(0, 0, 985, 538));        kdtE3.setBounds(new Rectangle(1, -1, 550, 376));
+        kDPanel4.putClientProperty("OriginalBounds", new Rectangle(0, 0, 1008, 367));        kdtE3.setBounds(new Rectangle(1, -1, 996, 360));
         kdtE3_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtE3,new com.kingdee.eas.port.pm.invest.YearInvestPlanE3Info(),null,false);
-        kDPanel4.add(kdtE3_detailPanel, new KDLayout.Constraints(1, -1, 550, 376, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDPanel4.add(kdtE3_detailPanel, new KDLayout.Constraints(1, -1, 996, 360, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
 		kdtE3_detailPanel.addAddListener(new com.kingdee.eas.framework.client.multiDetail.IDetailPanelListener() {
 			public void beforeEvent(com.kingdee.eas.framework.client.multiDetail.DetailPanelEvent event) throws Exception {
 				IObjectValue vo = event.getObjectValue();
@@ -1181,6 +1119,80 @@ vo.put("reviewStage","1");
         contremark.setBoundEditor(txtremark);
         //contcostTemp
         contcostTemp.setBoundEditor(prmtcostTemp);
+        //kDPanel6
+        kDPanel6.setLayout(new KDLayout());
+        kDPanel6.putClientProperty("OriginalBounds", new Rectangle(14, 3, 1004, 179));        contyear.setBounds(new Rectangle(701, 112, 270, 19));
+        kDPanel6.add(contyear, new KDLayout.Constraints(701, 112, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contportProject.setBounds(new Rectangle(701, 138, 270, 19));
+        kDPanel6.add(contportProject, new KDLayout.Constraints(701, 138, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contamount.setBounds(new Rectangle(18, 112, 270, 19));
+        kDPanel6.add(contamount, new KDLayout.Constraints(18, 112, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        continvestAmount.setBounds(new Rectangle(18, 86, 270, 19));
+        kDPanel6.add(continvestAmount, new KDLayout.Constraints(18, 86, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contrequestPerson.setBounds(new Rectangle(18, 60, 270, 19));
+        kDPanel6.add(contrequestPerson, new KDLayout.Constraints(18, 60, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contNumber.setBounds(new Rectangle(18, 34, 270, 19));
+        kDPanel6.add(contNumber, new KDLayout.Constraints(18, 34, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contplanType.setBounds(new Rectangle(359, 34, 270, 19));
+        kDPanel6.add(contplanType, new KDLayout.Constraints(359, 34, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contrequestOrg.setBounds(new Rectangle(359, 60, 270, 19));
+        kDPanel6.add(contrequestOrg, new KDLayout.Constraints(359, 60, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contfundSource.setBounds(new Rectangle(359, 86, 270, 19));
+        kDPanel6.add(contfundSource, new KDLayout.Constraints(359, 86, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contaddInvestAmount.setBounds(new Rectangle(359, 112, 270, 19));
+        kDPanel6.add(contaddInvestAmount, new KDLayout.Constraints(359, 112, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contchancedAmount.setBounds(new Rectangle(18, 138, 270, 19));
+        kDPanel6.add(contchancedAmount, new KDLayout.Constraints(18, 138, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contbuildType.setBounds(new Rectangle(701, 86, 270, 19));
+        kDPanel6.add(contbuildType, new KDLayout.Constraints(701, 86, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contbalance.setBounds(new Rectangle(359, 138, 270, 19));
+        kDPanel6.add(contbalance, new KDLayout.Constraints(359, 138, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contprojectType.setBounds(new Rectangle(701, 60, 270, 19));
+        kDPanel6.add(contprojectType, new KDLayout.Constraints(701, 60, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contCU.setBounds(new Rectangle(701, 34, 270, 19));
+        kDPanel6.add(contCU, new KDLayout.Constraints(701, 34, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contobjectState.setBounds(new Rectangle(701, 8, 270, 19));
+        kDPanel6.add(contobjectState, new KDLayout.Constraints(701, 8, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contseq.setBounds(new Rectangle(550, 8, 79, 19));
+        kDPanel6.add(contseq, new KDLayout.Constraints(550, 8, 79, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contprojectName.setBounds(new Rectangle(18, 8, 523, 19));
+        kDPanel6.add(contprojectName, new KDLayout.Constraints(18, 8, 523, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        //contyear
+        contyear.setBoundEditor(prmtyear);
+        //contportProject
+        contportProject.setBoundEditor(prmtportProject);
+        //contamount
+        contamount.setBoundEditor(txtamount);
+        //continvestAmount
+        continvestAmount.setBoundEditor(txtinvestAmount);
+        //contrequestPerson
+        contrequestPerson.setBoundEditor(prmtrequestPerson);
+        //contNumber
+        contNumber.setBoundEditor(txtNumber);
+        //contplanType
+        contplanType.setBoundEditor(planType);
+        //contrequestOrg
+        contrequestOrg.setBoundEditor(prmtrequestOrg);
+        //contfundSource
+        contfundSource.setBoundEditor(prmtfundSource);
+        //contaddInvestAmount
+        contaddInvestAmount.setBoundEditor(txtaddInvestAmount);
+        //contchancedAmount
+        contchancedAmount.setBoundEditor(txtchancedAmount);
+        //contbuildType
+        contbuildType.setBoundEditor(prmtbuildType);
+        //contbalance
+        contbalance.setBoundEditor(txtbalance);
+        //contprojectType
+        contprojectType.setBoundEditor(prmtprojectType);
+        //contCU
+        contCU.setBoundEditor(prmtCU);
+        //contobjectState
+        contobjectState.setBoundEditor(objectState);
+        //contseq
+        contseq.setBoundEditor(txtseq);
+        //contprojectName
+        contprojectName.setBoundEditor(txtprojectName);
 
     }
 
@@ -1362,25 +1374,10 @@ vo.put("reviewStage","1");
 		dataBinder.registerBinding("auditor", com.kingdee.eas.base.permission.UserInfo.class, this.prmtAuditor, "data");
 		dataBinder.registerBinding("bizStatus", com.kingdee.eas.xr.app.XRBizActionEnum.class, this.comboBizStatus, "selectedItem");
 		dataBinder.registerBinding("auditTime", java.sql.Timestamp.class, this.pkAuditTime, "value");
-		dataBinder.registerBinding("number", String.class, this.txtNumber, "text");
-		dataBinder.registerBinding("bizDate", java.util.Date.class, this.pkBizDate, "value");
-		dataBinder.registerBinding("buildType", com.kingdee.eas.port.pm.base.BuildTypeInfo.class, this.prmtbuildType, "data");
-		dataBinder.registerBinding("projectName", String.class, this.txtprojectName, "text");
-		dataBinder.registerBinding("portProject", com.kingdee.eas.port.pm.project.PortProjectInfo.class, this.prmtportProject, "data");
-		dataBinder.registerBinding("fundSource", com.kingdee.eas.port.pm.base.FundSourceInfo.class, this.prmtfundSource, "data");
 		dataBinder.registerBinding("planStartDate", java.util.Date.class, this.pkplanStartDate, "value");
 		dataBinder.registerBinding("planEndDate", java.util.Date.class, this.pkplanEndDate, "value");
-		dataBinder.registerBinding("requestPerson", com.kingdee.eas.basedata.person.PersonInfo.class, this.prmtrequestPerson, "data");
-		dataBinder.registerBinding("requestOrg", com.kingdee.eas.basedata.org.AdminOrgUnitInfo.class, this.prmtrequestOrg, "data");
-		dataBinder.registerBinding("projectType", com.kingdee.eas.port.pm.base.ProjectTypeInfo.class, this.prmtprojectType, "data");
-		dataBinder.registerBinding("addInvestAmount", java.math.BigDecimal.class, this.txtaddInvestAmount, "value");
-		dataBinder.registerBinding("amount", java.math.BigDecimal.class, this.txtamount, "value");
-		dataBinder.registerBinding("chancedAmount", java.math.BigDecimal.class, this.txtchancedAmount, "value");
 		dataBinder.registerBinding("BIMUDF0027", String.class, this.txtBIMUDF0027, "text");
 		dataBinder.registerBinding("address", String.class, this.txtaddress, "text");
-		dataBinder.registerBinding("planType", com.kingdee.eas.port.pm.base.coms.PlanTypeEnum.class, this.planType, "selectedItem");
-		dataBinder.registerBinding("objectState", com.kingdee.eas.port.pm.invest.ObjectStateEnum.class, this.objectState, "selectedItem");
-		dataBinder.registerBinding("CU", com.kingdee.eas.basedata.org.CtrlUnitInfo.class, this.prmtCU, "data");
 		dataBinder.registerBinding("Entry.seq", int.class, this.kdtEntry, "seq.text");
 		dataBinder.registerBinding("Entry", com.kingdee.eas.port.pm.invest.YearInvestPlanEntryInfo.class, this.kdtEntry, "userObject");
 		dataBinder.registerBinding("Entry.costName", String.class, this.kdtEntry, "costName.text");
@@ -1390,12 +1387,9 @@ vo.put("reviewStage","1");
 		dataBinder.registerBinding("Entry.acceptTime", java.util.Date.class, this.kdtEntry, "acceptTime.text");
 		dataBinder.registerBinding("Entry.description", String.class, this.kdtEntry, "description.text");
 		dataBinder.registerBinding("Entry.costType", java.lang.Object.class, this.kdtEntry, "costType.text");
-		dataBinder.registerBinding("investAmount", java.math.BigDecimal.class, this.txtinvestAmount, "value");
-		dataBinder.registerBinding("status", com.kingdee.eas.xr.app.XRBillStatusEnum.class, this.comboStatus, "selectedItem");
-		dataBinder.registerBinding("year", com.kingdee.eas.port.pm.base.InvestYearInfo.class, this.prmtyear, "data");
-		dataBinder.registerBinding("balance", java.math.BigDecimal.class, this.txtbalance, "value");
 		dataBinder.registerBinding("companyProperty", com.kingdee.eas.port.pm.base.CompanyPropertyInfo.class, this.prmtcompanyProperty, "data");
-		dataBinder.registerBinding("seq", java.math.BigDecimal.class, this.txtseq, "value");
+		dataBinder.registerBinding("status", com.kingdee.eas.xr.app.XRBillStatusEnum.class, this.comboStatus, "selectedItem");
+		dataBinder.registerBinding("bizDate", java.util.Date.class, this.pkBizDate, "value");
 		dataBinder.registerBinding("analyse", String.class, this.txtanalyse, "text");
 		dataBinder.registerBinding("scheme", String.class, this.txtscheme, "text");
 		dataBinder.registerBinding("E2.seq", int.class, this.kdtE2, "seq.text");
@@ -1409,7 +1403,25 @@ vo.put("reviewStage","1");
 		dataBinder.registerBinding("E3.reviewStage", com.kingdee.util.enums.Enum.class, this.kdtE3, "reviewStage.text");
 		dataBinder.registerBinding("E3.accredConclusion", String.class, this.kdtE3, "accredConclusion.text");
 		dataBinder.registerBinding("remark", String.class, this.txtremark, "text");
-		dataBinder.registerBinding("costTemp", com.kingdee.eas.port.pm.invest.CostTempInfo.class, this.prmtcostTemp, "data");		
+		dataBinder.registerBinding("costTemp", com.kingdee.eas.port.pm.invest.CostTempInfo.class, this.prmtcostTemp, "data");
+		dataBinder.registerBinding("year", com.kingdee.eas.port.pm.base.InvestYearInfo.class, this.prmtyear, "data");
+		dataBinder.registerBinding("portProject", com.kingdee.eas.port.pm.project.PortProjectInfo.class, this.prmtportProject, "data");
+		dataBinder.registerBinding("amount", java.math.BigDecimal.class, this.txtamount, "value");
+		dataBinder.registerBinding("investAmount", java.math.BigDecimal.class, this.txtinvestAmount, "value");
+		dataBinder.registerBinding("requestPerson", com.kingdee.eas.basedata.person.PersonInfo.class, this.prmtrequestPerson, "data");
+		dataBinder.registerBinding("number", String.class, this.txtNumber, "text");
+		dataBinder.registerBinding("planType", com.kingdee.eas.port.pm.base.coms.PlanTypeEnum.class, this.planType, "selectedItem");
+		dataBinder.registerBinding("requestOrg", com.kingdee.eas.basedata.org.AdminOrgUnitInfo.class, this.prmtrequestOrg, "data");
+		dataBinder.registerBinding("fundSource", com.kingdee.eas.port.pm.base.FundSourceInfo.class, this.prmtfundSource, "data");
+		dataBinder.registerBinding("addInvestAmount", java.math.BigDecimal.class, this.txtaddInvestAmount, "value");
+		dataBinder.registerBinding("chancedAmount", java.math.BigDecimal.class, this.txtchancedAmount, "value");
+		dataBinder.registerBinding("buildType", com.kingdee.eas.port.pm.base.BuildTypeInfo.class, this.prmtbuildType, "data");
+		dataBinder.registerBinding("balance", java.math.BigDecimal.class, this.txtbalance, "value");
+		dataBinder.registerBinding("projectType", com.kingdee.eas.port.pm.base.ProjectTypeInfo.class, this.prmtprojectType, "data");
+		dataBinder.registerBinding("CU", com.kingdee.eas.basedata.org.CtrlUnitInfo.class, this.prmtCU, "data");
+		dataBinder.registerBinding("objectState", com.kingdee.eas.port.pm.invest.ObjectStateEnum.class, this.objectState, "selectedItem");
+		dataBinder.registerBinding("seq", java.math.BigDecimal.class, this.txtseq, "value");
+		dataBinder.registerBinding("projectName", String.class, this.txtprojectName, "text");		
 	}
 	//Regiester UI State
 	private void registerUIState(){		
@@ -1552,25 +1564,10 @@ vo.put("reviewStage","1");
 		getValidateHelper().registerBindProperty("auditor", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("bizStatus", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("auditTime", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("number", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("bizDate", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("buildType", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("projectName", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("portProject", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("fundSource", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("planStartDate", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("planEndDate", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("requestPerson", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("requestOrg", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("projectType", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("addInvestAmount", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("amount", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("chancedAmount", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("BIMUDF0027", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("address", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("planType", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("objectState", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("CU", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("Entry.seq", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("Entry", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("Entry.costName", ValidateHelper.ON_SAVE);    
@@ -1580,12 +1577,9 @@ vo.put("reviewStage","1");
 		getValidateHelper().registerBindProperty("Entry.acceptTime", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("Entry.description", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("Entry.costType", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("investAmount", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("status", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("year", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("balance", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("companyProperty", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("seq", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("status", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("bizDate", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("analyse", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("scheme", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("E2.seq", ValidateHelper.ON_SAVE);    
@@ -1599,7 +1593,25 @@ vo.put("reviewStage","1");
 		getValidateHelper().registerBindProperty("E3.reviewStage", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("E3.accredConclusion", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("remark", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("costTemp", ValidateHelper.ON_SAVE);    		
+		getValidateHelper().registerBindProperty("costTemp", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("year", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("portProject", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("amount", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("investAmount", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("requestPerson", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("number", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("planType", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("requestOrg", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("fundSource", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("addInvestAmount", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("chancedAmount", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("buildType", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("balance", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("projectType", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("CU", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("objectState", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("seq", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("projectName", ValidateHelper.ON_SAVE);    		
 	}
 
 
@@ -1625,10 +1637,25 @@ vo.put("reviewStage","1");
     }
 
     /**
-     * output prmtbuildType_dataChanged method
+     * output kdtEntry_editStopped method
      */
-    protected void prmtbuildType_dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) throws Exception
+    protected void kdtEntry_editStopped(com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent e) throws Exception
     {
+    }
+
+    /**
+     * output prmtcostTemp_dataChanged method
+     */
+    protected void prmtcostTemp_dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) throws Exception
+    {
+    }
+
+    /**
+     * output prmtyear_dataChanged method
+     */
+    protected void prmtyear_dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) throws Exception
+    {
+        //write your code hereoo
     }
 
     /**
@@ -1646,13 +1673,6 @@ vo.put("reviewStage","1");
     }
 
     /**
-     * output prmtprojectType_dataChanged method
-     */
-    protected void prmtprojectType_dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) throws Exception
-    {
-    }
-
-    /**
      * output planType_itemStateChanged method
      */
     protected void planType_itemStateChanged(java.awt.event.ItemEvent e) throws Exception
@@ -1660,31 +1680,23 @@ vo.put("reviewStage","1");
     }
 
     /**
+     * output prmtbuildType_dataChanged method
+     */
+    protected void prmtbuildType_dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) throws Exception
+    {
+    }
+
+    /**
+     * output prmtprojectType_dataChanged method
+     */
+    protected void prmtprojectType_dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) throws Exception
+    {
+    }
+
+    /**
      * output objectState_itemStateChanged method
      */
     protected void objectState_itemStateChanged(java.awt.event.ItemEvent e) throws Exception
-    {
-    }
-
-    /**
-     * output kdtEntry_editStopped method
-     */
-    protected void kdtEntry_editStopped(com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent e) throws Exception
-    {
-    }
-
-    /**
-     * output prmtyear_dataChanged method
-     */
-    protected void prmtyear_dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) throws Exception
-    {
-        //write your code hereoo
-    }
-
-    /**
-     * output prmtcostTemp_dataChanged method
-     */
-    protected void prmtcostTemp_dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) throws Exception
     {
     }
 
@@ -1740,81 +1752,10 @@ vo.put("reviewStage","1");
 		}
         sic.add(new SelectorItemInfo("bizStatus"));
         sic.add(new SelectorItemInfo("auditTime"));
-        sic.add(new SelectorItemInfo("number"));
-        sic.add(new SelectorItemInfo("bizDate"));
-		if(selectorAll.equalsIgnoreCase("true"))
-		{
-			sic.add(new SelectorItemInfo("buildType.*"));
-		}
-		else{
-        	sic.add(new SelectorItemInfo("buildType.id"));
-        	sic.add(new SelectorItemInfo("buildType.number"));
-        	sic.add(new SelectorItemInfo("buildType.name"));
-		}
-        sic.add(new SelectorItemInfo("projectName"));
-		if(selectorAll.equalsIgnoreCase("true"))
-		{
-			sic.add(new SelectorItemInfo("portProject.*"));
-		}
-		else{
-        	sic.add(new SelectorItemInfo("portProject.id"));
-        	sic.add(new SelectorItemInfo("portProject.number"));
-        	sic.add(new SelectorItemInfo("portProject.name"));
-		}
-		if(selectorAll.equalsIgnoreCase("true"))
-		{
-			sic.add(new SelectorItemInfo("fundSource.*"));
-		}
-		else{
-        	sic.add(new SelectorItemInfo("fundSource.id"));
-        	sic.add(new SelectorItemInfo("fundSource.number"));
-        	sic.add(new SelectorItemInfo("fundSource.name"));
-		}
         sic.add(new SelectorItemInfo("planStartDate"));
         sic.add(new SelectorItemInfo("planEndDate"));
-		if(selectorAll.equalsIgnoreCase("true"))
-		{
-			sic.add(new SelectorItemInfo("requestPerson.*"));
-		}
-		else{
-        	sic.add(new SelectorItemInfo("requestPerson.id"));
-        	sic.add(new SelectorItemInfo("requestPerson.number"));
-        	sic.add(new SelectorItemInfo("requestPerson.name"));
-		}
-		if(selectorAll.equalsIgnoreCase("true"))
-		{
-			sic.add(new SelectorItemInfo("requestOrg.*"));
-		}
-		else{
-        	sic.add(new SelectorItemInfo("requestOrg.id"));
-        	sic.add(new SelectorItemInfo("requestOrg.number"));
-        	sic.add(new SelectorItemInfo("requestOrg.name"));
-		}
-		if(selectorAll.equalsIgnoreCase("true"))
-		{
-			sic.add(new SelectorItemInfo("projectType.*"));
-		}
-		else{
-        	sic.add(new SelectorItemInfo("projectType.id"));
-        	sic.add(new SelectorItemInfo("projectType.number"));
-        	sic.add(new SelectorItemInfo("projectType.name"));
-		}
-        sic.add(new SelectorItemInfo("addInvestAmount"));
-        sic.add(new SelectorItemInfo("amount"));
-        sic.add(new SelectorItemInfo("chancedAmount"));
         sic.add(new SelectorItemInfo("BIMUDF0027"));
         sic.add(new SelectorItemInfo("address"));
-        sic.add(new SelectorItemInfo("planType"));
-        sic.add(new SelectorItemInfo("objectState"));
-		if(selectorAll.equalsIgnoreCase("true"))
-		{
-			sic.add(new SelectorItemInfo("CU.*"));
-		}
-		else{
-        	sic.add(new SelectorItemInfo("CU.id"));
-        	sic.add(new SelectorItemInfo("CU.number"));
-        	sic.add(new SelectorItemInfo("CU.name"));
-		}
     	sic.add(new SelectorItemInfo("Entry.seq"));
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
@@ -1837,18 +1778,6 @@ vo.put("reviewStage","1");
 			sic.add(new SelectorItemInfo("Entry.costType.name"));
         	sic.add(new SelectorItemInfo("Entry.costType.number"));
 		}
-        sic.add(new SelectorItemInfo("investAmount"));
-        sic.add(new SelectorItemInfo("status"));
-		if(selectorAll.equalsIgnoreCase("true"))
-		{
-			sic.add(new SelectorItemInfo("year.*"));
-		}
-		else{
-        	sic.add(new SelectorItemInfo("year.id"));
-        	sic.add(new SelectorItemInfo("year.number"));
-        	sic.add(new SelectorItemInfo("year.name"));
-		}
-        sic.add(new SelectorItemInfo("balance"));
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
 			sic.add(new SelectorItemInfo("companyProperty.*"));
@@ -1858,7 +1787,8 @@ vo.put("reviewStage","1");
         	sic.add(new SelectorItemInfo("companyProperty.number"));
         	sic.add(new SelectorItemInfo("companyProperty.name"));
 		}
-        sic.add(new SelectorItemInfo("seq"));
+        sic.add(new SelectorItemInfo("status"));
+        sic.add(new SelectorItemInfo("bizDate"));
         sic.add(new SelectorItemInfo("analyse"));
         sic.add(new SelectorItemInfo("scheme"));
     	sic.add(new SelectorItemInfo("E2.seq"));
@@ -1891,6 +1821,88 @@ vo.put("reviewStage","1");
         	sic.add(new SelectorItemInfo("costTemp.number"));
         	sic.add(new SelectorItemInfo("costTemp.tempName"));
 		}
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("year.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("year.id"));
+        	sic.add(new SelectorItemInfo("year.number"));
+        	sic.add(new SelectorItemInfo("year.name"));
+		}
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("portProject.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("portProject.id"));
+        	sic.add(new SelectorItemInfo("portProject.number"));
+        	sic.add(new SelectorItemInfo("portProject.name"));
+		}
+        sic.add(new SelectorItemInfo("amount"));
+        sic.add(new SelectorItemInfo("investAmount"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("requestPerson.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("requestPerson.id"));
+        	sic.add(new SelectorItemInfo("requestPerson.number"));
+        	sic.add(new SelectorItemInfo("requestPerson.name"));
+		}
+        sic.add(new SelectorItemInfo("number"));
+        sic.add(new SelectorItemInfo("planType"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("requestOrg.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("requestOrg.id"));
+        	sic.add(new SelectorItemInfo("requestOrg.number"));
+        	sic.add(new SelectorItemInfo("requestOrg.name"));
+		}
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("fundSource.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("fundSource.id"));
+        	sic.add(new SelectorItemInfo("fundSource.number"));
+        	sic.add(new SelectorItemInfo("fundSource.name"));
+		}
+        sic.add(new SelectorItemInfo("addInvestAmount"));
+        sic.add(new SelectorItemInfo("chancedAmount"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("buildType.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("buildType.id"));
+        	sic.add(new SelectorItemInfo("buildType.number"));
+        	sic.add(new SelectorItemInfo("buildType.name"));
+		}
+        sic.add(new SelectorItemInfo("balance"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("projectType.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("projectType.id"));
+        	sic.add(new SelectorItemInfo("projectType.number"));
+        	sic.add(new SelectorItemInfo("projectType.name"));
+		}
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("CU.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("CU.id"));
+        	sic.add(new SelectorItemInfo("CU.number"));
+        	sic.add(new SelectorItemInfo("CU.name"));
+		}
+        sic.add(new SelectorItemInfo("objectState"));
+        sic.add(new SelectorItemInfo("seq"));
+        sic.add(new SelectorItemInfo("projectName"));
         return sic;
     }        
     	
@@ -1985,32 +1997,32 @@ vo.put("reviewStage","1");
     
         
 					protected void beforeStoreFields(ActionEvent arg0) throws Exception {
-		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(txtNumber.getText())) {
-			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"单据编号"});
-		}
-		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(prmtbuildType.getData())) {
-			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"建设性质"});
-		}
-		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(txtprojectName.getText())) {
-			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"项目名称"});
-		}
-		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(prmtfundSource.getData())) {
-			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"资金来源"});
-		}
 		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(prmtrequestPerson.getData())) {
 			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"申报人"});
 		}
-		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(prmtrequestOrg.getData())) {
-			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"申报部门"});
-		}
-		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(prmtprojectType.getData())) {
-			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"项目类型"});
+		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(txtNumber.getText())) {
+			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"单据编号"});
 		}
 		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(planType.getSelectedItem())) {
 			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"计划类型"});
 		}
+		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(prmtrequestOrg.getData())) {
+			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"申报部门"});
+		}
+		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(prmtfundSource.getData())) {
+			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"资金来源"});
+		}
+		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(prmtbuildType.getData())) {
+			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"建设性质"});
+		}
+		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(prmtprojectType.getData())) {
+			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"项目类型"});
+		}
 		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(objectState.getSelectedItem())) {
 			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"项目状态"});
+		}
+		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(txtprojectName.getText())) {
+			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"项目名称"});
 		}
 			super.beforeStoreFields(arg0);
 		}

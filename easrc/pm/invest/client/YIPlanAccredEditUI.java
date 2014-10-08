@@ -37,6 +37,7 @@ import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.UIException;
 import com.kingdee.bos.ui.face.UIFactory;
 import com.kingdee.bos.ui.face.UIRuleUtil;
+import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.eas.basedata.assistant.ProjectInfo;
 import com.kingdee.eas.basedata.assistant.client.ProjectEditUI;
 import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
@@ -56,6 +57,10 @@ import com.kingdee.eas.port.pm.invest.YIPlanAccredFactory;
 import com.kingdee.eas.port.pm.invest.YIPlanAccredInfo;
 import com.kingdee.eas.port.pm.invest.YearInvestPlanFactory;
 import com.kingdee.eas.port.pm.invest.YearInvestPlanInfo;
+import com.kingdee.eas.port.pm.invest.investplan.ProgrammingCollection;
+import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryInfo;
+import com.kingdee.eas.port.pm.invest.investplan.ProgrammingFactory;
+import com.kingdee.eas.port.pm.invest.investplan.ProgrammingInfo;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
@@ -201,6 +206,7 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
 	        this.kdtE2.getColumn("accreConclu").setEditor(kdtE2_accreConclu_CellEditor);
 	    actionSave.setEnabled(true);
 	    btnSave.setEnabled(true);
+	    YIPlanAccredFactory.getRemoteInstance().save(editData);
 	}
 	/**
 	 * 分录“accredResu”列值改变时“projectConclude”列值默认带出“同意”
@@ -272,7 +278,7 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
 	
 	/**
 	 * 评审中 有权限直接修改项目
-	 * 生成新版本
+	 * 在直接修改界面保存时，将修改前版本存入历史库
 	 * */
 	protected void btnEditProject_actionPerformed(ActionEvent e) throws Exception {
 		super.btnEditProject_actionPerformed(e);
@@ -281,15 +287,37 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
 		if(kdtE1.getRow(rowIndex)!=null){
 			YearInvestPlanInfo info = (YearInvestPlanInfo)kdtE1.getRow(rowIndex).getCell("projectName").getValue();
 			info = YearInvestPlanFactory.getRemoteInstance().getYearInvestPlanInfo(new ObjectUuidPK(info.getId()));
+			ProgrammingInfo programmingInfo = getProgrammingInfo(info);
+			context.put("programmingInfo", programmingInfo);
 			context.put("projectInfo", info);
-			try {
-				UIFactory.createUIFactory().create(YearInvestPlanEditUI.class.getName(), context, null,OprtState.ADDNEW).show();
-			} catch (UIException e1) {
-				e1.printStackTrace();
-			}
+			context.put("ID", info.getId());
+			UIFactory.createUIFactory().create(YearInvestPlanEditUI.class.getName(), context, null,OprtState.EDIT).show();
 		}
 	}
-	
+	/**
+	 * 获取直接修改项目的投资规划
+	 * */
+	ProgrammingInfo getProgrammingInfo(YearInvestPlanInfo investInfo){
+		ProgrammingInfo info = new ProgrammingInfo();
+		try {
+			ProgrammingCollection coll = ProgrammingFactory.getRemoteInstance().getProgrammingCollection("where sourcebillid='"+investInfo.getId()+"'");
+			if(coll.size()>0){
+				info = coll.get(0);
+				info = ProgrammingFactory.getRemoteInstance().getProgrammingInfo(new ObjectUuidPK(info.getId()));
+				info.setId(BOSUuid.create(info.getBOSType()));
+				for(int i=0;i<info.getEntries().size();i++){
+					ProgrammingEntryInfo entry = info.getEntries().get(i);
+					for(int j=0;j<entry.getCostEntries().size();j++){
+						entry.getCostEntries().get(j).setId(null);
+					}
+					info.getEntries().get(i).setId(null);
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return info;
+	}
 	protected void initProWorkButton(KDContainer container, boolean flse) {
 		KDWorkButton btnApprove = new KDWorkButton();
 		KDWorkButton btnperson = new KDWorkButton();

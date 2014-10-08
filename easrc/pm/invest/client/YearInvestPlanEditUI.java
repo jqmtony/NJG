@@ -32,8 +32,6 @@ import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.eas.base.core.fm.ClientVerifyHelper;
 import com.kingdee.eas.base.permission.UserInfo;
 import com.kingdee.eas.base.uiframe.client.UIFactoryHelper;
-import com.kingdee.eas.basedata.assistant.IProject;
-import com.kingdee.eas.basedata.assistant.ProjectFactory;
 import com.kingdee.eas.basedata.assistant.ProjectInfo;
 import com.kingdee.eas.basedata.org.AdminOrgUnitCollection;
 import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
@@ -52,9 +50,12 @@ import com.kingdee.eas.port.pm.base.InvestYearInfo;
 import com.kingdee.eas.port.pm.base.ProjectTypeInfo;
 import com.kingdee.eas.port.pm.base.coms.PlanTypeEnum;
 import com.kingdee.eas.port.pm.invest.ObjectStateEnum;
+import com.kingdee.eas.port.pm.invest.YearInvestPlanCollection;
 import com.kingdee.eas.port.pm.invest.YearInvestPlanFactory;
 import com.kingdee.eas.port.pm.invest.YearInvestPlanInfo;
 import com.kingdee.eas.port.pm.invest.investplan.IProgramming;
+import com.kingdee.eas.port.pm.invest.investplan.ProgrammingCollection;
+import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryInfo;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingFactory;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingInfo;
 import com.kingdee.eas.port.pm.invest.investplan.client.ProgrammingEditUI;
@@ -129,8 +130,6 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 		String cuid = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
 		if (getOprtState().equals(OprtState.ADDNEW))
 		{
-			if(getUIContext().get("projectInfo")!=null)
-				txtNumber.setText(editData.getNumber()+"_01");
 			UserInfo user = SysContext.getSysContext().getCurrentUserInfo();
 			if (user.getPerson() != null) 
 			{//申请人带出申请单位
@@ -174,6 +173,18 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 	}
 	
 	public void actionInvestPlan_actionPerformed(ActionEvent e)throws Exception {
+	}
+	public void onShow() throws Exception {
+		super.onShow();
+		if(getUIContext().get("projectInfo")!=null){
+			btnSave.setText("确认修改并保存");
+			btnAddNew.setVisible(false);
+			btnEdit.setVisible(false);
+			btnSubmit.setVisible(false);
+			btnRemove.setVisible(false);
+			btnAudit.setVisible(false);
+			btnUnAudit.setVisible(false);
+		}
 	}
 	/**
 	 * 申报人带出组织
@@ -411,6 +422,10 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 	private void setPortProject(ChangeEvent e) throws Exception
 	{
 		if(editData!=null){
+			String isAdjust = "0";//是否被调整过
+			if(getUIContext().get("projectInfo")!=null)
+				isAdjust = "1";
+			
 			kDScrollPane1.setViewportView(null);
 			String number = this.txtNumber.getText();
 			UIContext uiContext = new UIContext(this);
@@ -418,6 +433,9 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 			uiContext.put("proInvestAmount", this.txtinvestAmount);
 			uiContext.put("proAddAmount", this.txtaddInvestAmount);
 			uiContext.put("proBalance", this.txtbalance);
+			uiContext.put("txtchancedAmount", this.txtchancedAmount);
+			uiContext.put("isAdjust", isAdjust);
+			uiContext.put("UI", this);
 			PlanTypeEnum plantype = (PlanTypeEnum)planType.getSelectedItem();
 			//新建项目
 			if(prmtportProject.getValue()==null 
@@ -726,6 +744,8 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 		super.actionSave_actionPerformed(e);
 		if(programmingEditUI!=null)
 			programmingEditUI.actionSave_actionPerformed(e);
+		
+		saveAuditingEditInfo(editData);
 	}
 
 	/**
@@ -735,300 +755,6 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 		super.actionSubmit_actionPerformed(e);
 		if(programmingEditUI!=null)
 			programmingEditUI.actionSubmit_actionPerformed(e);
-	}
-
-	/**
-	 * output actionCancel_actionPerformed
-	 */
-	public void actionCancel_actionPerformed(ActionEvent e) throws Exception {
-		super.actionCancel_actionPerformed(e);
-	}
-
-	/**
-	 * output actionCancelCancel_actionPerformed
-	 */
-	public void actionCancelCancel_actionPerformed(ActionEvent e)
-			throws Exception {
-		super.actionCancelCancel_actionPerformed(e);
-	}
-
-	/**
-	 * output actionFirst_actionPerformed
-	 */
-	public void actionFirst_actionPerformed(ActionEvent e) throws Exception {
-		super.actionFirst_actionPerformed(e);
-	}
-
-	/**
-	 * output actionPre_actionPerformed
-	 */
-	public void actionPre_actionPerformed(ActionEvent e) throws Exception {
-		super.actionPre_actionPerformed(e);
-	}
-
-	/**
-	 * output actionNext_actionPerformed
-	 */
-	public void actionNext_actionPerformed(ActionEvent e) throws Exception {
-		super.actionNext_actionPerformed(e);
-	}
-
-	/**
-	 * output actionLast_actionPerformed
-	 */
-	public void actionLast_actionPerformed(ActionEvent e) throws Exception {
-		super.actionLast_actionPerformed(e);
-	}
-
-	/**
-	 * output actionPrint_actionPerformed
-	 */
-	public void actionPrint_actionPerformed(ActionEvent e) throws Exception {
-		super.actionPrint_actionPerformed(e);
-	}
-
-	/**
-	 * output actionPrintPreview_actionPerformed
-	 */
-	public void actionPrintPreview_actionPerformed(ActionEvent e)
-			throws Exception {
-		super.actionPrintPreview_actionPerformed(e);
-	}
-
-	/**
-	 * output actionCopy_actionPerformed
-	 */
-	public void actionCopy_actionPerformed(ActionEvent e) throws Exception {
-		super.actionCopy_actionPerformed(e);
-	}
-
-	/**
-	 * output actionAddNew_actionPerformed
-	 */
-	public void actionAddNew_actionPerformed(ActionEvent e) throws Exception {
-		super.actionAddNew_actionPerformed(e);
-	}
-
-	/**
-	 * output actionEdit_actionPerformed
-	 */
-
-	/**
-	 * output actionRemove_actionPerformed
-	 */
-	public void actionRemove_actionPerformed(ActionEvent e) throws Exception {
-		super.actionRemove_actionPerformed(e);
-	}
-
-	/**
-	 * output actionAttachment_actionPerformed
-	 */
-	public void actionAttachment_actionPerformed(ActionEvent e)
-			throws Exception {
-		super.actionAttachment_actionPerformed(e);
-	}
-
-	/**
-	 * output actionSubmitOption_actionPerformed
-	 */
-	public void actionSubmitOption_actionPerformed(ActionEvent e)
-			throws Exception {
-		super.actionSubmitOption_actionPerformed(e);
-	}
-
-	/**
-	 * output actionReset_actionPerformed
-	 */
-	public void actionReset_actionPerformed(ActionEvent e) throws Exception {
-		super.actionReset_actionPerformed(e);
-	}
-
-	/**
-	 * output actionMsgFormat_actionPerformed
-	 */
-	public void actionMsgFormat_actionPerformed(ActionEvent e) throws Exception {
-		super.actionMsgFormat_actionPerformed(e);
-	}
-
-	/**
-	 * output actionAddLine_actionPerformed
-	 */
-	public void actionAddLine_actionPerformed(ActionEvent e) throws Exception {
-		super.actionAddLine_actionPerformed(e);
-	}
-
-	/**
-	 * output actionCopyLine_actionPerformed
-	 */
-	public void actionCopyLine_actionPerformed(ActionEvent e) throws Exception {
-		super.actionCopyLine_actionPerformed(e);
-	}
-
-	/**
-	 * output actionInsertLine_actionPerformed
-	 */
-	public void actionInsertLine_actionPerformed(ActionEvent e)
-			throws Exception {
-		super.actionInsertLine_actionPerformed(e);
-	}
-
-	/**
-	 * output actionRemoveLine_actionPerformed
-	 */
-	public void actionRemoveLine_actionPerformed(ActionEvent e)
-			throws Exception {
-		super.actionRemoveLine_actionPerformed(e);
-	}
-
-	/**
-	 * output actionCreateFrom_actionPerformed
-	 */
-	public void actionCreateFrom_actionPerformed(ActionEvent e)
-			throws Exception {
-		super.actionCreateFrom_actionPerformed(e);
-	}
-
-	/**
-	 * output actionCopyFrom_actionPerformed
-	 */
-	public void actionCopyFrom_actionPerformed(ActionEvent e) throws Exception {
-		super.actionCopyFrom_actionPerformed(e);
-	}
-
-	/**
-	 * output actionAuditResult_actionPerformed
-	 */
-	public void actionAuditResult_actionPerformed(ActionEvent e)
-			throws Exception {
-		super.actionAuditResult_actionPerformed(e);
-	}
-
-	/**
-	 * output actionTraceUp_actionPerformed
-	 */
-	public void actionTraceUp_actionPerformed(ActionEvent e) throws Exception {
-		super.actionTraceUp_actionPerformed(e);
-	}
-
-	/**
-	 * output actionTraceDown_actionPerformed
-	 */
-	public void actionTraceDown_actionPerformed(ActionEvent e) throws Exception {
-		super.actionTraceDown_actionPerformed(e);
-	}
-
-	/**
-	 * output actionViewSubmitProccess_actionPerformed
-	 */
-	public void actionViewSubmitProccess_actionPerformed(ActionEvent e)
-			throws Exception {
-		super.actionViewSubmitProccess_actionPerformed(e);
-	}
-
-	/**
-	 * output actionViewDoProccess_actionPerformed
-	 */
-	public void actionViewDoProccess_actionPerformed(ActionEvent e)
-			throws Exception {
-		super.actionViewDoProccess_actionPerformed(e);
-	}
-
-	/**
-	 * output actionMultiapprove_actionPerformed
-	 */
-	public void actionMultiapprove_actionPerformed(ActionEvent e)
-			throws Exception {
-		super.actionMultiapprove_actionPerformed(e);
-	}
-
-	/**
-	 * output actionNextPerson_actionPerformed
-	 */
-	public void actionNextPerson_actionPerformed(ActionEvent e)
-			throws Exception {
-		super.actionNextPerson_actionPerformed(e);
-	}
-
-	/**
-	 * output actionStartWorkFlow_actionPerformed
-	 */
-	public void actionStartWorkFlow_actionPerformed(ActionEvent e)
-			throws Exception {
-		super.actionStartWorkFlow_actionPerformed(e);
-	}
-
-	/**
-	 * output actionVoucher_actionPerformed
-	 */
-	public void actionVoucher_actionPerformed(ActionEvent e) throws Exception {
-		super.actionVoucher_actionPerformed(e);
-	}
-
-	/**
-	 * output actionDelVoucher_actionPerformed
-	 */
-	public void actionDelVoucher_actionPerformed(ActionEvent e)
-			throws Exception {
-		super.actionDelVoucher_actionPerformed(e);
-	}
-
-	/**
-	 * output actionWorkFlowG_actionPerformed
-	 */
-	public void actionWorkFlowG_actionPerformed(ActionEvent e) throws Exception {
-		super.actionWorkFlowG_actionPerformed(e);
-	}
-
-	/**
-	 * output actionCreateTo_actionPerformed
-	 */
-	public void actionCreateTo_actionPerformed(ActionEvent e) throws Exception {
-		super.actionCreateTo_actionPerformed(e);
-	}
-
-	/**
-	 * output actionSendingMessage_actionPerformed
-	 */
-	public void actionSendingMessage_actionPerformed(ActionEvent e)
-			throws Exception {
-		super.actionSendingMessage_actionPerformed(e);
-	}
-
-	/**
-	 * output actionSignature_actionPerformed
-	 */
-	public void actionSignature_actionPerformed(ActionEvent e) throws Exception {
-		super.actionSignature_actionPerformed(e);
-	}
-
-	/**
-	 * output actionWorkflowList_actionPerformed
-	 */
-	public void actionWorkflowList_actionPerformed(ActionEvent e)
-			throws Exception {
-		super.actionWorkflowList_actionPerformed(e);
-	}
-
-	/**
-	 * output actionViewSignature_actionPerformed
-	 */
-	public void actionViewSignature_actionPerformed(ActionEvent e)
-			throws Exception {
-		super.actionViewSignature_actionPerformed(e);
-	}
-
-	/**
-	 * output actionSendMail_actionPerformed
-	 */
-	public void actionSendMail_actionPerformed(ActionEvent e) throws Exception {
-		super.actionSendMail_actionPerformed(e);
-	}
-
-	/**
-	 * output actionLocate_actionPerformed
-	 */
-	public void actionLocate_actionPerformed(ActionEvent e) throws Exception {
-		super.actionLocate_actionPerformed(e);
 	}
 
 	/**
@@ -1075,28 +801,46 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 	 */
 	protected com.kingdee.bos.dao.IObjectValue createNewData() {
 		com.kingdee.eas.port.pm.invest.YearInvestPlanInfo objectValue = new com.kingdee.eas.port.pm.invest.YearInvestPlanInfo();
-		if(getUIContext().get("projectInfo")!=null){
-			objectValue = (YearInvestPlanInfo)getUIContext().get("projectInfo");
-			try {
-				IProject Iproject = ProjectFactory.getRemoteInstance();
-				objectValue = YearInvestPlanFactory.getRemoteInstance().getYearInvestPlanInfo(new ObjectUuidPK(objectValue.getId()),getSelectors());
-				objectValue.setSourceBillId(objectValue.getId().toString());
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
+		objectValue.setCreator((com.kingdee.eas.base.permission.UserInfo) (com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentUser()));
+		objectValue.setObjectState(ObjectStateEnum.save);
+		objectValue.setBizDate(new Date());
+		objectValue.setId(BOSUuid.create(objectValue.getBOSType()));
 		objectValue.setDesc("项目后评估要基本能体现以下内容："+
 				"\n1、预算执行情况对比分析（并附表说明）"+
 				"\n2、主要经济、技术指标实现情况对比分析（并附表说明）"+
 				"\n3、主要偏差、问题及原因分析（项目从申报、实施、竣工验收、试运营各阶段出现的偏差、问题及原因分析）"+
 				"\n4、项目自评估报告（作为附件插入）");
-		objectValue.setCreator((com.kingdee.eas.base.permission.UserInfo) (com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentUser()));
-		objectValue.setObjectState(ObjectStateEnum.save);
-		objectValue.setBizDate(new Date());
-		objectValue.setId(BOSUuid.create(objectValue.getBOSType()));
 		return objectValue;
 	}
-
+	/**
+	 * 评审、批准中，直接修改
+	 * 将修改前版本存入历史库
+	 * */
+	void saveAuditingEditInfo(YearInvestPlanInfo objectValue){
+		if(getUIContext().get("projectInfo")!=null){
+			YearInvestPlanInfo info = (YearInvestPlanInfo)getUIContext().get("projectInfo");
+			try {
+				info.setSourceBillId(objectValue.getId().toString());
+				for(int i=0;i<objectValue.getE3().size();i++){
+					info.getE3().get(i).setId(null);
+				}
+				YearInvestPlanCollection coll = YearInvestPlanFactory.getRemoteInstance().getYearInvestPlanCollection("where sourcebillid='"+info.getId()+"'");
+				info.setNumber(info.getNumber()+"_0"+(coll.size()+1));
+				info.setId(BOSUuid.create(info.getBOSType()));
+				info.setObjectState(ObjectStateEnum.adjusted);
+				YearInvestPlanFactory.getRemoteInstance().save(info);
+				
+				ProgrammingInfo programmingInfo = (ProgrammingInfo)getUIContext().get("programmingInfo");
+				programmingInfo.setSourceBillId(info.getId().toString());
+				programmingInfo.setProjectName(info.getProjectName());
+				programmingInfo.setProjectNumber(info.getNumber());
+				ProgrammingFactory.getRemoteInstance().save(programmingInfo);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	} 
+	
 	protected void attachListeners() {
 		addDataChangeListener(this.prmtcostTemp);
 		addDataChangeListener(this.prmtbuildType);
