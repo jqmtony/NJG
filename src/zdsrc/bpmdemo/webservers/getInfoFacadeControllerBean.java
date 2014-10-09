@@ -55,12 +55,10 @@ public class getInfoFacadeControllerBean extends AbstractgetInfoFacadeController
 			{
 				str = new ChangeAuditFacade().SubmitResult(ctx, strBSID, billInfo, success, procInstID, procURL, strMessage);
 			}
-			//if(billInfo instanceof ContractSettlementBillInfo)
-			//{
-			//	str = new SettleMentFacade().SubmitResult(ctx, strBSID, billInfo, success, procInstID, procURL, strMessage);
-			//}
-			
-			
+			if(billInfo instanceof ContractSettlementBillInfo)
+			{
+				str = new SettleMentFacade().SubmitResult(ctx, strBSID, billInfo, success, procInstID, procURL, strMessage);
+			}
 			if(billInfo instanceof PayRequestBillInfo)
 			{
 				str = new PayRequestFacade().SubmitResult(ctx, strBSID, billInfo, success, procInstID, procURL, strMessage);
@@ -96,10 +94,10 @@ public class getInfoFacadeControllerBean extends AbstractgetInfoFacadeController
 			{
 				str = new ChangeAuditFacade().ApproveClose(ctx, strBSID, billInfo, procInstID, processInstanceResult, strComment, dtTime);
 			}
-			//if(billInfo instanceof ContractSettlementBillInfo)
-			//{
-			//	str = new SettleMentFacade().ApproveClose(ctx, strBSID, billInfo, procInstID, processInstanceResult, strComment, dtTime);
-			//}
+			if(billInfo instanceof ContractSettlementBillInfo)
+			{
+				str = new SettleMentFacade().ApproveClose(ctx, strBSID, billInfo, procInstID, processInstanceResult, strComment, dtTime);
+			}
 			
 			if(billInfo instanceof PayRequestBillInfo){
 				str = new PayRequestFacade().ApproveClose(ctx, strBSID, billInfo, procInstID, processInstanceResult, strComment, dtTime);
@@ -133,10 +131,10 @@ public class getInfoFacadeControllerBean extends AbstractgetInfoFacadeController
 			{
 				str = new ChangeAuditFacade().GetbillInfo(ctx, strBSID, billInfo);
 			}
-			//if(billInfo instanceof ContractSettlementBillInfo)
-			//{
-			//	str = new SettleMentFacade().GetbillInfo(ctx, strBSID, billInfo);
-			//}
+			if(billInfo instanceof ContractSettlementBillInfo)
+			{
+				str = new SettleMentFacade().GetbillInfo(ctx, strBSID, billInfo);
+			}
 			if(billInfo instanceof PayRequestBillInfo)
 			{
 				str = new PayRequestFacade().GetbillInfo(ctx, strBSID, billInfo);
