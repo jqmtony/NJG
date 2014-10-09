@@ -71,11 +71,11 @@ public class ChangeAuditEditUIPIEx extends ChangeAuditEditUI{
     public void actionSubmit_actionPerformed(ActionEvent e) throws Exception {
     	super.actionSubmit_actionPerformed(e);
     	
-    	String[] xml = getInfoFacadeFactory.getRemoteInstance().GetbillInfo("",editData.getId().toString());
-    	String [] str1= getInfoFacadeFactory.getRemoteInstance().ApproveClose("", "dYkAAAAAhPINbdH0", 1, "1", "",null);
-    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
-    	//String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=HT01";
-    	//creatFrame(url);
+    	//String[] xml = getInfoFacadeFactory.getRemoteInstance().GetbillInfo("",editData.getId().toString());
+    	//String [] str1= getInfoFacadeFactory.getRemoteInstance().ApproveClose("", "dYkAAAAAhPINbdH0", 1, "1", "",null);
+    	//MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
+    	String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=HT01";
+    	creatFrame(url);
     	
     }
     
