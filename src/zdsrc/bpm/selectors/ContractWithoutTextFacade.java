@@ -169,46 +169,49 @@ public class ContractWithoutTextFacade implements BillBaseSelector {
     			xml.append("<Applicant>"+StringUtilBPM.isNULl(Info.getCreator().getName())+"</Applicant>\n");
     			xml.append("<Position>合约部经理</Position>\n");
     			xml.append("<Topic>"+StringUtilBPM.isNULl(Info.getName())+"-无文本合同审批单"+"</Topic>\n");
+    			if(Info.getCurProject()!=null)
     			xml.append("<curProject>"+StringUtilBPM.isNULl(Info.getCurProject().getName())+"</curProject>\n");
-    			xml.append("<contractNo>"+StringUtilBPM.isNULl(Info.getContractBaseData().getNumber())+"</contractNo>\n");
+    			//xml.append("<contractNo>"+StringUtilBPM.isNULl(Info.getContractBaseData().getNumber())+"</contractNo>\n");
     			xml.append("<bizdate>"+dateFormat.format(Info.getBizDate())+"</bizdate>\n");
-    			
+    			if(Info.getOrgUnit()!=null)
+    			xml.append("<orgunit>"+StringUtilBPM.isNULl(Info.getOrgUnit().getName())+"</orgunit>\n");//组织
+    			xml.append("<name>"+StringUtilBPM.isNULl(Info.getName())+"</name>\n");   //单据名称
     			xml.append("<period>"+Info.getPeriod().getNumber()+"</period>\n");//订立期间
     			xml.append("<signDate>"+dateFormat.format(Info.getSignDate())+"</signDate>\n");//订立期间
     			xml.append("<number>"+StringUtilBPM.isNULl(Info.getNumber())+"</number>\n");
+    			if(Info.getPaymentType()!=null)
     			xml.append("<PaymentType>"+StringUtilBPM.isNULl(Info.getPaymentType().getName())+"</PaymentType>\n");//付款类型
+    			if(Info.getUseDepartment()!=null)
+    			xml.append("<userDepartment>"+StringUtilBPM.isNULl(Info.getUseDepartment().getName())+"</userDepartment>\n");//用款部门
+    			if(Info.getContractType()!=null)
     			xml.append("<contractType>"+StringUtilBPM.isNULl(Info.getContractType().getName())+"</contractType>\n");//合同类型
     			xml.append("<currency>"+StringUtilBPM.isNULl(Info.getCurrency().getName())+"</currency>\n");//币别
+    			if(Info.getReceiveUnit()!=null)
     			xml.append("<receiveUnit>"+StringUtilBPM.isNULl(Info.getReceiveUnit().getName())+"</receiveUnit>\n");//收款单位
-//    			xml.append("<exchangeRate>"+StringUtilBPM.isNULl(Info.get)+"</exchangeRate>\n");//汇率
     			xml.append("<originalAmount>"+Info.getOriginalAmount()+"</originalAmount>\n");//原币金额
     			xml.append("<invoiceAmt>"+Info.getInvoiceAmt()+"</invoiceAmt>\n");//发票金额
     			xml.append("<allinvoiceAmt>"+Info.getAllInvoiceAmt()+"</allinvoiceAmt>\n");//累计发票金额
     			xml.append("<BcAmount>"+Info.getAmount()+"</BcAmount>\n");//本币金额
-//    			xml.append("<capitalAmount>"+StringUtilBPM.isNULl(Info.get)+"</capitalAmount>\n");//大写金额
-//    			xml.append("<completePrjAmt>"+StringUtilBPM.isNULl(Info.getcom.getName())+"</completePrjAmt>\n");//本期完成工程量
+    			//xml.append("<realSupplier>"+StringUtilBPM.isNULl(Info.g)+"</realSupplier>\n");//实际收款单位
+    			//xml.append("<exchangeRate>"+Info.get+"</exchangeRate>\n");//汇率
+    			//xml.append("<PaymentRequestBillNumber>"+StringUtilBPM.isNULl(Info.get)+"</PaymentRequestBillNumber>\n");//付款申请单编码
+    			//xml.append("<capitalAmount>"+Info.get+"</capitalAmount>\n");//大写金额
+    			//xml.append("<completePrjAmt>"+Info.get+"</completePrjAmt>\n");//本期完成工程量
+    			//xml.append("<PaymentProportion>"+Info.getPaymentProportion()+"</PaymentProportion>\n"); 进度款付款比例
+    			//xml.append("<MoneyDesc>"+Info.getMoneyDesc()+"</MoneyDesc>\n");  款项说明
+    			//xml.append("<Urgency>"+Info.getNoPaidReason()+"</Urgency>\n");  //加急
+    			xml.append("<PlanProject>"+Info.getFdcDepConPlan()+"</PlanProject>\n");  //计划项目
+    		    xml.append("<isCostSplit>"+Info.isIsCostSplit()+"</isCostSplit>\n");  //是否进入动态成本
+    			xml.append("<NoPaidReason>"+Info.getNoPaidReason()+"</NoPaidReason>\n");  //无需付款原因
     			
-    			
-    			if(Info.getInvoiceNumber()!=null)
-    				xml.append("<invoicenumber>"+Info.getInvoiceNumber()+"</invoicenumber>\n");
-    			if(Info.getInvoiceDate()!=null)
-    				xml.append("<invoiceDate>"+dateFormat.format(Info.getInvoiceDate())+"</invoiceDate>\n");
+    			if(Info.getDepPlanState()!=null)
+    			xml.append("<DepPlanState>"+Info.getDepPlanState().getName()+"</DepPlanState>\n");  //无需付款
+       			xml.append("<invoicenumber>"+StringUtilBPM.isNULl(Info.getInvoiceNumber())+"</invoicenumber>\n");  //发票号
+    			xml.append("<invoiceDate>"+dateFormat.format(Info.getInvoiceDate())+"</invoiceDate>\n");       //开票日期
     			if(Info.getSettlementType()!=null)
-    				xml.append("<settlementType>"+Info.getSettlementType().getName()+"</settlementType>\n");
-    			if(Info.getBank()!=null)
-    				xml.append("<bank>"+Info.getBank()+"</bank>\n");
-    			if(Info.getBankAcct()!=null)
-    				xml.append("<BankAcct>"+Info.getBankAcct()+"</BankAcct>\n");
-//    			if(Info.getPaymentProportion()!=null)
-//    				xml.append("<PaymentProportion>"+Info.getPaymentProportion()+"</PaymentProportion>\n");
-//    			if(Info.getPlanProject()!=null)
-//    				xml.append("<PlanProject>"+Info.getPlanProject()+"</PlanProject>\n");
-//    			if(Info.get()!=null)//款项说明
-//    				xml.append("<MoneyDesc>"+Info.getMoneyDesc()+"</MoneyDesc>\n");
-//    			if(Info.getMoneyDesc()!=null)//加急
-//    				xml.append("<Urgency>"+Info.geti+"</Urgency>\n");//
-//    			xml.append("<rate>"+Info.getExchangeRate()+"</rate>\n");
-    			
+    			xml.append("<settlementType>"+Info.getSettlementType().getName()+"</settlementType>\n");       //结算方式
+    			xml.append("<bank>"+StringUtilBPM.isNULl(Info.getBank())+"</bank>\n");                         //收款银行
+    			xml.append("<BankAcct>"+Info.getBankAcct()+"</BankAcct>\n");                                   //银行账号
                 xml.append("</DATA>"); 
                 str[1] = xml.toString();
 			}
@@ -239,52 +242,37 @@ public class ContractWithoutTextFacade implements BillBaseSelector {
 
 	public SelectorItemCollection getSelectors() {
 		SelectorItemCollection sic = new SelectorItemCollection();
-		sic.add(new SelectorItemInfo("*"));
 		sic.add(new SelectorItemInfo("orgUnit.id"));
 		sic.add(new SelectorItemInfo("orgUnit.number"));
 		sic.add(new SelectorItemInfo("orgUnit.name"));
-		sic.add(new SelectorItemInfo("creator.id"));
-		sic.add(new SelectorItemInfo("creator.number"));
-		sic.add(new SelectorItemInfo("creator.name"));
 		sic.add(new SelectorItemInfo("curProject.id"));
 		sic.add(new SelectorItemInfo("curProject.number"));
 		sic.add(new SelectorItemInfo("curProject.name"));
-		 sic.add(new SelectorItemInfo("currency.id"));
-		 sic.add(new SelectorItemInfo("currency.number"));
-		 sic.add(new SelectorItemInfo("currency.name"));
-				
+		sic.add(new SelectorItemInfo("currency.name"));
 		sic.add(new SelectorItemInfo("useDepartment.id"));
 		sic.add(new SelectorItemInfo("useDepartment.number"));
 		sic.add(new SelectorItemInfo("useDepartment.name"));
-		sic.add(new SelectorItemInfo("period.id"));
 		sic.add(new SelectorItemInfo("period.number"));
 		sic.add(new SelectorItemInfo("creator.name"));
-		sic.add(new SelectorItemInfo("paymentType.id"));
-		sic.add(new SelectorItemInfo("paymentType.number"));
 		sic.add(new SelectorItemInfo("paymentType.name"));
-		sic.add(new SelectorItemInfo("settlementType.id"));
-		sic.add(new SelectorItemInfo("settlementType.number"));
-		sic.add(new SelectorItemInfo("settlementType.name"));
-		sic.add(new SelectorItemInfo("receiveUnit.id"));
-		sic.add(new SelectorItemInfo("receiveUnit.number"));
 		sic.add(new SelectorItemInfo("receiveUnit.name"));
-		sic.add(new SelectorItemInfo("realSupplier.id"));
-		sic.add(new SelectorItemInfo("realSupplier.number"));
-		sic.add(new SelectorItemInfo("realSupplier.name"));
-		
-		sic.add(new SelectorItemInfo("contractType.id"));
-		sic.add(new SelectorItemInfo("contractType.number"));
-		sic.add(new SelectorItemInfo("contractType.name"));
-				
-		sic.add(new SelectorItemInfo("settlementType.id"));
-		sic.add(new SelectorItemInfo("settlementType.number"));
+		sic.add(new SelectorItemInfo("contractType.name"));		
+		sic.add(new SelectorItemInfo("bizDate"));
+		sic.add(new SelectorItemInfo("SignDate"));
+		sic.add(new SelectorItemInfo("userDepartment.name"));
+		sic.add(new SelectorItemInfo("originalAmount"));
+		sic.add(new SelectorItemInfo("invoicenumber"));
+		sic.add(new SelectorItemInfo("invoiceAmt"));
+		sic.add(new SelectorItemInfo("invoiceDate"));
+		sic.add(new SelectorItemInfo("allinvoiceAmt"));
 		sic.add(new SelectorItemInfo("settlementType.name"));
-		sic.add(new SelectorItemInfo("bankAcct.id"));
-		sic.add(new SelectorItemInfo("bankAcct.number"));
-		sic.add(new SelectorItemInfo("bankAcct.name"));
-		sic.add(new SelectorItemInfo("planProject.id"));
-		sic.add(new SelectorItemInfo("planProject.number"));
-		sic.add(new SelectorItemInfo("planProject.name"));
+		sic.add(new SelectorItemInfo("Amount"));
+		sic.add(new SelectorItemInfo("bankAcct"));
+		sic.add(new SelectorItemInfo("DepPlanState"));
+		sic.add(new SelectorItemInfo("CreateTime"));
+		sic.add(new SelectorItemInfo("Name"));
+		sic.add(new SelectorItemInfo("Number"));
+		sic.add(new SelectorItemInfo("IsCostSplit"));
 		return sic;
     }
 

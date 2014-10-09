@@ -8,8 +8,14 @@ import com.kingdee.bos.BOSException;
 import com.kingdee.bos.Context;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.bos.metadata.entity.EntityViewInfo;
+import com.kingdee.bos.metadata.entity.FilterInfo;
+import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.metadata.entity.SelectorItemInfo;
+import com.kingdee.bos.metadata.query.util.CompareType;
+import com.kingdee.eas.basedata.master.account.AccountViewCollection;
+import com.kingdee.eas.basedata.master.account.AccountViewFactory;
 import com.kingdee.eas.bpm.BPMLogFactory;
 import com.kingdee.eas.bpm.BPMLogInfo;
 import com.kingdee.eas.bpm.BillBaseSelector;
@@ -21,6 +27,7 @@ import com.kingdee.eas.fdc.basedata.PaymentTypeFactory;
 import com.kingdee.eas.fdc.basedata.PaymentTypeInfo;
 import com.kingdee.eas.fdc.contract.ContractBailEntryFactory;
 import com.kingdee.eas.fdc.contract.ContractBailEntryInfo;
+import com.kingdee.eas.fdc.contract.ContractBillCollection;
 import com.kingdee.eas.fdc.contract.ContractBillEntryFactory;
 import com.kingdee.eas.fdc.contract.ContractBillEntryInfo;
 import com.kingdee.eas.fdc.contract.ContractBillFactory;
@@ -139,8 +146,6 @@ public class ContractReviseFacade implements BillBaseSelector{
   			xml.append("<CompanyName>"+StringUtilBPM.isNULl(Info.getLandDeveloper().getName())+"</CompanyName>\n");
   			xml.append("<Phase>"+StringUtilBPM.isNULl(Info.getCurProject().getName())+"</Phase>\n");
   			xml.append("<OrgCode>"+StringUtilBPM.isNULl(Info.getOrgUnit().getNumber().split("-")[0])+"</OrgCode>\n");
-  			
-  			xml.append("<contactNumber>"+StringUtilBPM.isNULl(Info.getNumber())+"</contactNumber>\n");
   			xml.append("<contractName>"+StringUtilBPM.isNULl(Info.getName())+"</contractName>\n");
   			xml.append("<partA>"+StringUtilBPM.isNULl(Info.getLandDeveloper().getName())+"</partA>\n");
   			xml.append("<partB>"+StringUtilBPM.isNULl(Info.getPartB().getName())+"</partB>\n");
@@ -174,6 +179,32 @@ public class ContractReviseFacade implements BillBaseSelector{
   			xml.append("<RevLocalAmount>"+Info.getRevLocalAmount()+"</RevLocalAmount>\n"); 
   			xml.append("<RevAmount>"+Info.getRevAmount()+"</RevAmount>\n"); 
   			xml.append("<ReviseReason>"+Info.getReviseReason()+"</ReviseReason>\n");
+  			xml.append("<creator>"+Info.getCreator().getName()+"</creator>\n");
+  			xml.append("<createTime>"+dateFormat.format(Info.getCreateTime())+"</createTime>\n");
+  			xml.append("<respDept>"+Info.getRespDept().getName()+"</respDept>\n");
+  			xml.append("<isPartAMaterialCon>"+Info.isIsPartAMaterialCon()+"</isPartAMaterialCon>\n");
+  			xml.append("<isCoseSplit>"+Info.isIsCoseSplit()+"</isCoseSplit>\n");
+  			
+  			xml.append("<chgPercForWarn>"+Info.getChgPercForWarn()+"</chgPercForWarn>\n");
+  			xml.append("<contactNumber>"+Info.getContractBill().getNumber()+"</contactNumber>\n");
+  			
+  			
+/*  			  EntityViewInfo avevi = new EntityViewInfo();
+		      FilterInfo avfilter = new FilterInfo();
+		      avfilter.getFilterItems().add(new FilterItemInfo("number",Info.getContractBill().getNumber(),CompareType.EQUALS));
+		      avevi.setFilter(avfilter);
+		      ContractBillCollection myavc=ContractBillFactory.getRemoteInstance().getContractBillCollection(avevi);
+		      for(int i=0;i< myavc.size();i++){
+         	    ContractBillInfo avInfo = myavc.get(i);
+           	   xml.append("<programmingContract>"+avInfo.getProgrammingContract()+"</programmingContract>\n");
+           	   if(avInfo.getProgrammingContract()!=null)
+           	   xml.append("<controlBalance>"+avInfo.getProgrammingContract().getControlBalance()+"</controlBalance>\n");
+           	   xml.append("<overRate>"+avInfo.getOverRate()+"</overRate>\n");
+              }*/
+   
+  			
+  			
+  			
   		xml.append("<billEntries>\n");
 			for(int i=0;i<Info.getEntrys().size();i++){
 				ContractBillReviseEntryInfo entry = Info.getEntrys().get(i);
@@ -319,6 +350,14 @@ public class ContractReviseFacade implements BillBaseSelector{
 		 sic.add(new SelectorItemInfo("Currency.name"));
 		 sic.add(new SelectorItemInfo("Currency.number"));
 		 sic.add(new SelectorItemInfo("ExRate"));
+		 sic.add(new SelectorItemInfo("IsPartAMaterialCon"));
+		 sic.add(new SelectorItemInfo("IsCoseSplit"));
+		 sic.add(new SelectorItemInfo("chgPercForWarn"));
+		 sic.add(new SelectorItemInfo("payPercForWarn"));
+		 
+		 
+		 
+		 sic.add(new SelectorItemInfo("ContractBill.number"));
 		 
 		 sic.add(new SelectorItemInfo("RevAmount"));
 		 sic.add(new SelectorItemInfo("RevLocalAmount"));

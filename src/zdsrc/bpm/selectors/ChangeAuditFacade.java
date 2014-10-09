@@ -155,8 +155,11 @@ public class ChangeAuditFacade implements BillBaseSelector {
 				xml.append("<UrgentDegree>"+ StringUtilBPM.isNULl(Info.getUrgentDegree().getName())+ "</UrgentDegree>\n"); // 紧急程度
 				if(Info.getConductDept()!=null)
 				xml.append("<ConductDept>"+ Info.getConductDept().getName()+ "</ConductDept>\n"); // 提出部门
+				if(Info.getDesignUnit()!=null)
 				xml.append("<DesignUnit>"+ StringUtilBPM.isNULl(Info.getDesignUnit().getName())+ "</DesignUnit>\n"); // 设计单位
+				if(Info.getConductUnit()!=null)
 				xml.append("<ConductUnit>"+ StringUtilBPM.isNULl(Info.getConductUnit().getName())+ "</ConductUnit>\n"); // 提出单位
+				if(Info.getConstrUnit()!=null)
 				xml.append("<Construnit>"+ StringUtilBPM.isNULl(Info.getConstrUnit().getName())+ "</Construnit>\n");// 施工单位
 				xml.append("<ReaDesc>"+ StringUtilBPM.isNULl(Info.getReaDesc())+ "</ReaDesc>\n"); // 说明
 				xml.append("<Offer>"+ StringUtilBPM.isNULl(Info.getOffer().getName())+ "</Offer>\n"); // 提出人
@@ -339,7 +342,7 @@ public class ChangeAuditFacade implements BillBaseSelector {
 		sic.add(new SelectorItemInfo("Jobtype.number"));
 		sic.add(new SelectorItemInfo("urgentDegree"));
 		sic.add(new SelectorItemInfo("ConductDept"));
-		sic.add(new SelectorItemInfo("DesignUnit"));
+		sic.add(new SelectorItemInfo("DesignUnit.name"));
 		sic.add(new SelectorItemInfo("ConductUnit.id"));
 		sic.add(new SelectorItemInfo("ConductUnit.name"));
 		sic.add(new SelectorItemInfo("ConductUnit.number"));
@@ -374,27 +377,22 @@ public class ChangeAuditFacade implements BillBaseSelector {
 		sic.add(new SelectorItemInfo("SuppEntry.CopySupp"));
 		sic.add(new SelectorItemInfo("SuppEntry.OriginalContactNum"));
 		sic.add(new SelectorItemInfo("SuppEntry.Entrys.changeContext"));
-		sic.add(new SelectorItemInfo("Entrys.Currency"));
-		sic.add(new SelectorItemInfo("Entrys.getExRate"));
-		sic.add(new SelectorItemInfo("Entrys.getOriCostAmount"));
-		sic.add(new SelectorItemInfo("Entrys.getCostAmount"));
-		sic.add(new SelectorItemInfo("Entrys.getCostDescription"));
-		sic.add(new SelectorItemInfo("Entrys.getConstructPrice"));
-		sic.add(new SelectorItemInfo("Entrys.isIsDeduct"));
-		sic.add(new SelectorItemInfo("Entrys.DeductAmount"));
-		sic.add(new SelectorItemInfo("Entrys.DeductReason"));
-		sic.add(new SelectorItemInfo("Entrys.Reckonor.id"));
-		sic.add(new SelectorItemInfo("Entrys.Reckonor.name"));
-		sic.add(new SelectorItemInfo("Entrys.Reckonor.number"));
-		sic.add(new SelectorItemInfo("Entrys.DutyOrg.id"));
-		sic.add(new SelectorItemInfo("Entrys.DutyOrg.name"));
-		sic.add(new SelectorItemInfo("Entrys.DutyOrg.number"));
-		sic.add(new SelectorItemInfo("Entrys.IsSureChangeAmt"));
-		
-		
-		sic.add(new SelectorItemInfo("Entrys.DutyOrg.id"));
-		sic.add(new SelectorItemInfo("Entrys.DutyOrg.name"));
-		sic.add(new SelectorItemInfo("Entrys.DutyOrg.number"));
+		sic.add(new SelectorItemInfo("SuppEntry.Currency"));
+		sic.add(new SelectorItemInfo("SuppEntry.getExRate"));
+		sic.add(new SelectorItemInfo("SuppEntry.getOriCostAmount"));
+		sic.add(new SelectorItemInfo("SuppEntry.getCostAmount"));
+		sic.add(new SelectorItemInfo("SuppEntry.getCostDescription"));
+		sic.add(new SelectorItemInfo("SuppEntry.getConstructPrice"));
+		sic.add(new SelectorItemInfo("SuppEntry.isIsDeduct"));
+		sic.add(new SelectorItemInfo("SuppEntry.DeductAmount"));
+		sic.add(new SelectorItemInfo("SuppEntry.DeductReason"));
+		sic.add(new SelectorItemInfo("SuppEntry.Reckonor.id"));
+		sic.add(new SelectorItemInfo("SuppEntry.Reckonor.name"));
+		sic.add(new SelectorItemInfo("SuppEntry.Reckonor.number"));
+		sic.add(new SelectorItemInfo("SuppEntry.DutyOrg.id"));
+		sic.add(new SelectorItemInfo("SuppEntry.DutyOrg.name"));
+		sic.add(new SelectorItemInfo("SuppEntry.DutyOrg.number"));
+		sic.add(new SelectorItemInfo("SuppEntry.IsSureChangeAmt"));
 		
 		
 		sic.add(new SelectorItemInfo("CreateTime"));

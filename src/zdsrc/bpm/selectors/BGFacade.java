@@ -21,6 +21,9 @@ import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
 import com.kingdee.eas.fdc.contract.ChangeAuditBillFactory;
 import com.kingdee.eas.fdc.contract.ChangeAuditBillInfo;
+import com.kingdee.eas.fdc.contract.ContractChangeBill;
+import com.kingdee.eas.fdc.contract.ContractChangeBillFactory;
+import com.kingdee.eas.fdc.contract.ContractChangeBillInfo;
 import com.kingdee.eas.fi.cas.PaymentBillFactory;
 import com.kingdee.eas.fi.cas.PaymentBillInfo;
 
@@ -29,13 +32,14 @@ public class BGFacade implements BillBaseSelector {
 	public String[] ApproveClose(Context ctx, String strBSID,
 			IObjectValue billInfo, int procInstID,
 			String processInstanceResult, String strComment, Date dtTime) {
-		ChangeAuditBillInfo Info = (ChangeAuditBillInfo) billInfo;
+		ContractChangeBillInfo Info=(ContractChangeBillInfo)billInfo;
+		//ChangeAuditBillInfo Info = (ChangeAuditBillInfo) billInfo;
 		String[] str = new String[3];
 		str[0] = "Y";
 		try {
 			try {
-				Info = ChangeAuditBillFactory.getLocalInstance(ctx)
-						.getChangeAuditBillInfo(new ObjectUuidPK(Info.getId()),
+				Info = ContractChangeBillFactory.getLocalInstance(ctx)
+						.getContractChangeBillInfo(new ObjectUuidPK(Info.getId()),
 								getSelectors());
 			} catch (EASBizException e) {
 				str[2] = "根据单据getSelectors获取对象数据，请检查getSelectors方法中属性是否正确,并查看服务器log日志！";
@@ -74,7 +78,7 @@ public class BGFacade implements BillBaseSelector {
 						str[0] = "N";
 					}
 				}
-				String sql = " update CT_BPM_ChangeVisaApp set fState='"
+				String sql = " update T_CON_ContractChangeBill set fState='"
 						+ Info.getState().getValue() + "' where fid='"
 						+ Info.getId() + "'";
 				FDCSQLBuilder bu = new FDCSQLBuilder(ctx);
@@ -108,14 +112,14 @@ public class BGFacade implements BillBaseSelector {
 
 	public String[] GetbillInfo(Context ctx, String strBSID,
 			IObjectValue billInfo) {
-		ChangeVisaAppInfo Info = (ChangeVisaAppInfo) billInfo;
+		ContractChangeBillInfo Info = (ContractChangeBillInfo) billInfo;
 		String[] str = new String[3];
 		str[0] = "Y";
 		StringBuffer xml = new StringBuffer();
 		try {
 			try {
-				Info = ChangeVisaAppFactory.getLocalInstance(ctx)
-						.getChangeVisaAppInfo(new ObjectUuidPK(Info.getId()),
+				Info = ContractChangeBillFactory.getLocalInstance(ctx)
+						.getContractChangeBillInfo(new ObjectUuidPK(Info.getId()),
 								getSelectors());
 			} catch (EASBizException e) {
 				str[2] = "根据单据getSelectors获取对象数据，请检查getSelectors方法中属性是否正确,并查看服务器log日志！";
@@ -127,11 +131,16 @@ public class BGFacade implements BillBaseSelector {
 					+ "</Number>\n"); // 申请单编码
 			xml.append("<Name>" + StringUtilBPM.isNULl(Info.getName())
 					+ "</Name>\n"); //名称
-			xml.append("<Audittype>" + StringUtilBPM.isNULl(Info.getAudittype().getName())
-					+ "</Audittype>\n"); // 变更类型
-			xml.append("<Changereason>" + StringUtilBPM.isNULl(Info.getChangereason().getName())
+			if(Info.getChangeType()!=null)
+			xml.append("<ChangeType>" + StringUtilBPM.isNULl(Info.getChangeType().getName())
+					+ "</ChangeType>\n"); // 变更类型
+			if(Info.getChangeReason()!=null)
+			xml.append("<Changereason>" + StringUtilBPM.isNULl(Info.getChangeReason().getName())
 					+ "</Changereason>\n"); // 变更原因
 			
+			xml.append("<amount>" + Info.getAmount()
+					+ "</amount>\n"); //变更金额 
+			if(Info.getConductDept()!=null)
 			xml.append("<ConductDept>" + StringUtilBPM.isNULl(Info.getConductDept().getName())
 					+ "</ConductDept>\n"); // 提出部门
 			
@@ -160,13 +169,13 @@ public class BGFacade implements BillBaseSelector {
 	public String[] SubmitResult(Context ctx, String strBSID,
 			IObjectValue billInfo, boolean success, int procInstID,
 			String procURL, String strMessage) {
-		ChangeAuditBillInfo Info = (ChangeAuditBillInfo) billInfo;
+		ContractChangeBillInfo Info = (ContractChangeBillInfo) billInfo;
 		String[] str = new String[3];
 		str[0] = "Y";
 		try {
 			try {
-				Info = ChangeAuditBillFactory.getLocalInstance(ctx)
-						.getChangeAuditBillInfo(new ObjectUuidPK(Info.getId()),
+				Info = ContractChangeBillFactory.getLocalInstance(ctx)
+						.getContractChangeBillInfo(new ObjectUuidPK(Info.getId()),
 								getSelectors());
 			} catch (EASBizException e) {
 				str[0] = "N";
@@ -175,7 +184,7 @@ public class BGFacade implements BillBaseSelector {
 			}
 			try {
 				Info.setState(FDCBillStateEnum.AUDITTING);
-				String sql = " update CT_BPM_ChangeVisaApp set fState='"
+				String sql = " update T_CON_ContractChangeBill set fState='"
 						+ Info.getState().getValue() + "'" + ", fDescription='"
 						+ procURL + "' " + ", FSourceFunction='" + procInstID
 						+ "' where fid='" + Info.getId() + "'";
@@ -213,15 +222,16 @@ public class BGFacade implements BillBaseSelector {
 		SelectorItemCollection sic = new SelectorItemCollection();
 		sic.add(new SelectorItemInfo("Number"));
 		sic.add(new SelectorItemInfo("Name"));
-		sic.add(new SelectorItemInfo("Audittype.id"));
-		sic.add(new SelectorItemInfo("Audittype.name"));
-		sic.add(new SelectorItemInfo("Audittype.number"));
-		sic.add(new SelectorItemInfo("Changereason.id"));
+		//sic.add(new SelectorItemInfo("ChangeType.id"));
+		sic.add(new SelectorItemInfo("ChangeType.name"));
+		//sic.add(new SelectorItemInfo("Audittype.number"));
+		//sic.add(new SelectorItemInfo("Changereason.id"));
 		sic.add(new SelectorItemInfo("Changereason.name"));
-		sic.add(new SelectorItemInfo("Changereason.number"));
-		sic.add(new SelectorItemInfo("ConductDept.id"));
+		//sic.add(new SelectorItemInfo("Changereason.number"));
+		//sic.add(new SelectorItemInfo("ConductDept.id"));
 		sic.add(new SelectorItemInfo("ConductDept.name"));
-		sic.add(new SelectorItemInfo("ConductDept.number"));
+		//sic.add(new SelectorItemInfo("ConductDept.number"));
+		sic.add(new SelectorItemInfo("amount"));
 		return sic;
 	}
 

@@ -175,8 +175,9 @@ public class ContractFacade implements BillBaseSelector {
     			xml.append("<respDept>"+StringUtilBPM.isNULl(Info.getRespDept().getName())+"</respDept>\n");
     			xml.append("<ApplyDate>"+dateFormat.format(Info.getCreateTime())+"</ApplyDate>\n");
     			xml.append("<Applicant>"+StringUtilBPM.isNULl(Info.getCreator().getName())+"</Applicant>\n");
-    			xml.append("<ApplicantID>"+Info.getCreator().getId()+"</ApplicantID>\n");
-    			xml.append("<isPartAMaterialCon>"+Info.isIsPartAMaterialCon()+"<isPartAMaterialCon/>\n");
+    			//xml.append("<ApplicantID>"+Info.getCreator().getId()+"</ApplicantID>\n");
+    			xml.append("<ApplicantID>"+StringUtilBPM.isNULl(Info.getCreator().getName())+"</ApplicantID>\n");
+    			xml.append("<isPartAMaterialCon>"+Info.isIsPartAMaterialCon()+"</isPartAMaterialCon>\n");
     			xml.append("<creator>"+StringUtilBPM.isNULl(Info.getCreator().getName())+"</creator>\n");
     			xml.append("<createTime>"+dateFormat.format(Info.getCreateTime())+"</createTime>\n");
     			
@@ -328,7 +329,6 @@ public class ContractFacade implements BillBaseSelector {
 		sic.add(new SelectorItemInfo("bookedDate"));
 		sic.add(new SelectorItemInfo("period.id"));
 		sic.add(new SelectorItemInfo("period.number"));
-		sic.add(new SelectorItemInfo("creator.name"));
 		sic.add(new SelectorItemInfo("createTime"));
 		sic.add(new SelectorItemInfo("stampTaxAmt"));
 		sic.add(new SelectorItemInfo("stampTaxRate"));
