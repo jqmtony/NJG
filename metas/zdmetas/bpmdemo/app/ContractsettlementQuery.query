@@ -1,0 +1,2773 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<joinQuery xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.bpmdemo.app</package>
+    <name>ContractsettlementQuery</name>
+    <alias>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].alias</alias>
+    <description>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].description</description>
+    <userDefined>true</userDefined>
+    <reportDataSource />
+    <bizUnitPK>com.kingdee.eas.bpmdemo.Contractsettlement</bizUnitPK>
+    <connectionProvider />
+    <subObjects>
+        <subEntity>
+            <name>Contractsettlement</name>
+            <alias>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].subObjects.subEntity[Contractsettlement].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="Contractsettlement" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>auditor</name>
+            <alias>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].subObjects.subEntity[auditor].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.base.permission.app" />
+                <key name="name" value="User" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>creator</name>
+            <alias>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].subObjects.subEntity[creator].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.base.permission.app" />
+                <key name="name" value="User" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>lastUpdateUser</name>
+            <alias>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].subObjects.subEntity[lastUpdateUser].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.base.permission.app" />
+                <key name="name" value="User" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>entrys</name>
+            <alias>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].subObjects.subEntity[entrys].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementEntry" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>handler</name>
+            <alias>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].subObjects.subEntity[handler].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.base.permission.app" />
+                <key name="name" value="User" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>Currency</name>
+            <alias>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].subObjects.subEntity[Currency].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="Currency" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>Period</name>
+            <alias>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].subObjects.subEntity[Period].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="Period" />
+            </entityRef>
+        </subEntity>
+    </subObjects>
+    <units>
+        <propertyUnit>
+            <name>NewUnit0</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.propertyUnit[NewUnit0].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit0" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Contractsettlement" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="auditor" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUnit1</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.propertyUnit[NewUnit1].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit1" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="auditor" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUnit2</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.propertyUnit[NewUnit2].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit2" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Contractsettlement" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="creator" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUnit3</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.propertyUnit[NewUnit3].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit3" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="creator" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUnit4</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.propertyUnit[NewUnit4].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit4" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Contractsettlement" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="lastUpdateUser" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUnit5</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.propertyUnit[NewUnit5].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit5" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="lastUpdateUser" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>id</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Contractsettlement" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>number</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[number].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="number" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Contractsettlement" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="number" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>bizDate</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[bizDate].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Date</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="bizDate" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Contractsettlement" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="bizDate" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>description</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[description].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="description" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Contractsettlement" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="description" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>createTime</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[createTime].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Timestamp</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="createTime" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Contractsettlement" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="createTime" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>lastUpdateTime</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[lastUpdateTime].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Timestamp</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="lastUpdateTime" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Contractsettlement" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="lastUpdateTime" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>auditor.number</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[auditor.number].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="auditor.number" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="auditor" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="number" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>auditor.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[auditor.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="auditor.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="auditor" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>creator.number</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[creator.number].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="creator.number" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="creator" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="number" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>creator.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[creator.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="creator.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="creator" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>lastUpdateUser.number</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[lastUpdateUser.number].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="lastUpdateUser.number" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="lastUpdateUser" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="number" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>lastUpdateUser.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[lastUpdateUser.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="lastUpdateUser.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="lastUpdateUser" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>entrys.id</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[entrys.id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="entrys.id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="entrys" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>handler.number</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[handler.number].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="handler.number" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="handler" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="number" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>handler.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[handler.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="handler.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="handler" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>entrys.seq</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[entrys.seq].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Int</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="entrys.seq" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="entrys" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="seq" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>NewUnit7</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.propertyUnit[NewUnit7].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit7" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Contractsettlement" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUnit6</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.propertyUnit[NewUnit6].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit6" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="entrys" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="parent" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUnit9</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.propertyUnit[NewUnit9].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit9" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Contractsettlement" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="handler" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUnit8</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.propertyUnit[NewUnit8].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit8" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="handler" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>Fivouchered</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[Fivouchered].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Boolean</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="Fivouchered" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Contractsettlement" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="Fivouchered" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>orgunit</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[orgunit].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>3b9881de-4df0-4449-83f8-5ad8cd30e805</key>
+                    <parentUnit>
+                        <key name="name" value="orgunit" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Contractsettlement" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="orgunit" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>curProject</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[curProject].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>79e2d844-b0d8-4854-816b-9179a52870c7</key>
+                    <parentUnit>
+                        <key name="name" value="curProject" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Contractsettlement" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="curProject" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>contractNo</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[contractNo].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>f04e2d69-ae39-468d-a559-c66921f4417a</key>
+                    <parentUnit>
+                        <key name="name" value="contractNo" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Contractsettlement" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="contractNo" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>contractName</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[contractName].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>e766b791-dcea-4087-9f3b-ac9d260a62d6</key>
+                    <parentUnit>
+                        <key name="name" value="contractName" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Contractsettlement" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="contractName" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>name</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>20f8bd94-26ea-4a93-8962-00612db32f30</key>
+                    <parentUnit>
+                        <key name="name" value="name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Contractsettlement" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>OriginalAmount</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[OriginalAmount].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>815a3a8e-7eb2-446c-bdd0-d18e3602fc98</key>
+                    <parentUnit>
+                        <key name="name" value="OriginalAmount" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Contractsettlement" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="OriginalAmount" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>getFeeCriteria</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[getFeeCriteria].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>fc90e5be-643f-444f-8346-ce7d9346ed7d</key>
+                    <parentUnit>
+                        <key name="name" value="getFeeCriteria" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Contractsettlement" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="getFeeCriteria" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>SettlePrice</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[SettlePrice].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>8a964524-b2d1-458c-9484-aaed4b652bb2</key>
+                    <parentUnit>
+                        <key name="name" value="SettlePrice" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Contractsettlement" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="SettlePrice" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>unitPrice</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[unitPrice].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>47fe9b77-c27d-4679-b648-b27675cda912</key>
+                    <parentUnit>
+                        <key name="name" value="unitPrice" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Contractsettlement" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="unitPrice" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>infoPrice</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[infoPrice].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>b331126d-70b2-4ee8-9d9a-a5e8b9b3a4fc</key>
+                    <parentUnit>
+                        <key name="name" value="infoPrice" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Contractsettlement" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="infoPrice" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>buildArea</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[buildArea].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>bd0226c7-98b8-4fe2-8287-415f7c2d097b</key>
+                    <parentUnit>
+                        <key name="name" value="buildArea" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Contractsettlement" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="buildArea" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>GuaranceAmt</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[GuaranceAmt].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>e3d0d8d1-82d0-480b-8291-e51280424753</key>
+                    <parentUnit>
+                        <key name="name" value="GuaranceAmt" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Contractsettlement" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="GuaranceAmt" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>QualityTime</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[QualityTime].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Date</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>adb5baed-0a23-4da8-aada-a2d4e834f566</key>
+                    <parentUnit>
+                        <key name="name" value="QualityTime" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Contractsettlement" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="QualityTime" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>qualityGuaranteRate</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[qualityGuaranteRate].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>964f5abb-110e-407f-93ce-c10cc5095b9d</key>
+                    <parentUnit>
+                        <key name="name" value="qualityGuaranteRate" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Contractsettlement" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="qualityGuaranteRate" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>qualityGuarante</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[qualityGuarante].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>d75f26ce-8e9d-49a8-9070-2c54884cef3a</key>
+                    <parentUnit>
+                        <key name="name" value="qualityGuarante" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Contractsettlement" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="qualityGuarante" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>Attchment</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[Attchment].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>9cb1c66c-ec17-4c3e-b404-753a8f9a0ec8</key>
+                    <parentUnit>
+                        <key name="name" value="Attchment" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Contractsettlement" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="Attchment" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>TotalOriginalAmount</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[TotalOriginalAmount].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>ef690636-2684-4e3f-8c24-4b1a5aebf252</key>
+                    <parentUnit>
+                        <key name="name" value="TotalOriginalAmount" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Contractsettlement" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="TotalOriginalAmount" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>TotalSettlePrice</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[TotalSettlePrice].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>84c81543-c988-4f0d-bfa3-9d042c5f6687</key>
+                    <parentUnit>
+                        <key name="name" value="TotalSettlePrice" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Contractsettlement" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="TotalSettlePrice" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>AttenTwo</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[AttenTwo].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>72f9f49e-5680-42e5-b5c4-7bbfb9d77667</key>
+                    <parentUnit>
+                        <key name="name" value="AttenTwo" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Contractsettlement" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="AttenTwo" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>Currency.name</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[Currency.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>57a18ff7-26df-45a7-8b9b-ef20c756264f</key>
+                    <parentUnit>
+                        <key name="name" value="Currency.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Currency" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>c3d43871-0de5-412a-80ff-444f53f74e31</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.propertyUnit[c3d43871-0de5-412a-80ff-444f53f74e31].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0a6d9a40-7cac-4b62-baf7-8d731f013aed</key>
+                    <parentUnit>
+                        <key name="name" value="c3d43871-0de5-412a-80ff-444f53f74e31" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Contractsettlement" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="Currency" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>833a1bc1-6d01-4a92-b751-83c52770d109</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.propertyUnit[833a1bc1-6d01-4a92-b751-83c52770d109].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>8c0b1c0c-26ce-408e-bc57-f6b6a8186fac</key>
+                    <parentUnit>
+                        <key name="name" value="833a1bc1-6d01-4a92-b751-83c52770d109" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Currency" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>Period.periodNumber</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[Period.periodNumber].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Int</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>aa7cbf50-afd9-4561-80e9-389add970e3e</key>
+                    <parentUnit>
+                        <key name="name" value="Period.periodNumber" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Period" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="periodNumber" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>c1f116ff-4fba-4f8a-8ee6-b2bf4b896759</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.propertyUnit[c1f116ff-4fba-4f8a-8ee6-b2bf4b896759].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>14f3c4a0-ee6d-4e43-b919-aa0f70e3d6b8</key>
+                    <parentUnit>
+                        <key name="name" value="c1f116ff-4fba-4f8a-8ee6-b2bf4b896759" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Contractsettlement" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="Period" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>7b8d0ad1-6f4c-48ad-86a9-760a5bb07e26</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.propertyUnit[7b8d0ad1-6f4c-48ad-86a9-760a5bb07e26].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>5399e3af-d2cb-45ed-9cdc-cc42db6e1636</key>
+                    <parentUnit>
+                        <key name="name" value="7b8d0ad1-6f4c-48ad-86a9-760a5bb07e26" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Period" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>ExchangeRate</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[ExchangeRate].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>97132a7a-aef0-4ea7-8414-9647787cced6</key>
+                    <parentUnit>
+                        <key name="name" value="ExchangeRate" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Contractsettlement" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="ExchangeRate" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>constructPrice</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[constructPrice].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>523d7aaa-cf7a-4580-86ff-e67f7ab3a66e</key>
+                    <parentUnit>
+                        <key name="name" value="constructPrice" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Contractsettlement" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="constructPrice" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </queryField>
+    </units>
+    <defaultFilter>
+        <name>defaultFilter</name>
+        <formulaString />
+        <query>
+            <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+            <key name="name" value="ContractsettlementQuery" />
+        </query>
+    </defaultFilter>
+    <defaultSorters>
+        <querySorterItem>
+            <propertyName>number</propertyName>
+            <sortType>ASC</sortType>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+            <configured>false</configured>
+        </querySorterItem>
+        <querySorterItem>
+            <propertyName>entrys.seq</propertyName>
+            <sortType>ASC</sortType>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+            <configured>false</configured>
+        </querySorterItem>
+    </defaultSorters>
+    <queryPK>
+        <name>QueryPK</name>
+        <alias>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].queryPK[QueryPK].alias</alias>
+        <description>joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].queryPK[QueryPK].description</description>
+        <keyProperties>
+            <queryField>
+                <key name="name" value="id" />
+            </queryField>
+            <queryField>
+                <key name="name" value="entrys.id" />
+            </queryField>
+        </keyProperties>
+    </queryPK>
+    <isDistinct>false</isDistinct>
+    <joins>
+        <join>
+            <name>NewJoin0</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="Contractsettlement" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="auditor" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>0</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="NewUnit0" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="NewUnit1" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="NewJoin0" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </join>
+        <join>
+            <name>NewJoin1</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="Contractsettlement" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="creator" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>0</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="NewUnit2" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="NewUnit3" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="NewJoin1" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </join>
+        <join>
+            <name>NewJoin2</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="Contractsettlement" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="lastUpdateUser" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>0</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="NewUnit4" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="NewUnit5" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="NewJoin2" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </join>
+        <join>
+            <name>NewJoin3</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="Contractsettlement" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="entrys" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>0</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="NewUnit7" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="NewUnit6" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="NewJoin3" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </join>
+        <join>
+            <name>NewJoin4</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="Contractsettlement" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="handler" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>0</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="NewUnit9" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="NewUnit8" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="NewJoin4" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </join>
+        <join>
+            <name>1597e2c7-7eb8-447d-a42b-c28b0381461d</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="Contractsettlement" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="Currency" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>66c1057f-d639-4c8f-81ad-feca6100933d</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="c3d43871-0de5-412a-80ff-444f53f74e31" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="833a1bc1-6d01-4a92-b751-83c52770d109" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="1597e2c7-7eb8-447d-a42b-c28b0381461d" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </join>
+        <join>
+            <name>8714fd45-04bd-4fc2-9a75-ced431b0ad66</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="Contractsettlement" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="Period" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>229e83b8-1054-43aa-a77f-7fdff41f3547</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="c1f116ff-4fba-4f8a-8ee6-b2bf4b896759" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="7b8d0ad1-6f4c-48ad-86a9-760a5bb07e26" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="8714fd45-04bd-4fc2-9a75-ced431b0ad66" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ContractsettlementQuery" />
+            </query>
+        </join>
+    </joins>
+    <resource>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合同结算" />
+            <lang locale="zh_HK" value="合同結算" />
+            <lang locale="zh_TW" value="合同結算" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].defaultSorters.querySorterItemextendedProperty.f7WindowTitle">
+            <lang locale="en_US" value="多分录基础单据模板" />
+            <lang locale="zh_CN" value="多分录基础单据模板" />
+            <lang locale="zh_TW" value="多分录基础单据模板" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="多分录基础单据查询" />
+            <lang locale="zh_HK" value="多分錄基礎單據查詢" />
+            <lang locale="zh_TW" value="多分錄基礎單據查詢" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].extendedProperty.F7WindowTitle">
+            <lang locale="en_US" value="com.kingdee.eas.bpmdemo.client.BpmdemoResource.ContractsettlementQueryF7WindowTitle" />
+            <lang locale="zh_CN" value="com.kingdee.eas.bpmdemo.client.BpmdemoResource.ContractsettlementQueryF7WindowTitle" />
+            <lang locale="zh_TW" value="com.kingdee.eas.bpmdemo.client.BpmdemoResource.ContractsettlementQueryF7WindowTitle" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].extendedProperty.f7WindowTitle">
+            <lang locale="en_US" value="合同结算" />
+            <lang locale="zh_CN" value="合同结算" />
+            <lang locale="zh_TW" value="合同结算" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].queryPK[QueryPK].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].queryPK[QueryPK].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].subObjects.subEntity[Contractsettlement].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].subObjects.subEntity[Currency].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].subObjects.subEntity[Period].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].subObjects.subEntity[auditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].subObjects.subEntity[creator].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].subObjects.subEntity[entrys].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].subObjects.subEntity[handler].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].subObjects.subEntity[lastUpdateUser].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.propertyUnit[7b8d0ad1-6f4c-48ad-86a9-760a5bb07e26].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.propertyUnit[833a1bc1-6d01-4a92-b751-83c52770d109].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.propertyUnit[NewUnit0].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.propertyUnit[NewUnit1].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.propertyUnit[NewUnit2].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.propertyUnit[NewUnit3].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.propertyUnit[NewUnit4].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.propertyUnit[NewUnit5].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.propertyUnit[NewUnit6].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.propertyUnit[NewUnit7].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.propertyUnit[NewUnit8].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.propertyUnit[NewUnit9].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.propertyUnit[c1f116ff-4fba-4f8a-8ee6-b2bf4b896759].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.propertyUnit[c3d43871-0de5-412a-80ff-444f53f74e31].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[Attchment].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="附件列表" />
+            <lang locale="zh_HK" value="附件列表" />
+            <lang locale="zh_TW" value="附件列表" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[Attchment].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[Attchment].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[AttenTwo].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="归档稿" />
+            <lang locale="zh_HK" value="歸檔稿" />
+            <lang locale="zh_TW" value="歸檔稿" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[AttenTwo].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[AttenTwo].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[Currency.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="币别" />
+            <lang locale="zh_HK" value="幣別" />
+            <lang locale="zh_TW" value="幣別" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[Currency.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[Currency.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[Currency.name].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[ExchangeRate].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="汇率" />
+            <lang locale="zh_HK" value="匯率" />
+            <lang locale="zh_TW" value="匯率" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[ExchangeRate].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[ExchangeRate].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[Fivouchered].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否生成凭证" />
+            <lang locale="zh_HK" value="是否生成憑證" />
+            <lang locale="zh_TW" value="是否生成憑證" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[Fivouchered].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[Fivouchered].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[GuaranceAmt].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="保修金" />
+            <lang locale="zh_HK" value="保修金" />
+            <lang locale="zh_TW" value="保修金" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[GuaranceAmt].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[GuaranceAmt].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[OriginalAmount].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="结算造价原币" />
+            <lang locale="zh_HK" value="結算造價原幣" />
+            <lang locale="zh_TW" value="結算造價原幣" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[OriginalAmount].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[OriginalAmount].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[Period.periodNumber].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="结算期间" />
+            <lang locale="zh_HK" value="結算期間" />
+            <lang locale="zh_TW" value="結算期間" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[Period.periodNumber].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[Period.periodNumber].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[Period.periodNumber].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[QualityTime].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="保修期间" />
+            <lang locale="zh_HK" value="保修期間" />
+            <lang locale="zh_TW" value="保修期間" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[QualityTime].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[QualityTime].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[SettlePrice].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="结算造价本币" />
+            <lang locale="zh_HK" value="結算造價本幣" />
+            <lang locale="zh_TW" value="結算造價本幣" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[SettlePrice].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[SettlePrice].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[TotalOriginalAmount].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="累计结算原币" />
+            <lang locale="zh_HK" value="累計結算原幣" />
+            <lang locale="zh_TW" value="累計結算原幣" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[TotalOriginalAmount].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[TotalOriginalAmount].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[TotalSettlePrice].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="累计结算本币" />
+            <lang locale="zh_HK" value="累計結算本幣" />
+            <lang locale="zh_TW" value="累計結算本幣" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[TotalSettlePrice].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[TotalSettlePrice].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[auditor.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="别名" />
+            <lang locale="zh_HK" value="別名" />
+            <lang locale="zh_TW" value="別名" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[auditor.number].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="用户名" />
+            <lang locale="zh_HK" value="用戶名" />
+            <lang locale="zh_TW" value="用戶名" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[bizDate].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="业务日期" />
+            <lang locale="zh_HK" value="業務日期" />
+            <lang locale="zh_TW" value="業務日期" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[bizDate].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[bizDate].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[buildArea].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="建筑面积" />
+            <lang locale="zh_HK" value="建築面積" />
+            <lang locale="zh_TW" value="建築面積" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[buildArea].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[buildArea].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[constructPrice].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="施工方报审价" />
+            <lang locale="zh_HK" value="施工方報審價" />
+            <lang locale="zh_TW" value="施工方報審價" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[constructPrice].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[constructPrice].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[contractName].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合同名称" />
+            <lang locale="zh_HK" value="合同名稱" />
+            <lang locale="zh_TW" value="合同名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[contractName].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[contractName].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[contractNo].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合同编码" />
+            <lang locale="zh_HK" value="合同編碼" />
+            <lang locale="zh_TW" value="合同編碼" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[contractNo].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[contractNo].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[createTime].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="创建时间" />
+            <lang locale="zh_HK" value="創建時間" />
+            <lang locale="zh_TW" value="創建時間" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[createTime].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[createTime].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[creator.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="别名" />
+            <lang locale="zh_HK" value="別名" />
+            <lang locale="zh_TW" value="別名" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[creator.number].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="用户名" />
+            <lang locale="zh_HK" value="用戶名" />
+            <lang locale="zh_TW" value="用戶名" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[curProject].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="工程项目" />
+            <lang locale="zh_HK" value="工程項目" />
+            <lang locale="zh_TW" value="工程項目" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[curProject].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[curProject].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[description].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="参考信息" />
+            <lang locale="zh_HK" value="參考信息" />
+            <lang locale="zh_TW" value="參考信息" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[description].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[description].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[entrys.id].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[entrys.seq].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据分录序列号" />
+            <lang locale="zh_HK" value="單據分錄序列號" />
+            <lang locale="zh_TW" value="單據分錄序列號" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[entrys.seq].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[entrys.seq].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[getFeeCriteria].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="取费标准" />
+            <lang locale="zh_HK" value="取費標準" />
+            <lang locale="zh_TW" value="取費標準" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[getFeeCriteria].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[getFeeCriteria].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[handler.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="别名" />
+            <lang locale="zh_HK" value="別名" />
+            <lang locale="zh_TW" value="別名" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[handler.number].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="用户名" />
+            <lang locale="zh_HK" value="用戶名" />
+            <lang locale="zh_TW" value="用戶名" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[id].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[infoPrice].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="信息价" />
+            <lang locale="zh_HK" value="信息價" />
+            <lang locale="zh_TW" value="信息價" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[infoPrice].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[infoPrice].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[lastUpdateTime].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="最后修改时间" />
+            <lang locale="zh_HK" value="最後修改時間" />
+            <lang locale="zh_TW" value="最後修改時間" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[lastUpdateTime].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[lastUpdateTime].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[lastUpdateUser.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="别名" />
+            <lang locale="zh_HK" value="別名" />
+            <lang locale="zh_TW" value="別名" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[lastUpdateUser.number].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="用户名" />
+            <lang locale="zh_HK" value="用戶名" />
+            <lang locale="zh_TW" value="用戶名" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="结算单名称" />
+            <lang locale="zh_HK" value="結算單名稱" />
+            <lang locale="zh_TW" value="結算單名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[number].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据编号" />
+            <lang locale="zh_HK" value="單據編號" />
+            <lang locale="zh_TW" value="單據編號" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[number].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[number].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[orgunit].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="组织" />
+            <lang locale="zh_HK" value="組織" />
+            <lang locale="zh_TW" value="組織" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[orgunit].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[orgunit].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[qualityGuaranteRate].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="保修金比例" />
+            <lang locale="zh_HK" value="保修金比例" />
+            <lang locale="zh_TW" value="保修金比例" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[qualityGuaranteRate].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[qualityGuaranteRate].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[qualityGuarante].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="累计保修金" />
+            <lang locale="zh_HK" value="累計保修金" />
+            <lang locale="zh_TW" value="累計保修金" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[qualityGuarante].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[qualityGuarante].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[unitPrice].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单位造价" />
+            <lang locale="zh_HK" value="單位造價" />
+            <lang locale="zh_TW" value="單位造價" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[unitPrice].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ContractsettlementQuery].units.queryField[unitPrice].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+    </resource>
+</joinQuery>
+

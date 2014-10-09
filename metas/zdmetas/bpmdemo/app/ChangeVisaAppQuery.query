@@ -1,0 +1,3515 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<joinQuery xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.bpmdemo.app</package>
+    <name>ChangeVisaAppQuery</name>
+    <alias>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].alias</alias>
+    <description>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].description</description>
+    <userDefined>true</userDefined>
+    <reportDataSource />
+    <bizUnitPK>com.kingdee.eas.bpmdemo.ChangeVisaApp</bizUnitPK>
+    <connectionProvider />
+    <subObjects>
+        <subEntity>
+            <name>ChangeVisaApp</name>
+            <alias>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].subObjects.subEntity[ChangeVisaApp].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaApp" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>auditor</name>
+            <alias>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].subObjects.subEntity[auditor].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.base.permission.app" />
+                <key name="name" value="User" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>creator</name>
+            <alias>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].subObjects.subEntity[creator].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.base.permission.app" />
+                <key name="name" value="User" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>lastUpdateUser</name>
+            <alias>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].subObjects.subEntity[lastUpdateUser].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.base.permission.app" />
+                <key name="name" value="User" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>entrys</name>
+            <alias>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].subObjects.subEntity[entrys].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppEntry" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>handler</name>
+            <alias>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].subObjects.subEntity[handler].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.base.permission.app" />
+                <key name="name" value="User" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>conductDept</name>
+            <alias>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].subObjects.subEntity[conductDept].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.basedata.org.app" />
+                <key name="name" value="AdminOrgUnit" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>curproject</name>
+            <alias>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].subObjects.subEntity[curproject].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="CurProject" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>changereason</name>
+            <alias>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].subObjects.subEntity[changereason].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="ChangeType" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>audittype</name>
+            <alias>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].subObjects.subEntity[audittype].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="ChangeType" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>period</name>
+            <alias>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].subObjects.subEntity[period].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="Period" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>jobtype</name>
+            <alias>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].subObjects.subEntity[jobtype].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.basedata.org.app" />
+                <key name="name" value="JobType" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>construnit</name>
+            <alias>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].subObjects.subEntity[construnit].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.basedata.master.cssp.app" />
+                <key name="name" value="Supplier" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>specialtyType</name>
+            <alias>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].subObjects.subEntity[specialtyType].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.hr.base.app" />
+                <key name="name" value="SpecialtyType" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>conductUnit</name>
+            <alias>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].subObjects.subEntity[conductUnit].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.basedata.master.cssp.app" />
+                <key name="name" value="Supplier" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>designUnit</name>
+            <alias>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].subObjects.subEntity[designUnit].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.basedata.master.cssp.app" />
+                <key name="name" value="Supplier" />
+            </entityRef>
+        </subEntity>
+    </subObjects>
+    <units>
+        <propertyUnit>
+            <name>NewUnit0</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[NewUnit0].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit0" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ChangeVisaApp" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="auditor" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUnit1</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[NewUnit1].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit1" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="auditor" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUnit2</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[NewUnit2].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit2" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ChangeVisaApp" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="creator" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUnit3</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[NewUnit3].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit3" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="creator" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUnit4</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[NewUnit4].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit4" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ChangeVisaApp" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="lastUpdateUser" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUnit5</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[NewUnit5].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit5" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="lastUpdateUser" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>id</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ChangeVisaApp" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>number</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[number].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="number" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ChangeVisaApp" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="number" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>bizDate</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[bizDate].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Date</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="bizDate" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ChangeVisaApp" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="bizDate" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>description</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[description].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="description" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ChangeVisaApp" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="description" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>createTime</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[createTime].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Timestamp</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="createTime" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ChangeVisaApp" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="createTime" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>lastUpdateTime</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[lastUpdateTime].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Timestamp</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="lastUpdateTime" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ChangeVisaApp" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="lastUpdateTime" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>auditor.number</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[auditor.number].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="auditor.number" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="auditor" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="number" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>auditor.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[auditor.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="auditor.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="auditor" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>creator.number</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[creator.number].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="creator.number" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="creator" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="number" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>creator.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[creator.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="creator.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="creator" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>lastUpdateUser.number</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[lastUpdateUser.number].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="lastUpdateUser.number" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="lastUpdateUser" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="number" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>lastUpdateUser.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[lastUpdateUser.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="lastUpdateUser.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="lastUpdateUser" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>entrys.id</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[entrys.id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="entrys.id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="entrys" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>handler.number</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[handler.number].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="handler.number" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="handler" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="number" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>handler.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[handler.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="handler.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="handler" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>entrys.seq</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[entrys.seq].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Int</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="entrys.seq" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="entrys" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="seq" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>NewUnit7</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[NewUnit7].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit7" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ChangeVisaApp" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUnit6</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[NewUnit6].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit6" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="entrys" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="parent" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUnit9</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[NewUnit9].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit9" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ChangeVisaApp" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="handler" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUnit8</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[NewUnit8].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit8" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="handler" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>Fivouchered</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[Fivouchered].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Boolean</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="Fivouchered" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ChangeVisaApp" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="Fivouchered" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>conductDept.name</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[conductDept.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>4cdfb8dd-1ec6-43f7-bc08-ac61561ad822</key>
+                    <parentUnit>
+                        <key name="name" value="conductDept.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="conductDept" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>07d25047-8357-4f6a-9063-aed20536592f</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[07d25047-8357-4f6a-9063-aed20536592f].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>c00d1268-9c3a-4395-ada0-c60a4d86b7d1</key>
+                    <parentUnit>
+                        <key name="name" value="07d25047-8357-4f6a-9063-aed20536592f" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ChangeVisaApp" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="conductDept" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>2229d858-5cc5-491e-a4ef-bfb8c26fdff4</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[2229d858-5cc5-491e-a4ef-bfb8c26fdff4].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>438682ed-dc7c-4733-a32e-a20ff84bcb0f</key>
+                    <parentUnit>
+                        <key name="name" value="2229d858-5cc5-491e-a4ef-bfb8c26fdff4" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="conductDept" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>curproject.name</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[curproject.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>51c01df4-72e8-4fa0-a1c8-bc49f4868a6b</key>
+                    <parentUnit>
+                        <key name="name" value="curproject.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="curproject" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>dc471d09-97f7-4db6-8dcf-fdd4f4c7a517</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[dc471d09-97f7-4db6-8dcf-fdd4f4c7a517].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>8d447471-060e-4bf0-9ed9-1b34ab9bff6d</key>
+                    <parentUnit>
+                        <key name="name" value="dc471d09-97f7-4db6-8dcf-fdd4f4c7a517" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ChangeVisaApp" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="curproject" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>5fdd2385-5e81-470e-9608-965b1ecfcb46</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[5fdd2385-5e81-470e-9608-965b1ecfcb46].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>169ab8ae-d5f0-4776-8a78-17dde788ec1d</key>
+                    <parentUnit>
+                        <key name="name" value="5fdd2385-5e81-470e-9608-965b1ecfcb46" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="curproject" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>name</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>e273f281-b555-414d-a3b8-5be02abdec93</key>
+                    <parentUnit>
+                        <key name="name" value="name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ChangeVisaApp" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>changereason.isEnabled</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[changereason.isEnabled].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Boolean</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>bbb835df-65dd-4dbb-a152-3837d22df5eb</key>
+                    <parentUnit>
+                        <key name="name" value="changereason.isEnabled" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="changereason" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="isEnabled" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>419d94c9-82f2-4f68-a402-b4e1c6c6e01d</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[419d94c9-82f2-4f68-a402-b4e1c6c6e01d].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>9ae58add-f4f3-491a-b822-aa1a1a4fc6d7</key>
+                    <parentUnit>
+                        <key name="name" value="419d94c9-82f2-4f68-a402-b4e1c6c6e01d" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ChangeVisaApp" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="changereason" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>ee7d2653-5443-48f6-adf1-51e2923e2b88</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[ee7d2653-5443-48f6-adf1-51e2923e2b88].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>bef87526-2697-493b-89ab-0c0bbcb37a97</key>
+                    <parentUnit>
+                        <key name="name" value="ee7d2653-5443-48f6-adf1-51e2923e2b88" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="changereason" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>audittype.name</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[audittype.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>24919058-42c5-477a-b7de-3cd3ed356d8e</key>
+                    <parentUnit>
+                        <key name="name" value="audittype.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="audittype" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>754f65ff-73f8-48f7-a0a2-216366a89dcd</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[754f65ff-73f8-48f7-a0a2-216366a89dcd].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>e20ab28e-c66f-4e63-9528-ea768fe7fdf5</key>
+                    <parentUnit>
+                        <key name="name" value="754f65ff-73f8-48f7-a0a2-216366a89dcd" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ChangeVisaApp" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="audittype" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>860e5407-a3ab-4f39-bdf6-7a36959359dc</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[860e5407-a3ab-4f39-bdf6-7a36959359dc].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>a520d2e4-6488-4975-9019-c2804d6a1e5c</key>
+                    <parentUnit>
+                        <key name="name" value="860e5407-a3ab-4f39-bdf6-7a36959359dc" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="audittype" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>changesubject</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[changesubject].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>787bdbb2-a702-4322-bd42-20f71e145c26</key>
+                    <parentUnit>
+                        <key name="name" value="changesubject" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ChangeVisaApp" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="changesubject" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>constrSite</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[constrSite].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>b643e429-5e96-4ddd-932f-bc53f697f122</key>
+                    <parentUnit>
+                        <key name="name" value="constrSite" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ChangeVisaApp" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="constrSite" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>period.periodNumber</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[period.periodNumber].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Int</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>d8290ea9-6633-4293-bbfb-086248ffc668</key>
+                    <parentUnit>
+                        <key name="name" value="period.periodNumber" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="period" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="periodNumber" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>d5ce68f1-4219-4cdc-a5d5-b646bee9d0c2</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[d5ce68f1-4219-4cdc-a5d5-b646bee9d0c2].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>05430503-6b22-469b-97ca-d602e7fabdc5</key>
+                    <parentUnit>
+                        <key name="name" value="d5ce68f1-4219-4cdc-a5d5-b646bee9d0c2" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ChangeVisaApp" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="period" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>cf1f8c3c-03c5-42fa-ba1f-5537009e8247</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[cf1f8c3c-03c5-42fa-ba1f-5537009e8247].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>896961af-8646-40d4-a02f-52b58e98d731</key>
+                    <parentUnit>
+                        <key name="name" value="cf1f8c3c-03c5-42fa-ba1f-5537009e8247" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="period" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>jobtype.name</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[jobtype.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>15bce21b-e76c-4734-8efe-76c61434d30d</key>
+                    <parentUnit>
+                        <key name="name" value="jobtype.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="jobtype" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>4bd71b7a-c148-4580-9f51-ffbedcc96f8f</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[4bd71b7a-c148-4580-9f51-ffbedcc96f8f].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>ba4d2dc9-05b8-4c39-92c5-f10b62b12a83</key>
+                    <parentUnit>
+                        <key name="name" value="4bd71b7a-c148-4580-9f51-ffbedcc96f8f" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ChangeVisaApp" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="jobtype" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>5273e221-e70d-46d8-9886-9d877ae38759</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[5273e221-e70d-46d8-9886-9d877ae38759].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>a7b7ac82-00c6-4d3a-a561-0fb661b2a6d5</key>
+                    <parentUnit>
+                        <key name="name" value="5273e221-e70d-46d8-9886-9d877ae38759" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="jobtype" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>UrgentDegree</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[UrgentDegree].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>9c8e585d-a925-4c55-8f81-826f3b3909b8</key>
+                    <parentUnit>
+                        <key name="name" value="UrgentDegree" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ChangeVisaApp" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="UrgentDegree" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>construnit.name</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[construnit.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>e747d3d2-59d7-4975-945d-b7c38f21196c</key>
+                    <parentUnit>
+                        <key name="name" value="construnit.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="construnit" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>933adbb6-73e2-41b8-8f03-09fd90b1bd91</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[933adbb6-73e2-41b8-8f03-09fd90b1bd91].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>1000447f-945d-43a5-806d-10bd71e30fa4</key>
+                    <parentUnit>
+                        <key name="name" value="933adbb6-73e2-41b8-8f03-09fd90b1bd91" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ChangeVisaApp" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="construnit" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>32196d2e-a759-428b-b61c-358298160c5b</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[32196d2e-a759-428b-b61c-358298160c5b].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>163f19c8-ea7f-4a52-994c-39b0723f4d0b</key>
+                    <parentUnit>
+                        <key name="name" value="32196d2e-a759-428b-b61c-358298160c5b" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="construnit" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>specialtyType.name</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[specialtyType.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0fb5a93f-a812-47ef-8dbf-ec8d68c4e85a</key>
+                    <parentUnit>
+                        <key name="name" value="specialtyType.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="specialtyType" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>401cdd7a-fdcf-4d92-a3da-86e0338a916b</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[401cdd7a-fdcf-4d92-a3da-86e0338a916b].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>ea219721-ef00-4655-90d2-274757415d7d</key>
+                    <parentUnit>
+                        <key name="name" value="401cdd7a-fdcf-4d92-a3da-86e0338a916b" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ChangeVisaApp" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="specialtyType" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>f98474e4-1efa-4d73-9ae5-a9e9fd9ed266</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[f98474e4-1efa-4d73-9ae5-a9e9fd9ed266].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>14caf69b-56fe-4534-bb94-752aabec51f6</key>
+                    <parentUnit>
+                        <key name="name" value="f98474e4-1efa-4d73-9ae5-a9e9fd9ed266" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="specialtyType" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>conductUnit.name</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[conductUnit.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>8b329974-a411-4b17-9704-2fdc8367fbba</key>
+                    <parentUnit>
+                        <key name="name" value="conductUnit.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="conductUnit" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>00b96cc8-9993-4ff7-82f0-97490c951111</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[00b96cc8-9993-4ff7-82f0-97490c951111].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>648c43a5-7db5-4a17-8317-6ff6642eaef1</key>
+                    <parentUnit>
+                        <key name="name" value="00b96cc8-9993-4ff7-82f0-97490c951111" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ChangeVisaApp" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="conductUnit" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>7b15e072-eb4c-4b68-93fb-d7b7195f7714</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[7b15e072-eb4c-4b68-93fb-d7b7195f7714].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>ba3ea134-4284-4b3c-8343-c0a53a71b7c5</key>
+                    <parentUnit>
+                        <key name="name" value="7b15e072-eb4c-4b68-93fb-d7b7195f7714" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="conductUnit" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>orgunit</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[orgunit].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>de009b3b-e45c-4305-b79a-05cac5f1a639</key>
+                    <parentUnit>
+                        <key name="name" value="orgunit" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ChangeVisaApp" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="orgunit" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>offer</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[offer].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>8d68c9a7-bc57-4dba-9dae-a846255dc530</key>
+                    <parentUnit>
+                        <key name="name" value="offer" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ChangeVisaApp" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="offer" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>designUnit.name</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[designUnit.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>66fff04f-976d-4d3f-8a2e-fc500e1874c8</key>
+                    <parentUnit>
+                        <key name="name" value="designUnit.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="designUnit" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>6665daad-a92b-4e5d-84dd-d5623dea6f67</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[6665daad-a92b-4e5d-84dd-d5623dea6f67].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>9702904e-c5db-4715-9c20-50a3497caa65</key>
+                    <parentUnit>
+                        <key name="name" value="6665daad-a92b-4e5d-84dd-d5623dea6f67" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ChangeVisaApp" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="designUnit" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>95f11ee4-d6d0-42d7-9533-7ce9d04f8c15</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[95f11ee4-d6d0-42d7-9533-7ce9d04f8c15].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>2370beb6-cfdf-42b6-9aa2-4c57a14befcb</key>
+                    <parentUnit>
+                        <key name="name" value="95f11ee4-d6d0-42d7-9533-7ce9d04f8c15" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="designUnit" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>entrys.number0</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[entrys.number0].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>40a7c91b-256b-49fd-829d-eaf6df893dbd</key>
+                    <parentUnit>
+                        <key name="name" value="entrys.number0" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="entrys" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="number" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </queryField>
+    </units>
+    <defaultFilter>
+        <name>defaultFilter</name>
+        <formulaString />
+        <query>
+            <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+            <key name="name" value="ChangeVisaAppQuery" />
+        </query>
+    </defaultFilter>
+    <defaultSorters>
+        <querySorterItem>
+            <propertyName>number</propertyName>
+            <sortType>ASC</sortType>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+            <configured>false</configured>
+        </querySorterItem>
+        <querySorterItem>
+            <propertyName>entrys.seq</propertyName>
+            <sortType>ASC</sortType>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+            <configured>false</configured>
+        </querySorterItem>
+    </defaultSorters>
+    <queryPK>
+        <name>QueryPK</name>
+        <alias>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].queryPK[QueryPK].alias</alias>
+        <description>joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].queryPK[QueryPK].description</description>
+        <keyProperties>
+            <queryField>
+                <key name="name" value="id" />
+            </queryField>
+            <queryField>
+                <key name="name" value="entrys.id" />
+            </queryField>
+        </keyProperties>
+    </queryPK>
+    <isDistinct>false</isDistinct>
+    <joins>
+        <join>
+            <name>NewJoin0</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="ChangeVisaApp" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="auditor" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>0</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="NewUnit0" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="NewUnit1" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="NewJoin0" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </join>
+        <join>
+            <name>NewJoin1</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="ChangeVisaApp" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="creator" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>0</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="NewUnit2" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="NewUnit3" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="NewJoin1" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </join>
+        <join>
+            <name>NewJoin2</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="ChangeVisaApp" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="lastUpdateUser" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>0</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="NewUnit4" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="NewUnit5" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="NewJoin2" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </join>
+        <join>
+            <name>NewJoin3</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="ChangeVisaApp" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="entrys" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>0</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="NewUnit7" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="NewUnit6" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="NewJoin3" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </join>
+        <join>
+            <name>NewJoin4</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="ChangeVisaApp" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="handler" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>0</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="NewUnit9" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="NewUnit8" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="NewJoin4" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </join>
+        <join>
+            <name>7e5fab35-1b92-4856-99ed-5c8dcae78235</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="ChangeVisaApp" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="conductDept" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>ec101757-c153-45a8-aa1b-a93ecf543a25</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="07d25047-8357-4f6a-9063-aed20536592f" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="2229d858-5cc5-491e-a4ef-bfb8c26fdff4" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="7e5fab35-1b92-4856-99ed-5c8dcae78235" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </join>
+        <join>
+            <name>fdb99115-28f3-4986-a97f-43b5a2e263e4</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="ChangeVisaApp" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="curproject" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>99ef6775-71ae-41e9-9c19-62239d4e44ad</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="dc471d09-97f7-4db6-8dcf-fdd4f4c7a517" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="5fdd2385-5e81-470e-9608-965b1ecfcb46" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="fdb99115-28f3-4986-a97f-43b5a2e263e4" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </join>
+        <join>
+            <name>a12fc5b3-acd9-414f-9bae-2cffa69f18be</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="ChangeVisaApp" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="changereason" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>1dcd3910-d86d-4e04-9893-eba02b39a573</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="419d94c9-82f2-4f68-a402-b4e1c6c6e01d" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="ee7d2653-5443-48f6-adf1-51e2923e2b88" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="a12fc5b3-acd9-414f-9bae-2cffa69f18be" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </join>
+        <join>
+            <name>d9027404-30a5-48ea-9a46-1d57415a9e2c</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="ChangeVisaApp" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="audittype" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>b133702b-3b35-4245-8467-2b5b1f5f26e5</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="754f65ff-73f8-48f7-a0a2-216366a89dcd" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="860e5407-a3ab-4f39-bdf6-7a36959359dc" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="d9027404-30a5-48ea-9a46-1d57415a9e2c" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </join>
+        <join>
+            <name>fa74d379-5f58-4e9a-8de6-a630b7f42c01</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="ChangeVisaApp" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="period" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>15d6608c-cd4c-44f1-988d-ae7e6b349f31</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="d5ce68f1-4219-4cdc-a5d5-b646bee9d0c2" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="cf1f8c3c-03c5-42fa-ba1f-5537009e8247" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="fa74d379-5f58-4e9a-8de6-a630b7f42c01" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </join>
+        <join>
+            <name>65ea8dc4-f2fd-41f7-aed1-8c01216f368a</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="ChangeVisaApp" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="jobtype" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>36b14c04-ba51-48de-ae7c-c731c142b5cc</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="4bd71b7a-c148-4580-9f51-ffbedcc96f8f" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="5273e221-e70d-46d8-9886-9d877ae38759" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="65ea8dc4-f2fd-41f7-aed1-8c01216f368a" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </join>
+        <join>
+            <name>e3708c26-b594-4a48-83be-59fd70dcd4af</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="ChangeVisaApp" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="construnit" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>af1081e9-4296-490a-9bc1-c2c49b5c4125</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="933adbb6-73e2-41b8-8f03-09fd90b1bd91" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="32196d2e-a759-428b-b61c-358298160c5b" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="e3708c26-b594-4a48-83be-59fd70dcd4af" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </join>
+        <join>
+            <name>bf10ae4d-a65d-45af-b7e0-1c7f5e6a9978</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="ChangeVisaApp" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="specialtyType" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>522997f8-737f-43c4-b0a1-52568242e73a</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="401cdd7a-fdcf-4d92-a3da-86e0338a916b" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="f98474e4-1efa-4d73-9ae5-a9e9fd9ed266" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="bf10ae4d-a65d-45af-b7e0-1c7f5e6a9978" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </join>
+        <join>
+            <name>4331fa86-c6b5-4af6-a685-e0feb32debca</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="ChangeVisaApp" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="conductUnit" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>d126b89d-36cb-43bc-bbac-f2ece4d0585e</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="00b96cc8-9993-4ff7-82f0-97490c951111" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="7b15e072-eb4c-4b68-93fb-d7b7195f7714" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="4331fa86-c6b5-4af6-a685-e0feb32debca" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </join>
+        <join>
+            <name>3b71314b-36e9-45e7-85d1-91371e5187ad</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="ChangeVisaApp" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="designUnit" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>549b8761-0918-43a0-ae50-0ba27174d5b0</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="6665daad-a92b-4e5d-84dd-d5623dea6f67" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="95f11ee4-d6d0-42d7-9533-7ce9d04f8c15" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="3b71314b-36e9-45e7-85d1-91371e5187ad" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpmdemo.app" />
+                <key name="name" value="ChangeVisaAppQuery" />
+            </query>
+        </join>
+    </joins>
+    <resource>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="变更签证申请" />
+            <lang locale="zh_HK" value="變更簽證申請" />
+            <lang locale="zh_TW" value="變更簽證申請" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].defaultSorters.querySorterItemextendedProperty.f7WindowTitle">
+            <lang locale="en_US" value="多分录基础单据模板" />
+            <lang locale="zh_CN" value="多分录基础单据模板" />
+            <lang locale="zh_TW" value="多分录基础单据模板" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="多分录基础单据查询" />
+            <lang locale="zh_HK" value="多分錄基礎單據查詢" />
+            <lang locale="zh_TW" value="多分錄基礎單據查詢" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].extendedProperty.F7WindowTitle">
+            <lang locale="en_US" value="com.kingdee.eas.bpmdemo.client.BpmdemoResource.ChangeVisaAppQueryF7WindowTitle" />
+            <lang locale="zh_CN" value="com.kingdee.eas.bpmdemo.client.BpmdemoResource.ChangeVisaAppQueryF7WindowTitle" />
+            <lang locale="zh_TW" value="com.kingdee.eas.bpmdemo.client.BpmdemoResource.ChangeVisaAppQueryF7WindowTitle" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].extendedProperty.f7WindowTitle">
+            <lang locale="en_US" value="变更签证申请" />
+            <lang locale="zh_CN" value="变更签证申请" />
+            <lang locale="zh_TW" value="变更签证申请" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].queryPK[QueryPK].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].queryPK[QueryPK].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].subObjects.subEntity[ChangeVisaApp].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].subObjects.subEntity[auditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].subObjects.subEntity[audittype].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].subObjects.subEntity[changereason].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].subObjects.subEntity[conductDept].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].subObjects.subEntity[conductUnit].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].subObjects.subEntity[construnit].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].subObjects.subEntity[creator].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].subObjects.subEntity[curproject].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].subObjects.subEntity[designUnit].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].subObjects.subEntity[entrys].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].subObjects.subEntity[handler].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].subObjects.subEntity[jobtype].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].subObjects.subEntity[lastUpdateUser].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].subObjects.subEntity[period].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].subObjects.subEntity[specialtyType].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[00b96cc8-9993-4ff7-82f0-97490c951111].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[07d25047-8357-4f6a-9063-aed20536592f].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[2229d858-5cc5-491e-a4ef-bfb8c26fdff4].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[32196d2e-a759-428b-b61c-358298160c5b].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[401cdd7a-fdcf-4d92-a3da-86e0338a916b].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[419d94c9-82f2-4f68-a402-b4e1c6c6e01d].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[4bd71b7a-c148-4580-9f51-ffbedcc96f8f].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[5273e221-e70d-46d8-9886-9d877ae38759].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[5fdd2385-5e81-470e-9608-965b1ecfcb46].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[6665daad-a92b-4e5d-84dd-d5623dea6f67].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[754f65ff-73f8-48f7-a0a2-216366a89dcd].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[7b15e072-eb4c-4b68-93fb-d7b7195f7714].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[860e5407-a3ab-4f39-bdf6-7a36959359dc].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[933adbb6-73e2-41b8-8f03-09fd90b1bd91].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[95f11ee4-d6d0-42d7-9533-7ce9d04f8c15].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[NewUnit0].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[NewUnit1].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[NewUnit2].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[NewUnit3].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[NewUnit4].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[NewUnit5].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[NewUnit6].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[NewUnit7].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[NewUnit8].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[NewUnit9].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[cf1f8c3c-03c5-42fa-ba1f-5537009e8247].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[d5ce68f1-4219-4cdc-a5d5-b646bee9d0c2].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[dc471d09-97f7-4db6-8dcf-fdd4f4c7a517].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[ee7d2653-5443-48f6-adf1-51e2923e2b88].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.propertyUnit[f98474e4-1efa-4d73-9ae5-a9e9fd9ed266].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[Fivouchered].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否生成凭证" />
+            <lang locale="zh_HK" value="是否生成憑證" />
+            <lang locale="zh_TW" value="是否生成憑證" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[Fivouchered].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[Fivouchered].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[UrgentDegree].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="紧急程度" />
+            <lang locale="zh_HK" value="緊急程度" />
+            <lang locale="zh_TW" value="緊急程度" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[UrgentDegree].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[UrgentDegree].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[auditor.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="别名" />
+            <lang locale="zh_HK" value="別名" />
+            <lang locale="zh_TW" value="別名" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[auditor.number].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="用户名" />
+            <lang locale="zh_HK" value="用戶名" />
+            <lang locale="zh_TW" value="用戶名" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[audittype.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="变更类型" />
+            <lang locale="zh_HK" value="變更類型" />
+            <lang locale="zh_TW" value="變更類型" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[audittype.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[audittype.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[audittype.name].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[bizDate].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="业务日期" />
+            <lang locale="zh_HK" value="業務日期" />
+            <lang locale="zh_TW" value="業務日期" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[bizDate].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[bizDate].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[changereason.isEnabled].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="变更原因" />
+            <lang locale="zh_HK" value="變更原因" />
+            <lang locale="zh_TW" value="變更原因" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[changereason.isEnabled].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[changereason.isEnabled].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[changereason.isEnabled].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[changesubject].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="变更主题" />
+            <lang locale="zh_HK" value="變更主題" />
+            <lang locale="zh_TW" value="變更主題" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[changesubject].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[changesubject].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[conductDept.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="提出部门" />
+            <lang locale="zh_HK" value="提出部門" />
+            <lang locale="zh_TW" value="提出部門" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[conductDept.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[conductDept.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[conductDept.name].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[conductUnit.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="提出单位" />
+            <lang locale="zh_HK" value="提出單位" />
+            <lang locale="zh_TW" value="提出單位" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[conductUnit.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[conductUnit.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[conductUnit.name].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[constrSite].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="施工部位" />
+            <lang locale="zh_HK" value="施工部位" />
+            <lang locale="zh_TW" value="施工部位" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[constrSite].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[constrSite].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[construnit.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="施工单位" />
+            <lang locale="zh_HK" value="施工單位" />
+            <lang locale="zh_TW" value="施工單位" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[construnit.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[construnit.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[construnit.name].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[createTime].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="创建时间" />
+            <lang locale="zh_HK" value="創建時間" />
+            <lang locale="zh_TW" value="創建時間" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[createTime].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[createTime].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[creator.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="别名" />
+            <lang locale="zh_HK" value="別名" />
+            <lang locale="zh_TW" value="別名" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[creator.number].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="用户名" />
+            <lang locale="zh_HK" value="用戶名" />
+            <lang locale="zh_TW" value="用戶名" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[curproject.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="工程项目" />
+            <lang locale="zh_HK" value="工程項目" />
+            <lang locale="zh_TW" value="工程項目" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[curproject.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[curproject.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[curproject.name].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[description].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="参考信息" />
+            <lang locale="zh_HK" value="參考信息" />
+            <lang locale="zh_TW" value="參考信息" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[description].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[description].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[designUnit.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="设计单位" />
+            <lang locale="zh_HK" value="設計單位" />
+            <lang locale="zh_TW" value="設計單位" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[designUnit.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[designUnit.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[designUnit.name].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[entrys.id].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[entrys.number0].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="变更内容编码" />
+            <lang locale="zh_HK" value="變更內容編碼" />
+            <lang locale="zh_TW" value="變更內容編碼" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[entrys.number0].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[entrys.number0].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[entrys.seq].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据分录序列号" />
+            <lang locale="zh_HK" value="單據分錄序列號" />
+            <lang locale="zh_TW" value="單據分錄序列號" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[entrys.seq].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[entrys.seq].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[handler.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="别名" />
+            <lang locale="zh_HK" value="別名" />
+            <lang locale="zh_TW" value="別名" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[handler.number].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="用户名" />
+            <lang locale="zh_HK" value="用戶名" />
+            <lang locale="zh_TW" value="用戶名" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[id].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[jobtype.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="承包类型" />
+            <lang locale="zh_HK" value="承包類型" />
+            <lang locale="zh_TW" value="承包類型" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[jobtype.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[jobtype.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[jobtype.name].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[lastUpdateTime].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="最后修改时间" />
+            <lang locale="zh_HK" value="最後修改時間" />
+            <lang locale="zh_TW" value="最後修改時間" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[lastUpdateTime].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[lastUpdateTime].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[lastUpdateUser.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="别名" />
+            <lang locale="zh_HK" value="別名" />
+            <lang locale="zh_TW" value="別名" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[lastUpdateUser.number].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="用户名" />
+            <lang locale="zh_HK" value="用戶名" />
+            <lang locale="zh_TW" value="用戶名" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据名称" />
+            <lang locale="zh_HK" value="單據名稱" />
+            <lang locale="zh_TW" value="單據名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[number].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据编号" />
+            <lang locale="zh_HK" value="單據編號" />
+            <lang locale="zh_TW" value="單據編號" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[number].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[number].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[offer].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="提出方" />
+            <lang locale="zh_HK" value="提出方" />
+            <lang locale="zh_TW" value="提出方" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[offer].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[offer].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[orgunit].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="组织" />
+            <lang locale="zh_HK" value="組織" />
+            <lang locale="zh_TW" value="組織" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[orgunit].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[orgunit].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[period.periodNumber].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="变更期间" />
+            <lang locale="zh_HK" value="變更期間" />
+            <lang locale="zh_TW" value="變更期間" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[period.periodNumber].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[period.periodNumber].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[period.periodNumber].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[specialtyType.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="专业类型" />
+            <lang locale="zh_HK" value="專業類型" />
+            <lang locale="zh_TW" value="專業類型" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[specialtyType.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[specialtyType.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpmdemo.app.ChangeVisaAppQuery].units.queryField[specialtyType.name].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+    </resource>
+</joinQuery>
+
