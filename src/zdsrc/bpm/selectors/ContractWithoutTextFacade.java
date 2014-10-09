@@ -1,5 +1,6 @@
 package com.kingdee.eas.bpm.selectors;
 
+import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -10,15 +11,22 @@ import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.metadata.entity.SelectorItemInfo;
+import com.kingdee.eas.basedata.assistant.CurrencyInfo;
+import com.kingdee.eas.basedata.assistant.ExchangeRateFactory;
+import com.kingdee.eas.basedata.assistant.ExchangeRateInfo;
+import com.kingdee.eas.basedata.assistant.ExchangeTableInfo;
+import com.kingdee.eas.basedata.org.CompanyOrgUnitInfo;
 import com.kingdee.eas.bpm.BPMLogFactory;
 import com.kingdee.eas.bpm.BPMLogInfo;
 import com.kingdee.eas.bpm.BillBaseSelector;
 import com.kingdee.eas.bpm.common.StringUtilBPM;
 import com.kingdee.eas.common.EASBizException;
+import com.kingdee.eas.common.SysContextConstant;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
 import com.kingdee.eas.fdc.basedata.PaymentTypeFactory;
 import com.kingdee.eas.fdc.basedata.PaymentTypeInfo;
+import com.kingdee.eas.fdc.basedata.client.FDCClientHelper;
 import com.kingdee.eas.fdc.contract.ContractWithoutTextFactory;
 import com.kingdee.eas.fdc.contract.ContractWithoutTextInfo;
 
@@ -193,10 +201,34 @@ public class ContractWithoutTextFacade implements BillBaseSelector {
     			xml.append("<allinvoiceAmt>"+Info.getAllInvoiceAmt()+"</allinvoiceAmt>\n");//累计发票金额
     			xml.append("<BcAmount>"+Info.getAmount()+"</BcAmount>\n");//本币金额
     			//xml.append("<realSupplier>"+StringUtilBPM.isNULl(Info.g)+"</realSupplier>\n");//实际收款单位
-    			//xml.append("<exchangeRate>"+Info.get+"</exchangeRate>\n");//汇率
-    			//xml.append("<PaymentRequestBillNumber>"+StringUtilBPM.isNULl(Info.get)+"</PaymentRequestBillNumber>\n");//付款申请单编码
-    			//xml.append("<capitalAmount>"+Info.get+"</capitalAmount>\n");//大写金额
-    			//xml.append("<completePrjAmt>"+Info.get+"</completePrjAmt>\n");//本期完成工程量
+    			
+    			String srcid = Info.getCurrency().getId().toString();
+    			CompanyOrgUnitInfo currentOrg = (CompanyOrgUnitInfo) ctx.get(SysContextConstant.COMPANYINFO);
+    			ExchangeTableInfo baseExchangeTable = currentOrg.getBaseExchangeTable();
+    			if(baseExchangeTable != null)
+    	        {
+    	            CurrencyInfo baseCurrency = currentOrg.getBaseCurrency();
+    	            if(baseCurrency != null)
+    	            {
+    	                if(srcid.equals(baseCurrency.getId())){
+    	                	xml.append("<exchangeRate>1.00</exchangeRate>\n");//汇率
+    	                }
+    	                ExchangeRateInfo exchangeRate = ExchangeRateFactory.getLocalInstance(ctx).
+    	                	getExchangeRate(new ObjectUuidPK(baseExchangeTable.getId()), new ObjectUuidPK(srcid), new ObjectUuidPK(baseCurrency.getId()), Info.getBizDate());
+    	                if(exchangeRate != null){
+    	                	xml.append("<exchangeRate>"+exchangeRate.getPrecision()+"</exchangeRate>\n");//汇率
+    	                }
+    	            } else
+    	            {
+    	            	xml.append("<exchangeRate>1.00</exchangeRate>\n");//汇率
+    	            }
+    	        }
+    			
+    			xml.append("<PaymentRequestBillNumber>"+StringUtilBPM.isNULl(Info.getNumber())+"</PaymentRequestBillNumber>\n");//付款申请单编码
+    			BigDecimal localamount = Info.getAmount().setScale(2, 4);
+                String cap = FDCClientHelper.getChineseFormat(localamount, false);
+    			xml.append("<capitalAmount>"+StringUtilBPM.isNULl(cap)+"</capitalAmount>\n");//大写金额
+    			xml.append("<completePrjAmt>"+Info.getAmount()+"</completePrjAmt>\n");//本期完成工程量
     			//xml.append("<PaymentProportion>"+Info.getPaymentProportion()+"</PaymentProportion>\n"); 进度款付款比例
     			//xml.append("<MoneyDesc>"+Info.getMoneyDesc()+"</MoneyDesc>\n");  款项说明
     			//xml.append("<Urgency>"+Info.getNoPaidReason()+"</Urgency>\n");  //加急
