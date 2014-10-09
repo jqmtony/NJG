@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<facade xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.bpm.changeVisa</package>
+    <name>ChangeVisaApp</name>
+    <alias>facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].alias</alias>
+    <description>facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].description</description>
+    <userDefined>true</userDefined>
+    <bosType>25B6C007</bosType>
+    <stereoType>false</stereoType>
+    <businessImplName>com.kingdee.eas.bpm.changeVisa.ChangeVisaApp</businessImplName>
+    <businessControllerName>com.kingdee.eas.bpm.changeVisa.ChangeVisaAppController</businessControllerName>
+    <accessLevel>public</accessLevel>
+    <subClassingMode>normal</subClassingMode>
+    <methods>
+        <method>
+            <name>ApproveClose</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[ApproveClose].alias</alias>
+            <description>facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[ApproveClose].description</description>
+            <innerID>227b0157-853f-4bf5-bf25-7c6a5268e040</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>strBSID</name>
+                    <alias>facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[ApproveClose].parameters.parameter[strBSID].alias</alias>
+                    <description>facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[ApproveClose].parameters.parameter[strBSID].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>billInfo</name>
+                    <alias>facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[ApproveClose].parameters.parameter[billInfo].alias</alias>
+                    <description>facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[ApproveClose].parameters.parameter[billInfo].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>procInstID</name>
+                    <alias>facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[ApproveClose].parameters.parameter[procInstID].alias</alias>
+                    <description>facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[ApproveClose].parameters.parameter[procInstID].description</description>
+                    <direction>in</direction>
+                    <dataType>Integer</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>processInstanceResult</name>
+                    <alias>facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[ApproveClose].parameters.parameter[processInstanceResult].alias</alias>
+                    <description>facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[ApproveClose].parameters.parameter[processInstanceResult].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>strComment</name>
+                    <alias>facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[ApproveClose].parameters.parameter[strComment].alias</alias>
+                    <description>facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[ApproveClose].parameters.parameter[strComment].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>dtTime</name>
+                    <alias>facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[ApproveClose].parameters.parameter[dtTime].alias</alias>
+                    <description>facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[ApproveClose].parameters.parameter[dtTime].description</description>
+                    <direction>in</direction>
+                    <dataType>Date</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>GetbillInfo</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[GetbillInfo].alias</alias>
+            <description>facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[GetbillInfo].description</description>
+            <innerID>2eef9be9-23ab-4038-ae80-ae2cd598fd75</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>strBSID</name>
+                    <alias>facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[GetbillInfo].parameters.parameter[strBSID].alias</alias>
+                    <description>facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[GetbillInfo].parameters.parameter[strBSID].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>billInfo</name>
+                    <alias>facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[GetbillInfo].parameters.parameter[billInfo].alias</alias>
+                    <description>facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[GetbillInfo].parameters.parameter[billInfo].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getChangeVisa</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[getChangeVisa].alias</alias>
+            <description>facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[getChangeVisa].description</description>
+            <innerID>9b6649da-fd67-42c9-accc-bb3206ef520b</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>SubmitResult</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[SubmitResult].alias</alias>
+            <description>facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[SubmitResult].description</description>
+            <innerID>30ae521d-6e40-4461-9fc6-bf9341d9132c</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>strBSID</name>
+                    <alias>facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[SubmitResult].parameters.parameter[strBSID].alias</alias>
+                    <description>facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[SubmitResult].parameters.parameter[strBSID].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>billInfo</name>
+                    <alias>facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[SubmitResult].parameters.parameter[billInfo].alias</alias>
+                    <description>facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[SubmitResult].parameters.parameter[billInfo].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>success</name>
+                    <alias>facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[SubmitResult].parameters.parameter[success].alias</alias>
+                    <description>facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[SubmitResult].parameters.parameter[success].description</description>
+                    <direction>in</direction>
+                    <dataType>Boolean</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>procInstID</name>
+                    <alias>facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[SubmitResult].parameters.parameter[procInstID].alias</alias>
+                    <description>facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[SubmitResult].parameters.parameter[procInstID].description</description>
+                    <direction>in</direction>
+                    <dataType>Integer</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>procURL</name>
+                    <alias>facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[SubmitResult].parameters.parameter[procURL].alias</alias>
+                    <description>facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[SubmitResult].parameters.parameter[procURL].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>strMessage</name>
+                    <alias>facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[SubmitResult].parameters.parameter[strMessage].alias</alias>
+                    <description>facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[SubmitResult].parameters.parameter[strMessage].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+    </methods>
+    <resource>
+        <rs key="facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="变更签证申请" />
+            <lang locale="zh_HK" value="變更簽證申請" />
+            <lang locale="zh_TW" value="變更簽證申請" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].extendedProperty.userDefined">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[ApproveClose].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[ApproveClose].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[ApproveClose].parameters.parameter[billInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[ApproveClose].parameters.parameter[billInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[ApproveClose].parameters.parameter[dtTime].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[ApproveClose].parameters.parameter[dtTime].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[ApproveClose].parameters.parameter[procInstID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[ApproveClose].parameters.parameter[procInstID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[ApproveClose].parameters.parameter[processInstanceResult].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[ApproveClose].parameters.parameter[processInstanceResult].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[ApproveClose].parameters.parameter[strBSID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[ApproveClose].parameters.parameter[strBSID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[ApproveClose].parameters.parameter[strComment].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[ApproveClose].parameters.parameter[strComment].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[GetbillInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[GetbillInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[GetbillInfo].parameters.parameter[billInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[GetbillInfo].parameters.parameter[billInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[GetbillInfo].parameters.parameter[strBSID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[GetbillInfo].parameters.parameter[strBSID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[SubmitResult].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[SubmitResult].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[SubmitResult].parameters.parameter[billInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[SubmitResult].parameters.parameter[billInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[SubmitResult].parameters.parameter[procInstID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[SubmitResult].parameters.parameter[procInstID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[SubmitResult].parameters.parameter[procURL].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[SubmitResult].parameters.parameter[procURL].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[SubmitResult].parameters.parameter[strBSID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[SubmitResult].parameters.parameter[strBSID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[SubmitResult].parameters.parameter[strMessage].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[SubmitResult].parameters.parameter[strMessage].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[SubmitResult].parameters.parameter[success].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[SubmitResult].parameters.parameter[success].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[getChangeVisa].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpm.changeVisa.ChangeVisaApp].methods.method[getChangeVisa].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+    </resource>
+</facade>
+
