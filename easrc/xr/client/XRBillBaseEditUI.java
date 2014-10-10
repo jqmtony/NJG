@@ -60,7 +60,7 @@ import com.kingdee.eas.xr.helper.common.IFDCWork;
 public abstract class XRBillBaseEditUI extends AbstractXRBillBaseEditUI
 {
     private static final Logger logger = CoreUIObject.getLogger(XRBillBaseEditUI.class);
-    
+    public boolean isControl = true; //是否受控制
     /**
      * output class constructor
      */
@@ -102,10 +102,11 @@ public abstract class XRBillBaseEditUI extends AbstractXRBillBaseEditUI
     public void actionSave_actionPerformed(ActionEvent e) throws Exception {
     	super.actionSave_actionPerformed(e);
     }
+    
     public void actionSubmit_actionPerformed(ActionEvent e) throws Exception {
     	XRBillBaseInfo info = ((XRBillBaseInfo) editData);
-		if(XRBillStatusEnum.AUDITED.equals(info.getStatus())
-				|| XRBillStatusEnum.SUBMITED.equals(info.getStatus())){
+		if((XRBillStatusEnum.AUDITED.equals(info.getStatus())
+				|| XRBillStatusEnum.SUBMITED.equals(info.getStatus())) && isControl){
 			MsgBox.showWarning(this,"单据状态已经在审核中或者已审核，不能再提交");
 			SysUtil.abort();
 		}
@@ -125,7 +126,7 @@ public abstract class XRBillBaseEditUI extends AbstractXRBillBaseEditUI
 	{
 	    if(getOprtState().equals("VIEW"))
 	        checkCanEdit();
-	    if(editData.getStatus().equals(XRBillStatusEnum.SUBMITED)&&WorkflowXRHelper.checkInProInst(editData.getId().toString())){
+	    if(editData.getStatus().equals(XRBillStatusEnum.SUBMITED)&&WorkflowXRHelper.checkInProInst(editData.getId().toString()) && isControl){
 			MsgBox.showInfo("此单据记录有流程正在运行!");
 			SysUtil.abort();
 		}

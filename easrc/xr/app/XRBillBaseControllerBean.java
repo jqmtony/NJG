@@ -38,10 +38,11 @@ public class XRBillBaseControllerBean extends AbstractXRBillBaseControllerBean
 		scmCheckNumberBlank(ctx,model);
 		_checkNumberDup(ctx,null,model);
 		XRBillBaseInfo info = (XRBillBaseInfo)model;
-		if(info.getId()==null){
+		if(XRBillStatusEnum.ADD.equals(info.getStatus())){
 			info.setStatus(XRBillStatusEnum.TEMPORARILYSAVED);
-			info.setId(BOSUuid.create(info.getBOSType()));
 		}
+		if(info.getId() == null)
+			info.setId(BOSUuid.create(info.getBOSType()));
 		super._addnew(ctx, pk, model);
 	}
 
@@ -51,8 +52,9 @@ public class XRBillBaseControllerBean extends AbstractXRBillBaseControllerBean
 		XRBillBaseInfo info = (XRBillBaseInfo)model;
 		if(info.getId()==null || XRBillStatusEnum.ADD.equals(info.getStatus())){
 			info.setStatus(XRBillStatusEnum.TEMPORARILYSAVED);
-			info.setId(BOSUuid.create(info.getBOSType()));
 		}
+		if(info.getId() == null)
+			info.setId(BOSUuid.create(info.getBOSType()));
 		return super._addnew(ctx, model);
 	}
 
@@ -60,13 +62,13 @@ public class XRBillBaseControllerBean extends AbstractXRBillBaseControllerBean
 		scmCheckNumberBlank(ctx,model);
 		_checkNumberDup(ctx,null,model);
 		XRBillBaseInfo info = (XRBillBaseInfo)model;
-		   boolean isAddNew = isAddNew(ctx, info);
-		   setBillNewNumber(ctx, info, isAddNew, true, "");
-		   if(info.getId()==null || XRBillStatusEnum.ADD.equals(info.getStatus())){
+	   boolean isAddNew = isAddNew(ctx, info);
+	   setBillNewNumber(ctx, info, isAddNew, true, "");
+	   if(info.getId()==null || XRBillStatusEnum.ADD.equals(info.getStatus())){
 			info.setStatus(XRBillStatusEnum.TEMPORARILYSAVED);
-			info.setId(BOSUuid.create(info.getBOSType()));
 		}
-		
+		if(info.getId() == null)
+			info.setId(BOSUuid.create(info.getBOSType()));
 		return super._save(ctx, model);
 	}
 	//Ã·Ωª
