@@ -122,8 +122,8 @@
                 <key name="name" value="EumUseRecordQuery" />
             </query>
             <entityRef>
-                <key name="package" value="com.kingdee.eas.port.equipment.base.app" />
-                <key name="name" value="MonthTime" />
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="Period" />
             </entityRef>
         </subEntity>
     </subObjects>
@@ -1028,28 +1028,28 @@
             </query>
         </propertyUnit>
         <queryField>
-            <name>reportMonth.name</name>
+            <name>reportMonth.number</name>
             <userDefined>true</userDefined>
             <formulaString>#0</formulaString>
             <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.equipment.operate.app.EumUseRecordQuery].units.queryField[reportMonth.name].displayName</displayName>
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.operate.app.EumUseRecordQuery].units.queryField[reportMonth.number].displayName</displayName>
             <groupType />
             <isSelector>true</isSelector>
             <isFilter>true</isFilter>
             <isSorter>true</isSorter>
             <isParameter>false</isParameter>
-            <returnType>String</returnType>
+            <returnType>Int</returnType>
             <propertyRefs>
                 <propertyRef>
-                    <key>544eba1e-e77c-42b3-aef7-709a9b0656b4</key>
+                    <key>b8d2b65f-4722-45bb-b6d5-60baf45afb40</key>
                     <parentUnit>
-                        <key name="name" value="reportMonth.name" />
+                        <key name="name" value="reportMonth.number" />
                     </parentUnit>
                     <subEntity>
                         <key name="name" value="reportMonth" />
                     </subEntity>
                     <refProperty>
-                        <key name="name" value="name" />
+                        <key name="name" value="number" />
                     </refProperty>
                 </propertyRef>
             </propertyRefs>
@@ -1059,11 +1059,11 @@
             </query>
         </queryField>
         <propertyUnit>
-            <name>bcd9d9b6-b2b3-40fb-b799-85d793a29d25</name>
+            <name>00e4aea3-7d0b-455c-b9a1-762af8265c71</name>
             <userDefined>true</userDefined>
             <formulaString />
             <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.equipment.operate.app.EumUseRecordQuery].units.propertyUnit[bcd9d9b6-b2b3-40fb-b799-85d793a29d25].displayName</displayName>
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.operate.app.EumUseRecordQuery].units.propertyUnit[00e4aea3-7d0b-455c-b9a1-762af8265c71].displayName</displayName>
             <groupType />
             <isSelector>false</isSelector>
             <isFilter>false</isFilter>
@@ -1072,9 +1072,9 @@
             <returnType />
             <propertyRefs>
                 <propertyRef>
-                    <key>276bc349-bd54-4daa-a7f5-a160790d1e99</key>
+                    <key>8fa6ad9d-7465-4219-af09-8ae26399369b</key>
                     <parentUnit>
-                        <key name="name" value="bcd9d9b6-b2b3-40fb-b799-85d793a29d25" />
+                        <key name="name" value="00e4aea3-7d0b-455c-b9a1-762af8265c71" />
                     </parentUnit>
                     <subEntity>
                         <key name="name" value="EumUseRecord" />
@@ -1090,11 +1090,11 @@
             </query>
         </propertyUnit>
         <propertyUnit>
-            <name>d7c035a5-6324-4790-9946-ee39a4a2fdd1</name>
+            <name>0ef5ae42-19db-4403-b79e-790a82c46540</name>
             <userDefined>true</userDefined>
             <formulaString />
             <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.equipment.operate.app.EumUseRecordQuery].units.propertyUnit[d7c035a5-6324-4790-9946-ee39a4a2fdd1].displayName</displayName>
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.operate.app.EumUseRecordQuery].units.propertyUnit[0ef5ae42-19db-4403-b79e-790a82c46540].displayName</displayName>
             <groupType />
             <isSelector>false</isSelector>
             <isFilter>false</isFilter>
@@ -1103,9 +1103,9 @@
             <returnType />
             <propertyRefs>
                 <propertyRef>
-                    <key>296b6a4e-d3bc-4284-a9ec-6d306d3e6658</key>
+                    <key>ef926883-6445-4898-9573-e5927a1155b4</key>
                     <parentUnit>
-                        <key name="name" value="d7c035a5-6324-4790-9946-ee39a4a2fdd1" />
+                        <key name="name" value="0ef5ae42-19db-4403-b79e-790a82c46540" />
                     </parentUnit>
                     <subEntity>
                         <key name="name" value="reportMonth" />
@@ -1354,7 +1354,7 @@
             </query>
         </join>
         <join>
-            <name>0d5f1208-ba50-4ea7-9126-36ec56c28f49</name>
+            <name>913ffb86-184a-4dfa-9f5d-f3c72d3a81c3</name>
             <formulaString>#0</formulaString>
             <type>LEFT OUTER JOIN</type>
             <leftObject>
@@ -1365,16 +1365,16 @@
             </rightObject>
             <joinItems>
                 <joinItem>
-                    <name>32331b1b-0caf-4c45-9d92-6011bde20de6</name>
+                    <name>97caf2b3-5ad1-4542-9756-881de7cec1e8</name>
                     <compareType>=</compareType>
                     <leftField>
-                        <key name="name" value="bcd9d9b6-b2b3-40fb-b799-85d793a29d25" />
+                        <key name="name" value="00e4aea3-7d0b-455c-b9a1-762af8265c71" />
                     </leftField>
                     <rightField>
-                        <key name="name" value="d7c035a5-6324-4790-9946-ee39a4a2fdd1" />
+                        <key name="name" value="0ef5ae42-19db-4403-b79e-790a82c46540" />
                     </rightField>
                     <join>
-                        <key name="name" value="0d5f1208-ba50-4ea7-9126-36ec56c28f49" />
+                        <key name="name" value="913ffb86-184a-4dfa-9f5d-f3c72d3a81c3" />
                     </join>
                 </joinItem>
             </joinItems>
@@ -1472,6 +1472,18 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.EumUseRecordQuery].units.propertyUnit[00e4aea3-7d0b-455c-b9a1-762af8265c71].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.EumUseRecordQuery].units.propertyUnit[0ef5ae42-19db-4403-b79e-790a82c46540].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.EumUseRecordQuery].units.propertyUnit[1616fe90-d3db-4e68-841c-68e3da457f4a].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -1521,18 +1533,6 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.EumUseRecordQuery].units.propertyUnit[8c584cc3-b871-4f3d-b836-0524db3f45fd].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.EumUseRecordQuery].units.propertyUnit[bcd9d9b6-b2b3-40fb-b799-85d793a29d25].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.EumUseRecordQuery].units.propertyUnit[d7c035a5-6324-4790-9946-ee39a4a2fdd1].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -1739,23 +1739,23 @@
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.EumUseRecordQuery].units.queryField[reportMonth.name].displayName">
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.EumUseRecordQuery].units.queryField[reportMonth.number].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="报表月份" />
             <lang locale="zh_HK" value="報表月份" />
             <lang locale="zh_TW" value="報表月份" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.EumUseRecordQuery].units.queryField[reportMonth.name].extendedProperty.isCommonQueryFilter">
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.EumUseRecordQuery].units.queryField[reportMonth.number].extendedProperty.isCommonQueryFilter">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.EumUseRecordQuery].units.queryField[reportMonth.name].extendedProperty.isCommonQuerySorter">
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.EumUseRecordQuery].units.queryField[reportMonth.number].extendedProperty.isCommonQuerySorter">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.EumUseRecordQuery].units.queryField[reportMonth.name].extendedProperty.isUsingF7">
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.EumUseRecordQuery].units.queryField[reportMonth.number].extendedProperty.isUsingF7">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />

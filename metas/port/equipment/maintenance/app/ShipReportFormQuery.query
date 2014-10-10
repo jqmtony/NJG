@@ -88,19 +88,6 @@
             </entityRef>
         </subEntity>
         <subEntity>
-            <name>month</name>
-            <alias>joinQuery[com.kingdee.eas.port.equipment.maintenance.app.ShipReportFormQuery].subObjects.subEntity[month].alias</alias>
-            <userDefined>true</userDefined>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.equipment.maintenance.app" />
-                <key name="name" value="ShipReportFormQuery" />
-            </query>
-            <entityRef>
-                <key name="package" value="com.kingdee.eas.port.equipment.base.app" />
-                <key name="name" value="MonthTime" />
-            </entityRef>
-        </subEntity>
-        <subEntity>
             <name>E1</name>
             <alias>joinQuery[com.kingdee.eas.port.equipment.maintenance.app.ShipReportFormQuery].subObjects.subEntity[E1].alias</alias>
             <userDefined>true</userDefined>
@@ -137,6 +124,19 @@
             <entityRef>
                 <key name="package" value="com.kingdee.eas.basedata.person.app" />
                 <key name="name" value="Person" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>month</name>
+            <alias>joinQuery[com.kingdee.eas.port.equipment.maintenance.app.ShipReportFormQuery].subObjects.subEntity[month].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.maintenance.app" />
+                <key name="name" value="ShipReportFormQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="Period" />
             </entityRef>
         </subEntity>
     </subObjects>
@@ -812,99 +812,6 @@
                     </parentUnit>
                     <subEntity>
                         <key name="name" value="shipName" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="id" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.equipment.maintenance.app" />
-                <key name="name" value="ShipReportFormQuery" />
-            </query>
-        </propertyUnit>
-        <queryField>
-            <name>month.name</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.equipment.maintenance.app.ShipReportFormQuery].units.queryField[month.name].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>e07e430a-69ba-4c98-ba2c-454c5c3dc2e3</key>
-                    <parentUnit>
-                        <key name="name" value="month.name" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="month" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="name" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.equipment.maintenance.app" />
-                <key name="name" value="ShipReportFormQuery" />
-            </query>
-        </queryField>
-        <propertyUnit>
-            <name>2742f809-b9b8-4d62-a9f0-d9875d7b50d2</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.equipment.maintenance.app.ShipReportFormQuery].units.propertyUnit[2742f809-b9b8-4d62-a9f0-d9875d7b50d2].displayName</displayName>
-            <groupType />
-            <isSelector>false</isSelector>
-            <isFilter>false</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType />
-            <propertyRefs>
-                <propertyRef>
-                    <key>c5b2098a-33d5-4c92-804c-854f1e8653f1</key>
-                    <parentUnit>
-                        <key name="name" value="2742f809-b9b8-4d62-a9f0-d9875d7b50d2" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="ShipReportForm" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="month" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.equipment.maintenance.app" />
-                <key name="name" value="ShipReportFormQuery" />
-            </query>
-        </propertyUnit>
-        <propertyUnit>
-            <name>f6be67fb-ab46-442d-9ca4-8b9b3e79cec4</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.equipment.maintenance.app.ShipReportFormQuery].units.propertyUnit[f6be67fb-ab46-442d-9ca4-8b9b3e79cec4].displayName</displayName>
-            <groupType />
-            <isSelector>false</isSelector>
-            <isFilter>false</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType />
-            <propertyRefs>
-                <propertyRef>
-                    <key>03a4aa9a-ce43-494d-928a-32c408e5e63a</key>
-                    <parentUnit>
-                        <key name="name" value="f6be67fb-ab46-442d-9ca4-8b9b3e79cec4" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="month" />
                     </subEntity>
                     <refProperty>
                         <key name="name" value="id" />
@@ -2001,6 +1908,99 @@
                 <key name="name" value="ShipReportFormQuery" />
             </query>
         </propertyUnit>
+        <queryField>
+            <name>month.number</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.maintenance.app.ShipReportFormQuery].units.queryField[month.number].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Int</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>7ea27946-ff64-42bb-b6ed-30802079ca68</key>
+                    <parentUnit>
+                        <key name="name" value="month.number" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="month" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="number" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.maintenance.app" />
+                <key name="name" value="ShipReportFormQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>e4d5894b-68bc-4bd1-978a-b17581491cd6</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.maintenance.app.ShipReportFormQuery].units.propertyUnit[e4d5894b-68bc-4bd1-978a-b17581491cd6].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>d5976f14-71f6-48c4-8756-3492c4445157</key>
+                    <parentUnit>
+                        <key name="name" value="e4d5894b-68bc-4bd1-978a-b17581491cd6" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ShipReportForm" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="month" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.maintenance.app" />
+                <key name="name" value="ShipReportFormQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>747ecc19-2a49-4407-825f-227273bd7e6d</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.maintenance.app.ShipReportFormQuery].units.propertyUnit[747ecc19-2a49-4407-825f-227273bd7e6d].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>84c6e445-ecb7-40a8-be15-5e5187fe204e</key>
+                    <parentUnit>
+                        <key name="name" value="747ecc19-2a49-4407-825f-227273bd7e6d" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="month" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.maintenance.app" />
+                <key name="name" value="ShipReportFormQuery" />
+            </query>
+        </propertyUnit>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -2175,36 +2175,6 @@
             </query>
         </join>
         <join>
-            <name>6901310a-40f9-4bdf-8005-41b750ded225</name>
-            <formulaString>#0</formulaString>
-            <type>LEFT OUTER JOIN</type>
-            <leftObject>
-                <key name="name" value="ShipReportForm" />
-            </leftObject>
-            <rightObject>
-                <key name="name" value="month" />
-            </rightObject>
-            <joinItems>
-                <joinItem>
-                    <name>0c8fc2c7-96e0-47e5-9647-4ba1bfc94ea3</name>
-                    <compareType>=</compareType>
-                    <leftField>
-                        <key name="name" value="2742f809-b9b8-4d62-a9f0-d9875d7b50d2" />
-                    </leftField>
-                    <rightField>
-                        <key name="name" value="f6be67fb-ab46-442d-9ca4-8b9b3e79cec4" />
-                    </rightField>
-                    <join>
-                        <key name="name" value="6901310a-40f9-4bdf-8005-41b750ded225" />
-                    </join>
-                </joinItem>
-            </joinItems>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.equipment.maintenance.app" />
-                <key name="name" value="ShipReportFormQuery" />
-            </query>
-        </join>
-        <join>
             <name>d43268b6-b11e-4575-b238-13f994ba3584</name>
             <formulaString>#0</formulaString>
             <type>LEFT OUTER JOIN</type>
@@ -2286,6 +2256,36 @@
                     </rightField>
                     <join>
                         <key name="name" value="52496121-3443-49ec-8cae-a7ddd0cb7aa9" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.maintenance.app" />
+                <key name="name" value="ShipReportFormQuery" />
+            </query>
+        </join>
+        <join>
+            <name>5f4a4cb8-75a5-42cc-8f92-6a92cb78ebe8</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="ShipReportForm" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="month" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>ab339e5a-aa38-4ba8-9a10-1b3a5019fb37</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="e4d5894b-68bc-4bd1-978a-b17581491cd6" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="747ecc19-2a49-4407-825f-227273bd7e6d" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="5f4a4cb8-75a5-42cc-8f92-6a92cb78ebe8" />
                     </join>
                 </joinItem>
             </joinItems>
@@ -2413,12 +2413,6 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.ShipReportFormQuery].units.propertyUnit[2742f809-b9b8-4d62-a9f0-d9875d7b50d2].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.ShipReportFormQuery].units.propertyUnit[3b4e1049-d8c7-4037-b776-1050ba26dde3].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -2455,6 +2449,12 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.ShipReportFormQuery].units.propertyUnit[747ecc19-2a49-4407-825f-227273bd7e6d].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.ShipReportFormQuery].units.propertyUnit[92e33fbd-c315-47f9-8b8b-fcfcaf1b7f52].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -2479,13 +2479,13 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.ShipReportFormQuery].units.propertyUnit[f231c185-16de-45db-a775-a716e2c6fa35].displayName">
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.ShipReportFormQuery].units.propertyUnit[e4d5894b-68bc-4bd1-978a-b17581491cd6].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.ShipReportFormQuery].units.propertyUnit[f6be67fb-ab46-442d-9ca4-8b9b3e79cec4].displayName">
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.ShipReportFormQuery].units.propertyUnit[f231c185-16de-45db-a775-a716e2c6fa35].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -2876,23 +2876,23 @@
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.ShipReportFormQuery].units.queryField[month.name].displayName">
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.ShipReportFormQuery].units.queryField[month.number].displayName">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="月份" />
-            <lang locale="zh_HK" value="月份" />
-            <lang locale="zh_TW" value="月份" />
+            <lang locale="zh_CN" value="报表月份" />
+            <lang locale="zh_HK" value="報表月份" />
+            <lang locale="zh_TW" value="報表月份" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.ShipReportFormQuery].units.queryField[month.name].extendedProperty.isCommonQueryFilter">
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.ShipReportFormQuery].units.queryField[month.number].extendedProperty.isCommonQueryFilter">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.ShipReportFormQuery].units.queryField[month.name].extendedProperty.isCommonQuerySorter">
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.ShipReportFormQuery].units.queryField[month.number].extendedProperty.isCommonQuerySorter">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.ShipReportFormQuery].units.queryField[month.name].extendedProperty.isUsingF7">
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.ShipReportFormQuery].units.queryField[month.number].extendedProperty.isUsingF7">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />

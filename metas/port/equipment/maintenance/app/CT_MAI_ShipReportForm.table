@@ -260,20 +260,6 @@
             <precision>0</precision>
         </column>
         <column>
-            <name>CFMonthID</name>
-            <alias>dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_ShipReportForm].columns.column[CFMonthID].alias</alias>
-            <description>dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_ShipReportForm].columns.column[CFMonthID].description</description>
-            <userDefined>true</userDefined>
-            <isMultilingual>false</isMultilingual>
-            <isEncoded>false</isEncoded>
-            <isNullable>true</isNullable>
-            <defaultValue />
-            <sqlType>VARCHAR</sqlType>
-            <length>44</length>
-            <scale>0</scale>
-            <precision>0</precision>
-        </column>
-        <column>
             <name>CFPerformance</name>
             <alias>dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_ShipReportForm].columns.column[CFPerformance].alias</alias>
             <description>dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_ShipReportForm].columns.column[CFPerformance].description</description>
@@ -511,6 +497,20 @@
             <scale>0</scale>
             <precision>0</precision>
         </column>
+        <column>
+            <name>CFMonthID</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_ShipReportForm].columns.column[CFMonthID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_ShipReportForm].columns.column[CFMonthID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
     </columns>
     <primaryKey>
         <name>CPK_MAI_ShipRFI5js</name>
@@ -641,25 +641,6 @@
             </fkColumnPairs>
         </foreignKey>
         <foreignKey>
-            <name>CFK_MAI_MAISRFOnqr</name>
-            <userDefined>true</userDefined>
-            <refTable>
-                <key name="package" value="com.kingdee.eas.port.equipment.base.app" />
-                <key name="name" value="CT_BAS_MonthTime" />
-            </refTable>
-            <fkColumnPairs>
-                <fkColumnPair>
-                    <sequence>0</sequence>
-                    <refColumn>
-                        <key name="name" value="FID" />
-                    </refColumn>
-                    <fkColumn>
-                        <key name="name" value="CFMonthID" />
-                    </fkColumn>
-                </fkColumnPair>
-            </fkColumnPairs>
-        </foreignKey>
-        <foreignKey>
             <name>CFK_MAI_MAISRFHpla</name>
             <userDefined>true</userDefined>
             <refTable>
@@ -693,6 +674,25 @@
                     </refColumn>
                     <fkColumn>
                         <key name="name" value="CFLunjizhangID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
+        <foreignKey>
+            <name>CFK_MAI_MAISRFOnal</name>
+            <userDefined>true</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.basedata.assistant" />
+                <key name="name" value="T_BD_Period" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="CFMonthID" />
                     </fkColumn>
                 </fkColumnPair>
             </fkColumnPairs>
@@ -755,15 +755,15 @@
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_ShipReportForm].columns.column[CFMonthID].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="月份" />
-            <lang locale="zh_HK" value="月份" />
-            <lang locale="zh_TW" value="月份" />
+            <lang locale="zh_CN" value="报表月份" />
+            <lang locale="zh_HK" value="報表月份" />
+            <lang locale="zh_TW" value="報表月份" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_ShipReportForm].columns.column[CFMonthID].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="月份" />
-            <lang locale="zh_HK" value="月份" />
-            <lang locale="zh_TW" value="月份" />
+            <lang locale="zh_CN" value="报表月份" />
+            <lang locale="zh_HK" value="報表月份" />
+            <lang locale="zh_TW" value="報表月份" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_ShipReportForm].columns.column[CFPerformance].alias">
             <lang locale="en_US" value="null" />

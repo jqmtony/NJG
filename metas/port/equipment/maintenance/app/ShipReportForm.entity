@@ -733,20 +733,6 @@
                 <key name="name" value="R_ShipReportForm_EquId_shipName" />
             </relationship>
         </linkProperty>
-        <linkProperty>
-            <name>month</name>
-            <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.ShipReportForm].properties.linkProperty[month].alias</alias>
-            <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.ShipReportForm].properties.linkProperty[month].description</description>
-            <userDefined>true</userDefined>
-            <configured>false</configured>
-            <mappingField>
-                <key name="name" value="CFMonthID" />
-            </mappingField>
-            <relationship>
-                <key name="package" value="com.kingdee.eas.port.equipment.maintenance.app" />
-                <key name="name" value="R_ShipReportForm_MonthTime_month" />
-            </relationship>
-        </linkProperty>
         <ownProperty>
             <name>performance</name>
             <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.ShipReportForm].properties.ownProperty[performance].alias</alias>
@@ -1084,6 +1070,20 @@
             <relationship>
                 <key name="package" value="com.kingdee.eas.port.equipment.maintenance.app" />
                 <key name="name" value="R_ShipReportForm_Person_lunjizhang" />
+            </relationship>
+        </linkProperty>
+        <linkProperty>
+            <name>month</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.ShipReportForm].properties.linkProperty[month].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.ShipReportForm].properties.linkProperty[month].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <mappingField>
+                <key name="name" value="CFMonthID" />
+            </mappingField>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.port.equipment.maintenance.app" />
+                <key name="name" value="R_ShipReportForm_Period_month" />
             </relationship>
         </linkProperty>
     </properties>
@@ -2320,15 +2320,15 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.ShipReportForm].properties.linkProperty[month].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="月份" />
-            <lang locale="zh_HK" value="月份" />
-            <lang locale="zh_TW" value="月份" />
+            <lang locale="zh_CN" value="报表月份" />
+            <lang locale="zh_HK" value="報表月份" />
+            <lang locale="zh_TW" value="報表月份" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.ShipReportForm].properties.linkProperty[month].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="月份" />
-            <lang locale="zh_HK" value="月份" />
-            <lang locale="zh_TW" value="月份" />
+            <lang locale="zh_CN" value="报表月份" />
+            <lang locale="zh_HK" value="報表月份" />
+            <lang locale="zh_TW" value="報表月份" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.ShipReportForm].properties.linkProperty[month].extendedProperty.ColWidthInKDTable">
             <lang locale="en_US" value="50" />
@@ -2336,9 +2336,9 @@
             <lang locale="zh_TW" value="50" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.ShipReportForm].properties.linkProperty[month].extendedProperty.dataField">
-            <lang locale="en_US" value="name" />
-            <lang locale="zh_CN" value="name" />
-            <lang locale="zh_TW" value="name" />
+            <lang locale="en_US" value="number" />
+            <lang locale="zh_CN" value="number" />
+            <lang locale="zh_TW" value="number" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.ShipReportForm].properties.linkProperty[month].extendedProperty.isForGrouping">
             <lang locale="en_US" value="false" />

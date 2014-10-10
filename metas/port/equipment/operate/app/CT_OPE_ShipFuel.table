@@ -1337,6 +1337,62 @@
             <scale>0</scale>
             <precision>0</precision>
         </column>
+        <column>
+            <name>CFLingrurhy</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_ShipFuel].columns.column[CFLingrurhy].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_ShipFuel].columns.column[CFLingrurhy].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>100</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFLingrucly</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_ShipFuel].columns.column[CFLingrucly].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_ShipFuel].columns.column[CFLingrucly].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>100</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFLingruyyy</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_ShipFuel].columns.column[CFLingruyyy].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_ShipFuel].columns.column[CFLingruyyy].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>100</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFReportMonthID</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_ShipFuel].columns.column[CFReportMonthID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_ShipFuel].columns.column[CFReportMonthID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
     </columns>
     <primaryKey>
         <name>CPK_OPE_ShipFuesoa</name>
@@ -1500,6 +1556,25 @@
                     </refColumn>
                     <fkColumn>
                         <key name="name" value="CFLunjizhangID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
+        <foreignKey>
+            <name>CFK_OPE_OPESFEprbi</name>
+            <userDefined>true</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.basedata.assistant" />
+                <key name="name" value="T_BD_Period" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="CFReportMonthID" />
                     </fkColumn>
                 </fkColumnPair>
             </fkColumnPairs>
@@ -1932,6 +2007,42 @@
             <lang locale="zh_HK" value="累計運時（h）" />
             <lang locale="zh_TW" value="累計運時（h）" />
         </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_ShipFuel].columns.column[CFLingrucly].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="本月领入齿轮油" />
+            <lang locale="zh_HK" value="本月領入齒輪油" />
+            <lang locale="zh_TW" value="本月領入齒輪油" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_ShipFuel].columns.column[CFLingrucly].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="本月领入齿轮油" />
+            <lang locale="zh_HK" value="本月領入齒輪油" />
+            <lang locale="zh_TW" value="本月領入齒輪油" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_ShipFuel].columns.column[CFLingrurhy].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="本月领入润滑油" />
+            <lang locale="zh_HK" value="本月領入潤滑油" />
+            <lang locale="zh_TW" value="本月領入潤滑油" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_ShipFuel].columns.column[CFLingrurhy].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="本月领入润滑油" />
+            <lang locale="zh_HK" value="本月領入潤滑油" />
+            <lang locale="zh_TW" value="本月領入潤滑油" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_ShipFuel].columns.column[CFLingruyyy].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="本月领入液压油" />
+            <lang locale="zh_HK" value="本月領入液壓油" />
+            <lang locale="zh_TW" value="本月領入液壓油" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_ShipFuel].columns.column[CFLingruyyy].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="本月领入液压油" />
+            <lang locale="zh_HK" value="本月領入液壓油" />
+            <lang locale="zh_TW" value="本月領入液壓油" />
+        </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_ShipFuel].columns.column[CFLunjizhangID].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="轮机长" />
@@ -2099,6 +2210,18 @@
             <lang locale="zh_CN" value="起" />
             <lang locale="zh_HK" value="起" />
             <lang locale="zh_TW" value="起" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_ShipFuel].columns.column[CFReportMonthID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="报表月份" />
+            <lang locale="zh_HK" value="報表月份" />
+            <lang locale="zh_TW" value="報表月份" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_ShipFuel].columns.column[CFReportMonthID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="报表月份" />
+            <lang locale="zh_HK" value="報表月份" />
+            <lang locale="zh_TW" value="報表月份" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.operate.app.CT_OPE_ShipFuel].columns.column[CFRunhuayouben].alias">
             <lang locale="en_US" value="null" />

@@ -113,6 +113,19 @@
                 <key name="name" value="Person" />
             </entityRef>
         </subEntity>
+        <subEntity>
+            <name>reportMonth</name>
+            <alias>joinQuery[com.kingdee.eas.port.equipment.operate.app.ShipFuelQuery].subObjects.subEntity[reportMonth].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.operate.app" />
+                <key name="name" value="ShipFuelQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="Period" />
+            </entityRef>
+        </subEntity>
     </subObjects>
     <units>
         <queryField>
@@ -3308,6 +3321,192 @@
                 <key name="name" value="ShipFuelQuery" />
             </query>
         </propertyUnit>
+        <queryField>
+            <name>lingrurhy</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.operate.app.ShipFuelQuery].units.queryField[lingrurhy].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>da1a4393-36fd-4c2c-a1e6-3ec7d18364ef</key>
+                    <parentUnit>
+                        <key name="name" value="lingrurhy" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ShipFuel" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="lingrurhy" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.operate.app" />
+                <key name="name" value="ShipFuelQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>lingrucly</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.operate.app.ShipFuelQuery].units.queryField[lingrucly].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>96a893ab-52f5-4b82-8705-a3f1e5fbf535</key>
+                    <parentUnit>
+                        <key name="name" value="lingrucly" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ShipFuel" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="lingrucly" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.operate.app" />
+                <key name="name" value="ShipFuelQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>lingruyyy</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.operate.app.ShipFuelQuery].units.queryField[lingruyyy].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>2582e8bd-02e8-405c-ae26-37afb408db9c</key>
+                    <parentUnit>
+                        <key name="name" value="lingruyyy" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ShipFuel" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="lingruyyy" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.operate.app" />
+                <key name="name" value="ShipFuelQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>reportMonth.number</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.operate.app.ShipFuelQuery].units.queryField[reportMonth.number].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Int</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>f6f32f79-0c77-47ac-ad92-a4c4ab2912d2</key>
+                    <parentUnit>
+                        <key name="name" value="reportMonth.number" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="reportMonth" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="number" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.operate.app" />
+                <key name="name" value="ShipFuelQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>5add63f7-6749-4cd4-b8af-1b1fd483bead</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.operate.app.ShipFuelQuery].units.propertyUnit[5add63f7-6749-4cd4-b8af-1b1fd483bead].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>7ace814a-3344-46b3-bb5d-97f09279feff</key>
+                    <parentUnit>
+                        <key name="name" value="5add63f7-6749-4cd4-b8af-1b1fd483bead" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ShipFuel" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="reportMonth" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.operate.app" />
+                <key name="name" value="ShipFuelQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>de341008-794c-44bb-8290-48968c1057e4</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.operate.app.ShipFuelQuery].units.propertyUnit[de341008-794c-44bb-8290-48968c1057e4].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>85e35727-0b1d-436b-b9e0-681b2100de1a</key>
+                    <parentUnit>
+                        <key name="name" value="de341008-794c-44bb-8290-48968c1057e4" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="reportMonth" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.operate.app" />
+                <key name="name" value="ShipFuelQuery" />
+            </query>
+        </propertyUnit>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -3541,6 +3740,36 @@
                 <key name="name" value="ShipFuelQuery" />
             </query>
         </join>
+        <join>
+            <name>407a1f80-7e63-429a-9c8e-1b1ff26e4703</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="ShipFuel" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="reportMonth" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>78052459-5a2b-479f-9091-e4857e7c614d</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="5add63f7-6749-4cd4-b8af-1b1fd483bead" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="de341008-794c-44bb-8290-48968c1057e4" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="407a1f80-7e63-429a-9c8e-1b1ff26e4703" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.operate.app" />
+                <key name="name" value="ShipFuelQuery" />
+            </query>
+        </join>
     </joins>
     <resource>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.ShipFuelQuery].alias">
@@ -3612,6 +3841,12 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.ShipFuelQuery].subObjects.subEntity[reportMonth].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.ShipFuelQuery].subObjects.subEntity[shipName].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -3654,6 +3889,12 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.ShipFuelQuery].units.propertyUnit[5add63f7-6749-4cd4-b8af-1b1fd483bead].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.ShipFuelQuery].units.propertyUnit[5ffb10c2-9017-4af9-a5ab-adf2cfd35ac2].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -3673,6 +3914,12 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.ShipFuelQuery].units.propertyUnit[d685386d-ce72-4d9c-af76-e4e0d0c33477].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.ShipFuelQuery].units.propertyUnit[de341008-794c-44bb-8290-48968c1057e4].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -4423,6 +4670,54 @@
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.ShipFuelQuery].units.queryField[lingrucly].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="本月领入齿轮油" />
+            <lang locale="zh_HK" value="本月領入齒輪油" />
+            <lang locale="zh_TW" value="本月領入齒輪油" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.ShipFuelQuery].units.queryField[lingrucly].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.ShipFuelQuery].units.queryField[lingrucly].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.ShipFuelQuery].units.queryField[lingrurhy].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="本月领入润滑油" />
+            <lang locale="zh_HK" value="本月領入潤滑油" />
+            <lang locale="zh_TW" value="本月領入潤滑油" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.ShipFuelQuery].units.queryField[lingrurhy].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.ShipFuelQuery].units.queryField[lingrurhy].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.ShipFuelQuery].units.queryField[lingruyyy].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="本月领入液压油" />
+            <lang locale="zh_HK" value="本月領入液壓油" />
+            <lang locale="zh_TW" value="本月領入液壓油" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.ShipFuelQuery].units.queryField[lingruyyy].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.ShipFuelQuery].units.queryField[lingruyyy].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.ShipFuelQuery].units.queryField[lunjizhang.name].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="轮机长" />
@@ -4648,6 +4943,27 @@
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.ShipFuelQuery].units.queryField[qitwo].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.ShipFuelQuery].units.queryField[reportMonth.number].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="报表月份" />
+            <lang locale="zh_HK" value="報表月份" />
+            <lang locale="zh_TW" value="報表月份" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.ShipFuelQuery].units.queryField[reportMonth.number].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.ShipFuelQuery].units.queryField[reportMonth.number].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.operate.app.ShipFuelQuery].units.queryField[reportMonth.number].extendedProperty.isUsingF7">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
