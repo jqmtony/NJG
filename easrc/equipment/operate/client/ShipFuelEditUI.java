@@ -688,28 +688,51 @@ public class ShipFuelEditUI extends AbstractShipFuelEditUI
 	}
 	
 	public void onLoad() throws Exception {
+		contDescription.setVisible(false);
+		contBizDate.setVisible(false);
+		contBizStatus.setVisible(false);
 		txtintoTotal.setEnabled(false);
 		txttotalConsum.setEnabled(false);
 		txtmonthBalance.setEnabled(false);
 		txtgzdel.setEnabled(false);
 		txtxyzdel.setEnabled(false);
 		txtmonthBalance.setEnabled(false);
+		txtTotal.setEnabled(false);
+		txthjde.setEnabled(false);
+		txthjdel.setEnabled(false);
+		txtzhdel.setEnabled(false);
+		txtshiyongliang.setEnabled(false);
+		txtjieyou.setEnabled(false);
+		txtchaohao.setEnabled(false);
+		txtrunhuayouben.setEnabled(false);
+		txtchilunyouben.setEnabled(false);
+		txtyeyayouben.setEnabled(false);
+		txtshijirunranbi.setEnabled(false);
+		txtshiyongliangone.setEnabled(false);
+		txtjieone.setEnabled(false);
+		txtchaoone.setEnabled(false);
+		txtjishubenyue.setEnabled(false);
+		txtchanzhibenyue.setEnabled(false);
+		txtjishuleiji.setEnabled(false);
+		txtchanzhileiji.setEnabled(false);
+		txtzuoshangyue.setEnabled(false);
+		txtyoujishangyue.setEnabled(false);
+		txtfujishangyue.setEnabled(false);
+		txtdianbiaoshangyue.setEnabled(false);
+		txtzuoheji.setEnabled(false);
+		txtyoujiheji.setEnabled(false);
+		txtfujiheji.setEnabled(false);
+		txtdianbiaoheji.setEnabled(false);
+		txtleijiyongdian.setEnabled(false);
+		txtleijiranyou.setEnabled(false);
+		txtleijiyunshi.setEnabled(false);
+		txtleijichanzhi.setEnabled(false);
 		super.onLoad();
-		txtzhione.setRequired(true);
-		txtqione.setRequired(true);
-		txtmiduone.setRequired(true);
-		txtzhitwo.setRequired(true);
-		txtqitwo.setRequired(true);
-		txtmidutwo.setRequired(true);
-		txtqithree.setRequired(true);
-		txtzhithree.setRequired(true);
-		txtmiduthree.setRequired(true);
-		txtqifour.setRequired(true);
-		txtzhifour.setRequired(true);
-		txtmidufour.setRequired(true);
 		
 	}
 	protected void verifyInput(ActionEvent e) throws Exception {
+		
+		//燃料
 		BigDecimal bigzhione = getBigDecimal(txtzhione.getText());
 		BigDecimal bigqione = getBigDecimal(txtqione.getText());
 		BigDecimal bigmiduone = getBigDecimal(txtmiduone.getText());
@@ -754,13 +777,74 @@ public class ShipFuelEditUI extends AbstractShipFuelEditUI
 		
 		BigDecimal bigzhdel = getBigDecimal(txtzhdel.getText());
 		BigDecimal bigshiyongliang = getBigDecimal(txtshiyongliang.getText());
-		BigDecimal abc = bigzhdel.subtract(bigshiyongliang);
+		BigDecimal abc = bigzhdel.subtract(bigshiyongliang);//节超=定额量-实用量
 		if(abc.compareTo(BigDecimal.ZERO) == 1){
 			txtjieyou.setText(String.valueOf(abc));
 		}
 		if(abc.compareTo(BigDecimal.ZERO) == -1){
 			txtchaohao.setText(String.valueOf(abc));
 		}
+		
+		//润料
+		BigDecimal bigrunhuayoujiecun = getBigDecimal(txtrunhuayoujiecun.getText());//润滑油上月结存
+		BigDecimal biglingrurhy = getBigDecimal(txtlingrurhy.getText());//润滑油本月领入
+		BigDecimal bigrunhuayougangzuo = getBigDecimal(txtrunhuayougangzuo.getText());//润滑油港作消耗
+		BigDecimal bigrunhuayouxiao = getBigDecimal(txtrunhuayouxiao.getText());//润滑油小运转消耗
+		BigDecimal bigrunhuayouben = bigrunhuayoujiecun.add(biglingrurhy).subtract(bigrunhuayougangzuo).subtract(bigrunhuayouxiao);
+		txtrunhuayouben.setText(String.valueOf(bigrunhuayouben));//润滑油本月结存= 润滑油上月结存+润滑油本月领入-润滑油港作消耗-润滑油小运转消耗
+		
+		BigDecimal bigchilunyoushang = getBigDecimal(txtchilunyoushang.getText());//齿轮油上月结存
+		BigDecimal biglingrucly = getBigDecimal(txtlingrucly.getText());//齿轮油本月领入
+		BigDecimal bigchilunyougang = getBigDecimal(txtchilunyougang.getText());//齿轮油港作消耗
+		BigDecimal bigchilunyouxiao = getBigDecimal(txtchilunyouxiao.getText());//齿轮油小运转消耗
+		BigDecimal bigchilunyouben = bigchilunyoushang.add(biglingrucly).subtract(bigchilunyougang).subtract(bigchilunyouxiao);
+		txtchilunyouben.setText(String.valueOf(bigchilunyouben));//齿轮油本月结存= 齿轮油上月结存+齿轮油本月领入-齿轮油港作消耗-齿轮油小运转消耗
+		
+		BigDecimal bigyeyayoushang = getBigDecimal(txtyeyayoushang.getText());//液压油上月结存
+		BigDecimal biglingruyyy = getBigDecimal(txtlingruyyy.getText());//液压油本月领入
+		BigDecimal bigyeyayougang = getBigDecimal(txtyeyayougang.getText());//液压油港作消耗
+		BigDecimal bigyeyayouxiao = getBigDecimal(txtyeyayouxiao.getText());//液压油小运转消耗
+		BigDecimal bigyeyayouben = bigyeyayoushang.add(biglingruyyy).subtract(bigyeyayougang).subtract(bigyeyayouxiao);
+		txtyeyayouben.setText(String.valueOf(bigyeyayouben));//液压油本月结存= 液压油上月结存+液压油本月领入-液压油港作消耗-液压油小运转消耗
+		
+		BigDecimal bigshiyongliangone = bigrunhuayougangzuo.add(bigrunhuayouxiao).add(bigchilunyougang).add(bigchilunyouxiao).add(bigyeyayougang).add(bigyeyayouxiao);
+		txtshiyongliangone.setText(String.valueOf(bigshiyongliangone));//实用量=润滑油港作消耗+润滑油小运转消耗+齿轮油港作消耗+齿轮油小运转消耗+液压油港作消耗+液压油小运转消耗
+		
+		double bigshijirunranbi = Double.parseDouble(String.valueOf((bigtotalConsum.compareTo(BigDecimal.ZERO))!=0?bigshiyongliangone.divide(bigtotalConsum,  4, BigDecimal.ROUND_UP).multiply(new BigDecimal("0.01")):BigDecimal.ZERO));
+		txtshijirunranbi.setText(String.valueOf(bigshijirunranbi));//实际润燃比=润料消耗合计/燃油消耗合计*100%
+		
+		BigDecimal bigdingeliangxx = getBigDecimal(txtdingeliangxx.getText());//定额量
+		BigDecimal aaa = bigdingeliangxx.subtract(bigshiyongliangone);//节超=定额量-实用量
+		if(aaa.compareTo(BigDecimal.ZERO) == 1){
+			txtjieone.setText(String.valueOf(aaa));
+		}
+		if(aaa.compareTo(BigDecimal.ZERO) == -1){
+			txtchaoone.setText(String.valueOf(aaa));
+		}
+		
+		double bigjishubenyue = Double.parseDouble(String.valueOf((bighjde.compareTo(BigDecimal.ZERO))!=0?bigtotalConsum.divide(bighjde,  4, BigDecimal.ROUND_UP).multiply(new BigDecimal("1")):BigDecimal.ZERO));
+		txtjishubenyue.setText(String.valueOf(bigjishubenyue));//本月技术单耗=柴油消耗合计/实绩合计
+		
+		BigDecimal bigoutputValue = getBigDecimal(txtoutputValue.getText());//液压油上月结存
+		double bigchanzhibenyue = Double.parseDouble(String.valueOf((bigoutputValue.compareTo(BigDecimal.ZERO))!=0?bigtotalConsum.divide(bigoutputValue,  4, BigDecimal.ROUND_UP).multiply(new BigDecimal("1")):BigDecimal.ZERO));
+		txtchanzhibenyue.setText(String.valueOf(bigchanzhibenyue));//本月产值单耗 = 柴油消耗合计/产值实绩
+		
+		BigDecimal bigzuobenyue = getBigDecimal(txtzuobenyue.getText());//本月左主机计时
+		BigDecimal bigzuoshangyue = getBigDecimal(txtzuoshangyue.getText());//上月左主机计时
+		BigDecimal bigzuoheji = bigzuobenyue.subtract(bigzuoshangyue);
+		txtzuoheji.setText(String.valueOf(bigzuoheji));//左主机计时小计=本月左主机计时-上月左主机计时
+		BigDecimal bigyoujibenyue = getBigDecimal(txtyoujibenyue.getText());//本月右主机计时
+		BigDecimal bigyoujishangyue = getBigDecimal(txtyoujishangyue.getText());//上月右主机计时
+		BigDecimal bigyoujiheji = bigyoujibenyue.subtract(bigyoujishangyue);
+		txtyoujiheji.setText(String.valueOf(bigyoujiheji));//右主机计时小计 = 本月右主机计时-上月右主机计时
+		BigDecimal bigfujibenyue = getBigDecimal(txtfujibenyue.getText());//本月付机运时
+		BigDecimal bigfujishangyue = getBigDecimal(txtfujishangyue.getText());//上月付机运时
+		BigDecimal bigfujiheji = bigfujibenyue.subtract(bigfujishangyue);
+		txtfujiheji.setText(String.valueOf(bigfujiheji));//付机运时小计 = 本月付机运时 - 上月付机运时
+		BigDecimal bigdianbiaobenyue = getBigDecimal(txtdianbiaobenyue.getText());//本月电表读数
+		BigDecimal bigdianbiaoshangyue = getBigDecimal(txtdianbiaoshangyue.getText());//上月电表读数
+		BigDecimal bigdianbiaoheji = bigdianbiaobenyue.subtract(bigdianbiaoshangyue);
+		txtdianbiaoheji.setText(String.valueOf(bigdianbiaoheji));//电表读数小计 = 本月电表读数-上月电表读数
 		super.verifyInput(e);
 	}
 

@@ -30,17 +30,6 @@ public class AbstractShipReportFormInfo extends com.kingdee.eas.xr.XRBillBaseInf
         put("shipName", item);
     }
     /**
-     * Object: 船舶和设备维护及技术状况月报表 's 月份 property 
-     */
-    public com.kingdee.eas.port.equipment.base.MonthTimeInfo getMonth()
-    {
-        return (com.kingdee.eas.port.equipment.base.MonthTimeInfo)get("month");
-    }
-    public void setMonth(com.kingdee.eas.port.equipment.base.MonthTimeInfo item)
-    {
-        put("month", item);
-    }
-    /**
      * Object:船舶和设备维护及技术状况月报表's 设备维护工作实绩property 
      */
     public String getPerformance()
@@ -233,6 +222,17 @@ public class AbstractShipReportFormInfo extends com.kingdee.eas.xr.XRBillBaseInf
     public void setLunjizhang(com.kingdee.eas.basedata.person.PersonInfo item)
     {
         put("lunjizhang", item);
+    }
+    /**
+     * Object: 船舶和设备维护及技术状况月报表 's 报表月份 property 
+     */
+    public com.kingdee.eas.basedata.assistant.PeriodInfo getMonth()
+    {
+        return (com.kingdee.eas.basedata.assistant.PeriodInfo)get("month");
+    }
+    public void setMonth(com.kingdee.eas.basedata.assistant.PeriodInfo item)
+    {
+        put("month", item);
     }
     public BOSObjectType getBOSType()
     {

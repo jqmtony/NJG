@@ -63,6 +63,7 @@ public abstract class AbstractShipFuelEditUI extends com.kingdee.eas.xr.client.X
     protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel1;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contchuanzhang;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contlunjizhang;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contreportMonth;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtCreator;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkCreateTime;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtLastUpdateUser;
@@ -245,6 +246,11 @@ public abstract class AbstractShipFuelEditUI extends com.kingdee.eas.xr.client.X
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contshiyongliangone;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contjieone;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contchaoone;
+    protected com.kingdee.bos.ctrl.swing.KDSeparator kDSeparator60;
+    protected com.kingdee.bos.ctrl.swing.KDLabel kDLabel66;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contlingrurhy;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contlingrucly;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contlingruyyy;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtrunhuayoujiecun;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtrunhuayougangzuo;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtrunhuayouxiao;
@@ -263,6 +269,9 @@ public abstract class AbstractShipFuelEditUI extends com.kingdee.eas.xr.client.X
     protected com.kingdee.bos.ctrl.swing.KDTextField txtshiyongliangone;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtjieone;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtchaoone;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txtlingrurhy;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txtlingrucly;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txtlingruyyy;
     protected com.kingdee.bos.ctrl.swing.KDLabel kDLabel9;
     protected com.kingdee.bos.ctrl.swing.KDLabel kDLabel10;
     protected com.kingdee.bos.ctrl.swing.KDLabel kDLabel11;
@@ -350,6 +359,7 @@ public abstract class AbstractShipFuelEditUI extends com.kingdee.eas.xr.client.X
     protected com.kingdee.bos.ctrl.swing.KDTextField txtchanzhileiji;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtchuanzhang;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtlunjizhang;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtreportMonth;
     protected com.kingdee.eas.port.equipment.operate.ShipFuelInfo editData = null;
     /**
      * output class constructor
@@ -417,6 +427,7 @@ public abstract class AbstractShipFuelEditUI extends com.kingdee.eas.xr.client.X
         this.kDPanel1 = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.contchuanzhang = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contlunjizhang = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contreportMonth = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.prmtCreator = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.pkCreateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.prmtLastUpdateUser = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
@@ -599,6 +610,11 @@ public abstract class AbstractShipFuelEditUI extends com.kingdee.eas.xr.client.X
         this.contshiyongliangone = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contjieone = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contchaoone = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.kDSeparator60 = new com.kingdee.bos.ctrl.swing.KDSeparator();
+        this.kDLabel66 = new com.kingdee.bos.ctrl.swing.KDLabel();
+        this.contlingrurhy = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contlingrucly = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contlingruyyy = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.txtrunhuayoujiecun = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtrunhuayougangzuo = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtrunhuayouxiao = new com.kingdee.bos.ctrl.swing.KDTextField();
@@ -617,6 +633,9 @@ public abstract class AbstractShipFuelEditUI extends com.kingdee.eas.xr.client.X
         this.txtshiyongliangone = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtjieone = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtchaoone = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.txtlingrurhy = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.txtlingrucly = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.txtlingruyyy = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.kDLabel9 = new com.kingdee.bos.ctrl.swing.KDLabel();
         this.kDLabel10 = new com.kingdee.bos.ctrl.swing.KDLabel();
         this.kDLabel11 = new com.kingdee.bos.ctrl.swing.KDLabel();
@@ -704,6 +723,7 @@ public abstract class AbstractShipFuelEditUI extends com.kingdee.eas.xr.client.X
         this.txtchanzhileiji = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.prmtchuanzhang = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.prmtlunjizhang = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.prmtreportMonth = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.contCreator.setName("contCreator");
         this.contCreateTime.setName("contCreateTime");
         this.contLastUpdateUser.setName("contLastUpdateUser");
@@ -721,6 +741,7 @@ public abstract class AbstractShipFuelEditUI extends com.kingdee.eas.xr.client.X
         this.kDPanel1.setName("kDPanel1");
         this.contchuanzhang.setName("contchuanzhang");
         this.contlunjizhang.setName("contlunjizhang");
+        this.contreportMonth.setName("contreportMonth");
         this.prmtCreator.setName("prmtCreator");
         this.pkCreateTime.setName("pkCreateTime");
         this.prmtLastUpdateUser.setName("prmtLastUpdateUser");
@@ -903,6 +924,11 @@ public abstract class AbstractShipFuelEditUI extends com.kingdee.eas.xr.client.X
         this.contshiyongliangone.setName("contshiyongliangone");
         this.contjieone.setName("contjieone");
         this.contchaoone.setName("contchaoone");
+        this.kDSeparator60.setName("kDSeparator60");
+        this.kDLabel66.setName("kDLabel66");
+        this.contlingrurhy.setName("contlingrurhy");
+        this.contlingrucly.setName("contlingrucly");
+        this.contlingruyyy.setName("contlingruyyy");
         this.txtrunhuayoujiecun.setName("txtrunhuayoujiecun");
         this.txtrunhuayougangzuo.setName("txtrunhuayougangzuo");
         this.txtrunhuayouxiao.setName("txtrunhuayouxiao");
@@ -921,6 +947,9 @@ public abstract class AbstractShipFuelEditUI extends com.kingdee.eas.xr.client.X
         this.txtshiyongliangone.setName("txtshiyongliangone");
         this.txtjieone.setName("txtjieone");
         this.txtchaoone.setName("txtchaoone");
+        this.txtlingrurhy.setName("txtlingrurhy");
+        this.txtlingrucly.setName("txtlingrucly");
+        this.txtlingruyyy.setName("txtlingruyyy");
         this.kDLabel9.setName("kDLabel9");
         this.kDLabel10.setName("kDLabel10");
         this.kDLabel11.setName("kDLabel11");
@@ -1008,6 +1037,7 @@ public abstract class AbstractShipFuelEditUI extends com.kingdee.eas.xr.client.X
         this.txtchanzhileiji.setName("txtchanzhileiji");
         this.prmtchuanzhang.setName("prmtchuanzhang");
         this.prmtlunjizhang.setName("prmtlunjizhang");
+        this.prmtreportMonth.setName("prmtreportMonth");
         // CoreUI
         // contCreator		
         this.contCreator.setBoundLabelText(resHelper.getString("contCreator.boundLabelText"));		
@@ -1082,6 +1112,11 @@ public abstract class AbstractShipFuelEditUI extends com.kingdee.eas.xr.client.X
         this.contlunjizhang.setBoundLabelLength(100);		
         this.contlunjizhang.setBoundLabelUnderline(true);		
         this.contlunjizhang.setVisible(true);
+        // contreportMonth		
+        this.contreportMonth.setBoundLabelText(resHelper.getString("contreportMonth.boundLabelText"));		
+        this.contreportMonth.setBoundLabelLength(100);		
+        this.contreportMonth.setBoundLabelUnderline(true);		
+        this.contreportMonth.setVisible(true);
         // prmtCreator		
         this.prmtCreator.setEnabled(false);		
         this.prmtCreator.setCommitFormat("$name$");		
@@ -1689,6 +1724,24 @@ public abstract class AbstractShipFuelEditUI extends com.kingdee.eas.xr.client.X
         this.contchaoone.setBoundLabelLength(0);		
         this.contchaoone.setBoundLabelUnderline(true);		
         this.contchaoone.setVisible(true);
+        // kDSeparator60
+        // kDLabel66		
+        this.kDLabel66.setText(resHelper.getString("kDLabel66.text"));
+        // contlingrurhy		
+        this.contlingrurhy.setBoundLabelText(resHelper.getString("contlingrurhy.boundLabelText"));		
+        this.contlingrurhy.setBoundLabelLength(0);		
+        this.contlingrurhy.setBoundLabelUnderline(true);		
+        this.contlingrurhy.setVisible(true);
+        // contlingrucly		
+        this.contlingrucly.setBoundLabelText(resHelper.getString("contlingrucly.boundLabelText"));		
+        this.contlingrucly.setBoundLabelLength(0);		
+        this.contlingrucly.setBoundLabelUnderline(true);		
+        this.contlingrucly.setVisible(true);
+        // contlingruyyy		
+        this.contlingruyyy.setBoundLabelText(resHelper.getString("contlingruyyy.boundLabelText"));		
+        this.contlingruyyy.setBoundLabelLength(0);		
+        this.contlingruyyy.setBoundLabelUnderline(true);		
+        this.contlingruyyy.setVisible(true);
         // txtrunhuayoujiecun		
         this.txtrunhuayoujiecun.setVisible(true);		
         this.txtrunhuayoujiecun.setHorizontalAlignment(2);		
@@ -1779,6 +1832,21 @@ public abstract class AbstractShipFuelEditUI extends com.kingdee.eas.xr.client.X
         this.txtchaoone.setHorizontalAlignment(2);		
         this.txtchaoone.setMaxLength(100);		
         this.txtchaoone.setRequired(false);
+        // txtlingrurhy		
+        this.txtlingrurhy.setVisible(true);		
+        this.txtlingrurhy.setHorizontalAlignment(2);		
+        this.txtlingrurhy.setMaxLength(100);		
+        this.txtlingrurhy.setRequired(false);
+        // txtlingrucly		
+        this.txtlingrucly.setVisible(true);		
+        this.txtlingrucly.setHorizontalAlignment(2);		
+        this.txtlingrucly.setMaxLength(100);		
+        this.txtlingrucly.setRequired(false);
+        // txtlingruyyy		
+        this.txtlingruyyy.setVisible(true);		
+        this.txtlingruyyy.setHorizontalAlignment(2);		
+        this.txtlingruyyy.setMaxLength(100);		
+        this.txtlingruyyy.setRequired(false);
         // kDLabel9		
         this.kDLabel9.setText(resHelper.getString("kDLabel9.text"));
         // kDLabel10		
@@ -2094,7 +2162,15 @@ public abstract class AbstractShipFuelEditUI extends com.kingdee.eas.xr.client.X
         this.prmtlunjizhang.setEditFormat("$number$");		
         this.prmtlunjizhang.setCommitFormat("$number$");		
         this.prmtlunjizhang.setRequired(false);
-        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmtshipName,txtPower,txtlastMonth,txtqione,txtqitwo,txtzhione,txtzhitwo,txtmiduone,txtmidutwo,txtintoTotal,txtqithree,txtqifour,txtzhithree,txtzhifour,txtmiduthree,txtmidufour,txttotalConsum,txtmonthBalance,txtportShipment,txtsmallTransport,txtTotal,txtoutputValue,txtgzde,txtgzdel,txtxyzde,txtxyzdel,txthjde,txthjdel,txtchanzhione,txtchanzhitwo,txtzhdel,txtshiyongliang,txtjieyou,txtchaohao,txtselfLeve,txtnote,txtleijiyongdian,txtleijiranyou,txtleijiyunshi,txtleijichanzhi,txtrunhuayoujiecun,txtrunhuayougangzuo,txtrunhuayouxiao,txtrunhuayouben,txtchilunyoushang,txtchilunyougang,txtchilunyouxiao,txtchilunyouben,txtyeyayoushang,txtyeyayougang,txtyeyayouxiao,txtyeyayouben,txtedingrunranbi,txtshijirunranbi,txtdingeliangxx,txtshiyongliangone,txtjieone,txtchaoone,txtjishudinge,txtchanzhidinge,txtjishubenyue,txtchanzhibenyue,txtjishuleiji,txtchanzhileiji,txtzuobenyue,txtyoujibenyue,txtfujibenyue,txtdianbiaobenyue,txtzuoshangyue,txtzuoheji,txtyoujishangyue,txtyoujiheji,txtfujishangyue,txtfujiheji,txtdianbiaoshangyue,txtdianbiaoheji,prmtchuanzhang,prmtlunjizhang}));
+        // prmtreportMonth		
+        this.prmtreportMonth.setQueryInfo("com.kingdee.eas.basedata.assistant.app.F7PeriodQuery");		
+        this.prmtreportMonth.setVisible(true);		
+        this.prmtreportMonth.setEditable(true);		
+        this.prmtreportMonth.setDisplayFormat("$number$");		
+        this.prmtreportMonth.setEditFormat("$number$");		
+        this.prmtreportMonth.setCommitFormat("$number$");		
+        this.prmtreportMonth.setRequired(false);
+        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmtshipName,txtPower,txtlastMonth,txtqione,txtqitwo,txtzhione,txtzhitwo,txtmiduone,txtmidutwo,txtintoTotal,txtqithree,txtqifour,txtzhithree,txtzhifour,txtmiduthree,txtmidufour,txttotalConsum,txtmonthBalance,txtportShipment,txtsmallTransport,txtTotal,txtoutputValue,txtgzde,txtgzdel,txtxyzde,txtxyzdel,txthjde,txthjdel,txtchanzhione,txtchanzhitwo,txtzhdel,txtshiyongliang,txtjieyou,txtchaohao,txtselfLeve,txtnote,txtleijiyongdian,txtleijiranyou,txtleijiyunshi,txtleijichanzhi,txtrunhuayoujiecun,txtrunhuayougangzuo,txtrunhuayouxiao,txtrunhuayouben,txtchilunyoushang,txtchilunyougang,txtchilunyouxiao,txtchilunyouben,txtyeyayoushang,txtyeyayougang,txtyeyayouxiao,txtyeyayouben,txtedingrunranbi,txtshijirunranbi,txtdingeliangxx,txtshiyongliangone,txtjieone,txtchaoone,txtjishudinge,txtchanzhidinge,txtjishubenyue,txtchanzhibenyue,txtjishuleiji,txtchanzhileiji,txtzuobenyue,txtyoujibenyue,txtfujibenyue,txtdianbiaobenyue,txtzuoshangyue,txtzuoheji,txtyoujishangyue,txtyoujiheji,txtfujishangyue,txtfujiheji,txtdianbiaoshangyue,txtdianbiaoheji,prmtchuanzhang,prmtlunjizhang,txtlingrurhy,txtlingrucly,txtlingruyyy,prmtreportMonth}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
 		registerBindings();
@@ -2124,39 +2200,41 @@ public abstract class AbstractShipFuelEditUI extends com.kingdee.eas.xr.client.X
         this.setLayout(new KDLayout());
         this.putClientProperty("OriginalBounds", new Rectangle(10, 10, 1013, 629));
         contCreator.setBounds(new Rectangle(708, 553, 270, 19));
-        this.add(contCreator, new KDLayout.Constraints(708, 553, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        this.add(contCreator, new KDLayout.Constraints(708, 553, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contCreateTime.setBounds(new Rectangle(35, 575, 270, 19));
-        this.add(contCreateTime, new KDLayout.Constraints(35, 575, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        this.add(contCreateTime, new KDLayout.Constraints(35, 575, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contLastUpdateUser.setBounds(new Rectangle(371, 575, 270, 19));
-        this.add(contLastUpdateUser, new KDLayout.Constraints(371, 575, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        this.add(contLastUpdateUser, new KDLayout.Constraints(371, 575, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contLastUpdateTime.setBounds(new Rectangle(371, 596, 270, 19));
-        this.add(contLastUpdateTime, new KDLayout.Constraints(371, 596, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        this.add(contLastUpdateTime, new KDLayout.Constraints(371, 596, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contCU.setBounds(new Rectangle(706, 11, 270, 19));
         this.add(contCU, new KDLayout.Constraints(706, 11, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contNumber.setBounds(new Rectangle(33, 11, 270, 19));
         this.add(contNumber, new KDLayout.Constraints(33, 11, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contBizDate.setBounds(new Rectangle(369, 11, 270, 19));
-        this.add(contBizDate, new KDLayout.Constraints(369, 11, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contBizDate.setBounds(new Rectangle(985, 88, 270, 19));
+        this.add(contBizDate, new KDLayout.Constraints(985, 88, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contDescription.setBounds(new Rectangle(990, 18, 270, 19));
         this.add(contDescription, new KDLayout.Constraints(990, 18, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contAuditor.setBounds(new Rectangle(708, 575, 270, 19));
-        this.add(contAuditor, new KDLayout.Constraints(708, 575, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        this.add(contAuditor, new KDLayout.Constraints(708, 575, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contStatus.setBounds(new Rectangle(706, 35, 270, 19));
         this.add(contStatus, new KDLayout.Constraints(706, 35, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contBizStatus.setBounds(new Rectangle(996, 559, 270, 19));
         this.add(contBizStatus, new KDLayout.Constraints(996, 559, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contAuditTime.setBounds(new Rectangle(708, 596, 270, 19));
-        this.add(contAuditTime, new KDLayout.Constraints(708, 596, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        this.add(contAuditTime, new KDLayout.Constraints(708, 596, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contshipName.setBounds(new Rectangle(33, 35, 270, 19));
         this.add(contshipName, new KDLayout.Constraints(33, 35, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contPower.setBounds(new Rectangle(369, 35, 270, 19));
         this.add(contPower, new KDLayout.Constraints(369, 35, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        kDPanel1.setBounds(new Rectangle(29, 63, 950, 485));
-        this.add(kDPanel1, new KDLayout.Constraints(29, 63, 950, 485, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        kDPanel1.setBounds(new Rectangle(29, 59, 950, 489));
+        this.add(kDPanel1, new KDLayout.Constraints(29, 59, 950, 489, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         contchuanzhang.setBounds(new Rectangle(35, 553, 270, 19));
-        this.add(contchuanzhang, new KDLayout.Constraints(35, 553, 270, 19, 0));
+        this.add(contchuanzhang, new KDLayout.Constraints(35, 553, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contlunjizhang.setBounds(new Rectangle(371, 553, 270, 19));
-        this.add(contlunjizhang, new KDLayout.Constraints(371, 553, 270, 19, 0));
+        this.add(contlunjizhang, new KDLayout.Constraints(371, 553, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contreportMonth.setBounds(new Rectangle(369, 11, 270, 19));
+        this.add(contreportMonth, new KDLayout.Constraints(369, 11, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         //contCreator
         contCreator.setBoundEditor(prmtCreator);
         //contCreateTime
@@ -2186,21 +2264,21 @@ public abstract class AbstractShipFuelEditUI extends com.kingdee.eas.xr.client.X
         //contPower
         contPower.setBoundEditor(txtPower);
         //kDPanel1
-        kDPanel1.setLayout(null);        kDPanel2.setBounds(new Rectangle(13, 13, 341, 456));
+        kDPanel1.setLayout(null);        kDPanel2.setBounds(new Rectangle(13, 12, 341, 463));
         kDPanel1.add(kDPanel2, null);
-        kDPanel3.setBounds(new Rectangle(355, 14, 337, 233));
+        kDPanel3.setBounds(new Rectangle(356, 12, 336, 249));
         kDPanel1.add(kDPanel3, null);
         kDPanel4.setBounds(new Rectangle(694, 13, 242, 126));
         kDPanel1.add(kDPanel4, null);
-        kDPanel5.setBounds(new Rectangle(355, 360, 338, 108));
+        kDPanel5.setBounds(new Rectangle(355, 369, 338, 105));
         kDPanel1.add(kDPanel5, null);
         kDPanel6.setBounds(new Rectangle(695, 142, 241, 326));
         kDPanel1.add(kDPanel6, null);
-        kDPanel7.setBounds(new Rectangle(356, 249, 336, 109));
+        kDPanel7.setBounds(new Rectangle(356, 262, 336, 105));
         kDPanel1.add(kDPanel7, null);
         //kDPanel2
         kDPanel2.setLayout(new KDLayout());
-        kDPanel2.putClientProperty("OriginalBounds", new Rectangle(13, 13, 341, 456));        kDLabel1.setBounds(new Rectangle(119, 9, 111, 20));
+        kDPanel2.putClientProperty("OriginalBounds", new Rectangle(13, 12, 341, 463));        kDLabel1.setBounds(new Rectangle(119, 9, 111, 20));
         kDPanel2.add(kDLabel1, new KDLayout.Constraints(119, 9, 111, 20, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         kDLabel2.setBounds(new Rectangle(31, 35, 52, 16));
         kDPanel2.add(kDLabel2, new KDLayout.Constraints(31, 35, 52, 16, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
@@ -2434,98 +2512,108 @@ public abstract class AbstractShipFuelEditUI extends com.kingdee.eas.xr.client.X
         contchaohao.setBoundEditor(txtchaohao);
         //kDPanel3
         kDPanel3.setLayout(new KDLayout());
-        kDPanel3.putClientProperty("OriginalBounds", new Rectangle(355, 14, 337, 233));        kDLabel5.setBounds(new Rectangle(34, 28, 52, 16));
-        kDPanel3.add(kDLabel5, new KDLayout.Constraints(34, 28, 52, 16, 0));
-        kDLabel6.setBounds(new Rectangle(124, 28, 52, 16));
-        kDPanel3.add(kDLabel6, new KDLayout.Constraints(124, 28, 52, 16, 0));
-        kDLabel7.setBounds(new Rectangle(206, 28, 42, 16));
-        kDPanel3.add(kDLabel7, new KDLayout.Constraints(206, 28, 42, 16, 0));
-        kDLabel8.setBounds(new Rectangle(276, 28, 47, 16));
-        kDPanel3.add(kDLabel8, new KDLayout.Constraints(276, 28, 47, 16, 0));
-        kDSeparator9.setBounds(new Rectangle(5, 45, 320, 10));
-        kDPanel3.add(kDSeparator9, new KDLayout.Constraints(5, 45, 320, 10, 0));
+        kDPanel3.putClientProperty("OriginalBounds", new Rectangle(356, 12, 336, 249));        kDLabel5.setBounds(new Rectangle(34, 26, 52, 16));
+        kDPanel3.add(kDLabel5, new KDLayout.Constraints(34, 26, 52, 16, 0));
+        kDLabel6.setBounds(new Rectangle(124, 26, 52, 16));
+        kDPanel3.add(kDLabel6, new KDLayout.Constraints(124, 26, 52, 16, 0));
+        kDLabel7.setBounds(new Rectangle(206, 26, 42, 16));
+        kDPanel3.add(kDLabel7, new KDLayout.Constraints(206, 26, 42, 16, 0));
+        kDLabel8.setBounds(new Rectangle(276, 26, 47, 16));
+        kDPanel3.add(kDLabel8, new KDLayout.Constraints(276, 26, 47, 16, 0));
+        kDSeparator9.setBounds(new Rectangle(5, 42, 320, 10));
+        kDPanel3.add(kDSeparator9, new KDLayout.Constraints(5, 42, 320, 10, 0));
         kDSeparator11.setBounds(new Rectangle(9, 24, 316, 10));
         kDPanel3.add(kDSeparator11, new KDLayout.Constraints(9, 24, 316, 10, 0));
         kDLabel4.setBounds(new Rectangle(113, 9, 142, 18));
         kDPanel3.add(kDLabel4, new KDLayout.Constraints(113, 9, 142, 18, 0));
-        kDLabel36.setBounds(new Rectangle(32, 47, 51, 20));
-        kDPanel3.add(kDLabel36, new KDLayout.Constraints(32, 47, 51, 20, 0));
-        kDSeparator30.setBounds(new Rectangle(10, 68, 318, 10));
-        kDPanel3.add(kDSeparator30, new KDLayout.Constraints(10, 68, 318, 10, 0));
-        kDLabel42.setBounds(new Rectangle(33, 70, 55, 22));
-        kDPanel3.add(kDLabel42, new KDLayout.Constraints(33, 70, 55, 22, 0));
-        kDSeparator31.setBounds(new Rectangle(8, 92, 320, 10));
-        kDPanel3.add(kDSeparator31, new KDLayout.Constraints(8, 92, 320, 10, 0));
-        kDLabel43.setBounds(new Rectangle(26, 97, 66, 15));
-        kDPanel3.add(kDLabel43, new KDLayout.Constraints(26, 97, 66, 15, 0));
-        kDSeparator32.setBounds(new Rectangle(10, 115, 316, 10));
-        kDPanel3.add(kDSeparator32, new KDLayout.Constraints(10, 115, 316, 10, 0));
-        kDLabel44.setBounds(new Rectangle(34, 119, 56, 16));
-        kDPanel3.add(kDLabel44, new KDLayout.Constraints(34, 119, 56, 16, 0));
-        kDSeparator33.setBounds(new Rectangle(9, 137, 318, 10));
-        kDPanel3.add(kDSeparator33, new KDLayout.Constraints(9, 137, 318, 10, 0));
-        kDLabel46.setBounds(new Rectangle(14, 140, 83, 17));
-        kDPanel3.add(kDLabel46, new KDLayout.Constraints(14, 140, 83, 17, 0));
-        kDLabel48.setBounds(new Rectangle(107, 139, 80, 18));
-        kDPanel3.add(kDLabel48, new KDLayout.Constraints(107, 139, 80, 18, 0));
-        kDLabel49.setBounds(new Rectangle(234, 142, 65, 12));
-        kDPanel3.add(kDLabel49, new KDLayout.Constraints(234, 142, 65, 12, 0));
-        kDSeparator34.setBounds(new Rectangle(12, 157, 316, 10));
-        kDPanel3.add(kDSeparator34, new KDLayout.Constraints(12, 157, 316, 10, 0));
-        kDSeparator35.setBounds(new Rectangle(13, 180, 314, 10));
-        kDPanel3.add(kDSeparator35, new KDLayout.Constraints(13, 180, 314, 10, 0));
-        kDLabel50.setBounds(new Rectangle(67, 181, 66, 18));
-        kDPanel3.add(kDLabel50, new KDLayout.Constraints(67, 181, 66, 18, 0));
-        kDLabel51.setBounds(new Rectangle(202, 181, 49, 18));
-        kDPanel3.add(kDLabel51, new KDLayout.Constraints(202, 181, 49, 18, 0));
-        kDLabel52.setBounds(new Rectangle(275, 182, 45, 16));
-        kDPanel3.add(kDLabel52, new KDLayout.Constraints(275, 182, 45, 16, 0));
-        kDSeparator36.setBounds(new Rectangle(11, 197, 317, 10));
-        kDPanel3.add(kDSeparator36, new KDLayout.Constraints(11, 197, 317, 10, 0));
-        kDSeparator37.setBounds(new Rectangle(98, 25, 8, 153));
-        kDPanel3.add(kDSeparator37, new KDLayout.Constraints(98, 25, 8, 153, 0));
-        kDSeparator38.setBounds(new Rectangle(192, 25, 8, 203));
-        kDPanel3.add(kDSeparator38, new KDLayout.Constraints(192, 25, 8, 203, 0));
-        kDSeparator39.setBounds(new Rectangle(257, 179, 8, 49));
-        kDPanel3.add(kDSeparator39, new KDLayout.Constraints(257, 179, 8, 49, 0));
-        kDSeparator40.setBounds(new Rectangle(260, 24, 8, 112));
-        kDPanel3.add(kDSeparator40, new KDLayout.Constraints(260, 24, 8, 112, 0));
-        contrunhuayoujiecun.setBounds(new Rectangle(102, 47, 87, 19));
-        kDPanel3.add(contrunhuayoujiecun, new KDLayout.Constraints(102, 47, 87, 19, 0));
-        contrunhuayougangzuo.setBounds(new Rectangle(102, 71, 87, 19));
-        kDPanel3.add(contrunhuayougangzuo, new KDLayout.Constraints(102, 71, 87, 19, 0));
-        contrunhuayouxiao.setBounds(new Rectangle(102, 95, 87, 19));
-        kDPanel3.add(contrunhuayouxiao, new KDLayout.Constraints(102, 95, 87, 19, 0));
-        contrunhuayouben.setBounds(new Rectangle(102, 117, 87, 19));
-        kDPanel3.add(contrunhuayouben, new KDLayout.Constraints(102, 117, 87, 19, 0));
-        contchilunyoushang.setBounds(new Rectangle(197, 47, 60, 19));
-        kDPanel3.add(contchilunyoushang, new KDLayout.Constraints(197, 47, 60, 19, 0));
-        contchilunyougang.setBounds(new Rectangle(197, 71, 60, 19));
-        kDPanel3.add(contchilunyougang, new KDLayout.Constraints(197, 71, 60, 19, 0));
-        contchilunyouxiao.setBounds(new Rectangle(197, 95, 61, 19));
-        kDPanel3.add(contchilunyouxiao, new KDLayout.Constraints(197, 95, 61, 19, 0));
-        contchilunyouben.setBounds(new Rectangle(197, 117, 60, 19));
-        kDPanel3.add(contchilunyouben, new KDLayout.Constraints(197, 117, 60, 19, 0));
-        contyeyayoushang.setBounds(new Rectangle(263, 47, 57, 19));
-        kDPanel3.add(contyeyayoushang, new KDLayout.Constraints(263, 47, 57, 19, 0));
-        contyeyayougang.setBounds(new Rectangle(263, 71, 57, 19));
-        kDPanel3.add(contyeyayougang, new KDLayout.Constraints(263, 71, 57, 19, 0));
-        contyeyayouxiao.setBounds(new Rectangle(263, 95, 57, 19));
-        kDPanel3.add(contyeyayouxiao, new KDLayout.Constraints(263, 95, 57, 19, 0));
-        contyeyayouben.setBounds(new Rectangle(263, 117, 56, 19));
-        kDPanel3.add(contyeyayouben, new KDLayout.Constraints(263, 117, 56, 19, 0));
-        contedingrunranbi.setBounds(new Rectangle(16, 159, 73, 19));
-        kDPanel3.add(contedingrunranbi, new KDLayout.Constraints(16, 159, 73, 19, 0));
-        contshijirunranbi.setBounds(new Rectangle(102, 159, 87, 19));
-        kDPanel3.add(contshijirunranbi, new KDLayout.Constraints(102, 159, 87, 19, 0));
-        contdingeliangxx.setBounds(new Rectangle(197, 159, 125, 19));
-        kDPanel3.add(contdingeliangxx, new KDLayout.Constraints(197, 159, 125, 19, 0));
-        contshiyongliangone.setBounds(new Rectangle(16, 200, 173, 19));
-        kDPanel3.add(contshiyongliangone, new KDLayout.Constraints(16, 200, 173, 19, 0));
-        contjieone.setBounds(new Rectangle(197, 200, 58, 19));
-        kDPanel3.add(contjieone, new KDLayout.Constraints(197, 200, 58, 19, 0));
-        contchaoone.setBounds(new Rectangle(263, 200, 58, 19));
-        kDPanel3.add(contchaoone, new KDLayout.Constraints(263, 200, 58, 19, 0));
+        kDLabel36.setBounds(new Rectangle(32, 44, 51, 20));
+        kDPanel3.add(kDLabel36, new KDLayout.Constraints(32, 44, 51, 20, 0));
+        kDSeparator30.setBounds(new Rectangle(10, 64, 318, 10));
+        kDPanel3.add(kDSeparator30, new KDLayout.Constraints(10, 64, 318, 10, 0));
+        kDLabel42.setBounds(new Rectangle(33, 88, 55, 22));
+        kDPanel3.add(kDLabel42, new KDLayout.Constraints(33, 88, 55, 22, 0));
+        kDSeparator31.setBounds(new Rectangle(8, 109, 320, 10));
+        kDPanel3.add(kDSeparator31, new KDLayout.Constraints(8, 109, 320, 10, 0));
+        kDLabel43.setBounds(new Rectangle(26, 113, 66, 15));
+        kDPanel3.add(kDLabel43, new KDLayout.Constraints(26, 113, 66, 15, 0));
+        kDSeparator32.setBounds(new Rectangle(10, 131, 316, 10));
+        kDPanel3.add(kDSeparator32, new KDLayout.Constraints(10, 131, 316, 10, 0));
+        kDLabel44.setBounds(new Rectangle(34, 135, 56, 16));
+        kDPanel3.add(kDLabel44, new KDLayout.Constraints(34, 135, 56, 16, 0));
+        kDSeparator33.setBounds(new Rectangle(9, 153, 318, 10));
+        kDPanel3.add(kDSeparator33, new KDLayout.Constraints(9, 153, 318, 10, 0));
+        kDLabel46.setBounds(new Rectangle(14, 154, 83, 17));
+        kDPanel3.add(kDLabel46, new KDLayout.Constraints(14, 154, 83, 17, 0));
+        kDLabel48.setBounds(new Rectangle(107, 153, 80, 18));
+        kDPanel3.add(kDLabel48, new KDLayout.Constraints(107, 153, 80, 18, 0));
+        kDLabel49.setBounds(new Rectangle(234, 156, 65, 12));
+        kDPanel3.add(kDLabel49, new KDLayout.Constraints(234, 156, 65, 12, 0));
+        kDSeparator34.setBounds(new Rectangle(12, 170, 316, 10));
+        kDPanel3.add(kDSeparator34, new KDLayout.Constraints(12, 170, 316, 10, 0));
+        kDSeparator35.setBounds(new Rectangle(13, 192, 314, 10));
+        kDPanel3.add(kDSeparator35, new KDLayout.Constraints(13, 192, 314, 10, 0));
+        kDLabel50.setBounds(new Rectangle(67, 193, 66, 18));
+        kDPanel3.add(kDLabel50, new KDLayout.Constraints(67, 193, 66, 18, 0));
+        kDLabel51.setBounds(new Rectangle(202, 193, 49, 18));
+        kDPanel3.add(kDLabel51, new KDLayout.Constraints(202, 193, 49, 18, 0));
+        kDLabel52.setBounds(new Rectangle(275, 194, 45, 16));
+        kDPanel3.add(kDLabel52, new KDLayout.Constraints(275, 194, 45, 16, 0));
+        kDSeparator36.setBounds(new Rectangle(11, 210, 317, 10));
+        kDPanel3.add(kDSeparator36, new KDLayout.Constraints(11, 210, 317, 10, 0));
+        kDSeparator37.setBounds(new Rectangle(98, 25, 8, 164));
+        kDPanel3.add(kDSeparator37, new KDLayout.Constraints(98, 25, 8, 164, 0));
+        kDSeparator38.setBounds(new Rectangle(192, 25, 8, 212));
+        kDPanel3.add(kDSeparator38, new KDLayout.Constraints(192, 25, 8, 212, 0));
+        kDSeparator39.setBounds(new Rectangle(257, 193, 8, 45));
+        kDPanel3.add(kDSeparator39, new KDLayout.Constraints(257, 193, 8, 45, 0));
+        kDSeparator40.setBounds(new Rectangle(260, 24, 8, 128));
+        kDPanel3.add(kDSeparator40, new KDLayout.Constraints(260, 24, 8, 128, 0));
+        contrunhuayoujiecun.setBounds(new Rectangle(102, 44, 87, 19));
+        kDPanel3.add(contrunhuayoujiecun, new KDLayout.Constraints(102, 44, 87, 19, 0));
+        contrunhuayougangzuo.setBounds(new Rectangle(102, 89, 87, 19));
+        kDPanel3.add(contrunhuayougangzuo, new KDLayout.Constraints(102, 89, 87, 19, 0));
+        contrunhuayouxiao.setBounds(new Rectangle(102, 111, 87, 19));
+        kDPanel3.add(contrunhuayouxiao, new KDLayout.Constraints(102, 111, 87, 19, 0));
+        contrunhuayouben.setBounds(new Rectangle(102, 133, 87, 19));
+        kDPanel3.add(contrunhuayouben, new KDLayout.Constraints(102, 133, 87, 19, 0));
+        contchilunyoushang.setBounds(new Rectangle(197, 44, 60, 19));
+        kDPanel3.add(contchilunyoushang, new KDLayout.Constraints(197, 44, 60, 19, 0));
+        contchilunyougang.setBounds(new Rectangle(197, 89, 60, 19));
+        kDPanel3.add(contchilunyougang, new KDLayout.Constraints(197, 89, 60, 19, 0));
+        contchilunyouxiao.setBounds(new Rectangle(197, 111, 61, 19));
+        kDPanel3.add(contchilunyouxiao, new KDLayout.Constraints(197, 111, 61, 19, 0));
+        contchilunyouben.setBounds(new Rectangle(197, 133, 60, 19));
+        kDPanel3.add(contchilunyouben, new KDLayout.Constraints(197, 133, 60, 19, 0));
+        contyeyayoushang.setBounds(new Rectangle(263, 44, 57, 19));
+        kDPanel3.add(contyeyayoushang, new KDLayout.Constraints(263, 44, 57, 19, 0));
+        contyeyayougang.setBounds(new Rectangle(263, 89, 57, 19));
+        kDPanel3.add(contyeyayougang, new KDLayout.Constraints(263, 89, 57, 19, 0));
+        contyeyayouxiao.setBounds(new Rectangle(263, 111, 57, 19));
+        kDPanel3.add(contyeyayouxiao, new KDLayout.Constraints(263, 111, 57, 19, 0));
+        contyeyayouben.setBounds(new Rectangle(263, 133, 56, 19));
+        kDPanel3.add(contyeyayouben, new KDLayout.Constraints(263, 133, 56, 19, 0));
+        contedingrunranbi.setBounds(new Rectangle(16, 172, 73, 19));
+        kDPanel3.add(contedingrunranbi, new KDLayout.Constraints(16, 172, 73, 19, 0));
+        contshijirunranbi.setBounds(new Rectangle(102, 172, 87, 19));
+        kDPanel3.add(contshijirunranbi, new KDLayout.Constraints(102, 172, 87, 19, 0));
+        contdingeliangxx.setBounds(new Rectangle(197, 172, 125, 19));
+        kDPanel3.add(contdingeliangxx, new KDLayout.Constraints(197, 172, 125, 19, 0));
+        contshiyongliangone.setBounds(new Rectangle(16, 213, 173, 19));
+        kDPanel3.add(contshiyongliangone, new KDLayout.Constraints(16, 213, 173, 19, 0));
+        contjieone.setBounds(new Rectangle(197, 213, 58, 19));
+        kDPanel3.add(contjieone, new KDLayout.Constraints(197, 213, 58, 19, 0));
+        contchaoone.setBounds(new Rectangle(263, 213, 58, 19));
+        kDPanel3.add(contchaoone, new KDLayout.Constraints(263, 213, 58, 19, 0));
+        kDSeparator60.setBounds(new Rectangle(9, 87, 319, 10));
+        kDPanel3.add(kDSeparator60, new KDLayout.Constraints(9, 87, 319, 10, 0));
+        kDLabel66.setBounds(new Rectangle(33, 68, 56, 15));
+        kDPanel3.add(kDLabel66, new KDLayout.Constraints(33, 68, 56, 15, 0));
+        contlingrurhy.setBounds(new Rectangle(103, 67, 86, 19));
+        kDPanel3.add(contlingrurhy, new KDLayout.Constraints(103, 67, 86, 19, 0));
+        contlingrucly.setBounds(new Rectangle(197, 67, 60, 19));
+        kDPanel3.add(contlingrucly, new KDLayout.Constraints(197, 67, 60, 19, 0));
+        contlingruyyy.setBounds(new Rectangle(263, 67, 57, 19));
+        kDPanel3.add(contlingruyyy, new KDLayout.Constraints(263, 67, 57, 19, 0));
         //contrunhuayoujiecun
         contrunhuayoujiecun.setBoundEditor(txtrunhuayoujiecun);
         //contrunhuayougangzuo
@@ -2562,6 +2650,12 @@ public abstract class AbstractShipFuelEditUI extends com.kingdee.eas.xr.client.X
         contjieone.setBoundEditor(txtjieone);
         //contchaoone
         contchaoone.setBoundEditor(txtchaoone);
+        //contlingrurhy
+        contlingrurhy.setBoundEditor(txtlingrurhy);
+        //contlingrucly
+        contlingrucly.setBoundEditor(txtlingrucly);
+        //contlingruyyy
+        contlingruyyy.setBoundEditor(txtlingruyyy);
         //kDPanel4
         kDPanel4.setLayout(new KDLayout());
         kDPanel4.putClientProperty("OriginalBounds", new Rectangle(694, 13, 242, 126));        kDLabel9.setBounds(new Rectangle(104, 10, 63, 22));
@@ -2578,60 +2672,60 @@ public abstract class AbstractShipFuelEditUI extends com.kingdee.eas.xr.client.X
         contselfLeve.setBoundEditor(txtselfLeve);
         //kDPanel5
         kDPanel5.setLayout(new KDLayout());
-        kDPanel5.putClientProperty("OriginalBounds", new Rectangle(355, 360, 338, 108));        kDSeparator52.setBounds(new Rectangle(7, 26, 322, 10));
+        kDPanel5.putClientProperty("OriginalBounds", new Rectangle(355, 369, 338, 105));        kDSeparator52.setBounds(new Rectangle(7, 26, 322, 10));
         kDPanel5.add(kDSeparator52, new KDLayout.Constraints(7, 26, 322, 10, 0));
-        kDSeparator53.setBounds(new Rectangle(10, 49, 318, 10));
-        kDPanel5.add(kDSeparator53, new KDLayout.Constraints(10, 49, 318, 10, 0));
-        kDSeparator54.setBounds(new Rectangle(10, 72, 319, 10));
-        kDPanel5.add(kDSeparator54, new KDLayout.Constraints(10, 72, 319, 10, 0));
+        kDSeparator53.setBounds(new Rectangle(10, 48, 318, 10));
+        kDPanel5.add(kDSeparator53, new KDLayout.Constraints(10, 48, 318, 10, 0));
+        kDSeparator54.setBounds(new Rectangle(10, 70, 319, 10));
+        kDPanel5.add(kDSeparator54, new KDLayout.Constraints(10, 70, 319, 10, 0));
         kDLabel59.setBounds(new Rectangle(12, 31, 30, 14));
         kDPanel5.add(kDLabel59, new KDLayout.Constraints(12, 31, 30, 14, 0));
-        kDLabel60.setBounds(new Rectangle(11, 54, 31, 14));
-        kDPanel5.add(kDLabel60, new KDLayout.Constraints(11, 54, 31, 14, 0));
-        kDLabel61.setBounds(new Rectangle(12, 77, 31, 16));
-        kDPanel5.add(kDLabel61, new KDLayout.Constraints(12, 77, 31, 16, 0));
+        kDLabel60.setBounds(new Rectangle(11, 53, 31, 14));
+        kDPanel5.add(kDLabel60, new KDLayout.Constraints(11, 53, 31, 14, 0));
+        kDLabel61.setBounds(new Rectangle(12, 74, 31, 16));
+        kDPanel5.add(kDLabel61, new KDLayout.Constraints(12, 74, 31, 16, 0));
         kDSeparator55.setBounds(new Rectangle(38, 8, 11, 36));
         kDPanel5.add(kDSeparator55, new KDLayout.Constraints(38, 8, 11, 36, 0));
-        kDSeparator56.setBounds(new Rectangle(38, 5, 9, 104));
-        kDPanel5.add(kDSeparator56, new KDLayout.Constraints(38, 5, 9, 104, 0));
+        kDSeparator56.setBounds(new Rectangle(36, 5, 9, 104));
+        kDPanel5.add(kDSeparator56, new KDLayout.Constraints(36, 5, 9, 104, 0));
         kDSeparator57.setBounds(new Rectangle(111, 1, 12, 101));
         kDPanel5.add(kDSeparator57, new KDLayout.Constraints(111, 1, 12, 101, 0));
-        kDSeparator58.setBounds(new Rectangle(265, 5, 9, 98));
-        kDPanel5.add(kDSeparator58, new KDLayout.Constraints(265, 5, 9, 98, 0));
-        kDSeparator59.setBounds(new Rectangle(195, 6, 9, 96));
-        kDPanel5.add(kDSeparator59, new KDLayout.Constraints(195, 6, 9, 96, 0));
-        kDLabel62.setBounds(new Rectangle(38, 11, 80, 15));
-        kDPanel5.add(kDLabel62, new KDLayout.Constraints(38, 11, 80, 15, 0));
-        kDLabel63.setBounds(new Rectangle(114, 10, 83, 17));
-        kDPanel5.add(kDLabel63, new KDLayout.Constraints(114, 10, 83, 17, 0));
-        kDLabel64.setBounds(new Rectangle(197, 10, 67, 16));
-        kDPanel5.add(kDLabel64, new KDLayout.Constraints(197, 10, 67, 16, 0));
-        kDLabel65.setBounds(new Rectangle(268, 10, 58, 17));
-        kDPanel5.add(kDLabel65, new KDLayout.Constraints(268, 10, 58, 17, 0));
+        kDSeparator58.setBounds(new Rectangle(263, 5, 9, 98));
+        kDPanel5.add(kDSeparator58, new KDLayout.Constraints(263, 5, 9, 98, 0));
+        kDSeparator59.setBounds(new Rectangle(194, 6, 9, 96));
+        kDPanel5.add(kDSeparator59, new KDLayout.Constraints(194, 6, 9, 96, 0));
+        kDLabel62.setBounds(new Rectangle(36, 10, 80, 15));
+        kDPanel5.add(kDLabel62, new KDLayout.Constraints(36, 10, 80, 15, 0));
+        kDLabel63.setBounds(new Rectangle(112, 9, 83, 17));
+        kDPanel5.add(kDLabel63, new KDLayout.Constraints(112, 9, 83, 17, 0));
+        kDLabel64.setBounds(new Rectangle(195, 9, 67, 16));
+        kDPanel5.add(kDLabel64, new KDLayout.Constraints(195, 9, 67, 16, 0));
+        kDLabel65.setBounds(new Rectangle(265, 9, 67, 17));
+        kDPanel5.add(kDLabel65, new KDLayout.Constraints(265, 9, 67, 17, 0));
         contzuobenyue.setBounds(new Rectangle(42, 28, 67, 19));
         kDPanel5.add(contzuobenyue, new KDLayout.Constraints(42, 28, 67, 19, 0));
         contyoujibenyue.setBounds(new Rectangle(115, 28, 77, 19));
         kDPanel5.add(contyoujibenyue, new KDLayout.Constraints(115, 28, 77, 19, 0));
-        contfujibenyue.setBounds(new Rectangle(199, 28, 62, 19));
-        kDPanel5.add(contfujibenyue, new KDLayout.Constraints(199, 28, 62, 19, 0));
-        contdianbiaobenyue.setBounds(new Rectangle(270, 28, 51, 19));
-        kDPanel5.add(contdianbiaobenyue, new KDLayout.Constraints(270, 28, 51, 19, 0));
-        contdianbiaoheji.setBounds(new Rectangle(270, 75, 51, 19));
-        kDPanel5.add(contdianbiaoheji, new KDLayout.Constraints(270, 75, 51, 19, 0));
-        contdianbiaoshangyue.setBounds(new Rectangle(270, 51, 50, 19));
-        kDPanel5.add(contdianbiaoshangyue, new KDLayout.Constraints(270, 51, 50, 19, 0));
-        contfujiheji.setBounds(new Rectangle(199, 75, 63, 19));
-        kDPanel5.add(contfujiheji, new KDLayout.Constraints(199, 75, 63, 19, 0));
-        contfujishangyue.setBounds(new Rectangle(199, 51, 63, 19));
-        kDPanel5.add(contfujishangyue, new KDLayout.Constraints(199, 51, 63, 19, 0));
-        contyoujiheji.setBounds(new Rectangle(115, 75, 76, 19));
-        kDPanel5.add(contyoujiheji, new KDLayout.Constraints(115, 75, 76, 19, 0));
-        contyoujishangyue.setBounds(new Rectangle(115, 51, 76, 19));
-        kDPanel5.add(contyoujishangyue, new KDLayout.Constraints(115, 51, 76, 19, 0));
-        contzuoheji.setBounds(new Rectangle(42, 75, 66, 19));
-        kDPanel5.add(contzuoheji, new KDLayout.Constraints(42, 75, 66, 19, 0));
-        contzuoshangyue.setBounds(new Rectangle(42, 51, 66, 19));
-        kDPanel5.add(contzuoshangyue, new KDLayout.Constraints(42, 51, 66, 19, 0));
+        contfujibenyue.setBounds(new Rectangle(197, 28, 62, 19));
+        kDPanel5.add(contfujibenyue, new KDLayout.Constraints(197, 28, 62, 19, 0));
+        contdianbiaobenyue.setBounds(new Rectangle(268, 28, 51, 19));
+        kDPanel5.add(contdianbiaobenyue, new KDLayout.Constraints(268, 28, 51, 19, 0));
+        contdianbiaoheji.setBounds(new Rectangle(268, 72, 51, 19));
+        kDPanel5.add(contdianbiaoheji, new KDLayout.Constraints(268, 72, 51, 19, 0));
+        contdianbiaoshangyue.setBounds(new Rectangle(268, 50, 50, 19));
+        kDPanel5.add(contdianbiaoshangyue, new KDLayout.Constraints(268, 50, 50, 19, 0));
+        contfujiheji.setBounds(new Rectangle(197, 72, 63, 19));
+        kDPanel5.add(contfujiheji, new KDLayout.Constraints(197, 72, 63, 19, 0));
+        contfujishangyue.setBounds(new Rectangle(197, 50, 63, 19));
+        kDPanel5.add(contfujishangyue, new KDLayout.Constraints(197, 50, 63, 19, 0));
+        contyoujiheji.setBounds(new Rectangle(115, 72, 76, 19));
+        kDPanel5.add(contyoujiheji, new KDLayout.Constraints(115, 72, 76, 19, 0));
+        contyoujishangyue.setBounds(new Rectangle(115, 50, 76, 19));
+        kDPanel5.add(contyoujishangyue, new KDLayout.Constraints(115, 50, 76, 19, 0));
+        contzuoheji.setBounds(new Rectangle(42, 72, 66, 19));
+        kDPanel5.add(contzuoheji, new KDLayout.Constraints(42, 72, 66, 19, 0));
+        contzuoshangyue.setBounds(new Rectangle(42, 50, 66, 19));
+        kDPanel5.add(contzuoshangyue, new KDLayout.Constraints(42, 50, 66, 19, 0));
         //contzuobenyue
         contzuobenyue.setBoundEditor(txtzuobenyue);
         //contyoujibenyue
@@ -2682,24 +2776,24 @@ public abstract class AbstractShipFuelEditUI extends com.kingdee.eas.xr.client.X
         contleijichanzhi.setBoundEditor(txtleijichanzhi);
         //kDPanel7
         kDPanel7.setLayout(new KDLayout());
-        kDPanel7.putClientProperty("OriginalBounds", new Rectangle(356, 249, 336, 109));        kDLabel53.setBounds(new Rectangle(29, 10, 56, 18));
-        kDPanel7.add(kDLabel53, new KDLayout.Constraints(29, 10, 56, 18, 0));
-        kDSeparator41.setBounds(new Rectangle(7, 27, 319, 10));
-        kDPanel7.add(kDSeparator41, new KDLayout.Constraints(7, 27, 319, 10, 0));
-        kDLabel54.setBounds(new Rectangle(30, 32, 54, 13));
-        kDPanel7.add(kDLabel54, new KDLayout.Constraints(30, 32, 54, 13, 0));
-        kDSeparator42.setBounds(new Rectangle(7, 50, 319, 10));
-        kDPanel7.add(kDSeparator42, new KDLayout.Constraints(7, 50, 319, 10, 0));
-        kDLabel55.setBounds(new Rectangle(30, 54, 48, 18));
-        kDPanel7.add(kDLabel55, new KDLayout.Constraints(30, 54, 48, 18, 0));
-        kDSeparator43.setBounds(new Rectangle(10, 74, 316, 10));
-        kDPanel7.add(kDSeparator43, new KDLayout.Constraints(10, 74, 316, 10, 0));
-        kDLabel56.setBounds(new Rectangle(30, 76, 49, 20));
-        kDPanel7.add(kDLabel56, new KDLayout.Constraints(30, 76, 49, 20, 0));
-        kDLabel57.setBounds(new Rectangle(104, 11, 85, 16));
-        kDPanel7.add(kDLabel57, new KDLayout.Constraints(104, 11, 85, 16, 0));
-        kDLabel58.setBounds(new Rectangle(215, 11, 107, 15));
-        kDPanel7.add(kDLabel58, new KDLayout.Constraints(215, 11, 107, 15, 0));
+        kDPanel7.putClientProperty("OriginalBounds", new Rectangle(356, 262, 336, 105));        kDLabel53.setBounds(new Rectangle(29, 9, 56, 18));
+        kDPanel7.add(kDLabel53, new KDLayout.Constraints(29, 9, 56, 18, 0));
+        kDSeparator41.setBounds(new Rectangle(7, 26, 319, 10));
+        kDPanel7.add(kDSeparator41, new KDLayout.Constraints(7, 26, 319, 10, 0));
+        kDLabel54.setBounds(new Rectangle(30, 31, 54, 13));
+        kDPanel7.add(kDLabel54, new KDLayout.Constraints(30, 31, 54, 13, 0));
+        kDSeparator42.setBounds(new Rectangle(7, 48, 319, 10));
+        kDPanel7.add(kDSeparator42, new KDLayout.Constraints(7, 48, 319, 10, 0));
+        kDLabel55.setBounds(new Rectangle(30, 51, 48, 18));
+        kDPanel7.add(kDLabel55, new KDLayout.Constraints(30, 51, 48, 18, 0));
+        kDSeparator43.setBounds(new Rectangle(10, 70, 316, 10));
+        kDPanel7.add(kDSeparator43, new KDLayout.Constraints(10, 70, 316, 10, 0));
+        kDLabel56.setBounds(new Rectangle(30, 72, 49, 20));
+        kDPanel7.add(kDLabel56, new KDLayout.Constraints(30, 72, 49, 20, 0));
+        kDLabel57.setBounds(new Rectangle(104, 10, 85, 16));
+        kDPanel7.add(kDLabel57, new KDLayout.Constraints(104, 10, 85, 16, 0));
+        kDLabel58.setBounds(new Rectangle(215, 10, 107, 15));
+        kDPanel7.add(kDLabel58, new KDLayout.Constraints(215, 10, 107, 15, 0));
         kDSeparator44.setBounds(new Rectangle(93, 9, 4, 91));
         kDPanel7.add(kDSeparator44, new KDLayout.Constraints(93, 9, 4, 91, 0));
         kDSeparator45.setBounds(new Rectangle(192, 8, 3, 91));
@@ -2716,18 +2810,18 @@ public abstract class AbstractShipFuelEditUI extends com.kingdee.eas.xr.client.X
         kDPanel7.add(kDSeparator50, new KDLayout.Constraints(199, 11, 2, 38, 0));
         kDSeparator51.setBounds(new Rectangle(193, 5, 9, 98));
         kDPanel7.add(kDSeparator51, new KDLayout.Constraints(193, 5, 9, 98, 0));
-        contjishudinge.setBounds(new Rectangle(103, 29, 84, 19));
-        kDPanel7.add(contjishudinge, new KDLayout.Constraints(103, 29, 84, 19, 0));
-        contchanzhidinge.setBounds(new Rectangle(199, 29, 118, 19));
-        kDPanel7.add(contchanzhidinge, new KDLayout.Constraints(199, 29, 118, 19, 0));
-        contjishubenyue.setBounds(new Rectangle(103, 53, 84, 19));
-        kDPanel7.add(contjishubenyue, new KDLayout.Constraints(103, 53, 84, 19, 0));
-        contchanzhibenyue.setBounds(new Rectangle(199, 53, 120, 19));
-        kDPanel7.add(contchanzhibenyue, new KDLayout.Constraints(199, 53, 120, 19, 0));
-        contjishuleiji.setBounds(new Rectangle(103, 76, 83, 19));
-        kDPanel7.add(contjishuleiji, new KDLayout.Constraints(103, 76, 83, 19, 0));
-        contchanzhileiji.setBounds(new Rectangle(199, 76, 120, 19));
-        kDPanel7.add(contchanzhileiji, new KDLayout.Constraints(199, 76, 120, 19, 0));
+        contjishudinge.setBounds(new Rectangle(103, 28, 84, 19));
+        kDPanel7.add(contjishudinge, new KDLayout.Constraints(103, 28, 84, 19, 0));
+        contchanzhidinge.setBounds(new Rectangle(199, 28, 118, 19));
+        kDPanel7.add(contchanzhidinge, new KDLayout.Constraints(199, 28, 118, 19, 0));
+        contjishubenyue.setBounds(new Rectangle(103, 50, 84, 19));
+        kDPanel7.add(contjishubenyue, new KDLayout.Constraints(103, 50, 84, 19, 0));
+        contchanzhibenyue.setBounds(new Rectangle(199, 50, 118, 19));
+        kDPanel7.add(contchanzhibenyue, new KDLayout.Constraints(199, 50, 118, 19, 0));
+        contjishuleiji.setBounds(new Rectangle(103, 72, 83, 19));
+        kDPanel7.add(contjishuleiji, new KDLayout.Constraints(103, 72, 83, 19, 0));
+        contchanzhileiji.setBounds(new Rectangle(199, 72, 118, 19));
+        kDPanel7.add(contchanzhileiji, new KDLayout.Constraints(199, 72, 118, 19, 0));
         //contjishudinge
         contjishudinge.setBoundEditor(txtjishudinge);
         //contchanzhidinge
@@ -2744,6 +2838,8 @@ public abstract class AbstractShipFuelEditUI extends com.kingdee.eas.xr.client.X
         contchuanzhang.setBoundEditor(prmtchuanzhang);
         //contlunjizhang
         contlunjizhang.setBoundEditor(prmtlunjizhang);
+        //contreportMonth
+        contreportMonth.setBoundEditor(prmtreportMonth);
 
     }
 
@@ -2981,6 +3077,9 @@ public abstract class AbstractShipFuelEditUI extends com.kingdee.eas.xr.client.X
 		dataBinder.registerBinding("shiyongliangone", String.class, this.txtshiyongliangone, "text");
 		dataBinder.registerBinding("jieone", String.class, this.txtjieone, "text");
 		dataBinder.registerBinding("chaoone", String.class, this.txtchaoone, "text");
+		dataBinder.registerBinding("lingrurhy", String.class, this.txtlingrurhy, "text");
+		dataBinder.registerBinding("lingrucly", String.class, this.txtlingrucly, "text");
+		dataBinder.registerBinding("lingruyyy", String.class, this.txtlingruyyy, "text");
 		dataBinder.registerBinding("selfLeve", String.class, this.txtselfLeve, "text");
 		dataBinder.registerBinding("zuobenyue", String.class, this.txtzuobenyue, "text");
 		dataBinder.registerBinding("youjibenyue", String.class, this.txtyoujibenyue, "text");
@@ -3006,7 +3105,8 @@ public abstract class AbstractShipFuelEditUI extends com.kingdee.eas.xr.client.X
 		dataBinder.registerBinding("jishuleiji", String.class, this.txtjishuleiji, "text");
 		dataBinder.registerBinding("chanzhileiji", String.class, this.txtchanzhileiji, "text");
 		dataBinder.registerBinding("chuanzhang", com.kingdee.eas.basedata.person.PersonInfo.class, this.prmtchuanzhang, "data");
-		dataBinder.registerBinding("lunjizhang", com.kingdee.eas.basedata.person.PersonInfo.class, this.prmtlunjizhang, "data");		
+		dataBinder.registerBinding("lunjizhang", com.kingdee.eas.basedata.person.PersonInfo.class, this.prmtlunjizhang, "data");
+		dataBinder.registerBinding("reportMonth", com.kingdee.eas.basedata.assistant.PeriodInfo.class, this.prmtreportMonth, "data");		
 	}
 	//Regiester UI State
 	private void registerUIState(){		
@@ -3205,6 +3305,9 @@ public abstract class AbstractShipFuelEditUI extends com.kingdee.eas.xr.client.X
 		getValidateHelper().registerBindProperty("shiyongliangone", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("jieone", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("chaoone", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("lingrurhy", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("lingrucly", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("lingruyyy", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("selfLeve", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("zuobenyue", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("youjibenyue", ValidateHelper.ON_SAVE);    
@@ -3230,7 +3333,8 @@ public abstract class AbstractShipFuelEditUI extends com.kingdee.eas.xr.client.X
 		getValidateHelper().registerBindProperty("jishuleiji", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("chanzhileiji", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("chuanzhang", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("lunjizhang", ValidateHelper.ON_SAVE);    		
+		getValidateHelper().registerBindProperty("lunjizhang", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("reportMonth", ValidateHelper.ON_SAVE);    		
 	}
 
 
@@ -3362,6 +3466,9 @@ public abstract class AbstractShipFuelEditUI extends com.kingdee.eas.xr.client.X
         sic.add(new SelectorItemInfo("shiyongliangone"));
         sic.add(new SelectorItemInfo("jieone"));
         sic.add(new SelectorItemInfo("chaoone"));
+        sic.add(new SelectorItemInfo("lingrurhy"));
+        sic.add(new SelectorItemInfo("lingrucly"));
+        sic.add(new SelectorItemInfo("lingruyyy"));
         sic.add(new SelectorItemInfo("selfLeve"));
         sic.add(new SelectorItemInfo("zuobenyue"));
         sic.add(new SelectorItemInfo("youjibenyue"));
@@ -3403,6 +3510,14 @@ public abstract class AbstractShipFuelEditUI extends com.kingdee.eas.xr.client.X
         	sic.add(new SelectorItemInfo("lunjizhang.id"));
         	sic.add(new SelectorItemInfo("lunjizhang.number"));
         	sic.add(new SelectorItemInfo("lunjizhang.name"));
+		}
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("reportMonth.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("reportMonth.id"));
+        	sic.add(new SelectorItemInfo("reportMonth.number"));
 		}
         return sic;
     }        

@@ -552,10 +552,10 @@ public abstract class AbstractComproductionEditUI extends com.kingdee.eas.framew
         this.state.addItems(EnumUtils.getEnumList("com.kingdee.eas.xr.app.XRBillStatusEnum").toArray());		
         this.state.setRequired(false);
         // prmtreportMonth		
-        this.prmtreportMonth.setQueryInfo("com.kingdee.eas.port.equipment.base.app.MonthTimeQuery");		
+        this.prmtreportMonth.setQueryInfo("com.kingdee.eas.basedata.assistant.app.F7PeriodQuery");		
         this.prmtreportMonth.setVisible(true);		
         this.prmtreportMonth.setEditable(true);		
-        this.prmtreportMonth.setDisplayFormat("$name$");		
+        this.prmtreportMonth.setDisplayFormat("$number$");		
         this.prmtreportMonth.setEditFormat("$number$");		
         this.prmtreportMonth.setCommitFormat("$number$");		
         this.prmtreportMonth.setRequired(false);
@@ -612,9 +612,9 @@ public abstract class AbstractComproductionEditUI extends com.kingdee.eas.framew
         this.add(contAuditor, new KDLayout.Constraints(735, 561, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         kdtEntrys.setBounds(new Rectangle(12, 93, 991, 351));
         kdtEntrys_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtEntrys,new com.kingdee.eas.port.equipment.operate.ComproductionEntryInfo(),null,false);
-        this.add(kdtEntrys_detailPanel, new KDLayout.Constraints(12, 93, 991, 351, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        this.add(kdtEntrys_detailPanel, new KDLayout.Constraints(12, 93, 991, 351, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         contreportingUnit.setBounds(new Rectangle(12, 42, 270, 19));
-        this.add(contreportingUnit, new KDLayout.Constraints(12, 42, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        this.add(contreportingUnit, new KDLayout.Constraints(12, 42, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         kDLabel1.setBounds(new Rectangle(355, 1, 468, 37));
         this.add(kDLabel1, new KDLayout.Constraints(355, 1, 468, 37, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         kDLabel2.setBounds(new Rectangle(12, 452, 61, 19));
@@ -629,8 +629,8 @@ public abstract class AbstractComproductionEditUI extends com.kingdee.eas.framew
         this.add(contAuditTime, new KDLayout.Constraints(735, 588, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contstate.setBounds(new Rectangle(729, 42, 270, 19));
         this.add(contstate, new KDLayout.Constraints(729, 42, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contreportMonth.setBounds(new Rectangle(12, 66, 270, 19));
-        this.add(contreportMonth, new KDLayout.Constraints(12, 66, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contreportMonth.setBounds(new Rectangle(12, 69, 270, 19));
+        this.add(contreportMonth, new KDLayout.Constraints(12, 69, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         //contCreator
         contCreator.setBoundEditor(prmtCreator);
         //contCreateTime
@@ -860,7 +860,7 @@ public abstract class AbstractComproductionEditUI extends com.kingdee.eas.framew
 		dataBinder.registerBinding("note", String.class, this.txtnote, "text");
 		dataBinder.registerBinding("AuditTime", java.util.Date.class, this.pkAuditTime, "value");
 		dataBinder.registerBinding("state", com.kingdee.eas.xr.app.XRBillStatusEnum.class, this.state, "selectedItem");
-		dataBinder.registerBinding("reportMonth", com.kingdee.eas.port.equipment.base.MonthTimeInfo.class, this.prmtreportMonth, "data");		
+		dataBinder.registerBinding("reportMonth", com.kingdee.eas.basedata.assistant.PeriodInfo.class, this.prmtreportMonth, "data");		
 	}
 	//Regiester UI State
 	private void registerUIState(){		
@@ -1146,7 +1146,6 @@ public abstract class AbstractComproductionEditUI extends com.kingdee.eas.framew
 		else{
         	sic.add(new SelectorItemInfo("reportMonth.id"));
         	sic.add(new SelectorItemInfo("reportMonth.number"));
-        	sic.add(new SelectorItemInfo("reportMonth.name"));
 		}
         return sic;
     }        

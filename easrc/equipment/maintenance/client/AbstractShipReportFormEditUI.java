@@ -59,7 +59,6 @@ public abstract class AbstractShipReportFormEditUI extends com.kingdee.eas.xr.cl
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contBizStatus;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contAuditTime;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contshipName;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contmonth;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contperformance;
     protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel2;
     protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtE1;
@@ -72,6 +71,7 @@ public abstract class AbstractShipReportFormEditUI extends com.kingdee.eas.xr.cl
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contrepairType;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contshipzhang;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contlunjizhang;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contmonth;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtCreator;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkCreateTime;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtLastUpdateUser;
@@ -85,7 +85,6 @@ public abstract class AbstractShipReportFormEditUI extends com.kingdee.eas.xr.cl
     protected com.kingdee.bos.ctrl.swing.KDComboBox comboBizStatus;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkAuditTime;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtshipName;
-    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtmonth;
     protected com.kingdee.bos.ctrl.swing.KDScrollPane scrollPaneperformance;
     protected com.kingdee.bos.ctrl.swing.KDTextArea txtperformance;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contzuozs;
@@ -113,6 +112,7 @@ public abstract class AbstractShipReportFormEditUI extends com.kingdee.eas.xr.cl
     protected com.kingdee.bos.ctrl.swing.KDTextField txtrepairType;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtshipzhang;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtlunjizhang;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtmonth;
     protected com.kingdee.eas.port.equipment.maintenance.ShipReportFormInfo editData = null;
     /**
      * output class constructor
@@ -176,7 +176,6 @@ public abstract class AbstractShipReportFormEditUI extends com.kingdee.eas.xr.cl
         this.contBizStatus = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contAuditTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contshipName = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contmonth = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contperformance = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.kDPanel2 = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.kdtE1 = new com.kingdee.bos.ctrl.kdf.table.KDTable();
@@ -188,6 +187,7 @@ public abstract class AbstractShipReportFormEditUI extends com.kingdee.eas.xr.cl
         this.contrepairType = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contshipzhang = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contlunjizhang = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contmonth = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.prmtCreator = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.pkCreateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.prmtLastUpdateUser = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
@@ -201,7 +201,6 @@ public abstract class AbstractShipReportFormEditUI extends com.kingdee.eas.xr.cl
         this.comboBizStatus = new com.kingdee.bos.ctrl.swing.KDComboBox();
         this.pkAuditTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.prmtshipName = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
-        this.prmtmonth = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.scrollPaneperformance = new com.kingdee.bos.ctrl.swing.KDScrollPane();
         this.txtperformance = new com.kingdee.bos.ctrl.swing.KDTextArea();
         this.contzuozs = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -229,6 +228,7 @@ public abstract class AbstractShipReportFormEditUI extends com.kingdee.eas.xr.cl
         this.txtrepairType = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.prmtshipzhang = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.prmtlunjizhang = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.prmtmonth = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.contCreator.setName("contCreator");
         this.contCreateTime.setName("contCreateTime");
         this.contLastUpdateUser.setName("contLastUpdateUser");
@@ -242,7 +242,6 @@ public abstract class AbstractShipReportFormEditUI extends com.kingdee.eas.xr.cl
         this.contBizStatus.setName("contBizStatus");
         this.contAuditTime.setName("contAuditTime");
         this.contshipName.setName("contshipName");
-        this.contmonth.setName("contmonth");
         this.contperformance.setName("contperformance");
         this.kDPanel2.setName("kDPanel2");
         this.kdtE1.setName("kdtE1");
@@ -254,6 +253,7 @@ public abstract class AbstractShipReportFormEditUI extends com.kingdee.eas.xr.cl
         this.contrepairType.setName("contrepairType");
         this.contshipzhang.setName("contshipzhang");
         this.contlunjizhang.setName("contlunjizhang");
+        this.contmonth.setName("contmonth");
         this.prmtCreator.setName("prmtCreator");
         this.pkCreateTime.setName("pkCreateTime");
         this.prmtLastUpdateUser.setName("prmtLastUpdateUser");
@@ -267,7 +267,6 @@ public abstract class AbstractShipReportFormEditUI extends com.kingdee.eas.xr.cl
         this.comboBizStatus.setName("comboBizStatus");
         this.pkAuditTime.setName("pkAuditTime");
         this.prmtshipName.setName("prmtshipName");
-        this.prmtmonth.setName("prmtmonth");
         this.scrollPaneperformance.setName("scrollPaneperformance");
         this.txtperformance.setName("txtperformance");
         this.contzuozs.setName("contzuozs");
@@ -295,6 +294,7 @@ public abstract class AbstractShipReportFormEditUI extends com.kingdee.eas.xr.cl
         this.txtrepairType.setName("txtrepairType");
         this.prmtshipzhang.setName("prmtshipzhang");
         this.prmtlunjizhang.setName("prmtlunjizhang");
+        this.prmtmonth.setName("prmtmonth");
         // CoreUI
         // contCreator		
         this.contCreator.setBoundLabelText(resHelper.getString("contCreator.boundLabelText"));		
@@ -352,11 +352,6 @@ public abstract class AbstractShipReportFormEditUI extends com.kingdee.eas.xr.cl
         this.contshipName.setBoundLabelLength(100);		
         this.contshipName.setBoundLabelUnderline(true);		
         this.contshipName.setVisible(true);
-        // contmonth		
-        this.contmonth.setBoundLabelText(resHelper.getString("contmonth.boundLabelText"));		
-        this.contmonth.setBoundLabelLength(100);		
-        this.contmonth.setBoundLabelUnderline(true);		
-        this.contmonth.setVisible(true);
         // contperformance		
         this.contperformance.setBoundLabelText(resHelper.getString("contperformance.boundLabelText"));		
         this.contperformance.setBoundLabelLength(100);		
@@ -373,14 +368,6 @@ public abstract class AbstractShipReportFormEditUI extends com.kingdee.eas.xr.cl
 
 
         this.kdtE1.checkParsed();
-        KDFormattedTextField kdtE1_seq_TextField = new KDFormattedTextField();
-        kdtE1_seq_TextField.setName("kdtE1_seq_TextField");
-        kdtE1_seq_TextField.setVisible(true);
-        kdtE1_seq_TextField.setEditable(true);
-        kdtE1_seq_TextField.setHorizontalAlignment(2);
-        kdtE1_seq_TextField.setDataType(0);
-        KDTDefaultCellEditor kdtE1_seq_CellEditor = new KDTDefaultCellEditor(kdtE1_seq_TextField);
-        this.kdtE1.getColumn("seq").setEditor(kdtE1_seq_CellEditor);
         KDTextField kdtE1_zhujigangone_TextField = new KDTextField();
         kdtE1_zhujigangone_TextField.setName("kdtE1_zhujigangone_TextField");
         kdtE1_zhujigangone_TextField.setMaxLength(100);
@@ -476,6 +463,11 @@ public abstract class AbstractShipReportFormEditUI extends com.kingdee.eas.xr.cl
         this.contlunjizhang.setBoundLabelLength(100);		
         this.contlunjizhang.setBoundLabelUnderline(true);		
         this.contlunjizhang.setVisible(true);
+        // contmonth		
+        this.contmonth.setBoundLabelText(resHelper.getString("contmonth.boundLabelText"));		
+        this.contmonth.setBoundLabelLength(100);		
+        this.contmonth.setBoundLabelUnderline(true);		
+        this.contmonth.setVisible(true);
         // prmtCreator		
         this.prmtCreator.setEnabled(false);		
         this.prmtCreator.setCommitFormat("$name$");		
@@ -520,14 +512,6 @@ public abstract class AbstractShipReportFormEditUI extends com.kingdee.eas.xr.cl
         this.prmtshipName.setEditFormat("$number$");		
         this.prmtshipName.setCommitFormat("$number$");		
         this.prmtshipName.setRequired(false);
-        // prmtmonth		
-        this.prmtmonth.setQueryInfo("com.kingdee.eas.port.equipment.base.app.MonthTimeQuery");		
-        this.prmtmonth.setVisible(true);		
-        this.prmtmonth.setEditable(true);		
-        this.prmtmonth.setDisplayFormat("$name$");		
-        this.prmtmonth.setEditFormat("$number$");		
-        this.prmtmonth.setCommitFormat("$number$");		
-        this.prmtmonth.setRequired(false);
         // scrollPaneperformance
         // txtperformance		
         this.txtperformance.setVisible(true);		
@@ -657,7 +641,15 @@ public abstract class AbstractShipReportFormEditUI extends com.kingdee.eas.xr.cl
         this.prmtlunjizhang.setEditFormat("$number$");		
         this.prmtlunjizhang.setCommitFormat("$number$");		
         this.prmtlunjizhang.setRequired(false);
-        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmtshipName,prmtmonth,txtperformance,txtcourse,txttowing,pkmeasuringDate,txtexProblems,txtzuozs,txtyouzs,txtzuozy,txtyouzy,txtzuowd,txtyouwd,txtzuorh,txtyourh,txtsuspendRepair,txtrepairType,prmtshipzhang,prmtlunjizhang}));
+        // prmtmonth		
+        this.prmtmonth.setQueryInfo("com.kingdee.eas.basedata.assistant.app.F7PeriodQuery");		
+        this.prmtmonth.setVisible(true);		
+        this.prmtmonth.setEditable(true);		
+        this.prmtmonth.setDisplayFormat("$number$");		
+        this.prmtmonth.setEditFormat("$number$");		
+        this.prmtmonth.setCommitFormat("$number$");		
+        this.prmtmonth.setRequired(false);
+        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmtshipName,txtperformance,txtcourse,txttowing,pkmeasuringDate,txtexProblems,txtzuozs,txtyouzs,txtzuozy,txtyouzy,txtzuowd,txtyouwd,txtzuorh,txtyourh,txtsuspendRepair,txtrepairType,prmtshipzhang,prmtlunjizhang,prmtmonth}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
 		registerBindings();
@@ -687,13 +679,13 @@ public abstract class AbstractShipReportFormEditUI extends com.kingdee.eas.xr.cl
         this.setLayout(new KDLayout());
         this.putClientProperty("OriginalBounds", new Rectangle(10, 10, 1013, 629));
         contCreator.setBounds(new Rectangle(35, 539, 270, 19));
-        this.add(contCreator, new KDLayout.Constraints(35, 539, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        this.add(contCreator, new KDLayout.Constraints(35, 539, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contCreateTime.setBounds(new Rectangle(35, 575, 270, 19));
-        this.add(contCreateTime, new KDLayout.Constraints(35, 575, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        this.add(contCreateTime, new KDLayout.Constraints(35, 575, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contLastUpdateUser.setBounds(new Rectangle(364, 539, 270, 19));
-        this.add(contLastUpdateUser, new KDLayout.Constraints(364, 539, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        this.add(contLastUpdateUser, new KDLayout.Constraints(364, 539, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contLastUpdateTime.setBounds(new Rectangle(364, 575, 270, 19));
-        this.add(contLastUpdateTime, new KDLayout.Constraints(364, 575, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        this.add(contLastUpdateTime, new KDLayout.Constraints(364, 575, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contCU.setBounds(new Rectangle(357, 11, 270, 19));
         this.add(contCU, new KDLayout.Constraints(357, 11, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contNumber.setBounds(new Rectangle(33, 11, 270, 19));
@@ -703,40 +695,40 @@ public abstract class AbstractShipReportFormEditUI extends com.kingdee.eas.xr.cl
         contDescription.setBounds(new Rectangle(1002, 115, 110, 8));
         this.add(contDescription, new KDLayout.Constraints(1002, 115, 110, 8, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contAuditor.setBounds(new Rectangle(693, 539, 270, 19));
-        this.add(contAuditor, new KDLayout.Constraints(693, 539, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        this.add(contAuditor, new KDLayout.Constraints(693, 539, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contStatus.setBounds(new Rectangle(693, 11, 270, 19));
         this.add(contStatus, new KDLayout.Constraints(693, 11, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contBizStatus.setBounds(new Rectangle(708, 611, 270, 19));
         this.add(contBizStatus, new KDLayout.Constraints(708, 611, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contAuditTime.setBounds(new Rectangle(693, 575, 270, 19));
-        this.add(contAuditTime, new KDLayout.Constraints(693, 575, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        this.add(contAuditTime, new KDLayout.Constraints(693, 575, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contshipName.setBounds(new Rectangle(33, 36, 270, 19));
         this.add(contshipName, new KDLayout.Constraints(33, 36, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contmonth.setBounds(new Rectangle(357, 36, 270, 19));
-        this.add(contmonth, new KDLayout.Constraints(357, 36, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contperformance.setBounds(new Rectangle(33, 61, 930, 55));
-        this.add(contperformance, new KDLayout.Constraints(33, 61, 930, 55, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        this.add(contperformance, new KDLayout.Constraints(33, 61, 930, 55, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         kDPanel2.setBounds(new Rectangle(33, 260, 930, 86));
-        this.add(kDPanel2, new KDLayout.Constraints(33, 260, 930, 86, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        this.add(kDPanel2, new KDLayout.Constraints(33, 260, 930, 86, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         kdtE1.setBounds(new Rectangle(33, 124, 930, 130));
         kdtE1_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtE1,new com.kingdee.eas.port.equipment.maintenance.ShipReportFormE1Info(),null,false);
-        this.add(kdtE1_detailPanel, new KDLayout.Constraints(33, 124, 930, 130, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        this.add(kdtE1_detailPanel, new KDLayout.Constraints(33, 124, 930, 130, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         contcourse.setBounds(new Rectangle(33, 356, 270, 19));
-        this.add(contcourse, new KDLayout.Constraints(33, 356, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        this.add(contcourse, new KDLayout.Constraints(33, 356, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         conttowing.setBounds(new Rectangle(363, 356, 270, 19));
-        this.add(conttowing, new KDLayout.Constraints(363, 356, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        this.add(conttowing, new KDLayout.Constraints(363, 356, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contmeasuringDate.setBounds(new Rectangle(693, 356, 270, 19));
-        this.add(contmeasuringDate, new KDLayout.Constraints(693, 356, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        this.add(contmeasuringDate, new KDLayout.Constraints(693, 356, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contexProblems.setBounds(new Rectangle(33, 383, 930, 80));
-        this.add(contexProblems, new KDLayout.Constraints(33, 383, 930, 80, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        this.add(contexProblems, new KDLayout.Constraints(33, 383, 930, 80, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contsuspendRepair.setBounds(new Rectangle(33, 471, 270, 19));
-        this.add(contsuspendRepair, new KDLayout.Constraints(33, 471, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        this.add(contsuspendRepair, new KDLayout.Constraints(33, 471, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contrepairType.setBounds(new Rectangle(693, 471, 270, 19));
-        this.add(contrepairType, new KDLayout.Constraints(693, 471, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        this.add(contrepairType, new KDLayout.Constraints(693, 471, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contshipzhang.setBounds(new Rectangle(35, 504, 270, 19));
-        this.add(contshipzhang, new KDLayout.Constraints(35, 504, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        this.add(contshipzhang, new KDLayout.Constraints(35, 504, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contlunjizhang.setBounds(new Rectangle(693, 504, 270, 19));
-        this.add(contlunjizhang, new KDLayout.Constraints(693, 504, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        this.add(contlunjizhang, new KDLayout.Constraints(693, 504, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contmonth.setBounds(new Rectangle(357, 36, 270, 19));
+        this.add(contmonth, new KDLayout.Constraints(357, 36, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         //contCreator
         contCreator.setBoundEditor(prmtCreator);
         //contCreateTime
@@ -763,8 +755,6 @@ public abstract class AbstractShipReportFormEditUI extends com.kingdee.eas.xr.cl
         contAuditTime.setBoundEditor(pkAuditTime);
         //contshipName
         contshipName.setBoundEditor(prmtshipName);
-        //contmonth
-        contmonth.setBoundEditor(prmtmonth);
         //contperformance
         contperformance.setBoundEditor(scrollPaneperformance);
         //scrollPaneperformance
@@ -821,6 +811,8 @@ public abstract class AbstractShipReportFormEditUI extends com.kingdee.eas.xr.cl
         contshipzhang.setBoundEditor(prmtshipzhang);
         //contlunjizhang
         contlunjizhang.setBoundEditor(prmtlunjizhang);
+        //contmonth
+        contmonth.setBoundEditor(prmtmonth);
 
     }
 
@@ -1020,7 +1012,6 @@ public abstract class AbstractShipReportFormEditUI extends com.kingdee.eas.xr.cl
 		dataBinder.registerBinding("bizStatus", com.kingdee.eas.xr.app.XRBizActionEnum.class, this.comboBizStatus, "selectedItem");
 		dataBinder.registerBinding("auditTime", java.sql.Timestamp.class, this.pkAuditTime, "value");
 		dataBinder.registerBinding("shipName", com.kingdee.eas.port.equipment.record.EquIdInfo.class, this.prmtshipName, "data");
-		dataBinder.registerBinding("month", com.kingdee.eas.port.equipment.base.MonthTimeInfo.class, this.prmtmonth, "data");
 		dataBinder.registerBinding("performance", String.class, this.txtperformance, "text");
 		dataBinder.registerBinding("zuozs", String.class, this.txtzuozs, "text");
 		dataBinder.registerBinding("youzs", String.class, this.txtyouzs, "text");
@@ -1037,7 +1028,8 @@ public abstract class AbstractShipReportFormEditUI extends com.kingdee.eas.xr.cl
 		dataBinder.registerBinding("suspendRepair", String.class, this.txtsuspendRepair, "text");
 		dataBinder.registerBinding("repairType", String.class, this.txtrepairType, "text");
 		dataBinder.registerBinding("shipzhang", com.kingdee.eas.basedata.person.PersonInfo.class, this.prmtshipzhang, "data");
-		dataBinder.registerBinding("lunjizhang", com.kingdee.eas.basedata.person.PersonInfo.class, this.prmtlunjizhang, "data");		
+		dataBinder.registerBinding("lunjizhang", com.kingdee.eas.basedata.person.PersonInfo.class, this.prmtlunjizhang, "data");
+		dataBinder.registerBinding("month", com.kingdee.eas.basedata.assistant.PeriodInfo.class, this.prmtmonth, "data");		
 	}
 	//Regiester UI State
 	private void registerUIState(){		
@@ -1198,7 +1190,6 @@ public abstract class AbstractShipReportFormEditUI extends com.kingdee.eas.xr.cl
 		getValidateHelper().registerBindProperty("bizStatus", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("auditTime", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("shipName", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("month", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("performance", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("zuozs", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("youzs", ValidateHelper.ON_SAVE);    
@@ -1215,7 +1206,8 @@ public abstract class AbstractShipReportFormEditUI extends com.kingdee.eas.xr.cl
 		getValidateHelper().registerBindProperty("suspendRepair", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("repairType", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("shipzhang", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("lunjizhang", ValidateHelper.ON_SAVE);    		
+		getValidateHelper().registerBindProperty("lunjizhang", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("month", ValidateHelper.ON_SAVE);    		
 	}
 
 
@@ -1314,15 +1306,6 @@ public abstract class AbstractShipReportFormEditUI extends com.kingdee.eas.xr.cl
         	sic.add(new SelectorItemInfo("shipName.number"));
         	sic.add(new SelectorItemInfo("shipName.name"));
 		}
-		if(selectorAll.equalsIgnoreCase("true"))
-		{
-			sic.add(new SelectorItemInfo("month.*"));
-		}
-		else{
-        	sic.add(new SelectorItemInfo("month.id"));
-        	sic.add(new SelectorItemInfo("month.number"));
-        	sic.add(new SelectorItemInfo("month.name"));
-		}
         sic.add(new SelectorItemInfo("performance"));
         sic.add(new SelectorItemInfo("zuozs"));
         sic.add(new SelectorItemInfo("youzs"));
@@ -1355,6 +1338,14 @@ public abstract class AbstractShipReportFormEditUI extends com.kingdee.eas.xr.cl
         	sic.add(new SelectorItemInfo("lunjizhang.id"));
         	sic.add(new SelectorItemInfo("lunjizhang.number"));
         	sic.add(new SelectorItemInfo("lunjizhang.name"));
+		}
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("month.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("month.id"));
+        	sic.add(new SelectorItemInfo("month.number"));
 		}
         return sic;
     }        

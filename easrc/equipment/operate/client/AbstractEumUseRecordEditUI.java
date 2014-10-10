@@ -603,10 +603,10 @@ public abstract class AbstractEumUseRecordEditUI extends com.kingdee.eas.xr.clie
         this.prmtreportTime.setCommitFormat("$number$");		
         this.prmtreportTime.setRequired(false);
         // prmtreportMonth		
-        this.prmtreportMonth.setQueryInfo("com.kingdee.eas.port.equipment.base.app.MonthTimeQuery");		
+        this.prmtreportMonth.setQueryInfo("com.kingdee.eas.basedata.assistant.app.F7PeriodQuery");		
         this.prmtreportMonth.setVisible(true);		
         this.prmtreportMonth.setEditable(true);		
-        this.prmtreportMonth.setDisplayFormat("$name$");		
+        this.prmtreportMonth.setDisplayFormat("$number$");		
         this.prmtreportMonth.setEditFormat("$number$");		
         this.prmtreportMonth.setCommitFormat("$number$");		
         this.prmtreportMonth.setRequired(false);
@@ -928,7 +928,7 @@ vo.put("CostType","1");
 		dataBinder.registerBinding("staPerson", com.kingdee.eas.basedata.person.PersonInfo.class, this.prmtstaPerson, "data");
 		dataBinder.registerBinding("UseOrgUnit", com.kingdee.eas.basedata.org.AdminOrgUnitInfo.class, this.prmtUseOrgUnit, "data");
 		dataBinder.registerBinding("reportTime", com.kingdee.eas.port.equipment.base.MonthTimeInfo.class, this.prmtreportTime, "data");
-		dataBinder.registerBinding("reportMonth", com.kingdee.eas.port.equipment.base.MonthTimeInfo.class, this.prmtreportMonth, "data");		
+		dataBinder.registerBinding("reportMonth", com.kingdee.eas.basedata.assistant.PeriodInfo.class, this.prmtreportMonth, "data");		
 	}
 	//Regiester UI State
 	private void registerUIState(){		
@@ -1297,7 +1297,6 @@ vo.put("CostType","1");
 		else{
         	sic.add(new SelectorItemInfo("reportMonth.id"));
         	sic.add(new SelectorItemInfo("reportMonth.number"));
-        	sic.add(new SelectorItemInfo("reportMonth.name"));
 		}
         return sic;
     }        

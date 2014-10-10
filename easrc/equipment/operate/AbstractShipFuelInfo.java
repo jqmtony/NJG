@@ -875,6 +875,50 @@ public class AbstractShipFuelInfo extends com.kingdee.eas.xr.XRBillBaseInfo impl
     {
         put("lunjizhang", item);
     }
+    /**
+     * Object:船舶燃润料消耗月报表's 本月领入润滑油property 
+     */
+    public String getLingrurhy()
+    {
+        return getString("lingrurhy");
+    }
+    public void setLingrurhy(String item)
+    {
+        setString("lingrurhy", item);
+    }
+    /**
+     * Object:船舶燃润料消耗月报表's 本月领入齿轮油property 
+     */
+    public String getLingrucly()
+    {
+        return getString("lingrucly");
+    }
+    public void setLingrucly(String item)
+    {
+        setString("lingrucly", item);
+    }
+    /**
+     * Object:船舶燃润料消耗月报表's 本月领入液压油property 
+     */
+    public String getLingruyyy()
+    {
+        return getString("lingruyyy");
+    }
+    public void setLingruyyy(String item)
+    {
+        setString("lingruyyy", item);
+    }
+    /**
+     * Object: 船舶燃润料消耗月报表 's 报表月份 property 
+     */
+    public com.kingdee.eas.basedata.assistant.PeriodInfo getReportMonth()
+    {
+        return (com.kingdee.eas.basedata.assistant.PeriodInfo)get("reportMonth");
+    }
+    public void setReportMonth(com.kingdee.eas.basedata.assistant.PeriodInfo item)
+    {
+        put("reportMonth", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("D5C68991");

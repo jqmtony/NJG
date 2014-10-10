@@ -1044,9 +1044,9 @@ public class ComproductionEditUI extends AbstractComproductionEditUI {
 		}
 
 		kdtEntrys_detailPanel.setVisible(false);
-		kdtEntrys.setBounds(new Rectangle(12, 66, 991, 378));
+		kdtEntrys.setBounds(new Rectangle(12, 90, 991, 363));
 		kdtEntrys_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel) com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtEntrys,new com.kingdee.eas.port.equipment.operate.ComproductionEntryInfo(),null, false);
-		this.add(kdtEntrys, new KDLayout.Constraints(12, 66, 991, 378,KDLayout.Constraints.ANCHOR_TOP| KDLayout.Constraints.ANCHOR_BOTTOM| KDLayout.Constraints.ANCHOR_LEFT| KDLayout.Constraints.ANCHOR_RIGHT));
+		this.add(kdtEntrys, new KDLayout.Constraints(12, 90, 991, 363,KDLayout.Constraints.ANCHOR_TOP| KDLayout.Constraints.ANCHOR_BOTTOM| KDLayout.Constraints.ANCHOR_LEFT| KDLayout.Constraints.ANCHOR_RIGHT));
 
 		this.kdtEntrys.getColumn("project1").getStyleAttributes().setLocked(true);
 		this.kdtEntrys.getColumn("project").getStyleAttributes().setLocked(true);

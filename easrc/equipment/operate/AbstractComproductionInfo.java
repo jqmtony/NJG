@@ -85,11 +85,11 @@ public class AbstractComproductionInfo extends com.kingdee.eas.framework.CoreBil
     /**
      * Object: 公司产能报表 's 报表月份 property 
      */
-    public com.kingdee.eas.port.equipment.base.MonthTimeInfo getReportMonth()
+    public com.kingdee.eas.basedata.assistant.PeriodInfo getReportMonth()
     {
-        return (com.kingdee.eas.port.equipment.base.MonthTimeInfo)get("reportMonth");
+        return (com.kingdee.eas.basedata.assistant.PeriodInfo)get("reportMonth");
     }
-    public void setReportMonth(com.kingdee.eas.port.equipment.base.MonthTimeInfo item)
+    public void setReportMonth(com.kingdee.eas.basedata.assistant.PeriodInfo item)
     {
         put("reportMonth", item);
     }
