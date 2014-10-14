@@ -6,6 +6,7 @@ import java.util.Date;
 
 import com.kingdee.bos.BOSException;
 import com.kingdee.bos.Context;
+import com.kingdee.bos.dao.IObjectPK;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
@@ -211,11 +212,10 @@ public class ContractReviseFacade implements BillBaseSelector{
 		      {
 		        for(int i=0;i< myavc.size();i++){
          	     ContractBillInfo avInfo = myavc.get(i);
-         	     ProgrammingContractInfo info=myavc.get(i).getProgrammingContract();
-         	     myavc.get(i).getProgrammingContract();
-         	     myavc.get(i).getId();
-         	     myavc.get(i).getProgrammingContract().getAmount();
-         	     EntityViewInfo Myavevi2 = new EntityViewInfo();
+         	     ContractBillInfo info=ContractBillFactory.getLocalInstance(ctx).getContractBillInfo(new ObjectUuidPK(myavc.get(i).getId()));
+         	    //ProgrammingContractInfo info=myavc.get(i).getProgrammingContract();
+         	     info.getProgrammingContract();
+          	     EntityViewInfo Myavevi2 = new EntityViewInfo();
   		         FilterInfo Myavfilter2 = new FilterInfo();
   		         Myavfilter2.getFilterItems().add(new FilterItemInfo("id",avInfo.getProgrammingContract(),CompareType.EQUALS));
 
