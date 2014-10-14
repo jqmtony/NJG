@@ -19,7 +19,9 @@ import com.kingdee.eas.basedata.org.CompanyOrgUnitInfo;
 import com.kingdee.eas.bpm.BPMLogFactory;
 import com.kingdee.eas.bpm.BPMLogInfo;
 import com.kingdee.eas.bpm.BillBaseSelector;
+import com.kingdee.eas.bpm.common.ExchangeRate;
 import com.kingdee.eas.bpm.common.StringUtilBPM;
+import com.kingdee.eas.bpm.common.TransRMB;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.SysContextConstant;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
@@ -215,9 +217,14 @@ public class ContractWithoutTextFacade implements BillBaseSelector {
     			xml.append("<NoPaidReason>"+Info.getNoPaidReason()+"</NoPaidReason>\n");  //无需付款原因
     			xml.append("<realSupplier>"+StringUtilBPM.isNULl(Info.getReceiveUnit().getName())+"</realSupplier>\n");//实际收款单位
     			
-    		//	String srcid = Info.getCurrency().getId().toString();
-    		//	CompanyOrgUnitInfo currentOrg = (CompanyOrgUnitInfo) ctx.get(SysContextConstant.COMPANYINFO);
-    		//	ExchangeTableInfo baseExchangeTable = currentOrg.getBaseExchangeTable();
+    			
+    			BigDecimal rate = ExchangeRate.getRate(Info.getCurrency().getName(), Info.getBizDate().toString(), "1");
+    			xml.append("<exchangeRate>"+rate+"</exchangeRate>\n");//汇率
+    			
+    			
+//    			String srcid = Info.getCurrency().getId().toString();
+//    			CompanyOrgUnitInfo currentOrg = (CompanyOrgUnitInfo) ctx.get(SysContextConstant.COMPANYINFO);
+//    			ExchangeTableInfo baseExchangeTable = currentOrg.getBaseExchangeTable();
 //    			if(baseExchangeTable != null)
 //    	        {
 //    	            CurrencyInfo baseCurrency = currentOrg.getBaseCurrency();
@@ -238,10 +245,16 @@ public class ContractWithoutTextFacade implements BillBaseSelector {
 //    	        }
     			
     			xml.append("<PaymentRequestBillNumber>"+StringUtilBPM.isNULl(Info.getNumber())+"</PaymentRequestBillNumber>\n");//付款申请单编码
-    		   //BigDecimal localamount = Info.getAmount().setScale(2, 4);
-               // String cap = StringUtilBPM.getChineseFormat(localamount, false);
-    		   // xml.append("<capitalAmount>"+StringUtilBPM.isNULl(cap)+"</capitalAmount>\n");//大写金额
+    			
+    			BigDecimal localamount = Info.getAmount().setScale(2, 4);
+    			String s = TransRMB.roundString(localamount.toString());
+//    			String s = TransRMB.cleanZero(TransRMB.splitNum(TransRMB.roundString(localamount.toString())));
+    			
+    			
+                String cap = StringUtilBPM.getChineseFormat(localamount, false);
+    		    xml.append("<capitalAmount>"+s+"</capitalAmount>\n");//大写金额
     			xml.append("<completePrjAmt>"+Info.getAmount()+"</completePrjAmt>\n");//本期完成工程量
+    			
     			//xml.append("<PaymentProportion>"+Info.getPaymentProportion()+"</PaymentProportion>\n"); 进度款付款比例
     			//xml.append("<MoneyDesc>"+Info.getDescription()+"</MoneyDesc>\n");  款项说明
     			//xml.append("<Urgency>"+Info.getNoPaidReason()+"</Urgency>\n");  //加急
