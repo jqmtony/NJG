@@ -8,12 +8,13 @@ import com.kingdee.eas.bpmdemo.JBrowserHelper.JFrameBrowser;
 import com.kingdee.eas.bpmdemo.webservers.getInfoFacadeFactory;
 import com.kingdee.eas.bpmdemo.webservers.serviceclient.BPMServiceForERPLocator;
 import com.kingdee.eas.bpmdemo.webservers.serviceclient.BPMServiceForERPSoap;
+import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.fdc.basedata.ContractTypeInfo;
 import com.kingdee.eas.fdc.contract.ContractBillFactory;
 import com.kingdee.eas.fdc.contract.ContractSettlementBillFactory;
 import com.kingdee.eas.util.client.MsgBox;
 
-public class ContractsettlementEditUI extends ContractSettlementBillEditUI{
+public class ContractsettlementEditUIPIEx extends ContractSettlementBillEditUI{
      
 	private ContractTypeInfo typeInfo;
 	private boolean isShiGong = false;
@@ -21,7 +22,7 @@ public class ContractsettlementEditUI extends ContractSettlementBillEditUI{
 	private boolean isZongBao = false;
 	
 	
-	public ContractsettlementEditUI() throws Exception {
+	public ContractsettlementEditUIPIEx() throws Exception {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -62,7 +63,7 @@ public class ContractsettlementEditUI extends ContractSettlementBillEditUI{
 	    public void actionAttachment_actionPerformed(ActionEvent e) throws Exception {
 	    	BPMServiceForERPSoap  login = new BPMServiceForERPLocator().getBPMServiceForERPSoap();
 	    	editData = ContractSettlementBillFactory.getRemoteInstance().getContractSettlementBillInfo(new ObjectUuidPK(editData.getId()));
-	    	login.withdraw("HT01", editData.getId().toString(), editData.getSourceFunction());
+	    	login.withdraw("HTJS01", editData.getId().toString(), editData.getSourceFunction());
 	    }
 	    
 	    
@@ -72,7 +73,7 @@ public class ContractsettlementEditUI extends ContractSettlementBillEditUI{
 	    	//String[] xml = getInfoFacadeFactory.getRemoteInstance().GetbillInfo("",editData.getId().toString());
 	    	//String [] str1= getInfoFacadeFactory.getRemoteInstance().ApproveClose("", "dYkAAAAAhPINbdH0", 1, "1", "",null);
 	    	//MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
-	    	String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=HT01";
+	    	String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=HTJS01&userid="+SysContext.getSysContext().getUserName()+"";
 	    	creatFrame(url);
 	    	
 	    }
