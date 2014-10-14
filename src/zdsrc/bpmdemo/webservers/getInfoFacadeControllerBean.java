@@ -14,6 +14,7 @@ import com.kingdee.bos.framework.DynamicObjectFactory;
 import com.kingdee.eas.bpm.BPMLogFactory;
 import com.kingdee.eas.bpm.BPMLogInfo;
 import com.kingdee.eas.bpm.selectors.ChangeAuditFacade;
+import com.kingdee.eas.bpm.selectors.ChangeOfSettlementFacade;
 import com.kingdee.eas.bpm.selectors.ContractFacade;
 import com.kingdee.eas.bpm.selectors.ContractReviseFacade;
 import com.kingdee.eas.bpm.selectors.ContractWithoutTextFacade;
@@ -28,6 +29,7 @@ import com.kingdee.eas.fdc.contract.ContractBillEntryInfo;
 import com.kingdee.eas.fdc.contract.ContractBillFactory;
 import com.kingdee.eas.fdc.contract.ContractBillInfo;
 import com.kingdee.eas.fdc.contract.ContractBillReviseInfo;
+import com.kingdee.eas.fdc.contract.ContractChangeBillInfo;
 import com.kingdee.eas.fdc.contract.ContractSettlementBillInfo;
 import com.kingdee.eas.fdc.contract.ContractWithoutTextInfo;
 import com.kingdee.eas.fdc.contract.PayRequestBillInfo;
@@ -71,6 +73,11 @@ public class getInfoFacadeControllerBean extends AbstractgetInfoFacadeController
 			{
 				str = new ContractReviseFacade().SubmitResult(ctx, strBSID, billInfo, success, procInstID, procURL, strMessage);
 			}
+			if(billInfo instanceof ContractChangeBillInfo)
+			{
+				str = new ChangeOfSettlementFacade().SubmitResult(ctx, strBSID, billInfo, success, procInstID, procURL, strMessage);
+			}
+			
 			return str;
 		}
 		
@@ -110,6 +117,11 @@ public class getInfoFacadeControllerBean extends AbstractgetInfoFacadeController
 			{
 				str = new ContractReviseFacade().ApproveClose(ctx, strBSID, billInfo, procInstID, processInstanceResult, strComment, dtTime);
 			}
+			if(billInfo instanceof ContractChangeBillInfo)
+			{
+				str = new ChangeOfSettlementFacade().ApproveClose(ctx, strBSID, billInfo, procInstID, processInstanceResult, strComment, dtTime);
+			}
+
 			return str;
 		}
 	}
@@ -147,6 +159,11 @@ public class getInfoFacadeControllerBean extends AbstractgetInfoFacadeController
 			{
 				str = new ContractReviseFacade().GetbillInfo(ctx, strBSID, billInfo);
 			}
+			if(billInfo instanceof ContractChangeBillInfo)
+			{
+				str = new ChangeOfSettlementFacade().GetbillInfo(ctx, strBSID, billInfo);
+			}
+			
 			return str;
 		}
 	}
