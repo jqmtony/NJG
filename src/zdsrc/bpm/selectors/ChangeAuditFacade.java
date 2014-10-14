@@ -82,7 +82,7 @@ public class ChangeAuditFacade implements BillBaseSelector {
 						str[0] = "N";
 					}
 				}
-				String sql = " update CT_BPM_ChangeVisaApp set fState='"
+				String sql = " update T_CON_ChangeAuditBill set fState='"
 						+ Info.getState().getValue() + "' where fid='"
 						+ Info.getId() + "'";
 				FDCSQLBuilder bu = new FDCSQLBuilder(ctx);
@@ -127,125 +127,99 @@ public class ChangeAuditFacade implements BillBaseSelector {
 				str[2] = "根据单据getSelectors获取对象数据，请检查getSelectors方法中属性是否正确,并查看服务器log日志！";
 				e.printStackTrace();
 			}
-			try {
-
-			//	PersonInfo personInfo = SysContext.getSysContext().getCurrentUserInfo().getPerson();
 				DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 				xml.append("<DATA>\n");
-				//xml.append("<OrgName>"+ StringUtilBPM.isNULl(SysContext.getSysContext().getCurrentAdminUnit().getName())+ "</OrgName>\n");
 			    xml.append("<OrgName>"+StringUtilBPM.isNULl(Info.getOrgUnit().getName())+"</OrgName>\n");
 				xml.append("<DeptName>"+StringUtilBPM.isNULl(Info.getOrgUnit().getName())+"</DeptName>\n");
 				xml.append("<ApplyDate>"+ dateFormat.format(Info.getCreateTime())+ "</ApplyDate>\n");
 				xml.append("<Applicant>"+ StringUtilBPM.isNULl(Info.getCreator().getName())+ "</Applicant>\n");
 				xml.append("<Position>CEO秘书</Position>\n");
 				xml.append("<Topic>" + StringUtilBPM.isNULl(Info.getName())+ "</Topic>\n");
-				//xml.append("<CompanyName>"+Info.getDesignUnit()+"</CompanyName>\n");
 				xml.append("<Phase>"+ StringUtilBPM.isNULl(Info.getCurProject().getName())+ "</Phase>\n");
 				xml.append("<OrgCode>"+ StringUtilBPM.isNULl(Info.getOrgUnit().getNumber().split("-")[0]) + "</OrgCode>\n");
-				xml.append("<orgunit>"+ StringUtilBPM.isNULl(Info.getOrgUnit().getName())+ "</Orgunit>\n"); // 组织
-				xml.append("<CurProject>"+ StringUtilBPM.isNULl(Info.getCurProject().getName())+ "</CurProject>\n"); // 工程项目
-				xml.append("<Number>" + StringUtilBPM.isNULl(Info.getNumber())+ "</Number>\n"); // 单据编号
-				xml.append("<Name>" + StringUtilBPM.isNULl(Info.getName())+ "</Name>\n"); // 单据名称
-				xml.append("<ChangeReason>"+ StringUtilBPM.isNULl(Info.getChangeReason().getName())+ "</ChangeReason>\n"); // 变更原因
-			//	xml.append("<Bizdate>" + dateFormat.format(Info.getBizDate())+ "</Bizdate>\n");// 业务日期
-				xml.append("<Audittype>"+ StringUtilBPM.isNULl(Info.getAuditType().getName())+ "</Audittype>\n"); // 变更类型
-				xml.append("<Changesubject>"+ StringUtilBPM.isNULl(Info.getChangeSubject())+ "</Changesubject>\n"); // 变更主题
-				xml.append("<Period>" + dateFormat.format(Info.getPeriod().getNumber())+ "</Period>\n"); // 期间
-				xml.append("<Jobtype>"+ StringUtilBPM.isNULl(Info.getJobType().getName())+ "</Jobtype>\n"); // 承包类型
-				xml.append("<UrgentDegree>"+ StringUtilBPM.isNULl(Info.getUrgentDegree().getName())+ "</UrgentDegree>\n"); // 紧急程度
+				xml.append("<orgunit>"+ StringUtilBPM.isNULl(Info.getOrgUnit().getName())+ "</orgunit>\n"); // 组织
+				xml.append("<curproject>"+ StringUtilBPM.isNULl(Info.getCurProject().getName())+ "</curproject>\n"); // 工程项目
+				xml.append("<number>" + StringUtilBPM.isNULl(Info.getNumber())+ "</number>\n"); // 单据编号
+				xml.append("<name>" + StringUtilBPM.isNULl(Info.getName())+ "</name>\n"); // 单据名称
+				xml.append("<changeReason>"+ StringUtilBPM.isNULl(Info.getChangeReason().getName())+ "</changeReason>\n"); // 变更原因
+				xml.append("<audittype>"+ StringUtilBPM.isNULl(Info.getAuditType().getName())+ "</audittype>\n"); // 变更类型
+				xml.append("<changesubject>"+ StringUtilBPM.isNULl(Info.getChangeSubject())+ "</changesubject>\n"); // 变更主题
+				xml.append("<period>" + dateFormat.format(Info.getPeriod().getNumber())+ "</period>\n"); // 期间
+				xml.append("<jobtype>"+ StringUtilBPM.isNULl(Info.getJobType().getName())+ "</jobtype>\n"); // 承包类型
+				xml.append("<urgentDegree>"+ StringUtilBPM.isNULl(Info.getUrgentDegree().getName())+ "</urgentDegree>\n"); // 紧急程度
 				if(Info.getConductDept()!=null)
-				xml.append("<ConductDept>"+ Info.getConductDept().getName()+ "</ConductDept>\n"); // 提出部门
+				xml.append("<conductDept>"+ Info.getConductDept().getName()+ "</conductDept>\n"); // 提出部门
 				if(Info.getDesignUnit()!=null)
-				xml.append("<DesignUnit>"+ StringUtilBPM.isNULl(Info.getDesignUnit().getName())+ "</DesignUnit>\n"); // 设计单位
+				xml.append("<designUnit>"+ StringUtilBPM.isNULl(Info.getDesignUnit().getName())+ "</designUnit>\n"); // 设计单位
 				if(Info.getConductUnit()!=null)
-				xml.append("<ConductUnit>"+ StringUtilBPM.isNULl(Info.getConductUnit().getName())+ "</ConductUnit>\n"); // 提出单位
+				xml.append("<conductUnit>"+Info.getConductUnit().getName()+ "</conductUnit>\n"); // 提出单位
 				if(Info.getConstrUnit()!=null)
-				xml.append("<Construnit>"+ StringUtilBPM.isNULl(Info.getConstrUnit().getName())+ "</Construnit>\n");// 施工单位
-				xml.append("<ReaDesc>"+ StringUtilBPM.isNULl(Info.getReaDesc())+ "</ReaDesc>\n"); // 说明
-				xml.append("<Offer>"+ StringUtilBPM.isNULl(Info.getOffer().getName())+ "</Offer>\n"); // 提出人
-				xml.append("<ConstrSite>"+ StringUtilBPM.isNULl(Info.getConstrSite())+ "</ConstrSite>\n"); // 施工部位
-				xml.append("<ChangeState>"+ StringUtilBPM.isNULl(Info.getChangeState().getName())+ "</ChangeState>\n"); // 状态
-				if(Info.getSpecialtyType()!=null)
-				xml.append("<SpecialtyType>"+ StringUtilBPM.isNULl(Info.getSpecialtyType().getName()) + "</SpecialtyType>\n"); // 专业类型
-				xml.append("<IsImportChange>" + Info.isIsImportChange()+ "</IsImportChange>\n"); // 是否重大变更
+				xml.append("<construnit>"+ Info.getConstrUnit().getName()+ "</construnit>\n");// 施工单位
+				xml.append("<reaDesc>"+ StringUtilBPM.isNULl(Info.getReaDesc())+ "</reaDesc>\n"); // 说明
+				xml.append("<offer>"+ StringUtilBPM.isNULl(Info.getOffer().getAlias())+ "</offer>\n"); // 提出人
+				xml.append("<constrSite>"+ StringUtilBPM.isNULl(Info.getConstrSite())+ "</constrSite>\n"); // 施工部位
+				xml.append("<changeState>"+ StringUtilBPM.isNULl(Info.getChangeState().getAlias())+ "</changeState>\n"); // 状态
+				xml.append("<specialtyType>"+ Info.getSpecialName() + "</specialtyType>\n"); // 专业类型
+			    if(false==Info.isIsImportChange())
+				xml.append("<isImportChange>否</isImportChange>\n"); // 是否重大变更
+			    else
+			    {
+			    	xml.append("<isImportChange>是</isImportChange>\n"); // 是否重大变更
+			    }
+			    
 
-				xml.append("<billEntries>\n");
+			    xml.append("<bizdate>"+dateFormat.format(Info.getBookedDate())+"</bizdate>\n"); // 业务日期
+			    if(Info.getPeriod()!=null)
+				xml.append("<billEntries>");
 				for (int i = 0; i < Info.getEntrys().size(); i++) {
 					ChangeAuditEntryInfo entry = Info.getEntrys().get(i);
-					entry = ChangeAuditEntryFactory.getLocalInstance(ctx)
-							.getChangeAuditEntryInfo(
-									new ObjectUuidPK(entry.getId()));
-					xml.append("<item>\n");
-					xml.append("<Number>"
-							+ StringUtilBPM.isNULl(entry.getNumber())
-							+ "</Number>\n");
-					xml.append("<ChangeContent>"
-							+ StringUtilBPM.isNULl(entry.getChangeContent())
-							+ "</ChangeContent>\n");
-					xml.append("<IsBack>" + entry.isIsBack() + "</IsBack>\n");
+					entry = ChangeAuditEntryFactory.getLocalInstance(ctx).getChangeAuditEntryInfo(new ObjectUuidPK(entry.getId()));
+					xml.append("<item>");
+					xml.append("<number>"+ StringUtilBPM.isNULl(entry.getNumber())+ "</number>\n");
+					xml.append("<changecontent>"+ StringUtilBPM.isNULl(entry.getChangeContent())+ "</changecontent>\n");
+					if(false==entry.isIsBack())
+					xml.append("<isback>否</isback>\n");
+					else
+					{
+						xml.append("<isback>是</isback>\n");
+					}
 					xml.append("</item>\n");
 				}
 				xml.append("</billEntries>\n");
-				xml.append("<SuppEntry>\n");
-				for (int i = 0; i < Info.getSuppEntry().size(); i++) {
-					ChangeSupplierEntryInfo entry = Info.getSuppEntry().get(i);
-					entry = ChangeSupplierEntryFactory.getLocalInstance(ctx)
-							.getChangeSupplierEntryInfo(
-									new ObjectUuidPK(entry.getId()));
-					xml.append("<item>\n");
-					xml.append("<Supp>" + entry.getSeq() + "</Supp>\n");
-					xml.append("<Content>");
-					xml.append("<item>\n");
-					xml.append("<ContractID>" + entry.getContractBill().getId()
-							+ "</ContractID>\n");
-					xml.append("<ContractName>"
-							+ entry.getContractBill().getName()
-							+ "</ContractName>\n");
-					xml.append("<MainSupp>" + entry.getMainSupp().getName()
-							+ "</MainSupp>\n");
-					xml.append("<CopySupp>" + entry.getCopySupp()
-							+ "</CopySupp>\n");
-					xml.append("<OriginalContactNum>"
-							+ entry.getOriginalContactNum()
-							+ "</OriginalContactNum>\n");
-					xml.append("<Entrys>" + entry.getEntrys().get(1)
-							+ "</Entrys>\n");
-					xml.append("<Currency>" + entry.getCurrency().getName()
-							+ "</Currency>\n");
-					xml.append("<Exrate>" + entry.getExRate() + "</Exrate>\n");
-					xml.append("<OriCostAmount>" + entry.getOriCostAmount()
-							+ "</OriCostAmount>\n");
-					xml.append("<CostAmount>" + entry.getCostAmount()
-							+ "</CostAmount>\n");
-					xml.append("<CostDescription>" + entry.getCostDescription()
-							+ "</CostDescription>\n");
-					xml.append("<ConstructPrice>" + entry.getConstructPrice()
-							+ "</ConstructPrice>\n");
-					xml.append("<IsDeduct>" + entry.isIsDeduct()
-							+ "</IsDeduct>\n");
-					xml.append("<DeductAmount>" + entry.getDeductAmount()
-							+ "</DeductAmount>\n");
-					xml.append("<DeductReason>" + entry.getDeductReason()
-							+ "</DeductReason>\n");
-					xml.append("<Reckonor>" + entry.getReckonor().getName()
-							+ "</Reckonor>\n");
-					if(entry.getDutyOrg()!=null)
-					xml.append("<DutyOrg>" + entry.getDutyOrg().getName()
-							+ "</DutyOrg>\n");
-					xml.append("<IsSureChangeAmt>" + entry.isIsSureChangeAmt()
-							+ "</IsSureChangeAmt>\n");
-					xml.append("<item>\n");
-					xml.append("</Content>\n");
-					xml.append("</item>\n");
-				}
-				xml.append("</SuppEntry>\n");
+//				xml.append("<SuppEntry>");
+//				for (int i = 0; i < Info.getSuppEntry().size(); i++) {
+//					ChangeSupplierEntryInfo entry = Info.getSuppEntry().get(i);
+//					entry = ChangeSupplierEntryFactory.getLocalInstance(ctx).getChangeSupplierEntryInfo(new ObjectUuidPK(entry.getId()));
+//					xml.append("<item>");
+//					xml.append("<Supp>" + entry.getSeq() + "</Supp>\n");
+//					xml.append("<Content>");
+//					xml.append("<item>");
+//					xml.append("<ContractID>" + entry.getContractBill().getId()+ "</ContractID>\n");
+//					xml.append("<ContractName>"+ entry.getContractBill().getName()+ "</ContractName>\n");
+//					xml.append("<MainSupp>" + entry.getMainSupp().getName()+ "</MainSupp>\n");
+//					xml.append("<CopySupp>" + entry.getCopySupp()+ "</CopySupp>\n");
+//					xml.append("<OriginalContactNum>"+ entry.getOriginalContactNum()+ "</OriginalContactNum>\n");
+//					xml.append("<Entrys>" + entry.getEntrys().get(1)+ "</Entrys>\n");
+//					xml.append("<Currency>" + entry.getCurrency().getName()+ "</Currency>\n");
+//					xml.append("<Exrate>" + entry.getExRate() + "</Exrate>\n");
+//					xml.append("<OriCostAmount>" + entry.getOriCostAmount()+ "</OriCostAmount>\n");
+//					xml.append("<CostAmount>" + entry.getCostAmount()+ "</CostAmount>\n");
+//					xml.append("<CostDescription>" + entry.getCostDescription()+ "</CostDescription>\n");
+//					xml.append("<ConstructPrice>" + entry.getConstructPrice()+ "</ConstructPrice>\n");
+//					xml.append("<IsDeduct>" + entry.isIsDeduct()+ "</IsDeduct>\n");
+//					xml.append("<DeductAmount>" + entry.getDeductAmount()+ "</DeductAmount>\n");
+//					xml.append("<DeductReason>" + entry.getDeductReason()+ "</DeductReason>\n");
+//					xml.append("<Reckonor>" + entry.getReckonor().getName()+ "</Reckonor>\n");
+//					if(entry.getDutyOrg()!=null)
+//					xml.append("<DutyOrg>" + entry.getDutyOrg().getName()+ "</DutyOrg>\n");
+//					xml.append("<IsSureChangeAmt>" + entry.isIsSureChangeAmt()+ "</IsSureChangeAmt>\n");
+//					xml.append("</item>\n");
+//					xml.append("</Content>\n");
+//					xml.append("</item>\n");
+//				}
+//				xml.append("</SuppEntry>\n");
 				xml.append("</DATA>");
 				str[1] = xml.toString();
-			} catch (BOSException e) {
-				str[0] = "N";
-				str[2] = "获取对象属性失败，请检查属性是否有值,并查看服务器log日志!";
-				e.printStackTrace();
-			}
 		} catch (Exception e) {
 			str[0] = "N";
 			str[2] = "其他异常，请查看服务器log日志！";
@@ -283,7 +257,7 @@ public class ChangeAuditFacade implements BillBaseSelector {
 			}
 			try {
 				Info.setState(FDCBillStateEnum.AUDITTING);
-				String sql = " update CT_BPM_ChangeVisaApp set fState='"
+				String sql = " update T_CON_ChangeAuditBill set fState='"
 						+ Info.getState().getValue() + "'" + ", fDescription='"
 						+ procURL + "' " + ", FSourceFunction='" + procInstID
 						+ "' where fid='" + Info.getId() + "'";
@@ -341,7 +315,7 @@ public class ChangeAuditFacade implements BillBaseSelector {
 		sic.add(new SelectorItemInfo("Jobtype.name"));
 		sic.add(new SelectorItemInfo("Jobtype.number"));
 		sic.add(new SelectorItemInfo("urgentDegree"));
-		sic.add(new SelectorItemInfo("ConductDept"));
+		sic.add(new SelectorItemInfo("ConductDept.name"));
 		sic.add(new SelectorItemInfo("DesignUnit.name"));
 		sic.add(new SelectorItemInfo("ConductUnit.id"));
 		sic.add(new SelectorItemInfo("ConductUnit.name"));
@@ -353,51 +327,50 @@ public class ChangeAuditFacade implements BillBaseSelector {
 		sic.add(new SelectorItemInfo("Offer"));
 		sic.add(new SelectorItemInfo("ConstrSite"));
 		sic.add(new SelectorItemInfo("ChangeState"));
-		sic.add(new SelectorItemInfo("SpecialtyType.id"));
-		sic.add(new SelectorItemInfo("SpecialtyType.name"));
-		sic.add(new SelectorItemInfo("SpecialtyType.number"));
+		sic.add(new SelectorItemInfo("specialName"));
 		sic.add(new SelectorItemInfo("isImportChange"));
 
 		
 		
 		
 		
-		sic.add(new SelectorItemInfo("Entrys.Number"));
-		sic.add(new SelectorItemInfo("Entrys.ChangeContent"));
-		sic.add(new SelectorItemInfo("Entrys.IsBack"));
-
-		sic.add(new SelectorItemInfo("SuppEntry.Seq"));
-		sic.add(new SelectorItemInfo("SuppEntry.ContractBill.id"));
-		sic.add(new SelectorItemInfo("SuppEntry.ContractBill.name"));
-		sic.add(new SelectorItemInfo("SuppEntry.ContractBill.number"));
-		sic.add(new SelectorItemInfo("SuppEntry.IsSureChangeAmt"));
-		sic.add(new SelectorItemInfo("SuppEntry.mainSupp.id"));
-		sic.add(new SelectorItemInfo("SuppEntry.mainSupp.name"));
-		sic.add(new SelectorItemInfo("SuppEntry.mainSupp.number"));
-		sic.add(new SelectorItemInfo("SuppEntry.CopySupp"));
-		sic.add(new SelectorItemInfo("SuppEntry.OriginalContactNum"));
-		sic.add(new SelectorItemInfo("SuppEntry.Entrys.changeContext"));
-		sic.add(new SelectorItemInfo("SuppEntry.Currency"));
-		sic.add(new SelectorItemInfo("SuppEntry.getExRate"));
-		sic.add(new SelectorItemInfo("SuppEntry.getOriCostAmount"));
-		sic.add(new SelectorItemInfo("SuppEntry.getCostAmount"));
-		sic.add(new SelectorItemInfo("SuppEntry.getCostDescription"));
-		sic.add(new SelectorItemInfo("SuppEntry.getConstructPrice"));
-		sic.add(new SelectorItemInfo("SuppEntry.isIsDeduct"));
-		sic.add(new SelectorItemInfo("SuppEntry.DeductAmount"));
-		sic.add(new SelectorItemInfo("SuppEntry.DeductReason"));
-		sic.add(new SelectorItemInfo("SuppEntry.Reckonor.id"));
-		sic.add(new SelectorItemInfo("SuppEntry.Reckonor.name"));
-		sic.add(new SelectorItemInfo("SuppEntry.Reckonor.number"));
-		sic.add(new SelectorItemInfo("SuppEntry.DutyOrg.id"));
-		sic.add(new SelectorItemInfo("SuppEntry.DutyOrg.name"));
-		sic.add(new SelectorItemInfo("SuppEntry.DutyOrg.number"));
-		sic.add(new SelectorItemInfo("SuppEntry.IsSureChangeAmt"));
-		
+//		sic.add(new SelectorItemInfo("Entrys.Number"));
+//		sic.add(new SelectorItemInfo("Entrys.ChangeContent"));
+//		sic.add(new SelectorItemInfo("Entrys.IsBack"));
+//
+//		sic.add(new SelectorItemInfo("SuppEntry.Seq"));
+//		sic.add(new SelectorItemInfo("SuppEntry.ContractBill.id"));
+//		sic.add(new SelectorItemInfo("SuppEntry.ContractBill.name"));
+//		sic.add(new SelectorItemInfo("SuppEntry.ContractBill.number"));
+//		sic.add(new SelectorItemInfo("SuppEntry.IsSureChangeAmt"));
+//		sic.add(new SelectorItemInfo("SuppEntry.mainSupp.id"));
+//		sic.add(new SelectorItemInfo("SuppEntry.mainSupp.name"));
+//		sic.add(new SelectorItemInfo("SuppEntry.mainSupp.number"));
+//		sic.add(new SelectorItemInfo("SuppEntry.CopySupp"));
+//		sic.add(new SelectorItemInfo("SuppEntry.OriginalContactNum"));
+//		sic.add(new SelectorItemInfo("SuppEntry.Entrys.changeContext"));
+//		sic.add(new SelectorItemInfo("SuppEntry.Currency"));
+//		sic.add(new SelectorItemInfo("SuppEntry.getExRate"));
+//		sic.add(new SelectorItemInfo("SuppEntry.getOriCostAmount"));
+//		sic.add(new SelectorItemInfo("SuppEntry.getCostAmount"));
+//		sic.add(new SelectorItemInfo("SuppEntry.getCostDescription"));
+//		sic.add(new SelectorItemInfo("SuppEntry.getConstructPrice"));
+//		sic.add(new SelectorItemInfo("SuppEntry.isIsDeduct"));
+//		sic.add(new SelectorItemInfo("SuppEntry.DeductAmount"));
+//		sic.add(new SelectorItemInfo("SuppEntry.DeductReason"));
+//		sic.add(new SelectorItemInfo("SuppEntry.Reckonor.id"));
+//		sic.add(new SelectorItemInfo("SuppEntry.Reckonor.name"));
+//		sic.add(new SelectorItemInfo("SuppEntry.Reckonor.number"));
+//		sic.add(new SelectorItemInfo("SuppEntry.DutyOrg.id"));
+//		sic.add(new SelectorItemInfo("SuppEntry.DutyOrg.name"));
+//		sic.add(new SelectorItemInfo("SuppEntry.DutyOrg.number"));
+//		sic.add(new SelectorItemInfo("SuppEntry.IsSureChangeAmt"));
+//		
 		
 		sic.add(new SelectorItemInfo("CreateTime"));
 		sic.add(new SelectorItemInfo("Creator.name"));
-		
+		sic.add(new SelectorItemInfo("State"));
+		sic.add(new SelectorItemInfo("BookedDate"));
 		return sic;
 	}
 

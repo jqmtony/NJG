@@ -178,72 +178,106 @@ public class ContractWithoutTextFacade implements BillBaseSelector {
     			xml.append("<Position>合约部经理</Position>\n");
     			xml.append("<Topic>"+StringUtilBPM.isNULl(Info.getName())+"-无文本合同审批单"+"</Topic>\n");
     			if(Info.getCurProject()!=null)
+    			{
     			xml.append("<curProject>"+StringUtilBPM.isNULl(Info.getCurProject().getName())+"</curProject>\n");
+    			}
     			//xml.append("<contractNo>"+StringUtilBPM.isNULl(Info.getContractBaseData().getNumber())+"</contractNo>\n");
     			xml.append("<bizdate>"+dateFormat.format(Info.getBizDate())+"</bizdate>\n");
     			if(Info.getOrgUnit()!=null)
+    			{
     			xml.append("<orgunit>"+StringUtilBPM.isNULl(Info.getOrgUnit().getName())+"</orgunit>\n");//组织
+    			}
     			xml.append("<name>"+StringUtilBPM.isNULl(Info.getName())+"</name>\n");   //单据名称
     			xml.append("<period>"+Info.getPeriod().getNumber()+"</period>\n");//订立期间
     			xml.append("<signDate>"+dateFormat.format(Info.getSignDate())+"</signDate>\n");//订立期间
     			xml.append("<number>"+StringUtilBPM.isNULl(Info.getNumber())+"</number>\n");
     			if(Info.getPaymentType()!=null)
+    			{
     			xml.append("<PaymentType>"+StringUtilBPM.isNULl(Info.getPaymentType().getName())+"</PaymentType>\n");//付款类型
+    			}
     			if(Info.getUseDepartment()!=null)
+    			{
     			xml.append("<userDepartment>"+StringUtilBPM.isNULl(Info.getUseDepartment().getName())+"</userDepartment>\n");//用款部门
+    			}
     			if(Info.getContractType()!=null)
+    			{
     			xml.append("<contractType>"+StringUtilBPM.isNULl(Info.getContractType().getName())+"</contractType>\n");//合同类型
+    			}
     			xml.append("<currency>"+StringUtilBPM.isNULl(Info.getCurrency().getName())+"</currency>\n");//币别
     			if(Info.getReceiveUnit()!=null)
+    			{
     			xml.append("<receiveUnit>"+StringUtilBPM.isNULl(Info.getReceiveUnit().getName())+"</receiveUnit>\n");//收款单位
+    			}
     			xml.append("<originalAmount>"+Info.getOriginalAmount()+"</originalAmount>\n");//原币金额
     			xml.append("<invoiceAmt>"+Info.getInvoiceAmt()+"</invoiceAmt>\n");//发票金额
     			xml.append("<allinvoiceAmt>"+Info.getAllInvoiceAmt()+"</allinvoiceAmt>\n");//累计发票金额
     			xml.append("<BcAmount>"+Info.getAmount()+"</BcAmount>\n");//本币金额
-    			//xml.append("<realSupplier>"+StringUtilBPM.isNULl(Info.g)+"</realSupplier>\n");//实际收款单位
+    			xml.append("<NoPaidReason>"+Info.getNoPaidReason()+"</NoPaidReason>\n");  //无需付款原因
+    			xml.append("<realSupplier>"+StringUtilBPM.isNULl(Info.getReceiveUnit().getName())+"</realSupplier>\n");//实际收款单位
     			
-    			String srcid = Info.getCurrency().getId().toString();
-    			CompanyOrgUnitInfo currentOrg = (CompanyOrgUnitInfo) ctx.get(SysContextConstant.COMPANYINFO);
-    			ExchangeTableInfo baseExchangeTable = currentOrg.getBaseExchangeTable();
-    			if(baseExchangeTable != null)
-    	        {
-    	            CurrencyInfo baseCurrency = currentOrg.getBaseCurrency();
-    	            if(baseCurrency != null)
-    	            {
-    	                if(srcid.equals(baseCurrency.getId())){
-    	                	xml.append("<exchangeRate>1.00</exchangeRate>\n");//汇率
-    	                }
-    	                ExchangeRateInfo exchangeRate = ExchangeRateFactory.getLocalInstance(ctx).
-    	                	getExchangeRate(new ObjectUuidPK(baseExchangeTable.getId()), new ObjectUuidPK(srcid), new ObjectUuidPK(baseCurrency.getId()), Info.getBizDate());
-    	                if(exchangeRate != null){
-    	                	xml.append("<exchangeRate>"+exchangeRate.getPrecision()+"</exchangeRate>\n");//汇率
-    	                }
-    	            } else
-    	            {
-    	            	xml.append("<exchangeRate>1.00</exchangeRate>\n");//汇率
-    	            }
-    	        }
+    		//	String srcid = Info.getCurrency().getId().toString();
+    		//	CompanyOrgUnitInfo currentOrg = (CompanyOrgUnitInfo) ctx.get(SysContextConstant.COMPANYINFO);
+    		//	ExchangeTableInfo baseExchangeTable = currentOrg.getBaseExchangeTable();
+//    			if(baseExchangeTable != null)
+//    	        {
+//    	            CurrencyInfo baseCurrency = currentOrg.getBaseCurrency();
+//    	            if(baseCurrency != null)
+//    	            {
+//    	                if(srcid.equals(baseCurrency.getId())){
+//    	                	xml.append("<exchangeRate>1.00</exchangeRate>\n");//汇率
+//    	                }
+//    	                ExchangeRateInfo exchangeRate = ExchangeRateFactory.getLocalInstance(ctx).
+//    	                	getExchangeRate(new ObjectUuidPK(baseExchangeTable.getId()), new ObjectUuidPK(srcid), new ObjectUuidPK(baseCurrency.getId()), Info.getBizDate());
+//    	                if(exchangeRate != null){
+//    	                	xml.append("<exchangeRate>"+exchangeRate.getPrecision()+"</exchangeRate>\n");//汇率
+//    	                }
+//    	            } else
+//    	            {
+//    	            	xml.append("<exchangeRate>1.00</exchangeRate>\n");//汇率
+//    	            }
+//    	        }
     			
     			xml.append("<PaymentRequestBillNumber>"+StringUtilBPM.isNULl(Info.getNumber())+"</PaymentRequestBillNumber>\n");//付款申请单编码
-    			BigDecimal localamount = Info.getAmount().setScale(2, 4);
-                String cap = FDCClientHelper.getChineseFormat(localamount, false);
-    			xml.append("<capitalAmount>"+StringUtilBPM.isNULl(cap)+"</capitalAmount>\n");//大写金额
+    		   //BigDecimal localamount = Info.getAmount().setScale(2, 4);
+               // String cap = StringUtilBPM.getChineseFormat(localamount, false);
+    		   // xml.append("<capitalAmount>"+StringUtilBPM.isNULl(cap)+"</capitalAmount>\n");//大写金额
     			xml.append("<completePrjAmt>"+Info.getAmount()+"</completePrjAmt>\n");//本期完成工程量
     			//xml.append("<PaymentProportion>"+Info.getPaymentProportion()+"</PaymentProportion>\n"); 进度款付款比例
-    			//xml.append("<MoneyDesc>"+Info.getMoneyDesc()+"</MoneyDesc>\n");  款项说明
+    			//xml.append("<MoneyDesc>"+Info.getDescription()+"</MoneyDesc>\n");  款项说明
     			//xml.append("<Urgency>"+Info.getNoPaidReason()+"</Urgency>\n");  //加急
-    			xml.append("<PlanProject>"+Info.getFdcDepConPlan()+"</PlanProject>\n");  //计划项目
-    		    xml.append("<isCostSplit>"+Info.isIsCostSplit()+"</isCostSplit>\n");  //是否进入动态成本
-    			xml.append("<NoPaidReason>"+Info.getNoPaidReason()+"</NoPaidReason>\n");  //无需付款原因
+    			
+    			//if(Info.getFdcDepConPlan()!=null)
+    			//xml.append("<PlanProject>"+Info.getFdcDepConPlan()+"</PlanProject>\n");  //计划项目
+    			//else
+    			//{
+    			//	xml.append("<PlanProject></PlanProject>\n");
+    			//}
+    			if(false==Info.isIsCostSplit())
+    		    xml.append("<isCostSplit>否</isCostSplit>\n");  //是否进入动态成本
+    			else
+    			{
+    				xml.append("<isCostSplit>是</isCostSplit>\n");  //是否进入动态成本
+    			}
+    			
     			
     			if(Info.getDepPlanState()!=null)
-    			xml.append("<DepPlanState>"+Info.getDepPlanState().getName()+"</DepPlanState>\n");  //无需付款
+    			{
+    			//xml.append("<DepPlanState>"+Info.getDepPlanState().getName()+"</DepPlanState>\n");  //无需付款
+    				xml.append("<DepPlanState>"+Info.getDepPlanState().getAlias()+"</DepPlanState>\n");  //无需付款
+    			}
        			xml.append("<invoicenumber>"+StringUtilBPM.isNULl(Info.getInvoiceNumber())+"</invoicenumber>\n");  //发票号
     			xml.append("<invoiceDate>"+dateFormat.format(Info.getInvoiceDate())+"</invoiceDate>\n");       //开票日期
     			if(Info.getSettlementType()!=null)
+    			{
     			xml.append("<settlementType>"+Info.getSettlementType().getName()+"</settlementType>\n");       //结算方式
+    			}
     			xml.append("<bank>"+StringUtilBPM.isNULl(Info.getBank())+"</bank>\n");                         //收款银行
+    			if(Info.getBankAcct()!=null)
     			xml.append("<BankAcct>"+Info.getBankAcct()+"</BankAcct>\n");                                   //银行账号
+    			else
+    			{
+    				xml.append("<BankAcct></BankAcct>\n");                                   //银行账号
+    			}
                 xml.append("</DATA>"); 
                 str[1] = xml.toString();
 			}
@@ -281,6 +315,7 @@ public class ContractWithoutTextFacade implements BillBaseSelector {
 		sic.add(new SelectorItemInfo("curProject.number"));
 		sic.add(new SelectorItemInfo("curProject.name"));
 		sic.add(new SelectorItemInfo("currency.name"));
+		sic.add(new SelectorItemInfo("currency.id"));
 		sic.add(new SelectorItemInfo("useDepartment.id"));
 		sic.add(new SelectorItemInfo("useDepartment.number"));
 		sic.add(new SelectorItemInfo("useDepartment.name"));
@@ -305,6 +340,10 @@ public class ContractWithoutTextFacade implements BillBaseSelector {
 		sic.add(new SelectorItemInfo("Name"));
 		sic.add(new SelectorItemInfo("Number"));
 		sic.add(new SelectorItemInfo("IsCostSplit"));
+		sic.add(new SelectorItemInfo("State"));
+		sic.add(new SelectorItemInfo("NoPaidReason"));
+		sic.add(new SelectorItemInfo("bank"));
+		//sic.add(new SelectorItemInfo("FdcDepConPlan"));
 		return sic;
     }
 

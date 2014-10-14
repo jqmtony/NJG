@@ -27,6 +27,7 @@ import com.kingdee.eas.fdc.contract.ContractBillFactory;
 import com.kingdee.eas.fdc.contract.ContractBillInfo;
 import com.kingdee.eas.fdc.contract.ContractPayItemFactory;
 import com.kingdee.eas.fdc.contract.ContractPayItemInfo;
+import com.kingdee.eas.basedata.org.FullOrgUnitInfo;
 
 public class ContractFacade implements BillBaseSelector {
 	
@@ -78,7 +79,7 @@ public class ContractFacade implements BillBaseSelector {
 		return str;
 	}
 	
-	
+	protected FullOrgUnitInfo orgUnitInfo;
 	public String[] ApproveClose(Context ctx, String strBSID, IObjectValue billInfo,
 			int procInstID, String processInstanceResult, String strComment,
 			Date dtTime) {
@@ -153,7 +154,7 @@ public class ContractFacade implements BillBaseSelector {
 		return str;
 	}
 
-
+	 
 	public String[] GetbillInfo(Context ctx, String strBSID, IObjectValue billInfo) {
 		ContractBillInfo Info = (ContractBillInfo)billInfo;
     	String[] str = new String[3];
@@ -175,13 +176,22 @@ public class ContractFacade implements BillBaseSelector {
     			xml.append("<respDept>"+StringUtilBPM.isNULl(Info.getRespDept().getName())+"</respDept>\n");
     			xml.append("<ApplyDate>"+dateFormat.format(Info.getCreateTime())+"</ApplyDate>\n");
     			xml.append("<Applicant>"+StringUtilBPM.isNULl(Info.getCreator().getName())+"</Applicant>\n");
-    			//xml.append("<ApplicantID>"+Info.getCreator().getId()+"</ApplicantID>\n");
     			xml.append("<ApplicantID>"+StringUtilBPM.isNULl(Info.getCreator().getName())+"</ApplicantID>\n");
-    			xml.append("<isPartAMaterialCon>"+Info.isIsPartAMaterialCon()+"</isPartAMaterialCon>\n");
+    			if(false==Info.isIsPartAMaterialCon())
+    			xml.append("<isPartAMaterialCon>否</isPartAMaterialCon>\n");
+    			else
+    			{
+    				xml.append("<isPartAMaterialCon>是</isPartAMaterialCon>\n");
+    			}
     			xml.append("<creator>"+StringUtilBPM.isNULl(Info.getCreator().getName())+"</creator>\n");
     			xml.append("<createTime>"+dateFormat.format(Info.getCreateTime())+"</createTime>\n");
-    			
-    			//xml.append("<Position></Position>\n");
+    			//xml.append("<createTime>"+Info.getCreator()+"</createTime>\n");
+    			if(Info.getPayPercForWarn()!=null)
+    			xml.append("<payAlertRate>"+Info.getPayPercForWarn()+"</payAlertRate>\n");  //付款提示比例
+    			else
+    			{
+    				xml.append("<payAlertRate>0</payAlertRate>\n");
+    			}
     			xml.append("<Topic>"+StringUtilBPM.isNULl(Info.getName())+"</Topic>\n");
     			xml.append("<CompanyName>"+StringUtilBPM.isNULl(Info.getLandDeveloper().getName())+"</CompanyName>\n");
     			xml.append("<Phase>"+StringUtilBPM.isNULl(Info.getCurProject().getName())+"</Phase>\n");
@@ -189,6 +199,9 @@ public class ContractFacade implements BillBaseSelector {
     			
     			xml.append("<contactNumber>"+StringUtilBPM.isNULl(Info.getNumber())+"</contactNumber>\n");
     			xml.append("<contractName>"+StringUtilBPM.isNULl(Info.getName())+"</contractName>\n");
+    			//FullOrgUnitInfo costOrg =orgUnitInfo;
+    			//costOrg.getDisplayName();
+    			//xml.append("<contractName>"+StringUtilBPM.isNULl(Info)+"</contractName>\n");
     			xml.append("<partA>"+StringUtilBPM.isNULl(Info.getLandDeveloper().getName())+"</partA>\n");
     			xml.append("<partB>"+StringUtilBPM.isNULl(Info.getPartB().getName())+"</partB>\n");
     			if(Info.getPartC()!=null)
@@ -197,8 +210,7 @@ public class ContractFacade implements BillBaseSelector {
     				xml.append("<programmingContract>"+StringUtilBPM.isNULl(Info.getProgrammingContract().getName())+"</programmingContract>\n");
     			if(Info.getProgrammingContract()!=null)
     				xml.append("<controlBalance>"+Info.getProgrammingContract().getControlBalance()+"</controlBalance>\n");
-    			if(Info.getBizDate()!=null)
-    				xml.append("<bizDate>"+Info.getBizDate()+"</bizDate>\n");
+    				xml.append("<bizDate>"+Info.getBookedDate()+"</bizDate>\n");
     			if(Info.getGrtRate()!=null)
     				xml.append("<grtRate>"+Info.getGrtRate()+"</grtRate>\n");
     			if(Info.getGrtAmount()!=null)
@@ -209,7 +221,7 @@ public class ContractFacade implements BillBaseSelector {
     			xml.append("<chgPercForWarn>"+Info.getChgPercForWarn()+"</chgPercForWarn>\n");
    				xml.append("<overRate>"+Info.getOverRate()+"</overRate>\n");
     			if(Info.getPayScale()!=null)
-    				xml.append("<payScale>"+Info.getPayScale()+"</payScale>\n");
+    				xml.append("<payScale>"+Info.getPayScale()+"</payScale>\n");   //进度款提示比例
     			if(Info.getStampTaxAmt()!=null)
     				xml.append("<stampTaxAmt>"+Info.getStampTaxAmt()+"</stampTaxAmt>\n");
     			if(Info.getStampTaxRate()!=null)
@@ -225,7 +237,13 @@ public class ContractFacade implements BillBaseSelector {
     			xml.append("<contractNature>"+StringUtilBPM.isNULl(Info.getContractPropert().getAlias())+"</contractNature>\n");
     			xml.append("<currencyType>"+StringUtilBPM.isNULl(Info.getCurrency().getName())+"</currencyType>\n");
     			xml.append("<rate>"+Info.getExRate()+"</rate>\n");
-    			xml.append("<isCoseSplit>"+Info.isIsCoseSplit()+"</isCoseSplit>\n");
+    			if(false==Info.isIsCoseSplit())
+    			xml.append("<isCoseSplit>否</isCoseSplit>\n");
+    			else
+    			{
+    				xml.append("<isCoseSplit>是</isCoseSplit>\n");
+    			}
+    			
     			xml.append("<billEntries>\n");
     			for(int i=0;i<Info.getEntrys().size();i++){
     				ContractBillEntryInfo entry = Info.getEntrys().get(i);
@@ -430,6 +448,7 @@ public class ContractFacade implements BillBaseSelector {
 		sic.add(new SelectorItemInfo("bail.entry.id"));
 		sic.add(new SelectorItemInfo("bail.amount"));
 		sic.add(new SelectorItemInfo("bail.prop"));
+		sic.add(new SelectorItemInfo("PaidPartAMatlAmt"));
 		return sic;
     }
 

@@ -40,6 +40,10 @@ import com.kingdee.eas.fdc.contract.ContractPayItemFactory;
 import com.kingdee.eas.fdc.contract.ContractPayItemInfo;
 import com.kingdee.eas.fdc.contract.ContractWithoutTextFactory;
 import com.kingdee.eas.fdc.contract.ContractWithoutTextInfo;
+import com.kingdee.eas.fdc.contract.IContractBill;
+import com.kingdee.eas.fdc.contract.programming.ProgrammingContractCollection;
+import com.kingdee.eas.fdc.contract.programming.ProgrammingContractFactory;
+import com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo;
 
 public class ContractReviseFacade implements BillBaseSelector{
 
@@ -151,7 +155,7 @@ public class ContractReviseFacade implements BillBaseSelector{
   			xml.append("<partB>"+StringUtilBPM.isNULl(Info.getPartB().getName())+"</partB>\n");
   			if(Info.getPartC()!=null)
   				xml.append("<partC>"+StringUtilBPM.isNULl(Info.getPartC().getName())+"</partC>\n");
-  				xml.append("<bizDate>"+Info.getBizDate()+"</bizDate>\n");
+  				xml.append("<bizDate>"+Info.getBookedDate()+"</bizDate>\n");
   			if(Info.getGrtRate()!=null)
   				xml.append("<grtRate>"+Info.getGrtRate()+"</grtRate>\n");
   			if(Info.getGrtAmount()!=null)
@@ -182,25 +186,55 @@ public class ContractReviseFacade implements BillBaseSelector{
   			xml.append("<creator>"+Info.getCreator().getName()+"</creator>\n");
   			xml.append("<createTime>"+dateFormat.format(Info.getCreateTime())+"</createTime>\n");
   			xml.append("<respDept>"+Info.getRespDept().getName()+"</respDept>\n");
-  			xml.append("<isPartAMaterialCon>"+Info.isIsPartAMaterialCon()+"</isPartAMaterialCon>\n");
-  			xml.append("<isCoseSplit>"+Info.isIsCoseSplit()+"</isCoseSplit>\n");
-  			
+  			if(false==Info.isIsPartAMaterialCon())
+  			xml.append("<isPartAMaterialCon>·ñ</isPartAMaterialCon>\n");
+  			else
+  			{
+  				xml.append("<isPartAMaterialCon>ÊÇ</isPartAMaterialCon>\n");	
+  			}
+  			if(false==Info.isIsCoseSplit())
+  			xml.append("<isCoseSplit>·ñ</isCoseSplit>\n");
+  			else
+  			{
+  				xml.append("<isCoseSplit>ÊÇ</isCoseSplit>\n");
+  			}
   			xml.append("<chgPercForWarn>"+Info.getChgPercForWarn()+"</chgPercForWarn>\n");
   			xml.append("<contactNumber>"+Info.getContractBill().getNumber()+"</contactNumber>\n");
   			
   			
-/*  			  EntityViewInfo avevi = new EntityViewInfo();
-		      FilterInfo avfilter = new FilterInfo();
-		      avfilter.getFilterItems().add(new FilterItemInfo("number",Info.getContractBill().getNumber(),CompareType.EQUALS));
-		      avevi.setFilter(avfilter);
-		      ContractBillCollection myavc=ContractBillFactory.getRemoteInstance().getContractBillCollection(avevi);
-		      for(int i=0;i< myavc.size();i++){
-         	    ContractBillInfo avInfo = myavc.get(i);
-           	   xml.append("<programmingContract>"+avInfo.getProgrammingContract()+"</programmingContract>\n");
-           	   if(avInfo.getProgrammingContract()!=null)
-           	   xml.append("<controlBalance>"+avInfo.getProgrammingContract().getControlBalance()+"</controlBalance>\n");
-           	   xml.append("<overRate>"+avInfo.getOverRate()+"</overRate>\n");
-              }*/
+  			  EntityViewInfo Myavevi = new EntityViewInfo();
+		      FilterInfo Myavfilter = new FilterInfo();
+		      Myavfilter.getFilterItems().add(new FilterItemInfo("number",Info.getContractBill().getNumber().toString().trim(),CompareType.EQUALS));
+		      Myavevi.setFilter(Myavfilter);
+		      ContractBillCollection myavc=ContractBillFactory.getLocalInstance(ctx).getContractBillCollection(Myavevi);
+		      if(myavc.size()>0)
+		      {
+		        for(int i=0;i< myavc.size();i++){
+         	     ContractBillInfo avInfo = myavc.get(i);
+         	     ProgrammingContractInfo info=myavc.get(i).getProgrammingContract();
+         	     myavc.get(i).getProgrammingContract();
+         	     myavc.get(i).getId();
+         	     myavc.get(i).getProgrammingContract().getAmount();
+         	     EntityViewInfo Myavevi2 = new EntityViewInfo();
+  		         FilterInfo Myavfilter2 = new FilterInfo();
+  		         Myavfilter2.getFilterItems().add(new FilterItemInfo("id",avInfo.getProgrammingContract(),CompareType.EQUALS));
+
+  		         ProgrammingContractCollection myavc2= ProgrammingContractFactory.getRemoteInstance().getProgrammingContractCollection(Myavevi2);
+  		      
+//  		         if(myavc2.size()>0)
+//  		         {
+//         	     for(int j=0;j< myavc2.size();j++)
+//         	     {	 
+//         	     ProgrammingContractInfo proInfo2=myavc2.get(j);
+//         	     if(avInfo.getProgrammingContract()!=null)
+//           	     xml.append("<programmingContract>"+proInfo2.getName()+"</programmingContract>\n");
+//           	     if(avInfo.getProgrammingContract()!=null)
+//           	     xml.append("<controlBalance>"+proInfo2.getControlBalance()+"</controlBalance>\n");
+//         	      }
+//  		         }
+         	    xml.append("<overRate>"+avInfo.getOverRate()+"</overRate>\n");
+                }
+		      }
    
   			
   			
@@ -210,7 +244,7 @@ public class ContractReviseFacade implements BillBaseSelector{
 				ContractBillReviseEntryInfo entry = Info.getEntrys().get(i);
 				entry = ContractBillReviseEntryFactory.getLocalInstance(ctx).getContractBillReviseEntryInfo(new ObjectUuidPK(entry.getId()));
 				xml.append("<item>\n");
-				xml.append("<detial>"+StringUtilBPM.isNULl(entry.getDetail())+"</detial>\n");
+				xml.append("<detail>"+StringUtilBPM.isNULl(entry.getDetail())+"</detail>\n");
 				xml.append("<content>"+StringUtilBPM.isNULl(entry.getContent())+"</content>\n");
 				xml.append("<remark>"+StringUtilBPM.isNULl(entry.getDesc())+"</remark>\n");
 				xml.append("</item>\n");
@@ -367,6 +401,10 @@ public class ContractReviseFacade implements BillBaseSelector{
 		 sic.add(new SelectorItemInfo("Detail"));
 		 sic.add(new SelectorItemInfo("Content"));
 		 sic.add(new SelectorItemInfo("Desc"));
+		 sic.add(new SelectorItemInfo("State"));
+		 
+		 
+		 sic.add(new SelectorItemInfo("ProgrammingContract"));
 		return sic;
 	}
 
