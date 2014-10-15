@@ -9,8 +9,12 @@ import com.kingdee.bos.BOSException;
 import com.kingdee.bos.Context;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.bos.metadata.entity.EntityViewInfo;
+import com.kingdee.bos.metadata.entity.FilterInfo;
+import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.metadata.entity.SelectorItemInfo;
+import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.eas.basedata.assistant.CurrencyInfo;
 import com.kingdee.eas.basedata.assistant.ExchangeRateFactory;
 import com.kingdee.eas.basedata.assistant.ExchangeRateInfo;
@@ -29,8 +33,18 @@ import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
 import com.kingdee.eas.fdc.basedata.PaymentTypeFactory;
 import com.kingdee.eas.fdc.basedata.PaymentTypeInfo;
 import com.kingdee.eas.fdc.basedata.client.FDCClientHelper;
+import com.kingdee.eas.fdc.contract.ContractBaseDataCollection;
+import com.kingdee.eas.fdc.contract.ContractBaseDataFactory;
+import com.kingdee.eas.fdc.contract.ContractBillCollection;
+import com.kingdee.eas.fdc.contract.ContractBillFactory;
+import com.kingdee.eas.fdc.contract.ContractBillInfo;
 import com.kingdee.eas.fdc.contract.ContractWithoutTextFactory;
 import com.kingdee.eas.fdc.contract.ContractWithoutTextInfo;
+import com.kingdee.eas.fdc.contract.PayRequestBillCollection;
+import com.kingdee.eas.fdc.contract.PayRequestBillFactory;
+import com.kingdee.eas.fdc.contract.PayRequestBillInfo;
+import com.kingdee.eas.fdc.contract.programming.ProgrammingContractFactory;
+import com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo;
 
 public class ContractWithoutTextFacade implements BillBaseSelector {
 	
@@ -255,8 +269,21 @@ public class ContractWithoutTextFacade implements BillBaseSelector {
     		    xml.append("<capitalAmount>"+s+"</capitalAmount>\n");//大写金额
     			xml.append("<completePrjAmt>"+Info.getAmount()+"</completePrjAmt>\n");//本期完成工程量
     			
+    			 EntityViewInfo Myavevi = new EntityViewInfo();
+   		         FilterInfo Myavfilter = new FilterInfo();
+   		         Myavfilter.getFilterItems().add(new FilterItemInfo("number",Info.getNumber(),CompareType.EQUALS));
+   		         Myavevi.setFilter(Myavfilter);
+   		         PayRequestBillCollection myavc=PayRequestBillFactory.getLocalInstance(ctx).getPayRequestBillCollection(Myavevi);
+   		          if(myavc.size()>0)
+   		           {
+   		            for(int i=0;i< myavc.size();i++){  	     
+   		            	PayRequestBillInfo info=PayRequestBillFactory.getLocalInstance(ctx).getPayRequestBillInfo(new ObjectUuidPK(myavc.get(i).getId()));
+   		            	xml.append("<MoneyDesc>"+info.getMoneyDesc()+"</MoneyDesc>\n");
+   		            	xml.append("<PaymentProportion>"+info.getPaymentProportion()+"</PaymentProportion>\n");
+   		           }
+   		           }     
     			//xml.append("<PaymentProportion>"+Info.getPaymentProportion()+"</PaymentProportion>\n"); 进度款付款比例
-    			//xml.append("<MoneyDesc>"+Info.getDescription()+"</MoneyDesc>\n");  款项说明
+    			//xml.append("<MoneyDesc>"+Info.getDescription()+"</MoneyDesc>\n");  款项说明   PayRequestBillInfo
     			//xml.append("<Urgency>"+Info.getNoPaidReason()+"</Urgency>\n");  //加急
     			
     			//if(Info.getFdcDepConPlan()!=null)
@@ -356,7 +383,9 @@ public class ContractWithoutTextFacade implements BillBaseSelector {
 		sic.add(new SelectorItemInfo("State"));
 		sic.add(new SelectorItemInfo("NoPaidReason"));
 		sic.add(new SelectorItemInfo("bank"));
-		//sic.add(new SelectorItemInfo("FdcDepConPlan"));
+		sic.add(new SelectorItemInfo("ContractBaseData"));
+		sic.add(new SelectorItemInfo("MoneyDesc"));
+		sic.add(new SelectorItemInfo("PaymentProportion"));
 		return sic;
     }
 

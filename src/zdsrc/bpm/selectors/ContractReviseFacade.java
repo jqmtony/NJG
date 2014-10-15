@@ -45,6 +45,7 @@ import com.kingdee.eas.fdc.contract.IContractBill;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractCollection;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractFactory;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo;
+import com.kingdee.eas.fdc.contract.programming.ProgrammingFactory;
 
 public class ContractReviseFacade implements BillBaseSelector{
 
@@ -156,7 +157,7 @@ public class ContractReviseFacade implements BillBaseSelector{
   			xml.append("<partB>"+StringUtilBPM.isNULl(Info.getPartB().getName())+"</partB>\n");
   			if(Info.getPartC()!=null)
   				xml.append("<partC>"+StringUtilBPM.isNULl(Info.getPartC().getName())+"</partC>\n");
-  				xml.append("<bizDate>"+Info.getBookedDate()+"</bizDate>\n");
+  				xml.append("<bizDate>"+dateFormat.format(Info.getCreateTime())+"</bizDate>\n");
   			if(Info.getGrtRate()!=null)
   				xml.append("<grtRate>"+Info.getGrtRate()+"</grtRate>\n");
   			if(Info.getGrtAmount()!=null)
@@ -187,6 +188,7 @@ public class ContractReviseFacade implements BillBaseSelector{
   			xml.append("<creator>"+Info.getCreator().getName()+"</creator>\n");
   			xml.append("<createTime>"+dateFormat.format(Info.getCreateTime())+"</createTime>\n");
   			xml.append("<respDept>"+Info.getRespDept().getName()+"</respDept>\n");
+  			xml.append("<payAlertRate>"+Info.getPayPercForWarn()+"</payAlertRate>\n");
   			if(false==Info.isIsPartAMaterialCon())
   			xml.append("<isPartAMaterialCon>·ñ</isPartAMaterialCon>\n");
   			else
@@ -210,29 +212,27 @@ public class ContractReviseFacade implements BillBaseSelector{
 		      ContractBillCollection myavc=ContractBillFactory.getLocalInstance(ctx).getContractBillCollection(Myavevi);
 		      if(myavc.size()>0)
 		      {
-		        for(int i=0;i< myavc.size();i++){
-         	     ContractBillInfo avInfo = myavc.get(i);
-         	     ContractBillInfo info=ContractBillFactory.getLocalInstance(ctx).getContractBillInfo(new ObjectUuidPK(myavc.get(i).getId()));
+		        for(int i=0;i< myavc.size();i++){  	     
+         	    ContractBillInfo info=ContractBillFactory.getLocalInstance(ctx).getContractBillInfo(new ObjectUuidPK(myavc.get(i).getId()));
          	    //ProgrammingContractInfo info=myavc.get(i).getProgrammingContract();
          	     info.getProgrammingContract();
           	     EntityViewInfo Myavevi2 = new EntityViewInfo();
   		         FilterInfo Myavfilter2 = new FilterInfo();
-  		         Myavfilter2.getFilterItems().add(new FilterItemInfo("id",avInfo.getProgrammingContract(),CompareType.EQUALS));
-
-  		         ProgrammingContractCollection myavc2= ProgrammingContractFactory.getRemoteInstance().getProgrammingContractCollection(Myavevi2);
-  		      
-//  		         if(myavc2.size()>0)
-//  		         {
-//         	     for(int j=0;j< myavc2.size();j++)
-//         	     {	 
-//         	     ProgrammingContractInfo proInfo2=myavc2.get(j);
-//         	     if(avInfo.getProgrammingContract()!=null)
-//           	     xml.append("<programmingContract>"+proInfo2.getName()+"</programmingContract>\n");
-//           	     if(avInfo.getProgrammingContract()!=null)
-//           	     xml.append("<controlBalance>"+proInfo2.getControlBalance()+"</controlBalance>\n");
-//         	      }
-//  		         }
-         	    xml.append("<overRate>"+avInfo.getOverRate()+"</overRate>\n");
+  		         Myavfilter2.getFilterItems().add(new FilterItemInfo("id",info.getProgrammingContract().getId()));
+  		         //ProgrammingContractCollection myavc2= ProgrammingContractFactory.getLocalInstance(ctx).getProgrammingContractCollection(Myavevi2);
+  		         //if(myavc2.size()>0)
+  		         //{
+         	     //for(int j=0;j< myavc2.size();j++)
+         	     //{	 
+         	     ProgrammingContractInfo proInfo2=ProgrammingContractFactory.getLocalInstance(ctx).getProgrammingContractInfo(new ObjectUuidPK(info.getProgrammingContract().getId()));
+         	     if(proInfo2.getName()!=null)
+           	     xml.append("<programmingContract>"+proInfo2.getName()+"</programmingContract>\n");
+           	     if(proInfo2.getControlBalance()!=null)
+           	     xml.append("<controlBalance>"+proInfo2.getControlBalance()+"</controlBalance>\n");
+           	    // break;
+         	    // }
+  		        // }
+         	    xml.append("<overRate>"+info.getOverRate()+"</overRate>\n");
                 }
 		      }
    

@@ -52,7 +52,7 @@ public class ChangeAuditFacade implements BillBaseSelector {
 			try {
 				if ("1".equals(processInstanceResult)) {
 					if (FDCBillStateEnum.AUDITTING.equals(Info.getState()))
-						Info.setState(FDCBillStateEnum.AUDITTED);
+						Info.setState(FDCBillStateEnum.AUDITTED);		
 					else {
 						str[2] = "审批通过失败，该记录状态不是审批中！";
 						str[0] = "N";
