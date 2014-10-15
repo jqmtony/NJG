@@ -56,7 +56,7 @@ public class ContractBillReviseEditUIPIEx extends ContractBillReviseEditUI{
     	this.actionNextPerson.setVisible(false);
     	
     	this.btnRemove.setVisible(true);
-    	//this.b
+    	this.btnAttachment.setEnabled(false);
     	
     	this.btnSubmit.setText("提交BPM流程");
     	this.btnSubmit.setToolTipText("提交BPM流程");
@@ -82,25 +82,25 @@ public class ContractBillReviseEditUIPIEx extends ContractBillReviseEditUI{
     public void actionSubmit_actionPerformed(ActionEvent e) throws Exception {
     	super.actionSubmit_actionPerformed(e);
     	
-    	//String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=HT02&userid="+SysContext.getSysContext().getUserName()+"";
-    	//creatFrame(url);
+    	String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=HT02&userid="+SysContext.getSysContext().getUserName()+"";
+    	creatFrame(url);
     	//String[] xml = getInfoFacadeFactory.getRemoteInstance().GetbillInfo("",editData.getId().toString());
     	//String [] str1= getInfoFacadeFactory.getRemoteInstance().ApproveClose("", editData.getId().toString(), 1, "1", "",null);
     	//MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
     	
-    	String [] str1 = new String[3];
-	   	EASLoginProxy login = new EASLoginProxyServiceLocator().getEASLogin(new URL("http://127.0.0.1:56898/ormrpc/services/EASLogin"));
-	   	WSContext  ws = login.login("kd-user", "kduser", "eas", "kd_002", "l2", 1);
-	    if(ws.getSessionId()!=null){
-	    	WSgetInfoFacadeSrvProxy pay = new WSgetInfoFacadeSrvProxyServiceLocator().getWSgetInfoFacade(new URL("http://127.0.0.1:56898/ormrpc/services/WSgetInfoFacade"));
-            str1 = pay.getbillInfo("", editData.getId().toString());
-	    	MsgBox.showInfo(str1[0] + str1[1] + str1[2]);
-	    	String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=FK01";
-	    	str1 = pay.submitResult("", editData.getId().toString(), true, 1,url, "dYkAAAAAmMgNbdH0");
-	    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
-	    	str1 = pay.approveClose("", editData.getId().toString(), 1, "0", "",null);
-	    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
-	    }
+//    	String [] str1 = new String[3];
+//	   	EASLoginProxy login = new EASLoginProxyServiceLocator().getEASLogin(new URL("http://127.0.0.1:56898/ormrpc/services/EASLogin"));
+//	   	WSContext  ws = login.login("kd-user", "kduser", "eas", "kd_002", "l2", 1);
+//	    if(ws.getSessionId()!=null){
+//	    	WSgetInfoFacadeSrvProxy pay = new WSgetInfoFacadeSrvProxyServiceLocator().getWSgetInfoFacade(new URL("http://127.0.0.1:56898/ormrpc/services/WSgetInfoFacade"));
+//            str1 = pay.getbillInfo("", editData.getId().toString());
+//	    	MsgBox.showInfo(str1[0] + str1[1] + str1[2]);
+//	    	String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=FK01";
+//	    	str1 = pay.submitResult("", editData.getId().toString(), true, 1,url, "dYkAAAAAmMgNbdH0");
+//	    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
+//	    	str1 = pay.approveClose("", editData.getId().toString(), 1, "0", "",null);
+//	    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
+//	    }
     	
     	
     	

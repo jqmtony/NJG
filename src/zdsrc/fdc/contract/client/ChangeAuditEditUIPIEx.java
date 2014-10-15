@@ -60,6 +60,7 @@ public class ChangeAuditEditUIPIEx extends ChangeAuditEditUI{
     	this.btnSubmit.setText("提交BPM流程");
     	this.btnSubmit.setToolTipText("提交BPM流程");
     	btnWorkFlowG.setVisible(false);
+    	this.btnAttachment.setEnabled(false);
     	this.btnAttachment.setText("撤销BPM流程");
     	this.btnAttachment.setToolTipText("撤销BPM流程");
     }
