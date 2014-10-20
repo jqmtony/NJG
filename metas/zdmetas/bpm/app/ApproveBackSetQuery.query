@@ -758,6 +758,37 @@
                 <key name="name" value="ApproveBackSetQuery" />
             </query>
         </queryField>
+        <queryField>
+            <name>view</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[view].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>b0133cb3-a583-41eb-8c49-6b3fb07b2be8</key>
+                    <parentUnit>
+                        <key name="name" value="view" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ApproveBackSet" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="view" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpm.app" />
+                <key name="name" value="ApproveBackSetQuery" />
+            </query>
+        </queryField>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -1411,6 +1442,22 @@
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[view].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="试图sql" />
+            <lang locale="zh_HK" value="試圖sql" />
+            <lang locale="zh_TW" value="試圖sql" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[view].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[view].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
     </resource>
 </joinQuery>

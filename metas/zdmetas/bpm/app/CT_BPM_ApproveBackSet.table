@@ -71,7 +71,7 @@
             <isMultilingual>false</isMultilingual>
             <isEncoded>false</isEncoded>
             <isNullable>false</isNullable>
-            <defaultValue />
+            <defaultValue>''</defaultValue>
             <sqlType>VARCHAR</sqlType>
             <length>44</length>
             <scale>0</scale>
@@ -155,9 +155,23 @@
             <isMultilingual>false</isMultilingual>
             <isEncoded>false</isEncoded>
             <isNullable>true</isNullable>
-            <defaultValue>11111111-1111-1111-1111-111111111111CCE7AED4</defaultValue>
+            <defaultValue>'11111111-1111-1111-1111-111111111111CCE7AED4'</defaultValue>
             <sqlType>VARCHAR</sqlType>
             <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFView</name>
+            <alias>dataTable[com.kingdee.eas.bpm.app.CT_BPM_ApproveBackSet].columns.column[CFView].alias</alias>
+            <description>dataTable[com.kingdee.eas.bpm.app.CT_BPM_ApproveBackSet].columns.column[CFView].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>2000</length>
             <scale>0</scale>
             <precision>0</precision>
         </column>
@@ -240,6 +254,18 @@
             <lang locale="zh_CN" value="审批反写字段设置" />
             <lang locale="zh_HK" value="審批反寫字段設置" />
             <lang locale="zh_TW" value="審批反寫字段設置" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.bpm.app.CT_BPM_ApproveBackSet].columns.column[CFView].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="试图sql" />
+            <lang locale="zh_HK" value="試圖sql" />
+            <lang locale="zh_TW" value="試圖sql" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.bpm.app.CT_BPM_ApproveBackSet].columns.column[CFView].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="备注" />
+            <lang locale="zh_HK" value="備註" />
+            <lang locale="zh_TW" value="備註" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.bpm.app.CT_BPM_ApproveBackSet].columns.column[FControlUnitID].alias">
             <lang locale="en_US" value="null" />
