@@ -164,13 +164,11 @@ public class ChangeAuditEditUIPIEx extends ChangeAuditEditUI{
 //	    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
 //	    }
        
-      // editData.setChangeState(ChangeBillStateEnum.Saved);
     	String sql = " update T_CON_ChangeAuditBill set fChangeState='1SAVED' where fid='"+editData.getId()+"'";
 		FDCSQLBuilder bu = new FDCSQLBuilder();
 		bu.appendSql(sql);
 		bu.executeUpdate();
-       String u=editData.getId().toString();
-       
+        String u=editData.getId().toString();
 	   String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+u+"&btid=BGQZ01&userid="+SysContext.getSysContext().getUserName()+"";
        creatFrame(url);
        editData.setChangeState(ChangeBillStateEnum.Saved);	
