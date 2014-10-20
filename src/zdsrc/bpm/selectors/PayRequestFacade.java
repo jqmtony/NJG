@@ -42,7 +42,8 @@ public class PayRequestFacade implements BillBaseSelector {
 			}
 			try{
 				Info.setState(FDCBillStateEnum.AUDITTING);
-				String sql = " update t_con_payrequestbill set fState='"+Info.getState().getValue()+"'" +
+				//String sql = " update t_con_payrequestbill set fState='"+Info.getState().getValue()+"'" +
+				String sql = " update t_con_payrequestbill set fState='4Auditting'" +
 						", fDescription='"+procURL+"' " +
 						", FSourceFunction='"+procInstID+"' where fid='"+Info.getId()+"'";
 				FDCSQLBuilder bu = new FDCSQLBuilder(ctx);
@@ -99,7 +100,8 @@ public class PayRequestFacade implements BillBaseSelector {
 				}
 				if("0".equals(processInstanceResult)){
 					if(FDCBillStateEnum.AUDITTING.equals(Info.getState()))
-						Info.setState(FDCBillStateEnum.INVALID);
+						//Info.setState(FDCBillStateEnum.INVALID);
+						Info.setState(FDCBillStateEnum.SAVED);
 					else{
 						str[2] = "审批不通过失败，该记录状态不是审批中！";
 						str[0] = "N";

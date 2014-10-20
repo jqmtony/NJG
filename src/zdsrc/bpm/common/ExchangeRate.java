@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.sql.SQLException;
 
 import com.kingdee.bos.BOSException;
+import com.kingdee.bos.Context;
 import com.kingdee.bos.dao.query.IQueryExecutor;
 import com.kingdee.bos.dao.query.QueryExecutorFactory;
 import com.kingdee.bos.metadata.MetaDataPK;
@@ -24,8 +25,8 @@ public class ExchangeRate {
 	 * @throws BOSException 
 	 * @throws SQLException 
 	 */
-	public static IRowSet queryRate(String newCurrency,String exchangeDate,String quoteprice){
-		IQueryExecutor iqec = QueryExecutorFactory.getRemoteInstance(new MetaDataPK("com.kingdee.eas.basedata.assistant.app","ExchangeRateQuery"));
+	public static IRowSet queryRate(Context ctx,String newCurrency,String exchangeDate,String quoteprice){
+		IQueryExecutor iqec = QueryExecutorFactory.getLocalInstance(ctx,(new MetaDataPK("com.kingdee.eas.basedata.assistant.app","ExchangeRateQuery")));
 		EntityViewInfo envi = new EntityViewInfo();
 		FilterInfo filter = new FilterInfo();
 		// 原币
@@ -57,9 +58,9 @@ public class ExchangeRate {
 	 * @throws BOSException 
 	 * @throws SQLException 
 	 */
-	public static BigDecimal getRate(String newCurrency,String exchangeDate,String quoteprice){
+	public static BigDecimal getRate(Context ctx,String newCurrency,String exchangeDate,String quoteprice){
 		BigDecimal price = null;
-		IRowSet rowSet =  queryRate(newCurrency , exchangeDate,quoteprice);
+		IRowSet rowSet =  queryRate(ctx,newCurrency , exchangeDate,quoteprice);
 		
 		// 设置汇率值
 		if(rowSet != null){

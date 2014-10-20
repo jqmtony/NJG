@@ -65,6 +65,7 @@ public class ContractWithoutTextFacade implements BillBaseSelector {
 			try{
 				Info.setState(FDCBillStateEnum.AUDITTING);
 				String sql = " update t_con_contractwithouttext set fState='"+Info.getState().getValue()+"'" +
+				//String sql = " update t_con_contractwithouttext set fState='4Auditting'" +
 						", fDescription='"+procURL+"' " +
 						", FSourceFunction='"+procInstID+"' where fid='"+Info.getId()+"'";
 				FDCSQLBuilder bu = new FDCSQLBuilder(ctx);
@@ -121,7 +122,8 @@ public class ContractWithoutTextFacade implements BillBaseSelector {
 				}
 				if("0".equals(processInstanceResult)){
 					if(FDCBillStateEnum.AUDITTING.equals(Info.getState()))
-						Info.setState(FDCBillStateEnum.INVALID);
+						//Info.setState(FDCBillStateEnum.INVALID);
+						Info.setState(FDCBillStateEnum.SAVED);
 					else{
 						str[2] = "审批不通过失败，该记录状态不是审批中！";
 						str[0] = "N";
@@ -232,9 +234,15 @@ public class ContractWithoutTextFacade implements BillBaseSelector {
     			xml.append("<realSupplier>"+StringUtilBPM.isNULl(Info.getReceiveUnit().getName())+"</realSupplier>\n");//实际收款单位
     			
     			
-    			BigDecimal rate = ExchangeRate.getRate(Info.getCurrency().getName(), Info.getBizDate().toString(), "1");
+    			BigDecimal rate = ExchangeRate.getRate(ctx,Info.getCurrency().getName(), Info.getBizDate().toString(), "1");
+    			if(rate!=null)
+    			{
     			xml.append("<exchangeRate>"+rate+"</exchangeRate>\n");//汇率
-    			
+    			}
+    			else
+    			{
+    				xml.append("<exchangeRate>1</exchangeRate>\n");//汇率
+    			}
     			
 //    			String srcid = Info.getCurrency().getId().toString();
 //    			CompanyOrgUnitInfo currentOrg = (CompanyOrgUnitInfo) ctx.get(SysContextConstant.COMPANYINFO);
@@ -298,8 +306,14 @@ public class ContractWithoutTextFacade implements BillBaseSelector {
     			{
     				xml.append("<isCostSplit>是</isCostSplit>\n");  //是否进入动态成本
     			}
-    			
-    			
+    			if(false==Info.isIsNeedPaid())
+    			{
+    			xml.append("<isNeedPaid>否</isNeedPaid>\n");
+    			}
+    			else
+    			{
+    				xml.append("<isNeedPaid>是</isNeedPaid>\n");
+    			}
     			if(Info.getDepPlanState()!=null)
     			{
     			//xml.append("<DepPlanState>"+Info.getDepPlanState().getName()+"</DepPlanState>\n");  //无需付款
@@ -386,6 +400,7 @@ public class ContractWithoutTextFacade implements BillBaseSelector {
 		sic.add(new SelectorItemInfo("ContractBaseData"));
 		sic.add(new SelectorItemInfo("MoneyDesc"));
 		sic.add(new SelectorItemInfo("PaymentProportion"));
+		sic.add(new SelectorItemInfo("IsNeedPaid"));
 		return sic;
     }
 

@@ -62,7 +62,8 @@ public class ChangeOfSettlementFacade {
 				}
 				if ("0".equals(processInstanceResult)) {
 					if (FDCBillStateEnum.AUDITTING.equals(Info.getState()))
-						Info.setState(FDCBillStateEnum.INVALID);
+						//Info.setState(FDCBillStateEnum.INVALID);
+						Info.setState(FDCBillStateEnum.SAVED);
 					else {
 						str[2] = "审批不通过失败，该记录状态不是审批中！";
 						str[0] = "N";
@@ -70,7 +71,8 @@ public class ChangeOfSettlementFacade {
 				}
 				if ("2".equals(processInstanceResult)) {
 					if (FDCBillStateEnum.AUDITTING.equals(Info.getState()))
-						Info.setState(FDCBillStateEnum.BACK);
+//						Info.setState(FDCBillStateEnum.BACK);
+						Info.setState(FDCBillStateEnum.SAVED);
 					else {
 						str[2] = "审批打回失败，该记录状态不是审批中！";
 						str[0] = "N";
@@ -137,8 +139,9 @@ public class ChangeOfSettlementFacade {
 			xml.append("<name>"+ StringUtilBPM.isNULl(Info.getChangeType().getName())+ "</name>\n"); // 指令单名称
 			xml.append("<number>"+ StringUtilBPM.isNULl(Info.getContractBillNumber())+ "</number>\n"); // 指令单编码
 			if(Info.getCurrency()!=null)
-			xml.append("<Currency>"+ StringUtilBPM.isNULl(Info.getCurrency().getName())+ "</Currency>\n"); // 币别
+			xml.append("<currency>"+ StringUtilBPM.isNULl(Info.getCurrency().getName())+ "</currency>\n"); // 币别
 			xml.append("<ExRate>"+ Info.getExRate()+ "</ExRate>\n"); // 汇率
+			xml.append("<Topic>"+Info.getContractBill().getId()+ "变更结算单</Topic>\n"); // 标题
 			xml.append("<OriBalanceAmount>"+Info.getOriBalanceAmount()+ "</OriBalanceAmount>\n"); // 结算币金额
 			xml.append("<BalanceAmount>"+ Info.getBalanceAmount()+ "</BalanceAmount>\n"); // 结算本位币金额
             if(Info.getContractBill()!=null)
@@ -147,13 +150,13 @@ public class ChangeOfSettlementFacade {
 			xml.append("<contractName>"+ Info.getContractBill().getName()+ "</contractName>\n"); // 合同名称
             }
 			if(Info.getMainSupp()!=null)
-				
+		    xml.append("<mainSupp>"+StringUtilBPM.isNULl(Info.getMainSupp().getName())+ "</mainSupp>\n"); // 主送单位	
 			
 				
-			xml.append("<orgunit>"+ Info.getOrgUnit().getName()+ "</orgunit>\n"); // 组织
-			xml.append("<curProject>"+ Info.getCurProject().getName()+ "</curProject>\n"); // 工程项目
+			xml.append("<CompanyName>"+ Info.getOrgUnit().getName()+ "</CompanyName>\n"); // 组织
+			xml.append("<Phase>"+ Info.getCurProject().getName()+ "</Phase>\n"); // 工程项目
 				
-			xml.append("<mainSupp>"+StringUtilBPM.isNULl(Info.getMainSupp().getName())+ "</mainSupp>\n"); // 主送单位
+			
 			if(false==Info.isIsDeduct())
 			xml.append("<isDeduct>否</isDeduct>\n"); // 是否责任扣款部门
 			else
@@ -163,8 +166,15 @@ public class ChangeOfSettlementFacade {
 			//xml.append("<currency>"+ Info.getBalanceAmount()+ "</currency>\n"); // 币别
 			xml.append("<exchangeRate>"+ Info.getExRate()+ "</exchangeRate>\n"); // 汇率
 			xml.append("<originalAmount>"+ Info.getOriginalAmount()+ "</originalAmount>\n"); // 预算原币金额
-			xml.append("<amount>"+ Info.getAmount()+ "</amount>\n"); // 预算本币金额
-			xml.append("<isSureChangeAmt>"+ Info.isIsSureChangeAmt()+ "</isSureChangeAmt>\n"); // 是否确定变更金额
+			xml.append("<unitPrice>"+ Info.getAmount()+ "</unitPrice>\n"); // 预算本币金额
+			if(false==Info.isIsSureChangeAmt())
+			{
+			xml.append("<isSureChangeAmt>否</isSureChangeAmt>\n"); // 是否确定变更金额
+			}
+			else
+			{
+			 xml.append("<isSureChangeAmt>是</isSureChangeAmt>\n"); // 是否确定变更金额
+			}
 			xml.append("<deductReason>"+ Info.getDeductReason()+ "</deductReason>\n"); // 扣款原因
 			xml.append("<deductAmount>"+ Info.getDeductAmount()+ "</deductAmount>\n"); // 扣款金额
 			xml.append("<changeAuditNumber>"+ Info.getChangeAuditNumber()+ "</changeAuditNumber>\n"); // 变更单编号
@@ -174,9 +184,9 @@ public class ChangeOfSettlementFacade {
 			if(Info.getInvalidCostReason()!=null)
 			xml.append("<invalidCostReason>"+ Info.getInvalidCostReason().getName()+ "</invalidCostReason>\n"); // 无效成本原因
 			if(Info.getCreator()!=null)
-			xml.append("<Creator>"+ Info.getCreator().getName()+ "</Creator>\n"); // 制单人
+			xml.append("<creator>"+ Info.getCreator().getName()+ "</creator>\n"); // 制单人
 			
-			xml.append("<CreateTime>"+ Info.getCreateTime()+ "</CreateTime>\n"); // 制单日期
+			xml.append("<createTime>"+ Info.getCreateTime()+ "</createTime>\n"); // 制单日期
 			
 			
 //			 EntityViewInfo avevi = new EntityViewInfo();
@@ -237,10 +247,13 @@ public class ChangeOfSettlementFacade {
 			}
 			try {
 				Info.setState(FDCBillStateEnum.AUDITTING);
-				String sql = " update T_CON_ContractChangeBill set fState='"
-						+ Info.getState().getValue() + "'" + ", fDescription='"
-						+ procURL + "' " + ", FSourceFunction='" + procInstID
-						+ "' where fid='" + Info.getId() + "'";
+//				String sql = " update T_CON_ContractChangeBill set fState='"
+//						+ Info.getState().getValue() + "'" + ", fDescription='"
+//						+ procURL + "' " + ", FSourceFunction='" + procInstID
+//						+ "' where fid='" + Info.getId() + "'";
+				String sql = " update T_CON_ContractChangeBill set fState='4Auditting', fDescription='"
+					+ procURL + "' " + ", FSourceFunction='" + procInstID
+					+ "' where fid='" + Info.getId() + "'";
 				FDCSQLBuilder bu = new FDCSQLBuilder(ctx);
 				bu.appendSql(sql);
 				bu.executeUpdate(ctx);

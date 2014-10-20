@@ -1,5 +1,7 @@
 package com.kingdee.eas.bpm.selectors;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -8,8 +10,12 @@ import com.kingdee.bos.BOSException;
 import com.kingdee.bos.Context;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.bos.metadata.entity.EntityViewInfo;
+import com.kingdee.bos.metadata.entity.FilterInfo;
+import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.metadata.entity.SelectorItemInfo;
+import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.eas.bpm.BPMLogFactory;
 import com.kingdee.eas.bpm.BPMLogInfo;
 import com.kingdee.eas.bpm.BillBaseSelector;
@@ -21,12 +27,17 @@ import com.kingdee.eas.fdc.basedata.PaymentTypeFactory;
 import com.kingdee.eas.fdc.basedata.PaymentTypeInfo;
 import com.kingdee.eas.fdc.contract.ContractBailEntryFactory;
 import com.kingdee.eas.fdc.contract.ContractBailEntryInfo;
+import com.kingdee.eas.fdc.contract.ContractBillCollection;
 import com.kingdee.eas.fdc.contract.ContractBillEntryFactory;
 import com.kingdee.eas.fdc.contract.ContractBillEntryInfo;
 import com.kingdee.eas.fdc.contract.ContractBillFactory;
 import com.kingdee.eas.fdc.contract.ContractBillInfo;
 import com.kingdee.eas.fdc.contract.ContractPayItemFactory;
 import com.kingdee.eas.fdc.contract.ContractPayItemInfo;
+import com.kingdee.eas.fdc.contract.programming.ProgrammingContractCollection;
+import com.kingdee.eas.fdc.contract.programming.ProgrammingContractFactory;
+import com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo;
+import com.kingdee.eas.fdc.contract.programming.ProgrammingFactory;
 import com.kingdee.eas.basedata.org.FullOrgUnitInfo;
 
 public class ContractFacade implements BillBaseSelector {
@@ -48,6 +59,7 @@ public class ContractFacade implements BillBaseSelector {
 			try{
 				Info.setState(FDCBillStateEnum.AUDITTING);
 				String sql = " update t_con_contractbill set fState='"+Info.getState().getValue()+"'" +
+				//String sql = " update t_con_contractbill set fState='4Auditting'" +
 						", fDescription='"+procURL+"' " +
 						", FSourceFunction='"+procInstID+"' where fid='"+Info.getId()+"'";
 				FDCSQLBuilder bu = new FDCSQLBuilder(ctx);
@@ -96,7 +108,10 @@ public class ContractFacade implements BillBaseSelector {
 			try{
 				if("1".equals(processInstanceResult)){
 					if(FDCBillStateEnum.AUDITTING.equals(Info.getState()))
+					{
 						Info.setState(FDCBillStateEnum.AUDITTED);
+					    ContractBillFactory.getLocalInstance(ctx).audit(Info.getId());
+					}
 					else{
 						str[2] = "审批通过失败，该记录状态不是审批中！";
 						str[0] = "N";
@@ -104,7 +119,9 @@ public class ContractFacade implements BillBaseSelector {
 				}
 				if("0".equals(processInstanceResult)){
 					if(FDCBillStateEnum.AUDITTING.equals(Info.getState()))
-						Info.setState(FDCBillStateEnum.INVALID);
+					{	//Info.setState(FDCBillStateEnum.INVALID);
+					 Info.setState(FDCBillStateEnum.SAVED);   //作废改为以保存
+					}
 					else{
 						str[2] = "审批不通过失败，该记录状态不是审批中！";
 						str[0] = "N";
@@ -112,7 +129,8 @@ public class ContractFacade implements BillBaseSelector {
 				}
 				if("2".equals(processInstanceResult)){
 					if(FDCBillStateEnum.AUDITTING.equals(Info.getState()))
-						Info.setState(FDCBillStateEnum.BACK);
+						//Info.setState(FDCBillStateEnum.BACK);
+						Info.setState(FDCBillStateEnum.SAVED);
 					else{
 						str[2] = "审批打回失败，该记录状态不是审批中！";
 						str[0] = "N";
@@ -126,10 +144,12 @@ public class ContractFacade implements BillBaseSelector {
 						str[0] = "N";
 					}
 				}
+			   
 				String sql = " update t_con_contractbill set fState='"+Info.getState().getValue()+"' where fid='"+Info.getId()+"'";
 				FDCSQLBuilder bu = new FDCSQLBuilder(ctx);
 				bu.appendSql(sql);
 				bu.executeUpdate(ctx);
+
 			}
 			catch (BOSException e) {
 				str[2] = "根据单据state值更新状态sql失败，请检查getState方法是否有值,并查看服务器log日志！";
@@ -243,7 +263,6 @@ public class ContractFacade implements BillBaseSelector {
     			{
     				xml.append("<isCoseSplit>是</isCoseSplit>\n");
     			}
-    			
     			xml.append("<billEntries>\n");
     			for(int i=0;i<Info.getEntrys().size();i++){
     				ContractBillEntryInfo entry = Info.getEntrys().get(i);
@@ -459,8 +478,62 @@ public class ContractFacade implements BillBaseSelector {
 	}
 
 	public String[] ApproveBack(Context ctx, String strBTID,
-			IObjectValue billInfo, String strXML) {
-		return null;
+			IObjectValue billInfo, String strXML) {	 
+	ContractBillInfo Info = (ContractBillInfo)billInfo;
+ 	String[] str = new String[3];
+ 	str[0] = "Y";
+ 	String xml =strXML;
+		try {
+			try{
+				Info = ContractBillFactory.getLocalInstance(ctx).getContractBillInfo(new ObjectUuidPK(Info.getId()),getSelectors());
+			}catch (EASBizException e) {
+				str[2] = "根据单据getSelectors获取对象数据，请检查getSelectors方法中属性是否正确,并查看服务器log日志！";
+				e.printStackTrace();
+			}
+			 
+			 str[1] = xml.toString();
+				DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+				BigDecimal a=Info.getProgrammingContract().getControlBalance();
+				BigDecimal b=Info.getAmount();
+				a.subtract(b);
+				  EntityViewInfo Myavevi = new EntityViewInfo();
+			      FilterInfo Myavfilter = new FilterInfo();
+			      Myavfilter.getFilterItems().add(new FilterItemInfo("id",Info.getProgrammingContract().getId(),CompareType.EQUALS));
+			      Myavevi.setFilter(Myavfilter);
+			      ProgrammingContractCollection myavc=ProgrammingContractFactory.getLocalInstance(ctx).getProgrammingContractCollection(Myavevi);
+			      if(myavc.size()>0)
+			      {
+			        for(int i=0;i< myavc.size();i++){  	     
+	         	    ProgrammingContractInfo info=ProgrammingContractFactory.getLocalInstance(ctx).getProgrammingContractInfo(new ObjectUuidPK(myavc.get(i).getId()));
+	         	    info.setControlBalance(a);
+			        }
+			      }
+				//Info.setState(FDCBillStateEnum.AUDITTING);
+				String sql = "update T_CON_ProgrammingContract  set FControlBalance='"+a+"' where fid='"+Info.getProgrammingContract().getId()+"'";
+				FDCSQLBuilder bu = new FDCSQLBuilder(ctx);
+				bu.appendSql(sql);
+				bu.executeUpdate(ctx);
+			    xml.replace("<controlBalance>"+Info.getProgrammingContract().getControlBalance()+"</controlBalance>\n", "<controlBalance>"+a+"</controlBalance>\n");
+				
+			 
+		}catch (Exception e) {
+			str[0] = "N";
+			str[2] = "其他异常，请查看服务器log日志！";
+			e.printStackTrace();
+		}finally{
+			BPMLogInfo log = new BPMLogInfo();
+			try {
+				log.setLogDate(new Date());
+				log.setName("合同单据ID："+Info.getId()+"; 编号："+Info.getNumber());
+				log.setDescription("EAS结果:"+str[0]+"; 错误信息"+str[1]+str[2]);
+				log.setBeizhu("调用接口方法：GetbillInfo");
+				BPMLogFactory.getLocalInstance(ctx).save(log);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return str;
+	 
 	}
 
 	

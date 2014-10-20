@@ -85,7 +85,8 @@ public class SettleMentFacade implements BillBaseSelector {
 				}
 				if ("0".equals(processInstanceResult)) {
 					if (FDCBillStateEnum.AUDITTING.equals(Info.getState()))
-						Info.setState(FDCBillStateEnum.INVALID);
+						//Info.setState(FDCBillStateEnum.INVALID);
+						Info.setState(FDCBillStateEnum.SAVED);
 					else {
 						str[2] = "审批不通过失败，该记录状态不是审批中！";
 						str[0] = "N";

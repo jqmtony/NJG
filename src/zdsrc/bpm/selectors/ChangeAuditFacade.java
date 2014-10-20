@@ -8,8 +8,12 @@ import com.kingdee.bos.BOSException;
 import com.kingdee.bos.Context;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.bos.metadata.entity.EntityViewInfo;
+import com.kingdee.bos.metadata.entity.FilterInfo;
+import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.metadata.entity.SelectorItemInfo;
+import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.eas.base.permission.UserInfo;
 import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
 import com.kingdee.eas.basedata.person.PersonInfo;
@@ -27,10 +31,14 @@ import com.kingdee.eas.fdc.contract.ChangeAuditBillFactory;
 import com.kingdee.eas.fdc.contract.ChangeAuditBillInfo;
 import com.kingdee.eas.fdc.contract.ChangeAuditEntryFactory;
 import com.kingdee.eas.fdc.contract.ChangeAuditEntryInfo;
+import com.kingdee.eas.fdc.contract.ChangeBillStateEnum;
 import com.kingdee.eas.fdc.contract.ChangeSupplierEntryFactory;
 import com.kingdee.eas.fdc.contract.ChangeSupplierEntryInfo;
 import com.kingdee.eas.fdc.contract.ContractBailEntryFactory;
 import com.kingdee.eas.fdc.contract.ContractBailEntryInfo;
+import com.kingdee.eas.fdc.contract.ContractBillCollection;
+import com.kingdee.eas.fdc.contract.ContractBillFactory;
+import com.kingdee.eas.fdc.contract.ContractBillInfo;
 import com.kingdee.eas.fdc.contract.ContractPayItemFactory;
 
 public class ChangeAuditFacade implements BillBaseSelector {
@@ -51,39 +59,46 @@ public class ChangeAuditFacade implements BillBaseSelector {
 		        	}
 			try {
 				if ("1".equals(processInstanceResult)) {
-					if (FDCBillStateEnum.AUDITTING.equals(Info.getState()))
-						Info.setState(FDCBillStateEnum.AUDITTED);		
+					if (ChangeBillStateEnum.Auditting.equals(Info.getChangeState()))
+						Info.setChangeState(ChangeBillStateEnum.Audit);
+						//Info.setState(FDCBillStateEnum.AUDITTED);
+					
+					
 					else {
 						str[2] = "审批通过失败，该记录状态不是审批中！";
 						str[0] = "N";
 					}
 				}
 				if ("0".equals(processInstanceResult)) {
-					if (FDCBillStateEnum.AUDITTING.equals(Info.getState()))
-						Info.setState(FDCBillStateEnum.INVALID);
+					if (ChangeBillStateEnum.Auditting.equals(Info.getChangeState()))
+						//Info.setChangeState(ChangeBillStateEnum.INVALID);
+				     	Info.setChangeState(ChangeBillStateEnum.Saved);
+						//Info.setState(FDCBillStateEnum.INVALID);
 					else {
 						str[2] = "审批不通过失败，该记录状态不是审批中！";
 						str[0] = "N";
 					}
 				}
 				if ("2".equals(processInstanceResult)) {
-					if (FDCBillStateEnum.AUDITTING.equals(Info.getState()))
-						Info.setState(FDCBillStateEnum.BACK);
+					if (ChangeBillStateEnum.Auditting.equals(Info.getChangeState()))
+						Info.setChangeState(ChangeBillStateEnum.Saved);   //被打回 --保存
+						//Info.setState(FDCBillStateEnum.BACK);
 					else {
 						str[2] = "审批打回失败，该记录状态不是审批中！";
 						str[0] = "N";
 					}
 				}
 				if ("3".equals(processInstanceResult)) {
-					if (FDCBillStateEnum.AUDITTING.equals(Info.getState()))
-						Info.setState(FDCBillStateEnum.SAVED);
+					if (ChangeBillStateEnum.Auditting.equals(Info.getChangeState()))
+						Info.setChangeState(ChangeBillStateEnum.Saved);
+						//Info.setState(FDCBillStateEnum.SAVED);
 					else {
 						str[2] = "撤销失败，该记录状态不是审批中！";
 						str[0] = "N";
 					}
 				}
-				String sql = " update T_CON_ChangeAuditBill set fState='"
-						+ Info.getState().getValue() + "' where fid='"
+				String sql = " update T_CON_ChangeAuditBill set fChangeState='"
+						+ Info.getChangeState().getValue() + "' where fid='"
 						+ Info.getId() + "'";
 				FDCSQLBuilder bu = new FDCSQLBuilder(ctx);
 				bu.appendSql(sql);
@@ -186,38 +201,74 @@ public class ChangeAuditFacade implements BillBaseSelector {
 					xml.append("</item>\n");
 				}
 				xml.append("</billEntries>\n");
-//				xml.append("<SuppEntry>");
-//				for (int i = 0; i < Info.getSuppEntry().size(); i++) {
-//					ChangeSupplierEntryInfo entry = Info.getSuppEntry().get(i);
-//					entry = ChangeSupplierEntryFactory.getLocalInstance(ctx).getChangeSupplierEntryInfo(new ObjectUuidPK(entry.getId()));
-//					xml.append("<item>");
-//					xml.append("<Supp>" + entry.getSeq() + "</Supp>\n");
-//					xml.append("<Content>");
-//					xml.append("<item>");
-//					xml.append("<ContractID>" + entry.getContractBill().getId()+ "</ContractID>\n");
-//					xml.append("<ContractName>"+ entry.getContractBill().getName()+ "</ContractName>\n");
-//					xml.append("<MainSupp>" + entry.getMainSupp().getName()+ "</MainSupp>\n");
-//					xml.append("<CopySupp>" + entry.getCopySupp()+ "</CopySupp>\n");
-//					xml.append("<OriginalContactNum>"+ entry.getOriginalContactNum()+ "</OriginalContactNum>\n");
-//					xml.append("<Entrys>" + entry.getEntrys().get(1)+ "</Entrys>\n");
-//					xml.append("<Currency>" + entry.getCurrency().getName()+ "</Currency>\n");
-//					xml.append("<Exrate>" + entry.getExRate() + "</Exrate>\n");
-//					xml.append("<OriCostAmount>" + entry.getOriCostAmount()+ "</OriCostAmount>\n");
-//					xml.append("<CostAmount>" + entry.getCostAmount()+ "</CostAmount>\n");
-//					xml.append("<CostDescription>" + entry.getCostDescription()+ "</CostDescription>\n");
-//					xml.append("<ConstructPrice>" + entry.getConstructPrice()+ "</ConstructPrice>\n");
-//					xml.append("<IsDeduct>" + entry.isIsDeduct()+ "</IsDeduct>\n");
-//					xml.append("<DeductAmount>" + entry.getDeductAmount()+ "</DeductAmount>\n");
-//					xml.append("<DeductReason>" + entry.getDeductReason()+ "</DeductReason>\n");
-//					xml.append("<Reckonor>" + entry.getReckonor().getName()+ "</Reckonor>\n");
-//					if(entry.getDutyOrg()!=null)
-//					xml.append("<DutyOrg>" + entry.getDutyOrg().getName()+ "</DutyOrg>\n");
-//					xml.append("<IsSureChangeAmt>" + entry.isIsSureChangeAmt()+ "</IsSureChangeAmt>\n");
-//					xml.append("</item>\n");
-//					xml.append("</Content>\n");
-//					xml.append("</item>\n");
-//				}
-//				xml.append("</SuppEntry>\n");
+				
+				xml.append("<SuppEntry>");
+				for (int i = 0; i < Info.getSuppEntry().size(); i++) {
+					ChangeSupplierEntryInfo changeSuppentry = Info.getSuppEntry().get(i);
+					changeSuppentry = ChangeSupplierEntryFactory.getLocalInstance(ctx).getChangeSupplierEntryInfo(new ObjectUuidPK(changeSuppentry.getId()));
+					changeSuppentry.getParent();
+					xml.append("<item>");
+					xml.append("<SuppID>" + changeSuppentry.getSeq() + "</SuppID>\n");
+					
+					  EntityViewInfo Myavevi = new EntityViewInfo();
+				      FilterInfo Myavfilter = new FilterInfo();
+				      Myavfilter.getFilterItems().add(new FilterItemInfo("id",changeSuppentry.getContractBill().getId(),CompareType.EQUALS));
+				      Myavevi.setFilter(Myavfilter);
+				      ContractBillCollection myavc=ContractBillFactory.getLocalInstance(ctx).getContractBillCollection(Myavevi);
+				      if(myavc.size()>0)
+				      {
+				        for(int j=0;j< myavc.size();j++){  	     
+		         	    ContractBillInfo info=ContractBillFactory.getLocalInstance(ctx).getContractBillInfo(new ObjectUuidPK(myavc.get(j).getId()));
+		         	    xml.append("<ContractID>" + info.getNumber()+ "</ContractID>\n");
+						xml.append("<ContractName>"+info.getName()+ "</ContractName>\n");
+						xml.append("<MainSupp>" + info.getPartB().getName()+ "</MainSupp>\n");//  主送单位
+						xml.append("<Currency>" + info.getCurrency().getName()+ "</Currency>\n");//币别
+						xml.append("<Exrate>" + info.getExRate() + "</Exrate>\n");
+				        }
+				      }					
+					xml.append("<CopySupp>" + changeSuppentry.getCopySupp()+ "</CopySupp>\n");   //抄送单位
+					xml.append("<OriginalContactNum>"+ changeSuppentry.getOriginalContactNum()+ "</OriginalContactNum>\n");
+					//xml.append("<ZContext>" +ChangeAuditEntryFactory.getLocalInstance(ctx).getChangeAuditEntryInfo(new ObjectUuidPK(changeSuppentry.getParent().getId())).getChangeContent()+"</ZContext>\n");   //
+					xml.append("<OriCostAmount>" + changeSuppentry.getOriCostAmount()+ "</OriCostAmount>\n");
+					xml.append("<CostAmount>" + changeSuppentry.getCostAmount()+ "</CostAmount>\n");
+					xml.append("<CostDescription>" + changeSuppentry.getCostDescription()+ "</CostDescription>\n");
+					xml.append("<ConstructPrice>" + changeSuppentry.getConstructPrice()+ "</ConstructPrice>\n");
+					if(false==changeSuppentry.isIsDeduct())
+					{
+					xml.append("<IsDeduct>否</IsDeduct>\n");
+					}
+					else
+					{
+						xml.append("<IsDeduct>是</IsDeduct>\n");
+				    }
+					xml.append("<DeductAmount>" + changeSuppentry.getDeductAmount()+ "</DeductAmount>\n");
+					xml.append("<DeductReason>" + changeSuppentry.getDeductReason()+ "</DeductReason>\n");
+					xml.append("<Reckonor>" + changeSuppentry.getReckonor().getName()+ "</Reckonor>\n"); //
+					if(changeSuppentry.getDutyOrg()!=null)
+					xml.append("<DutyOrg>" + changeSuppentry.getDutyOrg().getName()+ "</DutyOrg>\n"); //
+					if(false==changeSuppentry.isIsSureChangeAmt())
+					{
+					xml.append("<IsSureChangeAmt>否</IsSureChangeAmt>\n");
+					}
+					else
+					{
+						xml.append("<IsSureChangeAmt>是</IsSureChangeAmt>\n");
+					}
+					xml.append("</item>\n");
+				}
+				xml.append("</SuppEntry>\n");			
+				xml.append("<TotalCost>" + Info.getTotalCost()+ "</TotalCost>\n");   //测算金额汇总
+				xml.append("<DutyAmout>" + Info.getAmountDutySupp()+ "</DutyAmout>\n");   //测算金额汇总
+				
+				if(false==Info.isIsNoUse())
+				{
+				xml.append("<NoUse>否</NoUse>\n");   //是否存在无效成本
+				}else
+				{
+					xml.append("<NoUse>是</NoUse>\n");   //是否存在无效成本
+				}
+				xml.append("<NoUseAmount>" + Info.getCostNouse()+ "</NoUseAmount>\n");   //无效成本金额
+				xml.append("<Reason>" + Info.getReason()+ "</Reason>\n");   //无效成本原因  --无效成本原因ID  数据库没存值 //
 				xml.append("</DATA>");
 				str[1] = xml.toString();
 		} catch (Exception e) {
@@ -256,11 +307,15 @@ public class ChangeAuditFacade implements BillBaseSelector {
 				e.printStackTrace();
 			}
 			try {
-				Info.setState(FDCBillStateEnum.AUDITTING);
-				String sql = " update T_CON_ChangeAuditBill set fState='"
-						+ Info.getState().getValue() + "'" + ", fDescription='"
-						+ procURL + "' " + ", FSourceFunction='" + procInstID
-						+ "' where fid='" + Info.getId() + "'";
+				Info.setChangeState(ChangeBillStateEnum.Auditting);
+				String sql = " update T_CON_ChangeAuditBill set fChangeState='"
+				+ Info.getChangeState().getValue() + "'" + ", fDescription='"
+				+ procURL + "' " + ", FSourceFunction='" + procInstID
+				+ "' where fid='" + Info.getId() + "'";
+//					
+//				String sql = " update T_CON_ChangeAuditBill set fChangeState='4Auditting',fDescription='"
+//					+ procURL + "' " + ", FSourceFunction='" + procInstID+
+//					"' where fid='" + Info.getId() + "'";
 				FDCSQLBuilder bu = new FDCSQLBuilder(ctx);
 				bu.appendSql(sql);
 				bu.executeUpdate(ctx);
@@ -334,43 +389,48 @@ public class ChangeAuditFacade implements BillBaseSelector {
 		
 		
 		
-//		sic.add(new SelectorItemInfo("Entrys.Number"));
-//		sic.add(new SelectorItemInfo("Entrys.ChangeContent"));
-//		sic.add(new SelectorItemInfo("Entrys.IsBack"));
-//
-//		sic.add(new SelectorItemInfo("SuppEntry.Seq"));
-//		sic.add(new SelectorItemInfo("SuppEntry.ContractBill.id"));
-//		sic.add(new SelectorItemInfo("SuppEntry.ContractBill.name"));
-//		sic.add(new SelectorItemInfo("SuppEntry.ContractBill.number"));
-//		sic.add(new SelectorItemInfo("SuppEntry.IsSureChangeAmt"));
-//		sic.add(new SelectorItemInfo("SuppEntry.mainSupp.id"));
-//		sic.add(new SelectorItemInfo("SuppEntry.mainSupp.name"));
-//		sic.add(new SelectorItemInfo("SuppEntry.mainSupp.number"));
-//		sic.add(new SelectorItemInfo("SuppEntry.CopySupp"));
-//		sic.add(new SelectorItemInfo("SuppEntry.OriginalContactNum"));
-//		sic.add(new SelectorItemInfo("SuppEntry.Entrys.changeContext"));
-//		sic.add(new SelectorItemInfo("SuppEntry.Currency"));
-//		sic.add(new SelectorItemInfo("SuppEntry.getExRate"));
-//		sic.add(new SelectorItemInfo("SuppEntry.getOriCostAmount"));
-//		sic.add(new SelectorItemInfo("SuppEntry.getCostAmount"));
-//		sic.add(new SelectorItemInfo("SuppEntry.getCostDescription"));
-//		sic.add(new SelectorItemInfo("SuppEntry.getConstructPrice"));
-//		sic.add(new SelectorItemInfo("SuppEntry.isIsDeduct"));
-//		sic.add(new SelectorItemInfo("SuppEntry.DeductAmount"));
-//		sic.add(new SelectorItemInfo("SuppEntry.DeductReason"));
-//		sic.add(new SelectorItemInfo("SuppEntry.Reckonor.id"));
-//		sic.add(new SelectorItemInfo("SuppEntry.Reckonor.name"));
-//		sic.add(new SelectorItemInfo("SuppEntry.Reckonor.number"));
-//		sic.add(new SelectorItemInfo("SuppEntry.DutyOrg.id"));
-//		sic.add(new SelectorItemInfo("SuppEntry.DutyOrg.name"));
-//		sic.add(new SelectorItemInfo("SuppEntry.DutyOrg.number"));
-//		sic.add(new SelectorItemInfo("SuppEntry.IsSureChangeAmt"));
-//		
+		sic.add(new SelectorItemInfo("Entrys.Number"));
+		sic.add(new SelectorItemInfo("Entrys.ChangeContent"));
+		sic.add(new SelectorItemInfo("Entrys.IsBack"));
+
+		sic.add(new SelectorItemInfo("SuppEntry.Seq"));
+		sic.add(new SelectorItemInfo("SuppEntry.ContractBill.id"));
+		sic.add(new SelectorItemInfo("SuppEntry.ContractBill.name"));
+		sic.add(new SelectorItemInfo("SuppEntry.ContractBill.number"));
+		sic.add(new SelectorItemInfo("SuppEntry.IsSureChangeAmt"));
+		sic.add(new SelectorItemInfo("SuppEntry.mainSupp.id"));
+		sic.add(new SelectorItemInfo("SuppEntry.mainSupp.name"));
+		sic.add(new SelectorItemInfo("SuppEntry.mainSupp.number"));
+		sic.add(new SelectorItemInfo("SuppEntry.CopySupp"));
+		sic.add(new SelectorItemInfo("SuppEntry.OriginalContactNum"));
+		sic.add(new SelectorItemInfo("SuppEntry.Entrys.changeContext"));
+		sic.add(new SelectorItemInfo("SuppEntry.Currency"));
+		sic.add(new SelectorItemInfo("SuppEntry.getExRate"));
+		sic.add(new SelectorItemInfo("SuppEntry.getOriCostAmount"));
+		sic.add(new SelectorItemInfo("SuppEntry.getCostAmount"));
+		sic.add(new SelectorItemInfo("SuppEntry.getCostDescription"));
+		sic.add(new SelectorItemInfo("SuppEntry.getConstructPrice"));
+		sic.add(new SelectorItemInfo("SuppEntry.isIsDeduct"));
+		sic.add(new SelectorItemInfo("SuppEntry.DeductAmount"));
+		sic.add(new SelectorItemInfo("SuppEntry.DeductReason"));
+		sic.add(new SelectorItemInfo("SuppEntry.Reckonor.id"));
+		sic.add(new SelectorItemInfo("SuppEntry.Reckonor.name"));
+		sic.add(new SelectorItemInfo("SuppEntry.Reckonor.number"));
+		sic.add(new SelectorItemInfo("SuppEntry.DutyOrg.id"));
+		sic.add(new SelectorItemInfo("SuppEntry.DutyOrg.name"));
+		sic.add(new SelectorItemInfo("SuppEntry.DutyOrg.number"));
+		sic.add(new SelectorItemInfo("SuppEntry.IsSureChangeAmt"));
+		
 		
 		sic.add(new SelectorItemInfo("CreateTime"));
 		sic.add(new SelectorItemInfo("Creator.name"));
 		sic.add(new SelectorItemInfo("State"));
 		sic.add(new SelectorItemInfo("BookedDate"));
+		sic.add(new SelectorItemInfo("ChangeState"));
+		
+		sic.add(new SelectorItemInfo("TotalCost"));
+		sic.add(new SelectorItemInfo("AmountDutySupp"));
+		sic.add(new SelectorItemInfo("CostNouse"));
 		return sic;
 	}
 
