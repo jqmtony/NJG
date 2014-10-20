@@ -38,6 +38,7 @@ import com.kingdee.eas.fdc.contract.programming.ProgrammingContractCollection;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractFactory;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingFactory;
+import com.kingdee.eas.util.app.ContextUtil;
 import com.kingdee.eas.basedata.org.FullOrgUnitInfo;
 
 public class ContractFacade implements BillBaseSelector {
@@ -59,7 +60,6 @@ public class ContractFacade implements BillBaseSelector {
 			try{
 				Info.setState(FDCBillStateEnum.AUDITTING);
 				String sql = " update t_con_contractbill set fState='"+Info.getState().getValue()+"'" +
-				//String sql = " update t_con_contractbill set fState='4Auditting'" +
 						", fDescription='"+procURL+"' " +
 						", FSourceFunction='"+procInstID+"' where fid='"+Info.getId()+"'";
 				FDCSQLBuilder bu = new FDCSQLBuilder(ctx);
@@ -109,8 +109,10 @@ public class ContractFacade implements BillBaseSelector {
 				if("1".equals(processInstanceResult)){
 					if(FDCBillStateEnum.AUDITTING.equals(Info.getState()))
 					{
-						Info.setState(FDCBillStateEnum.AUDITTED);
+						
 					    ContractBillFactory.getLocalInstance(ctx).audit(Info.getId());
+					    
+					    Info.setState(FDCBillStateEnum.AUDITTED);  
 					}
 					else{
 						str[2] = "审批通过失败，该记录状态不是审批中！";
