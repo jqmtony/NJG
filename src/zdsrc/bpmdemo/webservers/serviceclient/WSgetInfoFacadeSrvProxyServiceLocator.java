@@ -10,7 +10,7 @@ package com.kingdee.eas.bpmdemo.webservers.serviceclient;
 public class WSgetInfoFacadeSrvProxyServiceLocator extends org.apache.axis.client.Service implements com.kingdee.eas.bpmdemo.webservers.serviceclient.WSgetInfoFacadeSrvProxyService {
 
     // Use to get a proxy class for WSgetInfoFacade
-    private final java.lang.String WSgetInfoFacade_address = "http://10.130.12.34:7888/ormrpc/services/WSgetInfoFacade";
+    private final java.lang.String WSgetInfoFacade_address = "http://127.0.0.1:56898/ormrpc/services/WSgetInfoFacade";
 
     public java.lang.String getWSgetInfoFacadeAddress() {
         return WSgetInfoFacade_address;
@@ -89,7 +89,7 @@ public class WSgetInfoFacadeSrvProxyServiceLocator extends org.apache.axis.clien
     }
 
     public javax.xml.namespace.QName getServiceName() {
-        return new javax.xml.namespace.QName("http://10.130.12.34:7888/ormrpc/services/WSgetInfoFacade", "WSgetInfoFacadeSrvProxyService");
+        return new javax.xml.namespace.QName("http://127.0.0.1:56898/ormrpc/services/WSgetInfoFacade", "WSgetInfoFacadeSrvProxyService");
     }
 
     private java.util.HashSet ports = null;

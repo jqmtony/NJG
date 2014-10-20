@@ -65,7 +65,6 @@ public class ContractBillEditUIPIEx extends ContractBillEditUI{
 		    	this.btnAuditResult.setEnabled(true);       //审批结果查看
 		    	ContractBillFactory.getRemoteInstance().audit(editData.getId());
 		   	}
-		   	}
 		   	else
 		   	{
 		   		this.btnSubmit.setEnabled(true);             //提交
@@ -83,6 +82,7 @@ public class ContractBillEditUIPIEx extends ContractBillEditUI{
 		   	this.btnNext.setVisible(false);
 		   	this.btnLast.setVisible(false);
 		   	this.btnFirst.setVisible(false);
+	   	}
 	}
 
     private void InitButton()
@@ -170,6 +170,7 @@ public class ContractBillEditUIPIEx extends ContractBillEditUI{
 //	    if(ws.getSessionId()!=null){
 //	    	WSgetInfoFacadeSrvProxy pay = new WSgetInfoFacadeSrvProxyServiceLocator().getWSgetInfoFacade(new URL("http://127.0.0.1:56898/ormrpc/services/WSgetInfoFacade"));
 //	    	str1 = pay.getbillInfo("", editData.getId().toString());
+//	    	pay.approveBack("HT01", editData.getId().toString(), str1[1]);
 //	    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
 //	    	String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=HT01";
 //	    	str1 = pay.submitResult("", editData.getId().toString(), true, 1,url, "dYkAAAAAmMgNbdH0");

@@ -1,25 +1,25 @@
 package com.kingdee.eas.bpm.selectors;
 
-import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
+import com.enterprisedt.util.debug.Logger;
 import com.kingdee.bos.BOSException;
 import com.kingdee.bos.Context;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
-import com.kingdee.bos.metadata.entity.EntityViewInfo;
-import com.kingdee.bos.metadata.entity.FilterInfo;
-import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.metadata.entity.SelectorItemInfo;
-import com.kingdee.bos.metadata.query.util.CompareType;
+import com.kingdee.eas.basedata.org.FullOrgUnitInfo;
 import com.kingdee.eas.bpm.BPMLogFactory;
 import com.kingdee.eas.bpm.BPMLogInfo;
 import com.kingdee.eas.bpm.BillBaseSelector;
 import com.kingdee.eas.bpm.common.StringUtilBPM;
+import com.kingdee.eas.bpm.common.UpdateUtil;
+import com.kingdee.eas.bpm.common.XMLUtil;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
@@ -27,13 +27,13 @@ import com.kingdee.eas.fdc.basedata.PaymentTypeFactory;
 import com.kingdee.eas.fdc.basedata.PaymentTypeInfo;
 import com.kingdee.eas.fdc.contract.ContractBailEntryFactory;
 import com.kingdee.eas.fdc.contract.ContractBailEntryInfo;
-import com.kingdee.eas.fdc.contract.ContractBillCollection;
 import com.kingdee.eas.fdc.contract.ContractBillEntryFactory;
 import com.kingdee.eas.fdc.contract.ContractBillEntryInfo;
 import com.kingdee.eas.fdc.contract.ContractBillFactory;
 import com.kingdee.eas.fdc.contract.ContractBillInfo;
 import com.kingdee.eas.fdc.contract.ContractPayItemFactory;
 import com.kingdee.eas.fdc.contract.ContractPayItemInfo;
+import com.kingdee.eas.fi.ar.app.webservice.util.WrongArgumentException;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractCollection;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractFactory;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo;
@@ -42,7 +42,7 @@ import com.kingdee.eas.util.app.ContextUtil;
 import com.kingdee.eas.basedata.org.FullOrgUnitInfo;
 
 public class ContractFacade implements BillBaseSelector {
-	
+	 private static Logger logger = Logger.getLogger("com.kingdee.eas.bpm.selectors.ContractFacade");
 	public String[] SubmitResult(Context ctx, String strBSID,
 			IObjectValue billInfo, boolean success, int procInstID, String procURL,
 			String strMessage) {
@@ -98,6 +98,7 @@ public class ContractFacade implements BillBaseSelector {
 		ContractBillInfo Info = (ContractBillInfo)billInfo;
     	String[] str = new String[3];
     	str[0] = "Y";
+    	String sql = "";
 		try {
 			try{
 				Info = ContractBillFactory.getLocalInstance(ctx).getContractBillInfo(new ObjectUuidPK(Info.getId()),getSelectors());
@@ -145,14 +146,14 @@ public class ContractFacade implements BillBaseSelector {
 					}
 				}
 			   
-				String sql = " update t_con_contractbill set fState='"+Info.getState().getValue()+"' where fid='"+Info.getId()+"'";
+				sql = " update t_con_contractbill set fState='"+Info.getState().getValue()+"' where fid='"+Info.getId()+"'";
 				FDCSQLBuilder bu = new FDCSQLBuilder(ctx);
 				bu.appendSql(sql);
 				bu.executeUpdate(ctx);
 
 			}
 			catch (BOSException e) {
-				str[2] = "根据单据state值更新状态sql失败，请检查getState方法是否有值,并查看服务器log日志！";
+				str[2] = "根据单据state值更新状态sql失败，请检查getState方法是否有值,并查看服务器log日志！【sql】"+sql;
 				e.printStackTrace();
 			}
 		}catch (Exception e) {
@@ -479,63 +480,8 @@ public class ContractFacade implements BillBaseSelector {
 
 	public String[] ApproveBack(Context ctx, String strBTID,
 			IObjectValue billInfo, String strXML) {	 
-	ContractBillInfo Info = (ContractBillInfo)billInfo;
- 	String[] str = new String[3];
- 	str[0] = "Y";
- 	String xml =strXML;
-		try {
-			try{
-				Info = ContractBillFactory.getLocalInstance(ctx).getContractBillInfo(new ObjectUuidPK(Info.getId()),getSelectors());
-			}catch (EASBizException e) {
-				str[2] = "根据单据getSelectors获取对象数据，请检查getSelectors方法中属性是否正确,并查看服务器log日志！";
-				e.printStackTrace();
-			}
-			 
-			 str[1] = xml.toString();
-				DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-				BigDecimal a=Info.getProgrammingContract().getControlBalance();
-				BigDecimal b=Info.getAmount();
-				a.subtract(b);
-				  EntityViewInfo Myavevi = new EntityViewInfo();
-			      FilterInfo Myavfilter = new FilterInfo();
-			      Myavfilter.getFilterItems().add(new FilterItemInfo("id",Info.getProgrammingContract().getId(),CompareType.EQUALS));
-			      Myavevi.setFilter(Myavfilter);
-			      ProgrammingContractCollection myavc=ProgrammingContractFactory.getLocalInstance(ctx).getProgrammingContractCollection(Myavevi);
-			      if(myavc.size()>0)
-			      {
-			        for(int i=0;i< myavc.size();i++){  	     
-	         	    ProgrammingContractInfo info=ProgrammingContractFactory.getLocalInstance(ctx).getProgrammingContractInfo(new ObjectUuidPK(myavc.get(i).getId()));
-	         	    info.setControlBalance(a);
-			        }
-			      }
-				//Info.setState(FDCBillStateEnum.AUDITTING);
-				String sql = "update T_CON_ProgrammingContract  set FControlBalance='"+a+"' where fid='"+Info.getProgrammingContract().getId()+"'";
-				FDCSQLBuilder bu = new FDCSQLBuilder(ctx);
-				bu.appendSql(sql);
-				bu.executeUpdate(ctx);
-			    xml.replace("<controlBalance>"+Info.getProgrammingContract().getControlBalance()+"</controlBalance>\n", "<controlBalance>"+a+"</controlBalance>\n");
-				
-			 
-		}catch (Exception e) {
-			str[0] = "N";
-			str[2] = "其他异常，请查看服务器log日志！";
-			e.printStackTrace();
-		}finally{
-			BPMLogInfo log = new BPMLogInfo();
-			try {
-				log.setLogDate(new Date());
-				log.setName("合同单据ID："+Info.getId()+"; 编号："+Info.getNumber());
-				log.setDescription("EAS结果:"+str[0]+"; 错误信息"+str[1]+str[2]);
-				log.setBeizhu("调用接口方法：GetbillInfo");
-				BPMLogFactory.getLocalInstance(ctx).save(log);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-		return str;
+		return null;
 	 
 	}
-
-	
 
 }

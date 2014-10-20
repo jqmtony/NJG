@@ -16,7 +16,7 @@ public class WSgetInfoFacadeSoapBindingStub extends org.apache.axis.client.Stub 
     static org.apache.axis.description.OperationDesc [] _operations;
 
     static {
-        _operations = new org.apache.axis.description.OperationDesc[4];
+        _operations = new org.apache.axis.description.OperationDesc[5];
         org.apache.axis.description.OperationDesc oper;
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("ApproveClose");
@@ -26,11 +26,11 @@ public class WSgetInfoFacadeSoapBindingStub extends org.apache.axis.client.Stub 
         oper.addParameter(new javax.xml.namespace.QName("", "eProcessInstanceResult"), new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, org.apache.axis.description.ParameterDesc.IN, false, false);
         oper.addParameter(new javax.xml.namespace.QName("", "strComment"), new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, org.apache.axis.description.ParameterDesc.IN, false, false);
         oper.addParameter(new javax.xml.namespace.QName("", "dtTime"), new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, org.apache.axis.description.ParameterDesc.IN, false, false);
-        oper.setReturnType(new javax.xml.namespace.QName("http://10.130.12.34:7888/ormrpc/services/WSgetInfoFacade", "ArrayOf_xsd_string"));
+        oper.setReturnType(new javax.xml.namespace.QName("http://127.0.0.1:56898/ormrpc/services/WSgetInfoFacade", "ArrayOf_xsd_string"));
         oper.setReturnClass(java.lang.String[].class);
         oper.setReturnQName(new javax.xml.namespace.QName("", "ApproveCloseReturn"));
         oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://10.130.12.34:7888/ormrpc/services/WSgetInfoFacade", "fault"),
+                      new javax.xml.namespace.QName("http://127.0.0.1:56898/ormrpc/services/WSgetInfoFacade", "fault"),
                       "com.kingdee.eas.bpmdemo.webservers.serviceclient.WSInvokeException",
                       new javax.xml.namespace.QName("urn:client.getinfofacade", "WSInvokeException"), 
                       true
@@ -42,11 +42,11 @@ public class WSgetInfoFacadeSoapBindingStub extends org.apache.axis.client.Stub 
         oper.addParameter(new javax.xml.namespace.QName("", "strBTID"), new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, org.apache.axis.description.ParameterDesc.IN, false, false);
         oper.addParameter(new javax.xml.namespace.QName("", "strBOID"), new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, org.apache.axis.description.ParameterDesc.IN, false, false);
         oper.addParameter(new javax.xml.namespace.QName("", "strRelatedCode"), new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, org.apache.axis.description.ParameterDesc.IN, false, false);
-        oper.setReturnType(new javax.xml.namespace.QName("http://10.130.12.34:7888/ormrpc/services/WSgetInfoFacade", "ArrayOf_xsd_string"));
+        oper.setReturnType(new javax.xml.namespace.QName("http://127.0.0.1:56898/ormrpc/services/WSgetInfoFacade", "ArrayOf_xsd_string"));
         oper.setReturnClass(java.lang.String[].class);
         oper.setReturnQName(new javax.xml.namespace.QName("", "GetrRelatedBillInfoReturn"));
         oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://10.130.12.34:7888/ormrpc/services/WSgetInfoFacade", "fault"),
+                      new javax.xml.namespace.QName("http://127.0.0.1:56898/ormrpc/services/WSgetInfoFacade", "fault"),
                       "com.kingdee.eas.bpmdemo.webservers.serviceclient.WSInvokeException",
                       new javax.xml.namespace.QName("urn:client.getinfofacade", "WSInvokeException"), 
                       true
@@ -61,11 +61,11 @@ public class WSgetInfoFacadeSoapBindingStub extends org.apache.axis.client.Stub 
         oper.addParameter(new javax.xml.namespace.QName("", "iProcInstID"), new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"), int.class, org.apache.axis.description.ParameterDesc.IN, false, false);
         oper.addParameter(new javax.xml.namespace.QName("", "procURL"), new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, org.apache.axis.description.ParameterDesc.IN, false, false);
         oper.addParameter(new javax.xml.namespace.QName("", "strMessage"), new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, org.apache.axis.description.ParameterDesc.IN, false, false);
-        oper.setReturnType(new javax.xml.namespace.QName("http://10.130.12.34:7888/ormrpc/services/WSgetInfoFacade", "ArrayOf_xsd_string"));
+        oper.setReturnType(new javax.xml.namespace.QName("http://127.0.0.1:56898/ormrpc/services/WSgetInfoFacade", "ArrayOf_xsd_string"));
         oper.setReturnClass(java.lang.String[].class);
         oper.setReturnQName(new javax.xml.namespace.QName("", "SubmitResultReturn"));
         oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://10.130.12.34:7888/ormrpc/services/WSgetInfoFacade", "fault"),
+                      new javax.xml.namespace.QName("http://127.0.0.1:56898/ormrpc/services/WSgetInfoFacade", "fault"),
                       "com.kingdee.eas.bpmdemo.webservers.serviceclient.WSInvokeException",
                       new javax.xml.namespace.QName("urn:client.getinfofacade", "WSInvokeException"), 
                       true
@@ -73,19 +73,35 @@ public class WSgetInfoFacadeSoapBindingStub extends org.apache.axis.client.Stub 
         _operations[2] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("GetbillInfo");
-        oper.addParameter(new javax.xml.namespace.QName("", "strBSID"), new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, org.apache.axis.description.ParameterDesc.IN, false, false);
+        oper.setName("ApproveBack");
+        oper.addParameter(new javax.xml.namespace.QName("", "strBTID"), new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, org.apache.axis.description.ParameterDesc.IN, false, false);
         oper.addParameter(new javax.xml.namespace.QName("", "strBOID"), new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, org.apache.axis.description.ParameterDesc.IN, false, false);
-        oper.setReturnType(new javax.xml.namespace.QName("http://10.130.12.34:7888/ormrpc/services/WSgetInfoFacade", "ArrayOf_xsd_string"));
+        oper.addParameter(new javax.xml.namespace.QName("", "strXML"), new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, org.apache.axis.description.ParameterDesc.IN, false, false);
+        oper.setReturnType(new javax.xml.namespace.QName("http://127.0.0.1:56898/ormrpc/services/WSgetInfoFacade", "ArrayOf_xsd_string"));
         oper.setReturnClass(java.lang.String[].class);
-        oper.setReturnQName(new javax.xml.namespace.QName("", "GetbillInfoReturn"));
+        oper.setReturnQName(new javax.xml.namespace.QName("", "ApproveBackReturn"));
         oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://10.130.12.34:7888/ormrpc/services/WSgetInfoFacade", "fault"),
+                      new javax.xml.namespace.QName("http://127.0.0.1:56898/ormrpc/services/WSgetInfoFacade", "fault"),
                       "com.kingdee.eas.bpmdemo.webservers.serviceclient.WSInvokeException",
                       new javax.xml.namespace.QName("urn:client.getinfofacade", "WSInvokeException"), 
                       true
                      ));
         _operations[3] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("GetbillInfo");
+        oper.addParameter(new javax.xml.namespace.QName("", "strBSID"), new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, org.apache.axis.description.ParameterDesc.IN, false, false);
+        oper.addParameter(new javax.xml.namespace.QName("", "strBOID"), new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, org.apache.axis.description.ParameterDesc.IN, false, false);
+        oper.setReturnType(new javax.xml.namespace.QName("http://127.0.0.1:56898/ormrpc/services/WSgetInfoFacade", "ArrayOf_xsd_string"));
+        oper.setReturnClass(java.lang.String[].class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "GetbillInfoReturn"));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://127.0.0.1:56898/ormrpc/services/WSgetInfoFacade", "fault"),
+                      "com.kingdee.eas.bpmdemo.webservers.serviceclient.WSInvokeException",
+                      new javax.xml.namespace.QName("urn:client.getinfofacade", "WSInvokeException"), 
+                      true
+                     ));
+        _operations[4] = oper;
 
     }
 
@@ -114,19 +130,19 @@ public class WSgetInfoFacadeSoapBindingStub extends org.apache.axis.client.Stub 
             java.lang.Class arraydf = org.apache.axis.encoding.ser.ArrayDeserializerFactory.class;
             java.lang.Class simplesf = org.apache.axis.encoding.ser.SimpleSerializerFactory.class;
             java.lang.Class simpledf = org.apache.axis.encoding.ser.SimpleDeserializerFactory.class;
-            qName = new javax.xml.namespace.QName("http://10.130.12.34:7888/ormrpc/services/WSgetInfoFacade", "ArrayOf_xsd_string");
-            cachedSerQNames.add(qName);
-            cls = java.lang.String[].class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(arraysf);
-            cachedDeserFactories.add(arraydf);
-
             qName = new javax.xml.namespace.QName("urn:client.getinfofacade", "WSInvokeException");
             cachedSerQNames.add(qName);
             cls = com.kingdee.eas.bpmdemo.webservers.serviceclient.WSInvokeException.class;
             cachedSerClasses.add(cls);
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://127.0.0.1:56898/ormrpc/services/WSgetInfoFacade", "ArrayOf_xsd_string");
+            cachedSerQNames.add(qName);
+            cls = java.lang.String[].class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(arraysf);
+            cachedDeserFactories.add(arraydf);
 
     }
 
@@ -270,12 +286,40 @@ public class WSgetInfoFacadeSoapBindingStub extends org.apache.axis.client.Stub 
         }
     }
 
-    public java.lang.String[] getbillInfo(java.lang.String strBSID, java.lang.String strBOID) throws java.rmi.RemoteException, com.kingdee.eas.bpmdemo.webservers.serviceclient.WSInvokeException {
+    public java.lang.String[] approveBack(java.lang.String strBTID, java.lang.String strBOID, java.lang.String strXML) throws java.rmi.RemoteException, com.kingdee.eas.bpmdemo.webservers.serviceclient.WSInvokeException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
         _call.setOperation(_operations[3]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://webservice.webservers.bpmdemo.eas.kingdee.com", "ApproveBack"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {strBTID, strBOID, strXML});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (java.lang.String[]) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (java.lang.String[]) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.String[].class);
+            }
+        }
+    }
+
+    public java.lang.String[] getbillInfo(java.lang.String strBSID, java.lang.String strBOID) throws java.rmi.RemoteException, com.kingdee.eas.bpmdemo.webservers.serviceclient.WSInvokeException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[4]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
