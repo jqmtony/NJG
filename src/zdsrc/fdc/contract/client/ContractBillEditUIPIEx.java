@@ -165,19 +165,19 @@ public class ContractBillEditUIPIEx extends ContractBillEditUI{
     	String [] str1 = new String[3];
 //    	str1= getInfoFacadeFactory.getRemoteInstance().ApproveClose("", "dYkAAAAAhPINbdH0", 1, "1", "",null);
 //    	str1= getInfoFacadeFactory.getRemoteInstance().SubmitResult("", editData.getId().toString(), true, 1,"", "dYkAAAAAmMgNbdH0");
-	   	EASLoginProxy login = new EASLoginProxyServiceLocator().getEASLogin(new URL("http://127.0.0.1:56898/ormrpc/services/EASLogin"));
-	   	WSContext  ws = login.login("kd-user", "kduser", "eas", "kd_002", "l2", 1);
-	    if(ws.getSessionId()!=null){
-	    	WSgetInfoFacadeSrvProxy pay = new WSgetInfoFacadeSrvProxyServiceLocator().getWSgetInfoFacade(new URL("http://127.0.0.1:56898/ormrpc/services/WSgetInfoFacade"));
-	    	str1 = pay.getbillInfo("HT01", editData.getId().toString());
-	    	pay.approveBack("HT01", editData.getId().toString(), str1[1]);
+//	   	EASLoginProxy login = new EASLoginProxyServiceLocator().getEASLogin(new URL("http://127.0.0.1:56898/ormrpc/services/EASLogin"));
+//	   	WSContext  ws = login.login("kd-user", "kduser", "eas", "kd_002", "l2", 1);
+//	    if(ws.getSessionId()!=null){
+//	    	WSgetInfoFacadeSrvProxy pay = new WSgetInfoFacadeSrvProxyServiceLocator().getWSgetInfoFacade(new URL("http://127.0.0.1:56898/ormrpc/services/WSgetInfoFacade"));
+//	    	str1 = pay.getbillInfo("HT01", editData.getId().toString());
+//	    	pay.approveBack("HT01", editData.getId().toString(), str1[1]);
 //	    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
 //	    	String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=HT01";
 //	    	str1 = pay.submitResult("", editData.getId().toString(), true, 1,url, "dYkAAAAAmMgNbdH0");
 //	    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
-	    	str1 = pay.approveClose("", editData.getId().toString(), 1, "1", "",null);
+//	    	str1 = pay.approveClose("", editData.getId().toString(), 1, "1", "",null);
 //	    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
-	    }
+//	    }
     	if(editData.getId()!=null){
 	    	editData = ContractBillFactory.getRemoteInstance().getContractBillInfo(new ObjectUuidPK(editData.getId()));
 	    	String url = editData.getDescription();
