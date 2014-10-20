@@ -19,6 +19,7 @@ import com.kingdee.eas.bpm.BPMLogInfo;
 import com.kingdee.eas.bpm.BillBaseSelector;
 import com.kingdee.eas.bpm.common.StringUtilBPM;
 import com.kingdee.eas.bpm.common.UpdateUtil;
+import com.kingdee.eas.bpm.common.ViewXmlUtil;
 import com.kingdee.eas.bpm.common.XMLUtil;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
@@ -110,7 +111,8 @@ public class ContractFacade implements BillBaseSelector {
 				if("1".equals(processInstanceResult)){
 					if(FDCBillStateEnum.AUDITTING.equals(Info.getState()))
 					{
-					   // ContractBillFactory.getLocalInstance(ctx).audit(Info.getId());
+						Info.setState(FDCBillStateEnum.SUBMITTED);
+					    ContractBillFactory.getLocalInstance(ctx).audit(Info.getId());
 					    Info.setState(FDCBillStateEnum.AUDITTED);  
 					}
 					else{
@@ -179,6 +181,7 @@ public class ContractFacade implements BillBaseSelector {
 	public String[] GetbillInfo(Context ctx, String strBSID, IObjectValue billInfo) {
 		ContractBillInfo Info = (ContractBillInfo)billInfo;
     	String[] str = new String[3];
+//    	str = ViewXmlUtil.getViewXmlString(ctx, strBSID, Info.getId().toString()); // 通过试图获取xml
     	str[0] = "Y";
     	StringBuffer xml = new StringBuffer();
 		try {

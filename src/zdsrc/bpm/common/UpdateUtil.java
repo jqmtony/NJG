@@ -22,6 +22,8 @@ public class UpdateUtil {
 
 	public static String[]  updateValue(Context ctx,String BTID,String BOID,String xml) {
 		String[] str = new String[3];
+		str[0] = "Y";
+		str[1] = "审批反写成功！";
 		XMLUtil builder = null;
         try
         {
@@ -35,37 +37,47 @@ public class UpdateUtil {
         }
         catch(WrongArgumentException e)
         {
-            return (new String[] {  "N", e.getTypeNumber(), "XML格式错误！" });
+            str[0] = "N";
+			str[1] = "XML格式错误！";
+			str[2] = "单据标示-BTID:"+BTID+",  单据ID-BOID:"+BOID+"---xml---"+xml;
         }
         Map head = builder.getHeadProperties("DATA");//读取表头
-        List entries = builder.getEntriesProperties("//billEntries/entry"); //读取分录
+//        List entries = builder.getEntriesProperties("//billEntries/entry"); //读取分录
 		ApproveBackSetInfo info = null;
 		try {
 			info = ApproveBackSetFactory.getLocalInstance(ctx).getApproveBackSetInfo(" where number='"+BTID+"'");
 		} catch (EASBizException e1) {
+			str[0] = "N";
+			str[1] = BTID+"---获取审批反写设置对象失败，请配置！";
+			str[2] = "单据标示-BTID:"+BTID+",  单据ID-BOID:"+BOID+"---xml---"+xml;
 			e1.printStackTrace();
 		} catch (BOSException e1) {
+			str[0] = "N";
+			str[1] = BTID+"---获取审批反写设置对象失败，请配置！";
+			str[2] = "单据标示-BTID:"+BTID+",  单据ID-BOID:"+BOID+"---xml---"+xml;
 			e1.printStackTrace();
 		}
 		if(info==null){
 			str[0] = "N";
-			str[1] = "单据标示-BTID:"+BTID+",未找到审批反写配置，请进行相应配置";
-			str[2] = "单据ID-BOID:"+BOID;
+			str[1] = "单据标示-BTID:"+BTID+",  单据ID-BOID:"+BOID+",未找到审批反写配置，请进行相应配置";
+			str[2] = "";
 		}
 		String table = info.getName();
 		StringBuffer sql = new StringBuffer();
 		sql.append(" update  "+table +" set " );
 		for(int i=0;i<info.getEntry().size();i++){
 			ApproveBackSetEntryInfo entry = info.getEntry().get(i);
-			if(head.get(entry.getField())!=null && !"".equals(head.get(entry.getField())))
-				sql.append(" F"+entry.getField() +" ='"+head.get(entry.getField())+"' " );
-			else{
-				str[0] = "N";
-				str[1] = "单据标示-BTID:"+BTID+",  单据ID-BOID:"+BOID;
-				str[2] = "审批反写配置分录中字段配置为空，或者字段配置错误，字段名称应该是实体字段对应属性名称，请检查！";
+			if(i==0){
+				if(head.get(entry.getField())!=null && !"".equals(head.get(entry.getField())))
+					sql.append(" F"+entry.getField() +" ='"+head.get(entry.getField())+"' " );
+				else{
+					str[0] = "N";
+					str[1] = "单据标示-BTID:"+BTID+",  单据ID-BOID:"+BOID;
+					str[2] = "审批反写配置分录中字段配置为空，或者字段配置错误，字段名称应该是实体字段对应属性名称，请检查！";
+				}
 			}
 			if(i>0){
-				sql.append(" and " );
+				sql.append(" , " );
 				if(head.get(entry.getField())!=null && !"".equals(head.get(entry.getField())))
 					sql.append(" F"+entry.getField() +" ='"+head.get(entry.getField())+"' " );
 				else{
@@ -96,7 +108,6 @@ public class UpdateUtil {
 				e.printStackTrace();
 			}
 		}
-		
 		return str;
 	}
 	

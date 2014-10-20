@@ -52,10 +52,13 @@ public abstract class AbstractApproveBackSetEditUI extends com.kingdee.eas.frame
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer4;
     protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtEntry;
 	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtEntry_detailPanel = null;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contview;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtNumber;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizMultiLangBox txtName;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtSimpleName;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizMultiLangBox txtDescription;
+    protected com.kingdee.bos.ctrl.swing.KDScrollPane scrollPaneview;
+    protected com.kingdee.bos.ctrl.swing.KDTextArea txtview;
     protected com.kingdee.eas.bpm.ApproveBackSetInfo editData = null;
     /**
      * output class constructor
@@ -81,19 +84,25 @@ public abstract class AbstractApproveBackSetEditUI extends com.kingdee.eas.frame
         this.kDLabelContainer3 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.kDLabelContainer4 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.kdtEntry = new com.kingdee.bos.ctrl.kdf.table.KDTable();
+        this.contview = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.txtNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtName = new com.kingdee.bos.ctrl.extendcontrols.KDBizMultiLangBox();
         this.txtSimpleName = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtDescription = new com.kingdee.bos.ctrl.extendcontrols.KDBizMultiLangBox();
+        this.scrollPaneview = new com.kingdee.bos.ctrl.swing.KDScrollPane();
+        this.txtview = new com.kingdee.bos.ctrl.swing.KDTextArea();
         this.kDLabelContainer1.setName("kDLabelContainer1");
         this.kDLabelContainer2.setName("kDLabelContainer2");
         this.kDLabelContainer3.setName("kDLabelContainer3");
         this.kDLabelContainer4.setName("kDLabelContainer4");
         this.kdtEntry.setName("kdtEntry");
+        this.contview.setName("contview");
         this.txtNumber.setName("txtNumber");
         this.txtName.setName("txtName");
         this.txtSimpleName.setName("txtSimpleName");
         this.txtDescription.setName("txtDescription");
+        this.scrollPaneview.setName("scrollPaneview");
+        this.txtview.setName("txtview");
         // CoreUI		
         this.btnPrint.setVisible(false);		
         this.btnPrintPreview.setVisible(false);		
@@ -149,12 +158,22 @@ public abstract class AbstractApproveBackSetEditUI extends com.kingdee.eas.frame
         kdtEntry_beizhu_TextField.setMaxLength(100);
         KDTDefaultCellEditor kdtEntry_beizhu_CellEditor = new KDTDefaultCellEditor(kdtEntry_beizhu_TextField);
         this.kdtEntry.getColumn("beizhu").setEditor(kdtEntry_beizhu_CellEditor);
+        // contview		
+        this.contview.setBoundLabelText(resHelper.getString("contview.boundLabelText"));		
+        this.contview.setBoundLabelLength(100);		
+        this.contview.setBoundLabelUnderline(true);		
+        this.contview.setVisible(true);
         // txtNumber		
         this.txtNumber.setMaxLength(80);
         // txtName
         // txtSimpleName		
         this.txtSimpleName.setMaxLength(80);
         // txtDescription
+        // scrollPaneview
+        // txtview		
+        this.txtview.setVisible(true);		
+        this.txtview.setRequired(false);		
+        this.txtview.setMaxLength(4000);
 		//Register control's property binding
 		registerBindings();
 		registerUIState();
@@ -179,7 +198,7 @@ public abstract class AbstractApproveBackSetEditUI extends com.kingdee.eas.frame
      */
     public void initUIContentLayout()
     {
-        this.setBounds(new Rectangle(0, 0, 731, 298));
+        this.setBounds(new Rectangle(0, 0, 731, 529));
         this.setLayout(null);
         kDLabelContainer1.setBounds(new Rectangle(44, 14, 270, 19));
         this.add(kDLabelContainer1, null);
@@ -192,6 +211,8 @@ public abstract class AbstractApproveBackSetEditUI extends com.kingdee.eas.frame
         kdtEntry.setBounds(new Rectangle(22, 70, 688, 211));
         kdtEntry_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtEntry,new com.kingdee.eas.bpm.ApproveBackSetEntryInfo(),null,false);
         this.add(kdtEntry_detailPanel, null);
+        contview.setBounds(new Rectangle(18, 293, 690, 218));
+        this.add(contview, null);
         //kDLabelContainer1
         kDLabelContainer1.setBoundEditor(txtNumber);
         //kDLabelContainer2
@@ -200,6 +221,10 @@ public abstract class AbstractApproveBackSetEditUI extends com.kingdee.eas.frame
         kDLabelContainer3.setBoundEditor(txtSimpleName);
         //kDLabelContainer4
         kDLabelContainer4.setBoundEditor(txtDescription);
+        //contview
+        contview.setBoundEditor(scrollPaneview);
+        //scrollPaneview
+        scrollPaneview.getViewport().add(txtview, null);
 
     }
 
@@ -317,7 +342,8 @@ public abstract class AbstractApproveBackSetEditUI extends com.kingdee.eas.frame
 		dataBinder.registerBinding("number", String.class, this.txtNumber, "text");
 		dataBinder.registerBinding("name", String.class, this.txtName, "_multiLangItem");
 		dataBinder.registerBinding("simpleName", String.class, this.txtSimpleName, "text");
-		dataBinder.registerBinding("description", String.class, this.txtDescription, "_multiLangItem");		
+		dataBinder.registerBinding("description", String.class, this.txtDescription, "_multiLangItem");
+		dataBinder.registerBinding("view", String.class, this.txtview, "text");		
 	}
 	//Regiester UI State
 	private void registerUIState(){
@@ -464,7 +490,8 @@ public abstract class AbstractApproveBackSetEditUI extends com.kingdee.eas.frame
 		getValidateHelper().registerBindProperty("number", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("name", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("simpleName", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("description", ValidateHelper.ON_SAVE);    		
+		getValidateHelper().registerBindProperty("description", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("view", ValidateHelper.ON_SAVE);    		
 	}
 
 
@@ -517,6 +544,7 @@ public abstract class AbstractApproveBackSetEditUI extends com.kingdee.eas.frame
         sic.add(new SelectorItemInfo("name"));
         sic.add(new SelectorItemInfo("simpleName"));
         sic.add(new SelectorItemInfo("description"));
+        sic.add(new SelectorItemInfo("view"));
         return sic;
     }        
 

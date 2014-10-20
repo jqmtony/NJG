@@ -36,6 +36,17 @@ public class AbstractApproveBackSetInfo extends com.kingdee.eas.framework.DataBa
     {
         return (com.kingdee.eas.bpm.ApproveBackSetEntryCollection)get("Entry");
     }
+    /**
+     * Object:…Û≈˙∑¥–¥◊÷∂Œ…Ë÷√'s  ‘Õºsqlproperty 
+     */
+    public String getView()
+    {
+        return getString("view");
+    }
+    public void setView(String item)
+    {
+        setString("view", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("91D08B6F");

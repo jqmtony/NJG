@@ -174,7 +174,7 @@ public class getInfoFacadeControllerBean extends AbstractgetInfoFacadeController
 	}
 	protected String[] _ApproveBack(Context ctx, String strBTID,String strBOID, String strXML) throws BOSException {
 		String[] str = new String[3];
-		UpdateUtil.updateValue(ctx, strBTID, strBOID, strXML);
+		str = UpdateUtil.updateValue(ctx, strBTID, strBOID, strXML);
         return str;		
 	}
 	
