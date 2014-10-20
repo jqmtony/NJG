@@ -109,9 +109,7 @@ public class ContractFacade implements BillBaseSelector {
 				if("1".equals(processInstanceResult)){
 					if(FDCBillStateEnum.AUDITTING.equals(Info.getState()))
 					{
-						
-					    ContractBillFactory.getLocalInstance(ctx).audit(Info.getId());
-					    
+					   // ContractBillFactory.getLocalInstance(ctx).audit(Info.getId());
 					    Info.setState(FDCBillStateEnum.AUDITTED);  
 					}
 					else{
