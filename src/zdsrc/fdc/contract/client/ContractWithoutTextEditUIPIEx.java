@@ -17,6 +17,7 @@ import com.kingdee.eas.bpmdemo.webservers.serviceclient.WSgetInfoFacadeSrvProxyS
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.fdc.basedata.ContractTypeInfo;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
+import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
 import com.kingdee.eas.fdc.contract.ContractWithoutTextFactory;
 import com.kingdee.eas.util.client.MsgBox;
 
@@ -60,7 +61,7 @@ public class ContractWithoutTextEditUIPIEx extends ContractWithoutTextEditUI{
 		   	{
 		   		this.btnSubmit.setEnabled(false);             //提交
 		   		this.btnAttachment.setEnabled(false);        //撤销
-		    	this.btnAuditResult.setEnabled(false);       //审批结果查看
+		    	this.btnAuditResult.setEnabled(true);       //审批结果查看
 		   	}
 		   	}
 		   	else
@@ -149,7 +150,10 @@ public class ContractWithoutTextEditUIPIEx extends ContractWithoutTextEditUI{
 //	    	str1 = pay.approveClose("", editData.getId().toString(), 1, "0", "",null);
 //	    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
 //	    }
-
+    	String sql = " update t_con_contractwithouttext set fState='1SAVED' where fid='"+editData.getId()+"'";
+		FDCSQLBuilder bu = new FDCSQLBuilder();
+		bu.appendSql(sql);
+		bu.executeUpdate();
     	String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=WWBHT01&userid="+SysContext.getSysContext().getUserName()+"";
     	creatFrame(url);
     	editData.setState(FDCBillStateEnum.SAVED);

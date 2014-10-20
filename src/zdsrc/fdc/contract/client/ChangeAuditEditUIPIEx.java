@@ -14,8 +14,10 @@ import com.kingdee.eas.bpmdemo.webservers.serviceclient.BPMServiceForERPLocator;
 import com.kingdee.eas.bpmdemo.webservers.serviceclient.BPMServiceForERPSoap;
 import com.kingdee.eas.fdc.basedata.ContractTypeInfo;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
+import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
 import com.kingdee.eas.fdc.contract.ChangeAuditBillFactory;
 import com.kingdee.eas.fdc.contract.ChangeAuditBillInfo;
+import com.kingdee.eas.fdc.contract.ChangeBillStateEnum;
 import com.kingdee.eas.fdc.contract.ContractBillFactory;
 import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
 import com.kingdee.eas.bpmdemo.webservers.serviceclient.EASLoginProxyServiceLocator;
@@ -44,34 +46,35 @@ public class ChangeAuditEditUIPIEx extends ChangeAuditEditUI{
 		
 	  	if(editData.getState()!=null)
 	   	{
-		   	if("保存".equals(editData.getState().getAlias()))   //保存
+		   	if("保存".equals(editData.getChangeState().getAlias()))   //保存
 		   	{
 		   		this.btnSubmit.setEnabled(true);             //提交
 		   		this.btnAttachment.setEnabled(false);        //撤销
 		    	this.btnAuditResult.setEnabled(false);       //审批结果查看
 		   		
 		   	}
-		   	else if("已提交".equals(editData.getState().getAlias()))
+		   	else if("已提交".equals(editData.getChangeState().getAlias()))
 		   	{
 		   		this.btnSubmit.setEnabled(true);             //提交
 		   		this.btnAttachment.setEnabled(false);        //撤销
 		    	this.btnAuditResult.setEnabled(false);       //审批结果查看
 		   		
 		   	}
-		   	else if("审批中".equals(editData.getState().getAlias()))
+		   	else if("审批中".equals(editData.getChangeState().getAlias()))
 		   	{
 		   		this.btnSubmit.setEnabled(false);             //提交
 		   		this.btnAttachment.setEnabled(true);        //撤销
 		    	this.btnAuditResult.setEnabled(true);       //审批结果查看
 		   		
 		   	}
-		   	else if("已审批".equals(editData.getState().getAlias()))
+		   	else if("已审批".equals(editData.getChangeState().getAlias()))
 		   	{
 		   		this.btnSubmit.setEnabled(false);             //提交
 		   		this.btnAttachment.setEnabled(false);        //撤销
-		    	this.btnAuditResult.setEnabled(false);       //审批结果查看
+		    	this.btnAuditResult.setEnabled(true);       //审批结果查看
 		   	}
-		   	}
+	   	}
+
 		   	else
 		   	{
 		   		this.btnSubmit.setEnabled(true);             //提交
@@ -161,12 +164,16 @@ public class ChangeAuditEditUIPIEx extends ChangeAuditEditUI{
 //	    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
 //	    }
        
-    	
+      // editData.setChangeState(ChangeBillStateEnum.Saved);
+    	String sql = " update T_CON_ChangeAuditBill set fChangeState='1SAVED' where fid='"+editData.getId()+"'";
+		FDCSQLBuilder bu = new FDCSQLBuilder();
+		bu.appendSql(sql);
+		bu.executeUpdate();
        String u=editData.getId().toString();
        
 	   String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+u+"&btid=BGQZ01&userid="+SysContext.getSysContext().getUserName()+"";
        creatFrame(url);
-       editData.setState(FDCBillStateEnum.SAVED);	
+       editData.setChangeState(ChangeBillStateEnum.Saved);	
     	
     	
     }

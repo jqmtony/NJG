@@ -17,6 +17,7 @@ import com.kingdee.eas.bpmdemo.webservers.serviceclient.WSgetInfoFacadeSrvProxyS
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.fdc.basedata.ContractTypeInfo;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
+import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
 import com.kingdee.eas.fdc.contract.PayRequestBillFactory;
 import com.kingdee.eas.util.client.MsgBox;
 
@@ -60,7 +61,7 @@ public class PayRequestBillEditUIPIEx extends PayRequestBillEditUI{
 		   	{
 		   		this.btnSubmit.setEnabled(false);             //提交
 		   		this.btnAttachment.setEnabled(false);        //撤销
-		    	this.btnAuditResult.setEnabled(false);       //审批结果查看
+		    	this.btnAuditResult.setEnabled(true);       //审批结果查看
 		   	}
 		   	}
 		   	else
@@ -187,7 +188,10 @@ public class PayRequestBillEditUIPIEx extends PayRequestBillEditUI{
 //	    	str1 = pay.approveClose("", editData.getId().toString(), 1, "0", "",null);
 //	    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
 //	    }
-    	
+    	String sql = " update t_con_payrequestbill set fState='1SAVED' where fid='"+editData.getId()+"'";
+		FDCSQLBuilder bu = new FDCSQLBuilder();
+		bu.appendSql(sql);
+		bu.executeUpdate();
     	editData = PayRequestBillFactory.getRemoteInstance().getPayRequestBillInfo(new ObjectUuidPK(editData.getId()));
     	String url = editData.getDescription();
     	creatFrame(url);

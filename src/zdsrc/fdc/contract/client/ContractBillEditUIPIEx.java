@@ -16,6 +16,7 @@ import com.kingdee.eas.bpmdemo.webservers.serviceclient.WSgetInfoFacadeSrvProxyS
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.fdc.basedata.ContractTypeInfo;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
+import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
 import com.kingdee.eas.fdc.contract.ContractBillFactory;
 import com.kingdee.eas.util.client.MsgBox;
 
@@ -61,7 +62,7 @@ public class ContractBillEditUIPIEx extends ContractBillEditUI{
 		   	{
 		   		this.btnSubmit.setEnabled(false);             //提交
 		   		this.btnAttachment.setEnabled(false);        //撤销
-		    	this.btnAuditResult.setEnabled(false);       //审批结果查看
+		    	this.btnAuditResult.setEnabled(true);       //审批结果查看
 		   	}
 		   	}
 		   	else
@@ -115,24 +116,28 @@ public class ContractBillEditUIPIEx extends ContractBillEditUI{
     	//String[] xml = getInfoFacadeFactory.getRemoteInstance().GetbillInfo("",editData.getId().toString());
     	//String [] str1= getInfoFacadeFactory.getRemoteInstance().ApproveClose("", "dYkAAAAAhPINbdH0", 1, "1", "",null);
     	//MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
-//    	String [] str1 = new String[3];
-//    	EASLoginProxy login = new EASLoginProxyServiceLocator().getEASLogin(new URL("http://127.0.0.1:56898/ormrpc/services/EASLogin"));
-//	   	WSContext  ws = login.login("kd-user", "kduser", "eas", "kd_002", "l2", 1);
-//	    if(ws.getSessionId()!=null){
-//	    	WSgetInfoFacadeSrvProxy pay = new WSgetInfoFacadeSrvProxyServiceLocator().getWSgetInfoFacade(new URL("http://127.0.0.1:56898/ormrpc/services/WSgetInfoFacade"));
-//	    	str1 = pay.getbillInfo("", editData.getId().toString());
-//	    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
-//	    	String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=HT01";
-//	    	str1 = pay.submitResult("", editData.getId().toString(), true, 1,url, "dYkAAAAAmMgNbdH0");
-//	    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
-//	    	str1 = pay.approveClose("", editData.getId().toString(), 1, "0", "",null);
-//	    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
-//	    }
-	    
-    	
+    	String [] str1 = new String[3];
+    	EASLoginProxy login = new EASLoginProxyServiceLocator().getEASLogin(new URL("http://127.0.0.1:56898/ormrpc/services/EASLogin"));
+	   	WSContext  ws = login.login("kd-user", "kduser", "eas", "kd_002", "l2", 1);
+	    if(ws.getSessionId()!=null){
+	    	WSgetInfoFacadeSrvProxy pay = new WSgetInfoFacadeSrvProxyServiceLocator().getWSgetInfoFacade(new URL("http://127.0.0.1:56898/ormrpc/services/WSgetInfoFacade"));
+	    	str1 = pay.getbillInfo("", editData.getId().toString());
+	    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
+	    	String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=HT01";
+	    	str1 = pay.submitResult("", editData.getId().toString(), true, 1,url, "dYkAAAAAmMgNbdH0");
+	        MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
+	    	str1 = pay.approveClose("", editData.getId().toString(), 1, "1", "",null);
+	    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
+	    }
+    	String sql = " update t_con_contractbill set fState='1SAVED' where fid='"+editData.getId()+"'";
+		FDCSQLBuilder bu = new FDCSQLBuilder();
+		bu.appendSql(sql);
+		bu.executeUpdate();
     	String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=HT01&userid="+SysContext.getSysContext().getUserName()+"";
     	creatFrame(url);
-    	editData.setState(FDCBillStateEnum.SAVED);
+    
+    	
+
     	
     }
     
@@ -176,7 +181,14 @@ public class ContractBillEditUIPIEx extends ContractBillEditUI{
     	String url = editData.getDescription();
     	creatFrame(url);
     }
-
+    
+    
+    
+    public void actionAudit_actionPerformed(ActionEvent e) throws Exception {
+    	// TODO Auto-generated method stub
+    	super.actionAudit_actionPerformed(e);
+    }
+    
     private void creatFrame(String url)
     {
     	//获取MD5加密
@@ -190,5 +202,7 @@ public class ContractBillEditUIPIEx extends ContractBillEditUI{
     	
     	jf.OpenJBrowser(this);
     }
+    
+    
     
 }
