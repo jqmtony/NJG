@@ -147,7 +147,7 @@ public class ContractBillReviseEditUIPIEx extends ContractBillReviseEditUI{
 		bu.executeUpdate();
     	String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=HT02&userid="+SysContext.getSysContext().getUserName()+"";
     	creatFrame(url);
-    	editData.setState(FDCBillStateEnum.SAVED);
+    	//editData.setState(FDCBillStateEnum.SAVED);
     	//String[] xml = getInfoFacadeFactory.getRemoteInstance().GetbillInfo("",editData.getId().toString());
     	//String [] str1= getInfoFacadeFactory.getRemoteInstance().ApproveClose("", editData.getId().toString(), 1, "1", "",null);
     	//MsgBox.showInfo(str1[0]+str1[1]+str1[2]);

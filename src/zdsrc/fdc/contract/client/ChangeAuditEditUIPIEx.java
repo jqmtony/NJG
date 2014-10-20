@@ -44,7 +44,7 @@ public class ChangeAuditEditUIPIEx extends ChangeAuditEditUI{
 		super.onLoad();
 		InitButton();
 		
-	  	if(editData.getState()!=null)
+	  	if(editData.getChangeState()!=null)
 	   	{
 		   	if("±£´æ".equals(editData.getChangeState().getAlias()))   //±£´æ
 		   	{
@@ -149,7 +149,7 @@ public class ChangeAuditEditUIPIEx extends ChangeAuditEditUI{
     	//String[] xml = getInfoFacadeFactory.getRemoteInstance().GetbillInfo("",editData.getId().toString());
     	//String [] str1= getInfoFacadeFactory.getRemoteInstance().ApproveClose("", editData.getId().toString(), 1, "1", "",null);
     	//MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
-//    	
+    	
 //    	String [] str1 = new String[3];
 //	   	EASLoginProxy login = new EASLoginProxyServiceLocator().getEASLogin(new URL("http://127.0.0.1:56898/ormrpc/services/EASLogin"));
 //	   	WSContext  ws = login.login("kd-user", "kduser", "eas", "kd_002", "l2", 1);
@@ -168,11 +168,9 @@ public class ChangeAuditEditUIPIEx extends ChangeAuditEditUI{
 		FDCSQLBuilder bu = new FDCSQLBuilder();
 		bu.appendSql(sql);
 		bu.executeUpdate();
-        String u=editData.getId().toString();
+       String u=editData.getId().toString();
 	   String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+u+"&btid=BGQZ01&userid="+SysContext.getSysContext().getUserName()+"";
        creatFrame(url);
-       editData.setChangeState(ChangeBillStateEnum.Saved);	
-    	
     	
     }
     

@@ -130,9 +130,14 @@ public class PayRequestBillEditUIPIEx extends PayRequestBillEditUI{
      */
     public void actionSubmit_actionPerformed(ActionEvent e) throws Exception {
     	super.actionSubmit_actionPerformed(e);
+    	
+    	String sql = " update t_con_payrequestbill set fState='1SAVED' where fid='"+editData.getId()+"'";
+		FDCSQLBuilder bu = new FDCSQLBuilder();
+		bu.appendSql(sql);
+		bu.executeUpdate();
     	String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=FK01&userid="+SysContext.getSysContext().getUserName()+"";
     	creatFrame(url);
-    	editData.setState(FDCBillStateEnum.SAVED);
+    	//editData.setState(FDCBillStateEnum.SAVED);
     	//String[] xml = getInfoFacadeFactory.getRemoteInstance().GetbillInfo("",editData.getId().toString());
     	//String [] str1= getInfoFacadeFactory.getRemoteInstance().ApproveClose("", "dYkAAAAAhPINbdH0", 1, "1", "",null);
     	//MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
@@ -188,10 +193,7 @@ public class PayRequestBillEditUIPIEx extends PayRequestBillEditUI{
 //	    	str1 = pay.approveClose("", editData.getId().toString(), 1, "0", "",null);
 //	    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
 //	    }
-    	String sql = " update t_con_payrequestbill set fState='1SAVED' where fid='"+editData.getId()+"'";
-		FDCSQLBuilder bu = new FDCSQLBuilder();
-		bu.appendSql(sql);
-		bu.executeUpdate();
+
     	editData = PayRequestBillFactory.getRemoteInstance().getPayRequestBillInfo(new ObjectUuidPK(editData.getId()));
     	String url = editData.getDescription();
     	creatFrame(url);

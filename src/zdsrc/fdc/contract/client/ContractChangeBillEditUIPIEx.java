@@ -157,7 +157,7 @@ public class ContractChangeBillEditUIPIEx extends ContractChangeBillEditUI{
 			bu.executeUpdate();
 	    	String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=BGJS01&userid="+SysContext.getSysContext().getUserName()+"";
 	    	creatFrame(url);
-	    	editData.setState(FDCBillStateEnum.SAVED);
+	    	//editData.setState(FDCBillStateEnum.SAVED);
 	    	
 	    }
 	 

@@ -156,7 +156,7 @@ public class ContractWithoutTextEditUIPIEx extends ContractWithoutTextEditUI{
 		bu.executeUpdate();
     	String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=WWBHT01&userid="+SysContext.getSysContext().getUserName()+"";
     	creatFrame(url);
-    	editData.setState(FDCBillStateEnum.SAVED);
+    	//editData.setState(FDCBillStateEnum.SAVED);
     	
     }
     
