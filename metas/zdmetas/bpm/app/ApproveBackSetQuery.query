@@ -1,0 +1,1417 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<joinQuery xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.bpm.app</package>
+    <name>ApproveBackSetQuery</name>
+    <alias>joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].alias</alias>
+    <description>joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].description</description>
+    <userDefined>true</userDefined>
+    <reportDataSource />
+    <bizUnitPK>com.kingdee.eas.bpm.ApproveBackSet</bizUnitPK>
+    <connectionProvider />
+    <subObjects>
+        <subEntity>
+            <name>ApproveBackSet</name>
+            <alias>joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].subObjects.subEntity[ApproveBackSet].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpm.app" />
+                <key name="name" value="ApproveBackSetQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.bpm.app" />
+                <key name="name" value="ApproveBackSet" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>creator</name>
+            <alias>joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].subObjects.subEntity[creator].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpm.app" />
+                <key name="name" value="ApproveBackSetQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.base.permission.app" />
+                <key name="name" value="User" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>lastUpdateUser</name>
+            <alias>joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].subObjects.subEntity[lastUpdateUser].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpm.app" />
+                <key name="name" value="ApproveBackSetQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.base.permission.app" />
+                <key name="name" value="User" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>treeid</name>
+            <alias>joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].subObjects.subEntity[treeid].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpm.app" />
+                <key name="name" value="ApproveBackSetQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.bpm.app" />
+                <key name="name" value="ApproveBackSetTree" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>Entry</name>
+            <alias>joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].subObjects.subEntity[Entry].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpm.app" />
+                <key name="name" value="ApproveBackSetQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.bpm.app" />
+                <key name="name" value="ApproveBackSetEntry" />
+            </entityRef>
+        </subEntity>
+    </subObjects>
+    <units>
+        <propertyUnit>
+            <name>NewUnit0</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.propertyUnit[NewUnit0].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit0" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ApproveBackSet" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="creator" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpm.app" />
+                <key name="name" value="ApproveBackSetQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUnit1</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.propertyUnit[NewUnit1].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit1" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="creator" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpm.app" />
+                <key name="name" value="ApproveBackSetQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUnit2</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.propertyUnit[NewUnit2].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit2" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ApproveBackSet" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="lastUpdateUser" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpm.app" />
+                <key name="name" value="ApproveBackSetQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUnit3</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.propertyUnit[NewUnit3].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit3" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="lastUpdateUser" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpm.app" />
+                <key name="name" value="ApproveBackSetQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUnit4</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.propertyUnit[NewUnit4].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit4" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ApproveBackSet" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="treeid" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpm.app" />
+                <key name="name" value="ApproveBackSetQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUnit5</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.propertyUnit[NewUnit5].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit5" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="treeid" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpm.app" />
+                <key name="name" value="ApproveBackSetQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>id</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ApproveBackSet" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpm.app" />
+                <key name="name" value="ApproveBackSetQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ApproveBackSet" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpm.app" />
+                <key name="name" value="ApproveBackSetQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>number</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[number].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="number" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ApproveBackSet" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="number" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpm.app" />
+                <key name="name" value="ApproveBackSetQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>description</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[description].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="description" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ApproveBackSet" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="description" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpm.app" />
+                <key name="name" value="ApproveBackSetQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>simpleName</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[simpleName].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="simpleName" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ApproveBackSet" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="simpleName" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpm.app" />
+                <key name="name" value="ApproveBackSetQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>createTime</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[createTime].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Timestamp</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="createTime" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ApproveBackSet" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="createTime" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpm.app" />
+                <key name="name" value="ApproveBackSetQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>creator.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[creator.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="creator.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="creator" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpm.app" />
+                <key name="name" value="ApproveBackSetQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>lastUpdateTime</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[lastUpdateTime].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Timestamp</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="lastUpdateTime" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ApproveBackSet" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="lastUpdateTime" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpm.app" />
+                <key name="name" value="ApproveBackSetQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>lastUpdateUser.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[lastUpdateUser.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="lastUpdateUser.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="lastUpdateUser" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpm.app" />
+                <key name="name" value="ApproveBackSetQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>treeid.id</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[treeid.id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="treeid.id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="treeid" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpm.app" />
+                <key name="name" value="ApproveBackSetQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>Entry.seq</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[Entry.seq].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Int</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>c1542746-8ede-4757-96a5-e9b9b200eca6</key>
+                    <parentUnit>
+                        <key name="name" value="Entry.seq" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Entry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="seq" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpm.app" />
+                <key name="name" value="ApproveBackSetQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>10586727-dba3-4ee6-af40-44b710638240</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.propertyUnit[10586727-dba3-4ee6-af40-44b710638240].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>e3712e40-38d0-4c6e-9f59-905239f4459f</key>
+                    <parentUnit>
+                        <key name="name" value="10586727-dba3-4ee6-af40-44b710638240" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ApproveBackSet" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpm.app" />
+                <key name="name" value="ApproveBackSetQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>1bb41d6f-e111-4a39-839a-88530389fa9a</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.propertyUnit[1bb41d6f-e111-4a39-839a-88530389fa9a].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>1b09b57c-3a48-469f-aeb1-32ada35ecb34</key>
+                    <parentUnit>
+                        <key name="name" value="1bb41d6f-e111-4a39-839a-88530389fa9a" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Entry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="parent" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpm.app" />
+                <key name="name" value="ApproveBackSetQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>Entry.field</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[Entry.field].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>29c722b7-1f78-48da-b662-a4a949ba20a5</key>
+                    <parentUnit>
+                        <key name="name" value="Entry.field" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Entry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="field" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpm.app" />
+                <key name="name" value="ApproveBackSetQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>Entry.fieldName</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[Entry.fieldName].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>1bb75cda-3ae4-49f7-b2f6-281b98ccfdb5</key>
+                    <parentUnit>
+                        <key name="name" value="Entry.fieldName" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Entry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="fieldName" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpm.app" />
+                <key name="name" value="ApproveBackSetQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>Entry.beizhu</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[Entry.beizhu].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>e6bd74bd-b170-40ff-b207-11354da32496</key>
+                    <parentUnit>
+                        <key name="name" value="Entry.beizhu" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Entry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="beizhu" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpm.app" />
+                <key name="name" value="ApproveBackSetQuery" />
+            </query>
+        </queryField>
+    </units>
+    <defaultFilter>
+        <name>defaultFilter</name>
+        <formulaString />
+        <query>
+            <key name="package" value="com.kingdee.eas.bpm.app" />
+            <key name="name" value="ApproveBackSetQuery" />
+        </query>
+    </defaultFilter>
+    <queryPK>
+        <name>QueryPK</name>
+        <alias>joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].queryPK[QueryPK].alias</alias>
+        <description>joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].queryPK[QueryPK].description</description>
+        <keyProperties>
+            <queryField>
+                <key name="name" value="id" />
+            </queryField>
+        </keyProperties>
+    </queryPK>
+    <isDistinct>false</isDistinct>
+    <joins>
+        <join>
+            <name>NewJoin0</name>
+            <formulaString>#0</formulaString>
+            <type>INNER JOIN</type>
+            <leftObject>
+                <key name="name" value="ApproveBackSet" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="creator" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>0</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="NewUnit0" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="NewUnit1" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="NewJoin0" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpm.app" />
+                <key name="name" value="ApproveBackSetQuery" />
+            </query>
+        </join>
+        <join>
+            <name>NewJoin1</name>
+            <formulaString>#0</formulaString>
+            <type>INNER JOIN</type>
+            <leftObject>
+                <key name="name" value="ApproveBackSet" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="lastUpdateUser" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>0</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="NewUnit2" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="NewUnit3" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="NewJoin0" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpm.app" />
+                <key name="name" value="ApproveBackSetQuery" />
+            </query>
+        </join>
+        <join>
+            <name>NewJoin2</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="ApproveBackSet" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="treeid" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>0</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="NewUnit4" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="NewUnit5" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="NewJoin0" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpm.app" />
+                <key name="name" value="ApproveBackSetQuery" />
+            </query>
+        </join>
+        <join>
+            <name>22db96c0-7dba-4cf4-ab43-2885c7478625</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="ApproveBackSet" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="Entry" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>c57cceff-5134-4ffd-ad4d-8169b6dc61a5</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="10586727-dba3-4ee6-af40-44b710638240" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="1bb41d6f-e111-4a39-839a-88530389fa9a" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="22db96c0-7dba-4cf4-ab43-2885c7478625" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.bpm.app" />
+                <key name="name" value="ApproveBackSetQuery" />
+            </query>
+        </join>
+    </joins>
+    <resource>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="审批反写字段设置" />
+            <lang locale="zh_HK" value="審批反寫字段設置" />
+            <lang locale="zh_TW" value="審批反寫字段設置" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="分组基础资料查询" />
+            <lang locale="zh_HK" value="分組基礎資料查詢" />
+            <lang locale="zh_TW" value="分組基礎資料查詢" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].extendedProperty.F7WindowTitle">
+            <lang locale="en_US" value="com.kingdee.eas.bpm.client.BpmResource.ApproveBackSetQueryF7WindowTitle" />
+            <lang locale="zh_CN" value="com.kingdee.eas.bpm.client.BpmResource.ApproveBackSetQueryF7WindowTitle" />
+            <lang locale="zh_TW" value="com.kingdee.eas.bpm.client.BpmResource.ApproveBackSetQueryF7WindowTitle" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].extendedProperty.f7WindowTitle">
+            <lang locale="en_US" value="审批反写字段设置" />
+            <lang locale="zh_CN" value="审批反写字段设置" />
+            <lang locale="zh_TW" value="审批反写字段设置" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].queryPK[QueryPK].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].queryPK[QueryPK].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].subObjects.subEntity[ApproveBackSet].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].subObjects.subEntity[Entry].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].subObjects.subEntity[creator].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].subObjects.subEntity[lastUpdateUser].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].subObjects.subEntity[treeid].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.propertyUnit[10586727-dba3-4ee6-af40-44b710638240].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.propertyUnit[1bb41d6f-e111-4a39-839a-88530389fa9a].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.propertyUnit[NewUnit0].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.propertyUnit[NewUnit1].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.propertyUnit[NewUnit2].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.propertyUnit[NewUnit3].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.propertyUnit[NewUnit4].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.propertyUnit[NewUnit5].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[Entry.beizhu].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="备注" />
+            <lang locale="zh_HK" value="備註" />
+            <lang locale="zh_TW" value="備註" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[Entry.beizhu].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[Entry.beizhu].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[Entry.fieldName].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="字段别名" />
+            <lang locale="zh_HK" value="字段別名" />
+            <lang locale="zh_TW" value="字段別名" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[Entry.fieldName].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[Entry.fieldName].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[Entry.field].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="数据库字段" />
+            <lang locale="zh_HK" value="資料庫字段" />
+            <lang locale="zh_TW" value="資料庫字段" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[Entry.field].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[Entry.field].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[Entry.seq].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据分录序列号" />
+            <lang locale="zh_HK" value="單據分錄序列號" />
+            <lang locale="zh_TW" value="單據分錄序列號" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[Entry.seq].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[Entry.seq].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[createTime].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="创建时间" />
+            <lang locale="zh_HK" value="創建時間" />
+            <lang locale="zh_TW" value="創建時間" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[createTime].extendedProperty.colWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[createTime].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[createTime].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[createTime].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[createTime].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[creator.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="创建人" />
+            <lang locale="zh_HK" value="創建人" />
+            <lang locale="zh_TW" value="創建人" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[creator.name].extendedProperty.colWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[creator.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[creator.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[creator.name].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[creator.name].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[description].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="描述" />
+            <lang locale="zh_HK" value="描述" />
+            <lang locale="zh_TW" value="描述" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[description].extendedProperty.colWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[description].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[description].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[description].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[description].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[id].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[id].extendedProperty.colWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[id].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[id].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[id].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[id].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[lastUpdateTime].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="最后修改时间" />
+            <lang locale="zh_HK" value="最後修改時間" />
+            <lang locale="zh_TW" value="最後修改時間" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[lastUpdateTime].extendedProperty.colWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[lastUpdateTime].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[lastUpdateTime].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[lastUpdateTime].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[lastUpdateTime].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[lastUpdateUser.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="修改人" />
+            <lang locale="zh_HK" value="修改人" />
+            <lang locale="zh_TW" value="修改人" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[lastUpdateUser.name].extendedProperty.colWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[lastUpdateUser.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[lastUpdateUser.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[lastUpdateUser.name].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[lastUpdateUser.name].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="名称" />
+            <lang locale="zh_HK" value="名稱" />
+            <lang locale="zh_TW" value="名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[name].extendedProperty.colWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[name].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[name].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[number].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="编码" />
+            <lang locale="zh_HK" value="編碼" />
+            <lang locale="zh_TW" value="編碼" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[number].extendedProperty.colWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[number].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[number].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[number].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[number].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[simpleName].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="简称" />
+            <lang locale="zh_HK" value="簡稱" />
+            <lang locale="zh_TW" value="簡稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[simpleName].extendedProperty.colWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[simpleName].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[simpleName].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[simpleName].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[simpleName].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[treeid.id].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[treeid.id].extendedProperty.colWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[treeid.id].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[treeid.id].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[treeid.id].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.bpm.app.ApproveBackSetQuery].units.queryField[treeid.id].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+    </resource>
+</joinQuery>
+

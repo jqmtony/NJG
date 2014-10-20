@@ -12,6 +12,11 @@
             <value>i18nResource[com.kingdee.eas.bpm.client.BpmResource].resourceItems.resourceItem[BPMLogQueryF7WindowTitle].value</value>
             <userDefined>true</userDefined>
         </resourceItem>
+        <resourceItem>
+            <name>ApproveBackSetQueryF7WindowTitle</name>
+            <value>i18nResource[com.kingdee.eas.bpm.client.BpmResource].resourceItems.resourceItem[ApproveBackSetQueryF7WindowTitle].value</value>
+            <userDefined>true</userDefined>
+        </resourceItem>
     </resourceItems>
     <resource>
         <rs key="i18nResource[com.kingdee.eas.bpm.client.BpmResource].alias">
@@ -25,6 +30,12 @@
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="i18nResource[com.kingdee.eas.bpm.client.BpmResource].resourceItems.resourceItem[ApproveBackSetQueryF7WindowTitle].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="审批反写字段设置" />
+            <lang locale="zh_HK" value="審批反寫字段設置" />
+            <lang locale="zh_TW" value="審批反寫字段設置" />
         </rs>
         <rs key="i18nResource[com.kingdee.eas.bpm.client.BpmResource].resourceItems.resourceItem[BPMLogQueryF7WindowTitle].value">
             <lang locale="en_US" value="null" />
