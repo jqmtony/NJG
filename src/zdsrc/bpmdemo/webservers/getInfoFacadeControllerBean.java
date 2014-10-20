@@ -172,7 +172,20 @@ public class getInfoFacadeControllerBean extends AbstractgetInfoFacadeController
 		return super._GetrRelatedBillInfo(ctx, strBTID, strBOID, strRelatedCode);
 	}
 	protected String[] _ApproveBack(Context ctx, String strBTID,String strBOID, String strXML) throws BOSException {
-		return super._ApproveBack(ctx, strBTID, strBOID, strXML);
+		//return super._ApproveBack(ctx, strBTID, strBOID, strXML);
+		String[] str = new String[3];
+    	IObjectValue billInfo = null;
+    	try {
+			billInfo = DynamicObjectFactory.getLocalInstance(ctx).getValue(new ObjectUuidPK(strBOID).getObjectType(),new ObjectUuidPK(strBOID));
+    	}catch (Exception e) {
+			str[2] = "根据单据ID获取对象数据失败,请检查单据ID是否存在，并查看服务器log日志";
+			e.printStackTrace();
+		}finally{
+			if(billInfo instanceof ContractBillInfo){
+				str = new ContractFacade().ApproveBack(ctx, strBTID, billInfo, strXML);
+			}
+		}
+          return str;		
 	}
 	
 	
