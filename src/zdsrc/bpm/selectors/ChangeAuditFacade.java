@@ -218,15 +218,15 @@ public class ChangeAuditFacade implements BillBaseSelector {
 				      if(myavc.size()>0)
 				      {
 				        for(int j=0;j< myavc.size();j++){  	     
-		         	    ContractBillInfo info=ContractBillFactory.getLocalInstance(ctx).getContractBillInfo(new ObjectUuidPK(myavc.get(j).getId()));
+		         	    ContractBillInfo info=ContractBillFactory.getLocalInstance(ctx).getContractBillInfo(new ObjectUuidPK(changeSuppentry.getContractBill().getId()));
 		         	    xml.append("<ContractID>" + info.getNumber()+ "</ContractID>\n");
-						xml.append("<ContractName>"+info.getName()+ "</ContractName>\n");
+						xml.append("<ContractName>" + info.getName()+ "</ContractName>\n");
 						xml.append("<MainSupp>" + info.getPartB().getName()+ "</MainSupp>\n");//  主送单位
 						xml.append("<Currency>" + info.getCurrency().getName()+ "</Currency>\n");//币别
 						xml.append("<Exrate>" + info.getExRate() + "</Exrate>\n");
 				        }
 				      }					
-					xml.append("<CopySupp>" + changeSuppentry.getCopySupp()+ "</CopySupp>\n");   //抄送单位
+		 			//xml.append("<CopySupp>" + changeSuppentry.getCopySupp().get(2)+ "</CopySupp>\n");   //抄送单位
 					xml.append("<OriginalContactNum>"+ changeSuppentry.getOriginalContactNum()+ "</OriginalContactNum>\n");
 					//xml.append("<ZContext>" +ChangeAuditEntryFactory.getLocalInstance(ctx).getChangeAuditEntryInfo(new ObjectUuidPK(changeSuppentry.getParent().getId())).getChangeContent()+"</ZContext>\n");   //
 					xml.append("<OriCostAmount>" + changeSuppentry.getOriCostAmount()+ "</OriCostAmount>\n");
@@ -401,10 +401,12 @@ public class ChangeAuditFacade implements BillBaseSelector {
 		sic.add(new SelectorItemInfo("SuppEntry.mainSupp.id"));
 		sic.add(new SelectorItemInfo("SuppEntry.mainSupp.name"));
 		sic.add(new SelectorItemInfo("SuppEntry.mainSupp.number"));
-		sic.add(new SelectorItemInfo("SuppEntry.CopySupp"));
+		sic.add(new SelectorItemInfo("SuppEntry.CopySupp.id"));
+		sic.add(new SelectorItemInfo("SuppEntry.CopySupp.name"));
 		sic.add(new SelectorItemInfo("SuppEntry.OriginalContactNum"));
 		sic.add(new SelectorItemInfo("SuppEntry.Entrys.changeContext"));
-		sic.add(new SelectorItemInfo("SuppEntry.Currency"));
+		sic.add(new SelectorItemInfo("SuppEntry.Currency.id"));
+		sic.add(new SelectorItemInfo("SuppEntry.Currency.name"));
 		sic.add(new SelectorItemInfo("SuppEntry.getExRate"));
 		sic.add(new SelectorItemInfo("SuppEntry.getOriCostAmount"));
 		sic.add(new SelectorItemInfo("SuppEntry.getCostAmount"));
