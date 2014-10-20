@@ -9,6 +9,7 @@ import com.kingdee.eas.bpmdemo.webservers.serviceclient.BPMServiceForERPLocator;
 import com.kingdee.eas.bpmdemo.webservers.serviceclient.BPMServiceForERPSoap;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.fdc.basedata.ContractTypeInfo;
+import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
 import com.kingdee.eas.fdc.contract.ContractBillFactory;
 import com.kingdee.eas.fdc.contract.ContractChangeBillFactory;
 import com.kingdee.eas.bpmdemo.webservers.serviceclient.EASLoginProxy;
@@ -35,6 +36,42 @@ public class ContractChangeBillEditUIPIEx extends ContractChangeBillEditUI{
 	
 	public void onLoad() throws Exception {
 		super.onLoad();
+	   	if(editData.getState()!=null)
+	   	{
+		   	if("保存".equals(editData.getState().getAlias()))   //保存
+		   	{
+		   		this.btnSubmit.setEnabled(true);             //提交
+		   		this.btnAttachment.setEnabled(false);        //撤销
+		    	this.btnAuditResult.setEnabled(false);       //审批结果查看
+		   		
+		   	}
+		   	else if("已提交".equals(editData.getState().getAlias()))
+		   	{
+		   		this.btnSubmit.setEnabled(true);             //提交
+		   		this.btnAttachment.setEnabled(false);        //撤销
+		    	this.btnAuditResult.setEnabled(false);       //审批结果查看
+		   		
+		   	}
+		   	else if("审批中".equals(editData.getState().getAlias()))
+		   	{
+		   		this.btnSubmit.setEnabled(false);             //提交
+		   		this.btnAttachment.setEnabled(true);        //撤销
+		    	this.btnAuditResult.setEnabled(true);       //审批结果查看
+		   		
+		   	}
+		   	else if("已审批".equals(editData.getState().getAlias()))
+		   	{
+		   		this.btnSubmit.setEnabled(false);             //提交
+		   		this.btnAttachment.setEnabled(false);        //撤销
+		    	this.btnAuditResult.setEnabled(false);       //审批结果查看
+		   	}
+		   	}
+		   	else
+		   	{
+		   		this.btnSubmit.setEnabled(true);             //提交
+		   		this.btnAttachment.setEnabled(false);        //撤销
+		    	this.btnAuditResult.setEnabled(false);       //审批结果查看
+		   	}
 		InitButton();
     	this.chkMenuItemSubmitAndAddNew.setSelected(false);
 	   	this.chkMenuItemSubmitAndAddNew.setEnabled(false);
@@ -58,10 +95,32 @@ public class ContractChangeBillEditUIPIEx extends ContractChangeBillEditUI{
 	    	this.btnSubmit.setText("提交BPM流程");
 	    	this.btnSubmit.setToolTipText("提交BPM流程");
 	    	btnWorkFlowG.setVisible(false);
-	    	this.btnAttachment.setEnabled(false);
 	    	this.btnAttachment.setText("撤销BPM流程");
 	    	this.btnAttachment.setToolTipText("撤销BPM流程");
 	    }
+	 
+	    /*
+	     * 新增
+	     * */ 
+		public void actionAddNew_actionPerformed(ActionEvent e) throws Exception {
+			// TODO Auto-generated method stub
+			super.actionAddNew_actionPerformed(e);
+	    	this.btnAttachment.setEnabled(false);
+	    	this.btnAuditResult.setEnabled(false); 
+		}
+		
+		/*
+		 * 修改
+		 * */
+		public void actionEdit_actionPerformed(ActionEvent arg0) throws Exception {
+			// TODO Auto-generated method stub
+			super.actionEdit_actionPerformed(arg0);
+	    	this.btnAttachment.setEnabled(false);
+	    	this.btnAuditResult.setEnabled(false); 
+		}
+	 
+	 
+	 
 	 
 	 public void actionAttachment_actionPerformed(ActionEvent e) throws Exception {
 	    	BPMServiceForERPSoap  login = new BPMServiceForERPLocator().getBPMServiceForERPSoap();
@@ -85,7 +144,7 @@ public class ContractChangeBillEditUIPIEx extends ContractChangeBillEditUI{
 //		    	str1 = pay.approveClose("", editData.getId().toString(), 1, "0", "",null);
 //		    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
 //		    }
-	    	
+//	    	
 	    	
 	    	
 //	    	String[] xml = getInfoFacadeFactory.getRemoteInstance().GetbillInfo("",editData.getId().toString());
@@ -93,6 +152,7 @@ public class ContractChangeBillEditUIPIEx extends ContractChangeBillEditUI{
 //	    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
 	    	String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=BGJS01&userid="+SysContext.getSysContext().getUserName()+"";
 	    	creatFrame(url);
+	    	editData.setState(FDCBillStateEnum.SAVED);
 	    	
 	    }
 	 

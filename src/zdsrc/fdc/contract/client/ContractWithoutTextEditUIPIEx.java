@@ -16,6 +16,7 @@ import com.kingdee.eas.bpmdemo.webservers.serviceclient.WSgetInfoFacadeSrvProxy;
 import com.kingdee.eas.bpmdemo.webservers.serviceclient.WSgetInfoFacadeSrvProxyServiceLocator;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.fdc.basedata.ContractTypeInfo;
+import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
 import com.kingdee.eas.fdc.contract.ContractWithoutTextFactory;
 import com.kingdee.eas.util.client.MsgBox;
 
@@ -32,6 +33,42 @@ public class ContractWithoutTextEditUIPIEx extends ContractWithoutTextEditUI{
 	public void onLoad() throws Exception {
 		super.onLoad();
 		InitButton();
+	   	if(editData.getState()!=null)
+	   	{
+		   	if("保存".equals(editData.getState().getAlias()))   //保存
+		   	{
+		   		this.btnSubmit.setEnabled(true);             //提交
+		   		this.btnAttachment.setEnabled(false);        //撤销
+		    	this.btnAuditResult.setEnabled(false);       //审批结果查看
+		   		
+		   	}
+		   	else if("已提交".equals(editData.getState().getAlias()))
+		   	{
+		   		this.btnSubmit.setEnabled(true);             //提交
+		   		this.btnAttachment.setEnabled(false);        //撤销
+		    	this.btnAuditResult.setEnabled(false);       //审批结果查看
+		   		
+		   	}
+		   	else if("审批中".equals(editData.getState().getAlias()))
+		   	{
+		   		this.btnSubmit.setEnabled(false);             //提交
+		   		this.btnAttachment.setEnabled(true);        //撤销
+		    	this.btnAuditResult.setEnabled(true);       //审批结果查看
+		   		
+		   	}
+		   	else if("已审批".equals(editData.getState().getAlias()))
+		   	{
+		   		this.btnSubmit.setEnabled(false);             //提交
+		   		this.btnAttachment.setEnabled(false);        //撤销
+		    	this.btnAuditResult.setEnabled(false);       //审批结果查看
+		   	}
+		   	}
+		   	else
+		   	{
+		   		this.btnSubmit.setEnabled(true);             //提交
+		   		this.btnAttachment.setEnabled(false);        //撤销
+		    	this.btnAuditResult.setEnabled(false);       //审批结果查看
+		   	}
     	this.chkMenuItemSubmitAndAddNew.setSelected(false);
 	   	this.chkMenuItemSubmitAndAddNew.setEnabled(false);
 	   	this.btnCopy.setVisible(false);
@@ -53,10 +90,30 @@ public class ContractWithoutTextEditUIPIEx extends ContractWithoutTextEditUI{
     	this.btnSubmit.setText("提交BPM流程");
     	this.btnSubmit.setToolTipText("提交BPM流程");
     	btnWorkFlowG.setVisible(false);
-    	this.btnAttachment.setEnabled(false);
     	this.btnAttachment.setText("撤销BPM流程");
     	this.btnAttachment.setToolTipText("撤销BPM流程");
     }
+    
+    /*
+     * 新增
+     * */ 
+	public void actionAddNew_actionPerformed(ActionEvent e) throws Exception {
+		// TODO Auto-generated method stub
+		super.actionAddNew_actionPerformed(e);
+    	this.btnAttachment.setEnabled(false);
+    	this.btnAuditResult.setEnabled(false); 
+	}
+	
+	/*
+	 * 修改
+	 * */
+	public void actionEdit_actionPerformed(ActionEvent arg0) throws Exception {
+		// TODO Auto-generated method stub
+		super.actionEdit_actionPerformed(arg0);
+    	this.btnAttachment.setEnabled(false);
+    	this.btnAuditResult.setEnabled(false); 
+	}
+    
     /**
      * 撤销BPM流程
      * 用EAS中的附件按钮替代的
@@ -79,23 +136,23 @@ public class ContractWithoutTextEditUIPIEx extends ContractWithoutTextEditUI{
     	//MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
     	//MsgBox.showInfo(personInfo.getId()+","+personInfo.getNumber()+","+personInfo.getName());
     	
-    	String [] str1 = new String[3];
-	   	EASLoginProxy login = new EASLoginProxyServiceLocator().getEASLogin(new URL("http://127.0.0.1:56898/ormrpc/services/EASLogin"));
-	   	WSContext  ws = login.login("kd-user", "kduser", "eas", "kd_002", "l2", 1);
-	    if(ws.getSessionId()!=null){
-	    	WSgetInfoFacadeSrvProxy pay = new WSgetInfoFacadeSrvProxyServiceLocator().getWSgetInfoFacade(new URL("http://127.0.0.1:56898/ormrpc/services/WSgetInfoFacade"));
-	    	str1 = pay.getbillInfo("", editData.getId().toString());
-	    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
-	    	String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=FK01";
-	    	str1 = pay.submitResult("", editData.getId().toString(), true, 1,url, "dYkAAAAAmMgNbdH0");
-	    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
-	    	str1 = pay.approveClose("", editData.getId().toString(), 1, "0", "",null);
-	    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
-	    }
+//    	String [] str1 = new String[3];
+//	   	EASLoginProxy login = new EASLoginProxyServiceLocator().getEASLogin(new URL("http://127.0.0.1:56898/ormrpc/services/EASLogin"));
+//	   	WSContext  ws = login.login("kd-user", "kduser", "eas", "kd_002", "l2", 1);
+//	    if(ws.getSessionId()!=null){
+//	    	WSgetInfoFacadeSrvProxy pay = new WSgetInfoFacadeSrvProxyServiceLocator().getWSgetInfoFacade(new URL("http://127.0.0.1:56898/ormrpc/services/WSgetInfoFacade"));
+//	    	str1 = pay.getbillInfo("", editData.getId().toString());
+//	    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
+//	    	String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=FK01";
+//	    	str1 = pay.submitResult("", editData.getId().toString(), true, 1,url, "dYkAAAAAmMgNbdH0");
+//	    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
+//	    	str1 = pay.approveClose("", editData.getId().toString(), 1, "0", "",null);
+//	    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
+//	    }
 
     	String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=WWBHT01&userid="+SysContext.getSysContext().getUserName()+"";
     	creatFrame(url);
-
+    	editData.setState(FDCBillStateEnum.SAVED);
     	
     }
     
@@ -124,22 +181,22 @@ public class ContractWithoutTextEditUIPIEx extends ContractWithoutTextEditUI{
 //    	str1= getInfoFacadeFactory.getRemoteInstance().SubmitResult("", editData.getId().toString(), true, 1,"", "dYkAAAAAmMgNbdH0");
     	
     	
-	   	EASLoginProxy login = new EASLoginProxyServiceLocator().getEASLogin(new URL("http://127.0.0.1:56898/ormrpc/services/EASLogin"));
-	   	WSContext  ws = login.login("kd-user", "kduser", "eas", "kd_002", "l2", 1);
-	    if(ws.getSessionId()!=null){
-	    	WSgetInfoFacadeSrvProxy pay = new WSgetInfoFacadeSrvProxyServiceLocator().getWSgetInfoFacade(new URL("http://127.0.0.1:56898/ormrpc/services/WSgetInfoFacade"));
-	    	str1 = pay.getbillInfo("", editData.getId().toString());
-	    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
-	    	String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=WWBHT01";
-	    	str1 = pay.submitResult("", editData.getId().toString(), true, 1,url, "dYkAAAAAmMgNbdH0");
-	    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
-	    	str1 = pay.approveClose("", editData.getId().toString(), 1, "0", "",null);
-	    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
-	    }
+//	   	EASLoginProxy login = new EASLoginProxyServiceLocator().getEASLogin(new URL("http://127.0.0.1:56898/ormrpc/services/EASLogin"));
+//	   	WSContext  ws = login.login("kd-user", "kduser", "eas", "kd_002", "l2", 1);
+//	    if(ws.getSessionId()!=null){
+//	    	WSgetInfoFacadeSrvProxy pay = new WSgetInfoFacadeSrvProxyServiceLocator().getWSgetInfoFacade(new URL("http://127.0.0.1:56898/ormrpc/services/WSgetInfoFacade"));
+//	    	str1 = pay.getbillInfo("", editData.getId().toString());
+//	    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
+//	    	String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=WWBHT01";
+//	    	str1 = pay.submitResult("", editData.getId().toString(), true, 1,url, "dYkAAAAAmMgNbdH0");
+//	    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
+//	    	str1 = pay.approveClose("", editData.getId().toString(), 1, "0", "",null);
+//	    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
+//	    }
     	
-    //	editData = ContractWithoutTextFactory.getRemoteInstance().getContractWithoutTextInfo(new ObjectUuidPK(editData.getId()));
-    //	String url = editData.getDescription();
-    //	creatFrame(url);
+    	editData = ContractWithoutTextFactory.getRemoteInstance().getContractWithoutTextInfo(new ObjectUuidPK(editData.getId()));
+    	String url = editData.getDescription();
+    	creatFrame(url);
     }
 
     private void creatFrame(String url)
