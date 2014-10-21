@@ -111,8 +111,8 @@ public class ContractFacade implements BillBaseSelector {
 				if("1".equals(processInstanceResult)){
 					if(FDCBillStateEnum.AUDITTING.equals(Info.getState()))
 					{
-						Info.setState(FDCBillStateEnum.SUBMITTED);
-					    ContractBillFactory.getLocalInstance(ctx).audit(Info.getId());
+						//Info.setState(FDCBillStateEnum.SUBMITTED);
+					    //ContractBillFactory.getLocalInstance(ctx).audit(Info.getId());
 					    Info.setState(FDCBillStateEnum.AUDITTED);  
 					}
 					else{
@@ -360,7 +360,7 @@ public class ContractFacade implements BillBaseSelector {
 		 sic.add(new SelectorItemInfo("currency.id"));
 		 sic.add(new SelectorItemInfo("currency.number"));
 		 sic.add(new SelectorItemInfo("currency.name"));
-				
+		sic.add(new SelectorItemInfo("id"));		
 		sic.add(new SelectorItemInfo("respDept.id"));
 		sic.add(new SelectorItemInfo("respDept.number"));
 		sic.add(new SelectorItemInfo("respDept.name"));

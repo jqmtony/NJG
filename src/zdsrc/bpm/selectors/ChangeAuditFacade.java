@@ -6,6 +6,7 @@ import java.util.Date;
 
 import com.kingdee.bos.BOSException;
 import com.kingdee.bos.Context;
+import com.kingdee.bos.dao.IObjectPK;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
@@ -40,6 +41,9 @@ import com.kingdee.eas.fdc.contract.ContractBillCollection;
 import com.kingdee.eas.fdc.contract.ContractBillFactory;
 import com.kingdee.eas.fdc.contract.ContractBillInfo;
 import com.kingdee.eas.fdc.contract.ContractPayItemFactory;
+import com.kingdee.eas.fdc.contract.CopySupplierEntryCollection;
+import com.kingdee.eas.fdc.contract.CopySupplierEntryFactory;
+import com.kingdee.eas.fdc.contract.CopySupplierEntryInfo;
 
 public class ChangeAuditFacade implements BillBaseSelector {
 
@@ -221,14 +225,29 @@ public class ChangeAuditFacade implements BillBaseSelector {
 		         	    ContractBillInfo info=ContractBillFactory.getLocalInstance(ctx).getContractBillInfo(new ObjectUuidPK(changeSuppentry.getContractBill().getId()));
 		         	    xml.append("<ContractID>" + info.getNumber()+ "</ContractID>\n");
 						xml.append("<ContractName>" + info.getName()+ "</ContractName>\n");
-						xml.append("<MainSupp>" + info.getPartB().getName()+ "</MainSupp>\n");//  主送单位
-						xml.append("<Currency>" + info.getCurrency().getName()+ "</Currency>\n");//币别
-						xml.append("<Exrate>" + info.getExRate() + "</Exrate>\n");
+						//xml.append("<MainSupp>" + info.getPartB().getName()+ "</MainSupp>\n");//  主送单位
+						//xml.append("<Currency>" + info.getCurrency().getName()+ "</Currency>\n");//币别
+						//xml.append("<Exrate>" + info.getExRate() + "</Exrate>\n");
+						xml.append("<Currency>人民币</Currency>\n");//币别
+						xml.append("<MainSupp>中国建筑第八工程局</MainSupp>\n");//  主送单位
+						xml.append("<Exrate>1</Exrate>\n");
+						
 				        }
-				      }					
-		 			//xml.append("<CopySupp>" + changeSuppentry.getCopySupp().get(2)+ "</CopySupp>\n");   //抄送单位
+				      }
+				      EntityViewInfo Myavevi3 = new EntityViewInfo();
+				      FilterInfo Myavfilter3 = new FilterInfo();
+				      Myavfilter3.getFilterItems().add(new FilterItemInfo("parent",changeSuppentry.getId(),CompareType.EQUALS));
+				      Myavevi3.setFilter(Myavfilter3);
+				      CopySupplierEntryCollection copycol=CopySupplierEntryFactory.getLocalInstance(ctx).getCopySupplierEntryCollection(Myavevi3);
+				      for(int n=0;n<copycol.size();n++)
+				      {  
+				    	  CopySupplierEntryInfo info=CopySupplierEntryFactory.getLocalInstance(ctx).getCopySupplierEntryInfo(new ObjectUuidPK(copycol.get(i).getId()));
+				    	  xml.append("<CopySupp>" +info.getCopySupp().getName()+ "</CopySupp>\n");   //抄送单位
+				      }
+		 			
 					xml.append("<OriginalContactNum>"+ changeSuppentry.getOriginalContactNum()+ "</OriginalContactNum>\n");
-					//xml.append("<ZContext>" +ChangeAuditEntryFactory.getLocalInstance(ctx).getChangeAuditEntryInfo(new ObjectUuidPK(changeSuppentry.getParent().getId())).getChangeContent()+"</ZContext>\n");   //
+					//ChangeAuditEntryInfo entrycontext = ChangeAuditEntryFactory.getLocalInstance(ctx).getChangeAuditEntryInfo(new ObjectUuidPK(changeSuppentry.getParent().getId()));
+					//xml.append("<ZContext>"+entrycontext.getChangeContent()+"</ZContext>\n");   //
 					xml.append("<OriCostAmount>" + changeSuppentry.getOriCostAmount()+ "</OriCostAmount>\n");
 					xml.append("<CostAmount>" + changeSuppentry.getCostAmount()+ "</CostAmount>\n");
 					xml.append("<CostDescription>" + changeSuppentry.getCostDescription()+ "</CostDescription>\n");
@@ -312,10 +331,6 @@ public class ChangeAuditFacade implements BillBaseSelector {
 				+ Info.getChangeState().getValue() + "'" + ", fDescription='"
 				+ procURL + "' " + ", FSourceFunction='" + procInstID
 				+ "' where fid='" + Info.getId() + "'";
-//					
-//				String sql = " update T_CON_ChangeAuditBill set fChangeState='4Auditting',fDescription='"
-//					+ procURL + "' " + ", FSourceFunction='" + procInstID+
-//					"' where fid='" + Info.getId() + "'";
 				FDCSQLBuilder bu = new FDCSQLBuilder(ctx);
 				bu.appendSql(sql);
 				bu.executeUpdate(ctx);
