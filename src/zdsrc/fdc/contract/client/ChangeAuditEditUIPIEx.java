@@ -160,7 +160,7 @@ public class ChangeAuditEditUIPIEx extends ChangeAuditEditUI{
 //	    	String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=FK01";
 //	    	str1 = pay.submitResult("", editData.getId().toString(), true, 1,url, "dYkAAAAAmMgNbdH0");
 //	    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
-//	    	str1 = pay.approveClose("", editData.getId().toString(), 1, "0", "",null);
+//	    	str1 = pay.approveClose("", editData.getId().toString(), 1, "1", "",null);
 //	    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
 //	    }
        

@@ -93,9 +93,9 @@ public class ContractChangeBillEditUIPIEx extends ContractChangeBillEditUI{
 	    	this.actionMultiapprove.setVisible(false);
 	    	this.actionNextPerson.setVisible(false);
 	    	
-	    	this.btnSubmit.setText("提交BPM流程");
-	    	this.btnSubmit.setToolTipText("提交BPM流程");
-	    	btnWorkFlowG.setVisible(false);
+	    	//this.btnSubmit.setText("提交BPM流程");
+	    	//this.btnSubmit.setToolTipText("提交BPM流程");
+	    	//btnWorkFlowG.setVisible(false);
 	    	this.btnAttachment.setText("撤销BPM流程");
 	    	this.btnAttachment.setToolTipText("撤销BPM流程");
 	    }
@@ -144,21 +144,19 @@ public class ContractChangeBillEditUIPIEx extends ContractChangeBillEditUI{
 //		    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
 //		    	str1 = pay.approveClose("", editData.getId().toString(), 1, "0", "",null);
 //		    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
-//		    }
-//	    	
-	    	
+//		    }  		
 	    	
 //	    	String[] xml = getInfoFacadeFactory.getRemoteInstance().GetbillInfo("",editData.getId().toString());
 //	    	String [] str1= getInfoFacadeFactory.getRemoteInstance().ApproveClose("", "dYkAAAAAhPINbdH0", 1, "1", "",null);
 //	    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
-	    	String sql = " update T_CON_ContractChangeBill set fState='1SAVED' where fid='"+editData.getId()+"'";
-			FDCSQLBuilder bu = new FDCSQLBuilder();
-			bu.appendSql(sql);
-			bu.executeUpdate();
-	    	String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=BGJS01&userid="+SysContext.getSysContext().getUserName()+"";
-	    	creatFrame(url);
-	    	//editData.setState(FDCBillStateEnum.SAVED);
 	    	
+	    	
+//	    	String sql = " update T_CON_ContractChangeBill set fState='1SAVED' where fid='"+editData.getId()+"'";
+//			FDCSQLBuilder bu = new FDCSQLBuilder();
+//			bu.appendSql(sql);
+//			bu.executeUpdate();
+//	    	String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=BGJS01&userid="+SysContext.getSysContext().getUserName()+"";
+//	    	creatFrame(url);
 	    }
 	 
 	 /**
