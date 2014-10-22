@@ -1707,7 +1707,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>370,64,270,19,385</constraints>
+            <constraints>995,130,270,19,385</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -2229,6 +2229,55 @@
                     <name>visible</name>
                     <type>boolean</type>
                     <value>uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[contplanStartTime].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="CoreUI" />
+            </parent>
+        </component>
+        <component>
+            <name>contimplementUnit</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[contimplementUnit].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>370,64,270,19,385</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>boundLabelText</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[contimplementUnit].properties.property[boundLabelText].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelLength</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[contimplementUnit].properties.property[boundLabelLength].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelUnderline</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[contimplementUnit].properties.property[boundLabelUnderline].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[contimplementUnit].properties.property[visible].value</value>
                     <isMultiLan>false</isMultiLan>
                     <userDefined>true</userDefined>
                 </property>
@@ -4376,6 +4425,68 @@
             </propertyBindings>
         </component>
         <component>
+            <name>txtimplementUnit</name>
+            <alias>uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[txtimplementUnit].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDTextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>3</constraints>
+            <tabIndex>46</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[txtimplementUnit].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>horizontalAlignment</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[txtimplementUnit].properties.property[horizontalAlignment].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>maxLength</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[txtimplementUnit].properties.property[maxLength].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>required</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[txtimplementUnit].properties.property[required].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="contimplementUnit" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>text</propertyName>
+                    <propertyType>java.lang.String</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>implementUnit</bindingField>
+                    <fieldType>String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
+        <component>
             <name>btnEdit</name>
             <alias>uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[btnEdit].alias</alias>
             <userDefined>false</userDefined>
@@ -6258,6 +6369,36 @@
             <lang locale="zh_HK" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[contimplementUnit].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[contimplementUnit].properties.property[boundLabelLength].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[contimplementUnit].properties.property[boundLabelText].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="实施单位" />
+            <lang locale="zh_HK" value="實施單位" />
+            <lang locale="zh_TW" value="實施單位" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[contimplementUnit].properties.property[boundLabelUnderline].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[contimplementUnit].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[contmaintenanceProgram].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -7514,6 +7655,36 @@
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[txtimplementUnit].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="实施单位" />
+            <lang locale="zh_HK" value="實施單位" />
+            <lang locale="zh_TW" value="實施單位" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[txtimplementUnit].properties.property[horizontalAlignment].value">
+            <lang locale="en_US" value="2" />
+            <lang locale="zh_CN" value="2" />
+            <lang locale="zh_HK" value="2" />
+            <lang locale="zh_TW" value="2" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[txtimplementUnit].properties.property[maxLength].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[txtimplementUnit].properties.property[required].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[txtimplementUnit].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.maintenance.client.RepairOrderEditUI].components.component[txtmaintenanceProgram].alias">
             <lang locale="en_US" value="null" />

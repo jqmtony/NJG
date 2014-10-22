@@ -217,6 +217,62 @@
             <scale>0</scale>
             <precision>0</precision>
         </column>
+        <column>
+            <name>CFImplementUnit</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_MonMainPlanE1].columns.column[CFImplementUnit].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_MonMainPlanE1].columns.column[CFImplementUnit].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>100</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFUseDepartID</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_MonMainPlanE1].columns.column[CFUseDepartID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_MonMainPlanE1].columns.column[CFUseDepartID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFWeixiuTypeID</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_MonMainPlanE1].columns.column[CFWeixiuTypeID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_MonMainPlanE1].columns.column[CFWeixiuTypeID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFPlanWeixiuDay</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_MonMainPlanE1].columns.column[CFPlanWeixiuDay].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_MonMainPlanE1].columns.column[CFPlanWeixiuDay].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NUMERIC</sqlType>
+            <length>28</length>
+            <scale>10</scale>
+            <precision>28</precision>
+        </column>
     </columns>
     <primaryKey>
         <name>CPK_MAI_MonMPE1n96</name>
@@ -285,6 +341,44 @@
                     </refColumn>
                     <fkColumn>
                         <key name="name" value="CFImplementDepartI" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
+        <foreignKey>
+            <name>CFK_MAI_MAIMMPE1h0</name>
+            <userDefined>true</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.basedata.org" />
+                <key name="name" value="T_ORG_Admin" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="CFUseDepartID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
+        <foreignKey>
+            <name>CFK_MAI_MAIMMPE1pp</name>
+            <userDefined>true</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.port.equipment.base.app" />
+                <key name="name" value="CT_BAS_MaintenanceType" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="CFWeixiuTypeID" />
                     </fkColumn>
                 </fkColumnPair>
             </fkColumnPairs>
@@ -369,6 +463,18 @@
             <lang locale="zh_HK" value="實施部門" />
             <lang locale="zh_TW" value="實施部門" />
         </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_MonMainPlanE1].columns.column[CFImplementUnit].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="实施单位" />
+            <lang locale="zh_HK" value="實施單位" />
+            <lang locale="zh_TW" value="實施單位" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_MonMainPlanE1].columns.column[CFImplementUnit].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="实施单位" />
+            <lang locale="zh_HK" value="實施單位" />
+            <lang locale="zh_TW" value="實施單位" />
+        </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_MonMainPlanE1].columns.column[CFMainContent].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="维保内容" />
@@ -429,6 +535,18 @@
             <lang locale="zh_HK" value="計畫開工時間" />
             <lang locale="zh_TW" value="計畫開工時間" />
         </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_MonMainPlanE1].columns.column[CFPlanWeixiuDay].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="计划修理天数" />
+            <lang locale="zh_HK" value="計畫修理天數" />
+            <lang locale="zh_TW" value="計畫修理天數" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_MonMainPlanE1].columns.column[CFPlanWeixiuDay].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="计划修理天数" />
+            <lang locale="zh_HK" value="計畫修理天數" />
+            <lang locale="zh_TW" value="計畫修理天數" />
+        </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_MonMainPlanE1].columns.column[CFSeq].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="单据分录序列号" />
@@ -439,6 +557,30 @@
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_MonMainPlanE1].columns.column[CFUseDepartID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="使用部门" />
+            <lang locale="zh_HK" value="使用部門" />
+            <lang locale="zh_TW" value="使用部門" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_MonMainPlanE1].columns.column[CFUseDepartID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="使用部门" />
+            <lang locale="zh_HK" value="使用部門" />
+            <lang locale="zh_TW" value="使用部門" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_MonMainPlanE1].columns.column[CFWeixiuTypeID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="维修类型" />
+            <lang locale="zh_HK" value="維修類型" />
+            <lang locale="zh_TW" value="維修類型" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_MonMainPlanE1].columns.column[CFWeixiuTypeID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="维修类型" />
+            <lang locale="zh_HK" value="維修類型" />
+            <lang locale="zh_TW" value="維修類型" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_MonMainPlanE1].columns.column[FID].alias">
             <lang locale="en_US" value="null" />

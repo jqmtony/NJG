@@ -139,6 +139,32 @@
                 <key name="name" value="AdminOrgUnit" />
             </entityRef>
         </subEntity>
+        <subEntity>
+            <name>E1_useDepart</name>
+            <alias>joinQuery[com.kingdee.eas.port.equipment.maintenance.app.MonMainPlanQuery].subObjects.subEntity[E1_useDepart].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.maintenance.app" />
+                <key name="name" value="MonMainPlanQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.basedata.org.app" />
+                <key name="name" value="AdminOrgUnit" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>E1_weixiuType</name>
+            <alias>joinQuery[com.kingdee.eas.port.equipment.maintenance.app.MonMainPlanQuery].subObjects.subEntity[E1_weixiuType].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.maintenance.app" />
+                <key name="name" value="MonMainPlanQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.port.equipment.base.app" />
+                <key name="name" value="MaintenanceType" />
+            </entityRef>
+        </subEntity>
     </subObjects>
     <units>
         <queryField>
@@ -1536,6 +1562,254 @@
                 <key name="name" value="MonMainPlanQuery" />
             </query>
         </queryField>
+        <queryField>
+            <name>E1.implementUnit</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.maintenance.app.MonMainPlanQuery].units.queryField[E1.implementUnit].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>e8d216b2-4ca7-41b5-b9a8-9f8488e02695</key>
+                    <parentUnit>
+                        <key name="name" value="E1.implementUnit" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="E1" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="implementUnit" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.maintenance.app" />
+                <key name="name" value="MonMainPlanQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>E1.useDepart.name</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.maintenance.app.MonMainPlanQuery].units.queryField[E1.useDepart.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>48a6feec-b455-4af7-a00d-ee9a0040a169</key>
+                    <parentUnit>
+                        <key name="name" value="E1.useDepart.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="E1_useDepart" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.maintenance.app" />
+                <key name="name" value="MonMainPlanQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>2e01aeb7-5400-4334-9421-1f674e7ef3fc</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.maintenance.app.MonMainPlanQuery].units.propertyUnit[2e01aeb7-5400-4334-9421-1f674e7ef3fc].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>874a6c10-9ce5-4e1d-8166-460639b9eff0</key>
+                    <parentUnit>
+                        <key name="name" value="2e01aeb7-5400-4334-9421-1f674e7ef3fc" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="E1" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="useDepart" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.maintenance.app" />
+                <key name="name" value="MonMainPlanQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>256b03d1-41cd-48c8-846e-4b309d269b5a</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.maintenance.app.MonMainPlanQuery].units.propertyUnit[256b03d1-41cd-48c8-846e-4b309d269b5a].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>633dbd04-bb03-4dc1-b317-eb54041b0c70</key>
+                    <parentUnit>
+                        <key name="name" value="256b03d1-41cd-48c8-846e-4b309d269b5a" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="E1_useDepart" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.maintenance.app" />
+                <key name="name" value="MonMainPlanQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>E1.weixiuType.name</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.maintenance.app.MonMainPlanQuery].units.queryField[E1.weixiuType.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>23b9b009-9d35-42b7-97ae-732bfc4ece38</key>
+                    <parentUnit>
+                        <key name="name" value="E1.weixiuType.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="E1_weixiuType" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.maintenance.app" />
+                <key name="name" value="MonMainPlanQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>6ae6a270-7ade-463a-a546-f1b66eca047e</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.maintenance.app.MonMainPlanQuery].units.propertyUnit[6ae6a270-7ade-463a-a546-f1b66eca047e].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>7895e049-c72f-460d-a946-5350d8dc08af</key>
+                    <parentUnit>
+                        <key name="name" value="6ae6a270-7ade-463a-a546-f1b66eca047e" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="E1" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="weixiuType" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.maintenance.app" />
+                <key name="name" value="MonMainPlanQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>fb18a4f1-5ba8-4429-a58d-ff787dd9c32e</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.maintenance.app.MonMainPlanQuery].units.propertyUnit[fb18a4f1-5ba8-4429-a58d-ff787dd9c32e].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>a6bfa016-d219-4c6c-a938-bc332a838a81</key>
+                    <parentUnit>
+                        <key name="name" value="fb18a4f1-5ba8-4429-a58d-ff787dd9c32e" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="E1_weixiuType" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.maintenance.app" />
+                <key name="name" value="MonMainPlanQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>E1.planWeixiuDay</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.maintenance.app.MonMainPlanQuery].units.queryField[E1.planWeixiuDay].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>21328c7b-756c-47b8-9284-3d23a0d48c6a</key>
+                    <parentUnit>
+                        <key name="name" value="E1.planWeixiuDay" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="E1" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="planWeixiuDay" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.maintenance.app" />
+                <key name="name" value="MonMainPlanQuery" />
+            </query>
+        </queryField>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -1829,6 +2103,66 @@
                 <key name="name" value="MonMainPlanQuery" />
             </query>
         </join>
+        <join>
+            <name>0004b1d2-20ec-465b-9b77-19202a288a39</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="E1" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="E1_useDepart" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>60291c18-d475-4659-adf3-13dc59076b4c</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="2e01aeb7-5400-4334-9421-1f674e7ef3fc" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="256b03d1-41cd-48c8-846e-4b309d269b5a" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="0004b1d2-20ec-465b-9b77-19202a288a39" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.maintenance.app" />
+                <key name="name" value="MonMainPlanQuery" />
+            </query>
+        </join>
+        <join>
+            <name>51d044ad-90d3-4c2a-b721-729e502c72c0</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="E1" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="E1_weixiuType" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>e2fb1c27-e889-4bf2-85e4-e313a098eb29</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="6ae6a270-7ade-463a-a546-f1b66eca047e" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="fb18a4f1-5ba8-4429-a58d-ff787dd9c32e" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="51d044ad-90d3-4c2a-b721-729e502c72c0" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.maintenance.app" />
+                <key name="name" value="MonMainPlanQuery" />
+            </query>
+        </join>
     </joins>
     <resource>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.MonMainPlanQuery].alias">
@@ -1883,6 +2217,18 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.MonMainPlanQuery].subObjects.subEntity[E1_implementDepart].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.MonMainPlanQuery].subObjects.subEntity[E1_useDepart].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.MonMainPlanQuery].subObjects.subEntity[E1_weixiuType].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -1948,6 +2294,18 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.MonMainPlanQuery].units.propertyUnit[256b03d1-41cd-48c8-846e-4b309d269b5a].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.MonMainPlanQuery].units.propertyUnit[2e01aeb7-5400-4334-9421-1f674e7ef3fc].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.MonMainPlanQuery].units.propertyUnit[33fb5694-88ea-42f3-95ce-5913d0aa93df].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -1967,6 +2325,12 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.MonMainPlanQuery].units.propertyUnit[5ffb10c2-9017-4af9-a5ab-adf2cfd35ac2].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.MonMainPlanQuery].units.propertyUnit[6ae6a270-7ade-463a-a546-f1b66eca047e].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -2021,6 +2385,12 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.MonMainPlanQuery].units.propertyUnit[fa5df6c2-0b53-48e8-8045-64c5e7a2a999].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.MonMainPlanQuery].units.propertyUnit[fb18a4f1-5ba8-4429-a58d-ff787dd9c32e].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -2160,6 +2530,22 @@
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.MonMainPlanQuery].units.queryField[E1.implementUnit].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="实施单位" />
+            <lang locale="zh_HK" value="實施單位" />
+            <lang locale="zh_TW" value="實施單位" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.MonMainPlanQuery].units.queryField[E1.implementUnit].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.MonMainPlanQuery].units.queryField[E1.implementUnit].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.MonMainPlanQuery].units.queryField[E1.mainContent].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="维保内容" />
@@ -2240,6 +2626,22 @@
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.MonMainPlanQuery].units.queryField[E1.planWeixiuDay].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="计划修理天数" />
+            <lang locale="zh_HK" value="計畫修理天數" />
+            <lang locale="zh_TW" value="計畫修理天數" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.MonMainPlanQuery].units.queryField[E1.planWeixiuDay].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.MonMainPlanQuery].units.queryField[E1.planWeixiuDay].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.MonMainPlanQuery].units.queryField[E1.seq].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="单据分录序列号" />
@@ -2252,6 +2654,48 @@
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.MonMainPlanQuery].units.queryField[E1.seq].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.MonMainPlanQuery].units.queryField[E1.useDepart.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="使用部门" />
+            <lang locale="zh_HK" value="使用部門" />
+            <lang locale="zh_TW" value="使用部門" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.MonMainPlanQuery].units.queryField[E1.useDepart.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.MonMainPlanQuery].units.queryField[E1.useDepart.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.MonMainPlanQuery].units.queryField[E1.useDepart.name].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.MonMainPlanQuery].units.queryField[E1.weixiuType.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="维修类型" />
+            <lang locale="zh_HK" value="維修類型" />
+            <lang locale="zh_TW" value="維修類型" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.MonMainPlanQuery].units.queryField[E1.weixiuType.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.MonMainPlanQuery].units.queryField[E1.weixiuType.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.MonMainPlanQuery].units.queryField[E1.weixiuType.name].extendedProperty.isUsingF7">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
