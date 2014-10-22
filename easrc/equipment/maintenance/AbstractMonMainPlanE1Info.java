@@ -149,6 +149,50 @@ public class AbstractMonMainPlanE1Info extends com.kingdee.eas.framework.CoreBil
     {
         setString("note", item);
     }
+    /**
+     * Object:月度维保计划单's 实施单位property 
+     */
+    public String getImplementUnit()
+    {
+        return getString("implementUnit");
+    }
+    public void setImplementUnit(String item)
+    {
+        setString("implementUnit", item);
+    }
+    /**
+     * Object: 月度维保计划单 's 使用部门 property 
+     */
+    public com.kingdee.eas.basedata.org.AdminOrgUnitInfo getUseDepart()
+    {
+        return (com.kingdee.eas.basedata.org.AdminOrgUnitInfo)get("useDepart");
+    }
+    public void setUseDepart(com.kingdee.eas.basedata.org.AdminOrgUnitInfo item)
+    {
+        put("useDepart", item);
+    }
+    /**
+     * Object: 月度维保计划单 's 维修类型 property 
+     */
+    public com.kingdee.eas.port.equipment.base.MaintenanceTypeInfo getWeixiuType()
+    {
+        return (com.kingdee.eas.port.equipment.base.MaintenanceTypeInfo)get("weixiuType");
+    }
+    public void setWeixiuType(com.kingdee.eas.port.equipment.base.MaintenanceTypeInfo item)
+    {
+        put("weixiuType", item);
+    }
+    /**
+     * Object:月度维保计划单's 计划修理天数property 
+     */
+    public java.math.BigDecimal getPlanWeixiuDay()
+    {
+        return getBigDecimal("planWeixiuDay");
+    }
+    public void setPlanWeixiuDay(java.math.BigDecimal item)
+    {
+        setBigDecimal("planWeixiuDay", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("A24DDC6A");

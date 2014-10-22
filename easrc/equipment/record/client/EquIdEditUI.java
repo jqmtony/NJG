@@ -185,6 +185,9 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 		prmtwxOrgUnit.setVisible(false);
 		txtsize.setEnabled(false);
 		txtsize.setVisible(false);
+		chkyibiao.setVisible(false);
+		contactrueTime.setVisible(false);
+		pkactrueTime.setVisible(false);
 		 this.kdtE3.getColumn("seq").getStyleAttributes().setHided(true);
 		combonowStatus.setEnabled(false);
 		this.txtcityPeriod.setPrecision(0);	

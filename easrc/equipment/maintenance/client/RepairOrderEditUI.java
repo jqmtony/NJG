@@ -740,7 +740,7 @@ public class RepairOrderEditUI extends AbstractRepairOrderEditUI
 			MsgBox.showWarning("当前用户不是职员用户，不能执行此操作！");SysUtil.abort();
 		}
 		objectValue.setRepairPerson(personInfo);
-		objectValue.setRepairDepart(PersonXRHelper.getPosiMemByDeptUser(personInfo));
+//		objectValue.setRepairDepart(PersonXRHelper.getPosiMemByDeptUser(personInfo));
         return objectValue;
     }
 	@Override
@@ -788,6 +788,8 @@ public class RepairOrderEditUI extends AbstractRepairOrderEditUI
 		pktransferTime.setVisible(false);
 		conttransferTime.setVisible(false);
 		btnequInfomation.setVisible(false);
+		contslDepart.setVisible(false);
+		prmtslDepart.setVisible(false);
 		if(getOprtState().equals(OprtState.ADDNEW)){
 		    txtselfAmount.setEnabled(false);
 		    txtoutAmount.setEnabled(false);

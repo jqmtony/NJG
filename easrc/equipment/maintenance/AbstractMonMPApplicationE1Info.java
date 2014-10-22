@@ -116,6 +116,39 @@ public class AbstractMonMPApplicationE1Info extends com.kingdee.eas.framework.Co
     {
         setString("implemUnit", item);
     }
+    /**
+     * Object: 月度维保计划申请 's 使用部门 property 
+     */
+    public com.kingdee.eas.basedata.org.AdminOrgUnitInfo getUseDepat()
+    {
+        return (com.kingdee.eas.basedata.org.AdminOrgUnitInfo)get("useDepat");
+    }
+    public void setUseDepat(com.kingdee.eas.basedata.org.AdminOrgUnitInfo item)
+    {
+        put("useDepat", item);
+    }
+    /**
+     * Object: 月度维保计划申请 's 维修类型 property 
+     */
+    public com.kingdee.eas.port.equipment.base.MaintenanceTypeInfo getWeixiuType()
+    {
+        return (com.kingdee.eas.port.equipment.base.MaintenanceTypeInfo)get("weixiuType");
+    }
+    public void setWeixiuType(com.kingdee.eas.port.equipment.base.MaintenanceTypeInfo item)
+    {
+        put("weixiuType", item);
+    }
+    /**
+     * Object:月度维保计划申请's 计划修理天数property 
+     */
+    public java.math.BigDecimal getPlanWeixiuDay()
+    {
+        return getBigDecimal("planWeixiuDay");
+    }
+    public void setPlanWeixiuDay(java.math.BigDecimal item)
+    {
+        setBigDecimal("planWeixiuDay", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("B99906BD");

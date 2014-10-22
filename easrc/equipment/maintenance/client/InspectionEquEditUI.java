@@ -728,7 +728,7 @@ public class InspectionEquEditUI extends AbstractInspectionEquEditUI
 
 	public void onLoad() throws Exception {
 		txtNumber.setEnabled(false);
-		pkBizDate.setEnabled(false);
+//		pkBizDate.setEnabled(false);
 		this.kdtE1.getColumn("seq").getStyleAttributes().setHided(true);
 		this.kdtE1.getColumn("xunjianResult").getStyleAttributes().setHided(true);
 		prmtuserDepatrt.setVisible(true);

@@ -250,7 +250,7 @@ public abstract class AbstractMonMainPlanEditUI extends com.kingdee.eas.xr.clien
         this.contplanTotalCost.setBoundLabelUnderline(true);		
         this.contplanTotalCost.setVisible(true);
         // kdtE1
-		String kdtE1StrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style><c:Style id=\"sCol2\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol5\"><c:NumberFormat>&amp;date</c:NumberFormat></c:Style><c:Style id=\"sCol6\"><c:NumberFormat>&amp;date</c:NumberFormat></c:Style><c:Style id=\"sCol7\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol9\"><c:NumberFormat>&amp;date</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"equNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"equName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol2\" /><t:Column t:key=\"appDepart\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"mainContent\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"planStartTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol5\" /><t:Column t:key=\"planCompleteT\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol6\" /><t:Column t:key=\"planCost\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol7\" /><t:Column t:key=\"implementDepart\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"actualCompleteT\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol9\" /><t:Column t:key=\"complete\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"note\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{equNumber}</t:Cell><t:Cell>$Resource{equName}</t:Cell><t:Cell>$Resource{appDepart}</t:Cell><t:Cell>$Resource{mainContent}</t:Cell><t:Cell>$Resource{planStartTime}</t:Cell><t:Cell>$Resource{planCompleteT}</t:Cell><t:Cell>$Resource{planCost}</t:Cell><t:Cell>$Resource{implementDepart}</t:Cell><t:Cell>$Resource{actualCompleteT}</t:Cell><t:Cell>$Resource{complete}</t:Cell><t:Cell>$Resource{note}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		String kdtE1StrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style><c:Style id=\"sCol2\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol7\"><c:NumberFormat>&amp;date</c:NumberFormat></c:Style><c:Style id=\"sCol8\"><c:NumberFormat>&amp;date</c:NumberFormat></c:Style><c:Style id=\"sCol9\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol10\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol11\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol13\"><c:NumberFormat>&amp;date</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"equNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"equName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol2\" /><t:Column t:key=\"appDepart\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"useDepart\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"mainContent\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"weixiuType\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"planStartTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol7\" /><t:Column t:key=\"planCompleteT\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol8\" /><t:Column t:key=\"planWeixiuDay\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol9\" /><t:Column t:key=\"planCost\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol10\" /><t:Column t:key=\"implementDepart\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol11\" /><t:Column t:key=\"implementUnit\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"actualCompleteT\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol13\" /><t:Column t:key=\"complete\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"note\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{equNumber}</t:Cell><t:Cell>$Resource{equName}</t:Cell><t:Cell>$Resource{appDepart}</t:Cell><t:Cell>$Resource{useDepart}</t:Cell><t:Cell>$Resource{mainContent}</t:Cell><t:Cell>$Resource{weixiuType}</t:Cell><t:Cell>$Resource{planStartTime}</t:Cell><t:Cell>$Resource{planCompleteT}</t:Cell><t:Cell>$Resource{planWeixiuDay}</t:Cell><t:Cell>$Resource{planCost}</t:Cell><t:Cell>$Resource{implementDepart}</t:Cell><t:Cell>$Resource{implementUnit}</t:Cell><t:Cell>$Resource{actualCompleteT}</t:Cell><t:Cell>$Resource{complete}</t:Cell><t:Cell>$Resource{note}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.kdtE1.setFormatXml(resHelper.translateString("kdtE1",kdtE1StrXML));
         kdtE1.addKDTEditListener(new KDTEditAdapter() {
@@ -275,10 +275,18 @@ public abstract class AbstractMonMainPlanEditUI extends com.kingdee.eas.xr.clien
             }
         });
 
-                this.kdtE1.putBindContents("editData",new String[] {"seq","equNumber","equName","appDepart","mainContent","planStartTime","planCompleteT","planCost","implementDepart","actualCompleteT","complete","note"});
+                this.kdtE1.putBindContents("editData",new String[] {"seq","equNumber","equName","appDepart","useDepart","mainContent","weixiuType","planStartTime","planCompleteT","planWeixiuDay","planCost","implementDepart","implementUnit","actualCompleteT","complete","note"});
 
 
         this.kdtE1.checkParsed();
+        KDFormattedTextField kdtE1_seq_TextField = new KDFormattedTextField();
+        kdtE1_seq_TextField.setName("kdtE1_seq_TextField");
+        kdtE1_seq_TextField.setVisible(true);
+        kdtE1_seq_TextField.setEditable(true);
+        kdtE1_seq_TextField.setHorizontalAlignment(2);
+        kdtE1_seq_TextField.setDataType(0);
+        KDTDefaultCellEditor kdtE1_seq_CellEditor = new KDTDefaultCellEditor(kdtE1_seq_TextField);
+        this.kdtE1.getColumn("seq").setEditor(kdtE1_seq_CellEditor);
         final KDBizPromptBox kdtE1_equNumber_PromptBox = new KDBizPromptBox();
         kdtE1_equNumber_PromptBox.setQueryInfo("com.kingdee.eas.port.equipment.record.app.EquIdQuery");
         kdtE1_equNumber_PromptBox.setVisible(true);
@@ -308,11 +316,35 @@ public abstract class AbstractMonMainPlanEditUI extends com.kingdee.eas.xr.clien
         ObjectValueRender kdtE1_appDepart_OVR = new ObjectValueRender();
         kdtE1_appDepart_OVR.setFormat(new BizDataFormat("$name$"));
         this.kdtE1.getColumn("appDepart").setRenderer(kdtE1_appDepart_OVR);
+        final KDBizPromptBox kdtE1_useDepart_PromptBox = new KDBizPromptBox();
+        kdtE1_useDepart_PromptBox.setQueryInfo("com.kingdee.eas.basedata.org.app.AdminItemQuery");
+        kdtE1_useDepart_PromptBox.setVisible(true);
+        kdtE1_useDepart_PromptBox.setEditable(true);
+        kdtE1_useDepart_PromptBox.setDisplayFormat("$number$");
+        kdtE1_useDepart_PromptBox.setEditFormat("$number$");
+        kdtE1_useDepart_PromptBox.setCommitFormat("$number$");
+        KDTDefaultCellEditor kdtE1_useDepart_CellEditor = new KDTDefaultCellEditor(kdtE1_useDepart_PromptBox);
+        this.kdtE1.getColumn("useDepart").setEditor(kdtE1_useDepart_CellEditor);
+        ObjectValueRender kdtE1_useDepart_OVR = new ObjectValueRender();
+        kdtE1_useDepart_OVR.setFormat(new BizDataFormat("$name$"));
+        this.kdtE1.getColumn("useDepart").setRenderer(kdtE1_useDepart_OVR);
         KDTextField kdtE1_mainContent_TextField = new KDTextField();
         kdtE1_mainContent_TextField.setName("kdtE1_mainContent_TextField");
         kdtE1_mainContent_TextField.setMaxLength(100);
         KDTDefaultCellEditor kdtE1_mainContent_CellEditor = new KDTDefaultCellEditor(kdtE1_mainContent_TextField);
         this.kdtE1.getColumn("mainContent").setEditor(kdtE1_mainContent_CellEditor);
+        final KDBizPromptBox kdtE1_weixiuType_PromptBox = new KDBizPromptBox();
+        kdtE1_weixiuType_PromptBox.setQueryInfo("com.kingdee.eas.port.equipment.base.app.MaintenanceTypeQuery");
+        kdtE1_weixiuType_PromptBox.setVisible(true);
+        kdtE1_weixiuType_PromptBox.setEditable(true);
+        kdtE1_weixiuType_PromptBox.setDisplayFormat("$number$");
+        kdtE1_weixiuType_PromptBox.setEditFormat("$number$");
+        kdtE1_weixiuType_PromptBox.setCommitFormat("$number$");
+        KDTDefaultCellEditor kdtE1_weixiuType_CellEditor = new KDTDefaultCellEditor(kdtE1_weixiuType_PromptBox);
+        this.kdtE1.getColumn("weixiuType").setEditor(kdtE1_weixiuType_CellEditor);
+        ObjectValueRender kdtE1_weixiuType_OVR = new ObjectValueRender();
+        kdtE1_weixiuType_OVR.setFormat(new BizDataFormat("$name$"));
+        this.kdtE1.getColumn("weixiuType").setRenderer(kdtE1_weixiuType_OVR);
         KDDatePicker kdtE1_planStartTime_DatePicker = new KDDatePicker();
         kdtE1_planStartTime_DatePicker.setName("kdtE1_planStartTime_DatePicker");
         kdtE1_planStartTime_DatePicker.setVisible(true);
@@ -325,6 +357,17 @@ public abstract class AbstractMonMainPlanEditUI extends com.kingdee.eas.xr.clien
         kdtE1_planCompleteT_DatePicker.setEditable(true);
         KDTDefaultCellEditor kdtE1_planCompleteT_CellEditor = new KDTDefaultCellEditor(kdtE1_planCompleteT_DatePicker);
         this.kdtE1.getColumn("planCompleteT").setEditor(kdtE1_planCompleteT_CellEditor);
+        KDFormattedTextField kdtE1_planWeixiuDay_TextField = new KDFormattedTextField();
+        kdtE1_planWeixiuDay_TextField.setName("kdtE1_planWeixiuDay_TextField");
+        kdtE1_planWeixiuDay_TextField.setVisible(true);
+        kdtE1_planWeixiuDay_TextField.setEditable(true);
+        kdtE1_planWeixiuDay_TextField.setHorizontalAlignment(2);
+        kdtE1_planWeixiuDay_TextField.setDataType(1);
+        	kdtE1_planWeixiuDay_TextField.setMinimumValue(new java.math.BigDecimal("-1.0E18"));
+        	kdtE1_planWeixiuDay_TextField.setMaximumValue(new java.math.BigDecimal("1.0E18"));
+        kdtE1_planWeixiuDay_TextField.setPrecision(10);
+        KDTDefaultCellEditor kdtE1_planWeixiuDay_CellEditor = new KDTDefaultCellEditor(kdtE1_planWeixiuDay_TextField);
+        this.kdtE1.getColumn("planWeixiuDay").setEditor(kdtE1_planWeixiuDay_CellEditor);
         KDFormattedTextField kdtE1_planCost_TextField = new KDFormattedTextField();
         kdtE1_planCost_TextField.setName("kdtE1_planCost_TextField");
         kdtE1_planCost_TextField.setVisible(true);
@@ -348,6 +391,11 @@ public abstract class AbstractMonMainPlanEditUI extends com.kingdee.eas.xr.clien
         ObjectValueRender kdtE1_implementDepart_OVR = new ObjectValueRender();
         kdtE1_implementDepart_OVR.setFormat(new BizDataFormat("$name$"));
         this.kdtE1.getColumn("implementDepart").setRenderer(kdtE1_implementDepart_OVR);
+        KDTextField kdtE1_implementUnit_TextField = new KDTextField();
+        kdtE1_implementUnit_TextField.setName("kdtE1_implementUnit_TextField");
+        kdtE1_implementUnit_TextField.setMaxLength(100);
+        KDTDefaultCellEditor kdtE1_implementUnit_CellEditor = new KDTDefaultCellEditor(kdtE1_implementUnit_TextField);
+        this.kdtE1.getColumn("implementUnit").setEditor(kdtE1_implementUnit_CellEditor);
         KDDatePicker kdtE1_actualCompleteT_DatePicker = new KDDatePicker();
         kdtE1_actualCompleteT_DatePicker.setName("kdtE1_actualCompleteT_DatePicker");
         kdtE1_actualCompleteT_DatePicker.setVisible(true);
@@ -402,14 +450,12 @@ public abstract class AbstractMonMainPlanEditUI extends com.kingdee.eas.xr.clien
         this.pkAuditTime.setEnabled(false);
         // prmtplanMonth		
         this.prmtplanMonth.setQueryInfo("com.kingdee.eas.port.equipment.base.app.MonthTimeQuery");		
-        this.prmtplanMonth.setVisible(true);		
         this.prmtplanMonth.setEditable(true);		
         this.prmtplanMonth.setDisplayFormat("$name$");		
         this.prmtplanMonth.setEditFormat("$number$");		
         this.prmtplanMonth.setCommitFormat("$number$");		
         this.prmtplanMonth.setRequired(false);
         // txtplanTotalCost		
-        this.txtplanTotalCost.setVisible(true);		
         this.txtplanTotalCost.setHorizontalAlignment(2);		
         this.txtplanTotalCost.setDataType(1);		
         this.txtplanTotalCost.setSupportedEmpty(true);		
@@ -417,7 +463,7 @@ public abstract class AbstractMonMainPlanEditUI extends com.kingdee.eas.xr.clien
         this.txtplanTotalCost.setMaximumValue( new java.math.BigDecimal("1.0E26"));		
         this.txtplanTotalCost.setPrecision(2);		
         this.txtplanTotalCost.setRequired(false);
-        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmtplanMonth,txtplanTotalCost,kdtE1,prmtCU,pkLastUpdateTime,prmtLastUpdateUser,pkCreateTime,prmtCreator,prmtAuditor,txtDescription,pkBizDate,txtNumber,pkAuditTime,comboBizStatus,comboStatus}));
+        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmtplanMonth,txtplanTotalCost,prmtCU,pkLastUpdateTime,prmtLastUpdateUser,pkCreateTime,prmtCreator,kdtE1,prmtAuditor,txtDescription,pkBizDate,txtNumber,pkAuditTime,comboBizStatus,comboStatus}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
 		registerBindings();
@@ -691,6 +737,10 @@ public abstract class AbstractMonMainPlanEditUI extends com.kingdee.eas.xr.clien
 		dataBinder.registerBinding("E1.actualCompleteT", java.util.Date.class, this.kdtE1, "actualCompleteT.text");
 		dataBinder.registerBinding("E1.complete", String.class, this.kdtE1, "complete.text");
 		dataBinder.registerBinding("E1.note", String.class, this.kdtE1, "note.text");
+		dataBinder.registerBinding("E1.implementUnit", String.class, this.kdtE1, "implementUnit.text");
+		dataBinder.registerBinding("E1.useDepart", java.lang.Object.class, this.kdtE1, "useDepart.text");
+		dataBinder.registerBinding("E1.weixiuType", java.lang.Object.class, this.kdtE1, "weixiuType.text");
+		dataBinder.registerBinding("E1.planWeixiuDay", java.math.BigDecimal.class, this.kdtE1, "planWeixiuDay.text");
 		dataBinder.registerBinding("creator", com.kingdee.eas.base.permission.UserInfo.class, this.prmtCreator, "data");
 		dataBinder.registerBinding("createTime", java.sql.Timestamp.class, this.pkCreateTime, "value");
 		dataBinder.registerBinding("lastUpdateUser", com.kingdee.eas.base.permission.UserInfo.class, this.prmtLastUpdateUser, "data");
@@ -852,6 +902,10 @@ public abstract class AbstractMonMainPlanEditUI extends com.kingdee.eas.xr.clien
 		getValidateHelper().registerBindProperty("E1.actualCompleteT", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("E1.complete", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("E1.note", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("E1.implementUnit", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("E1.useDepart", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("E1.weixiuType", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("E1.planWeixiuDay", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("creator", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("createTime", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("lastUpdateUser", ValidateHelper.ON_SAVE);    
@@ -955,6 +1009,26 @@ kdtE1.getCell(rowIndex,"equName").setValue(com.kingdee.bos.ui.face.UIRuleUtil.ge
     	sic.add(new SelectorItemInfo("E1.actualCompleteT"));
     	sic.add(new SelectorItemInfo("E1.complete"));
     	sic.add(new SelectorItemInfo("E1.note"));
+    	sic.add(new SelectorItemInfo("E1.implementUnit"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("E1.useDepart.*"));
+		}
+		else{
+	    	sic.add(new SelectorItemInfo("E1.useDepart.id"));
+			sic.add(new SelectorItemInfo("E1.useDepart.name"));
+        	sic.add(new SelectorItemInfo("E1.useDepart.number"));
+		}
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("E1.weixiuType.*"));
+		}
+		else{
+	    	sic.add(new SelectorItemInfo("E1.weixiuType.id"));
+			sic.add(new SelectorItemInfo("E1.weixiuType.name"));
+        	sic.add(new SelectorItemInfo("E1.weixiuType.number"));
+		}
+    	sic.add(new SelectorItemInfo("E1.planWeixiuDay"));
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
 			sic.add(new SelectorItemInfo("creator.*"));

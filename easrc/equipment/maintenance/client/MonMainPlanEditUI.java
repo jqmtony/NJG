@@ -741,14 +741,14 @@ public class MonMainPlanEditUI extends AbstractMonMainPlanEditUI
 //		this.kdtE1.getColumn("actualCompleteT").getStyleAttributes().setHided(true);
 //		this.kdtE1.getColumn("complete").getStyleAttributes().setHided(true);
 		super.onLoad();
-		this.setUITitle("维保计划");
+//		this.setUITitle("维保计划");
 		 KDBizPromptBox kdtE1_equNumber_PromptBox = new KDBizPromptBox();
 	        kdtE1_equNumber_PromptBox.setQueryInfo("com.kingdee.eas.port.equipment.record.app.EquIdQuery");
 	        kdtE1_equNumber_PromptBox.setVisible(true);
 	        kdtE1_equNumber_PromptBox.setEditable(true);
-	        kdtE1_equNumber_PromptBox.setDisplayFormat("$number$");
-	        kdtE1_equNumber_PromptBox.setEditFormat("$number$");
-	        kdtE1_equNumber_PromptBox.setCommitFormat("$number$");
+	        kdtE1_equNumber_PromptBox.setDisplayFormat("$innerNumber$");
+	        kdtE1_equNumber_PromptBox.setEditFormat("$innerNumber$");
+	        kdtE1_equNumber_PromptBox.setCommitFormat("$innerNumber$");
 	     	 EntityViewInfo evi = new EntityViewInfo();
 			 FilterInfo filter = new FilterInfo();
 			 String id = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
@@ -765,7 +765,6 @@ public class MonMainPlanEditUI extends AbstractMonMainPlanEditUI
 			    sb.append(" and CFRentStart<={ts '" + FORMAT_TIME.format(date) + "'}");
 			    sb.append(" and CFRentEnd>={ts '" + FORMAT_TIME.format(date) + "'}");
 			    sb.append(" and fstatus = '4'");
-//			 filter.getFilterItems().add(new FilterItemInfo("sbStatus","1",CompareType.EQUALS));
 	 		 filter.getFilterItems().add(new FilterItemInfo("ssOrgUnit.id",id ,CompareType.EQUALS));
 	 		 filter.getFilterItems().add(new FilterItemInfo("id", sb.toString(), CompareType.INNER));
 	  		filter.setMaskString("(#0 or #1)");

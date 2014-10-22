@@ -5,14 +5,24 @@ package com.kingdee.eas.port.equipment.operate.client;
 
 import java.awt.event.*;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 import org.apache.log4j.Logger;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.eas.basedata.assistant.PeriodFactory;
+import com.kingdee.eas.basedata.assistant.PeriodInfo;
+import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
 import com.kingdee.eas.framework.*;
+import com.kingdee.eas.xr.helper.XRSQLBuilder;
+import com.kingdee.jdbc.rowset.IRowSet;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.swing.KDTextField;
+import com.kingdee.bos.ctrl.swing.event.DataChangeEvent;
 
 /**
  * output class name
@@ -629,12 +639,7 @@ public class ShipFuelEditUI extends AbstractShipFuelEditUI
     }
 
     /**
-     * output actionAudit_actionPerformed
-     */
-    public void actionAudit_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionAudit_actionPerformed(e);
-    }
+   
 
     /**
      * output actionUnAudit_actionPerformed
@@ -728,8 +733,119 @@ public class ShipFuelEditUI extends AbstractShipFuelEditUI
 		txtleijiyunshi.setEnabled(false);
 		txtleijichanzhi.setEnabled(false);
 		super.onLoad();
-		
+		prmtreportMonth.setRequired(true);
+		if(prmtreportMonth.getValue() != null){
+			String id = ((PeriodInfo)prmtreportMonth.getData()).getId().toString();
+			PeriodInfo pdInfo = PeriodFactory.getRemoteInstance().getPeriodInfo(new ObjectUuidPK(id));
+	//查询本年累计数据
+		//累计用电量（度），累计燃油耗量（t），累计运时（h），累计产值（万元）
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+		String month = String.valueOf(pdInfo.getNumber());
+		String year = (df.format(month)).substring(0, 4);
+		  StringBuffer sb = new StringBuffer();
+		sb.append("/*dialect*/ select  sum(a.CFLeijiyongdian) 累计用电, sum(a.CFLeijiranyou) 累计燃油,sum(a.CFLeijiyunshi) 累计运时 ,sum(a.CFLeijichanzhi) 累计产值");
+		sb.append(" from CT_OPE_ShipFuel a");
+		sb.append(" left join T_BD_Period b on a.CFReportMonthID = b.fid");
+		sb.append(" where b.fnumber ='"+year+"' and a.FStatus = '4'");
+		IRowSet rowSet = new XRSQLBuilder().appendSql(sb.toString()).executeQuery();
+		while (rowSet.next()) {
+			BigDecimal bigleijidian = getBigDecimal(rowSet.getString("累计用电"));
+			BigDecimal bigleijiyou = getBigDecimal(rowSet.getString("累计燃油"));
+			BigDecimal bigleijishi = getBigDecimal(rowSet.getString("累计运时"));
+			BigDecimal bigleijizhi = getBigDecimal(rowSet.getString("累计产值"));
+			txtleijiyongdian.setText(String.valueOf(bigleijidian));
+			txtleijiranyou.setText(String.valueOf(bigleijiyou));
+			txtleijiyunshi.setText(String.valueOf(bigleijishi));
+			txtleijichanzhi.setText(String.valueOf(bigleijizhi));
+		  }
+		}
 	}
+	
+	
+	    public void actionAudit_actionPerformed(ActionEvent e) throws Exception{
+	        super.actionAudit_actionPerformed(e);
+	    	if(prmtreportMonth.getValue() != null){
+				String id = ((PeriodInfo)prmtreportMonth.getData()).getId().toString();
+				PeriodInfo pdInfo = PeriodFactory.getRemoteInstance().getPeriodInfo(new ObjectUuidPK(id));
+		//查询本年累计数据
+			//累计用电量（度），累计燃油耗量（t），累计运时（h），累计产值（万元）
+			SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+			String month = String.valueOf(pdInfo.getNumber());
+			String year = (df.format(month)).substring(0, 4);
+			  StringBuffer sb = new StringBuffer();
+			sb.append("/*dialect*/ select  sum(a.CFLeijiyongdian) 累计用电, sum(a.CFLeijiranyou) 累计燃油,sum(a.CFLeijiyunshi) 累计运时 ,sum(a.CFLeijichanzhi) 累计产值");
+			sb.append(" from CT_OPE_ShipFuel a");
+			sb.append(" left join T_BD_Period b on a.CFReportMonthID = b.fid");
+			sb.append(" where b.fnumber ='"+year+"' and a.FStatus = '4'");
+			IRowSet rowSet = new XRSQLBuilder().appendSql(sb.toString()).executeQuery();
+			while (rowSet.next()) {
+				BigDecimal bigleijidian = getBigDecimal(rowSet.getString("累计用电"));
+				BigDecimal bigleijiyou = getBigDecimal(rowSet.getString("累计燃油"));
+				BigDecimal bigleijishi = getBigDecimal(rowSet.getString("累计运时"));
+				BigDecimal bigleijizhi = getBigDecimal(rowSet.getString("累计产值"));
+				txtleijiyongdian.setText(String.valueOf(bigleijidian));
+				txtleijiranyou.setText(String.valueOf(bigleijiyou));
+				txtleijiyunshi.setText(String.valueOf(bigleijishi));
+				txtleijichanzhi.setText(String.valueOf(bigleijizhi));
+			  }
+			}
+	    }
+	
+	protected void prmtreportMonth_dataChanged(DataChangeEvent e)
+			throws Exception {
+		super.prmtreportMonth_dataChanged(e);
+//		if(prmtreportMonth.getValue() != null){
+//			String id = ((PeriodInfo)prmtreportMonth.getData()).getId().toString();
+//			PeriodInfo pdInfo = PeriodFactory.getRemoteInstance().getPeriodInfo(new ObjectUuidPK(id));
+//			String date1 = String.valueOf(pdInfo.getNumber());
+//			Calendar cal = Calendar.getInstance();
+////			cal.setTime(date1);
+//		    cal.add(Calendar.MONTH, -1);
+//		  
+////		    StringBuffer sb = new StringBuffer();
+////			sb.append("/*dialect*/ select A.FSEQ,nvl(sum(a.CFStagePerformance),0) bqsj,nvl(sum(a.CFProEnergy),0) zxscnh,");
+////			sb.append(" nvl(sum(a.CFFzproEnergy),0) fzscnh,nvl(sum(a.CFLifeEnergy),0) shnh,nvl(sum(a.CFOtherEnergy),0) qtnh,nvl(sum(a.CFSamePerformance),0) spfa,nvl(sum(a.CFIncreaseDecrease),0) icdc,'0',nvl(sum(a.CFPeriodCon),0) bqdh,nvl(sum(a.CFSamePeriod),0) spod,'0',nvl(sum(a.CFExcessSection),0) estn");
+////			sb.append(" from CT_OPE_ComproductionEntry a");
+////			sb.append(" left join CT_OPE_Comproduction b on a.fparentid = b.fid");
+////			sb.append(" where a.CFProject = '本月' and b.CFReportingUnitID = '"+ ((AdminOrgUnitInfo) prmtreportingUnit.getData()).getId().toString() + "' AND to_char(b.fbizdate,'YYYY')='"+ year + "' AND b.cfstate = '4'");
+////			sb.append(" group by A.FSEQ  ORDER BY A.FSEQ");
+////			IRowSet rowSet = new XRSQLBuilder().appendSql(sb.toString()).executeQuery();
+////			int rowindex = 10;
+////			while (rowSet.next()) {
+////				int column = 2;
+////				for (int j = 3; j < this.kdtEntrys.getColumnCount(); j++) {
+////					this.kdtEntrys.getCell(rowindex, j).setValue(rowSet.getBigDecimal(column));
+////					column++;
+////				}
+//		}
+		
+		if(prmtreportMonth.getValue() != null){
+			String id = ((PeriodInfo)prmtreportMonth.getData()).getId().toString();
+			PeriodInfo pdInfo = PeriodFactory.getRemoteInstance().getPeriodInfo(new ObjectUuidPK(id));
+	//查询本年累计数据
+		//累计用电量（度），累计燃油耗量（t），累计运时（h），累计产值（万元）
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+		String month = String.valueOf(pdInfo.getNumber());
+		String year = (df.format(month)).substring(0, 4);
+		  StringBuffer sb = new StringBuffer();
+		sb.append("/*dialect*/ select  sum(a.CFLeijiyongdian) 累计用电, sum(a.CFLeijiranyou) 累计燃油,sum(a.CFLeijiyunshi) 累计运时 ,sum(a.CFLeijichanzhi) 累计产值");
+		sb.append(" from CT_OPE_ShipFuel a");
+		sb.append(" left join T_BD_Period b on a.CFReportMonthID = b.fid");
+		sb.append(" where b.fnumber ='"+year+"' and a.FStatus = '4'");
+		IRowSet rowSet = new XRSQLBuilder().appendSql(sb.toString()).executeQuery();
+		while (rowSet.next()) {
+			BigDecimal bigleijidian = getBigDecimal(rowSet.getString("累计用电"));
+			BigDecimal bigleijiyou = getBigDecimal(rowSet.getString("累计燃油"));
+			BigDecimal bigleijishi = getBigDecimal(rowSet.getString("累计运时"));
+			BigDecimal bigleijizhi = getBigDecimal(rowSet.getString("累计产值"));
+			txtleijiyongdian.setText(String.valueOf(bigleijidian));
+			txtleijiranyou.setText(String.valueOf(bigleijiyou));
+			txtleijiyunshi.setText(String.valueOf(bigleijishi));
+			txtleijichanzhi.setText(String.valueOf(bigleijizhi));
+		  }
+		}
+	}
+	
 	protected void verifyInput(ActionEvent e) throws Exception {
 		
 		//燃料

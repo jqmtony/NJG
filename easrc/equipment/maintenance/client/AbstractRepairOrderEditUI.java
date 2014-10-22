@@ -88,6 +88,7 @@ public abstract class AbstractRepairOrderEditUI extends com.kingdee.eas.xr.clien
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contactualStartTime;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contactualEndTime;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contplanStartTime;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contimplementUnit;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtCreator;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkCreateTime;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtLastUpdateUser;
@@ -127,6 +128,7 @@ public abstract class AbstractRepairOrderEditUI extends com.kingdee.eas.xr.clien
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkactualStartTime;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkactualEndTime;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkplanStartTime;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txtimplementUnit;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnequInfomation;
     protected com.kingdee.eas.port.equipment.maintenance.RepairOrderInfo editData = null;
     protected ActionToVoid actionToVoid = null;
@@ -246,6 +248,7 @@ public abstract class AbstractRepairOrderEditUI extends com.kingdee.eas.xr.clien
         this.contactualStartTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contactualEndTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contplanStartTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contimplementUnit = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.prmtCreator = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.pkCreateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.prmtLastUpdateUser = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
@@ -285,6 +288,7 @@ public abstract class AbstractRepairOrderEditUI extends com.kingdee.eas.xr.clien
         this.pkactualStartTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.pkactualEndTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.pkplanStartTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
+        this.txtimplementUnit = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.btnequInfomation = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.contCreator.setName("contCreator");
         this.contCreateTime.setName("contCreateTime");
@@ -327,6 +331,7 @@ public abstract class AbstractRepairOrderEditUI extends com.kingdee.eas.xr.clien
         this.contactualStartTime.setName("contactualStartTime");
         this.contactualEndTime.setName("contactualEndTime");
         this.contplanStartTime.setName("contplanStartTime");
+        this.contimplementUnit.setName("contimplementUnit");
         this.prmtCreator.setName("prmtCreator");
         this.pkCreateTime.setName("pkCreateTime");
         this.prmtLastUpdateUser.setName("prmtLastUpdateUser");
@@ -366,6 +371,7 @@ public abstract class AbstractRepairOrderEditUI extends com.kingdee.eas.xr.clien
         this.pkactualStartTime.setName("pkactualStartTime");
         this.pkactualEndTime.setName("pkactualEndTime");
         this.pkplanStartTime.setName("pkplanStartTime");
+        this.txtimplementUnit.setName("txtimplementUnit");
         this.btnequInfomation.setName("btnequInfomation");
         // CoreUI
         // contCreator		
@@ -735,6 +741,11 @@ public abstract class AbstractRepairOrderEditUI extends com.kingdee.eas.xr.clien
         this.contplanStartTime.setBoundLabelLength(100);		
         this.contplanStartTime.setBoundLabelUnderline(true);		
         this.contplanStartTime.setVisible(true);
+        // contimplementUnit		
+        this.contimplementUnit.setBoundLabelText(resHelper.getString("contimplementUnit.boundLabelText"));		
+        this.contimplementUnit.setBoundLabelLength(100);		
+        this.contimplementUnit.setBoundLabelUnderline(true);		
+        this.contimplementUnit.setVisible(true);
         // prmtCreator		
         this.prmtCreator.setEnabled(false);		
         this.prmtCreator.setCommitFormat("$name$");		
@@ -921,10 +932,15 @@ public abstract class AbstractRepairOrderEditUI extends com.kingdee.eas.xr.clien
         this.pkactualEndTime.setRequired(false);
         // pkplanStartTime		
         this.pkplanStartTime.setRequired(false);
+        // txtimplementUnit		
+        this.txtimplementUnit.setVisible(true);		
+        this.txtimplementUnit.setHorizontalAlignment(2);		
+        this.txtimplementUnit.setMaxLength(100);		
+        this.txtimplementUnit.setRequired(false);
         // btnequInfomation
         this.btnequInfomation.setAction((IItemAction)ActionProxyFactory.getProxy(actionEquInfomation, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnequInfomation.setText(resHelper.getString("btnequInfomation.text"));
-        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {txtBIMUDF0021,prmtequName,txtequModel,txtequAddress,prmtrepairDepart,prmtrepairPerson,pkrepairTime,txtrepairContent,prmtassignee,pkacceptTime,prmtmaintenanceType,txtmaintenanceProgram,prmtCU,pkLastUpdateTime,prmtLastUpdateUser,pkCreateTime,prmtCreator,prmtAuditor,txtDescription,pkBizDate,txtNumber,pkAuditTime,comboBizStatus,comboStatus,pkrepairDate,txtacceptSituation,prmtdeliveryPerson,prmtrecipient,pktransferTime,prmtslDepart,chkselfStudy,chkoutsourcing,txtselfAmount,txtoutAmount,chksfjhn,prmtbaoxiuren,pkbaoxiuTime,pkactualStartTime,pkactualEndTime,pkplanStartTime,kdtE1}));
+        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {txtBIMUDF0021,prmtequName,txtequModel,txtequAddress,prmtrepairDepart,prmtrepairPerson,pkrepairTime,txtrepairContent,prmtassignee,pkacceptTime,prmtmaintenanceType,txtmaintenanceProgram,prmtCU,pkLastUpdateTime,prmtLastUpdateUser,pkCreateTime,prmtCreator,prmtAuditor,txtDescription,pkBizDate,txtNumber,pkAuditTime,comboBizStatus,comboStatus,pkrepairDate,txtacceptSituation,prmtdeliveryPerson,prmtrecipient,pktransferTime,prmtslDepart,chkselfStudy,chkoutsourcing,txtselfAmount,txtoutAmount,chksfjhn,prmtbaoxiuren,pkbaoxiuTime,pkactualStartTime,pkactualEndTime,pkplanStartTime,kdtE1,txtimplementUnit}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
 		registerBindings();
@@ -1014,8 +1030,8 @@ public abstract class AbstractRepairOrderEditUI extends com.kingdee.eas.xr.clien
         this.add(contrecipient, new KDLayout.Constraints(10, 466, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         conttransferTime.setBounds(new Rectangle(1038, 462, 270, 19));
         this.add(conttransferTime, new KDLayout.Constraints(1038, 462, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contslDepart.setBounds(new Rectangle(370, 64, 270, 19));
-        this.add(contslDepart, new KDLayout.Constraints(370, 64, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contslDepart.setBounds(new Rectangle(995, 130, 270, 19));
+        this.add(contslDepart, new KDLayout.Constraints(995, 130, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         chkselfStudy.setBounds(new Rectangle(1019, 152, 93, 19));
         this.add(chkselfStudy, new KDLayout.Constraints(1019, 152, 93, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         chkoutsourcing.setBounds(new Rectangle(1025, 128, 101, 19));
@@ -1036,6 +1052,8 @@ public abstract class AbstractRepairOrderEditUI extends com.kingdee.eas.xr.clien
         this.add(contactualEndTime, new KDLayout.Constraints(370, 466, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contplanStartTime.setBounds(new Rectangle(10, 118, 270, 19));
         this.add(contplanStartTime, new KDLayout.Constraints(10, 118, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contimplementUnit.setBounds(new Rectangle(370, 64, 270, 19));
+        this.add(contimplementUnit, new KDLayout.Constraints(370, 64, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         //contCreator
         contCreator.setBoundEditor(prmtCreator);
         //contCreateTime
@@ -1114,6 +1132,8 @@ public abstract class AbstractRepairOrderEditUI extends com.kingdee.eas.xr.clien
         contactualEndTime.setBoundEditor(pkactualEndTime);
         //contplanStartTime
         contplanStartTime.setBoundEditor(pkplanStartTime);
+        //contimplementUnit
+        contimplementUnit.setBoundEditor(txtimplementUnit);
 
     }
 
@@ -1348,7 +1368,8 @@ public abstract class AbstractRepairOrderEditUI extends com.kingdee.eas.xr.clien
 		dataBinder.registerBinding("baoxiuTime", java.util.Date.class, this.pkbaoxiuTime, "value");
 		dataBinder.registerBinding("actualStartTime", java.util.Date.class, this.pkactualStartTime, "value");
 		dataBinder.registerBinding("actualEndTime", java.util.Date.class, this.pkactualEndTime, "value");
-		dataBinder.registerBinding("planStartTime", java.util.Date.class, this.pkplanStartTime, "value");		
+		dataBinder.registerBinding("planStartTime", java.util.Date.class, this.pkplanStartTime, "value");
+		dataBinder.registerBinding("implementUnit", String.class, this.txtimplementUnit, "text");		
 	}
 	//Regiester UI State
 	private void registerUIState(){		
@@ -1543,7 +1564,8 @@ public abstract class AbstractRepairOrderEditUI extends com.kingdee.eas.xr.clien
 		getValidateHelper().registerBindProperty("baoxiuTime", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("actualStartTime", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("actualEndTime", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("planStartTime", ValidateHelper.ON_SAVE);    		
+		getValidateHelper().registerBindProperty("planStartTime", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("implementUnit", ValidateHelper.ON_SAVE);    		
 	}
 
 
@@ -1830,6 +1852,7 @@ kdtE1.getCell(rowIndex,"jlUnit").setValue(com.kingdee.bos.ui.face.UIRuleUtil.get
         sic.add(new SelectorItemInfo("actualStartTime"));
         sic.add(new SelectorItemInfo("actualEndTime"));
         sic.add(new SelectorItemInfo("planStartTime"));
+        sic.add(new SelectorItemInfo("implementUnit"));
         return sic;
     }        
     	

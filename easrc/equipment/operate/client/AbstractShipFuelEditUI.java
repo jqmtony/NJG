@@ -2170,6 +2170,16 @@ public abstract class AbstractShipFuelEditUI extends com.kingdee.eas.xr.client.X
         this.prmtreportMonth.setEditFormat("$number$");		
         this.prmtreportMonth.setCommitFormat("$number$");		
         this.prmtreportMonth.setRequired(false);
+        this.prmtreportMonth.addDataChangeListener(new com.kingdee.bos.ctrl.swing.event.DataChangeListener() {
+            public void dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) {
+                try {
+                    prmtreportMonth_dataChanged(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                }
+            }
+        });
         this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmtshipName,txtPower,txtlastMonth,txtqione,txtqitwo,txtzhione,txtzhitwo,txtmiduone,txtmidutwo,txtintoTotal,txtqithree,txtqifour,txtzhithree,txtzhifour,txtmiduthree,txtmidufour,txttotalConsum,txtmonthBalance,txtportShipment,txtsmallTransport,txtTotal,txtoutputValue,txtgzde,txtgzdel,txtxyzde,txtxyzdel,txthjde,txthjdel,txtchanzhione,txtchanzhitwo,txtzhdel,txtshiyongliang,txtjieyou,txtchaohao,txtselfLeve,txtnote,txtleijiyongdian,txtleijiranyou,txtleijiyunshi,txtleijichanzhi,txtrunhuayoujiecun,txtrunhuayougangzuo,txtrunhuayouxiao,txtrunhuayouben,txtchilunyoushang,txtchilunyougang,txtchilunyouxiao,txtchilunyouben,txtyeyayoushang,txtyeyayougang,txtyeyayouxiao,txtyeyayouben,txtedingrunranbi,txtshijirunranbi,txtdingeliangxx,txtshiyongliangone,txtjieone,txtchaoone,txtjishudinge,txtchanzhidinge,txtjishubenyue,txtchanzhibenyue,txtjishuleiji,txtchanzhileiji,txtzuobenyue,txtyoujibenyue,txtfujibenyue,txtdianbiaobenyue,txtzuoshangyue,txtzuoheji,txtyoujishangyue,txtyoujiheji,txtfujishangyue,txtfujiheji,txtdianbiaoshangyue,txtdianbiaoheji,prmtchuanzhang,prmtlunjizhang,txtlingrurhy,txtlingrucly,txtlingruyyy,prmtreportMonth}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
@@ -2283,7 +2293,7 @@ public abstract class AbstractShipFuelEditUI extends com.kingdee.eas.xr.client.X
         kDLabel2.setBounds(new Rectangle(31, 35, 52, 16));
         kDPanel2.add(kDLabel2, new KDLayout.Constraints(31, 35, 52, 16, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         kDLabel3.setBounds(new Rectangle(162, 35, 55, 20));
-        kDPanel2.add(kDLabel3, new KDLayout.Constraints(162, 35, 55, 20, 0));
+        kDPanel2.add(kDLabel3, new KDLayout.Constraints(162, 35, 55, 20, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         kDSeparator8.setBounds(new Rectangle(7, 52, 324, 8));
         kDPanel2.add(kDSeparator8, new KDLayout.Constraints(7, 52, 324, 8, 0));
         kDSeparator10.setBounds(new Rectangle(7, 27, 323, 10));
@@ -3350,6 +3360,13 @@ public abstract class AbstractShipFuelEditUI extends com.kingdee.eas.xr.client.X
         } else if (STATUS_VIEW.equals(this.oprtState)) {
         } else if (STATUS_FINDVIEW.equals(this.oprtState)) {
         }
+    }
+
+    /**
+     * output prmtreportMonth_dataChanged method
+     */
+    protected void prmtreportMonth_dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) throws Exception
+    {
     }
 
     /**

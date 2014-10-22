@@ -333,6 +333,17 @@ public class AbstractRepairOrderInfo extends com.kingdee.eas.xr.XRBillBaseInfo i
     {
         setDate("planStartTime", item);
     }
+    /**
+     * Object:维修单's 实施单位property 
+     */
+    public String getImplementUnit()
+    {
+        return getString("implementUnit");
+    }
+    public void setImplementUnit(String item)
+    {
+        setString("implementUnit", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("F96E9B71");

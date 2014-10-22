@@ -90,7 +90,7 @@ public class BxTlUI extends AbstractBxTlUI
 
     public void onLoad() throws Exception {
     	super.onLoad();
-    	
+    	this.setUITitle("±£œ’∫œÕ¨");
     	this.kDContainer1.addButton(this.btnAddAtttachment);
     	this.kDContainer1.addButton(this.btnViewAtttachment);
     	this.kDContainer1.addButton(this.btnAttRemove);
