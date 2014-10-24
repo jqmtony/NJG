@@ -60,13 +60,19 @@ public class ContractsettlementEditUIPIEx extends ContractSettlementBillEditUI{
 		   		this.btnAttachment.setEnabled(false);        //撤销
 		    	this.btnAuditResult.setEnabled(false);       //审批结果查看
 		   	}
-		   	}
 		   	else
 		   	{
 		   		this.btnSubmit.setEnabled(true);             //提交
 		   		this.btnAttachment.setEnabled(false);        //撤销
 		    	this.btnAuditResult.setEnabled(false);       //审批结果查看
 		   	}
+	   	}
+	 	else
+	   	{
+	   		this.btnSubmit.setEnabled(true);             //提交
+	   		this.btnAttachment.setEnabled(false);        //撤销
+	    	this.btnAuditResult.setEnabled(false);       //审批结果查看
+	   	}
     	this.chkMenuItemSubmitAndAddNew.setSelected(false);
 	   	this.chkMenuItemSubmitAndAddNew.setEnabled(false);
 	   	this.btnCopy.setVisible(false);
@@ -76,6 +82,9 @@ public class ContractsettlementEditUIPIEx extends ContractSettlementBillEditUI{
 	   	this.btnNext.setVisible(false);
 	   	this.btnLast.setVisible(false);
 	   	this.btnFirst.setVisible(false);
+	}
+	protected boolean isContinueAddNew() {
+		return false;
 	}
 	
 	
@@ -106,6 +115,7 @@ public class ContractsettlementEditUIPIEx extends ContractSettlementBillEditUI{
 	    
 	    
 	    public void actionSubmit_actionPerformed(ActionEvent e) throws Exception {
+	    	super.actionSave_actionPerformed(e);
 	    	super.actionSubmit_actionPerformed(e);
 	    	
 	    	//String[] xml = getInfoFacadeFactory.getRemoteInstance().GetbillInfo("",editData.getId().toString());

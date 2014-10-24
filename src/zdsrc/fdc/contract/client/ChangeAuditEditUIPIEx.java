@@ -73,6 +73,12 @@ public class ChangeAuditEditUIPIEx extends ChangeAuditEditUI{
 		   		this.btnAttachment.setEnabled(false);        //撤销
 		    	this.btnAuditResult.setEnabled(true);       //审批结果查看
 		   	}
+		   	else
+		   	{
+		   		this.btnSubmit.setEnabled(true);             //提交
+		   		this.btnAttachment.setEnabled(false);        //撤销
+		    	this.btnAuditResult.setEnabled(false);       //审批结果查看
+		   	}
 	   	}
 
 		   	else
@@ -108,25 +114,8 @@ public class ChangeAuditEditUIPIEx extends ChangeAuditEditUI{
     	this.btnAttachment.setText("撤销BPM流程");
     	this.btnAttachment.setToolTipText("撤销BPM流程");
     }
-	
-    /*
-     * 新增
-     * */ 
-	public void actionAddNew_actionPerformed(ActionEvent e) throws Exception {
-		// TODO Auto-generated method stub
-		super.actionAddNew_actionPerformed(e);
-    	this.btnAttachment.setEnabled(false);
-    	this.btnAuditResult.setEnabled(false); 
-	}
-	
-	/*
-	 * 修改
-	 * */
-	public void actionEdit_actionPerformed(ActionEvent arg0) throws Exception {
-		// TODO Auto-generated method stub
-		super.actionEdit_actionPerformed(arg0);
-    	this.btnAttachment.setEnabled(false);
-    	this.btnAuditResult.setEnabled(false); 
+	protected boolean isContinueAddNew() {
+		return false;
 	}
 	
 	
@@ -143,19 +132,18 @@ public class ChangeAuditEditUIPIEx extends ChangeAuditEditUI{
      * 提交BMP
      */
     public void actionSubmit_actionPerformed(ActionEvent e) throws Exception {
+    	super.actionSave_actionPerformed(e);
     	super.actionSubmit_actionPerformed(e);
-    	
     	//String[] xml = getInfoFacadeFactory.getRemoteInstance().GetbillInfo("",editData.getId().toString()); 
     	//String[] xml = getInfoFacadeFactory.getRemoteInstance().GetbillInfo("",editData.getId().toString());
     	//String [] str1= getInfoFacadeFactory.getRemoteInstance().ApproveClose("", editData.getId().toString(), 1, "1", "",null);
     	//MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
-    	
 //    	String [] str1 = new String[3];
-//	   	EASLoginProxy login = new EASLoginProxyServiceLocator().getEASLogin(new URL("http://127.0.0.1:56898/ormrpc/services/EASLogin"));
+//	   	EASLoginProxy login = new EASLoginProxyServiceLocator().getEASLogin(new URL("http://10.130.12.34:8888/ormrpc/services/EASLogin"));
 //	   	WSContext  ws = login.login("kd-user", "kduser", "eas", "kd_002", "l2", 1);
 //	    if(ws.getSessionId()!=null){
-//	    	WSgetInfoFacadeSrvProxy pay = new WSgetInfoFacadeSrvProxyServiceLocator().getWSgetInfoFacade(new URL("http://127.0.0.1:56898/ormrpc/services/WSgetInfoFacade"));
-//	    	str1 = pay.getbillInfo("", editData.getId().toString());
+//	    	WSgetInfoFacadeSrvProxy pay = new WSgetInfoFacadeSrvProxyServiceLocator().getWSgetInfoFacade(new URL("http://10.130.12.34:8888/ormrpc/services/WSgetInfoFacade"));
+//	    	str1 = pay.getbillInfo("BGQZ01", editData.getId().toString());
 //	    	MsgBox.showInfo(str1[0] + str1[1] + str1[2]);
 //	    	String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=FK01";
 //	    	str1 = pay.submitResult("", editData.getId().toString(), true, 1,url, "dYkAAAAAmMgNbdH0");
@@ -163,7 +151,6 @@ public class ChangeAuditEditUIPIEx extends ChangeAuditEditUI{
 //	    	str1 = pay.approveClose("", editData.getId().toString(), 1, "1", "",null);
 //	    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
 //	    }
-       
     	String sql = " update T_CON_ChangeAuditBill set fChangeState='1SAVED' where fid='"+editData.getId()+"'";
 		FDCSQLBuilder bu = new FDCSQLBuilder();
 		bu.appendSql(sql);

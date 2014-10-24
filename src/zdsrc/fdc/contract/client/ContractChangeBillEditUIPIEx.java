@@ -66,13 +66,20 @@ public class ContractChangeBillEditUIPIEx extends ContractChangeBillEditUI{
 		   		this.btnAttachment.setEnabled(false);        //撤销
 		    	this.btnAuditResult.setEnabled(true);       //审批结果查看
 		   	}
-		   	}
+		   	
 		   	else
 		   	{
 		   		this.btnSubmit.setEnabled(true);             //提交
 		   		this.btnAttachment.setEnabled(false);        //撤销
 		    	this.btnAuditResult.setEnabled(false);       //审批结果查看
 		   	}
+	   	}
+	 	else
+	   	{
+	   		this.btnSubmit.setEnabled(false);             //提交
+	   		this.btnAttachment.setEnabled(false);        //撤销
+	    	this.btnAuditResult.setEnabled(false);       //审批结果查看
+	   	}
 		InitButton();
     	this.chkMenuItemSubmitAndAddNew.setSelected(false);
 	   	this.chkMenuItemSubmitAndAddNew.setEnabled(false);
@@ -83,6 +90,9 @@ public class ContractChangeBillEditUIPIEx extends ContractChangeBillEditUI{
 	   	this.btnNext.setVisible(false);
 	   	this.btnLast.setVisible(false);
 	   	this.btnFirst.setVisible(false);
+	}
+	protected boolean isContinueAddNew() {
+		return false;
 	}
 	
 	
@@ -100,25 +110,6 @@ public class ContractChangeBillEditUIPIEx extends ContractChangeBillEditUI{
 	    	this.btnAttachment.setToolTipText("撤销BPM流程");
 	    }
 	 
-	    /*
-	     * 新增
-	     * */ 
-		public void actionAddNew_actionPerformed(ActionEvent e) throws Exception {
-			// TODO Auto-generated method stub
-			super.actionAddNew_actionPerformed(e);
-	    	this.btnAttachment.setEnabled(false);
-	    	this.btnAuditResult.setEnabled(false); 
-		}
-		
-		/*
-		 * 修改
-		 * */
-		public void actionEdit_actionPerformed(ActionEvent arg0) throws Exception {
-			// TODO Auto-generated method stub
-			super.actionEdit_actionPerformed(arg0);
-	    	this.btnAttachment.setEnabled(false);
-	    	this.btnAuditResult.setEnabled(false); 
-		}
 	 
 	 
 	 
@@ -130,6 +121,7 @@ public class ContractChangeBillEditUIPIEx extends ContractChangeBillEditUI{
 	    }
 	 
 	 public void actionSubmit_actionPerformed(ActionEvent e) throws Exception {
+		    super.actionSave_actionPerformed(e);
 	    	super.actionSubmit_actionPerformed(e);
 	    	
 //	    	String [] str1 = new String[3];
@@ -151,12 +143,12 @@ public class ContractChangeBillEditUIPIEx extends ContractChangeBillEditUI{
 //	    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
 	    	
 	    	
-//	    	String sql = " update T_CON_ContractChangeBill set fState='1SAVED' where fid='"+editData.getId()+"'";
-//			FDCSQLBuilder bu = new FDCSQLBuilder();
-//			bu.appendSql(sql);
-//			bu.executeUpdate();
-//	    	String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=BGJS01&userid="+SysContext.getSysContext().getUserName()+"";
-//	    	creatFrame(url);
+	    	String sql = " update T_CON_ContractChangeBill set fState='1SAVED' where fid='"+editData.getId()+"'";
+			FDCSQLBuilder bu = new FDCSQLBuilder();
+			bu.appendSql(sql);
+			bu.executeUpdate();
+	    	String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=BGJS01&userid="+SysContext.getSysContext().getUserName()+"";
+	    	creatFrame(url);
 	    }
 	 
 	 /**
