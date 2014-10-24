@@ -136,7 +136,7 @@ public abstract class XRBillBaseEditUI extends AbstractXRBillBaseEditUI
    	}
 	}
 	public void actionAudit_actionPerformed(ActionEvent e) throws Exception {
-		if(WorkflowXRHelper.checkInProInst(editData.getId().toString())){
+		if(editData!=null && WorkflowXRHelper.checkInProInst(editData.getId().toString())){
 			MsgBox.showInfo("此单据记录有流程正在运行!");
 			SysUtil.abort();
 		}
