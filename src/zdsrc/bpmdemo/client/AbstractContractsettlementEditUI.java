@@ -706,6 +706,14 @@ public abstract class AbstractContractsettlementEditUI extends com.kingdee.eas.f
 
 
         this.kdtJlEntrys.checkParsed();
+        KDFormattedTextField kdtJlEntrys_seq_TextField = new KDFormattedTextField();
+        kdtJlEntrys_seq_TextField.setName("kdtJlEntrys_seq_TextField");
+        kdtJlEntrys_seq_TextField.setVisible(true);
+        kdtJlEntrys_seq_TextField.setEditable(true);
+        kdtJlEntrys_seq_TextField.setHorizontalAlignment(2);
+        kdtJlEntrys_seq_TextField.setDataType(0);
+        KDTDefaultCellEditor kdtJlEntrys_seq_CellEditor = new KDTDefaultCellEditor(kdtJlEntrys_seq_TextField);
+        this.kdtJlEntrys.getColumn("seq").setEditor(kdtJlEntrys_seq_CellEditor);
         KDTextField kdtJlEntrys_select_TextField = new KDTextField();
         kdtJlEntrys_select_TextField.setName("kdtJlEntrys_select_TextField");
         kdtJlEntrys_select_TextField.setMaxLength(100);
@@ -762,6 +770,14 @@ public abstract class AbstractContractsettlementEditUI extends com.kingdee.eas.f
 
 
         this.kdtSettlementEntrys.checkParsed();
+        KDFormattedTextField kdtSettlementEntrys_seq_TextField = new KDFormattedTextField();
+        kdtSettlementEntrys_seq_TextField.setName("kdtSettlementEntrys_seq_TextField");
+        kdtSettlementEntrys_seq_TextField.setVisible(true);
+        kdtSettlementEntrys_seq_TextField.setEditable(true);
+        kdtSettlementEntrys_seq_TextField.setHorizontalAlignment(2);
+        kdtSettlementEntrys_seq_TextField.setDataType(0);
+        KDTDefaultCellEditor kdtSettlementEntrys_seq_CellEditor = new KDTDefaultCellEditor(kdtSettlementEntrys_seq_TextField);
+        this.kdtSettlementEntrys.getColumn("seq").setEditor(kdtSettlementEntrys_seq_CellEditor);
         KDTextField kdtSettlementEntrys_number_TextField = new KDTextField();
         kdtSettlementEntrys_number_TextField.setName("kdtSettlementEntrys_number_TextField");
         kdtSettlementEntrys_number_TextField.setMaxLength(100);

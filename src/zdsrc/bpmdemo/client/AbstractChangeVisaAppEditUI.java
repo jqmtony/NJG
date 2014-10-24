@@ -71,8 +71,6 @@ public abstract class AbstractChangeVisaAppEditUI extends com.kingdee.eas.framew
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contorgunit;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contoffer;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contdesignUnit;
-    protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtSendUnit;
-	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtSendUnit_detailPanel = null;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtCreator;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker kDDateCreateTime;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker kDDateLastUpdateTime;
@@ -85,6 +83,8 @@ public abstract class AbstractChangeVisaAppEditUI extends com.kingdee.eas.framew
     protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtEntrys;
 	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtEntrys_detailPanel = null;
     protected com.kingdee.bos.ctrl.swing.KDContainer kDContainer1;
+    protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtSendUnit;
+	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtSendUnit_detailPanel = null;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtconductDept;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtcurproject;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtname;
@@ -191,7 +191,6 @@ public abstract class AbstractChangeVisaAppEditUI extends com.kingdee.eas.framew
         this.contorgunit = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contoffer = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contdesignUnit = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.kdtSendUnit = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.prmtCreator = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.kDDateCreateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.kDDateLastUpdateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
@@ -203,6 +202,7 @@ public abstract class AbstractChangeVisaAppEditUI extends com.kingdee.eas.framew
         this.kDContainer2 = new com.kingdee.bos.ctrl.swing.KDContainer();
         this.kdtEntrys = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.kDContainer1 = new com.kingdee.bos.ctrl.swing.KDContainer();
+        this.kdtSendUnit = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.prmtconductDept = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.prmtcurproject = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.txtname = new com.kingdee.bos.ctrl.swing.KDTextField();
@@ -245,7 +245,6 @@ public abstract class AbstractChangeVisaAppEditUI extends com.kingdee.eas.framew
         this.contorgunit.setName("contorgunit");
         this.contoffer.setName("contoffer");
         this.contdesignUnit.setName("contdesignUnit");
-        this.kdtSendUnit.setName("kdtSendUnit");
         this.prmtCreator.setName("prmtCreator");
         this.kDDateCreateTime.setName("kDDateCreateTime");
         this.kDDateLastUpdateTime.setName("kDDateLastUpdateTime");
@@ -257,6 +256,7 @@ public abstract class AbstractChangeVisaAppEditUI extends com.kingdee.eas.framew
         this.kDContainer2.setName("kDContainer2");
         this.kdtEntrys.setName("kdtEntrys");
         this.kDContainer1.setName("kDContainer1");
+        this.kdtSendUnit.setName("kdtSendUnit");
         this.prmtconductDept.setName("prmtconductDept");
         this.prmtcurproject.setName("prmtcurproject");
         this.txtname.setName("txtname");
@@ -431,15 +431,6 @@ public abstract class AbstractChangeVisaAppEditUI extends com.kingdee.eas.framew
         this.contdesignUnit.setBoundLabelLength(100);		
         this.contdesignUnit.setBoundLabelUnderline(true);		
         this.contdesignUnit.setVisible(true);
-        // kdtSendUnit
-		String kdtSendUnitStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
-		
-        this.kdtSendUnit.setFormatXml(resHelper.translateString("kdtSendUnit",kdtSendUnitStrXML));
-
-                this.kdtSendUnit.putBindContents("editData",new String[] {"seq"});
-
-
-        this.kdtSendUnit.checkParsed();
         // prmtCreator		
         this.prmtCreator.setEnabled(false);		
         this.prmtCreator.setVisible(true);		
@@ -496,6 +487,23 @@ public abstract class AbstractChangeVisaAppEditUI extends com.kingdee.eas.framew
         KDTDefaultCellEditor kdtEntrys_number_CellEditor = new KDTDefaultCellEditor(kdtEntrys_number_TextField);
         this.kdtEntrys.getColumn("number").setEditor(kdtEntrys_number_CellEditor);
         // kDContainer1
+        // kdtSendUnit
+		String kdtSendUnitStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		
+        this.kdtSendUnit.setFormatXml(resHelper.translateString("kdtSendUnit",kdtSendUnitStrXML));
+
+                this.kdtSendUnit.putBindContents("editData",new String[] {"seq"});
+
+
+        this.kdtSendUnit.checkParsed();
+        KDFormattedTextField kdtSendUnit_seq_TextField = new KDFormattedTextField();
+        kdtSendUnit_seq_TextField.setName("kdtSendUnit_seq_TextField");
+        kdtSendUnit_seq_TextField.setVisible(true);
+        kdtSendUnit_seq_TextField.setEditable(true);
+        kdtSendUnit_seq_TextField.setHorizontalAlignment(2);
+        kdtSendUnit_seq_TextField.setDataType(0);
+        KDTDefaultCellEditor kdtSendUnit_seq_CellEditor = new KDTDefaultCellEditor(kdtSendUnit_seq_TextField);
+        this.kdtSendUnit.getColumn("seq").setEditor(kdtSendUnit_seq_CellEditor);
         // prmtconductDept		
         this.prmtconductDept.setQueryInfo("com.kingdee.eas.basedata.org.app.AdminItemQuery");		
         this.prmtconductDept.setVisible(true);		
@@ -684,9 +692,6 @@ public abstract class AbstractChangeVisaAppEditUI extends com.kingdee.eas.framew
         this.add(contoffer, new KDLayout.Constraints(8, 218, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contdesignUnit.setBounds(new Rectangle(729, 144, 270, 19));
         this.add(contdesignUnit, new KDLayout.Constraints(729, 144, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        kdtSendUnit.setBounds(new Rectangle(75, 135, 600, 170));
-        kdtSendUnit_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtSendUnit,new com.kingdee.eas.bpmdemo.ChangeVisaAppSendUnitInfo(),null,false);
-        this.add(kdtSendUnit_detailPanel, new KDLayout.Constraints(75, 135, 600, 170, 0));
         //contCreator
         contCreator.setBoundEditor(prmtCreator);
         //contCreateTime
@@ -711,8 +716,12 @@ billEntries.setLayout(new BorderLayout(0, 0));        billEntries.add(kDContaine
         kDContainer2.getContentPane().add(kdtEntrys_detailPanel, new KDLayout.Constraints(2, 12, 987, 200, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         //assTab
 assTab.setLayout(new BorderLayout(0, 0));        assTab.add(kDContainer1, BorderLayout.CENTER);
+        //kDContainer1
         kDContainer1.getContentPane().setLayout(new KDLayout());
-        kDContainer1.getContentPane().putClientProperty("OriginalBounds", new Rectangle(0, 0, 992, 220));        //contconductDept
+        kDContainer1.getContentPane().putClientProperty("OriginalBounds", new Rectangle(0, 0, 992, 220));        kdtSendUnit.setBounds(new Rectangle(7, 11, 600, 170));
+        kdtSendUnit_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtSendUnit,new com.kingdee.eas.bpmdemo.ChangeVisaAppSendUnitInfo(),null,false);
+        kDContainer1.getContentPane().add(kdtSendUnit_detailPanel, new KDLayout.Constraints(7, 11, 600, 170, 0));
+        //contconductDept
         contconductDept.setBoundEditor(prmtconductDept);
         //contcurproject
         contcurproject.setBoundEditor(prmtcurproject);
@@ -917,8 +926,6 @@ assTab.setLayout(new BorderLayout(0, 0));        assTab.add(kDContainer1, Border
 
 	//Regiester control's property binding.
 	private void registerBindings(){
-		dataBinder.registerBinding("SendUnit.seq", int.class, this.kdtSendUnit, "seq.text");
-		dataBinder.registerBinding("SendUnit", com.kingdee.eas.bpmdemo.ChangeVisaAppSendUnitInfo.class, this.kdtSendUnit, "userObject");
 		dataBinder.registerBinding("creator", com.kingdee.eas.base.permission.UserInfo.class, this.prmtCreator, "data");
 		dataBinder.registerBinding("createTime", java.sql.Timestamp.class, this.kDDateCreateTime, "value");
 		dataBinder.registerBinding("lastUpdateTime", java.sql.Timestamp.class, this.kDDateLastUpdateTime, "value");
@@ -928,6 +935,8 @@ assTab.setLayout(new BorderLayout(0, 0));        assTab.add(kDContainer1, Border
 		dataBinder.registerBinding("entrys.id", com.kingdee.bos.util.BOSUuid.class, this.kdtEntrys, "id.text");
 		dataBinder.registerBinding("entrys", com.kingdee.eas.bpmdemo.ChangeVisaAppEntryInfo.class, this.kdtEntrys, "userObject");
 		dataBinder.registerBinding("entrys.number", String.class, this.kdtEntrys, "number.text");
+		dataBinder.registerBinding("SendUnit.seq", int.class, this.kdtSendUnit, "seq.text");
+		dataBinder.registerBinding("SendUnit", com.kingdee.eas.bpmdemo.ChangeVisaAppSendUnitInfo.class, this.kdtSendUnit, "userObject");
 		dataBinder.registerBinding("conductDept", com.kingdee.eas.basedata.org.AdminOrgUnitInfo.class, this.prmtconductDept, "data");
 		dataBinder.registerBinding("curproject", com.kingdee.eas.fdc.basedata.CurProjectInfo.class, this.prmtcurproject, "data");
 		dataBinder.registerBinding("name", String.class, this.txtname, "text");
@@ -1078,8 +1087,6 @@ assTab.setLayout(new BorderLayout(0, 0));        assTab.add(kDContainer1, Border
 	 */
 	protected void registerValidator() {
     	getValidateHelper().setCustomValidator( getValidator() );
-		getValidateHelper().registerBindProperty("SendUnit.seq", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("SendUnit", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("creator", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("createTime", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("lastUpdateTime", ValidateHelper.ON_SAVE);    
@@ -1089,6 +1096,8 @@ assTab.setLayout(new BorderLayout(0, 0));        assTab.add(kDContainer1, Border
 		getValidateHelper().registerBindProperty("entrys.id", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("entrys", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("entrys.number", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("SendUnit.seq", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("SendUnit", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("conductDept", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("curproject", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("name", ValidateHelper.ON_SAVE);    
@@ -1132,13 +1141,6 @@ assTab.setLayout(new BorderLayout(0, 0));        assTab.add(kDContainer1, Border
 		if(StringUtils.isEmpty(selectorAll)){
 			selectorAll = "true";
 		}
-    	sic.add(new SelectorItemInfo("SendUnit.seq"));
-		if(selectorAll.equalsIgnoreCase("true"))
-		{
-			sic.add(new SelectorItemInfo("SendUnit.*"));
-		}
-		else{
-		}
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
 			sic.add(new SelectorItemInfo("creator.*"));
@@ -1168,6 +1170,13 @@ assTab.setLayout(new BorderLayout(0, 0));        assTab.add(kDContainer1, Border
 		}
 		else{
         	sic.add(new SelectorItemInfo("entrys.number"));
+		}
+    	sic.add(new SelectorItemInfo("SendUnit.seq"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("SendUnit.*"));
+		}
+		else{
 		}
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
