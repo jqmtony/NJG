@@ -41,9 +41,8 @@ public class PayRequestFacade implements BillBaseSelector {
 				e.printStackTrace();
 			}
 			try{
-				Info.setState(FDCBillStateEnum.AUDITTING);
-				//String sql = " update t_con_payrequestbill set fState='"+Info.getState().getValue()+"'" +
-				String sql = " update t_con_payrequestbill set fState='4Auditting'" +
+				Info.setState(FDCBillStateEnum.SUBMITTED);
+				String sql = " update t_con_payrequestbill set fState='"+Info.getState().getValue()+"'" +
 						", fDescription='"+procURL+"' " +
 						", FSourceFunction='"+procInstID+"' where fid='"+Info.getId()+"'";
 				FDCSQLBuilder bu = new FDCSQLBuilder(ctx);
@@ -82,6 +81,7 @@ public class PayRequestFacade implements BillBaseSelector {
 		PayRequestBillInfo Info = (PayRequestBillInfo)billInfo;
     	String[] str = new String[3];
     	str[0] = "Y";
+    	String sql="";
 		try {
 			try{
 				Info = PayRequestBillFactory.getLocalInstance(ctx).getPayRequestBillInfo(new ObjectUuidPK(Info.getId()),getSelectors());
@@ -91,7 +91,7 @@ public class PayRequestFacade implements BillBaseSelector {
 			}
 			try{
 				if("1".equals(processInstanceResult)){
-					if(FDCBillStateEnum.AUDITTING.equals(Info.getState()))
+					if(FDCBillStateEnum.SUBMITTED.equals(Info.getState()))
 						Info.setState(FDCBillStateEnum.AUDITTED);
 					else{
 						str[2] = "审批通过失败，该记录状态不是审批中！";
@@ -99,7 +99,7 @@ public class PayRequestFacade implements BillBaseSelector {
 					}
 				}
 				if("0".equals(processInstanceResult)){
-					if(FDCBillStateEnum.AUDITTING.equals(Info.getState()))
+					if(FDCBillStateEnum.SUBMITTED.equals(Info.getState()))
 						//Info.setState(FDCBillStateEnum.INVALID);
 						Info.setState(FDCBillStateEnum.SAVED);
 					else{
@@ -108,7 +108,7 @@ public class PayRequestFacade implements BillBaseSelector {
 					}
 				}
 				if("2".equals(processInstanceResult)){
-					if(FDCBillStateEnum.AUDITTING.equals(Info.getState()))
+					if(FDCBillStateEnum.SUBMITTED.equals(Info.getState()))
 						Info.setState(FDCBillStateEnum.BACK);
 					else{
 						str[2] = "审批打回失败，该记录状态不是审批中！";
@@ -116,14 +116,20 @@ public class PayRequestFacade implements BillBaseSelector {
 					}
 				}
 				if("3".equals(processInstanceResult)){
-					if(FDCBillStateEnum.AUDITTING.equals(Info.getState()))
+					if(FDCBillStateEnum.SUBMITTED.equals(Info.getState()))
+					{
 						Info.setState(FDCBillStateEnum.SAVED);
+						sql = " update t_con_payrequestbill set fDescription='' where fid='"+Info.getId()+"'";
+						FDCSQLBuilder bu = new FDCSQLBuilder(ctx);
+						bu.appendSql(sql);
+						bu.executeUpdate(ctx);
+					}
 					else{
 						str[2] = "撤销失败，该记录状态不是审批中！";
 						str[0] = "N";
 					}
 				}
-				String sql = " update t_con_payrequestbill set fState='"+Info.getState().getValue()+"' where fid='"+Info.getId()+"'";
+				sql = " update t_con_payrequestbill set fState='"+Info.getState().getValue()+"' where fid='"+Info.getId()+"'";
 				FDCSQLBuilder bu = new FDCSQLBuilder(ctx);
 				bu.appendSql(sql);
 				bu.executeUpdate(ctx);
@@ -202,7 +208,6 @@ public class PayRequestFacade implements BillBaseSelector {
 			xml.append("<realSupplier>"+StringUtilBPM.isNULl(Info.getRealSupplier().getName())+"</realSupplier>\n");//实际收款单位
 			xml.append("<Desc>"+StringUtilBPM.isNULl(Info.getDescription())+"</Desc>\n");//
 			xml.append("<usage>"+StringUtilBPM.isNULl(Info.getUsage())+"</usage>\n");//用途
-			
    
 			xml.append("<currency>"+StringUtilBPM.isNULl(Info.getCurrency().getName())+"</currency>\n");//币别
 			xml.append("<exchangeRate>"+Info.getExchangeRate()+"</exchangeRate>\n");//汇率
@@ -229,7 +234,7 @@ public class PayRequestFacade implements BillBaseSelector {
 				xml.append("<isRespite>是</isRespite>\n");//是否加急
 			}
 			xml.append("<Process>"+StringUtilBPM.isNULl(Info.getProcess())+"</Process>\n");
-			xml.append("<payTimes>0</payTimes>\n");
+			xml.append("<payTimes>"+Info.getPayTimes()+"</payTimes>\n");
 			
 			if(false==Info.isIsPay())
 			xml.append("<IsPay>否</IsPay>\n");//是否提交付款
@@ -362,6 +367,7 @@ public class PayRequestFacade implements BillBaseSelector {
 		sic.add(new SelectorItemInfo("ContractName"));
 		sic.add(new SelectorItemInfo("Process"));
 		sic.add(new SelectorItemInfo("BookedDate"));
+		sic.add(new SelectorItemInfo("PayTimes"));
 		
 		
 		return sic;

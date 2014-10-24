@@ -247,13 +247,13 @@ public class ChangeOfSettlementFacade {
 			}
 			try {
 				Info.setState(FDCBillStateEnum.AUDITTING);
-//				String sql = " update T_CON_ContractChangeBill set fState='"
-//						+ Info.getState().getValue() + "'" + ", fDescription='"
-//						+ procURL + "' " + ", FSourceFunction='" + procInstID
-//						+ "' where fid='" + Info.getId() + "'";
-				String sql = " update T_CON_ContractChangeBill set fState='4Auditting', fDescription='"
-					+ procURL + "' " + ", FSourceFunction='" + procInstID
-					+ "' where fid='" + Info.getId() + "'";
+				String sql = " update T_CON_ContractChangeBill set fState='"
+						+ Info.getState().getValue() + "'" + ", fDescription='"
+						+ procURL + "' " + ", FSourceFunction='" + procInstID
+						+ "' where fid='" + Info.getId() + "'";
+//				String sql = " update T_CON_ContractChangeBill set fState='4Auditting', fDescription='"
+//					+ procURL + "' " + ", FSourceFunction='" + procInstID
+//					+ "' where fid='" + Info.getId() + "'";
 				FDCSQLBuilder bu = new FDCSQLBuilder(ctx);
 				bu.appendSql(sql);
 				bu.executeUpdate(ctx);

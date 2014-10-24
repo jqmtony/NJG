@@ -18,9 +18,7 @@ import com.kingdee.eas.bpm.BPMLogFactory;
 import com.kingdee.eas.bpm.BPMLogInfo;
 import com.kingdee.eas.bpm.BillBaseSelector;
 import com.kingdee.eas.bpm.common.StringUtilBPM;
-import com.kingdee.eas.bpm.common.UpdateUtil;
-import com.kingdee.eas.bpm.common.ViewXmlUtil;
-import com.kingdee.eas.bpm.common.XMLUtil;
+
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
@@ -59,7 +57,7 @@ public class ContractFacade implements BillBaseSelector {
 				e.printStackTrace();
 			}
 			try{
-				Info.setState(FDCBillStateEnum.AUDITTING);
+				Info.setState(FDCBillStateEnum.SUBMITTED);
 				String sql = " update t_con_contractbill set fState='"+Info.getState().getValue()+"'" +
 						", fDescription='"+procURL+"' " +
 						", FSourceFunction='"+procInstID+"' where fid='"+Info.getId()+"'";
@@ -109,10 +107,8 @@ public class ContractFacade implements BillBaseSelector {
 			}
 			try{
 				if("1".equals(processInstanceResult)){
-					if(FDCBillStateEnum.AUDITTING.equals(Info.getState()))
+					if(FDCBillStateEnum.SUBMITTED.equals(Info.getState()))
 					{
-						//Info.setState(FDCBillStateEnum.SUBMITTED);
-					    //ContractBillFactory.getLocalInstance(ctx).audit(Info.getId());
 					    Info.setState(FDCBillStateEnum.AUDITTED);  
 					}
 					else{
@@ -121,8 +117,8 @@ public class ContractFacade implements BillBaseSelector {
 					}
 				}
 				if("0".equals(processInstanceResult)){
-					if(FDCBillStateEnum.AUDITTING.equals(Info.getState()))
-					{	//Info.setState(FDCBillStateEnum.INVALID);
+					if(FDCBillStateEnum.SUBMITTED.equals(Info.getState()))
+					{	
 					 Info.setState(FDCBillStateEnum.SAVED);   //作废改为以保存
 					}
 					else{
@@ -131,8 +127,7 @@ public class ContractFacade implements BillBaseSelector {
 					}
 				}
 				if("2".equals(processInstanceResult)){
-					if(FDCBillStateEnum.AUDITTING.equals(Info.getState()))
-						//Info.setState(FDCBillStateEnum.BACK);
+					if(FDCBillStateEnum.SUBMITTED.equals(Info.getState()))
 						Info.setState(FDCBillStateEnum.SAVED);
 					else{
 						str[2] = "审批打回失败，该记录状态不是审批中！";
@@ -140,8 +135,13 @@ public class ContractFacade implements BillBaseSelector {
 					}
 				}
 				if("3".equals(processInstanceResult)){
-					if(FDCBillStateEnum.AUDITTING.equals(Info.getState()))
+					if(FDCBillStateEnum.SUBMITTED.equals(Info.getState())){
 						Info.setState(FDCBillStateEnum.SAVED);
+						sql = " update t_con_contractbill set fDescription='' where fid='"+Info.getId()+"'";
+						FDCSQLBuilder bu = new FDCSQLBuilder(ctx);
+						bu.appendSql(sql);
+						bu.executeUpdate(ctx);
+					}
 					else{
 						str[2] = "撤销失败，该记录状态不是审批中！";
 						str[0] = "N";
@@ -181,7 +181,6 @@ public class ContractFacade implements BillBaseSelector {
 	public String[] GetbillInfo(Context ctx, String strBSID, IObjectValue billInfo) {
 		ContractBillInfo Info = (ContractBillInfo)billInfo;
     	String[] str = new String[3];
-//    	str = ViewXmlUtil.getViewXmlString(ctx, strBSID, Info.getId().toString()); // 通过试图获取xml
     	str[0] = "Y";
     	StringBuffer xml = new StringBuffer();
 		try {
@@ -195,7 +194,6 @@ public class ContractFacade implements BillBaseSelector {
 				DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
     			xml.append("<DATA>\n");
     			xml.append("<OrgName>"+StringUtilBPM.isNULl(Info.getOrgUnit().getName())+"</OrgName>\n");
-    			//xml.append("<OrgName>"+StringUtilBPM.isNULl(Info.getLandDeveloper().getName())+"</OrgName>\n");
     			xml.append("<DeptName>"+StringUtilBPM.isNULl(Info.getRespDept().getName())+"</DeptName>\n");
     			xml.append("<respDept>"+StringUtilBPM.isNULl(Info.getRespDept().getName())+"</respDept>\n");
     			xml.append("<ApplyDate>"+dateFormat.format(Info.getCreateTime())+"</ApplyDate>\n");
@@ -209,7 +207,6 @@ public class ContractFacade implements BillBaseSelector {
     			}
     			xml.append("<creator>"+StringUtilBPM.isNULl(Info.getCreator().getName())+"</creator>\n");
     			xml.append("<createTime>"+dateFormat.format(Info.getCreateTime())+"</createTime>\n");
-    			//xml.append("<createTime>"+Info.getCreator()+"</createTime>\n");
     			if(Info.getPayPercForWarn()!=null)
     			xml.append("<payAlertRate>"+Info.getPayPercForWarn()+"</payAlertRate>\n");  //付款提示比例
     			else
@@ -220,12 +217,8 @@ public class ContractFacade implements BillBaseSelector {
     			xml.append("<CompanyName>"+StringUtilBPM.isNULl(Info.getLandDeveloper().getName())+"</CompanyName>\n");
     			xml.append("<Phase>"+StringUtilBPM.isNULl(Info.getCurProject().getName())+"</Phase>\n");
     			xml.append("<OrgCode>"+StringUtilBPM.isNULl(Info.getOrgUnit().getNumber().split("-")[0])+"</OrgCode>\n");
-    			
     			xml.append("<contactNumber>"+StringUtilBPM.isNULl(Info.getNumber())+"</contactNumber>\n");
     			xml.append("<contractName>"+StringUtilBPM.isNULl(Info.getName())+"</contractName>\n");
-    			//FullOrgUnitInfo costOrg =orgUnitInfo;
-    			//costOrg.getDisplayName();
-    			//xml.append("<contractName>"+StringUtilBPM.isNULl(Info)+"</contractName>\n");
     			xml.append("<partA>"+StringUtilBPM.isNULl(Info.getLandDeveloper().getName())+"</partA>\n");
     			xml.append("<partB>"+StringUtilBPM.isNULl(Info.getPartB().getName())+"</partB>\n");
     			if(Info.getPartC()!=null)
@@ -360,7 +353,7 @@ public class ContractFacade implements BillBaseSelector {
 		 sic.add(new SelectorItemInfo("currency.id"));
 		 sic.add(new SelectorItemInfo("currency.number"));
 		 sic.add(new SelectorItemInfo("currency.name"));
-		sic.add(new SelectorItemInfo("id"));		
+		//sic.add(new SelectorItemInfo("id"));		
 		sic.add(new SelectorItemInfo("respDept.id"));
 		sic.add(new SelectorItemInfo("respDept.number"));
 		sic.add(new SelectorItemInfo("respDept.name"));

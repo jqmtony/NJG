@@ -54,6 +54,7 @@ public class ContractWithoutTextFacade implements BillBaseSelector {
 		ContractWithoutTextInfo Info = (ContractWithoutTextInfo)billInfo;
     	String[] str = new String[3];
     	str[0] = "Y";
+    	String sql="";
 		try {
 			try{
 				Info = ContractWithoutTextFactory.getLocalInstance(ctx).getContractWithoutTextInfo(new ObjectUuidPK(Info.getId()),getSelectors());
@@ -63,9 +64,8 @@ public class ContractWithoutTextFacade implements BillBaseSelector {
 				e.printStackTrace();
 			}
 			try{
-				Info.setState(FDCBillStateEnum.AUDITTING);
-				String sql = " update t_con_contractwithouttext set fState='"+Info.getState().getValue()+"'" +
-				//String sql = " update t_con_contractwithouttext set fState='4Auditting'" +
+				Info.setState(FDCBillStateEnum.SUBMITTED);
+				sql = " update t_con_contractwithouttext set fState='"+Info.getState().getValue()+"'" +
 						", fDescription='"+procURL+"' " +
 						", FSourceFunction='"+procInstID+"' where fid='"+Info.getId()+"'";
 				FDCSQLBuilder bu = new FDCSQLBuilder(ctx);
@@ -104,6 +104,7 @@ public class ContractWithoutTextFacade implements BillBaseSelector {
 		ContractWithoutTextInfo Info = (ContractWithoutTextInfo)billInfo;
     	String[] str = new String[3];
     	str[0] = "Y";
+    	String sql="";
 		try {
 			try{
 				Info = ContractWithoutTextFactory.getLocalInstance(ctx).getContractWithoutTextInfo(new ObjectUuidPK(Info.getId()),getSelectors());
@@ -113,7 +114,7 @@ public class ContractWithoutTextFacade implements BillBaseSelector {
 			}
 			try{
 				if("1".equals(processInstanceResult)){
-					if(FDCBillStateEnum.AUDITTING.equals(Info.getState()))
+					if(FDCBillStateEnum.SUBMITTED.equals(Info.getState()))
 						Info.setState(FDCBillStateEnum.AUDITTED);
 					else{
 						str[2] = "审批通过失败，该记录状态不是审批中！";
@@ -121,8 +122,7 @@ public class ContractWithoutTextFacade implements BillBaseSelector {
 					}
 				}
 				if("0".equals(processInstanceResult)){
-					if(FDCBillStateEnum.AUDITTING.equals(Info.getState()))
-						//Info.setState(FDCBillStateEnum.INVALID);
+					if(FDCBillStateEnum.SUBMITTED.equals(Info.getState()))
 						Info.setState(FDCBillStateEnum.SAVED);
 					else{
 						str[2] = "审批不通过失败，该记录状态不是审批中！";
@@ -130,22 +130,28 @@ public class ContractWithoutTextFacade implements BillBaseSelector {
 					}
 				}
 				if("2".equals(processInstanceResult)){
-					if(FDCBillStateEnum.AUDITTING.equals(Info.getState()))
-						Info.setState(FDCBillStateEnum.BACK);
+					if(FDCBillStateEnum.SUBMITTED.equals(Info.getState()))
+						Info.setState(FDCBillStateEnum.SAVED);
 					else{
 						str[2] = "审批打回失败，该记录状态不是审批中！";
 						str[0] = "N";
 					}
 				}
 				if("3".equals(processInstanceResult)){
-					if(FDCBillStateEnum.AUDITTING.equals(Info.getState()))
+					if(FDCBillStateEnum.SUBMITTED.equals(Info.getState()))
+					{
 						Info.setState(FDCBillStateEnum.SAVED);
+						sql = " update t_con_contractwithouttext set fDescription='' where fid='"+Info.getId()+"'";
+						FDCSQLBuilder bu = new FDCSQLBuilder(ctx);
+						bu.appendSql(sql);
+						bu.executeUpdate(ctx);
+					}
 					else{
 						str[2] = "撤销失败，该记录状态不是审批中！";
 						str[0] = "N";
 					}
 				}
-				String sql = " update t_con_contractwithouttext set fState='"+Info.getState().getValue()+"' where fid='"+Info.getId()+"'";
+				 sql = " update t_con_contractwithouttext set fState='"+Info.getState().getValue()+"' where fid='"+Info.getId()+"'";
 				FDCSQLBuilder bu = new FDCSQLBuilder(ctx);
 				bu.appendSql(sql);
 				bu.executeUpdate(ctx);

@@ -60,6 +60,7 @@ public class ContractReviseFacade implements BillBaseSelector{
 		ContractBillReviseInfo Info = (ContractBillReviseInfo)billInfo;
     	String[] str = new String[3];
     	str[0] = "Y";
+    	String sql="";
 		try {
 			try{
 				Info = ContractBillReviseFactory.getLocalInstance(ctx).getContractBillReviseInfo(new ObjectUuidPK(Info.getId()),getSelectors());
@@ -69,7 +70,7 @@ public class ContractReviseFacade implements BillBaseSelector{
 			}
 			try{
 				if("1".equals(processInstanceResult)){
-					if(FDCBillStateEnum.AUDITTING.equals(Info.getState()))
+					if(FDCBillStateEnum.SUBMITTED.equals(Info.getState()))
 					{
 						Info.setState(FDCBillStateEnum.AUDITTED);
 				        
@@ -81,8 +82,7 @@ public class ContractReviseFacade implements BillBaseSelector{
 					}
 				}
 				if("0".equals(processInstanceResult)){
-					if(FDCBillStateEnum.AUDITTING.equals(Info.getState()))
-						//Info.setState(FDCBillStateEnum.INVALID);
+					if(FDCBillStateEnum.SUBMITTED.equals(Info.getState()))
 						Info.setState(FDCBillStateEnum.SAVED);
 					else{
 						str[2] = "审批不通过失败，该记录状态不是审批中！";
@@ -90,7 +90,7 @@ public class ContractReviseFacade implements BillBaseSelector{
 					}
 				}
 				if("2".equals(processInstanceResult)){
-					if(FDCBillStateEnum.AUDITTING.equals(Info.getState()))
+					if(FDCBillStateEnum.SUBMITTED.equals(Info.getState()))
 						Info.setState(FDCBillStateEnum.BACK);
 					else{
 						str[2] = "审批打回失败，该记录状态不是审批中！";
@@ -98,14 +98,20 @@ public class ContractReviseFacade implements BillBaseSelector{
 					}
 				}
 				if("3".equals(processInstanceResult)){
-					if(FDCBillStateEnum.AUDITTING.equals(Info.getState()))
+					if(FDCBillStateEnum.SUBMITTED.equals(Info.getState()))
+					{
 						Info.setState(FDCBillStateEnum.SAVED);
+						sql = " update T_CON_ContractBillRevise set fDescription='' where fid='"+Info.getId()+"'";
+						FDCSQLBuilder bu = new FDCSQLBuilder(ctx);
+						bu.appendSql(sql);
+						bu.executeUpdate(ctx);
+					}
 					else{
 						str[2] = "撤销失败，该记录状态不是审批中！";
 						str[0] = "N";
 					}
 				}
-				String sql = " update T_CON_ContractBillRevise set fState='"+Info.getState().getValue()+"' where fid='"+Info.getId()+"'";
+				 sql = " update T_CON_ContractBillRevise set fState='"+Info.getState().getValue()+"' where fid='"+Info.getId()+"'";
 				FDCSQLBuilder bu = new FDCSQLBuilder(ctx);
 				bu.appendSql(sql);
 				bu.executeUpdate(ctx);
@@ -297,9 +303,8 @@ public class ContractReviseFacade implements BillBaseSelector{
 				e.printStackTrace();
 			}
 			try{
-				Info.setState(FDCBillStateEnum.AUDITTING);
+				Info.setState(FDCBillStateEnum.SUBMITTED);
 				String sql = " update T_CON_ContractBillRevise set fState='"+Info.getState().getValue()+"'" +
-				//String sql = " update T_CON_ContractBillRevise set fState='4Auditting'" +
 						", fDescription='"+procURL+"' " +
 						", FSourceFunction='"+procInstID+"' where fid='"+Info.getId()+"'";
 				FDCSQLBuilder bu = new FDCSQLBuilder(ctx);

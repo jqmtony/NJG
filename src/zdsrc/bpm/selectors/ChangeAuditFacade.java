@@ -146,148 +146,147 @@ public class ChangeAuditFacade implements BillBaseSelector {
 				str[2] = "根据单据getSelectors获取对象数据，请检查getSelectors方法中属性是否正确,并查看服务器log日志！";
 				e.printStackTrace();
 			}
-				DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-				xml.append("<DATA>\n");
-			    xml.append("<OrgName>"+StringUtilBPM.isNULl(Info.getOrgUnit().getName())+"</OrgName>\n");
-				xml.append("<DeptName>"+StringUtilBPM.isNULl(Info.getOrgUnit().getName())+"</DeptName>\n");
-				xml.append("<ApplyDate>"+ dateFormat.format(Info.getCreateTime())+ "</ApplyDate>\n");
-				xml.append("<Applicant>"+ StringUtilBPM.isNULl(Info.getCreator().getName())+ "</Applicant>\n");
-				xml.append("<Position>CEO秘书</Position>\n");
-				xml.append("<Topic>" + StringUtilBPM.isNULl(Info.getName())+ "</Topic>\n");
-				xml.append("<Phase>"+ StringUtilBPM.isNULl(Info.getCurProject().getName())+ "</Phase>\n");
-				xml.append("<OrgCode>"+ StringUtilBPM.isNULl(Info.getOrgUnit().getNumber().split("-")[0]) + "</OrgCode>\n");
-				xml.append("<orgunit>"+ StringUtilBPM.isNULl(Info.getOrgUnit().getName())+ "</orgunit>\n"); // 组织
-				xml.append("<curproject>"+ StringUtilBPM.isNULl(Info.getCurProject().getName())+ "</curproject>\n"); // 工程项目
-				xml.append("<number>" + StringUtilBPM.isNULl(Info.getNumber())+ "</number>\n"); // 单据编号
-				xml.append("<name>" + StringUtilBPM.isNULl(Info.getName())+ "</name>\n"); // 单据名称
-				xml.append("<changeReason>"+ StringUtilBPM.isNULl(Info.getChangeReason().getName())+ "</changeReason>\n"); // 变更原因
-				xml.append("<audittype>"+ StringUtilBPM.isNULl(Info.getAuditType().getName())+ "</audittype>\n"); // 变更类型
-				xml.append("<changesubject>"+ StringUtilBPM.isNULl(Info.getChangeSubject())+ "</changesubject>\n"); // 变更主题
-				xml.append("<period>" + dateFormat.format(Info.getPeriod().getNumber())+ "</period>\n"); // 期间
-				xml.append("<jobtype>"+ StringUtilBPM.isNULl(Info.getJobType().getName())+ "</jobtype>\n"); // 承包类型
-				xml.append("<urgentDegree>"+ StringUtilBPM.isNULl(Info.getUrgentDegree().getName())+ "</urgentDegree>\n"); // 紧急程度
-				if(Info.getConductDept()!=null)
-				xml.append("<conductDept>"+ Info.getConductDept().getName()+ "</conductDept>\n"); // 提出部门
-				if(Info.getDesignUnit()!=null)
-				xml.append("<designUnit>"+ StringUtilBPM.isNULl(Info.getDesignUnit().getName())+ "</designUnit>\n"); // 设计单位
-				if(Info.getConductUnit()!=null)
-				xml.append("<conductUnit>"+Info.getConductUnit().getName()+ "</conductUnit>\n"); // 提出单位
-				if(Info.getConstrUnit()!=null)
-				xml.append("<construnit>"+ Info.getConstrUnit().getName()+ "</construnit>\n");// 施工单位
-				xml.append("<reaDesc>"+ StringUtilBPM.isNULl(Info.getReaDesc())+ "</reaDesc>\n"); // 说明
-				xml.append("<offer>"+ StringUtilBPM.isNULl(Info.getOffer().getAlias())+ "</offer>\n"); // 提出人
-				xml.append("<constrSite>"+ StringUtilBPM.isNULl(Info.getConstrSite())+ "</constrSite>\n"); // 施工部位
-				xml.append("<changeState>"+ StringUtilBPM.isNULl(Info.getChangeState().getAlias())+ "</changeState>\n"); // 状态
-				xml.append("<specialtyType>"+ Info.getSpecialName() + "</specialtyType>\n"); // 专业类型
-			    if(false==Info.isIsImportChange())
-				xml.append("<isImportChange>否</isImportChange>\n"); // 是否重大变更
-			    else
-			    {
-			    	xml.append("<isImportChange>是</isImportChange>\n"); // 是否重大变更
-			    }
-			    
+			DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+			xml.append("<DATA>\n");
+		    xml.append("<OrgName>"+StringUtilBPM.isNULl(Info.getOrgUnit().getName())+"</OrgName>\n");
+			xml.append("<DeptName>"+StringUtilBPM.isNULl(Info.getOrgUnit().getName())+"</DeptName>\n");
+			xml.append("<ApplyDate>"+ dateFormat.format(Info.getCreateTime())+ "</ApplyDate>\n");
+			xml.append("<Applicant>"+ StringUtilBPM.isNULl(Info.getCreator().getName())+ "</Applicant>\n");
+			xml.append("<Position>CEO秘书</Position>\n");
+			xml.append("<Topic>" + StringUtilBPM.isNULl(Info.getName())+ "</Topic>\n");
+			xml.append("<Phase>"+ StringUtilBPM.isNULl(Info.getCurProject().getName())+ "</Phase>\n");
+			xml.append("<OrgCode>"+ StringUtilBPM.isNULl(Info.getOrgUnit().getNumber().split("-")[0]) + "</OrgCode>\n");
+			xml.append("<orgunit>"+ StringUtilBPM.isNULl(Info.getOrgUnit().getName())+ "</orgunit>\n"); // 组织
+			xml.append("<curproject>"+ StringUtilBPM.isNULl(Info.getCurProject().getName())+ "</curproject>\n"); // 工程项目
+			xml.append("<number>" + StringUtilBPM.isNULl(Info.getNumber())+ "</number>\n"); // 单据编号
+			xml.append("<name>" + StringUtilBPM.isNULl(Info.getName())+ "</name>\n"); // 单据名称
+			xml.append("<changeReason>"+ StringUtilBPM.isNULl(Info.getChangeReason().getName())+ "</changeReason>\n"); // 变更原因
+			xml.append("<audittype>"+ StringUtilBPM.isNULl(Info.getAuditType().getName())+ "</audittype>\n"); // 变更类型
+			xml.append("<changesubject>"+ StringUtilBPM.isNULl(Info.getChangeSubject())+ "</changesubject>\n"); // 变更主题
+			xml.append("<period>" + dateFormat.format(Info.getPeriod().getNumber())+ "</period>\n"); // 期间
+			xml.append("<jobtype>"+ StringUtilBPM.isNULl(Info.getJobType().getName())+ "</jobtype>\n"); // 承包类型
+			xml.append("<urgentDegree>"+ StringUtilBPM.isNULl(Info.getUrgentDegree().getName())+ "</urgentDegree>\n"); // 紧急程度
+			if(Info.getConductDept()!=null)
+			xml.append("<conductDept>"+ Info.getConductDept().getName()+ "</conductDept>\n"); // 提出部门
+			if(Info.getDesignUnit()!=null)
+			xml.append("<designUnit>"+ StringUtilBPM.isNULl(Info.getDesignUnit().getName())+ "</designUnit>\n"); // 设计单位
+			if(Info.getConductUnit()!=null)
+			xml.append("<conductUnit>"+Info.getConductUnit().getName()+ "</conductUnit>\n"); // 提出单位
+			if(Info.getConstrUnit()!=null)
+			xml.append("<construnit>"+ Info.getConstrUnit().getName()+ "</construnit>\n");// 施工单位
+			xml.append("<reaDesc>"+ StringUtilBPM.isNULl(Info.getReaDesc())+ "</reaDesc>\n"); // 说明
+			xml.append("<offer>"+ StringUtilBPM.isNULl(Info.getOffer().getAlias())+ "</offer>\n"); // 提出人
+			xml.append("<constrSite>"+ StringUtilBPM.isNULl(Info.getConstrSite())+ "</constrSite>\n"); // 施工部位
+//				xml.append("<changeState>"+ StringUtilBPM.isNULl(Info.getChangeState().getAlias())+ "</changeState>\n"); // 状态
+			xml.append("<specialtyType>"+ Info.getSpecialName() + "</specialtyType>\n"); // 专业类型
+		    if(false==Info.isIsImportChange())
+		    	xml.append("<isImportChange>否</isImportChange>\n"); // 是否重大变更
+		    else
+		    {
+		    	xml.append("<isImportChange>是</isImportChange>\n"); // 是否重大变更
+		    }
 
-			    xml.append("<bizdate>"+dateFormat.format(Info.getBookedDate())+"</bizdate>\n"); // 业务日期
-			    if(Info.getPeriod()!=null)
-				xml.append("<billEntries>");
-				for (int i = 0; i < Info.getEntrys().size(); i++) {
-					ChangeAuditEntryInfo entry = Info.getEntrys().get(i);
-					entry = ChangeAuditEntryFactory.getLocalInstance(ctx).getChangeAuditEntryInfo(new ObjectUuidPK(entry.getId()));
-					xml.append("<item>");
-					xml.append("<number>"+ StringUtilBPM.isNULl(entry.getNumber())+ "</number>\n");
-					xml.append("<changecontent>"+ StringUtilBPM.isNULl(entry.getChangeContent())+ "</changecontent>\n");
-					if(false==entry.isIsBack())
-					xml.append("<isback>否</isback>\n");
-					else
-					{
-						xml.append("<isback>是</isback>\n");
-					}
-					xml.append("</item>\n");
-				}
-				xml.append("</billEntries>\n");
-				
-				xml.append("<SuppEntry>");
-				for (int i = 0; i < Info.getSuppEntry().size(); i++) {
-					ChangeSupplierEntryInfo changeSuppentry = Info.getSuppEntry().get(i);
-					changeSuppentry = ChangeSupplierEntryFactory.getLocalInstance(ctx).getChangeSupplierEntryInfo(new ObjectUuidPK(changeSuppentry.getId()));
-					changeSuppentry.getParent();
-					xml.append("<item>");
-					xml.append("<SuppID>" + changeSuppentry.getSeq() + "</SuppID>\n");
-					
-					  EntityViewInfo Myavevi = new EntityViewInfo();
-				      FilterInfo Myavfilter = new FilterInfo();
-				      Myavfilter.getFilterItems().add(new FilterItemInfo("id",changeSuppentry.getContractBill().getId(),CompareType.EQUALS));
-				      Myavevi.setFilter(Myavfilter);
-				      ContractBillCollection myavc=ContractBillFactory.getLocalInstance(ctx).getContractBillCollection(Myavevi);
-				      if(myavc.size()>0)
-				      {
-				        for(int j=0;j< myavc.size();j++){  	     
-		         	    ContractBillInfo info=ContractBillFactory.getLocalInstance(ctx).getContractBillInfo(new ObjectUuidPK(changeSuppentry.getContractBill().getId()));
-		         	    xml.append("<ContractID>" + info.getNumber()+ "</ContractID>\n");
-						xml.append("<ContractName>" + info.getName()+ "</ContractName>\n");
-						//xml.append("<MainSupp>" + info.getPartB().getName()+ "</MainSupp>\n");//  主送单位
-						//xml.append("<Currency>" + info.getCurrency().getName()+ "</Currency>\n");//币别
-						//xml.append("<Exrate>" + info.getExRate() + "</Exrate>\n");
-						xml.append("<Currency>人民币</Currency>\n");//币别
-						xml.append("<MainSupp>中国建筑第八工程局</MainSupp>\n");//  主送单位
-						xml.append("<Exrate>1</Exrate>\n");
-						
-				        }
-				      }
-				      EntityViewInfo Myavevi3 = new EntityViewInfo();
-				      FilterInfo Myavfilter3 = new FilterInfo();
-				      Myavfilter3.getFilterItems().add(new FilterItemInfo("parent",changeSuppentry.getId(),CompareType.EQUALS));
-				      Myavevi3.setFilter(Myavfilter3);
-				      CopySupplierEntryCollection copycol=CopySupplierEntryFactory.getLocalInstance(ctx).getCopySupplierEntryCollection(Myavevi3);
-				      for(int n=0;n<copycol.size();n++)
-				      {  
-				    	  CopySupplierEntryInfo info=CopySupplierEntryFactory.getLocalInstance(ctx).getCopySupplierEntryInfo(new ObjectUuidPK(copycol.get(i).getId()));
-				    	  xml.append("<CopySupp>" +info.getCopySupp().getName()+ "</CopySupp>\n");   //抄送单位
-				      }
-		 			
-					xml.append("<OriginalContactNum>"+ changeSuppentry.getOriginalContactNum()+ "</OriginalContactNum>\n");
-					//ChangeAuditEntryInfo entrycontext = ChangeAuditEntryFactory.getLocalInstance(ctx).getChangeAuditEntryInfo(new ObjectUuidPK(changeSuppentry.getParent().getId()));
-					//xml.append("<ZContext>"+entrycontext.getChangeContent()+"</ZContext>\n");   //
-					xml.append("<OriCostAmount>" + changeSuppentry.getOriCostAmount()+ "</OriCostAmount>\n");
-					xml.append("<CostAmount>" + changeSuppentry.getCostAmount()+ "</CostAmount>\n");
-					xml.append("<CostDescription>" + changeSuppentry.getCostDescription()+ "</CostDescription>\n");
-					xml.append("<ConstructPrice>" + changeSuppentry.getConstructPrice()+ "</ConstructPrice>\n");
-					if(false==changeSuppentry.isIsDeduct())
-					{
-					xml.append("<IsDeduct>否</IsDeduct>\n");
-					}
-					else
-					{
-						xml.append("<IsDeduct>是</IsDeduct>\n");
-				    }
-					xml.append("<DeductAmount>" + changeSuppentry.getDeductAmount()+ "</DeductAmount>\n");
-					xml.append("<DeductReason>" + changeSuppentry.getDeductReason()+ "</DeductReason>\n");
-					xml.append("<Reckonor>" + changeSuppentry.getReckonor().getName()+ "</Reckonor>\n"); //
-					if(changeSuppentry.getDutyOrg()!=null)
-					xml.append("<DutyOrg>" + changeSuppentry.getDutyOrg().getName()+ "</DutyOrg>\n"); //
-					if(false==changeSuppentry.isIsSureChangeAmt())
-					{
-					xml.append("<IsSureChangeAmt>否</IsSureChangeAmt>\n");
-					}
-					else
-					{
-						xml.append("<IsSureChangeAmt>是</IsSureChangeAmt>\n");
-					}
-					xml.append("</item>\n");
-				}
-				xml.append("</SuppEntry>\n");			
-				xml.append("<TotalCost>" + Info.getTotalCost()+ "</TotalCost>\n");   //测算金额汇总
-				xml.append("<DutyAmout>" + Info.getAmountDutySupp()+ "</DutyAmout>\n");   //测算金额汇总
-				
-				if(false==Info.isIsNoUse())
+		    xml.append("<bizdate>"+dateFormat.format(Info.getBookedDate())+"</bizdate>\n"); // 业务日期
+		    if(Info.getPeriod()!=null)
+			xml.append("<billEntries>");
+			for (int i = 0; i < Info.getEntrys().size(); i++) {
+				ChangeAuditEntryInfo entry = Info.getEntrys().get(i);
+				entry = ChangeAuditEntryFactory.getLocalInstance(ctx).getChangeAuditEntryInfo(new ObjectUuidPK(entry.getId()));
+				xml.append("<item>");
+				xml.append("<number>"+ StringUtilBPM.isNULl(entry.getNumber())+ "</number>\n");
+				xml.append("<changecontent>"+ StringUtilBPM.isNULl(entry.getChangeContent())+ "</changecontent>\n");
+				if(false==entry.isIsBack())
+				xml.append("<isback>否</isback>\n");
+				else
 				{
-				xml.append("<NoUse>否</NoUse>\n");   //是否存在无效成本
-				}else
-				{
-					xml.append("<NoUse>是</NoUse>\n");   //是否存在无效成本
+					xml.append("<isback>是</isback>\n");
 				}
-				xml.append("<NoUseAmount>" + Info.getCostNouse()+ "</NoUseAmount>\n");   //无效成本金额
-				xml.append("<Reason>" + Info.getReason()+ "</Reason>\n");   //无效成本原因  --无效成本原因ID  数据库没存值 //
+				xml.append("</item>\n");
+			}
+			xml.append("</billEntries>\n");
+				
+//				xml.append("<SuppEntry>");
+//				for (int i = 0; i < Info.getSuppEntry().size(); i++) {
+//					ChangeSupplierEntryInfo changeSuppentry = Info.getSuppEntry().get(i);
+//					changeSuppentry = ChangeSupplierEntryFactory.getLocalInstance(ctx).getChangeSupplierEntryInfo(new ObjectUuidPK(changeSuppentry.getId()));
+//					changeSuppentry.getParent();
+//					xml.append("<item>");
+//					xml.append("<SuppID>" + changeSuppentry.getSeq() + "</SuppID>\n");
+//					
+//					  EntityViewInfo Myavevi = new EntityViewInfo();
+//				      FilterInfo Myavfilter = new FilterInfo();
+//				      Myavfilter.getFilterItems().add(new FilterItemInfo("id",changeSuppentry.getContractBill().getId(),CompareType.EQUALS));
+//				      Myavevi.setFilter(Myavfilter);
+//				      ContractBillCollection myavc=ContractBillFactory.getLocalInstance(ctx).getContractBillCollection(Myavevi);
+//				      if(myavc.size()>0)
+//				      {
+//				        for(int j=0;j< myavc.size();j++){  	     
+//		         	    ContractBillInfo info=ContractBillFactory.getLocalInstance(ctx).getContractBillInfo(new ObjectUuidPK(changeSuppentry.getContractBill().getId()));
+//		         	    xml.append("<ContractID>" + info.getNumber()+ "</ContractID>\n");
+//						xml.append("<ContractName>" + info.getName()+ "</ContractName>\n");
+//						//xml.append("<MainSupp>" + info.getPartB().getName()+ "</MainSupp>\n");//  主送单位
+//						//xml.append("<Currency>" + info.getCurrency().getName()+ "</Currency>\n");//币别
+//						//xml.append("<Exrate>" + info.getExRate() + "</Exrate>\n");
+//						xml.append("<Currency>人民币</Currency>\n");//币别
+//						xml.append("<MainSupp>中国建筑第八工程局</MainSupp>\n");//  主送单位
+//						xml.append("<Exrate>1</Exrate>\n");
+//						
+//				        }
+//				      }
+//				      EntityViewInfo Myavevi3 = new EntityViewInfo();
+//				      FilterInfo Myavfilter3 = new FilterInfo();
+//				      Myavfilter3.getFilterItems().add(new FilterItemInfo("parent",changeSuppentry.getId(),CompareType.EQUALS));
+//				      Myavevi3.setFilter(Myavfilter3);
+//				      CopySupplierEntryCollection copycol=CopySupplierEntryFactory.getLocalInstance(ctx).getCopySupplierEntryCollection(Myavevi3);
+//				      for(int n=0;n<copycol.size();n++)
+//				      {  
+//				    	  CopySupplierEntryInfo info=CopySupplierEntryFactory.getLocalInstance(ctx).getCopySupplierEntryInfo(new ObjectUuidPK(copycol.get(i).getId()));
+//				    	  xml.append("<CopySupp>" +info.getCopySupp().getName()+ "</CopySupp>\n");   //抄送单位
+//				      }
+//		 			
+//					xml.append("<OriginalContactNum>"+ changeSuppentry.getOriginalContactNum()+ "</OriginalContactNum>\n");
+//					ChangeAuditEntryInfo entrycontext = ChangeAuditEntryFactory.getLocalInstance(ctx).getChangeAuditEntryInfo(new ObjectUuidPK(changeSuppentry.getParent().getId()));
+//					xml.append("<ZContext>"+entrycontext.getChangeContent()+"</ZContext>\n");   //
+//					xml.append("<OriCostAmount>" + changeSuppentry.getOriCostAmount()+ "</OriCostAmount>\n");
+//					xml.append("<CostAmount>" + changeSuppentry.getCostAmount()+ "</CostAmount>\n");
+//					xml.append("<CostDescription>" + changeSuppentry.getCostDescription()+ "</CostDescription>\n");
+//					xml.append("<ConstructPrice>" + changeSuppentry.getConstructPrice()+ "</ConstructPrice>\n");
+//					if(false==changeSuppentry.isIsDeduct())
+//					{
+//					xml.append("<IsDeduct>否</IsDeduct>\n");
+//					}
+//					else
+//					{
+//						xml.append("<IsDeduct>是</IsDeduct>\n");
+//				    }
+//					xml.append("<DeductAmount>" + changeSuppentry.getDeductAmount()+ "</DeductAmount>\n");
+//					xml.append("<DeductReason>" + changeSuppentry.getDeductReason()+ "</DeductReason>\n");
+//					xml.append("<Reckonor>" + changeSuppentry.getReckonor().getName()+ "</Reckonor>\n"); //
+//					if(changeSuppentry.getDutyOrg()!=null)
+//					xml.append("<DutyOrg>" + changeSuppentry.getDutyOrg().getName()+ "</DutyOrg>\n"); //
+//					if(false==changeSuppentry.isIsSureChangeAmt())
+//					{
+//					xml.append("<IsSureChangeAmt>否</IsSureChangeAmt>\n");
+//					}
+//					else
+//					{
+//						xml.append("<IsSureChangeAmt>是</IsSureChangeAmt>\n");
+//					}
+//					xml.append("</item>\n");
+//				}
+//				xml.append("</SuppEntry>\n");			
+//				xml.append("<TotalCost>" + Info.getTotalCost()+ "</TotalCost>\n");   //测算金额汇总
+//				xml.append("<DutyAmout>" + Info.getAmountDutySupp()+ "</DutyAmout>\n");   //测算金额汇总
+//				
+//				if(false==Info.isIsNoUse())
+//				{
+//				xml.append("<NoUse>否</NoUse>\n");   //是否存在无效成本
+//				}else
+//				{
+//					xml.append("<NoUse>是</NoUse>\n");   //是否存在无效成本
+//				}
+//				xml.append("<NoUseAmount>" + Info.getCostNouse()+ "</NoUseAmount>\n");   //无效成本金额
+//				xml.append("<Reason>" + Info.getReason()+ "</Reason>\n");   //无效成本原因  --无效成本原因ID  数据库没存值 //
 				xml.append("</DATA>");
 				str[1] = xml.toString();
 		} catch (Exception e) {
