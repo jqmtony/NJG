@@ -109,7 +109,7 @@ public class BxTlUI extends AbstractBxTlUI
     	this.actionEdit.setVisible(false);
     	this.actionRemove.setVisible(false);
     	
-    	this.setUITitle("保险条例");
+    	this.setUITitle("保险合同");
     }
     
     /**
@@ -165,7 +165,7 @@ public class BxTlUI extends AbstractBxTlUI
     	EntityViewInfo newInfo = (EntityViewInfo)viewInfo.clone();
     	FilterInfo filInfo = new FilterInfo();
     	CtrlUnitInfo CTRLiNFO  = SysContext.getSysContext().getCurrentCtrlUnit();
-    	filInfo.getFilterItems().add(new FilterItemInfo("RegulationsEntry.beizhu","保险条例",CompareType.EQUALS));
+    	filInfo.getFilterItems().add(new FilterItemInfo("RegulationsEntry.beizhu","保险合同",CompareType.EQUALS));
     	filInfo.getFilterItems().add(new FilterItemInfo("cu.longNumber",CTRLiNFO.getLongNumber()+"%",CompareType.LIKE));
     	filInfo.getFilterItems().add(new FilterItemInfo("cu.id","00000000-0000-0000-0000-000000000000CCE7AED4",CompareType.EQUALS));
     	filInfo.setMaskString("#0 and (#1 or #2)");
@@ -292,7 +292,7 @@ public class BxTlUI extends AbstractBxTlUI
     	
     	entryInfo.setId(BOSUuid.create(entryInfo.getBOSType()));
     	entryInfo.setParent(info);
-    	entryInfo.setBeizhu("保险条例");
+    	entryInfo.setBeizhu("保险合同");
     	
     	AttachmentClientManager attachmentClientManager = AttachmentManagerFactory.getClientManager();
     	attachmentClientManager.showUploadFilesUI(this, entryInfo.getId().toString());

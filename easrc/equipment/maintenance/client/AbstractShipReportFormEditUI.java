@@ -368,6 +368,14 @@ public abstract class AbstractShipReportFormEditUI extends com.kingdee.eas.xr.cl
 
 
         this.kdtE1.checkParsed();
+        KDFormattedTextField kdtE1_seq_TextField = new KDFormattedTextField();
+        kdtE1_seq_TextField.setName("kdtE1_seq_TextField");
+        kdtE1_seq_TextField.setVisible(true);
+        kdtE1_seq_TextField.setEditable(true);
+        kdtE1_seq_TextField.setHorizontalAlignment(2);
+        kdtE1_seq_TextField.setDataType(0);
+        KDTDefaultCellEditor kdtE1_seq_CellEditor = new KDTDefaultCellEditor(kdtE1_seq_TextField);
+        this.kdtE1.getColumn("seq").setEditor(kdtE1_seq_CellEditor);
         KDTextField kdtE1_zhujigangone_TextField = new KDTextField();
         kdtE1_zhujigangone_TextField.setName("kdtE1_zhujigangone_TextField");
         kdtE1_zhujigangone_TextField.setMaxLength(100);

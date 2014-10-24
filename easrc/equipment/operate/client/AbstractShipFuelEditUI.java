@@ -1038,7 +1038,8 @@ public abstract class AbstractShipFuelEditUI extends com.kingdee.eas.xr.client.X
         this.prmtchuanzhang.setName("prmtchuanzhang");
         this.prmtlunjizhang.setName("prmtlunjizhang");
         this.prmtreportMonth.setName("prmtreportMonth");
-        // CoreUI
+        // CoreUI		
+        this.setPreferredSize(new Dimension(963,610));
         // contCreator		
         this.contCreator.setBoundLabelText(resHelper.getString("contCreator.boundLabelText"));		
         this.contCreator.setBoundLabelLength(100);		
@@ -2206,45 +2207,45 @@ public abstract class AbstractShipFuelEditUI extends com.kingdee.eas.xr.client.X
      */
     public void initUIContentLayout()
     {
-        this.setBounds(new Rectangle(10, 10, 1013, 629));
+        this.setBounds(new Rectangle(10, 10, 963, 610));
         this.setLayout(new KDLayout());
-        this.putClientProperty("OriginalBounds", new Rectangle(10, 10, 1013, 629));
-        contCreator.setBounds(new Rectangle(708, 553, 270, 19));
-        this.add(contCreator, new KDLayout.Constraints(708, 553, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contCreateTime.setBounds(new Rectangle(35, 575, 270, 19));
-        this.add(contCreateTime, new KDLayout.Constraints(35, 575, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contLastUpdateUser.setBounds(new Rectangle(371, 575, 270, 19));
-        this.add(contLastUpdateUser, new KDLayout.Constraints(371, 575, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contLastUpdateTime.setBounds(new Rectangle(371, 596, 270, 19));
-        this.add(contLastUpdateTime, new KDLayout.Constraints(371, 596, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contCU.setBounds(new Rectangle(706, 11, 270, 19));
-        this.add(contCU, new KDLayout.Constraints(706, 11, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contNumber.setBounds(new Rectangle(33, 11, 270, 19));
-        this.add(contNumber, new KDLayout.Constraints(33, 11, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        this.putClientProperty("OriginalBounds", new Rectangle(10, 10, 963, 610));
+        contCreator.setBounds(new Rectangle(7, 585, 270, 19));
+        this.add(contCreator, new KDLayout.Constraints(7, 585, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contCreateTime.setBounds(new Rectangle(7, 564, 270, 19));
+        this.add(contCreateTime, new KDLayout.Constraints(7, 564, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contLastUpdateUser.setBounds(new Rectangle(347, 564, 270, 19));
+        this.add(contLastUpdateUser, new KDLayout.Constraints(347, 564, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contLastUpdateTime.setBounds(new Rectangle(347, 585, 270, 19));
+        this.add(contLastUpdateTime, new KDLayout.Constraints(347, 585, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contCU.setBounds(new Rectangle(687, 7, 270, 19));
+        this.add(contCU, new KDLayout.Constraints(687, 7, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contNumber.setBounds(new Rectangle(7, 7, 270, 19));
+        this.add(contNumber, new KDLayout.Constraints(7, 7, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contBizDate.setBounds(new Rectangle(985, 88, 270, 19));
         this.add(contBizDate, new KDLayout.Constraints(985, 88, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contDescription.setBounds(new Rectangle(990, 18, 270, 19));
         this.add(contDescription, new KDLayout.Constraints(990, 18, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contAuditor.setBounds(new Rectangle(708, 575, 270, 19));
-        this.add(contAuditor, new KDLayout.Constraints(708, 575, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contStatus.setBounds(new Rectangle(706, 35, 270, 19));
-        this.add(contStatus, new KDLayout.Constraints(706, 35, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contAuditor.setBounds(new Rectangle(687, 543, 270, 19));
+        this.add(contAuditor, new KDLayout.Constraints(687, 543, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contStatus.setBounds(new Rectangle(687, 29, 270, 19));
+        this.add(contStatus, new KDLayout.Constraints(687, 29, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contBizStatus.setBounds(new Rectangle(996, 559, 270, 19));
         this.add(contBizStatus, new KDLayout.Constraints(996, 559, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contAuditTime.setBounds(new Rectangle(708, 596, 270, 19));
-        this.add(contAuditTime, new KDLayout.Constraints(708, 596, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contshipName.setBounds(new Rectangle(33, 35, 270, 19));
-        this.add(contshipName, new KDLayout.Constraints(33, 35, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contPower.setBounds(new Rectangle(369, 35, 270, 19));
-        this.add(contPower, new KDLayout.Constraints(369, 35, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        kDPanel1.setBounds(new Rectangle(29, 59, 950, 489));
-        this.add(kDPanel1, new KDLayout.Constraints(29, 59, 950, 489, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        contchuanzhang.setBounds(new Rectangle(35, 553, 270, 19));
-        this.add(contchuanzhang, new KDLayout.Constraints(35, 553, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contlunjizhang.setBounds(new Rectangle(371, 553, 270, 19));
-        this.add(contlunjizhang, new KDLayout.Constraints(371, 553, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contreportMonth.setBounds(new Rectangle(369, 11, 270, 19));
-        this.add(contreportMonth, new KDLayout.Constraints(369, 11, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contAuditTime.setBounds(new Rectangle(687, 564, 270, 19));
+        this.add(contAuditTime, new KDLayout.Constraints(687, 564, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contshipName.setBounds(new Rectangle(7, 29, 270, 19));
+        this.add(contshipName, new KDLayout.Constraints(7, 29, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contPower.setBounds(new Rectangle(347, 29, 270, 19));
+        this.add(contPower, new KDLayout.Constraints(347, 29, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDPanel1.setBounds(new Rectangle(7, 51, 950, 489));
+        this.add(kDPanel1, new KDLayout.Constraints(7, 51, 950, 489, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        contchuanzhang.setBounds(new Rectangle(7, 543, 270, 19));
+        this.add(contchuanzhang, new KDLayout.Constraints(7, 543, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contlunjizhang.setBounds(new Rectangle(347, 543, 270, 19));
+        this.add(contlunjizhang, new KDLayout.Constraints(347, 543, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contreportMonth.setBounds(new Rectangle(347, 7, 270, 19));
+        this.add(contreportMonth, new KDLayout.Constraints(347, 7, 270, 19, 0));
         //contCreator
         contCreator.setBoundEditor(prmtCreator);
         //contCreateTime
@@ -2274,7 +2275,7 @@ public abstract class AbstractShipFuelEditUI extends com.kingdee.eas.xr.client.X
         //contPower
         contPower.setBoundEditor(txtPower);
         //kDPanel1
-        kDPanel1.setLayout(null);        kDPanel2.setBounds(new Rectangle(13, 12, 341, 463));
+        kDPanel1.setLayout(null);        kDPanel2.setBounds(new Rectangle(13, 12, 341, 462));
         kDPanel1.add(kDPanel2, null);
         kDPanel3.setBounds(new Rectangle(356, 12, 336, 249));
         kDPanel1.add(kDPanel3, null);
@@ -2282,13 +2283,13 @@ public abstract class AbstractShipFuelEditUI extends com.kingdee.eas.xr.client.X
         kDPanel1.add(kDPanel4, null);
         kDPanel5.setBounds(new Rectangle(355, 369, 338, 105));
         kDPanel1.add(kDPanel5, null);
-        kDPanel6.setBounds(new Rectangle(695, 142, 241, 326));
+        kDPanel6.setBounds(new Rectangle(695, 140, 241, 334));
         kDPanel1.add(kDPanel6, null);
         kDPanel7.setBounds(new Rectangle(356, 262, 336, 105));
         kDPanel1.add(kDPanel7, null);
         //kDPanel2
         kDPanel2.setLayout(new KDLayout());
-        kDPanel2.putClientProperty("OriginalBounds", new Rectangle(13, 12, 341, 463));        kDLabel1.setBounds(new Rectangle(119, 9, 111, 20));
+        kDPanel2.putClientProperty("OriginalBounds", new Rectangle(13, 12, 341, 462));        kDLabel1.setBounds(new Rectangle(119, 9, 111, 20));
         kDPanel2.add(kDLabel1, new KDLayout.Constraints(119, 9, 111, 20, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         kDLabel2.setBounds(new Rectangle(31, 35, 52, 16));
         kDPanel2.add(kDLabel2, new KDLayout.Constraints(31, 35, 52, 16, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
@@ -2348,8 +2349,8 @@ public abstract class AbstractShipFuelEditUI extends com.kingdee.eas.xr.client.X
         kDPanel2.add(kDSeparator20, new KDLayout.Constraints(10, 231, 321, 10, 0));
         contlastMonth.setBounds(new Rectangle(93, 56, 219, 19));
         kDPanel2.add(contlastMonth, new KDLayout.Constraints(93, 56, 219, 19, 0));
-        contqione.setBounds(new Rectangle(93, 83, 52, 19));
-        kDPanel2.add(contqione, new KDLayout.Constraints(93, 83, 52, 19, 0));
+        contqione.setBounds(new Rectangle(93, 83, 51, 19));
+        kDPanel2.add(contqione, new KDLayout.Constraints(93, 83, 51, 19, 0));
         contqitwo.setBounds(new Rectangle(93, 107, 51, 19));
         kDPanel2.add(contqitwo, new KDLayout.Constraints(93, 107, 51, 19, 0));
         contzhione.setBounds(new Rectangle(161, 83, 56, 19));
@@ -2762,8 +2763,8 @@ public abstract class AbstractShipFuelEditUI extends com.kingdee.eas.xr.client.X
         contzuoshangyue.setBoundEditor(txtzuoshangyue);
         //kDPanel6
         kDPanel6.setLayout(new KDLayout());
-        kDPanel6.putClientProperty("OriginalBounds", new Rectangle(695, 142, 241, 326));        contnote.setBounds(new Rectangle(12, 2, 211, 211));
-        kDPanel6.add(contnote, new KDLayout.Constraints(12, 2, 211, 211, 0));
+        kDPanel6.putClientProperty("OriginalBounds", new Rectangle(695, 140, 241, 334));        contnote.setBounds(new Rectangle(12, 10, 211, 203));
+        kDPanel6.add(contnote, new KDLayout.Constraints(12, 10, 211, 203, 0));
         contleijiyongdian.setBounds(new Rectangle(12, 218, 210, 19));
         kDPanel6.add(contleijiyongdian, new KDLayout.Constraints(12, 218, 210, 19, 0));
         contleijiranyou.setBounds(new Rectangle(12, 242, 210, 19));

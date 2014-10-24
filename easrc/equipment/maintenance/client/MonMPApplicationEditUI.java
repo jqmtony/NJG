@@ -33,10 +33,12 @@ import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.MsgBox;
 import com.kingdee.eas.xr.helper.PersonXRHelper;
 import com.kingdee.eas.xr.helper.Tool;
+import com.kingdee.bos.ctrl.extendcontrols.BizDataFormat;
 import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
 import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent;
+import com.kingdee.bos.ctrl.kdf.util.render.ObjectValueRender;
 import com.kingdee.bos.ctrl.swing.KDTextField;
 
 /**
@@ -765,7 +767,9 @@ public class MonMPApplicationEditUI extends AbstractMonMPApplicationEditUI
 		kdtE1_equNumber_PromptBox.setSelector(ToolHelp.initPrmtEquIdByF7Color(evi, false));
 		 KDTDefaultCellEditor kdtEntry_feeType_CellEditor = new KDTDefaultCellEditor(kdtE1_equNumber_PromptBox);
 		 kdtE1.getColumn("equNumber").setEditor(kdtEntry_feeType_CellEditor);
-		
+		 ObjectValueRender kdtE1_equNumber_OVR = new ObjectValueRender();
+	        kdtE1_equNumber_OVR.setFormat(new BizDataFormat("$innerNumber$"));
+	        this.kdtE1.getColumn("equNumber").setRenderer(kdtE1_equNumber_OVR);
 	}
 	
 	public void kdtE1_Changed(int rowIndex, int colIndex) throws Exception {

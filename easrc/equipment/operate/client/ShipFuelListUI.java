@@ -7,6 +7,7 @@ import java.awt.event.*;
 import org.apache.log4j.Logger;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.framework.*;
 
 /**
@@ -38,6 +39,10 @@ public class ShipFuelListUI extends AbstractShipFuelListUI
     protected void tblMain_tableClicked(com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent e) throws Exception
     {
         super.tblMain_tableClicked(e);
+    }
+    
+    protected String getEditUIModal() {
+    	return UIFactoryName.MODEL;
     }
 
     /**
