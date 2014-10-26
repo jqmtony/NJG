@@ -84,6 +84,12 @@ public class ClientVerifyXRHelper {
 			if (text == null || "".equals(text.trim())) {
 				abort(ui, comp, name + "不能为空！");
 			}
+		} else if (comp instanceof KDTextArea) {
+			KDTextArea ctrl = (KDTextArea) comp;
+			String text = ctrl.getText();
+			if (text == null || "".equals(text.trim())) {
+				abort(ui, comp, name + "不能为空！");
+			}
 		} else if (comp instanceof KDBizPromptBox) {
 			KDBizPromptBox ctrl = (KDBizPromptBox) comp;
 			Object obj = ctrl.getData();

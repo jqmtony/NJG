@@ -671,6 +671,10 @@ public class DateXRHelper {
 	public static String DateToString(Date s) {
 		return CommonXRHelper.FORMAT_DAY.format(s);
 	}
+	
+	public static String DateToTimeString(Date s) {
+		return CommonXRHelper.FORMAT_TIME.format(s);
+	}
 
 	/**
 	 * 一年的最后一天，时间清0
