@@ -1218,6 +1218,20 @@
                 <key name="name" value="CFDesc" />
             </mappingField>
         </ownProperty>
+        <linkProperty>
+            <name>project</name>
+            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].properties.linkProperty[project].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].properties.linkProperty[project].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <mappingField>
+                <key name="name" value="CFProjectID" />
+            </mappingField>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="R_YearInvestPlan_Project_project" />
+            </relationship>
+        </linkProperty>
     </properties>
     <logicalKey>
         <name>id</name>
@@ -2222,6 +2236,58 @@
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].properties.linkProperty[projectType].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].properties.linkProperty[project].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="立项项目" />
+            <lang locale="zh_HK" value="立項項目" />
+            <lang locale="zh_TW" value="立項項目" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].properties.linkProperty[project].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="文本" />
+            <lang locale="zh_HK" value="文本" />
+            <lang locale="zh_TW" value="文本" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].properties.linkProperty[project].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].properties.linkProperty[project].extendedProperty.dataField">
+            <lang locale="en_US" value="name + &quot;-&quot; + number + &quot;&quot;" />
+            <lang locale="zh_CN" value="name + &quot;-&quot; + number + &quot;&quot;" />
+            <lang locale="zh_TW" value="name + &quot;-&quot; + number + &quot;&quot;" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].properties.linkProperty[project].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].properties.linkProperty[project].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].properties.linkProperty[project].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].properties.linkProperty[project].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].properties.linkProperty[project].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].properties.linkProperty[project].extendedProperty.isVisibleForKDTable">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />

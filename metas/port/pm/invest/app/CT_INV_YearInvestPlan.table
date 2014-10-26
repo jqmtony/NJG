@@ -609,6 +609,20 @@
             <scale>0</scale>
             <precision>0</precision>
         </column>
+        <column>
+            <name>CFProjectID</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YearInvestPlan].columns.column[CFProjectID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YearInvestPlan].columns.column[CFProjectID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
     </columns>
     <primaryKey>
         <name>PK_YearInvestPlan</name>
@@ -890,6 +904,25 @@
                 </fkColumnPair>
             </fkColumnPairs>
         </foreignKey>
+        <foreignKey>
+            <name>CFK_INV_INVYIPRjqh</name>
+            <userDefined>true</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.basedata.assistant" />
+                <key name="name" value="T_BD_Project" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="CFProjectID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
     </foreignKeys>
     <resource>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YearInvestPlan].alias">
@@ -1109,6 +1142,18 @@
             <lang locale="zh_TW" value="項目信息" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YearInvestPlan].columns.column[CFPortProjectID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="文本" />
+            <lang locale="zh_HK" value="文本" />
+            <lang locale="zh_TW" value="文本" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YearInvestPlan].columns.column[CFProjectID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="立项项目" />
+            <lang locale="zh_HK" value="立項項目" />
+            <lang locale="zh_TW" value="立項項目" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invest.app.CT_INV_YearInvestPlan].columns.column[CFProjectID].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="文本" />
             <lang locale="zh_HK" value="文本" />
