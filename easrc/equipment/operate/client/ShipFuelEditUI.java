@@ -739,7 +739,7 @@ public class ShipFuelEditUI extends AbstractShipFuelEditUI
 	
 	    public void actionAudit_actionPerformed(ActionEvent e) throws Exception{
 	        super.actionAudit_actionPerformed(e);
-	        if(prmtreportMonth.getValue() != null)
+	        if(prmtreportMonth.getValue() == null)
 	        	return ;
 	        String id = ((PeriodInfo)prmtreportMonth.getData()).getId().toString();
 	        PeriodInfo pdInfo = PeriodFactory.getRemoteInstance().getPeriodInfo(new ObjectUuidPK(id));
@@ -751,7 +751,7 @@ public class ShipFuelEditUI extends AbstractShipFuelEditUI
 	        //查询本年累计数据
 	        //累计用电量（度），累计燃油耗量（t），累计运时（h），累计产值（万元）
 	        StringBuffer sb = new StringBuffer();
-	        sb.append("/*dialect*/ select  sum(a.CFLeijiyongdian) 累计用电, sum(a.CFLeijiranyou) 累计燃油,sum(a.CFLeijiyunshi) 累计运时 ,sum(a.CFLeijichanzhi) 累计产值");
+	        sb.append("/*dialect*/ select  sum(a.CFDianbiaobenyue) 累计用电, sum(a.CFTotalConsum) 累计燃油,sum(a.CFZuobenyue) 累计运时 ,sum(a.CFOutputValue) 累计产值");
 	        sb.append(" from CT_OPE_ShipFuel a");
 	        sb.append(" left join T_BD_Period b on a.CFReportMonthID = b.fid");
 	        sb.append(" where b.FPeriodYear ='"+year+"' and a.FStatus = '4'");
@@ -780,6 +780,7 @@ public class ShipFuelEditUI extends AbstractShipFuelEditUI
         Calendar cal = Calendar.getInstance();
 		cal.setTime(pdInfo.getBeginDate());
         cal.add(Calendar.MONTH, -1);
+        int month =  cal.get(Calendar.MONTH);
 		StringBuffer sb1 = new StringBuffer();
 		sb1.append("/*dialect*/ select a.CFMonthBalance 燃油本月结存,a.CFRunhuayouben 润滑油本月结存,");
 		sb1.append(" a.CFChilunyouben 齿轮油本月结存,a.CFYeyayouben 液压油本月结存,");
@@ -787,7 +788,7 @@ public class ShipFuelEditUI extends AbstractShipFuelEditUI
 		sb1.append(" a.CFFujibenyue 付机本月,a.CFDianbiaobenyue 电表本月");
 		sb1.append(" from CT_OPE_ShipFuel a");
 		sb1.append(" left join T_BD_Period b on a.CFReportMonthID = b.fid");
-		sb1.append(" where b.fnumber ='"+cal+"' and a.FStatus = '4'");
+		sb1.append(" where b.fnumber ='"+month+"' and a.FStatus = '4'");
 		IRowSet rowSet1 = new XRSQLBuilder().appendSql(sb1.toString()).executeQuery();
 		while (rowSet1.next()) {
 			BigDecimal bigrybyjc = getBigDecimal(rowSet1.getString("燃油本月结存"));
@@ -815,7 +816,7 @@ public class ShipFuelEditUI extends AbstractShipFuelEditUI
         //查询本年累计数据
         //累计用电量（度），累计燃油耗量（t），累计运时（h），累计产值（万元）
         StringBuffer sb = new StringBuffer();
-        sb.append("/*dialect*/ select  sum(a.CFLeijiyongdian) 累计用电, sum(a.CFLeijiranyou) 累计燃油,sum(a.CFLeijiyunshi) 累计运时 ,sum(a.CFLeijichanzhi) 累计产值");
+        sb.append("/*dialect*/ select  sum(a.CFDianbiaobenyue) 累计用电, sum(a.CFTotalConsum) 累计燃油,sum(a.CFZuobenyue) 累计运时 ,sum(a.CFOutputValue) 累计产值");
         sb.append(" from CT_OPE_ShipFuel a");
         sb.append(" left join T_BD_Period b on a.CFReportMonthID = b.fid");
         sb.append(" where b.FPeriodYear ='"+year+"' and a.FStatus = '4'");

@@ -14,6 +14,7 @@ import java.util.Date;
 
 import org.apache.log4j.Logger;
 
+import com.kingdee.bos.BOSException;
 import com.kingdee.bos.ctrl.extendcontrols.BizDataFormat;
 import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
 import com.kingdee.bos.ctrl.kdf.table.ICell;
@@ -45,6 +46,9 @@ import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.common.client.UIContext;
 import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.cp.bc.BizCollUtil;
+import com.kingdee.eas.port.equipment.base.IInsurance;
+import com.kingdee.eas.port.equipment.base.InsuranceFactory;
+import com.kingdee.eas.port.equipment.base.InsuranceInfo;
 import com.kingdee.eas.port.equipment.record.EquIdInfo;
 import com.kingdee.eas.port.equipment.record.client.EquIdEditUI;
 import com.kingdee.eas.port.equipment.uitl.ToolHelp;
@@ -75,6 +79,30 @@ public class RepairOrderEditUI extends AbstractRepairOrderEditUI
     public void loadFields()
     {
         super.loadFields();
+        for (int i = 0; i < kdtE1.getRowCount(); i++) {
+//        	kdtE1.getCell(i, "repairPerson").
+//        	this.prmtinsurance.setEnabledMultiSelection(true);
+//        	if(UIRuleUtil.isNotNull(kdtE1.getCell(i, "")))
+//            {
+//            	String spicId[] = (this.txtxianzhongID.getText().trim()).split("&");
+//            	try {
+//            		IInsurance IInsurance = InsuranceFactory.getRemoteInstance();
+//            		
+//            		InsuranceInfo objValue[] = new InsuranceInfo[spicId.length];
+//            		
+//    				for (int i = 0; i < spicId.length; i++) 
+//    				{
+//    					String oql ="select id,name,number where id='"+spicId[i]+"'";
+//    					objValue[i] = IInsurance.getInsuranceInfo(oql);
+//    				}
+//    				this.prmtinsurance.setValue(objValue);
+//    			} catch (BOSException e) {
+//    				e.printStackTrace();
+//    			} catch (EASBizException e) {
+//    				e.printStackTrace();
+//    			}
+//            }
+		}
     }
 
     /**
