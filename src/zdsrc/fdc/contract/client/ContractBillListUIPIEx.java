@@ -1,83 +1,49 @@
 package com.kingdee.eas.fdc.contract.client;
 
 import java.awt.event.ActionEvent;
-import java.net.URL;
 
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.eas.bpmdemo.JBrowserHelper.JFrameBrowser;
 import com.kingdee.eas.bpmdemo.webservers.getInfoFacadeFactory;
 import com.kingdee.eas.bpmdemo.webservers.serviceclient.BPMServiceForERPLocator;
 import com.kingdee.eas.bpmdemo.webservers.serviceclient.BPMServiceForERPSoap;
-import com.kingdee.eas.bpmdemo.webservers.serviceclient.EASLoginProxyServiceLocator;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.fdc.basedata.ContractTypeInfo;
-import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
-import com.kingdee.eas.bpmdemo.webservers.serviceclient.EASLoginProxyServiceLocator;
 import com.kingdee.eas.fdc.contract.ContractBillFactory;
 import com.kingdee.eas.fdc.contract.ContractBillInfo;
-import com.kingdee.eas.fdc.contract.ContractBillReviseFactory;
-import com.kingdee.eas.fdc.contract.ContractBillReviseInfo;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.MsgBox;
-import com.kingdee.eas.bpmdemo.webservers.serviceclient.EASLoginProxy;
-import com.kingdee.eas.bpmdemo.webservers.serviceclient.WSContext;
-import com.kingdee.eas.bpmdemo.webservers.serviceclient.WSgetInfoFacadeSrvProxyServiceLocator;
-import com.kingdee.eas.bpmdemo.webservers.serviceclient.WSgetInfoFacadeSrvProxy;
 
-public class ContractBillReviseEditUIPIEx extends ContractBillReviseEditUI{
-	
+public class ContractBillListUIPIEx extends ContractBillListUI  {
+
+	public ContractBillListUIPIEx() throws Exception {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	private ContractTypeInfo typeInfo;
 	private boolean isShiGong = false;
 	private boolean isFenBao = false;
 	private boolean isZongBao = false;
-	public ContractBillReviseEditUIPIEx() throws Exception {
-		super();
-	}
 	public void onLoad() throws Exception {
 		super.onLoad();
 		InitButton();
 	}
+
     private void InitButton()
     {
     	this.btnAttachment.setText("撤销BPM流程");
     	this.btnAttachment.setToolTipText("撤销BPM流程");
-    	this.btnSubmit.setText("提交BPM流程");
-    	this.btnSubmit.setToolTipText("提交BPM流程");
-    	
-    	this.chkMenuItemSubmitAndAddNew.setSelected(false);
-	   	this.chkMenuItemSubmitAndAddNew.setEnabled(false);
 	   	this.btnPrint.setVisible(false);
 	   	this.btnPrintPreview.setVisible(false);
-	   	this.btnPre.setVisible(false);
-	   	this.btnNext.setVisible(false);
-	   	this.btnLast.setVisible(false);
-	   	this.btnFirst.setVisible(false);
     	this.actionCreateTo.setVisible(false);
-    	this.actionCreateFrom.setVisible(false);
     	this.actionMultiapprove.setVisible(false);
     	this.actionNextPerson.setVisible(false);
     	this.btnWorkFlowG.setVisible(false);
-    	if(editData.getId()==null||editData.getId().equals(""))
-    	{
-         if(editData.getState()==null)
-         {
-    	  this.btnAuditResult.setEnabled(false);
-    	  this.btnAttachment.setEnabled(false);
-         }
-         else if("保存".equals(editData.getState().getAlias()))
-         {
-        	 this.btnAuditResult.setEnabled(false);
-       	     this.btnAttachment.setEnabled(false);
-         }
-    	}else if(editData.getId()!=null||editData.getState()==null)
-     	{
-     		this.btnAuditResult.setEnabled(false);
-       	    this.btnAttachment.setEnabled(false);
-     	}
     	
 
     }
+    
 	protected boolean isContinueAddNew() {
 		return false;
 	}
@@ -86,8 +52,6 @@ public class ContractBillReviseEditUIPIEx extends ContractBillReviseEditUI{
 	}
 	
 	
-	
-
 	/*
 	 * 新增
 	 * */
@@ -97,9 +61,11 @@ public class ContractBillReviseEditUIPIEx extends ContractBillReviseEditUI{
 	/*
 	 * 删除
 	 * */
+	
 	public void actionRemove_actionPerformed(ActionEvent e) throws Exception {
-		if(editData.getId()!=null){
-			ContractBillReviseInfo info = ContractBillReviseFactory.getRemoteInstance().getContractBillReviseInfo(new ObjectUuidPK(editData.getId()));
+		ContractBillInfo info = ContractBillFactory.getRemoteInstance().getContractBillInfo(new ObjectUuidPK(this.getSelectedKeyValue()));
+		if(info.getId()!=null){
+			//ContractBillInfo info = ContractBillFactory.getRemoteInstance().getContractBillInfo(new ObjectUuidPK(editData.getId()));
 			if("已审批".equals(info.getState().getAlias())||"已提交".equals(info.getState().getAlias()))
 			{
 				MsgBox.showInfo("该单据状态为:"+info.getState().getAlias()+",不能删除！");
@@ -113,68 +79,49 @@ public class ContractBillReviseEditUIPIEx extends ContractBillReviseEditUI{
 	 * 修改
 	 * */
 	public void actionEdit_actionPerformed(ActionEvent arg0) throws Exception {
-		if(editData.getId()!=null){
-			ContractBillReviseInfo info = ContractBillReviseFactory.getRemoteInstance().getContractBillReviseInfo(new ObjectUuidPK(editData.getId()));
+		ContractBillInfo info = ContractBillFactory.getRemoteInstance().getContractBillInfo(new ObjectUuidPK(this.getSelectedKeyValue()));
+		if(info.getId()!=null){
+			//ContractBillInfo info = ContractBillFactory.getRemoteInstance().getContractBillInfo(new ObjectUuidPK(editData.getId()));
 			if("已审批".equals(info.getState().getAlias())||"已提交".equals(info.getState().getAlias()))
 			{
 				MsgBox.showInfo("该单据状态为:"+info.getState().getAlias()+",不能修改！");
 				SysUtil.abort();
 			}
 		}
+		
 		super.actionEdit_actionPerformed(arg0);
+		
     	this.btnRemove.setVisible(false);
     	this.btnRemove.setEnabled(false);
 	}
 	
 
-	public void actionSubmit_actionPerformed(ActionEvent e) throws Exception {
-		if(editData.getId()==null)
-			actionSave_actionPerformed(e);
-		if(editData.getId()!=null)
-		{  
-			ContractBillReviseInfo info = ContractBillReviseFactory.getRemoteInstance().getContractBillReviseInfo(new ObjectUuidPK(editData.getId()));
-		   if("已提交".equals(info.getState().getAlias()) && info.getDescription()!=null)
-		   {
-			   MsgBox.showInfo("该单据在审批流程中，不能再次提交！");
-		   }else{
-			   super.actionSubmit_actionPerformed(e);
-			   String sql = " update T_CON_ContractBillRevise set fState='1SAVED' where fid='"+editData.getId()+"'";
-			   FDCSQLBuilder bu = new FDCSQLBuilder();
-			   bu.appendSql(sql);
-			   bu.executeUpdate();
-			   String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=HT02&userid="+SysContext.getSysContext().getUserName()+"";
-			   creatFrame(url);
-		   }
-		}
-	}
 	
 	/*
 	 * 撤销流程
 	 * */
 	public void actionAttachment_actionPerformed(ActionEvent e)throws Exception {
+		ContractBillInfo info = ContractBillFactory.getRemoteInstance().getContractBillInfo(new ObjectUuidPK(this.getSelectedKeyValue()));
 		String result = "";
-		if(editData.getId()!=null){
-			ContractBillReviseInfo info = ContractBillReviseFactory.getRemoteInstance().getContractBillReviseInfo(new ObjectUuidPK(editData.getId()));
+		if(info.getId()!=null){
+			//ContractBillInfo info = ContractBillFactory.getRemoteInstance().getContractBillInfo(new ObjectUuidPK(editData.getId()));
 			if("已提交".equals(info.getState().getAlias()))
 			{
 				BPMServiceForERPSoap  login = new BPMServiceForERPLocator().getBPMServiceForERPSoap();
-				result = login.withdraw("HT02", info.getId().toString(), info.getSourceFunction());
+				result = login.withdraw("HT01", info.getId().toString(), info.getSourceFunction());
 			}else{
 				MsgBox.showInfo("该单据不在审批流程中，无需撤销流程！");
 			}
 		}
 	}
 	
-
-	public void actionSave_actionPerformed(ActionEvent e) throws Exception {
-		super.actionSave_actionPerformed(e);
-	}
 	/*
 	 * 审批
 	 * */
 	public void actionAudit_actionPerformed(ActionEvent e) throws Exception {
-		if(editData.getId()!=null){
-			ContractBillReviseInfo info = ContractBillReviseFactory.getRemoteInstance().getContractBillReviseInfo(new ObjectUuidPK(editData.getId()));
+		ContractBillInfo info = ContractBillFactory.getRemoteInstance().getContractBillInfo(new ObjectUuidPK(this.getSelectedKeyValue()));
+		if(info.getId()!=null){
+			//ContractBillInfo info = ContractBillFactory.getRemoteInstance().getContractBillInfo(new ObjectUuidPK(editData.getId()));
 	    	String url = info.getDescription();
 			if("已提交".equals(info.getState().getAlias()) && ("".equals(info.getDescription())||info.getDescription()==null))
 			{
@@ -195,8 +142,9 @@ public class ContractBillReviseEditUIPIEx extends ContractBillReviseEditUI{
 	 * 查看审批结果
 	 * */
 	public void actionAuditResult_actionPerformed(ActionEvent e) throws Exception {
-		if(editData.getId()!=null){
-			ContractBillReviseInfo info = ContractBillReviseFactory.getRemoteInstance().getContractBillReviseInfo(new ObjectUuidPK(editData.getId()));
+		ContractBillInfo info = ContractBillFactory.getRemoteInstance().getContractBillInfo(new ObjectUuidPK(this.getSelectedKeyValue()));
+		if(info.getId()!=null){
+			//ContractBillInfo info = ContractBillFactory.getRemoteInstance().getContractBillInfo(new ObjectUuidPK(editData.getId()));
 	    	String url = info.getDescription();
 			if("已审批".equals(info.getState().getAlias())||"已提交".equals(info.getState().getAlias()))
 			{
@@ -217,4 +165,5 @@ public class ContractBillReviseEditUIPIEx extends ContractBillReviseEditUI{
     	jf.OpenJBrowser(this);
     }
 
+   
 }

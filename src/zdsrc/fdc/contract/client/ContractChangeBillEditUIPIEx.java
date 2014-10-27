@@ -103,9 +103,9 @@ public class ContractChangeBillEditUIPIEx extends ContractChangeBillEditUI{
 	    	this.actionMultiapprove.setVisible(false);
 	    	this.actionNextPerson.setVisible(false);
 	    	
-	    	//this.btnSubmit.setText("提交BPM流程");
-	    	//this.btnSubmit.setToolTipText("提交BPM流程");
-	    	//btnWorkFlowG.setVisible(false);
+	    	this.btnSubmit.setText("提交BPM流程");
+	    	this.btnSubmit.setToolTipText("提交BPM流程");
+	    	btnWorkFlowG.setVisible(false);
 	    	this.btnAttachment.setText("撤销BPM流程");
 	    	this.btnAttachment.setToolTipText("撤销BPM流程");
 	    }

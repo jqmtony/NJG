@@ -1,10 +1,11 @@
 package com.kingdee.eas.fdc.contract.client;
 
 import java.awt.event.ActionEvent;
-import java.net.URL;
+import java.util.Date;
 
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.eas.bpmdemo.JBrowserHelper.JFrameBrowser;
+import com.kingdee.eas.bpmdemo.webservers.getInfoFacadeFactory;
 import com.kingdee.eas.bpmdemo.webservers.serviceclient.BPMServiceForERPLocator;
 import com.kingdee.eas.bpmdemo.webservers.serviceclient.BPMServiceForERPSoap;
 import com.kingdee.eas.common.client.SysContext;
@@ -19,6 +20,7 @@ import com.kingdee.eas.bpmdemo.webservers.serviceclient.EASLoginProxy;
 import com.kingdee.eas.bpmdemo.webservers.serviceclient.WSContext;
 import com.kingdee.eas.bpmdemo.webservers.serviceclient.WSgetInfoFacadeSrvProxyServiceLocator;
 import com.kingdee.eas.bpmdemo.webservers.serviceclient.WSgetInfoFacadeSrvProxy;
+import java.net.URL;
 
 public class ContractBillEditUIPIEx extends ContractBillEditUI {
     
@@ -58,8 +60,23 @@ public class ContractBillEditUIPIEx extends ContractBillEditUI {
     	this.actionMultiapprove.setVisible(false);
     	this.actionNextPerson.setVisible(false);
     	this.btnWorkFlowG.setVisible(false);
-    	
-
+    	if(editData.getId()==null||editData.getId().equals(""))
+    	{
+         if(editData.getState()==null)
+         {
+    	  this.btnAuditResult.setEnabled(false);
+    	  this.btnAttachment.setEnabled(false);
+         }
+         else if("保存".equals(editData.getState().getAlias()))
+         {
+        	 this.btnAuditResult.setEnabled(false);
+       	     this.btnAttachment.setEnabled(false);
+         }
+    	}else if(editData.getId()!=null||editData.getState()==null)
+     	{
+     		this.btnAuditResult.setEnabled(false);
+       	    this.btnAttachment.setEnabled(false);
+     	}
     }
     
 	protected boolean isContinueAddNew() {
@@ -75,6 +92,8 @@ public class ContractBillEditUIPIEx extends ContractBillEditUI {
 	 * */
 	public void actionAddNew_actionPerformed(ActionEvent e) throws Exception {
 		super.actionAddNew_actionPerformed(e);
+    	this.btnAttachment.setEnabled(false);
+    	this.btnAuditResult.setEnabled(false);
 	}
 	/*
 	 * 删除
@@ -95,6 +114,14 @@ public class ContractBillEditUIPIEx extends ContractBillEditUI {
 	 * 修改
 	 * */
 	public void actionEdit_actionPerformed(ActionEvent arg0) throws Exception {
+		if(editData.getId()!=null){
+			ContractBillInfo info = ContractBillFactory.getRemoteInstance().getContractBillInfo(new ObjectUuidPK(editData.getId()));
+			if("已审批".equals(info.getState().getAlias())||"已提交".equals(info.getState().getAlias()))
+			{
+				MsgBox.showInfo("该单据状态为:"+info.getState().getAlias()+",不能修改！");
+				SysUtil.abort();
+			}
+		}
 		super.actionEdit_actionPerformed(arg0);
     	this.btnRemove.setVisible(false);
     	this.btnRemove.setEnabled(false);
@@ -103,7 +130,11 @@ public class ContractBillEditUIPIEx extends ContractBillEditUI {
 
 	public void actionSubmit_actionPerformed(ActionEvent e) throws Exception {
 		if(editData.getId()==null)
+		{
 			actionSave_actionPerformed(e);
+		    this.btnAttachment.setEnabled(false);
+    	    this.btnAuditResult.setEnabled(false);
+		}
 		if(editData.getId()!=null)
 		{  
 		   ContractBillInfo info = ContractBillFactory.getRemoteInstance().getContractBillInfo(new ObjectUuidPK(editData.getId()));
@@ -116,6 +147,19 @@ public class ContractBillEditUIPIEx extends ContractBillEditUI {
 			   FDCSQLBuilder bu = new FDCSQLBuilder();
 			   bu.appendSql(sql);
 			   bu.executeUpdate();
+		    	String [] str1 = new String[3];
+			   	EASLoginProxy login = new EASLoginProxyServiceLocator().getEASLogin(new URL("http://127.0.0.1:56898/ormrpc/services/EASLogin"));
+			   	WSContext  ws = login.login("kd-user", "kduser", "eas", "kd_002", "l2", 1);
+			    if(ws.getSessionId()!=null){
+			    	WSgetInfoFacadeSrvProxy pay = new WSgetInfoFacadeSrvProxyServiceLocator().getWSgetInfoFacade(new URL("http://127.0.0.1:56898/ormrpc/services/WSgetInfoFacade"));
+			    	str1 = pay.getbillInfo("", editData.getId().toString());
+			    	MsgBox.showInfo(str1[0] + str1[1] + str1[2]);
+			    	String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=HT01";
+			    	str1 = pay.submitResult("", editData.getId().toString(), true, 1,url, "dYkAAAAAmMgNbdH0");
+			    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
+			    	str1 = pay.approveClose("", editData.getId().toString(), 1, "1", "",null);
+			    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
+			    }
 			   String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=HT01&userid="+SysContext.getSysContext().getUserName()+"";
 			   creatFrame(url);
 		   }
@@ -137,6 +181,10 @@ public class ContractBillEditUIPIEx extends ContractBillEditUI {
 				MsgBox.showInfo("该单据不在审批流程中，无需撤销流程！");
 			}
 		}
+		else
+		{
+			MsgBox.showInfo("该单据不在审批流程中，无需撤销流程！");
+		}
 	}
 	
 
@@ -149,7 +197,8 @@ public class ContractBillEditUIPIEx extends ContractBillEditUI {
 	public void actionAudit_actionPerformed(ActionEvent e) throws Exception {
 		if(editData.getId()!=null){
 			ContractBillInfo info = ContractBillFactory.getRemoteInstance().getContractBillInfo(new ObjectUuidPK(editData.getId()));
-	    	String url = info.getDescription();
+			//getInfoFacadeFactory.getRemoteInstance().ApproveClose("HT01", info.getId().toString(), 1, "", "", new Date());
+		    String url = info.getDescription();
 			if("已提交".equals(info.getState().getAlias()) && ("".equals(info.getDescription())||info.getDescription()==null))
 			{
 				super.actionAudit_actionPerformed(e);
