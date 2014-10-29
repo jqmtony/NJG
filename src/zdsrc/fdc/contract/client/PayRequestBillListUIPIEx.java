@@ -16,13 +16,14 @@ import com.kingdee.eas.fdc.contract.PayRequestBillInfo;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.MsgBox;
 
-public class PayRequestBillListtUIPIEx extends PayRequestBillListUI{
+public class PayRequestBillListUIPIEx extends PayRequestBillListUI{
 
-	public PayRequestBillListtUIPIEx() throws Exception {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+
 	
+	public PayRequestBillListUIPIEx() throws Exception {
+		super();
+	}
+
 	private ContractTypeInfo typeInfo;
 	private boolean isShiGong = false;
 	private boolean isFenBao = false;
@@ -65,26 +66,34 @@ public class PayRequestBillListtUIPIEx extends PayRequestBillListUI{
 	 * */
 	
 	public void actionRemove_actionPerformed(ActionEvent e) throws Exception {
-		PayRequestBillInfo info = PayRequestBillFactory.getRemoteInstance().getPayRequestBillInfo(new ObjectUuidPK(this.getSelectedKeyValue()));
-		if(info.getId()!=null){
+		if(this.getSelectedKeyValue()!=null)
+		{
+			PayRequestBillInfo info = PayRequestBillFactory.getRemoteInstance().getPayRequestBillInfo(new ObjectUuidPK(this.getSelectedKeyValue()));
+			if(info.getId()!=null){
 			//ContractBillInfo info = ContractBillFactory.getRemoteInstance().getContractBillInfo(new ObjectUuidPK(editData.getId()));
-			if("已审批".equals(info.getState().getAlias())||"已提交".equals(info.getState().getAlias()))
+			if("已审批".equals(info.getState().getAlias())||"审批中".equals(info.getState().getAlias()))
 			{
 				MsgBox.showInfo("该单据状态为:"+info.getState().getAlias()+",不能删除！");
 				SysUtil.abort();
 			}
 		}
 		super.actionRemove_actionPerformed(e);
+		}else
+		{
+			super.actionRemove_actionPerformed(e);
+		}
 	}
 	
 	/*
 	 * 修改
 	 * */
 	public void actionEdit_actionPerformed(ActionEvent arg0) throws Exception {
-		PayRequestBillInfo info = PayRequestBillFactory.getRemoteInstance().getPayRequestBillInfo(new ObjectUuidPK(this.getSelectedKeyValue()));
-		if(info.getId()!=null){
+		if(this.getSelectedKeyValue()!=null)
+		{
+			PayRequestBillInfo info = PayRequestBillFactory.getRemoteInstance().getPayRequestBillInfo(new ObjectUuidPK(this.getSelectedKeyValue()));
+			if(info.getId()!=null){
 			//ContractBillInfo info = ContractBillFactory.getRemoteInstance().getContractBillInfo(new ObjectUuidPK(editData.getId()));
-			if("已审批".equals(info.getState().getAlias())||"已提交".equals(info.getState().getAlias()))
+			if("已审批".equals(info.getState().getAlias())||"审批中".equals(info.getState().getAlias()))
 			{
 				MsgBox.showInfo("该单据状态为:"+info.getState().getAlias()+",不能修改！");
 				SysUtil.abort();
@@ -93,6 +102,11 @@ public class PayRequestBillListtUIPIEx extends PayRequestBillListUI{
 		super.actionEdit_actionPerformed(arg0);
     	this.btnRemove.setVisible(false);
     	this.btnRemove.setEnabled(false);
+		}
+		else
+		{
+			super.actionEdit_actionPerformed(arg0);
+		}
 	}
 	
 
@@ -101,17 +115,23 @@ public class PayRequestBillListtUIPIEx extends PayRequestBillListUI{
 	 * 撤销流程
 	 * */
 	public void actionAttachment_actionPerformed(ActionEvent e)throws Exception {
-		PayRequestBillInfo info = PayRequestBillFactory.getRemoteInstance().getPayRequestBillInfo(new ObjectUuidPK(this.getSelectedKeyValue()));
-		String result = "";
-		if(info.getId()!=null){
-			//ContractBillInfo info = ContractBillFactory.getRemoteInstance().getContractBillInfo(new ObjectUuidPK(editData.getId()));
-			if("已提交".equals(info.getState().getAlias()))
-			{
+		if(this.getSelectedKeyValue()!=null)
+		{
+			PayRequestBillInfo info = PayRequestBillFactory.getRemoteInstance().getPayRequestBillInfo(new ObjectUuidPK(this.getSelectedKeyValue()));
+			String result = "";
+			if(info.getId()!=null){
+				if("审批中".equals(info.getState().getAlias()))
+				{
 				BPMServiceForERPSoap  login = new BPMServiceForERPLocator().getBPMServiceForERPSoap();
 				result = login.withdraw("FK01", info.getId().toString(), info.getSourceFunction());
-			}else{
+				}else{
 				MsgBox.showInfo("该单据不在审批流程中，无需撤销流程！");
+				}
 			}
+		}
+	    else
+		{
+	    	super.actionAttachment_actionPerformed(e);	
 		}
 	}
 	
@@ -119,20 +139,27 @@ public class PayRequestBillListtUIPIEx extends PayRequestBillListUI{
 	 * 审批
 	 * */
 	public void actionAudit_actionPerformed(ActionEvent e) throws Exception {
-		PayRequestBillInfo info = PayRequestBillFactory.getRemoteInstance().getPayRequestBillInfo(new ObjectUuidPK(this.getSelectedKeyValue()));
-		if(info.getId()!=null){
-			//ContractBillInfo info = ContractBillFactory.getRemoteInstance().getContractBillInfo(new ObjectUuidPK(editData.getId()));
-	    	String url = info.getDescription();
-			if("已提交".equals(info.getState().getAlias()) && ("".equals(info.getDescription())||info.getDescription()==null))
+		if(this.getSelectedKeyValue()!=null)
+		{
+			PayRequestBillInfo info = PayRequestBillFactory.getRemoteInstance().getPayRequestBillInfo(new ObjectUuidPK(this.getSelectedKeyValue()));
+			if(info.getId()!=null)
 			{
+				String url = info.getDescription();
+				if("审批中".equals(info.getState().getAlias()) && ("".equals(info.getDescription())||info.getDescription()==null))
+				{
 				super.actionAudit_actionPerformed(e);
-			}else{
-				if("已提交".equals(info.getState().getAlias())){
+				}else{
+				if("审批中".equals(info.getState().getAlias())){
 					MsgBox.showInfo("该单据在审批流程中，不能进行人工审批！");
-				}else {
+					}else {
 					MsgBox.showInfo("该单据状态为:"+info.getState().getAlias()+",不能审批！");
+					}
 				}
 			}
+		}
+		else
+		{
+			super.actionAudit_actionPerformed(e);
 		}
 		
 	}
@@ -142,16 +169,22 @@ public class PayRequestBillListtUIPIEx extends PayRequestBillListUI{
 	 * 查看审批结果
 	 * */
 	public void actionAuditResult_actionPerformed(ActionEvent e) throws Exception {
-		PayRequestBillInfo info = PayRequestBillFactory.getRemoteInstance().getPayRequestBillInfo(new ObjectUuidPK(this.getSelectedKeyValue()));
-		if(info.getId()!=null){
-			//ContractBillInfo info = ContractBillFactory.getRemoteInstance().getContractBillInfo(new ObjectUuidPK(editData.getId()));
-	    	String url = info.getDescription();
-			if("已审批".equals(info.getState().getAlias())||"已提交".equals(info.getState().getAlias()))
+		if(this.getSelectedKeyValue()!=null)
+		{
+			PayRequestBillInfo info = PayRequestBillFactory.getRemoteInstance().getPayRequestBillInfo(new ObjectUuidPK(this.getSelectedKeyValue()));
+			if(info.getId()!=null)
 			{
-				creatFrame(url);
-			}else{
+				String url = info.getDescription();
+				if("已审批".equals(info.getState().getAlias())||"审批中".equals(info.getState().getAlias()))
+				{
+					creatFrame(url);
+				}else{
 				MsgBox.showInfo("该单据未发起审批流程，或者已撤销流程，没有对应流程！");
+				}
 			}
+		}else
+		{
+			super.actionAuditResult_actionPerformed(e);
 		}
 	}
 	
