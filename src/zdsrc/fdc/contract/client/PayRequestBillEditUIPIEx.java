@@ -76,10 +76,27 @@ public class PayRequestBillEditUIPIEx extends PayRequestBillEditUI{
         	 this.btnAuditResult.setEnabled(false);
        	     this.btnAttachment.setEnabled(false);
          }
-    	}else if(editData.getId()!=null||editData.getState()==null)
+    	}else if(editData.getId()!=null&&editData.getState()==null)
      	{
      		this.btnAuditResult.setEnabled(false);
        	    this.btnAttachment.setEnabled(false);
+     	}else if(editData.getId()!=null||editData.getState()==null)
+     	{   
+    		if("审批中".equals(editData.getState().getAlias()))
+    		{
+    			this.btnAuditResult.setEnabled(true);
+           	    this.btnAttachment.setEnabled(true);
+    		}
+    		else if("已审批".equals(editData.getState().getAlias()))
+    		{
+    			this.btnAuditResult.setEnabled(true);
+           	    this.btnAttachment.setEnabled(false);
+    		}
+    		else
+    		{
+     		this.btnAuditResult.setEnabled(false);
+       	    this.btnAttachment.setEnabled(false);
+    		}
      	}
     	
 
@@ -105,7 +122,7 @@ public class PayRequestBillEditUIPIEx extends PayRequestBillEditUI{
 	public void actionRemove_actionPerformed(ActionEvent e) throws Exception {
 		if(editData.getId()!=null){
 			PayRequestBillInfo info = PayRequestBillFactory.getRemoteInstance().getPayRequestBillInfo(new ObjectUuidPK(editData.getId()));
-			if("已审批".equals(info.getState().getAlias())||"已提交".equals(info.getState().getAlias()))
+			if("已审批".equals(info.getState().getAlias())||"审批中".equals(info.getState().getAlias()))
 			{
 				MsgBox.showInfo("该单据状态为:"+info.getState().getAlias()+",不能删除！");
 				SysUtil.abort();
@@ -121,7 +138,7 @@ public class PayRequestBillEditUIPIEx extends PayRequestBillEditUI{
 		super.actionEdit_actionPerformed(arg0);
 		if(editData.getId()!=null){
 			ContractWithoutTextInfo info = ContractWithoutTextFactory.getRemoteInstance().getContractWithoutTextInfo(new ObjectUuidPK(editData.getId()));
-			if("已审批".equals(info.getState().getAlias())||"已提交".equals(info.getState().getAlias()))
+			if("已审批".equals(info.getState().getAlias())||"审批中".equals(info.getState().getAlias()))
 			{
 				MsgBox.showInfo("该单据状态为:"+info.getState().getAlias()+",不能修改！");
 				SysUtil.abort();
@@ -138,7 +155,7 @@ public class PayRequestBillEditUIPIEx extends PayRequestBillEditUI{
 		if(editData.getId()!=null)
 		{  
 			PayRequestBillInfo info = PayRequestBillFactory.getRemoteInstance().getPayRequestBillInfo(new ObjectUuidPK(editData.getId()));
-		   if("已提交".equals(info.getState().getAlias()) && info.getDescription()!=null)
+		   if("审批中".equals(info.getState().getAlias()) && info.getDescription()!=null)
 		   {
 			   MsgBox.showInfo("该单据在审批流程中，不能再次提交！");
 		   }else{
@@ -160,7 +177,7 @@ public class PayRequestBillEditUIPIEx extends PayRequestBillEditUI{
 		String result = "";
 		if(editData.getId()!=null){
 			PayRequestBillInfo info = PayRequestBillFactory.getRemoteInstance().getPayRequestBillInfo(new ObjectUuidPK(editData.getId()));
-			if("已提交".equals(info.getState().getAlias()))
+			if("审批中".equals(info.getState().getAlias()))
 			{
 				BPMServiceForERPSoap  login = new BPMServiceForERPLocator().getBPMServiceForERPSoap();
 				result = login.withdraw("FK01", info.getId().toString(), info.getSourceFunction());
@@ -181,11 +198,11 @@ public class PayRequestBillEditUIPIEx extends PayRequestBillEditUI{
 		if(editData.getId()!=null){
 			PayRequestBillInfo info = PayRequestBillFactory.getRemoteInstance().getPayRequestBillInfo(new ObjectUuidPK(editData.getId()));
 	    	String url = info.getDescription();
-			if("已提交".equals(info.getState().getAlias()) && ("".equals(info.getDescription())||info.getDescription()==null))
+			if("审批中".equals(info.getState().getAlias()) && ("".equals(info.getDescription())||info.getDescription()==null))
 			{
 				super.actionAudit_actionPerformed(e);
 			}else{
-				if("已提交".equals(info.getState().getAlias())){
+				if("审批中".equals(info.getState().getAlias())){
 					MsgBox.showInfo("该单据在审批流程中，不能进行人工审批！");
 				}else {
 					MsgBox.showInfo("该单据状态为:"+info.getState().getAlias()+",不能审批！");
@@ -203,7 +220,7 @@ public class PayRequestBillEditUIPIEx extends PayRequestBillEditUI{
 		if(editData.getId()!=null){
 			PayRequestBillInfo info = PayRequestBillFactory.getRemoteInstance().getPayRequestBillInfo(new ObjectUuidPK(editData.getId()));
 	    	String url = info.getDescription();
-			if("已审批".equals(info.getState().getAlias())||"已提交".equals(info.getState().getAlias()))
+			if("已审批".equals(info.getState().getAlias())||"审批中".equals(info.getState().getAlias()))
 			{
 				creatFrame(url);
 			}else{

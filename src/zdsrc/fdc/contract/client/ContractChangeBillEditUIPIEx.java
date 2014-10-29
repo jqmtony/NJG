@@ -103,8 +103,8 @@ public class ContractChangeBillEditUIPIEx extends ContractChangeBillEditUI{
 	    	this.actionMultiapprove.setVisible(false);
 	    	this.actionNextPerson.setVisible(false);
 	    	
-	    	this.btnSubmit.setText("提交BPM流程");
-	    	this.btnSubmit.setToolTipText("提交BPM流程");
+	    	//this.btnSubmit.setText("提交BPM流程");
+	    	//this.btnSubmit.setToolTipText("提交BPM流程");
 	    	btnWorkFlowG.setVisible(false);
 	    	this.btnAttachment.setText("撤销BPM流程");
 	    	this.btnAttachment.setToolTipText("撤销BPM流程");
@@ -147,8 +147,8 @@ public class ContractChangeBillEditUIPIEx extends ContractChangeBillEditUI{
 			FDCSQLBuilder bu = new FDCSQLBuilder();
 			bu.appendSql(sql);
 			bu.executeUpdate();
-	    	String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=BGJS01&userid="+SysContext.getSysContext().getUserName()+"";
-	    	creatFrame(url);
+	    	//String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=BGJS01&userid="+SysContext.getSysContext().getUserName()+"";
+	    	//creatFrame(url);
 	    }
 	 
 	 /**

@@ -68,7 +68,7 @@ public class ContractWithoutTextListUIPIEx extends ContractWithoutTextListUI{
 		ContractWithoutTextInfo info = ContractWithoutTextFactory.getRemoteInstance().getContractWithoutTextInfo(new ObjectUuidPK(this.getSelectedKeyValue()));
 		if(info.getId()!=null){
 			//ContractWithoutTextInfo info = ContractBillFactory.getRemoteInstance().getContractWithoutTextInfo(new ObjectUuidPK(editData.getId()));
-			if("已审批".equals(info.getState().getAlias())||"已提交".equals(info.getState().getAlias()))
+			if("已审批".equals(info.getState().getAlias())||"审批中".equals(info.getState().getAlias()))
 			{
 				MsgBox.showInfo("该单据状态为:"+info.getState().getAlias()+",不能删除！");
 				SysUtil.abort();
@@ -84,7 +84,7 @@ public class ContractWithoutTextListUIPIEx extends ContractWithoutTextListUI{
 		ContractWithoutTextInfo info = ContractWithoutTextFactory.getRemoteInstance().getContractWithoutTextInfo(new ObjectUuidPK(this.getSelectedKeyValue()));
 		if(info.getId()!=null){
 			//ContractWithoutTextInfo info = ContractBillFactory.getRemoteInstance().getContractWithoutTextInfo(new ObjectUuidPK(editData.getId()));
-			if("已审批".equals(info.getState().getAlias())||"已提交".equals(info.getState().getAlias()))
+			if("已审批".equals(info.getState().getAlias())||"审批中".equals(info.getState().getAlias()))
 			{
 				MsgBox.showInfo("该单据状态为:"+info.getState().getAlias()+",不能修改！");
 				SysUtil.abort();
@@ -105,7 +105,7 @@ public class ContractWithoutTextListUIPIEx extends ContractWithoutTextListUI{
 		String result = "";
 		if(info.getId()!=null){
 			//ContractWithoutTextInfo info = ContractBillFactory.getRemoteInstance().getContractWithoutTextInfo(new ObjectUuidPK(editData.getId()));
-			if("已提交".equals(info.getState().getAlias()))
+			if("审批中".equals(info.getState().getAlias()))
 			{
 				BPMServiceForERPSoap  login = new BPMServiceForERPLocator().getBPMServiceForERPSoap();
 				result = login.withdraw("WWBHT01", info.getId().toString(), info.getSourceFunction());
@@ -123,11 +123,11 @@ public class ContractWithoutTextListUIPIEx extends ContractWithoutTextListUI{
 		if(info.getId()!=null){
 			//ContractWithoutTextInfo info = ContractBillFactory.getRemoteInstance().getContractWithoutTextInfo(new ObjectUuidPK(editData.getId()));
 	    	String url = info.getDescription();
-			if("已提交".equals(info.getState().getAlias()) && ("".equals(info.getDescription())||info.getDescription()==null))
+			if("审批中".equals(info.getState().getAlias()) && ("".equals(info.getDescription())||info.getDescription()==null))
 			{
 				super.actionAudit_actionPerformed(e);
 			}else{
-				if("已提交".equals(info.getState().getAlias())){
+				if("审批中".equals(info.getState().getAlias())){
 					MsgBox.showInfo("该单据在审批流程中，不能进行人工审批！");
 				}else {
 					MsgBox.showInfo("该单据状态为:"+info.getState().getAlias()+",不能审批！");
@@ -146,7 +146,7 @@ public class ContractWithoutTextListUIPIEx extends ContractWithoutTextListUI{
 		if(info.getId()!=null){
 			//ContractWithoutTextInfo info = ContractBillFactory.getRemoteInstance().getContractWithoutTextInfo(new ObjectUuidPK(editData.getId()));
 	    	String url = info.getDescription();
-			if("已审批".equals(info.getState().getAlias())||"已提交".equals(info.getState().getAlias()))
+			if("已审批".equals(info.getState().getAlias())||"审批中".equals(info.getState().getAlias()))
 			{
 				creatFrame(url);
 			}else{

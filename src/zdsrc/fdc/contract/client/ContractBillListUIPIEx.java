@@ -66,7 +66,7 @@ public class ContractBillListUIPIEx extends ContractBillListUI  {
 		ContractBillInfo info = ContractBillFactory.getRemoteInstance().getContractBillInfo(new ObjectUuidPK(this.getSelectedKeyValue()));
 		if(info.getId()!=null){
 			//ContractBillInfo info = ContractBillFactory.getRemoteInstance().getContractBillInfo(new ObjectUuidPK(editData.getId()));
-			if("已审批".equals(info.getState().getAlias())||"已提交".equals(info.getState().getAlias()))
+			if("已审批".equals(info.getState().getAlias())||"审批中".equals(info.getState().getAlias()))
 			{
 				MsgBox.showInfo("该单据状态为:"+info.getState().getAlias()+",不能删除！");
 				SysUtil.abort();
@@ -82,7 +82,7 @@ public class ContractBillListUIPIEx extends ContractBillListUI  {
 		ContractBillInfo info = ContractBillFactory.getRemoteInstance().getContractBillInfo(new ObjectUuidPK(this.getSelectedKeyValue()));
 		if(info.getId()!=null){
 			//ContractBillInfo info = ContractBillFactory.getRemoteInstance().getContractBillInfo(new ObjectUuidPK(editData.getId()));
-			if("已审批".equals(info.getState().getAlias())||"已提交".equals(info.getState().getAlias()))
+			if("已审批".equals(info.getState().getAlias())||"审批中".equals(info.getState().getAlias()))
 			{
 				MsgBox.showInfo("该单据状态为:"+info.getState().getAlias()+",不能修改！");
 				SysUtil.abort();
@@ -105,7 +105,7 @@ public class ContractBillListUIPIEx extends ContractBillListUI  {
 		String result = "";
 		if(info.getId()!=null){
 			//ContractBillInfo info = ContractBillFactory.getRemoteInstance().getContractBillInfo(new ObjectUuidPK(editData.getId()));
-			if("已提交".equals(info.getState().getAlias()))
+			if("审批中".equals(info.getState().getAlias()))
 			{
 				BPMServiceForERPSoap  login = new BPMServiceForERPLocator().getBPMServiceForERPSoap();
 				result = login.withdraw("HT01", info.getId().toString(), info.getSourceFunction());
@@ -119,21 +119,22 @@ public class ContractBillListUIPIEx extends ContractBillListUI  {
 	 * 审批
 	 * */
 	public void actionAudit_actionPerformed(ActionEvent e) throws Exception {
-		ContractBillInfo info = ContractBillFactory.getRemoteInstance().getContractBillInfo(new ObjectUuidPK(this.getSelectedKeyValue()));
-		if(info.getId()!=null){
-			//ContractBillInfo info = ContractBillFactory.getRemoteInstance().getContractBillInfo(new ObjectUuidPK(editData.getId()));
-	    	String url = info.getDescription();
-			if("已提交".equals(info.getState().getAlias()) && ("".equals(info.getDescription())||info.getDescription()==null))
-			{
-				super.actionAudit_actionPerformed(e);
-			}else{
-				if("已提交".equals(info.getState().getAlias())){
-					MsgBox.showInfo("该单据在审批流程中，不能进行人工审批！");
-				}else {
-					MsgBox.showInfo("该单据状态为:"+info.getState().getAlias()+",不能审批！");
-				}
-			}
-		}
+		super.actionAudit_actionPerformed(e);
+//		ContractBillInfo info = ContractBillFactory.getRemoteInstance().getContractBillInfo(new ObjectUuidPK(this.getSelectedKeyValue()));
+//		if(info.getId()!=null){
+//			//ContractBillInfo info = ContractBillFactory.getRemoteInstance().getContractBillInfo(new ObjectUuidPK(editData.getId()));
+//	    	String url = info.getDescription();
+//			if("审批中".equals(info.getState().getAlias()) && ("".equals(info.getDescription())||info.getDescription()==null))
+//			{
+//				super.actionAudit_actionPerformed(e);
+//			}else{
+//				if("审批中".equals(info.getState().getAlias())){
+//					MsgBox.showInfo("该单据在审批流程中，不能进行人工审批！");
+//				}else {
+//					MsgBox.showInfo("该单据状态为:"+info.getState().getAlias()+",不能审批！");
+//				}
+//			}
+//		}
 		
 	}
 
@@ -146,7 +147,7 @@ public class ContractBillListUIPIEx extends ContractBillListUI  {
 		if(info.getId()!=null){
 			//ContractBillInfo info = ContractBillFactory.getRemoteInstance().getContractBillInfo(new ObjectUuidPK(editData.getId()));
 	    	String url = info.getDescription();
-			if("已审批".equals(info.getState().getAlias())||"已提交".equals(info.getState().getAlias()))
+			if("已审批".equals(info.getState().getAlias())||"审批中".equals(info.getState().getAlias()))
 			{
 				creatFrame(url);
 			}else{
