@@ -70,6 +70,7 @@ import com.kingdee.eas.framework.client.tree.DefaultLNTreeNodeCtrl;
 import com.kingdee.eas.framework.client.tree.ITreeBuilder;
 import com.kingdee.eas.framework.client.tree.KDTreeNode;
 import com.kingdee.eas.framework.client.tree.TreeBuilderFactory;
+import com.kingdee.eas.port.markesupplier.subase.SupplierInvoiceTypeTreeCollection;
 import com.kingdee.eas.port.markesupplier.subase.SupplierInvoiceTypeTreeFactory;
 import com.kingdee.eas.port.markesupplier.subase.SupplierInvoiceTypeTreeInfo;
 import com.kingdee.eas.port.markesupplier.subase.SupplierState;
@@ -226,11 +227,11 @@ public class MarketSupplierStockListUI extends AbstractMarketSupplierStockListUI
 		this.actionTraceUp.setVisible(false);
 		this.actionTraceUp.setVisible(false);
 		this.actionCreateTo.setVisible(false);
-		this.actionAuditResult.setVisible(false);//审批结果查看
+//		this.actionAuditResult.setVisible(false);//审批结果查看
 		this.actionMultiapprove.setVisible(false);//多级审批
-		this.actionNextPerson.setVisible(false);//下一步处理人
+//		this.actionNextPerson.setVisible(false);//下一步处理人
 		this.actionTraceDown.setVisible(false);//流程图
-		this.actionWorkFlowG.setVisible(false);//流程图
+//		this.actionWorkFlowG.setVisible(false);//流程图
 		
 		this.btnEditLevel.setText("引入主数据供应商");
 		this.btnEditLevel.setToolTipText("引入主数据供应商");
@@ -515,13 +516,13 @@ public class MarketSupplierStockListUI extends AbstractMarketSupplierStockListUI
 			MsgBox.showWarning("当前供应商已在【"+org.getName()+"】存在，不需要引入！");
 		}
 		
-		SupplierInvoiceTypeTreeInfo treeInfo = SupplierInvoiceTypeTreeFactory.getRemoteInstance().getSupplierInvoiceTypeTreeInfo("where number='default'");
+		SupplierInvoiceTypeTreeCollection treeInfo = SupplierInvoiceTypeTreeFactory.getRemoteInstance().getSupplierInvoiceTypeTreeCollection();
 		ICodingRuleManager codingRuleManager = CodingRuleManagerFactory.getRemoteInstance();
 		
 		MarketSupplierStockInfo Info = new MarketSupplierStockInfo();
 		Info.setCU(SysContext.getSysContext().getCurrentCtrlUnit());
 		Info.setNumber(codingRuleManager.getNumber(Info, OrgConstants.DEF_CU_ID));
-		Info.setInviteType(treeInfo);
+		Info.setInviteType(treeInfo.get(0));
 		Info.setPurchaseOrgUnit(org);
 		Info.setSupplierName(supplierInfo.getName());
 		Info.setId(BOSUuid.create(Info.getBOSType()));

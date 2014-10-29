@@ -16,6 +16,7 @@ import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 
 import org.apache.log4j.Logger;
@@ -27,6 +28,7 @@ import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent;
 import com.kingdee.bos.ctrl.swing.KDContainer;
 import com.kingdee.bos.ctrl.swing.KDScrollPane;
+import com.kingdee.bos.ctrl.swing.event.DataChangeEvent;
 import com.kingdee.bos.dao.IObjectCollection;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
@@ -37,6 +39,7 @@ import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.metadata.entity.SorterItemCollection;
 import com.kingdee.bos.metadata.entity.SorterItemInfo;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.eas.base.attachment.BizobjectFacadeFactory;
 import com.kingdee.eas.base.attachment.BoAttchAssoCollection;
@@ -67,6 +70,14 @@ import com.kingdee.eas.port.markesupplier.subase.SupplierState;
 import com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockEntryAttCollection;
 import com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockEntryAttInfo;
 import com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockInfo;
+import com.kingdee.eas.port.pm.base.EvaluationIndicatorsFactory;
+import com.kingdee.eas.port.pm.base.EvaluationIndicatorsInfo;
+import com.kingdee.eas.port.pm.base.EvaluationIndicatorsTreeFactory;
+import com.kingdee.eas.port.pm.base.EvaluationIndicatorsTreeInfo;
+import com.kingdee.eas.port.pm.base.EvaluationTemplateEntryInfo;
+import com.kingdee.eas.port.pm.base.EvaluationTemplateInfo;
+import com.kingdee.eas.port.pm.base.IEvaluationIndicators;
+import com.kingdee.eas.port.pm.base.IEvaluationIndicatorsTree;
 import com.kingdee.eas.port.pm.invite.WinInviteReportUnitCollection;
 import com.kingdee.eas.port.pm.invite.WinInviteReportUnitFactory;
 import com.kingdee.eas.port.pm.invite.client.WinInviteReportListUI;
@@ -111,8 +122,9 @@ public class MarketSupplierStockEditUI extends AbstractMarketSupplierStockEditUI
     	this.kDPanel4.setPreferredSize(new Dimension(1013,1010));		
         this.kDPanel4.setMinimumSize(new Dimension(1013,1010));
         this.kDTabbedPane1.remove(kDPanel2);
+        this.kdtE4.getColumn("EvaluationIndex").getStyleAttributes().setLocked(true);
+        this.kdtE4.getColumn("Description").setRequired(true);
         
-    	
     	initButton();
     	
     	setF7Filter();
@@ -182,6 +194,7 @@ public class MarketSupplierStockEditUI extends AbstractMarketSupplierStockEditUI
     	this.prmtInviteType.setRequired(true);
     	this.prmtPurchaseOrgUnit.setRequired(true);
     	this.txtLinkPhone.setRequired(true);
+    	this.prmtEvatemp.setRequired(true);
 //    	this.prmtQuaLevel.setRequired(true);
 //    	this.prmtVisibility.setRequired(true);
     	this.txtEnterpriseMaster.setRequired(true);
@@ -219,7 +232,7 @@ public class MarketSupplierStockEditUI extends AbstractMarketSupplierStockEditUI
     	this.menuItemAddNew.setAccelerator(null);
     	this.actionCreateTo.setVisible(false);//推式生成
 		this.actionCreateFrom.setVisible(false);//拉式生成
-		this.actionWorkFlowG.setVisible(false);//流程图
+//		this.actionWorkFlowG.setVisible(false);//流程图
 		this.actionTraceUp.setVisible(false);//上查
 		this.actionTraceDown.setVisible(false);//下查 
 		this.actionFirst.setVisible(false);//第一
@@ -227,9 +240,9 @@ public class MarketSupplierStockEditUI extends AbstractMarketSupplierStockEditUI
 		this.actionPre.setVisible(false);//前一
 		this.actionNext.setVisible(false);//后一
 		this.actionLast.setVisible(false);//最后一个
-		this.actionAuditResult.setVisible(false);//审批结果查看
-		this.actionMultiapprove.setVisible(false);//多级审批
-		this.actionNextPerson.setVisible(false);//下一步处理人
+//		this.actionAuditResult.setVisible(false);//审批结果查看
+//		this.actionMultiapprove.setVisible(false);//多级审批
+//		this.actionNextPerson.setVisible(false);//下一步处理人
     	
 		if(!SupplierState.Save.equals(this.editData.getState())&&!SupplierState.submit.equals(this.editData.getState())){
 			this.actionEdit.setEnabled(false);
@@ -240,10 +253,12 @@ public class MarketSupplierStockEditUI extends AbstractMarketSupplierStockEditUI
 		}
 		this.actionAddNew.setVisible(false);
     	
+		this.kDContainer6.getContentPane().add(this.kdtE4,BorderLayout.CENTER);
     	this.kDContainer3.getContentPane().add(this.kdtEntrys,BorderLayout.CENTER);
     	this.kDContainer4.getContentPane().add(this.kdtEntryPerson,BorderLayout.CENTER);
     	this.kDContainer5.getContentPane().add(this.kdtEntryAtt,BorderLayout.CENTER);
     	
+    	initTableButton(this.kDContainer6, this.kdtE4_detailPanel);
     	initTableButton(this.kDContainer3, this.kdtEntrys_detailPanel);
     	initTableButton(this.kDContainer4, this.kdtEntryPerson_detailPanel);
     	initTableButton(this.kDContainer5, this.kdtEntryAtt_detailPanel);
@@ -590,12 +605,12 @@ public class MarketSupplierStockEditUI extends AbstractMarketSupplierStockEditUI
 //		ClientVerifyHelper.verifyEmpty(this, this.txtboEnterpriseKind);
 //		ClientVerifyHelper.verifyEmpty(this, this.prmtServiceType);
 //		ClientVerifyHelper.verifyEmpty(this, this.prmtSupplierSplAreaEntry);
-		ClientVerifyHelper.verifyEmpty(this, this.prmtSupplierFileType);
+//		ClientVerifyHelper.verifyEmpty(this, this.prmtSupplierFileType);
 		
-//		if(this.kdtEntrys.getRowCount()<1)
-//		{
-//			MsgBox.showWarning("表体人数信息不能为空！");SysUtil.abort();
-//		}
+		if(this.kdtE4.getRowCount()<1)
+		{
+			MsgBox.showWarning("符合性审查信息不能为空！");SysUtil.abort();
+		}
 //		if(this.kdtEntryPerson.getRowCount()<1)
 //		{
 //			MsgBox.showWarning("表体职员构成不能为空！");SysUtil.abort();
@@ -630,7 +645,14 @@ public class MarketSupplierStockEditUI extends AbstractMarketSupplierStockEditUI
 //		ClientVerifyHelper.verifyInput(this, this.kdtEntryPerson, "isDefault");
 //		ClientVerifyHelper.verifyInput(this, this.kdtEntryPerson, "phone");
 //		ClientVerifyHelper.verifyInput(this, this.kdtEntryAtt, "attNumber");
-//		ClientVerifyHelper.verifyInput(this, this.kdtEntryAtt, "attName");
+		
+		for (int i = 0; i < this.kdtE4.getRowCount(); i++) 
+		{
+			if(UIRuleUtil.isNull(kdtE4.getCell(i, "Description").getValue()))
+			{
+				MsgBox.showWarning("符合性审查情况描述不能为空！");SysUtil.abort();
+			}
+		}
     }
     
     void verifyInputForSave()
@@ -639,6 +661,49 @@ public class MarketSupplierStockEditUI extends AbstractMarketSupplierStockEditUI
     	ClientVerifyHelper.verifyEmpty(this, this.txtsupplierName);
     	ClientVerifyHelper.verifyEmpty(this, this.prmtInviteType);
     	ClientVerifyHelper.verifyEmpty(this, this.prmtPurchaseOrgUnit);
+    	ClientVerifyHelper.verifyEmpty(this, this.prmtEvatemp);
+    }
+    
+    protected void prmtEvatemp_dataChanged(DataChangeEvent e) throws Exception {
+    	super.prmtEvatemp_dataChanged(e);
+    	 boolean isChanged = BizCollUtil.isF7ValueChanged(e);
+         if(!isChanged||e.getNewValue()==null)
+         	return;
+ 		
+ 		EvaluationTemplateInfo Info = (EvaluationTemplateInfo)e.getNewValue();
+ 		
+ 		boolean isShowWarn=false;
+         boolean isUpdate=false;
+         if(this.kdtE4.getRowCount()>0 ){
+         	isShowWarn=true;
+         }
+         if(isShowWarn){
+         	if(MsgBox.showConfirm2(this, "评审模板改变会覆盖符合性审查信息，是否继续？")== JOptionPane.YES_OPTION){
+         		isUpdate=true;
+             }
+         }else{
+         	isUpdate=true;
+         }
+         
+         if(isUpdate){
+         	this.kdtE4.removeRows();
+         	IEvaluationIndicators IEvaluationIndicators = EvaluationIndicatorsFactory.getRemoteInstance();
+         	for (int i = 0; i < Info.getEntry().size(); i++) 
+         	{
+         		EvaluationTemplateEntryInfo entryInfo = Info.getEntry().get(i);
+         		
+         		IRow row = this.kdtE4.addRow();
+         		
+         		if(entryInfo.getIndicatorType()!=null)
+         		{
+         			
+         			EvaluationIndicatorsInfo EvaluationIndicatorsInfo = IEvaluationIndicators.getEvaluationIndicatorsInfo(new ObjectUuidPK(entryInfo.getIndicatorType().getId()));
+         			
+         			row.getCell("EvaluationIndex").setValue(EvaluationIndicatorsInfo.getName());
+         			row.getCell("isQualified").setValue(Boolean.FALSE);
+         		}
+ 			}
+         }
     }
     
 	public void actionCopy_actionPerformed(ActionEvent e) throws Exception {

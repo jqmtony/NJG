@@ -61,7 +61,6 @@ public abstract class AbstractMarketSupplierStockEditUI extends com.kingdee.eas.
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contsysSupplier;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contAuditor;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contauditDate;
-    protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel5;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contLevel;
     protected com.kingdee.bos.ctrl.swing.KDContainer kDContainer3;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contSupplierFileType;
@@ -70,6 +69,7 @@ public abstract class AbstractMarketSupplierStockEditUI extends com.kingdee.eas.
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contSupplierSplAreaEntry;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contSupplierBusinessMode;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contServiceType;
+    protected com.kingdee.bos.ctrl.swing.KDTabbedPane kDTabbedPane2;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contNumber;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contsupplierName;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contPurchaseOrgUnit;
@@ -85,6 +85,7 @@ public abstract class AbstractMarketSupplierStockEditUI extends com.kingdee.eas.
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contRecommended;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contserverfees;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contState;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contEvatemp;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtNumber;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtsupplierName;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtPurchaseOrgUnit;
@@ -100,6 +101,7 @@ public abstract class AbstractMarketSupplierStockEditUI extends com.kingdee.eas.
     protected com.kingdee.bos.ctrl.swing.KDTextField txtRecommended;
     protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtserverfees;
     protected com.kingdee.bos.ctrl.swing.KDComboBox State;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtEvatemp;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtLastUpdateUser;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtCreator;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker kDDateLastUpdateTime;
@@ -107,6 +109,18 @@ public abstract class AbstractMarketSupplierStockEditUI extends com.kingdee.eas.
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtsysSupplier;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtAuditor;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkauditDate;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtLevel;
+    protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtEntrys;
+	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtEntrys_detailPanel = null;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtSupplierFileType;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtVisibility;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtQuaLevel;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtSupplierSplAreaEntry;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtSupplierBusinessMode;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtServiceType;
+    protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel6;
+    protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel7;
+    protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel5;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contPeopleCount;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contProvince;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contCity;
@@ -133,15 +147,9 @@ public abstract class AbstractMarketSupplierStockEditUI extends com.kingdee.eas.
     protected com.kingdee.bos.ctrl.swing.KDTextArea txtmarketRemake;
     protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtEntryPerson;
 	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtEntryPerson_detailPanel = null;
-    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtLevel;
-    protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtEntrys;
-	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtEntrys_detailPanel = null;
-    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtSupplierFileType;
-    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtVisibility;
-    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtQuaLevel;
-    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtSupplierSplAreaEntry;
-    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtSupplierBusinessMode;
-    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtServiceType;
+    protected com.kingdee.bos.ctrl.swing.KDContainer kDContainer6;
+    protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtE4;
+	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtE4_detailPanel = null;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contPunish;
     protected com.kingdee.bos.ctrl.swing.KDScrollPane scrollPanePunish;
     protected com.kingdee.bos.ctrl.swing.KDTextArea txtPunish;
@@ -224,7 +232,6 @@ public abstract class AbstractMarketSupplierStockEditUI extends com.kingdee.eas.
         this.contsysSupplier = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contAuditor = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contauditDate = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.kDPanel5 = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.contLevel = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.kDContainer3 = new com.kingdee.bos.ctrl.swing.KDContainer();
         this.contSupplierFileType = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -233,6 +240,7 @@ public abstract class AbstractMarketSupplierStockEditUI extends com.kingdee.eas.
         this.contSupplierSplAreaEntry = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contSupplierBusinessMode = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contServiceType = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.kDTabbedPane2 = new com.kingdee.bos.ctrl.swing.KDTabbedPane();
         this.contNumber = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contsupplierName = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contPurchaseOrgUnit = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -248,6 +256,7 @@ public abstract class AbstractMarketSupplierStockEditUI extends com.kingdee.eas.
         this.contRecommended = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contserverfees = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contState = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contEvatemp = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.txtNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtsupplierName = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.prmtPurchaseOrgUnit = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
@@ -263,6 +272,7 @@ public abstract class AbstractMarketSupplierStockEditUI extends com.kingdee.eas.
         this.txtRecommended = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtserverfees = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
         this.State = new com.kingdee.bos.ctrl.swing.KDComboBox();
+        this.prmtEvatemp = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.prmtLastUpdateUser = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.prmtCreator = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.kDDateLastUpdateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
@@ -270,6 +280,17 @@ public abstract class AbstractMarketSupplierStockEditUI extends com.kingdee.eas.
         this.prmtsysSupplier = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.prmtAuditor = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.pkauditDate = new com.kingdee.bos.ctrl.swing.KDDatePicker();
+        this.prmtLevel = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.kdtEntrys = new com.kingdee.bos.ctrl.kdf.table.KDTable();
+        this.prmtSupplierFileType = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.prmtVisibility = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.prmtQuaLevel = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.prmtSupplierSplAreaEntry = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.prmtSupplierBusinessMode = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.prmtServiceType = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.kDPanel6 = new com.kingdee.bos.ctrl.swing.KDPanel();
+        this.kDPanel7 = new com.kingdee.bos.ctrl.swing.KDPanel();
+        this.kDPanel5 = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.contPeopleCount = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contProvince = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contCity = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -294,14 +315,8 @@ public abstract class AbstractMarketSupplierStockEditUI extends com.kingdee.eas.
         this.scrollPanemarketRemake = new com.kingdee.bos.ctrl.swing.KDScrollPane();
         this.txtmarketRemake = new com.kingdee.bos.ctrl.swing.KDTextArea();
         this.kdtEntryPerson = new com.kingdee.bos.ctrl.kdf.table.KDTable();
-        this.prmtLevel = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
-        this.kdtEntrys = new com.kingdee.bos.ctrl.kdf.table.KDTable();
-        this.prmtSupplierFileType = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
-        this.prmtVisibility = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
-        this.prmtQuaLevel = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
-        this.prmtSupplierSplAreaEntry = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
-        this.prmtSupplierBusinessMode = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
-        this.prmtServiceType = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.kDContainer6 = new com.kingdee.bos.ctrl.swing.KDContainer();
+        this.kdtE4 = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.contPunish = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.scrollPanePunish = new com.kingdee.bos.ctrl.swing.KDScrollPane();
         this.txtPunish = new com.kingdee.bos.ctrl.swing.KDTextArea();
@@ -320,7 +335,6 @@ public abstract class AbstractMarketSupplierStockEditUI extends com.kingdee.eas.
         this.contsysSupplier.setName("contsysSupplier");
         this.contAuditor.setName("contAuditor");
         this.contauditDate.setName("contauditDate");
-        this.kDPanel5.setName("kDPanel5");
         this.contLevel.setName("contLevel");
         this.kDContainer3.setName("kDContainer3");
         this.contSupplierFileType.setName("contSupplierFileType");
@@ -329,6 +343,7 @@ public abstract class AbstractMarketSupplierStockEditUI extends com.kingdee.eas.
         this.contSupplierSplAreaEntry.setName("contSupplierSplAreaEntry");
         this.contSupplierBusinessMode.setName("contSupplierBusinessMode");
         this.contServiceType.setName("contServiceType");
+        this.kDTabbedPane2.setName("kDTabbedPane2");
         this.contNumber.setName("contNumber");
         this.contsupplierName.setName("contsupplierName");
         this.contPurchaseOrgUnit.setName("contPurchaseOrgUnit");
@@ -344,6 +359,7 @@ public abstract class AbstractMarketSupplierStockEditUI extends com.kingdee.eas.
         this.contRecommended.setName("contRecommended");
         this.contserverfees.setName("contserverfees");
         this.contState.setName("contState");
+        this.contEvatemp.setName("contEvatemp");
         this.txtNumber.setName("txtNumber");
         this.txtsupplierName.setName("txtsupplierName");
         this.prmtPurchaseOrgUnit.setName("prmtPurchaseOrgUnit");
@@ -359,6 +375,7 @@ public abstract class AbstractMarketSupplierStockEditUI extends com.kingdee.eas.
         this.txtRecommended.setName("txtRecommended");
         this.txtserverfees.setName("txtserverfees");
         this.State.setName("State");
+        this.prmtEvatemp.setName("prmtEvatemp");
         this.prmtLastUpdateUser.setName("prmtLastUpdateUser");
         this.prmtCreator.setName("prmtCreator");
         this.kDDateLastUpdateTime.setName("kDDateLastUpdateTime");
@@ -366,6 +383,17 @@ public abstract class AbstractMarketSupplierStockEditUI extends com.kingdee.eas.
         this.prmtsysSupplier.setName("prmtsysSupplier");
         this.prmtAuditor.setName("prmtAuditor");
         this.pkauditDate.setName("pkauditDate");
+        this.prmtLevel.setName("prmtLevel");
+        this.kdtEntrys.setName("kdtEntrys");
+        this.prmtSupplierFileType.setName("prmtSupplierFileType");
+        this.prmtVisibility.setName("prmtVisibility");
+        this.prmtQuaLevel.setName("prmtQuaLevel");
+        this.prmtSupplierSplAreaEntry.setName("prmtSupplierSplAreaEntry");
+        this.prmtSupplierBusinessMode.setName("prmtSupplierBusinessMode");
+        this.prmtServiceType.setName("prmtServiceType");
+        this.kDPanel6.setName("kDPanel6");
+        this.kDPanel7.setName("kDPanel7");
+        this.kDPanel5.setName("kDPanel5");
         this.contPeopleCount.setName("contPeopleCount");
         this.contProvince.setName("contProvince");
         this.contCity.setName("contCity");
@@ -390,39 +418,33 @@ public abstract class AbstractMarketSupplierStockEditUI extends com.kingdee.eas.
         this.scrollPanemarketRemake.setName("scrollPanemarketRemake");
         this.txtmarketRemake.setName("txtmarketRemake");
         this.kdtEntryPerson.setName("kdtEntryPerson");
-        this.prmtLevel.setName("prmtLevel");
-        this.kdtEntrys.setName("kdtEntrys");
-        this.prmtSupplierFileType.setName("prmtSupplierFileType");
-        this.prmtVisibility.setName("prmtVisibility");
-        this.prmtQuaLevel.setName("prmtQuaLevel");
-        this.prmtSupplierSplAreaEntry.setName("prmtSupplierSplAreaEntry");
-        this.prmtSupplierBusinessMode.setName("prmtSupplierBusinessMode");
-        this.prmtServiceType.setName("prmtServiceType");
+        this.kDContainer6.setName("kDContainer6");
+        this.kdtE4.setName("kdtE4");
         this.contPunish.setName("contPunish");
         this.scrollPanePunish.setName("scrollPanePunish");
         this.txtPunish.setName("txtPunish");
         // CoreUI		
+        this.btnTraceUp.setVisible(false);		
+        this.btnTraceDown.setVisible(false);		
+        this.btnCreateTo.setVisible(true);		
         this.btnAddLine.setVisible(false);		
         this.btnCopyLine.setVisible(false);		
         this.btnInsertLine.setVisible(false);		
         this.btnRemoveLine.setVisible(false);		
-        this.btnTraceUp.setVisible(false);		
-        this.btnTraceDown.setVisible(false);		
         this.btnAuditResult.setVisible(false);		
         this.separator1.setVisible(false);		
+        this.menuItemCreateTo.setVisible(true);		
         this.separator3.setVisible(false);		
         this.menuItemTraceUp.setVisible(false);		
         this.menuItemTraceDown.setVisible(false);		
-        this.menuItemViewSubmitProccess.setVisible(false);		
-        this.menuItemViewDoProccess.setVisible(false);		
-        this.menuItemAuditResult.setVisible(false);		
         this.menuTable1.setVisible(false);		
         this.menuItemAddLine.setVisible(false);		
+        this.menuItemCopyLine.setVisible(false);		
         this.menuItemInsertLine.setVisible(false);		
         this.menuItemRemoveLine.setVisible(false);		
-        this.btnCreateTo.setVisible(true);		
-        this.menuItemCreateTo.setVisible(true);		
-        this.menuItemCopyLine.setVisible(false);
+        this.menuItemViewSubmitProccess.setVisible(false);		
+        this.menuItemViewDoProccess.setVisible(false);		
+        this.menuItemAuditResult.setVisible(false);
         // contDescription		
         this.contDescription.setBoundLabelText(resHelper.getString("contDescription.boundLabelText"));		
         this.contDescription.setBoundLabelLength(100);		
@@ -474,8 +496,6 @@ public abstract class AbstractMarketSupplierStockEditUI extends com.kingdee.eas.
         this.contauditDate.setBoundLabelLength(100);		
         this.contauditDate.setBoundLabelUnderline(true);		
         this.contauditDate.setVisible(true);
-        // kDPanel5		
-        this.kDPanel5.setBorder(new TitledBorder(BorderFactory.createEtchedBorder(new Color(255,255,255),new Color(148,145,140)), resHelper.getString("kDPanel5.border.title")));
         // contLevel		
         this.contLevel.setBoundLabelText(resHelper.getString("contLevel.boundLabelText"));		
         this.contLevel.setBoundLabelLength(100);		
@@ -515,6 +535,7 @@ public abstract class AbstractMarketSupplierStockEditUI extends com.kingdee.eas.
         this.contServiceType.setBoundLabelLength(100);		
         this.contServiceType.setBoundLabelUnderline(true);		
         this.contServiceType.setVisible(false);
+        // kDTabbedPane2
         // contNumber		
         this.contNumber.setBoundLabelText(resHelper.getString("contNumber.boundLabelText"));		
         this.contNumber.setBoundLabelLength(100);		
@@ -589,6 +610,11 @@ public abstract class AbstractMarketSupplierStockEditUI extends com.kingdee.eas.
         this.contState.setBoundLabelLength(100);		
         this.contState.setBoundLabelUnderline(true);		
         this.contState.setVisible(true);
+        // contEvatemp		
+        this.contEvatemp.setBoundLabelText(resHelper.getString("contEvatemp.boundLabelText"));		
+        this.contEvatemp.setBoundLabelLength(100);		
+        this.contEvatemp.setBoundLabelUnderline(true);		
+        this.contEvatemp.setVisible(true);
         // txtNumber		
         this.txtNumber.setMaxLength(80);
         // txtsupplierName		
@@ -672,6 +698,41 @@ public abstract class AbstractMarketSupplierStockEditUI extends com.kingdee.eas.
         this.State.setVisible(true);		
         this.State.addItems(EnumUtils.getEnumList("com.kingdee.eas.port.markesupplier.subase.SupplierState").toArray());		
         this.State.setRequired(false);
+        // prmtEvatemp		
+        this.prmtEvatemp.setQueryInfo("com.kingdee.eas.port.pm.base.app.EvaluationTemplateQuery");		
+        this.prmtEvatemp.setVisible(true);		
+        this.prmtEvatemp.setEditable(true);		
+        this.prmtEvatemp.setDisplayFormat("$templateName$");		
+        this.prmtEvatemp.setEditFormat("$number$");		
+        this.prmtEvatemp.setCommitFormat("$number$");		
+        this.prmtEvatemp.setRequired(false);
+        		prmtEvatemp.addSelectorListener(new SelectorListener() {
+			com.kingdee.eas.port.pm.base.client.EvaluationTemplateListUI prmtEvatemp_F7ListUI = null;
+			public void willShow(SelectorEvent e) {
+				if (prmtEvatemp_F7ListUI == null) {
+					try {
+						prmtEvatemp_F7ListUI = new com.kingdee.eas.port.pm.base.client.EvaluationTemplateListUI();
+					} catch (Exception e1) {
+						e1.printStackTrace();
+					}
+					HashMap ctx = new HashMap();
+					ctx.put("bizUIOwner",javax.swing.SwingUtilities.getWindowAncestor(prmtEvatemp_F7ListUI));
+					prmtEvatemp_F7ListUI.setF7Use(true,ctx);
+					prmtEvatemp.setSelector(prmtEvatemp_F7ListUI);
+				}
+			}
+		});
+					
+        this.prmtEvatemp.addDataChangeListener(new com.kingdee.bos.ctrl.swing.event.DataChangeListener() {
+            public void dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) {
+                try {
+                    prmtEvatemp_dataChanged(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                }
+            }
+        });
         // prmtLastUpdateUser		
         this.prmtLastUpdateUser.setEnabled(false);
         // prmtCreator		
@@ -695,6 +756,99 @@ public abstract class AbstractMarketSupplierStockEditUI extends com.kingdee.eas.
         // pkauditDate		
         this.pkauditDate.setVisible(true);		
         this.pkauditDate.setRequired(false);
+        // prmtLevel		
+        this.prmtLevel.setQueryInfo("com.kingdee.eas.port.markesupplier.subase.app.MarketLevelSetUpQuery");		
+        this.prmtLevel.setVisible(false);		
+        this.prmtLevel.setEditable(true);		
+        this.prmtLevel.setDisplayFormat("$name$");		
+        this.prmtLevel.setEditFormat("$number$");		
+        this.prmtLevel.setCommitFormat("$number$");		
+        this.prmtLevel.setRequired(false);
+        // kdtEntrys
+		String kdtEntrysStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol3\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"id\" t:width=\"1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"typeNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"typeName\" t:width=\"150\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"peopleSum\" t:width=\"60\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol3\" /><t:Column t:key=\"remake\" t:width=\"120\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{typeNumber}</t:Cell><t:Cell>$Resource{typeName}</t:Cell><t:Cell>$Resource{peopleSum}</t:Cell><t:Cell>$Resource{remake}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		
+        this.kdtEntrys.setFormatXml(resHelper.translateString("kdtEntrys",kdtEntrysStrXML));
+
+                this.kdtEntrys.putBindContents("editData",new String[] {"id","typeNumber","typeName","peopleSum","remake"});
+
+
+        this.kdtEntrys.checkParsed();
+        KDTextField kdtEntrys_typeNumber_TextField = new KDTextField();
+        kdtEntrys_typeNumber_TextField.setName("kdtEntrys_typeNumber_TextField");
+        kdtEntrys_typeNumber_TextField.setMaxLength(100);
+        KDTDefaultCellEditor kdtEntrys_typeNumber_CellEditor = new KDTDefaultCellEditor(kdtEntrys_typeNumber_TextField);
+        this.kdtEntrys.getColumn("typeNumber").setEditor(kdtEntrys_typeNumber_CellEditor);
+        KDTextField kdtEntrys_typeName_TextField = new KDTextField();
+        kdtEntrys_typeName_TextField.setName("kdtEntrys_typeName_TextField");
+        kdtEntrys_typeName_TextField.setMaxLength(100);
+        KDTDefaultCellEditor kdtEntrys_typeName_CellEditor = new KDTDefaultCellEditor(kdtEntrys_typeName_TextField);
+        this.kdtEntrys.getColumn("typeName").setEditor(kdtEntrys_typeName_CellEditor);
+        KDFormattedTextField kdtEntrys_peopleSum_TextField = new KDFormattedTextField();
+        kdtEntrys_peopleSum_TextField.setName("kdtEntrys_peopleSum_TextField");
+        kdtEntrys_peopleSum_TextField.setVisible(true);
+        kdtEntrys_peopleSum_TextField.setEditable(true);
+        kdtEntrys_peopleSum_TextField.setHorizontalAlignment(2);
+        kdtEntrys_peopleSum_TextField.setDataType(0);
+        KDTDefaultCellEditor kdtEntrys_peopleSum_CellEditor = new KDTDefaultCellEditor(kdtEntrys_peopleSum_TextField);
+        this.kdtEntrys.getColumn("peopleSum").setEditor(kdtEntrys_peopleSum_CellEditor);
+        KDTextArea kdtEntrys_remake_TextArea = new KDTextArea();
+        kdtEntrys_remake_TextArea.setName("kdtEntrys_remake_TextArea");
+        kdtEntrys_remake_TextArea.setMaxLength(255);
+        KDTDefaultCellEditor kdtEntrys_remake_CellEditor = new KDTDefaultCellEditor(kdtEntrys_remake_TextArea);
+        this.kdtEntrys.getColumn("remake").setEditor(kdtEntrys_remake_CellEditor);
+        // prmtSupplierFileType		
+        this.prmtSupplierFileType.setQueryInfo("com.kingdee.eas.port.markesupplier.subase.app.MarketSupplierFileTypQuery");		
+        this.prmtSupplierFileType.setVisible(true);		
+        this.prmtSupplierFileType.setEditable(true);		
+        this.prmtSupplierFileType.setDisplayFormat("$name$");		
+        this.prmtSupplierFileType.setEditFormat("$number$");		
+        this.prmtSupplierFileType.setCommitFormat("$number$");		
+        this.prmtSupplierFileType.setRequired(false);
+        // prmtVisibility		
+        this.prmtVisibility.setQueryInfo("com.kingdee.eas.port.markesupplier.subase.app.VisibilityQuery");		
+        this.prmtVisibility.setVisible(true);		
+        this.prmtVisibility.setEditable(true);		
+        this.prmtVisibility.setDisplayFormat("$name$");		
+        this.prmtVisibility.setEditFormat("$number$");		
+        this.prmtVisibility.setCommitFormat("$number$");		
+        this.prmtVisibility.setRequired(false);
+        // prmtQuaLevel		
+        this.prmtQuaLevel.setQueryInfo("com.kingdee.eas.port.markesupplier.subase.app.MarktQuaLevelQuery");		
+        this.prmtQuaLevel.setVisible(true);		
+        this.prmtQuaLevel.setEditable(true);		
+        this.prmtQuaLevel.setDisplayFormat("$name$");		
+        this.prmtQuaLevel.setEditFormat("$number$");		
+        this.prmtQuaLevel.setCommitFormat("$number$");		
+        this.prmtQuaLevel.setRequired(false);
+        // prmtSupplierSplAreaEntry		
+        this.prmtSupplierSplAreaEntry.setQueryInfo("com.kingdee.eas.port.markesupplier.subase.app.MarketSplAreaQuery");		
+        this.prmtSupplierSplAreaEntry.setVisible(true);		
+        this.prmtSupplierSplAreaEntry.setEditable(true);		
+        this.prmtSupplierSplAreaEntry.setDisplayFormat("$name$");		
+        this.prmtSupplierSplAreaEntry.setEditFormat("$number$");		
+        this.prmtSupplierSplAreaEntry.setCommitFormat("$number$");		
+        this.prmtSupplierSplAreaEntry.setRequired(false);
+        // prmtSupplierBusinessMode		
+        this.prmtSupplierBusinessMode.setQueryInfo("com.kingdee.eas.port.markesupplier.subase.app.MarketSupplierBusinessModeQuery");		
+        this.prmtSupplierBusinessMode.setVisible(true);		
+        this.prmtSupplierBusinessMode.setEditable(true);		
+        this.prmtSupplierBusinessMode.setDisplayFormat("$name$");		
+        this.prmtSupplierBusinessMode.setEditFormat("$number$");		
+        this.prmtSupplierBusinessMode.setCommitFormat("$number$");		
+        this.prmtSupplierBusinessMode.setRequired(false);
+        // prmtServiceType		
+        this.prmtServiceType.setQueryInfo("com.kingdee.eas.port.markesupplier.subase.app.MarketSplServiceTypeQuery");		
+        this.prmtServiceType.setVisible(true);		
+        this.prmtServiceType.setEditable(true);		
+        this.prmtServiceType.setDisplayFormat("$name$");		
+        this.prmtServiceType.setEditFormat("$number$");		
+        this.prmtServiceType.setCommitFormat("$number$");		
+        this.prmtServiceType.setRequired(false);
+        // kDPanel6		
+        this.kDPanel6.setToolTipText(resHelper.getString("kDPanel6.toolTipText"));
+        // kDPanel7
+        // kDPanel5		
+        this.kDPanel5.setBorder(new TitledBorder(BorderFactory.createEtchedBorder(new Color(255,255,255),new Color(148,145,140)), resHelper.getString("kDPanel5.border.title")));
         // contPeopleCount		
         this.contPeopleCount.setBoundLabelText(resHelper.getString("contPeopleCount.boundLabelText"));		
         this.contPeopleCount.setBoundLabelLength(100);		
@@ -867,94 +1021,32 @@ public abstract class AbstractMarketSupplierStockEditUI extends com.kingdee.eas.
         kdtEntryPerson_contact_TextField.setMaxLength(100);
         KDTDefaultCellEditor kdtEntryPerson_contact_CellEditor = new KDTDefaultCellEditor(kdtEntryPerson_contact_TextField);
         this.kdtEntryPerson.getColumn("contact").setEditor(kdtEntryPerson_contact_CellEditor);
-        // prmtLevel		
-        this.prmtLevel.setQueryInfo("com.kingdee.eas.port.markesupplier.subase.app.MarketLevelSetUpQuery");		
-        this.prmtLevel.setVisible(false);		
-        this.prmtLevel.setEditable(true);		
-        this.prmtLevel.setDisplayFormat("$name$");		
-        this.prmtLevel.setEditFormat("$number$");		
-        this.prmtLevel.setCommitFormat("$number$");		
-        this.prmtLevel.setRequired(false);
-        // kdtEntrys
-		String kdtEntrysStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol3\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"id\" t:width=\"1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"typeNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"typeName\" t:width=\"150\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"peopleSum\" t:width=\"60\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol3\" /><t:Column t:key=\"remake\" t:width=\"120\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{typeNumber}</t:Cell><t:Cell>$Resource{typeName}</t:Cell><t:Cell>$Resource{peopleSum}</t:Cell><t:Cell>$Resource{remake}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+        // kDContainer6		
+        this.kDContainer6.setEnableActive(false);		
+        this.kDContainer6.setTitle(resHelper.getString("kDContainer6.title"));
+        // kdtE4
+		String kdtE4StrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /><c:NumberFormat>&amp;int</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"0\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"EvaluationIndex\" t:width=\"250\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Description\" t:width=\"400\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"isQualified\" t:width=\"80\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{EvaluationIndex}</t:Cell><t:Cell>$Resource{Description}</t:Cell><t:Cell>$Resource{isQualified}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
-        this.kdtEntrys.setFormatXml(resHelper.translateString("kdtEntrys",kdtEntrysStrXML));
+        this.kdtE4.setFormatXml(resHelper.translateString("kdtE4",kdtE4StrXML));
 
-                this.kdtEntrys.putBindContents("editData",new String[] {"id","typeNumber","typeName","peopleSum","remake"});
+                this.kdtE4.putBindContents("editData",new String[] {"seq","EvaluationIndex","Description","isQualified"});
 
 
-        this.kdtEntrys.checkParsed();
-        KDTextField kdtEntrys_typeNumber_TextField = new KDTextField();
-        kdtEntrys_typeNumber_TextField.setName("kdtEntrys_typeNumber_TextField");
-        kdtEntrys_typeNumber_TextField.setMaxLength(100);
-        KDTDefaultCellEditor kdtEntrys_typeNumber_CellEditor = new KDTDefaultCellEditor(kdtEntrys_typeNumber_TextField);
-        this.kdtEntrys.getColumn("typeNumber").setEditor(kdtEntrys_typeNumber_CellEditor);
-        KDTextField kdtEntrys_typeName_TextField = new KDTextField();
-        kdtEntrys_typeName_TextField.setName("kdtEntrys_typeName_TextField");
-        kdtEntrys_typeName_TextField.setMaxLength(100);
-        KDTDefaultCellEditor kdtEntrys_typeName_CellEditor = new KDTDefaultCellEditor(kdtEntrys_typeName_TextField);
-        this.kdtEntrys.getColumn("typeName").setEditor(kdtEntrys_typeName_CellEditor);
-        KDFormattedTextField kdtEntrys_peopleSum_TextField = new KDFormattedTextField();
-        kdtEntrys_peopleSum_TextField.setName("kdtEntrys_peopleSum_TextField");
-        kdtEntrys_peopleSum_TextField.setVisible(true);
-        kdtEntrys_peopleSum_TextField.setEditable(true);
-        kdtEntrys_peopleSum_TextField.setHorizontalAlignment(2);
-        kdtEntrys_peopleSum_TextField.setDataType(0);
-        KDTDefaultCellEditor kdtEntrys_peopleSum_CellEditor = new KDTDefaultCellEditor(kdtEntrys_peopleSum_TextField);
-        this.kdtEntrys.getColumn("peopleSum").setEditor(kdtEntrys_peopleSum_CellEditor);
-        KDTextArea kdtEntrys_remake_TextArea = new KDTextArea();
-        kdtEntrys_remake_TextArea.setName("kdtEntrys_remake_TextArea");
-        kdtEntrys_remake_TextArea.setMaxLength(255);
-        KDTDefaultCellEditor kdtEntrys_remake_CellEditor = new KDTDefaultCellEditor(kdtEntrys_remake_TextArea);
-        this.kdtEntrys.getColumn("remake").setEditor(kdtEntrys_remake_CellEditor);
-        // prmtSupplierFileType		
-        this.prmtSupplierFileType.setQueryInfo("com.kingdee.eas.port.markesupplier.subase.app.MarketSupplierFileTypQuery");		
-        this.prmtSupplierFileType.setVisible(true);		
-        this.prmtSupplierFileType.setEditable(true);		
-        this.prmtSupplierFileType.setDisplayFormat("$name$");		
-        this.prmtSupplierFileType.setEditFormat("$number$");		
-        this.prmtSupplierFileType.setCommitFormat("$number$");		
-        this.prmtSupplierFileType.setRequired(false);
-        // prmtVisibility		
-        this.prmtVisibility.setQueryInfo("com.kingdee.eas.port.markesupplier.subase.app.VisibilityQuery");		
-        this.prmtVisibility.setVisible(true);		
-        this.prmtVisibility.setEditable(true);		
-        this.prmtVisibility.setDisplayFormat("$name$");		
-        this.prmtVisibility.setEditFormat("$number$");		
-        this.prmtVisibility.setCommitFormat("$number$");		
-        this.prmtVisibility.setRequired(false);
-        // prmtQuaLevel		
-        this.prmtQuaLevel.setQueryInfo("com.kingdee.eas.port.markesupplier.subase.app.MarktQuaLevelQuery");		
-        this.prmtQuaLevel.setVisible(true);		
-        this.prmtQuaLevel.setEditable(true);		
-        this.prmtQuaLevel.setDisplayFormat("$name$");		
-        this.prmtQuaLevel.setEditFormat("$number$");		
-        this.prmtQuaLevel.setCommitFormat("$number$");		
-        this.prmtQuaLevel.setRequired(false);
-        // prmtSupplierSplAreaEntry		
-        this.prmtSupplierSplAreaEntry.setQueryInfo("com.kingdee.eas.port.markesupplier.subase.app.MarketSplAreaQuery");		
-        this.prmtSupplierSplAreaEntry.setVisible(true);		
-        this.prmtSupplierSplAreaEntry.setEditable(true);		
-        this.prmtSupplierSplAreaEntry.setDisplayFormat("$name$");		
-        this.prmtSupplierSplAreaEntry.setEditFormat("$number$");		
-        this.prmtSupplierSplAreaEntry.setCommitFormat("$number$");		
-        this.prmtSupplierSplAreaEntry.setRequired(false);
-        // prmtSupplierBusinessMode		
-        this.prmtSupplierBusinessMode.setQueryInfo("com.kingdee.eas.port.markesupplier.subase.app.MarketSupplierBusinessModeQuery");		
-        this.prmtSupplierBusinessMode.setVisible(true);		
-        this.prmtSupplierBusinessMode.setEditable(true);		
-        this.prmtSupplierBusinessMode.setDisplayFormat("$name$");		
-        this.prmtSupplierBusinessMode.setEditFormat("$number$");		
-        this.prmtSupplierBusinessMode.setCommitFormat("$number$");		
-        this.prmtSupplierBusinessMode.setRequired(false);
-        // prmtServiceType		
-        this.prmtServiceType.setQueryInfo("com.kingdee.eas.port.markesupplier.subase.app.MarketSplServiceTypeQuery");		
-        this.prmtServiceType.setVisible(true);		
-        this.prmtServiceType.setEditable(true);		
-        this.prmtServiceType.setDisplayFormat("$name$");		
-        this.prmtServiceType.setEditFormat("$number$");		
-        this.prmtServiceType.setCommitFormat("$number$");		
-        this.prmtServiceType.setRequired(false);
+        this.kdtE4.checkParsed();
+        KDTextField kdtE4_EvaluationIndex_TextField = new KDTextField();
+        kdtE4_EvaluationIndex_TextField.setName("kdtE4_EvaluationIndex_TextField");
+        kdtE4_EvaluationIndex_TextField.setMaxLength(100);
+        KDTDefaultCellEditor kdtE4_EvaluationIndex_CellEditor = new KDTDefaultCellEditor(kdtE4_EvaluationIndex_TextField);
+        this.kdtE4.getColumn("EvaluationIndex").setEditor(kdtE4_EvaluationIndex_CellEditor);
+        KDTextArea kdtE4_Description_TextArea = new KDTextArea();
+        kdtE4_Description_TextArea.setName("kdtE4_Description_TextArea");
+        kdtE4_Description_TextArea.setMaxLength(255);
+        KDTDefaultCellEditor kdtE4_Description_CellEditor = new KDTDefaultCellEditor(kdtE4_Description_TextArea);
+        this.kdtE4.getColumn("Description").setEditor(kdtE4_Description_CellEditor);
+        KDCheckBox kdtE4_isQualified_CheckBox = new KDCheckBox();
+        kdtE4_isQualified_CheckBox.setName("kdtE4_isQualified_CheckBox");
+        KDTDefaultCellEditor kdtE4_isQualified_CellEditor = new KDTDefaultCellEditor(kdtE4_isQualified_CheckBox);
+        this.kdtE4.getColumn("isQualified").setEditor(kdtE4_isQualified_CellEditor);
         // contPunish		
         this.contPunish.setBoundLabelText(resHelper.getString("contPunish.boundLabelText"));		
         this.contPunish.setBoundLabelLength(0);		
@@ -994,8 +1086,8 @@ public abstract class AbstractMarketSupplierStockEditUI extends com.kingdee.eas.
         this.putClientProperty("OriginalBounds", new Rectangle(0, 0, 1013, 768));
         contDescription.setBounds(new Rectangle(965, 214, 270, 19));
         this.add(contDescription, new KDLayout.Constraints(965, 214, 270, 19, 0));
-        kDTabbedPane1.setBounds(new Rectangle(4, 5, 1006, 755));
-        this.add(kDTabbedPane1, new KDLayout.Constraints(4, 5, 1006, 755, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        kDTabbedPane1.setBounds(new Rectangle(4, 2, 1006, 764));
+        this.add(kDTabbedPane1, new KDLayout.Constraints(4, 2, 1006, 764, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         kDContainer1.setBounds(new Rectangle(6, 957, 134, 43));
         this.add(kDContainer1, new KDLayout.Constraints(6, 957, 134, 43, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         //contDescription
@@ -1007,24 +1099,22 @@ public abstract class AbstractMarketSupplierStockEditUI extends com.kingdee.eas.
 kDPanel1.setLayout(new BorderLayout(0, 0));        kDPanel1.add(kDPanel4, BorderLayout.CENTER);
         //kDPanel4
         kDPanel4.setLayout(new KDLayout());
-        kDPanel4.putClientProperty("OriginalBounds", new Rectangle(0, 0, 1005, 722));        kDPanel3.setBounds(new Rectangle(3, 3, 991, 179));
+        kDPanel4.putClientProperty("OriginalBounds", new Rectangle(0, 0, 1005, 731));        kDPanel3.setBounds(new Rectangle(3, 3, 991, 179));
         kDPanel4.add(kDPanel3, new KDLayout.Constraints(3, 3, 991, 179, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        contLastUpdateUser.setBounds(new Rectangle(365, 556, 270, 19));
-        kDPanel4.add(contLastUpdateUser, new KDLayout.Constraints(365, 556, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contCreator.setBounds(new Rectangle(365, 531, 270, 19));
-        kDPanel4.add(contCreator, new KDLayout.Constraints(365, 531, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contLastUpdateTime.setBounds(new Rectangle(724, 556, 270, 19));
-        kDPanel4.add(contLastUpdateTime, new KDLayout.Constraints(724, 556, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contCreateTime.setBounds(new Rectangle(724, 531, 270, 19));
-        kDPanel4.add(contCreateTime, new KDLayout.Constraints(724, 531, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contLastUpdateUser.setBounds(new Rectangle(365, 542, 270, 19));
+        kDPanel4.add(contLastUpdateUser, new KDLayout.Constraints(365, 542, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contCreator.setBounds(new Rectangle(365, 517, 270, 19));
+        kDPanel4.add(contCreator, new KDLayout.Constraints(365, 517, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contLastUpdateTime.setBounds(new Rectangle(724, 542, 270, 19));
+        kDPanel4.add(contLastUpdateTime, new KDLayout.Constraints(724, 542, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contCreateTime.setBounds(new Rectangle(724, 517, 270, 19));
+        kDPanel4.add(contCreateTime, new KDLayout.Constraints(724, 517, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contsysSupplier.setBounds(new Rectangle(366, 726, 270, 19));
         kDPanel4.add(contsysSupplier, new KDLayout.Constraints(366, 726, 270, 19, 0));
-        contAuditor.setBounds(new Rectangle(6, 531, 270, 19));
-        kDPanel4.add(contAuditor, new KDLayout.Constraints(6, 531, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contauditDate.setBounds(new Rectangle(6, 556, 270, 19));
-        kDPanel4.add(contauditDate, new KDLayout.Constraints(6, 556, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        kDPanel5.setBounds(new Rectangle(2, 184, 991, 344));
-        kDPanel4.add(kDPanel5, new KDLayout.Constraints(2, 184, 991, 344, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        contAuditor.setBounds(new Rectangle(6, 517, 270, 19));
+        kDPanel4.add(contAuditor, new KDLayout.Constraints(6, 517, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contauditDate.setBounds(new Rectangle(6, 542, 270, 19));
+        kDPanel4.add(contauditDate, new KDLayout.Constraints(6, 542, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contLevel.setBounds(new Rectangle(10, 725, 270, 19));
         kDPanel4.add(contLevel, new KDLayout.Constraints(10, 725, 270, 19, 0));
         kDContainer3.setBounds(new Rectangle(863, 683, 101, 36));
@@ -1041,6 +1131,8 @@ kDPanel1.setLayout(new BorderLayout(0, 0));        kDPanel1.add(kDPanel4, Border
         kDPanel4.add(contSupplierBusinessMode, new KDLayout.Constraints(25, 675, 270, 19, 0));
         contServiceType.setBounds(new Rectangle(581, 676, 270, 19));
         kDPanel4.add(contServiceType, new KDLayout.Constraints(581, 676, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDTabbedPane2.setBounds(new Rectangle(3, 184, 991, 328));
+        kDPanel4.add(kDTabbedPane2, new KDLayout.Constraints(3, 184, 991, 328, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         //kDPanel3
         kDPanel3.setLayout(new KDLayout());
         kDPanel3.putClientProperty("OriginalBounds", new Rectangle(3, 3, 991, 179));        contNumber.setBounds(new Rectangle(14, 15, 270, 19));
@@ -1050,7 +1142,7 @@ kDPanel1.setLayout(new BorderLayout(0, 0));        kDPanel1.add(kDPanel4, Border
         contPurchaseOrgUnit.setBounds(new Rectangle(704, 40, 270, 19));
         kDPanel3.add(contPurchaseOrgUnit, new KDLayout.Constraints(704, 40, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contAddress.setBounds(new Rectangle(355, 89, 270, 19));
-        kDPanel3.add(contAddress, new KDLayout.Constraints(355, 89, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        kDPanel3.add(contAddress, new KDLayout.Constraints(355, 89, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contInviteType.setBounds(new Rectangle(704, 15, 270, 19));
         kDPanel3.add(contInviteType, new KDLayout.Constraints(704, 15, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contEnterpriseMaster.setBounds(new Rectangle(14, 40, 270, 19));
@@ -1073,6 +1165,8 @@ kDPanel1.setLayout(new BorderLayout(0, 0));        kDPanel1.add(kDPanel4, Border
         kDPanel3.add(contserverfees, new KDLayout.Constraints(14, 117, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contState.setBounds(new Rectangle(704, 89, 270, 19));
         kDPanel3.add(contState, new KDLayout.Constraints(704, 89, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contEvatemp.setBounds(new Rectangle(704, 117, 270, 19));
+        kDPanel3.add(contEvatemp, new KDLayout.Constraints(704, 117, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         //contNumber
         contNumber.setBoundEditor(txtNumber);
         //contsupplierName
@@ -1103,6 +1197,8 @@ kDPanel1.setLayout(new BorderLayout(0, 0));        kDPanel1.add(kDPanel4, Border
         contserverfees.setBoundEditor(txtserverfees);
         //contState
         contState.setBoundEditor(State);
+        //contEvatemp
+        contEvatemp.setBoundEditor(prmtEvatemp);
         //contLastUpdateUser
         contLastUpdateUser.setBoundEditor(prmtLastUpdateUser);
         //contCreator
@@ -1117,9 +1213,33 @@ kDPanel1.setLayout(new BorderLayout(0, 0));        kDPanel1.add(kDPanel4, Border
         contAuditor.setBoundEditor(prmtAuditor);
         //contauditDate
         contauditDate.setBoundEditor(pkauditDate);
+        //contLevel
+        contLevel.setBoundEditor(prmtLevel);
+        //kDContainer3
+kDContainer3.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntrys_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtEntrys,new com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockEntryInfo(),null,false);
+        kDContainer3.getContentPane().add(kdtEntrys_detailPanel, BorderLayout.NORTH);
+        //contSupplierFileType
+        contSupplierFileType.setBoundEditor(prmtSupplierFileType);
+        //contVisibility
+        contVisibility.setBoundEditor(prmtVisibility);
+        //contQuaLevel
+        contQuaLevel.setBoundEditor(prmtQuaLevel);
+        //contSupplierSplAreaEntry
+        contSupplierSplAreaEntry.setBoundEditor(prmtSupplierSplAreaEntry);
+        //contSupplierBusinessMode
+        contSupplierBusinessMode.setBoundEditor(prmtSupplierBusinessMode);
+        //contServiceType
+        contServiceType.setBoundEditor(prmtServiceType);
+        //kDTabbedPane2
+        kDTabbedPane2.add(kDPanel6, resHelper.getString("kDPanel6.constraints"));
+        kDTabbedPane2.add(kDPanel7, resHelper.getString("kDPanel7.constraints"));
+        //kDPanel6
+        kDPanel6.setLayout(new KDLayout());
+        kDPanel6.putClientProperty("OriginalBounds", new Rectangle(0, 0, 990, 295));        kDPanel5.setBounds(new Rectangle(0, 0, 985, 313));
+        kDPanel6.add(kDPanel5, new KDLayout.Constraints(0, 0, 985, 313, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         //kDPanel5
         kDPanel5.setLayout(new KDLayout());
-        kDPanel5.putClientProperty("OriginalBounds", new Rectangle(2, 184, 991, 344));        contPeopleCount.setBounds(new Rectangle(365, 61, 270, 19));
+        kDPanel5.putClientProperty("OriginalBounds", new Rectangle(0, 0, 985, 313));        contPeopleCount.setBounds(new Rectangle(365, 61, 270, 19));
         kDPanel5.add(contPeopleCount, new KDLayout.Constraints(365, 61, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contProvince.setBounds(new Rectangle(20, 13, 270, 19));
         kDPanel5.add(contProvince, new KDLayout.Constraints(20, 13, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
@@ -1135,12 +1255,12 @@ kDPanel1.setLayout(new BorderLayout(0, 0));        kDPanel1.add(kDPanel4, Border
         kDPanel5.add(contPostNumber, new KDLayout.Constraints(365, 38, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contLinkMail.setBounds(new Rectangle(20, 61, 270, 19));
         kDPanel5.add(contLinkMail, new KDLayout.Constraints(20, 61, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        kDContainer5.setBounds(new Rectangle(482, 89, 488, 130));
-        kDPanel5.add(kDContainer5, new KDLayout.Constraints(482, 89, 488, 130, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        kDContainer2.setBounds(new Rectangle(15, 89, 457, 133));
-        kDPanel5.add(kDContainer2, new KDLayout.Constraints(15, 89, 457, 133, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        kDContainer4.setBounds(new Rectangle(14, 226, 958, 91));
-        kDPanel5.add(kDContainer4, new KDLayout.Constraints(14, 226, 958, 91, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        kDContainer5.setBounds(new Rectangle(482, 83, 488, 105));
+        kDPanel5.add(kDContainer5, new KDLayout.Constraints(482, 83, 488, 105, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        kDContainer2.setBounds(new Rectangle(15, 83, 457, 108));
+        kDPanel5.add(kDContainer2, new KDLayout.Constraints(15, 83, 457, 108, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDContainer4.setBounds(new Rectangle(14, 193, 958, 94));
+        kDPanel5.add(kDContainer4, new KDLayout.Constraints(14, 193, 958, 94, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         //contPeopleCount
         contPeopleCount.setBoundEditor(txtPeopleCount);
         //contProvince
@@ -1169,25 +1289,13 @@ kDContainer2.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
         //kDContainer4
 kDContainer4.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntryPerson_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtEntryPerson,new com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockEntryPersonInfo(),null,false);
         kDContainer4.getContentPane().add(kdtEntryPerson_detailPanel, BorderLayout.CENTER);
-        //contLevel
-        contLevel.setBoundEditor(prmtLevel);
-        //kDContainer3
-kDContainer3.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntrys_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtEntrys,new com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockEntryInfo(),null,false);
-        kDContainer3.getContentPane().add(kdtEntrys_detailPanel, BorderLayout.NORTH);
-        //contSupplierFileType
-        contSupplierFileType.setBoundEditor(prmtSupplierFileType);
-        //contVisibility
-        contVisibility.setBoundEditor(prmtVisibility);
-        //contQuaLevel
-        contQuaLevel.setBoundEditor(prmtQuaLevel);
-        //contSupplierSplAreaEntry
-        contSupplierSplAreaEntry.setBoundEditor(prmtSupplierSplAreaEntry);
-        //contSupplierBusinessMode
-        contSupplierBusinessMode.setBoundEditor(prmtSupplierBusinessMode);
-        //contServiceType
-        contServiceType.setBoundEditor(prmtServiceType);
+        //kDPanel7
+kDPanel7.setLayout(new BorderLayout(0, 0));        kDPanel7.add(kDContainer6, BorderLayout.CENTER);
+        //kDContainer6
+kDContainer6.getContentPane().setLayout(new BorderLayout(0, 0));        kdtE4_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtE4,new com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockE4Info(),null,false);
+        kDContainer6.getContentPane().add(kdtE4_detailPanel, BorderLayout.CENTER);
         kDPanel2.setLayout(new KDLayout());
-        kDPanel2.putClientProperty("OriginalBounds", new Rectangle(0, 0, 1005, 722));        //kDContainer1
+        kDPanel2.putClientProperty("OriginalBounds", new Rectangle(0, 0, 1005, 731));        //kDContainer1
 kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContainer1.getContentPane().add(contPunish, BorderLayout.CENTER);
         //contPunish
         contPunish.setBoundEditor(scrollPanePunish);
@@ -1313,8 +1421,9 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
         this.toolBar.add(btnAddNew);
         this.toolBar.add(btnCloud);
         this.toolBar.add(btnEdit);
-        this.toolBar.add(kDSeparatorCloud);
+        this.toolBar.add(btnXunTong);
         this.toolBar.add(btnSave);
+        this.toolBar.add(kDSeparatorCloud);
         this.toolBar.add(btnReset);
         this.toolBar.add(btnSubmit);
         this.toolBar.add(btnCopy);
@@ -1380,6 +1489,7 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
 		dataBinder.registerBinding("Recommended", String.class, this.txtRecommended, "text");
 		dataBinder.registerBinding("serverfees", java.math.BigDecimal.class, this.txtserverfees, "value");
 		dataBinder.registerBinding("State", com.kingdee.eas.port.markesupplier.subase.SupplierState.class, this.State, "selectedItem");
+		dataBinder.registerBinding("Evatemp", com.kingdee.eas.port.pm.base.EvaluationTemplateInfo.class, this.prmtEvatemp, "data");
 		dataBinder.registerBinding("lastUpdateUser", com.kingdee.eas.base.permission.UserInfo.class, this.prmtLastUpdateUser, "data");
 		dataBinder.registerBinding("creator", com.kingdee.eas.base.permission.UserInfo.class, this.prmtCreator, "data");
 		dataBinder.registerBinding("lastUpdateTime", java.sql.Timestamp.class, this.kDDateLastUpdateTime, "value");
@@ -1387,6 +1497,19 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
 		dataBinder.registerBinding("sysSupplier", com.kingdee.eas.basedata.master.cssp.SupplierInfo.class, this.prmtsysSupplier, "data");
 		dataBinder.registerBinding("auditor", com.kingdee.eas.base.permission.UserInfo.class, this.prmtAuditor, "data");
 		dataBinder.registerBinding("auditDate", java.util.Date.class, this.pkauditDate, "value");
+		dataBinder.registerBinding("Level", com.kingdee.eas.port.markesupplier.subase.MarketLevelSetUpInfo.class, this.prmtLevel, "data");
+		dataBinder.registerBinding("entrys.id", com.kingdee.bos.util.BOSUuid.class, this.kdtEntrys, "id.text");
+		dataBinder.registerBinding("entrys", com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockEntryInfo.class, this.kdtEntrys, "userObject");
+		dataBinder.registerBinding("entrys.typeNumber", String.class, this.kdtEntrys, "typeNumber.text");
+		dataBinder.registerBinding("entrys.typeName", String.class, this.kdtEntrys, "typeName.text");
+		dataBinder.registerBinding("entrys.peopleSum", int.class, this.kdtEntrys, "peopleSum.text");
+		dataBinder.registerBinding("entrys.remake", String.class, this.kdtEntrys, "remake.text");
+		dataBinder.registerBinding("SupplierFileType", com.kingdee.eas.port.markesupplier.subase.MarketSupplierFileTypInfo.class, this.prmtSupplierFileType, "data");
+		dataBinder.registerBinding("Visibility", com.kingdee.eas.port.markesupplier.subase.VisibilityInfo.class, this.prmtVisibility, "data");
+		dataBinder.registerBinding("QuaLevel", com.kingdee.eas.port.markesupplier.subase.MarktQuaLevelInfo.class, this.prmtQuaLevel, "data");
+		dataBinder.registerBinding("SupplierSplAreaEntry", com.kingdee.eas.port.markesupplier.subase.MarketSplAreaInfo.class, this.prmtSupplierSplAreaEntry, "data");
+		dataBinder.registerBinding("SupplierBusinessMode", com.kingdee.eas.port.markesupplier.subase.MarketSupplierBusinessModeInfo.class, this.prmtSupplierBusinessMode, "data");
+		dataBinder.registerBinding("ServiceType", com.kingdee.eas.port.markesupplier.subase.MarketSplServiceTypeInfo.class, this.prmtServiceType, "data");
 		dataBinder.registerBinding("PeopleCount", int.class, this.txtPeopleCount, "value");
 		dataBinder.registerBinding("Province", String.class, this.txtProvince, "text");
 		dataBinder.registerBinding("City", String.class, this.txtCity, "text");
@@ -1411,19 +1534,11 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
 		dataBinder.registerBinding("EntryPerson.isDefault", boolean.class, this.kdtEntryPerson, "isDefault.text");
 		dataBinder.registerBinding("EntryPerson.email", String.class, this.kdtEntryPerson, "email.text");
 		dataBinder.registerBinding("EntryPerson.contact", String.class, this.kdtEntryPerson, "contact.text");
-		dataBinder.registerBinding("Level", com.kingdee.eas.port.markesupplier.subase.MarketLevelSetUpInfo.class, this.prmtLevel, "data");
-		dataBinder.registerBinding("entrys.id", com.kingdee.bos.util.BOSUuid.class, this.kdtEntrys, "id.text");
-		dataBinder.registerBinding("entrys", com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockEntryInfo.class, this.kdtEntrys, "userObject");
-		dataBinder.registerBinding("entrys.typeNumber", String.class, this.kdtEntrys, "typeNumber.text");
-		dataBinder.registerBinding("entrys.typeName", String.class, this.kdtEntrys, "typeName.text");
-		dataBinder.registerBinding("entrys.peopleSum", int.class, this.kdtEntrys, "peopleSum.text");
-		dataBinder.registerBinding("entrys.remake", String.class, this.kdtEntrys, "remake.text");
-		dataBinder.registerBinding("SupplierFileType", com.kingdee.eas.port.markesupplier.subase.MarketSupplierFileTypInfo.class, this.prmtSupplierFileType, "data");
-		dataBinder.registerBinding("Visibility", com.kingdee.eas.port.markesupplier.subase.VisibilityInfo.class, this.prmtVisibility, "data");
-		dataBinder.registerBinding("QuaLevel", com.kingdee.eas.port.markesupplier.subase.MarktQuaLevelInfo.class, this.prmtQuaLevel, "data");
-		dataBinder.registerBinding("SupplierSplAreaEntry", com.kingdee.eas.port.markesupplier.subase.MarketSplAreaInfo.class, this.prmtSupplierSplAreaEntry, "data");
-		dataBinder.registerBinding("SupplierBusinessMode", com.kingdee.eas.port.markesupplier.subase.MarketSupplierBusinessModeInfo.class, this.prmtSupplierBusinessMode, "data");
-		dataBinder.registerBinding("ServiceType", com.kingdee.eas.port.markesupplier.subase.MarketSplServiceTypeInfo.class, this.prmtServiceType, "data");
+		dataBinder.registerBinding("E4.seq", int.class, this.kdtE4, "seq.text");
+		dataBinder.registerBinding("E4", com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockE4Info.class, this.kdtE4, "userObject");
+		dataBinder.registerBinding("E4.EvaluationIndex", String.class, this.kdtE4, "EvaluationIndex.text");
+		dataBinder.registerBinding("E4.Description", String.class, this.kdtE4, "Description.text");
+		dataBinder.registerBinding("E4.isQualified", boolean.class, this.kdtE4, "isQualified.text");
 		dataBinder.registerBinding("Punish", String.class, this.txtPunish, "text");		
 	}
 	//Regiester UI State
@@ -1567,6 +1682,7 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
 		getValidateHelper().registerBindProperty("Recommended", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("serverfees", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("State", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("Evatemp", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("lastUpdateUser", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("creator", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("lastUpdateTime", ValidateHelper.ON_SAVE);    
@@ -1574,6 +1690,19 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
 		getValidateHelper().registerBindProperty("sysSupplier", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("auditor", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("auditDate", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("Level", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("entrys.id", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("entrys", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("entrys.typeNumber", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("entrys.typeName", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("entrys.peopleSum", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("entrys.remake", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("SupplierFileType", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("Visibility", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("QuaLevel", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("SupplierSplAreaEntry", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("SupplierBusinessMode", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("ServiceType", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("PeopleCount", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("Province", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("City", ValidateHelper.ON_SAVE);    
@@ -1598,19 +1727,11 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
 		getValidateHelper().registerBindProperty("EntryPerson.isDefault", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("EntryPerson.email", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("EntryPerson.contact", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("Level", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("entrys.id", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("entrys", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("entrys.typeNumber", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("entrys.typeName", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("entrys.peopleSum", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("entrys.remake", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("SupplierFileType", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("Visibility", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("QuaLevel", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("SupplierSplAreaEntry", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("SupplierBusinessMode", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("ServiceType", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("E4.seq", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("E4", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("E4.EvaluationIndex", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("E4.Description", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("E4.isQualified", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("Punish", ValidateHelper.ON_SAVE);    		
 	}
 
@@ -1627,6 +1748,14 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
         } else if (STATUS_VIEW.equals(this.oprtState)) {
         } else if (STATUS_FINDVIEW.equals(this.oprtState)) {
         }
+    }
+
+    /**
+     * output prmtEvatemp_dataChanged method
+     */
+    protected void prmtEvatemp_dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) throws Exception
+    {
+        //write your code here1
     }
 
     /**
@@ -1673,6 +1802,16 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
         sic.add(new SelectorItemInfo("State"));
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
+			sic.add(new SelectorItemInfo("Evatemp.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("Evatemp.id"));
+        	sic.add(new SelectorItemInfo("Evatemp.number"));
+        	sic.add(new SelectorItemInfo("Evatemp.name"));
+        	sic.add(new SelectorItemInfo("Evatemp.templateName"));
+		}
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
 			sic.add(new SelectorItemInfo("lastUpdateUser.*"));
 		}
 		else{
@@ -1710,40 +1849,6 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
         	sic.add(new SelectorItemInfo("auditor.name"));
 		}
         sic.add(new SelectorItemInfo("auditDate"));
-        sic.add(new SelectorItemInfo("PeopleCount"));
-        sic.add(new SelectorItemInfo("Province"));
-        sic.add(new SelectorItemInfo("City"));
-        sic.add(new SelectorItemInfo("LinkFax"));
-        sic.add(new SelectorItemInfo("LinkPhone"));
-        sic.add(new SelectorItemInfo("WebSite"));
-        sic.add(new SelectorItemInfo("PostNumber"));
-        sic.add(new SelectorItemInfo("LinkMail"));
-    	sic.add(new SelectorItemInfo("EntryAtt.seq"));
-		if(selectorAll.equalsIgnoreCase("true"))
-		{
-			sic.add(new SelectorItemInfo("EntryAtt.*"));
-		}
-		else{
-		}
-    	sic.add(new SelectorItemInfo("EntryAtt.attNumber"));
-    	sic.add(new SelectorItemInfo("EntryAtt.attName"));
-    	sic.add(new SelectorItemInfo("EntryAtt.attlist"));
-        sic.add(new SelectorItemInfo("marketRemake"));
-    	sic.add(new SelectorItemInfo("EntryPerson.seq"));
-		if(selectorAll.equalsIgnoreCase("true"))
-		{
-			sic.add(new SelectorItemInfo("EntryPerson.*"));
-		}
-		else{
-		}
-    	sic.add(new SelectorItemInfo("EntryPerson.personName"));
-    	sic.add(new SelectorItemInfo("EntryPerson.position"));
-    	sic.add(new SelectorItemInfo("EntryPerson.phone"));
-    	sic.add(new SelectorItemInfo("EntryPerson.workPhone"));
-    	sic.add(new SelectorItemInfo("EntryPerson.personFax"));
-    	sic.add(new SelectorItemInfo("EntryPerson.isDefault"));
-    	sic.add(new SelectorItemInfo("EntryPerson.email"));
-    	sic.add(new SelectorItemInfo("EntryPerson.contact"));
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
 			sic.add(new SelectorItemInfo("Level.*"));
@@ -1818,6 +1923,50 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
         	sic.add(new SelectorItemInfo("ServiceType.number"));
         	sic.add(new SelectorItemInfo("ServiceType.name"));
 		}
+        sic.add(new SelectorItemInfo("PeopleCount"));
+        sic.add(new SelectorItemInfo("Province"));
+        sic.add(new SelectorItemInfo("City"));
+        sic.add(new SelectorItemInfo("LinkFax"));
+        sic.add(new SelectorItemInfo("LinkPhone"));
+        sic.add(new SelectorItemInfo("WebSite"));
+        sic.add(new SelectorItemInfo("PostNumber"));
+        sic.add(new SelectorItemInfo("LinkMail"));
+    	sic.add(new SelectorItemInfo("EntryAtt.seq"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("EntryAtt.*"));
+		}
+		else{
+		}
+    	sic.add(new SelectorItemInfo("EntryAtt.attNumber"));
+    	sic.add(new SelectorItemInfo("EntryAtt.attName"));
+    	sic.add(new SelectorItemInfo("EntryAtt.attlist"));
+        sic.add(new SelectorItemInfo("marketRemake"));
+    	sic.add(new SelectorItemInfo("EntryPerson.seq"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("EntryPerson.*"));
+		}
+		else{
+		}
+    	sic.add(new SelectorItemInfo("EntryPerson.personName"));
+    	sic.add(new SelectorItemInfo("EntryPerson.position"));
+    	sic.add(new SelectorItemInfo("EntryPerson.phone"));
+    	sic.add(new SelectorItemInfo("EntryPerson.workPhone"));
+    	sic.add(new SelectorItemInfo("EntryPerson.personFax"));
+    	sic.add(new SelectorItemInfo("EntryPerson.isDefault"));
+    	sic.add(new SelectorItemInfo("EntryPerson.email"));
+    	sic.add(new SelectorItemInfo("EntryPerson.contact"));
+    	sic.add(new SelectorItemInfo("E4.seq"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("E4.*"));
+		}
+		else{
+		}
+    	sic.add(new SelectorItemInfo("E4.EvaluationIndex"));
+    	sic.add(new SelectorItemInfo("E4.Description"));
+    	sic.add(new SelectorItemInfo("E4.isQualified"));
         sic.add(new SelectorItemInfo("Punish"));
         return sic;
     }        
@@ -1952,7 +2101,7 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
      * output getDetailTable method
      */
     protected KDTable getDetailTable() {
-        return kdtEntryAtt;
+        return kdtEntrys;
 	}
     /**
      * output applyDefaultValue method

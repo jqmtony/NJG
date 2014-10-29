@@ -16,6 +16,7 @@ public class AbstractMarketSupplierStockInfo extends com.kingdee.eas.framework.C
     protected AbstractMarketSupplierStockInfo(String pkField)
     {
         super(pkField);
+        put("E4", new com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockE4Collection());
         put("entrys", new com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockEntryCollection());
         put("EntryAtt", new com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockEntryAttCollection());
         put("EntryPerson", new com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockEntryPersonCollection());
@@ -405,6 +406,24 @@ public class AbstractMarketSupplierStockInfo extends com.kingdee.eas.framework.C
     public void setLevel(com.kingdee.eas.port.markesupplier.subase.MarketLevelSetUpInfo item)
     {
         put("Level", item);
+    }
+    /**
+     * Object: 供应商档案登记 's 符合性审查 property 
+     */
+    public com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockE4Collection getE4()
+    {
+        return (com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockE4Collection)get("E4");
+    }
+    /**
+     * Object: 供应商档案登记 's 审查模板 property 
+     */
+    public com.kingdee.eas.port.pm.base.EvaluationTemplateInfo getEvatemp()
+    {
+        return (com.kingdee.eas.port.pm.base.EvaluationTemplateInfo)get("Evatemp");
+    }
+    public void setEvatemp(com.kingdee.eas.port.pm.base.EvaluationTemplateInfo item)
+    {
+        put("Evatemp", item);
     }
     public BOSObjectType getBOSType()
     {
