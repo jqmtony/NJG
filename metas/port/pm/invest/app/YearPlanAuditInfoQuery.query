@@ -1,0 +1,1193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<joinQuery xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.port.pm.invest.app</package>
+    <name>YearPlanAuditInfoQuery</name>
+    <alias>joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].alias</alias>
+    <description>joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].description</description>
+    <userDefined>true</userDefined>
+    <reportDataSource />
+    <bizUnitPK />
+    <connectionProvider />
+    <subObjects>
+        <subEntity>
+            <name>YIPlanAccred</name>
+            <alias>joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].subObjects.subEntity[YIPlanAccred].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YearPlanAuditInfoQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YIPlanAccred" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>E1</name>
+            <alias>joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].subObjects.subEntity[E1].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YearPlanAuditInfoQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YIPlanAccredE1" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>E2</name>
+            <alias>joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].subObjects.subEntity[E2].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YearPlanAuditInfoQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YIPlanAccredE1E2" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>accredDpart</name>
+            <alias>joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].subObjects.subEntity[accredDpart].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YearPlanAuditInfoQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.basedata.org.app" />
+                <key name="name" value="AdminOrgUnit" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>accredPerson</name>
+            <alias>joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].subObjects.subEntity[accredPerson].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YearPlanAuditInfoQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.basedata.person.app" />
+                <key name="name" value="Person" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>projectName</name>
+            <alias>joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].subObjects.subEntity[projectName].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YearPlanAuditInfoQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YearInvestPlan" />
+            </entityRef>
+        </subEntity>
+    </subObjects>
+    <units>
+        <queryField>
+            <name>projectName.projectName</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].units.queryField[projectName.projectName].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>86aa4a5f-9db5-4ac3-b845-8f595ca01446</key>
+                    <parentUnit>
+                        <key name="name" value="projectName.projectName" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="projectName" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="projectName" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YearPlanAuditInfoQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>accredType</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].units.queryField[accredType].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>9f7927bd-236c-460e-be30-d289c504e349</key>
+                    <parentUnit>
+                        <key name="name" value="accredType" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="YIPlanAccred" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="accredType" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YearPlanAuditInfoQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>accredDate</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].units.queryField[accredDate].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Date</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>46cc1590-db9e-4049-a1ee-97468756098e</key>
+                    <parentUnit>
+                        <key name="name" value="accredDate" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="YIPlanAccred" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="accredDate" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YearPlanAuditInfoQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>auditTime</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].units.queryField[auditTime].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Timestamp</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>d47f2af8-f449-4e43-8705-0a218e738736</key>
+                    <parentUnit>
+                        <key name="name" value="auditTime" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="YIPlanAccred" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="auditTime" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YearPlanAuditInfoQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>E1.accredResu</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].units.queryField[E1.accredResu].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>738ed827-4f34-489b-a81b-af5ba290fcfa</key>
+                    <parentUnit>
+                        <key name="name" value="E1.accredResu" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="E1" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="accredResu" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YearPlanAuditInfoQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>E1.projectConclude</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].units.queryField[E1.projectConclude].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>e05072e6-71f5-4315-a52f-0a1a5275d081</key>
+                    <parentUnit>
+                        <key name="name" value="E1.projectConclude" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="E1" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="projectConclude" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YearPlanAuditInfoQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>accredPerson.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].units.queryField[accredPerson.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>41d54c75-f5e1-4eca-a469-2f92cc24202e</key>
+                    <parentUnit>
+                        <key name="name" value="accredPerson.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="accredPerson" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YearPlanAuditInfoQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>accredDpart.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].units.queryField[accredDpart.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>31fb1d08-ceac-4573-96d9-4fe60234cec5</key>
+                    <parentUnit>
+                        <key name="name" value="accredDpart.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="accredDpart" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YearPlanAuditInfoQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>E2.accreConclu</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].units.queryField[E2.accreConclu].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>65bb5498-763a-42e1-a111-5cc2c3f29cd7</key>
+                    <parentUnit>
+                        <key name="name" value="E2.accreConclu" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="E2" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="accreConclu" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YearPlanAuditInfoQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>E2.opinion</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].units.queryField[E2.opinion].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>64e1ae1a-c531-4552-a6f4-5c586abf6563</key>
+                    <parentUnit>
+                        <key name="name" value="E2.opinion" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="E2" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="opinion" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YearPlanAuditInfoQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>E2.aduitTime</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].units.queryField[E2.aduitTime].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Date</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>b8a4b915-c691-4d81-8094-39a59e903676</key>
+                    <parentUnit>
+                        <key name="name" value="E2.aduitTime" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="E2" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="aduitTime" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YearPlanAuditInfoQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>E2.remark</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].units.queryField[E2.remark].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>3351e4ba-5b2b-4851-a36f-dda2430a3791</key>
+                    <parentUnit>
+                        <key name="name" value="E2.remark" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="E2" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="remark" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YearPlanAuditInfoQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>6820e95b-1c75-4b93-bdc2-19476bddf8a0</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].units.propertyUnit[6820e95b-1c75-4b93-bdc2-19476bddf8a0].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>c3ead3ea-fe5f-4377-9364-10b455616df8</key>
+                    <parentUnit>
+                        <key name="name" value="6820e95b-1c75-4b93-bdc2-19476bddf8a0" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="E2" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="accredPerson" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YearPlanAuditInfoQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>6d677e5d-ab0d-4424-b9fd-c4db6078e7ad</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].units.propertyUnit[6d677e5d-ab0d-4424-b9fd-c4db6078e7ad].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>36ec9e7c-cff4-4bcf-81ab-42b836248039</key>
+                    <parentUnit>
+                        <key name="name" value="6d677e5d-ab0d-4424-b9fd-c4db6078e7ad" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="accredPerson" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YearPlanAuditInfoQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>projectName.id</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].units.queryField[projectName.id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>15f2153d-0bc0-4bb3-833e-9bcac77fceab</key>
+                    <parentUnit>
+                        <key name="name" value="projectName.id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="projectName" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YearPlanAuditInfoQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>id</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].units.queryField[id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>d2ade08c-78b0-4520-8af0-1ff85b4853b2</key>
+                    <parentUnit>
+                        <key name="name" value="id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="YIPlanAccred" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YearPlanAuditInfoQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>c644eb75-0a9d-4b32-ac6c-27222a3742d2</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].units.propertyUnit[c644eb75-0a9d-4b32-ac6c-27222a3742d2].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>fe5273b7-a3d5-4846-8c13-f6466997309c</key>
+                    <parentUnit>
+                        <key name="name" value="c644eb75-0a9d-4b32-ac6c-27222a3742d2" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="E1" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="projectName" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YearPlanAuditInfoQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>bef8183e-66aa-42be-b7c7-7e130ca40616</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].units.propertyUnit[bef8183e-66aa-42be-b7c7-7e130ca40616].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>5abc2827-176e-424b-a747-6744f2591709</key>
+                    <parentUnit>
+                        <key name="name" value="bef8183e-66aa-42be-b7c7-7e130ca40616" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="projectName" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YearPlanAuditInfoQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>be44afab-e04d-4ef4-bff0-08fc99df57f7</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].units.propertyUnit[be44afab-e04d-4ef4-bff0-08fc99df57f7].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>6a11dca8-be32-472e-8e58-2f493694717a</key>
+                    <parentUnit>
+                        <key name="name" value="be44afab-e04d-4ef4-bff0-08fc99df57f7" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="E2" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="accredDpart" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YearPlanAuditInfoQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>429a8d7c-82ed-47c6-8cf5-eb5f906d9ba8</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].units.propertyUnit[429a8d7c-82ed-47c6-8cf5-eb5f906d9ba8].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>2768ea68-896f-4062-accf-e04cc4f25a3a</key>
+                    <parentUnit>
+                        <key name="name" value="429a8d7c-82ed-47c6-8cf5-eb5f906d9ba8" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="accredDpart" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YearPlanAuditInfoQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>70796cb2-f1cb-4299-8f6b-f1a3d50f4a1c</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].units.propertyUnit[70796cb2-f1cb-4299-8f6b-f1a3d50f4a1c].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>33f61dba-b6f1-4e3f-adca-bb411ac901d8</key>
+                    <parentUnit>
+                        <key name="name" value="70796cb2-f1cb-4299-8f6b-f1a3d50f4a1c" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="E1" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YearPlanAuditInfoQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>dc9b61dc-832d-4c3a-b0e4-596fe8e31e7c</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].units.propertyUnit[dc9b61dc-832d-4c3a-b0e4-596fe8e31e7c].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>a5225efe-08a2-4531-bc0a-06a9a11e56bd</key>
+                    <parentUnit>
+                        <key name="name" value="dc9b61dc-832d-4c3a-b0e4-596fe8e31e7c" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="E2" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="parent1" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YearPlanAuditInfoQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>0231b0f0-9042-4da1-8fe6-ec6043202e23</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].units.propertyUnit[0231b0f0-9042-4da1-8fe6-ec6043202e23].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>3cd1f5be-a2cc-4c1c-bfe1-62f21280f610</key>
+                    <parentUnit>
+                        <key name="name" value="0231b0f0-9042-4da1-8fe6-ec6043202e23" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="YIPlanAccred" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YearPlanAuditInfoQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>39a4be7a-c018-4215-9455-919e6871aba4</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].units.propertyUnit[39a4be7a-c018-4215-9455-919e6871aba4].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0435f255-1127-4268-b9c4-4b1f3cfb85ce</key>
+                    <parentUnit>
+                        <key name="name" value="39a4be7a-c018-4215-9455-919e6871aba4" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="E1" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="parent" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YearPlanAuditInfoQuery" />
+            </query>
+        </propertyUnit>
+    </units>
+    <defaultFilter>
+        <name>defaultFilter</name>
+        <formulaString />
+        <query>
+            <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+            <key name="name" value="YearPlanAuditInfoQuery" />
+        </query>
+    </defaultFilter>
+    <isDistinct>false</isDistinct>
+    <joins>
+        <join>
+            <name>ac35202a-8367-4fda-839c-aa00cc249cb8</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="YIPlanAccred" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="E1" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>3559e767-3ade-4d4a-ae9a-bb093f8855d0</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="0231b0f0-9042-4da1-8fe6-ec6043202e23" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="39a4be7a-c018-4215-9455-919e6871aba4" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="ac35202a-8367-4fda-839c-aa00cc249cb8" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YearPlanAuditInfoQuery" />
+            </query>
+        </join>
+        <join>
+            <name>4d53d212-4f02-4206-bc1d-75be91042208</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="E1" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="E2" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>e56ec8f3-5b96-464e-b293-b12d41d9be58</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="70796cb2-f1cb-4299-8f6b-f1a3d50f4a1c" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="dc9b61dc-832d-4c3a-b0e4-596fe8e31e7c" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="4d53d212-4f02-4206-bc1d-75be91042208" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YearPlanAuditInfoQuery" />
+            </query>
+        </join>
+        <join>
+            <name>717648b4-fe6a-4e49-ab73-f943ebcae083</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="E2" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="accredDpart" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>c5dae46c-b935-4743-a3b5-9a540bc4d24c</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="be44afab-e04d-4ef4-bff0-08fc99df57f7" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="429a8d7c-82ed-47c6-8cf5-eb5f906d9ba8" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="717648b4-fe6a-4e49-ab73-f943ebcae083" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YearPlanAuditInfoQuery" />
+            </query>
+        </join>
+        <join>
+            <name>923a38fc-722d-4cf7-91ae-dd1c412be1c3</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="E2" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="accredPerson" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>7c154407-fc90-425b-aeb4-33d715247de4</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="6820e95b-1c75-4b93-bdc2-19476bddf8a0" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="6d677e5d-ab0d-4424-b9fd-c4db6078e7ad" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="923a38fc-722d-4cf7-91ae-dd1c412be1c3" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YearPlanAuditInfoQuery" />
+            </query>
+        </join>
+        <join>
+            <name>35996f79-81dd-418d-b886-ae4c55d79e52</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="E1" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="projectName" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>3475a4a3-7482-4d36-9e3a-95b5b988f108</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="c644eb75-0a9d-4b32-ac6c-27222a3742d2" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="bef8183e-66aa-42be-b7c7-7e130ca40616" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="35996f79-81dd-418d-b886-ae4c55d79e52" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="YearPlanAuditInfoQuery" />
+            </query>
+        </join>
+    </joins>
+    <resource>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="年度计划评审信息" />
+            <lang locale="zh_HK" value="年度計畫評審信息" />
+            <lang locale="zh_TW" value="年度計畫評審信息" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].subObjects.subEntity[E1].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].subObjects.subEntity[E2].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].subObjects.subEntity[YIPlanAccred].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].subObjects.subEntity[accredDpart].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].subObjects.subEntity[accredPerson].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].subObjects.subEntity[projectName].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].units.propertyUnit[0231b0f0-9042-4da1-8fe6-ec6043202e23].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].units.propertyUnit[39a4be7a-c018-4215-9455-919e6871aba4].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].units.propertyUnit[429a8d7c-82ed-47c6-8cf5-eb5f906d9ba8].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].units.propertyUnit[6820e95b-1c75-4b93-bdc2-19476bddf8a0].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].units.propertyUnit[6d677e5d-ab0d-4424-b9fd-c4db6078e7ad].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].units.propertyUnit[70796cb2-f1cb-4299-8f6b-f1a3d50f4a1c].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].units.propertyUnit[be44afab-e04d-4ef4-bff0-08fc99df57f7].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].units.propertyUnit[bef8183e-66aa-42be-b7c7-7e130ca40616].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].units.propertyUnit[c644eb75-0a9d-4b32-ac6c-27222a3742d2].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].units.propertyUnit[dc9b61dc-832d-4c3a-b0e4-596fe8e31e7c].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].units.queryField[E1.accredResu].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="评审结果" />
+            <lang locale="zh_HK" value="評審結果" />
+            <lang locale="zh_TW" value="評審結果" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].units.queryField[E1.projectConclude].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="评审结论" />
+            <lang locale="zh_HK" value="評審結論" />
+            <lang locale="zh_TW" value="評審結論" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].units.queryField[E2.accreConclu].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="评审结论" />
+            <lang locale="zh_HK" value="評審結論" />
+            <lang locale="zh_TW" value="評審結論" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].units.queryField[E2.aduitTime].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="评审时间" />
+            <lang locale="zh_HK" value="評審時間" />
+            <lang locale="zh_TW" value="評審時間" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].units.queryField[E2.opinion].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="意见" />
+            <lang locale="zh_HK" value="意見" />
+            <lang locale="zh_TW" value="意見" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].units.queryField[E2.remark].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="备注" />
+            <lang locale="zh_HK" value="備註" />
+            <lang locale="zh_TW" value="備註" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].units.queryField[accredDate].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="评审开始日期" />
+            <lang locale="zh_HK" value="評審開始日期" />
+            <lang locale="zh_TW" value="評審開始日期" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].units.queryField[accredDpart.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="评审部门" />
+            <lang locale="zh_HK" value="評審部門" />
+            <lang locale="zh_TW" value="評審部門" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].units.queryField[accredPerson.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="参与评审人员" />
+            <lang locale="zh_HK" value="參與評審人員" />
+            <lang locale="zh_TW" value="參與評審人員" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].units.queryField[accredType].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="评审类型" />
+            <lang locale="zh_HK" value="評審類型" />
+            <lang locale="zh_TW" value="評審類型" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].units.queryField[auditTime].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="评审完成日期" />
+            <lang locale="zh_HK" value="評審完成日期" />
+            <lang locale="zh_TW" value="評審完成日期" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].units.queryField[id].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="ID" />
+            <lang locale="zh_HK" value="ID" />
+            <lang locale="zh_TW" value="ID" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].units.queryField[projectName.id].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目ID" />
+            <lang locale="zh_HK" value="項目ID" />
+            <lang locale="zh_TW" value="項目ID" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.YearPlanAuditInfoQuery].units.queryField[projectName.projectName].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目名称" />
+            <lang locale="zh_HK" value="項目名稱" />
+            <lang locale="zh_TW" value="項目名稱" />
+        </rs>
+    </resource>
+</joinQuery>
+

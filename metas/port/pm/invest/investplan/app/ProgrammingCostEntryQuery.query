@@ -1,0 +1,798 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<joinQuery xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.port.pm.invest.investplan.app</package>
+    <name>ProgrammingCostEntryQuery</name>
+    <alias>joinQuery[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingCostEntryQuery].alias</alias>
+    <description>joinQuery[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingCostEntryQuery].description</description>
+    <userDefined>true</userDefined>
+    <reportDataSource />
+    <bizUnitPK />
+    <connectionProvider />
+    <subObjects>
+        <subEntity>
+            <name>ProgrammingEntryCostEntry</name>
+            <alias>joinQuery[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingCostEntryQuery].subObjects.subEntity[ProgrammingEntryCostEntry].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.investplan.app" />
+                <key name="name" value="ProgrammingCostEntryQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.investplan.app" />
+                <key name="name" value="ProgrammingEntryCostEntry" />
+            </entityRef>
+        </subEntity>
+    </subObjects>
+    <units>
+        <queryField>
+            <name>feeNumber</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingCostEntryQuery].units.queryField[feeNumber].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>f01836c3-377b-4aad-a35d-d73ee0a272c3</key>
+                    <parentUnit>
+                        <key name="name" value="feeNumber" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProgrammingEntryCostEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="feeNumber" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.investplan.app" />
+                <key name="name" value="ProgrammingCostEntryQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>feeName</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingCostEntryQuery].units.queryField[feeName].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0c84fcc8-054e-4c73-9107-90252b7f40aa</key>
+                    <parentUnit>
+                        <key name="name" value="feeName" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProgrammingEntryCostEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="feeName" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.investplan.app" />
+                <key name="name" value="ProgrammingCostEntryQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>year</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingCostEntryQuery].units.queryField[year].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>29df88e7-1d8e-4f97-af79-9281b7a5ec44</key>
+                    <parentUnit>
+                        <key name="name" value="year" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProgrammingEntryCostEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="year" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.investplan.app" />
+                <key name="name" value="ProgrammingCostEntryQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>goalCost</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingCostEntryQuery].units.queryField[goalCost].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>769746dd-13a0-43b8-bd14-43004200712f</key>
+                    <parentUnit>
+                        <key name="name" value="goalCost" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProgrammingEntryCostEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="goalCost" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.investplan.app" />
+                <key name="name" value="ProgrammingCostEntryQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>assigned</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingCostEntryQuery].units.queryField[assigned].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>a54f1ad5-8785-486b-9551-08d0d2dd066f</key>
+                    <parentUnit>
+                        <key name="name" value="assigned" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProgrammingEntryCostEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="assigned" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.investplan.app" />
+                <key name="name" value="ProgrammingCostEntryQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>contractAssign</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingCostEntryQuery].units.queryField[contractAssign].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>95325067-a417-4979-bc86-079a8fe17d76</key>
+                    <parentUnit>
+                        <key name="name" value="contractAssign" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProgrammingEntryCostEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="contractAssign" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.investplan.app" />
+                <key name="name" value="ProgrammingCostEntryQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>assigning</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingCostEntryQuery].units.queryField[assigning].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>53304ab5-3ceb-4107-ae0d-f6a2b7395d9f</key>
+                    <parentUnit>
+                        <key name="name" value="assigning" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProgrammingEntryCostEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="assigning" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.investplan.app" />
+                <key name="name" value="ProgrammingCostEntryQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>proportion</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingCostEntryQuery].units.queryField[proportion].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>ce03c807-3262-44b5-9df2-6336c8572748</key>
+                    <parentUnit>
+                        <key name="name" value="proportion" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProgrammingEntryCostEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="proportion" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.investplan.app" />
+                <key name="name" value="ProgrammingCostEntryQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>description</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingCostEntryQuery].units.queryField[description].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>c933ab5a-393f-410c-96b5-590a36097035</key>
+                    <parentUnit>
+                        <key name="name" value="description" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProgrammingEntryCostEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="description" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.investplan.app" />
+                <key name="name" value="ProgrammingCostEntryQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>invitReportedAmount</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingCostEntryQuery].units.queryField[invitReportedAmount].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>e5632eb4-9539-4913-bdb0-e8bf73640161</key>
+                    <parentUnit>
+                        <key name="name" value="invitReportedAmount" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProgrammingEntryCostEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="invitReportedAmount" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.investplan.app" />
+                <key name="name" value="ProgrammingCostEntryQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>invitedAmount</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingCostEntryQuery].units.queryField[invitedAmount].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>67f7c47f-d415-4838-b3c6-1d4ba07e67f0</key>
+                    <parentUnit>
+                        <key name="name" value="invitedAmount" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProgrammingEntryCostEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="invitedAmount" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.investplan.app" />
+                <key name="name" value="ProgrammingCostEntryQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>contractedAmount</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingCostEntryQuery].units.queryField[contractedAmount].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>874b1b01-ae8a-4fd3-b5c4-e3e0a3442087</key>
+                    <parentUnit>
+                        <key name="name" value="contractedAmount" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProgrammingEntryCostEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="contractedAmount" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.investplan.app" />
+                <key name="name" value="ProgrammingCostEntryQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>requestPayAmount</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingCostEntryQuery].units.queryField[requestPayAmount].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0dc6c1b0-208b-425d-945e-15b5b7fc4e70</key>
+                    <parentUnit>
+                        <key name="name" value="requestPayAmount" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProgrammingEntryCostEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="requestPayAmount" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.investplan.app" />
+                <key name="name" value="ProgrammingCostEntryQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>payedAmount</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingCostEntryQuery].units.queryField[payedAmount].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>3b0c985a-c158-4a39-bedf-a63cfb8e9a59</key>
+                    <parentUnit>
+                        <key name="name" value="payedAmount" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProgrammingEntryCostEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="payedAmount" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.investplan.app" />
+                <key name="name" value="ProgrammingCostEntryQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>balanceAmount</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingCostEntryQuery].units.queryField[balanceAmount].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>4f6807ba-2381-4368-ae3f-7feaa699f7c4</key>
+                    <parentUnit>
+                        <key name="name" value="balanceAmount" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProgrammingEntryCostEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="balanceAmount" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.investplan.app" />
+                <key name="name" value="ProgrammingCostEntryQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>isLast</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingCostEntryQuery].units.queryField[isLast].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Boolean</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>a68b5510-d4f7-4985-abd1-ff2470dbed66</key>
+                    <parentUnit>
+                        <key name="name" value="isLast" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProgrammingEntryCostEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="isLast" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.investplan.app" />
+                <key name="name" value="ProgrammingCostEntryQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>beizhu</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingCostEntryQuery].units.queryField[beizhu].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>d9492789-0f3d-4639-a3d8-7a870ce15ae6</key>
+                    <parentUnit>
+                        <key name="name" value="beizhu" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProgrammingEntryCostEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="beizhu" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.investplan.app" />
+                <key name="name" value="ProgrammingCostEntryQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>number</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingCostEntryQuery].units.queryField[number].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>593673c2-38b0-4e53-aa85-390958774cae</key>
+                    <parentUnit>
+                        <key name="name" value="number" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProgrammingEntryCostEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="number" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.investplan.app" />
+                <key name="name" value="ProgrammingCostEntryQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>project</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingCostEntryQuery].units.queryField[project].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>c432a78f-98b0-4d0d-8490-2f41e3eab08f</key>
+                    <parentUnit>
+                        <key name="name" value="project" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProgrammingEntryCostEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="project" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.investplan.app" />
+                <key name="name" value="ProgrammingCostEntryQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>id</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingCostEntryQuery].units.queryField[id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>1819e223-9368-4c6f-9d0e-afaf4a47853d</key>
+                    <parentUnit>
+                        <key name="name" value="id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProgrammingEntryCostEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.investplan.app" />
+                <key name="name" value="ProgrammingCostEntryQuery" />
+            </query>
+        </queryField>
+    </units>
+    <defaultFilter>
+        <name>defaultFilter</name>
+        <formulaString />
+        <query>
+            <key name="package" value="com.kingdee.eas.port.pm.invest.investplan.app" />
+            <key name="name" value="ProgrammingCostEntryQuery" />
+        </query>
+    </defaultFilter>
+    <isDistinct>false</isDistinct>
+    <resource>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingCostEntryQuery].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目年度申报明细" />
+            <lang locale="zh_HK" value="項目年度申報明細" />
+            <lang locale="zh_TW" value="項目年度申報明細" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingCostEntryQuery].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingCostEntryQuery].subObjects.subEntity[ProgrammingEntryCostEntry].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingCostEntryQuery].units.queryField[assigned].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="累计投资（不含本年）" />
+            <lang locale="zh_HK" value="累計投資（不含本年）" />
+            <lang locale="zh_TW" value="累計投資（不含本年）" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingCostEntryQuery].units.queryField[assigning].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="投资余额" />
+            <lang locale="zh_HK" value="投資餘額" />
+            <lang locale="zh_TW" value="投資餘額" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingCostEntryQuery].units.queryField[balanceAmount].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="可用金额" />
+            <lang locale="zh_HK" value="可用金額" />
+            <lang locale="zh_TW" value="可用金額" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingCostEntryQuery].units.queryField[beizhu].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="备注" />
+            <lang locale="zh_HK" value="備註" />
+            <lang locale="zh_TW" value="備註" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingCostEntryQuery].units.queryField[contractAssign].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="本年度投资金额" />
+            <lang locale="zh_HK" value="本年度投資金額" />
+            <lang locale="zh_TW" value="本年度投資金額" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingCostEntryQuery].units.queryField[contractedAmount].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="累计合同签订金额" />
+            <lang locale="zh_HK" value="累計合同簽訂金額" />
+            <lang locale="zh_TW" value="累計合同簽訂金額" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingCostEntryQuery].units.queryField[description].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="备注" />
+            <lang locale="zh_HK" value="備註" />
+            <lang locale="zh_TW" value="備註" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingCostEntryQuery].units.queryField[feeName].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="预算费用名称" />
+            <lang locale="zh_HK" value="預算費用名稱" />
+            <lang locale="zh_TW" value="預算費用名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingCostEntryQuery].units.queryField[feeNumber].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="预算费用编码" />
+            <lang locale="zh_HK" value="預算費用編碼" />
+            <lang locale="zh_TW" value="預算費用編碼" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingCostEntryQuery].units.queryField[goalCost].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="投资总金额" />
+            <lang locale="zh_HK" value="投資總金額" />
+            <lang locale="zh_TW" value="投資總金額" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingCostEntryQuery].units.queryField[id].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="ID" />
+            <lang locale="zh_HK" value="ID" />
+            <lang locale="zh_TW" value="ID" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingCostEntryQuery].units.queryField[invitReportedAmount].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="累计招标申报金额" />
+            <lang locale="zh_HK" value="累計招標申報金額" />
+            <lang locale="zh_TW" value="累計招標申報金額" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingCostEntryQuery].units.queryField[invitedAmount].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="累计中标金额" />
+            <lang locale="zh_HK" value="累計中標金額" />
+            <lang locale="zh_TW" value="累計中標金額" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingCostEntryQuery].units.queryField[isLast].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="子节点" />
+            <lang locale="zh_HK" value="子節點" />
+            <lang locale="zh_TW" value="子節點" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingCostEntryQuery].units.queryField[number].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目编码" />
+            <lang locale="zh_HK" value="項目編碼" />
+            <lang locale="zh_TW" value="項目編碼" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingCostEntryQuery].units.queryField[payedAmount].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="累计已付款金额" />
+            <lang locale="zh_HK" value="累計已付款金額" />
+            <lang locale="zh_TW" value="累計已付款金額" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingCostEntryQuery].units.queryField[project].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="工程项目" />
+            <lang locale="zh_HK" value="工程項目" />
+            <lang locale="zh_TW" value="工程項目" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingCostEntryQuery].units.queryField[proportion].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="投资比例" />
+            <lang locale="zh_HK" value="投資比例" />
+            <lang locale="zh_TW" value="投資比例" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingCostEntryQuery].units.queryField[requestPayAmount].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="累计申请付款金额" />
+            <lang locale="zh_HK" value="累計申請付款金額" />
+            <lang locale="zh_TW" value="累計申請付款金額" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingCostEntryQuery].units.queryField[year].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="年度" />
+            <lang locale="zh_HK" value="年度" />
+            <lang locale="zh_TW" value="年度" />
+        </rs>
+    </resource>
+</joinQuery>
+
