@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.math.BigDecimal;
+import java.util.HashMap;
 
 import javax.swing.JOptionPane;
 
@@ -41,6 +42,8 @@ import com.kingdee.eas.basedata.assistant.ProjectInfo;
 import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
 import com.kingdee.eas.basedata.org.OrgConstants;
 import com.kingdee.eas.basedata.org.client.f7.AdminF7;
+import com.kingdee.eas.basedata.person.PersonInfo;
+import com.kingdee.eas.basedata.person.client.PersonPromptBox;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.common.client.UIContext;
@@ -66,6 +69,7 @@ import com.kingdee.eas.port.pm.invite.InviteReportFactory;
 import com.kingdee.eas.port.pm.invite.judgeSolution;
 import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
 import com.kingdee.eas.util.SysUtil;
+import com.kingdee.eas.xr.helper.PersonXRHelper;
 
 /**
  * output class name
@@ -224,6 +228,22 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI {
 		this.kdtEntry4.getColumn("seq").getStyleAttributes().setHided(true);
 		this.kdtEntry4.getColumn("content").setWidth(360);
 		this.kdtEntry4.getColumn("budgetName").setWidth(180);
+		
+		PersonPromptBox select = new PersonPromptBox(this);
+//		select.setCU(OrgConstants.DEF_CU_ID);
+		select.showAllAdmin();
+		KDBizPromptBox kdtEntry3_invitePerson_PromptBox = new KDBizPromptBox();
+        kdtEntry3_invitePerson_PromptBox.setQueryInfo("com.kingdee.eas.port.pm.base.app.JudgesQuery");
+        kdtEntry3_invitePerson_PromptBox.setVisible(true);
+        kdtEntry3_invitePerson_PromptBox.setEditable(true);
+        kdtEntry3_invitePerson_PromptBox.setDisplayFormat("$number$");
+        kdtEntry3_invitePerson_PromptBox.setEditFormat("$number$");
+        kdtEntry3_invitePerson_PromptBox.setCommitFormat("$number$");
+        kdtEntry3_invitePerson_PromptBox.setSelector(select);
+        KDTDefaultCellEditor kdtEntry3_invitePerson_CellEditor = new KDTDefaultCellEditor(kdtEntry3_invitePerson_PromptBox);
+        this.kdtEntry3.getColumn("invitePerson").setEditor(kdtEntry3_invitePerson_CellEditor);
+        ObjectValueRender kdtEntry3_invitePerson_OVR = new ObjectValueRender();
+        kdtEntry3_invitePerson_OVR.setFormat(new BizDataFormat("$name$"));
 	}
 
 	// container设置分录按钮以及分录放置模式
@@ -232,6 +252,14 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI {
 		kDContainer.addButton(detail.getAddNewLineButton());
 		kDContainer.addButton(detail.getInsertLineButton());
 		kDContainer.addButton(detail.getRemoveLinesButton());
+	}
+	
+	public void kdtEntry3_Changed(int rowIndex, int colIndex) throws Exception {
+		 if(UIRuleUtil.isNull(kdtEntry3.getCell(rowIndex, "invitePerson").getValue())
+				 ||!"invitePerson".equalsIgnoreCase(kdtEntry3.getColumn(colIndex).getKey())||rowIndex==-1)
+			 return;
+		 PersonInfo personInfo = (PersonInfo)kdtEntry3.getCell(rowIndex, "invitePerson").getValue();
+		 kdtEntry3.getCell(rowIndex,"department").setValue(PersonXRHelper.getPosiMemByDeptUser(personInfo));
 	}
 	
     public void kdtEntry4_Changed(int rowIndex,int colIndex) throws Exception

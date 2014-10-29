@@ -21,6 +21,9 @@ import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.eas.basedata.assistant.ProjectInfo;
+import com.kingdee.eas.basedata.person.IPerson;
+import com.kingdee.eas.basedata.person.PersonFactory;
+import com.kingdee.eas.basedata.person.PersonInfo;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.port.pm.base.ExamineIndicatorsCollection;
 import com.kingdee.eas.port.pm.base.ExamineIndicatorsFactory;
@@ -126,12 +129,14 @@ public class JudgesExamineEditUI extends AbstractJudgesExamineEditUI
     	
     	String totalPerson = "";
     	
-    	IJudges IJudges = JudgesFactory.getRemoteInstance();
+    	IPerson IJudges = PersonFactory.getRemoteInstance();
     	
     	for (int i = 0; i < reportInfo.getEntry3().size(); i++) 
     	{
-    		JudgesInfo judInfo = reportInfo.getEntry3().get(i).getInvitePerson();
-    		totalPerson = (totalPerson.length()>0?totalPerson+";":"")+(judInfo!=null?IJudges.getJudgesInfo(new ObjectUuidPK(judInfo.getId())).getPersonName():"");
+    		if(reportInfo.getEntry3().get(i).getInvitePerson()==null)
+    			continue;
+    		PersonInfo judInfo = reportInfo.getEntry3().get(i).getInvitePerson();
+    		totalPerson = (totalPerson.length()>0?totalPerson+";":"")+(judInfo!=null?IJudges.getPersonInfo(new ObjectUuidPK(judInfo.getId())).getName():"");
 		}
     	String pbPerosn = "";
     	

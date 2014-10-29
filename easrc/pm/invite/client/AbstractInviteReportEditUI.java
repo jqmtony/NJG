@@ -952,7 +952,7 @@ public abstract class AbstractInviteReportEditUI extends com.kingdee.eas.xr.clie
         KDTDefaultCellEditor kdtEntry3_invitePerson_CellEditor = new KDTDefaultCellEditor(kdtEntry3_invitePerson_PromptBox);
         this.kdtEntry3.getColumn("invitePerson").setEditor(kdtEntry3_invitePerson_CellEditor);
         ObjectValueRender kdtEntry3_invitePerson_OVR = new ObjectValueRender();
-        kdtEntry3_invitePerson_OVR.setFormat(new BizDataFormat("$personName$"));
+//        kdtEntry3_invitePerson_OVR.setFormat(new BizDataFormat("$personName$"));
         this.kdtEntry3.getColumn("invitePerson").setRenderer(kdtEntry3_invitePerson_OVR);
         			kdtEntry3_invitePerson_PromptBox.addSelectorListener(new SelectorListener() {
 			com.kingdee.eas.port.pm.base.client.JudgesListUI kdtEntry3_invitePerson_PromptBox_F7ListUI = null;

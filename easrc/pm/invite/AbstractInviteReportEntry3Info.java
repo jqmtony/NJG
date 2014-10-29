@@ -53,11 +53,11 @@ public class AbstractInviteReportEntry3Info extends com.kingdee.eas.framework.Co
     /**
      * Object: 招标成员分录 's 招标成员 property 
      */
-    public com.kingdee.eas.port.pm.base.JudgesInfo getInvitePerson()
+    public com.kingdee.eas.basedata.person.PersonInfo getInvitePerson()
     {
-        return (com.kingdee.eas.port.pm.base.JudgesInfo)get("invitePerson");
+        return (com.kingdee.eas.basedata.person.PersonInfo)get("invitePerson");
     }
-    public void setInvitePerson(com.kingdee.eas.port.pm.base.JudgesInfo item)
+    public void setInvitePerson(com.kingdee.eas.basedata.person.PersonInfo item)
     {
         put("invitePerson", item);
     }
