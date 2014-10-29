@@ -193,7 +193,7 @@ public class PayRequestFacade implements BillBaseSelector {
 			xml.append("<Applicant>"+StringUtilBPM.isNULl(Info.getCreator().getName())+"</Applicant>\n");
 			
 			xml.append("<Position>合约部经理</Position>\n");
-			xml.append("<Topic>"+StringUtilBPM.isNULl(Info.getUsage())+"</Topic>\n");
+			xml.append("<Topic>"+StringUtilBPM.isNULl(Info.getUsage())+"</Topic>\n");  //标题为空
 		    if(Info.getOrgUnit()!=null)
 			xml.append("<orgunit>"+StringUtilBPM.isNULl(Info.getOrgUnit().getName())+"</orgunit>\n");
 		    if(Info.getCurProject()!=null)
