@@ -9,7 +9,6 @@ public class ContractChangeSettUIPIEx extends ContractChangeSettUI{
 
 	public ContractChangeSettUIPIEx() throws Exception {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	
 
@@ -24,24 +23,18 @@ public class ContractChangeSettUIPIEx extends ContractChangeSettUI{
 	
 	protected void btnConfirm_actionPerformed(ActionEvent arg0)
 			throws Exception {
-		// TODO Auto-generated method stub
 		super.btnConfirm_actionPerformed(arg0);
 		String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=BGJS01&userid="+SysContext.getSysContext().getUserName()+"";
     	creatFrame(url);
 	}
 	
-	 private void creatFrame(String url)
-	    {
-	    	//ªÒ»°MD5º”√‹
-//	    	String md5 = MD5Helper.getMd5("blue", "20140813", "K2");
-	    	
+	private void creatFrame(String url)
+	 {
 	    	JFrameBrowser jf = new JFrameBrowser();
 	    	jf.setJBrowserSize(720, 1200);
 	    	jf.setJBrwserOpenUrl(url);
-	    	
 	    	jf.setTitle("BPM");
-	    	
 	    	jf.OpenJBrowser(this);
-	    }
+	 }
 
 }
