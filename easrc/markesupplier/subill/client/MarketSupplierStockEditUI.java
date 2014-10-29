@@ -110,9 +110,6 @@ public class MarketSupplierStockEditUI extends AbstractMarketSupplierStockEditUI
     	super.onLoad();
     	this.kDPanel4.setPreferredSize(new Dimension(1013,1010));		
         this.kDPanel4.setMinimumSize(new Dimension(1013,1010));
-        this.kDScrollPane1.setPreferredSize(new Dimension(1013,1010));
-        
-        this.kDScrollPane1.getViewport().add(kDPanel4, null);
         this.kDTabbedPane1.remove(kDPanel2);
         
     	
