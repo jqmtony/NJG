@@ -139,6 +139,32 @@
                 <key name="name" value="ProjectType" />
             </entityRef>
         </subEntity>
+        <subEntity>
+            <name>Entry</name>
+            <alias>joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectStartRequestQuery].subObjects.subEntity[Entry].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="ProjectStartRequestQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="ProjectStartRequestEntry" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>Entry_type</name>
+            <alias>joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectStartRequestQuery].subObjects.subEntity[Entry_type].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="ProjectStartRequestQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
+                <key name="name" value="InviteType" />
+            </entityRef>
+        </subEntity>
     </subObjects>
     <units>
         <queryField>
@@ -1257,6 +1283,409 @@
                 <key name="name" value="ProjectStartRequestQuery" />
             </query>
         </propertyUnit>
+        <queryField>
+            <name>Entry.seq</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectStartRequestQuery].units.queryField[Entry.seq].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Int</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>a8ab9c93-769f-4961-82fd-d4638c8c4d93</key>
+                    <parentUnit>
+                        <key name="name" value="Entry.seq" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Entry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="seq" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="ProjectStartRequestQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>4aa15439-b6ec-4295-bcc7-0b15c34d7b70</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectStartRequestQuery].units.propertyUnit[4aa15439-b6ec-4295-bcc7-0b15c34d7b70].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>53a546d9-0879-46b0-9029-e4cdcae6ecd0</key>
+                    <parentUnit>
+                        <key name="name" value="4aa15439-b6ec-4295-bcc7-0b15c34d7b70" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProjectStartRequest" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="ProjectStartRequestQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>788bd19e-9e9e-4e35-b9d4-ce1387f5626f</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectStartRequestQuery].units.propertyUnit[788bd19e-9e9e-4e35-b9d4-ce1387f5626f].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>bb83afe1-a050-4e63-b579-234e02321780</key>
+                    <parentUnit>
+                        <key name="name" value="788bd19e-9e9e-4e35-b9d4-ce1387f5626f" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Entry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="parent" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="ProjectStartRequestQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>Entry.inviteName</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectStartRequestQuery].units.queryField[Entry.inviteName].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>1f7f7144-78ce-462e-80bd-17cc03810069</key>
+                    <parentUnit>
+                        <key name="name" value="Entry.inviteName" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Entry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="inviteName" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="ProjectStartRequestQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>Entry.type.name</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectStartRequestQuery].units.queryField[Entry.type.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>c776bab6-a3ac-47c2-8d89-3566a9c65db4</key>
+                    <parentUnit>
+                        <key name="name" value="Entry.type.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Entry_type" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="ProjectStartRequestQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>890a4953-902b-40c8-91e2-af2ef14b08b2</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectStartRequestQuery].units.propertyUnit[890a4953-902b-40c8-91e2-af2ef14b08b2].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>3f67ac1b-ff4e-4391-bcb8-c37d1bd28ddd</key>
+                    <parentUnit>
+                        <key name="name" value="890a4953-902b-40c8-91e2-af2ef14b08b2" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Entry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="type" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="ProjectStartRequestQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>8bebc0a3-af32-4c82-bea8-71fc5c36dc51</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectStartRequestQuery].units.propertyUnit[8bebc0a3-af32-4c82-bea8-71fc5c36dc51].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>97f16f8f-3707-4048-b9ce-24ce4a61be09</key>
+                    <parentUnit>
+                        <key name="name" value="8bebc0a3-af32-4c82-bea8-71fc5c36dc51" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Entry_type" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="ProjectStartRequestQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>Entry.planDate</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectStartRequestQuery].units.queryField[Entry.planDate].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Date</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>e6035b4c-a810-4c63-a77e-18d80932e796</key>
+                    <parentUnit>
+                        <key name="name" value="Entry.planDate" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Entry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="planDate" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="ProjectStartRequestQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>Entry.amount0</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectStartRequestQuery].units.queryField[Entry.amount0].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>9dc3192e-b1e6-4382-923a-c0552ea7d63e</key>
+                    <parentUnit>
+                        <key name="name" value="Entry.amount0" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Entry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="amount" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="ProjectStartRequestQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>Entry.linkPerson</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectStartRequestQuery].units.queryField[Entry.linkPerson].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>5a3493f6-0f1a-47aa-8190-07a5289b54e5</key>
+                    <parentUnit>
+                        <key name="name" value="Entry.linkPerson" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Entry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="linkPerson" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="ProjectStartRequestQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>Entry.beizhu</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectStartRequestQuery].units.queryField[Entry.beizhu].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>031767fc-aa83-43d8-9437-8406f95de854</key>
+                    <parentUnit>
+                        <key name="name" value="Entry.beizhu" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Entry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="beizhu" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="ProjectStartRequestQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>BIMUDF0022</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectStartRequestQuery].units.queryField[BIMUDF0022].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>1a063543-bf00-47b2-83d5-1e360283db3e</key>
+                    <parentUnit>
+                        <key name="name" value="BIMUDF0022" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProjectStartRequest" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="BIMUDF0022" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="ProjectStartRequestQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>dec</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectStartRequestQuery].units.queryField[dec].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>d887426d-60c1-4675-9f7a-41cda701030c</key>
+                    <parentUnit>
+                        <key name="name" value="dec" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProjectStartRequest" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="dec" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="ProjectStartRequestQuery" />
+            </query>
+        </queryField>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -1560,6 +1989,66 @@
                 <key name="name" value="ProjectStartRequestQuery" />
             </query>
         </join>
+        <join>
+            <name>0b56dd84-d9ab-4e67-b025-69e173068ea6</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="ProjectStartRequest" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="Entry" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>b456256f-79ef-4b18-b25e-ba83bd5f7db6</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="4aa15439-b6ec-4295-bcc7-0b15c34d7b70" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="788bd19e-9e9e-4e35-b9d4-ce1387f5626f" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="0b56dd84-d9ab-4e67-b025-69e173068ea6" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="ProjectStartRequestQuery" />
+            </query>
+        </join>
+        <join>
+            <name>d1a9b54f-1aaa-4647-8ee7-cecb501e1ffa</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="Entry" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="Entry_type" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>a66ae712-f7ca-4186-88ed-13298d63220b</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="890a4953-902b-40c8-91e2-af2ef14b08b2" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="8bebc0a3-af32-4c82-bea8-71fc5c36dc51" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="d1a9b54f-1aaa-4647-8ee7-cecb501e1ffa" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="ProjectStartRequestQuery" />
+            </query>
+        </join>
     </joins>
     <resource>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectStartRequestQuery].alias">
@@ -1602,6 +2091,18 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectStartRequestQuery].subObjects.subEntity[CU].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectStartRequestQuery].subObjects.subEntity[Entry].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectStartRequestQuery].subObjects.subEntity[Entry_type].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -1691,6 +2192,12 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectStartRequestQuery].units.propertyUnit[4aa15439-b6ec-4295-bcc7-0b15c34d7b70].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectStartRequestQuery].units.propertyUnit[4d2ea50d-87b6-4764-8511-ad9d75aa377a].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -1709,7 +2216,25 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectStartRequestQuery].units.propertyUnit[788bd19e-9e9e-4e35-b9d4-ce1387f5626f].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectStartRequestQuery].units.propertyUnit[8446182b-73ec-40cb-bdd1-70281215d558].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectStartRequestQuery].units.propertyUnit[890a4953-902b-40c8-91e2-af2ef14b08b2].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectStartRequestQuery].units.propertyUnit[8bebc0a3-af32-4c82-bea8-71fc5c36dc51].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -1769,6 +2294,22 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectStartRequestQuery].units.queryField[BIMUDF0022].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="备注" />
+            <lang locale="zh_HK" value="備註" />
+            <lang locale="zh_TW" value="備註" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectStartRequestQuery].units.queryField[BIMUDF0022].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectStartRequestQuery].units.queryField[BIMUDF0022].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectStartRequestQuery].units.queryField[CU.id].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="ID" />
@@ -1779,6 +2320,123 @@
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectStartRequestQuery].units.queryField[Entry.amount0].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="标段金额" />
+            <lang locale="zh_HK" value="標段金額" />
+            <lang locale="zh_TW" value="標段金額" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectStartRequestQuery].units.queryField[Entry.amount0].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectStartRequestQuery].units.queryField[Entry.amount0].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectStartRequestQuery].units.queryField[Entry.beizhu].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="备注" />
+            <lang locale="zh_HK" value="備註" />
+            <lang locale="zh_TW" value="備註" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectStartRequestQuery].units.queryField[Entry.beizhu].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectStartRequestQuery].units.queryField[Entry.beizhu].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectStartRequestQuery].units.queryField[Entry.inviteName].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="标段名称" />
+            <lang locale="zh_HK" value="標段名稱" />
+            <lang locale="zh_TW" value="標段名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectStartRequestQuery].units.queryField[Entry.inviteName].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectStartRequestQuery].units.queryField[Entry.inviteName].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectStartRequestQuery].units.queryField[Entry.linkPerson].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="联系人" />
+            <lang locale="zh_HK" value="聯繫人" />
+            <lang locale="zh_TW" value="聯繫人" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectStartRequestQuery].units.queryField[Entry.linkPerson].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectStartRequestQuery].units.queryField[Entry.linkPerson].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectStartRequestQuery].units.queryField[Entry.planDate].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="计划招标时间" />
+            <lang locale="zh_HK" value="計畫招標時間" />
+            <lang locale="zh_TW" value="計畫招標時間" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectStartRequestQuery].units.queryField[Entry.planDate].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectStartRequestQuery].units.queryField[Entry.planDate].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectStartRequestQuery].units.queryField[Entry.seq].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据分录序列号" />
+            <lang locale="zh_HK" value="單據分錄序列號" />
+            <lang locale="zh_TW" value="單據分錄序列號" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectStartRequestQuery].units.queryField[Entry.seq].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectStartRequestQuery].units.queryField[Entry.seq].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectStartRequestQuery].units.queryField[Entry.type.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="招标方式" />
+            <lang locale="zh_HK" value="招標方式" />
+            <lang locale="zh_TW" value="招標方式" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectStartRequestQuery].units.queryField[Entry.type.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectStartRequestQuery].units.queryField[Entry.type.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectStartRequestQuery].units.queryField[Entry.type.name].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectStartRequestQuery].units.queryField[amount].displayName">
             <lang locale="en_US" value="null" />
@@ -1877,6 +2535,22 @@
             <lang locale="zh_TW" value="制單人" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectStartRequestQuery].units.queryField[creator.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectStartRequestQuery].units.queryField[dec].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="指标说明" />
+            <lang locale="zh_HK" value="指標說明" />
+            <lang locale="zh_TW" value="指標說明" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectStartRequestQuery].units.queryField[dec].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.app.ProjectStartRequestQuery].units.queryField[dec].extendedProperty.isCommonQuerySorter">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />

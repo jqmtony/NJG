@@ -829,6 +829,68 @@
                 <key name="name" value="R_ProjectStartRequest_ProjectType_projectType" />
             </relationship>
         </linkProperty>
+        <linkProperty>
+            <name>Entry</name>
+            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectStartRequest].properties.linkProperty[Entry].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectStartRequest].properties.linkProperty[Entry].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="R_ProjectStartRequest_ProjectStartRequestEntry" />
+            </relationship>
+        </linkProperty>
+        <linkProperty>
+            <name>E2</name>
+            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectStartRequest].properties.linkProperty[E2].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectStartRequest].properties.linkProperty[E2].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.app" />
+                <key name="name" value="R_ProjectStartRequest_ProjectStartRequestE2" />
+            </relationship>
+        </linkProperty>
+        <ownProperty>
+            <name>BIMUDF0022</name>
+            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectStartRequest].properties.ownProperty[BIMUDF0022].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectStartRequest].properties.ownProperty[BIMUDF0022].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>String</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>255</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectStartRequest].properties.ownProperty[BIMUDF0022].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFBIMUDF0022" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>dec</name>
+            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectStartRequest].properties.ownProperty[dec].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectStartRequest].properties.ownProperty[dec].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>String</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>1000</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.port.pm.invest.app.ProjectStartRequest].properties.ownProperty[dec].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFDec" />
+            </mappingField>
+        </ownProperty>
     </properties>
     <logicalKey>
         <name>id</name>
@@ -1521,6 +1583,11 @@
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectStartRequest].extendedProperty.isUseCodeRule">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectStartRequest].extendedProperty.listUI">
             <lang locale="en_US" value="com.kingdee.eas.port.pm.invest.client.ProjectStartRequestListUI" />
             <lang locale="zh_CN" value="com.kingdee.eas.port.pm.invest.client.ProjectStartRequestListUI" />
@@ -1993,6 +2060,30 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectStartRequest].properties.linkProperty[E2].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="后评估指标" />
+            <lang locale="zh_HK" value="後評估指標" />
+            <lang locale="zh_TW" value="後評估指標" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectStartRequest].properties.linkProperty[E2].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="后评估指标" />
+            <lang locale="zh_HK" value="後評估指標" />
+            <lang locale="zh_TW" value="後評估指標" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectStartRequest].properties.linkProperty[Entry].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="招标计划" />
+            <lang locale="zh_HK" value="招標計畫" />
+            <lang locale="zh_TW" value="招標計畫" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectStartRequest].properties.linkProperty[Entry].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="招标计划" />
+            <lang locale="zh_HK" value="招標計畫" />
+            <lang locale="zh_TW" value="招標計畫" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectStartRequest].properties.linkProperty[deparment].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="部门" />
@@ -2253,6 +2344,69 @@
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectStartRequest].properties.ownProperty[BIMUDF0022].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="备注" />
+            <lang locale="zh_HK" value="備註" />
+            <lang locale="zh_TW" value="備註" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectStartRequest].properties.ownProperty[BIMUDF0022].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectStartRequest].properties.ownProperty[BIMUDF0022].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="备注" />
+            <lang locale="zh_HK" value="備註" />
+            <lang locale="zh_TW" value="備註" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectStartRequest].properties.ownProperty[BIMUDF0022].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectStartRequest].properties.ownProperty[BIMUDF0022].extendedProperty.bizDataType">
+            <lang locale="en_US" value="NOTE" />
+            <lang locale="zh_CN" value="NOTE" />
+            <lang locale="zh_TW" value="NOTE" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectStartRequest].properties.ownProperty[BIMUDF0022].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectStartRequest].properties.ownProperty[BIMUDF0022].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectStartRequest].properties.ownProperty[BIMUDF0022].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectStartRequest].properties.ownProperty[BIMUDF0022].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectStartRequest].properties.ownProperty[BIMUDF0022].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectStartRequest].properties.ownProperty[BIMUDF0022].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectStartRequest].properties.ownProperty[BIMUDF0022].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectStartRequest].properties.ownProperty[amount].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="项目金额" />
@@ -2312,6 +2466,69 @@
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectStartRequest].properties.ownProperty[amount].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectStartRequest].properties.ownProperty[dec].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="指标说明" />
+            <lang locale="zh_HK" value="指標說明" />
+            <lang locale="zh_TW" value="指標說明" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectStartRequest].properties.ownProperty[dec].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectStartRequest].properties.ownProperty[dec].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="备注" />
+            <lang locale="zh_HK" value="備註" />
+            <lang locale="zh_TW" value="備註" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectStartRequest].properties.ownProperty[dec].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectStartRequest].properties.ownProperty[dec].extendedProperty.bizDataType">
+            <lang locale="en_US" value="NOTE" />
+            <lang locale="zh_CN" value="NOTE" />
+            <lang locale="zh_TW" value="NOTE" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectStartRequest].properties.ownProperty[dec].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectStartRequest].properties.ownProperty[dec].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectStartRequest].properties.ownProperty[dec].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectStartRequest].properties.ownProperty[dec].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectStartRequest].properties.ownProperty[dec].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectStartRequest].properties.ownProperty[dec].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.ProjectStartRequest].properties.ownProperty[dec].extendedProperty.isVisibleForKDTable">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
