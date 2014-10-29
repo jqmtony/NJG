@@ -665,6 +665,20 @@
             <scale>0</scale>
             <precision>0</precision>
         </column>
+        <column>
+            <name>CFEvatempID</name>
+            <alias>dataTable[com.kingdee.eas.port.markesupplier.subill.app.CT_SUB_MarketSupplierStock].columns.column[CFEvatempID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.markesupplier.subill.app.CT_SUB_MarketSupplierStock].columns.column[CFEvatempID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
     </columns>
     <primaryKey>
         <name>CPK_SUB_MarketStsl</name>
@@ -965,6 +979,25 @@
                 </fkColumnPair>
             </fkColumnPairs>
         </foreignKey>
+        <foreignKey>
+            <name>CFK_POR_SUBMSSVtk2</name>
+            <userDefined>true</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
+                <key name="name" value="CT_BAS_EvaluationTemplate" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="CFEvatempID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
     </foreignKeys>
     <resource>
         <rs key="dataTable[com.kingdee.eas.port.markesupplier.subill.app.CT_SUB_MarketSupplierStock].alias">
@@ -1052,6 +1085,18 @@
             <lang locale="zh_TW" value="法人代表" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.markesupplier.subill.app.CT_SUB_MarketSupplierStock].columns.column[CFEnterpriseMaster].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="文本" />
+            <lang locale="zh_HK" value="文本" />
+            <lang locale="zh_TW" value="文本" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.markesupplier.subill.app.CT_SUB_MarketSupplierStock].columns.column[CFEvatempID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="审查模板" />
+            <lang locale="zh_HK" value="審查範本" />
+            <lang locale="zh_TW" value="審查範本" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.markesupplier.subill.app.CT_SUB_MarketSupplierStock].columns.column[CFEvatempID].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="文本" />
             <lang locale="zh_HK" value="文本" />

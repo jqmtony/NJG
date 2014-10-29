@@ -204,6 +204,19 @@
                 <key name="name" value="MarketLevelSetUp" />
             </entityRef>
         </subEntity>
+        <subEntity>
+            <name>Evatemp</name>
+            <alias>joinQuery[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStockQuery].subObjects.subEntity[Evatemp].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.markesupplier.subill.app" />
+                <key name="name" value="MarketSupplierStockQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
+                <key name="name" value="EvaluationTemplate" />
+            </entityRef>
+        </subEntity>
     </subObjects>
     <units>
         <propertyUnit>
@@ -2252,6 +2265,99 @@
                 <key name="name" value="MarketSupplierStockQuery" />
             </query>
         </queryField>
+        <queryField>
+            <name>Evatemp.templateName</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStockQuery].units.queryField[Evatemp.templateName].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>e04c6209-d141-4b27-9fc7-a8b79d9c7bae</key>
+                    <parentUnit>
+                        <key name="name" value="Evatemp.templateName" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Evatemp" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="templateName" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.markesupplier.subill.app" />
+                <key name="name" value="MarketSupplierStockQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>b4456398-708d-43df-8785-2ff8a2a5fd92</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStockQuery].units.propertyUnit[b4456398-708d-43df-8785-2ff8a2a5fd92].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>69b017f8-7907-4367-8280-41b4f3cb3416</key>
+                    <parentUnit>
+                        <key name="name" value="b4456398-708d-43df-8785-2ff8a2a5fd92" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="MarketSupplierStock" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="Evatemp" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.markesupplier.subill.app" />
+                <key name="name" value="MarketSupplierStockQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>e4cce041-e26d-443b-adca-44f9cd9839f1</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStockQuery].units.propertyUnit[e4cce041-e26d-443b-adca-44f9cd9839f1].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>379a0e40-2cfa-47f4-a063-7b17b23e0f67</key>
+                    <parentUnit>
+                        <key name="name" value="e4cce041-e26d-443b-adca-44f9cd9839f1" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Evatemp" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.markesupplier.subill.app" />
+                <key name="name" value="MarketSupplierStockQuery" />
+            </query>
+        </propertyUnit>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -2705,6 +2811,36 @@
                 <key name="name" value="MarketSupplierStockQuery" />
             </query>
         </join>
+        <join>
+            <name>b4e5d538-5a3d-47af-8811-9c667ff8555b</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="MarketSupplierStock" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="Evatemp" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>40c22b64-a202-4881-a0ec-ae4ab538a1a1</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="b4456398-708d-43df-8785-2ff8a2a5fd92" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="e4cce041-e26d-443b-adca-44f9cd9839f1" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="b4e5d538-5a3d-47af-8811-9c667ff8555b" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.markesupplier.subill.app" />
+                <key name="name" value="MarketSupplierStockQuery" />
+            </query>
+        </join>
     </joins>
     <resource>
         <rs key="joinQuery[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStockQuery].alias">
@@ -2741,6 +2877,12 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStockQuery].queryPK[QueryPK].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStockQuery].subObjects.subEntity[Evatemp].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -2968,6 +3110,12 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStockQuery].units.propertyUnit[b4456398-708d-43df-8785-2ff8a2a5fd92].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStockQuery].units.propertyUnit[b7848dae-b1a8-4a66-b36d-ff526d154cfe].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -2987,6 +3135,12 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStockQuery].units.propertyUnit[e2d67c21-f98b-48aa-89fc-1f4ed1517823].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStockQuery].units.propertyUnit[e4cce041-e26d-443b-adca-44f9cd9839f1].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -3080,6 +3234,27 @@
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStockQuery].units.queryField[EnterpriseMaster].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStockQuery].units.queryField[Evatemp.templateName].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="审查模板" />
+            <lang locale="zh_HK" value="審查範本" />
+            <lang locale="zh_TW" value="審查範本" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStockQuery].units.queryField[Evatemp.templateName].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStockQuery].units.queryField[Evatemp.templateName].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStockQuery].units.queryField[Evatemp.templateName].extendedProperty.isUsingF7">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
@@ -3626,6 +3801,16 @@
             <lang locale="zh_CN" value="系统供应商编码" />
             <lang locale="zh_HK" value="系統供應商編碼" />
             <lang locale="zh_TW" value="系統供應商編碼" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStockQuery].units.queryField[sysSupplier.number].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStockQuery].units.queryField[sysSupplier.number].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
     </resource>
 </joinQuery>

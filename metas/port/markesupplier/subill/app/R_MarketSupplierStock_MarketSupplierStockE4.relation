@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <relationship xmlns="com.kingdee.bos.metadata">
     <package>com.kingdee.eas.port.markesupplier.subill.app</package>
-    <name>R_MarketSupplierStock_MarketLevelSetUp_Level</name>
-    <alias>relationship[com.kingdee.eas.port.markesupplier.subill.app.R_MarketSupplierStock_MarketLevelSetUp_Level].alias</alias>
-    <description>relationship[com.kingdee.eas.port.markesupplier.subill.app.R_MarketSupplierStock_MarketLevelSetUp_Level].description</description>
+    <name>R_MarketSupplierStock_MarketSupplierStockE4</name>
+    <alias>relationship[com.kingdee.eas.port.markesupplier.subill.app.R_MarketSupplierStock_MarketSupplierStockE4].alias</alias>
+    <description>relationship[com.kingdee.eas.port.markesupplier.subill.app.R_MarketSupplierStock_MarketSupplierStockE4].description</description>
     <userDefined>true</userDefined>
-    <type>Association</type>
+    <type>Composition</type>
     <clientCardinality>1</clientCardinality>
-    <supplierCardinality>0..1</supplierCardinality>
+    <supplierCardinality>0..*</supplierCardinality>
     <xmlNodeRelationship />
     <clientObject>
         <key name="package" value="com.kingdee.eas.port.markesupplier.subill.app" />
         <key name="name" value="MarketSupplierStock" />
     </clientObject>
     <supplierObject>
-        <key name="package" value="com.kingdee.eas.port.markesupplier.subase.app" />
-        <key name="name" value="MarketLevelSetUp" />
+        <key name="package" value="com.kingdee.eas.port.markesupplier.subill.app" />
+        <key name="name" value="MarketSupplierStockE4" />
     </supplierObject>
     <resource>
-        <rs key="relationship[com.kingdee.eas.port.markesupplier.subill.app.R_MarketSupplierStock_MarketLevelSetUp_Level].alias">
+        <rs key="relationship[com.kingdee.eas.port.markesupplier.subill.app.R_MarketSupplierStock_MarketSupplierStockE4].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="relationship[com.kingdee.eas.port.markesupplier.subill.app.R_MarketSupplierStock_MarketLevelSetUp_Level].description">
+        <rs key="relationship[com.kingdee.eas.port.markesupplier.subill.app.R_MarketSupplierStock_MarketSupplierStockE4].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />

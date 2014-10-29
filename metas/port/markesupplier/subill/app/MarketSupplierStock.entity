@@ -895,6 +895,31 @@
                 <key name="name" value="R_MarketSupplierStock_MarketLevelSetUp_Level" />
             </relationship>
         </linkProperty>
+        <linkProperty>
+            <name>E4</name>
+            <alias>entityObject[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStock].properties.linkProperty[E4].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStock].properties.linkProperty[E4].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.port.markesupplier.subill.app" />
+                <key name="name" value="R_MarketSupplierStock_MarketSupplierStockE4" />
+            </relationship>
+        </linkProperty>
+        <linkProperty>
+            <name>Evatemp</name>
+            <alias>entityObject[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStock].properties.linkProperty[Evatemp].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStock].properties.linkProperty[Evatemp].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <mappingField>
+                <key name="name" value="CFEvatempID" />
+            </mappingField>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.port.markesupplier.subill.app" />
+                <key name="name" value="R_MarketSupplierStock_EvaluationTemplate_Evatemp" />
+            </relationship>
+        </linkProperty>
     </properties>
     <logicalKey>
         <name>id</name>
@@ -1779,6 +1804,17 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStock].properties.linkProperty[E4].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="符合性审查" />
+            <lang locale="zh_HK" value="符合性審查" />
+            <lang locale="zh_TW" value="符合性審查" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStock].properties.linkProperty[E4].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStock].properties.linkProperty[EntryAtt].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="第3个表体" />
@@ -1800,6 +1836,58 @@
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStock].properties.linkProperty[Evatemp].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="审查模板" />
+            <lang locale="zh_HK" value="審查範本" />
+            <lang locale="zh_TW" value="審查範本" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStock].properties.linkProperty[Evatemp].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="文本" />
+            <lang locale="zh_HK" value="文本" />
+            <lang locale="zh_TW" value="文本" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStock].properties.linkProperty[Evatemp].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStock].properties.linkProperty[Evatemp].extendedProperty.dataField">
+            <lang locale="en_US" value="templateName" />
+            <lang locale="zh_CN" value="templateName" />
+            <lang locale="zh_TW" value="templateName" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStock].properties.linkProperty[Evatemp].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStock].properties.linkProperty[Evatemp].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStock].properties.linkProperty[Evatemp].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStock].properties.linkProperty[Evatemp].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStock].properties.linkProperty[Evatemp].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStock].properties.linkProperty[Evatemp].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStock].properties.linkProperty[InviteType].alias">
             <lang locale="en_US" value="null" />

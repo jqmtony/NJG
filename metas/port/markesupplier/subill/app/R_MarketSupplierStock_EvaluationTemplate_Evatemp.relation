@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <relationship xmlns="com.kingdee.bos.metadata">
     <package>com.kingdee.eas.port.markesupplier.subill.app</package>
-    <name>R_MarketSupplierStock_MarketLevelSetUp_Level</name>
-    <alias>relationship[com.kingdee.eas.port.markesupplier.subill.app.R_MarketSupplierStock_MarketLevelSetUp_Level].alias</alias>
-    <description>relationship[com.kingdee.eas.port.markesupplier.subill.app.R_MarketSupplierStock_MarketLevelSetUp_Level].description</description>
+    <name>R_MarketSupplierStock_EvaluationTemplate_Evatemp</name>
+    <alias>relationship[com.kingdee.eas.port.markesupplier.subill.app.R_MarketSupplierStock_EvaluationTemplate_Evatemp].alias</alias>
+    <description>relationship[com.kingdee.eas.port.markesupplier.subill.app.R_MarketSupplierStock_EvaluationTemplate_Evatemp].description</description>
     <userDefined>true</userDefined>
     <type>Association</type>
     <clientCardinality>1</clientCardinality>
@@ -14,20 +14,18 @@
         <key name="name" value="MarketSupplierStock" />
     </clientObject>
     <supplierObject>
-        <key name="package" value="com.kingdee.eas.port.markesupplier.subase.app" />
-        <key name="name" value="MarketLevelSetUp" />
+        <key name="package" value="com.kingdee.eas.port.pm.base.app" />
+        <key name="name" value="EvaluationTemplate" />
     </supplierObject>
     <resource>
-        <rs key="relationship[com.kingdee.eas.port.markesupplier.subill.app.R_MarketSupplierStock_MarketLevelSetUp_Level].alias">
+        <rs key="relationship[com.kingdee.eas.port.markesupplier.subill.app.R_MarketSupplierStock_EvaluationTemplate_Evatemp].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="relationship[com.kingdee.eas.port.markesupplier.subill.app.R_MarketSupplierStock_MarketLevelSetUp_Level].description">
+        <rs key="relationship[com.kingdee.eas.port.markesupplier.subill.app.R_MarketSupplierStock_EvaluationTemplate_Evatemp].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
     </resource>
