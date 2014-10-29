@@ -37,59 +37,59 @@ public class ContractChangeBillEditUIPIEx extends ContractChangeBillEditUI{
 	
 	public void onLoad() throws Exception {
 		super.onLoad();
-	   	if(editData.getState()!=null)
-	   	{
-		   	if("保存".equals(editData.getState().getAlias()))   //保存
-		   	{
-		   		this.btnSubmit.setEnabled(true);             //提交
-		   		this.btnAttachment.setEnabled(false);        //撤销
-		    	this.btnAuditResult.setEnabled(false);       //审批结果查看
-		   		
-		   	}
-		   	else if("已提交".equals(editData.getState().getAlias()))
-		   	{
-		   		this.btnSubmit.setEnabled(true);             //提交
-		   		this.btnAttachment.setEnabled(false);        //撤销
-		    	this.btnAuditResult.setEnabled(false);       //审批结果查看
-		   		
-		   	}
-		   	else if("审批中".equals(editData.getState().getAlias()))
-		   	{
-		   		this.btnSubmit.setEnabled(false);             //提交
-		   		this.btnAttachment.setEnabled(true);        //撤销
-		    	this.btnAuditResult.setEnabled(true);       //审批结果查看
-		   		
-		   	}
-		   	else if("已审批".equals(editData.getState().getAlias()))
-		   	{
-		   		this.btnSubmit.setEnabled(false);             //提交
-		   		this.btnAttachment.setEnabled(false);        //撤销
-		    	this.btnAuditResult.setEnabled(true);       //审批结果查看
-		   	}
-		   	
-		   	else
-		   	{
-		   		this.btnSubmit.setEnabled(true);             //提交
-		   		this.btnAttachment.setEnabled(false);        //撤销
-		    	this.btnAuditResult.setEnabled(false);       //审批结果查看
-		   	}
-	   	}
-	 	else
-	   	{
-	   		this.btnSubmit.setEnabled(false);             //提交
-	   		this.btnAttachment.setEnabled(false);        //撤销
-	    	this.btnAuditResult.setEnabled(false);       //审批结果查看
-	   	}
-		InitButton();
-    	this.chkMenuItemSubmitAndAddNew.setSelected(false);
-	   	this.chkMenuItemSubmitAndAddNew.setEnabled(false);
-	   	this.btnCopy.setVisible(false);
-	   	this.btnPrint.setVisible(false);
-	   	this.btnPrintPreview.setVisible(false);
-	   	this.btnPre.setVisible(false);
-	   	this.btnNext.setVisible(false);
-	   	this.btnLast.setVisible(false);
-	   	this.btnFirst.setVisible(false);
+//	   	if(editData.getState()!=null)
+//	   	{
+//		   	if("保存".equals(editData.getState().getAlias()))   //保存
+//		   	{
+//		   		this.btnSubmit.setEnabled(true);             //提交
+//		   		this.btnAttachment.setEnabled(false);        //撤销
+//		    	this.btnAuditResult.setEnabled(false);       //审批结果查看
+//		   		
+//		   	}
+//		   	else if("已提交".equals(editData.getState().getAlias()))
+//		   	{
+//		   		this.btnSubmit.setEnabled(true);             //提交
+//		   		this.btnAttachment.setEnabled(false);        //撤销
+//		    	this.btnAuditResult.setEnabled(false);       //审批结果查看
+//		   		
+//		   	}
+//		   	else if("审批中".equals(editData.getState().getAlias()))
+//		   	{
+//		   		this.btnSubmit.setEnabled(false);             //提交
+//		   		this.btnAttachment.setEnabled(true);        //撤销
+//		    	this.btnAuditResult.setEnabled(true);       //审批结果查看
+//		   		
+//		   	}
+//		   	else if("已审批".equals(editData.getState().getAlias()))
+//		   	{
+//		   		this.btnSubmit.setEnabled(false);             //提交
+//		   		this.btnAttachment.setEnabled(false);        //撤销
+//		    	this.btnAuditResult.setEnabled(true);       //审批结果查看
+//		   	}
+//		   	
+//		   	else
+//		   	{
+//		   		this.btnSubmit.setEnabled(true);             //提交
+//		   		this.btnAttachment.setEnabled(false);        //撤销
+//		    	this.btnAuditResult.setEnabled(false);       //审批结果查看
+//		   	}
+//	   	}
+//	 	else
+//	   	{
+//	   		this.btnSubmit.setEnabled(false);             //提交
+//	   		this.btnAttachment.setEnabled(false);        //撤销
+//	    	this.btnAuditResult.setEnabled(false);       //审批结果查看
+//	   	}
+//		InitButton();
+//    	this.chkMenuItemSubmitAndAddNew.setSelected(false);
+//	   	this.chkMenuItemSubmitAndAddNew.setEnabled(false);
+//	   	this.btnCopy.setVisible(false);
+//	   	this.btnPrint.setVisible(false);
+//	   	this.btnPrintPreview.setVisible(false);
+//	   	this.btnPre.setVisible(false);
+//	   	this.btnNext.setVisible(false);
+//	   	this.btnLast.setVisible(false);
+//	   	this.btnFirst.setVisible(false);
 	}
 	protected boolean isContinueAddNew() {
 		return false;
@@ -98,16 +98,16 @@ public class ContractChangeBillEditUIPIEx extends ContractChangeBillEditUI{
 	
 	 private void InitButton()
 	    {
-	    	this.actionCreateTo.setVisible(false);
-	    	this.actionCreateFrom.setVisible(false);
-	    	this.actionMultiapprove.setVisible(false);
-	    	this.actionNextPerson.setVisible(false);
+	    	//this.actionCreateTo.setVisible(false);
+	    	//this.actionCreateFrom.setVisible(false);
+	    	//this.actionMultiapprove.setVisible(false);
+	    	//this.actionNextPerson.setVisible(false);
 	    	
 	    	//this.btnSubmit.setText("提交BPM流程");
 	    	//this.btnSubmit.setToolTipText("提交BPM流程");
-	    	btnWorkFlowG.setVisible(false);
-	    	this.btnAttachment.setText("撤销BPM流程");
-	    	this.btnAttachment.setToolTipText("撤销BPM流程");
+	    	//btnWorkFlowG.setVisible(false);
+	    	//this.btnAttachment.setText("撤销BPM流程");
+	    	//this.btnAttachment.setToolTipText("撤销BPM流程");
 	    }
 	 
 	 
@@ -115,13 +115,14 @@ public class ContractChangeBillEditUIPIEx extends ContractChangeBillEditUI{
 	 
 	 
 	 public void actionAttachment_actionPerformed(ActionEvent e) throws Exception {
-	    	BPMServiceForERPSoap  login = new BPMServiceForERPLocator().getBPMServiceForERPSoap();
-	    	editData = ContractChangeBillFactory.getRemoteInstance().getContractChangeBillInfo(new ObjectUuidPK(editData.getId()));
-	    	login.withdraw("BGJS01", editData.getId().toString(), editData.getSourceFunction());
+		 super.actionAttachment_actionPerformed(e);
+//	    	BPMServiceForERPSoap  login = new BPMServiceForERPLocator().getBPMServiceForERPSoap();
+//	    	editData = ContractChangeBillFactory.getRemoteInstance().getContractChangeBillInfo(new ObjectUuidPK(editData.getId()));
+//	    	login.withdraw("BGJS01", editData.getId().toString(), editData.getSourceFunction());
 	    }
 	 
 	 public void actionSubmit_actionPerformed(ActionEvent e) throws Exception {
-		    super.actionSave_actionPerformed(e);
+		   // super.actionSave_actionPerformed(e);
 	    	super.actionSubmit_actionPerformed(e);
 	    	
 //	    	String [] str1 = new String[3];
@@ -143,10 +144,10 @@ public class ContractChangeBillEditUIPIEx extends ContractChangeBillEditUI{
 //	    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
 	    	
 	    	
-	    	String sql = " update T_CON_ContractChangeBill set fState='1SAVED' where fid='"+editData.getId()+"'";
-			FDCSQLBuilder bu = new FDCSQLBuilder();
-			bu.appendSql(sql);
-			bu.executeUpdate();
+	    	//String sql = " update T_CON_ContractChangeBill set fState='1SAVED' where fid='"+editData.getId()+"'";
+			//FDCSQLBuilder bu = new FDCSQLBuilder();
+			//bu.appendSql(sql);
+			//bu.executeUpdate();
 	    	//String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=BGJS01&userid="+SysContext.getSysContext().getUserName()+"";
 	    	//creatFrame(url);
 	    }
@@ -162,16 +163,18 @@ public class ContractChangeBillEditUIPIEx extends ContractChangeBillEditUI{
 	     * 流程图
 	     */
 	    public void actionWorkFlowG_actionPerformed(ActionEvent e) throws Exception {
-	    	editData = ContractChangeBillFactory.getRemoteInstance().getContractChangeBillInfo(new ObjectUuidPK(editData.getId()));
-	    	String url = editData.getDescription();
-	    	creatFrame(url);
+	    	super.actionWorkFlowG_actionPerformed(e);
+	    	//editData = ContractChangeBillFactory.getRemoteInstance().getContractChangeBillInfo(new ObjectUuidPK(editData.getId()));
+	    	//String url = editData.getDescription();
+	    	//creatFrame(url);
 	    }
 	    
 	    /**
 	     * 审批结果查看
 	     */
 	    public void actionAuditResult_actionPerformed(ActionEvent e)throws Exception {
-	    	String [] str1 = new String[3];
+	    	super.actionAudit_actionPerformed(e);
+	    //	String [] str1 = new String[3];
 //	    	str1= getInfoFacadeFactory.getRemoteInstance().ApproveClose("", "dYkAAAAAhPINbdH0", 1, "1", "",null);
 //	    	str1= getInfoFacadeFactory.getRemoteInstance().SubmitResult("", editData.getId().toString(), true, 1,"", "dYkAAAAAmMgNbdH0");
 //		   	EASLoginProxy login = new EASLoginProxyServiceLocator().getEASLogin(new URL("http://127.0.0.1:56898/ormrpc/services/EASLogin"));
@@ -187,23 +190,21 @@ public class ContractChangeBillEditUIPIEx extends ContractChangeBillEditUI{
 //		    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
 //		    }
 	    	
-	    	editData = ContractChangeBillFactory.getRemoteInstance().getContractChangeBillInfo(new ObjectUuidPK(editData.getId()));
-	    	String url = editData.getDescription();
-	    	creatFrame(url);
+	    //	editData = ContractChangeBillFactory.getRemoteInstance().getContractChangeBillInfo(new ObjectUuidPK(editData.getId()));
+	    //	String url = editData.getDescription();
+	    //	creatFrame(url);
 	    }
 
 	    private void creatFrame(String url)
 	    {
-	    	//获取MD5加密
-//	    	String md5 = MD5Helper.getMd5("blue", "20140813", "K2");
-	    	
-	    	JFrameBrowser jf = new JFrameBrowser();
-	    	jf.setJBrowserSize(720, 1200);
-	    	jf.setJBrwserOpenUrl(url);
-	    	
-	    	jf.setTitle("BPM");
-	    	
-	    	jf.OpenJBrowser(this);
+	    	//获取MD5加密	    	
+//	    	JFrameBrowser jf = new JFrameBrowser();
+//	    	jf.setJBrowserSize(720, 1200);
+//	    	jf.setJBrwserOpenUrl(url);
+//	    	
+//	    	jf.setTitle("BPM");
+//	    	
+//	    	jf.OpenJBrowser(this);
 	    }	
 	
 
