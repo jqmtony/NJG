@@ -99,12 +99,12 @@ public class PayRequestFacade implements BillBaseSelector {
 				if("1".equals(processInstanceResult)){
 					if(FDCBillStateEnum.AUDITTING.equals(Info.getState()))
 					{
-//					Info.setState(FDCBillStateEnum.SUBMITTED);
-//					CompanyOrgUnitInfo company = CompanyOrgUnitFactory.getLocalInstance(ctx).getCompanyOrgUnitInfo(new ObjectUuidPK(Info.getCU().getId()));
-//					AdminOrgUnitInfo admin=AdminOrgUnitFactory.getLocalInstance(ctx).getAdminOrgUnitInfo(new ObjectUuidPK(Info.getCU().getId()));                            
-//					ContextUtil.setCurrentFIUnit(ctx, company);
-//					ContextUtil.setCurrentOrgUnit(ctx, admin);
-//				    ContractBillFactory.getLocalInstance(ctx).audit(Info.getId());
+					Info.setState(FDCBillStateEnum.SUBMITTED);
+					CompanyOrgUnitInfo company = CompanyOrgUnitFactory.getLocalInstance(ctx).getCompanyOrgUnitInfo(new ObjectUuidPK(Info.getCU().getId()));
+					AdminOrgUnitInfo admin=AdminOrgUnitFactory.getLocalInstance(ctx).getAdminOrgUnitInfo(new ObjectUuidPK(Info.getCU().getId()));                            
+					ContextUtil.setCurrentFIUnit(ctx, company);
+					ContextUtil.setCurrentOrgUnit(ctx, admin);
+				    PayRequestBillFactory.getLocalInstance(ctx).audit(Info.getId());
 				    Info.setState(FDCBillStateEnum.AUDITTED);  
 					}    
 					else{
@@ -283,7 +283,7 @@ public class PayRequestFacade implements BillBaseSelector {
 			xml.append("<PlanHasCon>"+Info.getPlanHasCon().getName()+"</PlanHasCon>\n");//预算项目
 			if(Info.getMoneyDesc()!=null)
 				xml.append("<MoneyDesc>"+Info.getMoneyDesc()+"</MoneyDesc>\n");//备注
-			xml.append("<allAmount>0</allAmount>\n");//
+			xml.append("<allAmount>"+Info.getAmount()+"</allAmount>\n");//合同已付款金额
 			
 			
 /*    			xml.append("<billEntries>\n");
@@ -382,6 +382,7 @@ public class PayRequestFacade implements BillBaseSelector {
 		sic.add(new SelectorItemInfo("Process"));
 		sic.add(new SelectorItemInfo("BookedDate"));
 		sic.add(new SelectorItemInfo("PayTimes"));
+		sic.add(new SelectorItemInfo("cu.id"));
 		
 		
 		return sic;
