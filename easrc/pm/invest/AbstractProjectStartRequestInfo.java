@@ -16,6 +16,8 @@ public class AbstractProjectStartRequestInfo extends com.kingdee.eas.xr.XRBillBa
     protected AbstractProjectStartRequestInfo(String pkField)
     {
         super(pkField);
+        put("E2", new com.kingdee.eas.port.pm.invest.ProjectStartRequestE2Collection());
+        put("Entry", new com.kingdee.eas.port.pm.invest.ProjectStartRequestEntryCollection());
     }
     /**
      * Object:项目启动申请's 实施方案property 
@@ -93,6 +95,42 @@ public class AbstractProjectStartRequestInfo extends com.kingdee.eas.xr.XRBillBa
     public void setProjectType(com.kingdee.eas.port.pm.base.ProjectTypeInfo item)
     {
         put("projectType", item);
+    }
+    /**
+     * Object: 项目启动申请 's 招标计划 property 
+     */
+    public com.kingdee.eas.port.pm.invest.ProjectStartRequestEntryCollection getEntry()
+    {
+        return (com.kingdee.eas.port.pm.invest.ProjectStartRequestEntryCollection)get("Entry");
+    }
+    /**
+     * Object: 项目启动申请 's 后评估指标 property 
+     */
+    public com.kingdee.eas.port.pm.invest.ProjectStartRequestE2Collection getE2()
+    {
+        return (com.kingdee.eas.port.pm.invest.ProjectStartRequestE2Collection)get("E2");
+    }
+    /**
+     * Object:项目启动申请's 备注property 
+     */
+    public String getBIMUDF0022()
+    {
+        return getString("BIMUDF0022");
+    }
+    public void setBIMUDF0022(String item)
+    {
+        setString("BIMUDF0022", item);
+    }
+    /**
+     * Object:项目启动申请's 指标说明property 
+     */
+    public String getDec()
+    {
+        return getString("dec");
+    }
+    public void setDec(String item)
+    {
+        setString("dec", item);
     }
     public BOSObjectType getBOSType()
     {

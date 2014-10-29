@@ -285,7 +285,8 @@ public class SettlementDetailHelper {
 			
 			Boolean isLock =(Boolean) row.getCell("number").getUserObject();
 //			row.getCell("select").setUserObject(isLock);
-			row.getCell("select").setValue(isLock);
+			if(row.getCell("select")!=null)
+				row.getCell("select").setValue(isLock);
 		}
 	}
 	

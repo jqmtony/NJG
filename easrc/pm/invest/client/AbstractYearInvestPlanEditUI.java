@@ -650,13 +650,13 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
 		String kdtE3StrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol12\"><c:Protection hidden=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"accredType\" t:width=\"60\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"0\" /><t:Column t:key=\"accredDate\" t:width=\"80\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"1\" /><t:Column t:key=\"auditTime\" t:width=\"80\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"2\" /><t:Column t:key=\"E1.accredResu\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"3\" /><t:Column t:key=\"E1.projectConclude\" t:width=\"180\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"4\" /><t:Column t:key=\"accredPerson.name\" t:width=\"80\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"5\" /><t:Column t:key=\"accredDpart.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"6\" /><t:Column t:key=\"E2.aduitTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"7\" /><t:Column t:key=\"E2.accreConclu\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"8\" /><t:Column t:key=\"E2.opinion\" t:width=\"180\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"9\" /><t:Column t:key=\"E2.remark\" t:width=\"120\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"10\" /><t:Column t:key=\"projectName.id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"11\" /><t:Column t:key=\"projectName.projectName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"12\" t:styleID=\"sCol12\" /><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{accredType}</t:Cell><t:Cell>$Resource{accredDate}</t:Cell><t:Cell>$Resource{auditTime}</t:Cell><t:Cell>$Resource{E1.accredResu}</t:Cell><t:Cell>$Resource{E1.projectConclude}</t:Cell><t:Cell>$Resource{accredPerson.name}</t:Cell><t:Cell>$Resource{accredDpart.name}</t:Cell><t:Cell>$Resource{E2.aduitTime}</t:Cell><t:Cell>$Resource{E2.accreConclu}</t:Cell><t:Cell>$Resource{E2.opinion}</t:Cell><t:Cell>$Resource{E2.remark}</t:Cell><t:Cell>$Resource{projectName.id}</t:Cell><t:Cell>$Resource{projectName.projectName}</t:Cell><t:Cell>$Resource{id}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.kdtE3.setFormatXml(resHelper.translateString("kdtE3",kdtE3StrXML));
-//                this.kdtE3.putBindContents("queryYearPlanAuditInfoQuery",new String[] {"accredType","accredDate","auditTime","E1.accredResu","E1.projectConclude","accredPerson.name","accredDpart.name","E2.aduitTime","E2.accreConclu","E2.opinion","E2.remark","projectName.id","projectName.projectName","id"});
+                this.kdtE3.putBindContents("queryYearPlanAuditInfoQuery",new String[] {"accredType","accredDate","auditTime","E1.accredResu","E1.projectConclude","accredPerson.name","accredDpart.name","E2.aduitTime","E2.accreConclu","E2.opinion","E2.remark","projectName.id","projectName.projectName","id"});
 
-//        this.kdtE3.addRequestRowSetListener(new RequestRowSetListener() {
-//            public void doRequestRowSet(RequestRowSetEvent e) {
-//                kdtE3_doRequestRowSet(e);
-//            }
-//        });
+        this.kdtE3.addRequestRowSetListener(new RequestRowSetListener() {
+            public void doRequestRowSet(RequestRowSetEvent e) {
+                kdtE3_doRequestRowSet(e);
+            }
+        });
 
         this.kdtE3.checkParsed();
         // txtremark		
@@ -1654,18 +1654,18 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
      */
     protected void kdtE3_doRequestRowSet(RequestRowSetEvent e)
     {
-//        if (this.queryYearPlanAuditInfoQuery != null) {
-//            int start = ((Integer)e.getParam1()).intValue();
-//            int length = ((Integer)e.getParam2()).intValue() - start + 1;
-//            try {
-//                IQueryExecutor exec = this.getQueryExecutor(this.queryYearPlanAuditInfoQueryPK, this.queryYearPlanAuditInfoQuery);
-//                IRowSet rowSet = exec.executeQuery(start,length);
-//                e.setRowSet(rowSet);
-//                onGetRowSet(rowSet);
-//            } catch (Exception ee) {
-//                handUIException(ee);
-//            }
-//        }
+        if (this.queryYearPlanAuditInfoQuery != null) {
+            int start = ((Integer)e.getParam1()).intValue();
+            int length = ((Integer)e.getParam2()).intValue() - start + 1;
+            try {
+                IQueryExecutor exec = this.getQueryExecutor(this.queryYearPlanAuditInfoQueryPK, this.queryYearPlanAuditInfoQuery);
+                IRowSet rowSet = exec.executeQuery(start,length);
+                e.setRowSet(rowSet);
+                onGetRowSet(rowSet);
+            } catch (Exception ee) {
+                handUIException(ee);
+            }
+        }
     }
 
     /**

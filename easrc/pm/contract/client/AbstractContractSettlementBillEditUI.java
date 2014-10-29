@@ -504,7 +504,7 @@ public abstract class AbstractContractSettlementBillEditUI extends com.kingdee.e
         this.contsettlePrice.setBoundLabelText(resHelper.getString("contsettlePrice.boundLabelText"));		
         this.contsettlePrice.setBoundLabelLength(100);		
         this.contsettlePrice.setBoundLabelUnderline(true);		
-        this.contsettlePrice.setVisible(true);		
+        this.contsettlePrice.setVisible(false);		
         this.contsettlePrice.setBoundLabelAlignment(7);
         // contbuildArea		
         this.contbuildArea.setBoundLabelText(resHelper.getString("contbuildArea.boundLabelText"));		
@@ -534,7 +534,7 @@ public abstract class AbstractContractSettlementBillEditUI extends com.kingdee.e
         this.contqualityGuarante.setBoundLabelText(resHelper.getString("contqualityGuarante.boundLabelText"));		
         this.contqualityGuarante.setBoundLabelLength(100);		
         this.contqualityGuarante.setBoundLabelUnderline(true);		
-        this.contqualityGuarante.setVisible(true);
+        this.contqualityGuarante.setVisible(false);
         // contauditTime		
         this.contauditTime.setBoundLabelText(resHelper.getString("contauditTime.boundLabelText"));		
         this.contauditTime.setBoundLabelLength(100);		
@@ -582,7 +582,8 @@ public abstract class AbstractContractSettlementBillEditUI extends com.kingdee.e
         // kDLabelContainer8		
         this.kDLabelContainer8.setBoundLabelText(resHelper.getString("kDLabelContainer8.boundLabelText"));		
         this.kDLabelContainer8.setBoundLabelLength(100);		
-        this.kDLabelContainer8.setBoundLabelUnderline(true);
+        this.kDLabelContainer8.setBoundLabelUnderline(true);		
+        this.kDLabelContainer8.setVisible(false);
         // kDLabelContainer12		
         this.kDLabelContainer12.setBoundLabelText(resHelper.getString("kDLabelContainer12.boundLabelText"));		
         this.kDLabelContainer12.setBoundLabelUnderline(true);		
@@ -590,23 +591,30 @@ public abstract class AbstractContractSettlementBillEditUI extends com.kingdee.e
         // kDLabelContainer13		
         this.kDLabelContainer13.setBoundLabelText(resHelper.getString("kDLabelContainer13.boundLabelText"));		
         this.kDLabelContainer13.setBoundLabelLength(100);		
-        this.kDLabelContainer13.setBoundLabelUnderline(true);
+        this.kDLabelContainer13.setBoundLabelUnderline(true);		
+        this.kDLabelContainer13.setVisible(false);
         // kDLabelContainer14		
         this.kDLabelContainer14.setBoundLabelText(resHelper.getString("kDLabelContainer14.boundLabelText"));		
         this.kDLabelContainer14.setBoundLabelLength(100);		
-        this.kDLabelContainer14.setBoundLabelUnderline(true);
+        this.kDLabelContainer14.setBoundLabelUnderline(true);		
+        this.kDLabelContainer14.setVisible(false);
         // kDLabelContainer15		
         this.kDLabelContainer15.setBoundLabelText(resHelper.getString("kDLabelContainer15.boundLabelText"));		
         this.kDLabelContainer15.setBoundLabelUnderline(true);		
-        this.kDLabelContainer15.setBoundLabelLength(100);
+        this.kDLabelContainer15.setBoundLabelLength(100);		
+        this.kDLabelContainer15.setFont(new java.awt.Font("Dialog",1,9));		
+        this.kDLabelContainer15.setForeground(new java.awt.Color(255,0,0));		
+        this.kDLabelContainer15.setBackground(new java.awt.Color(255,0,0));
         // kDLabelContainer16		
         this.kDLabelContainer16.setBoundLabelText(resHelper.getString("kDLabelContainer16.boundLabelText"));		
         this.kDLabelContainer16.setBoundLabelLength(100);		
-        this.kDLabelContainer16.setBoundLabelUnderline(true);
+        this.kDLabelContainer16.setBoundLabelUnderline(true);		
+        this.kDLabelContainer16.setVisible(false);
         // kDLabelContainer17		
         this.kDLabelContainer17.setBoundLabelText(resHelper.getString("kDLabelContainer17.boundLabelText"));		
         this.kDLabelContainer17.setBoundLabelLength(100);		
-        this.kDLabelContainer17.setBoundLabelUnderline(true);
+        this.kDLabelContainer17.setBoundLabelUnderline(true);		
+        this.kDLabelContainer17.setVisible(false);
         // contGuaranceAmt		
         this.contGuaranceAmt.setBoundLabelText(resHelper.getString("contGuaranceAmt.boundLabelText"));		
         this.contGuaranceAmt.setBoundLabelUnderline(true);		
@@ -625,10 +633,11 @@ public abstract class AbstractContractSettlementBillEditUI extends com.kingdee.e
         // contOrgAuditCost		
         this.contOrgAuditCost.setBoundLabelText(resHelper.getString("contOrgAuditCost.boundLabelText"));		
         this.contOrgAuditCost.setBoundLabelLength(130);		
-        this.contOrgAuditCost.setBoundLabelUnderline(true);
+        this.contOrgAuditCost.setBoundLabelUnderline(true);		
+        this.contOrgAuditCost.setVisible(false);
         // contCostDertCost		
         this.contCostDertCost.setBoundLabelText(resHelper.getString("contCostDertCost.boundLabelText"));		
-        this.contCostDertCost.setBoundLabelLength(130);		
+        this.contCostDertCost.setBoundLabelLength(100);		
         this.contCostDertCost.setBoundLabelUnderline(true);
         // kDLabel1		
         this.kDLabel1.setText(resHelper.getString("kDLabel1.text"));		
@@ -819,7 +828,7 @@ public abstract class AbstractContractSettlementBillEditUI extends com.kingdee.e
 
         this.tblGuerdon.checkParsed();
         // tblSettlementBill
-		String tblSettlementBillStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?> <DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"id\" t:width=\"0\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:styleID=\"sCol0\" /><t:Column t:key=\"number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" /><t:Column t:key=\"billName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" /><t:Column t:key=\"settlePrice\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" /><t:Column t:key=\"qualityGuarante\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" /><t:Column t:key=\"description\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" /><t:Column t:key=\"bookedDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" /><t:Column t:key=\"period\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" /><t:Column t:key=\"state\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" /><t:Column t:key=\"buildArea\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" /><t:Column t:key=\"getFeeCriteria\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" /><t:Column t:key=\"unitPrice\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" /><t:Column t:key=\"infoPrice\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" /><t:Column t:key=\"creator.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" /><t:Column t:key=\"createTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" /><t:Column t:key=\"auditor.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" /><t:Column t:key=\"auditorTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" /><t:Column t:key=\"originalAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header1\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{number}</t:Cell><t:Cell>$Resource{billName}</t:Cell><t:Cell>$Resource{settlePrice}</t:Cell><t:Cell>$Resource{qualityGuarante}</t:Cell><t:Cell>$Resource{description}</t:Cell><t:Cell>$Resource{bookedDate}</t:Cell><t:Cell>$Resource{period}</t:Cell><t:Cell>$Resource{state}</t:Cell><t:Cell>$Resource{buildArea}</t:Cell><t:Cell>$Resource{getFeeCriteria}</t:Cell><t:Cell>$Resource{unitPrice}</t:Cell><t:Cell>$Resource{infoPrice}</t:Cell><t:Cell>$Resource{creator.name}</t:Cell><t:Cell>$Resource{createTime}</t:Cell><t:Cell>$Resource{auditor.name}</t:Cell><t:Cell>$Resource{auditorTime}</t:Cell><t:Cell>$Resource{originalAmount}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot> ";
+		String tblSettlementBillStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol9\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol10\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol11\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol12\"><c:Protection hidden=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"id\" t:width=\"0\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"billName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"settlePrice\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"qualityGuarante\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"description\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"bookedDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"period\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"state\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"buildArea\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol9\" /><t:Column t:key=\"getFeeCriteria\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol10\" /><t:Column t:key=\"unitPrice\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol11\" /><t:Column t:key=\"infoPrice\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol12\" /><t:Column t:key=\"creator.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"createTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"auditor.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"auditorTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"originalAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header1\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{number}</t:Cell><t:Cell>$Resource{billName}</t:Cell><t:Cell>$Resource{settlePrice}</t:Cell><t:Cell>$Resource{qualityGuarante}</t:Cell><t:Cell>$Resource{description}</t:Cell><t:Cell>$Resource{bookedDate}</t:Cell><t:Cell>$Resource{period}</t:Cell><t:Cell>$Resource{state}</t:Cell><t:Cell>$Resource{buildArea}</t:Cell><t:Cell>$Resource{getFeeCriteria}</t:Cell><t:Cell>$Resource{unitPrice}</t:Cell><t:Cell>$Resource{infoPrice}</t:Cell><t:Cell>$Resource{creator.name}</t:Cell><t:Cell>$Resource{createTime}</t:Cell><t:Cell>$Resource{auditor.name}</t:Cell><t:Cell>$Resource{auditorTime}</t:Cell><t:Cell>$Resource{originalAmount}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.tblSettlementBill.setFormatXml(resHelper.translateString("tblSettlementBill",tblSettlementBillStrXML));
 
@@ -940,14 +949,14 @@ public abstract class AbstractContractSettlementBillEditUI extends com.kingdee.e
         this.add(kDLabelContainer4, new KDLayout.Constraints(573, 595, 430, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         kDLabelContainer5.setBounds(new Rectangle(12, 619, 430, 19));
         this.add(kDLabelContainer5, new KDLayout.Constraints(12, 619, 430, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        kDLabelContainer6.setBounds(new Rectangle(12, 254, 633, 38));
-        this.add(kDLabelContainer6, new KDLayout.Constraints(12, 254, 633, 38, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabelContainer6.setBounds(new Rectangle(11, 202, 633, 38));
+        this.add(kDLabelContainer6, new KDLayout.Constraints(11, 202, 633, 38, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         kDLabelContainer7.setBounds(new Rectangle(12, 595, 430, 19));
         this.add(kDLabelContainer7, new KDLayout.Constraints(12, 595, 430, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contbillName.setBounds(new Rectangle(571, 70, 432, 19));
         this.add(contbillName, new KDLayout.Constraints(571, 70, 432, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contsettlePrice.setBounds(new Rectangle(372, 145, 270, 19));
-        this.add(contsettlePrice, new KDLayout.Constraints(372, 145, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contsettlePrice.setBounds(new Rectangle(445, 618, 270, 19));
+        this.add(contsettlePrice, new KDLayout.Constraints(445, 618, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contbuildArea.setBounds(new Rectangle(466, 594, 270, 19));
         this.add(contbuildArea, new KDLayout.Constraints(466, 594, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contgetFeeCriteria.setBounds(new Rectangle(446, 632, 270, 19));
@@ -956,60 +965,60 @@ public abstract class AbstractContractSettlementBillEditUI extends com.kingdee.e
         this.add(contunitPrice, new KDLayout.Constraints(465, 616, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         continfoPrice.setBounds(new Rectangle(387, 629, 270, 19));
         this.add(continfoPrice, new KDLayout.Constraints(387, 629, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contqualityGuarante.setBounds(new Rectangle(733, 195, 270, 19));
-        this.add(contqualityGuarante, new KDLayout.Constraints(733, 195, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contqualityGuarante.setBounds(new Rectangle(722, 635, 270, 19));
+        this.add(contqualityGuarante, new KDLayout.Constraints(722, 635, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contauditTime.setBounds(new Rectangle(573, 619, 430, 19));
         this.add(contauditTime, new KDLayout.Constraints(573, 619, 430, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         kDLabelContainer9.setBounds(new Rectangle(12, 35, 430, 19));
         this.add(kDLabelContainer9, new KDLayout.Constraints(12, 35, 430, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         kDLabelContainer10.setBounds(new Rectangle(571, 35, 430, 19));
         this.add(kDLabelContainer10, new KDLayout.Constraints(571, 35, 430, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contDetailInfo.setBounds(new Rectangle(9, 297, 994, 293));
-        this.add(contDetailInfo, new KDLayout.Constraints(9, 297, 994, 293, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        kDLabelContainer11.setBounds(new Rectangle(372, 195, 270, 19));
-        this.add(kDLabelContainer11, new KDLayout.Constraints(372, 195, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contDetailInfo.setBounds(new Rectangle(9, 246, 994, 344));
+        this.add(contDetailInfo, new KDLayout.Constraints(9, 246, 994, 344, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabelContainer11.setBounds(new Rectangle(734, 96, 270, 19));
+        this.add(kDLabelContainer11, new KDLayout.Constraints(734, 96, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contProj.setBounds(new Rectangle(571, 10, 430, 19));
         this.add(contProj, new KDLayout.Constraints(571, 10, 430, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contOrgUnit.setBounds(new Rectangle(12, 10, 430, 19));
         this.add(contOrgUnit, new KDLayout.Constraints(12, 10, 430, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        kDLabelContainer2.setBounds(new Rectangle(733, 274, 270, 19));
-        this.add(kDLabelContainer2, new KDLayout.Constraints(733, 274, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        kDLabelContainer3.setBounds(new Rectangle(12, 95, 270, 19));
-        this.add(kDLabelContainer3, new KDLayout.Constraints(12, 95, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        kDLabelContainer8.setBounds(new Rectangle(12, 120, 270, 19));
-        this.add(kDLabelContainer8, new KDLayout.Constraints(12, 120, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        kDLabelContainer12.setBounds(new Rectangle(12, 195, 270, 19));
-        this.add(kDLabelContainer12, new KDLayout.Constraints(12, 195, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        kDLabelContainer13.setBounds(new Rectangle(372, 95, 270, 19));
-        this.add(kDLabelContainer13, new KDLayout.Constraints(372, 95, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        kDLabelContainer14.setBounds(new Rectangle(733, 95, 270, 19));
-        this.add(kDLabelContainer14, new KDLayout.Constraints(733, 95, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        kDLabelContainer15.setBounds(new Rectangle(372, 120, 270, 19));
-        this.add(kDLabelContainer15, new KDLayout.Constraints(372, 120, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        kDLabelContainer16.setBounds(new Rectangle(733, 222, 270, 19));
-        this.add(kDLabelContainer16, new KDLayout.Constraints(733, 222, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        kDLabelContainer17.setBounds(new Rectangle(733, 250, 270, 19));
-        this.add(kDLabelContainer17, new KDLayout.Constraints(733, 250, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contGuaranceAmt.setBounds(new Rectangle(734, 169, 269, 19));
-        this.add(contGuaranceAmt, new KDLayout.Constraints(734, 169, 269, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        lblAttachmentContainer.setBounds(new Rectangle(13, 223, 531, 19));
-        this.add(lblAttachmentContainer, new KDLayout.Constraints(13, 223, 531, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        viewAttachment.setBounds(new Rectangle(559, 221, 83, 21));
-        this.add(viewAttachment, new KDLayout.Constraints(559, 221, 83, 21, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contConstructPrice.setBounds(new Rectangle(733, 120, 270, 19));
-        this.add(contConstructPrice, new KDLayout.Constraints(733, 120, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contOrgAuditCost.setBounds(new Rectangle(12, 169, 270, 19));
-        this.add(contOrgAuditCost, new KDLayout.Constraints(12, 169, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contCostDertCost.setBounds(new Rectangle(372, 169, 270, 19));
-        this.add(contCostDertCost, new KDLayout.Constraints(372, 169, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        kDLabel1.setBounds(new Rectangle(12, 145, 79, 19));
-        this.add(kDLabel1, new KDLayout.Constraints(12, 145, 79, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        btnAType.setBounds(new Rectangle(111, 145, 40, 19));
-        this.add(btnAType, new KDLayout.Constraints(111, 145, 40, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        btnBType.setBounds(new Rectangle(171, 145, 45, 19));
-        this.add(btnBType, new KDLayout.Constraints(171, 145, 45, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        BtnCType.setBounds(new Rectangle(238, 145, 44, 19));
-        this.add(BtnCType, new KDLayout.Constraints(238, 145, 44, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabelContainer2.setBounds(new Rectangle(372, 147, 270, 19));
+        this.add(kDLabelContainer2, new KDLayout.Constraints(372, 147, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabelContainer3.setBounds(new Rectangle(371, 99, 270, 19));
+        this.add(kDLabelContainer3, new KDLayout.Constraints(371, 99, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabelContainer8.setBounds(new Rectangle(727, 169, 270, 19));
+        this.add(kDLabelContainer8, new KDLayout.Constraints(727, 169, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabelContainer12.setBounds(new Rectangle(372, 123, 270, 19));
+        this.add(kDLabelContainer12, new KDLayout.Constraints(372, 123, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabelContainer13.setBounds(new Rectangle(728, 272, 270, 19));
+        this.add(kDLabelContainer13, new KDLayout.Constraints(728, 272, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabelContainer14.setBounds(new Rectangle(726, 255, 270, 19));
+        this.add(kDLabelContainer14, new KDLayout.Constraints(726, 255, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        kDLabelContainer15.setBounds(new Rectangle(12, 147, 270, 19));
+        this.add(kDLabelContainer15, new KDLayout.Constraints(12, 147, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabelContainer16.setBounds(new Rectangle(746, 613, 270, 19));
+        this.add(kDLabelContainer16, new KDLayout.Constraints(746, 613, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        kDLabelContainer17.setBounds(new Rectangle(359, 631, 270, 19));
+        this.add(kDLabelContainer17, new KDLayout.Constraints(359, 631, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contGuaranceAmt.setBounds(new Rectangle(735, 119, 269, 19));
+        this.add(contGuaranceAmt, new KDLayout.Constraints(735, 119, 269, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        lblAttachmentContainer.setBounds(new Rectangle(12, 171, 531, 19));
+        this.add(lblAttachmentContainer, new KDLayout.Constraints(12, 171, 531, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        viewAttachment.setBounds(new Rectangle(558, 169, 83, 21));
+        this.add(viewAttachment, new KDLayout.Constraints(558, 169, 83, 21, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contConstructPrice.setBounds(new Rectangle(12, 99, 270, 19));
+        this.add(contConstructPrice, new KDLayout.Constraints(12, 99, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contOrgAuditCost.setBounds(new Rectangle(484, 596, 270, 19));
+        this.add(contOrgAuditCost, new KDLayout.Constraints(484, 596, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contCostDertCost.setBounds(new Rectangle(12, 123, 270, 19));
+        this.add(contCostDertCost, new KDLayout.Constraints(12, 123, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabel1.setBounds(new Rectangle(439, 597, 79, 19));
+        this.add(kDLabel1, new KDLayout.Constraints(439, 597, 79, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        btnAType.setBounds(new Rectangle(677, 227, 40, 19));
+        this.add(btnAType, new KDLayout.Constraints(677, 227, 40, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        btnBType.setBounds(new Rectangle(678, 251, 45, 19));
+        this.add(btnBType, new KDLayout.Constraints(678, 251, 45, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        BtnCType.setBounds(new Rectangle(682, 271, 44, 19));
+        this.add(BtnCType, new KDLayout.Constraints(682, 271, 44, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         //kDLabelContainer1
         kDLabelContainer1.setBoundEditor(txtNumber);
         //kDLabelContainer4
@@ -1042,7 +1051,7 @@ public abstract class AbstractContractSettlementBillEditUI extends com.kingdee.e
         kDLabelContainer10.setBoundEditor(txtcontractName);
         //contDetailInfo
         contDetailInfo.getContentPane().setLayout(new KDLayout());
-        contDetailInfo.getContentPane().putClientProperty("OriginalBounds", new Rectangle(9, 297, 994, 293));        tabTop.setBounds(new Rectangle(0, 0, 971, 290));
+        contDetailInfo.getContentPane().putClientProperty("OriginalBounds", new Rectangle(9, 246, 994, 344));        tabTop.setBounds(new Rectangle(0, 0, 971, 290));
         contDetailInfo.getContentPane().add(tabTop, new KDLayout.Constraints(0, 0, 971, 290, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         //tabTop
         tabTop.add(panelCollection, resHelper.getString("panelCollection.constraints"));

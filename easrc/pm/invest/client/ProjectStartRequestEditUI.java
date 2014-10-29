@@ -97,25 +97,13 @@ public class ProjectStartRequestEditUI extends AbstractProjectStartRequestEditUI
 
     public void onLoad() throws Exception {
     	super.onLoad();
-    	kDTabbedPane1.remove(kDPanel1);
+    	txtBIMUDF0022.setVisible(false);
+    	contBIMUDF0022.setVisible(false);
     	KDDatePicker kdtE1_startDate_DatePicker = new KDDatePicker();
         kdtE1_startDate_DatePicker.setName("kdtE1_startDate_DatePicker");
         kdtE1_startDate_DatePicker.setVisible(true);
         kdtE1_startDate_DatePicker.setEditable(true);
         KDTDefaultCellEditor kdtE1_startDate_CellEditor = new KDTDefaultCellEditor(kdtE1_startDate_DatePicker);
-        
-        this.kdtE1.getColumn("startDate").setEditor(kdtE1_startDate_CellEditor);
-        this.kdtE1.getColumn("inviteDate").setEditor(kdtE1_startDate_CellEditor);
-        this.kdtE1.getColumn("buildDate").setEditor(kdtE1_startDate_CellEditor);
-        this.kdtE1.getColumn("finishDate").setEditor(kdtE1_startDate_CellEditor);
-        this.kdtE1.getColumn("endDate").setEditor(kdtE1_startDate_CellEditor);
-        
-        KDCheckBox kdtE1_unitProject_CheckBox = new KDCheckBox();
-        kdtE1_unitProject_CheckBox.setName("kdtE1_unitProject_CheckBox");
-        kdtE1_unitProject_CheckBox.setVisible(true);
-        kdtE1_unitProject_CheckBox.setEditable(true);
-        KDTDefaultCellEditor kdtE1_unitProject_CellEditor = new KDTDefaultCellEditor(kdtE1_unitProject_CheckBox);
-        this.kdtE1.getColumn("unitProject").setEditor(kdtE1_unitProject_CellEditor);
         
         FilterInfo filter = new FilterInfo();
 		EntityViewInfo view = new EntityViewInfo();
@@ -162,7 +150,6 @@ public class ProjectStartRequestEditUI extends AbstractProjectStartRequestEditUI
     		return;
     	if(prmtprojectName.getValue()!=null)
     	{
-    		this.kdtE1.removeRows();
     		ProjectInfo Info = (ProjectInfo) prmtprojectName.getValue();
     		editData.setProjectName(Info);
         	String oql = "";
@@ -304,6 +291,11 @@ public class ProjectStartRequestEditUI extends AbstractProjectStartRequestEditUI
         objectValue.setCreator((com.kingdee.eas.base.permission.UserInfo)(com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentUser()));
 		objectValue.setBizDate(new Date());
 		objectValue.setId(BOSUuid.create(objectValue.getBOSType()));
+		objectValue.setDec("项目后评估要基本能体现以下内容："+
+				"\n1、预算执行情况对比分析（并附表说明）"+
+				"\n2、主要经济、技术指标实现情况对比分析（并附表说明）"+
+				"\n3、主要偏差、问题及原因分析（项目从申报、实施、竣工验收、试运营各阶段出现的偏差、问题及原因分析）"+
+				"\n4、项目自评估报告（作为附件插入）");
         return objectValue;
     }
     protected void attachListeners() {

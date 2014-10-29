@@ -251,6 +251,7 @@ public class YIPlanAccredControllerBean extends AbstractYIPlanAccredControllerBe
     				parentproInfo.setSchedulEndDate(planInfo.getPlanEndDate());
     				parentproInfo.setNJGyearInvest(null);
     				parentproInfo.setIsSysCreate(Boolean.TRUE);
+    				parentproInfo.setIsLeaf(false);
     				parentproInfo.setNJGprojectType(IProjectType.getProjectTypeInfo("select id,name,number where name='基本建设'"));
         			
         			Iproject.addnew(parentproInfo);
@@ -273,12 +274,16 @@ public class YIPlanAccredControllerBean extends AbstractYIPlanAccredControllerBe
     			proInfo.setSchedulEndDate(planInfo.getPlanEndDate());
     			proInfo.setNJGyearInvest(planInfo);
     			proInfo.setIsSysCreate(Boolean.TRUE);
+    			proInfo.setIsLeaf(true);
     			proInfo.setNJGprojectType(IProjectType.getProjectTypeInfo("select id,name,number where id='"+e1Info.getProjectType().getId().toString()+"'"));
     			if(planInfo.getProjectType().getName().equals("项目前期")){
     				proInfo.setParent(parentproInfo);
     			}else if(planInfo.getPortProject()!=null && planInfo.getBuildType().getName().equals("续建项目"))
     			{
-    				proInfo.setParent(planInfo.getPortProject());
+    				ProjectInfo info = planInfo.getPortProject();
+    				proInfo.setParent(info);
+    				info.setIsLeaf(false);
+    				ProjectFactory.getLocalInstance(ctx).update(new ObjectUuidPK(info.getId()), info);
     			}
     			Iproject.addnew(proInfo);
     			

@@ -92,6 +92,11 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 		init();
 		String cuid = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
 		if (getOprtState().equals(OprtState.ADDNEW)){
+			String number = txtNumber.getText();
+			int s = number.indexOf("-");
+			String number1 = number.substring(0, s);
+			String number2 = number.substring(s+1, number.length());
+			txtNumber.setText(number1+"-"+SysContext.getSysContext().getCurrentCtrlUnit().getNumber()+number2);
 			UserInfo user = SysContext.getSysContext().getCurrentUserInfo();
 			if (user.getPerson() != null) 
 			{//申请人带出申请单位
@@ -138,12 +143,14 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 			comboStatus.setSelectedItem(XRBillStatusEnum.TEMPORARILYSAVED);
 		}
 		setPortProject(null);
+		
 	}
 	
 	public void actionInvestPlan_actionPerformed(ActionEvent e)throws Exception {
 	}
 	public void onShow() throws Exception {
 		super.onShow();
+		kDTabbedPane1.remove(kDPanel5);
 		pkplanEndDate.setRequired(true);
 		pkplanStartDate.setRequired(true);
 		if(getUIContext().get("projectInfo-edit")!=null){
@@ -507,11 +514,6 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 		if(info!=null){
 			objectValue = info;
 		}
-		objectValue.setDesc("项目后评估要基本能体现以下内容："+
-				"\n1、预算执行情况对比分析（并附表说明）"+
-				"\n2、主要经济、技术指标实现情况对比分析（并附表说明）"+
-				"\n3、主要偏差、问题及原因分析（项目从申报、实施、竣工验收、试运营各阶段出现的偏差、问题及原因分析）"+
-				"\n4、项目自评估报告（作为附件插入）");
 		return objectValue;
 	}
 	/**

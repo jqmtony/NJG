@@ -117,6 +117,8 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI {
 		this.contCU.setVisible(false);
 		this.contBizStatus.setVisible(false);
 		this.contDescription.setVisible(false);
+		this.prmtinvitePlan.setVisible(false);
+		this.continvitePlan.setVisible(false);
 		this.kDContainer6.getContentPane().add(kdtE6, BorderLayout.CENTER);
 		this.kDContainer7.getContentPane().add(kdtE7, BorderLayout.CENTER);
 		this.kdtE7.getColumn("weight").getStyleAttributes().setHided(true);
@@ -315,7 +317,6 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI {
 		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this,prmtproName, "项目名称");
 		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this,prmtuseOrg, "招标单位");
 		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this,prmtinviteType, "招标方式");
-		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this,prmtinvitePlan, "招标计划");
 		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this,txtinviteBudget, "招标预算");
 		
 		InvitePlanInfo planInfo = (InvitePlanInfo)prmtinvitePlan.getValue();
