@@ -38,7 +38,7 @@ import com.kingdee.eas.fdc.contract.PayRequestBillInfo;
 public class getInfoFacadeControllerBean extends AbstractgetInfoFacadeControllerBean
 {
     private static Logger logger = Logger.getLogger("com.kingdee.eas.bpmdemo.webservers.getInfoFacadeControllerBean"); 
-    protected String[] _SubmitResult(Context ctx, String strBSID,
+    public String[] _SubmitResult(Context ctx, String strBSID,
 			String strBOID, boolean success, int procInstID, String procURL,
 			String strMessage)
 			throws BOSException {
@@ -83,7 +83,7 @@ public class getInfoFacadeControllerBean extends AbstractgetInfoFacadeController
 		}
 		
 	}
-	protected String[] _ApproveClose(Context ctx, String strBSID, String strBOID,
+    public String[] _ApproveClose(Context ctx, String strBSID, String strBOID,
 			int procInstID, String processInstanceResult, String strComment,
 			Date dtTime) throws BOSException {
 		
@@ -127,7 +127,7 @@ public class getInfoFacadeControllerBean extends AbstractgetInfoFacadeController
 		}
 	}
 
-	protected String[] _GetbillInfo(Context ctx, String strBSID, String strBOID) throws BOSException {
+	public String[] _GetbillInfo(Context ctx, String strBSID, String strBOID) throws BOSException {
 		
 		String[] str = new String[3];
     	IObjectValue billInfo = null;
@@ -169,10 +169,10 @@ public class getInfoFacadeControllerBean extends AbstractgetInfoFacadeController
 		}
 	}
 	
-	protected String[] _GetrRelatedBillInfo(Context ctx, String strBTID,String strBOID, String strRelatedCode) throws BOSException {
+	public String[] _GetrRelatedBillInfo(Context ctx, String strBTID,String strBOID, String strRelatedCode) throws BOSException {
 		return super._GetrRelatedBillInfo(ctx, strBTID, strBOID, strRelatedCode);
 	}
-	protected String[] _ApproveBack(Context ctx, String strBTID,String strBOID, String strXML) throws BOSException {
+	public String[] _ApproveBack(Context ctx, String strBTID,String strBOID, String strXML) throws BOSException {
 		String[] str = new String[3];
 		str = UpdateUtil.updateValue(ctx, strBTID, strBOID, strXML);
         return str;		
