@@ -26,6 +26,7 @@ public class ObjectStateEnum extends StringEnum
     public static final String STOP_VALUE = "11";//alias=暂缓
     public static final String ACCEPTANCE_VALUE = "12";//alias=已验收
     public static final String CANCEL_VALUE = "13";//alias=已中止
+    public static final String CHANGE_VALUE = "14";//alias=已被变更
 
     public static final ObjectStateEnum save = new ObjectStateEnum("save", SAVE_VALUE);
     public static final ObjectStateEnum declared = new ObjectStateEnum("declared", DECLARED_VALUE);
@@ -40,6 +41,7 @@ public class ObjectStateEnum extends StringEnum
     public static final ObjectStateEnum stop = new ObjectStateEnum("stop", STOP_VALUE);
     public static final ObjectStateEnum acceptance = new ObjectStateEnum("acceptance", ACCEPTANCE_VALUE);
     public static final ObjectStateEnum cancel = new ObjectStateEnum("cancel", CANCEL_VALUE);
+    public static final ObjectStateEnum change = new ObjectStateEnum("change", CHANGE_VALUE);
 
     /**
      * construct function

@@ -240,7 +240,7 @@ public class YIPlanAccredControllerBean extends AbstractYIPlanAccredControllerBe
     				&& !planInfo.getPlanType().equals(PlanTypeEnum.adjust))
     		{
     			ProjectInfo parentproInfo = new ProjectInfo();
-    			if(planInfo.getProjectType().getName().equals("基本建设前期")){
+    			if(planInfo.getProjectType().getName().equals("项目前期")){
     				parentproInfo.setId(BOSUuid.create(parentproInfo.getBOSType()));
     				parentproInfo.setNumber(""+planInfo.getNumber()+"-0");
     				parentproInfo.setName(planInfo.getProjectName().replace("前期", ""));
@@ -258,7 +258,7 @@ public class YIPlanAccredControllerBean extends AbstractYIPlanAccredControllerBe
     			ProjectInfo proInfo = new ProjectInfo();
     			proInfo.setId(BOSUuid.create(proInfo.getBOSType()));
     			proInfo.setNumber(planInfo.getNumber());
-    			if(planInfo.getProjectType().getName().equals("基本建设前期")){
+    			if(planInfo.getProjectType().getName().equals("项目前期")){
     				if(planInfo.getProjectName().contains("前期"))
         				proInfo.setName(planInfo.getProjectName());
         			else
@@ -274,18 +274,21 @@ public class YIPlanAccredControllerBean extends AbstractYIPlanAccredControllerBe
     			proInfo.setNJGyearInvest(planInfo);
     			proInfo.setIsSysCreate(Boolean.TRUE);
     			proInfo.setNJGprojectType(IProjectType.getProjectTypeInfo("select id,name,number where id='"+e1Info.getProjectType().getId().toString()+"'"));
-    			if(planInfo.getProjectType().getName().equals("基本建设前期")){
+    			if(planInfo.getProjectType().getName().equals("项目前期")){
     				proInfo.setParent(parentproInfo);
     			}else if(planInfo.getPortProject()!=null && planInfo.getBuildType().getName().equals("续建项目"))
     			{
     				proInfo.setParent(planInfo.getPortProject());
     			}
     			Iproject.addnew(proInfo);
+    			
+    			planInfo.setProject(proInfo);
+    			IyearInvestPlan.update(new ObjectUuidPK(planInfo.getId()), planInfo);
     		}
 		}
     }
     /**
-     * 审核时
+     * 审核时,反写评审表意见功能 去除，直接查询展示
      * @param ctx
      * @param Info
      * @throws BOSException
@@ -293,15 +296,15 @@ public class YIPlanAccredControllerBean extends AbstractYIPlanAccredControllerBe
      */
     private void creatProjectAudit(Context ctx,YIPlanAccredInfo Info,YIPlanAccredE1Info E1Info) throws BOSException, EASBizException 
     {
-    	   IYearInvestPlan YearInvestPlan = YearInvestPlanFactory.getLocalInstance(ctx);
-		    BOSUuid yipid =E1Info.getProjectName().getId();
-		    YearInvestPlanInfo planInfo = YearInvestPlan.getYearInvestPlanInfo(new ObjectUuidPK(yipid));
-		    YearInvestPlanE3Info e3Info = new YearInvestPlanE3Info();
-		    e3Info.setReviewStage(Info.getAccredType());
-		    e3Info.setAccredConclusion(E1Info.getProjectConclude());
-		    e3Info.setReviewTime(Info.getAccredDate());
-		    planInfo.getE3().add(e3Info);
-		    YearInvestPlan.update(new ObjectUuidPK(yipid), planInfo);
+//    	   IYearInvestPlan YearInvestPlan = YearInvestPlanFactory.getLocalInstance(ctx);
+//		    BOSUuid yipid =E1Info.getProjectName().getId();
+//		    YearInvestPlanInfo planInfo = YearInvestPlan.getYearInvestPlanInfo(new ObjectUuidPK(yipid));
+//		    YearInvestPlanE3Info e3Info = new YearInvestPlanE3Info();
+//		    e3Info.setReviewStage(Info.getAccredType());
+//		    e3Info.setAccredConclusion(E1Info.getProjectConclude());
+//		    e3Info.setReviewTime(Info.getAccredDate());
+//		    planInfo.getE3().add(e3Info);
+//		    YearInvestPlan.update(new ObjectUuidPK(yipid), planInfo);
     	
     }   
     

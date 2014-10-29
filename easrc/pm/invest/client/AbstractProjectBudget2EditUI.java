@@ -57,6 +57,16 @@ public abstract class AbstractProjectBudget2EditUI extends com.kingdee.eas.xr.cl
     protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtE1;
 	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtE1_detailPanel = null;
     protected com.kingdee.bos.ctrl.swing.KDTabbedPane kDTabbedPane1;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contNumber;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contyear;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contperson;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contprojectName;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contBizDate;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contprojectType;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contdeparment;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contCU;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contestimateCost;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contStatus;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtCreator;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkCreateTime;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtLastUpdateUser;
@@ -65,29 +75,18 @@ public abstract class AbstractProjectBudget2EditUI extends com.kingdee.eas.xr.cl
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtAuditor;
     protected com.kingdee.bos.ctrl.swing.KDComboBox comboBizStatus;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkAuditTime;
-    protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel1;
     protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel2;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contNumber;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contBizDate;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contStatus;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contperson;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contdeparment;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contestimateCost;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contprojectName;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contCU;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contyear;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contprojectType;
-    protected com.kingdee.bos.ctrl.swing.KDTextField txtNumber;
-    protected com.kingdee.bos.ctrl.swing.KDDatePicker pkBizDate;
-    protected com.kingdee.bos.ctrl.swing.KDComboBox comboStatus;
-    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtperson;
-    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtdeparment;
-    protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtestimateCost;
-    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtprojectName;
-    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtCU;
-    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtyear;
-    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtprojectType;
     protected com.kingdee.bos.ctrl.swing.KDScrollPane kDScrollPane1;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txtNumber;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtyear;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtperson;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtprojectName;
+    protected com.kingdee.bos.ctrl.swing.KDDatePicker pkBizDate;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtprojectType;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtdeparment;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtCU;
+    protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtestimateCost;
+    protected com.kingdee.bos.ctrl.swing.KDComboBox comboStatus;
     protected com.kingdee.eas.port.pm.invest.ProjectBudget2Info editData = null;
     /**
      * output class constructor
@@ -148,6 +147,16 @@ public abstract class AbstractProjectBudget2EditUI extends com.kingdee.eas.xr.cl
         this.contAuditTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.kdtE1 = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.kDTabbedPane1 = new com.kingdee.bos.ctrl.swing.KDTabbedPane();
+        this.contNumber = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contyear = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contperson = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contprojectName = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contBizDate = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contprojectType = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contdeparment = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contCU = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contestimateCost = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contStatus = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.prmtCreator = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.pkCreateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.prmtLastUpdateUser = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
@@ -156,29 +165,18 @@ public abstract class AbstractProjectBudget2EditUI extends com.kingdee.eas.xr.cl
         this.prmtAuditor = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.comboBizStatus = new com.kingdee.bos.ctrl.swing.KDComboBox();
         this.pkAuditTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
-        this.kDPanel1 = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.kDPanel2 = new com.kingdee.bos.ctrl.swing.KDPanel();
-        this.contNumber = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contBizDate = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contStatus = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contperson = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contdeparment = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contestimateCost = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contprojectName = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contCU = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contyear = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contprojectType = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.txtNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
-        this.pkBizDate = new com.kingdee.bos.ctrl.swing.KDDatePicker();
-        this.comboStatus = new com.kingdee.bos.ctrl.swing.KDComboBox();
-        this.prmtperson = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
-        this.prmtdeparment = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
-        this.txtestimateCost = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
-        this.prmtprojectName = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
-        this.prmtCU = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
-        this.prmtyear = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
-        this.prmtprojectType = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.kDScrollPane1 = new com.kingdee.bos.ctrl.swing.KDScrollPane();
+        this.txtNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.prmtyear = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.prmtperson = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.prmtprojectName = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.pkBizDate = new com.kingdee.bos.ctrl.swing.KDDatePicker();
+        this.prmtprojectType = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.prmtdeparment = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.prmtCU = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.txtestimateCost = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
+        this.comboStatus = new com.kingdee.bos.ctrl.swing.KDComboBox();
         this.contCreator.setName("contCreator");
         this.contCreateTime.setName("contCreateTime");
         this.contLastUpdateUser.setName("contLastUpdateUser");
@@ -189,6 +187,16 @@ public abstract class AbstractProjectBudget2EditUI extends com.kingdee.eas.xr.cl
         this.contAuditTime.setName("contAuditTime");
         this.kdtE1.setName("kdtE1");
         this.kDTabbedPane1.setName("kDTabbedPane1");
+        this.contNumber.setName("contNumber");
+        this.contyear.setName("contyear");
+        this.contperson.setName("contperson");
+        this.contprojectName.setName("contprojectName");
+        this.contBizDate.setName("contBizDate");
+        this.contprojectType.setName("contprojectType");
+        this.contdeparment.setName("contdeparment");
+        this.contCU.setName("contCU");
+        this.contestimateCost.setName("contestimateCost");
+        this.contStatus.setName("contStatus");
         this.prmtCreator.setName("prmtCreator");
         this.pkCreateTime.setName("pkCreateTime");
         this.prmtLastUpdateUser.setName("prmtLastUpdateUser");
@@ -197,29 +205,18 @@ public abstract class AbstractProjectBudget2EditUI extends com.kingdee.eas.xr.cl
         this.prmtAuditor.setName("prmtAuditor");
         this.comboBizStatus.setName("comboBizStatus");
         this.pkAuditTime.setName("pkAuditTime");
-        this.kDPanel1.setName("kDPanel1");
         this.kDPanel2.setName("kDPanel2");
-        this.contNumber.setName("contNumber");
-        this.contBizDate.setName("contBizDate");
-        this.contStatus.setName("contStatus");
-        this.contperson.setName("contperson");
-        this.contdeparment.setName("contdeparment");
-        this.contestimateCost.setName("contestimateCost");
-        this.contprojectName.setName("contprojectName");
-        this.contCU.setName("contCU");
-        this.contyear.setName("contyear");
-        this.contprojectType.setName("contprojectType");
-        this.txtNumber.setName("txtNumber");
-        this.pkBizDate.setName("pkBizDate");
-        this.comboStatus.setName("comboStatus");
-        this.prmtperson.setName("prmtperson");
-        this.prmtdeparment.setName("prmtdeparment");
-        this.txtestimateCost.setName("txtestimateCost");
-        this.prmtprojectName.setName("prmtprojectName");
-        this.prmtCU.setName("prmtCU");
-        this.prmtyear.setName("prmtyear");
-        this.prmtprojectType.setName("prmtprojectType");
         this.kDScrollPane1.setName("kDScrollPane1");
+        this.txtNumber.setName("txtNumber");
+        this.prmtyear.setName("prmtyear");
+        this.prmtperson.setName("prmtperson");
+        this.prmtprojectName.setName("prmtprojectName");
+        this.pkBizDate.setName("pkBizDate");
+        this.prmtprojectType.setName("prmtprojectType");
+        this.prmtdeparment.setName("prmtdeparment");
+        this.prmtCU.setName("prmtCU");
+        this.txtestimateCost.setName("txtestimateCost");
+        this.comboStatus.setName("comboStatus");
         // CoreUI
         // contCreator		
         this.contCreator.setBoundLabelText(resHelper.getString("contCreator.boundLabelText"));		
@@ -413,6 +410,54 @@ public abstract class AbstractProjectBudget2EditUI extends com.kingdee.eas.xr.cl
                 }
             }
         });
+        // contNumber		
+        this.contNumber.setBoundLabelText(resHelper.getString("contNumber.boundLabelText"));		
+        this.contNumber.setBoundLabelLength(100);		
+        this.contNumber.setBoundLabelUnderline(true);
+        // contyear		
+        this.contyear.setBoundLabelText(resHelper.getString("contyear.boundLabelText"));		
+        this.contyear.setBoundLabelLength(100);		
+        this.contyear.setBoundLabelUnderline(true);		
+        this.contyear.setVisible(true);
+        // contperson		
+        this.contperson.setBoundLabelText(resHelper.getString("contperson.boundLabelText"));		
+        this.contperson.setBoundLabelLength(100);		
+        this.contperson.setBoundLabelUnderline(true);		
+        this.contperson.setVisible(true);
+        // contprojectName		
+        this.contprojectName.setBoundLabelText(resHelper.getString("contprojectName.boundLabelText"));		
+        this.contprojectName.setBoundLabelLength(100);		
+        this.contprojectName.setBoundLabelUnderline(true);		
+        this.contprojectName.setVisible(true);
+        // contBizDate		
+        this.contBizDate.setBoundLabelText(resHelper.getString("contBizDate.boundLabelText"));		
+        this.contBizDate.setBoundLabelLength(100);		
+        this.contBizDate.setBoundLabelUnderline(true);
+        // contprojectType		
+        this.contprojectType.setBoundLabelText(resHelper.getString("contprojectType.boundLabelText"));		
+        this.contprojectType.setBoundLabelLength(100);		
+        this.contprojectType.setBoundLabelUnderline(true);		
+        this.contprojectType.setVisible(true);
+        // contdeparment		
+        this.contdeparment.setBoundLabelText(resHelper.getString("contdeparment.boundLabelText"));		
+        this.contdeparment.setBoundLabelLength(100);		
+        this.contdeparment.setBoundLabelUnderline(true);		
+        this.contdeparment.setVisible(true);
+        // contCU		
+        this.contCU.setBoundLabelText(resHelper.getString("contCU.boundLabelText"));		
+        this.contCU.setBoundLabelLength(100);		
+        this.contCU.setBoundLabelUnderline(true);		
+        this.contCU.setEnabled(false);
+        // contestimateCost		
+        this.contestimateCost.setBoundLabelText(resHelper.getString("contestimateCost.boundLabelText"));		
+        this.contestimateCost.setBoundLabelLength(100);		
+        this.contestimateCost.setBoundLabelUnderline(true);		
+        this.contestimateCost.setVisible(true);
+        // contStatus		
+        this.contStatus.setBoundLabelText(resHelper.getString("contStatus.boundLabelText"));		
+        this.contStatus.setBoundLabelLength(100);		
+        this.contStatus.setBoundLabelUnderline(true);		
+        this.contStatus.setEnabled(false);
         // prmtCreator		
         this.prmtCreator.setEnabled(false);		
         this.prmtCreator.setCommitFormat("$name$");		
@@ -442,61 +487,18 @@ public abstract class AbstractProjectBudget2EditUI extends com.kingdee.eas.xr.cl
         // pkAuditTime		
         this.pkAuditTime.setTimeEnabled(true);		
         this.pkAuditTime.setEnabled(false);
-        // kDPanel1
         // kDPanel2
-        // contNumber		
-        this.contNumber.setBoundLabelText(resHelper.getString("contNumber.boundLabelText"));		
-        this.contNumber.setBoundLabelLength(100);		
-        this.contNumber.setBoundLabelUnderline(true);
-        // contBizDate		
-        this.contBizDate.setBoundLabelText(resHelper.getString("contBizDate.boundLabelText"));		
-        this.contBizDate.setBoundLabelLength(100);		
-        this.contBizDate.setBoundLabelUnderline(true);
-        // contStatus		
-        this.contStatus.setBoundLabelText(resHelper.getString("contStatus.boundLabelText"));		
-        this.contStatus.setBoundLabelLength(100);		
-        this.contStatus.setBoundLabelUnderline(true);		
-        this.contStatus.setEnabled(false);
-        // contperson		
-        this.contperson.setBoundLabelText(resHelper.getString("contperson.boundLabelText"));		
-        this.contperson.setBoundLabelLength(100);		
-        this.contperson.setBoundLabelUnderline(true);		
-        this.contperson.setVisible(true);
-        // contdeparment		
-        this.contdeparment.setBoundLabelText(resHelper.getString("contdeparment.boundLabelText"));		
-        this.contdeparment.setBoundLabelLength(100);		
-        this.contdeparment.setBoundLabelUnderline(true);		
-        this.contdeparment.setVisible(true);
-        // contestimateCost		
-        this.contestimateCost.setBoundLabelText(resHelper.getString("contestimateCost.boundLabelText"));		
-        this.contestimateCost.setBoundLabelLength(100);		
-        this.contestimateCost.setBoundLabelUnderline(true);		
-        this.contestimateCost.setVisible(true);
-        // contprojectName		
-        this.contprojectName.setBoundLabelText(resHelper.getString("contprojectName.boundLabelText"));		
-        this.contprojectName.setBoundLabelLength(100);		
-        this.contprojectName.setBoundLabelUnderline(true);		
-        this.contprojectName.setVisible(true);
-        // contCU		
-        this.contCU.setBoundLabelText(resHelper.getString("contCU.boundLabelText"));		
-        this.contCU.setBoundLabelLength(100);		
-        this.contCU.setBoundLabelUnderline(true);		
-        this.contCU.setEnabled(false);
-        // contyear		
-        this.contyear.setBoundLabelText(resHelper.getString("contyear.boundLabelText"));		
-        this.contyear.setBoundLabelLength(100);		
-        this.contyear.setBoundLabelUnderline(true);		
-        this.contyear.setVisible(true);
-        // contprojectType		
-        this.contprojectType.setBoundLabelText(resHelper.getString("contprojectType.boundLabelText"));		
-        this.contprojectType.setBoundLabelLength(100);		
-        this.contprojectType.setBoundLabelUnderline(true);		
-        this.contprojectType.setVisible(true);
+        // kDScrollPane1
         // txtNumber
-        // pkBizDate
-        // comboStatus		
-        this.comboStatus.addItems(EnumUtils.getEnumList("com.kingdee.eas.xr.app.XRBillStatusEnum").toArray());		
-        this.comboStatus.setEnabled(false);
+        // prmtyear		
+        this.prmtyear.setQueryInfo("com.kingdee.eas.port.pm.base.app.InvestYearQuery");		
+        this.prmtyear.setVisible(true);		
+        this.prmtyear.setEditable(true);		
+        this.prmtyear.setDisplayFormat("$name$");		
+        this.prmtyear.setEditFormat("$number$");		
+        this.prmtyear.setCommitFormat("$number$");		
+        this.prmtyear.setRequired(false);		
+        this.prmtyear.setEnabled(false);
         // prmtperson		
         this.prmtperson.setQueryInfo("com.kingdee.eas.basedata.person.app.PersonQuery");		
         this.prmtperson.setVisible(true);		
@@ -515,24 +517,6 @@ public abstract class AbstractProjectBudget2EditUI extends com.kingdee.eas.xr.cl
                 }
             }
         });
-        // prmtdeparment		
-        this.prmtdeparment.setQueryInfo("com.kingdee.eas.basedata.org.app.AdminItemQuery");		
-        this.prmtdeparment.setVisible(true);		
-        this.prmtdeparment.setEditable(true);		
-        this.prmtdeparment.setDisplayFormat("$name$");		
-        this.prmtdeparment.setEditFormat("$number$");		
-        this.prmtdeparment.setCommitFormat("$number$");		
-        this.prmtdeparment.setRequired(false);		
-        this.prmtdeparment.setEnabled(false);
-        // txtestimateCost		
-        this.txtestimateCost.setHorizontalAlignment(2);		
-        this.txtestimateCost.setDataType(1);		
-        this.txtestimateCost.setSupportedEmpty(true);		
-        this.txtestimateCost.setMinimumValue( new java.math.BigDecimal("-1.0E26"));		
-        this.txtestimateCost.setMaximumValue( new java.math.BigDecimal("1.0E26"));		
-        this.txtestimateCost.setPrecision(2);		
-        this.txtestimateCost.setRequired(false);		
-        this.txtestimateCost.setEnabled(false);
         // prmtprojectName		
         this.prmtprojectName.setQueryInfo("com.kingdee.eas.basedata.assistant.app.F7ProjectQuery");		
         this.prmtprojectName.setEditable(true);		
@@ -550,17 +534,7 @@ public abstract class AbstractProjectBudget2EditUI extends com.kingdee.eas.xr.cl
                 }
             }
         });
-        // prmtCU		
-        this.prmtCU.setEnabled(false);
-        // prmtyear		
-        this.prmtyear.setQueryInfo("com.kingdee.eas.port.pm.base.app.InvestYearQuery");		
-        this.prmtyear.setVisible(true);		
-        this.prmtyear.setEditable(true);		
-        this.prmtyear.setDisplayFormat("$name$");		
-        this.prmtyear.setEditFormat("$number$");		
-        this.prmtyear.setCommitFormat("$number$");		
-        this.prmtyear.setRequired(false);		
-        this.prmtyear.setEnabled(false);
+        // pkBizDate
         // prmtprojectType		
         this.prmtprojectType.setQueryInfo("com.kingdee.eas.port.pm.base.app.ProjectTypeQuery");		
         this.prmtprojectType.setVisible(true);		
@@ -570,7 +544,29 @@ public abstract class AbstractProjectBudget2EditUI extends com.kingdee.eas.xr.cl
         this.prmtprojectType.setCommitFormat("$number$");		
         this.prmtprojectType.setRequired(false);		
         this.prmtprojectType.setEnabled(false);
-        // kDScrollPane1
+        // prmtdeparment		
+        this.prmtdeparment.setQueryInfo("com.kingdee.eas.basedata.org.app.AdminItemQuery");		
+        this.prmtdeparment.setVisible(true);		
+        this.prmtdeparment.setEditable(true);		
+        this.prmtdeparment.setDisplayFormat("$name$");		
+        this.prmtdeparment.setEditFormat("$number$");		
+        this.prmtdeparment.setCommitFormat("$number$");		
+        this.prmtdeparment.setRequired(false);		
+        this.prmtdeparment.setEnabled(false);
+        // prmtCU		
+        this.prmtCU.setEnabled(false);
+        // txtestimateCost		
+        this.txtestimateCost.setHorizontalAlignment(2);		
+        this.txtestimateCost.setDataType(1);		
+        this.txtestimateCost.setSupportedEmpty(true);		
+        this.txtestimateCost.setMinimumValue( new java.math.BigDecimal("-1.0E26"));		
+        this.txtestimateCost.setMaximumValue( new java.math.BigDecimal("1.0E26"));		
+        this.txtestimateCost.setPrecision(2);		
+        this.txtestimateCost.setRequired(false);		
+        this.txtestimateCost.setEnabled(false);
+        // comboStatus		
+        this.comboStatus.addItems(EnumUtils.getEnumList("com.kingdee.eas.xr.app.XRBillStatusEnum").toArray());		
+        this.comboStatus.setEnabled(false);
         this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {comboStatus,comboBizStatus,pkAuditTime,txtNumber,pkBizDate,txtDescription,prmtAuditor,prmtCreator,pkCreateTime,prmtLastUpdateUser,pkLastUpdateTime,prmtCU,prmtprojectName,txtestimateCost,kdtE1,prmtperson,prmtdeparment,prmtyear,prmtprojectType}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
@@ -601,26 +597,46 @@ public abstract class AbstractProjectBudget2EditUI extends com.kingdee.eas.xr.cl
         this.setLayout(new KDLayout());
         this.putClientProperty("OriginalBounds", new Rectangle(10, 10, 1013, 533));
         contCreator.setBounds(new Rectangle(10, 461, 270, 19));
-        this.add(contCreator, new KDLayout.Constraints(10, 461, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        this.add(contCreator, new KDLayout.Constraints(10, 461, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contCreateTime.setBounds(new Rectangle(10, 486, 270, 19));
-        this.add(contCreateTime, new KDLayout.Constraints(10, 486, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        this.add(contCreateTime, new KDLayout.Constraints(10, 486, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contLastUpdateUser.setBounds(new Rectangle(342, 461, 270, 19));
-        this.add(contLastUpdateUser, new KDLayout.Constraints(342, 461, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        this.add(contLastUpdateUser, new KDLayout.Constraints(342, 461, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contLastUpdateTime.setBounds(new Rectangle(342, 486, 270, 19));
-        this.add(contLastUpdateTime, new KDLayout.Constraints(342, 486, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        this.add(contLastUpdateTime, new KDLayout.Constraints(342, 486, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contDescription.setBounds(new Rectangle(1001, 449, 8, 19));
         this.add(contDescription, new KDLayout.Constraints(1001, 449, 8, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contAuditor.setBounds(new Rectangle(712, 461, 270, 19));
-        this.add(contAuditor, new KDLayout.Constraints(712, 461, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        this.add(contAuditor, new KDLayout.Constraints(712, 461, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contBizStatus.setBounds(new Rectangle(992, 479, 17, 19));
         this.add(contBizStatus, new KDLayout.Constraints(992, 479, 17, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contAuditTime.setBounds(new Rectangle(712, 486, 270, 19));
-        this.add(contAuditTime, new KDLayout.Constraints(712, 486, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        this.add(contAuditTime, new KDLayout.Constraints(712, 486, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         kdtE1.setBounds(new Rectangle(993, 418, 8, 8));
         kdtE1_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtE1,new com.kingdee.eas.port.pm.invest.ProjectBudget2E1Info(),null,false);
         this.add(kdtE1_detailPanel, new KDLayout.Constraints(993, 418, 8, 8, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        kDTabbedPane1.setBounds(new Rectangle(12, 15, 973, 432));
-        this.add(kDTabbedPane1, new KDLayout.Constraints(12, 15, 973, 432, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        kDTabbedPane1.setBounds(new Rectangle(12, 129, 973, 318));
+        this.add(kDTabbedPane1, new KDLayout.Constraints(12, 129, 973, 318, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        contNumber.setBounds(new Rectangle(14, 18, 270, 19));
+        this.add(contNumber, new KDLayout.Constraints(14, 18, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contyear.setBounds(new Rectangle(693, 75, 270, 19));
+        this.add(contyear, new KDLayout.Constraints(693, 75, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contperson.setBounds(new Rectangle(14, 46, 270, 19));
+        this.add(contperson, new KDLayout.Constraints(14, 46, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contprojectName.setBounds(new Rectangle(14, 75, 270, 19));
+        this.add(contprojectName, new KDLayout.Constraints(14, 75, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contBizDate.setBounds(new Rectangle(353, 18, 270, 19));
+        this.add(contBizDate, new KDLayout.Constraints(353, 18, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contprojectType.setBounds(new Rectangle(353, 75, 270, 19));
+        this.add(contprojectType, new KDLayout.Constraints(353, 75, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contdeparment.setBounds(new Rectangle(353, 46, 270, 19));
+        this.add(contdeparment, new KDLayout.Constraints(353, 46, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contCU.setBounds(new Rectangle(693, 46, 270, 19));
+        this.add(contCU, new KDLayout.Constraints(693, 46, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contestimateCost.setBounds(new Rectangle(14, 104, 270, 19));
+        this.add(contestimateCost, new KDLayout.Constraints(14, 104, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contStatus.setBounds(new Rectangle(693, 18, 270, 19));
+        this.add(contStatus, new KDLayout.Constraints(693, 18, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         //contCreator
         contCreator.setBoundEditor(prmtCreator);
         //contCreateTime
@@ -638,54 +654,31 @@ public abstract class AbstractProjectBudget2EditUI extends com.kingdee.eas.xr.cl
         //contAuditTime
         contAuditTime.setBoundEditor(pkAuditTime);
         //kDTabbedPane1
-        kDTabbedPane1.add(kDPanel1, resHelper.getString("kDPanel1.constraints"));
         kDTabbedPane1.add(kDPanel2, resHelper.getString("kDPanel2.constraints"));
-        //kDPanel1
-        kDPanel1.setLayout(new KDLayout());
-        kDPanel1.putClientProperty("OriginalBounds", new Rectangle(0, 0, 972, 399));        contNumber.setBounds(new Rectangle(8, 15, 270, 19));
-        kDPanel1.add(contNumber, new KDLayout.Constraints(8, 15, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contBizDate.setBounds(new Rectangle(347, 15, 270, 19));
-        kDPanel1.add(contBizDate, new KDLayout.Constraints(347, 15, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contStatus.setBounds(new Rectangle(687, 15, 270, 19));
-        kDPanel1.add(contStatus, new KDLayout.Constraints(687, 15, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contperson.setBounds(new Rectangle(8, 78, 270, 19));
-        kDPanel1.add(contperson, new KDLayout.Constraints(8, 78, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contdeparment.setBounds(new Rectangle(347, 78, 270, 19));
-        kDPanel1.add(contdeparment, new KDLayout.Constraints(347, 78, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contestimateCost.setBounds(new Rectangle(687, 78, 270, 19));
-        kDPanel1.add(contestimateCost, new KDLayout.Constraints(687, 78, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contprojectName.setBounds(new Rectangle(8, 46, 270, 19));
-        kDPanel1.add(contprojectName, new KDLayout.Constraints(8, 46, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contCU.setBounds(new Rectangle(687, 49, 270, 19));
-        kDPanel1.add(contCU, new KDLayout.Constraints(687, 49, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contyear.setBounds(new Rectangle(8, 109, 270, 19));
-        kDPanel1.add(contyear, new KDLayout.Constraints(8, 109, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contprojectType.setBounds(new Rectangle(347, 46, 270, 19));
-        kDPanel1.add(contprojectType, new KDLayout.Constraints(347, 46, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        //contNumber
-        contNumber.setBoundEditor(txtNumber);
-        //contBizDate
-        contBizDate.setBoundEditor(pkBizDate);
-        //contStatus
-        contStatus.setBoundEditor(comboStatus);
-        //contperson
-        contperson.setBoundEditor(prmtperson);
-        //contdeparment
-        contdeparment.setBoundEditor(prmtdeparment);
-        //contestimateCost
-        contestimateCost.setBoundEditor(txtestimateCost);
-        //contprojectName
-        contprojectName.setBoundEditor(prmtprojectName);
-        //contCU
-        contCU.setBoundEditor(prmtCU);
-        //contyear
-        contyear.setBoundEditor(prmtyear);
-        //contprojectType
-        contprojectType.setBoundEditor(prmtprojectType);
         //kDPanel2
         kDPanel2.setLayout(new KDLayout());
-        kDPanel2.putClientProperty("OriginalBounds", new Rectangle(0, 0, 972, 399));        kDScrollPane1.setBounds(new Rectangle(3, 5, 958, 389));
-        kDPanel2.add(kDScrollPane1, new KDLayout.Constraints(3, 5, 958, 389, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDPanel2.putClientProperty("OriginalBounds", new Rectangle(0, 0, 972, 285));        kDScrollPane1.setBounds(new Rectangle(3, 5, 958, 274));
+        kDPanel2.add(kDScrollPane1, new KDLayout.Constraints(3, 5, 958, 274, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        //contNumber
+        contNumber.setBoundEditor(txtNumber);
+        //contyear
+        contyear.setBoundEditor(prmtyear);
+        //contperson
+        contperson.setBoundEditor(prmtperson);
+        //contprojectName
+        contprojectName.setBoundEditor(prmtprojectName);
+        //contBizDate
+        contBizDate.setBoundEditor(pkBizDate);
+        //contprojectType
+        contprojectType.setBoundEditor(prmtprojectType);
+        //contdeparment
+        contdeparment.setBoundEditor(prmtdeparment);
+        //contCU
+        contCU.setBoundEditor(prmtCU);
+        //contestimateCost
+        contestimateCost.setBoundEditor(txtestimateCost);
+        //contStatus
+        contStatus.setBoundEditor(comboStatus);
 
     }
 
@@ -881,15 +874,15 @@ public abstract class AbstractProjectBudget2EditUI extends com.kingdee.eas.xr.cl
 		dataBinder.registerBinding("bizStatus", com.kingdee.eas.xr.app.XRBizActionEnum.class, this.comboBizStatus, "selectedItem");
 		dataBinder.registerBinding("auditTime", java.sql.Timestamp.class, this.pkAuditTime, "value");
 		dataBinder.registerBinding("number", String.class, this.txtNumber, "text");
-		dataBinder.registerBinding("bizDate", java.util.Date.class, this.pkBizDate, "value");
-		dataBinder.registerBinding("status", com.kingdee.eas.xr.app.XRBillStatusEnum.class, this.comboStatus, "selectedItem");
-		dataBinder.registerBinding("person", com.kingdee.eas.basedata.person.PersonInfo.class, this.prmtperson, "data");
-		dataBinder.registerBinding("deparment", com.kingdee.eas.basedata.org.AdminOrgUnitInfo.class, this.prmtdeparment, "data");
-		dataBinder.registerBinding("estimateCost", java.math.BigDecimal.class, this.txtestimateCost, "value");
-		dataBinder.registerBinding("projectName", com.kingdee.eas.basedata.assistant.ProjectInfo.class, this.prmtprojectName, "data");
-		dataBinder.registerBinding("CU", com.kingdee.eas.basedata.org.CtrlUnitInfo.class, this.prmtCU, "data");
 		dataBinder.registerBinding("year", com.kingdee.eas.port.pm.base.InvestYearInfo.class, this.prmtyear, "data");
-		dataBinder.registerBinding("projectType", com.kingdee.eas.port.pm.base.ProjectTypeInfo.class, this.prmtprojectType, "data");		
+		dataBinder.registerBinding("person", com.kingdee.eas.basedata.person.PersonInfo.class, this.prmtperson, "data");
+		dataBinder.registerBinding("projectName", com.kingdee.eas.basedata.assistant.ProjectInfo.class, this.prmtprojectName, "data");
+		dataBinder.registerBinding("bizDate", java.util.Date.class, this.pkBizDate, "value");
+		dataBinder.registerBinding("projectType", com.kingdee.eas.port.pm.base.ProjectTypeInfo.class, this.prmtprojectType, "data");
+		dataBinder.registerBinding("deparment", com.kingdee.eas.basedata.org.AdminOrgUnitInfo.class, this.prmtdeparment, "data");
+		dataBinder.registerBinding("CU", com.kingdee.eas.basedata.org.CtrlUnitInfo.class, this.prmtCU, "data");
+		dataBinder.registerBinding("estimateCost", java.math.BigDecimal.class, this.txtestimateCost, "value");
+		dataBinder.registerBinding("status", com.kingdee.eas.xr.app.XRBillStatusEnum.class, this.comboStatus, "selectedItem");		
 	}
 	//Regiester UI State
 	private void registerUIState(){		
@@ -1001,7 +994,8 @@ public abstract class AbstractProjectBudget2EditUI extends com.kingdee.eas.xr.cl
      */
     public void loadFields()
     {
-        		setAutoNumberByOrg("NONE");
+    	super.loadFields();
+        setAutoNumberByOrg("NONE");
         dataBinder.loadFields();
     }
 		protected void setOrgF7(KDBizPromptBox f7,com.kingdee.eas.basedata.org.OrgType orgType) throws Exception
@@ -1046,15 +1040,15 @@ public abstract class AbstractProjectBudget2EditUI extends com.kingdee.eas.xr.cl
 		getValidateHelper().registerBindProperty("bizStatus", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("auditTime", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("number", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("bizDate", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("status", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("person", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("deparment", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("estimateCost", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("projectName", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("CU", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("year", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("projectType", ValidateHelper.ON_SAVE);    		
+		getValidateHelper().registerBindProperty("person", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("projectName", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("bizDate", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("projectType", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("deparment", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("CU", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("estimateCost", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("status", ValidateHelper.ON_SAVE);    		
 	}
 
 
@@ -1187,45 +1181,6 @@ public abstract class AbstractProjectBudget2EditUI extends com.kingdee.eas.xr.cl
         sic.add(new SelectorItemInfo("bizStatus"));
         sic.add(new SelectorItemInfo("auditTime"));
         sic.add(new SelectorItemInfo("number"));
-        sic.add(new SelectorItemInfo("bizDate"));
-        sic.add(new SelectorItemInfo("status"));
-		if(selectorAll.equalsIgnoreCase("true"))
-		{
-			sic.add(new SelectorItemInfo("person.*"));
-		}
-		else{
-        	sic.add(new SelectorItemInfo("person.id"));
-        	sic.add(new SelectorItemInfo("person.number"));
-        	sic.add(new SelectorItemInfo("person.name"));
-		}
-		if(selectorAll.equalsIgnoreCase("true"))
-		{
-			sic.add(new SelectorItemInfo("deparment.*"));
-		}
-		else{
-        	sic.add(new SelectorItemInfo("deparment.id"));
-        	sic.add(new SelectorItemInfo("deparment.number"));
-        	sic.add(new SelectorItemInfo("deparment.name"));
-		}
-        sic.add(new SelectorItemInfo("estimateCost"));
-		if(selectorAll.equalsIgnoreCase("true"))
-		{
-			sic.add(new SelectorItemInfo("projectName.*"));
-		}
-		else{
-        	sic.add(new SelectorItemInfo("projectName.id"));
-        	sic.add(new SelectorItemInfo("projectName.number"));
-        	sic.add(new SelectorItemInfo("projectName.name"));
-		}
-		if(selectorAll.equalsIgnoreCase("true"))
-		{
-			sic.add(new SelectorItemInfo("CU.*"));
-		}
-		else{
-        	sic.add(new SelectorItemInfo("CU.id"));
-        	sic.add(new SelectorItemInfo("CU.number"));
-        	sic.add(new SelectorItemInfo("CU.name"));
-		}
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
 			sic.add(new SelectorItemInfo("year.*"));
@@ -1237,6 +1192,25 @@ public abstract class AbstractProjectBudget2EditUI extends com.kingdee.eas.xr.cl
 		}
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
+			sic.add(new SelectorItemInfo("person.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("person.id"));
+        	sic.add(new SelectorItemInfo("person.number"));
+        	sic.add(new SelectorItemInfo("person.name"));
+		}
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("projectName.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("projectName.id"));
+        	sic.add(new SelectorItemInfo("projectName.number"));
+        	sic.add(new SelectorItemInfo("projectName.name"));
+		}
+        sic.add(new SelectorItemInfo("bizDate"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
 			sic.add(new SelectorItemInfo("projectType.*"));
 		}
 		else{
@@ -1244,6 +1218,26 @@ public abstract class AbstractProjectBudget2EditUI extends com.kingdee.eas.xr.cl
         	sic.add(new SelectorItemInfo("projectType.number"));
         	sic.add(new SelectorItemInfo("projectType.name"));
 		}
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("deparment.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("deparment.id"));
+        	sic.add(new SelectorItemInfo("deparment.number"));
+        	sic.add(new SelectorItemInfo("deparment.name"));
+		}
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("CU.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("CU.id"));
+        	sic.add(new SelectorItemInfo("CU.number"));
+        	sic.add(new SelectorItemInfo("CU.name"));
+		}
+        sic.add(new SelectorItemInfo("estimateCost"));
+        sic.add(new SelectorItemInfo("status"));
         return sic;
     }        
     	

@@ -265,9 +265,11 @@ public class EntryTreeSumField {
 					String parentNumber = "";
 					if (maxLevel == level) {
 						if (level == 1) {
-							parentNumber = kdtEntries.getCell(i, "longNumber").getValue().toString();
+							if(kdtEntries.getCell(i, "longNumber").getValue()!=null)
+								parentNumber = kdtEntries.getCell(i, "longNumber").getValue().toString();
 						} else {
-							parentNumber = kdtEntries.getCell(i, "headNumber").getValue().toString();
+							if(kdtEntries.getCell(i, "headNumber").getValue()!=null)
+								parentNumber = kdtEntries.getCell(i, "headNumber").getValue().toString();
 						}
 						// 累加当前级下的金额。以上级编码为依据
 						for (int k = i; k < kdtEntries.getRowCount(); k++) {
@@ -276,7 +278,8 @@ public class EntryTreeSumField {
 							if(level_k == 1){
 								continue;
 							}else{
-								headNumber = kdtEntries.getCell(k, "headNumber").getValue().toString();
+								if(kdtEntries.getCell(k, "headNumber").getValue()!=null)
+									headNumber = kdtEntries.getCell(k, "headNumber").getValue().toString();
 							}
 							//累加金额
 							if (headNumber.equals(parentNumber)) {

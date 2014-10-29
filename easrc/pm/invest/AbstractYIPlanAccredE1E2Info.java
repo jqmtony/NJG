@@ -85,6 +85,17 @@ public class AbstractYIPlanAccredE1E2Info extends com.kingdee.eas.framework.Core
         setString("accreConclu", item.getValue());
 		}
     }
+    /**
+     * Object:评审信息's 评审时间property 
+     */
+    public java.util.Date getAduitTime()
+    {
+        return getDate("aduitTime");
+    }
+    public void setAduitTime(java.util.Date item)
+    {
+        setDate("aduitTime", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("2BD69B7F");

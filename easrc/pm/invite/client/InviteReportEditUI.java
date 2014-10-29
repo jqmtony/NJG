@@ -86,9 +86,7 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI {
 		return this.kdtEntry5;
 	}
 	
-	@Override
 	public void onLoad() throws Exception {
-		// TODO Auto-generated method stub
 		txtrmhigh.setRequired(true);
 		txtrmlow.setRequired(true);
 		txtreduHigh.setRequired(true);
@@ -120,7 +118,6 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI {
 		this.kdtE7.getColumn("weight").getStyleAttributes().setHided(true);
 		this.kDButton1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
 				if (prmtproName.getValue() == null) {
 					MsgBox.showWarning("请先选择项目名称!");
 				} else {
@@ -137,14 +134,8 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI {
 						MsgBox.showWarning("没有对应的年度投资计划！");SysUtil.abort();
 					}
 					try {
-						UIFactory.createUIFactory().create(
-								YearInvestPlanEditUI.class.getName(), context, null,
-								OprtState.VIEW).show();
-						//UIFactory.createUIFactory(UIFactoryName.MODEL).create(
-						// InvitePlanEditUI.class.getName(), context, null,
-						// OprtState.ADDNEW).show();
+						UIFactory.createUIFactory().create(YearInvestPlanEditUI.class.getName(), context, null,OprtState.VIEW).show();
 					} catch (UIException e1) {
-						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
 				}
@@ -160,41 +151,47 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI {
 		 
 		// 重构分录专家类别
 		final KDBizPromptBox kdtE5_judgeType_PromptBox = new KDBizPromptBox();
-		kdtE5_judgeType_PromptBox
-				.setQueryInfo("com.kingdee.eas.port.pm.invite.app.F7JudgesTreeQuery");
+		kdtE5_judgeType_PromptBox.setQueryInfo("com.kingdee.eas.port.pm.invite.app.F7JudgesTreeQuery");
 		kdtE5_judgeType_PromptBox.setVisible(true);
 		kdtE5_judgeType_PromptBox.setEditable(true);
 		kdtE5_judgeType_PromptBox.setDisplayFormat("$number$");
 		kdtE5_judgeType_PromptBox.setEditFormat("$number$");
 		kdtE5_judgeType_PromptBox.setCommitFormat("$number$");
-		// kdtE5_judgeType_PromptBox.setEntityViewInfo(view);
-		KDTDefaultCellEditor kdtE5_judgeType_CellEditor = new KDTDefaultCellEditor(
-				kdtE5_judgeType_PromptBox);
-		this.kdtEntry5.getColumn("judgeType").setEditor(
-				kdtE5_judgeType_CellEditor);
+		KDTDefaultCellEditor kdtE5_judgeType_CellEditor = new KDTDefaultCellEditor(kdtE5_judgeType_PromptBox);
+		this.kdtEntry5.getColumn("judgeType").setEditor(kdtE5_judgeType_CellEditor);
 		ObjectValueRender kdtE5_judgeType_OVR = new ObjectValueRender();
 		kdtE5_judgeType_OVR.setFormat(new BizDataFormat("$name$"));
 		this.kdtEntry5.getColumn("judgeType").setRenderer(kdtE5_judgeType_OVR);
 
-		// String longNumber =
-		// SysContext.getSysContext().getCurrentAdminUnit().getLongNumber();
-		AdminOrgUnitInfo admin = SysContext.getSysContext()
-				.getCurrentAdminUnit();
-		// String sql = "select a.fid from t_bd_person a " +
-		// " left join T_ORG_PositionMember b " +
-		// " on b.FPersonID=a.fid and b.FIsPrimary='1'" +
-		// " left join T_ORG_Position c on c.fid=b.FPositionID" +
-		// " where c.FAdminOrgUnitID in (select fid from t_org_admin where flongnumber like '"
-		// + admin.getLongNumber() + "%')";
-		// FilterInfo filter = new FilterInfo();
-		// filter.getFilterItems().add(new FilterItemInfo("id", sql,
-		// CompareType.INNER));
+		final KDBizPromptBox kdtEntry4_name_PromptBox = new KDBizPromptBox();
+        kdtEntry4_name_PromptBox.setQueryInfo("com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingCostEntryQuery");
+        kdtEntry4_name_PromptBox.setVisible(true);
+        kdtEntry4_name_PromptBox.setEditable(true);
+        kdtEntry4_name_PromptBox.setDisplayFormat("$feeNumber$");
+        kdtEntry4_name_PromptBox.setEditFormat("$feeNumber$");
+        kdtEntry4_name_PromptBox.setCommitFormat("$feeNumber$");
+        view = new EntityViewInfo();
+		filInfo = new FilterInfo();
+		if(prmtproName.getValue()!=null){
+			ProjectInfo project = (ProjectInfo)prmtproName.getValue();
+			filInfo.getFilterItems().add(new FilterItemInfo("number",project.getNumber()));
+			filInfo.getFilterItems().add(new FilterItemInfo("isLast","1"));
+			filInfo.getFilterItems().add(new FilterItemInfo("beizhu","最新"));
+			view.setFilter(filInfo);
+			kdtEntry4_name_PromptBox.setEntityViewInfo(view);
+		}
+        KDTDefaultCellEditor kdtEntry4_name_CellEditor = new KDTDefaultCellEditor(kdtEntry4_name_PromptBox);
+        this.kdtEntry4.getColumn("budgetNumber").setEditor(kdtEntry4_name_CellEditor);
+        ObjectValueRender kdtEntry4_name_OVR = new ObjectValueRender();
+        kdtEntry4_name_OVR.setFormat(new BizDataFormat("$feeNumber$"));
+        this.kdtEntry4.getColumn("budgetNumber").setRenderer(kdtEntry4_name_OVR);
+        
+		AdminOrgUnitInfo admin = SysContext.getSysContext().getCurrentAdminUnit();
 		EmployeeMultiF7PromptBox person = new EmployeeMultiF7PromptBox();
 		person.setIsSingleSelect(false);
 		person.showNoPositionPerson(false);
 		if (OrgConstants.DEF_CU_ID.equals(admin.getId().toString()))
 			person.setIsShowAllAdmin(true);
-		// person.setNopositionPersonFilter(filter);
 		this.prmtapplicant.setSelector(person);
 		initContainerButton(kDContainer1, kdtEntry2_detailPanel);
 		initContainerButton(kDContainer2, kdtEntry5_detailPanel);
@@ -207,10 +204,8 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI {
 		AdminF7 f7 = new AdminF7(this);
 		f7.showCheckBoxOfShowingAllOUs();
 		f7.setIsCUFilter(false);
-		f7.setRootUnitID(SysContext.getSysContext().getCurrentAdminUnit()
-				.getId().toString());
+		f7.setRootUnitID(SysContext.getSysContext().getCurrentAdminUnit().getId().toString());
 		this.prmtuseOrg.setSelector(f7);
-		
 		
 		this.kdtE7.getColumn("EvaluationName").setRequired(true);
 		this.kdtE6.getColumn("evaluationNameTex").setRequired(true);
@@ -220,31 +215,48 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI {
 		setTableToSumField(kdtE6, new String []{"weight"});
 		setTableToSumField(kdtE7, new String []{"weight"});
 		
-		
 		this.kdtEntry2.getColumn("evaEnterprise").getStyleAttributes().setUnderline(true);
 		this.kdtEntry2.getColumn("evaEnterprise").getStyleAttributes().setFontColor(Color.BLUE);
 		
-		
 		if(OprtState.ADDNEW.equals(getOprtState()))
 			this.prmtapplicant.setValue(SysContext.getSysContext().getCurrentUserInfo().getPerson());
+		
+		this.kdtEntry4.getColumn("seq").getStyleAttributes().setHided(true);
+		this.kdtEntry4.getColumn("content").setWidth(360);
+		this.kdtEntry4.getColumn("budgetName").setWidth(180);
 	}
 
 	// container设置分录按钮以及分录放置模式
-	public static void initContainerButton(KDContainer kDContainer,
-			DetailPanel detail) {
-		kDContainer.getContentPane().add(detail.getEntryTable(),
-				BorderLayout.CENTER);
+	public static void initContainerButton(KDContainer kDContainer,DetailPanel detail) {
+		kDContainer.getContentPane().add(detail.getEntryTable(),BorderLayout.CENTER);
 		kDContainer.addButton(detail.getAddNewLineButton());
 		kDContainer.addButton(detail.getInsertLineButton());
 		kDContainer.addButton(detail.getRemoveLinesButton());
 	}
+	
+    public void kdtEntry4_Changed(int rowIndex,int colIndex) throws Exception
+    {
+        if ("budgetNumber".equalsIgnoreCase(kdtEntry4.getColumn(colIndex).getKey())) {
+        	kdtEntry4.getCell(rowIndex,"budgetName").setValue(UIRuleUtil.getString(UIRuleUtil.getProperty((IObjectValue)kdtEntry4.getCell(rowIndex,"budgetNumber").getValue(),"feeName")));
+        	kdtEntry4.getCell(rowIndex,"budgetAmount").setValue(UIRuleUtil.getBigDecimal(UIRuleUtil.getProperty((IObjectValue)kdtEntry4.getCell(rowIndex,"budgetNumber").getValue(),"contractAssign")));
+        	kdtEntry4.getCell(rowIndex,"balance").setValue(UIRuleUtil.getBigDecimal(UIRuleUtil.getProperty((IObjectValue)kdtEntry4.getCell(rowIndex,"budgetNumber").getValue(),"contractAssign")));
+        	kdtEntry4.getCell(rowIndex,"lastAmount").setValue(UIRuleUtil.getBigDecimal(kdtEntry4.getCell(rowIndex,"balance").getValue()).subtract(UIRuleUtil.getBigDecimal(kdtEntry4.getCell(rowIndex,"amount").getValue())));
+       }
+        if ("amount".equalsIgnoreCase(kdtEntry4.getColumn(colIndex).getKey())) {
+        	kdtEntry4.getCell(rowIndex,"lastAmount").setValue(UIRuleUtil.getBigDecimal(kdtEntry4.getCell(rowIndex,"balance").getValue()).subtract(UIRuleUtil.getBigDecimal(kdtEntry4.getCell(rowIndex,"amount").getValue())));
+       }
+        BigDecimal amount = new BigDecimal(0.000);
+       for (int i = 0; i < kdtEntry4.getRowCount(); i++) {
+    	   amount = amount.add(UIRuleUtil.getBigDecimal(kdtEntry4.getCell(i,"amount").getValue()));
+       }
+       txtinviteBudget.setText(amount.toString());
+    }
 
 	protected void prmtinviteType_dataChanged(DataChangeEvent e)throws Exception {
 		super.prmtinviteType_dataChanged(e); 
 		if(this.prmtinviteType.getValue()!=null)
 		{
 			InviteTypeInfo Info = (InviteTypeInfo)this.prmtinviteType.getValue();
-			
 			if(Info.getName().equals("引用招标成果"))
 			{
 				EntityViewInfo view = new EntityViewInfo();
@@ -270,19 +282,13 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI {
 		}
 	}
 	
-	@Override
 	protected void verifyInput(ActionEvent e) throws Exception {
-		// TODO Auto-generated method stub
-		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this,
-				txtreportName, "标段名称");
-		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this,
-				prmtproName, "项目名称");
-		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this,
-				prmtuseOrg, "招标单位");
-		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this,
-				prmtinviteType, "招标方式");
-		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this,
-				prmtinvitePlan, "招标计划");
+		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this,txtreportName, "标段名称");
+		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this,prmtproName, "项目名称");
+		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this,prmtuseOrg, "招标单位");
+		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this,prmtinviteType, "招标方式");
+		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this,prmtinvitePlan, "招标计划");
+		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this,txtinviteBudget, "招标预算");
 		
 		InvitePlanInfo planInfo = (InvitePlanInfo)prmtinvitePlan.getValue();
 		
@@ -319,17 +325,12 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI {
 				SysUtil.abort();
 			}
 		}
-		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyKDTColumnNull(
-				this, kdtEntry2, "evaEnterprise");
-		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyKDTColumnNull(
-				this, kdtEntry3, "invitePerson");
+		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyKDTColumnNull(this, kdtEntry2, "evaEnterprise");
+		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyKDTColumnNull(this, kdtEntry3, "invitePerson");
 		
-		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyKDTColumnNull(
-				this, kdtE6, "evaluationNameTex");
-		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyKDTColumnNull(
-				this, kdtE6, "weight");
-		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyKDTColumnNull(
-				this, kdtE7, "EvaluationName");
+		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyKDTColumnNull(this, kdtE6, "evaluationNameTex");
+		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyKDTColumnNull(this, kdtE6, "weight");
+		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyKDTColumnNull(this, kdtE7, "EvaluationName");
 
 		if(UIRuleUtil.sum(kdtE6, "weight")!=100)
 		{
@@ -1132,7 +1133,7 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI {
 	/**
 	 * output createNewData method
 	 */
-	protected com.kingdee.bos.dao.IObjectValue createNewData() {
+	protected IObjectValue createNewData() {
 		com.kingdee.eas.port.pm.invite.InviteReportInfo objectValue = new com.kingdee.eas.port.pm.invite.InviteReportInfo();
 		objectValue
 				.setCreator((com.kingdee.eas.base.permission.UserInfo) (com.kingdee.eas.common.client.SysContext

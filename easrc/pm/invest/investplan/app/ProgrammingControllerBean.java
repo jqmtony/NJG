@@ -10,10 +10,12 @@ import com.kingdee.bos.Context;
 import com.kingdee.bos.dao.IObjectPK;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.bos.framework.DynamicObjectFactory;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
+import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.fdc.basedata.FDCBillInfo;
@@ -21,6 +23,7 @@ import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
 import com.kingdee.eas.fdc.basedata.FDCHelper;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
 import com.kingdee.eas.fdc.contract.ContractEstimateChangeBillFactory;
+import com.kingdee.eas.framework.CoreBillBaseInfo;
 import com.kingdee.eas.port.pm.contract.ContractBillCollection;
 import com.kingdee.eas.port.pm.contract.ContractBillFactory;
 import com.kingdee.eas.port.pm.contract.ContractBillInfo;
@@ -29,6 +32,7 @@ import com.kingdee.eas.port.pm.contract.ContractWithoutTextFactory;
 import com.kingdee.eas.port.pm.contract.IContractBill;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingCollection;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryCollection;
+import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryCostEntryInfo;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryFactory;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryInfo;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingFactory;
@@ -177,7 +181,9 @@ public class ProgrammingControllerBean extends AbstractProgrammingControllerBean
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return super._submit(ctx, model);
+		createNumber(ctx,info);
+		setDetialEntry(ctx, info);
+		return super._submit(ctx, info);
 	}
 	
 	protected IObjectPK _save(Context ctx, IObjectValue model) throws BOSException, EASBizException {
@@ -192,9 +198,34 @@ public class ProgrammingControllerBean extends AbstractProgrammingControllerBean
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return super._save(ctx, model);
+		createNumber(ctx,info);
+		setDetialEntry(ctx, info);
+		return super._save(ctx, info);
 	}
-
+	void createNumber(Context ctx,ProgrammingInfo info) throws BOSException{
+		if(UIRuleUtil.getBigDecimal(info.getVersion()).intValue()==0){
+			ProgrammingCollection coll = ProgrammingFactory.getLocalInstance(ctx).getProgrammingCollection("where projectNumber='"+info.getProjectNumber()+"'" +
+					" and id<>'"+info.getId()+"'");
+			info.setVersion(UIRuleUtil.getBigDecimal(coll.size()+1));
+		}
+	}
+	
+	void setDetialEntry(Context ctx,ProgrammingInfo info) throws BOSException{
+//		if(info.getSourceBillId()!=null){
+//			String sourceBillid = info.getSourceBillId();
+//			Object billInfo = (Object) DynamicObjectFactory.getLocalInstance(ctx).getValue(new ObjectUuidPK(sourceBillid).getObjectType(),new ObjectUuidPK(sourceBillid));
+//			CoreBillBaseInfo base = ((CoreBillBaseInfo)billInfo);
+//			String year = base.getSourceFunction();
+//			ProgrammingEntryCollection coll = info.getEntries();
+//			for(int i=0;i<coll.size();i++){
+//				ProgrammingEntryInfo entryInfo = coll.get(i);
+//				for(int j=0;j<entryInfo.getCostEntries().size();j++){
+//					ProgrammingEntryCostEntryInfo detial = entryInfo.getCostEntries().get(j);
+//					detial.setYear(year);
+//				}
+//			}
+//		}
+	}
 	protected void _audit(Context ctx, BOSUuid billId) throws BOSException, EASBizException {
 		super._audit(ctx, billId);
 		ProgrammingInfo info = getProgrammingInfo(ctx, new ObjectUuidPK(billId), getSelectors());

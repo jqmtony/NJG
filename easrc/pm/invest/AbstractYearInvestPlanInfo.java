@@ -331,6 +331,17 @@ public class AbstractYearInvestPlanInfo extends com.kingdee.eas.xr.XRBillBaseInf
     {
         setString("desc", item);
     }
+    /**
+     * Object: 年度投资计划 's 立项项目 property 
+     */
+    public com.kingdee.eas.basedata.assistant.ProjectInfo getProject()
+    {
+        return (com.kingdee.eas.basedata.assistant.ProjectInfo)get("project");
+    }
+    public void setProject(com.kingdee.eas.basedata.assistant.ProjectInfo item)
+    {
+        put("project", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("5047FDF8");

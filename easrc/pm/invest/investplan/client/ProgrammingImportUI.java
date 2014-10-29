@@ -147,7 +147,7 @@ public class ProgrammingImportUI extends AbstractProgrammingImportUI
 				newCostEntryInfo.setProject(planInfo.getProjectName());
 				newCostEntryInfo.setContract(programmingEntry);
 				newCostEntryInfo.setNumber(planInfo.getNumber());
-				newCostEntryInfo.setInvestYear(InvestYearFactory.getRemoteInstance().getInvestYearInfo(new ObjectUuidPK(planInfo.getYearIdt())));
+//				newCostEntryInfo.setInvestYear(InvestYearFactory.getRemoteInstance().getInvestYearInfo(new ObjectUuidPK(planInfo.getYearIdt())));
 				newCostEntryInfo.setGoalCost(BigDecimal.ZERO);//投资总额
 				newCostEntryInfo.setAssigned(BigDecimal.ZERO);// 累计投资（不含本年）
 				newCostEntryInfo.setContractAssign(BigDecimal.ZERO);//本年度投资金额

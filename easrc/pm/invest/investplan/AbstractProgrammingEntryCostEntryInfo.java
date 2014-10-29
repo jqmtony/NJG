@@ -138,6 +138,127 @@ public class AbstractProgrammingEntryCostEntryInfo extends com.kingdee.eas.frame
     {
         setBigDecimal("proportion", item);
     }
+    /**
+     * Object:成本构成's 年度property 
+     */
+    public String getYear()
+    {
+        return getString("year");
+    }
+    public void setYear(String item)
+    {
+        setString("year", item);
+    }
+    /**
+     * Object:成本构成's 预算费用编码property 
+     */
+    public String getFeeNumber()
+    {
+        return getString("feeNumber");
+    }
+    public void setFeeNumber(String item)
+    {
+        setString("feeNumber", item);
+    }
+    /**
+     * Object:成本构成's 预算费用名称property 
+     */
+    public String getFeeName()
+    {
+        return getString("feeName");
+    }
+    public void setFeeName(String item)
+    {
+        setString("feeName", item);
+    }
+    /**
+     * Object:成本构成's 累计招标申报金额property 
+     */
+    public java.math.BigDecimal getInvitReportedAmount()
+    {
+        return getBigDecimal("invitReportedAmount");
+    }
+    public void setInvitReportedAmount(java.math.BigDecimal item)
+    {
+        setBigDecimal("invitReportedAmount", item);
+    }
+    /**
+     * Object:成本构成's 累计中标金额property 
+     */
+    public java.math.BigDecimal getInvitedAmount()
+    {
+        return getBigDecimal("invitedAmount");
+    }
+    public void setInvitedAmount(java.math.BigDecimal item)
+    {
+        setBigDecimal("invitedAmount", item);
+    }
+    /**
+     * Object:成本构成's 累计合同签订金额property 
+     */
+    public java.math.BigDecimal getContractedAmount()
+    {
+        return getBigDecimal("contractedAmount");
+    }
+    public void setContractedAmount(java.math.BigDecimal item)
+    {
+        setBigDecimal("contractedAmount", item);
+    }
+    /**
+     * Object:成本构成's 累计申请付款金额property 
+     */
+    public java.math.BigDecimal getRequestPayAmount()
+    {
+        return getBigDecimal("requestPayAmount");
+    }
+    public void setRequestPayAmount(java.math.BigDecimal item)
+    {
+        setBigDecimal("requestPayAmount", item);
+    }
+    /**
+     * Object:成本构成's 累计已付款金额property 
+     */
+    public java.math.BigDecimal getPayedAmount()
+    {
+        return getBigDecimal("payedAmount");
+    }
+    public void setPayedAmount(java.math.BigDecimal item)
+    {
+        setBigDecimal("payedAmount", item);
+    }
+    /**
+     * Object:成本构成's 可用金额property 
+     */
+    public java.math.BigDecimal getBalanceAmount()
+    {
+        return getBigDecimal("balanceAmount");
+    }
+    public void setBalanceAmount(java.math.BigDecimal item)
+    {
+        setBigDecimal("balanceAmount", item);
+    }
+    /**
+     * Object:成本构成's 子节点property 
+     */
+    public boolean isIsLast()
+    {
+        return getBoolean("isLast");
+    }
+    public void setIsLast(boolean item)
+    {
+        setBoolean("isLast", item);
+    }
+    /**
+     * Object:成本构成's 备注property 
+     */
+    public String getBeizhu()
+    {
+        return getString("beizhu");
+    }
+    public void setBeizhu(String item)
+    {
+        setString("beizhu", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("4F1A141F");

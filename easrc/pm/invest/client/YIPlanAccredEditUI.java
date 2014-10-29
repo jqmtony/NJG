@@ -18,7 +18,6 @@ import org.apache.log4j.Logger;
 import com.kingdee.bos.BOSException;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
 import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
-import com.kingdee.bos.ctrl.kdf.table.KDTSelectBlock;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent;
@@ -32,14 +31,23 @@ import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
+import com.kingdee.bos.metadata.entity.SelectorItemCollection;
+import com.kingdee.bos.metadata.entity.SelectorItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
-import com.kingdee.bos.ui.face.UIException;
 import com.kingdee.bos.ui.face.UIFactory;
 import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.util.BOSUuid;
-import com.kingdee.eas.basedata.assistant.ProjectInfo;
-import com.kingdee.eas.basedata.assistant.client.ProjectEditUI;
+import com.kingdee.bos.util.rpc.RpcProxy;
+import com.kingdee.bos.workflow.ActivityInstInfo;
+import com.kingdee.bos.workflow.metas.AssignCollection;
+import com.kingdee.bos.workflow.metas.AssignFactory;
+import com.kingdee.bos.workflow.metas.AssignInfo;
+import com.kingdee.bos.workflow.monitor.IWfUtil;
+import com.kingdee.bos.workflow.monitor.client.WfUtils;
+import com.kingdee.bos.workflow.service.ormrpc.EnactmentServiceFactory;
+import com.kingdee.eas.base.permission.UserInfo;
+import com.kingdee.eas.basedata.org.AdminOrgUnitCollection;
 import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
 import com.kingdee.eas.basedata.person.PersonInfo;
 import com.kingdee.eas.common.client.OprtState;
@@ -65,8 +73,10 @@ import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
 import com.kingdee.eas.xr.helper.ClientVerifyXRHelper;
+import com.kingdee.eas.xr.helper.DateXRHelper;
 import com.kingdee.eas.xr.helper.PersonXRHelper;
 import com.kingdee.eas.xr.helper.WorkflowXRHelper;
+import com.kingdee.util.StringUtils;
 
 /**
  * output class name
@@ -90,6 +100,7 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
     	detachListeners();
         super.loadFields();
         attachListeners();
+        kdtE1.getSelectManager().select(0, 3);
     }
     
     /**
@@ -116,8 +127,6 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
 		prmtaccredPerson.setVisible(false);
 		kdtE1.getColumn("seq").getStyleAttributes().setHided(true);
 		kdtE2.getColumn("seq").getStyleAttributes().setHided(true);
-		kdtE2.getColumn("accredDpart").getStyleAttributes().setLocked(true);
-		kdtE2.getColumn("accredPerson").getStyleAttributes().setLocked(true);
 		accredType.setEnabled(false);
 		//当评审时，选定评审表类型
 		if(OprtState.ADDNEW.equals(getOprtState()))
@@ -144,10 +153,6 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
 			ReviewerE1Info e1Info = revE1Coll.get(i);
 			set.add(e1Info.getJudges().getId().toString());
 		}
-//		filter.getFilterItems().add(new FilterItemInfo("id",set,CompareType.INCLUDE));
-//		evInfo.setFilter(filter);
-//		prmtaccredPerson.setEntityViewInfo(evInfo);
-		
 		this.kDContainer1.getContentPane().add(this.kdtE1,BorderLayout.CENTER);
 		this.kDContainer2.getContentPane().add(this.kdtE2,BorderLayout.CENTER);
 		initProWorkButton(this.kDContainer1, false);
@@ -224,12 +229,12 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
 					equals(ObjectStateEnum.throughAudit)||UIRuleUtil.getObject(this.kdtE1.getCell(rowIndex, "accredResu").getValue()).
 					equals(ObjectStateEnum.accredit)||UIRuleUtil.getObject(this.kdtE1.getCell(rowIndex, "accredResu").getValue()).
 					equals(ObjectStateEnum.approval)){
-	        	this.kdtE1.getCell(rowIndex,"projectConclude").setValue("同意");
-	        }else{
-	        	this.kdtE1.getCell(rowIndex,"projectConclude").setValue("");
-	        }
+					this.kdtE1.getCell(rowIndex,"projectConclude").setValue("同意");
+		        }else{
+		        	this.kdtE1.getCell(rowIndex,"projectConclude").setValue("");
+		        }
+			}
 		}
-	  }
 	}
 	protected void kdtE2_editStopped(KDTEditEvent e) throws Exception {
 		super.kdtE2_editStopped(e);
@@ -248,6 +253,18 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
 		        }else{
 		        	this.kdtE2.getCell(rowIndex,"opinion").setValue("");
 		        }
+				this.kdtE2.getCell(rowIndex,"aduitTime").setValue(DateXRHelper.getServerDate());
+			}
+		}
+		if(this.kdtE2.getCell(rowIndex, "accredPerson").getValue()!=null)
+		{
+			if(key.equals("accredPerson"))
+			{
+				PersonInfo prinfo = (PersonInfo) this.kdtE2.getCell(rowIndex, "accredPerson").getValue();
+				AdminOrgUnitCollection orgColl = PersonXRHelper.getDepartmentByUserCollection(prinfo);
+				AdminOrgUnitInfo adminInfo = orgColl.get(0);
+				this.kdtE2.getCell(rowIndex,"accredDpart").setValue(adminInfo);
+				setLockAuditTable();
 			}
 		}
 	}
@@ -256,24 +273,63 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
 	 * 校验分录列"projectConclude"值不能为空
 	 */
 	protected void verifyInput(ActionEvent e) throws Exception {
-		int rowindex= 1;
-		for (int i = 0; i < this.kdtE1.getRowCount(); i++) 
-		{
-			if(UIRuleUtil.isNull(this.kdtE1.getCell(i, "accredResu").getValue()))
-				continue;
-			ObjectStateEnum objState = (ObjectStateEnum)UIRuleUtil.getObject(this.kdtE1.getCell(i, "accredResu").getValue());
-			if(objState.equals(ObjectStateEnum.complement)||objState.equals(ObjectStateEnum.veto))
+		super.verifyInput(e);
+		AccredTypeEnum auditType = (AccredTypeEnum)accredType.getSelectedItem();
+		if(AccredTypeEnum.trial.equals(auditType)){
+			for (int i = 0; i < this.kdtE1.getRowCount(); i++) 
 			{
 				if(UIRuleUtil.isNull(this.kdtE1.getCell(i, "projectConclude").getValue()))
 				{
-					MsgBox.showWarning("投资信息第{"+rowindex+"}行评审结果为{"+objState.getAlias()+"}的项目结论不能为空！");SysUtil.abort();
+					MsgBox.showWarning("初审阶段，年度计划第{"+(i+1)+"}行项目,项目结论不能为空！");
+					SysUtil.abort();
 				}
 			}
-			rowindex+=1;
+			ClientVerifyXRHelper.verifyNull(this, accredInformation, "评审信息");
 		}
-		
-		rowindex= 1;
-		super.verifyInput(e);
+		if(editData.getId()!=null && (AccredTypeEnum.accred.equals(auditType)||AccredTypeEnum.approve.equals(auditType))){
+			for (int i = 0; i < editData.getE1().size(); i++) {
+				YIPlanAccredE1Info info = editData.getE1().get(i);
+				if (info.getE2().size() < 1) {
+					MsgBox.showWarning("第{"+(i+1)+"}行项目："+info.getProjectName().getProjectName()+",评审人员不能为空！");
+					SysUtil.abort();
+				}
+				for (int j = 0; j < info.getE2().size(); j++) {
+					if(info.getE2().get(j).getAccredPerson()==null){
+						MsgBox.showWarning("第{"+(i+1)+"}行项目："+info.getProjectName().getProjectName()+",评审人员不能为空！");
+						SysUtil.abort();
+					}
+				}
+			}
+			if(WorkflowXRHelper.isRunningWorkflow(editData.getId().toString())){
+				String userid = SysContext.getSysContext().getCurrentUserInfo().getId().toString();
+				PersonInfo person = SysContext.getSysContext().getCurrentUserInfo().getPerson();
+				if(person==null)
+					return;
+				if(editData.getCreator().getId().toString().equals(userid)){
+					for (int i = 0; i < this.kdtE1.getRowCount(); i++) 
+					{
+						if(UIRuleUtil.isNull(this.kdtE1.getCell(i, "projectConclude").getValue()))
+						{
+							MsgBox.showWarning("投资信息第{"+(i+1)+"}行项目,项目结论不能为空！");
+							SysUtil.abort();
+						}
+					}
+				}
+		    	for (int i = 0; i < this.kdtE2.getRowCount(); i++)
+		    	{
+		    		IRow row = this.kdtE2.getRow(i);
+		    		if(UIRuleUtil.isNull(row.getCell("accredPerson").getValue()))
+		    			continue;
+					String kdpersonId = ((PersonInfo)row.getCell("accredPerson").getValue()).getId().toString();
+					if(kdpersonId.equals(person.getId().toString())){
+						if(row.getCell("accreConclu").getValue()==null){
+							MsgBox.showWarning("评审信息明细,评审结论不能为空！");
+							SysUtil.abort();
+						}
+					}
+				}
+			}
+		}
 	}
 	
 	/**
@@ -289,7 +345,7 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
 			info = YearInvestPlanFactory.getRemoteInstance().getYearInvestPlanInfo(new ObjectUuidPK(info.getId()));
 			ProgrammingInfo programmingInfo = getProgrammingInfo(info);
 			context.put("programmingInfo", programmingInfo);
-			context.put("projectInfo", info);
+			context.put("projectInfo-edit", info);
 			context.put("ID", info.getId());
 			UIFactory.createUIFactory().create(YearInvestPlanEditUI.class.getName(), context, null,OprtState.EDIT).show();
 		}
@@ -297,13 +353,13 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
 	/**
 	 * 获取直接修改项目的投资规划
 	 * */
-	ProgrammingInfo getProgrammingInfo(YearInvestPlanInfo investInfo){
+	static ProgrammingInfo getProgrammingInfo(YearInvestPlanInfo investInfo){
 		ProgrammingInfo info = new ProgrammingInfo();
 		try {
 			ProgrammingCollection coll = ProgrammingFactory.getRemoteInstance().getProgrammingCollection("where sourcebillid='"+investInfo.getId()+"'");
 			if(coll.size()>0){
 				info = coll.get(0);
-				info = ProgrammingFactory.getRemoteInstance().getProgrammingInfo(new ObjectUuidPK(info.getId()));
+				info = ProgrammingFactory.getRemoteInstance().getProgrammingInfo(new ObjectUuidPK(info.getId()),getSelector());
 				info.setId(BOSUuid.create(info.getBOSType()));
 				for(int i=0;i<info.getEntries().size();i++){
 					ProgrammingEntryInfo entry = info.getEntries().get(i);
@@ -352,7 +408,6 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
 					}
 					filter.getFilterItems().add(new FilterItemInfo("id",set,CompareType.INCLUDE));
 //					evInfo.setFilter(filter);
-
 					EmployeeMultiF7PromptBox person = new EmployeeMultiF7PromptBox();
 					person.setIsSingleSelect(false);
 					person.showNoPositionPerson(false);
@@ -360,27 +415,13 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
 					person.show();
 					if(person.getData() instanceof Object[]&&((Object[]) person.getData()).length>0){
 						Object[] obj = (Object[]) person.getData();
-						
-						KDTSelectBlock sb = null;
-						int size = kdtE1.getSelectManager().size();
-						if(size>0){
-							for (int i = 0; i < size; i++) 
-							{ 
-								sb = kdtE1.getSelectManager().get(i); 
-								
-								for (int j = sb.getTop(); j <= sb.getBottom(); j++)  
-								{  
-									setKdtE2Person(obj, j);
-								} 
-							}
-						}else{
-							for (int m = 0; m < kdtE1.getRowCount(); m++) 
-							{
-								setKdtE2Person(obj, m);
-							}
+						for (int m = 0; m < kdtE1.getRowCount(); m++) 
+						{
+							setKdtE2Person(obj, m);
 						}
 						storeFields();
 						loadFields();
+						kdtE1.getSelectManager().select(0, 3);
 					}
 				}catch (Exception e1) {
 					e1.printStackTrace();
@@ -455,6 +496,38 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
 		});
 	}
 	/**
+	 * 选到评审人员，加入到审批工作流
+	 */
+	void addAuditPersonInWF(PersonInfo personInfo){
+		try
+		{
+			HashSet set = new HashSet();
+			set.add("1");
+			set.add("2");
+			set.add("32");
+			EntityViewInfo evInfo = new EntityViewInfo();
+			FilterInfo filter = new FilterInfo();
+			evInfo.setFilter(filter);
+			filter.getFilterItems().add(new FilterItemInfo("BIZOBJID",editData.getId().toString()));
+			filter.getFilterItems().add(new FilterItemInfo("STATE",set,CompareType.INCLUDE));
+			AssignCollection  coll = AssignFactory.getRemoteInstance().getCollection(evInfo);
+			String actInstId = "";
+			if(coll.size()>0){
+				AssignInfo info = coll.get(0); 
+				actInstId = info.getActInstID().toString();
+			}
+			ActivityInstInfo  currentActivityInstInfo = EnactmentServiceFactory.createRemoteEnactService().getActivityInstByActInstId(actInstId);
+			String personId = personInfo.getId().toString();
+			if(WfUtils.checkPersonHasUser(personId))
+			{
+				String personIdArray[] = {personId};
+				IWfUtil util = (IWfUtil)RpcProxy.wrapRequired(com.kingdee.bos.workflow.monitor.IWfUtil.class, com.kingdee.bos.workflow.monitor.WfUtil.class.getName());
+				util.addAssignToActivity(actInstId, personIdArray, "");
+			} 
+		}catch(Exception ex){   
+		}
+	}
+	/**
 	 * 第一分录评审人按钮，使第二分录选到评审人员信息
 	 */
 	private void setKdtE2Person(Object obj[],int rowIndex)
@@ -473,10 +546,32 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
 			if(list.contains(personInfo.getId().toString())){continue;}
 			AdminOrgUnitInfo info =PersonXRHelper.getPosiMemByDeptUser(personInfo);
 			YIPlanAccredE1E2Info e2 = new YIPlanAccredE1E2Info();
-			
 			e2.setAccredPerson(personInfo);
 			e2.setAccredDpart(info);
-        	enrtry1.getE2().add(e2);
+			
+			try {
+				if(editData.getId()!=null && WorkflowXRHelper.isRunningWorkflow(editData.getId().toString())){
+					PersonInfo curPerson = SysContext.getSysContext().getCurrentUserInfo().getPerson();
+					if(curPerson!=null)
+						e2.setRemark("由"+curPerson.getName()+"加签----"+DateXRHelper.DateToTimeString(DateXRHelper.getServerDate()));
+				}
+				if(WfUtils.checkPersonHasUser(personInfo.getId().toString()))
+					enrtry1.getE2().add(e2);
+				else
+				{
+					MsgBox.showWarning(EASResource.getString("com.kingdee.bos.workflow.monitor.client.WorkFlowMonitorImageDescriptionResource", "msgPersonHasNoUser"));
+				}
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
+        	
+        	try {
+				if(editData.getId()!=null && WorkflowXRHelper.isRunningWorkflow(editData.getId().toString())){
+					addAuditPersonInWF(personInfo);
+				}
+			} catch (BOSException e) {
+				e.printStackTrace();
+			}
 	     }
 	}
 	
@@ -575,6 +670,17 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
 	
 	public void onShow() throws Exception {
 		super.onShow();
+		kdtE1.getColumn("company").getStyleAttributes().setLocked(true);
+		kdtE1.getColumn("projectType").getStyleAttributes().setLocked(true);
+		kdtE1.getColumn("projectName").getStyleAttributes().setLocked(true);
+		kdtE1.getColumn("amount").getStyleAttributes().setLocked(true);
+		kdtE1.getColumn("contentSReq").getStyleAttributes().setLocked(true);
+		UserInfo userInfo = SysContext.getSysContext().getCurrentUserInfo();
+    	if(!userInfo.getId().equals(editData.getCreator().getId())){
+    		kdtE1.getColumn("accredResu").getStyleAttributes().setLocked(true);
+    		kdtE1.getColumn("projectConclude").getStyleAttributes().setLocked(true);
+    	}
+    	setLockAuditTable();
 	}
 	/**
      * output accredType_actionPerformed method
@@ -596,26 +702,37 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
     	super.prmtaccredPerson_dataChanged(e);
 
     }
-    protected void kdtE1_tableClicked(KDTMouseEvent e) throws Exception {
-    	super.kdtE1_tableClicked(e);
-    	if(!WorkflowXRHelper.isFromWF(this))
-    		return;
+    /**
+     * 锁定非本人评审信息
+     */
+    void setLockAuditTable(){
     	PersonInfo personInfo = SysContext.getSysContext().getCurrentUserInfo().getPerson();
-    	
     	if(personInfo==null||personInfo.getId()==null)
     		return;
     	String personId = personInfo.getId().toString();
-    	
     	for (int i = 0; i < this.kdtE2.getRowCount(); i++)
     	{
     		IRow row = this.kdtE2.getRow(i);
-    		
     		if(UIRuleUtil.isNull(row.getCell("accredPerson").getValue()))
     			continue;
 			String kdpersonId = ((PersonInfo)row.getCell("accredPerson").getValue()).getId().toString();
-			
-//			if(!kdpersonId.equals(personId))
-//				row.getStyleAttributes().setHided(true);
+			if(!kdpersonId.equals(personId))
+				row.getStyleAttributes().setLocked(true);
+			else
+				row.getStyleAttributes().setLocked(false);
+		}
+    }
+    protected void kdtE1_tableClicked(KDTMouseEvent e) throws Exception {
+    	super.kdtE1_tableClicked(e);
+    	setLockAuditTable();
+    	if(e.getClickCount()==2){
+			UIContext context = new UIContext(this);
+			int rowIndex = kdtE1.getSelectManager().getActiveRowIndex();
+			if(kdtE1.getRow(rowIndex)!=null){
+				YearInvestPlanInfo info = (YearInvestPlanInfo)kdtE1.getRow(rowIndex).getCell("projectName").getValue();
+				context.put("ID", info.getId());
+				UIFactory.createUIFactory().create(YearInvestPlanEditUI.class.getName(), context, null,OprtState.VIEW).show();
+			}
 		}
     }
     /**
@@ -863,6 +980,7 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
      */
     public void actionSubmit_actionPerformed(ActionEvent e) throws Exception
     {
+    	isControl = false;
         super.actionSubmit_actionPerformed(e);
     }
 
@@ -919,7 +1037,7 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
      */
     public void actionPrint_actionPerformed(ActionEvent e) throws Exception
     {
-        super.actionPrint_actionPerformed(e);
+//        super.actionPrint_actionPerformed(e);
     }
 
     /**
@@ -951,6 +1069,7 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
      */
     public void actionEdit_actionPerformed(ActionEvent e) throws Exception
     {
+    	isControl = false;
         super.actionEdit_actionPerformed(e);
         this.kDContainer1.removeAllButton();
         initProWorkButton(this.kDContainer1, false);
@@ -1255,5 +1374,100 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
 	protected KDTextField getNumberCtrl() {
 		return null;
 	}
-
+public static SelectorItemCollection getSelector() {
+		
+		SelectorItemCollection sic = new SelectorItemCollection();
+		String selectorAll = System.getProperty("selector.all");
+		if(StringUtils.isEmpty(selectorAll)){
+			selectorAll = "true";
+		}
+		sic.add(new SelectorItemInfo("number"));
+		sic.add(new SelectorItemInfo("name"));
+		sic.add(new SelectorItemInfo("projectNumber"));
+		sic.add(new SelectorItemInfo("projectName"));
+		sic.add(new SelectorItemInfo("state"));
+		sic.add(new SelectorItemInfo("buildArea"));
+		sic.add(new SelectorItemInfo("soldArea"));
+		sic.add(new SelectorItemInfo("aimCost.*"));
+		sic.add(new SelectorItemInfo("aimCost.measureStage.id"));
+		
+		sic.add(new SelectorItemInfo("project.name"));
+		sic.add(new SelectorItemInfo("entries.longNumber"));
+		sic.add(new SelectorItemInfo("entries.name"));
+		sic.add(new SelectorItemInfo("entries.*"));
+		sic.add(new SelectorItemInfo("entries.amount"));
+		sic.add(new SelectorItemInfo("entries.controlAmount"));
+		sic.add(new SelectorItemInfo("entries.parent.*"));
+		sic.add(new SelectorItemInfo("entries.economyEntries.*"));
+		sic.add(new SelectorItemInfo("entries.economyEntries.paymentType.*"));
+		
+		sic.add(new SelectorItemInfo("entries.costEntries.*"));
+		sic.add(new SelectorItemInfo("entries.costEntries.costAccount.*"));
+		sic.add(new SelectorItemInfo("entries.costEntries.costAccount.curProject.*"));
+		sic.add(new SelectorItemInfo("entries.costEntries.costEntries.id"));
+		sic.add(new SelectorItemInfo("entries.costEntries.project"));
+		sic.add(new SelectorItemInfo("entries.costEntries.number"));
+		sic.add(new SelectorItemInfo("entries.costEntries.investYear.*"));
+		sic.add(new SelectorItemInfo("entries.costEntries.goalCost"));
+		sic.add(new SelectorItemInfo("entries.costEntries.assigned"));
+		sic.add(new SelectorItemInfo("entries.costEntries.contractAssign"));
+		sic.add(new SelectorItemInfo("entries.costEntries.assigning"));
+		sic.add(new SelectorItemInfo("entries.costEntries.proportion"));
+		sic.add(new SelectorItemInfo("entries.costEntries.description"));
+		sic.add(new SelectorItemInfo("entries.costEntries.contract.*"));
+		
+		//取预估金额 20120420
+		sic.add(new SelectorItemInfo("entries.estimateAmount"));
+		sic.add(new SelectorItemInfo("entries.balance"));
+		sic.add(new SelectorItemInfo("entries.controlBalance"));
+		sic.add(new SelectorItemInfo("entries.signUpAmount"));
+		sic.add(new SelectorItemInfo("entries.changeAmount"));
+		sic.add(new SelectorItemInfo("entries.settleAmount"));
+		sic.add(new SelectorItemInfo("entries.citeVersion"));
+		sic.add(new SelectorItemInfo("entries.isCiting"));
+		sic.add(new SelectorItemInfo("entries.attachment"));
+		sic.add(new SelectorItemInfo("entries.description"));
+		sic.add(new SelectorItemInfo("entries.id"));
+		sic.add(new SelectorItemInfo("entries.number"));
+		sic.add(new SelectorItemInfo("entries.level"));
+		sic.add(new SelectorItemInfo("entries.parent.longNumber"));
+		sic.add(new SelectorItemInfo("entries.sortNumber"));
+		sic.add(new SelectorItemInfo("entries.displayName"));
+		sic.add(new SelectorItemInfo("entries.workcontent"));
+		sic.add(new SelectorItemInfo("entries.supMaterial"));
+		sic.add(new SelectorItemInfo("entries.inviteWay"));
+		sic.add(new SelectorItemInfo("entries.inviteOrg.*"));
+		sic.add(new SelectorItemInfo("entries.buildPerSquare"));
+		sic.add(new SelectorItemInfo("entries.soldPerSquare"));
+		sic.add(new SelectorItemInfo("version"));
+		sic.add(new SelectorItemInfo("versionGroup"));
+	    sic.add(new SelectorItemInfo("createTime"));
+        sic.add(new SelectorItemInfo("lastUpdateTime"));
+		sic.add(new SelectorItemInfo("CU.id"));
+		sic.add(new SelectorItemInfo("orgUnit.id"));
+		
+		sic.add(new SelectorItemInfo("entries.quantities"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("entries.unit.*"));
+		}
+		else{
+	    	sic.add(new SelectorItemInfo("entries.unit.id"));
+			sic.add(new SelectorItemInfo("entries.unit.name"));
+        	sic.add(new SelectorItemInfo("entries.unit.number"));
+		}
+    	sic.add(new SelectorItemInfo("entries.price"));
+		
+		sic.add(new SelectorItemInfo("entries.contractType.*"));
+		sic.add(new SelectorItemInfo("entries.programming.*"));
+		
+		sic.add(new SelectorItemInfo("isLatest"));
+		sic.add(new SelectorItemInfo("entries.isInvite"));
+		
+		sic.add(new SelectorItemInfo("compareEntry.*"));
+		sic.add(new SelectorItemInfo("description"));
+		sic.add(new SelectorItemInfo("sourceBillId"));
+		
+		return sic;
+	}   
 }

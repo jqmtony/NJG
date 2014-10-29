@@ -72,7 +72,6 @@ public abstract class AbstractInviteReportEditUI extends com.kingdee.eas.xr.clie
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkBizDate;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtDescription;
     protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel6;
-    protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel1;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer continviteBudget;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contaudDate;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contapplicant;
@@ -115,9 +114,13 @@ public abstract class AbstractInviteReportEditUI extends com.kingdee.eas.xr.clie
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtuseOrg;
     protected com.kingdee.bos.ctrl.swing.KDComboBox comboStatus;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtQualificationRequemt;
+    protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel1;
     protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel2;
     protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel3;
     protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel4;
+    protected com.kingdee.bos.ctrl.swing.KDContainer kDContainer5;
+    protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtEntry4;
+	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtEntry4_detailPanel = null;
     protected com.kingdee.bos.ctrl.swing.KDContainer kDContainer1;
     protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtEntry2;
 	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtEntry2_detailPanel = null;
@@ -152,9 +155,6 @@ public abstract class AbstractInviteReportEditUI extends com.kingdee.eas.xr.clie
     protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtE6;
 	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtE6_detailPanel = null;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtinvitePlan;
-    protected com.kingdee.bos.ctrl.swing.KDContainer kDContainer5;
-    protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtEntry4;
-	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtEntry4_detailPanel = null;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtprojectNumber;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtdevOrg;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtproSite;
@@ -236,7 +236,6 @@ public abstract class AbstractInviteReportEditUI extends com.kingdee.eas.xr.clie
         this.pkBizDate = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.txtDescription = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.kDPanel6 = new com.kingdee.bos.ctrl.swing.KDPanel();
-        this.kDPanel1 = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.continviteBudget = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contaudDate = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contapplicant = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -279,9 +278,12 @@ public abstract class AbstractInviteReportEditUI extends com.kingdee.eas.xr.clie
         this.prmtuseOrg = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.comboStatus = new com.kingdee.bos.ctrl.swing.KDComboBox();
         this.txtQualificationRequemt = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.kDPanel1 = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.kDPanel2 = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.kDPanel3 = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.kDPanel4 = new com.kingdee.bos.ctrl.swing.KDPanel();
+        this.kDContainer5 = new com.kingdee.bos.ctrl.swing.KDContainer();
+        this.kdtEntry4 = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.kDContainer1 = new com.kingdee.bos.ctrl.swing.KDContainer();
         this.kdtEntry2 = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.kDContainer3 = new com.kingdee.bos.ctrl.swing.KDContainer();
@@ -311,8 +313,6 @@ public abstract class AbstractInviteReportEditUI extends com.kingdee.eas.xr.clie
         this.kDContainer6 = new com.kingdee.bos.ctrl.swing.KDContainer();
         this.kdtE6 = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.prmtinvitePlan = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
-        this.kDContainer5 = new com.kingdee.bos.ctrl.swing.KDContainer();
-        this.kdtEntry4 = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.txtprojectNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.prmtdevOrg = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.txtproSite = new com.kingdee.bos.ctrl.swing.KDTextField();
@@ -343,7 +343,6 @@ public abstract class AbstractInviteReportEditUI extends com.kingdee.eas.xr.clie
         this.pkBizDate.setName("pkBizDate");
         this.txtDescription.setName("txtDescription");
         this.kDPanel6.setName("kDPanel6");
-        this.kDPanel1.setName("kDPanel1");
         this.continviteBudget.setName("continviteBudget");
         this.contaudDate.setName("contaudDate");
         this.contapplicant.setName("contapplicant");
@@ -386,9 +385,12 @@ public abstract class AbstractInviteReportEditUI extends com.kingdee.eas.xr.clie
         this.prmtuseOrg.setName("prmtuseOrg");
         this.comboStatus.setName("comboStatus");
         this.txtQualificationRequemt.setName("txtQualificationRequemt");
+        this.kDPanel1.setName("kDPanel1");
         this.kDPanel2.setName("kDPanel2");
         this.kDPanel3.setName("kDPanel3");
         this.kDPanel4.setName("kDPanel4");
+        this.kDContainer5.setName("kDContainer5");
+        this.kdtEntry4.setName("kdtEntry4");
         this.kDContainer1.setName("kDContainer1");
         this.kdtEntry2.setName("kdtEntry2");
         this.kDContainer3.setName("kDContainer3");
@@ -418,8 +420,6 @@ public abstract class AbstractInviteReportEditUI extends com.kingdee.eas.xr.clie
         this.kDContainer6.setName("kDContainer6");
         this.kdtE6.setName("kdtE6");
         this.prmtinvitePlan.setName("prmtinvitePlan");
-        this.kDContainer5.setName("kDContainer5");
-        this.kdtEntry4.setName("kdtEntry4");
         this.txtprojectNumber.setName("txtprojectNumber");
         this.prmtdevOrg.setName("prmtdevOrg");
         this.txtproSite.setName("txtproSite");
@@ -520,12 +520,12 @@ public abstract class AbstractInviteReportEditUI extends com.kingdee.eas.xr.clie
         // pkBizDate
         // txtDescription
         // kDPanel6
-        // kDPanel1
         // continviteBudget		
         this.continviteBudget.setBoundLabelText(resHelper.getString("continviteBudget.boundLabelText"));		
         this.continviteBudget.setBoundLabelLength(100);		
         this.continviteBudget.setBoundLabelUnderline(true);		
-        this.continviteBudget.setVisible(true);
+        this.continviteBudget.setVisible(true);		
+        this.continviteBudget.setForeground(new java.awt.Color(255,0,0));
         // contaudDate		
         this.contaudDate.setBoundLabelText(resHelper.getString("contaudDate.boundLabelText"));		
         this.contaudDate.setBoundLabelLength(100);		
@@ -626,7 +626,8 @@ public abstract class AbstractInviteReportEditUI extends com.kingdee.eas.xr.clie
         // txtinviteBudget		
         this.txtinviteBudget.setHorizontalAlignment(2);		
         this.txtinviteBudget.setMaxLength(100);		
-        this.txtinviteBudget.setRequired(false);
+        this.txtinviteBudget.setRequired(false);		
+        this.txtinviteBudget.setEnabled(false);
         // pkaudDate		
         this.pkaudDate.setRequired(false);
         // prmtapplicant		
@@ -791,10 +792,91 @@ public abstract class AbstractInviteReportEditUI extends com.kingdee.eas.xr.clie
         this.txtQualificationRequemt.setHorizontalAlignment(2);		
         this.txtQualificationRequemt.setMaxLength(100);		
         this.txtQualificationRequemt.setRequired(false);
+        // kDPanel1
         // kDPanel2		
         this.kDPanel2.setToolTipText(resHelper.getString("kDPanel2.toolTipText"));
         // kDPanel3
         // kDPanel4
+        // kDContainer5
+        // kdtEntry4
+		String kdtEntry4StrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style><c:Style id=\"sCol2\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol3\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol4\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol5\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol7\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"budgetNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"budgetName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol2\" /><t:Column t:key=\"budgetAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol3\" /><t:Column t:key=\"balance\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol4\" /><t:Column t:key=\"amount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol5\" /><t:Column t:key=\"content\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"lastAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol7\" /><t:Column t:key=\"beizhu\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{budgetNumber}</t:Cell><t:Cell>$Resource{budgetName}</t:Cell><t:Cell>$Resource{budgetAmount}</t:Cell><t:Cell>$Resource{balance}</t:Cell><t:Cell>$Resource{amount}</t:Cell><t:Cell>$Resource{content}</t:Cell><t:Cell>$Resource{lastAmount}</t:Cell><t:Cell>$Resource{beizhu}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		
+        this.kdtEntry4.setFormatXml(resHelper.translateString("kdtEntry4",kdtEntry4StrXML));
+        kdtEntry4.addKDTEditListener(new KDTEditAdapter() {
+		public void editStopped(KDTEditEvent e) {
+			try {
+				kdtEntry4_Changed(e.getRowIndex(),e.getColIndex());
+			}
+			catch (Exception exc) {
+				handUIException(exc);
+			}
+		}
+	});
+
+
+                this.kdtEntry4.putBindContents("editData",new String[] {"seq","budgetNumber","budgetName","budgetAmount","balance","amount","content","lastAmount","beizhu"});
+
+
+        this.kdtEntry4.checkParsed();
+        KDTextField kdtEntry4_budgetName_TextField = new KDTextField();
+        kdtEntry4_budgetName_TextField.setName("kdtEntry4_budgetName_TextField");
+        kdtEntry4_budgetName_TextField.setMaxLength(80);
+        KDTDefaultCellEditor kdtEntry4_budgetName_CellEditor = new KDTDefaultCellEditor(kdtEntry4_budgetName_TextField);
+        this.kdtEntry4.getColumn("budgetName").setEditor(kdtEntry4_budgetName_CellEditor);
+        KDFormattedTextField kdtEntry4_budgetAmount_TextField = new KDFormattedTextField();
+        kdtEntry4_budgetAmount_TextField.setName("kdtEntry4_budgetAmount_TextField");
+        kdtEntry4_budgetAmount_TextField.setVisible(true);
+        kdtEntry4_budgetAmount_TextField.setEditable(true);
+        kdtEntry4_budgetAmount_TextField.setHorizontalAlignment(2);
+        kdtEntry4_budgetAmount_TextField.setDataType(1);
+        	kdtEntry4_budgetAmount_TextField.setMinimumValue(new java.math.BigDecimal("-1.0E26"));
+        	kdtEntry4_budgetAmount_TextField.setMaximumValue(new java.math.BigDecimal("1.0E26"));
+        kdtEntry4_budgetAmount_TextField.setPrecision(2);
+        KDTDefaultCellEditor kdtEntry4_budgetAmount_CellEditor = new KDTDefaultCellEditor(kdtEntry4_budgetAmount_TextField);
+        this.kdtEntry4.getColumn("budgetAmount").setEditor(kdtEntry4_budgetAmount_CellEditor);
+        KDFormattedTextField kdtEntry4_balance_TextField = new KDFormattedTextField();
+        kdtEntry4_balance_TextField.setName("kdtEntry4_balance_TextField");
+        kdtEntry4_balance_TextField.setVisible(true);
+        kdtEntry4_balance_TextField.setEditable(true);
+        kdtEntry4_balance_TextField.setHorizontalAlignment(2);
+        kdtEntry4_balance_TextField.setDataType(1);
+        	kdtEntry4_balance_TextField.setMinimumValue(new java.math.BigDecimal("-1.0E26"));
+        	kdtEntry4_balance_TextField.setMaximumValue(new java.math.BigDecimal("1.0E26"));
+        kdtEntry4_balance_TextField.setPrecision(2);
+        KDTDefaultCellEditor kdtEntry4_balance_CellEditor = new KDTDefaultCellEditor(kdtEntry4_balance_TextField);
+        this.kdtEntry4.getColumn("balance").setEditor(kdtEntry4_balance_CellEditor);
+        KDFormattedTextField kdtEntry4_amount_TextField = new KDFormattedTextField();
+        kdtEntry4_amount_TextField.setName("kdtEntry4_amount_TextField");
+        kdtEntry4_amount_TextField.setVisible(true);
+        kdtEntry4_amount_TextField.setEditable(true);
+        kdtEntry4_amount_TextField.setHorizontalAlignment(2);
+        kdtEntry4_amount_TextField.setDataType(1);
+        	kdtEntry4_amount_TextField.setMinimumValue(new java.math.BigDecimal("-1.0E26"));
+        	kdtEntry4_amount_TextField.setMaximumValue(new java.math.BigDecimal("1.0E26"));
+        kdtEntry4_amount_TextField.setPrecision(2);
+        KDTDefaultCellEditor kdtEntry4_amount_CellEditor = new KDTDefaultCellEditor(kdtEntry4_amount_TextField);
+        this.kdtEntry4.getColumn("amount").setEditor(kdtEntry4_amount_CellEditor);
+        KDTextArea kdtEntry4_content_TextArea = new KDTextArea();
+        kdtEntry4_content_TextArea.setName("kdtEntry4_content_TextArea");
+        kdtEntry4_content_TextArea.setMaxLength(255);
+        KDTDefaultCellEditor kdtEntry4_content_CellEditor = new KDTDefaultCellEditor(kdtEntry4_content_TextArea);
+        this.kdtEntry4.getColumn("content").setEditor(kdtEntry4_content_CellEditor);
+        KDFormattedTextField kdtEntry4_lastAmount_TextField = new KDFormattedTextField();
+        kdtEntry4_lastAmount_TextField.setName("kdtEntry4_lastAmount_TextField");
+        kdtEntry4_lastAmount_TextField.setVisible(true);
+        kdtEntry4_lastAmount_TextField.setEditable(true);
+        kdtEntry4_lastAmount_TextField.setHorizontalAlignment(2);
+        kdtEntry4_lastAmount_TextField.setDataType(1);
+        	kdtEntry4_lastAmount_TextField.setMinimumValue(new java.math.BigDecimal("-1.0E26"));
+        	kdtEntry4_lastAmount_TextField.setMaximumValue(new java.math.BigDecimal("1.0E26"));
+        kdtEntry4_lastAmount_TextField.setPrecision(2);
+        KDTDefaultCellEditor kdtEntry4_lastAmount_CellEditor = new KDTDefaultCellEditor(kdtEntry4_lastAmount_TextField);
+        this.kdtEntry4.getColumn("lastAmount").setEditor(kdtEntry4_lastAmount_CellEditor);
+        KDTextArea kdtEntry4_beizhu_TextArea = new KDTextArea();
+        kdtEntry4_beizhu_TextArea.setName("kdtEntry4_beizhu_TextArea");
+        kdtEntry4_beizhu_TextArea.setMaxLength(255);
+        KDTDefaultCellEditor kdtEntry4_beizhu_CellEditor = new KDTDefaultCellEditor(kdtEntry4_beizhu_TextArea);
+        this.kdtEntry4.getColumn("beizhu").setEditor(kdtEntry4_beizhu_CellEditor);
         // kDContainer1		
         this.kDContainer1.setTitle(resHelper.getString("kDContainer1.title"));		
         this.kDContainer1.setEnableActive(false);
@@ -986,7 +1068,6 @@ public abstract class AbstractInviteReportEditUI extends com.kingdee.eas.xr.clie
         this.txtreduLow.setMaxLength(100);		
         this.txtreduLow.setRequired(false);
         // txtcoefficient		
-        this.txtcoefficient.setVisible(true);		
         this.txtcoefficient.setHorizontalAlignment(2);		
         this.txtcoefficient.setDataType(1);		
         this.txtcoefficient.setSupportedEmpty(true);		
@@ -1123,7 +1204,6 @@ public abstract class AbstractInviteReportEditUI extends com.kingdee.eas.xr.clie
         this.kdtE6.getColumn("remake").setEditor(kdtE6_remake_CellEditor);
         // prmtinvitePlan		
         this.prmtinvitePlan.setQueryInfo("com.kingdee.eas.port.pm.invite.app.InvitePlanQuery");		
-        this.prmtinvitePlan.setVisible(true);		
         this.prmtinvitePlan.setEditable(true);		
         this.prmtinvitePlan.setDisplayFormat("$planName$");		
         this.prmtinvitePlan.setEditFormat("$number$");		
@@ -1139,16 +1219,6 @@ public abstract class AbstractInviteReportEditUI extends com.kingdee.eas.xr.clie
                 }
             }
         });
-        // kDContainer5
-        // kdtEntry4
-		String kdtEntry4StrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
-		
-        this.kdtEntry4.setFormatXml(resHelper.translateString("kdtEntry4",kdtEntry4StrXML));
-
-                this.kdtEntry4.putBindContents("editData",new String[] {"seq"});
-
-
-        this.kdtEntry4.checkParsed();
         // txtprojectNumber		
         this.txtprojectNumber.setHorizontalAlignment(2);		
         this.txtprojectNumber.setMaxLength(80);		
@@ -1173,7 +1243,7 @@ public abstract class AbstractInviteReportEditUI extends com.kingdee.eas.xr.clie
 
 
         this.kdtEntry1.checkParsed();
-        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {txtQualificationRequemt,txtBIMUDF0004,comboStatus,comboBizStatus,pkAuditTime,txtNumber,pkBizDate,txtDescription,prmtAuditor,prmtCreator,pkCreateTime,prmtLastUpdateUser,pkLastUpdateTime,prmtCU,prmtdevOrg,prmtuseOrg,txtinviteBudget,prmtinviteType,pkinviteDate,pkopenDate,pksubDate,prmtapplicant,pkaudDate,txtpaperFee,txtbidBond,judgeSolution,txtproSite,prmtevaTemplate,txtreportName,prmtvalidTemplate,txtrmhigh,txtrmlow,txtbusinessScore,txttechScore,txtreduHigh,txtreduLow,prmtproName,txtprojectNumber,kdtEntry3,kdtEntry2,kdtEntry1,kdtEntry5,kdtEntry4,kdtE6,kdtE7}));
+        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {txtQualificationRequemt,txtBIMUDF0004,comboStatus,comboBizStatus,pkAuditTime,txtNumber,pkBizDate,txtDescription,prmtAuditor,prmtCreator,pkCreateTime,prmtLastUpdateUser,pkLastUpdateTime,prmtCU,prmtdevOrg,prmtuseOrg,txtinviteBudget,prmtinviteType,pkinviteDate,pkopenDate,pksubDate,prmtapplicant,pkaudDate,txtpaperFee,txtbidBond,judgeSolution,txtproSite,prmtevaTemplate,txtreportName,prmtvalidTemplate,txtrmhigh,txtrmlow,txtbusinessScore,txttechScore,txtreduHigh,txtreduLow,prmtproName,txtprojectNumber,txtcoefficient,prmtinvitePlan,kdtEntry3,kdtEntry2,kdtEntry1,kdtEntry5,kdtEntry4,kdtE6,kdtE7}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
 		registerBindings();
@@ -1254,7 +1324,6 @@ public abstract class AbstractInviteReportEditUI extends com.kingdee.eas.xr.clie
         contDescription.setBoundEditor(txtDescription);
         //kDTabbedPane1
         kDTabbedPane1.add(kDPanel6, resHelper.getString("kDPanel6.constraints"));
-        kDTabbedPane1.add(kDPanel1, resHelper.getString("kDPanel1.constraints"));
         //kDPanel6
         kDPanel6.setLayout(new KDLayout());
         kDPanel6.putClientProperty("OriginalBounds", new Rectangle(0, 0, 1018, 541));        continviteBudget.setBounds(new Rectangle(8, 31, 270, 19));
@@ -1342,9 +1411,15 @@ public abstract class AbstractInviteReportEditUI extends com.kingdee.eas.xr.clie
         //contQualificationRequemt
         contQualificationRequemt.setBoundEditor(txtQualificationRequemt);
         //kDTabbedPane2
+        kDTabbedPane2.add(kDPanel1, resHelper.getString("kDPanel1.constraints"));
         kDTabbedPane2.add(kDPanel2, resHelper.getString("kDPanel2.constraints"));
         kDTabbedPane2.add(kDPanel3, resHelper.getString("kDPanel3.constraints"));
         kDTabbedPane2.add(kDPanel4, resHelper.getString("kDPanel4.constraints"));
+        //kDPanel1
+kDPanel1.setLayout(new BorderLayout(0, 0));        kDPanel1.add(kDContainer5, BorderLayout.CENTER);
+        //kDContainer5
+kDContainer5.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry4_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtEntry4,new com.kingdee.eas.port.pm.invite.InviteReportEntry4Info(),null,false);
+        kDContainer5.getContentPane().add(kdtEntry4_detailPanel, BorderLayout.CENTER);
         //kDPanel2
 kDPanel2.setLayout(new BorderLayout(0, 0));        kDPanel2.add(kDContainer1, BorderLayout.CENTER);
         //kDContainer1
@@ -1421,11 +1496,6 @@ kDContainer6.getContentPane().setLayout(new BorderLayout(0, 0));        kdtE6_de
         kDContainer6.getContentPane().add(kdtE6_detailPanel, BorderLayout.CENTER);
         //continvitePlan
         continvitePlan.setBoundEditor(prmtinvitePlan);
-        //kDPanel1
-kDPanel1.setLayout(new BorderLayout(0, 0));        kDPanel1.add(kDContainer5, BorderLayout.CENTER);
-        //kDContainer5
-kDContainer5.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry4_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtEntry4,new com.kingdee.eas.port.pm.invite.InviteReportEntry4Info(),null,false);
-        kDContainer5.getContentPane().add(kdtEntry4_detailPanel, BorderLayout.CENTER);
         //contprojectNumber
         contprojectNumber.setBoundEditor(txtprojectNumber);
         //contdevOrg
@@ -1555,8 +1625,8 @@ kDContainer4.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
         this.toolBar.add(btnAddNew);
         this.toolBar.add(btnCloud);
         this.toolBar.add(btnEdit);
-        this.toolBar.add(btnSave);
         this.toolBar.add(kDSeparatorCloud);
+        this.toolBar.add(btnSave);
         this.toolBar.add(btnReset);
         this.toolBar.add(btnSubmit);
         this.toolBar.add(btnCopy);
@@ -1637,6 +1707,16 @@ kDContainer4.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
 		dataBinder.registerBinding("useOrg", com.kingdee.eas.basedata.org.AdminOrgUnitInfo.class, this.prmtuseOrg, "data");
 		dataBinder.registerBinding("status", com.kingdee.eas.xr.app.XRBillStatusEnum.class, this.comboStatus, "selectedItem");
 		dataBinder.registerBinding("QualificationRequemt", String.class, this.txtQualificationRequemt, "text");
+		dataBinder.registerBinding("Entry4.seq", int.class, this.kdtEntry4, "seq.text");
+		dataBinder.registerBinding("Entry4", com.kingdee.eas.port.pm.invite.InviteReportEntry4Info.class, this.kdtEntry4, "userObject");
+		dataBinder.registerBinding("Entry4.budgetAmount", java.math.BigDecimal.class, this.kdtEntry4, "budgetAmount.text");
+		dataBinder.registerBinding("Entry4.balance", java.math.BigDecimal.class, this.kdtEntry4, "balance.text");
+		dataBinder.registerBinding("Entry4.content", String.class, this.kdtEntry4, "content.text");
+		dataBinder.registerBinding("Entry4.lastAmount", java.math.BigDecimal.class, this.kdtEntry4, "lastAmount.text");
+		dataBinder.registerBinding("Entry4.beizhu", String.class, this.kdtEntry4, "beizhu.text");
+		dataBinder.registerBinding("Entry4.amount", java.math.BigDecimal.class, this.kdtEntry4, "amount.text");
+		dataBinder.registerBinding("Entry4.budgetNumber", java.lang.Object.class, this.kdtEntry4, "budgetNumber.text");
+		dataBinder.registerBinding("Entry4.budgetName", String.class, this.kdtEntry4, "budgetName.text");
 		dataBinder.registerBinding("Entry2.seq", int.class, this.kdtEntry2, "seq.text");
 		dataBinder.registerBinding("Entry2", com.kingdee.eas.port.pm.invite.InviteReportEntry2Info.class, this.kdtEntry2, "userObject");
 		dataBinder.registerBinding("Entry2.comment", String.class, this.kdtEntry2, "comment.text");
@@ -1673,8 +1753,6 @@ kDContainer4.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
 		dataBinder.registerBinding("E6.remake", String.class, this.kdtE6, "remake.text");
 		dataBinder.registerBinding("E6.evaluationNameTex", String.class, this.kdtE6, "evaluationNameTex.text");
 		dataBinder.registerBinding("invitePlan", com.kingdee.eas.port.pm.invite.InvitePlanInfo.class, this.prmtinvitePlan, "data");
-		dataBinder.registerBinding("Entry4.seq", int.class, this.kdtEntry4, "seq.text");
-		dataBinder.registerBinding("Entry4", com.kingdee.eas.port.pm.invite.InviteReportEntry4Info.class, this.kdtEntry4, "userObject");
 		dataBinder.registerBinding("projectNumber", String.class, this.txtprojectNumber, "text");
 		dataBinder.registerBinding("devOrg", com.kingdee.eas.basedata.org.AdminOrgUnitInfo.class, this.prmtdevOrg, "data");
 		dataBinder.registerBinding("proSite", String.class, this.txtproSite, "text");
@@ -1843,6 +1921,16 @@ kDContainer4.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
 		getValidateHelper().registerBindProperty("useOrg", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("status", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("QualificationRequemt", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("Entry4.seq", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("Entry4", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("Entry4.budgetAmount", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("Entry4.balance", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("Entry4.content", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("Entry4.lastAmount", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("Entry4.beizhu", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("Entry4.amount", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("Entry4.budgetNumber", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("Entry4.budgetName", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("Entry2.seq", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("Entry2", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("Entry2.comment", ValidateHelper.ON_SAVE);    
@@ -1879,8 +1967,6 @@ kDContainer4.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
 		getValidateHelper().registerBindProperty("E6.remake", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("E6.evaluationNameTex", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("invitePlan", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("Entry4.seq", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("Entry4", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("projectNumber", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("devOrg", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("proSite", ValidateHelper.ON_SAVE);    
@@ -1967,6 +2053,19 @@ kDContainer4.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
     {
         System.out.println("prmtproName_Changed() Function is executed!");
             txtprojectNumber.setText(com.kingdee.bos.ui.face.UIRuleUtil.getString(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)prmtproName.getData(),"number")));
+
+
+    }
+
+    /**
+     * output kdtEntry4_Changed(int rowIndex,int colIndex) method
+     */
+    public void kdtEntry4_Changed(int rowIndex,int colIndex) throws Exception
+    {
+            if ("budgetNumber".equalsIgnoreCase(kdtEntry4.getColumn(colIndex).getKey())) {
+kdtEntry4.getCell(rowIndex,"budgetName").setValue(com.kingdee.bos.ui.face.UIRuleUtil.getString(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)kdtEntry4.getCell(rowIndex,"budgetNumber").getValue(),"feeName")));
+
+}
 
 
     }
@@ -2117,6 +2216,29 @@ kdtE6.getCell(rowIndex,"EvaluationType").setValue(com.kingdee.bos.ui.face.UIRule
 		}
         sic.add(new SelectorItemInfo("status"));
         sic.add(new SelectorItemInfo("QualificationRequemt"));
+    	sic.add(new SelectorItemInfo("Entry4.seq"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("Entry4.*"));
+		}
+		else{
+		}
+    	sic.add(new SelectorItemInfo("Entry4.budgetAmount"));
+    	sic.add(new SelectorItemInfo("Entry4.balance"));
+    	sic.add(new SelectorItemInfo("Entry4.content"));
+    	sic.add(new SelectorItemInfo("Entry4.lastAmount"));
+    	sic.add(new SelectorItemInfo("Entry4.beizhu"));
+    	sic.add(new SelectorItemInfo("Entry4.amount"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("Entry4.budgetNumber.*"));
+		}
+		else{
+	    	sic.add(new SelectorItemInfo("Entry4.budgetNumber.id"));
+			sic.add(new SelectorItemInfo("Entry4.budgetNumber.feeNumber"));
+        	sic.add(new SelectorItemInfo("Entry4.budgetNumber.number"));
+		}
+    	sic.add(new SelectorItemInfo("Entry4.budgetName"));
     	sic.add(new SelectorItemInfo("Entry2.seq"));
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
@@ -2218,13 +2340,6 @@ kdtE6.getCell(rowIndex,"EvaluationType").setValue(com.kingdee.bos.ui.face.UIRule
         	sic.add(new SelectorItemInfo("invitePlan.id"));
         	sic.add(new SelectorItemInfo("invitePlan.number"));
         	sic.add(new SelectorItemInfo("invitePlan.planName"));
-		}
-    	sic.add(new SelectorItemInfo("Entry4.seq"));
-		if(selectorAll.equalsIgnoreCase("true"))
-		{
-			sic.add(new SelectorItemInfo("Entry4.*"));
-		}
-		else{
 		}
         sic.add(new SelectorItemInfo("projectNumber"));
 		if(selectorAll.equalsIgnoreCase("true"))
@@ -2341,7 +2456,7 @@ kdtE6.getCell(rowIndex,"EvaluationType").setValue(com.kingdee.bos.ui.face.UIRule
      * output getDetailTable method
      */
     protected KDTable getDetailTable() {
-        return kdtEntry2;
+        return kdtEntry4;
 	}
     /**
      * output applyDefaultValue method
