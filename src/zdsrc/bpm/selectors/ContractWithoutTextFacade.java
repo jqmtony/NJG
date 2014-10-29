@@ -19,6 +19,9 @@ import com.kingdee.eas.basedata.assistant.CurrencyInfo;
 import com.kingdee.eas.basedata.assistant.ExchangeRateFactory;
 import com.kingdee.eas.basedata.assistant.ExchangeRateInfo;
 import com.kingdee.eas.basedata.assistant.ExchangeTableInfo;
+import com.kingdee.eas.basedata.org.AdminOrgUnitFactory;
+import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
+import com.kingdee.eas.basedata.org.CompanyOrgUnitFactory;
 import com.kingdee.eas.basedata.org.CompanyOrgUnitInfo;
 import com.kingdee.eas.bpm.BPMLogFactory;
 import com.kingdee.eas.bpm.BPMLogInfo;
@@ -45,6 +48,9 @@ import com.kingdee.eas.fdc.contract.PayRequestBillFactory;
 import com.kingdee.eas.fdc.contract.PayRequestBillInfo;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractFactory;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo;
+import com.kingdee.eas.fdc.finance.FDCDepConPayPlanNoContractFactory;
+import com.kingdee.eas.fdc.finance.FDCDepConPayPlanNoContractInfo;
+import com.kingdee.eas.util.app.ContextUtil;
 
 public class ContractWithoutTextFacade implements BillBaseSelector {
 	
@@ -64,7 +70,7 @@ public class ContractWithoutTextFacade implements BillBaseSelector {
 				e.printStackTrace();
 			}
 			try{
-				Info.setState(FDCBillStateEnum.SUBMITTED);
+				Info.setState(FDCBillStateEnum.AUDITTING);
 				sql = " update t_con_contractwithouttext set fState='"+Info.getState().getValue()+"'" +
 						", fDescription='"+procURL+"' " +
 						", FSourceFunction='"+procInstID+"' where fid='"+Info.getId()+"'";
@@ -114,15 +120,23 @@ public class ContractWithoutTextFacade implements BillBaseSelector {
 			}
 			try{
 				if("1".equals(processInstanceResult)){
-					if(FDCBillStateEnum.SUBMITTED.equals(Info.getState()))
+					if(FDCBillStateEnum.AUDITTING.equals(Info.getState()))
 						Info.setState(FDCBillStateEnum.AUDITTED);
+//					
+//					Info.setState(FDCBillStateEnum.SUBMITTED);
+//					CompanyOrgUnitInfo company = CompanyOrgUnitFactory.getLocalInstance(ctx).getCompanyOrgUnitInfo(new ObjectUuidPK(Info.getCU().getId()));
+//					AdminOrgUnitInfo admin=AdminOrgUnitFactory.getLocalInstance(ctx).getAdminOrgUnitInfo(new ObjectUuidPK(Info.getCU().getId()));                            
+//					ContextUtil.setCurrentFIUnit(ctx, company);
+//					ContextUtil.setCurrentOrgUnit(ctx, admin);
+//				    ContractBillFactory.getLocalInstance(ctx).audit(Info.getId());
+//				    Info.setState(FDCBillStateEnum.AUDITTED); 
 					else{
 						str[2] = "审批通过失败，该记录状态不是审批中！";
 						str[0] = "N";
 					}
 				}
 				if("0".equals(processInstanceResult)){
-					if(FDCBillStateEnum.SUBMITTED.equals(Info.getState()))
+					if(FDCBillStateEnum.AUDITTING.equals(Info.getState()))
 						Info.setState(FDCBillStateEnum.SAVED);
 					else{
 						str[2] = "审批不通过失败，该记录状态不是审批中！";
@@ -130,7 +144,7 @@ public class ContractWithoutTextFacade implements BillBaseSelector {
 					}
 				}
 				if("2".equals(processInstanceResult)){
-					if(FDCBillStateEnum.SUBMITTED.equals(Info.getState()))
+					if(FDCBillStateEnum.AUDITTING.equals(Info.getState()))
 						Info.setState(FDCBillStateEnum.SAVED);
 					else{
 						str[2] = "审批打回失败，该记录状态不是审批中！";
@@ -138,7 +152,7 @@ public class ContractWithoutTextFacade implements BillBaseSelector {
 					}
 				}
 				if("3".equals(processInstanceResult)){
-					if(FDCBillStateEnum.SUBMITTED.equals(Info.getState()))
+					if(FDCBillStateEnum.AUDITTING.equals(Info.getState()))
 					{
 						Info.setState(FDCBillStateEnum.SAVED);
 						sql = " update t_con_contractwithouttext set fDescription='' where fid='"+Info.getId()+"'";
@@ -200,7 +214,7 @@ public class ContractWithoutTextFacade implements BillBaseSelector {
     			xml.append("<ApplyDate>"+dateFormat.format(Info.getCreateTime())+"</ApplyDate>\n");
     			xml.append("<Applicant>"+StringUtilBPM.isNULl(Info.getCreator().getName())+"</Applicant>\n");
     			xml.append("<Position>合约部经理</Position>\n");
-    			xml.append("<Topic>"+StringUtilBPM.isNULl(Info.getName())+"-无文本合同审批单"+"</Topic>\n");
+    			xml.append("<Topic>"+StringUtilBPM.isNULl(Info.getName())+"</Topic>\n");
     			if(Info.getCurProject()!=null)
     			{
     			xml.append("<curProject>"+StringUtilBPM.isNULl(Info.getCurProject().getName())+"</curProject>\n");
@@ -300,12 +314,9 @@ public class ContractWithoutTextFacade implements BillBaseSelector {
     			//xml.append("<MoneyDesc>"+Info.getDescription()+"</MoneyDesc>\n");  款项说明   PayRequestBillInfo
     			//xml.append("<Urgency>"+Info.getNoPaidReason()+"</Urgency>\n");  //加急
     			
-    			//if(Info.getFdcDepConPlan()!=null)
-    			//xml.append("<PlanProject>"+Info.getFdcDepConPlan()+"</PlanProject>\n");  //计划项目
-    			//else
-    			//{
-    			//	xml.append("<PlanProject></PlanProject>\n");
-    			//}
+    			if(Info.getFdcDepConPlan().getId()!=null)
+    			//FDCDepConPayPlanNoContractInfo FDCinfo=
+    			xml.append("<PlanProject>"+FDCDepConPayPlanNoContractFactory.getLocalInstance(ctx).getFDCDepConPayPlanNoContractInfo(new ObjectUuidPK(Info.getFdcDepConPlan().getId())).getPayMattersName()+"</PlanProject>\n");  //计划项目
     			if(false==Info.isIsCostSplit())
     		    xml.append("<isCostSplit>否</isCostSplit>\n");  //是否进入动态成本
     			else
@@ -407,6 +418,7 @@ public class ContractWithoutTextFacade implements BillBaseSelector {
 		sic.add(new SelectorItemInfo("MoneyDesc"));
 		sic.add(new SelectorItemInfo("PaymentProportion"));
 		sic.add(new SelectorItemInfo("IsNeedPaid"));
+		sic.add(new SelectorItemInfo("FdcDepConPlan.id"));
 		return sic;
     }
 

@@ -4,6 +4,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.measure.unit.BaseUnit;
+
 import com.kingdee.bos.BOSException;
 import com.kingdee.bos.Context;
 import com.kingdee.bos.dao.IObjectPK;
@@ -15,8 +17,16 @@ import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.metadata.entity.SelectorItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
+import com.kingdee.eas.base.permission.UserFactory;
 import com.kingdee.eas.base.permission.UserInfo;
+import com.kingdee.eas.basedata.assistant.CurrencyFactory;
+import com.kingdee.eas.basedata.assistant.CurrencyInfo;
+import com.kingdee.eas.basedata.master.cssp.SupplierFactory;
+import com.kingdee.eas.basedata.master.cssp.SupplierInfo;
+import com.kingdee.eas.basedata.org.AdminOrgUnitFactory;
 import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
+import com.kingdee.eas.basedata.org.CompanyOrgUnitFactory;
+import com.kingdee.eas.basedata.org.CompanyOrgUnitInfo;
 import com.kingdee.eas.basedata.person.PersonInfo;
 import com.kingdee.eas.bpm.BPMLogFactory;
 import com.kingdee.eas.bpm.BPMLogInfo;
@@ -24,15 +34,18 @@ import com.kingdee.eas.bpm.BillBaseSelector;
 import com.kingdee.eas.bpm.common.StringUtilBPM;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.SysContext;
+import com.kingdee.eas.fdc.basedata.CurProjectInfo;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
 import com.kingdee.eas.fdc.basedata.PaymentTypeFactory;
 import com.kingdee.eas.fdc.basedata.PaymentTypeInfo;
 import com.kingdee.eas.fdc.contract.ChangeAuditBillFactory;
 import com.kingdee.eas.fdc.contract.ChangeAuditBillInfo;
+import com.kingdee.eas.fdc.contract.ChangeAuditEntryCollection;
 import com.kingdee.eas.fdc.contract.ChangeAuditEntryFactory;
 import com.kingdee.eas.fdc.contract.ChangeAuditEntryInfo;
 import com.kingdee.eas.fdc.contract.ChangeBillStateEnum;
+import com.kingdee.eas.fdc.contract.ChangeSupplierEntryCollection;
 import com.kingdee.eas.fdc.contract.ChangeSupplierEntryFactory;
 import com.kingdee.eas.fdc.contract.ChangeSupplierEntryInfo;
 import com.kingdee.eas.fdc.contract.ContractBailEntryFactory;
@@ -44,6 +57,8 @@ import com.kingdee.eas.fdc.contract.ContractPayItemFactory;
 import com.kingdee.eas.fdc.contract.CopySupplierEntryCollection;
 import com.kingdee.eas.fdc.contract.CopySupplierEntryFactory;
 import com.kingdee.eas.fdc.contract.CopySupplierEntryInfo;
+import com.kingdee.eas.fdc.contract.SupplierContentEntryInfo;
+import com.kingdee.eas.util.app.ContextUtil;
 
 public class ChangeAuditFacade implements BillBaseSelector {
 
@@ -53,6 +68,7 @@ public class ChangeAuditFacade implements BillBaseSelector {
 		ChangeAuditBillInfo Info = (ChangeAuditBillInfo) billInfo;
 		String[] str = new String[3];
 		str[0] = "Y";
+		String sql="";
 		try {
 			  try {
 				Info = ChangeAuditBillFactory.getLocalInstance(ctx).getChangeAuditBillInfo(new ObjectUuidPK(Info.getId()),getSelectors());
@@ -65,7 +81,13 @@ public class ChangeAuditFacade implements BillBaseSelector {
 				if ("1".equals(processInstanceResult)) {
 					if (ChangeBillStateEnum.Auditting.equals(Info.getChangeState()))
 						Info.setChangeState(ChangeBillStateEnum.Audit);
-						//Info.setState(FDCBillStateEnum.AUDITTED);
+//					Info.setState(FDCBillStateEnum.SUBMITTED);
+//					CompanyOrgUnitInfo company = CompanyOrgUnitFactory.getLocalInstance(ctx).getCompanyOrgUnitInfo(new ObjectUuidPK(Info.getCU().getId()));
+//					AdminOrgUnitInfo admin=AdminOrgUnitFactory.getLocalInstance(ctx).getAdminOrgUnitInfo(new ObjectUuidPK(Info.getCU().getId()));                            
+//					ContextUtil.setCurrentFIUnit(ctx, company);
+//					ContextUtil.setCurrentOrgUnit(ctx, admin);
+//				    ContractBillFactory.getLocalInstance(ctx).audit(Info.getId());
+//				    Info.setState(FDCBillStateEnum.AUDITTED); 
 					
 					
 					else {
@@ -94,14 +116,19 @@ public class ChangeAuditFacade implements BillBaseSelector {
 				}
 				if ("3".equals(processInstanceResult)) {
 					if (ChangeBillStateEnum.Auditting.equals(Info.getChangeState()))
-						Info.setChangeState(ChangeBillStateEnum.Saved);
-						//Info.setState(FDCBillStateEnum.SAVED);
+					{
+							Info.setChangeState(ChangeBillStateEnum.Saved);
+							sql = " update T_CON_ChangeAuditBill set fDescription='' where fid='"+Info.getId()+"'";
+							FDCSQLBuilder bu = new FDCSQLBuilder(ctx);
+							bu.appendSql(sql);
+							bu.executeUpdate(ctx);
+					}
 					else {
 						str[2] = "撤销失败，该记录状态不是审批中！";
 						str[0] = "N";
 					}
 				}
-				String sql = " update T_CON_ChangeAuditBill set fChangeState='"
+				sql = " update T_CON_ChangeAuditBill set fChangeState='"
 						+ Info.getChangeState().getValue() + "' where fid='"
 						+ Info.getId() + "'";
 				FDCSQLBuilder bu = new FDCSQLBuilder(ctx);
@@ -204,89 +231,117 @@ public class ChangeAuditFacade implements BillBaseSelector {
 				xml.append("</item>\n");
 			}
 			xml.append("</billEntries>\n");
+				xml.append("<SuppEntry>");
+				for (int i = 0; i < Info.getSuppEntry().size(); i++) {
+					ChangeSupplierEntryInfo changeSuppentry = Info.getSuppEntry().get(i);
+					changeSuppentry = ChangeSupplierEntryFactory.getLocalInstance(ctx).getChangeSupplierEntryInfo(new ObjectUuidPK(changeSuppentry.getId()));
+					changeSuppentry.getParent();
+					xml.append("<item>");
+					xml.append("<SuppID>" + changeSuppentry.getSeq() + "</SuppID>\n");
+					changeSuppentry.getCurrency().getName();
+					for(int mj=0;mj<changeSuppentry.getEntrys().size();mj++)
+					 {
+						  SupplierContentEntryInfo supperContent =changeSuppentry.getEntrys().get(mj);
+						  EntityViewInfo Myavevi = new EntityViewInfo();
+					      FilterInfo Myavfilter = new FilterInfo();
+					      Myavfilter.getFilterItems().add(new FilterItemInfo("id",supperContent.getContent().getId(),CompareType.EQUALS));
+					      Myavevi.setFilter(Myavfilter);
+					      ChangeAuditEntryCollection myavc=ChangeAuditEntryFactory.getLocalInstance(ctx).getChangeAuditEntryCollection(Myavevi);
+					      if(myavc.size()>0)
+					      {
+					        for(int j=0;j< myavc.size();j++){
+					        	ChangeAuditEntryInfo changeAudit = myavc.get(i);
+					        	ChangeAuditEntryInfo info=ChangeAuditEntryFactory.getLocalInstance(ctx).getChangeAuditEntryInfo(new ObjectUuidPK(changeAudit.getId()));
+					        	xml.append("<ZContext>"+info.getChangeContent()+"</ZContext>\n");  //变更内容   
+					        }
+					      }
+					 }
+					  EntityViewInfo Myavevi = new EntityViewInfo();
+				      FilterInfo Myavfilter = new FilterInfo();
+				      Myavfilter.getFilterItems().add(new FilterItemInfo("id",changeSuppentry.getContractBill().getId(),CompareType.EQUALS));
+				      Myavevi.setFilter(Myavfilter);
+				      ContractBillCollection myavc=ContractBillFactory.getLocalInstance(ctx).getContractBillCollection(Myavevi);
+				      if(myavc.size()>0)
+				      {
+					        for(int j=0;j< myavc.size();j++){ 
+		         	          ContractBillInfo info=ContractBillFactory.getLocalInstance(ctx).getContractBillInfo(new ObjectUuidPK(myavc.get(j).getId()));
+		         	          xml.append("<ContractID>" + info.getNumber()+ "</ContractID>\n");
+						      xml.append("<ContractName>" + info.getName()+ "</ContractName>\n");
+					        }
+				      }
+				      
+				      
+				      EntityViewInfo My = new EntityViewInfo();
+				      FilterInfo Myfilter = new FilterInfo();
+				      Myfilter.getFilterItems().add(new FilterItemInfo("Parent",Info.getId(),CompareType.EQUALS));
+				      My.setFilter(Myfilter);
+				      ChangeSupplierEntryCollection ChengeMy=ChangeSupplierEntryFactory.getLocalInstance(ctx).getChangeSupplierEntryCollection(My);
+				      if(ChengeMy.size()>0)
+				      {
+				    	for(int a=0;a<ChengeMy.size();a++)
+				    	{
+				    		ChangeSupplierEntryInfo Cinfo=ChangeSupplierEntryFactory.getLocalInstance(ctx).getChangeSupplierEntryInfo(new ObjectUuidPK(ChengeMy.get(a).getId()));
+				    		SupplierInfo MainSuppInfo =SupplierFactory.getLocalInstance(ctx).getSupplierInfo(new ObjectUuidPK(Cinfo.getMainSupp().getId()));
+				    		xml.append("<MainSupp>" +MainSuppInfo.getName()+ "</MainSupp>\n");//  主送单位
+				    		CurrencyInfo currInfo= CurrencyFactory.getLocalInstance(ctx).getCurrencyInfo(new ObjectUuidPK(Cinfo.getCurrency().getId()));
+				    		xml.append("<Currency>" +currInfo.getName()+"</Currency>\n");
+				    		xml.append("<Exrate>" +Cinfo.getExRate()+ "</Exrate>\n");//汇率
+				    		xml.append("<ConstructPrice>" +Cinfo.getConstructPrice()+ "</ConstructPrice>\n");//施工方审报金额
+				    		xml.append("<CostDescription>" +Cinfo.getCostDescription()+ "</CostDescription>\n");//测算说明
+				    		xml.append("<CostAmount>" +Cinfo.getCostAmount()+ "</CostAmount>\n");//测算金额原币
+				    		xml.append("<OriCostAmount>" +Cinfo.getOriCostAmount()+ "</OriCostAmount>\n");//测算金额
+				    		if(false==Cinfo.isIsDeduct())
+							{
+							xml.append("<IsDeduct>否</IsDeduct>\n");
+							}
+							else
+							{
+								xml.append("<IsDeduct>是</IsDeduct>\n");
+						    }
+				    		xml.append("<OriginalContactNum>"+Cinfo.getOriginalContactNum()+ "</OriginalContactNum>\n");
+							xml.append("<DeductAmount>" + Cinfo.getDeductAmount()+ "</DeductAmount>\n");
+							xml.append("<DeductReason>" + Cinfo.getDeductReason()+ "</DeductReason>\n");
+							UserInfo userinfo=UserFactory.getLocalInstance(ctx).getUserInfo(new ObjectUuidPK(Cinfo.getReckonor().getId()));
+                            xml.append("<Reckonor>" +userinfo.getName()+ "</Reckonor>\n");
+        					if(Cinfo.getDutyOrg().getId()!=null)
+        					xml.append("<DutyOrg>" +AdminOrgUnitFactory.getLocalInstance(ctx).getAdminOrgUnitInfo(new ObjectUuidPK(Cinfo.getDutyOrg().getId())).getName()+"</DutyOrg>\n");
+        					if(false==Cinfo.isIsSureChangeAmt())
+        					{
+        					xml.append("<IsSureChangeAmt>否</IsSureChangeAmt>\n");
+        					}
+        					else
+        					{
+        						xml.append("<IsSureChangeAmt>是</IsSureChangeAmt>\n");
+        					}
+        					
+				    	}
+				      }
+				      EntityViewInfo Myavevi3 = new EntityViewInfo();
+				      FilterInfo Myavfilter3 = new FilterInfo();
+				      Myavfilter3.getFilterItems().add(new FilterItemInfo("parent.id",changeSuppentry.getId(),CompareType.EQUALS));
+				      Myavevi3.setFilter(Myavfilter3);
+				      CopySupplierEntryCollection copycol=CopySupplierEntryFactory.getLocalInstance(ctx).getCopySupplierEntryCollection(Myavevi3);
+				      for(int n=0;n<copycol.size();n++)
+				      {  
+				    	  CopySupplierEntryInfo CopySuppinfo=copycol.get(i);
+ 				    	  CopySupplierEntryInfo info=CopySupplierEntryFactory.getLocalInstance(ctx).getCopySupplierEntryInfo(new ObjectUuidPK(CopySuppinfo.getId()));
+				    	  xml.append("<CopySupp>" +SupplierFactory.getLocalInstance(ctx).getSupplierInfo(new ObjectUuidPK(info.getCopySupp().getId())).getName()+ "</CopySupp>\n");   //抄送单位
+				      }
+						xml.append("</item>\n");
+				}
+				xml.append("</SuppEntry>\n");			
+				xml.append("<TotalCost>" + Info.getTotalCost()+ "</TotalCost>\n");   //测算金额汇总
+				xml.append("<DutyAmout>" + Info.getAmountDutySupp()+ "</DutyAmout>\n");   //测算金额汇总
 				
-//				xml.append("<SuppEntry>");
-//				for (int i = 0; i < Info.getSuppEntry().size(); i++) {
-//					ChangeSupplierEntryInfo changeSuppentry = Info.getSuppEntry().get(i);
-//					changeSuppentry = ChangeSupplierEntryFactory.getLocalInstance(ctx).getChangeSupplierEntryInfo(new ObjectUuidPK(changeSuppentry.getId()));
-//					changeSuppentry.getParent();
-//					xml.append("<item>");
-//					xml.append("<SuppID>" + changeSuppentry.getSeq() + "</SuppID>\n");
-//					
-//					  EntityViewInfo Myavevi = new EntityViewInfo();
-//				      FilterInfo Myavfilter = new FilterInfo();
-//				      Myavfilter.getFilterItems().add(new FilterItemInfo("id",changeSuppentry.getContractBill().getId(),CompareType.EQUALS));
-//				      Myavevi.setFilter(Myavfilter);
-//				      ContractBillCollection myavc=ContractBillFactory.getLocalInstance(ctx).getContractBillCollection(Myavevi);
-//				      if(myavc.size()>0)
-//				      {
-//				        for(int j=0;j< myavc.size();j++){  	     
-//		         	    ContractBillInfo info=ContractBillFactory.getLocalInstance(ctx).getContractBillInfo(new ObjectUuidPK(changeSuppentry.getContractBill().getId()));
-//		         	    xml.append("<ContractID>" + info.getNumber()+ "</ContractID>\n");
-//						xml.append("<ContractName>" + info.getName()+ "</ContractName>\n");
-//						//xml.append("<MainSupp>" + info.getPartB().getName()+ "</MainSupp>\n");//  主送单位
-//						//xml.append("<Currency>" + info.getCurrency().getName()+ "</Currency>\n");//币别
-//						//xml.append("<Exrate>" + info.getExRate() + "</Exrate>\n");
-//						xml.append("<Currency>人民币</Currency>\n");//币别
-//						xml.append("<MainSupp>中国建筑第八工程局</MainSupp>\n");//  主送单位
-//						xml.append("<Exrate>1</Exrate>\n");
-//						
-//				        }
-//				      }
-//				      EntityViewInfo Myavevi3 = new EntityViewInfo();
-//				      FilterInfo Myavfilter3 = new FilterInfo();
-//				      Myavfilter3.getFilterItems().add(new FilterItemInfo("parent",changeSuppentry.getId(),CompareType.EQUALS));
-//				      Myavevi3.setFilter(Myavfilter3);
-//				      CopySupplierEntryCollection copycol=CopySupplierEntryFactory.getLocalInstance(ctx).getCopySupplierEntryCollection(Myavevi3);
-//				      for(int n=0;n<copycol.size();n++)
-//				      {  
-//				    	  CopySupplierEntryInfo info=CopySupplierEntryFactory.getLocalInstance(ctx).getCopySupplierEntryInfo(new ObjectUuidPK(copycol.get(i).getId()));
-//				    	  xml.append("<CopySupp>" +info.getCopySupp().getName()+ "</CopySupp>\n");   //抄送单位
-//				      }
-//		 			
-//					xml.append("<OriginalContactNum>"+ changeSuppentry.getOriginalContactNum()+ "</OriginalContactNum>\n");
-//					ChangeAuditEntryInfo entrycontext = ChangeAuditEntryFactory.getLocalInstance(ctx).getChangeAuditEntryInfo(new ObjectUuidPK(changeSuppentry.getParent().getId()));
-//					xml.append("<ZContext>"+entrycontext.getChangeContent()+"</ZContext>\n");   //
-//					xml.append("<OriCostAmount>" + changeSuppentry.getOriCostAmount()+ "</OriCostAmount>\n");
-//					xml.append("<CostAmount>" + changeSuppentry.getCostAmount()+ "</CostAmount>\n");
-//					xml.append("<CostDescription>" + changeSuppentry.getCostDescription()+ "</CostDescription>\n");
-//					xml.append("<ConstructPrice>" + changeSuppentry.getConstructPrice()+ "</ConstructPrice>\n");
-//					if(false==changeSuppentry.isIsDeduct())
-//					{
-//					xml.append("<IsDeduct>否</IsDeduct>\n");
-//					}
-//					else
-//					{
-//						xml.append("<IsDeduct>是</IsDeduct>\n");
-//				    }
-//					xml.append("<DeductAmount>" + changeSuppentry.getDeductAmount()+ "</DeductAmount>\n");
-//					xml.append("<DeductReason>" + changeSuppentry.getDeductReason()+ "</DeductReason>\n");
-//					xml.append("<Reckonor>" + changeSuppentry.getReckonor().getName()+ "</Reckonor>\n"); //
-//					if(changeSuppentry.getDutyOrg()!=null)
-//					xml.append("<DutyOrg>" + changeSuppentry.getDutyOrg().getName()+ "</DutyOrg>\n"); //
-//					if(false==changeSuppentry.isIsSureChangeAmt())
-//					{
-//					xml.append("<IsSureChangeAmt>否</IsSureChangeAmt>\n");
-//					}
-//					else
-//					{
-//						xml.append("<IsSureChangeAmt>是</IsSureChangeAmt>\n");
-//					}
-//					xml.append("</item>\n");
-//				}
-//				xml.append("</SuppEntry>\n");			
-//				xml.append("<TotalCost>" + Info.getTotalCost()+ "</TotalCost>\n");   //测算金额汇总
-//				xml.append("<DutyAmout>" + Info.getAmountDutySupp()+ "</DutyAmout>\n");   //测算金额汇总
-//				
-//				if(false==Info.isIsNoUse())
-//				{
-//				xml.append("<NoUse>否</NoUse>\n");   //是否存在无效成本
-//				}else
-//				{
-//					xml.append("<NoUse>是</NoUse>\n");   //是否存在无效成本
-//				}
-//				xml.append("<NoUseAmount>" + Info.getCostNouse()+ "</NoUseAmount>\n");   //无效成本金额
-//				xml.append("<Reason>" + Info.getReason()+ "</Reason>\n");   //无效成本原因  --无效成本原因ID  数据库没存值 //
+				if(false==Info.isIsNoUse())
+				{
+				xml.append("<NoUse>否</NoUse>\n");   //是否存在无效成本
+				}else
+				{
+					xml.append("<NoUse>是</NoUse>\n");   //是否存在无效成本
+				}
+				xml.append("<NoUseAmount>" + Info.getCostNouse()+ "</NoUseAmount>\n");   //无效成本金额
+				xml.append("<Reason>" + Info.getInvalidCostReason().getName()+ "</Reason>\n");   //无效成本原因  --无效成本原因ID  数据库没存值 //
 				xml.append("</DATA>");
 				str[1] = xml.toString();
 		} catch (Exception e) {
@@ -398,8 +453,8 @@ public class ChangeAuditFacade implements BillBaseSelector {
 		sic.add(new SelectorItemInfo("ChangeState"));
 		sic.add(new SelectorItemInfo("specialName"));
 		sic.add(new SelectorItemInfo("isImportChange"));
-
-		
+        sic.add(new SelectorItemInfo("InvalidCostReason.name"));
+        sic.add(new SelectorItemInfo("IsNoUse"));
 		
 		
 		
@@ -407,35 +462,30 @@ public class ChangeAuditFacade implements BillBaseSelector {
 		sic.add(new SelectorItemInfo("Entrys.ChangeContent"));
 		sic.add(new SelectorItemInfo("Entrys.IsBack"));
 
-		sic.add(new SelectorItemInfo("SuppEntry.Seq"));
-		sic.add(new SelectorItemInfo("SuppEntry.ContractBill.id"));
-		sic.add(new SelectorItemInfo("SuppEntry.ContractBill.name"));
-		sic.add(new SelectorItemInfo("SuppEntry.ContractBill.number"));
-		sic.add(new SelectorItemInfo("SuppEntry.IsSureChangeAmt"));
-		sic.add(new SelectorItemInfo("SuppEntry.mainSupp.id"));
-		sic.add(new SelectorItemInfo("SuppEntry.mainSupp.name"));
-		sic.add(new SelectorItemInfo("SuppEntry.mainSupp.number"));
-		sic.add(new SelectorItemInfo("SuppEntry.CopySupp.id"));
-		sic.add(new SelectorItemInfo("SuppEntry.CopySupp.name"));
-		sic.add(new SelectorItemInfo("SuppEntry.OriginalContactNum"));
-		sic.add(new SelectorItemInfo("SuppEntry.Entrys.changeContext"));
-		sic.add(new SelectorItemInfo("SuppEntry.Currency.id"));
-		sic.add(new SelectorItemInfo("SuppEntry.Currency.name"));
-		sic.add(new SelectorItemInfo("SuppEntry.getExRate"));
-		sic.add(new SelectorItemInfo("SuppEntry.getOriCostAmount"));
-		sic.add(new SelectorItemInfo("SuppEntry.getCostAmount"));
-		sic.add(new SelectorItemInfo("SuppEntry.getCostDescription"));
-		sic.add(new SelectorItemInfo("SuppEntry.getConstructPrice"));
-		sic.add(new SelectorItemInfo("SuppEntry.isIsDeduct"));
-		sic.add(new SelectorItemInfo("SuppEntry.DeductAmount"));
-		sic.add(new SelectorItemInfo("SuppEntry.DeductReason"));
-		sic.add(new SelectorItemInfo("SuppEntry.Reckonor.id"));
-		sic.add(new SelectorItemInfo("SuppEntry.Reckonor.name"));
-		sic.add(new SelectorItemInfo("SuppEntry.Reckonor.number"));
-		sic.add(new SelectorItemInfo("SuppEntry.DutyOrg.id"));
-		sic.add(new SelectorItemInfo("SuppEntry.DutyOrg.name"));
-		sic.add(new SelectorItemInfo("SuppEntry.DutyOrg.number"));
-		sic.add(new SelectorItemInfo("SuppEntry.IsSureChangeAmt"));
+		sic.add(new SelectorItemInfo("suppEntry.Seq"));
+		sic.add(new SelectorItemInfo("suppEntry.ContractBill.id"));
+		sic.add(new SelectorItemInfo("suppEntry.ContractBill.name"));
+		sic.add(new SelectorItemInfo("suppEntry.ContractBill.number"));
+		sic.add(new SelectorItemInfo("suppEntry.IsSureChangeAmt"));
+		sic.add(new SelectorItemInfo("suppEntry.mainSupp.id"));
+		sic.add(new SelectorItemInfo("suppEntry.CopySupp.id"));
+		sic.add(new SelectorItemInfo("suppEntry.CopySupp.name"));
+		sic.add(new SelectorItemInfo("suppEntry.OriginalContactNum"));
+		sic.add(new SelectorItemInfo("suppEntry.Entrys.changeContext"));
+		//sic.add(new SelectorItemInfo("SuppEntry.Currency.id"));
+		sic.add(new SelectorItemInfo("suppEntry.Currency.name"));
+		sic.add(new SelectorItemInfo("suppEntry.ExRate"));
+		sic.add(new SelectorItemInfo("suppEntry.OriCostAmount"));
+		sic.add(new SelectorItemInfo("SuppEntry.CostAmount"));
+		sic.add(new SelectorItemInfo("suppEntry.CostDescription"));
+		sic.add(new SelectorItemInfo("suppEntry.ConstructPrice"));
+		sic.add(new SelectorItemInfo("suppEntry.isIsDeduct"));
+		sic.add(new SelectorItemInfo("suppEntry.DeductAmount"));
+		sic.add(new SelectorItemInfo("suppEntry.DeductReason"));
+		sic.add(new SelectorItemInfo("suppEntry.Reckonor.id"));
+		sic.add(new SelectorItemInfo("suppEntry.DutyOrg.name"));
+		sic.add(new SelectorItemInfo("suppEntry.DutyOrg.id"));
+		sic.add(new SelectorItemInfo("suppEntry.IsSureChangeAmt"));
 		
 		
 		sic.add(new SelectorItemInfo("CreateTime"));

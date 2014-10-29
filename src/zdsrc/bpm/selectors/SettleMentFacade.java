@@ -94,7 +94,7 @@ public class SettleMentFacade implements BillBaseSelector {
 				}
 				if ("2".equals(processInstanceResult)) {
 					if (FDCBillStateEnum.AUDITTING.equals(Info.getState()))
-						Info.setState(FDCBillStateEnum.BACK);
+						Info.setState(FDCBillStateEnum.SAVED);
 					else {
 						str[2] = "审批打回失败，该记录状态不是审批中！";
 						str[0] = "N";

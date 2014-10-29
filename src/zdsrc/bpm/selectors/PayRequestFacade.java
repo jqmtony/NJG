@@ -10,6 +10,10 @@ import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.metadata.entity.SelectorItemInfo;
+import com.kingdee.eas.basedata.org.AdminOrgUnitFactory;
+import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
+import com.kingdee.eas.basedata.org.CompanyOrgUnitFactory;
+import com.kingdee.eas.basedata.org.CompanyOrgUnitInfo;
 import com.kingdee.eas.bpm.BPMLogFactory;
 import com.kingdee.eas.bpm.BPMLogInfo;
 import com.kingdee.eas.bpm.BillBaseSelector;
@@ -19,10 +23,12 @@ import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
 import com.kingdee.eas.fdc.basedata.PaymentTypeFactory;
 import com.kingdee.eas.fdc.basedata.PaymentTypeInfo;
+import com.kingdee.eas.fdc.contract.ContractBillFactory;
 import com.kingdee.eas.fdc.contract.PayRequestBillEntryFactory;
 import com.kingdee.eas.fdc.contract.PayRequestBillEntryInfo;
 import com.kingdee.eas.fdc.contract.PayRequestBillFactory;
 import com.kingdee.eas.fdc.contract.PayRequestBillInfo;
+import com.kingdee.eas.util.app.ContextUtil;
 
 public class PayRequestFacade implements BillBaseSelector {
 	
@@ -41,7 +47,7 @@ public class PayRequestFacade implements BillBaseSelector {
 				e.printStackTrace();
 			}
 			try{
-				Info.setState(FDCBillStateEnum.SUBMITTED);
+				Info.setState(FDCBillStateEnum.AUDITTING);
 				String sql = " update t_con_payrequestbill set fState='"+Info.getState().getValue()+"'" +
 						", fDescription='"+procURL+"' " +
 						", FSourceFunction='"+procInstID+"' where fid='"+Info.getId()+"'";
@@ -91,15 +97,23 @@ public class PayRequestFacade implements BillBaseSelector {
 			}
 			try{
 				if("1".equals(processInstanceResult)){
-					if(FDCBillStateEnum.SUBMITTED.equals(Info.getState()))
-						Info.setState(FDCBillStateEnum.AUDITTED);
+					if(FDCBillStateEnum.AUDITTING.equals(Info.getState()))
+					{
+//					Info.setState(FDCBillStateEnum.SUBMITTED);
+//					CompanyOrgUnitInfo company = CompanyOrgUnitFactory.getLocalInstance(ctx).getCompanyOrgUnitInfo(new ObjectUuidPK(Info.getCU().getId()));
+//					AdminOrgUnitInfo admin=AdminOrgUnitFactory.getLocalInstance(ctx).getAdminOrgUnitInfo(new ObjectUuidPK(Info.getCU().getId()));                            
+//					ContextUtil.setCurrentFIUnit(ctx, company);
+//					ContextUtil.setCurrentOrgUnit(ctx, admin);
+//				    ContractBillFactory.getLocalInstance(ctx).audit(Info.getId());
+				    Info.setState(FDCBillStateEnum.AUDITTED);  
+					}    
 					else{
 						str[2] = "审批通过失败，该记录状态不是审批中！";
 						str[0] = "N";
 					}
 				}
 				if("0".equals(processInstanceResult)){
-					if(FDCBillStateEnum.SUBMITTED.equals(Info.getState()))
+					if(FDCBillStateEnum.AUDITTING.equals(Info.getState()))
 						//Info.setState(FDCBillStateEnum.INVALID);
 						Info.setState(FDCBillStateEnum.SAVED);
 					else{
@@ -108,15 +122,15 @@ public class PayRequestFacade implements BillBaseSelector {
 					}
 				}
 				if("2".equals(processInstanceResult)){
-					if(FDCBillStateEnum.SUBMITTED.equals(Info.getState()))
-						Info.setState(FDCBillStateEnum.BACK);
+					if(FDCBillStateEnum.AUDITTING.equals(Info.getState()))
+						Info.setState(FDCBillStateEnum.SAVED);
 					else{
 						str[2] = "审批打回失败，该记录状态不是审批中！";
 						str[0] = "N";
 					}
 				}
 				if("3".equals(processInstanceResult)){
-					if(FDCBillStateEnum.SUBMITTED.equals(Info.getState()))
+					if(FDCBillStateEnum.AUDITTING.equals(Info.getState()))
 					{
 						Info.setState(FDCBillStateEnum.SAVED);
 						sql = " update t_con_payrequestbill set fDescription='' where fid='"+Info.getId()+"'";
@@ -179,7 +193,7 @@ public class PayRequestFacade implements BillBaseSelector {
 			xml.append("<Applicant>"+StringUtilBPM.isNULl(Info.getCreator().getName())+"</Applicant>\n");
 			
 			xml.append("<Position>合约部经理</Position>\n");
-			xml.append("<Topic>"+StringUtilBPM.isNULl(Info.getUsage())+"-付款申请审批单"+"</Topic>\n");
+			xml.append("<Topic>"+StringUtilBPM.isNULl(Info.getUsage())+"</Topic>\n");
 		    if(Info.getOrgUnit()!=null)
 			xml.append("<orgunit>"+StringUtilBPM.isNULl(Info.getOrgUnit().getName())+"</orgunit>\n");
 		    if(Info.getCurProject()!=null)
@@ -211,7 +225,7 @@ public class PayRequestFacade implements BillBaseSelector {
    
 			xml.append("<currency>"+StringUtilBPM.isNULl(Info.getCurrency().getName())+"</currency>\n");//币别
 			xml.append("<exchangeRate>"+Info.getExchangeRate()+"</exchangeRate>\n");//汇率
-			xml.append("<originalAmount>"+Info.getOriginalAmount()+"</originalAmount>\n");//原币金额
+			xml.append("<originalAmount>"+Info.getOriginalAmount()+"</originalAmount>\n");//原币金额--
 			if(Info.getInvoiceAmt()!=null)
 			xml.append("<invoiceAmt>"+Info.getInvoiceAmt()+"</invoiceAmt>\n");//发票金额
 			else

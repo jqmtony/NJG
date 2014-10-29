@@ -17,6 +17,10 @@ import com.kingdee.bos.metadata.entity.SelectorItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.eas.basedata.master.account.AccountViewCollection;
 import com.kingdee.eas.basedata.master.account.AccountViewFactory;
+import com.kingdee.eas.basedata.org.AdminOrgUnitFactory;
+import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
+import com.kingdee.eas.basedata.org.CompanyOrgUnitFactory;
+import com.kingdee.eas.basedata.org.CompanyOrgUnitInfo;
 import com.kingdee.eas.bpm.BPMLogFactory;
 import com.kingdee.eas.bpm.BPMLogInfo;
 import com.kingdee.eas.bpm.BillBaseSelector;
@@ -46,6 +50,7 @@ import com.kingdee.eas.fdc.contract.programming.ProgrammingContractCollection;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractFactory;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingFactory;
+import com.kingdee.eas.util.app.ContextUtil;
 
 public class ContractReviseFacade implements BillBaseSelector{
 
@@ -70,11 +75,15 @@ public class ContractReviseFacade implements BillBaseSelector{
 			}
 			try{
 				if("1".equals(processInstanceResult)){
-					if(FDCBillStateEnum.SUBMITTED.equals(Info.getState()))
-					{
+					if(FDCBillStateEnum.AUDITTING.equals(Info.getState()))
+					{   
+						Info.setState(FDCBillStateEnum.SUBMITTED);
+						CompanyOrgUnitInfo company = CompanyOrgUnitFactory.getLocalInstance(ctx).getCompanyOrgUnitInfo(new ObjectUuidPK(Info.getCU().getId()));
+						AdminOrgUnitInfo admin=AdminOrgUnitFactory.getLocalInstance(ctx).getAdminOrgUnitInfo(new ObjectUuidPK(Info.getCU().getId()));                            
+						ContextUtil.setCurrentFIUnit(ctx, company);
+						ContextUtil.setCurrentOrgUnit(ctx, admin);
+						ContractBillReviseFactory.getLocalInstance(ctx).audit(Info.getId());
 						Info.setState(FDCBillStateEnum.AUDITTED);
-				        
-						
 					}
 					else{
 						str[2] = "审批通过失败，该记录状态不是审批中！";
@@ -82,7 +91,7 @@ public class ContractReviseFacade implements BillBaseSelector{
 					}
 				}
 				if("0".equals(processInstanceResult)){
-					if(FDCBillStateEnum.SUBMITTED.equals(Info.getState()))
+					if(FDCBillStateEnum.AUDITTING.equals(Info.getState()))
 						Info.setState(FDCBillStateEnum.SAVED);
 					else{
 						str[2] = "审批不通过失败，该记录状态不是审批中！";
@@ -90,15 +99,15 @@ public class ContractReviseFacade implements BillBaseSelector{
 					}
 				}
 				if("2".equals(processInstanceResult)){
-					if(FDCBillStateEnum.SUBMITTED.equals(Info.getState()))
-						Info.setState(FDCBillStateEnum.BACK);
+					if(FDCBillStateEnum.AUDITTING.equals(Info.getState()))
+						Info.setState(FDCBillStateEnum.SAVED);
 					else{
 						str[2] = "审批打回失败，该记录状态不是审批中！";
 						str[0] = "N";
 					}
 				}
 				if("3".equals(processInstanceResult)){
-					if(FDCBillStateEnum.SUBMITTED.equals(Info.getState()))
+					if(FDCBillStateEnum.AUDITTING.equals(Info.getState()))
 					{
 						Info.setState(FDCBillStateEnum.SAVED);
 						sql = " update T_CON_ContractBillRevise set fDescription='' where fid='"+Info.getId()+"'";
@@ -303,7 +312,7 @@ public class ContractReviseFacade implements BillBaseSelector{
 				e.printStackTrace();
 			}
 			try{
-				Info.setState(FDCBillStateEnum.SUBMITTED);
+				Info.setState(FDCBillStateEnum.AUDITTING);
 				String sql = " update T_CON_ContractBillRevise set fState='"+Info.getState().getValue()+"'" +
 						", fDescription='"+procURL+"' " +
 						", FSourceFunction='"+procInstID+"' where fid='"+Info.getId()+"'";
@@ -413,6 +422,7 @@ public class ContractReviseFacade implements BillBaseSelector{
 		 sic.add(new SelectorItemInfo("Content"));
 		 sic.add(new SelectorItemInfo("Desc"));
 		 sic.add(new SelectorItemInfo("State"));
+		 sic.add(new SelectorItemInfo("cu.id"));
 		 
 		 
 		 sic.add(new SelectorItemInfo("ProgrammingContract"));

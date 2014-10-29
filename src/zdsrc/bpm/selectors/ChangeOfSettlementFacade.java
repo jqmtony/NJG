@@ -146,7 +146,7 @@ public class ChangeOfSettlementFacade {
 			xml.append("<BalanceAmount>"+ Info.getBalanceAmount()+ "</BalanceAmount>\n"); // 结算本位币金额
             if(Info.getContractBill()!=null)
             {
-			xml.append("<contactNumber>"+ Info.getContractBill().getId()+ "</contactNumber>\n"); // 合同编号
+			xml.append("<contactNumber>"+ Info.getContractBill().getNumber()+ "</contactNumber>\n"); // 合同编号
 			xml.append("<contractName>"+ Info.getContractBill().getName()+ "</contractName>\n"); // 合同名称
             }
 			if(Info.getMainSupp()!=null)
@@ -295,6 +295,7 @@ public class ChangeOfSettlementFacade {
 		sic.add(new SelectorItemInfo("BalanceAmount"));
 		sic.add(new SelectorItemInfo("ContractBill.id"));
 		sic.add(new SelectorItemInfo("ContractBill.name"));
+		sic.add(new SelectorItemInfo("ContractBill.number"));
 		sic.add(new SelectorItemInfo("MainSupp.name"));
 		sic.add(new SelectorItemInfo("IsDeduct"));
 		sic.add(new SelectorItemInfo("OriginalAmount"));
