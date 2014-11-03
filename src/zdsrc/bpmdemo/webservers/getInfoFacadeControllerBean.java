@@ -14,11 +14,13 @@ import com.kingdee.bos.framework.DynamicObjectFactory;
 import com.kingdee.eas.bpm.BPMLogFactory;
 import com.kingdee.eas.bpm.BPMLogInfo;
 import com.kingdee.eas.bpm.common.UpdateUtil;
+import com.kingdee.eas.bpm.common.ViewXmlUtil;
 import com.kingdee.eas.bpm.selectors.ChangeAuditFacade;
 import com.kingdee.eas.bpm.selectors.ChangeOfSettlementFacade;
 import com.kingdee.eas.bpm.selectors.ContractFacade;
 import com.kingdee.eas.bpm.selectors.ContractReviseFacade;
 import com.kingdee.eas.bpm.selectors.ContractWithoutTextFacade;
+import com.kingdee.eas.bpm.selectors.JLFacade;
 import com.kingdee.eas.bpm.selectors.PayRequestFacade;
 import com.kingdee.eas.bpm.selectors.SettleMentFacade;
 import com.kingdee.eas.common.EASBizException;
@@ -33,6 +35,7 @@ import com.kingdee.eas.fdc.contract.ContractBillReviseInfo;
 import com.kingdee.eas.fdc.contract.ContractChangeBillInfo;
 import com.kingdee.eas.fdc.contract.ContractSettlementBillInfo;
 import com.kingdee.eas.fdc.contract.ContractWithoutTextInfo;
+import com.kingdee.eas.fdc.contract.GuerdonBillInfo;
 import com.kingdee.eas.fdc.contract.PayRequestBillInfo;
 
 public class getInfoFacadeControllerBean extends AbstractgetInfoFacadeControllerBean
@@ -73,7 +76,7 @@ public class getInfoFacadeControllerBean extends AbstractgetInfoFacadeController
 			if(billInfo instanceof ContractBillReviseInfo)
 			{
 				str = new ContractReviseFacade().SubmitResult(ctx, strBSID, billInfo, success, procInstID, procURL, strMessage);
-			}
+			}                
 			if(billInfo instanceof ContractChangeBillInfo)
 			{
 				str = new ChangeOfSettlementFacade().SubmitResult(ctx, strBSID, billInfo, success, procInstID, procURL, strMessage);
@@ -164,7 +167,11 @@ public class getInfoFacadeControllerBean extends AbstractgetInfoFacadeController
 			{
 				str = new ChangeOfSettlementFacade().GetbillInfo(ctx, strBSID, billInfo);
 			}
-			
+			if(billInfo instanceof GuerdonBillInfo)
+			{
+			  // str=ViewXmlUtil.getViewXmlString(ctx,billInfo.getnumber().tostring(),((GuerdonBillInfo) billInfo).getId().toString());
+				str=new JLFacade().GetbillInfo(ctx, strBSID, billInfo);
+			}
 			return str;
 		}
 	}
