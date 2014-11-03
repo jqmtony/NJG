@@ -27,6 +27,7 @@ import com.kingdee.eas.bpm.BillBaseSelector;
 import com.kingdee.eas.bpm.common.StringUtilBPM;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
+import com.kingdee.eas.fdc.basedata.FDCHelper;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
 import com.kingdee.eas.fdc.basedata.PaymentTypeFactory;
 import com.kingdee.eas.fdc.basedata.PaymentTypeInfo;
@@ -51,6 +52,7 @@ import com.kingdee.eas.fdc.contract.programming.ProgrammingContractFactory;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingFactory;
 import com.kingdee.eas.util.app.ContextUtil;
+import com.kingdee.jdbc.rowset.IRowSet;
 
 public class ContractReviseFacade implements BillBaseSelector{
 
@@ -163,14 +165,14 @@ public class ContractReviseFacade implements BillBaseSelector{
 			}
 			DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 			  xml.append("<DATA>\n"); 
-  			xml.append("<OrgName>"+StringUtilBPM.isNULl(Info.getOrgUnit().getName())+"</OrgName>\n");
+  			xml.append("<OrgName>"+StringUtilBPM.isNULl(Info.getOrgUnit().getDisplayName())+"</OrgName>\n");
   			xml.append("<DeptName>"+StringUtilBPM.isNULl(Info.getRespDept().getName())+"</DeptName>\n");
   			xml.append("<ApplyDate>"+dateFormat.format(Info.getCreateTime())+"</ApplyDate>\n");
   			xml.append("<Applicant>"+StringUtilBPM.isNULl(Info.getCreator().getName())+"</Applicant>\n");
   			xml.append("<Position>CEO秘书</Position>\n");
   			xml.append("<Topic>"+StringUtilBPM.isNULl(Info.getName())+"</Topic>\n");
   			xml.append("<CompanyName>"+StringUtilBPM.isNULl(Info.getLandDeveloper().getName())+"</CompanyName>\n");
-  			xml.append("<Phase>"+StringUtilBPM.isNULl(Info.getCurProject().getName())+"</Phase>\n");
+  			xml.append("<Phase>"+StringUtilBPM.isNULl(Info.getCurProject().getDisplayName())+"</Phase>\n");
   			xml.append("<OrgCode>"+StringUtilBPM.isNULl(Info.getOrgUnit().getNumber().split("-")[0])+"</OrgCode>\n");
   			xml.append("<contractName>"+StringUtilBPM.isNULl(Info.getName())+"</contractName>\n");
   			xml.append("<partA>"+StringUtilBPM.isNULl(Info.getLandDeveloper().getName())+"</partA>\n");
@@ -224,6 +226,7 @@ public class ContractReviseFacade implements BillBaseSelector{
   			xml.append("<chgPercForWarn>"+Info.getChgPercForWarn()+"</chgPercForWarn>\n");
   			xml.append("<contactNumber>"+Info.getContractBill().getNumber()+"</contactNumber>\n");
   			
+
   			
   			  EntityViewInfo Myavevi = new EntityViewInfo();
 		      FilterInfo Myavfilter = new FilterInfo();
@@ -247,6 +250,20 @@ public class ContractReviseFacade implements BillBaseSelector{
          	     ProgrammingContractInfo proInfo2=ProgrammingContractFactory.getLocalInstance(ctx).getProgrammingContractInfo(new ObjectUuidPK(info.getProgrammingContract().getId()));
          	     if(proInfo2.getName()!=null)
            	     xml.append("<programmingContract>"+proInfo2.getName()+"</programmingContract>\n");
+         	     
+         		  String sql="select sum(b.Fceremonyb) as SAmount,sum(c.FCostAmount) as SmoneyB from T_CON_ProgrammingContract a left join  T_CON_ContractBill b on a.fid=b.FProgrammingContract ";
+        		  sql+="left join (select b.FCostAmount as FCostAmount,b.FcontractBillID as FcontractBillID,a.FChangeState as FChangeState from T_CON_ChangeAuditBill a left join ";
+        		  sql+="T_CON_ChangeSupplierEntry b on a.fid=b.fparentid)as c on b.fid=c.FcontractBillID where b.Fstate='3AUDITTING' and b.FProgrammingContract='"+proInfo2.getId()+"' ";
+        		  sql+=" group by a.fid ";
+        		  FDCSQLBuilder builder=new FDCSQLBuilder();
+        		  builder.appendSql(sql);
+                  IRowSet Rowset=builder.executeQuery();
+                  if(Rowset.size()==1)
+                  {
+                   Rowset.next();  
+                   xml.append("<HTMoney>" +FDCHelper.toBigDecimal(Rowset.getBigDecimal("SAmount")) + "</HTMoney>\n");//在途金额汇总
+        	       xml.append("<BGMoney>" +FDCHelper.toBigDecimal(Rowset.getBigDecimal("SmoneyB"))+"</BGMoney>\n");//在途变更金额汇总
+                  }
            	     if(proInfo2.getControlBalance()!=null)
            	     xml.append("<controlBalance>"+proInfo2.getControlBalance()+"</controlBalance>\n");
            	    // break;
@@ -360,6 +377,8 @@ public class ContractReviseFacade implements BillBaseSelector{
 		sic.add(new SelectorItemInfo("curProject.id"));
 		sic.add(new SelectorItemInfo("curProject.number"));
 		sic.add(new SelectorItemInfo("curProject.name"));
+		sic.add(new SelectorItemInfo("curProject.DisplayName"));
+		
 		 sic.add(new SelectorItemInfo("partC.id"));
 		 sic.add(new SelectorItemInfo("partC.number"));
 		 sic.add(new SelectorItemInfo("partC.name"));
@@ -370,6 +389,7 @@ public class ContractReviseFacade implements BillBaseSelector{
 		 sic.add(new SelectorItemInfo("OrgUnit.id"));
 		 sic.add(new SelectorItemInfo("OrgUnit.name"));
 		 sic.add(new SelectorItemInfo("OrgUnit.number"));
+		 sic.add(new SelectorItemInfo("OrgUnit.DisplayName"));
 		 sic.add(new SelectorItemInfo("PartB.id"));
 		 sic.add(new SelectorItemInfo("PartB.number"));
 		 sic.add(new SelectorItemInfo("PartB.name"));

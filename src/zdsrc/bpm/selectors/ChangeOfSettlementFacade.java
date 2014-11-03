@@ -136,12 +136,12 @@ public class ChangeOfSettlementFacade {
 			DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 			xml.append("<DATA>\n");
 			if(Info.getChangeType()!=null)
-			xml.append("<name>"+ StringUtilBPM.isNULl(Info.getChangeType().getName())+ "</name>\n"); // 指令单名称
-			xml.append("<number>"+ StringUtilBPM.isNULl(Info.getContractBillNumber())+ "</number>\n"); // 指令单编码
+			xml.append("<name>"+ StringUtilBPM.isNULl(Info.getName())+ "</name>\n"); // 指令单名称
+			xml.append("<number>"+ Info.getNumber()+ "</number>\n"); // 指令单编码
 			if(Info.getCurrency()!=null)
 			xml.append("<currency>"+ StringUtilBPM.isNULl(Info.getCurrency().getName())+ "</currency>\n"); // 币别
 			xml.append("<ExRate>"+ Info.getExRate()+ "</ExRate>\n"); // 汇率
-			xml.append("<Topic>"+Info.getContractBill().getId()+ "变更结算单</Topic>\n"); // 标题
+			xml.append("<Topic>"+Info.getName()+"</Topic>\n"); // 标题
 			xml.append("<OriBalanceAmount>"+Info.getOriBalanceAmount()+ "</OriBalanceAmount>\n"); // 结算币金额
 			xml.append("<BalanceAmount>"+ Info.getBalanceAmount()+ "</BalanceAmount>\n"); // 结算本位币金额
             if(Info.getContractBill()!=null)
@@ -153,8 +153,8 @@ public class ChangeOfSettlementFacade {
 		    xml.append("<mainSupp>"+StringUtilBPM.isNULl(Info.getMainSupp().getName())+ "</mainSupp>\n"); // 主送单位	
 			
 				
-			xml.append("<CompanyName>"+ Info.getOrgUnit().getName()+ "</CompanyName>\n"); // 组织
-			xml.append("<Phase>"+ Info.getCurProject().getName()+ "</Phase>\n"); // 工程项目
+			xml.append("<CompanyName>"+ Info.getOrgUnit().getDisplayName()+ "</CompanyName>\n"); // 组织
+			xml.append("<Phase>"+ Info.getCurProject().getDisplayName()+ "</Phase>\n"); // 工程项目
 				
 			
 			if(false==Info.isIsDeduct())
@@ -178,7 +178,10 @@ public class ChangeOfSettlementFacade {
 			xml.append("<deductReason>"+ Info.getDeductReason()+ "</deductReason>\n"); // 扣款原因
 			xml.append("<deductAmount>"+ Info.getDeductAmount()+ "</deductAmount>\n"); // 扣款金额
 			xml.append("<changeAuditNumber>"+ Info.getChangeAuditNumber()+ "</changeAuditNumber>\n"); // 变更单编号
-			xml.append("<billNumber>"+ Info.getNumber()+ "</billNumber>\n"); // 原始联系单号
+			if(Info.getContractBill()!=null)
+	        {
+			xml.append("<billNumber>"+ Info.getContractBill().getNumber()+ "</billNumber>\n"); // 原始联系单号
+	        }
 			xml.append("<constructPrice>"+ Info.getConstructPrice()+ "</constructPrice>\n"); // 施工方报审金额
 			xml.append("<costNouse>"+ Info.getCostNouse()+ "</costNouse>\n"); // 无效成本金额
 			if(Info.getInvalidCostReason()!=null)
@@ -305,14 +308,15 @@ public class ChangeOfSettlementFacade {
 		sic.add(new SelectorItemInfo("DeductAmount"));
 		sic.add(new SelectorItemInfo("ChangeAuditNumber"));
 		sic.add(new SelectorItemInfo("Number"));
+		sic.add(new SelectorItemInfo("Name"));
 		sic.add(new SelectorItemInfo("ConstructPrice"));
 		sic.add(new SelectorItemInfo("CostNouse"));
 		sic.add(new SelectorItemInfo("InvalidCostReason.name"));
-		
 		sic.add(new SelectorItemInfo("Creator.name"));
 		sic.add(new SelectorItemInfo("CreateTime"));
-		
 		sic.add(new SelectorItemInfo("OrgUnit.name"));
+		sic.add(new SelectorItemInfo("OrgUnit.DisplayName"));
+		sic.add(new SelectorItemInfo("CurProject.DisplayName"));
 		sic.add(new SelectorItemInfo("CurProject.name"));
 		sic.add(new SelectorItemInfo("State"));
 		

@@ -8,8 +8,12 @@ import com.kingdee.bos.BOSException;
 import com.kingdee.bos.Context;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.bos.metadata.entity.EntityViewInfo;
+import com.kingdee.bos.metadata.entity.FilterInfo;
+import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.metadata.entity.SelectorItemInfo;
+import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.eas.basedata.org.AdminOrgUnitFactory;
 import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
 import com.kingdee.eas.basedata.org.CompanyOrgUnitFactory;
@@ -19,10 +23,17 @@ import com.kingdee.eas.bpm.BPMLogInfo;
 import com.kingdee.eas.bpm.BillBaseSelector;
 import com.kingdee.eas.bpm.common.StringUtilBPM;
 import com.kingdee.eas.common.EASBizException;
+import com.kingdee.eas.fdc.basedata.ContractTypeCollection;
+import com.kingdee.eas.fdc.basedata.ContractTypeFactory;
+import com.kingdee.eas.fdc.basedata.ContractTypeInfo;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
 import com.kingdee.eas.fdc.basedata.PaymentTypeFactory;
 import com.kingdee.eas.fdc.basedata.PaymentTypeInfo;
+import com.kingdee.eas.fdc.basedata.app.ContractTypeController;
+import com.kingdee.eas.fdc.contract.ContractBaseDataCollection;
+import com.kingdee.eas.fdc.contract.ContractBaseDataFactory;
+import com.kingdee.eas.fdc.contract.ContractBaseDataInfo;
 import com.kingdee.eas.fdc.contract.ContractBillFactory;
 import com.kingdee.eas.fdc.contract.PayRequestBillEntryFactory;
 import com.kingdee.eas.fdc.contract.PayRequestBillEntryInfo;
@@ -49,7 +60,7 @@ public class PayRequestFacade implements BillBaseSelector {
 			try{
 				Info.setState(FDCBillStateEnum.AUDITTING);
 				String sql = " update t_con_payrequestbill set fState='"+Info.getState().getValue()+"'" +
-						", fDescription='"+procURL+"' " +
+						//", fDescription='"+procURL+"' " +
 						", FSourceFunction='"+procInstID+"' where fid='"+Info.getId()+"'";
 				FDCSQLBuilder bu = new FDCSQLBuilder(ctx);
 				bu.appendSql(sql);
@@ -133,10 +144,10 @@ public class PayRequestFacade implements BillBaseSelector {
 					if(FDCBillStateEnum.AUDITTING.equals(Info.getState()))
 					{
 						Info.setState(FDCBillStateEnum.SAVED);
-						sql = " update t_con_payrequestbill set fDescription='' where fid='"+Info.getId()+"'";
-						FDCSQLBuilder bu = new FDCSQLBuilder(ctx);
-						bu.appendSql(sql);
-						bu.executeUpdate(ctx);
+//						sql = " update t_con_payrequestbill set fDescription='' where fid='"+Info.getId()+"'";
+//						FDCSQLBuilder bu = new FDCSQLBuilder(ctx);
+//						bu.appendSql(sql);
+//						bu.executeUpdate(ctx);
 					}
 					else{
 						str[2] = "撤销失败，该记录状态不是审批中！";
@@ -186,7 +197,7 @@ public class PayRequestFacade implements BillBaseSelector {
 			}
 			DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 			xml.append("<DATA>\n"); 
-			xml.append("<OrgName>"+StringUtilBPM.isNULl(Info.getOrgUnit().getName())+"</OrgName>\n");
+			xml.append("<OrgName>"+StringUtilBPM.isNULl(Info.getOrgUnit().getDisplayName())+"</OrgName>\n");
 			if(Info.getUseDepartment()!=null)
 			xml.append("<Department>"+StringUtilBPM.isNULl(Info.getUseDepartment().getName())+"</Department>\n");
 			xml.append("<ApplyDate>"+dateFormat.format(Info.getCreateTime())+"</ApplyDate>\n");
@@ -197,7 +208,7 @@ public class PayRequestFacade implements BillBaseSelector {
 		    if(Info.getOrgUnit()!=null)
 			xml.append("<orgunit>"+StringUtilBPM.isNULl(Info.getOrgUnit().getName())+"</orgunit>\n");
 		    if(Info.getCurProject()!=null)
-			xml.append("<curProject>"+StringUtilBPM.isNULl(Info.getCurProject().getName())+"</curProject>\n");
+			xml.append("<curProject>"+StringUtilBPM.isNULl(Info.getCurProject().getDisplayName())+"</curProject>\n");
 			xml.append("<contractNumber>"+StringUtilBPM.isNULl(Info.getContractNo())+"</contractNumber>\n");
 			xml.append("<contractName>"+StringUtilBPM.isNULl(Info.getContractName())+"</contractName>\n");
 			if(Info.getUseDepartment()!=null)
@@ -220,7 +231,7 @@ public class PayRequestFacade implements BillBaseSelector {
 			xml.append("<recAccount>"+StringUtilBPM.isNULl(Info.getRecAccount())+"</recAccount>\n");//收款账号
 			if(Info.getRealSupplier()!=null)
 			xml.append("<realSupplier>"+StringUtilBPM.isNULl(Info.getRealSupplier().getName())+"</realSupplier>\n");//实际收款单位
-			xml.append("<Desc>"+StringUtilBPM.isNULl(Info.getDescription())+"</Desc>\n");//
+			xml.append("<Desc>"+StringUtilBPM.isNULl(Info.getDescription().toString())+"</Desc>\n");// 摘要
 			xml.append("<usage>"+StringUtilBPM.isNULl(Info.getUsage())+"</usage>\n");//用途
    
 			xml.append("<currency>"+StringUtilBPM.isNULl(Info.getCurrency().getName())+"</currency>\n");//币别
@@ -249,7 +260,23 @@ public class PayRequestFacade implements BillBaseSelector {
 			}
 			xml.append("<Process>"+StringUtilBPM.isNULl(Info.getProcess())+"</Process>\n");
 			xml.append("<payTimes>"+Info.getPayTimes()+"</payTimes>\n");
-			
+			if(Info.getDepPlanState()==null)
+			{
+				xml.append("<DepPlanState>无计划付款</DepPlanState>\n");
+			}
+			else if(Info.getDepPlanState().getName()=="0")
+			{
+				xml.append("<DepPlanState>无计划付款</DepPlanState>\n");	
+			}
+			else if(Info.getDepPlanState().getName()=="1")
+			{
+				xml.append("<DepPlanState>计划内付款</DepPlanState>\n");	
+			}
+			else if(Info.getDepPlanState().getName()=="2")
+			{
+				xml.append("<DepPlanState>超计划付款</DepPlanState>\n");	
+			}
+
 			if(false==Info.isIsPay())
 			xml.append("<IsPay>否</IsPay>\n");//是否提交付款
 			else
@@ -282,10 +309,41 @@ public class PayRequestFacade implements BillBaseSelector {
 			if(Info.getPlanHasCon()!=null)
 			xml.append("<PlanHasCon>"+Info.getPlanHasCon().getName()+"</PlanHasCon>\n");//预算项目
 			if(Info.getMoneyDesc()!=null)
-				xml.append("<MoneyDesc>"+Info.getMoneyDesc()+"</MoneyDesc>\n");//备注
-			xml.append("<allAmount>"+Info.getAmount()+"</allAmount>\n");//合同已付款金额
+				xml.append("<Remarks>"+Info.getMoneyDesc()+"</Remarks>\n");//备注
+			xml.append("<allAmount>0</allAmount>\n");//合同已付款金额
+			if(Info.getContractBase()!=null)
+			{
+				  EntityViewInfo Myavevi = new EntityViewInfo();
+			      FilterInfo Myavfilter = new FilterInfo();
+			      Myavfilter.getFilterItems().add(new FilterItemInfo("id",Info.getContractBase().getId(),CompareType.EQUALS));
+			      Myavevi.setFilter(Myavfilter);
+				  ContractBaseDataCollection contractBasecoll=ContractBaseDataFactory.getLocalInstance(ctx).getContractBaseDataCollection(Myavevi);
+				  if(contractBasecoll.size()>0)
+				  {
+					  for(int a=0;a<contractBasecoll.size();a++)
+					  {
+					    ContractBaseDataInfo Conbaseinfo=ContractBaseDataFactory.getLocalInstance(ctx).getContractBaseDataInfo(new ObjectUuidPK(contractBasecoll.get(a).getId()));
+					    
+					    
+					      EntityViewInfo Myavevi2 = new EntityViewInfo();
+					      FilterInfo Myavfilter2 = new FilterInfo();
+					      Myavfilter2.getFilterItems().add(new FilterItemInfo("id",Conbaseinfo.getContractType().getId(),CompareType.EQUALS));
+					      Myavevi2.setFilter(Myavfilter2);
+					      ContractTypeCollection Contype=ContractTypeFactory.getLocalInstance(ctx).getContractTypeCollection(Myavevi2);
+					      if(Contype.size()>0)
+					      {
+					    	for(int b=0;b<Contype.size();b++)
+					    	{
+					    		ContractTypeInfo Contypeinfo=ContractTypeFactory.getLocalInstance(ctx).getContractTypeInfo(new ObjectUuidPK(Contype.get(b).getId()));
+					    		xml.append("<ContractType>"+Contypeinfo.getName()+"</ContractType>\n");//合同类型
+					    	}
+					      }
+					  }
+				  }
 			
 			
+			
+			}
 /*    			xml.append("<billEntries>\n");
 			for(int i=0;i<Info.getEntrys().size();i++){
 				PayRequestBillEntryInfo entry = Info.getEntrys().get(i);
@@ -331,6 +389,7 @@ public class PayRequestFacade implements BillBaseSelector {
 		sic.add(new SelectorItemInfo("OrgUnit.id"));
 		sic.add(new SelectorItemInfo("OrgUnit.number"));
 		sic.add(new SelectorItemInfo("OrgUnit.name"));
+		sic.add(new SelectorItemInfo("OrgUnit.DisplayName"));
 		
 		
 		sic.add(new SelectorItemInfo("UseDepartment.name"));
@@ -338,6 +397,7 @@ public class PayRequestFacade implements BillBaseSelector {
 		sic.add(new SelectorItemInfo("Creator.name"));
 		sic.add(new SelectorItemInfo("Name"));
 		sic.add(new SelectorItemInfo("CurProject.name"));
+		sic.add(new SelectorItemInfo("CurProject.DisplayName"));
 		sic.add(new SelectorItemInfo("ContractNo"));
 		sic.add(new SelectorItemInfo("BizDate"));
 		sic.add(new SelectorItemInfo("Number"));
@@ -383,7 +443,8 @@ public class PayRequestFacade implements BillBaseSelector {
 		sic.add(new SelectorItemInfo("BookedDate"));
 		sic.add(new SelectorItemInfo("PayTimes"));
 		sic.add(new SelectorItemInfo("cu.id"));
-		
+		sic.add(new SelectorItemInfo("DepPlanState"));
+		sic.add(new SelectorItemInfo("ContractBase"));
 		
 		return sic;
     }

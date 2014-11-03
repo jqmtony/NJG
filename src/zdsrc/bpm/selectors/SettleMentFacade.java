@@ -55,8 +55,6 @@ import com.kingdee.eas.fi.cas.PaymentBillFactory;
 import com.kingdee.eas.fi.cas.PaymentBillInfo;
 import com.kingdee.eas.fm.be.ws.PaymentInfo;
 
-import elite.lang.Decimal;
-
 public class SettleMentFacade implements BillBaseSelector {
 
 	public String[] ApproveClose(Context ctx, String strBSID,

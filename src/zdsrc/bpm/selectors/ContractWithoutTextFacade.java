@@ -19,6 +19,9 @@ import com.kingdee.eas.basedata.assistant.CurrencyInfo;
 import com.kingdee.eas.basedata.assistant.ExchangeRateFactory;
 import com.kingdee.eas.basedata.assistant.ExchangeRateInfo;
 import com.kingdee.eas.basedata.assistant.ExchangeTableInfo;
+import com.kingdee.eas.basedata.assistant.SettlementTypeCollection;
+import com.kingdee.eas.basedata.assistant.SettlementTypeFactory;
+import com.kingdee.eas.basedata.assistant.SettlementTypeInfo;
 import com.kingdee.eas.basedata.org.AdminOrgUnitFactory;
 import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
 import com.kingdee.eas.basedata.org.CompanyOrgUnitFactory;
@@ -209,7 +212,7 @@ public class ContractWithoutTextFacade implements BillBaseSelector {
 			try{
 				DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
     			xml.append("<DATA>\n"); 
-    			xml.append("<OrgName>"+StringUtilBPM.isNULl(Info.getOrgUnit().getName())+"</OrgName>\n");
+    			xml.append("<OrgName>"+StringUtilBPM.isNULl(Info.getOrgUnit().getDisplayName())+"</OrgName>\n");
     			xml.append("<useDepartment>"+StringUtilBPM.isNULl(Info.getUseDepartment().getName())+"</useDepartment>\n");
     			xml.append("<ApplyDate>"+dateFormat.format(Info.getCreateTime())+"</ApplyDate>\n");
     			xml.append("<Applicant>"+StringUtilBPM.isNULl(Info.getCreator().getName())+"</Applicant>\n");
@@ -217,7 +220,7 @@ public class ContractWithoutTextFacade implements BillBaseSelector {
     			xml.append("<Topic>"+StringUtilBPM.isNULl(Info.getName())+"</Topic>\n");
     			if(Info.getCurProject()!=null)
     			{
-    			xml.append("<curProject>"+StringUtilBPM.isNULl(Info.getCurProject().getName())+"</curProject>\n");
+    			xml.append("<curProject>"+StringUtilBPM.isNULl(Info.getCurProject().getDisplayName())+"</curProject>\n");
     			}
     			//xml.append("<contractNo>"+StringUtilBPM.isNULl(Info.getContractBaseData().getNumber())+"</contractNo>\n");
     			xml.append("<bizdate>"+dateFormat.format(Info.getBizDate())+"</bizdate>\n");
@@ -314,9 +317,11 @@ public class ContractWithoutTextFacade implements BillBaseSelector {
     			//xml.append("<MoneyDesc>"+Info.getDescription()+"</MoneyDesc>\n");  款项说明   PayRequestBillInfo
     			//xml.append("<Urgency>"+Info.getNoPaidReason()+"</Urgency>\n");  //加急
     			
+   		        if(Info.getFdcDepConPlan()!=null)
+   		        {
     			if(Info.getFdcDepConPlan().getId()!=null)
-    			//FDCDepConPayPlanNoContractInfo FDCinfo=
     			xml.append("<PlanProject>"+FDCDepConPayPlanNoContractFactory.getLocalInstance(ctx).getFDCDepConPayPlanNoContractInfo(new ObjectUuidPK(Info.getFdcDepConPlan().getId())).getPayMattersName()+"</PlanProject>\n");  //计划项目
+   		        }
     			if(false==Info.isIsCostSplit())
     		    xml.append("<isCostSplit>否</isCostSplit>\n");  //是否进入动态成本
     			else
@@ -333,14 +338,26 @@ public class ContractWithoutTextFacade implements BillBaseSelector {
     			}
     			if(Info.getDepPlanState()!=null)
     			{
-    			//xml.append("<DepPlanState>"+Info.getDepPlanState().getName()+"</DepPlanState>\n");  //无需付款
     				xml.append("<DepPlanState>"+Info.getDepPlanState().getAlias()+"</DepPlanState>\n");  //无需付款
     			}
        			xml.append("<invoicenumber>"+StringUtilBPM.isNULl(Info.getInvoiceNumber())+"</invoicenumber>\n");  //发票号
     			xml.append("<invoiceDate>"+dateFormat.format(Info.getInvoiceDate())+"</invoiceDate>\n");       //开票日期
     			if(Info.getSettlementType()!=null)
     			{
-    			xml.append("<settlementType>"+Info.getSettlementType().getName()+"</settlementType>\n");       //结算方式
+    				 EntityViewInfo Myavevis = new EntityViewInfo();
+      		         FilterInfo Myavfilters = new FilterInfo();
+      		         Myavfilters.getFilterItems().add(new FilterItemInfo("id",Info.getSettlementType().getId(),CompareType.EQUALS));
+      		         Myavevis.setFilter(Myavfilters);
+      		         SettlementTypeCollection myavcs=SettlementTypeFactory.getLocalInstance(ctx).getSettlementTypeCollection(Myavevis);
+    				 if(myavcs.size()>0)
+    				 {
+    					 for(int se=0;se<myavcs.size();se++)
+    					 {
+    						 SettlementTypeInfo seinfo=SettlementTypeFactory.getLocalInstance(ctx).getSettlementTypeInfo(new ObjectUuidPK(myavcs.get(se).getId()));
+    						 xml.append("<settlementType>"+seinfo.getName()+"</settlementType>\n");       //结算方式
+    					 }
+    				 }
+    			
     			}
     			xml.append("<bank>"+StringUtilBPM.isNULl(Info.getBank())+"</bank>\n");                         //收款银行
     			if(Info.getBankAcct()!=null)
@@ -382,6 +399,8 @@ public class ContractWithoutTextFacade implements BillBaseSelector {
 		sic.add(new SelectorItemInfo("orgUnit.id"));
 		sic.add(new SelectorItemInfo("orgUnit.number"));
 		sic.add(new SelectorItemInfo("orgUnit.name"));
+		sic.add(new SelectorItemInfo("orgUnit.DisplayName"));
+		sic.add(new SelectorItemInfo("curProject.DisplayName"));
 		sic.add(new SelectorItemInfo("curProject.id"));
 		sic.add(new SelectorItemInfo("curProject.number"));
 		sic.add(new SelectorItemInfo("curProject.name"));
@@ -403,7 +422,7 @@ public class ContractWithoutTextFacade implements BillBaseSelector {
 		sic.add(new SelectorItemInfo("invoiceAmt"));
 		sic.add(new SelectorItemInfo("invoiceDate"));
 		sic.add(new SelectorItemInfo("allinvoiceAmt"));
-		sic.add(new SelectorItemInfo("settlementType.name"));
+		sic.add(new SelectorItemInfo("settlementType"));
 		sic.add(new SelectorItemInfo("Amount"));
 		sic.add(new SelectorItemInfo("bankAcct"));
 		sic.add(new SelectorItemInfo("DepPlanState"));
@@ -418,7 +437,7 @@ public class ContractWithoutTextFacade implements BillBaseSelector {
 		sic.add(new SelectorItemInfo("MoneyDesc"));
 		sic.add(new SelectorItemInfo("PaymentProportion"));
 		sic.add(new SelectorItemInfo("IsNeedPaid"));
-		sic.add(new SelectorItemInfo("FdcDepConPlan.id"));
+		sic.add(new SelectorItemInfo("FdcDepConPlan"));
 		return sic;
     }
 

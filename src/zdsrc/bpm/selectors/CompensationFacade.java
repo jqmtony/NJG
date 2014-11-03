@@ -19,6 +19,8 @@ import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
 import com.kingdee.eas.fdc.basedata.PaymentTypeFactory;
 import com.kingdee.eas.fdc.basedata.PaymentTypeInfo;
+import com.kingdee.eas.fdc.contract.CompensationBillFactory;
+import com.kingdee.eas.fdc.contract.CompensationBillInfo;
 import com.kingdee.eas.fdc.contract.ContractBailEntryFactory;
 import com.kingdee.eas.fdc.contract.ContractBailEntryInfo;
 import com.kingdee.eas.fdc.contract.ContractBillEntryFactory;
@@ -27,7 +29,7 @@ import com.kingdee.eas.fdc.contract.ContractBillFactory;
 import com.kingdee.eas.fdc.contract.ContractBillInfo;
 import com.kingdee.eas.fdc.contract.ContractPayItemFactory;
 import com.kingdee.eas.fdc.contract.ContractPayItemInfo;
-
+//违约金
 public class CompensationFacade implements BillBaseSelector{
 
 	public String[] ApproveBack(Context ctx, String strBTID,
@@ -39,12 +41,12 @@ public class CompensationFacade implements BillBaseSelector{
 	public String[] ApproveClose(Context ctx, String strBSID,
 			IObjectValue billInfo, int procInstID,
 			String processInstanceResult, String strComment, Date dtTime) {
-		ContractBillInfo Info = (ContractBillInfo)billInfo;
+		CompensationBillInfo Info = (CompensationBillInfo)billInfo;
     	String[] str = new String[3];
     	str[0] = "Y";
 		try {
 			try{
-				Info = ContractBillFactory.getLocalInstance(ctx).getContractBillInfo(new ObjectUuidPK(Info.getId()),getSelectors());
+				Info = CompensationBillFactory.getLocalInstance(ctx).getCompensationBillInfo(new ObjectUuidPK(Info.getId()),getSelectors());
 			}catch (EASBizException e) {
 				str[2] = "根据单据getSelectors获取对象数据，请检查getSelectors方法中属性是否正确,并查看服务器log日志！";
 				e.printStackTrace();
@@ -123,129 +125,7 @@ public class CompensationFacade implements BillBaseSelector{
 				str[2] = "根据单据getSelectors获取对象数据，请检查getSelectors方法中属性是否正确,并查看服务器log日志！";
 				e.printStackTrace();
 			}
-			try{
-				DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-    			xml.append("<DATA>\n");
-    			xml.append("<OrgName>"+StringUtilBPM.isNULl(Info.getOrgUnit().getName())+"</OrgName>\n");
-    			//xml.append("<OrgName>"+StringUtilBPM.isNULl(Info.getLandDeveloper().getName())+"</OrgName>\n");
-    			xml.append("<DeptName>"+StringUtilBPM.isNULl(Info.getRespDept().getName())+"</DeptName>\n");
-    			xml.append("<respDept>"+StringUtilBPM.isNULl(Info.getRespDept().getName())+"</respDept>\n");
-    			xml.append("<ApplyDate>"+dateFormat.format(Info.getCreateTime())+"</ApplyDate>\n");
-    			xml.append("<Applicant>"+StringUtilBPM.isNULl(Info.getCreator().getName())+"</Applicant>\n");
-    			xml.append("<ApplicantID>"+StringUtilBPM.isNULl(Info.getCreator().getName())+"</ApplicantID>\n");
-    			if(false==Info.isIsPartAMaterialCon())
-    			xml.append("<isPartAMaterialCon>否</isPartAMaterialCon>\n");
-    			else
-    			{
-    				xml.append("<isPartAMaterialCon>是</isPartAMaterialCon>\n");
-    			}
-    			xml.append("<creator>"+StringUtilBPM.isNULl(Info.getCreator().getName())+"</creator>\n");
-    			xml.append("<createTime>"+dateFormat.format(Info.getCreateTime())+"</createTime>\n");
-    			//xml.append("<createTime>"+Info.getCreator()+"</createTime>\n");
-    			
-    			xml.append("<Topic>"+StringUtilBPM.isNULl(Info.getName())+"</Topic>\n");
-    			xml.append("<CompanyName>"+StringUtilBPM.isNULl(Info.getLandDeveloper().getName())+"</CompanyName>\n");
-    			xml.append("<Phase>"+StringUtilBPM.isNULl(Info.getCurProject().getName())+"</Phase>\n");
-    			xml.append("<OrgCode>"+StringUtilBPM.isNULl(Info.getOrgUnit().getNumber().split("-")[0])+"</OrgCode>\n");
-    			
-    			xml.append("<contactNumber>"+StringUtilBPM.isNULl(Info.getNumber())+"</contactNumber>\n");
-    			xml.append("<contractName>"+StringUtilBPM.isNULl(Info.getName())+"</contractName>\n");
-    			//FullOrgUnitInfo costOrg =orgUnitInfo;
-    			//costOrg.getDisplayName();
-    			//xml.append("<contractName>"+StringUtilBPM.isNULl(Info)+"</contractName>\n");
-    			xml.append("<partA>"+StringUtilBPM.isNULl(Info.getLandDeveloper().getName())+"</partA>\n");
-    			xml.append("<partB>"+StringUtilBPM.isNULl(Info.getPartB().getName())+"</partB>\n");
-    			if(Info.getPartC()!=null)
-    				xml.append("<partC>"+StringUtilBPM.isNULl(Info.getPartC().getName())+"</partC>\n");
-    			if(Info.getProgrammingContract()!=null)
-    				xml.append("<programmingContract>"+StringUtilBPM.isNULl(Info.getProgrammingContract().getName())+"</programmingContract>\n");
-    			if(Info.getProgrammingContract()!=null)
-    				xml.append("<controlBalance>"+Info.getProgrammingContract().getControlBalance()+"</controlBalance>\n");
-    				xml.append("<bizDate>"+Info.getBookedDate()+"</bizDate>\n");
-    			if(Info.getGrtRate()!=null)
-    				xml.append("<grtRate>"+Info.getGrtRate()+"</grtRate>\n");
-    			if(Info.getGrtAmount()!=null)
-    				xml.append("<grtAmount>"+Info.getGrtAmount()+"</grtAmount>\n");
-    			xml.append("<period>"+Info.getPeriod().getNumber()+"</period>\n");
-    			xml.append("<contractSource>"+StringUtilBPM.isNULl(Info.getContractSourceId().getName())+"</contractSource>\n");
-    			xml.append("<costProperty>"+StringUtilBPM.isNULl(Info.getCostProperty().getAlias())+"</costProperty>\n");
-    			xml.append("<chgPercForWarn>"+Info.getChgPercForWarn()+"</chgPercForWarn>\n");
-   				xml.append("<overRate>"+Info.getOverRate()+"</overRate>\n");
-    			if(Info.getPaidPartAMatlAmt()!=null)
-    				xml.append("<payScale>"+Info.getPaidPartAMatlAmt()+"</payScale>\n");
-    			if(Info.getStampTaxAmt()!=null)
-    				xml.append("<stampTaxAmt>"+Info.getStampTaxAmt()+"</stampTaxAmt>\n");
-    			if(Info.getStampTaxRate()!=null)
-    				xml.append("<stampTaxRate>"+Info.getStampTaxRate()+"</stampTaxRate>\n");
-    			xml.append("<contractTypeName>"+StringUtilBPM.isNULl(Info.getContractType().getName())+"</contractTypeName>\n");
-    			xml.append("<contractTypeNumber>"+StringUtilBPM.isNULl(Info.getContractType().getNumber())+"</contractTypeNumber>\n");
-    			xml.append("<contractAmount>"+Info.getAmount()+"</contractAmount>\n");
-    			xml.append("<responsiblePerson>"+StringUtilBPM.isNULl(Info.getRespPerson().getName())+"</responsiblePerson>\n");
-    			if(Info.getSignDate()!=null)
-    				xml.append("<signDate>"+Info.getSignDate()+"</signDate>\n");
-    			if(Info.getOriginalAmount()!=null)
-    				xml.append("<contractCurrencyAmount>"+Info.getOriginalAmount()+"</contractCurrencyAmount>\n");
-    			xml.append("<contractNature>"+StringUtilBPM.isNULl(Info.getContractPropert().getAlias())+"</contractNature>\n");
-    			xml.append("<currencyType>"+StringUtilBPM.isNULl(Info.getCurrency().getName())+"</currencyType>\n");
-    			xml.append("<rate>"+Info.getExRate()+"</rate>\n");
-    			if(false==Info.isIsCoseSplit())
-    			xml.append("<isCoseSplit>否</isCoseSplit>\n");
-    			else
-    			{
-    				xml.append("<isCoseSplit>是</isCoseSplit>\n");
-    			}
-    			
-    			xml.append("<billEntries>\n");
-    			for(int i=0;i<Info.getEntrys().size();i++){
-    				ContractBillEntryInfo entry = Info.getEntrys().get(i);
-    				entry = ContractBillEntryFactory.getLocalInstance(ctx).getContractBillEntryInfo(new ObjectUuidPK(entry.getId()));
-    				xml.append("<item>\n");
-    					xml.append("<detial>"+StringUtilBPM.isNULl(entry.getDetail())+"</detial>\n");
-    					xml.append("<content>"+StringUtilBPM.isNULl(entry.getContent())+"</content>\n");
-    					xml.append("<remark>"+StringUtilBPM.isNULl(entry.getDesc())+"</remark>\n");
-    				xml.append("</item>\n");
-    			}
-    			xml.append("</billEntries>\n");
-    			
-    			xml.append("<ContractPayItem>\n");
-    			for(int i=0;i<Info.getPayItems().size();i++){
-    				ContractPayItemInfo entry = Info.getPayItems().get(i);
-    				entry = ContractPayItemFactory.getLocalInstance(ctx).getContractPayItemInfo(new ObjectUuidPK(entry.getId()));
-    				xml.append("<item>\n");
-    					xml.append("<payItemDate>"+entry.getPayItemDate()+"</payItemDate>\n");
-    					if(entry.getPaymentType()!=null){
-    						PaymentTypeInfo payINfo = PaymentTypeFactory.getLocalInstance(ctx).getPaymentTypeInfo(new ObjectUuidPK(entry.getPaymentType().getId()));
-    						xml.append("<paymentType>"+StringUtilBPM.isNULl(payINfo.getName())+"</paymentType>\n");
-    					}
-    					xml.append("<payCondition>"+StringUtilBPM.isNULl(entry.getPayCondition())+"</payCondition>\n");
-    					xml.append("<prop>"+entry.getProp()+"</prop>\n");
-    					xml.append("<amount>"+entry.getAmount()+"</amount>\n");
-    					xml.append("<remark>"+StringUtilBPM.isNULl(entry.getDesc())+"</remark>\n");
-    				xml.append("</item>\n");
-    			}
-    			xml.append("</ContractPayItem>\n");
-    			
-    			xml.append("<ContractBailEntry>\n");
-    			for(int i=0;i<Info.getBail().getEntry().size();i++){
-    				ContractBailEntryInfo entry = Info.getBail().getEntry().get(i);
-    				entry = ContractBailEntryFactory.getLocalInstance(ctx).getContractBailEntryInfo(new ObjectUuidPK(entry.getId()));
-    				xml.append("<item>\n");
-	    				xml.append("<bailDate>"+entry.getBailDate()+"</bailDate>\n");
-	    				xml.append("<bailConditon>"+StringUtilBPM.isNULl(entry.getBailConditon())+"</bailConditon>\n");
-						xml.append("<prop>"+entry.getProp()+"</prop>\n");
-						xml.append("<amount>"+entry.getAmount()+"</amount>\n");
-						xml.append("<remark>"+StringUtilBPM.isNULl(entry.getDesc())+"</remark>\n");
-    				xml.append("</item>\n");
-    			}
-    			xml.append("</ContractBailEntry>\n");
-                xml.append("</DATA>"); 
-                str[1] = xml.toString();
-			}
-			catch (BOSException e) {
-				str[0] = "N";
-				str[2] = "获取对象属性失败，请检查属性是否有值,并查看服务器log日志!";
-				e.printStackTrace();
-			}
+			DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		}catch (Exception e) {
 			str[0] = "N";
 			str[2] = "其他异常，请查看服务器log日志！";
@@ -274,12 +154,12 @@ public class CompensationFacade implements BillBaseSelector{
 	public String[] SubmitResult(Context ctx, String strBSID,
 			IObjectValue billInfo, boolean success, int procInstID,
 			String procURL, String strMessage) {
-		ContractBillInfo Info = (ContractBillInfo)billInfo;
+		CompensationBillInfo Info = (CompensationBillInfo)billInfo;
     	String[] str = new String[3];
     	str[0] = "Y";
 		try {
 			try{
-				Info = ContractBillFactory.getLocalInstance(ctx).getContractBillInfo(new ObjectUuidPK(Info.getId()),getSelectors());
+				Info = CompensationBillFactory.getLocalInstance(ctx).getCompensationBillInfo(new ObjectUuidPK(Info.getId()),getSelectors());
 			}catch (EASBizException e) {
 				str[0] = "N";
 				str[2] = "根据单据getSelectors获取对象数据，请检查getSelectors方法中属性是否正确,并查看服务器log日志！";

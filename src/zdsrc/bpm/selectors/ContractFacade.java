@@ -20,13 +20,13 @@ import com.kingdee.eas.basedata.org.AdminOrgUnitFactory;
 import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
 import com.kingdee.eas.basedata.org.CompanyOrgUnitFactory;
 import com.kingdee.eas.basedata.org.CompanyOrgUnitInfo;
-import com.kingdee.eas.basedata.org.FullOrgUnitInfo;
 import com.kingdee.eas.bpm.BPMLogFactory;
 import com.kingdee.eas.bpm.BPMLogInfo;
 import com.kingdee.eas.bpm.BillBaseSelector;
 import com.kingdee.eas.bpm.common.StringUtilBPM;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
+import com.kingdee.eas.fdc.basedata.FDCHelper;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
 import com.kingdee.eas.fdc.basedata.PaymentTypeFactory;
 import com.kingdee.eas.fdc.basedata.PaymentTypeInfo;
@@ -43,6 +43,7 @@ import com.kingdee.eas.fdc.contract.ContractBillInfo;
 import com.kingdee.eas.fdc.contract.ContractPayItemFactory;
 import com.kingdee.eas.fdc.contract.ContractPayItemInfo;
 import com.kingdee.eas.util.app.ContextUtil;
+import com.kingdee.jdbc.rowset.IRowSet;
 
 public class ContractFacade implements BillBaseSelector {
 	 private static Logger logger = Logger.getLogger("com.kingdee.eas.bpm.selectors.ContractFacade");
@@ -94,7 +95,6 @@ public class ContractFacade implements BillBaseSelector {
 		return str;
 	}
 	
-	protected FullOrgUnitInfo orgUnitInfo;
 	public String[] ApproveClose(Context ctx, String strBSID, IObjectValue billInfo,
 			int procInstID, String processInstanceResult, String strComment,
 			Date dtTime) {
@@ -203,7 +203,8 @@ public class ContractFacade implements BillBaseSelector {
 			try{
 				DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
     			xml.append("<DATA>\n");
-    			xml.append("<OrgName>"+StringUtilBPM.isNULl(Info.getOrgUnit().getName())+"</OrgName>\n");
+    			
+    			xml.append("<OrgName>"+StringUtilBPM.isNULl(Info.getOrgUnit().getDisplayName())+"</OrgName>\n");
     			xml.append("<DeptName>"+StringUtilBPM.isNULl(Info.getRespDept().getName())+"</DeptName>\n");
     			xml.append("<respDept>"+StringUtilBPM.isNULl(Info.getRespDept().getName())+"</respDept>\n");
     			xml.append("<ApplyDate>"+dateFormat.format(Info.getCreateTime())+"</ApplyDate>\n");
@@ -225,7 +226,7 @@ public class ContractFacade implements BillBaseSelector {
     			}
     			xml.append("<Topic>"+StringUtilBPM.isNULl(Info.getName())+"</Topic>\n");
     			xml.append("<CompanyName>"+StringUtilBPM.isNULl(Info.getLandDeveloper().getName())+"</CompanyName>\n");
-    			xml.append("<Phase>"+StringUtilBPM.isNULl(Info.getCurProject().getName())+"</Phase>\n");
+    			xml.append("<Phase>"+StringUtilBPM.isNULl(Info.getCurProject().getDisplayName())+"</Phase>\n");
     			xml.append("<OrgCode>"+StringUtilBPM.isNULl(Info.getOrgUnit().getNumber().split("-")[0])+"</OrgCode>\n");
     			xml.append("<contactNumber>"+StringUtilBPM.isNULl(Info.getNumber())+"</contactNumber>\n");
     			xml.append("<contractName>"+StringUtilBPM.isNULl(Info.getName())+"</contractName>\n");
@@ -270,6 +271,22 @@ public class ContractFacade implements BillBaseSelector {
     			{
     				xml.append("<isCoseSplit>是</isCoseSplit>\n");
     			}
+    			
+    			
+    			  String sql="select sum(b.Fceremonyb) as SAmount,sum(c.FCostAmount) as SmoneyB from T_CON_ProgrammingContract a left join  T_CON_ContractBill b on a.fid=b.FProgrammingContract ";
+	    		  sql+="left join (select b.FCostAmount as FCostAmount,b.FcontractBillID as FcontractBillID,a.FChangeState as FChangeState from T_CON_ChangeAuditBill a left join ";
+	    		  sql+="T_CON_ChangeSupplierEntry b on a.fid=b.fparentid)as c on b.fid=c.FcontractBillID where b.Fstate='3AUDITTING' and b.FProgrammingContract='"+Info.getProgrammingContract().getId()+"' ";
+	    		  sql+=" group by a.fid ";
+	    		  FDCSQLBuilder builder=new FDCSQLBuilder();
+	    		  builder.appendSql(sql);
+                  IRowSet Rowset=builder.executeQuery();
+                  if(Rowset.size()==1)
+                  {
+                   Rowset.next();  
+                   xml.append("<HTMoney>" +FDCHelper.toBigDecimal(Rowset.getBigDecimal("SAmount")) + "</HTMoney>\n");//在途金额汇总
+			       xml.append("<BGMoney>" +FDCHelper.toBigDecimal(Rowset.getBigDecimal("SmoneyB"))+"</BGMoney>\n");//在途变更金额汇总
+                  }
+		    	  
     			xml.append("<billEntries>\n");
     			for(int i=0;i<Info.getEntrys().size();i++){
     				ContractBillEntryInfo entry = Info.getEntrys().get(i);
@@ -372,12 +389,15 @@ public class ContractFacade implements BillBaseSelector {
 		sic.add(new SelectorItemInfo("orgUnit.id"));
 		sic.add(new SelectorItemInfo("orgUnit.number"));
 		sic.add(new SelectorItemInfo("orgUnit.name"));
+		sic.add(new SelectorItemInfo("orgUnit.DisplayName"));
+		
 		sic.add(new SelectorItemInfo("creator.id"));
 		sic.add(new SelectorItemInfo("creator.number"));
 		sic.add(new SelectorItemInfo("creator.name"));
 		sic.add(new SelectorItemInfo("curProject.id"));
 		sic.add(new SelectorItemInfo("curProject.number"));
 		sic.add(new SelectorItemInfo("curProject.name"));
+		sic.add(new SelectorItemInfo("curProject.DisplayName"));
 		 sic.add(new SelectorItemInfo("partC.id"));
 		 sic.add(new SelectorItemInfo("partC.number"));
 		 sic.add(new SelectorItemInfo("partC.name"));
