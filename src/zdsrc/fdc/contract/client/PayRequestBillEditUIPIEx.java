@@ -155,7 +155,8 @@ public class PayRequestBillEditUIPIEx extends PayRequestBillEditUI{
 		if(editData.getId()!=null)
 		{  
 			PayRequestBillInfo info = PayRequestBillFactory.getRemoteInstance().getPayRequestBillInfo(new ObjectUuidPK(editData.getId()));
-		   if("审批中".equals(info.getState().getAlias()) && info.getDescription()!=null)
+		  // if("审批中".equals(info.getState().getAlias()) && info.getDescription()!=null)
+			if("审批中".equals(info.getState().getAlias()))
 		   {
 			   MsgBox.showInfo("该单据在审批流程中，不能再次提交！");
 		   }else{
@@ -164,7 +165,7 @@ public class PayRequestBillEditUIPIEx extends PayRequestBillEditUI{
 			   FDCSQLBuilder bu = new FDCSQLBuilder();
 			   bu.appendSql(sql);
 			   bu.executeUpdate();
-//		    	
+		    	
 //			   String [] str1 = new String[3];
 //			   	EASLoginProxy login = new EASLoginProxyServiceLocator().getEASLogin(new URL("http://127.0.0.1:56898/ormrpc/services/EASLogin"));
 //			   	WSContext  ws = login.login("kd-user", "kduser", "eas", "kd_002", "l2", 1);
@@ -213,7 +214,8 @@ public class PayRequestBillEditUIPIEx extends PayRequestBillEditUI{
 		if(editData.getId()!=null){
 			PayRequestBillInfo info = PayRequestBillFactory.getRemoteInstance().getPayRequestBillInfo(new ObjectUuidPK(editData.getId()));
 	    	String url = info.getDescription();
-			if("审批中".equals(info.getState().getAlias()) && ("".equals(info.getDescription())||info.getDescription()==null))
+			//if("审批中".equals(info.getState().getAlias()) && ("".equals(info.getDescription())||info.getDescription()==null))
+	    	if("审批中".equals(info.getState().getAlias()))
 			{
 				super.actionAudit_actionPerformed(e);
 			}else{
@@ -234,7 +236,8 @@ public class PayRequestBillEditUIPIEx extends PayRequestBillEditUI{
 	public void actionAuditResult_actionPerformed(ActionEvent e) throws Exception {
 		if(editData.getId()!=null){
 			PayRequestBillInfo info = PayRequestBillFactory.getRemoteInstance().getPayRequestBillInfo(new ObjectUuidPK(editData.getId()));
-	    	String url = info.getDescription();
+	    	//String url = info.getDescription();
+			String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=FK01&userid="+SysContext.getSysContext().getUserName()+"";
 			if("已审批".equals(info.getState().getAlias())||"审批中".equals(info.getState().getAlias()))
 			{
 				creatFrame(url);

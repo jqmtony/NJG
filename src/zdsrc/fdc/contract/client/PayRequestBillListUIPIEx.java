@@ -6,6 +6,7 @@ import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.eas.bpmdemo.JBrowserHelper.JFrameBrowser;
 import com.kingdee.eas.bpmdemo.webservers.serviceclient.BPMServiceForERPLocator;
 import com.kingdee.eas.bpmdemo.webservers.serviceclient.BPMServiceForERPSoap;
+import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.fdc.basedata.ContractTypeInfo;
 import com.kingdee.eas.fdc.contract.ContractBillFactory;
 import com.kingdee.eas.fdc.contract.ContractBillInfo;
@@ -145,7 +146,8 @@ public class PayRequestBillListUIPIEx extends PayRequestBillListUI{
 			if(info.getId()!=null)
 			{
 				String url = info.getDescription();
-				if("审批中".equals(info.getState().getAlias()) && ("".equals(info.getDescription())||info.getDescription()==null))
+				//if("审批中".equals(info.getState().getAlias()) && ("".equals(info.getDescription())||info.getDescription()==null))
+				if("审批中".equals(info.getState().getAlias()))
 				{
 				super.actionAudit_actionPerformed(e);
 				}else{
@@ -174,7 +176,8 @@ public class PayRequestBillListUIPIEx extends PayRequestBillListUI{
 			PayRequestBillInfo info = PayRequestBillFactory.getRemoteInstance().getPayRequestBillInfo(new ObjectUuidPK(this.getSelectedKeyValue()));
 			if(info.getId()!=null)
 			{
-				String url = info.getDescription();
+				//String url = info.getDescription();
+				String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+info.getId().toString()+"&btid=FK01&userid="+SysContext.getSysContext().getUserName()+"";
 				if("已审批".equals(info.getState().getAlias())||"审批中".equals(info.getState().getAlias()))
 				{
 					creatFrame(url);

@@ -174,13 +174,13 @@ public class ChangeAuditEditUIPIEx extends ChangeAuditEditUI{
 //			    	WSgetInfoFacadeSrvProxy pay = new WSgetInfoFacadeSrvProxyServiceLocator().getWSgetInfoFacade(new URL("http://127.0.0.1:56898/ormrpc/services/WSgetInfoFacade"));
 //			    	str1 = pay.getbillInfo("", editData.getId().toString());
 //			    	MsgBox.showInfo(str1[0] + str1[1] + str1[2]);
-//			    	String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=BGQZ01";
-//			    	str1 = pay.submitResult("", editData.getId().toString(), true, 1,url, editData.getId().toString());
-//			    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
-//			    	str1 = pay.approveClose("", editData.getId().toString(), 1, "1", "",null);
-//			    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
-//			    }
-//			   
+			    //	String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=BGQZ01";
+			    //	str1 = pay.submitResult("", editData.getId().toString(), true, 1,url, editData.getId().toString());
+			    //	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
+			    //	str1 = pay.approveClose("", editData.getId().toString(), 1, "1", "",null);
+			    //	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
+			    //}
+			   
 			   String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=BGQZ01&userid="+SysContext.getSysContext().getUserName()+"";
 			   creatFrame(url);
 		   }

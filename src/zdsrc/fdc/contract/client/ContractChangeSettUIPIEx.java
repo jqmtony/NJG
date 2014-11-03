@@ -4,6 +4,13 @@ import java.awt.event.ActionEvent;
 
 import com.kingdee.eas.bpmdemo.JBrowserHelper.JFrameBrowser;
 import com.kingdee.eas.common.client.SysContext;
+import com.kingdee.eas.util.client.MsgBox;
+import com.kingdee.eas.bpmdemo.webservers.serviceclient.EASLoginProxyServiceLocator;
+import com.kingdee.eas.bpmdemo.webservers.serviceclient.EASLoginProxy;
+import com.kingdee.eas.bpmdemo.webservers.serviceclient.WSContext;
+import com.kingdee.eas.bpmdemo.webservers.serviceclient.WSgetInfoFacadeSrvProxyServiceLocator;
+import com.kingdee.eas.bpmdemo.webservers.serviceclient.WSgetInfoFacadeSrvProxy;
+import java.net.URL;
 
 public class ContractChangeSettUIPIEx extends ContractChangeSettUI{
 
@@ -24,6 +31,21 @@ public class ContractChangeSettUIPIEx extends ContractChangeSettUI{
 	protected void btnConfirm_actionPerformed(ActionEvent arg0)
 			throws Exception {
 		super.btnConfirm_actionPerformed(arg0);
+		   
+//		   String [] str1 = new String[3];
+//		   	EASLoginProxy login = new EASLoginProxyServiceLocator().getEASLogin(new URL("http://127.0.0.1:56898/ormrpc/services/EASLogin"));
+//		   	WSContext  ws = login.login("kd-user", "kduser", "eas", "kd_002", "l2", 1);
+//		    if(ws.getSessionId()!=null){
+//		    	WSgetInfoFacadeSrvProxy pay = new WSgetInfoFacadeSrvProxyServiceLocator().getWSgetInfoFacade(new URL("http://127.0.0.1:56898/ormrpc/services/WSgetInfoFacade"));
+//		    	str1 = pay.getbillInfo("", editData.getId().toString());
+//		    	MsgBox.showInfo(str1[0] + str1[1] + str1[2]);
+//		    	String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=BGJS01";
+//		    	str1 = pay.submitResult("", editData.getId().toString(), true, 1,url, editData.getId().toString());
+//		    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
+//		    	str1 = pay.approveClose("", editData.getId().toString(), 1, "1", "",null);
+//		    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
+//		    }
+		
 		String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=BGJS01&userid="+SysContext.getSysContext().getUserName()+"";
     	creatFrame(url);
 	}
