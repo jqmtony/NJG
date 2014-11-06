@@ -630,7 +630,7 @@ public abstract class AbstractComproductionEditUI extends com.kingdee.eas.framew
         contstate.setBounds(new Rectangle(729, 42, 270, 19));
         this.add(contstate, new KDLayout.Constraints(729, 42, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contreportMonth.setBounds(new Rectangle(12, 69, 270, 19));
-        this.add(contreportMonth, new KDLayout.Constraints(12, 69, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        this.add(contreportMonth, new KDLayout.Constraints(12, 69, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         //contCreator
         contCreator.setBoundEditor(prmtCreator);
         //contCreateTime

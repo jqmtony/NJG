@@ -1162,6 +1162,16 @@ public abstract class AbstractShipFuelEditUI extends com.kingdee.eas.xr.client.X
         this.prmtshipName.setEditFormat("$number$");		
         this.prmtshipName.setCommitFormat("$number$");		
         this.prmtshipName.setRequired(false);
+        this.prmtshipName.addDataChangeListener(new com.kingdee.bos.ctrl.swing.event.DataChangeListener() {
+            public void dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) {
+                try {
+                    prmtshipName_dataChanged(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                }
+            }
+        });
         // txtPower		
         this.txtPower.setVisible(true);		
         this.txtPower.setHorizontalAlignment(2);		
@@ -3361,6 +3371,13 @@ public abstract class AbstractShipFuelEditUI extends com.kingdee.eas.xr.client.X
         } else if (STATUS_VIEW.equals(this.oprtState)) {
         } else if (STATUS_FINDVIEW.equals(this.oprtState)) {
         }
+    }
+
+    /**
+     * output prmtshipName_dataChanged method
+     */
+    protected void prmtshipName_dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) throws Exception
+    {
     }
 
     /**

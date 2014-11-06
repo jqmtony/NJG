@@ -243,11 +243,11 @@ public class ImportEquIdUI extends AbstractImportEquIdUI
 						InitEntry(row, equIdInfo, CheckType.car);
 						selectIndex+=1;
 					}
-					if(equIdInfo.isYibiao())
-					{
-						InitEntry(row, equIdInfo, CheckType.yibiao);
-						selectIndex+=1;
-					}
+//					if(equIdInfo.isYibiao())
+//					{
+//						InitEntry(row, equIdInfo, CheckType.yibiao);
+//						selectIndex+=1;
+//					}
 				}
 				
 			}

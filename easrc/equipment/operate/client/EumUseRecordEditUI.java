@@ -4,6 +4,7 @@
 package com.kingdee.eas.port.equipment.operate.client;
 
 import java.awt.event.ActionEvent;
+import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -956,6 +957,17 @@ public class EumUseRecordEditUI extends AbstractEumUseRecordEditUI {
 					kdtEqmUse.getCell(i, "modelType").setValue(equInfo.getModel());
 			}
 		}
+		
+		//使用率 = 使用台时/日历台时
+		BigDecimal b = UIRuleUtil.getBigDecimal(kdtEqmUse.getCell(e.getRowIndex(), "eqmTime").getValue());//日历台时
+		BigDecimal c = UIRuleUtil.getBigDecimal(kdtEqmUse.getCell(e.getRowIndex(), "UseTime").getValue());//使用台时
+		this.kdtEqmUse.getCell(e.getRowIndex(), "usageRate").setValue(Double.parseDouble(String.valueOf((b.compareTo(BigDecimal.ZERO))!=0?c.divide(b,  4, BigDecimal.ROUND_UP).multiply(new BigDecimal("100")):BigDecimal.ZERO)));
+		
+		//故障率 = 故障台时/日历台时
+		BigDecimal bb = UIRuleUtil.getBigDecimal(kdtEqmUse.getCell(e.getRowIndex(), "eqmTime").getValue());//日历台时
+		BigDecimal cc = UIRuleUtil.getBigDecimal(kdtEqmUse.getCell(e.getRowIndex(), "EventTime").getValue());//故障台时
+		this.kdtEqmUse.getCell(e.getRowIndex(), "faultRate").setValue(Double.parseDouble(String.valueOf((bb.compareTo(BigDecimal.ZERO))!=0?cc.divide(bb,  4, BigDecimal.ROUND_UP).multiply(new BigDecimal("100")):BigDecimal.ZERO)));
+		
 	}
 
 	protected void kdtEqmUse_tableClicked(KDTMouseEvent e) throws Exception {

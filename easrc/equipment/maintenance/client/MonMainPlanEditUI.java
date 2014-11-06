@@ -775,9 +775,9 @@ public class MonMainPlanEditUI extends AbstractMonMainPlanEditUI
 			kdtE1_equNumber_PromptBox.setSelector(ToolHelp.initPrmtEquIdByF7Color(evi, false));
 			 KDTDefaultCellEditor kdtEntry_feeType_CellEditor = new KDTDefaultCellEditor(kdtE1_equNumber_PromptBox);
 			 kdtE1.getColumn("equNumber").setEditor(kdtEntry_feeType_CellEditor);
-			 ObjectValueRender kdtE1_equNumber_OVR = new ObjectValueRender();
-		        kdtE1_equNumber_OVR.setFormat(new BizDataFormat("$innerNumber$"));
-		        this.kdtE1.getColumn("equNumber").setRenderer(kdtE1_equNumber_OVR);
+//			 ObjectValueRender kdtE1_equNumber_OVR = new ObjectValueRender();
+//		        kdtE1_equNumber_OVR.setFormat(new BizDataFormat("$innerNumber$"));
+//		        this.kdtE1.getColumn("equNumber").setRenderer(kdtE1_equNumber_OVR);
 			 if(getOprtState().equals(OprtState.ADDNEW)){
 				 pkBizDate.setValue(new Date());
 				 prmtCU.setValue(SysContext.getSysContext().getCurrentCtrlUnit());

@@ -8,11 +8,17 @@ import java.awt.event.*;
 import java.util.Date;
 
 import org.apache.log4j.Logger;
+
+import com.kingdee.bos.metadata.entity.EntityViewInfo;
+import com.kingdee.bos.metadata.entity.FilterInfo;
+import com.kingdee.bos.metadata.entity.FilterItemInfo;
+import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.framework.*;
+import com.kingdee.eas.port.equipment.uitl.ToolHelp;
 import com.kingdee.eas.xr.app.XRBillStatusEnum;
 import com.kingdee.eas.xr.helper.Tool;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
@@ -727,6 +733,15 @@ public class ShipReportFormEditUI extends AbstractShipReportFormEditUI
 		kdtE1.setBounds(new Rectangle(33, 124, 929, 90));
 		kdtE1_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel) com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtE1,new com.kingdee.eas.port.equipment.operate.ComproductionEntryInfo(),null, false);
 		this.add(kdtE1, new KDLayout.Constraints(33, 124, 929, 90,KDLayout.Constraints.ANCHOR_TOP| KDLayout.Constraints.ANCHOR_BOTTOM| KDLayout.Constraints.ANCHOR_LEFT| KDLayout.Constraints.ANCHOR_RIGHT));
+		
+		 EntityViewInfo evi = new EntityViewInfo();
+		 FilterInfo filter = new FilterInfo();
+		 String id = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
+		 filter.getFilterItems().add(new FilterItemInfo("ssOrgUnit.id",id ,CompareType.EQUALS));
+		 filter.getFilterItems().add(new FilterItemInfo("eqmType.name","%´¬%",CompareType.LIKE));
+		 filter.setMaskString("#0 and #1");
+		 evi.setFilter(filter);
+		 prmtshipName.setSelector(ToolHelp.initPrmtEquIdByF7Color(evi, false)); 
 		Tool.setPersonF7(this.prmtshipzhang, this, SysContext.getSysContext().getCurrentCtrlUnit().getId().toString());
 		Tool.setPersonF7(this.prmtlunjizhang, this, SysContext.getSysContext().getCurrentCtrlUnit().getId().toString());
 	}

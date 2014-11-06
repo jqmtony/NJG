@@ -248,6 +248,17 @@ public class AbstractRepairOrderE1Info extends com.kingdee.eas.framework.CoreBil
     {
         setString("xiulirenyuan", item);
     }
+    /**
+     * Object:Î¬ÐÞÃ÷Ï¸'s Éè±¸±àÂëproperty 
+     */
+    public String getEquNumber()
+    {
+        return getString("equNumber");
+    }
+    public void setEquNumber(String item)
+    {
+        setString("equNumber", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("58358BBD");

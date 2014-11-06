@@ -797,6 +797,7 @@ public class RepairOrderEditUI extends AbstractRepairOrderEditUI
 		this.kdtE1.getColumn("seq").getStyleAttributes().setHided(true);
 		this.kdtE1.getColumn("FaLocation").getStyleAttributes().setHided(true);
 		this.kdtE1.getColumn("yujingDate").getStyleAttributes().setHided(true);
+		this.kdtE1.getColumn("xiulirenyuan").getStyleAttributes().setHided(true);
 		txtmaintenanceProgram.setVisible(false);
 		chkselfStudy.setVisible(false);
 		chkoutsourcing.setVisible(false);
@@ -1042,8 +1043,6 @@ public class RepairOrderEditUI extends AbstractRepairOrderEditUI
 		super.prmtrepairPerson_dataChanged(e);
 		if(BizCollUtil.isF7ValueChanged(e)&&e.getNewValue()!=null)
 			this.prmtrepairDepart.setValue(PersonXRHelper.getPosiMemByDeptUser((PersonInfo)e.getNewValue()));
-		else
-			this.prmtrepairDepart.setValue(null);
 	}
 	
 	public void actionEquInfomation_actionPerformed(ActionEvent e)

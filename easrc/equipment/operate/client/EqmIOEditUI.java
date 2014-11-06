@@ -761,8 +761,6 @@ public class EqmIOEditUI extends AbstractEqmIOEditUI
 //		 filter.getFilterItems().add(new FilterItemInfo("sbStatus","1",CompareType.EQUALS));
 		 evi.setFilter(filter);
 //		prmteqmNumber.setEntityViewInfo(evi);
-		 
-		 
 		prmteqmNumber.setSelector(ToolHelp.initPrmtEquIdByF7Color(evi, false)); 
 		//设置停用设备背景颜色
 		Tool.setRespDeptF7(this.prmtInOrgUnit, this, null);

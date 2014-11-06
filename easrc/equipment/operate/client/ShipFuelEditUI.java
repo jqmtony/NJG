@@ -10,6 +10,11 @@ import java.util.Calendar;
 import java.util.Date;
 
 import org.apache.log4j.Logger;
+
+import com.kingdee.bos.metadata.entity.EntityViewInfo;
+import com.kingdee.bos.metadata.entity.FilterInfo;
+import com.kingdee.bos.metadata.entity.FilterItemInfo;
+import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.dao.IObjectValue;
@@ -17,7 +22,14 @@ import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.eas.basedata.assistant.PeriodFactory;
 import com.kingdee.eas.basedata.assistant.PeriodInfo;
 import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
+import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.framework.*;
+import com.kingdee.eas.port.equipment.record.EquIdFactory;
+import com.kingdee.eas.port.equipment.record.EquIdInfo;
+import com.kingdee.eas.port.equipment.uitl.ToolHelp;
+import com.kingdee.eas.util.SysUtil;
+import com.kingdee.eas.util.client.MsgBox;
+import com.kingdee.eas.xr.helper.Tool;
 import com.kingdee.eas.xr.helper.XRSQLBuilder;
 import com.kingdee.jdbc.rowset.IRowSet;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
@@ -734,16 +746,29 @@ public class ShipFuelEditUI extends AbstractShipFuelEditUI
 		txtleijichanzhi.setEnabled(false);
 		super.onLoad();
 		prmtreportMonth.setRequired(true);
+		prmtshipName.setRequired(true);
+		
+		 EntityViewInfo evi = new EntityViewInfo();
+		 FilterInfo filter = new FilterInfo();
+		 String id = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
+		 filter.getFilterItems().add(new FilterItemInfo("ssOrgUnit.id",id ,CompareType.EQUALS));
+		 filter.getFilterItems().add(new FilterItemInfo("eqmType.name","%船%",CompareType.LIKE));
+		 filter.setMaskString("#0 and #1");
+		 evi.setFilter(filter);
+		 prmtshipName.setSelector(ToolHelp.initPrmtEquIdByF7Color(evi, false)); 
+		 
+		Tool.setPersonF7(this.prmtchuanzhang, this, SysContext.getSysContext().getCurrentCtrlUnit().getId().toString());
+		Tool.setPersonF7(this.prmtlunjizhang, this, SysContext.getSysContext().getCurrentCtrlUnit().getId().toString());
 	}
 	
 	
 	    public void actionAudit_actionPerformed(ActionEvent e) throws Exception{
 	        super.actionAudit_actionPerformed(e);
-	        if(prmtreportMonth.getValue() == null)
+	        if(prmtreportMonth.getValue() == null||prmtshipName.getValue() ==null)
 	        	return ;
 	        String id = ((PeriodInfo)prmtreportMonth.getData()).getId().toString();
 	        PeriodInfo pdInfo = PeriodFactory.getRemoteInstance().getPeriodInfo(new ObjectUuidPK(id));
-	        
+	        String id1 = ((EquIdInfo)prmtshipName.getData()).getId().toString();
 	        Calendar cal = Calendar.getInstance();
 	        cal.setTime(pdInfo.getBeginDate());
 	        int year = cal.get(Calendar.YEAR);
@@ -754,7 +779,7 @@ public class ShipFuelEditUI extends AbstractShipFuelEditUI
 	        sb.append("/*dialect*/ select  sum(a.CFDianbiaobenyue) 累计用电, sum(a.CFTotalConsum) 累计燃油,sum(a.CFZuobenyue) 累计运时 ,sum(a.CFOutputValue) 累计产值");
 	        sb.append(" from CT_OPE_ShipFuel a");
 	        sb.append(" left join T_BD_Period b on a.CFReportMonthID = b.fid");
-	        sb.append(" where b.FPeriodYear ='"+year+"' and a.FStatus = '4'");
+	        sb.append(" where b.FPeriodYear ='"+year+"' and a.FStatus = '4' and a.CFShipNameID = '"+id1+"'");
 	        IRowSet rowSet = new XRSQLBuilder().appendSql(sb.toString()).executeQuery();
 	        while (rowSet.next()) {
 	        	BigDecimal bigleijidian = getBigDecimal(rowSet.getString("累计用电"));
@@ -772,15 +797,15 @@ public class ShipFuelEditUI extends AbstractShipFuelEditUI
 			throws Exception {
 		super.prmtreportMonth_dataChanged(e);
 		
-		if(prmtreportMonth.getValue() == null)
+		if(prmtreportMonth.getValue() == null||prmtshipName.getValue() ==null)
         	return ;
         String id = ((PeriodInfo)prmtreportMonth.getData()).getId().toString();
         PeriodInfo pdInfo = PeriodFactory.getRemoteInstance().getPeriodInfo(new ObjectUuidPK(id));
-        
+        String id1 = ((EquIdInfo)prmtshipName.getData()).getId().toString();
         Calendar cal = Calendar.getInstance();
 		cal.setTime(pdInfo.getBeginDate());
         cal.add(Calendar.MONTH, -1);
-        int month =  cal.get(Calendar.MONTH);
+        String month = new SimpleDateFormat("yyyyMM").format(cal.getTime());
 		StringBuffer sb1 = new StringBuffer();
 		sb1.append("/*dialect*/ select a.CFMonthBalance 燃油本月结存,a.CFRunhuayouben 润滑油本月结存,");
 		sb1.append(" a.CFChilunyouben 齿轮油本月结存,a.CFYeyayouben 液压油本月结存,");
@@ -788,7 +813,7 @@ public class ShipFuelEditUI extends AbstractShipFuelEditUI
 		sb1.append(" a.CFFujibenyue 付机本月,a.CFDianbiaobenyue 电表本月");
 		sb1.append(" from CT_OPE_ShipFuel a");
 		sb1.append(" left join T_BD_Period b on a.CFReportMonthID = b.fid");
-		sb1.append(" where b.fnumber ='"+month+"' and a.FStatus = '4'");
+		sb1.append(" where b.fnumber ='"+month+"' and a.FStatus = '4' and a.CFShipNameID = '"+id1+"'");
 		IRowSet rowSet1 = new XRSQLBuilder().appendSql(sb1.toString()).executeQuery();
 		while (rowSet1.next()) {
 			BigDecimal bigrybyjc = getBigDecimal(rowSet1.getString("燃油本月结存"));
@@ -819,7 +844,71 @@ public class ShipFuelEditUI extends AbstractShipFuelEditUI
         sb.append("/*dialect*/ select  sum(a.CFDianbiaobenyue) 累计用电, sum(a.CFTotalConsum) 累计燃油,sum(a.CFZuobenyue) 累计运时 ,sum(a.CFOutputValue) 累计产值");
         sb.append(" from CT_OPE_ShipFuel a");
         sb.append(" left join T_BD_Period b on a.CFReportMonthID = b.fid");
-        sb.append(" where b.FPeriodYear ='"+year+"' and a.FStatus = '4'");
+        sb.append(" where b.FPeriodYear ='"+year+"' and a.FStatus = '4' and a.CFShipNameID = '"+id1+"'");
+        IRowSet rowSet = new XRSQLBuilder().appendSql(sb.toString()).executeQuery();
+        while (rowSet.next()) {
+        	BigDecimal bigleijidian = getBigDecimal(rowSet.getString("累计用电"));
+        	BigDecimal bigleijiyou = getBigDecimal(rowSet.getString("累计燃油"));
+        	BigDecimal bigleijishi = getBigDecimal(rowSet.getString("累计运时"));
+        	BigDecimal bigleijizhi = getBigDecimal(rowSet.getString("累计产值"));
+        	txtleijiyongdian.setText(String.valueOf(bigleijidian));
+        	txtleijiranyou.setText(String.valueOf(bigleijiyou));
+        	txtleijiyunshi.setText(String.valueOf(bigleijishi));
+        	txtleijichanzhi.setText(String.valueOf(bigleijizhi));
+        }
+	}
+	
+	
+	protected void prmtshipName_dataChanged(DataChangeEvent e) throws Exception {
+		super.prmtshipName_dataChanged(e);
+		if(prmtreportMonth.getValue() == null||prmtshipName.getValue() ==null)
+        	return ;
+        String id = ((PeriodInfo)prmtreportMonth.getData()).getId().toString();
+        PeriodInfo pdInfo = PeriodFactory.getRemoteInstance().getPeriodInfo(new ObjectUuidPK(id));
+        String id1 = ((EquIdInfo)prmtshipName.getData()).getId().toString();
+        Calendar cal = Calendar.getInstance();
+		cal.setTime(pdInfo.getBeginDate());
+        cal.add(Calendar.MONTH, -1);
+        String month = new SimpleDateFormat("yyyyMM").format(cal.getTime());
+		StringBuffer sb1 = new StringBuffer();
+		sb1.append("/*dialect*/ select a.CFMonthBalance 燃油本月结存,a.CFRunhuayouben 润滑油本月结存,");
+		sb1.append(" a.CFChilunyouben 齿轮油本月结存,a.CFYeyayouben 液压油本月结存,");
+		sb1.append(" a.CFZuobenyue 左机本月,a.CFYoujibenyue 右机本月,");
+		sb1.append(" a.CFFujibenyue 付机本月,a.CFDianbiaobenyue 电表本月");
+		sb1.append(" from CT_OPE_ShipFuel a");
+		sb1.append(" left join T_BD_Period b on a.CFReportMonthID = b.fid");
+		sb1.append(" where b.fnumber ='"+month+"' and a.FStatus = '4' and a.CFShipNameID = '"+id1+"'");
+		IRowSet rowSet1 = new XRSQLBuilder().appendSql(sb1.toString()).executeQuery();
+		while (rowSet1.next()) {
+			BigDecimal bigrybyjc = getBigDecimal(rowSet1.getString("燃油本月结存"));
+        	BigDecimal bigrhybyjc = getBigDecimal(rowSet1.getString("润滑油本月结存"));
+        	BigDecimal bigclybyjc = getBigDecimal(rowSet1.getString("齿轮油本月结存"));
+        	BigDecimal bigyyybyjc = getBigDecimal(rowSet1.getString("液压油本月结存"));
+        	BigDecimal bigzjby = getBigDecimal(rowSet1.getString("左机本月"));
+        	BigDecimal bigyjby = getBigDecimal(rowSet1.getString("右机本月"));
+        	BigDecimal bigfjby = getBigDecimal(rowSet1.getString("付机本月"));
+        	BigDecimal bigdbby = getBigDecimal(rowSet1.getString("电表本月"));
+        	txtlastMonth.setText(String.valueOf(bigrybyjc));
+        	txtrunhuayoujiecun.setText(String.valueOf(bigrhybyjc));
+        	txtchilunyoushang.setText(String.valueOf(bigclybyjc));
+        	txtyeyayoushang.setText(String.valueOf(bigyyybyjc));
+        	txtzuoshangyue.setText(String.valueOf(bigzjby));
+        	txtyoujishangyue.setText(String.valueOf(bigyjby));
+        	txtfujishangyue.setText(String.valueOf(bigfjby));
+        	txtdianbiaoshangyue.setText(String.valueOf(bigdbby));
+		}
+        
+        cal = Calendar.getInstance();
+        cal.setTime(pdInfo.getBeginDate());
+        int year = cal.get(Calendar.YEAR);
+         
+        //查询本年累计数据
+        //累计用电量（度），累计燃油耗量（t），累计运时（h），累计产值（万元）
+        StringBuffer sb = new StringBuffer();
+        sb.append("/*dialect*/ select  sum(a.CFDianbiaobenyue) 累计用电, sum(a.CFTotalConsum) 累计燃油,sum(a.CFZuobenyue) 累计运时 ,sum(a.CFOutputValue) 累计产值");
+        sb.append(" from CT_OPE_ShipFuel a");
+        sb.append(" left join T_BD_Period b on a.CFReportMonthID = b.fid");
+        sb.append(" where b.FPeriodYear ='"+year+"' and a.FStatus = '4' and a.CFShipNameID = '"+id1+"'");
         IRowSet rowSet = new XRSQLBuilder().appendSql(sb.toString()).executeQuery();
         while (rowSet.next()) {
         	BigDecimal bigleijidian = getBigDecimal(rowSet.getString("累计用电"));
@@ -834,6 +923,15 @@ public class ShipFuelEditUI extends AbstractShipFuelEditUI
 	}
 	
 	protected void verifyInput(ActionEvent e) throws Exception {
+		
+		if(prmtreportMonth.getValue() == null){
+			MsgBox.showInfo("报表月份不能为空！");
+			SysUtil.abort();
+		}
+		if(prmtreportMonth.getValue() == null){
+			MsgBox.showInfo("船名不能为空！");
+			SysUtil.abort();
+		}
 		
 		//燃料
 		BigDecimal bigzhione = getBigDecimal(txtzhione.getText());
