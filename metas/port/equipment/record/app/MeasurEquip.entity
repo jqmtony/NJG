@@ -707,6 +707,32 @@
             <userDefinedLogic />
             <configured>false</configured>
         </method>
+        <method>
+            <name>excel</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].methods.method[excel].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].methods.method[excel].description</description>
+            <innerID>7f531513-21f5-44dd-8ab6-583258df4e03</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].methods.method[excel].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].methods.method[excel].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.port.equipment.record.app.MeasurEquip</metadataRef>
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
     </methods>
     <isAbstract>false</isAbstract>
     <bizUnitPK>com.kingdee.eas.port.equipment.record.MeasurEquip</bizUnitPK>
@@ -859,26 +885,6 @@
                 <key name="name" value="CFFactoryDate" />
             </mappingField>
         </ownProperty>
-        <ownProperty>
-            <name>manageState</name>
-            <alias>entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].properties.ownProperty[manageState].alias</alias>
-            <description>entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].properties.ownProperty[manageState].description</description>
-            <userDefined>true</userDefined>
-            <configured>false</configured>
-            <dataType>String</dataType>
-            <metadataRef />
-            <isMultilingual>false</isMultilingual>
-            <isNullable>false</isNullable>
-            <formula />
-            <length>100</length>
-            <precision>0</precision>
-            <decimalDigits>0</decimalDigits>
-            <defaultValue>entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].properties.ownProperty[manageState].defaultValue</defaultValue>
-            <displayFormat />
-            <mappingField>
-                <key name="name" value="CFManageState" />
-            </mappingField>
-        </ownProperty>
         <linkProperty>
             <name>useDepart</name>
             <alias>entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].properties.linkProperty[useDepart].alias</alias>
@@ -968,9 +974,9 @@
             </mappingField>
         </ownProperty>
         <ownProperty>
-            <name>validityPeriod</name>
-            <alias>entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].properties.ownProperty[validityPeriod].alias</alias>
-            <description>entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].properties.ownProperty[validityPeriod].description</description>
+            <name>abc</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].properties.ownProperty[abc].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].properties.ownProperty[abc].description</description>
             <userDefined>true</userDefined>
             <configured>false</configured>
             <dataType>String</dataType>
@@ -981,10 +987,50 @@
             <length>100</length>
             <precision>0</precision>
             <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].properties.ownProperty[abc].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFAbc" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>validityPeriod</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].properties.ownProperty[validityPeriod].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].properties.ownProperty[validityPeriod].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>Date</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>8</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
             <defaultValue>entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].properties.ownProperty[validityPeriod].defaultValue</defaultValue>
             <displayFormat />
             <mappingField>
                 <key name="name" value="CFValidityPeriod" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>manageState</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].properties.ownProperty[manageState].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].properties.ownProperty[manageState].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>Enum</dataType>
+            <metadataRef>com.kingdee.eas.port.equipment.base.enumbase.sbStatusType</metadataRef>
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>80</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].properties.ownProperty[manageState].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFManageState" />
             </mappingField>
         </ownProperty>
     </properties>
@@ -1253,6 +1299,48 @@
                 </formalParameter>
             </formalParameters>
         </event>
+        <event>
+            <name>excelEvent</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].events.event[excelEvent].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].events.event[excelEvent].description</description>
+            <userDefined>true</userDefined>
+            <eventMethods>
+                <eventMethod>
+                    <name>7f531513-21f5-44dd-8ab6-583258df4e03</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].events.event[excelEvent].eventMethods.eventMethod[7f531513-21f5-44dd-8ab6-583258df4e03].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].events.event[excelEvent].eventMethods.eventMethod[7f531513-21f5-44dd-8ab6-583258df4e03].description</description>
+                    <entityMethodRef>
+                        <key name="name" value="excel" />
+                        <key name="innerID" value="7f531513-21f5-44dd-8ab6-583258df4e03" />
+                    </entityMethodRef>
+                    <parameterMappings>
+                        <parameterMapping>
+                            <name />
+                            <alias>entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].events.event[excelEvent].eventMethods.eventMethod[7f531513-21f5-44dd-8ab6-583258df4e03].parameterMappings.parameterMappingalias</alias>
+                            <description>entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].events.event[excelEvent].eventMethods.eventMethod[7f531513-21f5-44dd-8ab6-583258df4e03].parameterMappings.parameterMappingdescription</description>
+                            <formalParameterInnerID>2bdc2a42-339a-4d0c-a6dc-80f98b1df984evfp</formalParameterInnerID>
+                            <actualParameterIndex>0</actualParameterIndex>
+                            <isBOPK>true</isBOPK>
+                        </parameterMapping>
+                    </parameterMappings>
+                </eventMethod>
+            </eventMethods>
+            <formalParameters>
+                <formalParameter>
+                    <innerID>2bdc2a42-339a-4d0c-a6dc-80f98b1df984evfp</innerID>
+                    <userDefined>true</userDefined>
+                    <parameter>
+                        <name>model</name>
+                        <alias>entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].events.event[excelEvent].formalParameters.formalParameter.parameter[model].alias</alias>
+                        <description>entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].events.event[excelEvent].formalParameters.formalParameter.parameter[model].description</description>
+                        <direction>in</direction>
+                        <dataType>ObjectValue</dataType>
+                        <metadataRef>com.kingdee.eas.port.equipment.record.app.MeasurEquip</metadataRef>
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </formalParameter>
+            </formalParameters>
+        </event>
     </events>
     <defaultView>
         <name />
@@ -1451,6 +1539,54 @@
             <lang locale="zh_CN" value="主键" />
             <lang locale="zh_HK" value="主鍵" />
             <lang locale="zh_TW" value="主鍵" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].events.event[excelEvent].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="导入模板事件" />
+            <lang locale="zh_HK" value="導入範本事件" />
+            <lang locale="zh_TW" value="導入範本事件" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].events.event[excelEvent].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].events.event[excelEvent].eventMethods.eventMethod[7f531513-21f5-44dd-8ab6-583258df4e03].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].events.event[excelEvent].eventMethods.eventMethod[7f531513-21f5-44dd-8ab6-583258df4e03].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].events.event[excelEvent].eventMethods.eventMethod[7f531513-21f5-44dd-8ab6-583258df4e03].parameterMappings.parameterMappingalias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].events.event[excelEvent].eventMethods.eventMethod[7f531513-21f5-44dd-8ab6-583258df4e03].parameterMappings.parameterMappingdescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].events.event[excelEvent].formalParameters.formalParameter.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].events.event[excelEvent].formalParameters.formalParameter.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].events.event[passAuditEvent].alias">
             <lang locale="en_US" value="null" />
@@ -1654,6 +1790,11 @@
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].extendedProperty.controllerBeanEx">
+            <lang locale="en_US" value="com.kingdee.eas.port.equipment.record.app.MeasurEquipControllerBeanEx" />
+            <lang locale="zh_CN" value="com.kingdee.eas.port.equipment.record.app.MeasurEquipControllerBeanEx" />
+            <lang locale="zh_TW" value="com.kingdee.eas.port.equipment.record.app.MeasurEquipControllerBeanEx" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].extendedProperty.defaultDisplayField">
             <lang locale="en_US" value="" />
             <lang locale="zh_CN" value="" />
@@ -1810,6 +1951,30 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].methods.method[delete].parameters.parameter[pk].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].methods.method[excel].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="导入模板" />
+            <lang locale="zh_HK" value="導入範本" />
+            <lang locale="zh_TW" value="導入範本" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].methods.method[excel].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].methods.method[excel].parameters.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].methods.method[excel].parameters.parameter[model].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -2255,6 +2420,69 @@
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].properties.ownProperty[abc].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="abc" />
+            <lang locale="zh_HK" value="abc" />
+            <lang locale="zh_TW" value="abc" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].properties.ownProperty[abc].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].properties.ownProperty[abc].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="abc" />
+            <lang locale="zh_HK" value="abc" />
+            <lang locale="zh_TW" value="abc" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].properties.ownProperty[abc].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].properties.ownProperty[abc].extendedProperty.bizDataType">
+            <lang locale="en_US" value="STRING" />
+            <lang locale="zh_CN" value="STRING" />
+            <lang locale="zh_TW" value="STRING" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].properties.ownProperty[abc].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].properties.ownProperty[abc].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].properties.ownProperty[abc].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].properties.ownProperty[abc].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].properties.ownProperty[abc].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].properties.ownProperty[abc].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].properties.ownProperty[abc].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].properties.ownProperty[accuracy].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="准确度" />
@@ -2515,9 +2743,9 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].properties.ownProperty[manageState].defaultValue">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="inUse" />
+            <lang locale="zh_HK" value="inUse" />
+            <lang locale="zh_TW" value="inUse" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].properties.ownProperty[manageState].description">
             <lang locale="en_US" value="null" />
@@ -2531,9 +2759,14 @@
             <lang locale="zh_TW" value="50" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].properties.ownProperty[manageState].extendedProperty.bizDataType">
-            <lang locale="en_US" value="STRING" />
-            <lang locale="zh_CN" value="STRING" />
-            <lang locale="zh_TW" value="STRING" />
+            <lang locale="en_US" value="ENUM" />
+            <lang locale="zh_CN" value="ENUM" />
+            <lang locale="zh_TW" value="ENUM" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].properties.ownProperty[manageState].extendedProperty.defaultValue">
+            <lang locale="en_US" value="inUse" />
+            <lang locale="zh_CN" value="inUse" />
+            <lang locale="zh_TW" value="inUse" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].properties.ownProperty[manageState].extendedProperty.enableFieldPermission">
             <lang locale="en_US" value="false" />
@@ -2909,9 +3142,9 @@
             <lang locale="zh_TW" value="50" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].properties.ownProperty[validityPeriod].extendedProperty.bizDataType">
-            <lang locale="en_US" value="STRING" />
-            <lang locale="zh_CN" value="STRING" />
-            <lang locale="zh_TW" value="STRING" />
+            <lang locale="en_US" value="DATE" />
+            <lang locale="zh_CN" value="DATE" />
+            <lang locale="zh_TW" value="DATE" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.record.app.MeasurEquip].properties.ownProperty[validityPeriod].extendedProperty.enableFieldPermission">
             <lang locale="en_US" value="false" />

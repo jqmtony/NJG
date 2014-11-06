@@ -344,20 +344,6 @@
             <precision>0</precision>
         </column>
         <column>
-            <name>CFManageState</name>
-            <alias>dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_MeasurEquip].columns.column[CFManageState].alias</alias>
-            <description>dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_MeasurEquip].columns.column[CFManageState].description</description>
-            <userDefined>true</userDefined>
-            <isMultilingual>false</isMultilingual>
-            <isEncoded>false</isEncoded>
-            <isNullable>true</isNullable>
-            <defaultValue />
-            <sqlType>NVARCHAR</sqlType>
-            <length>100</length>
-            <scale>0</scale>
-            <precision>0</precision>
-        </column>
-        <column>
             <name>CFUseDepartID</name>
             <alias>dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_MeasurEquip].columns.column[CFUseDepartID].alias</alias>
             <description>dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_MeasurEquip].columns.column[CFUseDepartID].description</description>
@@ -428,6 +414,20 @@
             <precision>0</precision>
         </column>
         <column>
+            <name>CFAbc</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_MeasurEquip].columns.column[CFAbc].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_MeasurEquip].columns.column[CFAbc].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>100</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
             <name>CFValidityPeriod</name>
             <alias>dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_MeasurEquip].columns.column[CFValidityPeriod].alias</alias>
             <description>dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_MeasurEquip].columns.column[CFValidityPeriod].description</description>
@@ -436,7 +436,21 @@
             <isEncoded>false</isEncoded>
             <isNullable>true</isNullable>
             <defaultValue />
-            <sqlType>NVARCHAR</sqlType>
+            <sqlType>DATETIME</sqlType>
+            <length>8</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFManageState</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_MeasurEquip].columns.column[CFManageState].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_MeasurEquip].columns.column[CFManageState].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
             <length>100</length>
             <scale>0</scale>
             <precision>0</precision>
@@ -596,6 +610,18 @@
             <lang locale="zh_CN" value="计量设备档案" />
             <lang locale="zh_HK" value="計量設備檔案" />
             <lang locale="zh_TW" value="計量設備檔案" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_MeasurEquip].columns.column[CFAbc].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="abc" />
+            <lang locale="zh_HK" value="abc" />
+            <lang locale="zh_TW" value="abc" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_MeasurEquip].columns.column[CFAbc].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="abc" />
+            <lang locale="zh_HK" value="abc" />
+            <lang locale="zh_TW" value="abc" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.record.app.CT_REC_MeasurEquip].columns.column[CFAccuracy].alias">
             <lang locale="en_US" value="null" />

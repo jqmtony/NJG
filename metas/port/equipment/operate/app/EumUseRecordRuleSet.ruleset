@@ -93,6 +93,93 @@
             <valueType>String</valueType>
             <value>treeid.name</value>
         </simpleExpression>
+        <groupExpression>
+            <id>db2371c4-63a1-4648-8f60-c70b44572be2</id>
+            <parentID />
+            <source>EqmUse.eqmNumber=EqmUse.eqmName.number</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>c0e0bdc8-f696-40a4-9e16-1827c486a5b1</id>
+            <parentID>db2371c4-63a1-4648-8f60-c70b44572be2</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>90b660c3-b2ca-4106-94bf-5dbf738e99ec</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>90b660c3-b2ca-4106-94bf-5dbf738e99ec</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>kdtEqmUse.getCell(rowIndex,"eqmNumber")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>a0ce0c56-bbbc-4078-ad6c-30e7bb48cdbf</id>
+            <parentID>db2371c4-63a1-4648-8f60-c70b44572be2</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>3274116d-8847-4c54-9a04-476440ecd000</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>6fbf4819-1fdb-4f0f-975b-6c83b0f9b739</id>
+                        <expressionID>d804d6b6-5650-4afa-a584-e283e088daee</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>f26a032f-d1d4-4aa0-8f3c-14d21345f309</id>
+                        <expressionID>e31b116d-4118-4cc9-988b-ed4cbbc26036</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>3274116d-8847-4c54-9a04-476440ecd000</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>d804d6b6-5650-4afa-a584-e283e088daee</id>
+            <parentID />
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>83c55319-0fa3-41dd-b84d-20988f745b89</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>83c55319-0fa3-41dd-b84d-20988f745b89</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)kdtEqmUse.getCell(rowIndex,"eqmName")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>e31b116d-4118-4cc9-988b-ed4cbbc26036</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>number</value>
+        </simpleExpression>
     </expressions>
     <actions>
         <action>
@@ -102,7 +189,30 @@
             <description>ruleSet[com.kingdee.eas.port.equipment.operate.app.EumUseRecordRuleSet].actions.action[EqmUse_eqmCategory_ActionInfo].description</description>
             <expressionID>bd5bbfe7-d26c-4325-9888-ed7c39634350</expressionID>
         </action>
+        <action>
+            <id>a3a27656-3c50-4e45-a575-ca218057f55f</id>
+            <name>EqmUse_eqmNumber_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.operate.app.EumUseRecordRuleSet].actions.action[EqmUse_eqmNumber_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.operate.app.EumUseRecordRuleSet].actions.action[EqmUse_eqmNumber_ActionInfo].description</description>
+            <expressionID>db2371c4-63a1-4648-8f60-c70b44572be2</expressionID>
+        </action>
     </actions>
+    <rules>
+        <conditionRule>
+            <name>EqmUse_eqmNumber_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.operate.app.EumUseRecordRuleSet].rules.conditionRule[EqmUse_eqmNumber_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.operate.app.EumUseRecordRuleSet].rules.conditionRule[EqmUse_eqmNumber_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="a3a27656-3c50-4e45-a575-ca218057f55f" />
+                </action>
+            </actions>
+        </conditionRule>
+    </rules>
     <resource>
         <rs key="ruleSet[com.kingdee.eas.port.equipment.operate.app.EumUseRecordRuleSet].actions.action[EqmUse_eqmCategory_ActionInfo].alias">
             <lang locale="en_US" value="null" />
@@ -111,6 +221,18 @@
             <lang locale="zh_TW" value="攜帶字段屬性_treeid" />
         </rs>
         <rs key="ruleSet[com.kingdee.eas.port.equipment.operate.app.EumUseRecordRuleSet].actions.action[EqmUse_eqmCategory_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.operate.app.EumUseRecordRuleSet].actions.action[EqmUse_eqmNumber_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_number" />
+            <lang locale="zh_HK" value="攜帶字段屬性_number" />
+            <lang locale="zh_TW" value="攜帶字段屬性_number" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.operate.app.EumUseRecordRuleSet].actions.action[EqmUse_eqmNumber_ActionInfo].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -127,6 +249,28 @@
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.operate.app.EumUseRecordRuleSet].rules.conditionRule[EqmUse_eqmNumber_RuleInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_number" />
+            <lang locale="zh_HK" value="攜帶字段屬性_number" />
+            <lang locale="zh_TW" value="攜帶字段屬性_number" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.operate.app.EumUseRecordRuleSet].rules.conditionRule[EqmUse_eqmNumber_RuleInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.operate.app.EumUseRecordRuleSet].rules.conditionRule[EqmUse_eqmNumber_RuleInfo].extendedProperty.columnName">
+            <lang locale="en_US" value="eqmName" />
+            <lang locale="zh_CN" value="eqmName" />
+            <lang locale="zh_TW" value="eqmName" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.operate.app.EumUseRecordRuleSet].rules.conditionRule[EqmUse_eqmNumber_RuleInfo].extendedProperty.userDefined">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
         </rs>
     </resource>
 </ruleSet>
