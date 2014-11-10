@@ -35,6 +35,15 @@
                 <type>KDLayout</type>
                 <value />
             </layoutInfo>
+            <properties>
+                <property>
+                    <name>preferredSize</name>
+                    <type>java.awt.Dimension</type>
+                    <value>uiObject[com.kingdee.eas.port.equipment.record.client.MeasurEquipEditUI].components.component[CoreUI].properties.property[preferredSize].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
         </component>
         <component>
             <name>contCreator</name>
@@ -910,7 +919,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>371,110,270,19,0</constraints>
+            <constraints>734,110,270,19,0</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -959,7 +968,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>734,110,270,19,0</constraints>
+            <constraints>371,110,270,19,0</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -2451,6 +2460,20 @@
                     <userDefined>true</userDefined>
                 </propertyBinding>
             </propertyBindings>
+            <eventBindings>
+                <eventBinding>
+                    <name>dataChanged</name>
+                    <eventType>com.kingdee.bos.ctrl.swing.event.DataChangeEvent</eventType>
+                    <scene />
+                    <listenerType>com.kingdee.bos.ctrl.swing.event.DataChangeListener</listenerType>
+                    <listenerAdapter>com.kingdee.bos.ctrl.swing.event.DataChangeListener</listenerAdapter>
+                    <methodName>prmtusePerson_dataChanged</methodName>
+                    <code />
+                    <isBindWorkFlow>false</isBindWorkFlow>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </eventBinding>
+            </eventBindings>
         </component>
         <component>
             <name>pkstartDate</name>
@@ -2970,6 +2993,12 @@
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.MeasurEquipEditUI].components.component[CoreUI].properties.property[preferredSize].value">
+            <lang locale="en_US" value="1013,274" />
+            <lang locale="zh_CN" value="1013,274" />
+            <lang locale="zh_HK" value="1013,274" />
+            <lang locale="zh_TW" value="1013,274" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.equipment.record.client.MeasurEquipEditUI].components.component[comboBizStatus].alias">
             <lang locale="en_US" value="null" />

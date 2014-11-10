@@ -707,6 +707,32 @@
             <userDefinedLogic />
             <configured>false</configured>
         </method>
+        <method>
+            <name>excel</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.InspectionEqu].methods.method[excel].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.InspectionEqu].methods.method[excel].description</description>
+            <innerID>7212fe44-80bf-49f7-b90f-b5690c8a8c9a</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.InspectionEqu].methods.method[excel].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.InspectionEqu].methods.method[excel].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.port.equipment.maintenance.app.InspectionEqu</metadataRef>
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
     </methods>
     <isAbstract>false</isAbstract>
     <bizUnitPK>com.kingdee.eas.port.equipment.maintenance.InspectionEqu</bizUnitPK>
@@ -1030,6 +1056,48 @@
                 </formalParameter>
             </formalParameters>
         </event>
+        <event>
+            <name>excelEvent</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.InspectionEqu].events.event[excelEvent].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.InspectionEqu].events.event[excelEvent].description</description>
+            <userDefined>true</userDefined>
+            <eventMethods>
+                <eventMethod>
+                    <name>7212fe44-80bf-49f7-b90f-b5690c8a8c9a</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.InspectionEqu].events.event[excelEvent].eventMethods.eventMethod[7212fe44-80bf-49f7-b90f-b5690c8a8c9a].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.InspectionEqu].events.event[excelEvent].eventMethods.eventMethod[7212fe44-80bf-49f7-b90f-b5690c8a8c9a].description</description>
+                    <entityMethodRef>
+                        <key name="name" value="excel" />
+                        <key name="innerID" value="7212fe44-80bf-49f7-b90f-b5690c8a8c9a" />
+                    </entityMethodRef>
+                    <parameterMappings>
+                        <parameterMapping>
+                            <name />
+                            <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.InspectionEqu].events.event[excelEvent].eventMethods.eventMethod[7212fe44-80bf-49f7-b90f-b5690c8a8c9a].parameterMappings.parameterMappingalias</alias>
+                            <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.InspectionEqu].events.event[excelEvent].eventMethods.eventMethod[7212fe44-80bf-49f7-b90f-b5690c8a8c9a].parameterMappings.parameterMappingdescription</description>
+                            <formalParameterInnerID>f0be7daf-a4f9-4985-a82b-3ce19653e1abevfp</formalParameterInnerID>
+                            <actualParameterIndex>0</actualParameterIndex>
+                            <isBOPK>true</isBOPK>
+                        </parameterMapping>
+                    </parameterMappings>
+                </eventMethod>
+            </eventMethods>
+            <formalParameters>
+                <formalParameter>
+                    <innerID>f0be7daf-a4f9-4985-a82b-3ce19653e1abevfp</innerID>
+                    <userDefined>true</userDefined>
+                    <parameter>
+                        <name>model</name>
+                        <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.InspectionEqu].events.event[excelEvent].formalParameters.formalParameter.parameter[model].alias</alias>
+                        <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.InspectionEqu].events.event[excelEvent].formalParameters.formalParameter.parameter[model].description</description>
+                        <direction>in</direction>
+                        <dataType>ObjectValue</dataType>
+                        <metadataRef>com.kingdee.eas.port.equipment.maintenance.app.InspectionEqu</metadataRef>
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </formalParameter>
+            </formalParameters>
+        </event>
     </events>
     <defaultView>
         <name />
@@ -1228,6 +1296,54 @@
             <lang locale="zh_CN" value="主键" />
             <lang locale="zh_HK" value="主鍵" />
             <lang locale="zh_TW" value="主鍵" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.InspectionEqu].events.event[excelEvent].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="导入模板事件" />
+            <lang locale="zh_HK" value="導入範本事件" />
+            <lang locale="zh_TW" value="導入範本事件" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.InspectionEqu].events.event[excelEvent].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.InspectionEqu].events.event[excelEvent].eventMethods.eventMethod[7212fe44-80bf-49f7-b90f-b5690c8a8c9a].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.InspectionEqu].events.event[excelEvent].eventMethods.eventMethod[7212fe44-80bf-49f7-b90f-b5690c8a8c9a].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.InspectionEqu].events.event[excelEvent].eventMethods.eventMethod[7212fe44-80bf-49f7-b90f-b5690c8a8c9a].parameterMappings.parameterMappingalias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.InspectionEqu].events.event[excelEvent].eventMethods.eventMethod[7212fe44-80bf-49f7-b90f-b5690c8a8c9a].parameterMappings.parameterMappingdescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.InspectionEqu].events.event[excelEvent].formalParameters.formalParameter.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.InspectionEqu].events.event[excelEvent].formalParameters.formalParameter.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.InspectionEqu].events.event[passAuditEvent].alias">
             <lang locale="en_US" value="null" />
@@ -1431,6 +1547,11 @@
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.InspectionEqu].extendedProperty.controllerBeanEx">
+            <lang locale="en_US" value="com.kingdee.eas.port.equipment.maintenance.app.InspectionEquControllerBeanEx" />
+            <lang locale="zh_CN" value="com.kingdee.eas.port.equipment.maintenance.app.InspectionEquControllerBeanEx" />
+            <lang locale="zh_TW" value="com.kingdee.eas.port.equipment.maintenance.app.InspectionEquControllerBeanEx" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.InspectionEqu].extendedProperty.defaultDisplayField">
             <lang locale="en_US" value="" />
             <lang locale="zh_CN" value="" />
@@ -1592,6 +1713,30 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.InspectionEqu].methods.method[delete].parameters.parameter[pk].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.InspectionEqu].methods.method[excel].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="导入模板" />
+            <lang locale="zh_HK" value="導入範本" />
+            <lang locale="zh_TW" value="導入範本" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.InspectionEqu].methods.method[excel].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.InspectionEqu].methods.method[excel].parameters.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.InspectionEqu].methods.method[excel].parameters.parameter[model].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />

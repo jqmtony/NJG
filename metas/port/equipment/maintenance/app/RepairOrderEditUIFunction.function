@@ -223,6 +223,42 @@
                 <key name="name" value="RepairOrder" />
             </entityObjectRef>
         </operation>
+        <operation>
+            <name>excel</name>
+            <alias>functionObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderEditUIFunction].operations.operation[excel].alias</alias>
+            <description>functionObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderEditUIFunction].operations.operation[excel].description</description>
+            <reverseOperation />
+            <eventMethod>d3b197ad-be71-41b7-8d8c-a58ae8bc2926</eventMethod>
+            <event>excelEvent</event>
+            <userDefined>true</userDefined>
+            <uiActionRef>
+                <id>a296be61-f1e2-4c12-ac37-5b4b9e99ca2euiaf</id>
+                <uiStatus>EDIT</uiStatus>
+                <webUIStatus />
+                <userDefined>true</userDefined>
+                <uiObjectRef>
+                    <key name="package" value="com.kingdee.eas.port.equipment.maintenance.client" />
+                    <key name="name" value="RepairOrderEditUI" />
+                </uiObjectRef>
+                <actionRefName>ActionExcel</actionRefName>
+                <webActionRefName />
+                <parameters>
+                    <parameter>
+                        <name>billID</name>
+                        <alias>functionObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderEditUIFunction].operations.operation[excel].uiActionRef.parameters.parameter[billID].alias</alias>
+                        <description>functionObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderEditUIFunction].operations.operation[excel].uiActionRef.parameters.parameter[billID].description</description>
+                        <direction>in</direction>
+                        <dataType>BOSUuid</dataType>
+                        <metadataRef />
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </parameters>
+            </uiActionRef>
+            <entityObjectRef>
+                <key name="package" value="com.kingdee.eas.port.equipment.maintenance.app" />
+                <key name="name" value="RepairOrder" />
+            </entityObjectRef>
+        </operation>
     </operations>
     <resource>
         <rs key="functionObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderEditUIFunction].alias">
@@ -348,6 +384,35 @@
             <lang locale="zh_TW" value="單據內碼" />
         </rs>
         <rs key="functionObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderEditUIFunction].operations.operation[equInfomation].uiActionRef.parameters.parameter[billID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据内码" />
+            <lang locale="zh_HK" value="單據內碼" />
+            <lang locale="zh_TW" value="單據內碼" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderEditUIFunction].operations.operation[excel].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="导入模板" />
+            <lang locale="zh_HK" value="導入範本" />
+            <lang locale="zh_TW" value="導入範本" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderEditUIFunction].operations.operation[excel].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderEditUIFunction].operations.operation[excel].extendedProperty.userDefined">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderEditUIFunction].operations.operation[excel].uiActionRef.parameters.parameter[billID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据内码" />
+            <lang locale="zh_HK" value="單據內碼" />
+            <lang locale="zh_TW" value="單據內碼" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrderEditUIFunction].operations.operation[excel].uiActionRef.parameters.parameter[billID].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="单据内码" />
             <lang locale="zh_HK" value="單據內碼" />

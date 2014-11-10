@@ -330,20 +330,6 @@
             <precision>0</precision>
         </column>
         <column>
-            <name>CFXiulirenyuan</name>
-            <alias>dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrderE1].columns.column[CFXiulirenyuan].alias</alias>
-            <description>dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrderE1].columns.column[CFXiulirenyuan].description</description>
-            <userDefined>true</userDefined>
-            <isMultilingual>false</isMultilingual>
-            <isEncoded>false</isEncoded>
-            <isNullable>true</isNullable>
-            <defaultValue />
-            <sqlType>NVARCHAR</sqlType>
-            <length>255</length>
-            <scale>0</scale>
-            <precision>0</precision>
-        </column>
-        <column>
             <name>CFEquNumber</name>
             <alias>dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrderE1].columns.column[CFEquNumber].alias</alias>
             <description>dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrderE1].columns.column[CFEquNumber].description</description>
@@ -354,6 +340,20 @@
             <defaultValue />
             <sqlType>NVARCHAR</sqlType>
             <length>80</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFRepPersonID</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrderE1].columns.column[CFRepPersonID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrderE1].columns.column[CFRepPersonID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>1000</length>
             <scale>0</scale>
             <precision>0</precision>
         </column>
@@ -564,6 +564,18 @@
             <lang locale="zh_HK" value="備註" />
             <lang locale="zh_TW" value="備註" />
         </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrderE1].columns.column[CFRepPersonID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="修理人员ID" />
+            <lang locale="zh_HK" value="修理人員ID" />
+            <lang locale="zh_TW" value="修理人員ID" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrderE1].columns.column[CFRepPersonID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="修理人员ID" />
+            <lang locale="zh_HK" value="修理人員ID" />
+            <lang locale="zh_TW" value="修理人員ID" />
+        </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrderE1].columns.column[CFRepairContent].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="维修内容" />
@@ -670,18 +682,6 @@
             <lang locale="zh_CN" value="维修方案及技术要求" />
             <lang locale="zh_HK" value="維修方案及技術要求" />
             <lang locale="zh_TW" value="維修方案及技術要求" />
-        </rs>
-        <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrderE1].columns.column[CFXiulirenyuan].alias">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="修理人员ID" />
-            <lang locale="zh_HK" value="修理人員ID" />
-            <lang locale="zh_TW" value="修理人員ID" />
-        </rs>
-        <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrderE1].columns.column[CFXiulirenyuan].description">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="修理人员ID" />
-            <lang locale="zh_HK" value="修理人員ID" />
-            <lang locale="zh_TW" value="修理人員ID" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_RepairOrderE1].columns.column[CFXlAmount].alias">
             <lang locale="en_US" value="null" />

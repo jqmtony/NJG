@@ -3300,6 +3300,37 @@
                 <key name="name" value="TankTechnicalQuery" />
             </query>
         </queryField>
+        <queryField>
+            <name>huxifagg</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.record.app.TankTechnicalQuery].units.queryField[huxifagg].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0b70d753-86fb-4f9a-965a-855c1e344300</key>
+                    <parentUnit>
+                        <key name="name" value="huxifagg" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="TankTechnical" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="huxifagg" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.record.app" />
+                <key name="name" value="TankTechnicalQuery" />
+            </query>
+        </queryField>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -3989,6 +4020,22 @@
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.record.app.TankTechnicalQuery].units.queryField[huanremianji].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.record.app.TankTechnicalQuery].units.queryField[huxifagg].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="呼吸阀规格" />
+            <lang locale="zh_HK" value="呼吸閥規格" />
+            <lang locale="zh_TW" value="呼吸閥規格" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.record.app.TankTechnicalQuery].units.queryField[huxifagg].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.record.app.TankTechnicalQuery].units.queryField[huxifagg].extendedProperty.isCommonQuerySorter">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />

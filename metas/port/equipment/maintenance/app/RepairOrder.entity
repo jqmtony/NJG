@@ -785,6 +785,32 @@
             </parameters>
             <configured>false</configured>
         </method>
+        <method>
+            <name>excel</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].methods.method[excel].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].methods.method[excel].description</description>
+            <innerID>d3b197ad-be71-41b7-8d8c-a58ae8bc2926</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].methods.method[excel].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].methods.method[excel].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.port.equipment.maintenance.app.RepairOrder</metadataRef>
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
     </methods>
     <isAbstract>false</isAbstract>
     <bizUnitPK>com.kingdee.eas.port.equipment.maintenance.RepairOrder</bizUnitPK>
@@ -1726,6 +1752,48 @@
                 </formalParameter>
             </formalParameters>
         </event>
+        <event>
+            <name>excelEvent</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].events.event[excelEvent].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].events.event[excelEvent].description</description>
+            <userDefined>true</userDefined>
+            <eventMethods>
+                <eventMethod>
+                    <name>d3b197ad-be71-41b7-8d8c-a58ae8bc2926</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].events.event[excelEvent].eventMethods.eventMethod[d3b197ad-be71-41b7-8d8c-a58ae8bc2926].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].events.event[excelEvent].eventMethods.eventMethod[d3b197ad-be71-41b7-8d8c-a58ae8bc2926].description</description>
+                    <entityMethodRef>
+                        <key name="name" value="excel" />
+                        <key name="innerID" value="d3b197ad-be71-41b7-8d8c-a58ae8bc2926" />
+                    </entityMethodRef>
+                    <parameterMappings>
+                        <parameterMapping>
+                            <name />
+                            <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].events.event[excelEvent].eventMethods.eventMethod[d3b197ad-be71-41b7-8d8c-a58ae8bc2926].parameterMappings.parameterMappingalias</alias>
+                            <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].events.event[excelEvent].eventMethods.eventMethod[d3b197ad-be71-41b7-8d8c-a58ae8bc2926].parameterMappings.parameterMappingdescription</description>
+                            <formalParameterInnerID>82d19013-b19a-47f8-a46f-21480d87c07eevfp</formalParameterInnerID>
+                            <actualParameterIndex>0</actualParameterIndex>
+                            <isBOPK>true</isBOPK>
+                        </parameterMapping>
+                    </parameterMappings>
+                </eventMethod>
+            </eventMethods>
+            <formalParameters>
+                <formalParameter>
+                    <innerID>82d19013-b19a-47f8-a46f-21480d87c07eevfp</innerID>
+                    <userDefined>true</userDefined>
+                    <parameter>
+                        <name>model</name>
+                        <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].events.event[excelEvent].formalParameters.formalParameter.parameter[model].alias</alias>
+                        <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].events.event[excelEvent].formalParameters.formalParameter.parameter[model].description</description>
+                        <direction>in</direction>
+                        <dataType>ObjectValue</dataType>
+                        <metadataRef>com.kingdee.eas.port.equipment.maintenance.app.RepairOrder</metadataRef>
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </formalParameter>
+            </formalParameters>
+        </event>
     </events>
     <defaultView>
         <name />
@@ -1969,6 +2037,54 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].events.event[equInfomationEvent].formalParameters.formalParameter.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].events.event[excelEvent].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="导入模板事件" />
+            <lang locale="zh_HK" value="導入範本事件" />
+            <lang locale="zh_TW" value="導入範本事件" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].events.event[excelEvent].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].events.event[excelEvent].eventMethods.eventMethod[d3b197ad-be71-41b7-8d8c-a58ae8bc2926].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].events.event[excelEvent].eventMethods.eventMethod[d3b197ad-be71-41b7-8d8c-a58ae8bc2926].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].events.event[excelEvent].eventMethods.eventMethod[d3b197ad-be71-41b7-8d8c-a58ae8bc2926].parameterMappings.parameterMappingalias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].events.event[excelEvent].eventMethods.eventMethod[d3b197ad-be71-41b7-8d8c-a58ae8bc2926].parameterMappings.parameterMappingdescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].events.event[excelEvent].formalParameters.formalParameter.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].events.event[excelEvent].formalParameters.formalParameter.parameter[model].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -2467,6 +2583,30 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].methods.method[equInfomation].parameters.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].methods.method[excel].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="导入模板" />
+            <lang locale="zh_HK" value="導入範本" />
+            <lang locale="zh_TW" value="導入範本" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].methods.method[excel].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].methods.method[excel].parameters.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.RepairOrder].methods.method[excel].parameters.parameter[model].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />

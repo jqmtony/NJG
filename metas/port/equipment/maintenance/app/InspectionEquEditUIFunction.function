@@ -115,6 +115,42 @@
                 <key name="name" value="InspectionEqu" />
             </entityObjectRef>
         </operation>
+        <operation>
+            <name>excel</name>
+            <alias>functionObject[com.kingdee.eas.port.equipment.maintenance.app.InspectionEquEditUIFunction].operations.operation[excel].alias</alias>
+            <description>functionObject[com.kingdee.eas.port.equipment.maintenance.app.InspectionEquEditUIFunction].operations.operation[excel].description</description>
+            <reverseOperation />
+            <eventMethod>7212fe44-80bf-49f7-b90f-b5690c8a8c9a</eventMethod>
+            <event>excelEvent</event>
+            <userDefined>true</userDefined>
+            <uiActionRef>
+                <id>42d894b8-53cb-4f32-ac96-01d176c8fa5duiaf</id>
+                <uiStatus>EDIT</uiStatus>
+                <webUIStatus />
+                <userDefined>true</userDefined>
+                <uiObjectRef>
+                    <key name="package" value="com.kingdee.eas.port.equipment.maintenance.client" />
+                    <key name="name" value="InspectionEquEditUI" />
+                </uiObjectRef>
+                <actionRefName>ActionExcel</actionRefName>
+                <webActionRefName />
+                <parameters>
+                    <parameter>
+                        <name>billID</name>
+                        <alias>functionObject[com.kingdee.eas.port.equipment.maintenance.app.InspectionEquEditUIFunction].operations.operation[excel].uiActionRef.parameters.parameter[billID].alias</alias>
+                        <description>functionObject[com.kingdee.eas.port.equipment.maintenance.app.InspectionEquEditUIFunction].operations.operation[excel].uiActionRef.parameters.parameter[billID].description</description>
+                        <direction>in</direction>
+                        <dataType>BOSUuid</dataType>
+                        <metadataRef />
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </parameters>
+            </uiActionRef>
+            <entityObjectRef>
+                <key name="package" value="com.kingdee.eas.port.equipment.maintenance.app" />
+                <key name="name" value="InspectionEqu" />
+            </entityObjectRef>
+        </operation>
     </operations>
     <resource>
         <rs key="functionObject[com.kingdee.eas.port.equipment.maintenance.app.InspectionEquEditUIFunction].alias">
@@ -211,6 +247,35 @@
             <lang locale="zh_TW" value="單據內碼" />
         </rs>
         <rs key="functionObject[com.kingdee.eas.port.equipment.maintenance.app.InspectionEquEditUIFunction].operations.operation[ActionUnAudit].uiActionRef.parameters.parameter[billID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据内码" />
+            <lang locale="zh_HK" value="單據內碼" />
+            <lang locale="zh_TW" value="單據內碼" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.maintenance.app.InspectionEquEditUIFunction].operations.operation[excel].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="导入模板" />
+            <lang locale="zh_HK" value="導入範本" />
+            <lang locale="zh_TW" value="導入範本" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.maintenance.app.InspectionEquEditUIFunction].operations.operation[excel].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.maintenance.app.InspectionEquEditUIFunction].operations.operation[excel].extendedProperty.userDefined">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.maintenance.app.InspectionEquEditUIFunction].operations.operation[excel].uiActionRef.parameters.parameter[billID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据内码" />
+            <lang locale="zh_HK" value="單據內碼" />
+            <lang locale="zh_TW" value="單據內碼" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.port.equipment.maintenance.app.InspectionEquEditUIFunction].operations.operation[excel].uiActionRef.parameters.parameter[billID].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="单据内码" />
             <lang locale="zh_HK" value="單據內碼" />
