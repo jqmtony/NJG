@@ -31,7 +31,7 @@ public class ContractChangeSettUIPIEx extends ContractChangeSettUI{
 	protected void btnConfirm_actionPerformed(ActionEvent arg0)
 			throws Exception {
 		super.btnConfirm_actionPerformed(arg0);
-		   
+//		   
 //		   String [] str1 = new String[3];
 //		   	EASLoginProxy login = new EASLoginProxyServiceLocator().getEASLogin(new URL("http://127.0.0.1:56898/ormrpc/services/EASLogin"));
 //		   	WSContext  ws = login.login("kd-user", "kduser", "eas", "kd_002", "l2", 1);
