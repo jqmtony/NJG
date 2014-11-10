@@ -306,24 +306,44 @@ public class ChangeAuditFacade implements BillBaseSelector {
 						    		  ProgrammingContractInfo proinfo=ProgrammingContractFactory.getLocalInstance(ctx).getProgrammingContractInfo(new ObjectUuidPK(progColl.get(pro).getId()));
 						    		  xml.append("<ProgrammingName>" + proinfo.getName()+ "</ProgrammingName>\n");//合约框架名称
 						    		  xml.append("<ControlBalance>" + proinfo.getControlBalance()+ "</ControlBalance>\n");//控制金额
-						    		  String sql="select a.SFCostAmount as SFa,b.SFceremonyb as SFb from (";
-						    		  sql+="select sum(c.FCostAmount) as SFCostAmount,a.fid as fida from T_CON_ProgrammingContract a left join  T_CON_ContractBill b on a.fid=b.FProgrammingContract left join ";
-						    		  sql+="(select b.FCostAmount as FCostAmount,b.FcontractBillID as FcontractBillID,a.FChangeState as FChangeState from T_CON_ChangeAuditBill a left join ";
-						    		  sql+="T_CON_ChangeSupplierEntry b on a.fid=b.fparentid)as c on b.fid=c.FcontractBillID ";
-						    		  sql+="where c.FchangeState = '4Auditting'and b.fid='"+info.getProgrammingContract().getId()+"' group by a.fid) a ";
-						    		  sql+="left join(select sum(b.Fceremonyb) as SFceremonyb,a.fid as fidb  from T_CON_ProgrammingContract a left join  T_CON_ContractBill b on a.fid=b.FProgrammingContract left join ";
-						    		  sql+="(select b.FCostAmount as FCostAmount,b.FcontractBillID as FcontractBillID,a.FChangeState as FChangeState from T_CON_ChangeAuditBill a left join ";
-						    		  sql+="T_CON_ChangeSupplierEntry b on a.fid=b.fparentid)as c on b.fid=c.FcontractBillID ";
-						    		  sql+="where b.Fstate='3AUDITTING' group by a.fid) b on a.fida= b.fidb";
-						    		  FDCSQLBuilder builder=new FDCSQLBuilder();
+						    		  
+					    			  String sql="select a.SFCostAmount as SFa,b.SFceremonyb as SFb from  ";
+						    		  sql+="(select sum(c.FCostAmount) as SFCostAmount,a.flongNumber as fida from T_CON_ProgrammingContract a left join  T_CON_ContractBill b on a.fid=b.FProgrammingContract ";
+						    		  sql+="left join (select b.FCostAmount as FCostAmount,b.FcontractBillID as FcontractBillID,a.FChangeState as FChangeState from T_CON_ChangeAuditBill a left join ";
+						    		  sql+="T_CON_ChangeSupplierEntry b on a.fid=b.fparentid)as c on b.fid=c.FcontractBillID where c.FchangeState = '4Auditting' and b.fid='"+info.getProgrammingContract().getId()+"' group by a.flongnumber) a  ";
+						    		  sql+="right join (select sum(b.Fceremonyb) as SFceremonyb,a.flongNumber as fidb  from T_CON_ProgrammingContract a left join  T_CON_ContractBill b on a.fid=b.FProgrammingContract left ";
+						    		  sql+="join (select b.FCostAmount as FCostAmount,b.FcontractBillID as FcontractBillID,a.FChangeState as FChangeState from T_CON_ChangeAuditBill a left join ";
+						    		  sql+="T_CON_ChangeSupplierEntry b on a.fid=b.fparentid)as c on b.fid=c.FcontractBillID where b.Fstate='3AUDITTING' group by a.flongnumber) b on a.fida= b.fidb";
+						    		  FDCSQLBuilder builder=new FDCSQLBuilder(ctx);
 						    		  builder.appendSql(sql);
-                                      IRowSet Rowset=builder.executeQuery();
-                                      if(Rowset.size()==1)
-                                      {
-                                       Rowset.next();  
-                                       xml.append("<HTMoney>" +FDCHelper.toBigDecimal(Rowset.getBigDecimal("SFa")) + "</HTMoney>\n");//在途金额汇总
-     						    	   xml.append("<BGMoney>" +FDCHelper.toBigDecimal(Rowset.getBigDecimal("SFb"))+"</BGMoney>\n");//在途变更金额汇总
-                                      }
+					                  IRowSet Rowset=builder.executeQuery();
+					                  if(Rowset.size()==1)
+					                  {
+					                   Rowset.next();  
+					                   xml.append("<HTMoney>" +FDCHelper.toBigDecimal(Rowset.getBigDecimal("SFa")) + "</HTMoney>\n");//在途金额汇总
+								       xml.append("<BGMoney>" +FDCHelper.toBigDecimal(Rowset.getBigDecimal("SFb"))+"</BGMoney>\n");//在途变更金额汇总
+					                  }
+					                  builder.clear();
+						    		  
+//						    		  String sql="select a.SFCostAmount as SFa,b.SFceremonyb as SFb from (";
+//						    		  sql+="select sum(c.FCostAmount) as SFCostAmount,a.fid as fida from T_CON_ProgrammingContract a left join  T_CON_ContractBill b on a.fid=b.FProgrammingContract left join ";
+//						    		  sql+="(select b.FCostAmount as FCostAmount,b.FcontractBillID as FcontractBillID,a.FChangeState as FChangeState from T_CON_ChangeAuditBill a left join ";
+//						    		  sql+="T_CON_ChangeSupplierEntry b on a.fid=b.fparentid)as c on b.fid=c.FcontractBillID ";
+//						    		  sql+="where c.FchangeState = '4Auditting'and b.fid='"+info.getProgrammingContract().getId()+"' group by a.fid) a ";
+//						    		  sql+="left join(select sum(b.Fceremonyb) as SFceremonyb,a.fid as fidb  from T_CON_ProgrammingContract a left join  T_CON_ContractBill b on a.fid=b.FProgrammingContract left join ";
+//						    		  sql+="(select b.FCostAmount as FCostAmount,b.FcontractBillID as FcontractBillID,a.FChangeState as FChangeState from T_CON_ChangeAuditBill a left join ";
+//						    		  sql+="T_CON_ChangeSupplierEntry b on a.fid=b.fparentid)as c on b.fid=c.FcontractBillID ";
+//						    		  sql+="where b.Fstate='3AUDITTING' group by a.fid) b on a.fida= b.fidb";
+//						    		  FDCSQLBuilder builder=new FDCSQLBuilder(ctx);
+//						    		  builder.appendSql(sql);
+//                                      IRowSet Rowset=builder.executeQuery();
+//                                      if(Rowset.size()==1)
+//                                      {
+//                                       Rowset.next();  
+//                                       xml.append("<HTMoney>" +FDCHelper.toBigDecimal(Rowset.getBigDecimal("SFa")) + "</HTMoney>\n");//在途金额汇总
+//     						    	   xml.append("<BGMoney>" +FDCHelper.toBigDecimal(Rowset.getBigDecimal("SFb"))+"</BGMoney>\n");//在途变更金额汇总
+//                                      }
+//                                      builder.clear();
 						    	  }
 						       }
 						      

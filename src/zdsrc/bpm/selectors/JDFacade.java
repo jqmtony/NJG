@@ -46,7 +46,7 @@ public class JDFacade implements BillBaseSelector {
 				e.printStackTrace();
 			}
 			try{
-				String sql = " update T_CON_ContractMoveHistory ' where fid='"+Info.getId()+"'";
+				String sql = " update T_CON_ContractMoveHistory  where fid='"+Info.getId()+"'";
 				FDCSQLBuilder bu = new FDCSQLBuilder(ctx);
 				bu.appendSql(sql);
 				bu.executeUpdate(ctx);
@@ -169,6 +169,7 @@ public class JDFacade implements BillBaseSelector {
 		sic.add(new SelectorItemInfo("respPerson.name"));
 		sic.add(new SelectorItemInfo("moveDate"));
 		sic.add(new SelectorItemInfo("remark"));
+		sic.add(new SelectorItemInfo("state"));
 		return sic;
 	}
 

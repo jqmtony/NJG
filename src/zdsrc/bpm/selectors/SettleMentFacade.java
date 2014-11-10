@@ -83,7 +83,6 @@ public class SettleMentFacade implements BillBaseSelector {
 				}
 				if ("0".equals(processInstanceResult)) {
 					if (FDCBillStateEnum.AUDITTING.equals(Info.getState()))
-						//Info.setState(FDCBillStateEnum.INVALID);
 						Info.setState(FDCBillStateEnum.SAVED);
 					else {
 						str[2] = "审批不通过失败，该记录状态不是审批中！";
@@ -155,34 +154,40 @@ public class SettleMentFacade implements BillBaseSelector {
 			}
 			DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 			xml.append("<DATA>\n");
-			xml.append("<Orgunit>"+ StringUtilBPM.isNULl(Info.getOrgUnit().getName())+ "</Orgunit>\n"); // 组织
-			xml.append("<CurProject>"+ StringUtilBPM.isNULl(Info.getCurProject().getName())+ "</CurProject>\n"); // 工程项目
-			xml.append("<Topic>"+ StringUtilBPM.isNULl(Info.getName())+ "</Topic>\n");   //结算单名称
-			xml.append("<number>审-"+ StringUtilBPM.isNULl(Info.getContractBillNumber())+ "</number>\n"); // 结算单编码
-			xml.append("<contactNumber>"+ StringUtilBPM.isNULl(Info.getContractBillNumber())+ "</contactNumber>\n"); // 合同编码
+			xml.append("<Topic>"+ StringUtilBPM.isNULl(Info.getName())+ "</Topic>\n");   //标题
+			xml.append("<OrgName>"+StringUtilBPM.isNULl(Info.getOrgUnit().getDisplayName())+"</OrgName>\n");//组织
+			xml.append("<CurProject>"+ StringUtilBPM.isNULl(Info.getCurProject().getDisplayName())+ "</CurProject>\n"); // 工程项目
+			xml.append("<contactNumber>"+Info.getContractBill().getId()+ "</contactNumber>\n"); // 合同编码
 			xml.append("<contractName>"+ StringUtilBPM.isNULl(Info.getContractBill().getName())+ "</contractName>\n");// 合同名称
-			xml.append("<bookedDate>" + dateFormat.format(Info.getBizDate())+ "</bookedDate>\n"); // 业务日期
+			xml.append("<number>"+ StringUtilBPM.isNULl(Info.getContractBillNumber())+ "</number>\n"); // 结算单编码
+			xml.append("<name>"+ StringUtilBPM.isNULl(Info.getName())+ "</name>\n"); // 结算单编码
+			xml.append("<bookedDate>" + dateFormat.format(Info.getBookedDate())+ "</bookedDate>\n"); // 业务日期
 			xml.append("<Currency>" + Info.getCurrency().getName()+ "</Currency>\n"); // 币别
-			xml.append("<constructPrice>" + Info.getConstructPrice()+ "</constructPrice>\n"); // 施工方报审价
-			xml.append("<exchangerate>" + Info.getExchangeRate()+ "</exchangerate>\n");
+			xml.append("<Exchangerate>" + Info.getExchangeRate()+ "</Exchangerate>\n");   //汇率
+            String m=dateFormat.format(Info.getBookedDate());
+            m=m.toString().substring(0, 4);
+            String nz=dateFormat.format(Info.getBookedDate());
+            nz=nz.toString().substring(5,7);
+			xml.append("<Period>" +m +"年"+nz+"期</Period>\n");   //期间
 			xml.append("<OriginalAmount>" + Info.getOriginalAmount()+ "</OriginalAmount>\n"); // 结算造价原币
+			xml.append("<constructPrice>" + Info.getConstructPrice()+ "</constructPrice>\n"); // 施工方报审价
+			xml.append("<getFeeCriteria>" + Info.getGetFeeCriteria()+ "</getFeeCriteria>\n"); // 取费标准
 			xml.append("<settlePrice>" + Info.getSettlePrice()+ "</settlePrice>\n"); // 结算造价本币
 			xml.append("<unitPrice>" + Info.getUnitPrice()+ "</unitPrice>\n"); // 单位造价
-			xml.append("<buildArea>" + Info.getBuildArea()+ "</buildArea>\n"); // 建筑面积
-			xml.append("<getFeeCriteria>" + Info.getGetFeeCriteria()+ "</getFeeCriteria>\n"); // 取费标准
 			xml.append("<infoPrice>" + Info.getInfoPrice()+ "</infoPrice>\n"); // 信息价
+			xml.append("<buildArea>" + Info.getBuildArea()+ "</buildArea>\n"); // 建筑面积
+			xml.append("<guaranteAmt>" + Info.getGuaranteAmt()+ "</guaranteAmt>\n"); // 保修金
 			xml.append("<qualitytime>" + Info.getQualityTime()+ "</qualitytime>\n"); // 保修期限
 			xml.append("<qulityguaranterate>"+ Info.getQualityGuaranteRate()+ "</qulityguaranterate>\n"); // 保修金比例
-			xml.append("<guaranteAmt>" + Info.getGuaranteAmt()+ "</guaranteAmt>\n"); // 保修金
+			xml.append("<QualityGuarante>" + Info.getQualityGuarante()+ "</QualityGuarante>\n"); // 累计保修金
 			xml.append("<totalOriginalAmount>"+ Info.getTotalOriginalAmount()+ "</totalOriginalAmount>\n"); // 累计结算原币
 			xml.append("<totalsettlePrice>" + Info.getTotalSettlePrice()+ "</totalsettlePrice>\n"); // 累计结算本币
 			xml.append("<description>" + StringUtilBPM.isNULl(Info.getDescription())+ "</description>\n"); // 备注
-			xml.append("<QualityGuarante>" + Info.getQualityGuarante()+ "</QualityGuarante>\n"); // 累计保修金
 			xml.append("<isFinalSettle>" + Info.getIsFinalSettle()+ "</isFinalSettle>\n");   // 是否最终结算
 			xml.append("<Creator>"+ Info.getCreator().getName()+ "</Creator>\n"); // 制单人
 			xml.append("<AttenTwo>"+ Info.getOwnID() + "</AttenTwo>\n"); // 归档稿
+			//xml.append("<DeptName>"+Info.+"</DeptName>\n");//制单部门
 			xml.append("</DATA>");
-			
 			str[1] = xml.toString();
 		} catch (Exception e) {
 			str[0] = "N";
@@ -260,36 +265,33 @@ public class SettleMentFacade implements BillBaseSelector {
 
 	public SelectorItemCollection getSelectors() {
 		SelectorItemCollection sic = new SelectorItemCollection();
-		sic.add(new SelectorItemInfo("Orgunit.id")); // 组织
-		sic.add(new SelectorItemInfo("Orgunit.name"));
-		sic.add(new SelectorItemInfo("Orgunit.number"));
-		sic.add(new SelectorItemInfo("CurProject")); // 工程项目
+		sic.add(new SelectorItemInfo("Orgunit.DisplayName")); // 组织
+		sic.add(new SelectorItemInfo("CurProject.DisplayName")); // 工程项目
 		sic.add(new SelectorItemInfo("ContractBillNumber"));
 		sic.add(new SelectorItemInfo("ContractBill.id"));
 		sic.add(new SelectorItemInfo("ContractBill.name"));
 		sic.add(new SelectorItemInfo("ContractBill.number"));
-		sic.add(new SelectorItemInfo("BizDate"));
-		sic.add(new SelectorItemInfo("Currency.id"));
+		sic.add(new SelectorItemInfo("Name"));
+		sic.add(new SelectorItemInfo("BookedDate"));
 		sic.add(new SelectorItemInfo("Currency.name"));
-		sic.add(new SelectorItemInfo("Currency.number"));
-		sic.add(new SelectorItemInfo("constructPrice"));
-		sic.add(new SelectorItemInfo("exchangerate"));
-		sic.add(new SelectorItemInfo("settlePrice"));
-		sic.add(new SelectorItemInfo("unitPrice"));
-		sic.add(new SelectorItemInfo("buildArea"));
-		sic.add(new SelectorItemInfo("getFeeCriteria"));
-		sic.add(new SelectorItemInfo("infoPrice"));
-		sic.add(new SelectorItemInfo("qualitytime"));
-		sic.add(new SelectorItemInfo("qulityguaranterate"));
-		sic.add(new SelectorItemInfo("guaranteAmt"));
-		sic.add(new SelectorItemInfo("totalOriginalAmount"));
-		sic.add(new SelectorItemInfo("totalsettlePrice"));
-		sic.add(new SelectorItemInfo("description"));
-		sic.add(new SelectorItemInfo("isFinalSettle"));
-		sic.add(new SelectorItemInfo("Creator.name"));
-		sic.add(new SelectorItemInfo("OwnID"));
-		sic.add(new SelectorItemInfo("QualityGuarante"));
+		sic.add(new SelectorItemInfo("ExchangeRate"));
+		sic.add(new SelectorItemInfo("Period"));
 		sic.add(new SelectorItemInfo("OriginalAmount"));
+		sic.add(new SelectorItemInfo("ConstructPrice"));
+		sic.add(new SelectorItemInfo("GetFeeCriteria"));
+		sic.add(new SelectorItemInfo("SettlePrice"));
+		sic.add(new SelectorItemInfo("UnitPrice"));
+		sic.add(new SelectorItemInfo("InfoPrice"));
+		sic.add(new SelectorItemInfo("BuildArea"));
+		sic.add(new SelectorItemInfo("GuaranteAmt"));
+		sic.add(new SelectorItemInfo("QualityTime"));
+		sic.add(new SelectorItemInfo("QualityGuaranteRate"));
+		sic.add(new SelectorItemInfo("QualityGuarante"));
+		sic.add(new SelectorItemInfo("TotalOriginalAmount"));
+		sic.add(new SelectorItemInfo("TotalSettlePrice"));
+		sic.add(new SelectorItemInfo("Description"));
+		sic.add(new SelectorItemInfo("IsFinalSettle"));
+		sic.add(new SelectorItemInfo("Creator.name"));
 		sic.add(new SelectorItemInfo("State"));
 		return sic;
 	}

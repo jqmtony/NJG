@@ -242,34 +242,29 @@ public class ContractReviseFacade implements BillBaseSelector{
           	     EntityViewInfo Myavevi2 = new EntityViewInfo();
   		         FilterInfo Myavfilter2 = new FilterInfo();
   		         Myavfilter2.getFilterItems().add(new FilterItemInfo("id",info.getProgrammingContract().getId()));
-  		         //ProgrammingContractCollection myavc2= ProgrammingContractFactory.getLocalInstance(ctx).getProgrammingContractCollection(Myavevi2);
-  		         //if(myavc2.size()>0)
-  		         //{
-         	     //for(int j=0;j< myavc2.size();j++)
-         	     //{	 
          	     ProgrammingContractInfo proInfo2=ProgrammingContractFactory.getLocalInstance(ctx).getProgrammingContractInfo(new ObjectUuidPK(info.getProgrammingContract().getId()));
          	     if(proInfo2.getName()!=null)
            	     xml.append("<programmingContract>"+proInfo2.getName()+"</programmingContract>\n");
-         	     
-         		  String sql="select sum(b.Fceremonyb) as SAmount,sum(c.FCostAmount) as SmoneyB from T_CON_ProgrammingContract a left join  T_CON_ContractBill b on a.fid=b.FProgrammingContract ";
-        		  sql+="left join (select b.FCostAmount as FCostAmount,b.FcontractBillID as FcontractBillID,a.FChangeState as FChangeState from T_CON_ChangeAuditBill a left join ";
-        		  sql+="T_CON_ChangeSupplierEntry b on a.fid=b.fparentid)as c on b.fid=c.FcontractBillID where b.Fstate='3AUDITTING' and b.FProgrammingContract='"+proInfo2.getId()+"' ";
-        		  sql+=" group by a.fid ";
-        		  FDCSQLBuilder builder=new FDCSQLBuilder();
-        		  builder.appendSql(sql);
-                  IRowSet Rowset=builder.executeQuery();
-                  if(Rowset.size()==1)
-                  {
-                   Rowset.next();  
-                   xml.append("<HTMoney>" +FDCHelper.toBigDecimal(Rowset.getBigDecimal("SAmount")) + "</HTMoney>\n");//在途金额汇总
-        	       xml.append("<BGMoney>" +FDCHelper.toBigDecimal(Rowset.getBigDecimal("SmoneyB"))+"</BGMoney>\n");//在途变更金额汇总
-                  }
+       		      String sql="select a.SFCostAmount as SFa,b.SFceremonyb as SFb from  ";
+	    		  sql+="(select sum(c.FCostAmount) as SFCostAmount,a.flongNumber as fida from T_CON_ProgrammingContract a left join  T_CON_ContractBill b on a.fid=b.FProgrammingContract ";
+	    		  sql+="left join (select b.FCostAmount as FCostAmount,b.FcontractBillID as FcontractBillID,a.FChangeState as FChangeState from T_CON_ChangeAuditBill a left join ";
+	    		  sql+="T_CON_ChangeSupplierEntry b on a.fid=b.fparentid)as c on b.fid=c.FcontractBillID where c.FchangeState = '4Auditting' group by a.flongnumber) a  ";
+	    		  sql+="right join (select sum(b.Fceremonyb) as SFceremonyb,a.flongNumber as fidb  from T_CON_ProgrammingContract a left join  T_CON_ContractBill b on a.fid=b.FProgrammingContract left ";
+	    		  sql+="join (select b.FCostAmount as FCostAmount,b.FcontractBillID as FcontractBillID,a.FChangeState as FChangeState from T_CON_ChangeAuditBill a left join ";
+	    		  sql+="T_CON_ChangeSupplierEntry b on a.fid=b.fparentid)as c on b.fid=c.FcontractBillID where b.Fstate='3AUDITTING' and b.FProgrammingContract='"+proInfo2.getId()+"' group by a.flongnumber) b on a.fida= b.fidb";
+	    		  FDCSQLBuilder builder=new FDCSQLBuilder(ctx);
+	    		  builder.appendSql(sql);
+	              IRowSet Rowset=builder.executeQuery();
+	              if(Rowset.size()==1)
+	              {
+	               Rowset.next();  
+	               xml.append("<HTMoney>" +FDCHelper.toBigDecimal(Rowset.getBigDecimal("SFa")) + "</HTMoney>\n");//在途金额汇总
+			       xml.append("<BGMoney>" +FDCHelper.toBigDecimal(Rowset.getBigDecimal("SFb"))+"</BGMoney>\n");//在途变更金额汇总
+	              }
+	              builder.clear();
            	     if(proInfo2.getControlBalance()!=null)
            	     xml.append("<controlBalance>"+proInfo2.getControlBalance()+"</controlBalance>\n");
-           	    // break;
-         	    // }
-  		        // }
-         	    xml.append("<overRate>"+info.getOverRate()+"</overRate>\n");
+         	     xml.append("<overRate>"+info.getOverRate()+"</overRate>\n");
                 }
 		      }
    

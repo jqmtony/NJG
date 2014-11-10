@@ -14,6 +14,13 @@ import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.metadata.entity.SelectorItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
+import com.kingdee.eas.base.permission.UserFactory;
+import com.kingdee.eas.base.permission.UserInfo;
+import com.kingdee.eas.basedata.assistant.CurrencyFactory;
+import com.kingdee.eas.basedata.assistant.CurrencyInfo;
+import com.kingdee.eas.basedata.master.cssp.SupplierFactory;
+import com.kingdee.eas.basedata.master.cssp.SupplierInfo;
+import com.kingdee.eas.basedata.org.AdminOrgUnitFactory;
 import com.kingdee.eas.bpm.BPMLogFactory;
 import com.kingdee.eas.bpm.BPMLogInfo;
 import com.kingdee.eas.bpm.common.StringUtilBPM;
@@ -24,6 +31,7 @@ import com.kingdee.eas.fdc.contract.ChangeAuditBillFactory;
 import com.kingdee.eas.fdc.contract.ChangeAuditBillInfo;
 import com.kingdee.eas.fdc.contract.ChangeAuditEntryFactory;
 import com.kingdee.eas.fdc.contract.ChangeAuditEntryInfo;
+import com.kingdee.eas.fdc.contract.ChangeSupplierEntryCollection;
 import com.kingdee.eas.fdc.contract.ChangeSupplierEntryFactory;
 import com.kingdee.eas.fdc.contract.ChangeSupplierEntryInfo;
 import com.kingdee.eas.fdc.contract.ContractBillCollection;
@@ -153,7 +161,7 @@ public class ChangeOfSettlementFacade {
 		    xml.append("<mainSupp>"+StringUtilBPM.isNULl(Info.getMainSupp().getName())+ "</mainSupp>\n"); // 主送单位	
 			
 				
-			xml.append("<CompanyName>"+ Info.getOrgUnit().getDisplayName()+ "</CompanyName>\n"); // 组织
+			xml.append("<OrgName>"+ Info.getOrgUnit().getDisplayName()+ "</OrgName>\n"); // 组织
 			xml.append("<Phase>"+ Info.getCurProject().getDisplayName()+ "</Phase>\n"); // 工程项目
 				
 			
@@ -190,23 +198,7 @@ public class ChangeOfSettlementFacade {
 			xml.append("<creator>"+ Info.getCreator().getName()+ "</creator>\n"); // 制单人
 			
 			xml.append("<createTime>"+ Info.getCreateTime()+ "</createTime>\n"); // 制单日期
-			
-			
-//			 EntityViewInfo avevi = new EntityViewInfo();
-//		      FilterInfo avfilter = new FilterInfo();
-//		      avfilter.getFilterItems().add(new FilterItemInfo("number",Info.getContractBill().getNumber(),CompareType.EQUALS));
-//		      avevi.setFilter(avfilter);
-//		      ContractBillCollection myavc=ContractBillFactory.getRemoteInstance().getContractBillCollection(avevi);
-//		      for(int i=0;i< myavc.size();i++){
-//        	    ContractBillInfo avInfo = myavc.get(i);
-//        	   if(avInfo.getCurrency()!=null)
-//          	   xml.append("<Currency>"+avInfo.getCurrency().getName()+"</Currency>\n");
-//          	   if(avInfo.getProgrammingContract()!=null)
-//          	   xml.append("<controlBalance>"+avInfo.getProgrammingContract().getControlBalance()+"</controlBalance>\n");  //参考金额
-//  
-//          	 
-//             }
-			
+			xml.append("<CostAmount>"+ Info.getOriginalAmount()+ "</CostAmount>\n"); // 测算金额金额
 			
 			xml.append("</DATA>");
 			str[1] = xml.toString();

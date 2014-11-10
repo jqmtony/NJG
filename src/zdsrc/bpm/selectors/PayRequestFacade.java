@@ -231,7 +231,7 @@ public class PayRequestFacade implements BillBaseSelector {
 			xml.append("<recAccount>"+StringUtilBPM.isNULl(Info.getRecAccount())+"</recAccount>\n");//收款账号
 			if(Info.getRealSupplier()!=null)
 			xml.append("<realSupplier>"+StringUtilBPM.isNULl(Info.getRealSupplier().getName())+"</realSupplier>\n");//实际收款单位
-			xml.append("<Desc>"+StringUtilBPM.isNULl(Info.getDescription().toString())+"</Desc>\n");// 摘要
+			xml.append("<Desc>"+StringUtilBPM.isNULl(Info.getDescription())+"</Desc>\n");// 摘要
 			xml.append("<usage>"+StringUtilBPM.isNULl(Info.getUsage())+"</usage>\n");//用途
    
 			xml.append("<currency>"+StringUtilBPM.isNULl(Info.getCurrency().getName())+"</currency>\n");//币别
