@@ -17,9 +17,11 @@ import com.kingdee.eas.bpm.common.UpdateUtil;
 import com.kingdee.eas.bpm.common.ViewXmlUtil;
 import com.kingdee.eas.bpm.selectors.ChangeAuditFacade;
 import com.kingdee.eas.bpm.selectors.ChangeOfSettlementFacade;
+import com.kingdee.eas.bpm.selectors.CompensationFacade;
 import com.kingdee.eas.bpm.selectors.ContractFacade;
 import com.kingdee.eas.bpm.selectors.ContractReviseFacade;
 import com.kingdee.eas.bpm.selectors.ContractWithoutTextFacade;
+import com.kingdee.eas.bpm.selectors.DeductBillFacade;
 import com.kingdee.eas.bpm.selectors.JLFacade;
 import com.kingdee.eas.bpm.selectors.PayRequestFacade;
 import com.kingdee.eas.bpm.selectors.SettleMentFacade;
@@ -27,6 +29,7 @@ import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
 import com.kingdee.eas.fdc.contract.ChangeAuditBillInfo;
+import com.kingdee.eas.fdc.contract.CompensationBillInfo;
 import com.kingdee.eas.fdc.contract.ContractBillEntryFactory;
 import com.kingdee.eas.fdc.contract.ContractBillEntryInfo;
 import com.kingdee.eas.fdc.contract.ContractBillFactory;
@@ -37,6 +40,8 @@ import com.kingdee.eas.fdc.contract.ContractSettlementBillInfo;
 import com.kingdee.eas.fdc.contract.ContractWithoutTextInfo;
 import com.kingdee.eas.fdc.contract.GuerdonBillInfo;
 import com.kingdee.eas.fdc.contract.PayRequestBillInfo;
+import com.kingdee.eas.fdc.finance.DeductBillFactory;
+import com.kingdee.eas.fdc.finance.DeductBillInfo;
 
 public class getInfoFacadeControllerBean extends AbstractgetInfoFacadeControllerBean
 {
@@ -81,7 +86,18 @@ public class getInfoFacadeControllerBean extends AbstractgetInfoFacadeController
 			{
 				str = new ChangeOfSettlementFacade().SubmitResult(ctx, strBSID, billInfo, success, procInstID, procURL, strMessage);
 			}
-			
+			if(billInfo instanceof GuerdonBillInfo)
+			{
+				str=new JLFacade().SubmitResult(ctx, strBSID, billInfo, success, procInstID, procURL, strMessage);
+			}
+			if(billInfo instanceof CompensationBillInfo)
+			{
+				str=new CompensationFacade().SubmitResult(ctx, strBSID, billInfo, success, procInstID, procURL, strMessage);
+			}
+			if(billInfo instanceof DeductBillInfo)
+			{
+				str=new DeductBillFacade().SubmitResult(ctx, strBSID, billInfo, success, procInstID, procURL, strMessage);
+			}
 			return str;
 		}
 		
@@ -125,6 +141,18 @@ public class getInfoFacadeControllerBean extends AbstractgetInfoFacadeController
 			{
 				str = new ChangeOfSettlementFacade().ApproveClose(ctx, strBSID, billInfo, procInstID, processInstanceResult, strComment, dtTime);
 			}
+			if(billInfo instanceof GuerdonBillInfo)
+			{
+				str=new JLFacade().ApproveClose(ctx, strBSID, billInfo, procInstID, processInstanceResult, strComment, dtTime);
+			}
+			if(billInfo instanceof CompensationBillInfo)
+			{
+				str=new CompensationFacade().ApproveClose(ctx, strBSID, billInfo, procInstID, processInstanceResult, strComment, dtTime);
+			}
+			if(billInfo instanceof DeductBillInfo)
+			{
+				str=new DeductBillFacade().ApproveClose(ctx, strBSID, billInfo, procInstID, processInstanceResult, strComment, dtTime);
+			}
 
 			return str;
 		}
@@ -136,12 +164,8 @@ public class getInfoFacadeControllerBean extends AbstractgetInfoFacadeController
     	IObjectValue billInfo = null;
     	try {
 			billInfo = DynamicObjectFactory.getLocalInstance(ctx).getValue(new ObjectUuidPK(strBOID).getObjectType(),new ObjectUuidPK(strBOID));
-    	}catch (Exception e) {
-			str[2] = "根据单据ID获取对象数据失败,请检查单据ID是否存在，并查看服务器log日志";
-			e.printStackTrace();
-		}finally{
 			if(billInfo instanceof ContractBillInfo){
-				str = new ContractFacade().GetbillInfo(ctx, strBSID, billInfo);
+				str = new ContractFacade().GetbillInfo(ctx, strBSID, billInfo);	
 			}
 			if(billInfo instanceof ChangeAuditBillInfo)
 			{
@@ -169,15 +193,60 @@ public class getInfoFacadeControllerBean extends AbstractgetInfoFacadeController
 			}
 			if(billInfo instanceof GuerdonBillInfo)
 			{
-			  // str=ViewXmlUtil.getViewXmlString(ctx,billInfo.getnumber().tostring(),((GuerdonBillInfo) billInfo).getId().toString());
-				str=new JLFacade().GetbillInfo(ctx, strBSID, billInfo);
+				//str=new JLFacade().GetbillInfo(ctx, strBSID, billInfo);
+				str=ViewXmlUtil.getViewXmlHTString(ctx, "007",((GuerdonBillInfo) billInfo).getId().toString());
+			}
+			if(billInfo instanceof CompensationBillInfo)
+			{
+				//str=new CompensationFacade().GetbillInfo(ctx, strBSID, billInfo);
+				str=ViewXmlUtil.getViewXmlHTString(ctx, "005",((CompensationBillInfo) billInfo).getId().toString());
+			}
+			if(billInfo instanceof DeductBillInfo)
+			{
+				//str=new DeductBillFacade().GetbillInfo(ctx, strBSID, billInfo);
+				str=ViewXmlUtil.getViewXmlHTString(ctx, "006",((DeductBillInfo) billInfo).getId().toString());
+			}
+			
+    	}catch (Exception e) {
+			str[2] = "根据单据ID获取对象数据失败,请检查单据ID是否存在，并查看服务器log日志";
+			e.printStackTrace();
+		}finally{
+			BPMLogInfo log = new BPMLogInfo();
+			try {
+				log.setLogDate(new Date());
+				log.setName("EAS结果:"+str[0]);
+				log.setDescription("错误信息"+str[2]);
+				log.setBeizhu("调用接口方法：_GetbillInfo");
+				BPMLogFactory.getLocalInstance(ctx).save(log);
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
 			return str;
 		}
 	}
 	
 	public String[] _GetrRelatedBillInfo(Context ctx, String strBTID,String strBOID, String strRelatedCode) throws BOSException {
-		return super._GetrRelatedBillInfo(ctx, strBTID, strBOID, strRelatedCode);
+		String[] str = new String[3];
+    	IObjectValue billInfo = null;
+    	try {
+			billInfo = DynamicObjectFactory.getLocalInstance(ctx).getValue(new ObjectUuidPK(strBOID).getObjectType(),new ObjectUuidPK(strBOID));
+    	}catch (Exception e) {
+			str[2] = "根据单据ID获取对象数据失败,请检查单据ID是否存在，并查看服务器log日志";
+			e.printStackTrace();
+		}finally{
+			if(billInfo instanceof ContractBillInfo){
+				 str =  ViewXmlUtil.getViewXmlString(ctx, strRelatedCode, ((ContractBillInfo) billInfo).getId().toString());
+			}
+			else if(billInfo instanceof ContractSettlementBillInfo)
+			{
+				 ContractSettlementBillInfo  SettlementBillInfo = ((ContractSettlementBillInfo) billInfo);
+				 str =  ViewXmlUtil.getViewXmlString(ctx, strRelatedCode, SettlementBillInfo.getContractBill().getId().toString());
+			}
+			else{
+				 str =  ViewXmlUtil.getViewXmlString(ctx, strRelatedCode, strBOID);	
+			}
+			return str;
+		}
 	}
 	public String[] _ApproveBack(Context ctx, String strBTID,String strBOID, String strXML) throws BOSException {
 		String[] str = new String[3];
