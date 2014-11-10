@@ -134,6 +134,7 @@ public abstract class AbstractRepairOrderEditUI extends com.kingdee.eas.xr.clien
     protected ActionToVoid actionToVoid = null;
     protected ActionUnToVoid actionUnToVoid = null;
     protected ActionEquInfomation actionEquInfomation = null;
+    protected ActionExcel actionExcel = null;
     /**
      * output class constructor
      */
@@ -207,6 +208,14 @@ public abstract class AbstractRepairOrderEditUI extends com.kingdee.eas.xr.clien
         this.actionEquInfomation.setExtendProperty("isObjectUpdateLock", "false");
          this.actionEquInfomation.addService(new com.kingdee.eas.framework.client.service.PermissionService());
          this.actionEquInfomation.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
+        //actionExcel
+        this.actionExcel = new ActionExcel(this);
+        getActionManager().registerAction("actionExcel", actionExcel);
+        this.actionExcel.setExtendProperty("canForewarn", "true");
+        this.actionExcel.setExtendProperty("userDefined", "true");
+        this.actionExcel.setExtendProperty("isObjectUpdateLock", "false");
+         this.actionExcel.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+         this.actionExcel.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
         this.contCreator = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contCreateTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contLastUpdateUser = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -484,7 +493,7 @@ public abstract class AbstractRepairOrderEditUI extends com.kingdee.eas.xr.clien
         this.contmaintenanceProgram.setBoundLabelUnderline(true);		
         this.contmaintenanceProgram.setVisible(true);
         // kdtE1
-		String kdtE1StrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style><c:Style id=\"sCol2\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol3\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol10\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol11\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol12\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol13\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol16\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol19\"><c:NumberFormat>&amp;date</c:NumberFormat></c:Style><c:Style id=\"sCol20\"><c:Protection hidden=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"equNameOne\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"equNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol2\" /><t:Column t:key=\"changNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol3\" /><t:Column t:key=\"FaLocation\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"guzhangqingkuang\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"repairContent\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"wxfa\" t:width=\"220\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"replaceSparePart\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"beijiangenghuan\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"model\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol10\" /><t:Column t:key=\"shuliang\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol11\" /><t:Column t:key=\"jlUnit\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol12\" /><t:Column t:key=\"workTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol13\" /><t:Column t:key=\"repairPerson\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"sfww\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"xlAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol16\" /><t:Column t:key=\"yujingzhouqi\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"remark\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"yujingDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol19\" /><t:Column t:key=\"sourceBillID\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol20\" /><t:Column t:key=\"xiulirenyuan\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{equNameOne}</t:Cell><t:Cell>$Resource{equNumber}</t:Cell><t:Cell>$Resource{changNumber}</t:Cell><t:Cell>$Resource{FaLocation}</t:Cell><t:Cell>$Resource{guzhangqingkuang}</t:Cell><t:Cell>$Resource{repairContent}</t:Cell><t:Cell>$Resource{wxfa}</t:Cell><t:Cell>$Resource{replaceSparePart}</t:Cell><t:Cell>$Resource{beijiangenghuan}</t:Cell><t:Cell>$Resource{model}</t:Cell><t:Cell>$Resource{shuliang}</t:Cell><t:Cell>$Resource{jlUnit}</t:Cell><t:Cell>$Resource{workTime}</t:Cell><t:Cell>$Resource{repairPerson}</t:Cell><t:Cell>$Resource{sfww}</t:Cell><t:Cell>$Resource{xlAmount}</t:Cell><t:Cell>$Resource{yujingzhouqi}</t:Cell><t:Cell>$Resource{remark}</t:Cell><t:Cell>$Resource{yujingDate}</t:Cell><t:Cell>$Resource{sourceBillID}</t:Cell><t:Cell>$Resource{xiulirenyuan}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		String kdtE1StrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style><c:Style id=\"sCol2\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol3\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol10\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol11\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol12\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol13\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol16\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol19\"><c:NumberFormat>&amp;date</c:NumberFormat></c:Style><c:Style id=\"sCol20\"><c:Protection hidden=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"equNameOne\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"equNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol2\" /><t:Column t:key=\"changNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol3\" /><t:Column t:key=\"FaLocation\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"guzhangqingkuang\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"repairContent\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"wxfa\" t:width=\"220\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"replaceSparePart\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"beijiangenghuan\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"model\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol10\" /><t:Column t:key=\"shuliang\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol11\" /><t:Column t:key=\"jlUnit\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol12\" /><t:Column t:key=\"workTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol13\" /><t:Column t:key=\"repairPerson\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"sfww\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"xlAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol16\" /><t:Column t:key=\"yujingzhouqi\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"remark\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"yujingDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol19\" /><t:Column t:key=\"sourceBillID\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol20\" /><t:Column t:key=\"repPersonID\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{equNameOne}</t:Cell><t:Cell>$Resource{equNumber}</t:Cell><t:Cell>$Resource{changNumber}</t:Cell><t:Cell>$Resource{FaLocation}</t:Cell><t:Cell>$Resource{guzhangqingkuang}</t:Cell><t:Cell>$Resource{repairContent}</t:Cell><t:Cell>$Resource{wxfa}</t:Cell><t:Cell>$Resource{replaceSparePart}</t:Cell><t:Cell>$Resource{beijiangenghuan}</t:Cell><t:Cell>$Resource{model}</t:Cell><t:Cell>$Resource{shuliang}</t:Cell><t:Cell>$Resource{jlUnit}</t:Cell><t:Cell>$Resource{workTime}</t:Cell><t:Cell>$Resource{repairPerson}</t:Cell><t:Cell>$Resource{sfww}</t:Cell><t:Cell>$Resource{xlAmount}</t:Cell><t:Cell>$Resource{yujingzhouqi}</t:Cell><t:Cell>$Resource{remark}</t:Cell><t:Cell>$Resource{yujingDate}</t:Cell><t:Cell>$Resource{sourceBillID}</t:Cell><t:Cell>$Resource{repPersonID}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.kdtE1.setFormatXml(resHelper.translateString("kdtE1",kdtE1StrXML));
         kdtE1.addKDTEditListener(new KDTEditAdapter() {
@@ -509,18 +518,10 @@ public abstract class AbstractRepairOrderEditUI extends com.kingdee.eas.xr.clien
             }
         });
 
-                this.kdtE1.putBindContents("editData",new String[] {"seq","equNameOne","equNumber","changNumber","FaLocation","guzhangqingkuang","repairContent","wxfa","replaceSparePart","beijiangenghuan","model","shuliang","jlUnit","workTime","repairPerson","sfww","xlAmount","yujingzhouqi","remark","yujingDate","sourceBillID","xiulirenyuan"});
+                this.kdtE1.putBindContents("editData",new String[] {"seq","equNameOne","equNumber","changNumber","FaLocation","guzhangqingkuang","repairContent","wxfa","replaceSparePart","beijiangenghuan","model","shuliang","jlUnit","workTime","","sfww","xlAmount","yujingzhouqi","remark","yujingDate","sourceBillID","repPersonID"});
 
 
         this.kdtE1.checkParsed();
-        KDFormattedTextField kdtE1_seq_TextField = new KDFormattedTextField();
-        kdtE1_seq_TextField.setName("kdtE1_seq_TextField");
-        kdtE1_seq_TextField.setVisible(true);
-        kdtE1_seq_TextField.setEditable(true);
-        kdtE1_seq_TextField.setHorizontalAlignment(2);
-        kdtE1_seq_TextField.setDataType(0);
-        KDTDefaultCellEditor kdtE1_seq_CellEditor = new KDTDefaultCellEditor(kdtE1_seq_TextField);
-        this.kdtE1.getColumn("seq").setEditor(kdtE1_seq_CellEditor);
         final KDBizPromptBox kdtE1_equNameOne_PromptBox = new KDBizPromptBox();
         kdtE1_equNameOne_PromptBox.setQueryInfo("com.kingdee.eas.port.equipment.record.app.EquIdQuery");
         kdtE1_equNameOne_PromptBox.setVisible(true);
@@ -619,18 +620,6 @@ public abstract class AbstractRepairOrderEditUI extends com.kingdee.eas.xr.clien
         kdtE1_workTime_TextField.setPrecision(1);
         KDTDefaultCellEditor kdtE1_workTime_CellEditor = new KDTDefaultCellEditor(kdtE1_workTime_TextField);
         this.kdtE1.getColumn("workTime").setEditor(kdtE1_workTime_CellEditor);
-        final KDBizPromptBox kdtE1_repairPerson_PromptBox = new KDBizPromptBox();
-        kdtE1_repairPerson_PromptBox.setQueryInfo("com.kingdee.eas.basedata.person.app.PersonQuery");
-        kdtE1_repairPerson_PromptBox.setVisible(true);
-        kdtE1_repairPerson_PromptBox.setEditable(true);
-        kdtE1_repairPerson_PromptBox.setDisplayFormat("$number$");
-        kdtE1_repairPerson_PromptBox.setEditFormat("$number$");
-        kdtE1_repairPerson_PromptBox.setCommitFormat("$number$");
-        KDTDefaultCellEditor kdtE1_repairPerson_CellEditor = new KDTDefaultCellEditor(kdtE1_repairPerson_PromptBox);
-        this.kdtE1.getColumn("repairPerson").setEditor(kdtE1_repairPerson_CellEditor);
-        ObjectValueRender kdtE1_repairPerson_OVR = new ObjectValueRender();
-        kdtE1_repairPerson_OVR.setFormat(new BizDataFormat("$name$"));
-        this.kdtE1.getColumn("repairPerson").setRenderer(kdtE1_repairPerson_OVR);
         KDCheckBox kdtE1_sfww_CheckBox = new KDCheckBox();
         kdtE1_sfww_CheckBox.setName("kdtE1_sfww_CheckBox");
         KDTDefaultCellEditor kdtE1_sfww_CellEditor = new KDTDefaultCellEditor(kdtE1_sfww_CheckBox);
@@ -667,11 +656,11 @@ public abstract class AbstractRepairOrderEditUI extends com.kingdee.eas.xr.clien
         kdtE1_sourceBillID_TextField.setMaxLength(100);
         KDTDefaultCellEditor kdtE1_sourceBillID_CellEditor = new KDTDefaultCellEditor(kdtE1_sourceBillID_TextField);
         this.kdtE1.getColumn("sourceBillID").setEditor(kdtE1_sourceBillID_CellEditor);
-        KDTextField kdtE1_xiulirenyuan_TextField = new KDTextField();
-        kdtE1_xiulirenyuan_TextField.setName("kdtE1_xiulirenyuan_TextField");
-        kdtE1_xiulirenyuan_TextField.setMaxLength(255);
-        KDTDefaultCellEditor kdtE1_xiulirenyuan_CellEditor = new KDTDefaultCellEditor(kdtE1_xiulirenyuan_TextField);
-        this.kdtE1.getColumn("xiulirenyuan").setEditor(kdtE1_xiulirenyuan_CellEditor);
+        KDTextArea kdtE1_repPersonID_TextArea = new KDTextArea();
+        kdtE1_repPersonID_TextArea.setName("kdtE1_repPersonID_TextArea");
+        kdtE1_repPersonID_TextArea.setMaxLength(1000);
+        KDTDefaultCellEditor kdtE1_repPersonID_CellEditor = new KDTDefaultCellEditor(kdtE1_repPersonID_TextArea);
+        this.kdtE1.getColumn("repPersonID").setEditor(kdtE1_repPersonID_CellEditor);
         // contBIMUDF0021		
         this.contBIMUDF0021.setBoundLabelText(resHelper.getString("contBIMUDF0021.boundLabelText"));		
         this.contBIMUDF0021.setBoundLabelLength(100);		
@@ -1322,7 +1311,6 @@ public abstract class AbstractRepairOrderEditUI extends com.kingdee.eas.xr.clien
 		dataBinder.registerBinding("E1.repairContent", String.class, this.kdtE1, "repairContent.text");
 		dataBinder.registerBinding("E1.replaceSparePart", java.lang.Object.class, this.kdtE1, "replaceSparePart.text");
 		dataBinder.registerBinding("E1.workTime", java.math.BigDecimal.class, this.kdtE1, "workTime.text");
-		dataBinder.registerBinding("E1.repairPerson", java.lang.Object.class, this.kdtE1, "repairPerson.text");
 		dataBinder.registerBinding("E1.remark", String.class, this.kdtE1, "remark.text");
 		dataBinder.registerBinding("E1.FaLocation", java.lang.Object.class, this.kdtE1, "FaLocation.text");
 		dataBinder.registerBinding("E1.wxfa", String.class, this.kdtE1, "wxfa.text");
@@ -1338,8 +1326,8 @@ public abstract class AbstractRepairOrderEditUI extends com.kingdee.eas.xr.clien
 		dataBinder.registerBinding("E1.changNumber", String.class, this.kdtE1, "changNumber.text");
 		dataBinder.registerBinding("E1.beijiangenghuan", String.class, this.kdtE1, "beijiangenghuan.text");
 		dataBinder.registerBinding("E1.sourceBillID", String.class, this.kdtE1, "sourceBillID.text");
-		dataBinder.registerBinding("E1.xiulirenyuan", String.class, this.kdtE1, "xiulirenyuan.text");
 		dataBinder.registerBinding("E1.equNumber", String.class, this.kdtE1, "equNumber.text");
+		dataBinder.registerBinding("E1.repPersonID", String.class, this.kdtE1, "repPersonID.text");
 		dataBinder.registerBinding("selfStudy", boolean.class, this.chkselfStudy, "selected");
 		dataBinder.registerBinding("outsourcing", boolean.class, this.chkoutsourcing, "selected");
 		dataBinder.registerBinding("sfjhn", boolean.class, this.chksfjhn, "selected");
@@ -1520,7 +1508,6 @@ public abstract class AbstractRepairOrderEditUI extends com.kingdee.eas.xr.clien
 		getValidateHelper().registerBindProperty("E1.repairContent", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("E1.replaceSparePart", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("E1.workTime", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("E1.repairPerson", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("E1.remark", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("E1.FaLocation", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("E1.wxfa", ValidateHelper.ON_SAVE);    
@@ -1536,8 +1523,8 @@ public abstract class AbstractRepairOrderEditUI extends com.kingdee.eas.xr.clien
 		getValidateHelper().registerBindProperty("E1.changNumber", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("E1.beijiangenghuan", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("E1.sourceBillID", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("E1.xiulirenyuan", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("E1.equNumber", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("E1.repPersonID", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("selfStudy", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("outsourcing", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("sfjhn", ValidateHelper.ON_SAVE);    
@@ -1686,15 +1673,6 @@ kdtE1.getCell(rowIndex,"jlUnit").setValue(com.kingdee.bos.ui.face.UIRuleUtil.get
         	sic.add(new SelectorItemInfo("E1.replaceSparePart.number"));
 		}
     	sic.add(new SelectorItemInfo("E1.workTime"));
-		if(selectorAll.equalsIgnoreCase("true"))
-		{
-			sic.add(new SelectorItemInfo("E1.repairPerson.*"));
-		}
-		else{
-	    	sic.add(new SelectorItemInfo("E1.repairPerson.id"));
-			sic.add(new SelectorItemInfo("E1.repairPerson.name"));
-        	sic.add(new SelectorItemInfo("E1.repairPerson.number"));
-		}
     	sic.add(new SelectorItemInfo("E1.remark"));
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
@@ -1726,8 +1704,8 @@ kdtE1.getCell(rowIndex,"jlUnit").setValue(com.kingdee.bos.ui.face.UIRuleUtil.get
     	sic.add(new SelectorItemInfo("E1.changNumber"));
     	sic.add(new SelectorItemInfo("E1.beijiangenghuan"));
     	sic.add(new SelectorItemInfo("E1.sourceBillID"));
-    	sic.add(new SelectorItemInfo("E1.xiulirenyuan"));
     	sic.add(new SelectorItemInfo("E1.equNumber"));
+    	sic.add(new SelectorItemInfo("E1.repPersonID"));
         sic.add(new SelectorItemInfo("selfStudy"));
         sic.add(new SelectorItemInfo("outsourcing"));
         sic.add(new SelectorItemInfo("sfjhn"));
@@ -1920,6 +1898,15 @@ kdtE1.getCell(rowIndex,"jlUnit").setValue(com.kingdee.bos.ui.face.UIRuleUtil.get
     {
         com.kingdee.eas.port.equipment.maintenance.RepairOrderFactory.getRemoteInstance().equInfomation(editData);
     }
+    	
+
+    /**
+     * output actionExcel_actionPerformed method
+     */
+    public void actionExcel_actionPerformed(ActionEvent e) throws Exception
+    {
+        com.kingdee.eas.port.equipment.maintenance.RepairOrderFactory.getRemoteInstance().excel(editData);
+    }
 	public RequestContext prepareActionSubmit(IItemAction itemAction) throws Exception {
 			RequestContext request = super.prepareActionSubmit(itemAction);		
 		if (request != null) {
@@ -1973,6 +1960,17 @@ kdtE1.getCell(rowIndex,"jlUnit").setValue(com.kingdee.bos.ui.face.UIRuleUtil.get
     }
 	
 	public boolean isPrepareActionEquInfomation() {
+    	return false;
+    }
+	public RequestContext prepareActionExcel(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionExcel() {
     	return false;
     }
 
@@ -2063,6 +2061,36 @@ kdtE1.getCell(rowIndex,"jlUnit").setValue(com.kingdee.bos.ui.face.UIRuleUtil.get
         {
         	getUIContext().put("ORG.PK", getOrgPK(this));
             innerActionPerformed("eas", AbstractRepairOrderEditUI.this, "ActionEquInfomation", "actionEquInfomation_actionPerformed", e);
+        }
+    }
+
+    /**
+     * output ActionExcel class
+     */     
+    protected class ActionExcel extends ItemAction {     
+    
+        public ActionExcel()
+        {
+            this(null);
+        }
+
+        public ActionExcel(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            _tempStr = resHelper.getString("ActionExcel.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionExcel.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionExcel.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractRepairOrderEditUI.this, "ActionExcel", "actionExcel_actionPerformed", e);
         }
     }
 

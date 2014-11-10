@@ -7,9 +7,15 @@ import java.awt.event.*;
 import org.apache.log4j.Logger;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.eas.basedata.person.PersonInfo;
+import com.kingdee.eas.common.client.SysContext;
+import com.kingdee.eas.cp.bc.BizCollUtil;
 import com.kingdee.eas.framework.*;
+import com.kingdee.eas.xr.helper.PersonXRHelper;
+import com.kingdee.eas.xr.helper.Tool;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.swing.KDTextField;
+import com.kingdee.bos.ctrl.swing.event.DataChangeEvent;
 
 /**
  * output class name
@@ -692,4 +698,17 @@ public class MeasurEquipEditUI extends AbstractMeasurEquipEditUI
 		return null;
 	}
 
+	public void onLoad() throws Exception {
+		prmtuseDepart.setEnabled(false);
+		super.onLoad();
+		Tool.setPersonF7(this.prmtusePerson, this, SysContext.getSysContext().getCurrentCtrlUnit().getId().toString());
+	}
+	
+	protected void prmtusePerson_dataChanged(DataChangeEvent e)
+			throws Exception {
+		super.prmtusePerson_dataChanged(e);
+		if(BizCollUtil.isF7ValueChanged(e)&&e.getNewValue()!=null)
+			this.prmtuseDepart.setValue(PersonXRHelper.getPosiMemByDeptUser((PersonInfo)e.getNewValue()));
+	}
+	
 }

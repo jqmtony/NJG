@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import org.apache.log4j.Logger;
 
 import com.kingdee.bos.BOSException;
+import com.kingdee.bos.ctrl.kdf.table.IRow;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTDataFillListener;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTDataRequestEvent;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
@@ -28,7 +29,6 @@ import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.framework.CoreBillBaseCollection;
 import com.kingdee.eas.port.equipment.maintenance.IMonMainPlanE1;
 import com.kingdee.eas.port.equipment.maintenance.IRepairOrderE1;
-import com.kingdee.eas.port.equipment.maintenance.MonMainPlanCollection;
 import com.kingdee.eas.port.equipment.maintenance.MonMainPlanE1Collection;
 import com.kingdee.eas.port.equipment.maintenance.MonMainPlanE1Factory;
 import com.kingdee.eas.port.equipment.maintenance.MonMainPlanFactory;
@@ -473,7 +473,7 @@ public class MonMainPlanListUI extends AbstractMonMainPlanListUI
     	{
     		String entryId = UIRuleUtil.getString(this.tblMain.getRow(selectIndex[j]).getCell("E1.id").getValue());
     		if(IRepairOrderE1.exists("select id where sourceBillID='"+entryId+"'"))
-    			sb.append("第<"+(selectIndex[j]+1)+">行，颜色标记为绿色的已经生成维保任务了！	\n");
+    			sb.append("第<"+(selectIndex[j]+1)+">行，颜色标记为黄色的已经生成维保任务了！	\n");
     		else
     		{
     			innerId = innerId+",'"+entryId+"'";
@@ -704,11 +704,14 @@ public class MonMainPlanListUI extends AbstractMonMainPlanListUI
         {
         	 if (UIRuleUtil.isNotNull(this.tblMain.getRow(i).getCell("E1.id").getValue())) 
         	 {
-        		 String entryId = UIRuleUtil.getString(this.tblMain.getRow(i).getCell("E1.id").getValue());
+        		 IRow row = this.tblMain.getRow(i);
+        		 String entryId = UIRuleUtil.getString(row.getCell("E1.id").getValue());
         		 try
         		 {
 					if(IRepairOrderE1.exists("select id where sourceBillID='"+entryId+"'"))
-						 this.tblMain.getRow(i).getStyleAttributes().setBackground(Color.green);
+						row.getStyleAttributes().setBackground(Color.yellow);
+					if(IRepairOrderE1.exists("select id where sourceBillID='"+entryId+"' and status='4'"))
+						row.getStyleAttributes().setBackground(Color.green);
         		 } catch (EASBizException e1) 
         		 {
         			 e1.printStackTrace();

@@ -4,6 +4,7 @@
 package com.kingdee.eas.port.equipment.maintenance.client;
 
 import java.awt.event.*;
+import java.util.ArrayList;
 
 import org.apache.log4j.Logger;
 
@@ -25,6 +26,8 @@ import com.kingdee.eas.port.equipment.maintenance.IRepairOrder;
 import com.kingdee.eas.port.equipment.maintenance.RepairOrderInfo;
 import com.kingdee.eas.port.equipment.special.AnnualYearDetailInfo;
 import com.kingdee.eas.port.equipment.special.IAnnualYearDetail;
+import com.kingdee.eas.tools.datatask.DatataskParameter;
+import com.kingdee.eas.tools.datatask.client.DatataskCaller;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
@@ -672,7 +675,7 @@ public class RepairOrderListUI extends AbstractRepairOrderListUI
 		super.initWorkButton();
 		btnToVoid.setIcon(EASResource.getIcon("imgTbtn_blankout"));
 		btnUnToViod.setIcon(EASResource.getIcon("imgTbtn_fblankout"));
-		
+		btnExcel.setIcon(EASResource.getIcon("imgTbtn_inputoutput"));
 	}
 	
 	public void onLoad() throws Exception {
@@ -712,5 +715,18 @@ public class RepairOrderListUI extends AbstractRepairOrderListUI
 		      viewInfo = (EntityViewInfo)arg1.clone();
 		    }
 		return super.getQueryExecutor(arg0, viewInfo);
+	}
+	
+	public void actionExcel_actionPerformed(ActionEvent e) throws Exception {
+		super.actionExcel_actionPerformed(e);
+		  String strSolutionName = "eas.equ.032";
+			DatataskCaller task = new DatataskCaller();
+			task.setParentComponent(this);
+			DatataskParameter param = new DatataskParameter();
+			param.solutionName = strSolutionName;
+			param.alias = btnExcel.getText();
+			ArrayList paramList = new ArrayList();
+			paramList.add(param);
+			task.invoke(paramList, 0, true);
 	}
 }

@@ -4,6 +4,8 @@
 package com.kingdee.eas.port.equipment.maintenance.client;
 
 import java.awt.event.*;
+import java.util.ArrayList;
+
 import org.apache.log4j.Logger;
 
 import com.kingdee.bos.BOSException;
@@ -17,6 +19,9 @@ import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.query.IQueryExecutor;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.framework.*;
+import com.kingdee.eas.tools.datatask.DatataskParameter;
+import com.kingdee.eas.tools.datatask.client.DatataskCaller;
+import com.kingdee.eas.util.client.EASResource;
 
 /**
  * output class name
@@ -628,4 +633,23 @@ public class InspectionEquListUI extends AbstractInspectionEquListUI
 		    }
 		return super.getQueryExecutor(arg0, viewInfo);
 	}
+	
+
+	public void actionExcel_actionPerformed(ActionEvent e) throws Exception {
+		super.actionExcel_actionPerformed(e);
+		  String strSolutionName = "eas.equ.031";
+			DatataskCaller task = new DatataskCaller();
+			task.setParentComponent(this);
+			DatataskParameter param = new DatataskParameter();
+			param.solutionName = strSolutionName;
+			param.alias = btnExcel.getText();
+			ArrayList paramList = new ArrayList();
+			paramList.add(param);
+			task.invoke(paramList, 0, true);
+	}
+	
+	 protected void initWorkButton() {
+			super.initWorkButton();
+			btnExcel.setIcon(EASResource.getIcon("imgTbtn_inputoutput"));
+		}
 }

@@ -53,4 +53,5 @@ public interface InspectionEquController extends XRBillBaseController
     public void updateBigObject(Context ctx, IObjectPK pk, InspectionEquInfo model) throws BOSException, RemoteException;
     public void updatePartial(Context ctx, InspectionEquInfo model, SelectorItemCollection selector) throws BOSException, EASBizException, RemoteException;
     public String getBindingProperty(Context ctx) throws BOSException, RemoteException;
+    public void excel(Context ctx, InspectionEquInfo model) throws BOSException, RemoteException;
 }

@@ -48,4 +48,5 @@ public interface IInspectionEqu extends IXRBillBase
     public void updateBigObject(IObjectPK pk, InspectionEquInfo model) throws BOSException;
     public void updatePartial(InspectionEquInfo model, SelectorItemCollection selector) throws BOSException, EASBizException;
     public String getBindingProperty() throws BOSException;
+    public void excel(InspectionEquInfo model) throws BOSException;
 }

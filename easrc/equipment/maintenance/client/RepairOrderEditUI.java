@@ -11,6 +11,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 
 import org.apache.log4j.Logger;
 
@@ -29,6 +30,7 @@ import com.kingdee.bos.ctrl.swing.KDTextField;
 import com.kingdee.bos.ctrl.swing.KDWorkButton;
 import com.kingdee.bos.ctrl.swing.event.DataChangeEvent;
 import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
@@ -37,18 +39,24 @@ import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.IUIWindow;
 import com.kingdee.bos.ui.face.UIFactory;
 import com.kingdee.bos.ui.face.UIRuleUtil;
+import com.kingdee.eas.base.message.client.PersonSelectUI;
 import com.kingdee.eas.basedata.master.material.client.F7MaterialSimpleSelector;
 import com.kingdee.eas.basedata.org.CtrlUnitInfo;
+import com.kingdee.eas.basedata.person.IPerson;
+import com.kingdee.eas.basedata.person.PersonFactory;
 import com.kingdee.eas.basedata.person.PersonInfo;
+import com.kingdee.eas.basedata.person.client.FIPersonPromptBox;
+import com.kingdee.eas.basedata.person.client.PersonF7UI;
+import com.kingdee.eas.basedata.person.client.PersonPromptBox;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.common.client.UIContext;
 import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.cp.bc.BizCollUtil;
-import com.kingdee.eas.port.equipment.base.IInsurance;
-import com.kingdee.eas.port.equipment.base.InsuranceFactory;
-import com.kingdee.eas.port.equipment.base.InsuranceInfo;
+import com.kingdee.eas.fm.gnt.common.PersonF7;
+import com.kingdee.eas.hr.emp.client.EmployeeMultiF7PromptBox;
+import com.kingdee.eas.hr.emp.client.PersonMultiPromptBox;
 import com.kingdee.eas.port.equipment.record.EquIdInfo;
 import com.kingdee.eas.port.equipment.record.client.EquIdEditUI;
 import com.kingdee.eas.port.equipment.uitl.ToolHelp;
@@ -79,29 +87,13 @@ public class RepairOrderEditUI extends AbstractRepairOrderEditUI
     public void loadFields()
     {
         super.loadFields();
-        for (int i = 0; i < kdtE1.getRowCount(); i++) {
-//        	kdtE1.getCell(i, "repairPerson").
-//        	this.prmtinsurance.setEnabledMultiSelection(true);
-//        	if(UIRuleUtil.isNotNull(kdtE1.getCell(i, "")))
-//            {
-//            	String spicId[] = (this.txtxianzhongID.getText().trim()).split("&");
-//            	try {
-//            		IInsurance IInsurance = InsuranceFactory.getRemoteInstance();
-//            		
-//            		InsuranceInfo objValue[] = new InsuranceInfo[spicId.length];
-//            		
-//    				for (int i = 0; i < spicId.length; i++) 
-//    				{
-//    					String oql ="select id,name,number where id='"+spicId[i]+"'";
-//    					objValue[i] = IInsurance.getInsuranceInfo(oql);
-//    				}
-//    				this.prmtinsurance.setValue(objValue);
-//    			} catch (BOSException e) {
-//    				e.printStackTrace();
-//    			} catch (EASBizException e) {
-//    				e.printStackTrace();
-//    			}
-//            }
+        
+        try {
+			loadFieldsRepairPersonValue();
+		} catch (EASBizException e) {
+			e.printStackTrace();
+		} catch (BOSException e) {
+			e.printStackTrace();
 		}
     }
 
@@ -110,8 +102,62 @@ public class RepairOrderEditUI extends AbstractRepairOrderEditUI
      */
     public void storeFields()
     {
+    	storeRepairPersonValue();
         super.storeFields();
     }
+    
+    
+    private void storeRepairPersonValue()
+    {
+    	for (int i = 0; i < kdtE1.getRowCount(); i++)
+    	{
+    		IRow row = this.kdtE1.getRow(i);
+    		
+    		if(UIRuleUtil.isNull(row.getCell("repairPerson").getValue()))
+    			continue;
+    		
+    		Object obj = row.getCell("repairPerson").getValue();
+    		String sourPersonId = null;
+    		if(obj instanceof Object[])
+    		{
+    			Object[] newObj = (Object[]) obj;
+    			for (int j = 0; j < newObj.length; j++)
+    			{
+    				PersonInfo personInfo = (PersonInfo)newObj[j];
+    				if(sourPersonId==null)
+    					sourPersonId =personInfo.getId().toString();
+    				else
+    					sourPersonId =sourPersonId+";"+personInfo.getId().toString();
+    			}
+    		}
+    		row.getCell("repPersonID").setValue(sourPersonId);
+    	}
+    }
+    
+    private void loadFieldsRepairPersonValue() throws BOSException, EASBizException
+    {
+    	IPerson IPerson = PersonFactory.getRemoteInstance();
+    	for (int i = 0; i < kdtE1.getRowCount(); i++)
+    	{
+    		IRow row = this.kdtE1.getRow(i);
+    		
+    		if(UIRuleUtil.isNull(row.getCell("repPersonID").getValue()))
+    			continue;
+    		String repPersonId = UIRuleUtil.getString(row.getCell("repPersonID").getValue());
+    		
+    		String personId[] = repPersonId.split(";");
+    		Object obj[] = new Object[personId.length];
+    		for (int j = 0; j < personId.length; j++) 
+    		{
+    			String id = personId[j];
+    			if(UIRuleUtil.isNull(id))
+    				continue;
+    			obj[j] = IPerson.getPersonInfo(new ObjectUuidPK(id));
+			}
+    		row.getCell("repairPerson").setValue(obj);
+    	}
+    }
+    
 
     /**
      * output btnAddLine_actionPerformed method
@@ -797,7 +843,9 @@ public class RepairOrderEditUI extends AbstractRepairOrderEditUI
 		this.kdtE1.getColumn("seq").getStyleAttributes().setHided(true);
 		this.kdtE1.getColumn("FaLocation").getStyleAttributes().setHided(true);
 		this.kdtE1.getColumn("yujingDate").getStyleAttributes().setHided(true);
-		this.kdtE1.getColumn("xiulirenyuan").getStyleAttributes().setHided(true);
+//		this.kdtE1.getColumn("xiulirenyuan").getStyleAttributes().setHided(true);
+		this.kdtE1.getColumn("repPersonID").getStyleAttributes().setHided(true);
+		
 		txtmaintenanceProgram.setVisible(false);
 		chkselfStudy.setVisible(false);
 		chkoutsourcing.setVisible(false);
@@ -863,15 +911,27 @@ public class RepairOrderEditUI extends AbstractRepairOrderEditUI
 	        kdtE1_equNameOne_OVR.setFormat(new BizDataFormat("$name$"));
 	        this.kdtE1.getColumn("equNameOne").setRenderer(kdtE1_equNameOne_OVR);
 		 
+	        EmployeeMultiF7PromptBox pmt = new EmployeeMultiF7PromptBox();
+		    pmt.setIsSingleSelect(false);
+		    pmt.showNoPositionPerson(false);
+		    pmt.setEnabledMultiSelection(true); 
+		    pmt.setIsDefaultFilterFieldsEnabled(true);
+		    pmt.setIsShowAllAdmin(true);
+		    
 		   KDBizPromptBox kdtE1_repairPerson_PromptBox = new KDBizPromptBox();
 	        kdtE1_repairPerson_PromptBox.setQueryInfo("com.kingdee.eas.basedata.person.app.PersonQuery");
 	        kdtE1_repairPerson_PromptBox.setVisible(true);
 	        kdtE1_repairPerson_PromptBox.setEditable(true);
-	        kdtE1_repairPerson_PromptBox.setDisplayFormat("$number$");
+	        kdtE1_repairPerson_PromptBox.setDisplayFormat("$name$");
 	        kdtE1_repairPerson_PromptBox.setEditFormat("$number$");
-	        kdtE1_repairPerson_PromptBox.setCommitFormat("$number$");
+	        kdtE1_repairPerson_PromptBox.setCommitFormat("$name$");
+	        kdtE1_repairPerson_PromptBox.setEnabledMultiSelection(true);
+	        kdtE1_repairPerson_PromptBox.setSelector(pmt);
 	        KDTDefaultCellEditor kdtE1_repairPerson_CellEditor = new KDTDefaultCellEditor(kdtE1_repairPerson_PromptBox);
 	        kdtE1.getColumn("repairPerson").setEditor(kdtE1_repairPerson_CellEditor);
+	        ObjectValueRender kdtE1_replaceSparePart_OVR = new ObjectValueRender();
+	        kdtE1_replaceSparePart_OVR.setFormat(new BizDataFormat("$name$"));
+	        this.kdtE1.getColumn("repairPerson").setRenderer(kdtE1_replaceSparePart_OVR);
 	        
 //	        String id1 = SysContext.getSysContext().getCurrentStorageUnit().getId().toString();
 	        KDBizPromptBox kdtE1_replaceSparePart_PromptBox = new KDBizPromptBox();
@@ -890,8 +950,7 @@ public class RepairOrderEditUI extends AbstractRepairOrderEditUI
 //			 kdtE1_replaceSparePart_PromptBox.setEntityViewInfo(evi1);
 			 KDTDefaultCellEditor kdtEntry_feeType_CellEditor = new KDTDefaultCellEditor(kdtE1_replaceSparePart_PromptBox);
 			 kdtE1.getColumn("replaceSparePart").setEditor(kdtEntry_feeType_CellEditor);
-		 
-	    Tool.setPersonF7(kdtE1_repairPerson_PromptBox, this, SysContext.getSysContext().getCurrentCtrlUnit().getId().toString());
+			 
 		Tool.setPersonF7(this.prmtassignee, this, SysContext.getSysContext().getCurrentCtrlUnit().getId().toString());
 		Tool.setPersonF7(this.prmtrepairPerson, this, SysContext.getSysContext().getCurrentCtrlUnit().getId().toString());
 		Tool.setPersonF7(this.prmtdeliveryPerson, this, SysContext.getSysContext().getCurrentCtrlUnit().getId().toString());

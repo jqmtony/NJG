@@ -336,7 +336,8 @@ public abstract class AbstractPressurePipingEditUI extends com.kingdee.eas.xr.cl
         this.txtzhucedaima.setName("txtzhucedaima");
         this.pknextDate.setName("pknextDate");
         this.txtjianyanbaogao.setName("txtjianyanbaogao");
-        // CoreUI
+        // CoreUI		
+        this.setPreferredSize(new Dimension(1013,390));
         // contCreator		
         this.contCreator.setBoundLabelText(resHelper.getString("contCreator.boundLabelText"));		
         this.contCreator.setBoundLabelLength(100);		

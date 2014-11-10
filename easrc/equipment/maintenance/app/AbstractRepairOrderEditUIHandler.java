@@ -29,4 +29,9 @@ public abstract class AbstractRepairOrderEditUIHandler extends com.kingdee.eas.x
 	}
 	protected void _handleActionEquInfomation(RequestContext request,ResponseContext response, Context context) throws Exception {
 	}
+	public void handleActionExcel(RequestContext request,ResponseContext response, Context context) throws Exception {
+		_handleActionExcel(request,response,context);
+	}
+	protected void _handleActionExcel(RequestContext request,ResponseContext response, Context context) throws Exception {
+	}
 }

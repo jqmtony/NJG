@@ -267,7 +267,8 @@ public abstract class AbstractMeasurEquipEditUI extends com.kingdee.eas.xr.clien
         this.txtabc.setName("txtabc");
         this.pkvalidityPeriod.setName("pkvalidityPeriod");
         this.manageState.setName("manageState");
-        // CoreUI
+        // CoreUI		
+        this.setPreferredSize(new Dimension(1013,274));
         // contCreator		
         this.contCreator.setBoundLabelText(resHelper.getString("contCreator.boundLabelText"));		
         this.contCreator.setBoundLabelLength(100);		
@@ -479,6 +480,16 @@ public abstract class AbstractMeasurEquipEditUI extends com.kingdee.eas.xr.clien
         this.prmtusePerson.setEditFormat("$number$");		
         this.prmtusePerson.setCommitFormat("$number$");		
         this.prmtusePerson.setRequired(false);
+        this.prmtusePerson.addDataChangeListener(new com.kingdee.bos.ctrl.swing.event.DataChangeListener() {
+            public void dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) {
+                try {
+                    prmtusePerson_dataChanged(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                }
+            }
+        });
         // pkstartDate		
         this.pkstartDate.setVisible(true);		
         this.pkstartDate.setRequired(false);
@@ -570,10 +581,10 @@ public abstract class AbstractMeasurEquipEditUI extends com.kingdee.eas.xr.clien
         this.add(contfactoryNumber, new KDLayout.Constraints(371, 77, 270, 19, 0));
         contfactoryDate.setBounds(new Rectangle(734, 77, 270, 19));
         this.add(contfactoryDate, new KDLayout.Constraints(734, 77, 270, 19, 0));
-        contuseDepart.setBounds(new Rectangle(371, 110, 270, 19));
-        this.add(contuseDepart, new KDLayout.Constraints(371, 110, 270, 19, 0));
-        contusePerson.setBounds(new Rectangle(734, 110, 270, 19));
-        this.add(contusePerson, new KDLayout.Constraints(734, 110, 270, 19, 0));
+        contuseDepart.setBounds(new Rectangle(734, 110, 270, 19));
+        this.add(contuseDepart, new KDLayout.Constraints(734, 110, 270, 19, 0));
+        contusePerson.setBounds(new Rectangle(371, 110, 270, 19));
+        this.add(contusePerson, new KDLayout.Constraints(371, 110, 270, 19, 0));
         contstartDate.setBounds(new Rectangle(8, 143, 270, 19));
         this.add(contstartDate, new KDLayout.Constraints(8, 143, 270, 19, 0));
         contverificatCycle.setBounds(new Rectangle(371, 143, 270, 19));
@@ -1016,6 +1027,13 @@ public abstract class AbstractMeasurEquipEditUI extends com.kingdee.eas.xr.clien
         } else if (STATUS_VIEW.equals(this.oprtState)) {
         } else if (STATUS_FINDVIEW.equals(this.oprtState)) {
         }
+    }
+
+    /**
+     * output prmtusePerson_dataChanged method
+     */
+    protected void prmtusePerson_dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) throws Exception
+    {
     }
 
     /**

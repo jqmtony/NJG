@@ -387,4 +387,17 @@ public class InspectionEqu extends XRBillBase implements IInspectionEqu
             throw new EJBRemoteException(err);
         }
     }
+    /**
+     *µ¼ÈëÄ£°å-User defined method
+     *@param model model
+     */
+    public void excel(InspectionEquInfo model) throws BOSException
+    {
+        try {
+            getController().excel(getContext(), model);
+        }
+        catch(RemoteException err) {
+            throw new EJBRemoteException(err);
+        }
+    }
 }

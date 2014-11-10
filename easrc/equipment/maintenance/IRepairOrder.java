@@ -51,4 +51,5 @@ public interface IRepairOrder extends IXRBillBase
     public void toVoid(RepairOrderInfo model) throws BOSException;
     public void unToVoid(RepairOrderInfo model) throws BOSException;
     public void equInfomation(RepairOrderInfo model) throws BOSException;
+    public void excel(RepairOrderInfo model) throws BOSException;
 }

@@ -644,6 +644,26 @@ public abstract class AbstractInspectionEquControllerBean extends XRBillBaseCont
         }
     }
 
+    public void excel(Context ctx, InspectionEquInfo model) throws BOSException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("7212fe44-80bf-49f7-b90f-b5690c8a8c9a"), new Object[]{ctx, model});
+            invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
+            _excel(ctx, model);
+            }
+            invokeServiceAfter(svcCtx);
+        } catch (BOSException ex) {
+            throw ex;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected void _excel(Context ctx, IObjectValue model) throws BOSException
+    {    	
+        return;
+    }
+
     public XRBillBaseCollection getXRBillBaseCollection (Context ctx) throws BOSException
     {
     	return (XRBillBaseCollection)(getInspectionEquCollection(ctx).cast(XRBillBaseCollection.class));

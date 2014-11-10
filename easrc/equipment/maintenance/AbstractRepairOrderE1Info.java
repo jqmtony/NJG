@@ -238,17 +238,6 @@ public class AbstractRepairOrderE1Info extends com.kingdee.eas.framework.CoreBil
         setString("sourceBillID", item);
     }
     /**
-     * Object:维修明细's 修理人员IDproperty 
-     */
-    public String getXiulirenyuan()
-    {
-        return getString("xiulirenyuan");
-    }
-    public void setXiulirenyuan(String item)
-    {
-        setString("xiulirenyuan", item);
-    }
-    /**
      * Object:维修明细's 设备编码property 
      */
     public String getEquNumber()
@@ -258,6 +247,17 @@ public class AbstractRepairOrderE1Info extends com.kingdee.eas.framework.CoreBil
     public void setEquNumber(String item)
     {
         setString("equNumber", item);
+    }
+    /**
+     * Object:维修明细's 修理人员IDproperty 
+     */
+    public String getRepPersonID()
+    {
+        return getString("repPersonID");
+    }
+    public void setRepPersonID(String item)
+    {
+        setString("repPersonID", item);
     }
     public BOSObjectType getBOSType()
     {

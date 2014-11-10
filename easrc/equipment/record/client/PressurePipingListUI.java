@@ -18,6 +18,7 @@ import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.query.IQueryExecutor;
 import com.kingdee.eas.common.client.SysContext;
+import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.framework.*;
 import com.kingdee.eas.tools.datatask.DatataskParameter;
 import com.kingdee.eas.tools.datatask.client.DatataskCaller;
@@ -655,4 +656,8 @@ public class PressurePipingListUI extends AbstractPressurePipingListUI
 		    }
 		return super.getQueryExecutor(arg0, viewInfo);
 	}
+	
+	protected String getEditUIModal() {
+    	return UIFactoryName.MODEL;
+    }
 }

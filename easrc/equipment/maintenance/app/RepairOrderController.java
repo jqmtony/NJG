@@ -56,4 +56,5 @@ public interface RepairOrderController extends XRBillBaseController
     public void toVoid(Context ctx, RepairOrderInfo model) throws BOSException, RemoteException;
     public void unToVoid(Context ctx, RepairOrderInfo model) throws BOSException, RemoteException;
     public void equInfomation(Context ctx, RepairOrderInfo model) throws BOSException, RemoteException;
+    public void excel(Context ctx, RepairOrderInfo model) throws BOSException, RemoteException;
 }
