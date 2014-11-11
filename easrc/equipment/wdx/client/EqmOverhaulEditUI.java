@@ -728,8 +728,8 @@ public class EqmOverhaulEditUI extends AbstractEqmOverhaulEditUI
 	public void onLoad() throws Exception {
 		pkcompleteDate.setEnabled(false);
 		prmtprojectName.setEnabled(false);
-		txtexpenseAccount.setEnabled(false);
-		txtplanCost.setEnabled(false);
+//		txtexpenseAccount.setEnabled(false);
+//		txtplanCost.setEnabled(false);
 		prmtprojectLeader.setEnabled(false);
 		 this.kdtE1.getColumn("seq").getStyleAttributes().setHided(true);
 		super.onLoad();
@@ -862,9 +862,11 @@ public class EqmOverhaulEditUI extends AbstractEqmOverhaulEditUI
 		if(this.kdtE1.getCell(rowIndex, "equNumber").getValue()!=null){
 			String id = ((EquIdInfo)this.kdtE1.getCell(rowIndex, "equNumber").getValue()).getId().toString();
 			EquIdInfo edInfo = EquIdFactory.getRemoteInstance().getEquIdInfo(new ObjectUuidPK(id));
-			String id1 = ((AdminOrgUnitInfo)edInfo.getUsingDept()).getId().toString();
-			AdminOrgUnitInfo aoInfo = AdminOrgUnitFactory.getRemoteInstance().getAdminOrgUnitInfo(new ObjectUuidPK(id1));
-			this.kdtE1.getCell(rowIndex, "useDepart").setValue(aoInfo);
+			if(edInfo.getUsingDept() != null){
+				String id1 = ((AdminOrgUnitInfo)edInfo.getUsingDept()).getId().toString();
+				AdminOrgUnitInfo aoInfo = AdminOrgUnitFactory.getRemoteInstance().getAdminOrgUnitInfo(new ObjectUuidPK(id1));
+				this.kdtE1.getCell(rowIndex, "useDepart").setValue(aoInfo);
+			}
 		}
 	}
 }
