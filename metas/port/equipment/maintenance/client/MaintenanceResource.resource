@@ -32,6 +32,11 @@
             <value>i18nResource[com.kingdee.eas.port.equipment.maintenance.client.MaintenanceResource].resourceItems.resourceItem[ShipReportFormQueryF7WindowTitle].value</value>
             <userDefined>true</userDefined>
         </resourceItem>
+        <resourceItem>
+            <name>YearPlanApplyQueryF7WindowTitle</name>
+            <value>i18nResource[com.kingdee.eas.port.equipment.maintenance.client.MaintenanceResource].resourceItems.resourceItem[YearPlanApplyQueryF7WindowTitle].value</value>
+            <userDefined>true</userDefined>
+        </resourceItem>
     </resourceItems>
     <resource>
         <rs key="i18nResource[com.kingdee.eas.port.equipment.maintenance.client.MaintenanceResource].alias">
@@ -75,6 +80,12 @@
             <lang locale="zh_CN" value="船舶和设备维护及技术状况月报表" />
             <lang locale="zh_HK" value="船舶和設備維護及技術狀況月報表" />
             <lang locale="zh_TW" value="船舶和設備維護及技術狀況月報表" />
+        </rs>
+        <rs key="i18nResource[com.kingdee.eas.port.equipment.maintenance.client.MaintenanceResource].resourceItems.resourceItem[YearPlanApplyQueryF7WindowTitle].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="年度维保计划申请单" />
+            <lang locale="zh_HK" value="年度維保計畫申請單" />
+            <lang locale="zh_TW" value="年度維保計畫申請單" />
         </rs>
     </resource>
 </i18nResource>
