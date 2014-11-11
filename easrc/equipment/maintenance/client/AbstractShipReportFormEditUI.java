@@ -87,6 +87,7 @@ public abstract class AbstractShipReportFormEditUI extends com.kingdee.eas.xr.cl
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtshipName;
     protected com.kingdee.bos.ctrl.swing.KDScrollPane scrollPaneperformance;
     protected com.kingdee.bos.ctrl.swing.KDTextArea txtperformance;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contyourh;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contzuozs;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contyouzs;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contzuozy;
@@ -94,7 +95,7 @@ public abstract class AbstractShipReportFormEditUI extends com.kingdee.eas.xr.cl
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contzuowd;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contyouwd;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contzuorh;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contyourh;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txtyourh;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtzuozs;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtyouzs;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtzuozy;
@@ -102,7 +103,6 @@ public abstract class AbstractShipReportFormEditUI extends com.kingdee.eas.xr.cl
     protected com.kingdee.bos.ctrl.swing.KDTextField txtzuowd;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtyouwd;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtzuorh;
-    protected com.kingdee.bos.ctrl.swing.KDTextField txtyourh;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtcourse;
     protected com.kingdee.bos.ctrl.swing.KDTextField txttowing;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkmeasuringDate;
@@ -203,6 +203,7 @@ public abstract class AbstractShipReportFormEditUI extends com.kingdee.eas.xr.cl
         this.prmtshipName = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.scrollPaneperformance = new com.kingdee.bos.ctrl.swing.KDScrollPane();
         this.txtperformance = new com.kingdee.bos.ctrl.swing.KDTextArea();
+        this.contyourh = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contzuozs = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contyouzs = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contzuozy = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -210,7 +211,7 @@ public abstract class AbstractShipReportFormEditUI extends com.kingdee.eas.xr.cl
         this.contzuowd = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contyouwd = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contzuorh = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contyourh = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.txtyourh = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtzuozs = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtyouzs = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtzuozy = new com.kingdee.bos.ctrl.swing.KDTextField();
@@ -218,7 +219,6 @@ public abstract class AbstractShipReportFormEditUI extends com.kingdee.eas.xr.cl
         this.txtzuowd = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtyouwd = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtzuorh = new com.kingdee.bos.ctrl.swing.KDTextField();
-        this.txtyourh = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtcourse = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txttowing = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.pkmeasuringDate = new com.kingdee.bos.ctrl.swing.KDDatePicker();
@@ -269,6 +269,7 @@ public abstract class AbstractShipReportFormEditUI extends com.kingdee.eas.xr.cl
         this.prmtshipName.setName("prmtshipName");
         this.scrollPaneperformance.setName("scrollPaneperformance");
         this.txtperformance.setName("txtperformance");
+        this.contyourh.setName("contyourh");
         this.contzuozs.setName("contzuozs");
         this.contyouzs.setName("contyouzs");
         this.contzuozy.setName("contzuozy");
@@ -276,7 +277,7 @@ public abstract class AbstractShipReportFormEditUI extends com.kingdee.eas.xr.cl
         this.contzuowd.setName("contzuowd");
         this.contyouwd.setName("contyouwd");
         this.contzuorh.setName("contzuorh");
-        this.contyourh.setName("contyourh");
+        this.txtyourh.setName("txtyourh");
         this.txtzuozs.setName("txtzuozs");
         this.txtyouzs.setName("txtyouzs");
         this.txtzuozy.setName("txtzuozy");
@@ -284,7 +285,6 @@ public abstract class AbstractShipReportFormEditUI extends com.kingdee.eas.xr.cl
         this.txtzuowd.setName("txtzuowd");
         this.txtyouwd.setName("txtyouwd");
         this.txtzuorh.setName("txtzuorh");
-        this.txtyourh.setName("txtyourh");
         this.txtcourse.setName("txtcourse");
         this.txttowing.setName("txttowing");
         this.pkmeasuringDate.setName("pkmeasuringDate");
@@ -354,9 +354,10 @@ public abstract class AbstractShipReportFormEditUI extends com.kingdee.eas.xr.cl
         this.contshipName.setVisible(true);
         // contperformance		
         this.contperformance.setBoundLabelText(resHelper.getString("contperformance.boundLabelText"));		
-        this.contperformance.setBoundLabelLength(100);		
+        this.contperformance.setBoundLabelLength(16);		
         this.contperformance.setBoundLabelUnderline(true);		
-        this.contperformance.setVisible(true);
+        this.contperformance.setVisible(true);		
+        this.contperformance.setBoundLabelAlignment(8);
         // kDPanel2		
         this.kDPanel2.setBorder(new TitledBorder(BorderFactory.createEtchedBorder(new Color(255,255,255),new Color(148,145,140)), resHelper.getString("kDPanel2.border.title")));
         // kdtE1
@@ -368,14 +369,6 @@ public abstract class AbstractShipReportFormEditUI extends com.kingdee.eas.xr.cl
 
 
         this.kdtE1.checkParsed();
-        KDFormattedTextField kdtE1_seq_TextField = new KDFormattedTextField();
-        kdtE1_seq_TextField.setName("kdtE1_seq_TextField");
-        kdtE1_seq_TextField.setVisible(true);
-        kdtE1_seq_TextField.setEditable(true);
-        kdtE1_seq_TextField.setHorizontalAlignment(2);
-        kdtE1_seq_TextField.setDataType(0);
-        KDTDefaultCellEditor kdtE1_seq_CellEditor = new KDTDefaultCellEditor(kdtE1_seq_TextField);
-        this.kdtE1.getColumn("seq").setEditor(kdtE1_seq_CellEditor);
         KDTextField kdtE1_zhujigangone_TextField = new KDTextField();
         kdtE1_zhujigangone_TextField.setName("kdtE1_zhujigangone_TextField");
         kdtE1_zhujigangone_TextField.setMaxLength(100);
@@ -448,9 +441,10 @@ public abstract class AbstractShipReportFormEditUI extends com.kingdee.eas.xr.cl
         this.contmeasuringDate.setVisible(true);
         // contexProblems		
         this.contexProblems.setBoundLabelText(resHelper.getString("contexProblems.boundLabelText"));		
-        this.contexProblems.setBoundLabelLength(100);		
+        this.contexProblems.setBoundLabelLength(16);		
         this.contexProblems.setBoundLabelUnderline(true);		
-        this.contexProblems.setVisible(true);
+        this.contexProblems.setVisible(true);		
+        this.contexProblems.setBoundLabelAlignment(8);
         // contsuspendRepair		
         this.contsuspendRepair.setBoundLabelText(resHelper.getString("contsuspendRepair.boundLabelText"));		
         this.contsuspendRepair.setBoundLabelLength(100);		
@@ -525,6 +519,11 @@ public abstract class AbstractShipReportFormEditUI extends com.kingdee.eas.xr.cl
         this.txtperformance.setVisible(true);		
         this.txtperformance.setRequired(false);		
         this.txtperformance.setMaxLength(5000);
+        // contyourh		
+        this.contyourh.setBoundLabelText(resHelper.getString("contyourh.boundLabelText"));		
+        this.contyourh.setBoundLabelLength(100);		
+        this.contyourh.setBoundLabelUnderline(true);		
+        this.contyourh.setVisible(true);
         // contzuozs		
         this.contzuozs.setBoundLabelText(resHelper.getString("contzuozs.boundLabelText"));		
         this.contzuozs.setBoundLabelLength(85);		
@@ -560,11 +559,11 @@ public abstract class AbstractShipReportFormEditUI extends com.kingdee.eas.xr.cl
         this.contzuorh.setBoundLabelLength(100);		
         this.contzuorh.setBoundLabelUnderline(true);		
         this.contzuorh.setVisible(true);
-        // contyourh		
-        this.contyourh.setBoundLabelText(resHelper.getString("contyourh.boundLabelText"));		
-        this.contyourh.setBoundLabelLength(100);		
-        this.contyourh.setBoundLabelUnderline(true);		
-        this.contyourh.setVisible(true);
+        // txtyourh		
+        this.txtyourh.setVisible(true);		
+        this.txtyourh.setHorizontalAlignment(2);		
+        this.txtyourh.setMaxLength(100);		
+        this.txtyourh.setRequired(false);
         // txtzuozs		
         this.txtzuozs.setVisible(true);		
         this.txtzuozs.setHorizontalAlignment(2);		
@@ -600,11 +599,6 @@ public abstract class AbstractShipReportFormEditUI extends com.kingdee.eas.xr.cl
         this.txtzuorh.setHorizontalAlignment(2);		
         this.txtzuorh.setMaxLength(100);		
         this.txtzuorh.setRequired(false);
-        // txtyourh		
-        this.txtyourh.setVisible(true);		
-        this.txtyourh.setHorizontalAlignment(2);		
-        this.txtyourh.setMaxLength(100);		
-        this.txtyourh.setRequired(false);
         // txtcourse		
         this.txtcourse.setVisible(true);		
         this.txtcourse.setHorizontalAlignment(2);		
@@ -686,55 +680,55 @@ public abstract class AbstractShipReportFormEditUI extends com.kingdee.eas.xr.cl
         this.setBounds(new Rectangle(10, 10, 1013, 629));
         this.setLayout(new KDLayout());
         this.putClientProperty("OriginalBounds", new Rectangle(10, 10, 1013, 629));
-        contCreator.setBounds(new Rectangle(35, 539, 270, 19));
-        this.add(contCreator, new KDLayout.Constraints(35, 539, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contCreateTime.setBounds(new Rectangle(35, 575, 270, 19));
-        this.add(contCreateTime, new KDLayout.Constraints(35, 575, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contLastUpdateUser.setBounds(new Rectangle(364, 539, 270, 19));
-        this.add(contLastUpdateUser, new KDLayout.Constraints(364, 539, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contLastUpdateTime.setBounds(new Rectangle(364, 575, 270, 19));
-        this.add(contLastUpdateTime, new KDLayout.Constraints(364, 575, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contCreator.setBounds(new Rectangle(7, 574, 270, 19));
+        this.add(contCreator, new KDLayout.Constraints(7, 574, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contCreateTime.setBounds(new Rectangle(7, 599, 270, 19));
+        this.add(contCreateTime, new KDLayout.Constraints(7, 599, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contLastUpdateUser.setBounds(new Rectangle(364, 574, 270, 19));
+        this.add(contLastUpdateUser, new KDLayout.Constraints(364, 574, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contLastUpdateTime.setBounds(new Rectangle(364, 602, 270, 19));
+        this.add(contLastUpdateTime, new KDLayout.Constraints(364, 602, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contCU.setBounds(new Rectangle(357, 11, 270, 19));
         this.add(contCU, new KDLayout.Constraints(357, 11, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contNumber.setBounds(new Rectangle(33, 11, 270, 19));
-        this.add(contNumber, new KDLayout.Constraints(33, 11, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contBizDate.setBounds(new Rectangle(693, 36, 270, 20));
-        this.add(contBizDate, new KDLayout.Constraints(693, 36, 270, 20, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contNumber.setBounds(new Rectangle(7, 8, 270, 19));
+        this.add(contNumber, new KDLayout.Constraints(7, 8, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contBizDate.setBounds(new Rectangle(735, 36, 270, 20));
+        this.add(contBizDate, new KDLayout.Constraints(735, 36, 270, 20, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contDescription.setBounds(new Rectangle(1002, 115, 110, 8));
         this.add(contDescription, new KDLayout.Constraints(1002, 115, 110, 8, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contAuditor.setBounds(new Rectangle(693, 539, 270, 19));
-        this.add(contAuditor, new KDLayout.Constraints(693, 539, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contStatus.setBounds(new Rectangle(693, 11, 270, 19));
-        this.add(contStatus, new KDLayout.Constraints(693, 11, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contAuditor.setBounds(new Rectangle(735, 574, 270, 19));
+        this.add(contAuditor, new KDLayout.Constraints(735, 574, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contStatus.setBounds(new Rectangle(735, 11, 270, 19));
+        this.add(contStatus, new KDLayout.Constraints(735, 11, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contBizStatus.setBounds(new Rectangle(708, 611, 270, 19));
         this.add(contBizStatus, new KDLayout.Constraints(708, 611, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contAuditTime.setBounds(new Rectangle(693, 575, 270, 19));
-        this.add(contAuditTime, new KDLayout.Constraints(693, 575, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contshipName.setBounds(new Rectangle(33, 36, 270, 19));
-        this.add(contshipName, new KDLayout.Constraints(33, 36, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contperformance.setBounds(new Rectangle(33, 61, 930, 55));
-        this.add(contperformance, new KDLayout.Constraints(33, 61, 930, 55, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        kDPanel2.setBounds(new Rectangle(33, 260, 930, 86));
-        this.add(kDPanel2, new KDLayout.Constraints(33, 260, 930, 86, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        kdtE1.setBounds(new Rectangle(33, 124, 930, 130));
+        contAuditTime.setBounds(new Rectangle(735, 602, 270, 19));
+        this.add(contAuditTime, new KDLayout.Constraints(735, 602, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contshipName.setBounds(new Rectangle(7, 33, 270, 19));
+        this.add(contshipName, new KDLayout.Constraints(7, 33, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contperformance.setBounds(new Rectangle(7, 58, 998, 132));
+        this.add(contperformance, new KDLayout.Constraints(7, 58, 998, 132, KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        kDPanel2.setBounds(new Rectangle(7, 320, 996, 95));
+        this.add(kDPanel2, new KDLayout.Constraints(7, 320, 996, 95, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        kdtE1.setBounds(new Rectangle(7, 193, 998, 127));
         kdtE1_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtE1,new com.kingdee.eas.port.equipment.maintenance.ShipReportFormE1Info(),null,false);
-        this.add(kdtE1_detailPanel, new KDLayout.Constraints(33, 124, 930, 130, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        contcourse.setBounds(new Rectangle(33, 356, 270, 19));
-        this.add(contcourse, new KDLayout.Constraints(33, 356, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        conttowing.setBounds(new Rectangle(363, 356, 270, 19));
-        this.add(conttowing, new KDLayout.Constraints(363, 356, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contmeasuringDate.setBounds(new Rectangle(693, 356, 270, 19));
-        this.add(contmeasuringDate, new KDLayout.Constraints(693, 356, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contexProblems.setBounds(new Rectangle(33, 383, 930, 80));
-        this.add(contexProblems, new KDLayout.Constraints(33, 383, 930, 80, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contsuspendRepair.setBounds(new Rectangle(33, 471, 270, 19));
-        this.add(contsuspendRepair, new KDLayout.Constraints(33, 471, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contrepairType.setBounds(new Rectangle(693, 471, 270, 19));
-        this.add(contrepairType, new KDLayout.Constraints(693, 471, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contshipzhang.setBounds(new Rectangle(35, 504, 270, 19));
-        this.add(contshipzhang, new KDLayout.Constraints(35, 504, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contlunjizhang.setBounds(new Rectangle(693, 504, 270, 19));
-        this.add(contlunjizhang, new KDLayout.Constraints(693, 504, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        this.add(kdtE1_detailPanel, new KDLayout.Constraints(7, 193, 998, 127, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        contcourse.setBounds(new Rectangle(7, 424, 270, 19));
+        this.add(contcourse, new KDLayout.Constraints(7, 424, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        conttowing.setBounds(new Rectangle(363, 427, 270, 19));
+        this.add(conttowing, new KDLayout.Constraints(363, 427, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contmeasuringDate.setBounds(new Rectangle(693, 427, 270, 19));
+        this.add(contmeasuringDate, new KDLayout.Constraints(693, 427, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contexProblems.setBounds(new Rectangle(7, 445, 998, 80));
+        this.add(contexProblems, new KDLayout.Constraints(7, 445, 998, 80, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        contsuspendRepair.setBounds(new Rectangle(7, 528, 270, 19));
+        this.add(contsuspendRepair, new KDLayout.Constraints(7, 528, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contrepairType.setBounds(new Rectangle(735, 528, 270, 19));
+        this.add(contrepairType, new KDLayout.Constraints(735, 528, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contshipzhang.setBounds(new Rectangle(7, 551, 270, 19));
+        this.add(contshipzhang, new KDLayout.Constraints(7, 551, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contlunjizhang.setBounds(new Rectangle(735, 551, 270, 19));
+        this.add(contlunjizhang, new KDLayout.Constraints(735, 551, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contmonth.setBounds(new Rectangle(357, 36, 270, 19));
         this.add(contmonth, new KDLayout.Constraints(357, 36, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         //contCreator
@@ -769,22 +763,24 @@ public abstract class AbstractShipReportFormEditUI extends com.kingdee.eas.xr.cl
         scrollPaneperformance.getViewport().add(txtperformance, null);
         //kDPanel2
         kDPanel2.setLayout(new KDLayout());
-        kDPanel2.putClientProperty("OriginalBounds", new Rectangle(33, 260, 930, 86));        contzuozs.setBounds(new Rectangle(15, 20, 182, 19));
-        kDPanel2.add(contzuozs, new KDLayout.Constraints(15, 20, 182, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contyouzs.setBounds(new Rectangle(15, 48, 182, 19));
-        kDPanel2.add(contyouzs, new KDLayout.Constraints(15, 48, 182, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contzuozy.setBounds(new Rectangle(251, 20, 182, 19));
-        kDPanel2.add(contzuozy, new KDLayout.Constraints(251, 20, 182, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contyouzy.setBounds(new Rectangle(251, 48, 182, 19));
-        kDPanel2.add(contyouzy, new KDLayout.Constraints(251, 48, 182, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contzuowd.setBounds(new Rectangle(487, 20, 182, 19));
-        kDPanel2.add(contzuowd, new KDLayout.Constraints(487, 20, 182, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contyouwd.setBounds(new Rectangle(487, 48, 182, 19));
-        kDPanel2.add(contyouwd, new KDLayout.Constraints(487, 48, 182, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contzuorh.setBounds(new Rectangle(723, 20, 182, 19));
-        kDPanel2.add(contzuorh, new KDLayout.Constraints(723, 20, 182, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contyourh.setBounds(new Rectangle(723, 48, 182, 19));
-        kDPanel2.add(contyourh, new KDLayout.Constraints(723, 48, 182, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        kDPanel2.putClientProperty("OriginalBounds", new Rectangle(7, 320, 996, 95));        contyourh.setBounds(new Rectangle(760, 52, 217, 19));
+        kDPanel2.add(contyourh, new KDLayout.Constraints(760, 52, 217, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contzuozs.setBounds(new Rectangle(14, 19, 217, 19));
+        kDPanel2.add(contzuozs, new KDLayout.Constraints(14, 19, 217, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contyouzs.setBounds(new Rectangle(14, 52, 217, 19));
+        kDPanel2.add(contyouzs, new KDLayout.Constraints(14, 52, 217, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contzuozy.setBounds(new Rectangle(257, 19, 217, 19));
+        kDPanel2.add(contzuozy, new KDLayout.Constraints(257, 19, 217, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contyouzy.setBounds(new Rectangle(257, 52, 217, 19));
+        kDPanel2.add(contyouzy, new KDLayout.Constraints(257, 52, 217, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contzuowd.setBounds(new Rectangle(502, 19, 217, 19));
+        kDPanel2.add(contzuowd, new KDLayout.Constraints(502, 19, 217, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contyouwd.setBounds(new Rectangle(502, 52, 217, 19));
+        kDPanel2.add(contyouwd, new KDLayout.Constraints(502, 52, 217, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contzuorh.setBounds(new Rectangle(760, 19, 217, 19));
+        kDPanel2.add(contzuorh, new KDLayout.Constraints(760, 19, 217, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        //contyourh
+        contyourh.setBoundEditor(txtyourh);
         //contzuozs
         contzuozs.setBoundEditor(txtzuozs);
         //contyouzs
@@ -799,8 +795,6 @@ public abstract class AbstractShipReportFormEditUI extends com.kingdee.eas.xr.cl
         contyouwd.setBoundEditor(txtyouwd);
         //contzuorh
         contzuorh.setBoundEditor(txtzuorh);
-        //contyourh
-        contyourh.setBoundEditor(txtyourh);
         //contcourse
         contcourse.setBoundEditor(txtcourse);
         //conttowing
@@ -1021,6 +1015,7 @@ public abstract class AbstractShipReportFormEditUI extends com.kingdee.eas.xr.cl
 		dataBinder.registerBinding("auditTime", java.sql.Timestamp.class, this.pkAuditTime, "value");
 		dataBinder.registerBinding("shipName", com.kingdee.eas.port.equipment.record.EquIdInfo.class, this.prmtshipName, "data");
 		dataBinder.registerBinding("performance", String.class, this.txtperformance, "text");
+		dataBinder.registerBinding("yourh", String.class, this.txtyourh, "text");
 		dataBinder.registerBinding("zuozs", String.class, this.txtzuozs, "text");
 		dataBinder.registerBinding("youzs", String.class, this.txtyouzs, "text");
 		dataBinder.registerBinding("zuozy", String.class, this.txtzuozy, "text");
@@ -1028,7 +1023,6 @@ public abstract class AbstractShipReportFormEditUI extends com.kingdee.eas.xr.cl
 		dataBinder.registerBinding("zuowd", String.class, this.txtzuowd, "text");
 		dataBinder.registerBinding("youwd", String.class, this.txtyouwd, "text");
 		dataBinder.registerBinding("zuorh", String.class, this.txtzuorh, "text");
-		dataBinder.registerBinding("yourh", String.class, this.txtyourh, "text");
 		dataBinder.registerBinding("course", String.class, this.txtcourse, "text");
 		dataBinder.registerBinding("towing", String.class, this.txttowing, "text");
 		dataBinder.registerBinding("measuringDate", java.util.Date.class, this.pkmeasuringDate, "value");
@@ -1199,6 +1193,7 @@ public abstract class AbstractShipReportFormEditUI extends com.kingdee.eas.xr.cl
 		getValidateHelper().registerBindProperty("auditTime", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("shipName", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("performance", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("yourh", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("zuozs", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("youzs", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("zuozy", ValidateHelper.ON_SAVE);    
@@ -1206,7 +1201,6 @@ public abstract class AbstractShipReportFormEditUI extends com.kingdee.eas.xr.cl
 		getValidateHelper().registerBindProperty("zuowd", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("youwd", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("zuorh", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("yourh", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("course", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("towing", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("measuringDate", ValidateHelper.ON_SAVE);    
@@ -1315,6 +1309,7 @@ public abstract class AbstractShipReportFormEditUI extends com.kingdee.eas.xr.cl
         	sic.add(new SelectorItemInfo("shipName.name"));
 		}
         sic.add(new SelectorItemInfo("performance"));
+        sic.add(new SelectorItemInfo("yourh"));
         sic.add(new SelectorItemInfo("zuozs"));
         sic.add(new SelectorItemInfo("youzs"));
         sic.add(new SelectorItemInfo("zuozy"));
@@ -1322,7 +1317,6 @@ public abstract class AbstractShipReportFormEditUI extends com.kingdee.eas.xr.cl
         sic.add(new SelectorItemInfo("zuowd"));
         sic.add(new SelectorItemInfo("youwd"));
         sic.add(new SelectorItemInfo("zuorh"));
-        sic.add(new SelectorItemInfo("yourh"));
         sic.add(new SelectorItemInfo("course"));
         sic.add(new SelectorItemInfo("towing"));
         sic.add(new SelectorItemInfo("measuringDate"));

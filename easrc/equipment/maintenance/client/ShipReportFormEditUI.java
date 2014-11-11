@@ -732,7 +732,7 @@ public class ShipReportFormEditUI extends AbstractShipReportFormEditUI
 		kdtE1_detailPanel.setVisible(false);
 		kdtE1.setBounds(new Rectangle(33, 124, 929, 90));
 		kdtE1_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel) com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtE1,new com.kingdee.eas.port.equipment.operate.ComproductionEntryInfo(),null, false);
-		this.add(kdtE1, new KDLayout.Constraints(33, 124, 929, 90,KDLayout.Constraints.ANCHOR_TOP| KDLayout.Constraints.ANCHOR_BOTTOM| KDLayout.Constraints.ANCHOR_LEFT| KDLayout.Constraints.ANCHOR_RIGHT));
+		this.add(kdtE1, new KDLayout.Constraints(7, 193, 998, 127, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
 		
 		 EntityViewInfo evi = new EntityViewInfo();
 		 FilterInfo filter = new FilterInfo();
