@@ -1736,9 +1736,8 @@ contBgEntry.getContentPane().setLayout(new BorderLayout(0, 0));        contBgEnt
         this.toolBar.add(btnAddNew);
         this.toolBar.add(btnCloud);
         this.toolBar.add(btnEdit);
-        this.toolBar.add(btnXunTong);
-        this.toolBar.add(btnSave);
         this.toolBar.add(kDSeparatorCloud);
+        this.toolBar.add(btnSave);
         this.toolBar.add(btnReset);
         this.toolBar.add(btnSubmit);
         this.toolBar.add(btnCopy);
@@ -1761,8 +1760,8 @@ contBgEntry.getContentPane().setLayout(new BorderLayout(0, 0));        contBgEnt
         this.toolBar.add(btnWorkFlowG);
         this.toolBar.add(separatorFW4);
         this.toolBar.add(btnSignature);
-        this.toolBar.add(btnNumberSign);
         this.toolBar.add(separatorFW7);
+        this.toolBar.add(btnNumberSign);
         this.toolBar.add(btnViewSignature);
         this.toolBar.add(btnCreateFrom);
         this.toolBar.add(btnCopyFrom);
