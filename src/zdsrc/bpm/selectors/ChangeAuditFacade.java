@@ -320,8 +320,8 @@ public class ChangeAuditFacade implements BillBaseSelector {
 					                  if(Rowset.size()==1)
 					                  {
 					                   Rowset.next();  
-					                   xml.append("<HTMoney>" +FDCHelper.toBigDecimal(Rowset.getBigDecimal("SFa")) + "</HTMoney>\n");//在途金额汇总
-								       xml.append("<BGMoney>" +FDCHelper.toBigDecimal(Rowset.getBigDecimal("SFb"))+"</BGMoney>\n");//在途变更金额汇总
+					                   xml.append("<BGMoney>" +FDCHelper.toBigDecimal(Rowset.getBigDecimal("SFa")) + "</BGMoney>\n");//在途金额汇总
+								       xml.append("<HTMoney>" +FDCHelper.toBigDecimal(Rowset.getBigDecimal("SFb"))+"</HTMoney>\n");//在途变更金额汇总
 					                  }
 					                  builder.clear();
 						    		  

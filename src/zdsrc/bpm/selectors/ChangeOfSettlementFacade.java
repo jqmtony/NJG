@@ -171,7 +171,7 @@ public class ChangeOfSettlementFacade {
 			{
 				xml.append("<isDeduct>是</isDeduct>\n"); // 是否责任扣款部门
 			}
-			//xml.append("<currency>"+ Info.getBalanceAmount()+ "</currency>\n"); // 币别
+			xml.append("<OrgCode>"+StringUtilBPM.isNULl(Info.getOrgUnit().getNumber().split("-")[0])+ "</OrgCode>\n");
 			xml.append("<exchangeRate>"+ Info.getExRate()+ "</exchangeRate>\n"); // 汇率
 			xml.append("<originalAmount>"+ Info.getOriginalAmount()+ "</originalAmount>\n"); // 预算原币金额
 			xml.append("<unitPrice>"+ Info.getAmount()+ "</unitPrice>\n"); // 预算本币金额
@@ -307,6 +307,7 @@ public class ChangeOfSettlementFacade {
 		sic.add(new SelectorItemInfo("Creator.name"));
 		sic.add(new SelectorItemInfo("CreateTime"));
 		sic.add(new SelectorItemInfo("OrgUnit.name"));
+		sic.add(new SelectorItemInfo("OrgUnit.number"));
 		sic.add(new SelectorItemInfo("OrgUnit.DisplayName"));
 		sic.add(new SelectorItemInfo("CurProject.DisplayName"));
 		sic.add(new SelectorItemInfo("CurProject.name"));
