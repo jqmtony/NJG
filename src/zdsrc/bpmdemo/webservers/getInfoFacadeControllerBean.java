@@ -193,18 +193,15 @@ public class getInfoFacadeControllerBean extends AbstractgetInfoFacadeController
 			}
 			if(billInfo instanceof GuerdonBillInfo)
 			{
-				//str=new JLFacade().GetbillInfo(ctx, strBSID, billInfo);
-				str=ViewXmlUtil.getViewXmlHTString(ctx, "007",((GuerdonBillInfo) billInfo).getId().toString());
+				str=ViewXmlUtil.getViewXmlHTString(ctx, "JL",((GuerdonBillInfo) billInfo).getId().toString());
 			}
 			if(billInfo instanceof CompensationBillInfo)
 			{
-				//str=new CompensationFacade().GetbillInfo(ctx, strBSID, billInfo);
-				str=ViewXmlUtil.getViewXmlHTString(ctx, "005",((CompensationBillInfo) billInfo).getId().toString());
+				str=ViewXmlUtil.getViewXmlHTString(ctx, "WYJ",((CompensationBillInfo) billInfo).getId().toString());
 			}
 			if(billInfo instanceof DeductBillInfo)
 			{
-				//str=new DeductBillFacade().GetbillInfo(ctx, strBSID, billInfo);
-				str=ViewXmlUtil.getViewXmlHTString(ctx, "006",((DeductBillInfo) billInfo).getId().toString());
+				str=ViewXmlUtil.getViewXmlHTString(ctx, "KKD",((DeductBillInfo) billInfo).getId().toString());
 			}
 			
     	}catch (Exception e) {
@@ -235,12 +232,18 @@ public class getInfoFacadeControllerBean extends AbstractgetInfoFacadeController
 			e.printStackTrace();
 		}finally{
 			if(billInfo instanceof ContractBillInfo){
-				 str =  ViewXmlUtil.getViewXmlString(ctx, strRelatedCode, ((ContractBillInfo) billInfo).getId().toString());
+				 str =  ViewXmlUtil.getViewXmlHTString(ctx, strRelatedCode, ((ContractBillInfo) billInfo).getId().toString());
 			}
 			else if(billInfo instanceof ContractSettlementBillInfo)
-			{
+			{   
 				 ContractSettlementBillInfo  SettlementBillInfo = ((ContractSettlementBillInfo) billInfo);
-				 str =  ViewXmlUtil.getViewXmlString(ctx, strRelatedCode, SettlementBillInfo.getContractBill().getId().toString());
+				 if(strRelatedCode.equals("HTXX"))
+			     {
+				  str =  ViewXmlUtil.getViewXmlHTString(ctx, strRelatedCode, SettlementBillInfo.getContractBill().getId().toString());
+			     }else
+			     {
+				  str =  ViewXmlUtil.getViewXmlString(ctx, strRelatedCode, SettlementBillInfo.getContractBill().getId().toString());
+			     }
 			}
 			else{
 				 str =  ViewXmlUtil.getViewXmlString(ctx, strRelatedCode, strBOID);	
