@@ -239,7 +239,11 @@ public class getInfoFacadeControllerBean extends AbstractgetInfoFacadeController
 				 ContractSettlementBillInfo  SettlementBillInfo = ((ContractSettlementBillInfo) billInfo);
 				 if(strRelatedCode.equals("HTXX"))
 			     {
+				 // String  XML=null;
+				  
+				  //XML =  ViewXmlUtil.getViewXmlHTFLString(ctx, strRelatedCode, SettlementBillInfo.getContractBill().getId().toString());
 				  str =  ViewXmlUtil.getViewXmlHTString(ctx, strRelatedCode, SettlementBillInfo.getContractBill().getId().toString());
+				 
 			     }else
 			     {
 				  str =  ViewXmlUtil.getViewXmlString(ctx, strRelatedCode, SettlementBillInfo.getContractBill().getId().toString());
