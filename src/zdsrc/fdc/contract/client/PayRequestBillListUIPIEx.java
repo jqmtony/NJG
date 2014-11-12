@@ -178,12 +178,12 @@ public class PayRequestBillListUIPIEx extends PayRequestBillListUI{
 			{
 				//String url = info.getDescription();
 				String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+info.getId().toString()+"&btid=FK01&userid="+SysContext.getSysContext().getUserName()+"";
-				if("已审批".equals(info.getState().getAlias())||"审批中".equals(info.getState().getAlias()))
-				{
+//				if("已审批".equals(info.getState().getAlias())||"审批中".equals(info.getState().getAlias()))
+//				{
 					creatFrame(url);
-				}else{
-				MsgBox.showInfo("该单据未发起审批流程，或者已撤销流程，没有对应流程！");
-				}
+//				}else{
+//				MsgBox.showInfo("该单据未发起审批流程，或者已撤销流程，没有对应流程！");
+//				}
 			}
 		}else
 		{
