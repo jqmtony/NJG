@@ -21,23 +21,18 @@ import java.lang.String;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.bos.dao.IObjectPK;
-import com.kingdee.eas.fdc.contract.PayRequestBillCollection;
-import java.util.Map;
-import java.math.BigDecimal;
-import com.kingdee.eas.fdc.basedata.app.FDCBillControllerBean;
+import com.kingdee.eas.fdc.contract.PayRequestBillBgEntryCollection;
+import com.kingdee.eas.framework.CoreBillEntryBaseCollection;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
+import com.kingdee.bos.metadata.entity.SorterItemCollection;
 import com.kingdee.eas.framework.CoreBaseCollection;
-import com.kingdee.eas.fdc.contract.PayRequestBillInfo;
-import com.kingdee.bos.dao.IObjectValue;
-import com.kingdee.eas.framework.CoreBillBaseCollection;
+import com.kingdee.bos.metadata.entity.FilterInfo;
+import com.kingdee.eas.fdc.contract.PayRequestBillBgEntryInfo;
 import com.kingdee.eas.framework.CoreBaseInfo;
-import com.kingdee.eas.fdc.basedata.FDCBillCollection;
-import com.kingdee.eas.framework.ObjectBaseCollection;
-import com.kingdee.bos.util.BOSUuid;
-import java.util.List;
+import com.kingdee.eas.fdc.contract.PayBgEntryCollection;
 
-public class PayRequestBillControllerBeanEx extends com.kingdee.eas.fdc.contract.app.PayRequestBillControllerBean
+public class PayRequestBillBgEntryControllerBean extends AbstractPayRequestBillBgEntryControllerBean
 {
     private static Logger logger =
-        Logger.getLogger("com.kingdee.eas.fdc.contract.app.PayRequestBillControllerBeanEx");
-}				
+        Logger.getLogger("com.kingdee.eas.fdc.contract.app.PayRequestBillBgEntryControllerBean");
+}

@@ -1,13 +1,19 @@
 package com.kingdee.eas.fdc.contract.client;
 
 import java.awt.event.ActionEvent;
+import java.math.BigDecimal;
 
+import com.kingdee.bos.ctrl.kdf.table.IRow;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.eas.bpmdemo.JBrowserHelper.JFrameBrowser;
 import com.kingdee.eas.bpmdemo.webservers.serviceclient.BPMServiceForERPLocator;
 import com.kingdee.eas.bpmdemo.webservers.serviceclient.BPMServiceForERPSoap;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.fdc.basedata.ContractTypeInfo;
+import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
+import com.kingdee.eas.fdc.basedata.FDCHelper;
+import com.kingdee.eas.fdc.basedata.client.FDCMsgBox;
 import com.kingdee.eas.fdc.contract.ContractBillFactory;
 import com.kingdee.eas.fdc.contract.ContractBillInfo;
 import com.kingdee.eas.fdc.contract.ContractWithoutTextFactory;
@@ -15,6 +21,7 @@ import com.kingdee.eas.fdc.contract.ContractWithoutTextInfo;
 import com.kingdee.eas.fdc.contract.PayRequestBillFactory;
 import com.kingdee.eas.fdc.contract.PayRequestBillInfo;
 import com.kingdee.eas.util.SysUtil;
+import com.kingdee.eas.util.client.KDTableUtil;
 import com.kingdee.eas.util.client.MsgBox;
 
 public class PayRequestBillListUIPIEx extends PayRequestBillListUI{
@@ -201,5 +208,68 @@ public class PayRequestBillListUIPIEx extends PayRequestBillListUI{
     	jf.OpenJBrowser(this);
     }
 
-
+	public void actionClose_actionPerformed(ActionEvent e) throws Exception
+	{
+		checkSelected();
+		int[] selectedRows = KDTableUtil.getSelectedRows(getMainTable());
+		for(int i=0;i<selectedRows.length;i++){
+			IRow row=getMainTable().getRow(selectedRows[i]);
+			String id=row.getCell("id").getValue().toString();
+			SelectorItemCollection sel=new SelectorItemCollection();
+			sel.add("hasClosed");
+			sel.add("state");
+			sel.add("bgEntry.*");
+			sel.add("originalAmount");
+			
+			PayRequestBillInfo info=PayRequestBillFactory.getRemoteInstance().getPayRequestBillInfo(new ObjectUuidPK(id),sel);
+			
+			if(!info.getState().equals(FDCBillStateEnum.AUDITTED)) {
+				FDCMsgBox.showWarning(this,"当前单据的状态不能执行关闭操作！");
+				SysUtil.abort();
+			}
+			BigDecimal total=FDCHelper.ZERO;
+			for(int j=0;j<info.getBgEntry().size();j++){
+				if(info.getBgEntry().get(j).getActPayAmount()!=null){
+					total=total.add(info.getBgEntry().get(j).getActPayAmount());
+				}
+			}
+			if(total.compareTo(info.getOriginalAmount())==0){
+				FDCMsgBox.showWarning(this,"当前单据已经付款完毕，不能执行关闭操作！");
+				SysUtil.abort();
+			}
+			if (info.isHasClosed()) {
+				FDCMsgBox.showWarning(this, "当前单据已经关闭，不能执行关闭操作！");
+				SysUtil.abort();
+			}
+		}
+		for(int i=0;i<selectedRows.length;i++){
+			IRow row=getMainTable().getRow(selectedRows[i]);
+			String id=row.getCell("id").getValue().toString();
+			PayRequestBillFactory.getRemoteInstance().close(new ObjectUuidPK(id));
+		}
+		showOprtOKMsgAndRefresh();
+	}
+	public void actionUnClose_actionPerformed(ActionEvent e) throws Exception
+	{
+		checkSelected();
+		int[] selectedRows = KDTableUtil.getSelectedRows(getMainTable());
+		for(int i=0;i<selectedRows.length;i++){
+			IRow row=getMainTable().getRow(selectedRows[i]);
+			String id=row.getCell("id").getValue().toString();
+			SelectorItemCollection sel=new SelectorItemCollection();
+			sel.add("hasClosed");
+			PayRequestBillInfo info=PayRequestBillFactory.getRemoteInstance().getPayRequestBillInfo(new ObjectUuidPK(id),sel);
+			
+			if (!info.isHasClosed()) {
+				FDCMsgBox.showWarning(this, "当前单据未关闭，不能执行反关闭操作！");
+				SysUtil.abort();
+			}
+		}
+		for(int i=0;i<selectedRows.length;i++){
+			IRow row=getMainTable().getRow(selectedRows[i]);
+			String id=row.getCell("id").getValue().toString();
+			PayRequestBillFactory.getRemoteInstance().unClose(new ObjectUuidPK(id));
+		}
+		showOprtOKMsgAndRefresh();
+	}
 }
