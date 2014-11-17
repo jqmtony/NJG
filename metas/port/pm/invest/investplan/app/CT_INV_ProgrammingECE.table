@@ -329,6 +329,34 @@
             <scale>4</scale>
             <precision>0</precision>
         </column>
+        <column>
+            <name>fnoContractedAmount</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingECE].columns.column[fnoContractedAmount].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingECE].columns.column[fnoContractedAmount].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NUMERIC</sqlType>
+            <length>13</length>
+            <scale>10</scale>
+            <precision>28</precision>
+        </column>
+        <column>
+            <name>fnoInviteContractAmount</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingECE].columns.column[fnoInviteContractAmount].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingECE].columns.column[fnoInviteContractAmount].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NUMERIC</sqlType>
+            <length>13</length>
+            <scale>10</scale>
+            <precision>28</precision>
+        </column>
     </columns>
     <primaryKey>
         <name>CPK_INV_PrgrmnEd97</name>
@@ -346,9 +374,9 @@
     <resource>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingECE].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="成本构成" />
-            <lang locale="zh_HK" value="成本構成" />
-            <lang locale="zh_TW" value="成本構成" />
+            <lang locale="zh_CN" value="年度费用预算" />
+            <lang locale="zh_HK" value="年度費用預算" />
+            <lang locale="zh_TW" value="年度費用預算" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingECE].columns.column[FAssigned].alias">
             <lang locale="en_US" value="null" />
@@ -599,6 +627,30 @@
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingECE].columns.column[fnoContractedAmount].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="累计无文本合同金额" />
+            <lang locale="zh_HK" value="累計無文本合同金額" />
+            <lang locale="zh_TW" value="累計無文本合同金額" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingECE].columns.column[fnoContractedAmount].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="累计无文本合同金额" />
+            <lang locale="zh_HK" value="累計無文本合同金額" />
+            <lang locale="zh_TW" value="累計無文本合同金額" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingECE].columns.column[fnoInviteContractAmount].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="累计非招标合同金额" />
+            <lang locale="zh_HK" value="累計非招標合同金額" />
+            <lang locale="zh_TW" value="累計非招標合同金額" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingECE].columns.column[fnoInviteContractAmount].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="累计非招标合同金额" />
+            <lang locale="zh_HK" value="累計非招標合同金額" />
+            <lang locale="zh_TW" value="累計非招標合同金額" />
+        </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingECE].columns.column[fpayedAmount].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="累计付款金额" />
@@ -625,9 +677,9 @@
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invest.investplan.app.CT_INV_ProgrammingECE].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="成本构成" />
-            <lang locale="zh_HK" value="成本構成" />
-            <lang locale="zh_TW" value="成本構成" />
+            <lang locale="zh_CN" value="年度费用预算" />
+            <lang locale="zh_HK" value="年度費用預算" />
+            <lang locale="zh_TW" value="年度費用預算" />
         </rs>
     </resource>
 </dataTable>

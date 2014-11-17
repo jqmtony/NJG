@@ -1020,6 +1020,17 @@
                 <key name="name" value="R_ContractWithoutText_Person_person" />
             </relationship>
         </linkProperty>
+        <linkProperty>
+            <name>BudgetEntry</name>
+            <alias>entityObject[com.kingdee.eas.port.pm.contract.app.ContractWithoutText].properties.linkProperty[BudgetEntry].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.contract.app.ContractWithoutText].properties.linkProperty[BudgetEntry].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.port.pm.contract.app" />
+                <key name="name" value="R_ContractWithoutText_ContractWithoutTextBudgetEntry" />
+            </relationship>
+        </linkProperty>
     </properties>
     <logicalKey>
         <name>id</name>
@@ -2151,9 +2162,9 @@
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractWithoutText].extendedProperty.OrgType">
-            <lang locale="en_US" value="CostCenter" />
-            <lang locale="zh_CN" value="CostCenter" />
-            <lang locale="zh_TW" value="CostCenter" />
+            <lang locale="en_US" value="NONE" />
+            <lang locale="zh_CN" value="NONE" />
+            <lang locale="zh_TW" value="NONE" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractWithoutText].extendedProperty.codingRuleEnabled">
             <lang locale="en_US" value="true" />
@@ -2186,6 +2197,11 @@
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractWithoutText].extendedProperty.isParamObject">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractWithoutText].extendedProperty.isUseCodeRule">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
@@ -2454,6 +2470,18 @@
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractWithoutText].properties.linkProperty[BudgetEntry].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="无文本合同预算" />
+            <lang locale="zh_HK" value="無文本合同預算" />
+            <lang locale="zh_TW" value="無文本合同預算" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractWithoutText].properties.linkProperty[BudgetEntry].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="无文本合同预算" />
+            <lang locale="zh_HK" value="無文本合同預算" />
+            <lang locale="zh_TW" value="無文本合同預算" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractWithoutText].properties.linkProperty[account].alias">
             <lang locale="en_US" value="null" />
@@ -3237,7 +3265,8 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractWithoutText].properties.ownProperty[isBgControl].defaultValue">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="" />
+            <lang locale="zh_CN" value="是否预算控制" />
+            <lang locale="zh_HK" value="是否預算控制" />
             <lang locale="zh_TW" value="是否預算控制" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractWithoutText].properties.ownProperty[isBgControl].description">

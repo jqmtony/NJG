@@ -113,6 +113,19 @@
                 <key name="name" value="MarketSupplierStock" />
             </entityRef>
         </subEntity>
+        <subEntity>
+            <name>winInviteUnit</name>
+            <alias>joinQuery[com.kingdee.eas.port.pm.invite.app.WinInviteReportQuery].subObjects.subEntity[winInviteUnit].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="WinInviteReportQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.port.markesupplier.subill.app" />
+                <key name="name" value="MarketSupplierStock" />
+            </entityRef>
+        </subEntity>
     </subObjects>
     <units>
         <queryField>
@@ -1200,6 +1213,130 @@
                 <key name="name" value="WinInviteReportQuery" />
             </query>
         </queryField>
+        <queryField>
+            <name>invitedAmount</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.WinInviteReportQuery].units.queryField[invitedAmount].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>d2e9c0ee-5c32-47fb-9650-56e700a93482</key>
+                    <parentUnit>
+                        <key name="name" value="invitedAmount" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="WinInviteReport" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="invitedAmount" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="WinInviteReportQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>winInviteUnit.supplierName</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.WinInviteReportQuery].units.queryField[winInviteUnit.supplierName].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>1327057d-d013-4fc6-81d5-901f014a3476</key>
+                    <parentUnit>
+                        <key name="name" value="winInviteUnit.supplierName" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="winInviteUnit" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="supplierName" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="WinInviteReportQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>c0ee2d65-b82a-4cbe-b6c9-60e90f1a74c8</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.WinInviteReportQuery].units.propertyUnit[c0ee2d65-b82a-4cbe-b6c9-60e90f1a74c8].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>91ddd420-3314-40b3-97bd-85f5caf722d4</key>
+                    <parentUnit>
+                        <key name="name" value="c0ee2d65-b82a-4cbe-b6c9-60e90f1a74c8" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="WinInviteReport" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="winInviteUnit" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="WinInviteReportQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>23db6eac-b8a7-4951-a7b0-e7a46927bc2d</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.WinInviteReportQuery].units.propertyUnit[23db6eac-b8a7-4951-a7b0-e7a46927bc2d].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>35fca540-5344-4b54-9773-1c99283a287e</key>
+                    <parentUnit>
+                        <key name="name" value="23db6eac-b8a7-4951-a7b0-e7a46927bc2d" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="winInviteUnit" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="WinInviteReportQuery" />
+            </query>
+        </propertyUnit>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -1433,6 +1570,36 @@
                 <key name="name" value="WinInviteReportQuery" />
             </query>
         </join>
+        <join>
+            <name>c3f3f200-c1e0-4724-b917-41978cc6252f</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="WinInviteReport" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="winInviteUnit" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>aa411888-d85e-4ddb-a4ba-023f9a854f48</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="c0ee2d65-b82a-4cbe-b6c9-60e90f1a74c8" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="23db6eac-b8a7-4951-a7b0-e7a46927bc2d" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="c3f3f200-c1e0-4724-b917-41978cc6252f" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="WinInviteReportQuery" />
+            </query>
+        </join>
     </joins>
     <resource>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.WinInviteReportQuery].alias">
@@ -1510,6 +1677,12 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.WinInviteReportQuery].subObjects.subEntity[winInviteUnit].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.WinInviteReportQuery].units.propertyUnit[078dfbae-e045-41ad-a466-e904d81661db].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -1529,6 +1702,12 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.WinInviteReportQuery].units.propertyUnit[21e7cfd0-b17b-4c36-aa39-a20a62675893].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.WinInviteReportQuery].units.propertyUnit[23db6eac-b8a7-4951-a7b0-e7a46927bc2d].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -1570,6 +1749,12 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.WinInviteReportQuery].units.propertyUnit[c0ee2d65-b82a-4cbe-b6c9-60e90f1a74c8].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.WinInviteReportQuery].units.propertyUnit[df9a6a5d-16c9-439f-b3ec-7a5c024d730c].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -1600,11 +1785,31 @@
             <lang locale="zh_HK" value="備註" />
             <lang locale="zh_TW" value="備註" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.WinInviteReportQuery].units.queryField[Unit.beizhu].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.WinInviteReportQuery].units.queryField[Unit.beizhu].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.WinInviteReportQuery].units.queryField[Unit.inviteAmount].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="最终报价" />
             <lang locale="zh_HK" value="最終報價" />
             <lang locale="zh_TW" value="最終報價" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.WinInviteReportQuery].units.queryField[Unit.inviteAmount].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.WinInviteReportQuery].units.queryField[Unit.inviteAmount].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.WinInviteReportQuery].units.queryField[Unit.quality].displayName">
             <lang locale="en_US" value="null" />
@@ -1612,11 +1817,31 @@
             <lang locale="zh_HK" value="質量" />
             <lang locale="zh_TW" value="質量" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.WinInviteReportQuery].units.queryField[Unit.quality].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.WinInviteReportQuery].units.queryField[Unit.quality].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.WinInviteReportQuery].units.queryField[Unit.win].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="建议中标" />
             <lang locale="zh_HK" value="建議中標" />
             <lang locale="zh_TW" value="建議中標" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.WinInviteReportQuery].units.queryField[Unit.win].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.WinInviteReportQuery].units.queryField[Unit.win].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.WinInviteReportQuery].units.queryField[address].displayName">
             <lang locale="en_US" value="null" />
@@ -1811,6 +2036,16 @@
             <lang locale="zh_HK" value="招標方案名稱" />
             <lang locale="zh_TW" value="招標方案名稱" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.WinInviteReportQuery].units.queryField[inviteReport.reportName].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.WinInviteReportQuery].units.queryField[inviteReport.reportName].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.WinInviteReportQuery].units.queryField[inviteType.name].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="招标方式" />
@@ -1828,6 +2063,22 @@
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.WinInviteReportQuery].units.queryField[inviteType.name].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.WinInviteReportQuery].units.queryField[invitedAmount].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="中标金额" />
+            <lang locale="zh_HK" value="中標金額" />
+            <lang locale="zh_TW" value="中標金額" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.WinInviteReportQuery].units.queryField[invitedAmount].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.WinInviteReportQuery].units.queryField[invitedAmount].extendedProperty.isCommonQuerySorter">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
@@ -1869,6 +2120,27 @@
             <lang locale="zh_CN" value="投标单位" />
             <lang locale="zh_HK" value="投標單位" />
             <lang locale="zh_TW" value="投標單位" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.WinInviteReportQuery].units.queryField[winInviteUnit.supplierName].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="中标单位" />
+            <lang locale="zh_HK" value="中標單位" />
+            <lang locale="zh_TW" value="中標單位" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.WinInviteReportQuery].units.queryField[winInviteUnit.supplierName].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.WinInviteReportQuery].units.queryField[winInviteUnit.supplierName].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.WinInviteReportQuery].units.queryField[winInviteUnit.supplierName].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
     </resource>
 </joinQuery>

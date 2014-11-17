@@ -397,6 +397,37 @@
             </query>
         </queryField>
         <queryField>
+            <name>noContractedAmount</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingCostEntryQuery].units.queryField[noContractedAmount].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>2816ce00-187a-4656-b846-550281144b35</key>
+                    <parentUnit>
+                        <key name="name" value="noContractedAmount" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProgrammingEntryCostEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="noContractedAmount" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.investplan.app" />
+                <key name="name" value="ProgrammingCostEntryQuery" />
+            </query>
+        </queryField>
+        <queryField>
             <name>requestPayAmount</name>
             <userDefined>true</userDefined>
             <formulaString />
@@ -756,6 +787,12 @@
             <lang locale="zh_CN" value="子节点" />
             <lang locale="zh_HK" value="子節點" />
             <lang locale="zh_TW" value="子節點" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingCostEntryQuery].units.queryField[noContractedAmount].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="累计无文本合同金额" />
+            <lang locale="zh_HK" value="累計無文本合同金額" />
+            <lang locale="zh_TW" value="累計無文本合同金額" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingCostEntryQuery].units.queryField[number].displayName">
             <lang locale="en_US" value="null" />

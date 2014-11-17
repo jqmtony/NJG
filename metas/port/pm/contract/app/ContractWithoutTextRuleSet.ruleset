@@ -5,7 +5,133 @@
     <alias>ruleSet[com.kingdee.eas.port.pm.contract.app.ContractWithoutTextRuleSet].alias</alias>
     <description>ruleSet[com.kingdee.eas.port.pm.contract.app.ContractWithoutTextRuleSet].description</description>
     <userDefined>true</userDefined>
+    <expressions>
+        <groupExpression>
+            <id>ebbf64ab-643a-41a8-ab43-351420845888</id>
+            <parentID />
+            <source>BudgetEntry.budgetName=BudgetEntry.budgetNumber.feeName</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>3eff33dc-a225-4f83-95b6-4ce349af1fdb</id>
+            <parentID>ebbf64ab-643a-41a8-ab43-351420845888</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>31fa38b3-dd5a-4f9e-a532-e6939d74c138</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>31fa38b3-dd5a-4f9e-a532-e6939d74c138</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>kdtBudgetEntry.getCell(rowIndex,"budgetName")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>1109c449-100e-4c75-9e82-5f1389a01247</id>
+            <parentID>ebbf64ab-643a-41a8-ab43-351420845888</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>4349ae2e-2eb3-4d8f-bce3-96477720f72f</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>5762f2a9-694d-4daa-a8c7-7abbd9c1c287</id>
+                        <expressionID>53027f17-026b-460d-9776-b53f9240931c</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>bf0076fd-143d-46e7-b80a-c840c5913b2f</id>
+                        <expressionID>678f1df3-b86f-4bf9-ad82-17f103a84253</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>4349ae2e-2eb3-4d8f-bce3-96477720f72f</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>53027f17-026b-460d-9776-b53f9240931c</id>
+            <parentID />
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>0cae5cb7-36c6-4570-a869-03e0a9785e23</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>0cae5cb7-36c6-4570-a869-03e0a9785e23</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)kdtBudgetEntry.getCell(rowIndex,"budgetNumber")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>678f1df3-b86f-4bf9-ad82-17f103a84253</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>feeName</value>
+        </simpleExpression>
+    </expressions>
+    <actions>
+        <action>
+            <id>706d4f47-803b-47bd-ba5f-fda5331f480d</id>
+            <name>BudgetEntry_budgetName_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.pm.contract.app.ContractWithoutTextRuleSet].actions.action[BudgetEntry_budgetName_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.pm.contract.app.ContractWithoutTextRuleSet].actions.action[BudgetEntry_budgetName_ActionInfo].description</description>
+            <expressionID>ebbf64ab-643a-41a8-ab43-351420845888</expressionID>
+        </action>
+    </actions>
+    <rules>
+        <conditionRule>
+            <name>BudgetEntry_budgetName_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.pm.contract.app.ContractWithoutTextRuleSet].rules.conditionRule[BudgetEntry_budgetName_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.pm.contract.app.ContractWithoutTextRuleSet].rules.conditionRule[BudgetEntry_budgetName_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="706d4f47-803b-47bd-ba5f-fda5331f480d" />
+                </action>
+            </actions>
+        </conditionRule>
+    </rules>
     <resource>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.contract.app.ContractWithoutTextRuleSet].actions.action[BudgetEntry_budgetName_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_feeName" />
+            <lang locale="zh_HK" value="攜帶字段屬性_feeName" />
+            <lang locale="zh_TW" value="攜帶字段屬性_feeName" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.contract.app.ContractWithoutTextRuleSet].actions.action[BudgetEntry_budgetName_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
         <rs key="ruleSet[com.kingdee.eas.port.pm.contract.app.ContractWithoutTextRuleSet].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -17,6 +143,28 @@
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.contract.app.ContractWithoutTextRuleSet].rules.conditionRule[BudgetEntry_budgetName_RuleInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_feeName" />
+            <lang locale="zh_HK" value="攜帶字段屬性_feeName" />
+            <lang locale="zh_TW" value="攜帶字段屬性_feeName" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.contract.app.ContractWithoutTextRuleSet].rules.conditionRule[BudgetEntry_budgetName_RuleInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.contract.app.ContractWithoutTextRuleSet].rules.conditionRule[BudgetEntry_budgetName_RuleInfo].extendedProperty.columnName">
+            <lang locale="en_US" value="budgetNumber" />
+            <lang locale="zh_CN" value="budgetNumber" />
+            <lang locale="zh_TW" value="budgetNumber" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.contract.app.ContractWithoutTextRuleSet].rules.conditionRule[BudgetEntry_budgetName_RuleInfo].extendedProperty.userDefined">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
         </rs>
     </resource>
 </ruleSet>

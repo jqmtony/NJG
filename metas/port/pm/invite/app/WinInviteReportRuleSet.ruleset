@@ -267,6 +267,93 @@
             <valueType>String</valueType>
             <value>proName.name</value>
         </simpleExpression>
+        <groupExpression>
+            <id>a20e6457-2117-481b-b348-b25a46b893f1</id>
+            <parentID />
+            <source>BudgetEntry.budgetName=BudgetEntry.budgetNumber.feeName</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>f340eb65-1bf1-4df5-9d88-7e65b1c14c9b</id>
+            <parentID>a20e6457-2117-481b-b348-b25a46b893f1</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>bea9350c-cab5-4f2b-b0a4-63c0216fc5f2</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>bea9350c-cab5-4f2b-b0a4-63c0216fc5f2</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>kdtBudgetEntry.getCell(rowIndex,"budgetName")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>da99c558-b027-4d31-a5e4-b2dbe400896c</id>
+            <parentID>a20e6457-2117-481b-b348-b25a46b893f1</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>8092ef74-687e-489a-b751-4e6e12e1dde9</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>04c5aa9d-dad6-4cf9-a794-9b35c2abdfbf</id>
+                        <expressionID>289365b8-559a-4761-a7c6-4aa1aaa5797b</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>8dad03ae-3d80-4d86-ba78-bd50b77dce5f</id>
+                        <expressionID>7c30ad0f-0700-4915-b0b4-cb4a9cdb18d8</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>8092ef74-687e-489a-b751-4e6e12e1dde9</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>289365b8-559a-4761-a7c6-4aa1aaa5797b</id>
+            <parentID />
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>648f2462-7861-4553-9648-621a833da20d</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>648f2462-7861-4553-9648-621a833da20d</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)kdtBudgetEntry.getCell(rowIndex,"budgetNumber")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>7c30ad0f-0700-4915-b0b4-cb4a9cdb18d8</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>feeName</value>
+        </simpleExpression>
     </expressions>
     <actions>
         <action>
@@ -289,6 +376,13 @@
             <alias>ruleSet[com.kingdee.eas.port.pm.invite.app.WinInviteReportRuleSet].actions.action[WinInviteReport_invitePrjName_ActionInfo].alias</alias>
             <description>ruleSet[com.kingdee.eas.port.pm.invite.app.WinInviteReportRuleSet].actions.action[WinInviteReport_invitePrjName_ActionInfo].description</description>
             <expressionID>cf8ab54e-8c7f-42fe-b793-3d793e8d9269</expressionID>
+        </action>
+        <action>
+            <id>8f8dda55-9c57-4bd6-9ea7-c5eb3bcdef49</id>
+            <name>BudgetEntry_budgetName_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.pm.invite.app.WinInviteReportRuleSet].actions.action[BudgetEntry_budgetName_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.pm.invite.app.WinInviteReportRuleSet].actions.action[BudgetEntry_budgetName_ActionInfo].description</description>
+            <expressionID>a20e6457-2117-481b-b348-b25a46b893f1</expressionID>
         </action>
     </actions>
     <rules>
@@ -320,8 +414,34 @@
                 </action>
             </actions>
         </conditionRule>
+        <conditionRule>
+            <name>BudgetEntry_budgetName_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.pm.invite.app.WinInviteReportRuleSet].rules.conditionRule[BudgetEntry_budgetName_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.pm.invite.app.WinInviteReportRuleSet].rules.conditionRule[BudgetEntry_budgetName_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="8f8dda55-9c57-4bd6-9ea7-c5eb3bcdef49" />
+                </action>
+            </actions>
+        </conditionRule>
     </rules>
     <resource>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.WinInviteReportRuleSet].actions.action[BudgetEntry_budgetName_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_feeName" />
+            <lang locale="zh_HK" value="攜帶字段屬性_feeName" />
+            <lang locale="zh_TW" value="攜帶字段屬性_feeName" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.WinInviteReportRuleSet].actions.action[BudgetEntry_budgetName_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
         <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.WinInviteReportRuleSet].actions.action[WinInviteReport_evaSolution_ActionInfo].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="携带字段属性_judgeSolution" />
@@ -369,6 +489,28 @@
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.WinInviteReportRuleSet].rules.conditionRule[BudgetEntry_budgetName_RuleInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_feeName" />
+            <lang locale="zh_HK" value="攜帶字段屬性_feeName" />
+            <lang locale="zh_TW" value="攜帶字段屬性_feeName" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.WinInviteReportRuleSet].rules.conditionRule[BudgetEntry_budgetName_RuleInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.WinInviteReportRuleSet].rules.conditionRule[BudgetEntry_budgetName_RuleInfo].extendedProperty.columnName">
+            <lang locale="en_US" value="budgetNumber" />
+            <lang locale="zh_CN" value="budgetNumber" />
+            <lang locale="zh_TW" value="budgetNumber" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.WinInviteReportRuleSet].rules.conditionRule[BudgetEntry_budgetName_RuleInfo].extendedProperty.userDefined">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="ruleSet[com.kingdee.eas.port.pm.invite.app.WinInviteReportRuleSet].rules.conditionRule[WinInviteReport_evaSolution_RuleInfo].alias">
             <lang locale="en_US" value="null" />

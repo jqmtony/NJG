@@ -203,8 +203,8 @@
             <isMultilingual>false</isMultilingual>
             <isNullable>false</isNullable>
             <formula />
-            <length>100</length>
-            <precision>0</precision>
+            <length>80</length>
+            <precision>80</precision>
             <decimalDigits>0</decimalDigits>
             <defaultValue>entityObject[com.kingdee.eas.port.pm.contract.app.ContractBillEntry].properties.ownProperty[detail].defaultValue</defaultValue>
             <displayFormat />
@@ -223,8 +223,8 @@
             <isMultilingual>false</isMultilingual>
             <isNullable>false</isNullable>
             <formula />
-            <length>100</length>
-            <precision>0</precision>
+            <length>2000</length>
+            <precision>80</precision>
             <decimalDigits>0</decimalDigits>
             <defaultValue>entityObject[com.kingdee.eas.port.pm.contract.app.ContractBillEntry].properties.ownProperty[content].defaultValue</defaultValue>
             <displayFormat />
@@ -243,7 +243,7 @@
             <isMultilingual>false</isMultilingual>
             <isNullable>false</isNullable>
             <formula />
-            <length>200</length>
+            <length>2000</length>
             <precision>0</precision>
             <decimalDigits>0</decimalDigits>
             <defaultValue>entityObject[com.kingdee.eas.port.pm.contract.app.ContractBillEntry].properties.ownProperty[desc].defaultValue</defaultValue>
@@ -263,8 +263,8 @@
             <isMultilingual>false</isMultilingual>
             <isNullable>false</isNullable>
             <formula />
-            <length>10</length>
-            <precision>0</precision>
+            <length>80</length>
+            <precision>80</precision>
             <decimalDigits>0</decimalDigits>
             <defaultValue>entityObject[com.kingdee.eas.port.pm.contract.app.ContractBillEntry].properties.ownProperty[rowKey].defaultValue</defaultValue>
             <displayFormat />
@@ -284,7 +284,7 @@
             <isNullable>false</isNullable>
             <formula />
             <length>0</length>
-            <precision>0</precision>
+            <precision>4</precision>
             <decimalDigits>0</decimalDigits>
             <defaultValue>entityObject[com.kingdee.eas.port.pm.contract.app.ContractBillEntry].properties.ownProperty[dataType].defaultValue</defaultValue>
             <displayFormat />
@@ -303,7 +303,7 @@
             <isMultilingual>false</isMultilingual>
             <isNullable>false</isNullable>
             <formula />
-            <length>0</length>
+            <length>44</length>
             <precision>0</precision>
             <decimalDigits>0</decimalDigits>
             <defaultValue>entityObject[com.kingdee.eas.port.pm.contract.app.ContractBillEntry].properties.ownProperty[detailDefID].defaultValue</defaultValue>
@@ -489,6 +489,11 @@
             <lang locale="zh_CN" value="STRING" />
             <lang locale="zh_TW" value="STRING" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractBillEntry].properties.ownProperty[content].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractBillEntry].properties.ownProperty[content].extendedProperty.isForGrouping">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
@@ -533,9 +538,23 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractBillEntry].properties.ownProperty[dataType].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractBillEntry].properties.ownProperty[dataType].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractBillEntry].properties.ownProperty[dataType].extendedProperty.bizDataType">
+            <lang locale="en_US" value="ENUM" />
+            <lang locale="zh_CN" value="ENUM" />
+            <lang locale="zh_TW" value="ENUM" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractBillEntry].properties.ownProperty[dataType].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractBillEntry].properties.ownProperty[desc].alias">
             <lang locale="en_US" value="null" />
@@ -564,6 +583,11 @@
             <lang locale="en_US" value="STRING" />
             <lang locale="zh_CN" value="STRING" />
             <lang locale="zh_TW" value="STRING" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractBillEntry].properties.ownProperty[desc].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractBillEntry].properties.ownProperty[desc].extendedProperty.isForGrouping">
             <lang locale="en_US" value="false" />
@@ -612,6 +636,21 @@
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractBillEntry].properties.ownProperty[detailDefID].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractBillEntry].properties.ownProperty[detailDefID].extendedProperty.bizDataType">
+            <lang locale="en_US" value="STRING" />
+            <lang locale="zh_CN" value="STRING" />
+            <lang locale="zh_TW" value="STRING" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractBillEntry].properties.ownProperty[detailDefID].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractBillEntry].properties.ownProperty[detail].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="详细信息" />
@@ -629,6 +668,21 @@
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractBillEntry].properties.ownProperty[detail].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractBillEntry].properties.ownProperty[detail].extendedProperty.bizDataType">
+            <lang locale="en_US" value="STRING" />
+            <lang locale="zh_CN" value="STRING" />
+            <lang locale="zh_TW" value="STRING" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractBillEntry].properties.ownProperty[detail].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractBillEntry].properties.ownProperty[rowKey].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="表行Key" />
@@ -643,9 +697,23 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractBillEntry].properties.ownProperty[rowKey].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractBillEntry].properties.ownProperty[rowKey].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractBillEntry].properties.ownProperty[rowKey].extendedProperty.bizDataType">
+            <lang locale="en_US" value="STRING" />
+            <lang locale="zh_CN" value="STRING" />
+            <lang locale="zh_TW" value="STRING" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractBillEntry].properties.ownProperty[rowKey].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
         </rs>
     </resource>
 </entityObject>

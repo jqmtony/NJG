@@ -501,6 +501,46 @@
             </mappingField>
         </ownProperty>
         <ownProperty>
+            <name>noInviteContractAmount</name>
+            <alias>entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntryCostEntry].properties.ownProperty[noInviteContractAmount].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntryCostEntry].properties.ownProperty[noInviteContractAmount].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>BigDecimal</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>13</length>
+            <precision>28</precision>
+            <decimalDigits>10</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntryCostEntry].properties.ownProperty[noInviteContractAmount].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="fnoInviteContractAmount" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>noContractedAmount</name>
+            <alias>entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntryCostEntry].properties.ownProperty[noContractedAmount].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntryCostEntry].properties.ownProperty[noContractedAmount].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>BigDecimal</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>13</length>
+            <precision>28</precision>
+            <decimalDigits>10</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntryCostEntry].properties.ownProperty[noContractedAmount].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="fnoContractedAmount" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
             <name>requestPayAmount</name>
             <alias>entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntryCostEntry].properties.ownProperty[requestPayAmount].alias</alias>
             <description>entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntryCostEntry].properties.ownProperty[requestPayAmount].description</description>
@@ -616,15 +656,15 @@
     <resource>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntryCostEntry].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="成本构成" />
-            <lang locale="zh_HK" value="成本構成" />
-            <lang locale="zh_TW" value="成本構成" />
+            <lang locale="zh_CN" value="年度费用预算" />
+            <lang locale="zh_HK" value="年度費用預算" />
+            <lang locale="zh_TW" value="年度費用預算" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntryCostEntry].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="成本构成" />
-            <lang locale="zh_HK" value="成本構成" />
-            <lang locale="zh_TW" value="成本構成" />
+            <lang locale="zh_CN" value="年度费用预算" />
+            <lang locale="zh_HK" value="年度費用預算" />
+            <lang locale="zh_TW" value="年度費用預算" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntryCostEntry].logicalKey[id].alias">
             <lang locale="en_US" value="null" />
@@ -835,9 +875,9 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntryCostEntry].properties.ownProperty[balanceAmount].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="预算-申报未转中标-中标未转合同-合同-无文本合同" />
-            <lang locale="zh_HK" value="預算-申報未轉中標-中標未轉合同-合同-無文本合同" />
-            <lang locale="zh_TW" value="預算-申報未轉中標-中標未轉合同-合同-無文本合同" />
+            <lang locale="zh_CN" value="预算-合同-无文本合同" />
+            <lang locale="zh_HK" value="預算-合同-無文本合同" />
+            <lang locale="zh_TW" value="預算-合同-無文本合同" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntryCostEntry].properties.ownProperty[beizhu].alias">
             <lang locale="en_US" value="null" />
@@ -1046,6 +1086,38 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntryCostEntry].properties.ownProperty[isLast].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntryCostEntry].properties.ownProperty[noContractedAmount].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="累计无文本合同金额" />
+            <lang locale="zh_HK" value="累計無文本合同金額" />
+            <lang locale="zh_TW" value="累計無文本合同金額" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntryCostEntry].properties.ownProperty[noContractedAmount].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntryCostEntry].properties.ownProperty[noContractedAmount].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntryCostEntry].properties.ownProperty[noInviteContractAmount].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="累计非招标合同金额" />
+            <lang locale="zh_HK" value="累計非招標合同金額" />
+            <lang locale="zh_TW" value="累計非招標合同金額" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntryCostEntry].properties.ownProperty[noInviteContractAmount].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingEntryCostEntry].properties.ownProperty[noInviteContractAmount].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />

@@ -8,74 +8,18 @@
     <bizUnitPK />
     <columns>
         <column>
-            <name>FHeadId</name>
-            <alias>dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[FHeadId].alias</alias>
-            <description>dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[FHeadId].description</description>
+            <name>FID</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[FID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[FID].description</description>
             <userDefined>true</userDefined>
             <isMultilingual>false</isMultilingual>
             <isEncoded>false</isEncoded>
-            <isNullable>true</isNullable>
-            <defaultValue />
-            <sqlType>VARCHAR</sqlType>
-            <length>44</length>
-            <scale>0</scale>
-            <precision>44</precision>
-        </column>
-        <column>
-            <name>FExpenseTypeId</name>
-            <alias>dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[FExpenseTypeId].alias</alias>
-            <description>dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[FExpenseTypeId].description</description>
-            <userDefined>true</userDefined>
-            <isMultilingual>false</isMultilingual>
-            <isEncoded>false</isEncoded>
-            <isNullable>true</isNullable>
-            <defaultValue />
+            <isNullable>false</isNullable>
+            <defaultValue>''</defaultValue>
             <sqlType>VARCHAR</sqlType>
             <length>44</length>
             <scale>0</scale>
             <precision>0</precision>
-        </column>
-        <column>
-            <name>FAccountViewId</name>
-            <alias>dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[FAccountViewId].alias</alias>
-            <description>dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[FAccountViewId].description</description>
-            <userDefined>true</userDefined>
-            <isMultilingual>false</isMultilingual>
-            <isEncoded>false</isEncoded>
-            <isNullable>true</isNullable>
-            <defaultValue />
-            <sqlType>VARCHAR</sqlType>
-            <length>44</length>
-            <scale>0</scale>
-            <precision>0</precision>
-        </column>
-        <column>
-            <name>FRequestAmount</name>
-            <alias>dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[FRequestAmount].alias</alias>
-            <description>dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[FRequestAmount].description</description>
-            <userDefined>true</userDefined>
-            <isMultilingual>false</isMultilingual>
-            <isEncoded>false</isEncoded>
-            <isNullable>true</isNullable>
-            <defaultValue />
-            <sqlType>NUMERIC</sqlType>
-            <length>13</length>
-            <scale>10</scale>
-            <precision>28</precision>
-        </column>
-        <column>
-            <name>FAmount</name>
-            <alias>dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[FAmount].alias</alias>
-            <description>dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[FAmount].description</description>
-            <userDefined>true</userDefined>
-            <isMultilingual>false</isMultilingual>
-            <isEncoded>false</isEncoded>
-            <isNullable>true</isNullable>
-            <defaultValue />
-            <sqlType>NUMERIC</sqlType>
-            <length>13</length>
-            <scale>10</scale>
-            <precision>28</precision>
         </column>
         <column>
             <name>FSeq</name>
@@ -84,31 +28,45 @@
             <userDefined>true</userDefined>
             <isMultilingual>false</isMultilingual>
             <isEncoded>false</isEncoded>
-            <isNullable>true</isNullable>
-            <defaultValue />
+            <isNullable>false</isNullable>
+            <defaultValue>0</defaultValue>
             <sqlType>INT</sqlType>
             <length>4</length>
             <scale>0</scale>
             <precision>4</precision>
         </column>
         <column>
-            <name>FID</name>
-            <alias>dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[FID].alias</alias>
-            <description>dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[FID].description</description>
+            <name>FParentID</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[FParentID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[FParentID].description</description>
             <userDefined>true</userDefined>
             <isMultilingual>false</isMultilingual>
             <isEncoded>false</isEncoded>
             <isNullable>false</isNullable>
-            <defaultValue />
+            <defaultValue>''</defaultValue>
             <sqlType>VARCHAR</sqlType>
             <length>44</length>
             <scale>0</scale>
-            <precision>44</precision>
+            <precision>0</precision>
         </column>
         <column>
-            <name>FBgItemId</name>
-            <alias>dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[FBgItemId].alias</alias>
-            <description>dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[FBgItemId].description</description>
+            <name>CFSeq</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[CFSeq].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[CFSeq].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>INT</sqlType>
+            <length>0</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFBudgetNumberID</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[CFBudgetNumberID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[CFBudgetNumberID].description</description>
             <userDefined>true</userDefined>
             <isMultilingual>false</isMultilingual>
             <isEncoded>false</isEncoded>
@@ -119,127 +77,294 @@
             <scale>0</scale>
             <precision>0</precision>
         </column>
+        <column>
+            <name>CFBudgetName</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[CFBudgetName].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[CFBudgetName].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>80</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFBudgetAmount</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[CFBudgetAmount].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[CFBudgetAmount].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NUMERIC</sqlType>
+            <length>28</length>
+            <scale>2</scale>
+            <precision>28</precision>
+        </column>
+        <column>
+            <name>CFBalance</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[CFBalance].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[CFBalance].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NUMERIC</sqlType>
+            <length>28</length>
+            <scale>2</scale>
+            <precision>28</precision>
+        </column>
+        <column>
+            <name>CFLastAmount</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[CFLastAmount].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[CFLastAmount].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NUMERIC</sqlType>
+            <length>28</length>
+            <scale>2</scale>
+            <precision>28</precision>
+        </column>
+        <column>
+            <name>CFAmount</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[CFAmount].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[CFAmount].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NUMERIC</sqlType>
+            <length>28</length>
+            <scale>2</scale>
+            <precision>28</precision>
+        </column>
+        <column>
+            <name>CFBeizhu</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[CFBeizhu].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[CFBeizhu].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>255</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FHeadId</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[FHeadId].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[FHeadId].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue>''</defaultValue>
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
     </columns>
     <primaryKey>
-        <name>CPK_CON_CntrcWTt09</name>
+        <name>CPK_CON_CntrcWT9hj</name>
         <userDefined>true</userDefined>
         <primaryKeyColumns>
             <primaryKeyColumn>
                 <indexID>0</indexID>
-                <sortType>ASC</sortType>
+                <sortType />
                 <column>
                     <key name="name" value="FID" />
                 </column>
             </primaryKeyColumn>
         </primaryKeyColumns>
     </primaryKey>
+    <foreignKeys>
+        <foreignKey>
+            <name>CFK_CON_CONCWTBEoj</name>
+            <userDefined>true</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.port.pm.invest.investplan.app" />
+                <key name="name" value="CT_INV_ProgrammingECE" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="CFBudgetNumberID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
+    </foreignKeys>
     <resource>
         <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="费用清单" />
-            <lang locale="zh_HK" value="費用清單" />
-            <lang locale="zh_TW" value="費用清單" />
+            <lang locale="zh_CN" value="无文本合同预算" />
+            <lang locale="zh_HK" value="無文本合同預算" />
+            <lang locale="zh_TW" value="無文本合同預算" />
         </rs>
-        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[FAccountViewId].alias">
+        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[CFAmount].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="会计科目" />
-            <lang locale="zh_HK" value="會計科目" />
-            <lang locale="zh_TW" value="會計科目" />
+            <lang locale="zh_CN" value="本次预算" />
+            <lang locale="zh_HK" value="本次預算" />
+            <lang locale="zh_TW" value="本次預算" />
         </rs>
-        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[FAccountViewId].description">
+        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[CFAmount].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="会计科目" />
-            <lang locale="zh_HK" value="會計科目" />
-            <lang locale="zh_TW" value="會計科目" />
+            <lang locale="zh_CN" value="本次预算" />
+            <lang locale="zh_HK" value="本次預算" />
+            <lang locale="zh_TW" value="本次預算" />
         </rs>
-        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[FAmount].alias">
+        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[CFBalance].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="核定金额" />
-            <lang locale="zh_HK" value="核定金額" />
-            <lang locale="zh_TW" value="核定金額" />
+            <lang locale="zh_CN" value="可用预算" />
+            <lang locale="zh_HK" value="可用預算" />
+            <lang locale="zh_TW" value="可用預算" />
         </rs>
-        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[FAmount].description">
+        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[CFBalance].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="核定金额" />
-            <lang locale="zh_HK" value="核定金額" />
-            <lang locale="zh_TW" value="核定金額" />
+            <lang locale="zh_CN" value="可用预算" />
+            <lang locale="zh_HK" value="可用預算" />
+            <lang locale="zh_TW" value="可用預算" />
         </rs>
-        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[FBgItemId].alias">
+        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[CFBeizhu].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="预算项目" />
-            <lang locale="zh_HK" value="預算項目" />
-            <lang locale="zh_TW" value="預算項目" />
+            <lang locale="zh_CN" value="备注" />
+            <lang locale="zh_HK" value="備註" />
+            <lang locale="zh_TW" value="備註" />
         </rs>
-        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[FBgItemId].description">
+        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[CFBeizhu].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="预算项目" />
-            <lang locale="zh_HK" value="預算項目" />
-            <lang locale="zh_TW" value="預算項目" />
+            <lang locale="zh_CN" value="备注" />
+            <lang locale="zh_HK" value="備註" />
+            <lang locale="zh_TW" value="備註" />
         </rs>
-        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[FExpenseTypeId].alias">
+        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[CFBudgetAmount].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="费用类别" />
-            <lang locale="zh_HK" value="費用類別" />
-            <lang locale="zh_TW" value="費用類別" />
+            <lang locale="zh_CN" value="预算金额" />
+            <lang locale="zh_HK" value="預算金額" />
+            <lang locale="zh_TW" value="預算金額" />
         </rs>
-        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[FExpenseTypeId].description">
+        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[CFBudgetAmount].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="费用类别" />
-            <lang locale="zh_HK" value="費用類別" />
-            <lang locale="zh_TW" value="費用類別" />
+            <lang locale="zh_CN" value="预算金额" />
+            <lang locale="zh_HK" value="預算金額" />
+            <lang locale="zh_TW" value="預算金額" />
         </rs>
-        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[FHeadId].alias">
+        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[CFBudgetName].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="预算名称" />
+            <lang locale="zh_HK" value="預算名稱" />
+            <lang locale="zh_TW" value="預算名稱" />
         </rs>
-        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[FHeadId].description">
+        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[CFBudgetName].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="无文本合同" />
-            <lang locale="zh_HK" value="無文本合同" />
-            <lang locale="zh_TW" value="無文本合同" />
+            <lang locale="zh_CN" value="预算名称" />
+            <lang locale="zh_HK" value="預算名稱" />
+            <lang locale="zh_TW" value="預算名稱" />
         </rs>
-        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[FID].alias">
+        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[CFBudgetNumberID].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="ID" />
-            <lang locale="zh_HK" value="ID" />
-            <lang locale="zh_TW" value="ID" />
+            <lang locale="zh_CN" value="预算编码" />
+            <lang locale="zh_HK" value="預算編碼" />
+            <lang locale="zh_TW" value="預算編碼" />
         </rs>
-        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[FID].description">
+        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[CFBudgetNumberID].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="预算编码" />
+            <lang locale="zh_HK" value="預算編碼" />
+            <lang locale="zh_TW" value="預算編碼" />
         </rs>
-        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[FRequestAmount].alias">
+        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[CFLastAmount].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="申请金额" />
-            <lang locale="zh_HK" value="申請金額" />
-            <lang locale="zh_TW" value="申請金額" />
+            <lang locale="zh_CN" value="剩余预算" />
+            <lang locale="zh_HK" value="剩餘預算" />
+            <lang locale="zh_TW" value="剩餘預算" />
         </rs>
-        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[FRequestAmount].description">
+        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[CFLastAmount].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="申请金额" />
-            <lang locale="zh_HK" value="申請金額" />
-            <lang locale="zh_TW" value="申請金額" />
+            <lang locale="zh_CN" value="剩余预算" />
+            <lang locale="zh_HK" value="剩餘預算" />
+            <lang locale="zh_TW" value="剩餘預算" />
         </rs>
-        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[FSeq].alias">
+        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[CFSeq].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="单据分录序列号" />
             <lang locale="zh_HK" value="單據分錄序列號" />
             <lang locale="zh_TW" value="單據分錄序列號" />
         </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[CFSeq].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[FHeadId].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="FHeadId" />
+            <lang locale="zh_HK" value="FHeadId" />
+            <lang locale="zh_TW" value="FHeadId" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[FHeadId].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="FHeadId" />
+            <lang locale="zh_HK" value="FHeadId" />
+            <lang locale="zh_TW" value="FHeadId" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[FID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[FID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[FParentID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[FParentID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[FSeq].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].columns.column[FSeq].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="单据分录序列号（定义为序列属性即使用{seq}）" />
-            <lang locale="zh_HK" value="單據分錄序列號（定義為序列屬性即使用{seq}）" />
-            <lang locale="zh_TW" value="單據分錄序列號（定義為序列屬性即使用{seq}）" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.contract.app.CT_CON_ContractWTBE].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="费用清单" />
-            <lang locale="zh_HK" value="費用清單" />
-            <lang locale="zh_TW" value="費用清單" />
+            <lang locale="zh_CN" value="无文本合同预算" />
+            <lang locale="zh_HK" value="無文本合同預算" />
+            <lang locale="zh_TW" value="無文本合同預算" />
         </rs>
     </resource>
 </dataTable>
