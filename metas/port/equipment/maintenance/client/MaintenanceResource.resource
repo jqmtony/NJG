@@ -37,6 +37,11 @@
             <value>i18nResource[com.kingdee.eas.port.equipment.maintenance.client.MaintenanceResource].resourceItems.resourceItem[YearPlanApplyQueryF7WindowTitle].value</value>
             <userDefined>true</userDefined>
         </resourceItem>
+        <resourceItem>
+            <name>EquMaintBookQueryF7WindowTitle</name>
+            <value>i18nResource[com.kingdee.eas.port.equipment.maintenance.client.MaintenanceResource].resourceItems.resourceItem[EquMaintBookQueryF7WindowTitle].value</value>
+            <userDefined>true</userDefined>
+        </resourceItem>
     </resourceItems>
     <resource>
         <rs key="i18nResource[com.kingdee.eas.port.equipment.maintenance.client.MaintenanceResource].alias">
@@ -50,6 +55,12 @@
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="i18nResource[com.kingdee.eas.port.equipment.maintenance.client.MaintenanceResource].resourceItems.resourceItem[EquMaintBookQueryF7WindowTitle].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="设备二级维保任务书" />
+            <lang locale="zh_HK" value="設備二級維保任務書" />
+            <lang locale="zh_TW" value="設備二級維保任務書" />
         </rs>
         <rs key="i18nResource[com.kingdee.eas.port.equipment.maintenance.client.MaintenanceResource].resourceItems.resourceItem[InspectionEquQueryF7WindowTitle].value">
             <lang locale="en_US" value="null" />

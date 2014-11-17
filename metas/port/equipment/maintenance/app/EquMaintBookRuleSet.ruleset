@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleSet xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.port.equipment.maintenance.app</package>
+    <name>EquMaintBookRuleSet</name>
+    <alias>ruleSet[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBookRuleSet].alias</alias>
+    <description>ruleSet[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBookRuleSet].description</description>
+    <userDefined>true</userDefined>
+    <expressions>
+        <groupExpression>
+            <id>467f6b2a-f23d-467c-ab62-6d9da99335e6</id>
+            <parentID />
+            <source>equName=equNumber.name</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>605efae4-d54d-4fb2-bedc-69d9946f75e7</id>
+            <parentID>467f6b2a-f23d-467c-ab62-6d9da99335e6</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>c23a2d65-0234-4fa8-980c-962881e00531</ownerID>
+                <name>text</name>
+                <type>java.lang.String</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>c23a2d65-0234-4fa8-980c-962881e00531</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>txtequName</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>733c583a-1184-497c-84f4-f8bf75533720</id>
+            <parentID>467f6b2a-f23d-467c-ab62-6d9da99335e6</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>6701edb3-f97a-4193-9d20-9703c38857d0</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>121a2bf7-8549-4ced-941e-ea661eadeb6f</id>
+                        <expressionID>06662214-26c8-4665-9055-394c02d3e491</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>6f2ee276-27e2-41e7-851c-4da25b1ee8f2</id>
+                        <expressionID>8d98ebd8-dfd3-42d6-8be6-a33755d259c8</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>6701edb3-f97a-4193-9d20-9703c38857d0</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>06662214-26c8-4665-9055-394c02d3e491</id>
+            <parentID />
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>Object</valueType>
+            <value />
+            <method>
+                <ownerID>25a2db20-bb4a-4a46-97bd-a048ac9c3b3a</ownerID>
+                <name>getData</name>
+                <type>Object</type>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>25a2db20-bb4a-4a46-97bd-a048ac9c3b3a</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)prmtequNumber</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>8d98ebd8-dfd3-42d6-8be6-a33755d259c8</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>name</value>
+        </simpleExpression>
+        <groupExpression>
+            <id>6c98317b-c888-4bc9-981e-56d0600d1287</id>
+            <parentID />
+            <source>model=equNumber.model</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>6a05bbcf-baa9-4adb-9c36-f92a14409f3d</id>
+            <parentID>6c98317b-c888-4bc9-981e-56d0600d1287</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>fd9de2e9-73a6-453f-b5ef-ac44acf6d85a</ownerID>
+                <name>text</name>
+                <type>java.lang.String</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>fd9de2e9-73a6-453f-b5ef-ac44acf6d85a</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>txtmodel</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>cf30e1be-4d3a-4f3c-a1e3-86f4de0bd118</id>
+            <parentID>6c98317b-c888-4bc9-981e-56d0600d1287</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>467eb140-ae8b-4b79-ac25-b166a7b9e8c7</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>1ff8732c-6495-4484-ba14-a180efadf491</id>
+                        <expressionID>bc7b9d75-69a0-4239-bd7f-02cb9ef01da4</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>2336f57e-443d-4bd7-b904-3494c13c74e3</id>
+                        <expressionID>81e304ca-f945-4269-a574-6d12a9b10686</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>467eb140-ae8b-4b79-ac25-b166a7b9e8c7</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>bc7b9d75-69a0-4239-bd7f-02cb9ef01da4</id>
+            <parentID />
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>Object</valueType>
+            <value />
+            <method>
+                <ownerID>543a6870-f498-4f7e-808b-9151034daf5d</ownerID>
+                <name>getData</name>
+                <type>Object</type>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>543a6870-f498-4f7e-808b-9151034daf5d</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)prmtequNumber</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>81e304ca-f945-4269-a574-6d12a9b10686</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>model</value>
+        </simpleExpression>
+        <groupExpression>
+            <id>11b74c52-c2b4-4a6a-890a-f20b93257f51</id>
+            <parentID />
+            <source>useDepart=equNumber.usingDept.name</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>de6cab51-f7c0-4133-9fbe-774fd8e07e62</id>
+            <parentID>11b74c52-c2b4-4a6a-890a-f20b93257f51</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>127bfee8-982e-435e-9843-399a23da634f</ownerID>
+                <name>text</name>
+                <type>java.lang.String</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>127bfee8-982e-435e-9843-399a23da634f</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>txtuseDepart</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>8f6615c9-a9c6-4cbb-9b5d-c2aa61c3bbac</id>
+            <parentID>11b74c52-c2b4-4a6a-890a-f20b93257f51</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>723e911f-f321-4315-b704-31b9efc5547e</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>bc4d8269-d12f-4b60-bde0-8191a4345cf9</id>
+                        <expressionID>780ca681-af3b-4a9e-b8d1-5bc8e63d41e4</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>587abf88-76c0-40dc-af4a-49bfa3d0a230</id>
+                        <expressionID>b0ca6d07-368e-4c71-aa97-0e37bf38298a</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>723e911f-f321-4315-b704-31b9efc5547e</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>780ca681-af3b-4a9e-b8d1-5bc8e63d41e4</id>
+            <parentID />
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>Object</valueType>
+            <value />
+            <method>
+                <ownerID>a8093569-0627-455c-8423-622f6447ab0f</ownerID>
+                <name>getData</name>
+                <type>Object</type>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>a8093569-0627-455c-8423-622f6447ab0f</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)prmtequNumber</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>b0ca6d07-368e-4c71-aa97-0e37bf38298a</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>usingDept.name</value>
+        </simpleExpression>
+    </expressions>
+    <actions>
+        <action>
+            <id>2ab04e13-92cd-456b-af88-ef0720ef1209</id>
+            <name>EquMaintBook_equName_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBookRuleSet].actions.action[EquMaintBook_equName_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBookRuleSet].actions.action[EquMaintBook_equName_ActionInfo].description</description>
+            <expressionID>467f6b2a-f23d-467c-ab62-6d9da99335e6</expressionID>
+        </action>
+        <action>
+            <id>67370298-883b-412e-90a4-b982ab562c03</id>
+            <name>EquMaintBook_model_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBookRuleSet].actions.action[EquMaintBook_model_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBookRuleSet].actions.action[EquMaintBook_model_ActionInfo].description</description>
+            <expressionID>6c98317b-c888-4bc9-981e-56d0600d1287</expressionID>
+        </action>
+        <action>
+            <id>d69fd208-9ebf-4ceb-a630-f456ce095115</id>
+            <name>EquMaintBook_useDepart_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBookRuleSet].actions.action[EquMaintBook_useDepart_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBookRuleSet].actions.action[EquMaintBook_useDepart_ActionInfo].description</description>
+            <expressionID>11b74c52-c2b4-4a6a-890a-f20b93257f51</expressionID>
+        </action>
+    </actions>
+    <rules>
+        <conditionRule>
+            <name>EquMaintBook_equName_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBookRuleSet].rules.conditionRule[EquMaintBook_equName_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBookRuleSet].rules.conditionRule[EquMaintBook_equName_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="2ab04e13-92cd-456b-af88-ef0720ef1209" />
+                </action>
+            </actions>
+        </conditionRule>
+        <conditionRule>
+            <name>EquMaintBook_model_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBookRuleSet].rules.conditionRule[EquMaintBook_model_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBookRuleSet].rules.conditionRule[EquMaintBook_model_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="67370298-883b-412e-90a4-b982ab562c03" />
+                </action>
+            </actions>
+        </conditionRule>
+        <conditionRule>
+            <name>EquMaintBook_useDepart_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBookRuleSet].rules.conditionRule[EquMaintBook_useDepart_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBookRuleSet].rules.conditionRule[EquMaintBook_useDepart_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="d69fd208-9ebf-4ceb-a630-f456ce095115" />
+                </action>
+            </actions>
+        </conditionRule>
+    </rules>
+    <resource>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBookRuleSet].actions.action[EquMaintBook_equName_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_name" />
+            <lang locale="zh_HK" value="攜帶字段屬性_name" />
+            <lang locale="zh_TW" value="攜帶字段屬性_name" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBookRuleSet].actions.action[EquMaintBook_equName_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBookRuleSet].actions.action[EquMaintBook_model_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_model" />
+            <lang locale="zh_HK" value="攜帶字段屬性_model" />
+            <lang locale="zh_TW" value="攜帶字段屬性_model" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBookRuleSet].actions.action[EquMaintBook_model_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBookRuleSet].actions.action[EquMaintBook_useDepart_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_usingDept" />
+            <lang locale="zh_HK" value="攜帶字段屬性_usingDept" />
+            <lang locale="zh_TW" value="攜帶字段屬性_usingDept" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBookRuleSet].actions.action[EquMaintBook_useDepart_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBookRuleSet].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBookRuleSet].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBookRuleSet].rules.conditionRule[EquMaintBook_equName_RuleInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_name" />
+            <lang locale="zh_HK" value="攜帶字段屬性_name" />
+            <lang locale="zh_TW" value="攜帶字段屬性_name" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBookRuleSet].rules.conditionRule[EquMaintBook_equName_RuleInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBookRuleSet].rules.conditionRule[EquMaintBook_equName_RuleInfo].extendedProperty.columnName">
+            <lang locale="en_US" value="equNumber" />
+            <lang locale="zh_CN" value="equNumber" />
+            <lang locale="zh_TW" value="equNumber" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBookRuleSet].rules.conditionRule[EquMaintBook_equName_RuleInfo].extendedProperty.userDefined">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBookRuleSet].rules.conditionRule[EquMaintBook_model_RuleInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_model" />
+            <lang locale="zh_HK" value="攜帶字段屬性_model" />
+            <lang locale="zh_TW" value="攜帶字段屬性_model" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBookRuleSet].rules.conditionRule[EquMaintBook_model_RuleInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBookRuleSet].rules.conditionRule[EquMaintBook_model_RuleInfo].extendedProperty.columnName">
+            <lang locale="en_US" value="equNumber" />
+            <lang locale="zh_CN" value="equNumber" />
+            <lang locale="zh_TW" value="equNumber" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBookRuleSet].rules.conditionRule[EquMaintBook_model_RuleInfo].extendedProperty.userDefined">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBookRuleSet].rules.conditionRule[EquMaintBook_useDepart_RuleInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_usingDept" />
+            <lang locale="zh_HK" value="攜帶字段屬性_usingDept" />
+            <lang locale="zh_TW" value="攜帶字段屬性_usingDept" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBookRuleSet].rules.conditionRule[EquMaintBook_useDepart_RuleInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBookRuleSet].rules.conditionRule[EquMaintBook_useDepart_RuleInfo].extendedProperty.columnName">
+            <lang locale="en_US" value="equNumber" />
+            <lang locale="zh_CN" value="equNumber" />
+            <lang locale="zh_TW" value="equNumber" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBookRuleSet].rules.conditionRule[EquMaintBook_useDepart_RuleInfo].extendedProperty.userDefined">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+    </resource>
+</ruleSet>
+

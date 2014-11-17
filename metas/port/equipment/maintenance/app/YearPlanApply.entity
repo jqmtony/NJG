@@ -1,0 +1,2064 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entityObject xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.port.equipment.maintenance.app</package>
+    <name>YearPlanApply</name>
+    <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].alias</alias>
+    <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].description</description>
+    <userDefined>true</userDefined>
+    <bosType>22C36DB8</bosType>
+    <stereoType>false</stereoType>
+    <businessImplName>com.kingdee.eas.port.equipment.maintenance.YearPlanApply</businessImplName>
+    <businessControllerName>com.kingdee.eas.port.equipment.maintenance.app.YearPlanApplyController</businessControllerName>
+    <accessLevel>public</accessLevel>
+    <subClassingMode>normal</subClassingMode>
+    <methods>
+        <method>
+            <name>addnew</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[addnew].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[addnew].description</description>
+            <innerID>6d0cdc98-e360-45da-97be-388ef60ec5e5</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[addnew].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[addnew].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[addnew].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[addnew].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply</metadataRef>
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>addnew</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[addnew].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[addnew].description</description>
+            <innerID>ca221e27-fcec-4a1b-8dbe-816de85129b1</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>com.kingdee.bos.dao.IObjectPK</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[addnew].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[addnew].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply</metadataRef>
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>audit</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[audit].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[audit].description</description>
+            <innerID>558817e8-8d21-4bf2-beb4-2170c155e6c4</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>void</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[audit].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[audit].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <exceptions>
+                <bizException>
+                    <key name="package" value="com.kingdee.eas.common" />
+                    <key name="name" value="EASBizException" />
+                </bizException>
+            </exceptions>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>delete</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[delete].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[delete].description</description>
+            <innerID>cf3ad07c-8976-486c-9585-3d5d666ad185</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[delete].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[delete].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>delete</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[delete].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[delete].description</description>
+            <innerID>d2716205-9b5c-4305-aa2d-a77a53f2b5e8</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>arrayPK</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[delete].parameters.parameter[arrayPK].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[delete].parameters.parameter[arrayPK].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK[]</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>delete</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[delete].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[delete].description</description>
+            <innerID>652f7d79-edbb-4172-901a-012f53b8a7c2</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>com.kingdee.bos.dao.IObjectPK[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>filter</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[delete].parameters.parameter[filter].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[delete].parameters.parameter[filter].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.FilterInfo</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>delete</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[delete].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[delete].description</description>
+            <innerID>9fb902fe-f740-423b-b35a-b8b0c26e18d6</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>com.kingdee.bos.dao.IObjectPK[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>oql</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[delete].parameters.parameter[oql].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[delete].parameters.parameter[oql].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>exists</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[exists].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[exists].description</description>
+            <innerID>70b6c856-82f5-464c-8eca-d5d8d8794bf6</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>Boolean</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[exists].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[exists].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>exists</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[exists].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[exists].description</description>
+            <innerID>1e7f05cc-8c4f-414a-a753-ad62f82f4ff5</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>Boolean</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>filter</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[exists].parameters.parameter[filter].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[exists].parameters.parameter[filter].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.FilterInfo</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>exists</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[exists].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[exists].description</description>
+            <innerID>26e0f7d6-8a55-4d62-a163-ed816736e94e</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>Boolean</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>oql</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[exists].parameters.parameter[oql].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[exists].parameters.parameter[oql].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <exceptions>
+                <bizException>
+                    <key name="package" value="com.kingdee.eas.common" />
+                    <key name="name" value="EASBizException" />
+                </bizException>
+            </exceptions>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getCollection</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getCollection].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getCollection].description</description>
+            <innerID>d11d3c5a-4611-4004-89ea-1754f37b8a91</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>ObjectCollection</returnValueType>
+            <metadataRef>com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply</metadataRef>
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getCollection</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getCollection].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getCollection].description</description>
+            <innerID>0f83743e-9000-4b19-b487-840f9b191f25</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>ObjectCollection</returnValueType>
+            <metadataRef>com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply</metadataRef>
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>view</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getCollection].parameters.parameter[view].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getCollection].parameters.parameter[view].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.EntityViewInfo</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getCollection</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getCollection].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getCollection].description</description>
+            <innerID>624dbbd5-6081-4cd3-b8c7-8f29c587f40c</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>ObjectCollection</returnValueType>
+            <metadataRef>com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply</metadataRef>
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>oql</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getCollection].parameters.parameter[oql].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getCollection].parameters.parameter[oql].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getPKList</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getPKList].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getPKList].description</description>
+            <innerID>5985ba9c-dd06-4b8b-9252-b622857db726</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>com.kingdee.bos.dao.IObjectPK[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getPKList</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getPKList].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getPKList].description</description>
+            <innerID>75cbe2f4-c2cb-4ea5-98b2-e95db67a2244</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>com.kingdee.bos.dao.IObjectPK[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>filter</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getPKList].parameters.parameter[filter].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getPKList].parameters.parameter[filter].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.FilterInfo</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>sorter</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getPKList].parameters.parameter[sorter].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getPKList].parameters.parameter[sorter].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.SorterItemCollection</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getPKList</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getPKList].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getPKList].description</description>
+            <innerID>3098da78-eaf7-40d1-9f29-3334b8c81054</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>com.kingdee.bos.dao.IObjectPK[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>oql</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getPKList].parameters.parameter[oql].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getPKList].parameters.parameter[oql].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getValue</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getValue].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getValue].description</description>
+            <innerID>6001480d-1b2d-4eea-a2da-1e5a0622233b</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>ObjectValue</returnValueType>
+            <metadataRef>com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply</metadataRef>
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getValue].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getValue].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>selector</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getValue].parameters.parameter[selector].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getValue].parameters.parameter[selector].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.SelectorItemCollection</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getValue</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getValue].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getValue].description</description>
+            <innerID>d4bfb0b5-4f94-4662-9a15-3b9f50db0718</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>ObjectValue</returnValueType>
+            <metadataRef>com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply</metadataRef>
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getValue].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getValue].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getValue</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getValue].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getValue].description</description>
+            <innerID>902c07a8-2ec0-4c6e-8e05-d7112124dbbb</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>ObjectValue</returnValueType>
+            <metadataRef>com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply</metadataRef>
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>oql</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getValue].parameters.parameter[oql].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getValue].parameters.parameter[oql].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>unAudit</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[unAudit].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[unAudit].description</description>
+            <innerID>f51e7892-a754-40bd-a81c-19081f1fbfc6</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>void</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[unAudit].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[unAudit].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <exceptions>
+                <bizException>
+                    <key name="package" value="com.kingdee.eas.common" />
+                    <key name="name" value="EASBizException" />
+                </bizException>
+            </exceptions>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>unAudit</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[unAudit].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[unAudit].description</description>
+            <innerID>39c48c68-8396-4740-ba10-ec556ffc3639</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>void</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pks</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[unAudit].parameters.parameter[pks].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[unAudit].parameters.parameter[pks].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK[]</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <exceptions>
+                <bizException>
+                    <key name="package" value="com.kingdee.eas.common" />
+                    <key name="name" value="EASBizException" />
+                </bizException>
+            </exceptions>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>update</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[update].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[update].description</description>
+            <innerID>a49a4320-c317-4f5e-b228-68de62ebe07b</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[update].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[update].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[update].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[update].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply</metadataRef>
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>updateBigObject</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[updateBigObject].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[updateBigObject].description</description>
+            <innerID>0bc525ac-d878-40c6-8b76-e69e50b33f11</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[updateBigObject].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[updateBigObject].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[updateBigObject].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[updateBigObject].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply</metadataRef>
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>updatePartial</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[updatePartial].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[updatePartial].description</description>
+            <innerID>91988d89-ce2f-4509-aa91-5b249dffdee3</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[updatePartial].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[updatePartial].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply</metadataRef>
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>selector</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[updatePartial].parameters.parameter[selector].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[updatePartial].parameters.parameter[selector].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.SelectorItemCollection</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getBindingProperty</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getBindingProperty].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getBindingProperty].description</description>
+            <innerID>bb0ea95f-5f3c-407e-a4d4-e6a9ff63f2bc</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>String</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <configured>false</configured>
+        </method>
+    </methods>
+    <isAbstract>false</isAbstract>
+    <bizUnitPK>com.kingdee.eas.port.equipment.maintenance.YearPlanApply</bizUnitPK>
+    <baseEntity>
+        <key name="package" value="com.kingdee.eas.xr.app" />
+        <key name="name" value="XRBillBase" />
+    </baseEntity>
+    <table>
+        <key name="package" value="com.kingdee.eas.port.equipment.maintenance.app" />
+        <key name="name" value="CT_MAI_YearPlanApply" />
+    </table>
+    <properties>
+        <linkProperty>
+            <name>E1</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].properties.linkProperty[E1].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].properties.linkProperty[E1].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.port.equipment.maintenance.app" />
+                <key name="name" value="R_YearPlanApply_YearPlanApplyE1" />
+            </relationship>
+        </linkProperty>
+        <ownProperty>
+            <name>planYear</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].properties.ownProperty[planYear].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].properties.ownProperty[planYear].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>String</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>100</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].properties.ownProperty[planYear].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFPlanYear" />
+            </mappingField>
+        </ownProperty>
+        <linkProperty>
+            <name>applyDepart</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].properties.linkProperty[applyDepart].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].properties.linkProperty[applyDepart].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <mappingField>
+                <key name="name" value="CFApplyDepartID" />
+            </mappingField>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.port.equipment.maintenance.app" />
+                <key name="name" value="R_YearPlanApply_AdminOrgUnit_applyDepart" />
+            </relationship>
+        </linkProperty>
+    </properties>
+    <logicalKey>
+        <name>id</name>
+        <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].logicalKey[id].alias</alias>
+        <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].logicalKey[id].description</description>
+        <keyClass>com.kingdee.bos.dao.IObjectPK</keyClass>
+        <userDefined>true</userDefined>
+        <keyProperties>
+            <baseProperty>
+                <key name="name" value="id" />
+            </baseProperty>
+        </keyProperties>
+    </logicalKey>
+    <events>
+        <event>
+            <name>submitEvent</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[submitEvent].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[submitEvent].description</description>
+            <userDefined>true</userDefined>
+            <eventMethods>
+                <eventMethod>
+                    <name>dfd2c083-00fa-1000-e000-001fc0a813e6</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[submitEvent].eventMethods.eventMethod[dfd2c083-00fa-1000-e000-001fc0a813e6].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[submitEvent].eventMethods.eventMethod[dfd2c083-00fa-1000-e000-001fc0a813e6].description</description>
+                    <entityMethodRef>
+                        <key name="name" value="submit" />
+                        <key name="innerID" value="dfd2c083-00fa-1000-e000-001fc0a813e6" />
+                    </entityMethodRef>
+                    <parameterMappings>
+                        <parameterMapping>
+                            <name />
+                            <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[submitEvent].eventMethods.eventMethod[dfd2c083-00fa-1000-e000-001fc0a813e6].parameterMappings.parameterMappingalias</alias>
+                            <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[submitEvent].eventMethods.eventMethod[dfd2c083-00fa-1000-e000-001fc0a813e6].parameterMappings.parameterMappingdescription</description>
+                            <formalParameterInnerID />
+                            <actualParameterIndex>0</actualParameterIndex>
+                            <isBOPK>true</isBOPK>
+                        </parameterMapping>
+                    </parameterMappings>
+                </eventMethod>
+            </eventMethods>
+            <formalParameters>
+                <formalParameter>
+                    <innerID>819910b7-5daf-4748-99b8-dd5ca7819a7fevfp</innerID>
+                    <userDefined>true</userDefined>
+                    <parameter>
+                        <name>model</name>
+                        <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[submitEvent].formalParameters.formalParameter.parameter[model].alias</alias>
+                        <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[submitEvent].formalParameters.formalParameter.parameter[model].description</description>
+                        <direction>in</direction>
+                        <dataType>ObjectValue</dataType>
+                        <metadataRef>com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply</metadataRef>
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </formalParameter>
+            </formalParameters>
+        </event>
+        <event>
+            <name>deleteEvent</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[deleteEvent].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[deleteEvent].description</description>
+            <userDefined>true</userDefined>
+            <eventMethods>
+                <eventMethod>
+                    <name>f8fb6ae6-25f7-4a32-b3c5-f6c2353e5535</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[deleteEvent].eventMethods.eventMethod[f8fb6ae6-25f7-4a32-b3c5-f6c2353e5535].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[deleteEvent].eventMethods.eventMethod[f8fb6ae6-25f7-4a32-b3c5-f6c2353e5535].description</description>
+                    <entityMethodRef>
+                        <key name="name" value="delete" />
+                        <key name="innerID" value="cf3ad07c-8976-486c-9585-3d5d666ad185" />
+                    </entityMethodRef>
+                    <parameterMappings>
+                        <parameterMapping>
+                            <name />
+                            <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[deleteEvent].eventMethods.eventMethod[f8fb6ae6-25f7-4a32-b3c5-f6c2353e5535].parameterMappings.parameterMappingalias</alias>
+                            <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[deleteEvent].eventMethods.eventMethod[f8fb6ae6-25f7-4a32-b3c5-f6c2353e5535].parameterMappings.parameterMappingdescription</description>
+                            <formalParameterInnerID />
+                            <actualParameterIndex>0</actualParameterIndex>
+                            <isBOPK>true</isBOPK>
+                        </parameterMapping>
+                    </parameterMappings>
+                </eventMethod>
+            </eventMethods>
+            <formalParameters>
+                <formalParameter>
+                    <innerID>86808ea8-79a2-4b63-9b41-5f470a4b0506evfp</innerID>
+                    <userDefined>true</userDefined>
+                    <parameter>
+                        <name>pk</name>
+                        <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[deleteEvent].formalParameters.formalParameter.parameter[pk].alias</alias>
+                        <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[deleteEvent].formalParameters.formalParameter.parameter[pk].description</description>
+                        <direction>in</direction>
+                        <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                        <metadataRef>com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply</metadataRef>
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </formalParameter>
+            </formalParameters>
+        </event>
+        <event>
+            <name>passAuditEvent</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[passAuditEvent].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[passAuditEvent].description</description>
+            <userDefined>true</userDefined>
+            <eventMethods>
+                <eventMethod>
+                    <name>65ff41bd-1a11-4e6b-9f9f-8eaf00524c3b</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[passAuditEvent].eventMethods.eventMethod[65ff41bd-1a11-4e6b-9f9f-8eaf00524c3b].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[passAuditEvent].eventMethods.eventMethod[65ff41bd-1a11-4e6b-9f9f-8eaf00524c3b].description</description>
+                    <entityMethodRef>
+                        <key name="name" value="audit" />
+                        <key name="innerID" value="558817e8-8d21-4bf2-beb4-2170c155e6c4" />
+                    </entityMethodRef>
+                    <parameterMappings>
+                        <parameterMapping>
+                            <name />
+                            <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[passAuditEvent].eventMethods.eventMethod[65ff41bd-1a11-4e6b-9f9f-8eaf00524c3b].parameterMappings.parameterMappingalias</alias>
+                            <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[passAuditEvent].eventMethods.eventMethod[65ff41bd-1a11-4e6b-9f9f-8eaf00524c3b].parameterMappings.parameterMappingdescription</description>
+                            <formalParameterInnerID />
+                            <actualParameterIndex>0</actualParameterIndex>
+                            <isBOPK>true</isBOPK>
+                        </parameterMapping>
+                    </parameterMappings>
+                </eventMethod>
+            </eventMethods>
+            <formalParameters>
+                <formalParameter>
+                    <innerID>de3ced91-407c-40fd-b46d-a67d46978ccfevfp</innerID>
+                    <userDefined>true</userDefined>
+                    <parameter>
+                        <name>pk</name>
+                        <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[passAuditEvent].formalParameters.formalParameter.parameter[pk].alias</alias>
+                        <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[passAuditEvent].formalParameters.formalParameter.parameter[pk].description</description>
+                        <direction>in</direction>
+                        <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                        <metadataRef>com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply</metadataRef>
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </formalParameter>
+            </formalParameters>
+        </event>
+        <event>
+            <name>unpassAuditEvent</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[unpassAuditEvent].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[unpassAuditEvent].description</description>
+            <userDefined>true</userDefined>
+            <eventMethods>
+                <eventMethod>
+                    <name>a2322acd-af55-4938-b770-b99e993b729a</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[unpassAuditEvent].eventMethods.eventMethod[a2322acd-af55-4938-b770-b99e993b729a].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[unpassAuditEvent].eventMethods.eventMethod[a2322acd-af55-4938-b770-b99e993b729a].description</description>
+                    <entityMethodRef>
+                        <key name="name" value="unAudit" />
+                        <key name="innerID" value="f51e7892-a754-40bd-a81c-19081f1fbfc6" />
+                    </entityMethodRef>
+                    <parameterMappings>
+                        <parameterMapping>
+                            <name />
+                            <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[unpassAuditEvent].eventMethods.eventMethod[a2322acd-af55-4938-b770-b99e993b729a].parameterMappings.parameterMappingalias</alias>
+                            <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[unpassAuditEvent].eventMethods.eventMethod[a2322acd-af55-4938-b770-b99e993b729a].parameterMappings.parameterMappingdescription</description>
+                            <formalParameterInnerID />
+                            <actualParameterIndex>0</actualParameterIndex>
+                            <isBOPK>true</isBOPK>
+                        </parameterMapping>
+                    </parameterMappings>
+                </eventMethod>
+            </eventMethods>
+            <formalParameters>
+                <formalParameter>
+                    <innerID>388401d9-68e1-468f-9382-86a0a4fe25aeevfp</innerID>
+                    <userDefined>true</userDefined>
+                    <parameter>
+                        <name>pk</name>
+                        <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[unpassAuditEvent].formalParameters.formalParameter.parameter[pk].alias</alias>
+                        <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[unpassAuditEvent].formalParameters.formalParameter.parameter[pk].description</description>
+                        <direction>in</direction>
+                        <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                        <metadataRef>com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply</metadataRef>
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </formalParameter>
+            </formalParameters>
+        </event>
+        <event>
+            <name>auditEvent</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[auditEvent].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[auditEvent].description</description>
+            <userDefined>true</userDefined>
+            <eventMethods>
+                <eventMethod>
+                    <name>65ff41bd-1a11-4e6b-9f9f-8eaf00524c3b</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[auditEvent].eventMethods.eventMethod[65ff41bd-1a11-4e6b-9f9f-8eaf00524c3b].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[auditEvent].eventMethods.eventMethod[65ff41bd-1a11-4e6b-9f9f-8eaf00524c3b].description</description>
+                    <entityMethodRef>
+                        <key name="name" value="audit" />
+                        <key name="innerID" value="558817e8-8d21-4bf2-beb4-2170c155e6c4" />
+                    </entityMethodRef>
+                    <parameterMappings>
+                        <parameterMapping>
+                            <name />
+                            <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[auditEvent].eventMethods.eventMethod[65ff41bd-1a11-4e6b-9f9f-8eaf00524c3b].parameterMappings.parameterMappingalias</alias>
+                            <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[auditEvent].eventMethods.eventMethod[65ff41bd-1a11-4e6b-9f9f-8eaf00524c3b].parameterMappings.parameterMappingdescription</description>
+                            <formalParameterInnerID />
+                            <actualParameterIndex>0</actualParameterIndex>
+                            <isBOPK>true</isBOPK>
+                        </parameterMapping>
+                    </parameterMappings>
+                </eventMethod>
+            </eventMethods>
+            <formalParameters>
+                <formalParameter>
+                    <innerID>6cb918f1-571e-4948-bcef-2347cd0f3838evfp</innerID>
+                    <userDefined>true</userDefined>
+                    <parameter>
+                        <name>model</name>
+                        <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[auditEvent].formalParameters.formalParameter.parameter[model].alias</alias>
+                        <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[auditEvent].formalParameters.formalParameter.parameter[model].description</description>
+                        <direction>in</direction>
+                        <dataType>ObjectValue</dataType>
+                        <metadataRef>com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply</metadataRef>
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </formalParameter>
+            </formalParameters>
+        </event>
+        <event>
+            <name>unAudit</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[unAudit].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[unAudit].description</description>
+            <userDefined>true</userDefined>
+            <eventMethods>
+                <eventMethod>
+                    <name>a2322acd-af55-4938-b770-b99e993b729a</name>
+                    <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[unAudit].eventMethods.eventMethod[a2322acd-af55-4938-b770-b99e993b729a].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[unAudit].eventMethods.eventMethod[a2322acd-af55-4938-b770-b99e993b729a].description</description>
+                    <entityMethodRef>
+                        <key name="name" value="unAudit" />
+                        <key name="innerID" value="f51e7892-a754-40bd-a81c-19081f1fbfc6" />
+                    </entityMethodRef>
+                    <parameterMappings>
+                        <parameterMapping>
+                            <name />
+                            <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[unAudit].eventMethods.eventMethod[a2322acd-af55-4938-b770-b99e993b729a].parameterMappings.parameterMappingalias</alias>
+                            <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[unAudit].eventMethods.eventMethod[a2322acd-af55-4938-b770-b99e993b729a].parameterMappings.parameterMappingdescription</description>
+                            <formalParameterInnerID />
+                            <actualParameterIndex>0</actualParameterIndex>
+                            <isBOPK>true</isBOPK>
+                        </parameterMapping>
+                    </parameterMappings>
+                </eventMethod>
+            </eventMethods>
+            <formalParameters>
+                <formalParameter>
+                    <innerID>66a92be5-ea7b-4759-8e58-3a50b6647d89evfp</innerID>
+                    <userDefined>true</userDefined>
+                    <parameter>
+                        <name>model</name>
+                        <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[unAudit].formalParameters.formalParameter.parameter[model].alias</alias>
+                        <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[unAudit].formalParameters.formalParameter.parameter[model].description</description>
+                        <direction>in</direction>
+                        <dataType>ObjectValue</dataType>
+                        <metadataRef>com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply</metadataRef>
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </formalParameter>
+            </formalParameters>
+        </event>
+    </events>
+    <defaultView>
+        <name />
+        <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].defaultViewalias</alias>
+        <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].defaultViewdescription</description>
+        <filter>
+            <maskString />
+        </filter>
+    </defaultView>
+    <resource>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="年度维保计划申请单" />
+            <lang locale="zh_HK" value="年度維保計畫申請單" />
+            <lang locale="zh_TW" value="年度維保計畫申請單" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].defaultView.filterextendedProperty.OrgType">
+            <lang locale="en_US" value="NONE" />
+            <lang locale="zh_CN" value="NONE" />
+            <lang locale="zh_TW" value="NONE" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].defaultView.filterextendedProperty.codingRuleEnabled">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].defaultView.filterextendedProperty.defaultF7Query">
+            <lang locale="en_US" value="-" />
+            <lang locale="zh_CN" value="-" />
+            <lang locale="zh_TW" value="-" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].defaultView.filterextendedProperty.editUI">
+            <lang locale="en_US" value="-" />
+            <lang locale="zh_CN" value="-" />
+            <lang locale="zh_TW" value="-" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].defaultView.filterextendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].defaultView.filterextendedProperty.isParamObject">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].defaultView.filterextendedProperty.listUI">
+            <lang locale="en_US" value="-" />
+            <lang locale="zh_CN" value="-" />
+            <lang locale="zh_TW" value="-" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].defaultViewalias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].defaultViewdescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].defaultViewextendedProperty.OrgType">
+            <lang locale="en_US" value="NONE" />
+            <lang locale="zh_CN" value="NONE" />
+            <lang locale="zh_TW" value="NONE" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].defaultViewextendedProperty.codingRuleEnabled">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].defaultViewextendedProperty.defaultF7Query">
+            <lang locale="en_US" value="-" />
+            <lang locale="zh_CN" value="-" />
+            <lang locale="zh_TW" value="-" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].defaultViewextendedProperty.editUI">
+            <lang locale="en_US" value="-" />
+            <lang locale="zh_CN" value="-" />
+            <lang locale="zh_TW" value="-" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].defaultViewextendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].defaultViewextendedProperty.isParamObject">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].defaultViewextendedProperty.listUI">
+            <lang locale="en_US" value="-" />
+            <lang locale="zh_CN" value="-" />
+            <lang locale="zh_TW" value="-" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="多分錄基礎單據範本" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[auditEvent].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="审核" />
+            <lang locale="zh_HK" value="審核" />
+            <lang locale="zh_TW" value="審核" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[auditEvent].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="审核" />
+            <lang locale="zh_HK" value="審核" />
+            <lang locale="zh_TW" value="審核" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[auditEvent].eventMethods.eventMethod[65ff41bd-1a11-4e6b-9f9f-8eaf00524c3b].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[auditEvent].eventMethods.eventMethod[65ff41bd-1a11-4e6b-9f9f-8eaf00524c3b].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[auditEvent].eventMethods.eventMethod[65ff41bd-1a11-4e6b-9f9f-8eaf00524c3b].parameterMappings.parameterMappingalias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[auditEvent].eventMethods.eventMethod[65ff41bd-1a11-4e6b-9f9f-8eaf00524c3b].parameterMappings.parameterMappingdescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[auditEvent].formalParameters.formalParameter.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="值对象" />
+            <lang locale="zh_HK" value="值對象" />
+            <lang locale="zh_TW" value="值對象" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[auditEvent].formalParameters.formalParameter.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="值对象" />
+            <lang locale="zh_HK" value="值對象" />
+            <lang locale="zh_TW" value="值對象" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[deleteEvent].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="删除事件" />
+            <lang locale="zh_HK" value="刪除事件" />
+            <lang locale="zh_TW" value="刪除事件" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[deleteEvent].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="删除事件" />
+            <lang locale="zh_HK" value="刪除事件" />
+            <lang locale="zh_TW" value="刪除事件" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[deleteEvent].eventMethods.eventMethod[f8fb6ae6-25f7-4a32-b3c5-f6c2353e5535].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[deleteEvent].eventMethods.eventMethod[f8fb6ae6-25f7-4a32-b3c5-f6c2353e5535].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[deleteEvent].eventMethods.eventMethod[f8fb6ae6-25f7-4a32-b3c5-f6c2353e5535].parameterMappings.parameterMappingalias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[deleteEvent].eventMethods.eventMethod[f8fb6ae6-25f7-4a32-b3c5-f6c2353e5535].parameterMappings.parameterMappingdescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[deleteEvent].formalParameters.formalParameter.parameter[pk].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="主键" />
+            <lang locale="zh_HK" value="主鍵" />
+            <lang locale="zh_TW" value="主鍵" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[deleteEvent].formalParameters.formalParameter.parameter[pk].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="主键" />
+            <lang locale="zh_HK" value="主鍵" />
+            <lang locale="zh_TW" value="主鍵" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[passAuditEvent].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="审核通过事件" />
+            <lang locale="zh_HK" value="審核通過事件" />
+            <lang locale="zh_TW" value="審核通過事件" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[passAuditEvent].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="审核通过事件" />
+            <lang locale="zh_HK" value="審核通過事件" />
+            <lang locale="zh_TW" value="審核通過事件" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[passAuditEvent].eventMethods.eventMethod[65ff41bd-1a11-4e6b-9f9f-8eaf00524c3b].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[passAuditEvent].eventMethods.eventMethod[65ff41bd-1a11-4e6b-9f9f-8eaf00524c3b].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[passAuditEvent].eventMethods.eventMethod[65ff41bd-1a11-4e6b-9f9f-8eaf00524c3b].parameterMappings.parameterMappingalias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[passAuditEvent].eventMethods.eventMethod[65ff41bd-1a11-4e6b-9f9f-8eaf00524c3b].parameterMappings.parameterMappingdescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[passAuditEvent].formalParameters.formalParameter.parameter[pk].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="主键" />
+            <lang locale="zh_HK" value="主鍵" />
+            <lang locale="zh_TW" value="主鍵" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[passAuditEvent].formalParameters.formalParameter.parameter[pk].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="主键" />
+            <lang locale="zh_HK" value="主鍵" />
+            <lang locale="zh_TW" value="主鍵" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[submitEvent].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="提交" />
+            <lang locale="zh_HK" value="提交" />
+            <lang locale="zh_TW" value="提交" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[submitEvent].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="提交" />
+            <lang locale="zh_HK" value="提交" />
+            <lang locale="zh_TW" value="提交" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[submitEvent].eventMethods.eventMethod[dfd2c083-00fa-1000-e000-001fc0a813e6].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[submitEvent].eventMethods.eventMethod[dfd2c083-00fa-1000-e000-001fc0a813e6].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[submitEvent].eventMethods.eventMethod[dfd2c083-00fa-1000-e000-001fc0a813e6].parameterMappings.parameterMappingalias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[submitEvent].eventMethods.eventMethod[dfd2c083-00fa-1000-e000-001fc0a813e6].parameterMappings.parameterMappingdescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[submitEvent].formalParameters.formalParameter.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="值对象" />
+            <lang locale="zh_HK" value="值對象" />
+            <lang locale="zh_TW" value="值對象" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[submitEvent].formalParameters.formalParameter.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="值对象" />
+            <lang locale="zh_HK" value="值對象" />
+            <lang locale="zh_TW" value="值對象" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[unAudit].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="反审核" />
+            <lang locale="zh_HK" value="反審核" />
+            <lang locale="zh_TW" value="反審核" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[unAudit].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="反审核" />
+            <lang locale="zh_HK" value="反審核" />
+            <lang locale="zh_TW" value="反審核" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[unAudit].eventMethods.eventMethod[a2322acd-af55-4938-b770-b99e993b729a].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[unAudit].eventMethods.eventMethod[a2322acd-af55-4938-b770-b99e993b729a].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[unAudit].eventMethods.eventMethod[a2322acd-af55-4938-b770-b99e993b729a].parameterMappings.parameterMappingalias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[unAudit].eventMethods.eventMethod[a2322acd-af55-4938-b770-b99e993b729a].parameterMappings.parameterMappingdescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[unAudit].formalParameters.formalParameter.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="值对象" />
+            <lang locale="zh_HK" value="值對象" />
+            <lang locale="zh_TW" value="值對象" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[unAudit].formalParameters.formalParameter.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="值对象" />
+            <lang locale="zh_HK" value="值對象" />
+            <lang locale="zh_TW" value="值對象" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[unpassAuditEvent].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="反审核通过事件" />
+            <lang locale="zh_HK" value="反審核通過事件" />
+            <lang locale="zh_TW" value="反審核通過事件" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[unpassAuditEvent].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="反审核通过事件" />
+            <lang locale="zh_HK" value="反審核通過事件" />
+            <lang locale="zh_TW" value="反審核通過事件" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[unpassAuditEvent].eventMethods.eventMethod[a2322acd-af55-4938-b770-b99e993b729a].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[unpassAuditEvent].eventMethods.eventMethod[a2322acd-af55-4938-b770-b99e993b729a].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[unpassAuditEvent].eventMethods.eventMethod[a2322acd-af55-4938-b770-b99e993b729a].parameterMappings.parameterMappingalias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[unpassAuditEvent].eventMethods.eventMethod[a2322acd-af55-4938-b770-b99e993b729a].parameterMappings.parameterMappingdescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[unpassAuditEvent].formalParameters.formalParameter.parameter[pk].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="主键" />
+            <lang locale="zh_HK" value="主鍵" />
+            <lang locale="zh_TW" value="主鍵" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].events.event[unpassAuditEvent].formalParameters.formalParameter.parameter[pk].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="主键" />
+            <lang locale="zh_HK" value="主鍵" />
+            <lang locale="zh_TW" value="主鍵" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].extendedProperty.OrgType">
+            <lang locale="en_US" value="NONE" />
+            <lang locale="zh_CN" value="NONE" />
+            <lang locale="zh_TW" value="NONE" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].extendedProperty.codingRuleEnabled">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].extendedProperty.defaultDisplayField">
+            <lang locale="en_US" value="" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].extendedProperty.defaultF7Query">
+            <lang locale="en_US" value="com.kingdee.eas.port.equipment.maintenance.app.YearPlanApplyQuery" />
+            <lang locale="zh_CN" value="com.kingdee.eas.port.equipment.maintenance.app.YearPlanApplyQuery" />
+            <lang locale="zh_TW" value="com.kingdee.eas.port.equipment.maintenance.app.YearPlanApplyQuery" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].extendedProperty.editUI">
+            <lang locale="en_US" value="com.kingdee.eas.port.equipment.maintenance.client.YearPlanApplyEditUI" />
+            <lang locale="zh_CN" value="com.kingdee.eas.port.equipment.maintenance.client.YearPlanApplyEditUI" />
+            <lang locale="zh_TW" value="com.kingdee.eas.port.equipment.maintenance.client.YearPlanApplyEditUI" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].extendedProperty.isParamObject">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].extendedProperty.isUseCodeRule">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].extendedProperty.listUI">
+            <lang locale="en_US" value="com.kingdee.eas.port.equipment.maintenance.client.YearPlanApplyListUI" />
+            <lang locale="zh_CN" value="com.kingdee.eas.port.equipment.maintenance.client.YearPlanApplyListUI" />
+            <lang locale="zh_TW" value="com.kingdee.eas.port.equipment.maintenance.client.YearPlanApplyListUI" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].logicalKey[id].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="id" />
+            <lang locale="zh_HK" value="id" />
+            <lang locale="zh_TW" value="id" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].logicalKey[id].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[addnew].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[addnew].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[addnew].parameters.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[addnew].parameters.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[addnew].parameters.parameter[pk].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[addnew].parameters.parameter[pk].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[audit].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="审核" />
+            <lang locale="zh_HK" value="審核" />
+            <lang locale="zh_TW" value="審核" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[audit].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="注意EJB事务" />
+            <lang locale="zh_HK" value="注意EJB事務" />
+            <lang locale="zh_TW" value="注意EJB事務" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[audit].parameters.parameter[pk].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="主键" />
+            <lang locale="zh_HK" value="主鍵" />
+            <lang locale="zh_TW" value="主鍵" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[audit].parameters.parameter[pk].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="主键" />
+            <lang locale="zh_HK" value="主鍵" />
+            <lang locale="zh_TW" value="主鍵" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[delete].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[delete].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[delete].parameters.parameter[arrayPK].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[delete].parameters.parameter[arrayPK].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[delete].parameters.parameter[filter].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[delete].parameters.parameter[filter].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[delete].parameters.parameter[oql].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[delete].parameters.parameter[oql].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[delete].parameters.parameter[pk].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[delete].parameters.parameter[pk].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[exists].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[exists].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[exists].parameters.parameter[filter].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[exists].parameters.parameter[filter].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[exists].parameters.parameter[oql].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[exists].parameters.parameter[oql].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[exists].parameters.parameter[pk].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[exists].parameters.parameter[pk].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getBindingProperty].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="得到编码绑定属性" />
+            <lang locale="zh_HK" value="得到編碼綁定屬性" />
+            <lang locale="zh_TW" value="得到編碼綁定屬性" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getBindingProperty].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="得到编码绑定属性" />
+            <lang locale="zh_HK" value="得到編碼綁定屬性" />
+            <lang locale="zh_TW" value="得到編碼綁定屬性" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getCollection].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getCollection].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getCollection].parameters.parameter[oql].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getCollection].parameters.parameter[oql].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getCollection].parameters.parameter[view].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getCollection].parameters.parameter[view].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getPKList].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getPKList].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getPKList].parameters.parameter[filter].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getPKList].parameters.parameter[filter].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getPKList].parameters.parameter[oql].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getPKList].parameters.parameter[oql].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getPKList].parameters.parameter[sorter].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getPKList].parameters.parameter[sorter].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getValue].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getValue].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getValue].parameters.parameter[oql].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getValue].parameters.parameter[oql].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getValue].parameters.parameter[pk].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getValue].parameters.parameter[pk].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getValue].parameters.parameter[selector].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[getValue].parameters.parameter[selector].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[unAudit].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="批量反审核" />
+            <lang locale="zh_HK" value="批量反審核" />
+            <lang locale="zh_TW" value="批量反審核" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[unAudit].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="批量反审核" />
+            <lang locale="zh_HK" value="批量反審核" />
+            <lang locale="zh_TW" value="批量反審核" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[unAudit].parameters.parameter[pk].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="主键" />
+            <lang locale="zh_HK" value="主鍵" />
+            <lang locale="zh_TW" value="主鍵" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[unAudit].parameters.parameter[pk].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="主键" />
+            <lang locale="zh_HK" value="主鍵" />
+            <lang locale="zh_TW" value="主鍵" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[unAudit].parameters.parameter[pks].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="pks" />
+            <lang locale="zh_HK" value="pks" />
+            <lang locale="zh_TW" value="pks" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[unAudit].parameters.parameter[pks].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="pks" />
+            <lang locale="zh_HK" value="pks" />
+            <lang locale="zh_TW" value="pks" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[updateBigObject].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[updateBigObject].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[updateBigObject].parameters.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[updateBigObject].parameters.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[updateBigObject].parameters.parameter[pk].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[updateBigObject].parameters.parameter[pk].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[updatePartial].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[updatePartial].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[updatePartial].parameters.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[updatePartial].parameters.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[updatePartial].parameters.parameter[selector].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[updatePartial].parameters.parameter[selector].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[update].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[update].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[update].parameters.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[update].parameters.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[update].parameters.parameter[pk].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].methods.method[update].parameters.parameter[pk].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].properties.linkProperty[E1].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="第1个表体" />
+            <lang locale="zh_HK" value="第1個表體" />
+            <lang locale="zh_TW" value="第1個表體" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].properties.linkProperty[E1].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].properties.linkProperty[applyDepart].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="申请部门" />
+            <lang locale="zh_HK" value="申請部門" />
+            <lang locale="zh_TW" value="申請部門" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].properties.linkProperty[applyDepart].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="申请部门" />
+            <lang locale="zh_HK" value="申請部門" />
+            <lang locale="zh_TW" value="申請部門" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].properties.linkProperty[applyDepart].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].properties.linkProperty[applyDepart].extendedProperty.dataField">
+            <lang locale="en_US" value="name" />
+            <lang locale="zh_CN" value="name" />
+            <lang locale="zh_TW" value="name" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].properties.linkProperty[applyDepart].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].properties.linkProperty[applyDepart].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].properties.linkProperty[applyDepart].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].properties.linkProperty[applyDepart].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].properties.linkProperty[applyDepart].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].properties.linkProperty[applyDepart].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].properties.ownProperty[planYear].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="计划年度" />
+            <lang locale="zh_HK" value="計畫年度" />
+            <lang locale="zh_TW" value="計畫年度" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].properties.ownProperty[planYear].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].properties.ownProperty[planYear].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="计划年度" />
+            <lang locale="zh_HK" value="計畫年度" />
+            <lang locale="zh_TW" value="計畫年度" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].properties.ownProperty[planYear].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].properties.ownProperty[planYear].extendedProperty.bizDataType">
+            <lang locale="en_US" value="STRING" />
+            <lang locale="zh_CN" value="STRING" />
+            <lang locale="zh_TW" value="STRING" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].properties.ownProperty[planYear].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].properties.ownProperty[planYear].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].properties.ownProperty[planYear].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].properties.ownProperty[planYear].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].properties.ownProperty[planYear].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].properties.ownProperty[planYear].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApply].properties.ownProperty[planYear].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+    </resource>
+</entityObject>
+
