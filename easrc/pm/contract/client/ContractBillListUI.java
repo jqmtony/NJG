@@ -3,6 +3,8 @@
  */
 package com.kingdee.eas.port.pm.contract.client;
 
+import java.awt.BorderLayout;
+import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.io.File;
 import java.io.IOException;
@@ -30,6 +32,7 @@ import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTDataFillListener;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTDataRequestEvent;
 import com.kingdee.bos.ctrl.swing.KDFileChooser;
+import com.kingdee.bos.ctrl.swing.KDLayout;
 import com.kingdee.bos.ctrl.swing.tree.DefaultKingdeeTreeNode;
 import com.kingdee.bos.dao.IObjectPK;
 import com.kingdee.bos.dao.ormapping.ObjectStringPK;
@@ -144,7 +147,6 @@ public class ContractBillListUI extends AbstractContractBillListUI {
 		}
 		
 		this.tblMain.getDataRequestManager().addDataFillListener(new KDTDataFillListener(){
-
 			public void afterDataFill(KDTDataRequestEvent e) {
 				boolean isMainOrder = false;
 				SorterItemCollection sortItems = mainQuery.getSorter();
@@ -205,8 +207,6 @@ public class ContractBillListUI extends AbstractContractBillListUI {
 								row.getCell("number").setValue("   " + row.getCell("number").getValue());
 							}
 							preNumber = number;
-							
-							//tblMain.getColumn("mainContractNumber").getStyleAttributes().setHided(true);
 						}
 					}
 				}
@@ -214,17 +214,9 @@ public class ContractBillListUI extends AbstractContractBillListUI {
 		});
 				
 		super.onLoad();
-		actionStore.putValue(Action.SMALL_ICON, EASResource
-				.getIcon("imgTbtn_archive"));
-		actionAntiStore.putValue(Action.SMALL_ICON, EASResource
-				.getIcon("imgTbtn_undistribute"));
+		actionStore.putValue(Action.SMALL_ICON, EASResource.getIcon("imgTbtn_archive"));
+		actionAntiStore.putValue(Action.SMALL_ICON, EASResource.getIcon("imgTbtn_undistribute"));
 		
-//		this.btnStore.setIcon(EASResource.getIcon("imgTbtn_archive"));
-/*		kDSplitPane2.add(new KDLabel(""), "bottom");
-//		this.kDSplitPane2.setDividerLocation(getHeight());
-		kDSplitPane2.setDividerLocation(1.0);
-		this.kDSplitPane2.setDividerSize(0);
-		kDScrollPane2.validate();*/
 		kDSplitPane2.add(contContrList, "bottom");
 		kDSplitPane2.setDividerLocation(1.0);
 		actionConMove.setEnabled(true);
@@ -242,7 +234,6 @@ public class ContractBillListUI extends AbstractContractBillListUI {
 			mainQuery.setFilter((FilterInfo) this.getUIContext().get("filter"));
 			execQuery();
 		}
-		
 	}
 	protected void treeSelectChange() throws Exception {
 		if(this.getUIContext().get("filter")!=null){
@@ -438,7 +429,7 @@ protected void tblMain_tableSelectChanged(
 	public void actionUnAudit_actionPerformed(ActionEvent e) throws Exception {
 		FDCClientHelper.checkAuditor(getSelectedIdValues(), "ct_con_ContractBill");
     	
-    	//R110603-0148:如果存在变更指令单，则不允许反审批
+    	//R110603-0148:如果存在变更单，则不允许反审批
     	if (ContractUtil.hasContractChangeBill(null, getSelectedIdValues())) {
     		FDCMsgBox.showWarning(this, EASResource.getString("com.kingdee.eas.fdc.contract.client.ContractResource", "hasContractChangeBill"));
 			this.abort();

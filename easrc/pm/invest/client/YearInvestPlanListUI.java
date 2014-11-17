@@ -113,7 +113,7 @@ public class YearInvestPlanListUI extends AbstractYearInvestPlanListUI
 			String id = (String)tblMain.getRow(rowIndex).getCell("id").getValue();
 			YearInvestPlanInfo info = YearInvestPlanFactory.getRemoteInstance().getYearInvestPlanInfo(new ObjectUuidPK(id),getSelector());
 			checkProject(info);
-			ProgrammingInfo programmingInfo = ProjectEstimateEditUI.getProgrammingInfo(info.getPortProject());
+			ProgrammingInfo programmingInfo = ProjectEstimateEditUI.getProgrammingInfo(info.getProject());
 			programmingInfo.setVersion(null);
 			context.put("programmingInfo", programmingInfo);
 			context.put("projectInfo-Continue", info);
@@ -348,6 +348,13 @@ public class YearInvestPlanListUI extends AbstractYearInvestPlanListUI
         sic.add(new SelectorItemInfo("objectState"));
         sic.add(new SelectorItemInfo("seq"));
         sic.add(new SelectorItemInfo("projectName"));
+        sic.add(new SelectorItemInfo("portProject.id"));
+    	sic.add(new SelectorItemInfo("portProject.number"));
+    	sic.add(new SelectorItemInfo("portProject.name"));
+    	sic.add(new SelectorItemInfo("projectName"));
+        sic.add(new SelectorItemInfo("project.id"));
+     	sic.add(new SelectorItemInfo("project.number"));
+     	sic.add(new SelectorItemInfo("project.name"));
         return sic;
     }     
 }

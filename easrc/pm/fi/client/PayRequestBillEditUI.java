@@ -370,21 +370,6 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI implement
 		}
 		return retValue;
 	}
-
-	/*	
-	*//**
-	 * 财务帐务以发票金额为准计开发成本
-	 */
-	/*
-	 * private boolean isSimpleInvoice() { boolean retValue = false; String
-	 * companyID =
-	 * SysContext.getSysContext().getCurrentFIUnit().getId().toString(); try {
-	 * retValue = FDCUtils.getDefaultFDCParamByKey(null, companyID,
-	 * FDCConstants.FDC_PARAM_SIMPLEINVOICE); } catch (EASBizException e) {
-	 * e.printStackTrace(); } catch (BOSException e) { e.printStackTrace(); }
-	 * return retValue; }
-	 */
-
 	// 合同完工工程量取进度系统工程量填报数据
 	private boolean isFromProjectFillBill = false;
 
@@ -1189,8 +1174,6 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI implement
 			actionAddNew.setEnabled(false);
 			actionCopy.setEnabled(false);
 		}
-//		prmtsupplier.setEditable(false);
-//		prmtsupplier.setEnabled(false);
 
 		String cu = null;
 		if (editData != null && editData.getCU() != null) {
@@ -1199,19 +1182,8 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI implement
 			cu = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
 		}
 		FDCClientUtils.setRespDeptF7(prmtuseDepartment, this, canSelectOtherOrgPerson ? null : cu);
-
 		DataChangeEvent e = new DataChangeEvent(pkpayDate, this.editData.getPayDate(), null);
 		pkpayDate_dataChanged(e);
-
-//		if (!fdcBudgetParam.isBgSysCtrl()) {
-//			actionViewMbgBalance.setVisible(false);
-//			this.menuItemViewMbgBalance.setVisible(false);
-//			actionViewMbgBalance.setEnabled(false);
-//		} else {
-//			actionViewMbgBalance.setVisible(true);
-//			this.menuItemViewMbgBalance.setVisible(true);
-//			actionViewMbgBalance.setEnabled(true);
-//		}
 
 		ExtendParser parserCity = new ExtendParser(prmtDesc);
 		prmtDesc.setCommitParser(parserCity);
@@ -6220,7 +6192,7 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI implement
 		Object oldObj = eventObj.getOldValue();
 		if (obj != null && obj instanceof PaymentTypeInfo) {
 			PaymentTypeInfo _type = (PaymentTypeInfo) obj;
-			if (!_type.getPayType().getId().toString().equals(PaymentTypeInfo.tempID)) {
+			if (_type.getPayType()!=null && !_type.getPayType().getId().toString().equals(PaymentTypeInfo.tempID)) {
 				if (this.kdtEntrys.getCell(4, 4) != null) {
 					// Add by zhiyuan_tang 2010/07/27
 					// R100709-147 如果关联材料确认单时，金额不允许修改，必须通过关联材料确认单进行修改
@@ -6272,7 +6244,7 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI implement
 
 				PaymentTypeInfo type = (PaymentTypeInfo) obj;
 				// 付款单为暂估款类型时
-				if (type.getPayType().getId().toString().equals(tempID)) {
+				if (type.getPayType()!=null && type.getPayType().getId().toString().equals(tempID)) {
 					if (!isSimpleInvoice) {
 						prmtPayment.setValue(null);
 						prmtPayment.setText(null);
@@ -6331,7 +6303,7 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI implement
 				FilterInfo filter = new FilterInfo();
 				filter.appendFilterItem("id", editData.getContractId());
 				filter.appendFilterItem("hasSettled", Boolean.TRUE);
-				if (type.getPayType().getId().toString().equals(keepID)) {
+				if (type.getPayType()!=null && type.getPayType().getId().toString().equals(keepID)) {
 					if (!ContractBillFactory.getRemoteInstance().exists(filter)) {
 						EventListener[] listeners = prmtPayment.getListeners(DataChangeListener.class);
 						for (int i = 0; i < listeners.length; i++) {
@@ -6350,7 +6322,7 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI implement
 				filter = new FilterInfo();
 				filter.appendFilterItem("paymentType.payType.id", settlementID);
 				filter.appendFilterItem("contractId", editData.getContractId());
-				if (type.getPayType().getId().toString().equals(progressID)) {
+				if (type.getPayType()!=null && type.getPayType().getId().toString().equals(progressID)) {
 					if (PayRequestBillFactory.getRemoteInstance().exists(filter)) {
 						EventListener[] listeners = prmtPayment.getListeners(DataChangeListener.class);
 						for (int i = 0; i < listeners.length; i++) {
@@ -6383,7 +6355,7 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI implement
 					}
 				}
 
-				if (type.getPayType().getId().toString().equals(settlementID)) {
+				if (type.getPayType()!=null && type.getPayType().getId().toString().equals(settlementID)) {
 					FilterInfo myfilter = new FilterInfo();
 					myfilter.appendFilterItem("id", editData.getContractId());
 					myfilter.appendFilterItem("hasSettled", Boolean.TRUE);
@@ -6404,7 +6376,8 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI implement
 					txtpaymentProportion.setValue(FDCConstants.ZERO);
 				}
 				// 当付款类别为结算款和保修款时，已完工工程量金额直接就等于结算金额。
-				if (type.getPayType().getId().toString().equals(keepID) || type.getPayType().getId().toString().equals(settlementID)) {
+				if (type.getPayType()!=null && type.getPayType().getId().toString().equals(keepID) 
+						|| (type.getPayType()!=null && type.getPayType().getId().toString().equals(settlementID))) {
 					// 简单模式，合同结算，完工与比例可修改
 					if (contractBill != null && contractBill.isHasSettled() && isSimpleFinancial) {
 						txtpaymentProportion.setEditable(true);
@@ -6437,7 +6410,7 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI implement
 	private void setCellEnabled(Object oldObj) {
 		if (oldObj != null && oldObj instanceof PaymentTypeInfo) {
 			PaymentTypeInfo _type = (PaymentTypeInfo) oldObj;
-			if (_type.getPayType().getId().toString().equals(PaymentTypeInfo.tempID)) {
+			if (_type.getPayType()!=null && _type.getPayType().getId().toString().equals(PaymentTypeInfo.tempID)) {
 				if (this.kdtEntrys.getCell(4, 4) != null) {
 					this.kdtEntrys.getCell(4, 4).getStyleAttributes().setLocked(true);
 				}

@@ -49,7 +49,6 @@ import com.kingdee.eas.fdc.contract.ContractExecInfosInfo;
 import com.kingdee.eas.fdc.contract.ContractPCSplitBillEntryCollection;
 import com.kingdee.eas.fdc.contract.ContractPCSplitBillEntryFactory;
 import com.kingdee.eas.fdc.contract.FDCUtils;
-import com.kingdee.eas.fdc.contract.app.ContractBaseDataHelper;
 import com.kingdee.eas.fdc.contract.programming.IProgrammingContract;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractFactory;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo;
@@ -63,8 +62,11 @@ import com.kingdee.eas.ma.budget.BgBudgetFacadeFactory;
 import com.kingdee.eas.ma.budget.BgControlFacadeFactory;
 import com.kingdee.eas.ma.budget.IBgBudgetFacade;
 import com.kingdee.eas.ma.budget.IBgControlFacade;
+import com.kingdee.eas.port.pm.contract.ContractBillBudgetEntryInfo;
 import com.kingdee.eas.port.pm.contract.ContractBillCollection;
 import com.kingdee.eas.port.pm.contract.ContractBillFactory;
+import com.kingdee.eas.port.pm.contract.ContractBillInfo;
+import com.kingdee.eas.port.pm.contract.ContractWithoutTextBudgetEntryInfo;
 import com.kingdee.eas.port.pm.contract.ContractWithoutTextCollection;
 import com.kingdee.eas.port.pm.contract.ContractWithoutTextFactory;
 import com.kingdee.eas.port.pm.contract.ContractWithoutTextInfo;
@@ -73,7 +75,13 @@ import com.kingdee.eas.port.pm.fi.PayRequestBillCollection;
 import com.kingdee.eas.port.pm.fi.PayRequestBillEntryFactory;
 import com.kingdee.eas.port.pm.fi.PayRequestBillFactory;
 import com.kingdee.eas.port.pm.fi.PayRequestBillInfo;
+import com.kingdee.eas.port.pm.invest.ProjectBudgetFacadeFactory;
+import com.kingdee.eas.port.pm.invest.investplan.IProgrammingEntryCostEntry;
+import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryCostEntryFactory;
+import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryCostEntryInfo;
+import com.kingdee.eas.port.pm.invest.uitls.CLUtil;
 import com.kingdee.eas.util.app.DbUtil;
+import com.kingdee.eas.xr.app.XRBillException;
 import com.kingdee.jdbc.rowset.IRowSet;
 import com.kingdee.util.db.SQLUtils;
 
@@ -87,8 +95,7 @@ import com.kingdee.util.db.SQLUtils;
  */
 public class ContractWithoutTextControllerBean extends
 		AbstractContractWithoutTextControllerBean {
-	private static Logger logger = Logger
-			.getLogger("com.kingdee.eas.port.pm.contract.app.ContractWithoutTextControllerBean");
+	private static Logger logger = Logger.getLogger("com.kingdee.eas.port.pm.contract.app.ContractWithoutTextControllerBean");
 	// 付款申请单编码
 	private String payReqNumber = new String("");
 
@@ -153,6 +160,7 @@ public class ContractWithoutTextControllerBean extends
 		checkBillForAudit(ctx, billId, null);
 
 		super._audit(ctx, billId);
+		subBudgetAmount(ctx, new ObjectUuidPK(billId));
 		try {
 			synUpdateBillByRelation(ctx,billId,true,null);
 		} catch (SQLException e) {
@@ -177,7 +185,41 @@ public class ContractWithoutTextControllerBean extends
 //		ContractExecInfosFactory.getLocalInstance(ctx).updateContract(ContractExecInfosInfo.EXECINFO_AUDIT, billId.toString());
 	}
 
+	void subBudgetAmount(Context ctx, IObjectPK pk)throws BOSException,EASBizException{
+		ContractWithoutTextInfo info = ContractWithoutTextFactory.getLocalInstance(ctx).getContractWithoutTextInfo(pk);
+		IProgrammingEntryCostEntry iProgrammingEntryCostEntry = ProgrammingEntryCostEntryFactory.getLocalInstance(ctx);
+		for (int i = 0; i <info.getBudgetEntry().size(); i++) {
+			ContractWithoutTextBudgetEntryInfo entry = info.getBudgetEntry().get(i);
+			ProgrammingEntryCostEntryInfo budgetInfo= iProgrammingEntryCostEntry.getProgrammingEntryCostEntryInfo(new ObjectUuidPK(entry.getBudgetNumber().getId()));
+			String projectNumber = budgetInfo.getNumber();
+			String budgetNumber = budgetInfo.getFeeNumber();
+			String budgetName = budgetInfo.getFeeName();
+			String year = budgetInfo.getYear();
+			String[] str = ProjectBudgetFacadeFactory.getLocalInstance(ctx).subBudgetAmount(projectNumber,year,budgetNumber
+																						,String.valueOf(entry.getAmount()),CLUtil.stag_wht,true,"0");
+			if("失败".equals(str[0])){
+				 throw new XRBillException(XRBillException.NOBUDGET, new Object[] {"预算编码："+budgetNumber+","+budgetName , str[1]});
+			}
+		}
+	}
 	
+	void backBudgetAmount(Context ctx, IObjectPK pk)throws BOSException,EASBizException{
+		ContractWithoutTextInfo info = ContractWithoutTextFactory.getLocalInstance(ctx).getContractWithoutTextInfo(pk);
+		IProgrammingEntryCostEntry iProgrammingEntryCostEntry = ProgrammingEntryCostEntryFactory.getLocalInstance(ctx);
+		for (int i = 0; i <info.getBudgetEntry().size(); i++) {
+			ContractWithoutTextBudgetEntryInfo entry = info.getBudgetEntry().get(i);
+			ProgrammingEntryCostEntryInfo budgetInfo= iProgrammingEntryCostEntry.getProgrammingEntryCostEntryInfo(new ObjectUuidPK(entry.getBudgetNumber().getId()));
+			String projectNumber = budgetInfo.getNumber();
+			String budgetNumber = budgetInfo.getFeeNumber();
+			String budgetName = budgetInfo.getFeeName();
+			String year = budgetInfo.getYear();
+			String[] str = ProjectBudgetFacadeFactory.getLocalInstance(ctx).backBudgetAmount(projectNumber,year,budgetNumber
+																						,String.valueOf(entry.getAmount()),CLUtil.stag_wht,true,"0");
+			if("失败".equals(str[0])){
+				 throw new XRBillException(XRBillException.NOBUDGET, new Object[] {"预算编码："+budgetNumber+","+budgetName , str[1]});
+			}
+		}
+	}
 	/**
 	 * 1 .当合同未结算时(无最终结算或最终结算未审批)，规划余额=规划金额-（无文本签约金额+变更金额），控制余额=控制金额-无文本签约金额 2
 	 * .当合同已结算时(最终结算已审批)，规划余额=规划金额-结算金额，控制余额=控制金额-结算金额 3
@@ -355,7 +397,7 @@ public class ContractWithoutTextControllerBean extends
 
 		checkBillForUnAudit(ctx, billId, null);
 
-		String sql = "update T_CON_PayRequestBill set fstate=?,fhasClosed=0 where fcontractid=?";
+		String sql = "update CT_FI_PayRequestBill set fstate=?,fhasClosed=0 where fcontractid=?";
 		String[] params = new String[] { FDCBillStateEnum.SUBMITTED_VALUE,
 				billId.toString() };
 		DbUtil.execute(ctx, sql, params);
@@ -393,7 +435,7 @@ public class ContractWithoutTextControllerBean extends
 		}
 
 		super._unAudit(ctx, billId);
-
+		backBudgetAmount(ctx, new ObjectUuidPK(billId));
 		try {
 			synUpdateBillByRelation(ctx,billId,false,null);
 		} catch (SQLException e) {
@@ -407,13 +449,13 @@ public class ContractWithoutTextControllerBean extends
 
 		ContractWithoutTextInfo info = (ContractWithoutTextInfo) this.getValue(
 				ctx, new ObjectUuidPK(billId), selectors);
-		if (info.getPeriod() != null) {
-			CostClosePeriodFacadeFactory.getLocalInstance(ctx).delete(
-					info.getId().toString(),
-					info.getPeriod().getId().toString());
-		}
-		ContractExecInfosFactory.getLocalInstance(ctx).updateContract(
-				ContractExecInfosInfo.EXECINFO_UNAUDIT, billId.toString());
+//		if (info.getPeriod() != null) {
+//			CostClosePeriodFacadeFactory.getLocalInstance(ctx).delete(
+//					info.getId().toString(),
+//					info.getPeriod().getId().toString());
+//		}
+//		ContractExecInfosFactory.getLocalInstance(ctx).updateContract(
+//				ContractExecInfosInfo.EXECINFO_UNAUDIT, billId.toString());
 	}
 
 	// 新增

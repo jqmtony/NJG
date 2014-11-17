@@ -71,7 +71,9 @@ import com.kingdee.eas.port.pm.invest.investplan.ProgrammingFactory;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingInfo;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
+import com.kingdee.eas.util.client.KDTableUtil;
 import com.kingdee.eas.util.client.MsgBox;
+import com.kingdee.eas.xr.app.XRBillStatusEnum;
 import com.kingdee.eas.xr.helper.ClientVerifyXRHelper;
 import com.kingdee.eas.xr.helper.DateXRHelper;
 import com.kingdee.eas.xr.helper.PersonXRHelper;
@@ -415,9 +417,10 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
 					person.show();
 					if(person.getData() instanceof Object[]&&((Object[]) person.getData()).length>0){
 						Object[] obj = (Object[]) person.getData();
-						for (int m = 0; m < kdtE1.getRowCount(); m++) 
+						int selectRows[] = KDTableUtil.getSelectedRows(kdtE1);
+						for (int m = 0; m < selectRows.length; m++) 
 						{
-							setKdtE2Person(obj, m);
+							setKdtE2Person(obj, selectRows[m]);
 						}
 						storeFields();
 						loadFields();
@@ -981,6 +984,13 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
     public void actionSubmit_actionPerformed(ActionEvent e) throws Exception
     {
     	isControl = false;
+    	if(editData.getId()!=null){
+    		YIPlanAccredInfo info = YIPlanAccredFactory.getRemoteInstance().getYIPlanAccredInfo(new ObjectUuidPK(editData.getId()));
+    		if(XRBillStatusEnum.AUDITED.equals(info.getStatus())){
+    			MsgBox.showInfo("单据已经审批通过，不能再提交！");
+    			SysUtil.abort();
+    		}
+    	}
         super.actionSubmit_actionPerformed(e);
     }
 

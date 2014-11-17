@@ -761,7 +761,7 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
         this.contobjectState.setVisible(true);
         // contseq		
         this.contseq.setBoundLabelText(resHelper.getString("contseq.boundLabelText"));		
-        this.contseq.setBoundLabelLength(30);		
+        this.contseq.setBoundLabelLength(100);		
         this.contseq.setBoundLabelUnderline(true);		
         this.contseq.setVisible(true);		
         this.contseq.setForeground(new java.awt.Color(255,0,0));
@@ -1156,10 +1156,10 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
         kDPanel6.add(contCU, new KDLayout.Constraints(701, 34, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contobjectState.setBounds(new Rectangle(701, 8, 270, 19));
         kDPanel6.add(contobjectState, new KDLayout.Constraints(701, 8, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contseq.setBounds(new Rectangle(550, 8, 79, 19));
-        kDPanel6.add(contseq, new KDLayout.Constraints(550, 8, 79, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contprojectName.setBounds(new Rectangle(18, 8, 523, 19));
-        kDPanel6.add(contprojectName, new KDLayout.Constraints(18, 8, 523, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contseq.setBounds(new Rectangle(468, 8, 161, 19));
+        kDPanel6.add(contseq, new KDLayout.Constraints(468, 8, 161, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contprojectName.setBounds(new Rectangle(18, 8, 443, 19));
+        kDPanel6.add(contprojectName, new KDLayout.Constraints(18, 8, 443, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         //contyear
         contyear.setBoundEditor(prmtyear);
         //contportProject

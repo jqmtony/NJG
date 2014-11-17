@@ -198,7 +198,7 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
           } catch (Exception ee) {
               handUIException(ee);
           }
-			this.kdtE3.getMergeManager().setMergeMode(KDTMergeManager.FREE_ROW_MERGE);
+//			this.kdtE3.getMergeManager().setMergeMode(KDTMergeManager.FREE_ROW_MERGE);
 		}
 		kdtE3.getColumn("projectName.id").getStyleAttributes().setHided(true);
 		kdtE3.getColumn("projectName.projectName").getStyleAttributes().setHided(true);
@@ -452,9 +452,13 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 				}
 				programmingEditUI.actionSave_actionPerformed(e);
 			}
-			if(isFirstSave)
+			if(isFirstSave && (getUIContext().get("projectInfo-edit")!=null
+					|| getUIContext().get("projectInfo-Adjuest")!=null
+					|| getUIContext().get("projectInfo-Change")!=null)
+					|| getUIContext().get("projectInfo-Continue")!=null){
 				saveAuditingEditInfo(editData);
-			isFirstSave = false;
+				isFirstSave = false;
+			}
 		}
 	}
 	/**
@@ -705,6 +709,7 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 	    	ClientVerifyHelper.verifyEmpty(this, this.pkplanEndDate);
 	    	ClientVerifyHelper.verifyEmpty(this, this.pkBizDate);
 	    	ClientVerifyHelper.verifyEmpty(this, this.prmtyear);
+	    	ClientVerifyHelper.verifyEmpty(this, this.txtBIMUDF0027);
 	    	
 	    	SimpleDateFormat Formatter = new SimpleDateFormat("yyyy-MM-dd");
 	    	if(!Formatter.format(this.pkplanStartDate.getSqlDate()).equals(Formatter.format(this.pkBizDate.getSqlDate())))
@@ -724,10 +729,14 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 	    	String yearid = ((InvestYearInfo)prmtyear.getValue()).getId().toString();
 	    	BigDecimal seq = (BigDecimal)txtseq.getValue();
 			String oql = " where cu.id='"+cuid+"' and year.id='"+yearid+"' and seq='"+seq+"' and id<>'"+editData.getId()+"' " +
-					" and planType not in ('"+ObjectStateEnum.VETO_VALUE+"','"+ObjectStateEnum.ADJUSTED_VALUE+"')" +
+					" and ObjectState not in ('"+ObjectStateEnum.VETO_VALUE+"','"+ObjectStateEnum.ADJUSTED_VALUE+"')" +
 					" and sourcebillid is null ";
 			if(getBizInterface().exists(oql) && !(PlanTypeEnum.change.equals(plantype)||PlanTypeEnum.adjust.equals(plantype))){
 				MsgBox.showWarning("本年度该项目序号已经存在，请重新编号！");
+				abort();
+			}
+			if(txtBIMUDF0027.getText()!=null && txtBIMUDF0027.getText().length()>500){
+				MsgBox.showWarning("项目建设内容不能多于240个字！");
 				abort();
 			}
 			super.verifyInput(e);

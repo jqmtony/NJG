@@ -36,6 +36,7 @@ import com.kingdee.eas.basedata.org.ICompanyOrgUnit;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.framework.CoreBaseInfo;
 import com.kingdee.eas.port.pm.base.IProjectType;
+import com.kingdee.eas.port.pm.base.InvestYearInfo;
 import com.kingdee.eas.port.pm.base.ProjectTypeFactory;
 import com.kingdee.eas.port.pm.base.coms.PlanTypeEnum;
 import com.kingdee.eas.port.pm.invest.AccredTypeEnum;
@@ -46,7 +47,6 @@ import com.kingdee.eas.port.pm.invest.YIPlanAccredE1E2Info;
 import com.kingdee.eas.port.pm.invest.YIPlanAccredE1Info;
 import com.kingdee.eas.port.pm.invest.YIPlanAccredFactory;
 import com.kingdee.eas.port.pm.invest.YIPlanAccredInfo;
-import com.kingdee.eas.port.pm.invest.YearInvestPlanE3Info;
 import com.kingdee.eas.port.pm.invest.YearInvestPlanFactory;
 import com.kingdee.eas.port.pm.invest.YearInvestPlanInfo;
 import com.kingdee.eas.xr.app.XRBillStatusEnum;
@@ -123,24 +123,10 @@ public class YIPlanAccredControllerBean extends AbstractYIPlanAccredControllerBe
     	 IYearInvestPlan YearInvestPlan = YearInvestPlanFactory.getLocalInstance(ctx);
     	 YIPlanAccredE1Collection coll =Info.getE1();
     	if(accredType.equals(AccredTypeEnum.trial)){//初审表 反写已申报
-//    		throw new EASBizException(new NumericExceptionSubItem("100","初审表不能反审核！"));
-//    			for (int i = 0; i <coll.size(); i++) {
-//					YIPlanAccredE1Info yipInfo = coll.get(i);
-//					BOSUuid yipid =yipInfo.getProjectName().getId();
-//		    		YearInvestPlanInfo planInfo = YearInvestPlan.getYearInvestPlanInfo(new ObjectUuidPK(yipid));
-//		    		planInfo.setObjectState(ObjectStateEnum.declared);
-//		    		YearInvestPlan.update(new ObjectUuidPK(yipid), planInfo);
-//			 }
+    		throw new EASBizException(new NumericExceptionSubItem("100","初审表不能反审核！"));
     	 }
     	 else if(accredType.equals(AccredTypeEnum.accred)){//评审表反写初审通过
-//    		 throw new EASBizException(new NumericExceptionSubItem("100","评审表不能反审核！"));
-//    			for (int i = 0; i <coll.size(); i++) {
-//					YIPlanAccredE1Info yipInfo = coll.get(i);
-//					BOSUuid yipid =yipInfo.getProjectName().getId();
-//		    		YearInvestPlanInfo planInfo = YearInvestPlan.getYearInvestPlanInfo(new ObjectUuidPK(yipid));
-//		    		planInfo.setObjectState(ObjectStateEnum.throughAudit);
-//		    		YearInvestPlan.update(new ObjectUuidPK(yipid), planInfo);
-//			   }
+    		 throw new EASBizException(new NumericExceptionSubItem("100","评审表不能反审核！"));
     	 }else{//批准表反写评审通过
     			for (int i = 0; i <coll.size(); i++) {
 					YIPlanAccredE1Info yipInfo = coll.get(i);
@@ -173,9 +159,7 @@ public class YIPlanAccredControllerBean extends AbstractYIPlanAccredControllerBe
         	{
         		YIPlanAccredE1Info e1Info = Info.getE1().get(i);
         		String yearPlanId = e1Info.getProjectName().getId().toString();
-        		Iproject.delete("where NJGyearInvest.id='"+yearPlanId+"'");
         	}
-    		
     		
         	AccredTypeEnum accredType = Info.getAccredType();
         	 IYearInvestPlan YearInvestPlan = YearInvestPlanFactory.getLocalInstance(ctx);
@@ -205,7 +189,7 @@ public class YIPlanAccredControllerBean extends AbstractYIPlanAccredControllerBe
     		    		YearInvestPlanInfo planInfo = YearInvestPlan.getYearInvestPlanInfo(new ObjectUuidPK(yipid));
     		    		planInfo.setObjectState(ObjectStateEnum.accredit);
     		    		YearInvestPlan.update(new ObjectUuidPK(yipid), planInfo);
-    		    		Iproject.delete("where NJGyearInvest.id='"+yipid.toString()+"'");
+//    		    		Iproject.delete("where NJGyearInvest.id='"+yipid.toString()+"'");
     			   }
         		}
 		}
@@ -228,45 +212,22 @@ public class YIPlanAccredControllerBean extends AbstractYIPlanAccredControllerBe
     	IYearInvestPlan IyearInvestPlan = YearInvestPlanFactory.getLocalInstance(ctx);
     	ICompanyOrgUnit ICompanyOrgUnit = CompanyOrgUnitFactory.getLocalInstance(ctx);
     	IProjectType IProjectType = ProjectTypeFactory.getLocalInstance(ctx);
-    	
     	for (int i = 0; i < Info.getE1().size(); i++) 
     	{
     		YIPlanAccredE1Info e1Info = Info.getE1().get(i);
     		String yearPlanId = e1Info.getProjectName().getId().toString();
-    		String oql = "select id,number,projectName,PlanType,planStartDate,planEndDate,portProject.id,projectType.name,buildType.name where id='"+yearPlanId+"'";
+    		String oql = "select id,number,projectName,PlanType,planStartDate,planEndDate,portProject.id,projectType.name,buildType.name,year.number" +
+    						",cu.id where id='"+yearPlanId+"'";
 			YearInvestPlanInfo planInfo = IyearInvestPlan.getYearInvestPlanInfo(oql);
+			ProjectInfo yearProject = createYearDoc(ctx, Iproject, planInfo);
     		if(e1Info.getAccredResu().equals(ObjectStateEnum.approval)
     				&& !Iproject.exists("select id where NJGyearInvest.id='"+yearPlanId+"'") 
     				&& !planInfo.getPlanType().equals(PlanTypeEnum.adjust))
     		{
-    			ProjectInfo parentproInfo = new ProjectInfo();
-    			if(planInfo.getProjectType().getName().equals("项目前期")){
-    				parentproInfo.setId(BOSUuid.create(parentproInfo.getBOSType()));
-    				parentproInfo.setNumber(""+planInfo.getNumber()+"-0");
-    				parentproInfo.setName(planInfo.getProjectName().replace("前期", ""));
-    				parentproInfo.setCompany(ICompanyOrgUnit.getCompanyOrgUnitInfo("select id,name,number where id='"+e1Info.getCompany().getId().toString()+"'"));
-    				parentproInfo.setType(ProjectTypeEnum.CUS_PROJECT);
-    				parentproInfo.setStatus(ProjectStatus.PREPARE);
-    				parentproInfo.setScheduleStartDate(planInfo.getPlanStartDate());
-    				parentproInfo.setSchedulEndDate(planInfo.getPlanEndDate());
-    				parentproInfo.setNJGyearInvest(null);
-    				parentproInfo.setIsSysCreate(Boolean.TRUE);
-    				parentproInfo.setIsLeaf(false);
-    				parentproInfo.setNJGprojectType(IProjectType.getProjectTypeInfo("select id,name,number where name='基本建设'"));
-        			
-        			Iproject.addnew(parentproInfo);
-    			}
+    			ProjectInfo parentproInfo = createParentProject(ctx,Iproject,IProjectType,planInfo);
     			ProjectInfo proInfo = new ProjectInfo();
     			proInfo.setId(BOSUuid.create(proInfo.getBOSType()));
     			proInfo.setNumber(planInfo.getNumber());
-    			if(planInfo.getProjectType().getName().equals("项目前期")){
-    				if(planInfo.getProjectName().contains("前期"))
-        				proInfo.setName(planInfo.getProjectName());
-        			else
-        				proInfo.setName(planInfo.getProjectName()+"前期");
-    			}else{
-    				proInfo.setName(planInfo.getProjectName());
-    			}
     			proInfo.setCompany(ICompanyOrgUnit.getCompanyOrgUnitInfo("select id,name,number where id='"+e1Info.getCompany().getId().toString()+"'"));
     			proInfo.setType(ProjectTypeEnum.CUS_PROJECT);
     			proInfo.setStatus(ProjectStatus.PREPARE);
@@ -275,15 +236,23 @@ public class YIPlanAccredControllerBean extends AbstractYIPlanAccredControllerBe
     			proInfo.setNJGyearInvest(planInfo);
     			proInfo.setIsSysCreate(Boolean.TRUE);
     			proInfo.setIsLeaf(true);
+    			proInfo.setIsListItem(true);
     			proInfo.setNJGprojectType(IProjectType.getProjectTypeInfo("select id,name,number where id='"+e1Info.getProjectType().getId().toString()+"'"));
     			if(planInfo.getProjectType().getName().equals("项目前期")){
+    				if(planInfo.getProjectName().contains("前期"))
+        				proInfo.setName(planInfo.getProjectName()+planInfo.getYear().getNumber());
+        			else
+        				proInfo.setName(planInfo.getProjectName()+"前期"+planInfo.getYear().getNumber());
+    			}else if(planInfo.getProjectType().getName().equals("基本建设")){
+    				proInfo.setName(planInfo.getProjectName()+planInfo.getYear().getNumber());
+    			}else{
+    				proInfo.setName(planInfo.getProjectName());
+    			}
+    			
+    			if((planInfo.getProjectType().getName().equals("项目前期")||planInfo.getProjectType().getName().equals("基本建设") )){
     				proInfo.setParent(parentproInfo);
-    			}else if(planInfo.getPortProject()!=null && planInfo.getBuildType().getName().equals("续建项目"))
-    			{
-    				ProjectInfo info = planInfo.getPortProject();
-    				proInfo.setParent(info);
-    				info.setIsLeaf(false);
-    				ProjectFactory.getLocalInstance(ctx).update(new ObjectUuidPK(info.getId()), info);
+    			}else{
+    				proInfo.setParent(yearProject);
     			}
     			Iproject.addnew(proInfo);
     			
@@ -291,6 +260,68 @@ public class YIPlanAccredControllerBean extends AbstractYIPlanAccredControllerBe
     			IyearInvestPlan.update(new ObjectUuidPK(planInfo.getId()), planInfo);
     		}
 		}
+    }
+    /**
+     * 生成父项目（项目前期、基本建设）
+     * @throws BOSException 
+     * @throws EASBizException 
+     */
+    ProjectInfo createParentProject(Context ctx,IProject iproject,IProjectType IProjectType,YearInvestPlanInfo planInfo) throws EASBizException, BOSException{
+    	ProjectInfo parentproInfo = new ProjectInfo();
+    	if(planInfo.getPortProject()!=null && planInfo.getBuildType().getName().equals("续建项目")){
+    		parentproInfo = iproject.getProjectInfo(new ObjectUuidPK(planInfo.getPortProject().getId())).getParent();
+    	}
+    	else{
+    		if(planInfo.getProjectType().getName().equals("项目前期")
+    				|| planInfo.getProjectType().getName().equals("基本建设")){
+    			parentproInfo.setId(BOSUuid.create(parentproInfo.getBOSType()));
+    			if(planInfo.getProjectType().getName().equals("项目前期")){
+    				parentproInfo.setNumber(""+planInfo.getNumber()+"-0");
+    				parentproInfo.setName(planInfo.getProjectName().replace("前期", ""));
+    			}else{
+    				parentproInfo.setNumber(planInfo.getNumber()+"-0");
+    				parentproInfo.setName(planInfo.getProjectName());
+    			}
+    			parentproInfo.setCompany(CompanyOrgUnitFactory.getLocalInstance(ctx).getCompanyOrgUnitInfo(new ObjectUuidPK(planInfo.getCU().getId())));
+    			parentproInfo.setType(ProjectTypeEnum.CUS_PROJECT);
+    			parentproInfo.setStatus(ProjectStatus.PREPARE);
+    			parentproInfo.setScheduleStartDate(planInfo.getPlanStartDate());
+    			parentproInfo.setSchedulEndDate(planInfo.getPlanEndDate());
+    			parentproInfo.setNJGyearInvest(null);
+    			parentproInfo.setIsSysCreate(Boolean.TRUE);
+    			parentproInfo.setIsLeaf(false);
+    			parentproInfo.setNJGprojectType(IProjectType.getProjectTypeInfo("select id,name,number where name='基本建设'"));
+    			
+    			iproject.addnew(parentproInfo);
+    		}
+    	}
+		return parentproInfo;
+    }
+    /**
+     * 生成项目---年度文件夹（2014）
+     */
+    ProjectInfo createYearDoc(Context ctx,IProject iproject,YearInvestPlanInfo planInfo) throws EASBizException, BOSException{
+    	InvestYearInfo  year = planInfo.getYear();
+    	ProjectInfo proInfo = new ProjectInfo();
+    	if(!iproject.exists(" where number='"+year.getNumber()+"' and company='"+planInfo.getCU().getId()+"'")){
+			proInfo.setId(BOSUuid.create(proInfo.getBOSType()));
+			proInfo.setNumber(year.getNumber());
+			proInfo.setName(year.getNumber()+"年投资项目");
+			proInfo.setCompany(CompanyOrgUnitFactory.getLocalInstance(ctx).getCompanyOrgUnitInfo(new ObjectUuidPK(planInfo.getCU().getId())));
+			proInfo.setType(ProjectTypeEnum.CUS_PROJECT);
+			proInfo.setStatus(ProjectStatus.PREPARE);
+			proInfo.setIsSysCreate(Boolean.TRUE);
+			proInfo.setIsLeaf(false);
+			iproject.addnew(proInfo);
+    	}else{
+    		FilterInfo filter = new FilterInfo();
+    		filter.getFilterItems().add(new FilterItemInfo("number", year.getNumber()));
+    		filter.getFilterItems().add(new FilterItemInfo("company", planInfo.getCU().getId()));
+    		EntityViewInfo view = new EntityViewInfo();
+    		view.setFilter(filter);
+    		proInfo = iproject.getProjectCollection(view).get(0);
+    	}	
+		return proInfo;
     }
     /**
      * 审核时,反写评审表意见功能 去除，直接查询展示

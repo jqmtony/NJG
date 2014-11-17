@@ -26,6 +26,7 @@ import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.metadata.entity.SelectorItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
+import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.eas.base.attachment.BizobjectFacadeFactory;
 import com.kingdee.eas.base.attachment.BoAttchAssoCollection;
@@ -100,6 +101,7 @@ import com.kingdee.eas.ma.budget.BgBudgetFacadeFactory;
 import com.kingdee.eas.ma.budget.BgControlFacadeFactory;
 import com.kingdee.eas.ma.budget.IBgBudgetFacade;
 import com.kingdee.eas.ma.budget.IBgControlFacade;
+import com.kingdee.eas.port.pm.contract.ContractBillBudgetEntryInfo;
 import com.kingdee.eas.port.pm.contract.ContractBillEntryFactory;
 import com.kingdee.eas.port.pm.contract.ContractBillFactory;
 import com.kingdee.eas.port.pm.contract.ContractBillInfo;
@@ -111,8 +113,17 @@ import com.kingdee.eas.port.pm.contract.ContractSettlementBillInfo;
 import com.kingdee.eas.port.pm.contract.ContractWithoutTextCollection;
 import com.kingdee.eas.port.pm.contract.ContractWithoutTextFactory;
 import com.kingdee.eas.port.pm.contract.IContractSettlementBill;
+import com.kingdee.eas.port.pm.invest.ProjectBudgetFacadeFactory;
+import com.kingdee.eas.port.pm.invest.investplan.IProgrammingEntryCostEntry;
+import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryCostEntryFactory;
+import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryCostEntryInfo;
+import com.kingdee.eas.port.pm.invest.uitls.CLUtil;
+import com.kingdee.eas.port.pm.invite.WinInviteReportBudgetEntryInfo;
+import com.kingdee.eas.port.pm.invite.WinInviteReportFactory;
+import com.kingdee.eas.port.pm.invite.WinInviteReportInfo;
 import com.kingdee.eas.util.app.ContextUtil;
 import com.kingdee.eas.util.app.DbUtil;
+import com.kingdee.eas.xr.app.XRBillException;
 import com.kingdee.jdbc.rowset.IRowSet;
 import com.kingdee.util.DateTimeUtils;
 import com.kingdee.util.NumericExceptionSubItem;
@@ -132,9 +143,7 @@ public class ContractBillControllerBean extends AbstractContractBillControllerBe
     	if(((ContractBillInfo)model).getBail()!=null){
     		ContractBailFactory.getLocalInstance(ctx).save(((ContractBillInfo)model).getBail());
     	}
-    	
     	ContractBillInfo info = (ContractBillInfo)model;
-    	
     	if(info.getId() != null&&_exists(ctx, new ObjectUuidPK(info.getId()))){
     		ContractBillInfo oldInfo = ContractBillFactory.getLocalInstance(ctx).getContractBillInfo(new ObjectUuidPK(info.getId()));
     		if(!oldInfo.getState().equals(FDCBillStateEnum.SAVED)){
@@ -679,7 +688,7 @@ public class ContractBillControllerBean extends AbstractContractBillControllerBe
 	protected void _audit(Context ctx, BOSUuid billId) throws BOSException, EASBizException {
 		
 		checkBillForAudit( ctx,billId);
-		
+		subBudgetAmount(ctx, new ObjectUuidPK(billId));
 		super._audit(ctx, billId);
 		
 		// 在金额累计之前取主合同的签约金额
@@ -767,6 +776,50 @@ public class ContractBillControllerBean extends AbstractContractBillControllerBe
 //		} catch (SQLException e) {
 //			e.printStackTrace();
 //		}
+	}
+	
+	void subBudgetAmount(Context ctx, IObjectPK pk)throws BOSException,EASBizException{
+		ContractBillInfo info = ContractBillFactory.getLocalInstance(ctx).getContractBillInfo(pk);
+		IProgrammingEntryCostEntry iProgrammingEntryCostEntry = ProgrammingEntryCostEntryFactory.getLocalInstance(ctx);
+		for (int i = 0; i <info.getBudgetEntry().size(); i++) {
+			ContractBillBudgetEntryInfo entry = info.getBudgetEntry().get(i);
+			ProgrammingEntryCostEntryInfo budgetInfo= iProgrammingEntryCostEntry.getProgrammingEntryCostEntryInfo(new ObjectUuidPK(entry.getBudgetNumber().getId()));
+			String projectNumber = budgetInfo.getNumber();
+			String budgetNumber = budgetInfo.getFeeNumber();
+			String budgetName = budgetInfo.getFeeName();
+			String year = budgetInfo.getYear();
+			String backAmount = UIRuleUtil.getBigDecimal(entry.getDiffAmount()).toString();
+			String staght = CLUtil.stag_ht;
+			if(info.getWinInvitedBill()==null)
+				staght = CLUtil.stag_wzbht;
+			String[] str = ProjectBudgetFacadeFactory.getLocalInstance(ctx).subBudgetAmount(projectNumber,year,budgetNumber
+																						,String.valueOf(entry.getAmount()),staght,true,backAmount);
+			if("失败".equals(str[0])){
+				 throw new XRBillException(XRBillException.NOBUDGET, new Object[] {"预算编码："+budgetNumber+","+budgetName , str[1]});
+			}
+		}
+	}
+	
+	void backBudgetAmount(Context ctx, IObjectPK pk)throws BOSException,EASBizException{
+		ContractBillInfo info = ContractBillFactory.getLocalInstance(ctx).getContractBillInfo(pk);
+		IProgrammingEntryCostEntry iProgrammingEntryCostEntry = ProgrammingEntryCostEntryFactory.getLocalInstance(ctx);
+		for (int i = 0; i <info.getBudgetEntry().size(); i++) {
+			ContractBillBudgetEntryInfo entry = info.getBudgetEntry().get(i);
+			ProgrammingEntryCostEntryInfo budgetInfo= iProgrammingEntryCostEntry.getProgrammingEntryCostEntryInfo(new ObjectUuidPK(entry.getBudgetNumber().getId()));
+			String projectNumber = budgetInfo.getNumber();
+			String budgetNumber = budgetInfo.getFeeNumber();
+			String budgetName = budgetInfo.getFeeName();
+			String year = budgetInfo.getYear();
+			String backAmount = UIRuleUtil.getBigDecimal(entry.getDiffAmount()).toString();
+			String staght = CLUtil.stag_ht;
+			if(info.getWinInvitedBill()==null)
+				staght = CLUtil.stag_wzbht;
+			String[] str = ProjectBudgetFacadeFactory.getLocalInstance(ctx).backBudgetAmount(projectNumber,year,budgetNumber
+																						,String.valueOf(entry.getAmount()),staght,true,backAmount);
+			if("失败".equals(str[0])){
+				 throw new XRBillException(XRBillException.NOBUDGET, new Object[] {"预算编码："+budgetNumber+","+budgetName , str[1]});
+			}
+		}
 	}
 	private String getNextVersionProg(Context ctx, String nextProgId, FDCSQLBuilder builder, IRowSet rowSet) throws BOSException, SQLException {
 		String tempId = null;
@@ -1123,7 +1176,7 @@ public class ContractBillControllerBean extends AbstractContractBillControllerBe
 	}
 	protected void _unAudit(Context ctx, BOSUuid billId) throws BOSException, EASBizException {
 		FilterInfo filter = new FilterInfo();
-		checkBillForUnAudit(ctx, billId);
+//		checkBillForUnAudit(ctx, billId);
 		
 		filter = new FilterInfo();
 		// 合同
@@ -1133,6 +1186,7 @@ public class ContractBillControllerBean extends AbstractContractBillControllerBe
 		if (_exists(ctx, filter)) {
 			throw new ContractException(ContractException.HASACHIVED);
 		}	
+		backBudgetAmount(ctx, new ObjectUuidPK(billId));
 		super._unAudit(ctx, billId);
 		// 在金额累计之前取补充合同的补充金额
 		// 在金额累计之前取主合同的签约金额

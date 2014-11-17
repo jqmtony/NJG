@@ -52,7 +52,7 @@ public class YIPlanAccredListUI extends AbstractYIPlanAccredListUI
     
     public void onLoad() throws Exception {
     	super.onLoad();
-    	
+    	getSelectedIdValues();
     	this.btnCreateTo.setText("流程跳转");
     	this.btnCreateTo.setToolTipText("流程跳转");
     	this.btnCreateTo.setIcon(EASResource.getIcon("imgTbtn_linkviewbill"));

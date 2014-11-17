@@ -20,6 +20,7 @@ public class AbstractContractBillInfo extends com.kingdee.eas.fdc.basedata.FDCBi
         put("contractPlan", new com.kingdee.eas.port.pm.contract.ContractBillContractPlanCollection());
         put("entrys", new com.kingdee.eas.port.pm.contract.ContractBillEntryCollection());
         put("payItems", new com.kingdee.eas.port.pm.contract.ContractBillPayItemCollection());
+        put("BudgetEntry", new com.kingdee.eas.port.pm.contract.ContractBillBudgetEntryCollection());
     }
     /**
      * Object: 项目合同 's 分录 property 
@@ -983,6 +984,24 @@ public class AbstractContractBillInfo extends com.kingdee.eas.fdc.basedata.FDCBi
     public void setIsHasCostIndex(boolean item)
     {
         setBoolean("isHasCostIndex", item);
+    }
+    /**
+     * Object: 项目合同 's 合同预算 property 
+     */
+    public com.kingdee.eas.port.pm.contract.ContractBillBudgetEntryCollection getBudgetEntry()
+    {
+        return (com.kingdee.eas.port.pm.contract.ContractBillBudgetEntryCollection)get("BudgetEntry");
+    }
+    /**
+     * Object: 项目合同 's 中标单 property 
+     */
+    public com.kingdee.eas.port.pm.invite.WinInviteReportInfo getWinInvitedBill()
+    {
+        return (com.kingdee.eas.port.pm.invite.WinInviteReportInfo)get("winInvitedBill");
+    }
+    public void setWinInvitedBill(com.kingdee.eas.port.pm.invite.WinInviteReportInfo item)
+    {
+        put("winInvitedBill", item);
     }
     public BOSObjectType getBOSType()
     {

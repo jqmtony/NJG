@@ -522,53 +522,51 @@ public final class PayReqTableHelper {
 		}
 		if (FDCBillStateEnum.AUDITTED.equals(editData.getState()) || FDCBillStateEnum.AUDITTING.equals(editData.getState())) {
 			// 从DeductOfPayReqBill内取出数据
-			DeductOfPayReqBillInfo info = null;
-			EntityViewInfo view = new EntityViewInfo();
-			FilterInfo filter = new FilterInfo();
-			FilterItemCollection items = filter.getFilterItems();
-			items.add(new FilterItemInfo("payRequestBill.id", editData.getId().toString()));
-//			filter.getFilterItems().add(new FilterItemInfo("deductType.id", DeductTypeInfo.partAMaterialType, CompareType.NOTEQUALS));
-			view.setFilter(filter);
-			final SorterItemInfo sorterItemInfo = new SorterItemInfo("deductType.number");
-			sorterItemInfo.setSortType(SortType.ASCEND);
-			view.getSorter().add(sorterItemInfo);
-			view.getSelector().add("deductType.number");
-			view.getSelector().add("deductType.name");
-			view.getSelector().add("*");
-			try {
-
-				DeductOfPayReqBillCollection c = DeductOfPayReqBillFactory.getRemoteInstance().getDeductOfPayReqBillCollection(view);
-				rows = c.size();
-				for (int i = 0; i < rows; i++) {
-					info = c.get(i);
-					// 把显示零的地方变成空
-					if (info.getAllPaidAmt() != null && info.getAllPaidAmt().compareTo(FDCHelper.ZERO) == 0) {
-						info.setAllPaidAmt(null);
-					}
-					if (info.getAllReqAmt() != null && info.getAllReqAmt().compareTo(FDCHelper.ZERO) == 0) {
-						info.setAllReqAmt(null);
-					}
-					if (info.getAmount() != null && info.getAmount().compareTo(FDCHelper.ZERO) == 0) {
-						info.setAmount(null);
-					}
-					if (info.getOriginalAmount() != null && info.getOriginalAmount().compareTo(FDCHelper.ZERO) == 0) {
-						info.setOriginalAmount(null);
-					}
-					row = table.addRow(base + i);
-					row.getCell(1).setValue(info.getDeductType().getName());
-					row.getCell(1).getStyleAttributes().setNumberFormat("@");
-					row.getCell(2).setValue(info.getAllPaidAmt());
-					row.getCell(3).setValue(info.getAllReqAmt());
-					row.getCell(4).setValue(info.getOriginalAmount());
-					row.getCell(5).setValue(info.getAmount());
-					row.getCell(6).setExpressions("=D" + (base + i + 1) + "+F" + (base + i + 1));
-					row.getCell(7).setExpressions("=C" + (base + i + 1) + "+F" + (base + i + 1));
-
-				}
-			} catch (BOSException e) {
-				handUIException(e);
-			}
-
+//			DeductOfPayReqBillInfo info = null;
+//			EntityViewInfo view = new EntityViewInfo();
+//			FilterInfo filter = new FilterInfo();
+//			FilterItemCollection items = filter.getFilterItems();
+//			items.add(new FilterItemInfo("payRequestBill.id", editData.getId().toString()));
+////			filter.getFilterItems().add(new FilterItemInfo("deductType.id", DeductTypeInfo.partAMaterialType, CompareType.NOTEQUALS));
+//			view.setFilter(filter);
+//			final SorterItemInfo sorterItemInfo = new SorterItemInfo("deductType.number");
+//			sorterItemInfo.setSortType(SortType.ASCEND);
+//			view.getSorter().add(sorterItemInfo);
+//			view.getSelector().add("deductType.number");
+//			view.getSelector().add("deductType.name");
+//			view.getSelector().add("*");
+//			try {
+//				DeductOfPayReqBillCollection c = DeductOfPayReqBillFactory.getRemoteInstance().getDeductOfPayReqBillCollection(view);
+//				rows = c.size();
+//				for (int i = 0; i < rows; i++) {
+//					info = c.get(i);
+//					// 把显示零的地方变成空
+//					if (info.getAllPaidAmt() != null && info.getAllPaidAmt().compareTo(FDCHelper.ZERO) == 0) {
+//						info.setAllPaidAmt(null);
+//					}
+//					if (info.getAllReqAmt() != null && info.getAllReqAmt().compareTo(FDCHelper.ZERO) == 0) {
+//						info.setAllReqAmt(null);
+//					}
+//					if (info.getAmount() != null && info.getAmount().compareTo(FDCHelper.ZERO) == 0) {
+//						info.setAmount(null);
+//					}
+//					if (info.getOriginalAmount() != null && info.getOriginalAmount().compareTo(FDCHelper.ZERO) == 0) {
+//						info.setOriginalAmount(null);
+//					}
+//					row = table.addRow(base + i);
+//					row.getCell(1).setValue(info.getDeductType().getName());
+//					row.getCell(1).getStyleAttributes().setNumberFormat("@");
+//					row.getCell(2).setValue(info.getAllPaidAmt());
+//					row.getCell(3).setValue(info.getAllReqAmt());
+//					row.getCell(4).setValue(info.getOriginalAmount());
+//					row.getCell(5).setValue(info.getAmount());
+//					row.getCell(6).setExpressions("=D" + (base + i + 1) + "+F" + (base + i + 1));
+//					row.getCell(7).setExpressions("=C" + (base + i + 1) + "+F" + (base + i + 1));
+//
+//				}
+//			} catch (BOSException e) {
+//				handUIException(e);
+//			}
 		} else {
 			HashMap map = getDeductData(editData,deductTypeCollection);
 			if (map.size() > 0) {

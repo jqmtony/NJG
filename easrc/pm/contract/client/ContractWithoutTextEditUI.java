@@ -27,12 +27,14 @@ import javax.swing.Action;
 import org.apache.log4j.Logger;
 
 import com.kingdee.bos.BOSException;
+import com.kingdee.bos.ctrl.extendcontrols.BizDataFormat;
 import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
 import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTSelectEvent;
+import com.kingdee.bos.ctrl.kdf.util.render.ObjectValueRender;
 import com.kingdee.bos.ctrl.kdf.util.style.Styles.HorizontalAlignment;
 import com.kingdee.bos.ctrl.swing.KDComboBoxMultiColumnItem;
 import com.kingdee.bos.ctrl.swing.KDFormattedTextField;
@@ -60,6 +62,7 @@ import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.IItemAction;
 import com.kingdee.bos.ui.face.IUIWindow;
 import com.kingdee.bos.ui.face.UIFactory;
+import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.eas.base.attachment.AttachmentInfo;
 import com.kingdee.eas.base.attachment.BoAttchAssoCollection;
@@ -166,6 +169,7 @@ import com.kingdee.eas.port.pm.fi.PayRequestBillBgEntryInfo;
 import com.kingdee.eas.port.pm.fi.PayRequestBillCollection;
 import com.kingdee.eas.port.pm.fi.PayRequestBillFactory;
 import com.kingdee.eas.port.pm.fi.PayRequestBillInfo;
+import com.kingdee.eas.port.pm.invite.InviteReportInfo;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
@@ -271,6 +275,36 @@ public class ContractWithoutTextEditUI extends
 		}
 	}
 	
+	public void kdtBudgetEntry_Changed(int rowIndex, int colIndex)throws Exception {
+		super.kdtBudgetEntry_Changed(rowIndex, colIndex);
+		BigDecimal budgetAmount = UIRuleUtil.getBigDecimal(UIRuleUtil.getProperty((IObjectValue)kdtBudgetEntry.getCell(rowIndex,"budgetNumber").getValue(),"contractAssign"));
+    	BigDecimal reportInviteAmount = UIRuleUtil.getBigDecimal(UIRuleUtil.getProperty((IObjectValue)kdtBudgetEntry.getCell(rowIndex,"budgetNumber").getValue(),"invitReportedAmount"));
+    	BigDecimal InvitedAmount = UIRuleUtil.getBigDecimal(UIRuleUtil.getProperty((IObjectValue)kdtBudgetEntry.getCell(rowIndex,"budgetNumber").getValue(),"invitedAmount"));
+    	BigDecimal contractAmount = UIRuleUtil.getBigDecimal(UIRuleUtil.getProperty((IObjectValue)kdtBudgetEntry.getCell(rowIndex,"budgetNumber").getValue(),"contractedAmount"));
+    	BigDecimal nocontractAmount = UIRuleUtil.getBigDecimal(UIRuleUtil.getProperty((IObjectValue)kdtBudgetEntry.getCell(rowIndex,"budgetNumber").getValue(),"noContractedAmount"));
+    	BigDecimal noInviteContractAmount = UIRuleUtil.getBigDecimal(UIRuleUtil.getProperty((IObjectValue)kdtBudgetEntry.getCell(rowIndex,"budgetNumber").getValue(),"noInviteContractAmount"));
+    	BigDecimal balanceAmount = budgetAmount.subtract(contractAmount).subtract(nocontractAmount).subtract(noInviteContractAmount);
+
+    	if ("budgetNumber".equalsIgnoreCase(kdtBudgetEntry.getColumn(colIndex).getKey())) {
+        	kdtBudgetEntry.getCell(rowIndex,"budgetName").setValue(UIRuleUtil.getString(UIRuleUtil.getProperty((IObjectValue)kdtBudgetEntry.getCell(rowIndex,"budgetNumber").getValue(),"feeName")));
+        	kdtBudgetEntry.getCell(rowIndex,"budgetAmount").setValue(UIRuleUtil.getBigDecimal(UIRuleUtil.getProperty((IObjectValue)kdtBudgetEntry.getCell(rowIndex,"budgetNumber").getValue(),"contractAssign")));
+        	kdtBudgetEntry.getCell(rowIndex,"balance").setValue(balanceAmount);
+        	kdtBudgetEntry.getCell(rowIndex,"lastAmount").setValue(balanceAmount);
+       }
+        if ("amount".equalsIgnoreCase(kdtBudgetEntry.getColumn(colIndex).getKey())) {
+        	BigDecimal amount = balanceAmount.subtract(UIRuleUtil.getBigDecimal(kdtBudgetEntry.getCell(rowIndex,"amount").getValue()));
+        	if(amount.intValue()<0){
+        		kdtBudgetEntry.getCell(rowIndex,"amount").setValue("0");
+        	}else
+            	kdtBudgetEntry.getCell(rowIndex,"lastAmount").setValue(amount);
+       }
+        BigDecimal amount = new BigDecimal(0.000);
+       for (int i = 0; i < kdtBudgetEntry.getRowCount(); i++) {
+    	   amount = amount.add(UIRuleUtil.getBigDecimal(kdtBudgetEntry.getCell(i,"amount").getValue()));
+       }
+       txtamount.setValue(amount);
+	}
+
 	/**
 	 * output getEditUIName method
 	 */
@@ -553,6 +587,29 @@ public class ContractWithoutTextEditUI extends
         
         this.chkMenuItemSubmitAndAddNew.setVisible(false);
 		this.chkMenuItemSubmitAndAddNew.setSelected(false);
+		
+		final KDBizPromptBox kdtEntry4_name_PromptBox = new KDBizPromptBox();
+        kdtEntry4_name_PromptBox.setQueryInfo("com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingCostEntryQuery");
+        kdtEntry4_name_PromptBox.setVisible(true);
+        kdtEntry4_name_PromptBox.setEditable(true);
+        kdtEntry4_name_PromptBox.setDisplayFormat("$feeNumber$");
+        kdtEntry4_name_PromptBox.setEditFormat("$feeNumber$");
+        kdtEntry4_name_PromptBox.setCommitFormat("$feeNumber$");
+        view = new EntityViewInfo();
+        FilterInfo filInfo = new FilterInfo();
+		if(prmtcurProject.getValue()!=null){
+			ProjectInfo project = (ProjectInfo)prmtcurProject.getValue();
+			filInfo.getFilterItems().add(new FilterItemInfo("number",project.getNumber()));
+			filInfo.getFilterItems().add(new FilterItemInfo("isLast","1"));
+			filInfo.getFilterItems().add(new FilterItemInfo("beizhu","最新"));
+			view.setFilter(filInfo);
+			kdtEntry4_name_PromptBox.setEntityViewInfo(view);
+		}
+        KDTDefaultCellEditor kdtEntry4_name_CellEditor = new KDTDefaultCellEditor(kdtEntry4_name_PromptBox);
+        this.kdtBudgetEntry.getColumn("budgetNumber").setEditor(kdtEntry4_name_CellEditor);
+        ObjectValueRender kdtEntry4_name_OVR = new ObjectValueRender();
+        kdtEntry4_name_OVR.setFormat(new BizDataFormat("$feeNumber$"));
+        this.kdtBudgetEntry.getColumn("budgetNumber").setRenderer(kdtEntry4_name_OVR);
 	}
 	protected Set getCostedDeptIdSet(CompanyOrgUnitInfo com) throws EASBizException, BOSException{
 		if(com==null) return null;
@@ -2097,11 +2154,11 @@ public class ContractWithoutTextEditUI extends
 	
 	private void checkAmountForSave(){
 		BigDecimal bd = txtamount.getBigDecimalValue();
-		if(FDCHelper.toBigDecimal(bd).compareTo(FDCHelper.ZERO) == 0){
-			MsgBox.showWarning(this, "原币金额不能为零!");
-			txtamount.requestFocus(true);
-			SysUtil.abort();
-		}
+//		if(FDCHelper.toBigDecimal(bd).compareTo(FDCHelper.ZERO) == 0){
+//			MsgBox.showWarning(this, "原币金额不能为零!");
+//			txtamount.requestFocus(true);
+//			SysUtil.abort();
+//		}
 		
 	}
 	

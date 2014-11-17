@@ -18,7 +18,7 @@ public class AbstractProgrammingEntryCostEntryInfo extends com.kingdee.eas.frame
         super(pkField);
     }
     /**
-     * Object: 成本构成 's 框架合约 property 
+     * Object: 年度费用预算 's 框架合约 property 
      */
     public com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryInfo getContract()
     {
@@ -29,7 +29,7 @@ public class AbstractProgrammingEntryCostEntryInfo extends com.kingdee.eas.frame
         put("contract", item);
     }
     /**
-     * Object: 成本构成 's 成本科目 property 
+     * Object: 年度费用预算 's 成本科目 property 
      */
     public com.kingdee.eas.fdc.basedata.CostAccountInfo getCostAccount()
     {
@@ -40,7 +40,7 @@ public class AbstractProgrammingEntryCostEntryInfo extends com.kingdee.eas.frame
         put("costAccount", item);
     }
     /**
-     * Object:成本构成's 投资总金额property 
+     * Object:年度费用预算's 投资总金额property 
      */
     public java.math.BigDecimal getGoalCost()
     {
@@ -51,7 +51,7 @@ public class AbstractProgrammingEntryCostEntryInfo extends com.kingdee.eas.frame
         setBigDecimal("goalCost", item);
     }
     /**
-     * Object:成本构成's 累计投资（不含本年）property 
+     * Object:年度费用预算's 累计投资（不含本年）property 
      */
     public java.math.BigDecimal getAssigned()
     {
@@ -62,7 +62,7 @@ public class AbstractProgrammingEntryCostEntryInfo extends com.kingdee.eas.frame
         setBigDecimal("assigned", item);
     }
     /**
-     * Object:成本构成's 投资余额property 
+     * Object:年度费用预算's 投资余额property 
      */
     public java.math.BigDecimal getAssigning()
     {
@@ -73,7 +73,7 @@ public class AbstractProgrammingEntryCostEntryInfo extends com.kingdee.eas.frame
         setBigDecimal("assigning", item);
     }
     /**
-     * Object:成本构成's 本年度投资金额property 
+     * Object:年度费用预算's 本年度投资金额property 
      */
     public java.math.BigDecimal getContractAssign()
     {
@@ -84,7 +84,7 @@ public class AbstractProgrammingEntryCostEntryInfo extends com.kingdee.eas.frame
         setBigDecimal("contractAssign", item);
     }
     /**
-     * Object:成本构成's 备注property 
+     * Object:年度费用预算's 备注property 
      */
     public String getDescription()
     {
@@ -95,7 +95,7 @@ public class AbstractProgrammingEntryCostEntryInfo extends com.kingdee.eas.frame
         setString("description", item);
     }
     /**
-     * Object: 成本构成 's 投资年度 property 
+     * Object: 年度费用预算 's 投资年度 property 
      */
     public com.kingdee.eas.port.pm.base.InvestYearInfo getInvestYear()
     {
@@ -106,7 +106,7 @@ public class AbstractProgrammingEntryCostEntryInfo extends com.kingdee.eas.frame
         put("investYear", item);
     }
     /**
-     * Object:成本构成's 工程项目property 
+     * Object:年度费用预算's 工程项目property 
      */
     public String getProject()
     {
@@ -117,7 +117,7 @@ public class AbstractProgrammingEntryCostEntryInfo extends com.kingdee.eas.frame
         setString("project", item);
     }
     /**
-     * Object:成本构成's 项目编码property 
+     * Object:年度费用预算's 项目编码property 
      */
     public String getNumber()
     {
@@ -128,7 +128,7 @@ public class AbstractProgrammingEntryCostEntryInfo extends com.kingdee.eas.frame
         setString("number", item);
     }
     /**
-     * Object:成本构成's 投资比例property 
+     * Object:年度费用预算's 投资比例property 
      */
     public java.math.BigDecimal getProportion()
     {
@@ -139,7 +139,7 @@ public class AbstractProgrammingEntryCostEntryInfo extends com.kingdee.eas.frame
         setBigDecimal("proportion", item);
     }
     /**
-     * Object:成本构成's 年度property 
+     * Object:年度费用预算's 年度property 
      */
     public String getYear()
     {
@@ -150,7 +150,7 @@ public class AbstractProgrammingEntryCostEntryInfo extends com.kingdee.eas.frame
         setString("year", item);
     }
     /**
-     * Object:成本构成's 预算费用编码property 
+     * Object:年度费用预算's 预算费用编码property 
      */
     public String getFeeNumber()
     {
@@ -161,7 +161,7 @@ public class AbstractProgrammingEntryCostEntryInfo extends com.kingdee.eas.frame
         setString("feeNumber", item);
     }
     /**
-     * Object:成本构成's 预算费用名称property 
+     * Object:年度费用预算's 预算费用名称property 
      */
     public String getFeeName()
     {
@@ -172,7 +172,7 @@ public class AbstractProgrammingEntryCostEntryInfo extends com.kingdee.eas.frame
         setString("feeName", item);
     }
     /**
-     * Object:成本构成's 累计招标申报金额property 
+     * Object:年度费用预算's 累计招标申报金额property 
      */
     public java.math.BigDecimal getInvitReportedAmount()
     {
@@ -183,7 +183,7 @@ public class AbstractProgrammingEntryCostEntryInfo extends com.kingdee.eas.frame
         setBigDecimal("invitReportedAmount", item);
     }
     /**
-     * Object:成本构成's 累计中标金额property 
+     * Object:年度费用预算's 累计中标金额property 
      */
     public java.math.BigDecimal getInvitedAmount()
     {
@@ -194,7 +194,7 @@ public class AbstractProgrammingEntryCostEntryInfo extends com.kingdee.eas.frame
         setBigDecimal("invitedAmount", item);
     }
     /**
-     * Object:成本构成's 累计合同签订金额property 
+     * Object:年度费用预算's 累计合同签订金额property 
      */
     public java.math.BigDecimal getContractedAmount()
     {
@@ -205,7 +205,29 @@ public class AbstractProgrammingEntryCostEntryInfo extends com.kingdee.eas.frame
         setBigDecimal("contractedAmount", item);
     }
     /**
-     * Object:成本构成's 累计申请付款金额property 
+     * Object:年度费用预算's 累计非招标合同金额property 
+     */
+    public java.math.BigDecimal getNoInviteContractAmount()
+    {
+        return getBigDecimal("noInviteContractAmount");
+    }
+    public void setNoInviteContractAmount(java.math.BigDecimal item)
+    {
+        setBigDecimal("noInviteContractAmount", item);
+    }
+    /**
+     * Object:年度费用预算's 累计无文本合同金额property 
+     */
+    public java.math.BigDecimal getNoContractedAmount()
+    {
+        return getBigDecimal("noContractedAmount");
+    }
+    public void setNoContractedAmount(java.math.BigDecimal item)
+    {
+        setBigDecimal("noContractedAmount", item);
+    }
+    /**
+     * Object:年度费用预算's 累计申请付款金额property 
      */
     public java.math.BigDecimal getRequestPayAmount()
     {
@@ -216,7 +238,7 @@ public class AbstractProgrammingEntryCostEntryInfo extends com.kingdee.eas.frame
         setBigDecimal("requestPayAmount", item);
     }
     /**
-     * Object:成本构成's 累计已付款金额property 
+     * Object:年度费用预算's 累计已付款金额property 
      */
     public java.math.BigDecimal getPayedAmount()
     {
@@ -227,7 +249,7 @@ public class AbstractProgrammingEntryCostEntryInfo extends com.kingdee.eas.frame
         setBigDecimal("payedAmount", item);
     }
     /**
-     * Object:成本构成's 可用金额property 
+     * Object:年度费用预算's 可用金额property 
      */
     public java.math.BigDecimal getBalanceAmount()
     {
@@ -238,7 +260,7 @@ public class AbstractProgrammingEntryCostEntryInfo extends com.kingdee.eas.frame
         setBigDecimal("balanceAmount", item);
     }
     /**
-     * Object:成本构成's 子节点property 
+     * Object:年度费用预算's 子节点property 
      */
     public boolean isIsLast()
     {
@@ -249,7 +271,7 @@ public class AbstractProgrammingEntryCostEntryInfo extends com.kingdee.eas.frame
         setBoolean("isLast", item);
     }
     /**
-     * Object:成本构成's 备注property 
+     * Object:年度费用预算's 备注property 
      */
     public String getBeizhu()
     {

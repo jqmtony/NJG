@@ -70,21 +70,21 @@ import com.kingdee.bos.ctrl.swing.KDContainer;
 import com.kingdee.bos.ctrl.swing.KDDatePicker;
 import com.kingdee.bos.ctrl.swing.KDFileChooser;
 import com.kingdee.bos.ctrl.swing.KDFormattedTextField;
+import com.kingdee.bos.ctrl.swing.KDScrollPane;
+import com.kingdee.bos.ctrl.swing.KDTabbedPane;
 import com.kingdee.bos.ctrl.swing.KDTextArea;
 import com.kingdee.bos.ctrl.swing.KDTextField;
 import com.kingdee.bos.ctrl.swing.KDWorkButton;
 import com.kingdee.bos.ctrl.swing.StringUtils;
-import com.kingdee.bos.ctrl.swing.event.CommitEvent;
-import com.kingdee.bos.ctrl.swing.event.CommitListener;
 import com.kingdee.bos.ctrl.swing.event.DataChangeEvent;
 import com.kingdee.bos.ctrl.swing.event.DataChangeListener;
 import com.kingdee.bos.ctrl.swing.event.SelectorEvent;
-import com.kingdee.bos.ctrl.swing.event.SelectorListener;
 import com.kingdee.bos.ctrl.swing.util.CtrlCommonConstant;
 import com.kingdee.bos.dao.AbstractObjectValue;
 import com.kingdee.bos.dao.IObjectPK;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.bos.framework.DynamicObjectFactory;
 import com.kingdee.bos.framework.cache.ActionCache;
 import com.kingdee.bos.metadata.IMetaDataPK;
 import com.kingdee.bos.metadata.MetaDataPK;
@@ -103,6 +103,7 @@ import com.kingdee.bos.ui.face.IItemAction;
 import com.kingdee.bos.ui.face.IUIWindow;
 import com.kingdee.bos.ui.face.UIException;
 import com.kingdee.bos.ui.face.UIFactory;
+import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.eas.base.attachment.AttachmentFactory;
 import com.kingdee.eas.base.attachment.AttachmentFtpFacadeFactory;
@@ -121,8 +122,10 @@ import com.kingdee.eas.base.codingrule.CodingRuleManagerFactory;
 import com.kingdee.eas.base.codingrule.ICodingRuleManager;
 import com.kingdee.eas.base.commonquery.BooleanEnum;
 import com.kingdee.eas.base.permission.PermissionFactory;
+import com.kingdee.eas.base.uiframe.client.UIFactoryHelper;
 import com.kingdee.eas.basedata.assistant.CurrencyInfo;
 import com.kingdee.eas.basedata.assistant.ExchangeRateInfo;
+import com.kingdee.eas.basedata.assistant.ProjectFactory;
 import com.kingdee.eas.basedata.assistant.ProjectInfo;
 import com.kingdee.eas.basedata.master.cssp.SupplierFactory;
 import com.kingdee.eas.basedata.master.cssp.SupplierInfo;
@@ -207,6 +210,14 @@ import com.kingdee.eas.port.pm.contract.ContractBillFactory;
 import com.kingdee.eas.port.pm.contract.ContractBillInfo;
 import com.kingdee.eas.port.pm.contract.ContractBillPayItemInfo;
 import com.kingdee.eas.port.pm.contract.IContractBill;
+import com.kingdee.eas.port.pm.invite.InviteReportFactory;
+import com.kingdee.eas.port.pm.invite.InviteReportInfo;
+import com.kingdee.eas.port.pm.invite.WinInviteReportBudgetEntryCollection;
+import com.kingdee.eas.port.pm.invite.WinInviteReportBudgetEntryFactory;
+import com.kingdee.eas.port.pm.invite.WinInviteReportBudgetEntryInfo;
+import com.kingdee.eas.port.pm.invite.WinInviteReportFactory;
+import com.kingdee.eas.port.pm.invite.WinInviteReportInfo;
+import com.kingdee.eas.port.pm.invite.client.WinInviteReportListUI;
 import com.kingdee.eas.port.pm.utils.ContractClientUtils;
 import com.kingdee.eas.port.pm.utils.FDCUtils;
 import com.kingdee.eas.util.SysUtil;
@@ -224,36 +235,24 @@ import com.kingdee.util.UuidException;
  */
 public class ContractBillEditUI extends AbstractContractBillEditUI implements IWorkflowUISupport {
 	private KDComboBox isLonelyCalCombo = null;
-	
 	private static final String DETAIL_DEF_ID = "detailDef.id";
-
-	private static final Logger logger = CoreUIObject
-			.getLogger(ContractBillEditUI.class);
-
+	private static final Logger logger = CoreUIObject.getLogger(ContractBillEditUI.class);
 	//责任人是否可以选择其他部门的人员
 	private boolean canSelectOtherOrgPerson = false;
-
 	//项目合同签约总金额超过项目
 	private String controlCost;
-
 	//控制方式
 	private String controlType;
-
 	//合同审批前进行拆分
 	private boolean splitBeforeAudit;
-	
 	//是否显示“合同费用项目”
 	private boolean isShowCharge = false;
 	//房地产业务系统正文管理是否启用审批笔迹留痕功能
 	boolean isUseWriteMark=FDCUtils.getDefaultFDCParamByKey(null,null, FDCConstants.FDC_PARAM_WRITEMARK);
-	
 	//补充合同可以选择提交状态的主合同
 	private boolean isSupply = false;
-	
-	
 	//add by david_yang PT043562 2011.03.29 此单据是否有附件
 	private boolean isHasAttchment = false;
-	
 	/**
 	 * output class constructor
 	 */
@@ -282,6 +281,65 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 	private void jbInit() {
 		titleMain = getUITitle();
 	}
+	/**
+     * 添加标签显示其他相关单据的列表界面
+     * 对应的被listUI需要重载getQueryExecutor方法过滤
+     * @param kDTabbedPane1
+     * @param className (全路径)
+     * @param id
+     * @param tabName
+     * @throws Exception
+     */
+    private void addTab(KDTabbedPane kDTabbedPane1, String className, String id, String tabName) throws Exception{
+    	KDScrollPane panel = new KDScrollPane();
+		panel.setMinimumSize(new Dimension(1013,600));		
+		panel.setPreferredSize(new Dimension(1013,600));
+    	UIContext uiContext = new UIContext(this);
+        uiContext.put("reportId", id);
+		panel.setViewportView((Component) UIFactoryHelper.initUIObject(className, uiContext, null, OprtState.VIEW));
+		panel.setKeyBoardControl(true);
+		panel.setEnabled(false);
+		kDTabbedPane1.add(panel,tabName);
+    }
+	public void kdtBudgetEntry_Changed(int rowIndex, int colIndex)throws Exception {
+		super.kdtBudgetEntry_Changed(rowIndex, colIndex);
+		BigDecimal budgetAmount = UIRuleUtil.getBigDecimal(UIRuleUtil.getProperty((IObjectValue)kdtBudgetEntry.getCell(rowIndex,"budgetNumber").getValue(),"contractAssign"));
+    	BigDecimal reportInviteAmount = UIRuleUtil.getBigDecimal(UIRuleUtil.getProperty((IObjectValue)kdtBudgetEntry.getCell(rowIndex,"budgetNumber").getValue(),"invitReportedAmount"));
+    	BigDecimal InvitedAmount = UIRuleUtil.getBigDecimal(UIRuleUtil.getProperty((IObjectValue)kdtBudgetEntry.getCell(rowIndex,"budgetNumber").getValue(),"invitedAmount"));
+    	BigDecimal contractAmount = UIRuleUtil.getBigDecimal(UIRuleUtil.getProperty((IObjectValue)kdtBudgetEntry.getCell(rowIndex,"budgetNumber").getValue(),"contractedAmount"));
+    	BigDecimal nocontractAmount = UIRuleUtil.getBigDecimal(UIRuleUtil.getProperty((IObjectValue)kdtBudgetEntry.getCell(rowIndex,"budgetNumber").getValue(),"noContractedAmount"));
+    	BigDecimal noInviteContractAmount = UIRuleUtil.getBigDecimal(UIRuleUtil.getProperty((IObjectValue)kdtBudgetEntry.getCell(rowIndex,"budgetNumber").getValue(),"noInviteContractAmount"));
+    	BigDecimal balanceAmount = budgetAmount.subtract(contractAmount).subtract(nocontractAmount).subtract(noInviteContractAmount);
+    	WinInviteReportInfo wininviteReport = (WinInviteReportInfo) this.prmtwinInvitedBill.getValue();
+    	WinInviteReportBudgetEntryCollection coll = new WinInviteReportBudgetEntryCollection();
+    	if(wininviteReport!=null)
+    		coll = wininviteReport.getBudgetEntry();
+    	if ("budgetNumber".equalsIgnoreCase(kdtBudgetEntry.getColumn(colIndex).getKey())) {
+        	kdtBudgetEntry.getCell(rowIndex,"budgetName").setValue(UIRuleUtil.getString(UIRuleUtil.getProperty((IObjectValue)kdtBudgetEntry.getCell(rowIndex,"budgetNumber").getValue(),"feeName")));
+        	kdtBudgetEntry.getCell(rowIndex,"budgetAmount").setValue(UIRuleUtil.getBigDecimal(UIRuleUtil.getProperty((IObjectValue)kdtBudgetEntry.getCell(rowIndex,"budgetNumber").getValue(),"contractAssign")));
+        	kdtBudgetEntry.getCell(rowIndex,"balance").setValue(balanceAmount);
+        	kdtBudgetEntry.getCell(rowIndex,"lastAmount").setValue(balanceAmount);
+       }
+        if ("amount".equalsIgnoreCase(kdtBudgetEntry.getColumn(colIndex).getKey())) {
+        	BigDecimal amount = balanceAmount.subtract(UIRuleUtil.getBigDecimal(kdtBudgetEntry.getCell(rowIndex,"amount").getValue()));
+        	if(amount.intValue()<0){
+        		kdtBudgetEntry.getCell(rowIndex,"amount").setValue("0");
+        	}else
+            	kdtBudgetEntry.getCell(rowIndex,"lastAmount").setValue(amount);
+        	if(coll.size()>0){
+	        	WinInviteReportBudgetEntryInfo entry = coll.get(rowIndex);
+	        	entry = WinInviteReportBudgetEntryFactory.getRemoteInstance().getWinInviteReportBudgetEntryInfo(new ObjectUuidPK(entry.getId()));
+	        	kdtBudgetEntry.getCell(rowIndex,"diffAmount").setValue(UIRuleUtil.getBigDecimal(kdtBudgetEntry.getCell(rowIndex,"amount").getValue()).subtract(UIRuleUtil.getBigDecimal(entry.getAmount())));
+        	}
+       }
+       BigDecimal amount = new BigDecimal(0.000);
+       for (int i = 0; i < kdtBudgetEntry.getRowCount(); i++) {
+    	   amount = amount.add(UIRuleUtil.getBigDecimal(kdtBudgetEntry.getCell(i,"amount").getValue()));
+       }
+       txtamount.setValue(amount);
+       editData.setAmount(amount);
+       txtLocalAmount.setValue(amount);
+	}
 
 	//变化事件
 	protected void controlDate_dataChanged(
@@ -299,17 +357,10 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 	}
 
 	//业务日期变化事件
-	ControlDateChangeListener bookedDateChangeListener = new ControlDateChangeListener(
-			"bookedDate");
-
-	ControlDateChangeListener amountChangeListener = new ControlDateChangeListener(
-		"amount");
-	
-	ControlDateChangeListener grtAmountChangeListener = new ControlDateChangeListener(
-			"grtAmount");
-
-	ControlDateChangeListener grtRateChangeListener = new ControlDateChangeListener(
-			"grtRate");
+	ControlDateChangeListener bookedDateChangeListener = new ControlDateChangeListener("bookedDate");
+	ControlDateChangeListener amountChangeListener = new ControlDateChangeListener("amount");
+	ControlDateChangeListener grtAmountChangeListener = new ControlDateChangeListener("grtAmount");
+	ControlDateChangeListener grtRateChangeListener = new ControlDateChangeListener("grtRate");
 	
 	protected void attachListeners() {
 		pkbookedDate.addDataChangeListener(bookedDateChangeListener);
@@ -323,7 +374,6 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		addDataChangeListener(prmtModel);
 		//添加责任部门监听器
 		addDataChangeListener(prmtRespDept);
-		//addDataChangeListener(comboCurrency);
 
 		addDataChangeListener(prmtcontractType);
 		addDataChangeListener(txtamount);
@@ -644,8 +694,7 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 	/**
 	 * output getBizInterface method
 	 */
-	protected com.kingdee.eas.framework.ICoreBase getBizInterface()
-			throws Exception {
+	protected com.kingdee.eas.framework.ICoreBase getBizInterface() throws Exception {
 		return ContractBillFactory.getRemoteInstance();
 	}
 
@@ -681,6 +730,7 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 	 */
 	protected com.kingdee.bos.dao.IObjectValue createNewData() {
 		ContractBillInfo objectValue = new ContractBillInfo();
+		objectValue.setCU(SysContext.getSysContext().getCurrentCtrlUnit());
 		objectValue.setId(BOSUuid.create(objectValue.getBOSType()));
 		objectValue.setCreator(SysContext.getSysContext().getCurrentUserInfo());
 		objectValue.setRespPerson(SysContext.getSysContext().getCurrentUserInfo().getPerson());
@@ -713,8 +763,6 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		objectValue.setCreateDept(adminInfo);
 		objectValue.setCreateTime(new Timestamp(serverDate.getTime()));
 		objectValue.setSignDate(serverDate);
-//		objectValue.setProgrammingContract(item)
-
 		objectValue.setSourceType(SourceTypeEnum.ADDNEW);
 
 		// 默认直接合同
@@ -728,15 +776,7 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 
 		ProjectInfo curProjectInfo = curProject;
 		objectValue.setCurProject(curProjectInfo);
-//		if (curProjectInfo.getLandDeveloper() != null)
-//			objectValue.setLandDeveloper(curProjectInfo.getLandDeveloper());
-
 		try {
-//			默认委托
-//			objectValue.setContractSourceId(ContractSourceFactory
-//					.getRemoteInstance().getContractSourceInfo(
-//							new ObjectUuidPK(ContractSourceInfo.TRUST_VALUE)));
-			//以前是默认委托，现在改成成自动选择取列表中的第一项或者为空白
 			EntityViewInfo evi = new EntityViewInfo();
 			FilterInfo filter = new FilterInfo();
 			evi.setFilter(filter);
@@ -747,7 +787,6 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 			sic.add(sorts);	
 			evi.setSorter(sic);
 			filter.getFilterItems().add(new FilterItemInfo("isEnabled",Boolean.TRUE));
-			
 			objectValue.setContractSourceId((ContractSourceInfo)(ContractSourceFactory.getRemoteInstance().getCollection(evi).get(0)));
 			
 			if (typeId != null) {
@@ -781,45 +820,31 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 				if(ContractTypeOrgTypeEnum.BIGRANGE.equals(contractTypeInfo.getOrgType())||ContractTypeOrgTypeEnum.SMALLRANGE.equals(contractTypeInfo.getOrgType())){
 					objectValue.setOrgType(contractTypeInfo.getOrgType());
 				}
-//				if(contractTypeInfo.getContractWFTypeEntry().size()==1){
-//					objectValue.setContractWFType(contractTypeInfo.getContractWFTypeEntry().get(0).getContractWFType());
-//				}
 			}
 		} catch (Exception e) {
 			handUIException(e);
 		}
-
-		// 签约日期
-		// objectValue.setSignDate(new Date());
-
-		//造价性质
-		objectValue.setCostProperty(CostPropertyEnum.BASE_CONFIRM);
-
+		objectValue.setSignDate(new Date());// 签约日期
+		objectValue.setCostProperty(CostPropertyEnum.BASE_CONFIRM);//造价性质
 		/*
 		 * 变更提示比例％数值设置缺省值5.00，手工修改（可以在【预警】设置初始值）。结算提示比例％数值设置缺省值100.00，手工修改（可以在【预警】设置初始值）。付款提示比例％数值设置缺省值85.00，手工修改（可以在【预警】设置初始值）。
 		 */
 		objectValue.setPayPercForWarn(new BigDecimal("85"));
 		objectValue.setChgPercForWarn(new BigDecimal("5"));
-
 		//未结算
 		objectValue.setHasSettled(false);
-
 		objectValue.setGrtRate(FDCHelper.ZERO);
-
 		objectValue.setCurrency(baseCurrency);
 		objectValue.setExRate(FDCHelper.ONE);
 		objectValue.setAmount(FDCHelper.ZERO);
 		objectValue.setOriginalAmount(FDCHelper.ZERO);
 		objectValue.setPayScale(FDCHelper.ZERO);
 		objectValue.setGrtAmount(FDCHelper.ZERO);
-
 		objectValue.setCU(curProjectInfo.getCU());
 		objectValue.setConSplitExecState(ConSplitExecStateEnum.COMMON);
-
 		//期间
 		objectValue.setBookedDate(bookedDate);
 		objectValue.setPeriod(curPeriod);
-
 		mainContractId = null;
 		detailAmount = FDCHelper.ZERO;
 		//还需要保存 履约保证金及返还部分
@@ -830,7 +855,152 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		objectValue.setIsStardContract(false);
 		return objectValue;
 	}
+	/**
+	 * 从中标审批单BOTP过来的单据，进行初始化
+	 * 直接引用createnewData() 代码
+	 * @throws BOSException 
+	 * @throws EASBizException 
+	 * */
+	void copy_createnewData() throws Exception{
+		editData.setCU(SysContext.getSysContext().getCurrentCtrlUnit());
+//		editData.setId(BOSUuid.create(editData.getBOSType()));
+		editData.setCreator(SysContext.getSysContext().getCurrentUserInfo());
+		editData.setRespPerson(SysContext.getSysContext().getCurrentUserInfo().getPerson());
+		PersonInfo person = SysContext.getSysContext().getCurrentUserInfo().getPerson();
+		editData.setRespPerson(person);
+		AdminOrgUnitInfo adminInfo = null;
+		if(person!=null){
+			try {
+				SelectorItemCollection personsel=new SelectorItemCollection();
+				personsel.add("position.adminOrgUnit.*");
+				if(person!=null){
+					EntityViewInfo view = new EntityViewInfo();
+		    		FilterInfo filter = new FilterInfo();
+		    		filter.getFilterItems().add(new FilterItemInfo("person.id",person.getId()));
+		    		filter.getFilterItems().add(new FilterItemInfo("isPrimary",Boolean.TRUE));
+		    		view.setFilter(filter);
+		    		view.setSelector(personsel);
+					PositionMemberCollection pmcol=PositionMemberFactory.getRemoteInstance().getPositionMemberCollection(view);
+					if(pmcol.size()>0){
+						adminInfo=pmcol.get(0).getPosition().getAdminOrgUnit();
+					}
+				}
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			} 
+		}
+		
+		editData.setRespDept(adminInfo);
+		editData.setCreateDept(adminInfo);
+		editData.setCreateTime(new Timestamp(serverDate.getTime()));
+		editData.setSignDate(serverDate);
+		editData.setSourceType(SourceTypeEnum.ADDNEW);
 
+		// 默认直接合同
+		editData.setContractPropert(ContractPropertyEnum.DIRECT);
+		editData.setSplitState(CostSplitStateEnum.NOSPLIT);
+		String sourceBillId = editData.getSourceBillId();
+		Object billInfo = (Object)DynamicObjectFactory.getRemoteInstance().getValue(new ObjectUuidPK(sourceBillId).getObjectType(),new ObjectUuidPK(sourceBillId));
+		BOSUuid projId = null;
+		if(billInfo instanceof WinInviteReportInfo){
+			SelectorItemCollection selector = new SelectorItemCollection();
+			selector.add("inviteReport.id");
+			selector.add("winInviteUnit.supplierName");
+			WinInviteReportInfo winInviteInfo = WinInviteReportFactory.getRemoteInstance().getWinInviteReportInfo(new ObjectUuidPK(sourceBillId),selector);
+			selector = new SelectorItemCollection();
+			selector.add("proName.id");
+			InviteReportInfo reportInfo = InviteReportFactory.getRemoteInstance().getInviteReportInfo(new ObjectUuidPK(winInviteInfo.getInviteReport().getId()),selector);
+			projId = reportInfo.getProName().getId();
+			String supplierName = winInviteInfo.getWinInviteUnit().getSupplierName();
+			editData.setPartB(SupplierFactory.getRemoteInstance().getSupplierCollection("where name='"+supplierName+"'").get(0));
+			editData.setWinInvitedBill(winInviteInfo);
+		}
+		
+		BOSUuid typeId = (BOSUuid) getUIContext().get("contractTypeId");
+		if (projId == null) {
+			projId = editData.getCurProject().getId();
+		}
+		
+		curProject = ProjectFactory.getRemoteInstance().getProjectInfo(new ObjectUuidPK(projId));
+		ProjectInfo curProjectInfo = curProject;
+		editData.setCurProject(curProjectInfo);
+		try {
+			EntityViewInfo evi = new EntityViewInfo();
+			FilterInfo filter = new FilterInfo();
+			evi.setFilter(filter);
+			SorterItemCollection sic = new SorterItemCollection();
+			SorterItemInfo sorts = new SorterItemInfo();
+			sorts.setPropertyName("number");
+			sorts.setSortType(SortType.ASCEND);
+			sic.add(sorts);	
+			evi.setSorter(sic);
+			filter.getFilterItems().add(new FilterItemInfo("isEnabled",Boolean.TRUE));
+			editData.setContractSourceId((ContractSourceInfo)(ContractSourceFactory.getRemoteInstance().getCollection(evi).get(0)));
+			if (typeId != null) {
+				ContractTypeInfo contractTypeInfo = null;
+				SelectorItemCollection selector = new SelectorItemCollection();
+				selector.add("id");
+				selector.add("number");
+				selector.add("name");
+				selector.add("longNumber");
+				selector.add("isLeaf");
+				selector.add("dutyOrgUnit.id");
+				selector.add("dutyOrgUnit.number");
+				selector.add("dutyOrgUnit.name");
+				selector.add("payScale");
+				selector.add("stampTaxRate");
+				selector.add("isCost");
+				selector.add("orgType");
+				contractTypeInfo = ContractTypeFactory.getRemoteInstance().getContractTypeInfo(new ObjectUuidPK(typeId), selector);
+				editData.setContractType(contractTypeInfo);
+//				editData.setRespDept(contractTypeInfo.getDutyOrgUnit());
+				editData.setIsCoseSplit(contractTypeInfo.isIsCost());
+				editData.setPayScale(contractTypeInfo.getPayScale());
+				editData.setStampTaxRate(contractTypeInfo.getStampTaxRate());
+				
+				if(ContractTypeOrgTypeEnum.BIGRANGE.equals(contractTypeInfo.getOrgType())||ContractTypeOrgTypeEnum.SMALLRANGE.equals(contractTypeInfo.getOrgType())){
+					editData.setOrgType(contractTypeInfo.getOrgType());
+				}
+			}
+		} catch (Exception e) {
+			handUIException(e);
+		}
+		 editData.setSignDate(new Date());// 签约日期
+		editData.setCostProperty(CostPropertyEnum.BASE_CONFIRM);//造价性质
+		/*
+		 * 变更提示比例％数值设置缺省值5.00，手工修改（可以在【预警】设置初始值）。结算提示比例％数值设置缺省值100.00，手工修改（可以在【预警】设置初始值）。付款提示比例％数值设置缺省值85.00，手工修改（可以在【预警】设置初始值）。
+		 */
+		editData.setPayPercForWarn(new BigDecimal("85"));
+		editData.setChgPercForWarn(new BigDecimal("5"));
+		//未结算
+		editData.setHasSettled(false);
+		editData.setGrtRate(FDCHelper.ZERO);
+		editData.setCurrency(baseCurrency);
+		editData.setExRate(FDCHelper.ONE);
+		editData.setAmount(FDCHelper.ZERO);
+		editData.setOriginalAmount(FDCHelper.ZERO);
+		editData.setPayScale(FDCHelper.ZERO);
+		editData.setGrtAmount(FDCHelper.ZERO);
+		editData.setCU(curProjectInfo.getCU());
+		editData.setConSplitExecState(ConSplitExecStateEnum.COMMON);
+		//期间
+		editData.setBookedDate(bookedDate);
+		editData.setPeriod(curPeriod);
+		mainContractId = null;
+		detailAmount = FDCHelper.ZERO;
+		//还需要保存 履约保证金及返还部分
+		ContractBailInfo contractBail=new ContractBailInfo();
+		contractBail.setId(BOSUuid.create(contractBail.getBOSType()));
+		editData.setBail(contractBail);
+		editData.setIsOpenContract(false);
+		editData.setIsStardContract(false);
+		loadData();
+		for (int i = 0; i < kdtBudgetEntry.getRowCount(); i++) {
+			kdtBudgetEntry_Changed(i, 1);
+			kdtBudgetEntry_Changed(i, 5);
+		}
+		
+	}
 	private void setInviteCtrlVisibleByContractSource(
 			ContractSourceInfo contractSource) {
 		if (contractSource == null || contractSource.getId() == null)
@@ -1516,7 +1686,6 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 	
 	public void onShow() throws Exception {
 		super.onShow();
-		// TODO Auto-generated method stub
 		contAttachmentNameList.setEnabled(true);
 		//为comboAttachmentNameList再次设置组件访问权限，否则即使是在可视可编辑的情况下也不能选择下拉列表框中的项  by Cassiel_peng
 		comboAttachmentNameList.setAccessAuthority(CtrlCommonConstant.AUTHORITY_COMMON);
@@ -1546,6 +1715,16 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 			}
 		});
 		contOrgAmtBig.setLocation(5, 5);
+		BigDecimal amount = new BigDecimal(0.000);
+		for (int i = 0; i < kdtBudgetEntry.getRowCount(); i++) {
+    		amount = amount.add(UIRuleUtil.getBigDecimal(kdtBudgetEntry.getCell(i,"amount").getValue()));
+		}
+		txtamount.setValue(amount);
+		String winInviteId = "";
+		if((WinInviteReportInfo)prmtwinInvitedBill.getValue()!=null){
+			winInviteId = ((WinInviteReportInfo)prmtwinInvitedBill.getValue()).getId().toString();
+			addTab(this.kDTabbedPane1, WinInviteReportListUI.class.getName(), winInviteId, "中标信息");
+		}
 	}
 	
 	/*
@@ -1691,13 +1870,10 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 	public void onLoad() throws Exception {
 		kDPanel1.setVisible(false);
 		contContractWFType.setVisible(false);
-		
 		tblInvite.checkParsed();
 		FDCHelper.formatTableDate(tblInvite, "createDate");
 		FDCHelper.formatTableDate(tblInvite, "auditDate");
 		tblInvite.getColumn("respDept").getStyleAttributes().setHided(true);
-		
-//		BOSUuid.create((new ParamInfo ()).getBOSType());
 		//2008-12-30 暂时屏蔽新功能 复制分录
 		actionCopyLine.setVisible(false);
 		actionCopyLine.setEnabled(false);
@@ -1756,7 +1932,6 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 					try {
 						 now = FDCCommonServerHelper.getServerTime();
 					} catch (BOSException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					} 
 					if(now != null && info.getEffectiveEndDate() != null && info.getEffectiveStartDate() != null){
@@ -1797,24 +1972,20 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		EntityViewInfo invView = new EntityViewInfo();
 		FilterInfo invFilter = new FilterInfo();
 		invView.setFilter(invFilter);
-		invFilter.getFilterItems().add(
-				new FilterItemInfo("isEnabled", Boolean.TRUE));
+		invFilter.getFilterItems().add(new FilterItemInfo("isEnabled", Boolean.TRUE));
 		prmtinviteType.setEntityViewInfo(invView);
-
-		//init currency
 		removeDataChangeListener(comboCurrency);
 		FDCClientHelper.initComboCurrency(comboCurrency, true);
-		
 		txtcontractName.setMaxLength(200);//此句代码必须在super之前,否则在加载保存好的数据的时候只会截取前80个字符显示 by Cassiel_peng
-		super.onLoad();
-		setMaxMinValueForCtrl();
 		
+		super.onLoad();
+		if(editData.getCU()==null){
+			copy_createnewData();
+		}
+		
+		setMaxMinValueForCtrl();
 		initEcoEntryTableStyle();
 		sortTabbedPanel();
-
-		//亿达需要，万科先注销
-		//		fillCostPanel();
-
 		setInviteCtrlVisible(false);
 		EntityViewInfo viewContractSource = new EntityViewInfo();
 		FilterInfo filterSource = new FilterInfo();
@@ -1828,66 +1999,24 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		prmtcontractType.setSelector(new ContractTypePromptSelector(this));
 
 		//由于甲方基础资料级别为S4，构建filter时会自动加上CU隔离 为去除默认级别filter，修改掉
-		//		EntityViewInfo view = new EntityViewInfo();
-		//		FilterInfo filter = new FilterInfo();
-		//		filter.getFilterItems().add(new FilterItemInfo("isEnabled", Boolean.TRUE));
-		//		HashSet set=new HashSet();
-		//		set.add(OrgConstants.SYS_CU_ID);
-		String cuId = editData.getCU().getId().toString();
-		//		//
-		//		set.add(cuId);
-		//		filter.getFilterItems().add(new FilterItemInfo("CU.id",set,CompareType.INCLUDE));
-		//
-		//		view.setFilter(filter);
-		//		prmtlandDeveloper.setEntityViewInfo(view);
-		//去掉默认级别filter
-		prmtlandDeveloper.addSelectorListener(new SelectorListener() {
-			public void willShow(SelectorEvent e) {
-				KDBizPromptBox f7 = (KDBizPromptBox) e.getSource();
-				f7.getQueryAgent().setDefaultFilterInfo(null);
-				f7.getQueryAgent().setHasCUDefaultFilter(false);
-				f7.getQueryAgent().resetRuntimeEntityView();
-				EntityViewInfo view = new EntityViewInfo();
-				FilterInfo filter = new FilterInfo();
-				filter.getFilterItems().add(
-						new FilterItemInfo("isEnabled", Boolean.TRUE));
-				HashSet set = new HashSet();
-				set.add(OrgConstants.SYS_CU_ID);
-				String cuId = editData.getCU().getId().toString();
-				set.add(cuId);
-				filter.getFilterItems().add(
-						new FilterItemInfo("CU.id", set, CompareType.INCLUDE));
-				view.setFilter(filter);
-//				f7.setEntityViewInfo(view);
-			}
-		});
-		prmtlandDeveloper.addCommitListener(new CommitListener() {
-			public void willCommit(CommitEvent e) {
-				KDBizPromptBox f7 = (KDBizPromptBox) e.getSource();
-				f7.getQueryAgent().setDefaultFilterInfo(null);
-				f7.getQueryAgent().setHasCUDefaultFilter(false);
-				f7.getQueryAgent().resetRuntimeEntityView();
-				EntityViewInfo view = new EntityViewInfo();
-				FilterInfo filter = new FilterInfo();
-				filter.getFilterItems().add(
-						new FilterItemInfo("isEnabled", Boolean.TRUE));
-				HashSet set = new HashSet();
-				set.add(OrgConstants.SYS_CU_ID);
-				String cuId = editData.getCU().getId().toString();
-				set.add(cuId);
-				filter.getFilterItems().add(
-						new FilterItemInfo("CU.id", set, CompareType.INCLUDE));
-				view.setFilter(filter);
-//				f7.setEntityViewInfo(view);
-			}
-		});
+		if(editData.getCU() == null)
+			editData.setCU(SysContext.getSysContext().getCurrentCtrlUnit());
+		String cuId = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
+		EntityViewInfo view1 = new EntityViewInfo();
+		FilterInfo filter1 = new FilterInfo();
+		filter1.getFilterItems().add(new FilterItemInfo("isEnabled", Boolean.TRUE));
+		HashSet set=new HashSet();
+		set.add(OrgConstants.SYS_CU_ID);
+		set.add(cuId);
+		filter1.getFilterItems().add(new FilterItemInfo("CU.id",set,CompareType.INCLUDE));
 
-		FDCClientUtils.setRespDeptF7(prmtRespDept, this,
-				canSelectOtherOrgPerson ? null : cuId);
-		FDCClientUtils.setRespDeptF7(prmtCreateOrg, this,
-				canSelectOtherOrgPerson ? null : cuId);
-//		FDCClientUtils.setPersonF7(prmtRespPerson, this,
-//				canSelectOtherOrgPerson ? null : cuId);
+		view1.setFilter(filter1);
+		prmtlandDeveloper.setEntityViewInfo(view1);
+		prmtlandDeveloper.setValue(LandDeveloperFactory.getRemoteInstance().getLandDeveloperCollection(view1).get(0));
+
+		FDCClientUtils.setRespDeptF7(prmtRespDept, this,canSelectOtherOrgPerson ? null : cuId);
+		FDCClientUtils.setRespDeptF7(prmtCreateOrg, this,canSelectOtherOrgPerson ? null : cuId);
+		FDCClientUtils.setPersonF7(prmtRespPerson, this,canSelectOtherOrgPerson ? null : cuId);
 
 		actionAddLine.setEnabled(false);
 		actionAddLine.setVisible(false);
@@ -1898,7 +2027,6 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		actionRemoveLine.setEnabled(false);
 		actionRemoveLine.setVisible(false);
 
-		//		txtGrtAmount.setEditable(false);
 		txtCreator.setEnabled(false);
 		kDDateCreateTime.setEnabled(false);
 
@@ -1908,10 +2036,8 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 
 		if (STATUS_ADDNEW.equals(getOprtState())
 				&& prmtcontractType.getData() != null) {
-			ContractTypeInfo cType = (ContractTypeInfo) prmtcontractType
-					.getData();
+			ContractTypeInfo cType = (ContractTypeInfo) prmtcontractType.getData();
 			removeDetailTableRowsOfContractType();
-
 			try {
 				fillDetailByContractType(cType.getId().toString());
 			} catch (Exception e) {
@@ -1919,10 +2045,7 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 			}
 		}
 		setContractType();
-
-		if (editData != null
-				&& (editData.getState() == FDCBillStateEnum.CANCEL || editData
-						.isIsArchived())) {
+		if (editData != null && (editData.getState() == FDCBillStateEnum.CANCEL || editData.isIsArchived())) {
 			actionEdit.setEnabled(false);
 			btnEdit.setEnabled(false);
 			actionSplit.setEnabled(false);
@@ -1930,8 +2053,7 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		}
 
 		//合同审批前进行拆分
-		if (splitBeforeAudit && editData.getState() != null
-				&& !FDCBillStateEnum.SAVED.equals(editData.getState())) {
+		if (splitBeforeAudit && editData.getState() != null && !FDCBillStateEnum.SAVED.equals(editData.getState())) {
 			actionSplit.setEnabled(true);
 			actionSplit.setVisible(true);
 			actionDelSplit.setEnabled(true);
@@ -1969,7 +2091,6 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		actionPrint.setEnabled(true);
 		//当通过付款申请单查看合同时，可以查看到合同的附件信息。
 		if (STATUS_FINDVIEW.equals(oprtState)) {
-
 			actionAttachment.setVisible(true);
 			actionAttachment.setEnabled(true);
 			//没有启用 审批前必须拆分完全 参数时，查看不显示拆分按钮
@@ -2044,17 +2165,6 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 //		}
 	
 		comboAttachmentNameList.setEditable(true);
-		//如果是新增单据，"查看正文"按钮也置灰(因为如果是"新增单据"附件列表一定为空，所以不需要再判断"查看附件"按钮)
-//		if(STATUS_ADDNEW.equals(getOprtState())){
-//			btnViewContrnt.setEnabled(false);
-//			btnViewContrnt.setVisible(true);
-//		}
-		
-		if(getOprtState()==STATUS_EDIT){
-//			EcoItemHelper.setPayItemRowBackColorWhenInit(tblEconItem);
-//			EcoItemHelper.setBailRowBackColorWhenInit(tblBail, txtBailOriAmount, txtBailRate);			
-		}
-
 		if(editData.isIsSubContract()){
 			prmtMainContract.setEnabled(true);
 		}
@@ -2135,6 +2245,29 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		
 		chkMenuItemSubmitAndAddNew.setVisible(false);
 		chkMenuItemSubmitAndAddNew.setSelected(false);
+		
+		final KDBizPromptBox kdtEntry4_name_PromptBox = new KDBizPromptBox();
+        kdtEntry4_name_PromptBox.setQueryInfo("com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingCostEntryQuery");
+        kdtEntry4_name_PromptBox.setVisible(true);
+        kdtEntry4_name_PromptBox.setEditable(true);
+        kdtEntry4_name_PromptBox.setDisplayFormat("$feeNumber$");
+        kdtEntry4_name_PromptBox.setEditFormat("$feeNumber$");
+        kdtEntry4_name_PromptBox.setCommitFormat("$feeNumber$");
+        EntityViewInfo view = new EntityViewInfo();
+        FilterInfo filInfo = new FilterInfo();
+		if(editData.getCurProject()!=null){
+			ProjectInfo project = editData.getCurProject();
+			filInfo.getFilterItems().add(new FilterItemInfo("number",project.getNumber()));
+			filInfo.getFilterItems().add(new FilterItemInfo("isLast","1"));
+			filInfo.getFilterItems().add(new FilterItemInfo("beizhu","最新"));
+			view.setFilter(filInfo);
+			kdtEntry4_name_PromptBox.setEntityViewInfo(view);
+		}
+        KDTDefaultCellEditor kdtEntry4_name_CellEditor = new KDTDefaultCellEditor(kdtEntry4_name_PromptBox);
+        this.kdtBudgetEntry.getColumn("budgetNumber").setEditor(kdtEntry4_name_CellEditor);
+        ObjectValueRender kdtEntry4_name_OVR = new ObjectValueRender();
+        kdtEntry4_name_OVR.setFormat(new BizDataFormat("$feeNumber$"));
+        this.kdtBudgetEntry.getColumn("budgetNumber").setRenderer(kdtEntry4_name_OVR);
 	}
 
 	//业务日期变化引起,期间的变化
@@ -2186,17 +2319,65 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 	 *               <p>
 	 */
 	private void sortTabbedPanel() {
-
-		kDTabbedPane1.removeAll();
-
 		kDTabbedPane1.add(pnlDetail, resHelper.getString("pnlDetail.constraints"));
 		kDTabbedPane1.add(panelInvite, resHelper.getString("panelInvite.constraints"));
 		kDTabbedPane1.add(kdtSupplyEntry, resHelper.getString("kdtSupplyEntry.constraints"));
-//		kDTabbedPane1.add(pnlInviteInfo, resHelper.getString("pnlInviteInfo.constraints"));
-		//亿达需要，万科先注销
-		//		kDTabbedPane1.add(pnlCost, "成本信息");		
+		kDTabbedPane1.remove(pnlCost);
+		kDTabbedPane1.remove(pnlInviteInfo);
+		kDTabbedPane1.remove(panelInvite);
+		tabPanel.remove(this.kDPanel3);
 	}
 
+	void addBudgetEntryBtn(){
+		KDWorkButton btnAddRowinfo = new KDWorkButton();
+		KDWorkButton btnInsertRowinfo = new KDWorkButton();
+		KDWorkButton btnDeleteRowinfo = new KDWorkButton();
+		btnAddRowinfo.setEnabled((OprtState.EDIT.equals(getOprtState()) || OprtState.ADDNEW.equals(getOprtState())) ? true : false);
+		btnInsertRowinfo.setEnabled((OprtState.EDIT.equals(getOprtState()) || OprtState.ADDNEW.equals(getOprtState())) ? true : false);
+		btnDeleteRowinfo.setEnabled((OprtState.EDIT.equals(getOprtState()) || OprtState.ADDNEW.equals(getOprtState())) ? true : false);
+		btnAddRowinfo.setIcon(EASResource.getIcon("imgTbtn_addline"));
+		btnDeleteRowinfo.setIcon(EASResource.getIcon("imgTbtn_deleteline"));
+		kdtBudgetEntry_detailPanel.add(btnAddRowinfo);
+		btnAddRowinfo.setText("新增分录");
+		btnAddRowinfo.setSize(new Dimension(140, 19));
+		btnAddRowinfo.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent e) {
+				try {
+					kdtBudgetEntry_detailPanel.actionAddnewLine_actionPerformed(e);
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+			}
+		});
+
+		btnInsertRowinfo.setIcon(EASResource.getIcon("imgTbtn_insert"));
+		kdtBudgetEntry_detailPanel.add(btnAddRowinfo);
+		btnInsertRowinfo.setText("插入分录");
+		btnInsertRowinfo.setSize(new Dimension(140, 19));
+		btnInsertRowinfo.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent e) {
+				try {
+					kdtBudgetEntry_detailPanel.actionInsertLine_actionPerformed(e);
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+			}
+		});
+
+		btnDeleteRowinfo.setIcon(EASResource.getIcon("imgTbtn_deleteline"));
+		kdtBudgetEntry_detailPanel.add(btnAddRowinfo);
+		btnDeleteRowinfo.setText("删除分录");
+		btnDeleteRowinfo.setSize(new Dimension(140, 19));
+		btnDeleteRowinfo.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent e) {
+				try {
+					kdtBudgetEntry_detailPanel.actionRemoveLine_actionPerformed(e);
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+			}
+		});
+	}
 	/**
 	 * output prmtcontractType_willShow method
 	 */
@@ -4283,17 +4464,6 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 	}
 
 	protected void setNumberTextEnabled() {
-
-		//		if(getNumberCtrl() != null) {
-		//			CostCenterOrgUnitInfo currentCostUnit = SysContext.getSysContext().getCurrentCostUnit();
-		//			
-		//			if(currentCostUnit != null) {
-		//				boolean isAllowModify = FDCClientUtils.isAllowModifyNumber(editData, currentCostUnit.getId().toString());
-		//				
-		//				getNumberCtrl().setEnabled(isAllowModify);
-		//				getNumberCtrl().setEditable(isAllowModify);
-		//			}
-		//		}
 	}
 
 	boolean amtWarned = false;
@@ -4380,23 +4550,6 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		setCheckBoxValue();
 	}
 	private void setCheckBoxValue(){
-		/*
-		 * 2009-9-3 进入动态成本，和是否甲供材，没有关系了！by yong_zhou
-		 */
-//		if (chkIsPartAMaterialCon.isSelected()) {
-//			chkCostSplit.setSelected(false);
-//			chkCostSplit.setEnabled(false);
-//			chkIsPartAMaterialCon.setEnabled(true);
-//		}else{
-//			chkCostSplit.setEnabled(true);
-//		}
-//		if (chkCostSplit.isSelected()) {
-//			chkIsPartAMaterialCon.setSelected(false);
-//			chkIsPartAMaterialCon.setEnabled(false);
-//			chkCostSplit.setEnabled(true);
-//		} else{
-//			chkIsPartAMaterialCon.setEnabled(true);
-//		}
 	}
 	public void afterActionPerformed(ActionEvent e) {
 		super.afterActionPerformed(e);
@@ -4531,7 +4684,7 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		FDCClientVerifyHelper.verifyEmpty(this, prmtRespDept);
 		FDCClientVerifyHelper.verifyEmpty(this, prmtRespPerson);
 //		FDCClientVerifyHelper.verifyEmpty(this, prmtContractWFType);
-		FDCClientVerifyHelper.verifyEmpty(this, cbOrgType);
+//		FDCClientVerifyHelper.verifyEmpty(this, cbOrgType);
 		
 		
 		super.verifyInputForSubmint();
@@ -4539,7 +4692,7 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 			FDCClientVerifyHelper.verifyEmpty(this, txtBailOriAmount);
 			FDCClientVerifyHelper.verifyEmpty(this, txtBailRate);
 		}
-		EcoItemHelper.checkVeforeSubmit(tblEconItem, tblBail);
+//		EcoItemHelper.checkVeforeSubmit(tblEconItem, tblBail);
 		checkBailOriAmount();
 		
 		checkBeforeSubmit();
@@ -5113,71 +5266,6 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 	}
 	protected void loadInvite() throws BOSException{
 		tblInvite.removeRows();
-//		if(editData.getProgrammingContract()!=null){
-//			InviteProjectEntriesCollection col=InviteProjectEntriesFactory.getRemoteInstance().getInviteProjectEntriesCollection("select parent.id from where programmingContract.id='"+editData.getProgrammingContract().getId().toString()+"'");
-//			if(col.size()>0){
-//				EntityViewInfo view = new EntityViewInfo();
-//
-//				view.getSelector().add(new SelectorItemInfo("*"));
-//				view.getSelector().add(new SelectorItemInfo("respDept.name"));
-//				view.getSelector().add(new SelectorItemInfo("creator.name"));
-//				view.getSelector().add(new SelectorItemInfo("auditor.name"));
-//
-//				FilterInfo filter = new FilterInfo();
-//				filter.getFilterItems().add(new FilterItemInfo("inviteProject.id", col.get(0).getParent().getId().toString()));
-//
-//				view.setFilter(filter);
-//
-//				TenderAccepterResultCollection tenderCol = TenderAccepterResultFactory.getRemoteInstance().getTenderAccepterResultCollection(view);
-//				for(int i=0;i<tenderCol.size();i++){
-//					TenderAccepterResultInfo info = tenderCol.get(i);
-//
-//					IRow row = tblInvite.addRow();
-//
-//					if (info != null) {
-//						row.getCell("id").setValue(info.getId());
-//						row.getCell("number").setValue(info.getNumber());
-//
-//						if (info.getRespDept() != null) {row.getCell("respDept").setValue(info.getRespDept().getName());
-//						}
-//						if (info.getCreator() != null) {
-//							row.getCell("creator").setValue(info.getCreator().getName());
-//						}
-//						row.getCell("createDate").setValue(info.getCreateTime());
-//						if (info.getAuditor() != null) {
-//							row.getCell("auditor").setValue(info.getAuditor().getName());
-//						}
-//						row.getCell("auditDate").setValue(info.getAuditTime());
-//						row.getCell("name").setValue(info.getName());
-//						row.setUserObject(info);
-//					}
-//				}
-//				DirectAccepterResultCollection directCol = DirectAccepterResultFactory.getRemoteInstance().getDirectAccepterResultCollection(view);
-//				for(int i=0;i<directCol.size();i++){
-//					DirectAccepterResultInfo info = directCol.get(i);
-//
-//					IRow row = tblInvite.addRow();
-//
-//					if (info != null) {
-//						row.getCell("id").setValue(info.getId());
-//						row.getCell("number").setValue(info.getNumber());
-//
-//						if (info.getRespDept() != null) {row.getCell("respDept").setValue(info.getRespDept().getName());
-//						}
-//						if (info.getCreator() != null) {
-//							row.getCell("creator").setValue(info.getCreator().getName());
-//						}
-//						row.getCell("createDate").setValue(info.getCreateTime());
-//						if (info.getAuditor() != null) {
-//							row.getCell("auditor").setValue(info.getAuditor().getName());
-//						}
-//						row.getCell("auditDate").setValue(info.getAuditTime());
-//						row.getCell("name").setValue(info.getName());
-//						row.setUserObject(info);
-//					}
-//				}
-//			}
-//		}
 	}
 	protected void loadSupplyEntry() throws BOSException, SQLException{
 		kdtSupplyEntry.getStyleAttributes().setLocked(true);
@@ -5292,19 +5380,11 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 			FDCMsgBox.showWarning(this, "您所选择的数据存在被补充合同引用的合同，不能进行此操作!");
 			abort();
 		}
-	    
-	  //R110603-0148:如果存在变更审批单，则不允许反审批
-	    if (ContractUtil.hasChangeAuditBill(null, editData.getId())) {
-    		FDCMsgBox.showWarning(this, EASResource.getString("com.kingdee.eas.fdc.contract.client.ContractResource", "hasChangeAuditBill"));
-			abort();
-    	}
-    	
-    	//R110603-0148:如果存在变更指令单，则不允许反审批
-    	if (ContractUtil.hasContractChangeBill(null, editData.getId())) {
+	  //R110603-0148:如果存在变更单，则不允许反审批
+    	if (ContractUtil.hasContractChangeBill(null,editData.getId())) {
     		FDCMsgBox.showWarning(this, EASResource.getString("com.kingdee.eas.fdc.contract.client.ContractResource", "hasContractChangeBill"));
-			abort();
+			this.abort();
     	}
-    	
 	    if(isRelatedTask()){
 			checkConRelatedTaskDelUnAudit();
 		}

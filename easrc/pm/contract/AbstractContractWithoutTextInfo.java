@@ -16,6 +16,7 @@ public class AbstractContractWithoutTextInfo extends com.kingdee.eas.fdc.basedat
     protected AbstractContractWithoutTextInfo(String pkField)
     {
         super(pkField);
+        put("BudgetEntry", new com.kingdee.eas.port.pm.contract.ContractWithoutTextBudgetEntryCollection());
         put("bgEntry", new com.kingdee.eas.port.pm.contract.ContractWithoutTextBgEntryCollection());
     }
     /**
@@ -426,6 +427,13 @@ public class AbstractContractWithoutTextInfo extends com.kingdee.eas.fdc.basedat
     public void setPerson(com.kingdee.eas.basedata.person.PersonInfo item)
     {
         put("person", item);
+    }
+    /**
+     * Object: 无文本合同 's 无文本合同预算 property 
+     */
+    public com.kingdee.eas.port.pm.contract.ContractWithoutTextBudgetEntryCollection getBudgetEntry()
+    {
+        return (com.kingdee.eas.port.pm.contract.ContractWithoutTextBudgetEntryCollection)get("BudgetEntry");
     }
     public BOSObjectType getBOSType()
     {

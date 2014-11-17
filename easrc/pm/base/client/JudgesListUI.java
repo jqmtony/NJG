@@ -4,6 +4,7 @@
 package com.kingdee.eas.port.pm.base.client;
 
 import java.awt.event.*;
+
 import org.apache.log4j.Logger;
 
 import com.kingdee.bos.Context;
@@ -19,6 +20,7 @@ import com.kingdee.eas.port.pm.base.JudgesInfo;
 import com.kingdee.eas.port.pm.base.JudgesTreeInfo;
 import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
 import com.kingdee.eas.util.SysUtil;
+import com.kingdee.eas.xr.xrbase.JkyHelper;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.metadata.entity.SelectorItemInfo;
 import com.kingdee.bos.olap.collection.ArrayList;
@@ -41,20 +43,91 @@ public class JudgesListUI extends AbstractJudgesListUI
         super();
     }
 
-    @Override
     public void onLoad() throws Exception {
-    	// TODO Auto-generated method stub
     	super.onLoad();
     	btnCancel.setVisible(true);
     	btnCancel.setEnabled(true);
     	btnCancelCancel.setVisible(true);
     	btnCancelCancel.setEnabled(true);
     }
-    @Override
     protected String getEditUIModal() {
-    	// TODO Auto-generated method stub
     	return UIFactoryName.MODEL;
     }
+    /**
+     * 由集团统一维护，不能新增
+     * @author hhl
+     * @serialData 2013.4.17
+     * output actionAddNew_actionPerformed
+     */
+    public void actionAddNew_actionPerformed(ActionEvent e) throws Exception
+    {
+    	if (JkyHelper.isGroup()) {
+    		super.actionAddNew_actionPerformed(e);
+		}else{
+			MsgBox.showInfo(JkyHelper.GROUP_NO_ADDNEW);
+			SysUtil.abort();
+		}
+    }
+
+    /**
+     * output actionView_actionPerformed
+     */
+    public void actionView_actionPerformed(ActionEvent e) throws Exception
+    {
+        super.actionView_actionPerformed(e);
+    }
+    /**
+     * output actionEdit_actionPerformed
+     */
+    public void actionEdit_actionPerformed(ActionEvent e) throws Exception
+    {
+    	checkSelected();
+    	if (JkyHelper.isGroup()) {
+    		String id = getSelectedKeyValue();
+        	IJudges ijudge = (IJudges) getBizInterface();
+        	JudgesInfo info = ijudge.getJudgesInfo(new ObjectUuidPK(id));
+        	if(info.get("isUse").equals(true)) {
+        		MsgBox.showWarning("已启用基础资料无法修改");
+        		SysUtil.abort();
+        	}
+            super.actionEdit_actionPerformed(e);
+		}else{
+			MsgBox.showInfo(JkyHelper.GROUP_NO_EDIT);
+			SysUtil.abort();
+		}
+    }
+
+    /**
+     * output actionRemove_actionPerformed
+     */
+    public void actionRemove_actionPerformed(ActionEvent e) throws Exception
+    {
+    	checkSelected();
+    	if (JkyHelper.isGroup()) {
+    		boolean flag = true;
+        	java.util.ArrayList idList = getSelectedIdValues();
+        	IJudges ijudge = (IJudges) getBizInterface();
+        	for(Object Id : idList) {
+        		String id = Id.toString();
+        		JudgesInfo info = ijudge.getJudgesInfo(new ObjectUuidPK(id));
+        		if(info.isIsUse()) {
+        			flag = false;
+        			continue;
+        		}
+        		ijudge.delete(new ObjectUuidPK(id));
+        	}
+        	if(!flag) {
+        		MsgBox.showWarning("已启用数据无法删除");
+        	} else {
+        		MsgBox.showInfo("删除成功");
+        	}
+		}else{
+			MsgBox.showInfo(JkyHelper.GROUP_NO_DEL);
+			SysUtil.abort();
+		}
+    	actionRefresh_actionPerformed(e);
+    }
+
     /**
      * output storeFields method
      */
@@ -339,64 +412,8 @@ public class JudgesListUI extends AbstractJudgesListUI
         super.actionCloudScreen_actionPerformed(e);
     }
 
-    /**
-     * output actionAddNew_actionPerformed
-     */
-    public void actionAddNew_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionAddNew_actionPerformed(e);
-    }
 
-    /**
-     * output actionView_actionPerformed
-     */
-    public void actionView_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionView_actionPerformed(e);
-    }
-
-    /**
-     * output actionEdit_actionPerformed
-     */
-    public void actionEdit_actionPerformed(ActionEvent e) throws Exception
-    {
-    	checkSelected();
-    	String id = getSelectedKeyValue();
-    	IJudges ijudge = (IJudges) getBizInterface();
-    	JudgesInfo info = ijudge.getJudgesInfo(new ObjectUuidPK(id));
-    	if(info.get("isUse").equals(true)) {
-    		MsgBox.showWarning("已启用基础资料无法修改");
-    		SysUtil.abort();
-    	}
-        super.actionEdit_actionPerformed(e);
-    }
-
-    /**
-     * output actionRemove_actionPerformed
-     */
-    public void actionRemove_actionPerformed(ActionEvent e) throws Exception
-    {
-    	checkSelected();
-    	boolean flag = true;
-    	java.util.ArrayList idList = getSelectedIdValues();
-    	IJudges ijudge = (IJudges) getBizInterface();
-    	for(Object Id : idList) {
-    		String id = Id.toString();
-    		JudgesInfo info = ijudge.getJudgesInfo(new ObjectUuidPK(id));
-    		if(info.isIsUse()) {
-    			flag = false;
-    			continue;
-    		}
-    		ijudge.delete(new ObjectUuidPK(id));
-    	}
-    	if(!flag) {
-    		MsgBox.showWarning("已启用数据无法删除");
-    	} else {
-    		MsgBox.showInfo("删除成功");
-    	}
-    	actionRefresh_actionPerformed(e);
-    }
-
+   
     /**
      * output actionRefresh_actionPerformed
      */

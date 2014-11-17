@@ -18,7 +18,7 @@ public class AbstractContractWithoutTextBgEntryInfo extends com.kingdee.eas.fdc.
         super(pkField);
     }
     /**
-     * Object: 无文本合同费用清单 's 无文本合同 property 
+     * Object: 费用清单 's 无文本合同 property 
      */
     public com.kingdee.eas.port.pm.contract.ContractWithoutTextInfo getHead()
     {
