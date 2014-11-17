@@ -13,12 +13,14 @@ import com.kingdee.bos.dao.IObjectPK;
 import com.kingdee.bos.dao.ormapping.ObjectStringPK;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.metadata.data.SortType;
+import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.metadata.entity.SorterItemCollection;
 import com.kingdee.bos.metadata.entity.SorterItemInfo;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.eas.common.EASBizException;
+import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.framework.ICoreBase;
 import com.kingdee.eas.scm.common.SCMBillException;
 import com.kingdee.eas.scm.common.client.SCMClientUtils;
@@ -85,7 +87,13 @@ public class XRBillBaseListUI extends AbstractXRBillBaseListUI
         }
 
     }
-
+	protected FilterInfo getDefaultFilterForQuery() {
+		String cuid = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
+		if("00000000-0000-0000-0000-000000000000CCE7AED4".equals(cuid)||"6vYAAAAAAQvM567U".equals(cuid))
+			return null;
+		else
+			return super.getDefaultFilterForQuery();
+	}
     protected void checkBillBaseStatusCanUnAudit()
     {
         int size = tblMain.getSelectManager().size();

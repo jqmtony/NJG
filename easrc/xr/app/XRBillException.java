@@ -103,6 +103,7 @@ public class XRBillException extends EASBizException
     public static final NumericExceptionSubItem EXCEPTION87 = new NumericExceptionSubItem("087", "Exception87");
     public static final NumericExceptionSubItem CHECKSAVENOTOK = new NumericExceptionSubItem("088", "CHECKSAVENOTOK");
     public static final NumericExceptionSubItem CHECKSAVEOK = new NumericExceptionSubItem("089", "CHECKSAVEOK");
+    public static final NumericExceptionSubItem NOBUDGET = new NumericExceptionSubItem("090", "∑—”√‘§À„≤ª◊„");
 
     /**
      * construct function
