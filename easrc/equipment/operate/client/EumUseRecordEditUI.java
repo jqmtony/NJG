@@ -85,6 +85,7 @@ public class EumUseRecordEditUI extends AbstractEumUseRecordEditUI {
 		 this.kdtEqmUse.getColumn("endTime").getStyleAttributes().setHided(true);
 		 prmtUseOrgUnit.setEnabled(false);
 		super.onLoad();
+		prmtreportMonth.setRequired(true);
 		if(getOprtState().equals(OprtState.ADDNEW)){
 			pkBizDate.setValue(new Date());
 			//获取当前的登录人，除了User用户之外。
@@ -218,7 +219,9 @@ public class EumUseRecordEditUI extends AbstractEumUseRecordEditUI {
 			}
 		}
 		
-	
+		 if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(prmtreportMonth.getText())) {
+				throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"报表月份"});
+			}
 		
 		super.verifyInput(e);
 	}
@@ -943,6 +946,8 @@ public class EumUseRecordEditUI extends AbstractEumUseRecordEditUI {
 		return txtNumber;
 	}
 	
+	
+	
 	protected void kdtEqmUse_editStopped(KDTEditEvent e) throws Exception {
 		super.kdtEqmUse_editStopped(e);
 		for (int i = 0; i < kdtEqmUse.getRowCount(); i++) {
@@ -992,6 +997,9 @@ public class EumUseRecordEditUI extends AbstractEumUseRecordEditUI {
 			  }
 	        }
 	}
+	
+	
+	
 	
 
 }

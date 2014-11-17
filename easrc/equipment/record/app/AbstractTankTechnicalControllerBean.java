@@ -1,0 +1,695 @@
+package com.kingdee.eas.port.equipment.record.app;
+
+import javax.ejb.*;
+import java.rmi.RemoteException;
+import com.kingdee.bos.*;
+import com.kingdee.bos.util.BOSObjectType;
+import com.kingdee.bos.metadata.IMetaDataPK;
+import com.kingdee.bos.metadata.rule.RuleExecutor;
+import com.kingdee.bos.metadata.MetaDataPK;
+//import com.kingdee.bos.metadata.entity.EntityViewInfo;
+import com.kingdee.bos.framework.ejb.AbstractEntityControllerBean;
+import com.kingdee.bos.framework.ejb.AbstractBizControllerBean;
+//import com.kingdee.bos.dao.IObjectPK;
+import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.bos.dao.IObjectCollection;
+import com.kingdee.bos.service.ServiceContext;
+import com.kingdee.bos.service.IServiceContext;
+import com.kingdee.eas.framework.Result;
+import com.kingdee.eas.framework.LineResult;
+import com.kingdee.eas.framework.exception.EASMultiException;
+import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+
+import java.lang.String;
+import com.kingdee.eas.common.EASBizException;
+import com.kingdee.bos.metadata.entity.EntityViewInfo;
+import com.kingdee.bos.dao.IObjectPK;
+import com.kingdee.eas.port.equipment.record.TankTechnicalInfo;
+import com.kingdee.bos.metadata.entity.SelectorItemCollection;
+import com.kingdee.bos.metadata.entity.SorterItemCollection;
+import com.kingdee.eas.framework.CoreBaseCollection;
+import com.kingdee.eas.xr.XRBillBaseCollection;
+import com.kingdee.bos.metadata.entity.FilterInfo;
+import com.kingdee.eas.xr.app.XRBillBaseControllerBean;
+import com.kingdee.eas.framework.CoreBillBaseCollection;
+import com.kingdee.eas.framework.CoreBaseInfo;
+import com.kingdee.eas.port.equipment.record.TankTechnicalCollection;
+import com.kingdee.eas.framework.ObjectBaseCollection;
+
+
+
+public abstract class AbstractTankTechnicalControllerBean extends XRBillBaseControllerBean implements TankTechnicalController
+{
+    protected AbstractTankTechnicalControllerBean()
+    {
+    }
+
+    protected BOSObjectType getBOSType()
+    {
+        return new BOSObjectType("E3760E11");
+    }
+
+    public void addnew(Context ctx, IObjectPK pk, TankTechnicalInfo model) throws BOSException, EASBizException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("32a4ba98-da37-4580-95d6-ec4e6c555ff7"), new Object[]{ctx, pk, model});
+            invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()){
+            _addnew(ctx, pk, model);
+            }
+            invokeServiceAfter(svcCtx);
+        } catch (BOSException ex) {
+            this.setRollbackOnly();
+            throw ex;
+        } catch (EASBizException ex0) {
+            this.setRollbackOnly();
+            throw ex0;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected void _addnew(Context ctx, IObjectPK pk, IObjectValue model) throws BOSException, EASBizException
+    {
+        super._addnew(ctx, pk, model);
+    }
+
+    public IObjectPK addnew(Context ctx, TankTechnicalInfo model) throws BOSException, EASBizException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("77d917d3-200d-40b3-ab17-6dfd91a5fad4"), new Object[]{ctx, model});
+            invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
+            IObjectPK retValue = (IObjectPK)_addnew(ctx, model);
+            svcCtx.setMethodReturnValue(retValue);
+            }
+            invokeServiceAfter(svcCtx);
+        
+          return (IObjectPK)svcCtx.getMethodReturnValue();
+        } catch (BOSException ex) {
+            this.setRollbackOnly();
+            throw ex;
+        } catch (EASBizException ex0) {
+            this.setRollbackOnly();
+            throw ex0;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected IObjectPK _addnew(Context ctx, IObjectValue model) throws BOSException, EASBizException
+    {
+        return super._addnew(ctx, model);
+    }
+
+    public void audit(Context ctx, IObjectPK pk) throws BOSException, EASBizException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("585c05b3-4c2a-4858-a1a8-4654b212c3a6"), new Object[]{ctx, pk});
+            invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
+            _audit(ctx, pk);
+            }
+            invokeServiceAfter(svcCtx);
+        } catch (BOSException ex) {
+            this.setRollbackOnly();
+            throw ex;
+        } catch (EASBizException ex0) {
+            this.setRollbackOnly();
+            throw ex0;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+
+    public void delete(Context ctx, IObjectPK pk) throws BOSException, EASBizException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("92f74210-7572-42f1-88a2-cecdeee879c7"), new Object[]{ctx, pk});
+            invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()){
+            _delete(ctx, pk);
+            }
+            invokeServiceAfter(svcCtx);
+        } catch (BOSException ex) {
+            this.setRollbackOnly();
+            throw ex;
+        } catch (EASBizException ex0) {
+            this.setRollbackOnly();
+            throw ex0;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected void _delete(Context ctx, IObjectPK pk) throws BOSException, EASBizException
+    {
+        super._delete(ctx, pk);
+    }
+
+    public void delete(Context ctx, IObjectPK[] arrayPK) throws BOSException, EASBizException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("dd1f6255-e437-498a-8d22-f1da4fbb4775"), new Object[]{ctx, arrayPK});
+            invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()){
+            _delete(ctx, arrayPK);
+            }
+            invokeServiceAfter(svcCtx);
+        } catch (BOSException ex) {
+            this.setRollbackOnly();
+            throw ex;
+        } catch (EASBizException ex0) {
+            this.setRollbackOnly();
+            throw ex0;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected void _delete(Context ctx, IObjectPK[] arrayPK) throws BOSException, EASBizException
+    {
+        super._delete(ctx, arrayPK);
+    }
+
+    public IObjectPK[] delete(Context ctx, FilterInfo filter) throws BOSException, EASBizException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("fa5037d7-3000-4c57-bf09-fb3702f379eb"), new Object[]{ctx, filter});
+            invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
+            IObjectPK[] retValue = (IObjectPK[])_delete(ctx, filter);
+            svcCtx.setMethodReturnValue(retValue);
+            }
+            invokeServiceAfter(svcCtx);
+        
+          return (IObjectPK[])svcCtx.getMethodReturnValue();
+        } catch (BOSException ex) {
+            this.setRollbackOnly();
+            throw ex;
+        } catch (EASBizException ex0) {
+            this.setRollbackOnly();
+            throw ex0;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected IObjectPK[] _delete(Context ctx, FilterInfo filter) throws BOSException, EASBizException
+    {
+        return super._delete(ctx, filter);
+    }
+
+    public IObjectPK[] delete(Context ctx, String oql) throws BOSException, EASBizException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("9f0e9db6-2f81-418a-bd79-21e7cbca28b8"), new Object[]{ctx, oql});
+            invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
+            IObjectPK[] retValue = (IObjectPK[])_delete(ctx, oql);
+            svcCtx.setMethodReturnValue(retValue);
+            }
+            invokeServiceAfter(svcCtx);
+        
+          return (IObjectPK[])svcCtx.getMethodReturnValue();
+        } catch (BOSException ex) {
+            this.setRollbackOnly();
+            throw ex;
+        } catch (EASBizException ex0) {
+            this.setRollbackOnly();
+            throw ex0;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected IObjectPK[] _delete(Context ctx, String oql) throws BOSException, EASBizException
+    {
+        return super._delete(ctx, oql);
+    }
+
+    public boolean exists(Context ctx, IObjectPK pk) throws BOSException, EASBizException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("0ee70b87-0627-4ec3-aff6-1193c3d58ac8"), new Object[]{ctx, pk});
+            invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
+            boolean retValue = (boolean)_exists(ctx, pk);
+            svcCtx.setMethodReturnValue(new Boolean(retValue));
+            }
+            invokeServiceAfter(svcCtx);
+        
+          return ((Boolean)svcCtx.getMethodReturnValue()).booleanValue();
+        } catch (BOSException ex) {
+            throw ex;
+        } catch (EASBizException ex0) {
+            throw ex0;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected boolean _exists(Context ctx, IObjectPK pk) throws BOSException, EASBizException
+    {
+        return super._exists(ctx, pk);
+    }
+
+    public boolean exists(Context ctx, FilterInfo filter) throws BOSException, EASBizException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("676a2694-c627-4941-8416-4d3912e62cbf"), new Object[]{ctx, filter});
+            invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
+            boolean retValue = (boolean)_exists(ctx, filter);
+            svcCtx.setMethodReturnValue(new Boolean(retValue));
+            }
+            invokeServiceAfter(svcCtx);
+        
+          return ((Boolean)svcCtx.getMethodReturnValue()).booleanValue();
+        } catch (BOSException ex) {
+            throw ex;
+        } catch (EASBizException ex0) {
+            throw ex0;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected boolean _exists(Context ctx, FilterInfo filter) throws BOSException, EASBizException
+    {
+        return super._exists(ctx, filter);
+    }
+
+    public boolean exists(Context ctx, String oql) throws BOSException, EASBizException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("e1035f79-8900-48b8-b016-e31d70091693"), new Object[]{ctx, oql});
+            invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
+            boolean retValue = (boolean)_exists(ctx, oql);
+            svcCtx.setMethodReturnValue(new Boolean(retValue));
+            }
+            invokeServiceAfter(svcCtx);
+        
+          return ((Boolean)svcCtx.getMethodReturnValue()).booleanValue();
+        } catch (BOSException ex) {
+            throw ex;
+        } catch (EASBizException ex0) {
+            throw ex0;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected boolean _exists(Context ctx, String oql) throws BOSException, EASBizException
+    {
+        return super._exists(ctx, oql);
+    }
+
+    public TankTechnicalCollection getTankTechnicalCollection(Context ctx) throws BOSException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("2c84cd19-7b33-45ea-b806-260dda68a860"), new Object[]{ctx});
+            invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
+            TankTechnicalCollection retValue = (TankTechnicalCollection)_getCollection(ctx, svcCtx);
+            svcCtx.setMethodReturnValue(retValue);
+            }
+            invokeServiceAfter(svcCtx);
+        
+          return (TankTechnicalCollection)svcCtx.getMethodReturnValue();
+        } catch (BOSException ex) {
+            throw ex;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected IObjectCollection _getCollection(Context ctx, IServiceContext svcCtx) throws BOSException
+    {
+        return super._getCollection(ctx, svcCtx);
+    }
+
+    public TankTechnicalCollection getTankTechnicalCollection(Context ctx, EntityViewInfo view) throws BOSException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("2e7df94f-2233-45d3-bcf8-e7f204a83b03"), new Object[]{ctx, view});
+            invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
+            TankTechnicalCollection retValue = (TankTechnicalCollection)_getCollection(ctx, svcCtx, view);
+            svcCtx.setMethodReturnValue(retValue);
+            }
+            invokeServiceAfter(svcCtx);
+        
+          return (TankTechnicalCollection)svcCtx.getMethodReturnValue();
+        } catch (BOSException ex) {
+            throw ex;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected IObjectCollection _getCollection(Context ctx, IServiceContext svcCtx, EntityViewInfo view) throws BOSException
+    {
+        return super._getCollection(ctx, svcCtx, view);
+    }
+
+    public TankTechnicalCollection getTankTechnicalCollection(Context ctx, String oql) throws BOSException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("6a14cec0-0dee-4325-82b0-05ea2c3c74ff"), new Object[]{ctx, oql});
+            invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
+            TankTechnicalCollection retValue = (TankTechnicalCollection)_getCollection(ctx, svcCtx, oql);
+            svcCtx.setMethodReturnValue(retValue);
+            }
+            invokeServiceAfter(svcCtx);
+        
+          return (TankTechnicalCollection)svcCtx.getMethodReturnValue();
+        } catch (BOSException ex) {
+            throw ex;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected IObjectCollection _getCollection(Context ctx, IServiceContext svcCtx, String oql) throws BOSException
+    {
+        return super._getCollection(ctx, svcCtx, oql);
+    }
+
+    public IObjectPK[] getPKList(Context ctx) throws BOSException, EASBizException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("ca9d99b2-4da0-47da-9ac8-b79ec06ff666"), new Object[]{ctx});
+            invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
+            IObjectPK[] retValue = (IObjectPK[])_getPKList(ctx);
+            svcCtx.setMethodReturnValue(retValue);
+            }
+            invokeServiceAfter(svcCtx);
+        
+          return (IObjectPK[])svcCtx.getMethodReturnValue();
+        } catch (BOSException ex) {
+            throw ex;
+        } catch (EASBizException ex0) {
+            throw ex0;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected IObjectPK[] _getPKList(Context ctx) throws BOSException, EASBizException
+    {
+        return super._getPKList(ctx);
+    }
+
+    public IObjectPK[] getPKList(Context ctx, FilterInfo filter, SorterItemCollection sorter) throws BOSException, EASBizException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("5f92ebc6-490e-46eb-ba03-20aa4fa4b022"), new Object[]{ctx, filter, sorter});
+            invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
+            IObjectPK[] retValue = (IObjectPK[])_getPKList(ctx, filter, sorter);
+            svcCtx.setMethodReturnValue(retValue);
+            }
+            invokeServiceAfter(svcCtx);
+        
+          return (IObjectPK[])svcCtx.getMethodReturnValue();
+        } catch (BOSException ex) {
+            throw ex;
+        } catch (EASBizException ex0) {
+            throw ex0;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected IObjectPK[] _getPKList(Context ctx, FilterInfo filter, SorterItemCollection sorter) throws BOSException, EASBizException
+    {
+        return super._getPKList(ctx, filter, sorter);
+    }
+
+    public IObjectPK[] getPKList(Context ctx, String oql) throws BOSException, EASBizException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("d2706b35-b794-4d02-83dd-f8d222b6f2a8"), new Object[]{ctx, oql});
+            invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
+            IObjectPK[] retValue = (IObjectPK[])_getPKList(ctx, oql);
+            svcCtx.setMethodReturnValue(retValue);
+            }
+            invokeServiceAfter(svcCtx);
+        
+          return (IObjectPK[])svcCtx.getMethodReturnValue();
+        } catch (BOSException ex) {
+            throw ex;
+        } catch (EASBizException ex0) {
+            throw ex0;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected IObjectPK[] _getPKList(Context ctx, String oql) throws BOSException, EASBizException
+    {
+        return super._getPKList(ctx, oql);
+    }
+
+    public TankTechnicalInfo getTankTechnicalInfo(Context ctx, IObjectPK pk, SelectorItemCollection selector) throws BOSException, EASBizException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("86e1a613-763a-4e3b-9ae2-38f981e27ff0"), new Object[]{ctx, pk, selector});
+            invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
+            TankTechnicalInfo retValue = (TankTechnicalInfo)_getValue(ctx, pk, selector);
+            svcCtx.setMethodReturnValue(retValue);
+            }
+            invokeServiceAfter(svcCtx);
+        
+          return (TankTechnicalInfo)svcCtx.getMethodReturnValue();
+        } catch (BOSException ex) {
+            throw ex;
+        } catch (EASBizException ex0) {
+            throw ex0;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected IObjectValue _getValue(Context ctx, IObjectPK pk, SelectorItemCollection selector) throws BOSException, EASBizException
+    {
+        return super._getValue(ctx, pk, selector);
+    }
+
+    public TankTechnicalInfo getTankTechnicalInfo(Context ctx, IObjectPK pk) throws BOSException, EASBizException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("ac5399e8-fe60-43fa-8581-8fd600ab2186"), new Object[]{ctx, pk});
+            invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
+            TankTechnicalInfo retValue = (TankTechnicalInfo)_getValue(ctx, pk);
+            svcCtx.setMethodReturnValue(retValue);
+            }
+            invokeServiceAfter(svcCtx);
+        
+          return (TankTechnicalInfo)svcCtx.getMethodReturnValue();
+        } catch (BOSException ex) {
+            throw ex;
+        } catch (EASBizException ex0) {
+            throw ex0;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected IObjectValue _getValue(Context ctx, IObjectPK pk) throws BOSException, EASBizException
+    {
+        return super._getValue(ctx, pk);
+    }
+
+    public TankTechnicalInfo getTankTechnicalInfo(Context ctx, String oql) throws BOSException, EASBizException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("2e020746-e134-4bb1-b5c2-1ceee1c1dee1"), new Object[]{ctx, oql});
+            invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
+            TankTechnicalInfo retValue = (TankTechnicalInfo)_getValue(ctx, oql);
+            svcCtx.setMethodReturnValue(retValue);
+            }
+            invokeServiceAfter(svcCtx);
+        
+          return (TankTechnicalInfo)svcCtx.getMethodReturnValue();
+        } catch (BOSException ex) {
+            throw ex;
+        } catch (EASBizException ex0) {
+            throw ex0;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected IObjectValue _getValue(Context ctx, String oql) throws BOSException, EASBizException
+    {
+        return super._getValue(ctx, oql);
+    }
+
+    public void unAudit(Context ctx, IObjectPK pk) throws BOSException, EASBizException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("d99ae1a2-d41e-4227-8b84-7d32722d9057"), new Object[]{ctx, pk});
+            invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
+            _unAudit(ctx, pk);
+            }
+            invokeServiceAfter(svcCtx);
+        } catch (BOSException ex) {
+            this.setRollbackOnly();
+            throw ex;
+        } catch (EASBizException ex0) {
+            this.setRollbackOnly();
+            throw ex0;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+
+    public void unAudit(Context ctx, IObjectPK[] pks) throws BOSException, EASBizException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("f1c689d4-1f31-4df9-b28b-7ddcba7b38b2"), new Object[]{ctx, pks});
+            invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
+            _unAudit(ctx, pks);
+            }
+            invokeServiceAfter(svcCtx);
+        } catch (BOSException ex) {
+            this.setRollbackOnly();
+            throw ex;
+        } catch (EASBizException ex0) {
+            this.setRollbackOnly();
+            throw ex0;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+
+    public void update(Context ctx, IObjectPK pk, TankTechnicalInfo model) throws BOSException, EASBizException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("051b17da-09a7-4729-bd82-2992e39d381a"), new Object[]{ctx, pk, model});
+            invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()){
+            _update(ctx, pk, model);
+            }
+            invokeServiceAfter(svcCtx);
+        } catch (BOSException ex) {
+            this.setRollbackOnly();
+            throw ex;
+        } catch (EASBizException ex0) {
+            this.setRollbackOnly();
+            throw ex0;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected void _update(Context ctx, IObjectPK pk, IObjectValue model) throws BOSException, EASBizException
+    {
+        super._update(ctx, pk, model);
+    }
+
+    public void updateBigObject(Context ctx, IObjectPK pk, TankTechnicalInfo model) throws BOSException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("90aa91e7-7ce7-474d-abc6-8abd9363045d"), new Object[]{ctx, pk, model});
+            invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()){
+            _updateBigObject(ctx, pk, model);
+            }
+            invokeServiceAfter(svcCtx);
+        } catch (BOSException ex) {
+            this.setRollbackOnly();
+            throw ex;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected void _updateBigObject(Context ctx, IObjectPK pk, IObjectValue model) throws BOSException
+    {
+        super._updateBigObject(ctx, pk, model);
+    }
+
+    public void updatePartial(Context ctx, TankTechnicalInfo model, SelectorItemCollection selector) throws BOSException, EASBizException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("3491c752-ce28-4f87-8250-e723c29fb4e5"), new Object[]{ctx, model, selector});
+            invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()){
+            _updatePartial(ctx, model, selector);
+            }
+            invokeServiceAfter(svcCtx);
+        } catch (BOSException ex) {
+            this.setRollbackOnly();
+            throw ex;
+        } catch (EASBizException ex0) {
+            this.setRollbackOnly();
+            throw ex0;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected void _updatePartial(Context ctx, IObjectValue model, SelectorItemCollection selector) throws BOSException, EASBizException
+    {
+        super._updatePartial(ctx, model, selector);
+    }
+
+    public String getBindingProperty(Context ctx) throws BOSException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("7886aa5a-347c-4016-bdd5-024193a754b5"), new Object[]{ctx});
+            invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
+            String retValue = (String)_getBindingProperty(ctx);
+            svcCtx.setMethodReturnValue(retValue);
+            }
+            invokeServiceAfter(svcCtx);
+            return (String)svcCtx.getMethodReturnValue();
+        } catch (BOSException ex) {
+            this.setRollbackOnly();
+            throw ex;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+
+    public XRBillBaseCollection getXRBillBaseCollection (Context ctx) throws BOSException
+    {
+    	return (XRBillBaseCollection)(getTankTechnicalCollection(ctx).cast(XRBillBaseCollection.class));
+    }
+    public XRBillBaseCollection getXRBillBaseCollection (Context ctx, EntityViewInfo view) throws BOSException
+    {
+    	return (XRBillBaseCollection)(getTankTechnicalCollection(ctx, view).cast(XRBillBaseCollection.class));
+    }
+    public XRBillBaseCollection getXRBillBaseCollection (Context ctx, String oql) throws BOSException
+    {
+    	return (XRBillBaseCollection)(getTankTechnicalCollection(ctx, oql).cast(XRBillBaseCollection.class));
+    }
+    public CoreBillBaseCollection getCoreBillBaseCollection (Context ctx) throws BOSException
+    {
+    	return (CoreBillBaseCollection)(getTankTechnicalCollection(ctx).cast(CoreBillBaseCollection.class));
+    }
+    public CoreBillBaseCollection getCoreBillBaseCollection (Context ctx, EntityViewInfo view) throws BOSException
+    {
+    	return (CoreBillBaseCollection)(getTankTechnicalCollection(ctx, view).cast(CoreBillBaseCollection.class));
+    }
+    public CoreBillBaseCollection getCoreBillBaseCollection (Context ctx, String oql) throws BOSException
+    {
+    	return (CoreBillBaseCollection)(getTankTechnicalCollection(ctx, oql).cast(CoreBillBaseCollection.class));
+    }
+    public ObjectBaseCollection getObjectBaseCollection (Context ctx) throws BOSException
+    {
+    	return (ObjectBaseCollection)(getTankTechnicalCollection(ctx).cast(ObjectBaseCollection.class));
+    }
+    public ObjectBaseCollection getObjectBaseCollection (Context ctx, EntityViewInfo view) throws BOSException
+    {
+    	return (ObjectBaseCollection)(getTankTechnicalCollection(ctx, view).cast(ObjectBaseCollection.class));
+    }
+    public ObjectBaseCollection getObjectBaseCollection (Context ctx, String oql) throws BOSException
+    {
+    	return (ObjectBaseCollection)(getTankTechnicalCollection(ctx, oql).cast(ObjectBaseCollection.class));
+    }
+    public CoreBaseCollection getCoreBaseCollection (Context ctx) throws BOSException
+    {
+    	return (CoreBaseCollection)(getTankTechnicalCollection(ctx).cast(CoreBaseCollection.class));
+    }
+    public CoreBaseCollection getCoreBaseCollection (Context ctx, EntityViewInfo view) throws BOSException
+    {
+    	return (CoreBaseCollection)(getTankTechnicalCollection(ctx, view).cast(CoreBaseCollection.class));
+    }
+    public CoreBaseCollection getCoreBaseCollection (Context ctx, String oql) throws BOSException
+    {
+    	return (CoreBaseCollection)(getTankTechnicalCollection(ctx, oql).cast(CoreBaseCollection.class));
+    }
+}
