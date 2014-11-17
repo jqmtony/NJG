@@ -230,7 +230,7 @@ public class MarketSupplierStockControllerBean extends AbstractMarketSupplierSto
         		view = new EntityViewInfo();
         		filter = new FilterInfo();
         		view.setFilter(filter);
-        		filter.getFilterItems().add(new FilterItemInfo("name", "南京港供应商"));
+        		filter.getFilterItems().add(new FilterItemInfo("name", "集团外"));
         		filter.getFilterItems().add(new FilterItemInfo("CU.id", OrgConstants.DEF_CU_ID));
         		
         		CSSPGroupCollection sheGroupCol = CSSPGroupFactory.getLocalInstance(ctx).getCSSPGroupCollection(view);
@@ -239,7 +239,7 @@ public class MarketSupplierStockControllerBean extends AbstractMarketSupplierSto
         			CSSPGroupStandardInfo strd = new CSSPGroupStandardInfo();
         			strd.setId(BOSUuid.create(strd.getBOSType()));
         			strd.setNumber("NJGsupplierGstrd");
-        			strd.setName("南京港供应商分类标准");
+        			strd.setName("供应商分类标准");
         			strd.setType(2);
         			strd.setIsBasic(StandardTypeEnum.defaultStandard);
         			strd.setCU(cu);
@@ -249,8 +249,8 @@ public class MarketSupplierStockControllerBean extends AbstractMarketSupplierSto
         			CSSPGroupInfo gr = new CSSPGroupInfo();
         			gr.setDeletedStatus(DeletedStatusEnum.NORMAL);
         			gr.setId(BOSUuid.create(gr.getBOSType()));
-        			gr.setNumber("NJGsupplierG");
-        			gr.setName("南京港供应商");
+        			gr.setNumber("02");
+        			gr.setName("集团外");
         			gr.setCU(cu);
         			gr.setGroupStandard(strd);
         			
@@ -273,7 +273,7 @@ public class MarketSupplierStockControllerBean extends AbstractMarketSupplierSto
         		view = new EntityViewInfo();
         		filter = new FilterInfo();
         		view.setFilter(filter);
-        		filter.getFilterItems().add(new FilterItemInfo("description", "%南京港%",CompareType.LIKE));
+        		filter.getFilterItems().add(new FilterItemInfo("name", "%集团外%",CompareType.LIKE));
         		filter.getFilterItems().add(new FilterItemInfo("CU.id", OrgConstants.DEF_CU_ID));
         		
         		sheGroupCol = CSSPGroupFactory.getLocalInstance(ctx).getCSSPGroupCollection(view);

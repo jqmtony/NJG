@@ -365,7 +365,6 @@ kDContainer2.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
     {
         this.toolBar.add(btnAddNew);
         this.toolBar.add(btnCloud);
-        this.toolBar.add(btnXunTong);
         this.toolBar.add(btnView);
         this.toolBar.add(kDSeparatorCloud);
         this.toolBar.add(btnEdit);
