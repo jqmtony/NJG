@@ -64,7 +64,6 @@ public class OpenRegistrationEditUI extends AbstractOpenRegistrationEditUI
     }
     
     public void onLoad() throws Exception {
-    	// TODO Auto-generated method stub
     	initConpoment();
     	super.onLoad();
     	ProjectInfo info = (ProjectInfo) getUIContext().get("treeInfo");
@@ -98,7 +97,6 @@ public class OpenRegistrationEditUI extends AbstractOpenRegistrationEditUI
     }
 
     protected void verifyInput(ActionEvent e) throws Exception {
-    	// TODO Auto-generated method stub
     	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, txtregName, "开标登记名称");
     	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, prmtreportName, "招标方案");
     	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, txtopLocation, "开标地点");
@@ -113,18 +111,6 @@ public class OpenRegistrationEditUI extends AbstractOpenRegistrationEditUI
 		{
 			MsgBox.showWarning("当前开标登记<"+planInfo.getReportName()+">已有对应的开标登记，不允许重复登记！");SysUtil.abort();
 		}
-		
-    	
-//    	if(judgeSolution.integrate.equals(invite.getJudgeSolution())) {
-//    		//综合评分时评标系数必填
-//    		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, txtcoefficient, "评标系数");
-//    		BigDecimal coffient = new BigDecimal(txtcoefficient.getText());
-//    		if(coffient.compareTo(new BigDecimal(0.9)) < 0 || coffient.compareTo(new BigDecimal(1.0)) > 0) {
-//    			MsgBox.showWarning("评标系数大于等于0.9小于等于1!!");
-//    			SysUtil.abort();
-//    		}
-//    	}
-    	
     	for(int i = 0; i < this.kdtEntry.getRowCount(); i++) {
     		IRow row = this.kdtEntry.getRow(i);
     		if(row.getCell("payDeposit").getValue().equals(true))
@@ -136,12 +122,11 @@ public class OpenRegistrationEditUI extends AbstractOpenRegistrationEditUI
     	//报价,工期,质量不能为空
     	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyKDTColumnNull(this, this.kdtEntry, "quotedPrice");
     	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyKDTColumnNull(this, this.kdtEntry, "prjPeriod");
-    	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyKDTColumnNull(this, this.kdtEntry, "quality");
+//    	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyKDTColumnNull(this, this.kdtEntry, "quality");
     	super.verifyInput(e);
     }
 
     public void prmtreportName_Changed() throws Exception {
-    	// TODO Auto-generated method stub
     	super.prmtreportName_Changed();
     	if(!getOprtState().equals(OprtState.VIEW)) {
         	InviteReportInfo invite = (InviteReportInfo) this.prmtreportName.getValue();
@@ -182,7 +167,6 @@ public class OpenRegistrationEditUI extends AbstractOpenRegistrationEditUI
     }
     @Override
     public void actionDoCancel_actionPerformed(ActionEvent e) throws Exception {
-    	// TODO Auto-generated method stub
     	if(!XRBillStatusEnum.getEnum("AUDITED").equals(editData.getStatus())) {
     		MsgBox.showWarning("不允许非审核单据作废!");
     		SysUtil.abort();

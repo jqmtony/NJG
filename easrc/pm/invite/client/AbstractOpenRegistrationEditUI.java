@@ -388,7 +388,7 @@ public abstract class AbstractOpenRegistrationEditUI extends com.kingdee.eas.xr.
         this.comboStatus.addItems(EnumUtils.getEnumList("com.kingdee.eas.xr.app.XRBillStatusEnum").toArray());		
         this.comboStatus.setEnabled(false);
         // kdtEntry
-		String kdtEntryStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"0\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"supplierName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"contact\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"telephone\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"payDeposit\" t:width=\"115\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"isPresent\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"isQualified\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"deposit\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"quotedPrice\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"prjPeriod\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"quality\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"directions\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"comment\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{supplierName}</t:Cell><t:Cell>$Resource{contact}</t:Cell><t:Cell>$Resource{telephone}</t:Cell><t:Cell>$Resource{payDeposit}</t:Cell><t:Cell>$Resource{isPresent}</t:Cell><t:Cell>$Resource{isQualified}</t:Cell><t:Cell>$Resource{deposit}</t:Cell><t:Cell>$Resource{quotedPrice}</t:Cell><t:Cell>$Resource{prjPeriod}</t:Cell><t:Cell>$Resource{quality}</t:Cell><t:Cell>$Resource{directions}</t:Cell><t:Cell>$Resource{comment}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		String kdtEntryStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"0\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"supplierName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"contact\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"telephone\" t:width=\"60\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"payDeposit\" t:width=\"80\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"isPresent\" t:width=\"60\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"isQualified\" t:width=\"60\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"deposit\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"quotedPrice\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"prjPeriod\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"quality\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"directions\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"comment\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{supplierName}</t:Cell><t:Cell>$Resource{contact}</t:Cell><t:Cell>$Resource{telephone}</t:Cell><t:Cell>$Resource{payDeposit}</t:Cell><t:Cell>$Resource{isPresent}</t:Cell><t:Cell>$Resource{isQualified}</t:Cell><t:Cell>$Resource{deposit}</t:Cell><t:Cell>$Resource{quotedPrice}</t:Cell><t:Cell>$Resource{prjPeriod}</t:Cell><t:Cell>$Resource{quality}</t:Cell><t:Cell>$Resource{directions}</t:Cell><t:Cell>$Resource{comment}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.kdtEntry.setFormatXml(resHelper.translateString("kdtEntry",kdtEntryStrXML));
 
@@ -517,9 +517,9 @@ public abstract class AbstractOpenRegistrationEditUI extends com.kingdee.eas.xr.
      */
     public void initUIContentLayout()
     {
-        this.setBounds(new Rectangle(10, 10, 953, 439));
+        this.setBounds(new Rectangle(10, 10, 1000, 439));
         this.setLayout(new KDLayout());
-        this.putClientProperty("OriginalBounds", new Rectangle(10, 10, 953, 439));
+        this.putClientProperty("OriginalBounds", new Rectangle(10, 10, 1000, 439));
         contLastUpdateUser.setBounds(new Rectangle(316, 508, 270, 19));
         this.add(contLastUpdateUser, new KDLayout.Constraints(316, 508, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contLastUpdateTime.setBounds(new Rectangle(316, 534, 270, 19));
@@ -532,8 +532,8 @@ public abstract class AbstractOpenRegistrationEditUI extends com.kingdee.eas.xr.
         this.add(contDescription, new KDLayout.Constraints(33, 532, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contBizStatus.setBounds(new Rectangle(315, 561, 270, 19));
         this.add(contBizStatus, new KDLayout.Constraints(315, 561, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        kDPanel1.setBounds(new Rectangle(2, 2, 953, 439));
-        this.add(kDPanel1, new KDLayout.Constraints(2, 2, 953, 439, 0));
+        kDPanel1.setBounds(new Rectangle(2, 6, 996, 439));
+        this.add(kDPanel1, new KDLayout.Constraints(2, 6, 996, 439, 0));
         //contLastUpdateUser
         contLastUpdateUser.setBoundEditor(prmtLastUpdateUser);
         //contLastUpdateTime
@@ -548,7 +548,7 @@ public abstract class AbstractOpenRegistrationEditUI extends com.kingdee.eas.xr.
         contBizStatus.setBoundEditor(comboBizStatus);
         //kDPanel1
         kDPanel1.setLayout(new KDLayout());
-        kDPanel1.putClientProperty("OriginalBounds", new Rectangle(2, 2, 953, 439));        contreportName.setBounds(new Rectangle(338, 47, 270, 19));
+        kDPanel1.putClientProperty("OriginalBounds", new Rectangle(2, 6, 996, 439));        contreportName.setBounds(new Rectangle(338, 47, 270, 19));
         kDPanel1.add(contreportName, new KDLayout.Constraints(338, 47, 270, 19, 0));
         contopLocation.setBounds(new Rectangle(670, 22, 270, 19));
         kDPanel1.add(contopLocation, new KDLayout.Constraints(670, 22, 270, 19, 0));
@@ -560,8 +560,8 @@ public abstract class AbstractOpenRegistrationEditUI extends com.kingdee.eas.xr.
         kDPanel1.add(contNumber, new KDLayout.Constraints(13, 16, 270, 19, 0));
         contStatus.setBounds(new Rectangle(13, 67, 270, 19));
         kDPanel1.add(contStatus, new KDLayout.Constraints(13, 67, 270, 19, 0));
-        kDContainer1.setBounds(new Rectangle(13, 89, 927, 286));
-        kDPanel1.add(kDContainer1, new KDLayout.Constraints(13, 89, 927, 286, 0));
+        kDContainer1.setBounds(new Rectangle(13, 89, 968, 286));
+        kDPanel1.add(kDContainer1, new KDLayout.Constraints(13, 89, 968, 286, 0));
         contCreator.setBounds(new Rectangle(13, 380, 270, 19));
         kDPanel1.add(contCreator, new KDLayout.Constraints(13, 380, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contAuditor.setBounds(new Rectangle(338, 380, 270, 19));
@@ -727,8 +727,8 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
         this.toolBar.add(btnAddNew);
         this.toolBar.add(btnCloud);
         this.toolBar.add(btnEdit);
-        this.toolBar.add(btnSave);
         this.toolBar.add(kDSeparatorCloud);
+        this.toolBar.add(btnSave);
         this.toolBar.add(btnReset);
         this.toolBar.add(btnSubmit);
         this.toolBar.add(btnCopy);

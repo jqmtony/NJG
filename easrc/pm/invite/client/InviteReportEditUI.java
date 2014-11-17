@@ -224,9 +224,10 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI {
 		this.kdtEntry2.getColumn("evaEnterprise").getStyleAttributes().setUnderline(true);
 		this.kdtEntry2.getColumn("evaEnterprise").getStyleAttributes().setFontColor(Color.BLUE);
 		
-		if(OprtState.ADDNEW.equals(getOprtState()))
+		if(OprtState.ADDNEW.equals(getOprtState())){
 			this.prmtapplicant.setValue(SysContext.getSysContext().getCurrentUserInfo().getPerson());
-		
+			this.prmtuseOrg.setValue(SysContext.getSysContext().getCurrentCtrlUnit());
+		}
 		this.kdtEntry4.getColumn("seq").getStyleAttributes().setHided(true);
 		this.kdtEntry4.getColumn("content").setWidth(360);
 		this.kdtEntry4.getColumn("budgetName").setWidth(180);
@@ -266,14 +267,26 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI {
 	
     public void kdtEntry4_Changed(int rowIndex,int colIndex) throws Exception
     {
-        if ("budgetNumber".equalsIgnoreCase(kdtEntry4.getColumn(colIndex).getKey())) {
+    	BigDecimal budgetAmount = UIRuleUtil.getBigDecimal(UIRuleUtil.getProperty((IObjectValue)kdtEntry4.getCell(rowIndex,"budgetNumber").getValue(),"contractAssign"));
+    	BigDecimal reportInviteAmount = UIRuleUtil.getBigDecimal(UIRuleUtil.getProperty((IObjectValue)kdtEntry4.getCell(rowIndex,"budgetNumber").getValue(),"invitReportedAmount"));
+    	BigDecimal InvitedAmount = UIRuleUtil.getBigDecimal(UIRuleUtil.getProperty((IObjectValue)kdtEntry4.getCell(rowIndex,"budgetNumber").getValue(),"invitedAmount"));
+    	BigDecimal contractAmount = UIRuleUtil.getBigDecimal(UIRuleUtil.getProperty((IObjectValue)kdtEntry4.getCell(rowIndex,"budgetNumber").getValue(),"contractedAmount"));
+    	BigDecimal nocontractAmount = UIRuleUtil.getBigDecimal(UIRuleUtil.getProperty((IObjectValue)kdtEntry4.getCell(rowIndex,"budgetNumber").getValue(),"noContractedAmount"));
+    	BigDecimal noInviteContractAmount = UIRuleUtil.getBigDecimal(UIRuleUtil.getProperty((IObjectValue)kdtEntry4.getCell(rowIndex,"budgetNumber").getValue(),"noInviteContractAmount"));
+    	BigDecimal balanceAmount = budgetAmount.subtract(reportInviteAmount).subtract(nocontractAmount).subtract(noInviteContractAmount);
+
+    	if ("budgetNumber".equalsIgnoreCase(kdtEntry4.getColumn(colIndex).getKey())) {
         	kdtEntry4.getCell(rowIndex,"budgetName").setValue(UIRuleUtil.getString(UIRuleUtil.getProperty((IObjectValue)kdtEntry4.getCell(rowIndex,"budgetNumber").getValue(),"feeName")));
         	kdtEntry4.getCell(rowIndex,"budgetAmount").setValue(UIRuleUtil.getBigDecimal(UIRuleUtil.getProperty((IObjectValue)kdtEntry4.getCell(rowIndex,"budgetNumber").getValue(),"contractAssign")));
-        	kdtEntry4.getCell(rowIndex,"balance").setValue(UIRuleUtil.getBigDecimal(UIRuleUtil.getProperty((IObjectValue)kdtEntry4.getCell(rowIndex,"budgetNumber").getValue(),"contractAssign")));
-        	kdtEntry4.getCell(rowIndex,"lastAmount").setValue(UIRuleUtil.getBigDecimal(kdtEntry4.getCell(rowIndex,"balance").getValue()).subtract(UIRuleUtil.getBigDecimal(kdtEntry4.getCell(rowIndex,"amount").getValue())));
+        	kdtEntry4.getCell(rowIndex,"balance").setValue(balanceAmount);
+        	kdtEntry4.getCell(rowIndex,"lastAmount").setValue(balanceAmount);
        }
         if ("amount".equalsIgnoreCase(kdtEntry4.getColumn(colIndex).getKey())) {
-        	kdtEntry4.getCell(rowIndex,"lastAmount").setValue(UIRuleUtil.getBigDecimal(kdtEntry4.getCell(rowIndex,"balance").getValue()).subtract(UIRuleUtil.getBigDecimal(kdtEntry4.getCell(rowIndex,"amount").getValue())));
+        	BigDecimal amount = balanceAmount.subtract(UIRuleUtil.getBigDecimal(kdtEntry4.getCell(rowIndex,"amount").getValue()));
+        	if(amount.intValue()<0){
+        		kdtEntry4.getCell(rowIndex,"amount").setValue("0");
+        	}else
+            	kdtEntry4.getCell(rowIndex,"lastAmount").setValue(amount);
        }
         BigDecimal amount = new BigDecimal(0.000);
        for (int i = 0; i < kdtEntry4.getRowCount(); i++) {
@@ -318,16 +331,6 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI {
 		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this,prmtuseOrg, "招标单位");
 		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this,prmtinviteType, "招标方式");
 		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this,txtinviteBudget, "招标预算");
-		
-		InvitePlanInfo planInfo = (InvitePlanInfo)prmtinvitePlan.getValue();
-		
-		String oql = "select id where invitePlan.id='"+planInfo.getId()+"'";
-		if(editData.getId()!=null)
-			oql = oql+"and id <>'"+editData.getId()+"'";
-		if(InviteReportFactory.getRemoteInstance().exists(oql))
-		{
-			MsgBox.showWarning("当前招标计划<"+planInfo.getPlanName()+">已有对应的招标方案申报，不允许重复申报！");SysUtil.abort();
-		}
 		
 		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this,
 				prmtvalidTemplate, "符合性审查模板");
@@ -1164,9 +1167,10 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI {
 	 */
 	protected IObjectValue createNewData() {
 		com.kingdee.eas.port.pm.invite.InviteReportInfo objectValue = new com.kingdee.eas.port.pm.invite.InviteReportInfo();
-		objectValue
-				.setCreator((com.kingdee.eas.base.permission.UserInfo) (com.kingdee.eas.common.client.SysContext
-						.getSysContext().getCurrentUser()));
+		objectValue.setCreator((com.kingdee.eas.base.permission.UserInfo) (com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentUser()));
+		objectValue.setRmhigh("0");
+		objectValue.setRmlow("0");
+		objectValue.setCoefficient(new BigDecimal(1));
 		ProjectInfo info = (ProjectInfo) getUIContext().get("treeInfo");
 		System.out.println("hello " + info.toString());
 		if (info != null) {

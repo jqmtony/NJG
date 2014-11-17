@@ -8,13 +8,18 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.math.BigDecimal;
 import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.log4j.Logger;
 
-import com.kingdee.bos.ContextUtils;
+import com.kingdee.bos.ctrl.extendcontrols.BizDataFormat;
+import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
 import com.kingdee.bos.ctrl.kdf.table.IColumn;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
+import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
+import com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent;
+import com.kingdee.bos.ctrl.kdf.util.render.ObjectValueRender;
 import com.kingdee.bos.ctrl.swing.KDScrollPane;
 import com.kingdee.bos.ctrl.swing.KDTabbedPane;
 import com.kingdee.bos.ctrl.swing.KDTextField;
@@ -26,18 +31,20 @@ import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.eas.base.uiframe.client.UIFactoryHelper;
 import com.kingdee.eas.basedata.assistant.ProjectInfo;
 import com.kingdee.eas.basedata.org.AdminOrgUnitFactory;
 import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.UIContext;
-import com.kingdee.eas.ep.client.editor.kdtable.KDTTableView;
 import com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockFactory;
 import com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockInfo;
 import com.kingdee.eas.port.pm.base.InviteTypeFactory;
 import com.kingdee.eas.port.pm.base.JudgesFactory;
 import com.kingdee.eas.port.pm.base.JudgesInfo;
+import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryCostEntryFactory;
+import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryCostEntryInfo;
 import com.kingdee.eas.port.pm.invite.EvaluationCollection;
 import com.kingdee.eas.port.pm.invite.EvaluationEntryTotalCollection;
 import com.kingdee.eas.port.pm.invite.EvaluationEntryTotalInfo;
@@ -45,7 +52,9 @@ import com.kingdee.eas.port.pm.invite.EvaluationEntryUnitCollection;
 import com.kingdee.eas.port.pm.invite.EvaluationEntryUnitInfo;
 import com.kingdee.eas.port.pm.invite.EvaluationFactory;
 import com.kingdee.eas.port.pm.invite.EvaluationInfo;
-import com.kingdee.eas.port.pm.invite.InviteReport;
+import com.kingdee.eas.port.pm.invite.InviteReportEntry4Collection;
+import com.kingdee.eas.port.pm.invite.InviteReportEntry4Factory;
+import com.kingdee.eas.port.pm.invite.InviteReportEntry4Info;
 import com.kingdee.eas.port.pm.invite.InviteReportInfo;
 import com.kingdee.eas.port.pm.invite.JudgesComfirmCollection;
 import com.kingdee.eas.port.pm.invite.JudgesComfirmEntryCollection;
@@ -57,7 +66,6 @@ import com.kingdee.eas.port.pm.invite.OpenRegistrationEntryCollection;
 import com.kingdee.eas.port.pm.invite.OpenRegistrationEntryInfo;
 import com.kingdee.eas.port.pm.invite.OpenRegistrationFactory;
 import com.kingdee.eas.port.pm.invite.OpenRegistrationInfo;
-import com.kingdee.eas.port.pm.invite.judgeSolution;
 
 /**
  * output class name
@@ -73,9 +81,7 @@ public class WinInviteReportEditUI extends AbstractWinInviteReportEditUI
     {
         super();
     }
-    @Override
     public void onLoad() throws Exception {
-    	// TODO Auto-generated method stub
     	contCU.setVisible(false);
     	contBizStatus.setVisible(false);
     	contBizDate.setVisible(false);
@@ -92,14 +98,70 @@ public class WinInviteReportEditUI extends AbstractWinInviteReportEditUI
     		filter.getFilterItems().add(new FilterItemInfo("proName.longnumber", info.getLongNumber()+"%", CompareType.LIKE));
     		prmtinviteReport.setEntityViewInfo(evi);
 		}
+    	
+    	final KDBizPromptBox kdtEntry4_name_PromptBox = new KDBizPromptBox();
+        kdtEntry4_name_PromptBox.setQueryInfo("com.kingdee.eas.port.pm.invest.investplan.app.ProgrammingCostEntryQuery");
+        kdtEntry4_name_PromptBox.setVisible(true);
+        kdtEntry4_name_PromptBox.setEditable(true);
+        kdtEntry4_name_PromptBox.setDisplayFormat("$feeNumber$");
+        kdtEntry4_name_PromptBox.setEditFormat("$feeNumber$");
+        kdtEntry4_name_PromptBox.setCommitFormat("$feeNumber$");
+        EntityViewInfo view = new EntityViewInfo();
+        FilterInfo filInfo = new FilterInfo();
+		if(prmtinviteReport.getValue()!=null){
+			InviteReportInfo project = (InviteReportInfo)prmtinviteReport.getValue();
+			filInfo.getFilterItems().add(new FilterItemInfo("number",project.getProName().getNumber()));
+			filInfo.getFilterItems().add(new FilterItemInfo("isLast","1"));
+			filInfo.getFilterItems().add(new FilterItemInfo("beizhu","最新"));
+			view.setFilter(filInfo);
+			kdtEntry4_name_PromptBox.setEntityViewInfo(view);
+		}
+        KDTDefaultCellEditor kdtEntry4_name_CellEditor = new KDTDefaultCellEditor(kdtEntry4_name_PromptBox);
+        this.kdtBudgetEntry.getColumn("budgetNumber").setEditor(kdtEntry4_name_CellEditor);
+        ObjectValueRender kdtEntry4_name_OVR = new ObjectValueRender();
+        kdtEntry4_name_OVR.setFormat(new BizDataFormat("$feeNumber$"));
+        this.kdtBudgetEntry.getColumn("budgetNumber").setRenderer(kdtEntry4_name_OVR);
     }
-    @Override
-    protected void prmtinviteReport_dataChanged(DataChangeEvent e)
-    		throws Exception {
-    	// TODO Auto-generated method stub
-    	super.prmtinviteReport_dataChanged(e);
-
+    
+	public void kdtBudgetEntry_Changed(int rowIndex, int colIndex) throws Exception {
+		super.kdtBudgetEntry_Changed(rowIndex, colIndex);
+		IObjectValue budgetNumber = (IObjectValue)kdtBudgetEntry.getCell(rowIndex,"budgetNumber").getValue();
+		IRow row = kdtBudgetEntry.getRow(rowIndex);
+		String colName = (String)kdtBudgetEntry.getColumn(colIndex).getKey();
+		setBudgetEntry(budgetNumber, row, colName);
+	}
+	
+	void setBudgetEntry(IObjectValue budgetNumber,IRow row, String colName)throws Exception{
+		BigDecimal budgetAmount = UIRuleUtil.getBigDecimal(UIRuleUtil.getProperty(budgetNumber,"contractAssign"));
+    	BigDecimal reportInviteAmount = UIRuleUtil.getBigDecimal(UIRuleUtil.getProperty(budgetNumber,"invitReportedAmount"));
+    	BigDecimal InvitedAmount = UIRuleUtil.getBigDecimal(UIRuleUtil.getProperty(budgetNumber,"invitedAmount"));
+    	BigDecimal contractAmount = UIRuleUtil.getBigDecimal(UIRuleUtil.getProperty(budgetNumber,"contractedAmount"));
+    	BigDecimal nocontractAmount = UIRuleUtil.getBigDecimal(UIRuleUtil.getProperty(budgetNumber,"noContractedAmount"));
+    	BigDecimal noInviteContractAmount = UIRuleUtil.getBigDecimal(UIRuleUtil.getProperty(budgetNumber,"noInviteContractAmount"));
+    	BigDecimal balanceAmount = budgetAmount.subtract(InvitedAmount).subtract(nocontractAmount).subtract(noInviteContractAmount);
     	InviteReportInfo inviteReport = (InviteReportInfo) this.prmtinviteReport.getValue();
+    	InviteReportEntry4Collection coll = inviteReport.getEntry4();
+    	if ("budgetNumber".equalsIgnoreCase(colName)&&row.getCell("budgetName")!=null) {
+    		row.getCell("budgetName").setValue(UIRuleUtil.getString(UIRuleUtil.getProperty(budgetNumber,"feeName")));
+    		row.getCell("budgetAmount").setValue(UIRuleUtil.getBigDecimal(UIRuleUtil.getProperty(budgetNumber,"contractAssign")));
+    		row.getCell("balance").setValue(balanceAmount);
+    		BigDecimal amount = balanceAmount.subtract(UIRuleUtil.getBigDecimal(row.getCell("amount").getValue()));
+    		row.getCell("lastAmount").setValue(amount);
+       }
+        if ("amount".equalsIgnoreCase(colName)) {
+        	BigDecimal amount = balanceAmount.subtract(UIRuleUtil.getBigDecimal(row.getCell("amount").getValue()));
+        	if(amount.intValue()<0){
+        		row.getCell("amount").setValue("0");
+        	}else
+        		row.getCell("lastAmount").setValue(amount);
+        	InviteReportEntry4Info entry = coll.get(row.getRowIndex());
+        	row.getCell("diffAmount").setValue(UIRuleUtil.getBigDecimal(row.getCell("amount").getValue()).subtract(UIRuleUtil.getBigDecimal(entry.getAmount())));
+       }
+	}
+	protected void prmtinviteReport_dataChanged(DataChangeEvent e)throws Exception {
+    	super.prmtinviteReport_dataChanged(e);
+    	InviteReportInfo inviteReport = (InviteReportInfo) this.prmtinviteReport.getValue();
+    	txtbudgetAmount.setValue(UIRuleUtil.getBigDecimal(inviteReport.getInviteBudget()));
     	this.txtcontent.setText(inviteReport.getBIMUDF0004());
     	this.evaSolution.setSelectedItem(inviteReport.getJudgeSolution());//设置评标访法
     	this.prmtinviteType.setValue(InviteTypeFactory.getRemoteInstance().getInviteTypeInfo(new ObjectUuidPK(inviteReport.getInviteType().getId())));
@@ -182,8 +244,12 @@ public class WinInviteReportEditUI extends AbstractWinInviteReportEditUI
     		rowAdd.getCell("quality").setValue(opRegEntryInfo.getQuality());
     		rowAdd.getCell("inviteAmount").setValue(new BigDecimal(opRegEntryInfo.getQuotedPrice()));
     		if(rowTotal.getCell(i+1).getValue() != null) {
-	    		if(rowTotal.getCell(i+1).getValue().toString().equals("1"))
+	    		rowAdd.getCell("seq").setValue(rowTotal.getCell(i+1).getValue());
+	    		if(rowTotal.getCell(i+1).getValue().toString().equals("1")){
 	    			rowAdd.getCell("win").setValue(true);
+	    			txtinvitedAmount.setValue(rowAdd.getCell("inviteAmount").getValue());
+	    			prmtwinInviteUnit.setValue(supplier);
+	    		}
     		}
     	}
     	//过滤专家确定
@@ -212,6 +278,26 @@ public class WinInviteReportEditUI extends AbstractWinInviteReportEditUI
     	addTab(this.kDTabbedPane1, OpenRegistrationListUI.class.getName(), inviteReport.getId().toString(), "开标登记");
     	addTab(this.kDTabbedPane1, EvaluationListUI.class.getName(), inviteReport.getId().toString(), "专家评标");
     	addTab(this.kDTabbedPane1, InviteReportListUI.class.getName(), inviteReport.getId().toString(), "招标方案申报");
+    	
+    	InviteReportEntry4Collection coll = inviteReport.getEntry4();
+    	BigDecimal sumAmount = new BigDecimal(0);
+    	for (int i = 0; i < coll.size(); i++) {
+    		InviteReportEntry4Info entry = coll.get(i);
+    		entry = InviteReportEntry4Factory.getRemoteInstance().getInviteReportEntry4Info(new ObjectUuidPK(entry.getId()));
+    		IRow brow = kdtBudgetEntry.addRow();
+    		ProgrammingEntryCostEntryInfo budgerNumber = ProgrammingEntryCostEntryFactory.getRemoteInstance().getProgrammingEntryCostEntryInfo(new ObjectUuidPK(entry.getBudgetNumber().getId()));
+    		brow.getCell("budgetNumber").setValue(budgerNumber);
+    		BigDecimal invitedAmount = UIRuleUtil.getBigDecimal(txtinvitedAmount.getValue());
+    		BigDecimal budgetAmount = UIRuleUtil.getBigDecimal(txtbudgetAmount.getValue());
+    		if(i==coll.size()-1)
+    			brow.getCell("amount").setValue(invitedAmount.subtract(sumAmount));
+    		else
+    			brow.getCell("amount").setValue(UIRuleUtil.getBigDecimal(entry.getAmount()).divide(budgetAmount, 4, 4).multiply(invitedAmount));
+    		brow.getCell("seq").setValue((i+1));
+    		brow.getCell("diffAmount").setValue(UIRuleUtil.getBigDecimal(brow.getCell("amount").getValue()).subtract(UIRuleUtil.getBigDecimal(entry.getAmount())));
+    		sumAmount = sumAmount.add(UIRuleUtil.getBigDecimal(brow.getCell("amount").getValue()));
+    		setBudgetEntry(budgerNumber, brow, "budgetNumber");
+		}
     }
     
     /**
@@ -233,6 +319,23 @@ public class WinInviteReportEditUI extends AbstractWinInviteReportEditUI
 		panel.setKeyBoardControl(true);
 		panel.setEnabled(false);
 		kDTabbedPane1.add(panel,tabName);
+    }
+    protected void verifyInput(ActionEvent e) throws Exception {
+    	super.verifyInput(e);
+		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this,txtinvitedAmount, "中标金额");
+
+    }
+    protected void kdtUnit_editValueChanged(KDTEditEvent e) throws Exception {
+    	super.kdtUnit_editValueChanged(e);
+    	int colIndex = e.getColIndex();
+    	int rowIndex = e.getRowIndex();
+    	String key = kdtUnit.getColumnKey(colIndex);
+    	if("win".equals(key)){
+    		String win = kdtUnit.getRow(rowIndex).getCell("win").getValue().toString();
+    		if("1".equals(win)){
+    			prmtwinInviteUnit.setValue(kdtUnit.getRow(rowIndex).getCell("win").getValue());
+    		}
+    	}
     }
     /**
      * output loadFields method

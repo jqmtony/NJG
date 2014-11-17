@@ -79,13 +79,10 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
     }
     
     public void onLoad() throws Exception {
-    	// TODO Auto-generated method stub
     	initConpomentAttr();
     	super.onLoad();
     	this.kDTable3.setEnabled(false);
-    	
     	this.kDToolBar1.setVisible(false);
-    	
     	this.kDTable2.addKDTEditListener(new com.kingdee.bos.ctrl.kdf.table.event.KDTEditAdapter() {
             public void editStopped(com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent e) {
                 try {
@@ -126,9 +123,7 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
     	this.prmtinviteReport.setRequired(true);
     }
     
-    @Override
     protected void verifyInput(ActionEvent e) throws Exception {
-    	// TODO Auto-generated method stub
     	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, prmtinviteReport, "招标方案");
     	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, pkevaDate, "评标日期");
     	
@@ -144,7 +139,6 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
     	super.verifyInput(e);
     }
     public void prmtinviteReport_Changed() throws Exception {
-    	// TODO Auto-generated method stub
     	super.prmtinviteReport_Changed();
     	this.kDTable1.removeRows();
     	this.kDTable1.removeColumns();
@@ -158,10 +152,6 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
     	if(reportInfo != null) {
     		reportInfo = iinviteReport.getInviteReportInfo(new ObjectUuidPK(reportInfo.getId()));//招标方案完整信息
     		//过滤出该招标方案对应的专家信息
-//    		EntityViewInfo evi = new EntityViewInfo();
-//    		FilterInfo filter = new FilterInfo();
-//    		filter.getFilterItems().add(new FilterItemInfo("planName.id", reportInfo.getId(), CompareType.EQUALS));
-//    		evi.setFilter(filter);
     		String oql = "where planName.id='" + reportInfo.getId() + "'";
     		JudgesComfirmCollection judgeComColl = JudgesComfirmFactory.getRemoteInstance().getJudgesComfirmCollection(oql);
     		JudgesComfirmInfo judgeComInfo = judgeComColl.get(0);
@@ -169,14 +159,6 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
     		
     		//获取符合性审查模板
     		InviteReportE7Collection evaTmpEntryColl = reportInfo.getE7();
-//			evaTempInfo = EvaluationTemplateFactory.getRemoteInstance().getEvaluationTemplateInfo(new ObjectUuidPK(evaTempInfo.getId()));
-//			EvaluationTemplateEntryCollection evaTmpEntryColl = evaTempInfo.getEntry();
-    		
-    		//过滤该招标方案对应的开标登记信息
-//    		evi = new EntityViewInfo();
-//    		filter = new FilterInfo();
-//    		filter.getFilterItems().add(new FilterItemInfo("reportName.id", reportInfo.getId(), CompareType.EQUALS));
-//    		evi.setFilter(filter);
     		oql = "where reportName.id='" + reportInfo.getId() + "' and cancel<>'1' and status='4'";
     		OpenRegistrationCollection openRegColl = OpenRegistrationFactory.getRemoteInstance().getOpenRegistrationCollection(oql);
     		OpenRegistrationInfo openRegInfo = openRegColl.get(0);
@@ -909,19 +891,6 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
 		EvaluationTemplateEntryCollection evaEntryColl = evaTmpInfo.getEntry();//审查模板分录
 		int count = evaEntryColl.size() + 1;
 		//自动 得出符合性评审结果
-//		for(int c = 2; c < this.kDTable1.getColumnCount(); c++) {
-//			for(int r = 0; r < this.kDTable1.getRowCount(); r += count) {
-//				int invalid = 0;
-//				for(int i = r; i < r+count-1; i++) {
-//					if(kDTable1.getRow(i).getCell(c).getValue().equals(false))
-//						invalid++;
-//				}
-//				if(invalid > 0) 
-//					kDTable1.getRow(r+count-1).getCell(c).setValue(false);
-//				else
-//					kDTable1.getRow(r+count-1).getCell(c).setValue(true);
-//			}
-//		}
 
 		//保存评委，评审指标,符合性信息
 		for(int i = 0; i < this.kDTable1.getRowCount(); i++) {
@@ -976,10 +945,6 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
     		kDTable3.getRow(4).getCell(i).setValue("0");
     	}
 		//过滤开标登记
-//		EntityViewInfo evi = new EntityViewInfo();
-//		FilterInfo filter = new FilterInfo();
-//		filter.getFilterItems().add(new FilterItemInfo("reportName.id", reportInfo.getId(), CompareType.EQUALS));
-//		evi.setFilter(filter);
     	String oql = "where reportName.id='" + reportInfo.getId() + "' and cancel<>'1' and status='4'";
 		OpenRegistrationCollection openRegColl = OpenRegistrationFactory.getRemoteInstance().getOpenRegistrationCollection(oql);
 		if(openRegColl.size()<1)
@@ -1008,29 +973,23 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
     	}
     	//总分分录技术评分
     	if(judgeSolution.integrate.equals(this.evaSolution.getSelectedItem())) {
-    		//获取评分模板
-    		EvaluationTemplateInfo evaTempInfo = reportInfo.getEvaTemplate();
-    		evaTempInfo = EvaluationTemplateFactory.getRemoteInstance().getEvaluationTemplateInfo(new ObjectUuidPK(evaTempInfo.getId()));
-    		EvaluationTemplateEntryCollection evaTempEntryColl = evaTempInfo.getEntry();
-    		int cont = evaTempEntryColl.size();
+    		//获取评分指标
+    		int cont = reportInfo.getE6().size();
     		//获取专家确定
-//    		EntityViewInfo evijudge = new EntityViewInfo();
-//    		FilterInfo filterju = new FilterInfo();
-//    		filterju.getFilterItems().add(new FilterItemInfo("planName.id", reportInfo.getId(), CompareType.EQUALS));
-//    		evijudge.setFilter(filterju);
     		oql = "where planName.id='" + reportInfo.getId() + "'";
     		JudgesComfirmCollection judgeComColl = JudgesComfirmFactory.getRemoteInstance().getJudgesComfirmCollection(oql);
     		JudgesComfirmInfo judgeComInfo = judgeComColl.get(0);
     		JudgesComfirmEntryCollection judgeComEntryColl = judgeComInfo.getEntry();//专家确定分录
     		int jucount = judgeComEntryColl.size(); //评分专家人数
-    		
+    		BigDecimal BusinessScoQz = new BigDecimal(reportInfo.getBusinessScore()).divide(new BigDecimal("100"));//商务分权重
+    		BigDecimal TechScoreQz = new BigDecimal(reportInfo.getTechScore()).divide(new BigDecimal("100"));//技术分权重
     		//技术标得分
     		for(int c = 3; c < this.kDTable2.getColumnCount(); c++) {
         		BigDecimal fullscore = new BigDecimal(0);
     			for(int r = cont; r < this.kDTable2.getRowCount(); r += cont + 1) {	
     					fullscore = fullscore.add(new BigDecimal(kDTable2.getRow(r).getCell(c).getValue().toString()));
     				}
-    			kDTable3.getRow(2).getCell(c-2).setValue(fullscore.divide(new BigDecimal(jucount), 2, RoundingMode.HALF_UP).toString());
+    			kDTable3.getRow(2).getCell(c-2).setValue((fullscore.divide(new BigDecimal(jucount), 2).multiply(TechScoreQz)).setScale(2, 4).toString());
     		}
     		//计算评标基准价
     		ArrayList<String> price = new ArrayList<String>();//存放有效报价(通过符合性审查的)
@@ -1060,28 +1019,27 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
     		}
     		
     		//计算得分(商务分，总分)
-//    		BigDecimal businessScore = new BigDecimal(reportInfo.getBusinessScore());//商务分满分
     		BigDecimal businessScore = new BigDecimal("100");//商务分满分
-    		BigDecimal BusinessScoQz = new BigDecimal(reportInfo.getBusinessScore()).divide(new BigDecimal("100"));//商务分权重
-    		BigDecimal TechScoreQz = new BigDecimal(reportInfo.getTechScore()).divide(new BigDecimal("100"));//技术分权重
     		if(basePrice.compareTo(new BigDecimal(0)) > 0) {
 	    		for(int c = 1; c < this.kDTable3.getColumnCount(); c++) {
 	    			BigDecimal techScore = new BigDecimal(this.kDTable3.getRow(2).getCell(c).getValue().toString());//技术分
-	    			BigDecimal score = businessScore;//商务分满分
+	    			BigDecimal score = new BigDecimal(reportInfo.getBusinessScore());//商务分满分
 	    			BigDecimal evaprice = new BigDecimal(kDTable3.getRow(0).getCell(c).getValue().toString());//获得报价
 	    			BigDecimal sub = evaprice.subtract(basePrice);//报价基准价之差
 	    			if(sub.compareTo(new BigDecimal(0)) > 0) {
-	    				score = score.subtract(sub.abs().divide(basePrice, 2, BigDecimal.ROUND_DOWN).multiply(new BigDecimal(100)).multiply(new BigDecimal(reportInfo.getReduHigh())));
+	    				score = score.subtract(sub.abs().divide(basePrice, 4,4).multiply(new BigDecimal(100))
+	    						.multiply(new BigDecimal(reportInfo.getReduHigh()))).setScale(2,4);
 	    				if(score.compareTo(new BigDecimal(0)) <= 0)
 	    					score = new BigDecimal(0);
 	    			} else if(evaprice.subtract(basePrice).compareTo(new BigDecimal(0)) < 0) {
-	    				score = score.subtract(sub.abs().divide(basePrice, 2, BigDecimal.ROUND_DOWN).multiply(new BigDecimal(100)).multiply(new BigDecimal(reportInfo.getReduLow())));
+	    				score = score.subtract(sub.abs().divide(basePrice, 4,4).multiply(new BigDecimal(100))
+	    						.multiply(new BigDecimal(reportInfo.getReduLow()))).setScale(2,4);
 	    				if(score.compareTo(new BigDecimal(0)) <= 0)
 	    					score = new BigDecimal(0);
 	    			}
 	    			if(this.kDTable3.getRow(1).getCell(c).getValue().equals("合格")) {
 	    				this.kDTable3.getRow(3).getCell(c).setValue(score.toString());//总分分录商务分
-	    				this.kDTable3.getRow(4).getCell(c).setValue(score.multiply(BusinessScoQz).add(techScore.multiply(TechScoreQz)));//总分行
+	    				this.kDTable3.getRow(4).getCell(c).setValue(score.add(techScore));//总分行
 						
 	    			} else {
 	    				this.kDTable3.getRow(2).getCell(c).setValue(0);

@@ -18,6 +18,7 @@ public class AbstractWinInviteReportInfo extends com.kingdee.eas.xr.XRBillBaseIn
         super(pkField);
         put("Unit", new com.kingdee.eas.port.pm.invite.WinInviteReportUnitCollection());
         put("Judges", new com.kingdee.eas.port.pm.invite.WinInviteReportJudgeCollection());
+        put("BudgetEntry", new com.kingdee.eas.port.pm.invite.WinInviteReportBudgetEntryCollection());
     }
     /**
      * Object: 中标单位核备表 's 招标方案 property 
@@ -133,6 +134,35 @@ public class AbstractWinInviteReportInfo extends com.kingdee.eas.xr.XRBillBaseIn
     public void setInvitePrjName(String item)
     {
         setString("invitePrjName", item);
+    }
+    /**
+     * Object: 中标单位核备表 's 中标预算 property 
+     */
+    public com.kingdee.eas.port.pm.invite.WinInviteReportBudgetEntryCollection getBudgetEntry()
+    {
+        return (com.kingdee.eas.port.pm.invite.WinInviteReportBudgetEntryCollection)get("BudgetEntry");
+    }
+    /**
+     * Object:中标单位核备表's 中标金额property 
+     */
+    public java.math.BigDecimal getInvitedAmount()
+    {
+        return getBigDecimal("invitedAmount");
+    }
+    public void setInvitedAmount(java.math.BigDecimal item)
+    {
+        setBigDecimal("invitedAmount", item);
+    }
+    /**
+     * Object: 中标单位核备表 's 中标单位 property 
+     */
+    public com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockInfo getWinInviteUnit()
+    {
+        return (com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockInfo)get("winInviteUnit");
+    }
+    public void setWinInviteUnit(com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockInfo item)
+    {
+        put("winInviteUnit", item);
     }
     public BOSObjectType getBOSType()
     {

@@ -53,23 +53,23 @@ public class WinInviteReportListUI extends AbstractWinInviteReportListUI
         super();
     }
 
-    @Override
     protected String getEditUIModal() {
-    	// TODO Auto-generated method stub
     	return UIFactoryName.NEWTAB;
     }
-    @Override
     public void onLoad() throws Exception {
-    	// TODO Auto-generated method stub
     	super.onLoad();
     	buildProjectTree();
-    	
     	if(getUIContext().get("IDSET") != null)
     		kDTreeView1.setVisible(false); 
     	if(this.kDTree1.getRowCount()>0){
     		this.kDTree1.setSelectionRow(0);
     		this.kDTree1.expandAllNodes(true, (TreeNode) this.kDTree1.getModel().getRoot());
     	}
+    	if(getUIContext().get("reportId")!=null){
+    		kDTree1.setVisible(false);
+    		kDSplitPane1.remove(kDTree1);
+    		kDSplitPane1.remove(kDTreeView1);
+		}
     }
     
     protected Set authorizedOrgs = null;
@@ -124,7 +124,8 @@ public class WinInviteReportListUI extends AbstractWinInviteReportListUI
     	{
     		filterInfo.getFilterItems().add(new FilterItemInfo("id",getUIContext().get("IDSET"),CompareType.INCLUDE));
     	}
-    	
+    	if(getUIContext().get("reportId")!=null)
+    		filterInfo.getFilterItems().add(new FilterItemInfo("id",getUIContext().get("reportId")));
     	DefaultKingdeeTreeNode treeNode = (DefaultKingdeeTreeNode)this.kDTree1.getLastSelectedPathComponent();
     	if(treeNode!=null)
     	{
