@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<facade xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.port.pm.invest</package>
+    <name>ProjectBudgetFacade</name>
+    <alias>facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].alias</alias>
+    <description>facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].description</description>
+    <userDefined>true</userDefined>
+    <bosType>1FC99E48</bosType>
+    <stereoType>false</stereoType>
+    <businessImplName>com.kingdee.eas.port.pm.invest.ProjectBudgetFacade</businessImplName>
+    <businessControllerName>com.kingdee.eas.port.pm.invest.ProjectBudgetFacadeController</businessControllerName>
+    <accessLevel>public</accessLevel>
+    <subClassingMode>normal</subClassingMode>
+    <methods>
+        <method>
+            <name>subBudgetAmount</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[subBudgetAmount].alias</alias>
+            <description>facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[subBudgetAmount].description</description>
+            <innerID>3bcea400-bde7-4119-90a5-16daef9bfd9d</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>String[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>projectNumber</name>
+                    <alias>facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[subBudgetAmount].parameters.parameter[projectNumber].alias</alias>
+                    <description>facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[subBudgetAmount].parameters.parameter[projectNumber].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>year</name>
+                    <alias>facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[subBudgetAmount].parameters.parameter[year].alias</alias>
+                    <description>facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[subBudgetAmount].parameters.parameter[year].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>budgetNumber</name>
+                    <alias>facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[subBudgetAmount].parameters.parameter[budgetNumber].alias</alias>
+                    <description>facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[subBudgetAmount].parameters.parameter[budgetNumber].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>amount</name>
+                    <alias>facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[subBudgetAmount].parameters.parameter[amount].alias</alias>
+                    <description>facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[subBudgetAmount].parameters.parameter[amount].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>stag</name>
+                    <alias>facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[subBudgetAmount].parameters.parameter[stag].alias</alias>
+                    <description>facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[subBudgetAmount].parameters.parameter[stag].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>isBack</name>
+                    <alias>facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[subBudgetAmount].parameters.parameter[isBack].alias</alias>
+                    <description>facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[subBudgetAmount].parameters.parameter[isBack].description</description>
+                    <direction>in</direction>
+                    <dataType>Boolean</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>backAmount</name>
+                    <alias>facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[subBudgetAmount].parameters.parameter[backAmount].alias</alias>
+                    <description>facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[subBudgetAmount].parameters.parameter[backAmount].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>backBudgetAmount</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[backBudgetAmount].alias</alias>
+            <description>facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[backBudgetAmount].description</description>
+            <innerID>e46d2aee-6c41-4a0e-a159-997d0107f6fc</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>String[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>projectNumber</name>
+                    <alias>facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[backBudgetAmount].parameters.parameter[projectNumber].alias</alias>
+                    <description>facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[backBudgetAmount].parameters.parameter[projectNumber].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>year</name>
+                    <alias>facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[backBudgetAmount].parameters.parameter[year].alias</alias>
+                    <description>facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[backBudgetAmount].parameters.parameter[year].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>budgetNumber</name>
+                    <alias>facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[backBudgetAmount].parameters.parameter[budgetNumber].alias</alias>
+                    <description>facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[backBudgetAmount].parameters.parameter[budgetNumber].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>amount</name>
+                    <alias>facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[backBudgetAmount].parameters.parameter[amount].alias</alias>
+                    <description>facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[backBudgetAmount].parameters.parameter[amount].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>stag</name>
+                    <alias>facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[backBudgetAmount].parameters.parameter[stag].alias</alias>
+                    <description>facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[backBudgetAmount].parameters.parameter[stag].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>isBack</name>
+                    <alias>facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[backBudgetAmount].parameters.parameter[isBack].alias</alias>
+                    <description>facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[backBudgetAmount].parameters.parameter[isBack].description</description>
+                    <direction>in</direction>
+                    <dataType>Boolean</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>backAmount</name>
+                    <alias>facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[backBudgetAmount].parameters.parameter[backAmount].alias</alias>
+                    <description>facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[backBudgetAmount].parameters.parameter[backAmount].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+    </methods>
+    <resource>
+        <rs key="facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目预算" />
+            <lang locale="zh_HK" value="項目預算" />
+            <lang locale="zh_TW" value="項目預算" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目预算" />
+            <lang locale="zh_HK" value="項目預算" />
+            <lang locale="zh_TW" value="項目預算" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].extendedProperty.genBusinessImplCode">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].extendedProperty.userDefined">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[backBudgetAmount].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="返还预算" />
+            <lang locale="zh_HK" value="返還預算" />
+            <lang locale="zh_TW" value="返還預算" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[backBudgetAmount].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[backBudgetAmount].parameters.parameter[amount].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="金额" />
+            <lang locale="zh_HK" value="金額" />
+            <lang locale="zh_TW" value="金額" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[backBudgetAmount].parameters.parameter[amount].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[backBudgetAmount].parameters.parameter[backAmount].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="节省/超出金额" />
+            <lang locale="zh_HK" value="節省/超出金額" />
+            <lang locale="zh_TW" value="節省/超出金額" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[backBudgetAmount].parameters.parameter[backAmount].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[backBudgetAmount].parameters.parameter[budgetNumber].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="预算编码" />
+            <lang locale="zh_HK" value="預算編碼" />
+            <lang locale="zh_TW" value="預算編碼" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[backBudgetAmount].parameters.parameter[budgetNumber].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[backBudgetAmount].parameters.parameter[isBack].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否返还节省预算" />
+            <lang locale="zh_HK" value="是否返還節省預算" />
+            <lang locale="zh_TW" value="是否返還節省預算" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[backBudgetAmount].parameters.parameter[isBack].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[backBudgetAmount].parameters.parameter[projectNumber].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目编码" />
+            <lang locale="zh_HK" value="項目編碼" />
+            <lang locale="zh_TW" value="項目編碼" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[backBudgetAmount].parameters.parameter[projectNumber].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[backBudgetAmount].parameters.parameter[stag].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="阶段" />
+            <lang locale="zh_HK" value="階段" />
+            <lang locale="zh_TW" value="階段" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[backBudgetAmount].parameters.parameter[stag].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="（招标申报、中标、合同、付款、结算）" />
+            <lang locale="zh_HK" value="（招標申報、中標、合同、付款、結算）" />
+            <lang locale="zh_TW" value="（招標申報、中標、合同、付款、結算）" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[backBudgetAmount].parameters.parameter[year].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="年度" />
+            <lang locale="zh_HK" value="年度" />
+            <lang locale="zh_TW" value="年度" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[backBudgetAmount].parameters.parameter[year].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[subBudgetAmount].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="扣减预算" />
+            <lang locale="zh_HK" value="扣減預算" />
+            <lang locale="zh_TW" value="扣減預算" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[subBudgetAmount].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[subBudgetAmount].parameters.parameter[amount].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="金额" />
+            <lang locale="zh_HK" value="金額" />
+            <lang locale="zh_TW" value="金額" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[subBudgetAmount].parameters.parameter[amount].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[subBudgetAmount].parameters.parameter[backAmount].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="节省/超出金额" />
+            <lang locale="zh_HK" value="節省/超出金額" />
+            <lang locale="zh_TW" value="節省/超出金額" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[subBudgetAmount].parameters.parameter[backAmount].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[subBudgetAmount].parameters.parameter[budgetNumber].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="预算编码" />
+            <lang locale="zh_HK" value="預算編碼" />
+            <lang locale="zh_TW" value="預算編碼" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[subBudgetAmount].parameters.parameter[budgetNumber].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[subBudgetAmount].parameters.parameter[isBack].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否返还节省预算" />
+            <lang locale="zh_HK" value="是否返還節省預算" />
+            <lang locale="zh_TW" value="是否返還節省預算" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[subBudgetAmount].parameters.parameter[isBack].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[subBudgetAmount].parameters.parameter[projectNumber].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目编码" />
+            <lang locale="zh_HK" value="項目編碼" />
+            <lang locale="zh_TW" value="項目編碼" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[subBudgetAmount].parameters.parameter[projectNumber].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[subBudgetAmount].parameters.parameter[stag].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="阶段" />
+            <lang locale="zh_HK" value="階段" />
+            <lang locale="zh_TW" value="階段" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[subBudgetAmount].parameters.parameter[stag].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="（招标申报、中标、合同、付款、结算）" />
+            <lang locale="zh_HK" value="（招標申報、中標、合同、付款、結算）" />
+            <lang locale="zh_TW" value="（招標申報、中標、合同、付款、結算）" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[subBudgetAmount].parameters.parameter[year].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="年度" />
+            <lang locale="zh_HK" value="年度" />
+            <lang locale="zh_TW" value="年度" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.port.pm.invest.ProjectBudgetFacade].methods.method[subBudgetAmount].parameters.parameter[year].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+    </resource>
+</facade>
+

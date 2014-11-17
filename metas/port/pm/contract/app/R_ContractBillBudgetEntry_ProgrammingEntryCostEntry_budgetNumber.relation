@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<relationship xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.port.pm.contract.app</package>
+    <name>R_ContractBillBudgetEntry_ProgrammingEntryCostEntry_budgetNumber</name>
+    <alias>relationship[com.kingdee.eas.port.pm.contract.app.R_ContractBillBudgetEntry_ProgrammingEntryCostEntry_budgetNumber].alias</alias>
+    <description>relationship[com.kingdee.eas.port.pm.contract.app.R_ContractBillBudgetEntry_ProgrammingEntryCostEntry_budgetNumber].description</description>
+    <userDefined>true</userDefined>
+    <type>Association</type>
+    <clientCardinality>1</clientCardinality>
+    <supplierCardinality>0..1</supplierCardinality>
+    <xmlNodeRelationship />
+    <clientObject>
+        <key name="package" value="com.kingdee.eas.port.pm.contract.app" />
+        <key name="name" value="ContractBillBudgetEntry" />
+    </clientObject>
+    <supplierObject>
+        <key name="package" value="com.kingdee.eas.port.pm.invest.investplan.app" />
+        <key name="name" value="ProgrammingEntryCostEntry" />
+    </supplierObject>
+    <resource>
+        <rs key="relationship[com.kingdee.eas.port.pm.contract.app.R_ContractBillBudgetEntry_ProgrammingEntryCostEntry_budgetNumber].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="relationship[com.kingdee.eas.port.pm.contract.app.R_ContractBillBudgetEntry_ProgrammingEntryCostEntry_budgetNumber].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+    </resource>
+</relationship>
+
