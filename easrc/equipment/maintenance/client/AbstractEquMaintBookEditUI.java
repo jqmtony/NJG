@@ -46,30 +46,22 @@ import com.kingdee.bos.appframework.uip.UINavigator;
 public abstract class AbstractEquMaintBookEditUI extends com.kingdee.eas.xr.client.XRBillBaseEditUI
 {
     private static final Logger logger = CoreUIObject.getLogger(AbstractEquMaintBookEditUI.class);
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contCreator;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contCreateTime;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contLastUpdateUser;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contLastUpdateTime;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contAuditor;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contBizStatus;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contAuditTime;
+    protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtE3;
+	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtE3_detailPanel = null;
+    protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtE2;
+	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtE2_detailPanel = null;
+    protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtE1;
+	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtE1_detailPanel = null;
     protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel1;
     protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel2;
     protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel3;
-    protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtE1;
-	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtE1_detailPanel = null;
-    protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtE2;
-	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtE2_detailPanel = null;
-    protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtE3;
-	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtE3_detailPanel = null;
-    protected com.kingdee.bos.ctrl.swing.KDScrollPane kDScrollPane1;
-    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtCreator;
-    protected com.kingdee.bos.ctrl.swing.KDDatePicker pkCreateTime;
-    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtLastUpdateUser;
-    protected com.kingdee.bos.ctrl.swing.KDDatePicker pkLastUpdateTime;
-    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtAuditor;
-    protected com.kingdee.bos.ctrl.swing.KDComboBox comboBizStatus;
-    protected com.kingdee.bos.ctrl.swing.KDDatePicker pkAuditTime;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contAuditTime;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contBizStatus;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contAuditor;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contLastUpdateTime;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contLastUpdateUser;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contCreateTime;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contCreator;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contNumber;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contequNumber;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contuseDepart;
@@ -164,6 +156,13 @@ public abstract class AbstractEquMaintBookEditUI extends com.kingdee.eas.xr.clie
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkjiaojieTime;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkacStartTime;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkacEndTime;
+    protected com.kingdee.bos.ctrl.swing.KDDatePicker pkAuditTime;
+    protected com.kingdee.bos.ctrl.swing.KDComboBox comboBizStatus;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtAuditor;
+    protected com.kingdee.bos.ctrl.swing.KDDatePicker pkLastUpdateTime;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtLastUpdateUser;
+    protected com.kingdee.bos.ctrl.swing.KDDatePicker pkCreateTime;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtCreator;
     protected com.kingdee.eas.port.equipment.maintenance.EquMaintBookInfo editData = null;
     /**
      * output class constructor
@@ -214,27 +213,19 @@ public abstract class AbstractEquMaintBookEditUI extends com.kingdee.eas.xr.clie
         actionUnAudit.putValue(ItemAction.NAME, _tempStr);
         this.actionUnAudit.setBindWorkFlow(true);
          this.actionUnAudit.addService(new com.kingdee.eas.framework.client.service.PermissionService());
-        this.contCreator = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contCreateTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contLastUpdateUser = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contLastUpdateTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contAuditor = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contBizStatus = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contAuditTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.kdtE3 = new com.kingdee.bos.ctrl.kdf.table.KDTable();
+        this.kdtE2 = new com.kingdee.bos.ctrl.kdf.table.KDTable();
+        this.kdtE1 = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.kDPanel1 = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.kDPanel2 = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.kDPanel3 = new com.kingdee.bos.ctrl.swing.KDPanel();
-        this.kdtE1 = new com.kingdee.bos.ctrl.kdf.table.KDTable();
-        this.kdtE2 = new com.kingdee.bos.ctrl.kdf.table.KDTable();
-        this.kdtE3 = new com.kingdee.bos.ctrl.kdf.table.KDTable();
-        this.kDScrollPane1 = new com.kingdee.bos.ctrl.swing.KDScrollPane();
-        this.prmtCreator = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
-        this.pkCreateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
-        this.prmtLastUpdateUser = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
-        this.pkLastUpdateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
-        this.prmtAuditor = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
-        this.comboBizStatus = new com.kingdee.bos.ctrl.swing.KDComboBox();
-        this.pkAuditTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
+        this.contAuditTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contBizStatus = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contAuditor = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contLastUpdateTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contLastUpdateUser = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contCreateTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contCreator = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contNumber = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contequNumber = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contuseDepart = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -329,27 +320,26 @@ public abstract class AbstractEquMaintBookEditUI extends com.kingdee.eas.xr.clie
         this.pkjiaojieTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.pkacStartTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.pkacEndTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
-        this.contCreator.setName("contCreator");
-        this.contCreateTime.setName("contCreateTime");
-        this.contLastUpdateUser.setName("contLastUpdateUser");
-        this.contLastUpdateTime.setName("contLastUpdateTime");
-        this.contAuditor.setName("contAuditor");
-        this.contBizStatus.setName("contBizStatus");
-        this.contAuditTime.setName("contAuditTime");
+        this.pkAuditTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
+        this.comboBizStatus = new com.kingdee.bos.ctrl.swing.KDComboBox();
+        this.prmtAuditor = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.pkLastUpdateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
+        this.prmtLastUpdateUser = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.pkCreateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
+        this.prmtCreator = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.kdtE3.setName("kdtE3");
+        this.kdtE2.setName("kdtE2");
+        this.kdtE1.setName("kdtE1");
         this.kDPanel1.setName("kDPanel1");
         this.kDPanel2.setName("kDPanel2");
         this.kDPanel3.setName("kDPanel3");
-        this.kdtE1.setName("kdtE1");
-        this.kdtE2.setName("kdtE2");
-        this.kdtE3.setName("kdtE3");
-        this.kDScrollPane1.setName("kDScrollPane1");
-        this.prmtCreator.setName("prmtCreator");
-        this.pkCreateTime.setName("pkCreateTime");
-        this.prmtLastUpdateUser.setName("prmtLastUpdateUser");
-        this.pkLastUpdateTime.setName("pkLastUpdateTime");
-        this.prmtAuditor.setName("prmtAuditor");
-        this.comboBizStatus.setName("comboBizStatus");
-        this.pkAuditTime.setName("pkAuditTime");
+        this.contAuditTime.setName("contAuditTime");
+        this.contBizStatus.setName("contBizStatus");
+        this.contAuditor.setName("contAuditor");
+        this.contLastUpdateTime.setName("contLastUpdateTime");
+        this.contLastUpdateUser.setName("contLastUpdateUser");
+        this.contCreateTime.setName("contCreateTime");
+        this.contCreator.setName("contCreator");
         this.contNumber.setName("contNumber");
         this.contequNumber.setName("contequNumber");
         this.contuseDepart.setName("contuseDepart");
@@ -444,84 +434,52 @@ public abstract class AbstractEquMaintBookEditUI extends com.kingdee.eas.xr.clie
         this.pkjiaojieTime.setName("pkjiaojieTime");
         this.pkacStartTime.setName("pkacStartTime");
         this.pkacEndTime.setName("pkacEndTime");
-        // CoreUI
-        // contCreator		
-        this.contCreator.setBoundLabelText(resHelper.getString("contCreator.boundLabelText"));		
-        this.contCreator.setBoundLabelLength(100);		
-        this.contCreator.setBoundLabelUnderline(true);
-        // contCreateTime		
-        this.contCreateTime.setBoundLabelText(resHelper.getString("contCreateTime.boundLabelText"));		
-        this.contCreateTime.setBoundLabelLength(100);		
-        this.contCreateTime.setBoundLabelUnderline(true);
-        // contLastUpdateUser		
-        this.contLastUpdateUser.setBoundLabelText(resHelper.getString("contLastUpdateUser.boundLabelText"));		
-        this.contLastUpdateUser.setBoundLabelLength(100);		
-        this.contLastUpdateUser.setBoundLabelUnderline(true);
-        // contLastUpdateTime		
-        this.contLastUpdateTime.setBoundLabelText(resHelper.getString("contLastUpdateTime.boundLabelText"));		
-        this.contLastUpdateTime.setBoundLabelLength(100);		
-        this.contLastUpdateTime.setBoundLabelUnderline(true);
-        // contAuditor		
-        this.contAuditor.setBoundLabelText(resHelper.getString("contAuditor.boundLabelText"));		
-        this.contAuditor.setBoundLabelLength(100);		
-        this.contAuditor.setBoundLabelUnderline(true);
-        // contBizStatus		
-        this.contBizStatus.setBoundLabelText(resHelper.getString("contBizStatus.boundLabelText"));		
-        this.contBizStatus.setBoundLabelLength(100);		
-        this.contBizStatus.setBoundLabelUnderline(true);		
-        this.contBizStatus.setEnabled(false);
-        // contAuditTime		
-        this.contAuditTime.setBoundLabelText(resHelper.getString("contAuditTime.boundLabelText"));		
-        this.contAuditTime.setBoundLabelLength(100);		
-        this.contAuditTime.setBoundLabelUnderline(true);
-        // kDPanel1		
-        this.kDPanel1.setBorder(new TitledBorder(BorderFactory.createEtchedBorder(new Color(255,255,255),new Color(148,145,140)), resHelper.getString("kDPanel1.border.title")));
-        // kDPanel2		
-        this.kDPanel2.setBorder(new TitledBorder(BorderFactory.createEtchedBorder(new Color(255,255,255),new Color(148,145,140)), resHelper.getString("kDPanel2.border.title")));
-        // kDPanel3		
-        this.kDPanel3.setBorder(new TitledBorder(BorderFactory.createEtchedBorder(new Color(255,255,255),new Color(148,145,140)), resHelper.getString("kDPanel3.border.title")));
-        // kdtE1
-		String kdtE1StrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"xiangmuthree\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"biaozhun\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"shiji\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"jielunthree\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"beizhuone\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{xiangmuthree}</t:Cell><t:Cell>$Resource{biaozhun}</t:Cell><t:Cell>$Resource{shiji}</t:Cell><t:Cell>$Resource{jielunthree}</t:Cell><t:Cell>$Resource{beizhuone}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+        this.pkAuditTime.setName("pkAuditTime");
+        this.comboBizStatus.setName("comboBizStatus");
+        this.prmtAuditor.setName("prmtAuditor");
+        this.pkLastUpdateTime.setName("pkLastUpdateTime");
+        this.prmtLastUpdateUser.setName("prmtLastUpdateUser");
+        this.pkCreateTime.setName("pkCreateTime");
+        this.prmtCreator.setName("prmtCreator");
+        // CoreUI		
+        this.setPreferredSize(new Dimension(1013,629));
+        // kdtE3
+		String kdtE3StrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"jianchaxiangmu\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"yaoqiu\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"shice\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"jielun\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{jianchaxiangmu}</t:Cell><t:Cell>$Resource{yaoqiu}</t:Cell><t:Cell>$Resource{shice}</t:Cell><t:Cell>$Resource{jielun}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
-        this.kdtE1.setFormatXml(resHelper.translateString("kdtE1",kdtE1StrXML));
+        this.kdtE3.setFormatXml(resHelper.translateString("kdtE3",kdtE3StrXML));
 
-                this.kdtE1.putBindContents("editData",new String[] {"seq","xiangmuthree","biaozhun","shiji","jielunthree","beizhuone"});
+                this.kdtE3.putBindContents("editData",new String[] {"seq","jianchaxiangmu","yaoqiu","shice","jielun"});
 
 
-        this.kdtE1.checkParsed();
-        KDFormattedTextField kdtE1_seq_TextField = new KDFormattedTextField();
-        kdtE1_seq_TextField.setName("kdtE1_seq_TextField");
-        kdtE1_seq_TextField.setVisible(true);
-        kdtE1_seq_TextField.setEditable(true);
-        kdtE1_seq_TextField.setHorizontalAlignment(2);
-        kdtE1_seq_TextField.setDataType(0);
-        KDTDefaultCellEditor kdtE1_seq_CellEditor = new KDTDefaultCellEditor(kdtE1_seq_TextField);
-        this.kdtE1.getColumn("seq").setEditor(kdtE1_seq_CellEditor);
-        KDTextField kdtE1_xiangmuthree_TextField = new KDTextField();
-        kdtE1_xiangmuthree_TextField.setName("kdtE1_xiangmuthree_TextField");
-        kdtE1_xiangmuthree_TextField.setMaxLength(100);
-        KDTDefaultCellEditor kdtE1_xiangmuthree_CellEditor = new KDTDefaultCellEditor(kdtE1_xiangmuthree_TextField);
-        this.kdtE1.getColumn("xiangmuthree").setEditor(kdtE1_xiangmuthree_CellEditor);
-        KDTextField kdtE1_biaozhun_TextField = new KDTextField();
-        kdtE1_biaozhun_TextField.setName("kdtE1_biaozhun_TextField");
-        kdtE1_biaozhun_TextField.setMaxLength(225);
-        KDTDefaultCellEditor kdtE1_biaozhun_CellEditor = new KDTDefaultCellEditor(kdtE1_biaozhun_TextField);
-        this.kdtE1.getColumn("biaozhun").setEditor(kdtE1_biaozhun_CellEditor);
-        KDTextField kdtE1_shiji_TextField = new KDTextField();
-        kdtE1_shiji_TextField.setName("kdtE1_shiji_TextField");
-        kdtE1_shiji_TextField.setMaxLength(225);
-        KDTDefaultCellEditor kdtE1_shiji_CellEditor = new KDTDefaultCellEditor(kdtE1_shiji_TextField);
-        this.kdtE1.getColumn("shiji").setEditor(kdtE1_shiji_CellEditor);
-        KDTextField kdtE1_jielunthree_TextField = new KDTextField();
-        kdtE1_jielunthree_TextField.setName("kdtE1_jielunthree_TextField");
-        kdtE1_jielunthree_TextField.setMaxLength(255);
-        KDTDefaultCellEditor kdtE1_jielunthree_CellEditor = new KDTDefaultCellEditor(kdtE1_jielunthree_TextField);
-        this.kdtE1.getColumn("jielunthree").setEditor(kdtE1_jielunthree_CellEditor);
-        KDTextField kdtE1_beizhuone_TextField = new KDTextField();
-        kdtE1_beizhuone_TextField.setName("kdtE1_beizhuone_TextField");
-        kdtE1_beizhuone_TextField.setMaxLength(225);
-        KDTDefaultCellEditor kdtE1_beizhuone_CellEditor = new KDTDefaultCellEditor(kdtE1_beizhuone_TextField);
-        this.kdtE1.getColumn("beizhuone").setEditor(kdtE1_beizhuone_CellEditor);
+        this.kdtE3.checkParsed();
+        KDFormattedTextField kdtE3_seq_TextField = new KDFormattedTextField();
+        kdtE3_seq_TextField.setName("kdtE3_seq_TextField");
+        kdtE3_seq_TextField.setVisible(true);
+        kdtE3_seq_TextField.setEditable(true);
+        kdtE3_seq_TextField.setHorizontalAlignment(2);
+        kdtE3_seq_TextField.setDataType(0);
+        KDTDefaultCellEditor kdtE3_seq_CellEditor = new KDTDefaultCellEditor(kdtE3_seq_TextField);
+        this.kdtE3.getColumn("seq").setEditor(kdtE3_seq_CellEditor);
+        KDTextField kdtE3_jianchaxiangmu_TextField = new KDTextField();
+        kdtE3_jianchaxiangmu_TextField.setName("kdtE3_jianchaxiangmu_TextField");
+        kdtE3_jianchaxiangmu_TextField.setMaxLength(100);
+        KDTDefaultCellEditor kdtE3_jianchaxiangmu_CellEditor = new KDTDefaultCellEditor(kdtE3_jianchaxiangmu_TextField);
+        this.kdtE3.getColumn("jianchaxiangmu").setEditor(kdtE3_jianchaxiangmu_CellEditor);
+        KDTextField kdtE3_yaoqiu_TextField = new KDTextField();
+        kdtE3_yaoqiu_TextField.setName("kdtE3_yaoqiu_TextField");
+        kdtE3_yaoqiu_TextField.setMaxLength(225);
+        KDTDefaultCellEditor kdtE3_yaoqiu_CellEditor = new KDTDefaultCellEditor(kdtE3_yaoqiu_TextField);
+        this.kdtE3.getColumn("yaoqiu").setEditor(kdtE3_yaoqiu_CellEditor);
+        KDTextField kdtE3_shice_TextField = new KDTextField();
+        kdtE3_shice_TextField.setName("kdtE3_shice_TextField");
+        kdtE3_shice_TextField.setMaxLength(225);
+        KDTDefaultCellEditor kdtE3_shice_CellEditor = new KDTDefaultCellEditor(kdtE3_shice_TextField);
+        this.kdtE3.getColumn("shice").setEditor(kdtE3_shice_CellEditor);
+        KDTextField kdtE3_jielun_TextField = new KDTextField();
+        kdtE3_jielun_TextField.setName("kdtE3_jielun_TextField");
+        kdtE3_jielun_TextField.setMaxLength(225);
+        KDTDefaultCellEditor kdtE3_jielun_CellEditor = new KDTDefaultCellEditor(kdtE3_jielun_TextField);
+        this.kdtE3.getColumn("jielun").setEditor(kdtE3_jielun_CellEditor);
         // kdtE2
 		String kdtE2StrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"xiangmuone\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"kongone\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"fuone\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"kongtwo\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"futwo\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"kongthree\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"futhree\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"jieluntwo\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"note\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header2\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{xiangmuone}</t:Cell><t:Cell>$Resource{kongone}</t:Cell><t:Cell>$Resource{fuone}</t:Cell><t:Cell>$Resource{kongtwo}</t:Cell><t:Cell>$Resource{futwo}</t:Cell><t:Cell>$Resource{kongthree}</t:Cell><t:Cell>$Resource{futhree}</t:Cell><t:Cell>$Resource{jieluntwo}</t:Cell><t:Cell>$Resource{note}</t:Cell></t:Row><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq_Row2}</t:Cell><t:Cell>$Resource{xiangmuone_Row2}</t:Cell><t:Cell>$Resource{kongone_Row2}</t:Cell><t:Cell>$Resource{fuone_Row2}</t:Cell><t:Cell>$Resource{kongtwo_Row2}</t:Cell><t:Cell>$Resource{futwo_Row2}</t:Cell><t:Cell>$Resource{kongthree_Row2}</t:Cell><t:Cell>$Resource{futhree_Row2}</t:Cell><t:Cell>$Resource{jieluntwo_Row2}</t:Cell><t:Cell>$Resource{note_Row2}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head><t:Block t:top=\"0\" t:left=\"1\" t:bottom=\"1\" t:right=\"1\" /><t:Block t:top=\"0\" t:left=\"2\" t:bottom=\"0\" t:right=\"3\" /><t:Block t:top=\"0\" t:left=\"4\" t:bottom=\"0\" t:right=\"5\" /><t:Block t:top=\"0\" t:left=\"6\" t:bottom=\"0\" t:right=\"7\" /><t:Block t:top=\"0\" t:left=\"8\" t:bottom=\"1\" t:right=\"8\" /><t:Block t:top=\"0\" t:left=\"9\" t:bottom=\"1\" t:right=\"9\" /></t:Head></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
@@ -584,72 +542,84 @@ public abstract class AbstractEquMaintBookEditUI extends com.kingdee.eas.xr.clie
         kdtE2_note_TextField.setMaxLength(225);
         KDTDefaultCellEditor kdtE2_note_CellEditor = new KDTDefaultCellEditor(kdtE2_note_TextField);
         this.kdtE2.getColumn("note").setEditor(kdtE2_note_CellEditor);
-        // kdtE3
-		String kdtE3StrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"jianchaxiangmu\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"yaoqiu\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"shice\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"jielun\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{jianchaxiangmu}</t:Cell><t:Cell>$Resource{yaoqiu}</t:Cell><t:Cell>$Resource{shice}</t:Cell><t:Cell>$Resource{jielun}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+        // kdtE1
+		String kdtE1StrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"xiangmuthree\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"biaozhun\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"shiji\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"jielunthree\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"beizhuone\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{xiangmuthree}</t:Cell><t:Cell>$Resource{biaozhun}</t:Cell><t:Cell>$Resource{shiji}</t:Cell><t:Cell>$Resource{jielunthree}</t:Cell><t:Cell>$Resource{beizhuone}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
-        this.kdtE3.setFormatXml(resHelper.translateString("kdtE3",kdtE3StrXML));
+        this.kdtE1.setFormatXml(resHelper.translateString("kdtE1",kdtE1StrXML));
 
-                this.kdtE3.putBindContents("editData",new String[] {"seq","jianchaxiangmu","yaoqiu","shice","jielun"});
+                this.kdtE1.putBindContents("editData",new String[] {"seq","xiangmuthree","biaozhun","shiji","jielunthree","beizhuone"});
 
 
-        this.kdtE3.checkParsed();
-        KDFormattedTextField kdtE3_seq_TextField = new KDFormattedTextField();
-        kdtE3_seq_TextField.setName("kdtE3_seq_TextField");
-        kdtE3_seq_TextField.setVisible(true);
-        kdtE3_seq_TextField.setEditable(true);
-        kdtE3_seq_TextField.setHorizontalAlignment(2);
-        kdtE3_seq_TextField.setDataType(0);
-        KDTDefaultCellEditor kdtE3_seq_CellEditor = new KDTDefaultCellEditor(kdtE3_seq_TextField);
-        this.kdtE3.getColumn("seq").setEditor(kdtE3_seq_CellEditor);
-        KDTextField kdtE3_jianchaxiangmu_TextField = new KDTextField();
-        kdtE3_jianchaxiangmu_TextField.setName("kdtE3_jianchaxiangmu_TextField");
-        kdtE3_jianchaxiangmu_TextField.setMaxLength(100);
-        KDTDefaultCellEditor kdtE3_jianchaxiangmu_CellEditor = new KDTDefaultCellEditor(kdtE3_jianchaxiangmu_TextField);
-        this.kdtE3.getColumn("jianchaxiangmu").setEditor(kdtE3_jianchaxiangmu_CellEditor);
-        KDTextField kdtE3_yaoqiu_TextField = new KDTextField();
-        kdtE3_yaoqiu_TextField.setName("kdtE3_yaoqiu_TextField");
-        kdtE3_yaoqiu_TextField.setMaxLength(225);
-        KDTDefaultCellEditor kdtE3_yaoqiu_CellEditor = new KDTDefaultCellEditor(kdtE3_yaoqiu_TextField);
-        this.kdtE3.getColumn("yaoqiu").setEditor(kdtE3_yaoqiu_CellEditor);
-        KDTextField kdtE3_shice_TextField = new KDTextField();
-        kdtE3_shice_TextField.setName("kdtE3_shice_TextField");
-        kdtE3_shice_TextField.setMaxLength(225);
-        KDTDefaultCellEditor kdtE3_shice_CellEditor = new KDTDefaultCellEditor(kdtE3_shice_TextField);
-        this.kdtE3.getColumn("shice").setEditor(kdtE3_shice_CellEditor);
-        KDTextField kdtE3_jielun_TextField = new KDTextField();
-        kdtE3_jielun_TextField.setName("kdtE3_jielun_TextField");
-        kdtE3_jielun_TextField.setMaxLength(225);
-        KDTDefaultCellEditor kdtE3_jielun_CellEditor = new KDTDefaultCellEditor(kdtE3_jielun_TextField);
-        this.kdtE3.getColumn("jielun").setEditor(kdtE3_jielun_CellEditor);
-        // kDScrollPane1
-        // prmtCreator		
-        this.prmtCreator.setEnabled(false);		
-        this.prmtCreator.setCommitFormat("$name$");		
-        this.prmtCreator.setEditFormat("$name$");		
-        this.prmtCreator.setDisplayFormat("$name$");
-        // pkCreateTime		
-        this.pkCreateTime.setTimeEnabled(true);		
-        this.pkCreateTime.setEnabled(false);
-        // prmtLastUpdateUser		
-        this.prmtLastUpdateUser.setEnabled(false);		
-        this.prmtLastUpdateUser.setDisplayFormat("$name$");		
-        this.prmtLastUpdateUser.setEditFormat("$name$");		
-        this.prmtLastUpdateUser.setCommitFormat("$name$");
-        // pkLastUpdateTime		
-        this.pkLastUpdateTime.setTimeEnabled(true);		
-        this.pkLastUpdateTime.setEnabled(false);
-        // prmtAuditor		
-        this.prmtAuditor.setEnabled(false);		
-        this.prmtAuditor.setCommitFormat("$name$");		
-        this.prmtAuditor.setDisplayFormat("$name$");		
-        this.prmtAuditor.setEditFormat("$name$");
-        // comboBizStatus		
-        this.comboBizStatus.addItems(EnumUtils.getEnumList("com.kingdee.eas.xr.app.XRBizActionEnum").toArray());		
-        this.comboBizStatus.setEnabled(false);		
-        this.comboBizStatus.setVisible(false);
-        // pkAuditTime		
-        this.pkAuditTime.setTimeEnabled(true);		
-        this.pkAuditTime.setEnabled(false);
+        this.kdtE1.checkParsed();
+        KDFormattedTextField kdtE1_seq_TextField = new KDFormattedTextField();
+        kdtE1_seq_TextField.setName("kdtE1_seq_TextField");
+        kdtE1_seq_TextField.setVisible(true);
+        kdtE1_seq_TextField.setEditable(true);
+        kdtE1_seq_TextField.setHorizontalAlignment(2);
+        kdtE1_seq_TextField.setDataType(0);
+        KDTDefaultCellEditor kdtE1_seq_CellEditor = new KDTDefaultCellEditor(kdtE1_seq_TextField);
+        this.kdtE1.getColumn("seq").setEditor(kdtE1_seq_CellEditor);
+        KDTextField kdtE1_xiangmuthree_TextField = new KDTextField();
+        kdtE1_xiangmuthree_TextField.setName("kdtE1_xiangmuthree_TextField");
+        kdtE1_xiangmuthree_TextField.setMaxLength(100);
+        KDTDefaultCellEditor kdtE1_xiangmuthree_CellEditor = new KDTDefaultCellEditor(kdtE1_xiangmuthree_TextField);
+        this.kdtE1.getColumn("xiangmuthree").setEditor(kdtE1_xiangmuthree_CellEditor);
+        KDTextField kdtE1_biaozhun_TextField = new KDTextField();
+        kdtE1_biaozhun_TextField.setName("kdtE1_biaozhun_TextField");
+        kdtE1_biaozhun_TextField.setMaxLength(225);
+        KDTDefaultCellEditor kdtE1_biaozhun_CellEditor = new KDTDefaultCellEditor(kdtE1_biaozhun_TextField);
+        this.kdtE1.getColumn("biaozhun").setEditor(kdtE1_biaozhun_CellEditor);
+        KDTextField kdtE1_shiji_TextField = new KDTextField();
+        kdtE1_shiji_TextField.setName("kdtE1_shiji_TextField");
+        kdtE1_shiji_TextField.setMaxLength(225);
+        KDTDefaultCellEditor kdtE1_shiji_CellEditor = new KDTDefaultCellEditor(kdtE1_shiji_TextField);
+        this.kdtE1.getColumn("shiji").setEditor(kdtE1_shiji_CellEditor);
+        KDTextField kdtE1_jielunthree_TextField = new KDTextField();
+        kdtE1_jielunthree_TextField.setName("kdtE1_jielunthree_TextField");
+        kdtE1_jielunthree_TextField.setMaxLength(255);
+        KDTDefaultCellEditor kdtE1_jielunthree_CellEditor = new KDTDefaultCellEditor(kdtE1_jielunthree_TextField);
+        this.kdtE1.getColumn("jielunthree").setEditor(kdtE1_jielunthree_CellEditor);
+        KDTextField kdtE1_beizhuone_TextField = new KDTextField();
+        kdtE1_beizhuone_TextField.setName("kdtE1_beizhuone_TextField");
+        kdtE1_beizhuone_TextField.setMaxLength(225);
+        KDTDefaultCellEditor kdtE1_beizhuone_CellEditor = new KDTDefaultCellEditor(kdtE1_beizhuone_TextField);
+        this.kdtE1.getColumn("beizhuone").setEditor(kdtE1_beizhuone_CellEditor);
+        // kDPanel1		
+        this.kDPanel1.setBorder(new TitledBorder(BorderFactory.createEtchedBorder(new Color(255,255,255),new Color(148,145,140)), resHelper.getString("kDPanel1.border.title")));		
+        this.kDPanel1.setPreferredSize(new Dimension(1003,211));
+        // kDPanel2		
+        this.kDPanel2.setBorder(new TitledBorder(BorderFactory.createEtchedBorder(new Color(255,255,255),new Color(148,145,140)), resHelper.getString("kDPanel2.border.title")));
+        // kDPanel3		
+        this.kDPanel3.setBorder(new TitledBorder(BorderFactory.createEtchedBorder(new Color(255,255,255),new Color(148,145,140)), resHelper.getString("kDPanel3.border.title")));
+        // contAuditTime		
+        this.contAuditTime.setBoundLabelText(resHelper.getString("contAuditTime.boundLabelText"));		
+        this.contAuditTime.setBoundLabelLength(100);		
+        this.contAuditTime.setBoundLabelUnderline(true);
+        // contBizStatus		
+        this.contBizStatus.setBoundLabelText(resHelper.getString("contBizStatus.boundLabelText"));		
+        this.contBizStatus.setBoundLabelLength(100);		
+        this.contBizStatus.setBoundLabelUnderline(true);		
+        this.contBizStatus.setEnabled(false);
+        // contAuditor		
+        this.contAuditor.setBoundLabelText(resHelper.getString("contAuditor.boundLabelText"));		
+        this.contAuditor.setBoundLabelLength(100);		
+        this.contAuditor.setBoundLabelUnderline(true);
+        // contLastUpdateTime		
+        this.contLastUpdateTime.setBoundLabelText(resHelper.getString("contLastUpdateTime.boundLabelText"));		
+        this.contLastUpdateTime.setBoundLabelLength(100);		
+        this.contLastUpdateTime.setBoundLabelUnderline(true);
+        // contLastUpdateUser		
+        this.contLastUpdateUser.setBoundLabelText(resHelper.getString("contLastUpdateUser.boundLabelText"));		
+        this.contLastUpdateUser.setBoundLabelLength(100);		
+        this.contLastUpdateUser.setBoundLabelUnderline(true);
+        // contCreateTime		
+        this.contCreateTime.setBoundLabelText(resHelper.getString("contCreateTime.boundLabelText"));		
+        this.contCreateTime.setBoundLabelLength(100);		
+        this.contCreateTime.setBoundLabelUnderline(true);
+        // contCreator		
+        this.contCreator.setBoundLabelText(resHelper.getString("contCreator.boundLabelText"));		
+        this.contCreator.setBoundLabelLength(100);		
+        this.contCreator.setBoundLabelUnderline(true);
         // contNumber		
         this.contNumber.setBoundLabelText(resHelper.getString("contNumber.boundLabelText"));		
         this.contNumber.setBoundLabelLength(100);		
@@ -1087,6 +1057,34 @@ public abstract class AbstractEquMaintBookEditUI extends com.kingdee.eas.xr.clie
         // pkacEndTime		
         this.pkacEndTime.setVisible(true);		
         this.pkacEndTime.setRequired(false);
+        // pkAuditTime		
+        this.pkAuditTime.setTimeEnabled(true);		
+        this.pkAuditTime.setEnabled(false);
+        // comboBizStatus		
+        this.comboBizStatus.addItems(EnumUtils.getEnumList("com.kingdee.eas.xr.app.XRBizActionEnum").toArray());		
+        this.comboBizStatus.setEnabled(false);		
+        this.comboBizStatus.setVisible(false);
+        // prmtAuditor		
+        this.prmtAuditor.setEnabled(false);		
+        this.prmtAuditor.setCommitFormat("$name$");		
+        this.prmtAuditor.setDisplayFormat("$name$");		
+        this.prmtAuditor.setEditFormat("$name$");
+        // pkLastUpdateTime		
+        this.pkLastUpdateTime.setTimeEnabled(true);		
+        this.pkLastUpdateTime.setEnabled(false);
+        // prmtLastUpdateUser		
+        this.prmtLastUpdateUser.setEnabled(false);		
+        this.prmtLastUpdateUser.setDisplayFormat("$name$");		
+        this.prmtLastUpdateUser.setEditFormat("$name$");		
+        this.prmtLastUpdateUser.setCommitFormat("$name$");
+        // pkCreateTime		
+        this.pkCreateTime.setTimeEnabled(true);		
+        this.pkCreateTime.setEnabled(false);
+        // prmtCreator		
+        this.prmtCreator.setEnabled(false);		
+        this.prmtCreator.setCommitFormat("$name$");		
+        this.prmtCreator.setEditFormat("$name$");		
+        this.prmtCreator.setDisplayFormat("$name$");
         this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmtequNumber,txtequName,txtmodel,txtuseDepart,prmtxiadaPerson,prmtxiadaDepart,pkxiadaTiem,prmtweixiuType,txtbaoqianxiangmu,txtmainNeirong,txtgenghuanling,txtshijian,txtyingdu,prmtzhuxiuqiangong,prmtzhuxiudiangong,prmtjianyanyuan,txtdianqishebei,txtchuangdong,txtrunhua,txtqiexiao,prmtbanzhang,prmtzhuxiuone,prmtjianyanyuanone,txtleixing,txtleixingone,txtchejianyijian,prmtchejianlingdao,prmtjieshouren,prmtyijiaoren,prmtyijiaodanwei,pkjiaojieTime,pkacStartTime,pkacEndTime,pkplanStartTime,pkplanEndTime}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
@@ -1113,94 +1111,78 @@ public abstract class AbstractEquMaintBookEditUI extends com.kingdee.eas.xr.clie
      */
     public void initUIContentLayout()
     {
-        this.setBounds(new Rectangle(10, 10, 1035, 797));
+        this.setBounds(new Rectangle(10, 10, 1013, 629));
         this.setLayout(new KDLayout());
-        this.putClientProperty("OriginalBounds", new Rectangle(10, 10, 1035, 797));
-        contCreator.setBounds(new Rectangle(5, 753, 270, 19));
-        this.add(contCreator, new KDLayout.Constraints(5, 753, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        contCreateTime.setBounds(new Rectangle(5, 774, 270, 19));
-        this.add(contCreateTime, new KDLayout.Constraints(5, 774, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        contLastUpdateUser.setBounds(new Rectangle(371, 753, 270, 19));
-        this.add(contLastUpdateUser, new KDLayout.Constraints(371, 753, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        contLastUpdateTime.setBounds(new Rectangle(371, 774, 270, 19));
-        this.add(contLastUpdateTime, new KDLayout.Constraints(371, 774, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        contAuditor.setBounds(new Rectangle(738, 753, 270, 19));
-        this.add(contAuditor, new KDLayout.Constraints(738, 753, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        contBizStatus.setBounds(new Rectangle(974, 753, 270, 19));
-        this.add(contBizStatus, new KDLayout.Constraints(974, 753, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        contAuditTime.setBounds(new Rectangle(738, 774, 270, 19));
-        this.add(contAuditTime, new KDLayout.Constraints(738, 774, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        kDPanel1.setBounds(new Rectangle(5, 10, 1003, 211));
-        this.add(kDPanel1, new KDLayout.Constraints(5, 10, 1003, 211, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        kDPanel2.setBounds(new Rectangle(5, 223, 1003, 46));
-        this.add(kDPanel2, new KDLayout.Constraints(5, 223, 1003, 46, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        kDPanel3.setBounds(new Rectangle(6, 560, 1003, 189));
-        this.add(kDPanel3, new KDLayout.Constraints(6, 560, 1003, 189, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        kdtE1.setBounds(new Rectangle(513, 415, 495, 139));
-        kdtE1_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtE1,new com.kingdee.eas.port.equipment.maintenance.EquMaintBookE1Info(),null,false);
-        this.add(kdtE1_detailPanel, new KDLayout.Constraints(513, 415, 495, 139, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        kdtE2.setBounds(new Rectangle(513, 272, 495, 139));
-        kdtE2_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtE2,new com.kingdee.eas.port.equipment.maintenance.EquMaintBookE2Info(),null,false);
-        this.add(kdtE2_detailPanel, new KDLayout.Constraints(513, 272, 495, 139, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        kdtE3.setBounds(new Rectangle(5, 272, 505, 283));
+        this.putClientProperty("OriginalBounds", new Rectangle(10, 10, 1013, 629));
+        kdtE3.setBounds(new Rectangle(5, 197, 505, 203));
         kdtE3_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtE3,new com.kingdee.eas.port.equipment.maintenance.EquMaintBookE3Info(),null,false);
-        this.add(kdtE3_detailPanel, new KDLayout.Constraints(5, 272, 505, 283, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        kDScrollPane1.setBounds(new Rectangle(1, 4, 1034, 792));
-        this.add(kDScrollPane1, new KDLayout.Constraints(1, 4, 1034, 792, 0));
-        //contCreator
-        contCreator.setBoundEditor(prmtCreator);
-        //contCreateTime
-        contCreateTime.setBoundEditor(pkCreateTime);
-        //contLastUpdateUser
-        contLastUpdateUser.setBoundEditor(prmtLastUpdateUser);
-        //contLastUpdateTime
-        contLastUpdateTime.setBoundEditor(pkLastUpdateTime);
-        //contAuditor
-        contAuditor.setBoundEditor(prmtAuditor);
-        //contBizStatus
-        contBizStatus.setBoundEditor(comboBizStatus);
-        //contAuditTime
-        contAuditTime.setBoundEditor(pkAuditTime);
+        this.add(kdtE3_detailPanel, new KDLayout.Constraints(5, 197, 505, 203, 0));
+        kdtE2.setBounds(new Rectangle(513, 197, 495, 111));
+        kdtE2_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtE2,new com.kingdee.eas.port.equipment.maintenance.EquMaintBookE2Info(),null,false);
+        this.add(kdtE2_detailPanel, new KDLayout.Constraints(513, 197, 495, 111, 0));
+        kdtE1.setBounds(new Rectangle(513, 310, 495, 89));
+        kdtE1_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtE1,new com.kingdee.eas.port.equipment.maintenance.EquMaintBookE1Info(),null,false);
+        this.add(kdtE1_detailPanel, new KDLayout.Constraints(513, 310, 495, 89, 0));
+        kDPanel1.setBounds(new Rectangle(5, 5, 1003, 143));
+        this.add(kDPanel1, new KDLayout.Constraints(5, 5, 1003, 143, 0));
+        kDPanel2.setBounds(new Rectangle(5, 149, 1003, 46));
+        this.add(kDPanel2, new KDLayout.Constraints(5, 149, 1003, 46, 0));
+        kDPanel3.setBounds(new Rectangle(6, 402, 1003, 184));
+        this.add(kDPanel3, new KDLayout.Constraints(6, 402, 1003, 184, 0));
+        contAuditTime.setBounds(new Rectangle(738, 587, 270, 19));
+        this.add(contAuditTime, new KDLayout.Constraints(738, 587, 270, 19, 0));
+        contBizStatus.setBounds(new Rectangle(974, 753, 270, 19));
+        this.add(contBizStatus, new KDLayout.Constraints(974, 753, 270, 19, 0));
+        contAuditor.setBounds(new Rectangle(738, 607, 270, 19));
+        this.add(contAuditor, new KDLayout.Constraints(738, 607, 270, 19, 0));
+        contLastUpdateTime.setBounds(new Rectangle(371, 608, 270, 19));
+        this.add(contLastUpdateTime, new KDLayout.Constraints(371, 608, 270, 19, 0));
+        contLastUpdateUser.setBounds(new Rectangle(371, 588, 270, 19));
+        this.add(contLastUpdateUser, new KDLayout.Constraints(371, 588, 270, 19, 0));
+        contCreateTime.setBounds(new Rectangle(5, 608, 270, 19));
+        this.add(contCreateTime, new KDLayout.Constraints(5, 608, 270, 19, 0));
+        contCreator.setBounds(new Rectangle(5, 588, 270, 19));
+        this.add(contCreator, new KDLayout.Constraints(5, 588, 270, 19, 0));
         //kDPanel1
-        kDPanel1.setLayout(null);        contNumber.setBounds(new Rectangle(11, 13, 270, 19));
+        kDPanel1.setLayout(null);        contNumber.setBounds(new Rectangle(11, 13, 207, 19));
         kDPanel1.add(contNumber, null);
-        contequNumber.setBounds(new Rectangle(11, 33, 270, 19));
+        contequNumber.setBounds(new Rectangle(11, 33, 207, 19));
         kDPanel1.add(contequNumber, null);
-        contuseDepart.setBounds(new Rectangle(11, 53, 270, 19));
+        contuseDepart.setBounds(new Rectangle(782, 36, 207, 19));
         kDPanel1.add(contuseDepart, null);
-        contxiadaPerson.setBounds(new Rectangle(11, 73, 270, 19));
+        contxiadaPerson.setBounds(new Rectangle(268, 53, 207, 19));
         kDPanel1.add(contxiadaPerson, null);
-        contBizDate.setBounds(new Rectangle(365, 13, 270, 19));
+        contBizDate.setBounds(new Rectangle(268, 13, 207, 19));
         kDPanel1.add(contBizDate, null);
-        contequName.setBounds(new Rectangle(365, 33, 270, 19));
+        contequName.setBounds(new Rectangle(268, 33, 207, 19));
         kDPanel1.add(contequName, null);
-        contweixiuType.setBounds(new Rectangle(365, 53, 270, 19));
+        contweixiuType.setBounds(new Rectangle(11, 53, 207, 19));
         kDPanel1.add(contweixiuType, null);
-        contxiadaDepart.setBounds(new Rectangle(365, 73, 270, 19));
+        contxiadaDepart.setBounds(new Rectangle(525, 53, 207, 19));
         kDPanel1.add(contxiadaDepart, null);
-        contCU.setBounds(new Rectangle(719, 13, 270, 19));
+        contCU.setBounds(new Rectangle(525, 13, 207, 19));
         kDPanel1.add(contCU, null);
-        contmodel.setBounds(new Rectangle(719, 33, 270, 19));
+        contmodel.setBounds(new Rectangle(525, 33, 207, 19));
         kDPanel1.add(contmodel, null);
-        contStatus.setBounds(new Rectangle(719, 53, 270, 19));
+        contStatus.setBounds(new Rectangle(782, 13, 207, 19));
         kDPanel1.add(contStatus, null);
-        contxiadaTiem.setBounds(new Rectangle(719, 73, 270, 19));
+        contxiadaTiem.setBounds(new Rectangle(782, 53, 207, 19));
         kDPanel1.add(contxiadaTiem, null);
-        contbaoqianxiangmu.setBounds(new Rectangle(11, 93, 624, 28));
+        contbaoqianxiangmu.setBounds(new Rectangle(11, 73, 207, 35));
         kDPanel1.add(contbaoqianxiangmu, null);
-        contmainNeirong.setBounds(new Rectangle(11, 121, 624, 31));
+        contmainNeirong.setBounds(new Rectangle(268, 73, 464, 35));
         kDPanel1.add(contmainNeirong, null);
-        contgenghuanling.setBounds(new Rectangle(11, 153, 270, 44));
+        contgenghuanling.setBounds(new Rectangle(782, 73, 207, 35));
         kDPanel1.add(contgenghuanling, null);
-        contyingdu.setBounds(new Rectangle(719, 139, 270, 58));
+        contyingdu.setBounds(new Rectangle(268, 108, 207, 19));
         kDPanel1.add(contyingdu, null);
-        contshijian.setBounds(new Rectangle(365, 153, 270, 44));
+        contshijian.setBounds(new Rectangle(11, 108, 207, 19));
         kDPanel1.add(contshijian, null);
         contDescription.setBounds(new Rectangle(933, -7, 270, 19));
         kDPanel1.add(contDescription, null);
-        contplanStartTime.setBounds(new Rectangle(719, 95, 270, 19));
+        contplanStartTime.setBounds(new Rectangle(782, 108, 207, 19));
         kDPanel1.add(contplanStartTime, null);
-        contplanEndTime.setBounds(new Rectangle(719, 117, 270, 19));
+        contplanEndTime.setBounds(new Rectangle(525, 108, 207, 19));
         kDPanel1.add(contplanEndTime, null);
         //contNumber
         contNumber.setBoundEditor(txtNumber);
@@ -1253,11 +1235,11 @@ public abstract class AbstractEquMaintBookEditUI extends com.kingdee.eas.xr.clie
         //contplanEndTime
         contplanEndTime.setBoundEditor(pkplanEndTime);
         //kDPanel2
-        kDPanel2.setLayout(null);        contzhuxiuqiangong.setBounds(new Rectangle(11, 13, 270, 19));
+        kDPanel2.setLayout(null);        contzhuxiuqiangong.setBounds(new Rectangle(11, 12, 270, 19));
         kDPanel2.add(contzhuxiuqiangong, null);
-        contzhuxiudiangong.setBounds(new Rectangle(365, 13, 270, 19));
+        contzhuxiudiangong.setBounds(new Rectangle(365, 12, 270, 19));
         kDPanel2.add(contzhuxiudiangong, null);
-        contjianyanyuan.setBounds(new Rectangle(718, 13, 270, 19));
+        contjianyanyuan.setBounds(new Rectangle(718, 12, 270, 19));
         kDPanel2.add(contjianyanyuan, null);
         //contzhuxiuqiangong
         contzhuxiuqiangong.setBoundEditor(prmtzhuxiuqiangong);
@@ -1276,31 +1258,31 @@ public abstract class AbstractEquMaintBookEditUI extends com.kingdee.eas.xr.clie
         kDPanel3.add(contqiexiao, null);
         kDLabel1.setBounds(new Rectangle(12, 95, 225, 15));
         kDPanel3.add(kDLabel1, null);
-        kDLabel2.setBounds(new Rectangle(14, 110, 86, 21));
+        kDLabel2.setBounds(new Rectangle(14, 110, 86, 19));
         kDPanel3.add(kDLabel2, null);
-        contbanzhang.setBounds(new Rectangle(101, 110, 91, 21));
+        contbanzhang.setBounds(new Rectangle(101, 110, 91, 19));
         kDPanel3.add(contbanzhang, null);
-        kDLabel3.setBounds(new Rectangle(196, 110, 31, 21));
+        kDLabel3.setBounds(new Rectangle(196, 110, 31, 19));
         kDPanel3.add(kDLabel3, null);
-        contzhuxiuone.setBounds(new Rectangle(224, 110, 91, 21));
+        contzhuxiuone.setBounds(new Rectangle(224, 110, 91, 19));
         kDPanel3.add(contzhuxiuone, null);
-        kDLabel4.setBounds(new Rectangle(317, 110, 44, 21));
+        kDLabel4.setBounds(new Rectangle(317, 110, 44, 19));
         kDPanel3.add(kDLabel4, null);
-        contjianyanyuanone.setBounds(new Rectangle(354, 110, 91, 21));
+        contjianyanyuanone.setBounds(new Rectangle(354, 110, 91, 19));
         kDPanel3.add(contjianyanyuanone, null);
-        kDLabel5.setBounds(new Rectangle(447, 110, 32, 21));
+        kDLabel5.setBounds(new Rectangle(447, 110, 32, 19));
         kDPanel3.add(kDLabel5, null);
-        contleixing.setBounds(new Rectangle(474, 110, 91, 21));
+        contleixing.setBounds(new Rectangle(474, 110, 91, 19));
         kDPanel3.add(contleixing, null);
-        kDLabel6.setBounds(new Rectangle(568, 110, 62, 21));
+        kDLabel6.setBounds(new Rectangle(568, 110, 62, 19));
         kDPanel3.add(kDLabel6, null);
-        kDLabel7.setBounds(new Rectangle(14, 132, 53, 21));
+        kDLabel7.setBounds(new Rectangle(14, 130, 53, 19));
         kDPanel3.add(kDLabel7, null);
-        contleixingone.setBounds(new Rectangle(69, 132, 91, 21));
+        contleixingone.setBounds(new Rectangle(69, 130, 91, 19));
         kDPanel3.add(contleixingone, null);
-        kDLabel8.setBounds(new Rectangle(162, 132, 113, 21));
+        kDLabel8.setBounds(new Rectangle(162, 130, 113, 19));
         kDPanel3.add(kDLabel8, null);
-        contchejianyijian.setBounds(new Rectangle(14, 155, 619, 19));
+        contchejianyijian.setBounds(new Rectangle(14, 150, 619, 19));
         kDPanel3.add(contchejianyijian, null);
         contchejianlingdao.setBounds(new Rectangle(719, 12, 270, 19));
         kDPanel3.add(contchejianlingdao, null);
@@ -1352,6 +1334,20 @@ public abstract class AbstractEquMaintBookEditUI extends com.kingdee.eas.xr.clie
         contacStartTime.setBoundEditor(pkacStartTime);
         //contacEndTime
         contacEndTime.setBoundEditor(pkacEndTime);
+        //contAuditTime
+        contAuditTime.setBoundEditor(pkAuditTime);
+        //contBizStatus
+        contBizStatus.setBoundEditor(comboBizStatus);
+        //contAuditor
+        contAuditor.setBoundEditor(prmtAuditor);
+        //contLastUpdateTime
+        contLastUpdateTime.setBoundEditor(pkLastUpdateTime);
+        //contLastUpdateUser
+        contLastUpdateUser.setBoundEditor(prmtLastUpdateUser);
+        //contCreateTime
+        contCreateTime.setBoundEditor(pkCreateTime);
+        //contCreator
+        contCreator.setBoundEditor(prmtCreator);
 
     }
 
@@ -1525,13 +1521,12 @@ public abstract class AbstractEquMaintBookEditUI extends com.kingdee.eas.xr.clie
 
 	//Regiester control's property binding.
 	private void registerBindings(){
-		dataBinder.registerBinding("E1.seq", int.class, this.kdtE1, "seq.text");
-		dataBinder.registerBinding("E1", com.kingdee.eas.port.equipment.maintenance.EquMaintBookE1Info.class, this.kdtE1, "userObject");
-		dataBinder.registerBinding("E1.xiangmuthree", String.class, this.kdtE1, "xiangmuthree.text");
-		dataBinder.registerBinding("E1.biaozhun", String.class, this.kdtE1, "biaozhun.text");
-		dataBinder.registerBinding("E1.shiji", String.class, this.kdtE1, "shiji.text");
-		dataBinder.registerBinding("E1.jielunthree", String.class, this.kdtE1, "jielunthree.text");
-		dataBinder.registerBinding("E1.beizhuone", String.class, this.kdtE1, "beizhuone.text");
+		dataBinder.registerBinding("E3.seq", int.class, this.kdtE3, "seq.text");
+		dataBinder.registerBinding("E3", com.kingdee.eas.port.equipment.maintenance.EquMaintBookE3Info.class, this.kdtE3, "userObject");
+		dataBinder.registerBinding("E3.jianchaxiangmu", String.class, this.kdtE3, "jianchaxiangmu.text");
+		dataBinder.registerBinding("E3.yaoqiu", String.class, this.kdtE3, "yaoqiu.text");
+		dataBinder.registerBinding("E3.shice", String.class, this.kdtE3, "shice.text");
+		dataBinder.registerBinding("E3.jielun", String.class, this.kdtE3, "jielun.text");
 		dataBinder.registerBinding("E2.seq", int.class, this.kdtE2, "seq.text");
 		dataBinder.registerBinding("E2", com.kingdee.eas.port.equipment.maintenance.EquMaintBookE2Info.class, this.kdtE2, "userObject");
 		dataBinder.registerBinding("E2.xiangmuone", String.class, this.kdtE2, "xiangmuone.text");
@@ -1543,19 +1538,13 @@ public abstract class AbstractEquMaintBookEditUI extends com.kingdee.eas.xr.clie
 		dataBinder.registerBinding("E2.futhree", String.class, this.kdtE2, "futhree.text");
 		dataBinder.registerBinding("E2.jieluntwo", String.class, this.kdtE2, "jieluntwo.text");
 		dataBinder.registerBinding("E2.note", String.class, this.kdtE2, "note.text");
-		dataBinder.registerBinding("E3.seq", int.class, this.kdtE3, "seq.text");
-		dataBinder.registerBinding("E3", com.kingdee.eas.port.equipment.maintenance.EquMaintBookE3Info.class, this.kdtE3, "userObject");
-		dataBinder.registerBinding("E3.jianchaxiangmu", String.class, this.kdtE3, "jianchaxiangmu.text");
-		dataBinder.registerBinding("E3.yaoqiu", String.class, this.kdtE3, "yaoqiu.text");
-		dataBinder.registerBinding("E3.shice", String.class, this.kdtE3, "shice.text");
-		dataBinder.registerBinding("E3.jielun", String.class, this.kdtE3, "jielun.text");
-		dataBinder.registerBinding("creator", com.kingdee.eas.base.permission.UserInfo.class, this.prmtCreator, "data");
-		dataBinder.registerBinding("createTime", java.sql.Timestamp.class, this.pkCreateTime, "value");
-		dataBinder.registerBinding("lastUpdateUser", com.kingdee.eas.base.permission.UserInfo.class, this.prmtLastUpdateUser, "data");
-		dataBinder.registerBinding("lastUpdateTime", java.sql.Timestamp.class, this.pkLastUpdateTime, "value");
-		dataBinder.registerBinding("auditor", com.kingdee.eas.base.permission.UserInfo.class, this.prmtAuditor, "data");
-		dataBinder.registerBinding("bizStatus", com.kingdee.eas.xr.app.XRBizActionEnum.class, this.comboBizStatus, "selectedItem");
-		dataBinder.registerBinding("auditTime", java.sql.Timestamp.class, this.pkAuditTime, "value");
+		dataBinder.registerBinding("E1.seq", int.class, this.kdtE1, "seq.text");
+		dataBinder.registerBinding("E1", com.kingdee.eas.port.equipment.maintenance.EquMaintBookE1Info.class, this.kdtE1, "userObject");
+		dataBinder.registerBinding("E1.xiangmuthree", String.class, this.kdtE1, "xiangmuthree.text");
+		dataBinder.registerBinding("E1.biaozhun", String.class, this.kdtE1, "biaozhun.text");
+		dataBinder.registerBinding("E1.shiji", String.class, this.kdtE1, "shiji.text");
+		dataBinder.registerBinding("E1.jielunthree", String.class, this.kdtE1, "jielunthree.text");
+		dataBinder.registerBinding("E1.beizhuone", String.class, this.kdtE1, "beizhuone.text");
 		dataBinder.registerBinding("number", String.class, this.txtNumber, "text");
 		dataBinder.registerBinding("equNumber", com.kingdee.eas.port.equipment.record.EquIdInfo.class, this.prmtequNumber, "data");
 		dataBinder.registerBinding("useDepart", String.class, this.txtuseDepart, "text");
@@ -1595,7 +1584,14 @@ public abstract class AbstractEquMaintBookEditUI extends com.kingdee.eas.xr.clie
 		dataBinder.registerBinding("yijiaodanwei", com.kingdee.eas.basedata.org.AdminOrgUnitInfo.class, this.prmtyijiaodanwei, "data");
 		dataBinder.registerBinding("jiaojieTime", java.util.Date.class, this.pkjiaojieTime, "value");
 		dataBinder.registerBinding("acStartTime", java.util.Date.class, this.pkacStartTime, "value");
-		dataBinder.registerBinding("acEndTime", java.util.Date.class, this.pkacEndTime, "value");		
+		dataBinder.registerBinding("acEndTime", java.util.Date.class, this.pkacEndTime, "value");
+		dataBinder.registerBinding("auditTime", java.sql.Timestamp.class, this.pkAuditTime, "value");
+		dataBinder.registerBinding("bizStatus", com.kingdee.eas.xr.app.XRBizActionEnum.class, this.comboBizStatus, "selectedItem");
+		dataBinder.registerBinding("auditor", com.kingdee.eas.base.permission.UserInfo.class, this.prmtAuditor, "data");
+		dataBinder.registerBinding("lastUpdateTime", java.sql.Timestamp.class, this.pkLastUpdateTime, "value");
+		dataBinder.registerBinding("lastUpdateUser", com.kingdee.eas.base.permission.UserInfo.class, this.prmtLastUpdateUser, "data");
+		dataBinder.registerBinding("createTime", java.sql.Timestamp.class, this.pkCreateTime, "value");
+		dataBinder.registerBinding("creator", com.kingdee.eas.base.permission.UserInfo.class, this.prmtCreator, "data");		
 	}
 	//Regiester UI State
 	private void registerUIState(){		
@@ -1730,13 +1726,12 @@ public abstract class AbstractEquMaintBookEditUI extends com.kingdee.eas.xr.clie
 	 */
 	protected void registerValidator() {
     	getValidateHelper().setCustomValidator( getValidator() );
-		getValidateHelper().registerBindProperty("E1.seq", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("E1", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("E1.xiangmuthree", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("E1.biaozhun", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("E1.shiji", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("E1.jielunthree", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("E1.beizhuone", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("E3.seq", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("E3", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("E3.jianchaxiangmu", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("E3.yaoqiu", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("E3.shice", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("E3.jielun", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("E2.seq", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("E2", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("E2.xiangmuone", ValidateHelper.ON_SAVE);    
@@ -1748,19 +1743,13 @@ public abstract class AbstractEquMaintBookEditUI extends com.kingdee.eas.xr.clie
 		getValidateHelper().registerBindProperty("E2.futhree", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("E2.jieluntwo", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("E2.note", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("E3.seq", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("E3", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("E3.jianchaxiangmu", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("E3.yaoqiu", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("E3.shice", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("E3.jielun", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("creator", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("createTime", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("lastUpdateUser", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("lastUpdateTime", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("auditor", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("bizStatus", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("auditTime", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("E1.seq", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("E1", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("E1.xiangmuthree", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("E1.biaozhun", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("E1.shiji", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("E1.jielunthree", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("E1.beizhuone", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("number", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("equNumber", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("useDepart", ValidateHelper.ON_SAVE);    
@@ -1800,7 +1789,14 @@ public abstract class AbstractEquMaintBookEditUI extends com.kingdee.eas.xr.clie
 		getValidateHelper().registerBindProperty("yijiaodanwei", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("jiaojieTime", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("acStartTime", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("acEndTime", ValidateHelper.ON_SAVE);    		
+		getValidateHelper().registerBindProperty("acEndTime", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("auditTime", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("bizStatus", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("auditor", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("lastUpdateTime", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("lastUpdateUser", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("createTime", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("creator", ValidateHelper.ON_SAVE);    		
 	}
 
 
@@ -1843,18 +1839,17 @@ public abstract class AbstractEquMaintBookEditUI extends com.kingdee.eas.xr.clie
 		if(StringUtils.isEmpty(selectorAll)){
 			selectorAll = "true";
 		}
-    	sic.add(new SelectorItemInfo("E1.seq"));
+    	sic.add(new SelectorItemInfo("E3.seq"));
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
-			sic.add(new SelectorItemInfo("E1.*"));
+			sic.add(new SelectorItemInfo("E3.*"));
 		}
 		else{
 		}
-    	sic.add(new SelectorItemInfo("E1.xiangmuthree"));
-    	sic.add(new SelectorItemInfo("E1.biaozhun"));
-    	sic.add(new SelectorItemInfo("E1.shiji"));
-    	sic.add(new SelectorItemInfo("E1.jielunthree"));
-    	sic.add(new SelectorItemInfo("E1.beizhuone"));
+    	sic.add(new SelectorItemInfo("E3.jianchaxiangmu"));
+    	sic.add(new SelectorItemInfo("E3.yaoqiu"));
+    	sic.add(new SelectorItemInfo("E3.shice"));
+    	sic.add(new SelectorItemInfo("E3.jielun"));
     	sic.add(new SelectorItemInfo("E2.seq"));
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
@@ -1871,48 +1866,18 @@ public abstract class AbstractEquMaintBookEditUI extends com.kingdee.eas.xr.clie
     	sic.add(new SelectorItemInfo("E2.futhree"));
     	sic.add(new SelectorItemInfo("E2.jieluntwo"));
     	sic.add(new SelectorItemInfo("E2.note"));
-    	sic.add(new SelectorItemInfo("E3.seq"));
+    	sic.add(new SelectorItemInfo("E1.seq"));
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
-			sic.add(new SelectorItemInfo("E3.*"));
+			sic.add(new SelectorItemInfo("E1.*"));
 		}
 		else{
 		}
-    	sic.add(new SelectorItemInfo("E3.jianchaxiangmu"));
-    	sic.add(new SelectorItemInfo("E3.yaoqiu"));
-    	sic.add(new SelectorItemInfo("E3.shice"));
-    	sic.add(new SelectorItemInfo("E3.jielun"));
-		if(selectorAll.equalsIgnoreCase("true"))
-		{
-			sic.add(new SelectorItemInfo("creator.*"));
-		}
-		else{
-        	sic.add(new SelectorItemInfo("creator.id"));
-        	sic.add(new SelectorItemInfo("creator.number"));
-        	sic.add(new SelectorItemInfo("creator.name"));
-		}
-        sic.add(new SelectorItemInfo("createTime"));
-		if(selectorAll.equalsIgnoreCase("true"))
-		{
-			sic.add(new SelectorItemInfo("lastUpdateUser.*"));
-		}
-		else{
-        	sic.add(new SelectorItemInfo("lastUpdateUser.id"));
-        	sic.add(new SelectorItemInfo("lastUpdateUser.number"));
-        	sic.add(new SelectorItemInfo("lastUpdateUser.name"));
-		}
-        sic.add(new SelectorItemInfo("lastUpdateTime"));
-		if(selectorAll.equalsIgnoreCase("true"))
-		{
-			sic.add(new SelectorItemInfo("auditor.*"));
-		}
-		else{
-        	sic.add(new SelectorItemInfo("auditor.id"));
-        	sic.add(new SelectorItemInfo("auditor.number"));
-        	sic.add(new SelectorItemInfo("auditor.name"));
-		}
-        sic.add(new SelectorItemInfo("bizStatus"));
-        sic.add(new SelectorItemInfo("auditTime"));
+    	sic.add(new SelectorItemInfo("E1.xiangmuthree"));
+    	sic.add(new SelectorItemInfo("E1.biaozhun"));
+    	sic.add(new SelectorItemInfo("E1.shiji"));
+    	sic.add(new SelectorItemInfo("E1.jielunthree"));
+    	sic.add(new SelectorItemInfo("E1.beizhuone"));
         sic.add(new SelectorItemInfo("number"));
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
@@ -2073,6 +2038,37 @@ public abstract class AbstractEquMaintBookEditUI extends com.kingdee.eas.xr.clie
         sic.add(new SelectorItemInfo("jiaojieTime"));
         sic.add(new SelectorItemInfo("acStartTime"));
         sic.add(new SelectorItemInfo("acEndTime"));
+        sic.add(new SelectorItemInfo("auditTime"));
+        sic.add(new SelectorItemInfo("bizStatus"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("auditor.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("auditor.id"));
+        	sic.add(new SelectorItemInfo("auditor.number"));
+        	sic.add(new SelectorItemInfo("auditor.name"));
+		}
+        sic.add(new SelectorItemInfo("lastUpdateTime"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("lastUpdateUser.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("lastUpdateUser.id"));
+        	sic.add(new SelectorItemInfo("lastUpdateUser.number"));
+        	sic.add(new SelectorItemInfo("lastUpdateUser.name"));
+		}
+        sic.add(new SelectorItemInfo("createTime"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("creator.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("creator.id"));
+        	sic.add(new SelectorItemInfo("creator.number"));
+        	sic.add(new SelectorItemInfo("creator.name"));
+		}
         return sic;
     }        
     	
@@ -2170,7 +2166,7 @@ public abstract class AbstractEquMaintBookEditUI extends com.kingdee.eas.xr.clie
      * output getDetailTable method
      */
     protected KDTable getDetailTable() {
-        return kdtE1;
+        return kdtE3;
 	}
     /**
      * output applyDefaultValue method
