@@ -149,6 +149,9 @@ public class ViewXmlUtil {
 			        	xml.append("</"+colNameArr[i]+">\n");
 			        }
 		        }
+		        xml.append(getViewXmlHTXXXXString(ctx,"HTXXXX",BOID));
+		        xml.append(getViewXmlHTXXSXString(ctx,"HTXXSX",BOID));
+		        xml.append(getViewXmlHTXXLYString(ctx,"HTXXLY",BOID));
 		        xml.append("</DATA>\n");
 		        str[1]=xml.toString();
 			} catch (SQLException e) {
@@ -179,11 +182,170 @@ public class ViewXmlUtil {
 	
 	
 	
+	public static String getViewXmlHTXXXXString(Context ctx,String BTID,String BOID){
+		PzViewInfo info = null;
+		try {
+			info = PzViewFactory.getLocalInstance(ctx).getPzViewInfo(" where number='"+BTID+"'");
+		} catch (EASBizException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (BOSException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		String view = info.getSqlView();
+			String where = " where fid='"+BOID+"'";
+			StringBuffer xml = new StringBuffer();
+		    RowSet rs = null;
+			try {
+				rs = DBUtil.executeQuery(ctx,"select * from "+view+where );
+			} catch (BOSException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			int colunmCount = 0;
+				try {
+					colunmCount = rs.getMetaData().getColumnCount();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		        String[] colNameArr = new String[colunmCount];  
+		        String[] colTypeArr = new String[colunmCount]; 
+		        xml.append("<billEntries>");
+		        try {
+					while(rs.next()){
+						xml.append("<item>");
+						for (int i = 0; i < colunmCount; i++) {  
+					    	colNameArr[i] = rs.getMetaData().getColumnName(i + 1);  
+					    	colTypeArr[i] = rs.getMetaData().getColumnTypeName(i + 1); 
+					    	xml.append("<"+colNameArr[i]+">");
+					    	xml.append(rs.getObject(i+1));
+					    	xml.append("</"+colNameArr[i]+">\n");
+					    }
+						xml.append("</item>\n");
+					}
+					
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				xml.append("</billEntries>");
+		return xml.toString();
+	}
 	
 	
 	
-	public static String getViewXmlHTFLString(Context ctx,String BTID,String BOID){
-		StringBuffer xml = null;
+	public static String getViewXmlHTXXLYString(Context ctx,String BTID,String BOID){
+		PzViewInfo info = null;
+		try {
+			info = PzViewFactory.getLocalInstance(ctx).getPzViewInfo(" where number='"+BTID+"'");
+		} catch (EASBizException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (BOSException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		String view = info.getSqlView();
+			String where = " where fid='"+BOID+"'";
+			StringBuffer xml = new StringBuffer();
+		    RowSet rs = null;
+			try {
+				rs = DBUtil.executeQuery(ctx,"select * from "+view+where );
+			} catch (BOSException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			int colunmCount = 0;
+				try {
+					colunmCount = rs.getMetaData().getColumnCount();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		        String[] colNameArr = new String[colunmCount];  
+		        String[] colTypeArr = new String[colunmCount]; 
+		        xml.append("<ContractBailEntry>");
+		        try {
+					while(rs.next()){
+						xml.append("<item>");
+						for (int i = 0; i < colunmCount; i++) {  
+					    	colNameArr[i] = rs.getMetaData().getColumnName(i + 1);  
+					    	colTypeArr[i] = rs.getMetaData().getColumnTypeName(i + 1); 
+					    	xml.append("<"+colNameArr[i]+">");
+					    	xml.append(rs.getObject(i+1));
+					    	xml.append("</"+colNameArr[i]+">\n");
+					    }
+						xml.append("</item>\n");
+					}
+					
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				xml.append("</ContractBailEntry>");
+		return xml.toString();
+	}
+	
+	
+	
+	public static String getViewXmlHTXXSXString(Context ctx,String BTID,String BOID){
+		PzViewInfo info = null;
+		try {
+			info = PzViewFactory.getLocalInstance(ctx).getPzViewInfo(" where number='"+BTID+"'");
+		} catch (EASBizException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (BOSException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		String view = info.getSqlView();
+			String where = " where fid='"+BOID+"'";
+			StringBuffer xml = new StringBuffer();
+		    RowSet rs = null;
+			try {
+				rs = DBUtil.executeQuery(ctx,"select * from "+view+where );
+			} catch (BOSException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			int colunmCount = 0;
+				try {
+					colunmCount = rs.getMetaData().getColumnCount();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		        String[] colNameArr = new String[colunmCount];  
+		        String[] colTypeArr = new String[colunmCount]; 
+		        xml.append("<ContractPayItem>");
+		        try {
+					while(rs.next()){
+						xml.append("<item>");
+						for (int i = 0; i < colunmCount; i++) {  
+					    	colNameArr[i] = rs.getMetaData().getColumnName(i + 1);  
+					    	colTypeArr[i] = rs.getMetaData().getColumnTypeName(i + 1); 
+					    	xml.append("<"+colNameArr[i]+">");
+					    	xml.append(rs.getObject(i+1));
+					    	xml.append("</"+colNameArr[i]+">\n");
+					    }
+						xml.append("</item>\n");
+					}
+					
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				xml.append("</ContractPayItem>");
+		return xml.toString();
+	}
+	
+	
+	
+	
+	public static String[] getViewXmlBTString(Context ctx,String BTID,String BOID){
 		String[] str = new String[3];
 		str[0] = "Y";
 		str[1] = "成功！";
@@ -214,8 +376,8 @@ public class ViewXmlUtil {
 		}
 		try {
 			String where = " where fid='"+BOID+"'";
-		    xml = new StringBuffer();
-			//xml.append("<DATA>\n");
+			StringBuffer xml = new StringBuffer();
+			xml.append("<DATA>\n");
 			RowSet rs = DBUtil.executeQuery(ctx,"select * from "+view+where );
 			int colunmCount;
 			try {
@@ -223,37 +385,24 @@ public class ViewXmlUtil {
 		        String[] colNameArr = new String[colunmCount];  
 		        String[] colTypeArr = new String[colunmCount];  
 		        while(rs.next()){
+		         // xml.append("<item>");
 		        	for (int i = 0; i < colunmCount; i++) {  
 			        	colNameArr[i] = rs.getMetaData().getColumnName(i + 1);  
 			        	colTypeArr[i] = rs.getMetaData().getColumnTypeName(i + 1); 
 			        	xml.append("<"+colNameArr[i]+">");
 			        	xml.append(rs.getObject(i+1));
 			        	xml.append("</"+colNameArr[i]+">\n");
-//			        	xml.append("<billEntries>\n");
-//			        	   xml.append("<item>\n");
-//			        	   xml.append("<detial>"+StringUtilBPM.isNULl()+"</detial>\n");
-//			        	   xml.append("<item>\n");
-//			        	xml.append("</billEntries>\n");
-//			        	xml.append("<ContractPayItem>\n");
-//			        	   xml.append("<item>\n");
-//			        	   xml.append("<item>\n");
-//			        	xml.append("<ContractPayItem>\n");
-//			        	xml.append("<ContractBailEntry>\n");
-//			        	   xml.append("<item>\n");
-//			        	   xml.append("<item>\n");
-//			        	xml.append("<ContractBailEntry>\n");
 			        }
-		        	
-		        	
+		         // xml.append("</item>\n");
 		        }
-		   //     xml.append("</DATA>\n");
+		        xml.append("</DATA>\n");
 		        str[1]=xml.toString();
 			} catch (SQLException e) {
 				str[0] = "N";
 				str[1] = "单据标示-BTID:"+BTID+",执行试图语句失败！【view】"+view;
 				str[2] = "单据ID-BOID:"+BOID;
 				e.printStackTrace();
-			} 
+			}  
 		} catch (BOSException e) {
 			str[0] = "N";
 			str[1] = "单据标示-BTID:"+BTID+",执行试图语句失败！【view】"+view;
@@ -271,7 +420,7 @@ public class ViewXmlUtil {
 				e.printStackTrace();
 			}
 		}
-		return xml.toString();
+		return str;
 	}
 	
 	

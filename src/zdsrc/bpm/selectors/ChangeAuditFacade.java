@@ -306,7 +306,8 @@ public class ChangeAuditFacade implements BillBaseSelector {
 						    		  ProgrammingContractInfo proinfo=ProgrammingContractFactory.getLocalInstance(ctx).getProgrammingContractInfo(new ObjectUuidPK(progColl.get(pro).getId()));
 						    		  xml.append("<ProgrammingName>" + proinfo.getName()+ "</ProgrammingName>\n");//合约框架名称
 						    		  xml.append("<ControlBalance>" + proinfo.getControlBalance()+ "</ControlBalance>\n");//控制金额
-						    		  
+						    		  if(info.getProgrammingContract()!=null)
+						    		  {
 					    			  String sql="select a.SFCostAmount as SFa,b.SFceremonyb as SFb from  ";
 						    		  sql+="(select sum(c.FCostAmount) as SFCostAmount,a.flongNumber as fida from T_CON_ProgrammingContract a left join  T_CON_ContractBill b on a.fid=b.FProgrammingContract ";
 						    		  sql+="left join (select b.FCostAmount as FCostAmount,b.FcontractBillID as FcontractBillID,a.FChangeState as FChangeState from T_CON_ChangeAuditBill a left join ";
@@ -324,26 +325,7 @@ public class ChangeAuditFacade implements BillBaseSelector {
 								       xml.append("<HTMoney>" +FDCHelper.toBigDecimal(Rowset.getBigDecimal("SFb"))+"</HTMoney>\n");//在途变更金额汇总
 					                  }
 					                  builder.clear();
-						    		  
-//						    		  String sql="select a.SFCostAmount as SFa,b.SFceremonyb as SFb from (";
-//						    		  sql+="select sum(c.FCostAmount) as SFCostAmount,a.fid as fida from T_CON_ProgrammingContract a left join  T_CON_ContractBill b on a.fid=b.FProgrammingContract left join ";
-//						    		  sql+="(select b.FCostAmount as FCostAmount,b.FcontractBillID as FcontractBillID,a.FChangeState as FChangeState from T_CON_ChangeAuditBill a left join ";
-//						    		  sql+="T_CON_ChangeSupplierEntry b on a.fid=b.fparentid)as c on b.fid=c.FcontractBillID ";
-//						    		  sql+="where c.FchangeState = '4Auditting'and b.fid='"+info.getProgrammingContract().getId()+"' group by a.fid) a ";
-//						    		  sql+="left join(select sum(b.Fceremonyb) as SFceremonyb,a.fid as fidb  from T_CON_ProgrammingContract a left join  T_CON_ContractBill b on a.fid=b.FProgrammingContract left join ";
-//						    		  sql+="(select b.FCostAmount as FCostAmount,b.FcontractBillID as FcontractBillID,a.FChangeState as FChangeState from T_CON_ChangeAuditBill a left join ";
-//						    		  sql+="T_CON_ChangeSupplierEntry b on a.fid=b.fparentid)as c on b.fid=c.FcontractBillID ";
-//						    		  sql+="where b.Fstate='3AUDITTING' group by a.fid) b on a.fida= b.fidb";
-//						    		  FDCSQLBuilder builder=new FDCSQLBuilder(ctx);
-//						    		  builder.appendSql(sql);
-//                                      IRowSet Rowset=builder.executeQuery();
-//                                      if(Rowset.size()==1)
-//                                      {
-//                                       Rowset.next();  
-//                                       xml.append("<HTMoney>" +FDCHelper.toBigDecimal(Rowset.getBigDecimal("SFa")) + "</HTMoney>\n");//在途金额汇总
-//     						    	   xml.append("<BGMoney>" +FDCHelper.toBigDecimal(Rowset.getBigDecimal("SFb"))+"</BGMoney>\n");//在途变更金额汇总
-//                                      }
-//                                      builder.clear();
+						    		  }
 						    	  }
 						       }
 						      
@@ -360,14 +342,14 @@ public class ChangeAuditFacade implements BillBaseSelector {
 				    	{
 				    		ChangeSupplierEntryInfo Cinfo=ChangeSupplierEntryFactory.getLocalInstance(ctx).getChangeSupplierEntryInfo(new ObjectUuidPK(ChengeMy.get(a).getId()));
 				    		SupplierInfo MainSuppInfo =SupplierFactory.getLocalInstance(ctx).getSupplierInfo(new ObjectUuidPK(Cinfo.getMainSupp().getId()));
-				    		xml.append("<MainSupp>" +MainSuppInfo.getName()+ "</MainSupp>\n");//  主送单位
+				    		xml.append("<MainSupp>" +StringUtilBPM.isNULl(MainSuppInfo.getName())+ "</MainSupp>\n");//  主送单位
 				    		CurrencyInfo currInfo= CurrencyFactory.getLocalInstance(ctx).getCurrencyInfo(new ObjectUuidPK(Cinfo.getCurrency().getId()));
 				    		xml.append("<Currency>" +currInfo.getName()+"</Currency>\n");
 				    		xml.append("<Exrate>" +Cinfo.getExRate()+ "</Exrate>\n");//汇率
-				    		xml.append("<ConstructPrice>" +Cinfo.getConstructPrice()+ "</ConstructPrice>\n");//施工方审报金额
-				    		xml.append("<CostDescription>" +Cinfo.getCostDescription()+ "</CostDescription>\n");//测算说明
-				    		xml.append("<CostAmount>" +Cinfo.getCostAmount()+ "</CostAmount>\n");//测算金额原币
-				    		xml.append("<OriCostAmount>" +Cinfo.getOriCostAmount()+ "</OriCostAmount>\n");//测算金额
+				    		xml.append("<ConstructPrice>" +StringUtilBPM.isNULl(Cinfo.getConstructPrice().toString())+ "</ConstructPrice>\n");//施工方审报金额
+				    		xml.append("<CostDescription>" +StringUtilBPM.isNULl(Cinfo.getCostDescription())+ "</CostDescription>\n");//测算说明
+				    		xml.append("<CostAmount>" +StringUtilBPM.isNULl(Cinfo.getCostAmount().toString())+ "</CostAmount>\n");//测算金额原币
+				    		xml.append("<OriCostAmount>" +StringUtilBPM.isNULl(Cinfo.getOriCostAmount().toString())+ "</OriCostAmount>\n");//测算金额
 				    		if(false==Cinfo.isIsDeduct())
 							{
 							xml.append("<IsDeduct>否</IsDeduct>\n");
@@ -376,9 +358,16 @@ public class ChangeAuditFacade implements BillBaseSelector {
 							{
 								xml.append("<IsDeduct>是</IsDeduct>\n");
 						    }
-				    		xml.append("<OriginalContactNum>"+Cinfo.getOriginalContactNum()+ "</OriginalContactNum>\n");
+				    		xml.append("<OriginalContactNum>"+StringUtilBPM.isNULl(Cinfo.getOriginalContactNum())+ "</OriginalContactNum>\n");
+				    		if(Cinfo.getDeductAmount()!=null)
+				    		{
 							xml.append("<DeductAmount>" + Cinfo.getDeductAmount()+ "</DeductAmount>\n");
-							xml.append("<DeductReason>" + Cinfo.getDeductReason()+ "</DeductReason>\n");
+				    		}
+				    		else
+				    		{
+				    			xml.append("<DeductAmount>0</DeductAmount>\n");
+				    		}
+							xml.append("<DeductReason>" + StringUtilBPM.isNULl(Cinfo.getDeductReason())+ "</DeductReason>\n");
 							UserInfo userinfo=UserFactory.getLocalInstance(ctx).getUserInfo(new ObjectUuidPK(Cinfo.getReckonor().getId()));
                             xml.append("<Reckonor>" +userinfo.getName()+ "</Reckonor>\n");
         					if(Cinfo.getDutyOrg().getId()!=null)
@@ -422,7 +411,14 @@ public class ChangeAuditFacade implements BillBaseSelector {
 				{
 					xml.append("<NoUse>是</NoUse>\n");   //是否存在无效成本
 				}
-				xml.append("<NoUseAmount>" + Info.getCostNouse()+ "</NoUseAmount>\n");   //无效成本金额
+				if(Info.getCostNouse()==null)
+				{
+					xml.append("<NoUseAmount>0</NoUseAmount>\n"); 
+				}
+				else
+				{
+				 xml.append("<NoUseAmount>" + Info.getCostNouse()+ "</NoUseAmount>\n");   //无效成本金额
+				}
 				if(Info.getInvalidCostReason()!=null)
 				{
 					  EntityViewInfo Myavevi3 = new EntityViewInfo();
@@ -436,7 +432,7 @@ public class ChangeAuditFacade implements BillBaseSelector {
 				       {  
 				    	  InvalidCostReasonInfo CostReasoninfo=CostReason.get(b);
 				    	  InvalidCostReasonInfo info=InvalidCostReasonFactory.getLocalInstance(ctx).getInvalidCostReasonInfo(new ObjectUuidPK(CostReasoninfo.getId()));
-				    	  xml.append("<Reason>" + info.getName()+ "</Reason>\n");   //无效成本原因  --无效成本原因ID  数据库没存值 //	
+				    	  xml.append("<Reason>" + StringUtilBPM.isNULl(info.getName())+ "</Reason>\n");   //无效成本原因  --无效成本原因ID  数据库没存值 //	
 				       }
 				      }
 					

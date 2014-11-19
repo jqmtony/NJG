@@ -271,7 +271,8 @@ public class ContractFacade implements BillBaseSelector {
     			{
     				xml.append("<isCoseSplit>是</isCoseSplit>\n");
     			}
-    			
+    			if(Info.getProgrammingContract()!=null)
+    			{
     			  String sql="select a.SFCostAmount as SFa,b.SFceremonyb as SFb from  ";
 	    		  sql+="(select sum(c.FCostAmount) as SFCostAmount,a.flongNumber as fida from T_CON_ProgrammingContract a left join  T_CON_ContractBill b on a.fid=b.FProgrammingContract ";
 	    		  sql+="left join (select b.FCostAmount as FCostAmount,b.FcontractBillID as FcontractBillID,a.FChangeState as FChangeState from T_CON_ChangeAuditBill a left join ";
@@ -289,6 +290,7 @@ public class ContractFacade implements BillBaseSelector {
 			       xml.append("<HTMoney>" +FDCHelper.toBigDecimal(Rowset.getBigDecimal("SFb"))+"</HTMoney>\n");//在途变更金额汇总
                   }
                   builder.clear();
+    			}
     			xml.append("<billEntries>\n");
     			for(int i=0;i<Info.getEntrys().size();i++){
     				ContractBillEntryInfo entry = Info.getEntrys().get(i);
@@ -406,7 +408,7 @@ public class ContractFacade implements BillBaseSelector {
 		 sic.add(new SelectorItemInfo("cu.id"));
 		 sic.add(new SelectorItemInfo("currency.number"));
 		 sic.add(new SelectorItemInfo("currency.name"));
-		//sic.add(new SelectorItemInfo("id"));		
+		sic.add(new SelectorItemInfo("id"));		
 		sic.add(new SelectorItemInfo("respDept.id"));
 		sic.add(new SelectorItemInfo("respDept.number"));
 		sic.add(new SelectorItemInfo("respDept.name"));

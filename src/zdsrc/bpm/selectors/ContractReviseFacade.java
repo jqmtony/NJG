@@ -238,12 +238,13 @@ public class ContractReviseFacade implements BillBaseSelector{
 		        for(int i=0;i< myavc.size();i++){  	     
          	    ContractBillInfo info=ContractBillFactory.getLocalInstance(ctx).getContractBillInfo(new ObjectUuidPK(myavc.get(i).getId()));
          	    //ProgrammingContractInfo info=myavc.get(i).getProgrammingContract();
-         	     info.getProgrammingContract();
+         	     if(info.getProgrammingContract()!=null)
+         	     { 
           	     EntityViewInfo Myavevi2 = new EntityViewInfo();
   		         FilterInfo Myavfilter2 = new FilterInfo();
   		         Myavfilter2.getFilterItems().add(new FilterItemInfo("id",info.getProgrammingContract().getId()));
          	     ProgrammingContractInfo proInfo2=ProgrammingContractFactory.getLocalInstance(ctx).getProgrammingContractInfo(new ObjectUuidPK(info.getProgrammingContract().getId()));
-         	     if(proInfo2.getName()!=null)
+         	     if(proInfo2!=null)
            	     xml.append("<programmingContract>"+proInfo2.getName()+"</programmingContract>\n");
        		      String sql="select a.SFCostAmount as SFa,b.SFceremonyb as SFb from  ";
 	    		  sql+="(select sum(c.FCostAmount) as SFCostAmount,a.flongNumber as fida from T_CON_ProgrammingContract a left join  T_CON_ContractBill b on a.fid=b.FProgrammingContract ";
@@ -265,8 +266,11 @@ public class ContractReviseFacade implements BillBaseSelector{
            	     if(proInfo2.getControlBalance()!=null)
            	     xml.append("<controlBalance>"+proInfo2.getControlBalance()+"</controlBalance>\n");
          	     xml.append("<overRate>"+info.getOverRate()+"</overRate>\n");
+         	     }
+         	     
                 }
 		      }
+		      
    
   			
   			
