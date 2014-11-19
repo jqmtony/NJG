@@ -12,6 +12,8 @@ import com.kingdee.eas.fdc.basedata.ContractTypeInfo;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
 import com.kingdee.eas.fdc.contract.ContractBillFactory;
 import com.kingdee.eas.fdc.contract.ContractBillInfo;
+import com.kingdee.eas.fdc.finance.DeductBillFactory;
+import com.kingdee.eas.fdc.finance.DeductBillInfo;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.MsgBox;
 
@@ -145,12 +147,24 @@ public class ContractBillListUIPIEx extends ContractBillListUI  {
 	public void actionAuditResult_actionPerformed(ActionEvent e) throws Exception {
 		ContractBillInfo info = ContractBillFactory.getRemoteInstance().getContractBillInfo(new ObjectUuidPK(this.getSelectedKeyValue()));
 		if(info.getId()!=null){
-			//ContractBillInfo info = ContractBillFactory.getRemoteInstance().getContractBillInfo(new ObjectUuidPK(editData.getId()));
-	    	String url = info.getDescription();
+			String url = info.getDescription();
 			if("已审批".equals(info.getState().getAlias())||"审批中".equals(info.getState().getAlias()))
 			{
 				creatFrame(url);
-			}else{
+			}
+			else if(info.getDescription()!=null&&"保存".equals(info.getState().getAlias())&&info.getDescription().contains("http"))
+			{
+				creatFrame(url);
+			}
+			else if("保存".equals(info.getState().getAlias()))
+			{
+				MsgBox.showInfo("该单据未发起审批流程,没有对应流程！");
+			}
+//			else if("保存".equals(info.getState().getAlias())&&info.getSourceFunction()!=null) 
+//			{
+//				creatFrame(url);
+//			}
+			else{
 				MsgBox.showInfo("该单据未发起审批流程，或者已撤销流程，没有对应流程！");
 			}
 		}
@@ -162,6 +176,15 @@ public class ContractBillListUIPIEx extends ContractBillListUI  {
     	JFrameBrowser jf = new JFrameBrowser();
     	jf.setJBrowserSize(720, 1200);
     	jf.setJBrwserOpenUrl(url);
+    	jf.setTitle("BPM");
+    	jf.OpenJBrowser(this);
+    }
+	
+	private void creatFrame2()
+    {
+    	//获取MD5加密
+    	JFrameBrowser jf = new JFrameBrowser();
+    	jf.setJBrowserSize(720, 1200);
     	jf.setTitle("BPM");
     	jf.OpenJBrowser(this);
     }

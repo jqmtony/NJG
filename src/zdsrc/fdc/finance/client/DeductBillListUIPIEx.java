@@ -6,6 +6,7 @@ import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.eas.bpmdemo.JBrowserHelper.JFrameBrowser;
 import com.kingdee.eas.bpmdemo.webservers.serviceclient.BPMServiceForERPLocator;
 import com.kingdee.eas.bpmdemo.webservers.serviceclient.BPMServiceForERPSoap;
+import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.fdc.basedata.ContractTypeInfo;
 import com.kingdee.eas.fdc.finance.DeductBillFactory;
 import com.kingdee.eas.fdc.finance.DeductBillInfo;
@@ -144,13 +145,13 @@ public class DeductBillListUIPIEx extends DeductBillListUI{
 		DeductBillInfo info = DeductBillFactory.getRemoteInstance().getDeductBillInfo(new ObjectUuidPK(this.getSelectedKeyValue()));
 		if(info.getId()!=null){
 			//ContractBillInfo info = ContractBillFactory.getRemoteInstance().getContractBillInfo(new ObjectUuidPK(editData.getId()));
-	    	String url = info.getDescription();
-			if("已审批".equals(info.getState().getAlias())||"审批中".equals(info.getState().getAlias()))
-			{
+			String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+info.getId().toString()+"&btid=KK01&userid="+SysContext.getSysContext().getUserName()+"";
+//			if("已审批".equals(info.getState().getAlias())||"审批中".equals(info.getState().getAlias()))
+//			{
 				creatFrame(url);
-			}else{
-				MsgBox.showInfo("该单据未发起审批流程，或者已撤销流程，没有对应流程！");
-			}
+//			}else{
+//				MsgBox.showInfo("该单据未发起审批流程，或者已撤销流程，没有对应流程！");
+//			}
 		}
 	}
 	

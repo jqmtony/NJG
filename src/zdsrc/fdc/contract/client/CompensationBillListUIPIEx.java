@@ -6,6 +6,7 @@ import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.eas.bpmdemo.JBrowserHelper.JFrameBrowser;
 import com.kingdee.eas.bpmdemo.webservers.serviceclient.BPMServiceForERPLocator;
 import com.kingdee.eas.bpmdemo.webservers.serviceclient.BPMServiceForERPSoap;
+import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.fdc.basedata.ContractTypeInfo;
 import com.kingdee.eas.fdc.contract.CompensationBillFactory;
 import com.kingdee.eas.fdc.contract.CompensationBillInfo;
@@ -138,12 +139,19 @@ public class CompensationBillListUIPIEx extends CompensationBillListUI{
 		{
 		CompensationBillInfo info = CompensationBillFactory.getRemoteInstance().getCompensationBillInfo(new ObjectUuidPK(this.getSelectedKeyValue()));
 		if(info.getId()!=null){
+			// String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+info.getId().toString()+"&btid=WY01&userid="+SysContext.getSysContext().getUserName()+"";
 			//ContractBillInfo info = ContractBillFactory.getRemoteInstance().getContractBillInfo(new ObjectUuidPK(editData.getId()));
 	    	String url = info.getDescription();
 			if("已审批".equals(info.getState().getAlias())||"审批中".equals(info.getState().getAlias()))
 			{
 				creatFrame(url);
-			}else{
+			}
+			else if("保存".equals(info.getState().getAlias()))
+			{
+				url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+info.getId().toString()+"&btid=WY01&userid="+SysContext.getSysContext().getUserName()+"";
+				creatFrame(url);
+			}
+			else{
 				MsgBox.showInfo("该单据未发起审批流程，或者已撤销流程，没有对应流程！");
 			}
 		}

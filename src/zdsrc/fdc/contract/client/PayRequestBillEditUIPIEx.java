@@ -289,14 +289,23 @@ public class PayRequestBillEditUIPIEx extends PayRequestBillEditUI{
 	public void actionAuditResult_actionPerformed(ActionEvent e) throws Exception {
 		if(editData.getId()!=null){
 			PayRequestBillInfo info = PayRequestBillFactory.getRemoteInstance().getPayRequestBillInfo(new ObjectUuidPK(editData.getId()));
-	    	//String url = info.getDescription();
-			String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=FK01&userid="+SysContext.getSysContext().getUserName()+"";
-//			if("已审批".equals(info.getState().getAlias())||"审批中".equals(info.getState().getAlias()))
-//			{
+			//String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=FK01&userid="+SysContext.getSysContext().getUserName()+"";
+			String url = info.getDescription();
+			if("已审批".equals(info.getState().getAlias())||"审批中".equals(info.getState().getAlias()))
+			{
 				creatFrame(url);
-//			}else{
-//				MsgBox.showInfo("该单据未发起审批流程，或者已撤销流程，没有对应流程！");
-//			}
+			}
+			else if(info.getDescription()!=null&&"保存".equals(info.getState().getAlias())&&info.getDescription().contains("http"))
+			{
+				creatFrame(url);
+			}
+			else if("保存".equals(info.getState().getAlias()))
+			{
+				MsgBox.showInfo("该单据未发起审批流程,没有对应流程！");
+			}
+			else{
+				MsgBox.showInfo("该单据未发起审批流程，或者已撤销流程，没有对应流程！");
+			}
 		}
 	}
 	
@@ -306,6 +315,16 @@ public class PayRequestBillEditUIPIEx extends PayRequestBillEditUI{
     	JFrameBrowser jf = new JFrameBrowser();
     	jf.setJBrowserSize(720, 1200);
     	jf.setJBrwserOpenUrl(url);
+    	jf.setTitle("BPM");
+    	jf.OpenJBrowser(this);
+    }
+	
+	private void creatFrame2(String url)
+    {
+    	//获取MD5加密
+    	JFrameBrowser jf = new JFrameBrowser();
+    	jf.setJBrowserSize(720, 1200);
+    	jf.setName("aaa");
     	jf.setTitle("BPM");
     	jf.OpenJBrowser(this);
     }

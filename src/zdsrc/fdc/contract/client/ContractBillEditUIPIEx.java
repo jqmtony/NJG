@@ -70,7 +70,7 @@ public class ContractBillEditUIPIEx extends ContractBillEditUI {
          }
          else if("保存".equals(editData.getState().getAlias()))
          {
-        	 this.btnAuditResult.setEnabled(false);
+        	 this.btnAuditResult.setEnabled(true);
        	     this.btnAttachment.setEnabled(false);
          }
     	}
@@ -86,6 +86,11 @@ public class ContractBillEditUIPIEx extends ContractBillEditUI {
     			this.btnAuditResult.setEnabled(true);
            	    this.btnAttachment.setEnabled(false);
     		}
+    		else if("保存".equals(editData.getState().getAlias()))
+             {
+            	 this.btnAuditResult.setEnabled(true);
+           	     this.btnAttachment.setEnabled(false);
+             }
     		else
     		{
      		this.btnAuditResult.setEnabled(false);
@@ -163,22 +168,22 @@ public class ContractBillEditUIPIEx extends ContractBillEditUI {
 			   FDCSQLBuilder bu = new FDCSQLBuilder();
 			   bu.appendSql(sql);
 			   bu.executeUpdate();
-//		    	String [] str1 = new String[3];
-			    //EASLoginProxy login = new EASLoginProxyServiceLocator().getEASLogin(new URL("http://127.0.0.1:56898/ormrpc/services/EASLogin"));
-//		    	EASLoginProxy login = new EASLoginProxyServiceLocator().getEASLogin(new URL("http://10.130.12.34:8888/ormrpc/services/EASLogin"));
-//			   	WSContext  ws = login.login("kd-user", "kduser", "eas", "kd_002", "l2", 1);
-//			    if(ws.getSessionId()!=null){
-//			    	WSgetInfoFacadeSrvProxy pay = new WSgetInfoFacadeSrvProxyServiceLocator().getWSgetInfoFacade(new URL("http://10.130.12.34:8888/ormrpc/services/WSgetInfoFacade"));
-			    	//WSgetInfoFacadeSrvProxy pay = new WSgetInfoFacadeSrvProxyServiceLocator().getWSgetInfoFacade(new URL("http://127.0.0.1:56898/ormrpc/services/WSgetInfoFacade"));
-//			    	str1 = pay.getbillInfo("", editData.getId().toString());
-//			    	str1=pay.getrRelatedBillInfo(editData.getNumber().toString(),editData.getId().toString(),"001");
-//			    	MsgBox.showInfo(str1[0] + str1[1] + str1[2]);
+		    	String [] str1 = new String[3];
+			    EASLoginProxy login = new EASLoginProxyServiceLocator().getEASLogin(new URL("http://127.0.0.1:56898/ormrpc/services/EASLogin"));
+//		    	EASLoginProxy login = new EASLoginProxyServiceLocator().getEASLogin(new URL("http://10.130.12.34:7888/ormrpc/services/EASLogin"));
+			   	WSContext  ws = login.login("kd-user", "kduser", "eas", "kd_002", "l2", 1);
+			    if(ws.getSessionId()!=null){
+//			    	WSgetInfoFacadeSrvProxy pay = new WSgetInfoFacadeSrvProxyServiceLocator().getWSgetInfoFacade(new URL("http://10.130.12.34:7888/ormrpc/services/WSgetInfoFacade"));
+			    	WSgetInfoFacadeSrvProxy pay = new WSgetInfoFacadeSrvProxyServiceLocator().getWSgetInfoFacade(new URL("http://127.0.0.1:56898/ormrpc/services/WSgetInfoFacade"));
+			    	str1 = pay.getbillInfo("", editData.getId().toString());
+			    	//str1=pay.getrRelatedBillInfo(editData.getNumber().toString(),editData.getId().toString(),"001");
+			    	MsgBox.showInfo(str1[0] + str1[1] + str1[2]);
 //			    	String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=HT01";
 //			    	str1 = pay.submitResult("", editData.getId().toString(), true, 1,url, editData.getId().toString());
 //			    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
 //			    	str1 = pay.approveClose("", editData.getId().toString(), 1, "0", "",null);
 //			    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
-//			    }
+			    }
 
 			   String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=HT01&userid="+SysContext.getSysContext().getUserName()+"";
 			   creatFrame(url);
@@ -239,11 +244,20 @@ public class ContractBillEditUIPIEx extends ContractBillEditUI {
 	public void actionAuditResult_actionPerformed(ActionEvent e) throws Exception {
 		if(editData.getId()!=null){
 			ContractBillInfo info = ContractBillFactory.getRemoteInstance().getContractBillInfo(new ObjectUuidPK(editData.getId()));
-	    	String url = info.getDescription();
+			String url = info.getDescription();
 			if("已审批".equals(info.getState().getAlias())||"审批中".equals(info.getState().getAlias()))
 			{
 				creatFrame(url);
-			}else{
+			}
+			else if(info.getDescription()!=null&&"保存".equals(info.getState().getAlias())&&info.getDescription().contains("http"))
+			{
+				creatFrame(url);
+			}
+			else if("保存".equals(info.getState().getAlias()))
+			{
+				MsgBox.showInfo("该单据未发起审批流程,没有对应流程！");
+			}
+			else{
 				MsgBox.showInfo("该单据未发起审批流程，或者已撤销流程，没有对应流程！");
 			}
 		}
@@ -255,6 +269,15 @@ public class ContractBillEditUIPIEx extends ContractBillEditUI {
     	JFrameBrowser jf = new JFrameBrowser();
     	jf.setJBrowserSize(720, 1200);
     	jf.setJBrwserOpenUrl(url);
+    	jf.setTitle("BPM");
+    	jf.OpenJBrowser(this);
+    }
+	
+	private void creatFrame2()
+    {
+    	//获取MD5加密
+    	JFrameBrowser jf = new JFrameBrowser();
+    	jf.setJBrowserSize(720, 1200);
     	jf.setTitle("BPM");
     	jf.OpenJBrowser(this);
     }

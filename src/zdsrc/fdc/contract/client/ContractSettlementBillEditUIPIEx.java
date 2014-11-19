@@ -66,36 +66,34 @@ public class ContractSettlementBillEditUIPIEx extends ContractSettlementBillEdit
     	this.actionMultiapprove.setVisible(false);
     	this.actionNextPerson.setVisible(false);
     	this.btnWorkFlowG.setVisible(false);
-    	
     	if(editData.getId()==null||editData.getId().equals(""))
     	{
-         if(editData==null)
+         if(editData.getState()==null)
          {
     	  this.btnAuditResult.setEnabled(false);
     	  this.btnAttachment.setEnabled(false);
          }
-    	}
-    	else if(editData.getId()!=null)
+         else if("保存".equals(editData.getState().getAlias()))
+         {
+        	 this.btnAuditResult.setEnabled(true);
+       	     this.btnAttachment.setEnabled(false);
+         }
+    	}else if(editData.getId()!=null&&editData.getState()==null)
+     	{
+     		this.btnAuditResult.setEnabled(false);
+       	    this.btnAttachment.setEnabled(false);
+     	}else if(editData.getId()!=null||editData.getState()==null)
      	{   
-    		ContractSettlementBillInfo info = null;
-			try {
-				info = ContractSettlementBillFactory.getRemoteInstance().getContractSettlementBillInfo(new ObjectUuidPK(editData.getId()));
-			} catch (EASBizException e) {
-				e.printStackTrace();
-			} catch (BOSException e) {
-				e.printStackTrace();
-			}
-    		if("保存".equals(info.getState().getAlias()))
-    		{
-    			this.btnAuditResult.setEnabled(false);
-           	    this.btnAttachment.setEnabled(false);
-    		}
-    		if("审批中".equals(info.getState().getAlias()))
+    		if("审批中".equals(editData.getState().getAlias()))
     		{
     			this.btnAuditResult.setEnabled(true);
            	    this.btnAttachment.setEnabled(true);
     		}
-    		else if("已审批".equals(info.getState().getAlias()))
+    		else if("已审批".equals(editData.getState().getAlias()))
+    		{
+    			this.btnAuditResult.setEnabled(true);
+           	    this.btnAttachment.setEnabled(false);
+    		}else if("保存".equals(editData.getState().getAlias()))
     		{
     			this.btnAuditResult.setEnabled(true);
            	    this.btnAttachment.setEnabled(false);
@@ -178,10 +176,12 @@ public class ContractSettlementBillEditUIPIEx extends ContractSettlementBillEdit
 			   bu.appendSql(sql);
 			   bu.executeUpdate();
 //		    	String [] str1 = new String[3];
-//			   	EASLoginProxy login = new EASLoginProxyServiceLocator().getEASLogin(new URL("http://127.0.0.1:56898/ormrpc/services/EASLogin"));
+			   	//EASLoginProxy login = new EASLoginProxyServiceLocator().getEASLogin(new URL("http://127.0.0.1:56898/ormrpc/services/EASLogin"));
+//			   	EASLoginProxy login = new EASLoginProxyServiceLocator().getEASLogin(new URL("http://10.130.12.34:8888/ormrpc/services/EASLogin"));
 //			   	WSContext  ws = login.login("kd-user", "kduser", "eas", "kd_002", "l2", 1);
 //			    if(ws.getSessionId()!=null){
-//			    	WSgetInfoFacadeSrvProxy pay = new WSgetInfoFacadeSrvProxyServiceLocator().getWSgetInfoFacade(new URL("http://127.0.0.1:56898/ormrpc/services/WSgetInfoFacade"));
+//			    	WSgetInfoFacadeSrvProxy pay = new WSgetInfoFacadeSrvProxyServiceLocator().getWSgetInfoFacade(new URL("http://10.130.12.34:8888/ormrpc/services/WSgetInfoFacade"));
+//			    	
 //			    	str1 = pay.getbillInfo("", editData.getId().toString());
 //			    	MsgBox.showInfo(str1[0] + str1[1] + str1[2]);
 //			    	String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=HTJS01";
@@ -195,7 +195,7 @@ public class ContractSettlementBillEditUIPIEx extends ContractSettlementBillEdit
 //			    	MsgBox.showInfo(str1[0] + str1[1] + str1[2]);
 //			    	str1=pay.getrRelatedBillInfo(editData.getNumber().toString(),editData.getId().toString(),"HTXX");
 //			    	MsgBox.showInfo(str1[0] + str1[1] + str1[2]);
-//			    	str1=pay.getrRelatedBillInfo(editData.getNumber().toString(),editData.getId().toString(),"HTXX");
+//			    	str1=pay.getrRelatedBillInfo(editData.getNumber().toString(),editData.getId().toString(),"FKSQ");
 //			    	MsgBox.showInfo(str1[0] + str1[1] + str1[2]);
 //			    }
 			   String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=HTJS01&userid="+SysContext.getSysContext().getUserName()+"";
@@ -257,11 +257,21 @@ public class ContractSettlementBillEditUIPIEx extends ContractSettlementBillEdit
 	public void actionAuditResult_actionPerformed(ActionEvent e) throws Exception {
 		if(editData.getId()!=null){
 			ContractSettlementBillInfo info =ContractSettlementBillFactory.getRemoteInstance().getContractSettlementBillInfo(new ObjectUuidPK(editData.getId()));
-	    	String url = info.getDescription();
+			  //String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=HTJS01&userid="+SysContext.getSysContext().getUserName()+"";
+			String url = info.getDescription();
 			if("已审批".equals(info.getState().getAlias())||"审批中".equals(info.getState().getAlias()))
 			{
 				creatFrame(url);
-			}else{
+			}
+			else if(info.getDescription()!=null&&"保存".equals(info.getState().getAlias())&&info.getDescription().contains("http"))
+			{
+				creatFrame(url);
+			}
+			else if("保存".equals(info.getState().getAlias()))
+			{
+				MsgBox.showInfo("该单据未发起审批流程,没有对应流程！");
+			}
+			else{
 				MsgBox.showInfo("该单据未发起审批流程，或者已撤销流程，没有对应流程！");
 			}
 		}

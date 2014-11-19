@@ -77,7 +77,7 @@ public class ChangeAuditEditUIPIEx extends ChangeAuditEditUI{
          }
          else if("保存".equals(editData.getChangeState().getAlias()))
          {
-        	 this.btnAuditResult.setEnabled(false);
+        	 this.btnAuditResult.setEnabled(true);
        	     this.btnAttachment.setEnabled(false);
          }
     	}
@@ -93,6 +93,11 @@ public class ChangeAuditEditUIPIEx extends ChangeAuditEditUI{
     			this.btnAuditResult.setEnabled(true);
            	    this.btnAttachment.setEnabled(false);
     		}
+    		 else if("保存".equals(editData.getChangeState().getAlias()))
+             {
+            	 this.btnAuditResult.setEnabled(true);
+           	     this.btnAttachment.setEnabled(false);
+             }
     		else
     		{
      		this.btnAuditResult.setEnabled(false);
@@ -237,12 +242,22 @@ public class ChangeAuditEditUIPIEx extends ChangeAuditEditUI{
 	 * */
 	public void actionAuditResult_actionPerformed(ActionEvent e) throws Exception {
 		if(editData.getId()!=null){
+			// String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=BGQZ01&userid="+SysContext.getSysContext().getUserName()+"";
 			ChangeAuditBillInfo info = ChangeAuditBillFactory.getRemoteInstance().getChangeAuditBillInfo(new ObjectUuidPK(editData.getId()));
-	    	String url = info.getDescription();
+			String url = info.getDescription();
 			if("已审批".equals(info.getChangeState().getAlias())||"审批中".equals(info.getChangeState().getAlias()))
 			{
 				creatFrame(url);
-			}else{
+			}
+			else if(info.getDescription()!=null&&"保存".equals(info.getChangeState().getAlias())&&info.getDescription().contains("http"))
+			{
+				creatFrame(url);
+			}
+			else if("保存".equals(info.getChangeState().getAlias()))
+			{
+				MsgBox.showInfo("该单据未发起审批流程,没有对应流程！");
+			}
+			else{
 				MsgBox.showInfo("该单据未发起审批流程，或者已撤销流程，没有对应流程！");
 			}
 		}

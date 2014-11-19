@@ -67,7 +67,7 @@ public class ContractBillReviseEditUIPIEx extends ContractBillReviseEditUI{
          }
          else if("保存".equals(editData.getState().getAlias()))
          {
-        	 this.btnAuditResult.setEnabled(false);
+        	 this.btnAuditResult.setEnabled(true);
        	     this.btnAttachment.setEnabled(false);
          }
     	}else if(editData.getId()!=null||editData.getState()==null)
@@ -82,6 +82,11 @@ public class ContractBillReviseEditUIPIEx extends ContractBillReviseEditUI{
     			this.btnAuditResult.setEnabled(true);
            	    this.btnAttachment.setEnabled(false);
     		}
+    		 else if("保存".equals(editData.getState().getAlias()))
+             {
+            	 this.btnAuditResult.setEnabled(true);
+           	     this.btnAttachment.setEnabled(false);
+             }
     		else
     		{
      		this.btnAuditResult.setEnabled(false);
@@ -225,11 +230,21 @@ public class ContractBillReviseEditUIPIEx extends ContractBillReviseEditUI{
 	public void actionAuditResult_actionPerformed(ActionEvent e) throws Exception {
 		if(editData.getId()!=null){
 			ContractBillReviseInfo info = ContractBillReviseFactory.getRemoteInstance().getContractBillReviseInfo(new ObjectUuidPK(editData.getId()));
-	    	String url = info.getDescription();
+			String url=info.getDescription();
+			//String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=HT02&userid="+SysContext.getSysContext().getUserName()+"";
 			if("已审批".equals(info.getState().getAlias())||"审批中".equals(info.getState().getAlias()))
 			{
 				creatFrame(url);
-			}else{
+			}
+			else if(info.getDescription()!=null&&"保存".equals(info.getState().getAlias())&&info.getDescription().contains("http"))
+			{
+				creatFrame(url);
+			}
+			else if("保存".equals(info.getState().getAlias()))
+			{
+				MsgBox.showInfo("该单据未发起审批流程,没有对应流程！");
+			}
+			else{
 				MsgBox.showInfo("该单据未发起审批流程，或者已撤销流程，没有对应流程！");
 			}
 		}
