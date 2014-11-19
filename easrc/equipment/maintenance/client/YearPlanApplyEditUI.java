@@ -4,11 +4,25 @@
 package com.kingdee.eas.port.equipment.maintenance.client;
 
 import java.awt.event.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.apache.log4j.Logger;
+
+import com.kingdee.bos.metadata.entity.EntityViewInfo;
+import com.kingdee.bos.metadata.entity.FilterInfo;
+import com.kingdee.bos.metadata.entity.FilterItemInfo;
+import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.eas.common.EASBizException;
+import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.framework.*;
+import com.kingdee.eas.port.equipment.uitl.ToolHelp;
+import com.kingdee.eas.util.SysUtil;
+import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
+import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.swing.KDTextField;
 
@@ -689,6 +703,41 @@ public class YearPlanApplyEditUI extends AbstractYearPlanApplyEditUI
 		this.kdtE1.getColumn("seq").getStyleAttributes().setHided(true);
 		super.onLoad();
 		txtplanYear.setRequired(true);
+		this.setUITitle("年度维保计划");
+		
+		 KDBizPromptBox kdtE1_equNumber_PromptBox = new KDBizPromptBox();
+	        kdtE1_equNumber_PromptBox.setQueryInfo("com.kingdee.eas.port.equipment.record.app.EquIdQuery");
+	        kdtE1_equNumber_PromptBox.setVisible(true);
+	        kdtE1_equNumber_PromptBox.setEditable(true);
+	        kdtE1_equNumber_PromptBox.setDisplayFormat("$innerNumber$");
+	        kdtE1_equNumber_PromptBox.setEditFormat("$innerNumber$");
+	        kdtE1_equNumber_PromptBox.setCommitFormat("$innerNumber$");
+	     	 EntityViewInfo evi = new EntityViewInfo();
+			 FilterInfo filter = new FilterInfo();
+			 String id = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
+			 DateFormat FORMAT_TIME = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			   Date date = null;
+			    try {
+			      date = SysUtil.getAppServerTime(null);
+			    } catch (EASBizException e1) {
+			      e1.printStackTrace();
+			    }
+			    StringBuffer sb = new StringBuffer();
+			    sb.append(" select CFEqmNumberID from cT_OPE_EqmIO  ");
+			    sb.append(" where CFInOrgUnitID='").append(id).append("'");
+			    sb.append(" and CFRentStart<={ts '" + FORMAT_TIME.format(date) + "'}");
+			    sb.append(" and CFRentEnd>={ts '" + FORMAT_TIME.format(date) + "'}");
+			    sb.append(" and fstatus = '4'");
+	 		 filter.getFilterItems().add(new FilterItemInfo("ssOrgUnit.id",id ,CompareType.EQUALS));
+	 		 filter.getFilterItems().add(new FilterItemInfo("id", sb.toString(), CompareType.INNER));
+	  		filter.setMaskString("(#0 or #1)");
+			 evi.setFilter(filter);
+//			kdtE1_equNumber_PromptBox.setEntityViewInfo(evi);
+			kdtE1_equNumber_PromptBox.setSelector(ToolHelp.initPrmtEquIdByF7Color(evi, false));
+			 KDTDefaultCellEditor kdtEntry_feeType_CellEditor = new KDTDefaultCellEditor(kdtE1_equNumber_PromptBox);
+			 kdtE1.getColumn("equName").setEditor(kdtEntry_feeType_CellEditor);
+		
+		
 	}
 	
 	protected void verifyInput(ActionEvent e) throws Exception {

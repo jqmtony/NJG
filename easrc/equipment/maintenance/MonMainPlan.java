@@ -387,4 +387,17 @@ public class MonMainPlan extends XRBillBase implements IMonMainPlan
             throw new EJBRemoteException(err);
         }
     }
+    /**
+     *关联生成设备二级维保任务书-User defined method
+     *@param model model
+     */
+    public void scrws(MonMainPlanInfo model) throws BOSException
+    {
+        try {
+            getController().scrws(getContext(), model);
+        }
+        catch(RemoteException err) {
+            throw new EJBRemoteException(err);
+        }
+    }
 }

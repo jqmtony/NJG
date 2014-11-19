@@ -267,9 +267,20 @@ public abstract class AbstractEumUseRecordEditUI extends com.kingdee.eas.xr.clie
         this.contAuditTime.setBoundLabelLength(100);		
         this.contAuditTime.setBoundLabelUnderline(true);
         // kdtEqmUse
-		String kdtEqmUseStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style><c:Style id=\"sCol3\"><c:Protection locked=\"true\" hidden=\"true\" /></c:Style><c:Style id=\"sCol5\"><c:NumberFormat>&amp;date</c:NumberFormat></c:Style><c:Style id=\"sCol6\"><c:NumberFormat>&amp;date</c:NumberFormat></c:Style><c:Style id=\"sCol7\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol9\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol11\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol14\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol15\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol16\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol17\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol18\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol19\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol20\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol21\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"eqmName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"eqmType\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"eqmCategory\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol3\" /><t:Column t:key=\"modelType\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"startTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol5\" /><t:Column t:key=\"endTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol6\" /><t:Column t:key=\"powerCost\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol7\" /><t:Column t:key=\"powerUnit\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"czCost\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol9\" /><t:Column t:key=\"czUnit\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"powerUnitCost\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol11\" /><t:Column t:key=\"puUnit\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"CostType\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"eqmTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol14\" /><t:Column t:key=\"UseTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"15\" t:styleID=\"sCol15\" /><t:Column t:key=\"usageRate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"16\" t:styleID=\"sCol16\" /><t:Column t:key=\"EventTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"17\" t:styleID=\"sCol17\" /><t:Column t:key=\"faultRate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol18\" /><t:Column t:key=\"materialAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol19\" /><t:Column t:key=\"selfAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol20\" /><t:Column t:key=\"outAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol21\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{eqmName}</t:Cell><t:Cell>$Resource{eqmType}</t:Cell><t:Cell>$Resource{eqmCategory}</t:Cell><t:Cell>$Resource{modelType}</t:Cell><t:Cell>$Resource{startTime}</t:Cell><t:Cell>$Resource{endTime}</t:Cell><t:Cell>$Resource{powerCost}</t:Cell><t:Cell>$Resource{powerUnit}</t:Cell><t:Cell>$Resource{czCost}</t:Cell><t:Cell>$Resource{czUnit}</t:Cell><t:Cell>$Resource{powerUnitCost}</t:Cell><t:Cell>$Resource{puUnit}</t:Cell><t:Cell>$Resource{CostType}</t:Cell><t:Cell>$Resource{eqmTime}</t:Cell><t:Cell>$Resource{UseTime}</t:Cell><t:Cell>$Resource{usageRate}</t:Cell><t:Cell>$Resource{EventTime}</t:Cell><t:Cell>$Resource{faultRate}</t:Cell><t:Cell>$Resource{materialAmount}</t:Cell><t:Cell>$Resource{selfAmount}</t:Cell><t:Cell>$Resource{outAmount}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		String kdtEqmUseStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style><c:Style id=\"sCol2\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol4\"><c:Protection locked=\"true\" hidden=\"true\" /></c:Style><c:Style id=\"sCol6\"><c:NumberFormat>&amp;date</c:NumberFormat></c:Style><c:Style id=\"sCol7\"><c:NumberFormat>&amp;date</c:NumberFormat></c:Style><c:Style id=\"sCol8\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol10\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol12\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol15\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol16\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol17\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol18\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol19\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol20\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol21\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol22\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"eqmName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"eqmNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol2\" /><t:Column t:key=\"eqmType\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"eqmCategory\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol4\" /><t:Column t:key=\"modelType\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"startTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol6\" /><t:Column t:key=\"endTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol7\" /><t:Column t:key=\"powerCost\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol8\" /><t:Column t:key=\"powerUnit\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"czCost\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol10\" /><t:Column t:key=\"czUnit\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"powerUnitCost\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol12\" /><t:Column t:key=\"puUnit\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"CostType\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"eqmTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"15\" t:styleID=\"sCol15\" /><t:Column t:key=\"UseTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"16\" t:styleID=\"sCol16\" /><t:Column t:key=\"usageRate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"17\" t:styleID=\"sCol17\" /><t:Column t:key=\"EventTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol18\" /><t:Column t:key=\"faultRate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol19\" /><t:Column t:key=\"materialAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol20\" /><t:Column t:key=\"selfAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol21\" /><t:Column t:key=\"outAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol22\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{eqmName}</t:Cell><t:Cell>$Resource{eqmNumber}</t:Cell><t:Cell>$Resource{eqmType}</t:Cell><t:Cell>$Resource{eqmCategory}</t:Cell><t:Cell>$Resource{modelType}</t:Cell><t:Cell>$Resource{startTime}</t:Cell><t:Cell>$Resource{endTime}</t:Cell><t:Cell>$Resource{powerCost}</t:Cell><t:Cell>$Resource{powerUnit}</t:Cell><t:Cell>$Resource{czCost}</t:Cell><t:Cell>$Resource{czUnit}</t:Cell><t:Cell>$Resource{powerUnitCost}</t:Cell><t:Cell>$Resource{puUnit}</t:Cell><t:Cell>$Resource{CostType}</t:Cell><t:Cell>$Resource{eqmTime}</t:Cell><t:Cell>$Resource{UseTime}</t:Cell><t:Cell>$Resource{usageRate}</t:Cell><t:Cell>$Resource{EventTime}</t:Cell><t:Cell>$Resource{faultRate}</t:Cell><t:Cell>$Resource{materialAmount}</t:Cell><t:Cell>$Resource{selfAmount}</t:Cell><t:Cell>$Resource{outAmount}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.kdtEqmUse.setFormatXml(resHelper.translateString("kdtEqmUse",kdtEqmUseStrXML));
+        kdtEqmUse.addKDTEditListener(new KDTEditAdapter() {
+		public void editStopped(KDTEditEvent e) {
+			try {
+				kdtEqmUse_Changed(e.getRowIndex(),e.getColIndex());
+			}
+			catch (Exception exc) {
+				handUIException(exc);
+			}
+		}
+	});
+
         this.kdtEqmUse.addKDTMouseListener(new com.kingdee.bos.ctrl.kdf.table.event.KDTMouseListener() {
             public void tableClicked(com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent e) {
                 try {
@@ -290,7 +301,7 @@ public abstract class AbstractEumUseRecordEditUI extends com.kingdee.eas.xr.clie
             }
         });
 
-                this.kdtEqmUse.putBindContents("editData",new String[] {"seq","eqmName","eqmType","eqmCategory","modelType","startTime","endTime","powerCost","powerUnit","czCost","czUnit","powerUnitCost","puUnit","CostType","eqmTime","UseTime","usageRate","EventTime","faultRate","materialAmount","selfAmount","outAmount"});
+                this.kdtEqmUse.putBindContents("editData",new String[] {"seq","eqmName","eqmNumber","eqmType","eqmCategory","modelType","startTime","endTime","powerCost","powerUnit","czCost","czUnit","powerUnitCost","puUnit","CostType","eqmTime","UseTime","usageRate","EventTime","faultRate","materialAmount","selfAmount","outAmount"});
 
 
         this.kdtEqmUse.checkParsed();
@@ -306,6 +317,11 @@ public abstract class AbstractEumUseRecordEditUI extends com.kingdee.eas.xr.clie
         ObjectValueRender kdtEqmUse_eqmName_OVR = new ObjectValueRender();
         kdtEqmUse_eqmName_OVR.setFormat(new BizDataFormat("$name$"));
         this.kdtEqmUse.getColumn("eqmName").setRenderer(kdtEqmUse_eqmName_OVR);
+        KDTextField kdtEqmUse_eqmNumber_TextField = new KDTextField();
+        kdtEqmUse_eqmNumber_TextField.setName("kdtEqmUse_eqmNumber_TextField");
+        kdtEqmUse_eqmNumber_TextField.setMaxLength(80);
+        KDTDefaultCellEditor kdtEqmUse_eqmNumber_CellEditor = new KDTDefaultCellEditor(kdtEqmUse_eqmNumber_TextField);
+        this.kdtEqmUse.getColumn("eqmNumber").setEditor(kdtEqmUse_eqmNumber_CellEditor);
         KDTextField kdtEqmUse_eqmType_TextField = new KDTextField();
         kdtEqmUse_eqmType_TextField.setName("kdtEqmUse_eqmType_TextField");
         kdtEqmUse_eqmType_TextField.setMaxLength(100);
@@ -596,7 +612,6 @@ public abstract class AbstractEumUseRecordEditUI extends com.kingdee.eas.xr.clie
         this.prmtUseOrgUnit.setRequired(false);
         // prmtreportTime		
         this.prmtreportTime.setQueryInfo("com.kingdee.eas.port.equipment.base.app.MonthTimeQuery");		
-        this.prmtreportTime.setVisible(true);		
         this.prmtreportTime.setEditable(true);		
         this.prmtreportTime.setDisplayFormat("$name$");		
         this.prmtreportTime.setEditFormat("$number$");		
@@ -604,13 +619,12 @@ public abstract class AbstractEumUseRecordEditUI extends com.kingdee.eas.xr.clie
         this.prmtreportTime.setRequired(false);
         // prmtreportMonth		
         this.prmtreportMonth.setQueryInfo("com.kingdee.eas.basedata.assistant.app.F7PeriodQuery");		
-        this.prmtreportMonth.setVisible(true);		
         this.prmtreportMonth.setEditable(true);		
         this.prmtreportMonth.setDisplayFormat("$number$");		
         this.prmtreportMonth.setEditFormat("$number$");		
         this.prmtreportMonth.setCommitFormat("$number$");		
         this.prmtreportMonth.setRequired(false);
-        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmtCU,pkLastUpdateTime,prmtLastUpdateUser,pkCreateTime,prmtCreator,prmtAuditor,txtDescription,pkBizDate,txtNumber,pkAuditTime,comboBizStatus,comboStatus,prmtstaPerson,prmtUseOrgUnit,chkinitialiRecord,kdtEqmUse,prmtreportTime,prmtreportMonth}));
+        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmtCU,pkLastUpdateTime,prmtLastUpdateUser,pkCreateTime,prmtCreator,prmtAuditor,txtDescription,pkBizDate,txtNumber,pkAuditTime,comboBizStatus,comboStatus,prmtstaPerson,prmtUseOrgUnit,chkinitialiRecord,prmtreportTime,prmtreportMonth,kdtEqmUse}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
 		registerBindings();
@@ -912,6 +926,7 @@ vo.put("CostType","1");
 		dataBinder.registerBinding("EqmUse.eqmName", java.lang.Object.class, this.kdtEqmUse, "eqmName.text");
 		dataBinder.registerBinding("EqmUse.startTime", java.util.Date.class, this.kdtEqmUse, "startTime.text");
 		dataBinder.registerBinding("EqmUse.endTime", java.util.Date.class, this.kdtEqmUse, "endTime.text");
+		dataBinder.registerBinding("EqmUse.eqmNumber", String.class, this.kdtEqmUse, "eqmNumber.text");
 		dataBinder.registerBinding("initialiRecord", boolean.class, this.chkinitialiRecord, "selected");
 		dataBinder.registerBinding("creator", com.kingdee.eas.base.permission.UserInfo.class, this.prmtCreator, "data");
 		dataBinder.registerBinding("createTime", java.sql.Timestamp.class, this.pkCreateTime, "value");
@@ -1086,6 +1101,7 @@ vo.put("CostType","1");
 		getValidateHelper().registerBindProperty("EqmUse.eqmName", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("EqmUse.startTime", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("EqmUse.endTime", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("EqmUse.eqmNumber", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("initialiRecord", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("creator", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("createTime", ValidateHelper.ON_SAVE);    
@@ -1148,6 +1164,19 @@ vo.put("CostType","1");
     {
     }
 
+
+    /**
+     * output kdtEqmUse_Changed(int rowIndex,int colIndex) method
+     */
+    public void kdtEqmUse_Changed(int rowIndex,int colIndex) throws Exception
+    {
+            if ("eqmName".equalsIgnoreCase(kdtEqmUse.getColumn(colIndex).getKey())) {
+kdtEqmUse.getCell(rowIndex,"eqmNumber").setValue(com.kingdee.bos.ui.face.UIRuleUtil.getString(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)kdtEqmUse.getCell(rowIndex,"eqmName").getValue(),"number")));
+
+}
+
+
+    }
     /**
      * output getSelectors method
      */
@@ -1218,6 +1247,7 @@ vo.put("CostType","1");
 		}
     	sic.add(new SelectorItemInfo("EqmUse.startTime"));
     	sic.add(new SelectorItemInfo("EqmUse.endTime"));
+    	sic.add(new SelectorItemInfo("EqmUse.eqmNumber"));
         sic.add(new SelectorItemInfo("initialiRecord"));
 		if(selectorAll.equalsIgnoreCase("true"))
 		{

@@ -145,13 +145,13 @@ public abstract class AbstractEqmTypeEditUI extends com.kingdee.eas.framework.cl
     {
         this.setBounds(new Rectangle(0, 0, 1013, 629));
         this.setLayout(null);
-        kDLabelContainer1.setBounds(new Rectangle(102, 44, 270, 19));
+        kDLabelContainer1.setBounds(new Rectangle(43, 44, 270, 19));
         this.add(kDLabelContainer1, null);
-        kDLabelContainer2.setBounds(new Rectangle(102, 81, 270, 19));
+        kDLabelContainer2.setBounds(new Rectangle(43, 81, 270, 19));
         this.add(kDLabelContainer2, null);
-        kDLabelContainer3.setBounds(new Rectangle(102, 118, 270, 19));
+        kDLabelContainer3.setBounds(new Rectangle(43, 118, 270, 19));
         this.add(kDLabelContainer3, null);
-        kDLabelContainer4.setBounds(new Rectangle(102, 155, 270, 19));
+        kDLabelContainer4.setBounds(new Rectangle(43, 155, 270, 19));
         this.add(kDLabelContainer4, null);
         //kDLabelContainer1
         kDLabelContainer1.setBoundEditor(txtNumber);

@@ -14,4 +14,9 @@ import com.kingdee.eas.framework.batchHandler.ResponseContext;
 public abstract class AbstractMonMainPlanEditUIHandler extends com.kingdee.eas.xr.app.XRBillBaseEditUIHandler
 
 {
+	public void handleActionScrws(RequestContext request,ResponseContext response, Context context) throws Exception {
+		_handleActionScrws(request,response,context);
+	}
+	protected void _handleActionScrws(RequestContext request,ResponseContext response, Context context) throws Exception {
+	}
 }

@@ -426,6 +426,28 @@ public class AbstractEquMaintBookInfo extends com.kingdee.eas.xr.XRBillBaseInfo 
     {
         setDate("planEndTime", item);
     }
+    /**
+     * Object:设备二级维保任务书's 上原单据IDproperty 
+     */
+    public String getIdone()
+    {
+        return getString("idone");
+    }
+    public void setIdone(String item)
+    {
+        setString("idone", item);
+    }
+    /**
+     * Object:设备二级维保任务书's 保主要内容和要求（电器部分）property 
+     */
+    public String getMainone()
+    {
+        return getString("mainone");
+    }
+    public void setMainone(String item)
+    {
+        setString("mainone", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("14FFF66B");

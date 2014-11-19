@@ -737,6 +737,7 @@ public class MonMainPlanEditUI extends AbstractMonMainPlanEditUI
 
 	public void onLoad() throws Exception {
 		this.kdtE1.getColumn("seq").getStyleAttributes().setHided(true);
+		this.kdtE1.getColumn("shangyuandanjuID").getStyleAttributes().setHided(true);
 //		this.kdtE1.getColumn("implementDepart").getStyleAttributes().setLocked(true);
 //		this.kdtE1.getColumn("actualCompleteT").getStyleAttributes().setLocked(true);
 //		this.kdtE1.getColumn("complete").getStyleAttributes().setLocked(true);

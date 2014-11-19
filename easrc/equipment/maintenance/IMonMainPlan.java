@@ -48,4 +48,5 @@ public interface IMonMainPlan extends IXRBillBase
     public void updateBigObject(IObjectPK pk, MonMainPlanInfo model) throws BOSException;
     public void updatePartial(MonMainPlanInfo model, SelectorItemCollection selector) throws BOSException, EASBizException;
     public String getBindingProperty() throws BOSException;
+    public void scrws(MonMainPlanInfo model) throws BOSException;
 }

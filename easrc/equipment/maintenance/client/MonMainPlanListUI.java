@@ -27,6 +27,7 @@ import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.framework.CoreBillBaseCollection;
+import com.kingdee.eas.port.equipment.maintenance.IEquMaintBook;
 import com.kingdee.eas.port.equipment.maintenance.IMonMainPlanE1;
 import com.kingdee.eas.port.equipment.maintenance.IRepairOrderE1;
 import com.kingdee.eas.port.equipment.maintenance.MonMainPlanE1Collection;
@@ -36,6 +37,7 @@ import com.kingdee.eas.port.equipment.maintenance.MonMainPlanInfo;
 import com.kingdee.eas.port.equipment.maintenance.RepairOrderE1Factory;
 import com.kingdee.eas.port.equipment.uitl.ToolHelp;
 import com.kingdee.eas.util.SysUtil;
+import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.KDTableUtil;
 import com.kingdee.eas.util.client.MsgBox;
 
@@ -48,6 +50,7 @@ public class MonMainPlanListUI extends AbstractMonMainPlanListUI
     
     
     private IRepairOrderE1 IRepairOrderE1 = RepairOrderE1Factory.getRemoteInstance();
+    private IRepairOrderE1 IEquMaintBook = RepairOrderE1Factory.getRemoteInstance();
     /**
      * output class constructor
      */
@@ -518,6 +521,64 @@ public class MonMainPlanListUI extends AbstractMonMainPlanListUI
     	}
     }
 
+    public void actionScrws_actionPerformed(ActionEvent e) throws Exception {
+//    	super.actionScrws_actionPerformed(e);
+    	checkSelected();
+    	int selectIndex[] = KDTableUtil.getSelectedRows(tblMain);
+    	
+    	StringBuffer sb = new StringBuffer();
+    	String innerId = "'null'";
+    	String billId = "'null'";
+    	
+    	for (int j = 0; j < selectIndex.length; j++) 
+    	{
+    		String entryId = UIRuleUtil.getString(this.tblMain.getRow(selectIndex[j]).getCell("E1.id").getValue());
+    		if(IEquMaintBook.exists("select id where sourceBillID='"+entryId+"'"))
+    			sb.append("第<"+(selectIndex[j]+1)+">行，颜色标记为黄色的已经生成设备二级维保任务单了！	\n");
+    		else
+    		{
+    			innerId = innerId+",'"+entryId+"'";
+    			billId = billId+",'"+UIRuleUtil.getString(this.tblMain.getRow(selectIndex[j]).getCell("id").getValue())+"'";
+    		}
+		}
+    	
+    	if(sb!=null&&!"".equals(sb.toString().trim()))
+    	{
+    		MsgBox.showConfirm3a("有不满足条件的记录，请查看详细信息！", sb.toString());
+    		return;
+    	}
+    	else
+    	{
+    		IBOTMapping botMapping = BOTMappingFactory.getRemoteInstance();
+    		BOTMappingInfo botInfo = (BOTMappingInfo) botMapping.getValue("where name='NJPWB0000233456666'");
+    		if(botInfo== null)
+    		{
+    			MsgBox.showWarning("规则错误，请检查BOTP！");SysUtil.abort();
+    		}
+    		
+    		IMonMainPlanE1 IMonMainPlanE1 = MonMainPlanE1Factory.getRemoteInstance();
+    		
+    		CoreBillBaseCollection eqcollection = MonMainPlanFactory.getRemoteInstance().getCoreBillBaseCollection("where id in("+billId+")");
+    		
+    		for (int i = 0; i < eqcollection.size(); i++)
+    		{
+    			MonMainPlanInfo Info = (MonMainPlanInfo)eqcollection.get(i);
+    			String oql = "where id in("+innerId+") and parent.id='"+Info.getId()+"'";
+    			
+    			MonMainPlanE1Collection e1Collection = IMonMainPlanE1.getMonMainPlanE1Collection(oql);
+    			Info.getE1().clear();
+    			for (int j = 0; j < e1Collection.size(); j++) 
+    			{
+    				Info.getE1().add(e1Collection.get(j));
+				}
+			}
+    		ToolHelp.generateDestBill("A0CD335E", "14FFF66B",eqcollection , new ObjectUuidPK(botInfo.getId()));
+    		MsgBox.showInfo("生成设备二级维保任务书成功！");
+    		
+    		refresh(null);
+    	}
+    }
+    
     /**
      * output actionCopyTo_actionPerformed
      */
@@ -673,6 +734,14 @@ public class MonMainPlanListUI extends AbstractMonMainPlanListUI
     }
 
     public void onLoad() throws Exception {
+    	btnScrws.setVisible(false);
+    	String id = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
+    	if(id.equals("6vYAAAAABBfM567U")){
+    		btnScrws.setVisible(true);
+    		btnCreateTo.setVisible(false);
+    	}
+    	
+    	
     	tblMain.addKDTDataFillListener(new KDTDataFillListener() {
             public void afterDataFill(KDTDataRequestEvent e)
             {
@@ -687,7 +756,7 @@ public class MonMainPlanListUI extends AbstractMonMainPlanListUI
             }
         });
     	super.onLoad();
-    	this.setUITitle("维保计划");
+//    	this.setUITitle("维保计划");
     	
     	this.btnCreateTo.setText("生成维保任务单");
     	this.btnCreateTo.setToolTipText("生成维保任务单");
@@ -702,6 +771,8 @@ public class MonMainPlanListUI extends AbstractMonMainPlanListUI
     private void tblMain_afterDataFill(KDTDataRequestEvent e){
         for (int i = e.getFirstRow(); i <= e.getLastRow(); i++)
         {
+        
+        	//维保任务单
         	 if (UIRuleUtil.isNotNull(this.tblMain.getRow(i).getCell("E1.id").getValue())) 
         	 {
         		 IRow row = this.tblMain.getRow(i);
@@ -720,6 +791,26 @@ public class MonMainPlanListUI extends AbstractMonMainPlanListUI
         			 e1.printStackTrace();
         		 }
         	 }
+//        	 
+//        	 //设备二级维保任务书
+//        	 if (UIRuleUtil.isNotNull(this.tblMain.getRow(i).getCell("E1.id").getValue())) 
+//        	 {
+//        		 IRow row = this.tblMain.getRow(i);
+//        		 String entryId = UIRuleUtil.getString(row.getCell("E1.id").getValue());
+//        		 try
+//        		 {
+//					if(IEquMaintBook.exists("select id where sourceBillID='"+entryId+"'"))
+//						row.getStyleAttributes().setBackground(Color.yellow);
+//					if(IEquMaintBook.exists("select id where sourceBillID='"+entryId+"' and status='4'"))
+//						row.getStyleAttributes().setBackground(Color.green);
+//        		 } catch (EASBizException e1) 
+//        		 {
+//        			 e1.printStackTrace();
+//        		 } catch (BOSException e1)
+//        		 {
+//        			 e1.printStackTrace();
+//        		 }
+//        	 }
         }
     }
     
@@ -750,5 +841,10 @@ public class MonMainPlanListUI extends AbstractMonMainPlanListUI
 		      viewInfo = (EntityViewInfo)arg1.clone();
 		    }
 		return super.getQueryExecutor(arg0, viewInfo);
+	}
+	
+	protected void initWorkButton() {
+		super.initWorkButton();
+		btnScrws.setIcon(EASResource.getIcon("imgTbtn_associatecreate"));
 	}
 }

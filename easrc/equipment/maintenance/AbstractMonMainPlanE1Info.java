@@ -193,6 +193,17 @@ public class AbstractMonMainPlanE1Info extends com.kingdee.eas.framework.CoreBil
     {
         setBigDecimal("planWeixiuDay", item);
     }
+    /**
+     * Object:月度维保计划单's 上源单据分录IDproperty 
+     */
+    public String getShangyuandanjuID()
+    {
+        return getString("shangyuandanjuID");
+    }
+    public void setShangyuandanjuID(String item)
+    {
+        setString("shangyuandanjuID", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("A24DDC6A");

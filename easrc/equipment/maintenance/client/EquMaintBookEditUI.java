@@ -5,11 +5,23 @@ package com.kingdee.eas.port.equipment.maintenance.client;
 
 import java.awt.event.*;
 import org.apache.log4j.Logger;
+
+import com.kingdee.bos.metadata.entity.EntityViewInfo;
+import com.kingdee.bos.metadata.entity.FilterInfo;
+import com.kingdee.bos.metadata.entity.FilterItemInfo;
+import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.eas.basedata.person.PersonInfo;
+import com.kingdee.eas.common.client.SysContext;
+import com.kingdee.eas.cp.bc.BizCollUtil;
 import com.kingdee.eas.framework.*;
+import com.kingdee.eas.port.equipment.uitl.ToolHelp;
+import com.kingdee.eas.xr.helper.PersonXRHelper;
+import com.kingdee.eas.xr.helper.Tool;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.swing.KDTextField;
+import com.kingdee.bos.ctrl.swing.event.DataChangeEvent;
 
 /**
  * output class name
@@ -684,4 +696,29 @@ public class EquMaintBookEditUI extends AbstractEquMaintBookEditUI
 		return null;
 	}
 
+	public void onLoad() throws Exception {
+		txtidone.setEnabled(false);
+		txtidone.setVisible(false);
+		contidone.setVisible(false);
+		this.kdtE1.getColumn("seq").getStyleAttributes().setHided(true);
+		this.kdtE2.getColumn("seq").getStyleAttributes().setHided(true);
+		this.kdtE3.getColumn("seq").getStyleAttributes().setHided(true);
+		super.onLoad();
+		
+		EntityViewInfo evi = new EntityViewInfo();
+		 FilterInfo filter = new FilterInfo();
+		 String id = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
+		 filter.getFilterItems().add(new FilterItemInfo("ssOrgUnit.id",id ,CompareType.EQUALS));
+		 evi.setFilter(filter);
+		 prmtequNumber.setSelector(ToolHelp.initPrmtEquIdByF7Color(evi, false)); 
+		 
+		 Tool.setPersonF7(this.prmtxiadaPerson, this, SysContext.getSysContext().getCurrentCtrlUnit().getId().toString());
+	}
+	
+	protected void prmtxiadaPerson_dataChanged(DataChangeEvent e)
+			throws Exception {
+		super.prmtxiadaPerson_dataChanged(e);
+		if(BizCollUtil.isF7ValueChanged(e)&&e.getNewValue()!=null)
+			this.prmtxiadaDepart.setValue(PersonXRHelper.getPosiMemByDeptUser((PersonInfo)e.getNewValue()));
+	}
 }

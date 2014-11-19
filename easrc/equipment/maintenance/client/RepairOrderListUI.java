@@ -679,6 +679,8 @@ public class RepairOrderListUI extends AbstractRepairOrderListUI
 	}
 	
 	public void onLoad() throws Exception {
+		btnToVoid.setVisible(false);
+		btnUnToViod.setVisible(false);
 		super.onLoad();
 		this.setUITitle("维保任务单");
 	}

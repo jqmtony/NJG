@@ -128,7 +128,7 @@ public abstract class AbstractEqmTypeTreeEditUI extends com.kingdee.eas.framewor
      */
     public void initUIContentLayout()
     {
-        this.setBounds(new Rectangle(10, 10, 556, 359));
+        this.setBounds(new Rectangle(10, 10, 400, 220));
         this.setLayout(null);
         kDLabelContainer1.setBounds(new Rectangle(58, 39, 270, 19));
         this.add(kDLabelContainer1, null);

@@ -3,21 +3,47 @@
  */
 package com.kingdee.eas.port.equipment.maintenance.client;
 
+import java.awt.Color;
 import java.awt.event.*;
 import org.apache.log4j.Logger;
 
 import com.kingdee.bos.BOSException;
 import com.kingdee.bos.metadata.IMetaDataPK;
+import com.kingdee.bos.metadata.bot.BOTMappingFactory;
+import com.kingdee.bos.metadata.bot.BOTMappingInfo;
+import com.kingdee.bos.metadata.bot.IBOTMapping;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.ui.face.UIRuleUtil;
+import com.kingdee.bos.ctrl.kdf.table.IRow;
+import com.kingdee.bos.ctrl.kdf.table.event.KDTDataFillListener;
+import com.kingdee.bos.ctrl.kdf.table.event.KDTDataRequestEvent;
 import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.dao.query.IQueryExecutor;
+import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.framework.*;
+import com.kingdee.eas.port.equipment.maintenance.IMonMainPlanE1;
+import com.kingdee.eas.port.equipment.maintenance.IRepairOrderE1;
+import com.kingdee.eas.port.equipment.maintenance.IYearPlanApplyE1;
+import com.kingdee.eas.port.equipment.maintenance.MonMainPlanE1Collection;
+import com.kingdee.eas.port.equipment.maintenance.MonMainPlanE1Factory;
+import com.kingdee.eas.port.equipment.maintenance.MonMainPlanFactory;
+import com.kingdee.eas.port.equipment.maintenance.MonMainPlanInfo;
+import com.kingdee.eas.port.equipment.maintenance.RepairOrderE1Factory;
+import com.kingdee.eas.port.equipment.maintenance.YearPlanApplyE1Collection;
+import com.kingdee.eas.port.equipment.maintenance.YearPlanApplyE1Factory;
+import com.kingdee.eas.port.equipment.maintenance.YearPlanApplyFactory;
+import com.kingdee.eas.port.equipment.maintenance.YearPlanApplyInfo;
+import com.kingdee.eas.port.equipment.uitl.ToolHelp;
+import com.kingdee.eas.util.SysUtil;
+import com.kingdee.eas.util.client.KDTableUtil;
+import com.kingdee.eas.util.client.MsgBox;
 
 /**
  * output class name
@@ -25,7 +51,7 @@ import com.kingdee.eas.framework.*;
 public class YearPlanApplyListUI extends AbstractYearPlanApplyListUI
 {
     private static final Logger logger = CoreUIObject.getLogger(YearPlanApplyListUI.class);
-    
+    private IMonMainPlanE1 IMonMainPlanE1 =MonMainPlanE1Factory.getRemoteInstance();
     /**
      * output class constructor
      */
@@ -439,7 +465,61 @@ public class YearPlanApplyListUI extends AbstractYearPlanApplyListUI
      */
     public void actionCreateTo_actionPerformed(ActionEvent e) throws Exception
     {
-        super.actionCreateTo_actionPerformed(e);
+//        super.actionCreateTo_actionPerformed(e);
+    	checkSelected();
+    	int selectIndex[] = KDTableUtil.getSelectedRows(tblMain);
+    	
+    	StringBuffer sb = new StringBuffer();
+    	String innerId = "'null'";
+    	String billId = "'null'";
+    	
+    	for (int j = 0; j < selectIndex.length; j++) 
+    	{
+    		String entryId = UIRuleUtil.getString(this.tblMain.getRow(selectIndex[j]).getCell("E1.id").getValue());
+    		if(IMonMainPlanE1.exists("select id where shangyuandanjuID='"+entryId+"'"))
+    			sb.append("第<"+(selectIndex[j]+1)+">行，颜色标记为黄色的已经生成月度维保计划了！	\n");
+    		else
+    		{
+    			innerId = innerId+",'"+entryId+"'";
+    			billId = billId+",'"+UIRuleUtil.getString(this.tblMain.getRow(selectIndex[j]).getCell("id").getValue())+"'";
+    		}
+		}
+    	
+    	if(sb!=null&&!"".equals(sb.toString().trim()))
+    	{
+    		MsgBox.showConfirm3a("有不满足条件的记录，请查看详细信息！", sb.toString());
+    		return;
+    	}
+    	else
+    	{
+    		IBOTMapping botMapping = BOTMappingFactory.getRemoteInstance();
+    		BOTMappingInfo botInfo = (BOTMappingInfo) botMapping.getValue("where name='NJPWB000023434'");
+    		if(botInfo== null)
+    		{
+    			MsgBox.showWarning("规则错误，请检查BOTP！");SysUtil.abort();
+    		}
+    		
+    		IYearPlanApplyE1 IYearPlanApplyE1 = YearPlanApplyE1Factory.getRemoteInstance();
+    		
+    		CoreBillBaseCollection eqcollection = YearPlanApplyFactory.getRemoteInstance().getCoreBillBaseCollection("where id in("+billId+")");
+    		
+    		for (int i = 0; i < eqcollection.size(); i++)
+    		{
+    			YearPlanApplyInfo Info = (YearPlanApplyInfo)eqcollection.get(i);
+    			String oql = "where id in("+innerId+") and parent.id='"+Info.getId()+"'";
+    			
+    			YearPlanApplyE1Collection e1Collection = IYearPlanApplyE1.getYearPlanApplyE1Collection(oql);
+    			Info.getE1().clear();
+    			for (int j = 0; j < e1Collection.size(); j++) 
+    			{
+    				Info.getE1().add(e1Collection.get(j));
+				}
+			}
+    		ToolHelp.generateDestBill("22C36DB8","A0CD335E", eqcollection , new ObjectUuidPK(botInfo.getId()));
+    		MsgBox.showInfo("生成月度维保计划成功！");
+    		
+    		refresh(null);
+    	}
     }
 
     /**
@@ -634,4 +714,52 @@ public class YearPlanApplyListUI extends AbstractYearPlanApplyListUI
     	return UIFactoryName.MODEL;
     }
     
+	public void onLoad() throws Exception {
+		tblMain.addKDTDataFillListener(new KDTDataFillListener() {
+            public void afterDataFill(KDTDataRequestEvent e)
+            {
+                try
+                {
+                    tblMain_afterDataFill(e);
+                }
+                catch(Exception exc)
+                {
+                    handUIException(exc);
+                }
+            }
+        });
+		super.onLoad();
+		this.setUITitle("年度维保计划");
+		this.btnCreateTo.setText("生成月度维保计划");
+    	this.btnCreateTo.setToolTipText("生成月度维保计划");
+	}
+	
+	 private void tblMain_afterDataFill(KDTDataRequestEvent e){
+	        for (int i = e.getFirstRow(); i <= e.getLastRow(); i++)
+	        {
+	        	 if (UIRuleUtil.isNotNull(this.tblMain.getRow(i).getCell("E1.id").getValue())) 
+	        	 {
+	        		 IRow row = this.tblMain.getRow(i);
+	        		 String entryId = UIRuleUtil.getString(row.getCell("E1.id").getValue());
+	        		 try
+	        		 {
+						if(IMonMainPlanE1.exists("select id where shangyuandanjuID='"+entryId+"'"))
+						{
+							row.getStyleAttributes().setBackground(Color.yellow);
+						}else { row.getStyleAttributes().setBackground(Color.white);}
+						if(IMonMainPlanE1.exists("select id where shangyuandanjuID='"+entryId+"' and status='4'"))
+						{
+							row.getStyleAttributes().setBackground(Color.gray);
+						}else { row.getStyleAttributes().setBackground(Color.yellow);}
+	        		 } catch (EASBizException e1) 
+	        		 {
+	        			 e1.printStackTrace();
+	        		 } catch (BOSException e1)
+	        		 {
+	        			 e1.printStackTrace();
+	        		 }
+	        	 }
+	        }
+	    }
+	
 }
