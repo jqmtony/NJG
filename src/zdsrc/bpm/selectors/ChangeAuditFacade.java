@@ -109,7 +109,7 @@ public class ChangeAuditFacade implements BillBaseSelector {
 //					ContextUtil.setCurrentFIUnit(ctx, company);
 //					ContextUtil.setCurrentOrgUnit(ctx, admin);
 //				    ContractBillFactory.getLocalInstance(ctx).audit(Info.getId());
-//				    Info.setState(FDCBillStateEnum.AUDITTED); 
+  	//		    Info.setState(FDCBillStateEnum.AUDITTED); 
 					
 					
 					else {

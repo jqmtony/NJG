@@ -255,7 +255,7 @@ public class PayRequestFacade implements BillBaseSelector {
 				xml.append("<invoiceAmt>0</invoiceAmt>\n");//发票金额
 			}
 			xml.append("<allinvoiceAmt>"+Info.getAllInvoiceAmt()+"</allinvoiceAmt>\n");//累计发票金额
-			xml.append("<amount>"+Info.getAmount()+"</amount>\n");//本币金额
+			//xml.append("<amount>"+Info.getAmount()+"</amount>\n");//本币金额
 			if(Info.getGrtAmount()!=null)
 			xml.append("<grtAmount>"+Info.getGrtAmount()+"</grtAmount>\n");//本币金额
 			else
@@ -334,10 +334,11 @@ public class PayRequestFacade implements BillBaseSelector {
 		    	  {
 		    		  ContractBillInfo conInfo=ContractBillFactory.getLocalInstance(ctx).getContractBillInfo(new ObjectUuidPK(con.get(a).getId()));
 		    		  xml.append("<ContractType>"+conInfo.getContractType().getName()+"</ContractType>\n");//合同类型
+		    		  xml.append("<amount>"+conInfo.getAmount()+"</amount>\n");//合同金额
 		    	  }
 		      }
 		      
-		      
+		      xml.append("<controlType>1</controlType>\n");//控制类型
 		      xml.append("<CostedName>"+Info.getCostedCompany().getName()+"</CostedName>\n");//合同类型
 		      xml.append("<OrgCode>"+Info.getCostedCompany().getNumber()+"</OrgCode>\n");//合同类型
 		      xml.append("<CostedDept>"+Info.getCostedDept().getName()+"</CostedDept>\n");//合同类型
