@@ -866,7 +866,7 @@
             <isMultilingual>false</isMultilingual>
             <isNullable>false</isNullable>
             <formula />
-            <length>500</length>
+            <length>200</length>
             <precision>0</precision>
             <decimalDigits>0</decimalDigits>
             <defaultValue>entityObject[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBook].properties.ownProperty[baoqianxiangmu].defaultValue</defaultValue>
@@ -886,7 +886,7 @@
             <isMultilingual>false</isMultilingual>
             <isNullable>false</isNullable>
             <formula />
-            <length>500</length>
+            <length>255</length>
             <precision>0</precision>
             <decimalDigits>0</decimalDigits>
             <defaultValue>entityObject[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBook].properties.ownProperty[mainNeirong].defaultValue</defaultValue>
@@ -1203,7 +1203,7 @@
             <isMultilingual>false</isMultilingual>
             <isNullable>false</isNullable>
             <formula />
-            <length>500</length>
+            <length>255</length>
             <precision>0</precision>
             <decimalDigits>0</decimalDigits>
             <defaultValue>entityObject[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBook].properties.ownProperty[chejianyijian].defaultValue</defaultValue>
@@ -1366,6 +1366,46 @@
             <displayFormat />
             <mappingField>
                 <key name="name" value="CFPlanEndTime" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>idone</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBook].properties.ownProperty[idone].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBook].properties.ownProperty[idone].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>String</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>100</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBook].properties.ownProperty[idone].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFIdone" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>mainone</name>
+            <alias>entityObject[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBook].properties.ownProperty[mainone].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBook].properties.ownProperty[mainone].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>String</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>255</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBook].properties.ownProperty[mainone].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFMainone" />
             </mappingField>
         </ownProperty>
     </properties>
@@ -3812,6 +3852,69 @@
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBook].properties.ownProperty[idone].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="上原单据ID" />
+            <lang locale="zh_HK" value="上原單據ID" />
+            <lang locale="zh_TW" value="上原單據ID" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBook].properties.ownProperty[idone].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBook].properties.ownProperty[idone].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="上原单据ID" />
+            <lang locale="zh_HK" value="上原單據ID" />
+            <lang locale="zh_TW" value="上原單據ID" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBook].properties.ownProperty[idone].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBook].properties.ownProperty[idone].extendedProperty.bizDataType">
+            <lang locale="en_US" value="STRING" />
+            <lang locale="zh_CN" value="STRING" />
+            <lang locale="zh_TW" value="STRING" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBook].properties.ownProperty[idone].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBook].properties.ownProperty[idone].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBook].properties.ownProperty[idone].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBook].properties.ownProperty[idone].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBook].properties.ownProperty[idone].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBook].properties.ownProperty[idone].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBook].properties.ownProperty[idone].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBook].properties.ownProperty[jiaojieTime].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="交接时间" />
@@ -4060,6 +4163,69 @@
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBook].properties.ownProperty[mainNeirong].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBook].properties.ownProperty[mainone].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="保主要内容和要求（电器部分）" />
+            <lang locale="zh_HK" value="保主要內容和要求（電器部分）" />
+            <lang locale="zh_TW" value="保主要內容和要求（電器部分）" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBook].properties.ownProperty[mainone].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBook].properties.ownProperty[mainone].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="保主要内容和要求（电器部分）" />
+            <lang locale="zh_HK" value="保主要內容和要求（電器部分）" />
+            <lang locale="zh_TW" value="保主要內容和要求（電器部分）" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBook].properties.ownProperty[mainone].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBook].properties.ownProperty[mainone].extendedProperty.bizDataType">
+            <lang locale="en_US" value="NOTE" />
+            <lang locale="zh_CN" value="NOTE" />
+            <lang locale="zh_TW" value="NOTE" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBook].properties.ownProperty[mainone].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBook].properties.ownProperty[mainone].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBook].properties.ownProperty[mainone].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBook].properties.ownProperty[mainone].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBook].properties.ownProperty[mainone].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBook].properties.ownProperty[mainone].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.equipment.maintenance.app.EquMaintBook].properties.ownProperty[mainone].extendedProperty.isVisibleForKDTable">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />

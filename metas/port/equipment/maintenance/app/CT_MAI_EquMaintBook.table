@@ -239,7 +239,7 @@
             <isMultilingual>false</isMultilingual>
             <isEncoded>false</isEncoded>
             <isNullable>false</isNullable>
-            <defaultValue />
+            <defaultValue>''</defaultValue>
             <sqlType>VARCHAR</sqlType>
             <length>44</length>
             <scale>0</scale>
@@ -367,7 +367,7 @@
             <isNullable>true</isNullable>
             <defaultValue />
             <sqlType>NVARCHAR</sqlType>
-            <length>500</length>
+            <length>200</length>
             <scale>0</scale>
             <precision>0</precision>
         </column>
@@ -381,7 +381,7 @@
             <isNullable>true</isNullable>
             <defaultValue />
             <sqlType>NVARCHAR</sqlType>
-            <length>500</length>
+            <length>255</length>
             <scale>0</scale>
             <precision>0</precision>
         </column>
@@ -605,7 +605,7 @@
             <isNullable>true</isNullable>
             <defaultValue />
             <sqlType>NVARCHAR</sqlType>
-            <length>500</length>
+            <length>255</length>
             <scale>0</scale>
             <precision>0</precision>
         </column>
@@ -732,6 +732,34 @@
             <defaultValue />
             <sqlType>DATETIME</sqlType>
             <length>8</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFIdone</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_EquMaintBook].columns.column[CFIdone].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_EquMaintBook].columns.column[CFIdone].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>100</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFMainone</name>
+            <alias>dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_EquMaintBook].columns.column[CFMainone].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_EquMaintBook].columns.column[CFMainone].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>255</length>
             <scale>0</scale>
             <precision>0</precision>
         </column>
@@ -1251,6 +1279,18 @@
             <lang locale="zh_HK" value="零件更換記錄" />
             <lang locale="zh_TW" value="零件更換記錄" />
         </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_EquMaintBook].columns.column[CFIdone].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="上原单据ID" />
+            <lang locale="zh_HK" value="上原單據ID" />
+            <lang locale="zh_TW" value="上原單據ID" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_EquMaintBook].columns.column[CFIdone].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="上原单据ID" />
+            <lang locale="zh_HK" value="上原單據ID" />
+            <lang locale="zh_TW" value="上原單據ID" />
+        </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_EquMaintBook].columns.column[CFJianyanyuanID].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="检验员（技师或班长担任）" />
@@ -1334,6 +1374,18 @@
             <lang locale="zh_CN" value="保主要内容和要求（机械和电气）" />
             <lang locale="zh_HK" value="保主要內容和要求（機械和電氣）" />
             <lang locale="zh_TW" value="保主要內容和要求（機械和電氣）" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_EquMaintBook].columns.column[CFMainone].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="保主要内容和要求（电器部分）" />
+            <lang locale="zh_HK" value="保主要內容和要求（電器部分）" />
+            <lang locale="zh_TW" value="保主要內容和要求（電器部分）" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_EquMaintBook].columns.column[CFMainone].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="保主要内容和要求（电器部分）" />
+            <lang locale="zh_HK" value="保主要內容和要求（電器部分）" />
+            <lang locale="zh_TW" value="保主要內容和要求（電器部分）" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.equipment.maintenance.app.CT_MAI_EquMaintBook].columns.column[CFModel].alias">
             <lang locale="en_US" value="null" />
