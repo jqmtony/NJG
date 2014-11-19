@@ -434,12 +434,12 @@ public class PaymentBillControllerBeanEx extends PaymentBillControllerBean {
 //				if(payReqBill.isIsBgControl()){
 					info.getEntries().clear();
 					BigDecimal subAmount=FDCHelper.ZERO;
-					PaymentBillCollection isPay=PaymentBillFactory.getLocalInstance(ctx).getPaymentBillCollection("select * from where fdcPayReqID='"+payReqBill.getId()+"' and id!='"+info.getId()+"' and billstatus=15");
-    				if(isPay.size()==0
-    						&&payReqBill.getCompletePrjAmt()!=null&&payReqBill.getCompletePrjAmt().compareTo(FDCHelper.ZERO)!=0&&payReqBill.getCompletePrjAmt().compareTo(payReqBill.getOriginalAmount())!=0){
-    					subAmount=payReqBill.getCompletePrjAmt().subtract(payReqBill.getOriginalAmount());
-    					isUpdateAmount=true;
-    				}
+//					PaymentBillCollection isPay=PaymentBillFactory.getLocalInstance(ctx).getPaymentBillCollection("select * from where fdcPayReqID='"+payReqBill.getId()+"' and id!='"+info.getId()+"' and billstatus=15");
+//    				if(isPay.size()==0
+//    						&&payReqBill.getCompletePrjAmt()!=null&&payReqBill.getCompletePrjAmt().compareTo(FDCHelper.ZERO)!=0&&payReqBill.getCompletePrjAmt().compareTo(payReqBill.getOriginalAmount())!=0){
+//    					subAmount=payReqBill.getCompletePrjAmt().subtract(payReqBill.getOriginalAmount());
+//    					isUpdateAmount=true;
+//    				}
 	    			if(payReqBill.getCurrency().getId().toString().equals(info.getCurrency().getId().toString())
 	    					&&payReqBill.getOriginalAmount().compareTo(info.getAmount())!=0){
 	    				BigDecimal total=FDCHelper.ZERO;
@@ -543,12 +543,12 @@ public class PaymentBillControllerBeanEx extends PaymentBillControllerBean {
 //				if(payReqBill.isIsBgControl()){
 					info.getEntries().clear();
 					BigDecimal subAmount=FDCHelper.ZERO;
-					PaymentBillCollection isPay=PaymentBillFactory.getLocalInstance(ctx).getPaymentBillCollection("select * from where fdcPayReqID='"+payReqBill.getId()+"' and id!='"+info.getId()+"' and billstatus=15");
-    				if(isPay.size()==0
-    						&&payReqBill.getCompletePrjAmt()!=null&&payReqBill.getCompletePrjAmt().compareTo(FDCHelper.ZERO)!=0&&payReqBill.getCompletePrjAmt().compareTo(payReqBill.getOriginalAmount())!=0){
-    					subAmount=payReqBill.getCompletePrjAmt().subtract(payReqBill.getOriginalAmount());
-    					isUpdateAmount=true;
-    				}
+//					PaymentBillCollection isPay=PaymentBillFactory.getLocalInstance(ctx).getPaymentBillCollection("select * from where fdcPayReqID='"+payReqBill.getId()+"' and id!='"+info.getId()+"' and billstatus=15");
+//    				if(isPay.size()==0
+//    						&&payReqBill.getCompletePrjAmt()!=null&&payReqBill.getCompletePrjAmt().compareTo(FDCHelper.ZERO)!=0&&payReqBill.getCompletePrjAmt().compareTo(payReqBill.getOriginalAmount())!=0){
+//    					subAmount=payReqBill.getCompletePrjAmt().subtract(payReqBill.getOriginalAmount());
+//    					isUpdateAmount=true;
+//    				}
 	    			if(payReqBill.getCurrency().getId().toString().equals(info.getCurrency().getId().toString())
 	    					&&payReqBill.getOriginalAmount().compareTo(info.getAmount())!=0){
 	    				BigDecimal total=FDCHelper.ZERO;
