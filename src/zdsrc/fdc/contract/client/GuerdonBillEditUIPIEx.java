@@ -172,19 +172,19 @@ public class GuerdonBillEditUIPIEx extends GuerdonBillEditUI{
 			   FDCSQLBuilder bu = new FDCSQLBuilder();
 			   bu.appendSql(sql);
 			   bu.executeUpdate();
-		    	String [] str1 = new String[3];
-			   	EASLoginProxy login = new EASLoginProxyServiceLocator().getEASLogin(new URL("http://10.130.12.34:8888/ormrpc/services/EASLogin"));
-			   	WSContext  ws = login.login("kd-user", "kduser", "eas", "kd_002", "l2", 1);
-			    if(ws.getSessionId()!=null){//10.130.12.34:8888/
-			    	WSgetInfoFacadeSrvProxy pay = new WSgetInfoFacadeSrvProxyServiceLocator().getWSgetInfoFacade(new URL("http://10.130.12.34:8888/ormrpc/services/WSgetInfoFacade"));
-			    	str1 = pay.getbillInfo("", editData.getId().toString());
+//		    	String [] str1 = new String[3];
+//			   	EASLoginProxy login = new EASLoginProxyServiceLocator().getEASLogin(new URL("http://10.130.12.34:8888/ormrpc/services/EASLogin"));
+//			   	WSContext  ws = login.login("kd-user", "kduser", "eas", "kd_002", "l2", 1);
+//			    if(ws.getSessionId()!=null){//10.130.12.34:8888/
+//			    	WSgetInfoFacadeSrvProxy pay = new WSgetInfoFacadeSrvProxyServiceLocator().getWSgetInfoFacade(new URL("http://10.130.12.34:8888/ormrpc/services/WSgetInfoFacade"));
+//			    	str1 = pay.getbillInfo("", editData.getId().toString());
 //			    	MsgBox.showInfo(str1[0] + str1[1] + str1[2]);
 //			    	String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=JL01";
 //			    	str1 = pay.submitResult("", editData.getId().toString(), true, 1,url, editData.getId().toString());
 //			    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
 //			    	str1 = pay.approveClose("", editData.getId().toString(), 1, "1", "",null);
 //			    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
-			    }
+//			    }
 			   String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=JL01&userid="+SysContext.getSysContext().getUserName()+"";
 			   creatFrame(url);
 		   }
