@@ -193,15 +193,15 @@ public class getInfoFacadeControllerBean extends AbstractgetInfoFacadeController
 			}
 			if(billInfo instanceof GuerdonBillInfo)
 			{
-				str=ViewXmlUtil.getViewXmlHTString(ctx, "JL",((GuerdonBillInfo) billInfo).getId().toString());
+				str=ViewXmlUtil.getViewXmlBTString(ctx, "JL",((GuerdonBillInfo) billInfo).getId().toString());
 			}
 			if(billInfo instanceof CompensationBillInfo)
 			{
-				str=ViewXmlUtil.getViewXmlHTString(ctx, "WYJ",((CompensationBillInfo) billInfo).getId().toString());
+				str=ViewXmlUtil.getViewXmlBTString(ctx, "WYJ",((CompensationBillInfo) billInfo).getId().toString());
 			}
 			if(billInfo instanceof DeductBillInfo)
 			{
-				str=ViewXmlUtil.getViewXmlHTString(ctx, "KKD",((DeductBillInfo) billInfo).getId().toString());
+				str=ViewXmlUtil.getViewXmlBTString(ctx, "KKD",((DeductBillInfo) billInfo).getId().toString());
 			}
 			
     	}catch (Exception e) {
@@ -234,14 +234,11 @@ public class getInfoFacadeControllerBean extends AbstractgetInfoFacadeController
 			if(billInfo instanceof ContractBillInfo){
 				 str =  ViewXmlUtil.getViewXmlHTString(ctx, strRelatedCode, ((ContractBillInfo) billInfo).getId().toString());
 			}
-			else if(billInfo instanceof ContractSettlementBillInfo)
+           else if(billInfo instanceof ContractSettlementBillInfo)
 			{   
 				 ContractSettlementBillInfo  SettlementBillInfo = ((ContractSettlementBillInfo) billInfo);
 				 if(strRelatedCode.equals("HTXX"))
 			     {
-				 // String  XML=null;
-				  
-				  //XML =  ViewXmlUtil.getViewXmlHTFLString(ctx, strRelatedCode, SettlementBillInfo.getContractBill().getId().toString());
 				  str =  ViewXmlUtil.getViewXmlHTString(ctx, strRelatedCode, SettlementBillInfo.getContractBill().getId().toString());
 				 
 			     }else
