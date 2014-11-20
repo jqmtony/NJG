@@ -4,7 +4,6 @@ import java.awt.Dimension;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.math.BigDecimal;
-import java.net.URL;
 import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.Date;
@@ -12,31 +11,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-
-
-import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
-import com.kingdee.eas.bpmdemo.JBrowserHelper.JFrameBrowser;
-import com.kingdee.eas.bpmdemo.webservers.getInfoFacadeFactory;
-import com.kingdee.eas.bpmdemo.webservers.serviceclient.BPMServiceForERPLocator;
-import com.kingdee.eas.bpmdemo.webservers.serviceclient.BPMServiceForERPSoap;
-import com.kingdee.eas.bpmdemo.webservers.serviceclient.EASLoginProxy;
-import com.kingdee.eas.bpmdemo.webservers.serviceclient.EASLoginProxyServiceLocator;
-import com.kingdee.eas.bpmdemo.webservers.serviceclient.WSContext;
-import com.kingdee.eas.bpmdemo.webservers.serviceclient.WSgetInfoFacadeSrvProxy;
-import com.kingdee.eas.bpmdemo.webservers.serviceclient.WSgetInfoFacadeSrvProxyServiceLocator;
-import com.kingdee.eas.common.client.SysContext;
-import com.kingdee.eas.fdc.basedata.ContractTypeInfo;
-import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
-import com.kingdee.eas.fdc.basedata.FDCHelper;
-import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
-import com.kingdee.eas.fdc.contract.ContractBillFactory;
-import com.kingdee.eas.fdc.contract.ContractBillInfo;
-import com.kingdee.eas.fdc.contract.ContractWithoutTextFactory;
-import com.kingdee.eas.fdc.contract.ContractWithoutTextInfo;
-import com.kingdee.eas.fdc.contract.PayRequestBillFactory;
-import com.kingdee.eas.fdc.contract.PayRequestBillInfo;
-import com.kingdee.eas.util.SysUtil;
-import com.kingdee.eas.util.client.MsgBox;
 
 import com.kingdee.bos.BOSException;
 import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
@@ -48,9 +22,9 @@ import com.kingdee.bos.ctrl.kdf.table.event.KDTSelectEvent;
 import com.kingdee.bos.ctrl.kdf.util.style.Styles.HorizontalAlignment;
 import com.kingdee.bos.ctrl.swing.KDFormattedTextField;
 import com.kingdee.bos.ctrl.swing.KDLayout;
-import com.kingdee.bos.ctrl.swing.KDTextField;
 import com.kingdee.bos.ctrl.swing.KDWorkButton;
 import com.kingdee.bos.ctrl.swing.event.DataChangeEvent;
+import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
@@ -63,15 +37,26 @@ import com.kingdee.eas.basedata.org.CostCenterOrgUnitInfo;
 import com.kingdee.eas.basedata.org.FullOrgUnitCollection;
 import com.kingdee.eas.basedata.org.FullOrgUnitFactory;
 import com.kingdee.eas.basedata.org.client.f7.CompanyF7;
+import com.kingdee.eas.bpm.common.StringUtilBPM;
+import com.kingdee.eas.bpmdemo.JBrowserHelper.JFrameBrowser;
+import com.kingdee.eas.bpmdemo.webservers.serviceclient.BPMServiceForERPLocator;
+import com.kingdee.eas.bpmdemo.webservers.serviceclient.BPMServiceForERPSoap;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.OprtState;
-import com.kingdee.eas.fdc.basedata.FDCCommonServerHelper;
+import com.kingdee.eas.common.client.SysContext;
+import com.kingdee.eas.fdc.basedata.ContractTypeInfo;
 import com.kingdee.eas.fdc.basedata.FDCConstants;
+import com.kingdee.eas.fdc.basedata.FDCHelper;
+import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
 import com.kingdee.eas.fdc.basedata.client.FDCClientHelper;
 import com.kingdee.eas.fdc.basedata.client.FDCClientVerifyHelper;
 import com.kingdee.eas.fdc.basedata.client.FDCMsgBox;
+import com.kingdee.eas.fdc.contract.ContractWithoutTextFactory;
+import com.kingdee.eas.fdc.contract.ContractWithoutTextInfo;
 import com.kingdee.eas.fdc.contract.PayRequestBillBgEntryCollection;
 import com.kingdee.eas.fdc.contract.PayRequestBillBgEntryInfo;
+import com.kingdee.eas.fdc.contract.PayRequestBillFactory;
+import com.kingdee.eas.fdc.contract.PayRequestBillInfo;
 import com.kingdee.eas.fdc.remk.CRMHelper;
 import com.kingdee.eas.fdc.remk.client.CRMClientHelper;
 import com.kingdee.eas.fi.cas.PaymentBillEntryInfo;
@@ -84,7 +69,9 @@ import com.kingdee.eas.ma.budget.BgItemInfo;
 import com.kingdee.eas.ma.budget.BgItemObject;
 import com.kingdee.eas.ma.budget.IBgControlFacade;
 import com.kingdee.eas.ma.budget.client.NewBgItemDialog;
+import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
+import com.kingdee.eas.util.client.MsgBox;
 import com.kingdee.jdbc.rowset.IRowSet;
 
 public class PayRequestBillEditUIPIEx extends PayRequestBillEditUI{
@@ -231,14 +218,14 @@ public class PayRequestBillEditUIPIEx extends PayRequestBillEditUI{
 //			    	WSgetInfoFacadeSrvProxy pay = new WSgetInfoFacadeSrvProxyServiceLocator().getWSgetInfoFacade(new URL("http://127.0.0.1:56898/ormrpc/services/WSgetInfoFacade"));
 //			    	str1 = pay.getbillInfo("", editData.getId().toString());
 //			    	MsgBox.showInfo(str1[0] + str1[1] + str1[2]);
-//			    	String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=FK01";
+//			    	String url = StringUtilBPM.getBPMServerURL()+"?bsid=ERP&boid="+editData.getId().toString()+"&btid=FK01";
 //			    	str1 = pay.submitResult("", editData.getId().toString(), true, 1,url, editData.getId().toString());
 //			    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
 //			    	str1 = pay.approveClose("", editData.getId().toString(), 1, "1", "",null);
 //			    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
 //			    }
 			   
-			   String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=FK01&userid="+SysContext.getSysContext().getUserName()+"";
+			   String url = StringUtilBPM.getBPMServerURL()+"?bsid=ERP&boid="+editData.getId().toString()+"&btid=FK01&userid="+SysContext.getSysContext().getUserName()+"";
 			   creatFrame(url);
 		   }
 		}
@@ -289,7 +276,7 @@ public class PayRequestBillEditUIPIEx extends PayRequestBillEditUI{
 	public void actionAuditResult_actionPerformed(ActionEvent e) throws Exception {
 		if(editData.getId()!=null){
 			PayRequestBillInfo info = PayRequestBillFactory.getRemoteInstance().getPayRequestBillInfo(new ObjectUuidPK(editData.getId()));
-			//String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=FK01&userid="+SysContext.getSysContext().getUserName()+"";
+			//String url = StringUtilBPM.getBPMServerURL()+"?bsid=ERP&boid="+editData.getId().toString()+"&btid=FK01&userid="+SysContext.getSysContext().getUserName()+"";
 			String url = info.getDescription();
 			if("已审批".equals(info.getState().getAlias())||"审批中".equals(info.getState().getAlias()))
 			{

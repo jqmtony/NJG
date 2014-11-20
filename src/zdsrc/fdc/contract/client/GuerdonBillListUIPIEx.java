@@ -3,13 +3,12 @@ package com.kingdee.eas.fdc.contract.client;
 import java.awt.event.ActionEvent;
 
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.eas.bpm.common.StringUtilBPM;
 import com.kingdee.eas.bpmdemo.JBrowserHelper.JFrameBrowser;
 import com.kingdee.eas.bpmdemo.webservers.serviceclient.BPMServiceForERPLocator;
 import com.kingdee.eas.bpmdemo.webservers.serviceclient.BPMServiceForERPSoap;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.fdc.basedata.ContractTypeInfo;
-import com.kingdee.eas.fdc.contract.ChangeAuditBillFactory;
-import com.kingdee.eas.fdc.contract.ChangeAuditBillInfo;
 import com.kingdee.eas.fdc.contract.GuerdonBillFactory;
 import com.kingdee.eas.fdc.contract.GuerdonBillInfo;
 import com.kingdee.eas.util.SysUtil;
@@ -152,7 +151,7 @@ public class GuerdonBillListUIPIEx extends GuerdonBillListUI{
 		if(this.getSelectedKeyValue()!=null){
 		GuerdonBillInfo info =GuerdonBillFactory.getRemoteInstance().getGuerdonBillInfo(new ObjectUuidPK(this.getSelectedKeyValue()));
 		if(info.getId()!=null){
-	    	//String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+info.getId().toString()+"&btid=JL01&userid="+SysContext.getSysContext().getUserName()+"";
+	    	//String url = StringUtilBPM.getBPMServerURL()+"?bsid=ERP&boid="+info.getId().toString()+"&btid=JL01&userid="+SysContext.getSysContext().getUserName()+"";
 			String url = info.getDescription();
 			if("已审批".equals(info.getState().getAlias())||"审批中".equals(info.getState().getAlias()))
 			{
@@ -160,7 +159,7 @@ public class GuerdonBillListUIPIEx extends GuerdonBillListUI{
 			}
 			else if("保存".equals(info.getState().getAlias()))
 			{
-				url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+info.getId().toString()+"&btid=JL01&userid="+SysContext.getSysContext().getUserName()+"";
+				url = StringUtilBPM.getBPMServerURL()+"?bsid=ERP&boid="+info.getId().toString()+"&btid=JL01&userid="+SysContext.getSysContext().getUserName()+"";
 				creatFrame(url);
 			}
 			else{

@@ -142,7 +142,7 @@ public class ChangeAuditListUIPIEx extends ChangeAuditListUI{
 		ChangeAuditBillInfo info = ChangeAuditBillFactory.getRemoteInstance().getChangeAuditBillInfo(new ObjectUuidPK(this.getSelectedKeyValue()));
 		if(info.getId()!=null){
 			//ContractBillInfo info = ContractBillFactory.getRemoteInstance().getContractBillInfo(new ObjectUuidPK(editData.getId()));
-			// String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+info.getId().toString()+"&btid=BGQZ01&userid="+SysContext.getSysContext().getUserName()+"";
+			// String url = StringUtilBPM.getBPMServerURL()+"?bsid=ERP&boid="+info.getId().toString()+"&btid=BGQZ01&userid="+SysContext.getSysContext().getUserName()+"";
 			String url = info.getDescription();
 			if("已审批".equals(info.getChangeState().getAlias())||"审批中".equals(info.getChangeState().getAlias()))
 			{

@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.util.Date;
 
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.eas.bpm.common.StringUtilBPM;
 import com.kingdee.eas.bpm.common.ViewXmlUtil;
 import com.kingdee.eas.bpmdemo.JBrowserHelper.JFrameBrowser;
 import com.kingdee.eas.bpmdemo.webservers.getInfoFacadeFactory;
@@ -184,8 +185,7 @@ public class ContractBillEditUIPIEx extends ContractBillEditUI {
 //			    	str1 = pay.approveClose("", editData.getId().toString(), 1, "0", "",null);
 //			    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
 //			    }
-
-			   String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=HT01&userid="+SysContext.getSysContext().getUserName()+"";
+			   String url = StringUtilBPM.getBPMServerURL()+"?bsid=ERP&boid="+editData.getId().toString()+"&btid=HT01&userid="+SysContext.getSysContext().getUserName()+"";
 			   creatFrame(url);
 		   }
 		}

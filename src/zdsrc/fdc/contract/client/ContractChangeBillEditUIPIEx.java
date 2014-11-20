@@ -132,7 +132,7 @@ public class ContractChangeBillEditUIPIEx extends ContractChangeBillEditUI{
 //		    	WSgetInfoFacadeSrvProxy pay = new WSgetInfoFacadeSrvProxyServiceLocator().getWSgetInfoFacade(new URL("http://127.0.0.1:56898/ormrpc/services/WSgetInfoFacade"));
 //		    	str1 = pay.getbillInfo("", editData.getId().toString());
 //		    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
-//		    	String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=HT01";
+//		    	String url = StringUtilBPM.getBPMServerURL()+"?bsid=ERP&boid="+editData.getId().toString()+"&btid=HT01";
 //		    	str1 = pay.submitResult("", editData.getId().toString(), true, 1,url, "dYkAAAAAmMgNbdH0");
 //		    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
 //		    	str1 = pay.approveClose("", editData.getId().toString(), 1, "0", "",null);
@@ -148,7 +148,7 @@ public class ContractChangeBillEditUIPIEx extends ContractChangeBillEditUI{
 			//FDCSQLBuilder bu = new FDCSQLBuilder();
 			//bu.appendSql(sql);
 			//bu.executeUpdate();
-	    	//String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=BGJS01&userid="+SysContext.getSysContext().getUserName()+"";
+	    	//String url = StringUtilBPM.getBPMServerURL()+"?bsid=ERP&boid="+editData.getId().toString()+"&btid=BGJS01&userid="+SysContext.getSysContext().getUserName()+"";
 	    	//creatFrame(url);
 	    }
 	 
@@ -183,7 +183,7 @@ public class ContractChangeBillEditUIPIEx extends ContractChangeBillEditUI{
 //		    	WSgetInfoFacadeSrvProxy pay = new WSgetInfoFacadeSrvProxyServiceLocator().getWSgetInfoFacade(new URL("http://127.0.0.1:56898/ormrpc/services/WSgetInfoFacade"));
 //		    	str1 = pay.getbillInfo("", editData.getId().toString());
 //		    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
-//		    	String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=HT01";
+//		    	String url = StringUtilBPM.getBPMServerURL()+"?bsid=ERP&boid="+editData.getId().toString()+"&btid=HT01";
 //		    	str1 = pay.submitResult("", editData.getId().toString(), true, 1,url, "dYkAAAAAmMgNbdH0");
 //		    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
 //		    	str1 = pay.approveClose("", editData.getId().toString(), 1, "0", "",null);

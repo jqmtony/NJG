@@ -1,25 +1,18 @@
 package com.kingdee.eas.fdc.contract.client;
 
 import java.awt.event.ActionEvent;
-import java.net.URL;
 
 import com.kingdee.bos.BOSException;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.eas.bpm.common.StringUtilBPM;
 import com.kingdee.eas.bpmdemo.JBrowserHelper.JFrameBrowser;
 import com.kingdee.eas.bpmdemo.webservers.serviceclient.BPMServiceForERPLocator;
 import com.kingdee.eas.bpmdemo.webservers.serviceclient.BPMServiceForERPSoap;
-import com.kingdee.eas.bpmdemo.webservers.serviceclient.EASLoginProxy;
-import com.kingdee.eas.bpmdemo.webservers.serviceclient.EASLoginProxyServiceLocator;
-import com.kingdee.eas.bpmdemo.webservers.serviceclient.WSContext;
-import com.kingdee.eas.bpmdemo.webservers.serviceclient.WSgetInfoFacadeSrvProxy;
-import com.kingdee.eas.bpmdemo.webservers.serviceclient.WSgetInfoFacadeSrvProxyServiceLocator;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
 import com.kingdee.eas.fdc.contract.CompensationBillFactory;
 import com.kingdee.eas.fdc.contract.CompensationBillInfo;
-import com.kingdee.eas.fdc.contract.GuerdonBillFactory;
-import com.kingdee.eas.fdc.contract.GuerdonBillInfo;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.MsgBox;
 
@@ -175,13 +168,13 @@ public class CompensationBillEditUIPIEx extends CompensationBillEditUI{
 //			    	WSgetInfoFacadeSrvProxy pay = new WSgetInfoFacadeSrvProxyServiceLocator().getWSgetInfoFacade(new URL("http://127.0.0.1:56898/ormrpc/services/WSgetInfoFacade"));
 //			    	str1 = pay.getbillInfo("", editData.getId().toString());
 //			    	MsgBox.showInfo(str1[0] + str1[1] + str1[2]);
-//			    	String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=WY01";
+//			    	String url = StringUtilBPM.getBPMServerURL()+"?bsid=ERP&boid="+editData.getId().toString()+"&btid=WY01";
 //			    	str1 = pay.submitResult("", editData.getId().toString(), true, 1,url, editData.getId().toString());
 //			    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
 //			    	str1 = pay.approveClose("", editData.getId().toString(), 1, "1", "",null);
 //			    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
 //			    }
-			   String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=WY01&userid="+SysContext.getSysContext().getUserName()+"";
+			   String url = StringUtilBPM.getBPMServerURL()+"?bsid=ERP&boid="+editData.getId().toString()+"&btid=WY01&userid="+SysContext.getSysContext().getUserName()+"";
 			   creatFrame(url);
 		   }
 		}
@@ -239,7 +232,7 @@ public class CompensationBillEditUIPIEx extends CompensationBillEditUI{
 	 * */
 	public void actionAuditResult_actionPerformed(ActionEvent e) throws Exception {
 		if(editData.getId()!=null){
-			//String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=WY01&userid="+SysContext.getSysContext().getUserName()+"";
+			//String url = StringUtilBPM.getBPMServerURL()+"?bsid=ERP&boid="+editData.getId().toString()+"&btid=WY01&userid="+SysContext.getSysContext().getUserName()+"";
 			CompensationBillInfo info =CompensationBillFactory.getRemoteInstance().getCompensationBillInfo(new ObjectUuidPK(editData.getId()));
 	    	String url = info.getDescription();
 			if("已审批".equals(info.getState().getAlias())||"审批中".equals(info.getState().getAlias()))
@@ -248,7 +241,7 @@ public class CompensationBillEditUIPIEx extends CompensationBillEditUI{
 			}
 			else if("保存".equals(info.getState().getAlias()))
 			{
-				url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=WY01&userid="+SysContext.getSysContext().getUserName()+"";
+				url = StringUtilBPM.getBPMServerURL()+"?bsid=ERP&boid="+editData.getId().toString()+"&btid=WY01&userid="+SysContext.getSysContext().getUserName()+"";
 				creatFrame(url);
 			}
 			else{

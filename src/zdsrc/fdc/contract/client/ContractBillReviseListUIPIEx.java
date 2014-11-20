@@ -177,7 +177,7 @@ public class ContractBillReviseListUIPIEx extends ContractBillReviseListUI{
 		ContractBillReviseInfo info = ContractBillReviseFactory.getRemoteInstance().getContractBillReviseInfo(new ObjectUuidPK(this.getSelectedKeyValue()));
 		if(info.getId()!=null){
 			//ContractBillReviseInfo info = ContractBillFactory.getRemoteInstance().getContractBillReviseInfo(new ObjectUuidPK(editData.getId()));
-			//String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+info.getId().toString()+"&btid=HT02&userid="+SysContext.getSysContext().getUserName()+"";
+			//String url = StringUtilBPM.getBPMServerURL()+"?bsid=ERP&boid="+info.getId().toString()+"&btid=HT02&userid="+SysContext.getSysContext().getUserName()+"";
 			String url = info.getDescription();
 			if("已审批".equals(info.getState().getAlias())||"审批中".equals(info.getState().getAlias()))
 			{

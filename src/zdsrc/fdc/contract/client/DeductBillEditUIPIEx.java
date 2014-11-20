@@ -5,6 +5,7 @@ import java.net.URL;
 
 import com.kingdee.bos.BOSException;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.eas.bpm.common.StringUtilBPM;
 import com.kingdee.eas.bpmdemo.JBrowserHelper.JFrameBrowser;
 import com.kingdee.eas.bpmdemo.webservers.serviceclient.BPMServiceForERPLocator;
 import com.kingdee.eas.bpmdemo.webservers.serviceclient.BPMServiceForERPSoap;
@@ -16,8 +17,6 @@ import com.kingdee.eas.bpmdemo.webservers.serviceclient.WSgetInfoFacadeSrvProxyS
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.fdc.basedata.ContractTypeInfo;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
-import com.kingdee.eas.fdc.contract.GuerdonBillFactory;
-import com.kingdee.eas.fdc.contract.GuerdonBillInfo;
 import com.kingdee.eas.fdc.finance.DeductBillFactory;
 import com.kingdee.eas.fdc.finance.DeductBillInfo;
 import com.kingdee.eas.fdc.finance.client.DeductBillEditUI;
@@ -183,13 +182,13 @@ public class DeductBillEditUIPIEx extends DeductBillEditUI{
 			    	WSgetInfoFacadeSrvProxy pay = new WSgetInfoFacadeSrvProxyServiceLocator().getWSgetInfoFacade(new URL("http://127.0.0.1:56898/ormrpc/services/WSgetInfoFacade"));
 			    	str1 = pay.getbillInfo("", editData.getId().toString());
 			    	MsgBox.showInfo(str1[0] + str1[1] + str1[2]);
-			    	String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=HT01";
+			    	String url = StringUtilBPM.getBPMServerURL()+"?bsid=ERP&boid="+editData.getId().toString()+"&btid=HT01";
 			    	str1 = pay.submitResult("", editData.getId().toString(), true, 1,url, editData.getId().toString());
 			    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
 			    	str1 = pay.approveClose("", editData.getId().toString(), 1, "1", "",null);
 			    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
 			    }
-			  // String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=HT01&userid="+SysContext.getSysContext().getUserName()+"";
+			  // String url = StringUtilBPM.getBPMServerURL()+"?bsid=ERP&boid="+editData.getId().toString()+"&btid=HT01&userid="+SysContext.getSysContext().getUserName()+"";
 			  // creatFrame(url);
 		   }
 		}

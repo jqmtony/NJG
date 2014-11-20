@@ -1,25 +1,15 @@
 package com.kingdee.eas.fdc.contract.client;
 
 import java.awt.event.ActionEvent;
-import java.net.URL;
 
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
-import com.kingdee.eas.bpmdemo.ContractsettlementFactory;
+import com.kingdee.eas.bpm.common.StringUtilBPM;
 import com.kingdee.eas.bpmdemo.JBrowserHelper.JFrameBrowser;
-import com.kingdee.eas.bpmdemo.webservers.getInfoFacadeFactory;
 import com.kingdee.eas.bpmdemo.webservers.serviceclient.BPMServiceForERPLocator;
 import com.kingdee.eas.bpmdemo.webservers.serviceclient.BPMServiceForERPSoap;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.fdc.basedata.ContractTypeInfo;
-import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
-import com.kingdee.eas.fdc.contract.ContractBillFactory;
 import com.kingdee.eas.fdc.contract.ContractSettlementBillFactory;
-import com.kingdee.eas.util.client.MsgBox;
-import com.kingdee.eas.bpmdemo.webservers.serviceclient.EASLoginProxyServiceLocator;
-import com.kingdee.eas.bpmdemo.webservers.serviceclient.EASLoginProxy;
-import com.kingdee.eas.bpmdemo.webservers.serviceclient.WSContext;
-import com.kingdee.eas.bpmdemo.webservers.serviceclient.WSgetInfoFacadeSrvProxyServiceLocator;
-import com.kingdee.eas.bpmdemo.webservers.serviceclient.WSgetInfoFacadeSrvProxy;
 
 public class ContractsettlementEditUIPIEx extends ContractSettlementBillEditUI{
      
@@ -133,7 +123,7 @@ public class ContractsettlementEditUIPIEx extends ContractSettlementBillEditUI{
 //			    	str1 = pay.getbillInfo("", editData.getId().toString());
 //			    	MsgBox.showInfo(str1[0] + str1[1] + str1[2]);
 //			    }			    
-	    	String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=HTJS01&userid="+SysContext.getSysContext().getUserName()+"";
+	    	String url = StringUtilBPM.getBPMServerURL()+"?bsid=ERP&boid="+editData.getId().toString()+"&btid=HTJS01&userid="+SysContext.getSysContext().getUserName()+"";
 	    	creatFrame(url);
 	    	//editData.setState(FDCBillStateEnum.SAVED);
 	    	

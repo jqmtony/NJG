@@ -1,29 +1,19 @@
 package com.kingdee.eas.fdc.contract.client;
 
 import java.awt.event.ActionEvent;
-import java.net.URL;
 
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.eas.bpm.common.StringUtilBPM;
 import com.kingdee.eas.bpmdemo.JBrowserHelper.JFrameBrowser;
-import com.kingdee.eas.bpmdemo.webservers.getInfoFacadeFactory;
 import com.kingdee.eas.bpmdemo.webservers.serviceclient.BPMServiceForERPLocator;
 import com.kingdee.eas.bpmdemo.webservers.serviceclient.BPMServiceForERPSoap;
-import com.kingdee.eas.bpmdemo.webservers.serviceclient.EASLoginProxyServiceLocator;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.fdc.basedata.ContractTypeInfo;
-import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
-import com.kingdee.eas.bpmdemo.webservers.serviceclient.EASLoginProxyServiceLocator;
-import com.kingdee.eas.fdc.contract.ContractBillFactory;
-import com.kingdee.eas.fdc.contract.ContractBillInfo;
 import com.kingdee.eas.fdc.contract.ContractBillReviseFactory;
 import com.kingdee.eas.fdc.contract.ContractBillReviseInfo;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.MsgBox;
-import com.kingdee.eas.bpmdemo.webservers.serviceclient.EASLoginProxy;
-import com.kingdee.eas.bpmdemo.webservers.serviceclient.WSContext;
-import com.kingdee.eas.bpmdemo.webservers.serviceclient.WSgetInfoFacadeSrvProxyServiceLocator;
-import com.kingdee.eas.bpmdemo.webservers.serviceclient.WSgetInfoFacadeSrvProxy;
 
 public class ContractBillReviseEditUIPIEx extends ContractBillReviseEditUI{
 	
@@ -168,14 +158,14 @@ public class ContractBillReviseEditUIPIEx extends ContractBillReviseEditUI{
 //			    	WSgetInfoFacadeSrvProxy pay = new WSgetInfoFacadeSrvProxyServiceLocator().getWSgetInfoFacade(new URL("http://127.0.0.1:56898/ormrpc/services/WSgetInfoFacade"));
 //			    	str1 = pay.getbillInfo("", editData.getId().toString());
 //			    	MsgBox.showInfo(str1[0] + str1[1] + str1[2]);
-//			    	String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=HT02";
+//			    	String url = StringUtilBPM.getBPMServerURL()+"?bsid=ERP&boid="+editData.getId().toString()+"&btid=HT02";
 //			    	str1 = pay.submitResult("", editData.getId().toString(), true, 1,url, editData.getId().toString());
 //			    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
 //			    	str1 = pay.approveClose("", editData.getId().toString(), 1, "1", "",null);
 //			    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
 //			    }
 			   
-			   String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=HT02&userid="+SysContext.getSysContext().getUserName()+"";
+			   String url = StringUtilBPM.getBPMServerURL()+"?bsid=ERP&boid="+editData.getId().toString()+"&btid=HT02&userid="+SysContext.getSysContext().getUserName()+"";
 			   creatFrame(url);
 		   }
 		}
@@ -231,7 +221,7 @@ public class ContractBillReviseEditUIPIEx extends ContractBillReviseEditUI{
 		if(editData.getId()!=null){
 			ContractBillReviseInfo info = ContractBillReviseFactory.getRemoteInstance().getContractBillReviseInfo(new ObjectUuidPK(editData.getId()));
 			String url=info.getDescription();
-			//String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=HT02&userid="+SysContext.getSysContext().getUserName()+"";
+			//String url = StringUtilBPM.getBPMServerURL()+"?bsid=ERP&boid="+editData.getId().toString()+"&btid=HT02&userid="+SysContext.getSysContext().getUserName()+"";
 			if("已审批".equals(info.getState().getAlias())||"审批中".equals(info.getState().getAlias()))
 			{
 				creatFrame(url);

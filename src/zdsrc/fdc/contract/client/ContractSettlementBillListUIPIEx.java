@@ -147,7 +147,7 @@ public class ContractSettlementBillListUIPIEx extends ContractSettlementBillList
 		ContractSettlementBillInfo info = ContractSettlementBillFactory.getRemoteInstance().getContractSettlementBillInfo(new ObjectUuidPK(this.getSelectedKeyValue()));
 		if(info.getId()!=null){
 			String url = info.getDescription();
-			  //String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+info.getId().toString()+"&btid=HTJS01&userid="+SysContext.getSysContext().getUserName()+"";
+			  //String url = StringUtilBPM.getBPMServerURL()+"?bsid=ERP&boid="+info.getId().toString()+"&btid=HTJS01&userid="+SysContext.getSysContext().getUserName()+"";
 			if("已审批".equals(info.getState().getAlias())||"审批中".equals(info.getState().getAlias()))
 			{
 				creatFrame(url);

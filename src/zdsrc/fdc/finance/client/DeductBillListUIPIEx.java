@@ -3,6 +3,7 @@ package com.kingdee.eas.fdc.finance.client;
 import java.awt.event.ActionEvent;
 
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.eas.bpm.common.StringUtilBPM;
 import com.kingdee.eas.bpmdemo.JBrowserHelper.JFrameBrowser;
 import com.kingdee.eas.bpmdemo.webservers.serviceclient.BPMServiceForERPLocator;
 import com.kingdee.eas.bpmdemo.webservers.serviceclient.BPMServiceForERPSoap;
@@ -145,7 +146,7 @@ public class DeductBillListUIPIEx extends DeductBillListUI{
 		DeductBillInfo info = DeductBillFactory.getRemoteInstance().getDeductBillInfo(new ObjectUuidPK(this.getSelectedKeyValue()));
 		if(info.getId()!=null){
 			//ContractBillInfo info = ContractBillFactory.getRemoteInstance().getContractBillInfo(new ObjectUuidPK(editData.getId()));
-			String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+info.getId().toString()+"&btid=KK01&userid="+SysContext.getSysContext().getUserName()+"";
+			String url = StringUtilBPM.getBPMServerURL()+"?bsid=ERP&boid="+info.getId().toString()+"&btid=KK01&userid="+SysContext.getSysContext().getUserName()+"";
 //			if("已审批".equals(info.getState().getAlias())||"审批中".equals(info.getState().getAlias()))
 //			{
 				creatFrame(url);

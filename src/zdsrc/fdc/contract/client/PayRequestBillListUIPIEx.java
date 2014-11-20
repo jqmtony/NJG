@@ -179,7 +179,7 @@ public class PayRequestBillListUIPIEx extends PayRequestBillListUI{
 			PayRequestBillInfo info = PayRequestBillFactory.getRemoteInstance().getPayRequestBillInfo(new ObjectUuidPK(this.getSelectedKeyValue()));
 			if(info.getId()!=null)
 			{
-				//String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+info.getId().toString()+"&btid=FK01&userid="+SysContext.getSysContext().getUserName()+"";
+				//String url = StringUtilBPM.getBPMServerURL()+"?bsid=ERP&boid="+info.getId().toString()+"&btid=FK01&userid="+SysContext.getSysContext().getUserName()+"";
 				String url = info.getDescription();
 				if("已审批".equals(info.getState().getAlias())||"审批中".equals(info.getState().getAlias()))
 				{

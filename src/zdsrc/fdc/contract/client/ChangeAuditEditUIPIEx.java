@@ -5,6 +5,7 @@ import java.net.URL;
 
 import com.kingdee.bos.Context;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.eas.bpm.common.StringUtilBPM;
 import com.kingdee.eas.bpmdemo.ChangeVisaAppFactory;
 import com.kingdee.eas.bpmdemo.ChangeVisaAppInfo;
 import com.kingdee.eas.bpmdemo.JBrowserHelper.JFrameBrowser;
@@ -181,14 +182,14 @@ public class ChangeAuditEditUIPIEx extends ChangeAuditEditUI{
 //			    //	WSgetInfoFacadeSrvProxy pay = new WSgetInfoFacadeSrvProxyServiceLocator().getWSgetInfoFacade(new URL("http://10.130.12.34:7888/ormrpc/services/WSgetInfoFacade"));
 //			    	str1 = pay.getbillInfo("", editData.getId().toString());
 //			    	MsgBox.showInfo(str1[0] + str1[1] + str1[2]);
-////			    	String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=BGQZ01";
+////			    	String url = StringUtilBPM.getBPMServerURL()+"?bsid=ERP&boid="+editData.getId().toString()+"&btid=BGQZ01";
 ////			    	str1 = pay.submitResult("", editData.getId().toString(), true, 1,url, editData.getId().toString());
 ////			    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
 ////			    	str1 = pay.approveClose("", editData.getId().toString(), 1, "1", "",null);
 ////			    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
 //			    }
 //			   
-			   String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=BGQZ01&userid="+SysContext.getSysContext().getUserName()+"";
+			   String url = StringUtilBPM.getBPMServerURL()+"?bsid=ERP&boid="+editData.getId().toString()+"&btid=BGQZ01&userid="+SysContext.getSysContext().getUserName()+"";
 			   creatFrame(url);
 		   }
 		}
@@ -242,7 +243,7 @@ public class ChangeAuditEditUIPIEx extends ChangeAuditEditUI{
 	 * */
 	public void actionAuditResult_actionPerformed(ActionEvent e) throws Exception {
 		if(editData.getId()!=null){
-			// String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=BGQZ01&userid="+SysContext.getSysContext().getUserName()+"";
+			// String url = StringUtilBPM.getBPMServerURL()+"?bsid=ERP&boid="+editData.getId().toString()+"&btid=BGQZ01&userid="+SysContext.getSysContext().getUserName()+"";
 			ChangeAuditBillInfo info = ChangeAuditBillFactory.getRemoteInstance().getChangeAuditBillInfo(new ObjectUuidPK(editData.getId()));
 			String url = info.getDescription();
 			if("已审批".equals(info.getChangeState().getAlias())||"审批中".equals(info.getChangeState().getAlias()))
