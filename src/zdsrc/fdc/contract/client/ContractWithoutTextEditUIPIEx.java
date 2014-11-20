@@ -207,7 +207,12 @@ public class ContractWithoutTextEditUIPIEx extends ContractWithoutTextEditUI{
 		   if("审批中".equals(info.getState().getAlias()) && info.getDescription()!=null)
 		   {
 			   MsgBox.showInfo("该单据在审批流程中，不能再次提交！");
-		   }else{
+		   }
+		   else if("保存".equals(info.getState().getAlias()) && info.getDescription()=="BPM拒绝")
+		   {
+			   MsgBox.showInfo("该单据在审批流程中，不能再次提交！");
+		   }
+		   else{
 			   super.actionSubmit_actionPerformed(e);
 			   String sql = " update t_con_contractwithouttext set fState='1SAVED' where fid='"+editData.getId()+"'";
 			   FDCSQLBuilder bu = new FDCSQLBuilder();
@@ -220,11 +225,11 @@ public class ContractWithoutTextEditUIPIEx extends ContractWithoutTextEditUI{
 //			    	WSgetInfoFacadeSrvProxy pay = new WSgetInfoFacadeSrvProxyServiceLocator().getWSgetInfoFacade(new URL("http://10.130.12.34:7888/ormrpc/services/WSgetInfoFacade"));
 //			    	str1 = pay.getbillInfo("", editData.getId().toString());
 //			    	MsgBox.showInfo(str1[0] + str1[1] + str1[2]);
-//			    	String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=WWBHT01";
-//			    	str1 = pay.submitResult("", editData.getId().toString(), true, 1,url, editData.getId().toString());
-//			    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
-//			    	str1 = pay.approveClose("", editData.getId().toString(), 1, "1", "",null);
-//			    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
+////			    	String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=WWBHT01";
+////			    	str1 = pay.submitResult("", editData.getId().toString(), true, 1,url, editData.getId().toString());
+////			    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
+////			    	str1 = pay.approveClose("", editData.getId().toString(), 1, "0", "",null);
+////			    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
 //			    }
 			   String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=WWBHT01&userid="+SysContext.getSysContext().getUserName()+"";
 			   creatFrame(url);

@@ -171,14 +171,14 @@ public class ChangeAuditEditUIPIEx extends ChangeAuditEditUI{
 			   FDCSQLBuilder bu = new FDCSQLBuilder();
 			   bu.appendSql(sql);
 			   bu.executeUpdate();
-//			   
+			   
 //		    	String [] str1 = new String[3];
-//			   //	EASLoginProxy login = new EASLoginProxyServiceLocator().getEASLogin(new URL("http://127.0.0.1:56898/ormrpc/services/EASLogin"));
-//		    	EASLoginProxy login = new EASLoginProxyServiceLocator().getEASLogin(new URL("http://10.130.12.34:7888/ormrpc/services/EASLogin"));
-//			   	WSContext  ws = login.login("kd-user", "kduser", "eas", "kd_001", "l2", 1);
+//			   	EASLoginProxy login = new EASLoginProxyServiceLocator().getEASLogin(new URL("http://127.0.0.1:56898/ormrpc/services/EASLogin"));
+//		    	//EASLoginProxy login = new EASLoginProxyServiceLocator().getEASLogin(new URL("http://10.130.12.34:7888/ormrpc/services/EASLogin"));
+//			   	WSContext  ws = login.login("kd-user", "kduser", "eas", "test1113", "l2", 1);
 //			    if(ws.getSessionId()!=null){
-//			    //	WSgetInfoFacadeSrvProxy pay = new WSgetInfoFacadeSrvProxyServiceLocator().getWSgetInfoFacade(new URL("http://127.0.0.1:56898/ormrpc/services/WSgetInfoFacade"));
-//			    	WSgetInfoFacadeSrvProxy pay = new WSgetInfoFacadeSrvProxyServiceLocator().getWSgetInfoFacade(new URL("http://10.130.12.34.7888/ormrpc/services/WSgetInfoFacade"));
+//			    	WSgetInfoFacadeSrvProxy pay = new WSgetInfoFacadeSrvProxyServiceLocator().getWSgetInfoFacade(new URL("http://127.0.0.1:56898/ormrpc/services/WSgetInfoFacade"));
+//			    //	WSgetInfoFacadeSrvProxy pay = new WSgetInfoFacadeSrvProxyServiceLocator().getWSgetInfoFacade(new URL("http://10.130.12.34:7888/ormrpc/services/WSgetInfoFacade"));
 //			    	str1 = pay.getbillInfo("", editData.getId().toString());
 //			    	MsgBox.showInfo(str1[0] + str1[1] + str1[2]);
 ////			    	String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=BGQZ01";
