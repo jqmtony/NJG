@@ -3,9 +3,28 @@ package com.kingdee.eas.bpm.common;
 import java.math.BigDecimal;
 import java.util.Properties;
 
+import com.kingdee.bos.BOSException;
+import com.kingdee.eas.bpm.BPMServerConfigFactory;
+import com.kingdee.eas.bpm.BPMServerConfigInfo;
 import com.kingdee.eas.util.client.EASResource;
 
 public class StringUtilBPM{
+	/**
+	 * 获取BPM服务器地址
+	 * */
+	public static String getBPMServerURL(){
+		String str = "http://10.130.12.20/BPMStart.aspx";
+		BPMServerConfigInfo info;
+		try {
+			info = BPMServerConfigFactory.getRemoteInstance().getBPMServerConfigCollection().get(0);
+			if(info!=null){
+				str = info.getNumber();
+			}
+		} catch (BOSException e) {
+			e.printStackTrace();
+		}
+		return str;
+	}
 	public static String isNULl(String str)
     {
 		if(str == null)
