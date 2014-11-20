@@ -15,9 +15,11 @@ import com.kingdee.eas.bpm.BPMLogInfo;
 import com.kingdee.eas.bpm.viewpz.PzViewFactory;
 import com.kingdee.eas.bpm.viewpz.PzViewInfo;
 import com.kingdee.eas.common.EASBizException;
+import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
 import com.kingdee.eas.fdc.contract.ContractBillEntryFactory;
 import com.kingdee.eas.fdc.contract.ContractBillEntryInfo;
 import com.kingdee.eas.fi.arap.util.DBUtil;
+import com.kingdee.jdbc.rowset.IRowSet;
 
 public class ViewXmlUtil {
 	public static String[] getViewXmlString(Context ctx,String BTID,String BOID){
@@ -220,7 +222,26 @@ public class ViewXmlUtil {
 					    	colNameArr[i] = rs.getMetaData().getColumnName(i + 1);  
 					    	colTypeArr[i] = rs.getMetaData().getColumnTypeName(i + 1); 
 					    	xml.append("<"+colNameArr[i]+">");
-					    	xml.append(rs.getObject(i+1));
+					    	FDCSQLBuilder builder=new FDCSQLBuilder(ctx);
+					    	String sql="select FNumber from T_CON_ContractBill where FID='"+rs.getObject(i+1)+"'";
+				    		builder.appendSql(sql);
+			                IRowSet Rowset = null;
+							try {
+								Rowset = builder.executeQuery();
+							} catch (BOSException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+			                  if(Rowset.size()==1)
+			                  {
+			                   Rowset.next();
+			                   xml.append(Rowset.getString("FNumber"));
+			                  }
+			                  else
+			                  {
+					    	   xml.append(rs.getObject(i+1));
+			                  }
+					    	//xml.append(rs.getObject(i+1));
 					    	xml.append("</"+colNameArr[i]+">\n");
 					    }
 						xml.append("</item>\n");
@@ -414,7 +435,7 @@ public class ViewXmlUtil {
 				log.setLogDate(new Date());
 				log.setName("EAS结果:"+str[0]);
 				log.setDescription("错误信息"+str[2]);
-				log.setBeizhu("调用接口方法：getViewXmlString");
+				log.setBeizhu("调用接口方法：getViewXmlBTString");
 				BPMLogFactory.getLocalInstance(ctx).save(log);
 			} catch (Exception e) {
 				e.printStackTrace();

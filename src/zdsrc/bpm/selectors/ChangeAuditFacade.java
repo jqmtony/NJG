@@ -120,9 +120,13 @@ public class ChangeAuditFacade implements BillBaseSelector {
 				}
 				if ("0".equals(processInstanceResult)) {
 					if (ChangeBillStateEnum.Auditting.equals(Info.getChangeState()))
-						//Info.setChangeState(ChangeBillStateEnum.INVALID);
+					{
 				     	Info.setChangeState(ChangeBillStateEnum.Saved);
-						//Info.setState(FDCBillStateEnum.INVALID);
+					    sql = " update T_CON_ChangeAuditBill set fDescription='BPM拒绝' where fid='"+Info.getId()+"'";
+					    FDCSQLBuilder bu = new FDCSQLBuilder(ctx);
+					    bu.appendSql(sql);
+					    bu.executeUpdate(ctx);
+					}
 					else {
 						str[2] = "审批不通过失败，该记录状态不是审批中！";
 						str[0] = "N";
