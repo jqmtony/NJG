@@ -248,6 +248,7 @@ public class PayRequestFacade implements BillBaseSelector {
 			xml.append("<currency>"+StringUtilBPM.isNULl(Info.getCurrency().getName())+"</currency>\n");//币别
 			xml.append("<exchangeRate>"+Info.getExchangeRate()+"</exchangeRate>\n");//汇率
 			xml.append("<originalAmount>"+Info.getOriginalAmount()+"</originalAmount>\n");//原币金额--
+			xml.append("<amount>"+Info.getAmount()+"</amount>\n");//本币金额
 			if(Info.getInvoiceAmt()!=null)
 			xml.append("<invoiceAmt>"+Info.getInvoiceAmt()+"</invoiceAmt>\n");//发票金额
 			else
@@ -334,7 +335,7 @@ public class PayRequestFacade implements BillBaseSelector {
 		    	  {
 		    		  ContractBillInfo conInfo=ContractBillFactory.getLocalInstance(ctx).getContractBillInfo(new ObjectUuidPK(con.get(a).getId()));
 		    		  xml.append("<ContractType>"+conInfo.getContractType().getName()+"</ContractType>\n");//合同类型
-		    		  xml.append("<amount>"+conInfo.getAmount()+"</amount>\n");//合同金额
+		    		  xml.append("<HTamount>"+conInfo.getAmount()+"</HTamount>\n");//合同金额
 		    	  }
 		      }
 		      

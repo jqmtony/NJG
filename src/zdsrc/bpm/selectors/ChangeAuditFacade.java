@@ -46,6 +46,7 @@ import com.kingdee.eas.bpm.BillBaseSelector;
 import com.kingdee.eas.bpm.common.StringUtilBPM;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.SysContext;
+import com.kingdee.eas.cp.ba.app.ContructRptReportTree;
 import com.kingdee.eas.fdc.basedata.CurProjectInfo;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
 import com.kingdee.eas.fdc.basedata.FDCHelper;
@@ -265,7 +266,6 @@ public class ChangeAuditFacade implements BillBaseSelector {
 					changeSuppentry.getParent();
 					xml.append("<item>");
 					xml.append("<SuppID>" + changeSuppentry.getSeq() + "</SuppID>\n");
-					changeSuppentry.getCurrency().getName();
 					for(int mj=0;mj<changeSuppentry.getEntrys().size();mj++)
 					 {
 						  SupplierContentEntryInfo supperContent =changeSuppentry.getEntrys().get(mj);
@@ -331,58 +331,147 @@ public class ChangeAuditFacade implements BillBaseSelector {
 						      
 					        }
 				      }
-				      EntityViewInfo My = new EntityViewInfo();
-				      FilterInfo Myfilter = new FilterInfo();
-				      Myfilter.getFilterItems().add(new FilterItemInfo("Parent",Info.getId(),CompareType.EQUALS));
-				      My.setFilter(Myfilter);
-				      ChangeSupplierEntryCollection ChengeMy=ChangeSupplierEntryFactory.getLocalInstance(ctx).getChangeSupplierEntryCollection(My);
-				      if(ChengeMy.size()>0)
-				      {
-				    	for(int a=0;a<ChengeMy.size();a++)
-				    	{
-				    		ChangeSupplierEntryInfo Cinfo=ChangeSupplierEntryFactory.getLocalInstance(ctx).getChangeSupplierEntryInfo(new ObjectUuidPK(ChengeMy.get(a).getId()));
-				    		SupplierInfo MainSuppInfo =SupplierFactory.getLocalInstance(ctx).getSupplierInfo(new ObjectUuidPK(Cinfo.getMainSupp().getId()));
-				    		xml.append("<MainSupp>" +StringUtilBPM.isNULl(MainSuppInfo.getName())+ "</MainSupp>\n");//  主送单位
-				    		CurrencyInfo currInfo= CurrencyFactory.getLocalInstance(ctx).getCurrencyInfo(new ObjectUuidPK(Cinfo.getCurrency().getId()));
-				    		xml.append("<Currency>" +currInfo.getName()+"</Currency>\n");
-				    		xml.append("<Exrate>" +Cinfo.getExRate()+ "</Exrate>\n");//汇率
-				    		xml.append("<ConstructPrice>" +StringUtilBPM.isNULl(Cinfo.getConstructPrice().toString())+ "</ConstructPrice>\n");//施工方审报金额
-				    		xml.append("<CostDescription>" +StringUtilBPM.isNULl(Cinfo.getCostDescription())+ "</CostDescription>\n");//测算说明
-				    		xml.append("<CostAmount>" +StringUtilBPM.isNULl(Cinfo.getCostAmount().toString())+ "</CostAmount>\n");//测算金额原币
-				    		xml.append("<OriCostAmount>" +StringUtilBPM.isNULl(Cinfo.getOriCostAmount().toString())+ "</OriCostAmount>\n");//测算金额
-				    		if(false==Cinfo.isIsDeduct())
-							{
-							xml.append("<IsDeduct>否</IsDeduct>\n");
-							}
-							else
-							{
-								xml.append("<IsDeduct>是</IsDeduct>\n");
-						    }
-				    		xml.append("<OriginalContactNum>"+StringUtilBPM.isNULl(Cinfo.getOriginalContactNum())+ "</OriginalContactNum>\n");
-				    		if(Cinfo.getDeductAmount()!=null)
-				    		{
-							xml.append("<DeductAmount>" + Cinfo.getDeductAmount()+ "</DeductAmount>\n");
-				    		}
-				    		else
-				    		{
-				    			xml.append("<DeductAmount>0</DeductAmount>\n");
-				    		}
-							xml.append("<DeductReason>" + StringUtilBPM.isNULl(Cinfo.getDeductReason())+ "</DeductReason>\n");
-							UserInfo userinfo=UserFactory.getLocalInstance(ctx).getUserInfo(new ObjectUuidPK(Cinfo.getReckonor().getId()));
-                            xml.append("<Reckonor>" +userinfo.getName()+ "</Reckonor>\n");
-        					if(Cinfo.getDutyOrg().getId()!=null)
-        					xml.append("<DutyOrg>" +AdminOrgUnitFactory.getLocalInstance(ctx).getAdminOrgUnitInfo(new ObjectUuidPK(Cinfo.getDutyOrg().getId())).getName()+"</DutyOrg>\n");
-        					if(false==Cinfo.isIsSureChangeAmt())
-        					{
-        					xml.append("<IsSureChangeAmt>否</IsSureChangeAmt>\n");
-        					}
-        					else
-        					{
-        						xml.append("<IsSureChangeAmt>是</IsSureChangeAmt>\n");
-        					}
-        					
-				    	}
-				      }
+					SupplierInfo MainSuppInfos =SupplierFactory.getLocalInstance(ctx).getSupplierInfo(new ObjectUuidPK(changeSuppentry.getMainSupp().getId()));
+		    		xml.append("<MainSupp>" +StringUtilBPM.isNULl(MainSuppInfos.getName())+ "</MainSupp>\n");//  主送单位
+		    		CurrencyInfo currInfo= CurrencyFactory.getLocalInstance(ctx).getCurrencyInfo(new ObjectUuidPK(changeSuppentry.getCurrency().getId()));
+		    		xml.append("<Currency>" +currInfo.getName()+"</Currency>\n");
+		    		xml.append("<CostDescription>" +StringUtilBPM.isNULl(changeSuppentry.getCostDescription())+ "</CostDescription>\n");//测算说明
+		    		xml.append("<Exrate>" +changeSuppentry.getExRate()+ "</Exrate>\n");//汇率
+		    		if(changeSuppentry.getConstructPrice()!=null)
+		    		{
+		    		 xml.append("<ConstructPrice>" +changeSuppentry.getConstructPrice()+ "</ConstructPrice>\n");//施工方审报金额
+		    		}
+		    		else
+		    		{
+		    			xml.append("<ConstructPrice>0</ConstructPrice>\n");//施工方审报金额
+		    		}
+		    		xml.append("<CostDescription>" +StringUtilBPM.isNULl(changeSuppentry.getCostDescription())+ "</CostDescription>\n");//测算说明
+		    		if(changeSuppentry.getCostAmount()!=null)
+		    		{
+		    		xml.append("<CostAmount>" +changeSuppentry.getCostAmount()+"</CostAmount>\n");//测算金额原币
+		    		}
+		    		else
+		    		{
+		    			xml.append("<CostAmount>0</CostAmount>\n");//测算金额原币
+		    		}
+		    		if(changeSuppentry.getOriCostAmount()!=null)
+		    		{
+		    		xml.append("<OriCostAmount>" +changeSuppentry.getOriCostAmount()+ "</OriCostAmount>\n");//测算金额
+		    		}
+		    		else
+		    		{
+		    			xml.append("<OriCostAmount>0</OriCostAmount>\n");//测算金额
+		    		}
+		    		if(false==changeSuppentry.isIsDeduct())
+					{
+					xml.append("<IsDeduct>否</IsDeduct>\n");
+					}
+					else
+					{
+						xml.append("<IsDeduct>是</IsDeduct>\n");
+				    }
+		    		xml.append("<OriginalContactNum>"+StringUtilBPM.isNULl(changeSuppentry.getOriginalContactNum())+ "</OriginalContactNum>\n");
+		    		if(changeSuppentry.getDeductAmount()!=null)
+		    		{
+					xml.append("<DeductAmount>" + changeSuppentry.getDeductAmount()+ "</DeductAmount>\n");
+		    		}
+		    		else
+		    		{
+		    			xml.append("<DeductAmount>0</DeductAmount>\n");
+		    		}
+					xml.append("<DeductReason>" + StringUtilBPM.isNULl(changeSuppentry.getDeductReason())+ "</DeductReason>\n");
+					UserInfo userinfo=UserFactory.getLocalInstance(ctx).getUserInfo(new ObjectUuidPK(changeSuppentry.getReckonor().getId()));
+                    xml.append("<Reckonor>" +userinfo.getName()+ "</Reckonor>\n");
+					if(changeSuppentry.getDutyOrg().getId()!=null)
+					xml.append("<DutyOrg>" +AdminOrgUnitFactory.getLocalInstance(ctx).getAdminOrgUnitInfo(new ObjectUuidPK(changeSuppentry.getDutyOrg().getId())).getName()+"</DutyOrg>\n");
+					if(false==changeSuppentry.isIsSureChangeAmt())
+					{
+					xml.append("<IsSureChangeAmt>否</IsSureChangeAmt>\n");
+					}
+					else
+					{
+						xml.append("<IsSureChangeAmt>是</IsSureChangeAmt>\n");
+					}
+		    		
+		    		
+		    		
+		    		
+		    		
+		    		
+//				      EntityViewInfo My = new EntityViewInfo();
+//				      FilterInfo Myfilter = new FilterInfo();
+//				      Myfilter.getFilterItems().add(new FilterItemInfo("Parent",Info.getId(),CompareType.EQUALS));
+//				      
+//				      My.setFilter(Myfilter);
+//				      ChangeSupplierEntryCollection ChengeMy=ChangeSupplierEntryFactory.getLocalInstance(ctx).getChangeSupplierEntryCollection(My);
+//				      if(ChengeMy.size()>0)
+//				      {
+//				    	for(int a=0;a<ChengeMy.size();a++)
+//				    	{
+//				    		ChangeSupplierEntryInfo Cinfo=ChangeSupplierEntryFactory.getLocalInstance(ctx).getChangeSupplierEntryInfo(new ObjectUuidPK(ChengeMy.get(a).getId()));
+//				    		
+//				    		SupplierInfo MainSuppInfo =SupplierFactory.getLocalInstance(ctx).getSupplierInfo(new ObjectUuidPK(Cinfo.getMainSupp().getId()));
+//				    		xml.append("<MainSupp>" +StringUtilBPM.isNULl(MainSuppInfo.getName())+ "</MainSupp>\n");//  主送单位
+//				    		CurrencyInfo currInfo= CurrencyFactory.getLocalInstance(ctx).getCurrencyInfo(new ObjectUuidPK(Cinfo.getCurrency().getId()));
+//				    		xml.append("<Currency>" +currInfo.getName()+"</Currency>\n");
+//				    		xml.append("<Exrate>" +Cinfo.getExRate()+ "</Exrate>\n");//汇率
+//				    		if(Cinfo.getConstructPrice()!=null)
+//				    		{
+//				    		 xml.append("<ConstructPrice>" +Cinfo.getConstructPrice()+ "</ConstructPrice>\n");//施工方审报金额
+//				    		}
+//				    		else
+//				    		{
+//				    			xml.append("<ConstructPrice>0</ConstructPrice>\n");//施工方审报金额
+//				    		}
+//				    		xml.append("<CostDescription>" +StringUtilBPM.isNULl(Cinfo.getCostDescription())+ "</CostDescription>\n");//测算说明
+//				    		if(Cinfo.getCostAmount()!=null)
+//				    		{
+//				    		xml.append("<CostAmount>" +Cinfo.getCostAmount()+"</CostAmount>\n");//测算金额原币
+//				    		}
+//				    		else
+//				    		{
+//				    			xml.append("<CostAmount>0</CostAmount>\n");//测算金额原币
+//				    		}
+//				    		if(Cinfo.getOriCostAmount()!=null)
+//				    		{
+//				    		xml.append("<OriCostAmount>" +Cinfo.getOriCostAmount()+ "</OriCostAmount>\n");//测算金额
+//				    		}
+//				    		else
+//				    		{
+//				    			xml.append("<OriCostAmount>0</OriCostAmount>\n");//测算金额
+//				    		}
+//				    		if(false==Cinfo.isIsDeduct())
+//							{
+//							xml.append("<IsDeduct>否</IsDeduct>\n");
+//							}
+//							else
+//							{
+//								xml.append("<IsDeduct>是</IsDeduct>\n");
+//						    }
+//				    		xml.append("<OriginalContactNum>"+StringUtilBPM.isNULl(Cinfo.getOriginalContactNum())+ "</OriginalContactNum>\n");
+//				    		if(Cinfo.getDeductAmount()!=null)
+//				    		{
+//							xml.append("<DeductAmount>" + Cinfo.getDeductAmount()+ "</DeductAmount>\n");
+//				    		}
+//				    		else
+//				    		{
+//				    			xml.append("<DeductAmount>0</DeductAmount>\n");
+//				    		}
+//							xml.append("<DeductReason>" + StringUtilBPM.isNULl(Cinfo.getDeductReason())+ "</DeductReason>\n");
+//							UserInfo userinfo=UserFactory.getLocalInstance(ctx).getUserInfo(new ObjectUuidPK(Cinfo.getReckonor().getId()));
+//                            xml.append("<Reckonor>" +userinfo.getName()+ "</Reckonor>\n");
+//        					if(Cinfo.getDutyOrg().getId()!=null)
+//        					xml.append("<DutyOrg>" +AdminOrgUnitFactory.getLocalInstance(ctx).getAdminOrgUnitInfo(new ObjectUuidPK(Cinfo.getDutyOrg().getId())).getName()+"</DutyOrg>\n");
+//        					if(false==Cinfo.isIsSureChangeAmt())
+//        					{
+//        					xml.append("<IsSureChangeAmt>否</IsSureChangeAmt>\n");
+//        					}
+//        					else
+//        					{
+//        						xml.append("<IsSureChangeAmt>是</IsSureChangeAmt>\n");
+//        					}
+//				    	}
+//				      }
 				      EntityViewInfo Myavevi3 = new EntityViewInfo();
 				      FilterInfo Myavfilter3 = new FilterInfo();
 				      Myavfilter3.getFilterItems().add(new FilterItemInfo("parent.id",changeSuppentry.getId(),CompareType.EQUALS));
@@ -400,7 +489,7 @@ public class ChangeAuditFacade implements BillBaseSelector {
 						xml.append("</item>\n");
 				}
 				xml.append("</SuppEntry>\n");
-				//builder.clear();
+
 				xml.append("<TotalCost>" + Info.getTotalCost()+ "</TotalCost>\n");   //测算金额汇总
 				xml.append("<DutyAmout>" + Info.getAmountDutySupp()+ "</DutyAmout>\n");   //测算金额汇总
 				
@@ -437,6 +526,7 @@ public class ChangeAuditFacade implements BillBaseSelector {
 				      }
 					
 				}
+
 				
 				xml.append("</DATA>");
 				str[1] = xml.toString();

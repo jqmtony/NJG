@@ -146,8 +146,14 @@ public class ContractWithoutTextFacade implements BillBaseSelector {
 					}
 				}
 				if("0".equals(processInstanceResult)){
-					if(FDCBillStateEnum.AUDITTING.equals(Info.getState()))
-						Info.setState(FDCBillStateEnum.SAVED);
+					if(FDCBillStateEnum.AUDITTING.equals(Info.getState()))   //拒绝
+					{
+					  Info.setState(FDCBillStateEnum.SAVED);
+					  sql = " update t_con_contractwithouttext set fDescription='BPM拒绝' where fid='"+Info.getId()+"'";
+					  FDCSQLBuilder bu = new FDCSQLBuilder(ctx);
+					  bu.appendSql(sql);
+					  bu.executeUpdate(ctx);
+					}
 					else{
 						str[2] = "审批不通过失败，该记录状态不是审批中！";
 						str[0] = "N";
@@ -162,7 +168,7 @@ public class ContractWithoutTextFacade implements BillBaseSelector {
 					}
 				}
 				if("3".equals(processInstanceResult)){
-					if(FDCBillStateEnum.AUDITTING.equals(Info.getState()))
+					if(FDCBillStateEnum.AUDITTING.equals(Info.getState()))  //发起人撤回
 					{
 						Info.setState(FDCBillStateEnum.SAVED);
 						sql = " update t_con_contractwithouttext set fDescription='' where fid='"+Info.getId()+"'";
