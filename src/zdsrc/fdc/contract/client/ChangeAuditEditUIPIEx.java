@@ -166,7 +166,12 @@ public class ChangeAuditEditUIPIEx extends ChangeAuditEditUI{
 		   if("审批中".equals(info.getChangeState().getAlias()) && info.getDescription()!=null)
 		   {
 			   MsgBox.showInfo("该单据在审批流程中，不能再次提交！");
-		   }else{
+		   }
+		   else if("保存".equals(info.getChangeState().getAlias()) && info.getDescription()=="BPM拒绝")
+		   {
+			   MsgBox.showInfo("该单据被拒绝，不能再次提交！");
+		   }
+		   else{
 			   super.actionSubmit_actionPerformed(e);
 			   String sql = " update T_CON_ChangeAuditBill set fChangeState='1Saved' where fid='"+editData.getId()+"'";
 			   FDCSQLBuilder bu = new FDCSQLBuilder();

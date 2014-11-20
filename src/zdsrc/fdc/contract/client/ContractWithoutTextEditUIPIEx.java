@@ -200,7 +200,7 @@ public class ContractWithoutTextEditUIPIEx extends ContractWithoutTextEditUI{
 		   }
 		   else if("保存".equals(info.getState().getAlias()) && info.getDescription()=="BPM拒绝")
 		   {
-			   MsgBox.showInfo("该单据在审批流程中，不能再次提交！");
+			   MsgBox.showInfo("该单据被拒绝，不能再次提交！");
 		   }
 		   else{
 			   super.actionSubmit_actionPerformed(e);
