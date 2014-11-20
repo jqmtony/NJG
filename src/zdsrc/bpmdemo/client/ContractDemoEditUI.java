@@ -4,19 +4,19 @@
 package com.kingdee.eas.bpmdemo.client;
 
 import java.awt.BorderLayout;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
 import java.util.Date;
 
 import org.apache.log4j.Logger;
-import com.kingdee.bos.ui.face.CoreUIObject;
+
+import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.eas.bpm.common.StringUtilBPM;
 import com.kingdee.eas.bpmdemo.ContractDemoEntryInfo;
 import com.kingdee.eas.bpmdemo.JBrowserHelper.JFrameBrowser;
 import com.kingdee.eas.bpmdemo.JBrowserHelper.MD5Helper;
-import com.kingdee.eas.bpmdemo.webservers.getInfoFacadeFactory;
 import com.kingdee.eas.common.client.SysContext;
-import com.kingdee.eas.framework.*;
-import com.kingdee.bos.ctrl.kdf.table.KDTable;
 
 /**
  * output class name
@@ -127,7 +127,7 @@ public class ContractDemoEditUI extends AbstractContractDemoEditUI
     	
     	JFrameBrowser jf = new JFrameBrowser();
     	jf.setJBrowserSize(720, 1200);
-    	jf.setJBrwserOpenUrl("http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid=ERP001&btid=ERP001");
+    	jf.setJBrwserOpenUrl(StringUtilBPM.getBPMServerURL()+"?bsid=ERP&boid=ERP001&btid=ERP001");
     	
     	jf.setTitle("Ã·ΩªBMP");
     	

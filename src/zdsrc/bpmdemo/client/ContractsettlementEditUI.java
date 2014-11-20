@@ -3,14 +3,17 @@
  */
 package com.kingdee.eas.bpmdemo.client;
 
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
 import java.net.URL;
 import java.util.Date;
 
 import org.apache.log4j.Logger;
-import com.kingdee.bos.ui.face.CoreUIObject;
+
+import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.eas.bpm.common.StringUtilBPM;
 import com.kingdee.eas.bpmdemo.ContractsettlementFactory;
 import com.kingdee.eas.bpmdemo.JBrowserHelper.JFrameBrowser;
 import com.kingdee.eas.bpmdemo.webservers.getInfoFacadeFactory;
@@ -20,9 +23,6 @@ import com.kingdee.eas.bpmdemo.webservers.serviceclient.WSContext;
 import com.kingdee.eas.bpmdemo.webservers.serviceclient.WSgetInfoFacadeSrvProxy;
 import com.kingdee.eas.bpmdemo.webservers.serviceclient.WSgetInfoFacadeSrvProxyServiceLocator;
 import com.kingdee.eas.common.client.SysContext;
-import com.kingdee.eas.fdc.contract.ContractBillFactory;
-import com.kingdee.eas.framework.*;
-import com.kingdee.bos.ctrl.kdf.table.KDTable;
 
 /**
  * output class name
@@ -670,7 +670,7 @@ public class ContractsettlementEditUI extends AbstractContractsettlementEditUI
     public void actionSubmit_actionPerformed(ActionEvent e) throws Exception
     {
         super.actionSubmit_actionPerformed(e);
-        String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=HT01";
+        String url = StringUtilBPM.getBPMServerURL()+"?bsid=ERP&boid="+editData.getId().toString()+"&btid=HT01";
     	creatFrame(url);
     }
     /**
@@ -708,7 +708,7 @@ public class ContractsettlementEditUI extends AbstractContractsettlementEditUI
 	    	WSgetInfoFacadeSrvProxy pay = new WSgetInfoFacadeSrvProxyServiceLocator().getWSgetInfoFacade(new URL("http://127.0.0.1:56898/ormrpc/services/WSgetInfoFacade"));
 //	    	str1 = pay.getbillInfo("", "dYkAAAAAmMgNbdH0");
 //	    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
-	    	String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=HT01";
+	    	String url = StringUtilBPM.getBPMServerURL()+"?bsid=ERP&boid="+editData.getId().toString()+"&btid=HT01";
 	    	str1 = pay.submitResult("", editData.getId().toString(), true, 1,url, "dYkAAAAAmMgNbdH0");
 //	    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
 	    	str1 = pay.approveClose("", "dYkAAAAAmMgNbdH0", 1, "1", "",null);
