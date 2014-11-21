@@ -424,27 +424,27 @@ public abstract class AbstractMarketSupplierStockEditUI extends com.kingdee.eas.
         this.scrollPanePunish.setName("scrollPanePunish");
         this.txtPunish.setName("txtPunish");
         // CoreUI		
-        this.btnTraceUp.setVisible(false);		
-        this.btnTraceDown.setVisible(false);		
-        this.btnCreateTo.setVisible(true);		
         this.btnAddLine.setVisible(false);		
         this.btnCopyLine.setVisible(false);		
         this.btnInsertLine.setVisible(false);		
         this.btnRemoveLine.setVisible(false);		
+        this.btnTraceUp.setVisible(false);		
+        this.btnTraceDown.setVisible(false);		
         this.btnAuditResult.setVisible(false);		
         this.separator1.setVisible(false);		
-        this.menuItemCreateTo.setVisible(true);		
         this.separator3.setVisible(false);		
         this.menuItemTraceUp.setVisible(false);		
         this.menuItemTraceDown.setVisible(false);		
-        this.menuTable1.setVisible(false);		
-        this.menuItemAddLine.setVisible(false);		
-        this.menuItemCopyLine.setVisible(false);		
-        this.menuItemInsertLine.setVisible(false);		
-        this.menuItemRemoveLine.setVisible(false);		
         this.menuItemViewSubmitProccess.setVisible(false);		
         this.menuItemViewDoProccess.setVisible(false);		
-        this.menuItemAuditResult.setVisible(false);
+        this.menuItemAuditResult.setVisible(false);		
+        this.menuTable1.setVisible(false);		
+        this.menuItemAddLine.setVisible(false);		
+        this.menuItemInsertLine.setVisible(false);		
+        this.menuItemRemoveLine.setVisible(false);		
+        this.btnCreateTo.setVisible(true);		
+        this.menuItemCreateTo.setVisible(true);		
+        this.menuItemCopyLine.setVisible(false);
         // contDescription		
         this.contDescription.setBoundLabelText(resHelper.getString("contDescription.boundLabelText"));		
         this.contDescription.setBoundLabelLength(100);		
@@ -1421,8 +1421,8 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
         this.toolBar.add(btnAddNew);
         this.toolBar.add(btnCloud);
         this.toolBar.add(btnEdit);
-        this.toolBar.add(btnSave);
         this.toolBar.add(kDSeparatorCloud);
+        this.toolBar.add(btnSave);
         this.toolBar.add(btnReset);
         this.toolBar.add(btnSubmit);
         this.toolBar.add(btnCopy);

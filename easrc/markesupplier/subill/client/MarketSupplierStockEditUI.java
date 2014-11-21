@@ -645,14 +645,14 @@ public class MarketSupplierStockEditUI extends AbstractMarketSupplierStockEditUI
 //		ClientVerifyHelper.verifyInput(this, this.kdtEntryPerson, "isDefault");
 //		ClientVerifyHelper.verifyInput(this, this.kdtEntryPerson, "phone");
 //		ClientVerifyHelper.verifyInput(this, this.kdtEntryAtt, "attNumber");
-		
-		for (int i = 0; i < this.kdtE4.getRowCount(); i++) 
-		{
-			if(UIRuleUtil.isNull(kdtE4.getCell(i, "Description").getValue()))
-			{
-				MsgBox.showWarning("符合性审查情况描述不能为空！");SysUtil.abort();
-			}
-		}
+//		
+//		for (int i = 0; i < this.kdtE4.getRowCount(); i++) 
+//		{
+//			if(UIRuleUtil.isNull(kdtE4.getCell(i, "Description").getValue()))
+//			{
+//				MsgBox.showWarning("符合性审查情况描述不能为空！");SysUtil.abort();
+//			}
+//		}
     }
     
     void verifyInputForSave()
