@@ -1072,6 +1072,12 @@ public class RepairOrderEditUI extends AbstractRepairOrderEditUI
 	
 
 	protected void verifyInput(ActionEvent e) throws Exception {
+		for (int i = 0; i < kdtE1.getRowCount(); i++) {
+			if(kdtE1.getCell(i, "equNameOne").getValue() == null){
+				MsgBox.showWarning("第{"+(i+1)+"}行的分录的设备名称不能为空！");
+				SysUtil.abort();
+			}
+		}
 		super.verifyInput(e);
 		Calendar ca = Calendar.getInstance();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
