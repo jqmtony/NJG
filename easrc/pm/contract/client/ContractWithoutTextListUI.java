@@ -295,6 +295,19 @@ AbstractContractWithoutTextListUI {
 			return;
 		}
 		super.treeSelectChange();
+		EntityViewInfo viewInfo = (EntityViewInfo) mainQuery.clone();
+		//合并查询条件
+		try {
+			FilterInfo filter = getTreeFilter();
+			if(viewInfo.getFilter()!=null){
+				viewInfo.getFilter().mergeFilter(filter,"and");
+			}else{
+				viewInfo.setFilter(filter);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		execQuery();
 	}
 	public void buildProjectTree() throws Exception {
 		if(this.getUIContext().get("filter")!=null){

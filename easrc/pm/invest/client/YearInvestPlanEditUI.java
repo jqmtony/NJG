@@ -25,9 +25,11 @@ import com.kingdee.bos.dao.AbstractObjectValue;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.dao.query.IQueryExecutor;
+import com.kingdee.bos.metadata.data.SortType;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
+import com.kingdee.bos.metadata.entity.SorterItemInfo;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.util.BOSUuid;
@@ -64,8 +66,8 @@ import com.kingdee.eas.port.pm.invest.investplan.ProgrammingInfo;
 import com.kingdee.eas.port.pm.invest.investplan.client.ProgrammingEditUI;
 import com.kingdee.eas.util.client.MsgBox;
 import com.kingdee.eas.xr.app.XRBillStatusEnum;
-import com.kingdee.eas.xr.helper.ClientVerifyXRHelper;
 import com.kingdee.eas.xr.helper.PersonXRHelper;
+import com.kingdee.eas.xr.helper.TableXRHelper;
 import com.kingdee.jdbc.rowset.IRowSet;
 
 /**
@@ -92,11 +94,14 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 		init();
 		String cuid = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
 		if (getOprtState().equals(OprtState.ADDNEW)){
+			prmtbuildType.setValue(BuildTypeFactory.getRemoteInstance().getBuildTypeCollection().get(0));
 			String number = txtNumber.getText();
-			int s = number.indexOf("-");
-			String number1 = number.substring(0, s);
-			String number2 = number.substring(s+1, number.length());
-			txtNumber.setText(number1+"-"+SysContext.getSysContext().getCurrentCtrlUnit().getNumber()+number2);
+			if(!"".equals(number)){
+				int s = number.indexOf("-");
+				String number1 = number.substring(0, s);
+				String number2 = number.substring(s+1, number.length());
+				txtNumber.setText(number1+"-"+SysContext.getSysContext().getCurrentCtrlUnit().getNumber()+number2);
+			}
 			UserInfo user = SysContext.getSysContext().getCurrentUserInfo();
 			if (user.getPerson() != null) 
 			{//申请人带出申请单位
@@ -171,6 +176,8 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 		evi.setFilter(filter);
 		if(editData.getId()!=null){
 			filter.getFilterItems().add(new FilterItemInfo("projectName.id",editData.getId().toString()));
+			evi.getSorter().add(new SorterItemInfo("auditTime"));
+			evi.getSorter().get(0).setSortType(SortType.DESCEND);
 			try {
               IQueryExecutor exec = this.getQueryExecutor(this.queryYearPlanAuditInfoQueryPK, evi);
               exec.option().isAutoIgnoreZero = true;
@@ -198,7 +205,7 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
           } catch (Exception ee) {
               handUIException(ee);
           }
-//			this.kdtE3.getMergeManager().setMergeMode(KDTMergeManager.FREE_ROW_MERGE);
+          TableXRHelper.setMerge(kdtE3, new String[]{"accredType","accredType","auditTime","E1.accredResu","E1.projectConclude"}, new int[]{0,1,2,3,4});
 		}
 		kdtE3.getColumn("projectName.id").getStyleAttributes().setHided(true);
 		kdtE3.getColumn("projectName.projectName").getStyleAttributes().setHided(true);
@@ -600,8 +607,8 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 	 */
 	protected void beforeStoreFields(ActionEvent arg0) throws Exception {
 		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(txtNumber.getText())) {
-			txtNumber.requestFocus(true);
-			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"单据编号"});
+//			txtNumber.requestFocus(true);
+//			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"单据编号"});
 		}
 		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(prmtbuildType.getData())) {
 			prmtbuildType.requestFocus(true);
@@ -627,10 +634,10 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 			prmtprojectType.requestFocus(true);
 			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"项目类型"});
 		}
-//		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(txtamount.getValue())) {
-//			txtamount.requestFocus(true);
-//			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"计划投资金额"});
-//		}
+		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(txtamount.getValue())) {
+			txtamount.requestFocus(true);
+			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"计划投资金额"});
+		}
 		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(planType.getSelectedItem())) {
 			planType.requestFocus(true);
 			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"计划类型"});
@@ -695,53 +702,54 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 					if(PlanTypeEnum.change.equals(plantype)||PlanTypeEnum.adjust.equals(plantype)){
 						ClientVerifyHelper.verifyEmpty(this, this.prmtportProject);
 					}
+					BigDecimal a = UIRuleUtil.getBigDecimal((this.txtinvestAmount.getValue()));
+					BigDecimal c = UIRuleUtil.getBigDecimal((this.txtamount.getValue()));
+					if(a.compareTo(c)<0)
+					{
+						MsgBox.showWarning("项目投资总金额不能小于本年计划投资金额");
+						abort();
+					}
+					ClientVerifyHelper.verifyEmpty(this, this.txtseq);
+			    	ClientVerifyHelper.verifyEmpty(this, this.pkplanStartDate);
+			    	ClientVerifyHelper.verifyEmpty(this, this.pkplanEndDate);
+			    	ClientVerifyHelper.verifyEmpty(this, this.pkBizDate);
+			    	ClientVerifyHelper.verifyEmpty(this, this.prmtyear);
+			    	ClientVerifyHelper.verifyEmpty(this, this.txtBIMUDF0027);
+			    	
+			    	SimpleDateFormat Formatter = new SimpleDateFormat("yyyy-MM-dd");
+			    	if(!Formatter.format(this.pkplanStartDate.getSqlDate()).equals(Formatter.format(this.pkBizDate.getSqlDate())))
+			    	{	
+			    		if(this.pkplanStartDate.getSqlDate().before(this.pkBizDate.getSqlDate()))
+			    		{
+			    	    	MsgBox.showWarning("计划开工日期不能早于计划申报日期！");abort();
+			    	    }
+			    	}	
+			    	if(!Formatter.format(this.pkplanStartDate.getSqlDate()).equals(Formatter.format(this.pkplanEndDate.getSqlDate())))
+			    	{	
+			    		if(this.pkplanEndDate.getSqlDate().before(this.pkplanStartDate.getSqlDate())){
+			    	    	MsgBox.showWarning("计划完工日期不能早于计划开工日期！");abort();
+			    	    }
+			    	}	
+			    	String cuid = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
+			    	String yearid = ((InvestYearInfo)prmtyear.getValue()).getId().toString();
+			    	BigDecimal seq = (BigDecimal)txtseq.getValue();
+					String oql = " where cu.id='"+cuid+"' and year.id='"+yearid+"' and seq='"+seq+"' and id<>'"+editData.getId()+"' " +
+							" and ObjectState not in ('"+ObjectStateEnum.VETO_VALUE+"','"+ObjectStateEnum.ADJUSTED_VALUE+"')" +
+							" and sourcebillid is null ";
+					if(getBizInterface().exists(oql) && !(PlanTypeEnum.change.equals(plantype)||PlanTypeEnum.adjust.equals(plantype))){
+						MsgBox.showWarning("本年度该项目序号已经存在，请重新编号！");
+						abort();
+					}
+					if(txtBIMUDF0027.getText()!=null && txtBIMUDF0027.getText().length()>500){
+						MsgBox.showWarning("项目建设内容不能多于240个字！");
+						abort();
+					}
+					super.verifyInput(e);
+					if(programmingEditUI!=null)
+						programmingEditUI.verifyDataBySave();
 				}
 			}
-			BigDecimal a = UIRuleUtil.getBigDecimal((this.txtinvestAmount.getValue()));
-			BigDecimal c = UIRuleUtil.getBigDecimal((this.txtamount.getValue()));
-			if(a.compareTo(c)<0)
-			{
-				MsgBox.showWarning("项目投资总金额不能小于本年计划投资金额");
-				abort();
-			}
-			ClientVerifyHelper.verifyEmpty(this, this.txtseq);
-	    	ClientVerifyHelper.verifyEmpty(this, this.pkplanStartDate);
-	    	ClientVerifyHelper.verifyEmpty(this, this.pkplanEndDate);
-	    	ClientVerifyHelper.verifyEmpty(this, this.pkBizDate);
-	    	ClientVerifyHelper.verifyEmpty(this, this.prmtyear);
-	    	ClientVerifyHelper.verifyEmpty(this, this.txtBIMUDF0027);
-	    	
-	    	SimpleDateFormat Formatter = new SimpleDateFormat("yyyy-MM-dd");
-	    	if(!Formatter.format(this.pkplanStartDate.getSqlDate()).equals(Formatter.format(this.pkBizDate.getSqlDate())))
-	    	{	
-	    		if(this.pkplanStartDate.getSqlDate().before(this.pkBizDate.getSqlDate()))
-	    		{
-	    	    	MsgBox.showWarning("计划开工日期不能早于计划申报日期！");abort();
-	    	    }
-	    	}	
-	    	if(!Formatter.format(this.pkplanStartDate.getSqlDate()).equals(Formatter.format(this.pkplanEndDate.getSqlDate())))
-	    	{	
-	    		if(this.pkplanEndDate.getSqlDate().before(this.pkplanStartDate.getSqlDate())){
-	    	    	MsgBox.showWarning("计划完工日期不能早于计划开工日期！");abort();
-	    	    }
-	    	}	
-	    	String cuid = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
-	    	String yearid = ((InvestYearInfo)prmtyear.getValue()).getId().toString();
-	    	BigDecimal seq = (BigDecimal)txtseq.getValue();
-			String oql = " where cu.id='"+cuid+"' and year.id='"+yearid+"' and seq='"+seq+"' and id<>'"+editData.getId()+"' " +
-					" and ObjectState not in ('"+ObjectStateEnum.VETO_VALUE+"','"+ObjectStateEnum.ADJUSTED_VALUE+"')" +
-					" and sourcebillid is null ";
-			if(getBizInterface().exists(oql) && !(PlanTypeEnum.change.equals(plantype)||PlanTypeEnum.adjust.equals(plantype))){
-				MsgBox.showWarning("本年度该项目序号已经存在，请重新编号！");
-				abort();
-			}
-			if(txtBIMUDF0027.getText()!=null && txtBIMUDF0027.getText().length()>500){
-				MsgBox.showWarning("项目建设内容不能多于240个字！");
-				abort();
-			}
-			super.verifyInput(e);
-			if(programmingEditUI!=null)
-				programmingEditUI.verifyDataBySave();
+			
 		}
 		
 }

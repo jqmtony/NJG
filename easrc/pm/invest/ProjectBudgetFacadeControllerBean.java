@@ -29,6 +29,8 @@ public class ProjectBudgetFacadeControllerBean extends AbstractProjectBudgetFaca
 		str[0] = "成功";
 		String where = "where number='"+projectNumber+"' and feeNumber='"+budgetNumber+"' and beizhu='最新'";
 		BigDecimal amt = UIRuleUtil.getBigDecimal(amount);
+		if(amt.intValue()==0)
+			return str;
 		BigDecimal backAmt = UIRuleUtil.getBigDecimal(backAmount);
 		ProgrammingEntryCostEntryCollection coll = ProgrammingEntryCostEntryFactory.getLocalInstance(ctx).getProgrammingEntryCostEntryCollection(where);
 		IProgrammingEntryCostEntry iProgrammingEntryCostEntry = ProgrammingEntryCostEntryFactory.getLocalInstance(ctx);
@@ -138,6 +140,8 @@ public class ProjectBudgetFacadeControllerBean extends AbstractProjectBudgetFaca
 		String[] str = new String[3];
 		String where = "where number='"+projectNumber+"' and feeNumber='"+budgetNumber+"' and beizhu='最新'";
 		BigDecimal amt = UIRuleUtil.getBigDecimal(amount);
+		if(amt.intValue()==0)
+			return str;
 		BigDecimal backAmt = UIRuleUtil.getBigDecimal(backAmount);
 		ProgrammingEntryCostEntryCollection coll = ProgrammingEntryCostEntryFactory.getLocalInstance(ctx).getProgrammingEntryCostEntryCollection(where);
 		IProgrammingEntryCostEntry iProgrammingEntryCostEntry = ProgrammingEntryCostEntryFactory.getLocalInstance(ctx);

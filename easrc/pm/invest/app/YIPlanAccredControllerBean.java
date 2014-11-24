@@ -1,5 +1,6 @@
 package com.kingdee.eas.port.pm.invest.app;
 
+import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -26,15 +27,27 @@ import com.kingdee.eas.base.permission.IUser;
 import com.kingdee.eas.base.permission.UserCollection;
 import com.kingdee.eas.base.permission.UserFactory;
 import com.kingdee.eas.base.permission.UserInfo;
+import com.kingdee.eas.basedata.assistant.CurrencyFactory;
 import com.kingdee.eas.basedata.assistant.IProject;
 import com.kingdee.eas.basedata.assistant.ProjectFactory;
 import com.kingdee.eas.basedata.assistant.ProjectInfo;
 import com.kingdee.eas.basedata.assistant.ProjectStatus;
 import com.kingdee.eas.basedata.assistant.ProjectTypeEnum;
 import com.kingdee.eas.basedata.org.CompanyOrgUnitFactory;
+import com.kingdee.eas.basedata.org.CompanyOrgUnitInfo;
+import com.kingdee.eas.basedata.org.CtrlUnitFactory;
+import com.kingdee.eas.basedata.org.CtrlUnitInfo;
 import com.kingdee.eas.basedata.org.ICompanyOrgUnit;
+import com.kingdee.eas.basedata.org.StorageOrgUnitFactory;
 import com.kingdee.eas.common.EASBizException;
+import com.kingdee.eas.common.SysConstant;
+import com.kingdee.eas.common.SysContextConstant;
+import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.framework.CoreBaseInfo;
+import com.kingdee.eas.mm.common.MMBaseStatusEnum;
+import com.kingdee.eas.mm.project.ProjectGroupFactory;
+import com.kingdee.eas.mm.project.ProjectOrgInfo;
+import com.kingdee.eas.mm.project.ProjectPriorityEnum;
 import com.kingdee.eas.port.pm.base.IProjectType;
 import com.kingdee.eas.port.pm.base.InvestYearInfo;
 import com.kingdee.eas.port.pm.base.ProjectTypeFactory;
@@ -258,6 +271,8 @@ public class YIPlanAccredControllerBean extends AbstractYIPlanAccredControllerBe
     			
     			planInfo.setProject(proInfo);
     			IyearInvestPlan.update(new ObjectUuidPK(planInfo.getId()), planInfo);
+    			
+    			createNewProject(ctx, proInfo);
     		}
 		}
     }
@@ -322,6 +337,33 @@ public class YIPlanAccredControllerBean extends AbstractYIPlanAccredControllerBe
     		proInfo = iproject.getProjectCollection(view).get(0);
     	}	
 		return proInfo;
+    }
+    /**
+     * 生成订单中的项目---生成制造项目
+     */
+    protected com.kingdee.eas.mm.project.ProjectInfo createNewProject(Context ctx,ProjectInfo proInfo )
+    {
+    	com.kingdee.eas.mm.project.ProjectInfo objectValue = null;
+    	try
+        {
+    		CompanyOrgUnitInfo company = (CompanyOrgUnitInfo)ctx.get(SysContextConstant.COMPANYINFO);
+    		com.kingdee.eas.mm.project.IProject IProject = com.kingdee.eas.mm.project.ProjectFactory.getLocalInstance(ctx);
+			objectValue = IProject.getProjectInfo("where number='99999'");//模板项目
+			objectValue.setId(BOSUuid.create(objectValue.getBOSType()));
+			objectValue.setName(proInfo.getName());
+			objectValue.setNumber(proInfo.getNumber());
+			objectValue.setCurrency(CurrencyFactory.getLocalInstance(ctx).getCurrencyCollection().get(0));
+			objectValue.setCU(CtrlUnitFactory.getLocalInstance(ctx).getCtrlUnitInfo(new ObjectUuidPK(company.getId())));
+			ProjectOrgInfo projectOrg = new ProjectOrgInfo();
+			projectOrg.setProject(objectValue);
+			projectOrg.setStorageOrgUnit(StorageOrgUnitFactory.getLocalInstance(ctx).getStorageOrgUnitInfo(new ObjectUuidPK(objectValue.getCU().getId())));
+			objectValue.getProjectOrg().clear();
+			objectValue.getProjectOrg().add(projectOrg);
+			IProject.addnew(objectValue);
+        }catch(Exception e)
+		{
+		}
+        return objectValue;
     }
     /**
      * 审核时,反写评审表意见功能 去除，直接查询展示

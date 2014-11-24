@@ -112,8 +112,10 @@ import com.kingdee.eas.fi.cas.BillStatusEnum;
 import com.kingdee.eas.fi.cas.PaymentBillEntryInfo;
 import com.kingdee.eas.fi.cas.PaymentBillFactory;
 import com.kingdee.eas.fi.cas.PaymentBillInfo;
+import com.kingdee.eas.fi.cas.SourceTypeEnum;
 import com.kingdee.eas.fi.cas.UrgentDegreeEnum;
 import com.kingdee.eas.fi.gl.GlUtils;
+import com.kingdee.eas.fi.gl.SourceType;
 import com.kingdee.eas.framework.BillBaseCollection;
 import com.kingdee.eas.framework.CoreBaseCollection;
 import com.kingdee.eas.ma.budget.BgControlFacadeFactory;
@@ -454,11 +456,11 @@ public class PayRequestBillControllerBean extends AbstractPayRequestBillControll
 		if(payBillInfo != null){
 			payBillId = payBillInfo.getId();
 			
-			try {
-				updateFDCPaymentBillinvoice(ctx, payRequestBillInfo, payBillInfo);
-			} catch (Exception e) {
-				throw new EASBizException(new NumericExceptionSubItem("100","更新房地产付款单中间表时出错:"+e.getMessage()),e);
-			}
+//			try {
+//				updateFDCPaymentBillinvoice(ctx, payRequestBillInfo, payBillInfo);
+//			} catch (Exception e) {
+//				throw new EASBizException(new NumericExceptionSubItem("100","更新房地产付款单中间表时出错:"+e.getMessage()),e);
+//			}
 		}
 //		//扣减预算
 //		if(payRequestBillInfo.isIsBgControl()){
@@ -468,8 +470,7 @@ public class PayRequestBillControllerBean extends AbstractPayRequestBillControll
 	protected void _unAudit(Context ctx, BOSUuid billId) throws BOSException, EASBizException
 	{
 		
-		checkBillForUnAudit( ctx,billId,null);
-		
+//		checkBillForUnAudit( ctx,billId,null);
 		
 		BOSObjectType  contractType=new ContractBillInfo().getBOSType();
 		SelectorItemCollection selector = new SelectorItemCollection();
@@ -492,14 +493,12 @@ public class PayRequestBillControllerBean extends AbstractPayRequestBillControll
 		}else{
 			
 			PaymentTypeInfo type = (PaymentTypeInfo) payRequestBillInfo.getPaymentType();
-			if (type.getPayType().getId().toString().equals(PaymentTypeInfo.progressID)) {
-				selector = new SelectorItemCollection();
-				selector.add("hasSettled");
-				
-				ContractBillInfo contractBillInfo =ContractBillFactory.getLocalInstance(ctx).getContractBillInfo(new ObjectUuidPK(contractID),selector);
-				if(contractBillInfo.isHasSettled()){
-					throw new PayRequestBillException(PayRequestBillException.PROCNTUNAUDIT,new Object[]{payRequestBillInfo.getNumber()});
-				}
+			selector = new SelectorItemCollection();
+			selector.add("hasSettled");
+			
+			ContractBillInfo contractBillInfo =ContractBillFactory.getLocalInstance(ctx).getContractBillInfo(new ObjectUuidPK(contractID),selector);
+			if(contractBillInfo.isHasSettled()){
+				throw new PayRequestBillException(PayRequestBillException.PROCNTUNAUDIT,new Object[]{payRequestBillInfo.getNumber()});
 			}
 		}
 		
@@ -522,43 +521,19 @@ public class PayRequestBillControllerBean extends AbstractPayRequestBillControll
 		selector.add("state");
 		
 		_updatePartial(ctx, billInfo, selector);	
-		
-		
-		//处理扣款项
-		if(contractID!=null&&BOSUuid.read(contractID).getType().equals(contractType)){
-			EntityViewInfo view=new EntityViewInfo();
-			filter=new FilterInfo();
-			filter.getFilterItems().add(new FilterItemInfo("parent.payRequestBill.id",billId.toString()));
-			view.setFilter(filter);
-			DeductOfPayReqBillEntryCollection c = DeductOfPayReqBillEntryFactory.getLocalInstance(ctx).getDeductOfPayReqBillEntryCollection(view);
-			selector=new SelectorItemCollection();
-			selector.add("hasApplied");
-			DeductBillEntryInfo dinfo=new DeductBillEntryInfo();
-			for (Iterator iterator = c.iterator(); iterator.hasNext();)
-			{
-				DeductOfPayReqBillEntryInfo info = (DeductOfPayReqBillEntryInfo) iterator.next();
-				dinfo.setId(info.getDeductBillEntry().getId());
-				dinfo.setHasApplied(false);
-				DeductBillEntryFactory.getLocalInstance(ctx).updatePartial(dinfo, selector);
-								
-			}
-		}
-	
-		
-
-        // 20050511 吴志敏提供预算接口
-		HashMap param = FDCUtils.getDefaultFDCParam(ctx,payRequestBillInfo.getOrgUnit().getId().toString());
-		//boolean useWorkflow = FDCUtils.isRunningWorkflow(ctx, billInfo.getId().toString());
-        boolean isMbgCtrl = Boolean.valueOf(param.get(FDCConstants.FDC_PARAM_STARTMG).toString()).booleanValue();
-        if (isMbgCtrl ) {
-            IBgControlFacade iBgCtrl = BgControlFacadeFactory.getLocalInstance(ctx);
-            iBgCtrl.cancelRequestBudget(payRequestBillInfo.getId().toString());
-        }
-        
-        //返还预算
-        if(payRequestBillInfo.isIsBgControl()){
-        	BgControlFacadeFactory.getLocalInstance(ctx).returnBudget(billId, "com.kingdee.eas.fdc.contract.PayRequestBill", null);
-        }
+//        // 20050511 吴志敏提供预算接口
+//		HashMap param = FDCUtils.getDefaultFDCParam(ctx,payRequestBillInfo.getOrgUnit().getId().toString());
+//		//boolean useWorkflow = FDCUtils.isRunningWorkflow(ctx, billInfo.getId().toString());
+//        boolean isMbgCtrl = Boolean.valueOf(param.get(FDCConstants.FDC_PARAM_STARTMG).toString()).booleanValue();
+//        if (isMbgCtrl ) {
+//            IBgControlFacade iBgCtrl = BgControlFacadeFactory.getLocalInstance(ctx);
+//            iBgCtrl.cancelRequestBudget(payRequestBillInfo.getId().toString());
+//        }
+//        
+//        //返还预算
+//        if(payRequestBillInfo.isIsBgControl()){
+//        	BgControlFacadeFactory.getLocalInstance(ctx).returnBudget(billId, "com.kingdee.eas.fdc.contract.PayRequestBill", null);
+//        }
 	}
 
 
@@ -1115,232 +1090,187 @@ public class PayRequestBillControllerBean extends AbstractPayRequestBillControll
 		if(payReqBill.isHasClosed()){
 			return null;
 		}
-//		BOSObjectType bosType = new PaymentBillInfo().getBOSType();
-//
+		BOSObjectType bosType = new PaymentBillInfo().getBOSType();
+
 //		IBTPManager iBTPManager = BTPManagerFactory.getLocalInstance(ctx);
 //		BTPTransformResult result = iBTPManager.transform(payReqBill, bosType.toString());
-//
+
 //		IObjectCollection destBillColl = result.getBills();
 //		BOTRelationCollection botRelateColl = result.getBOTRelationCollection();
-//
-		PaymentBillInfo destBillInfo = null;
-//
-//		//2009-1-12 取财务组织  
-//		//其实实体财务组织可以用工程项目上的fullorgunit　modify  by sxhong 2009-06-04 18:31:24
-//		FullOrgUnitInfo org = payReqBill.getOrgUnit();
-//		CompanyOrgUnitInfo company=null;	
-//		if(payReqBill.getCurProject().getCompany()!=null){
-//			String companyId=payReqBill.getCurProject().getCompany().getId().toString();
-//			company=new CompanyOrgUnitInfo();
-//			company.setId(BOSUuid.read(companyId));
-//		}else{
-//			company=FDCHelper.getFIOrgUnit(ctx, org);
-//		}
-//		
-//		BOSObjectType  contractType=new ContractBillInfo().getBOSType();
-//		SelectorItemCollection selectors = new SelectorItemCollection();
-//		selectors.add("isNeedPaid");
-//		selectors.add("account.id");
-//		
-//		//付款单生成之后，部分属性处理
-//		//此处处理BOTP未设置的属性 
+
+		//2009-1-12 取财务组织  
+		//其实实体财务组织可以用工程项目上的fullorgunit　modify  by sxhong 2009-06-04 18:31:24
+		FullOrgUnitInfo org = payReqBill.getOrgUnit();
+		CompanyOrgUnitInfo company=null;	
+		String companyId= null;
+		if(payReqBill.getCurProject().getCompany()!=null){
+			companyId=payReqBill.getCurProject().getCompany().getId().toString();
+			company=new CompanyOrgUnitInfo();
+			company.setId(BOSUuid.read(companyId));
+		}else{
+			company=FDCHelper.getFIOrgUnit(ctx, org);
+		}
+		PaymentBillInfo destBillInfo = PaymentBillFactory.getLocalInstance(ctx).getPaymentBillCollection("where cu.id='"+company.getId()+"'").get(0);
+		destBillInfo.setId(BOSUuid.create(destBillInfo.getBOSType()));
+		destBillInfo.setNumber(null);
+		BOSObjectType  contractType=new ContractBillInfo().getBOSType();
+		SelectorItemCollection selectors = new SelectorItemCollection();
+		selectors.add("isNeedPaid");
+		selectors.add("account.id");
+		
+		//付款单生成之后，部分属性处理
+		//此处处理BOTP未设置的属性 
 //		for (int i = 0, size = destBillColl.size(); i < size; i++) {
-//
+
 //			destBillInfo = (PaymentBillInfo) destBillColl.getObject(i);
-//			if(destBillInfo.getCU()==null){
-//				destBillInfo.setCU(payReqBill.getCU());
+			destBillInfo.setSourceSysType(SourceTypeEnum.CASH);
+				destBillInfo.setCompany(company);
+				destBillInfo.setBizDate(SysUtil.getAppServerTime(ctx));//房地产维护bookeddate，默认与申请单相同
+//		  需求要求把付款日期改成审批时的日期
+				destBillInfo.setPayDate(SysUtil.getAppServerTime(ctx));
+//			if(destBillInfo.getCurProject()==null){
+//				destBillInfo.setCurProject(payReqBill.getCurProject());
 //			}
-//			if(destBillInfo.getCompany()==null){
-//				destBillInfo.setCompany(company);
+				destBillInfo.setBillStatus(BillStatusEnum.SAVE);
+				destBillInfo.setAmount(payReqBill.getOriginalAmount());
+				if (payReqBill.getAmount()==null && payReqBill.getOriginalAmount() != null && payReqBill.getExchangeRate() != null){
+					destBillInfo.setLocalAmt(payReqBill.getOriginalAmount().multiply(payReqBill.getExchangeRate()));
+				}else{
+					destBillInfo.setLocalAmt(payReqBill.getAmount());
+				}
+				destBillInfo.setSourceBillId(payReqBill.getId().toString());
+//			if(destBillInfo.getFdcPayReqNumber()==null){
+//				destBillInfo.setFdcPayReqNumber(payReqBill.getNumber());
 //			}
-////			if(destBillInfo.getBizDate()==null){
-////				destBillInfo.setBizDate(payReqBill.getBizDate());
-//				destBillInfo.setBizDate(SysUtil.getAppServerTime(ctx));//房地产维护bookeddate，默认与申请单相同
-////			}
-//		  //需求要求把付款日期改成审批时的日期
-////			if(destBillInfo.getPayDate()==null){//botp未设置付款时间时取申请单付款日期,付款时取付款时的日期
-////				destBillInfo.setPayDate(payReqBill.getPayDate());
-////			}
-////			if(destBillInfo.getCurProject()==null){
-////				destBillInfo.setCurProject(payReqBill.getCurProject());
-////			}
-//			if(destBillInfo.getBillStatus()==null){
-//				destBillInfo.setBillStatus(BillStatusEnum.SAVE);
+				destBillInfo.setContractNo(payReqBill.getContractNo());
+				destBillInfo.setContractBillId(payReqBill.getContractId());
+//			if(destBillInfo.getActFdcPayeeName()==null){
+//				destBillInfo.setActFdcPayeeName(payReqBill.getRealSupplier());
 //			}
-//			if(destBillInfo.getCurrency()==null){
-//				destBillInfo.setCurrency(payReqBill.getCurrency());
+//			if(destBillInfo.getFdcPayeeName()==null){
+//				destBillInfo.setFdcPayeeName(payReqBill.getSupplier());
 //			}
-//			if(destBillInfo.getExchangeRate()==null){
-//				destBillInfo.setExchangeRate(payReqBill.getExchangeRate());
+				destBillInfo.setCapitalAmount(payReqBill.getCapitalAmount());
+//			if(destBillInfo.getAddProjectAmt()==null){
+//				destBillInfo.setAddProjectAmt(payReqBill.getProjectPriceInContractOri());
 //			}
-//			if(destBillInfo.getAmount()==null){
-//				destBillInfo.setAmount(payReqBill.getOriginalAmount());
+//			if(destBillInfo.getLstPrjAllPaidAmt()==null){
+//				destBillInfo.setLstPrjAllPaidAmt(payReqBill.getLstPrjAllPaidAmt());
 //			}
-//			if(destBillInfo.getLocalAmt()==null){
-//				if (payReqBill.getAmount()==null && payReqBill.getOriginalAmount() != null && payReqBill.getExchangeRate() != null){
-//					destBillInfo.setLocalAmt(payReqBill.getOriginalAmount().multiply(payReqBill.getExchangeRate()));
-//				}else{
-//					destBillInfo.setLocalAmt(payReqBill.getAmount());
-//				}
-//			}
-////			if(destBillInfo.getFdcPayReqID()==null){
-////				destBillInfo.setFdcPayReqID(payReqBill.getId().toString());
-////			}
-////			if(destBillInfo.getFdcPayReqNumber()==null){
-////				destBillInfo.setFdcPayReqNumber(payReqBill.getNumber());
-////			}
-//			if(destBillInfo.getContractNo()==null){
-//				destBillInfo.setContractNo(payReqBill.getContractNo());
-//			}
-//			if(destBillInfo.getContractBillId()==null){
-//				destBillInfo.setContractBillId(payReqBill.getContractId());
-//			}
-////			if(destBillInfo.getActFdcPayeeName()==null){
-////				destBillInfo.setActFdcPayeeName(payReqBill.getRealSupplier());
-////			}
-////			if(destBillInfo.getFdcPayeeName()==null){
-////				destBillInfo.setFdcPayeeName(payReqBill.getSupplier());
-////			}
-//			if(destBillInfo.getCapitalAmount()==null){
-//				destBillInfo.setCapitalAmount(payReqBill.getCapitalAmount());
-//			}
-////			if(destBillInfo.getAddProjectAmt()==null){
-////				destBillInfo.setAddProjectAmt(payReqBill.getProjectPriceInContractOri());
-////			}
-////			if(destBillInfo.getLstPrjAllPaidAmt()==null){
-////				destBillInfo.setLstPrjAllPaidAmt(payReqBill.getLstPrjAllPaidAmt());
-////			}
-//			//是否提交付款
-//			destBillInfo.setIsNeedPay(payReqBill.isIsPay());
-//			//备注
-//			if(destBillInfo.getDescription()==null){
-//				destBillInfo.setDescription(payReqBill.getDescription());
-//			}
-//			//款项说明
-//			if(destBillInfo.getSummary()==null){
-//				destBillInfo.setSummary(payReqBill.getMoneyDesc());
-//			}
-//			//紧急程度
-//			if(destBillInfo.getUrgentDegree()==null){
-//				destBillInfo.setUrgentDegree(UrgentDegreeEnum.getEnum(String.valueOf(payReqBill.getUrgentDegree().getValue())));
-//			}
-//			//destBillInfo.setIsEmergency(IsMergencyEnum.getEnum(String.valueOf(payReqBill.getUrgentDegree().getValue())));
-//			//紧急程度
-//			if(destBillInfo.getIsEmergency()==null){
-//				if(destBillInfo.getUrgentDegree()!=null&&destBillInfo.getUrgentDegree().equals(UrgentDegreeEnum.URGENT)){
-//					destBillInfo.put("isEmergency", new Integer(1));
-//				}else{
-//					destBillInfo.put("isEmergency", new Integer(0));
-//				}
-//			}
-//			//收款银行账户
-//			if(destBillInfo.getPayeeBank()==null){
-//				destBillInfo.setPayeeBank(payReqBill.getRecBank());
-//			}
-//			if(destBillInfo.getPayeeAccountBank()==null){
-//				destBillInfo.setPayeeAccountBank(payReqBill.getRecAccount());
-//			}
-//			
-//			//同城异地以及用途
-//			destBillInfo.setIsDifferPlace(payReqBill.getIsDifferPlace());
-//			if(destBillInfo.getUsage()==null){
-//				destBillInfo.setUsage(payReqBill.getUsage());
-//			}
-//			destBillInfo.setAccessoryAmt(payReqBill.getAttachment());
-//			
-//			
-//			EntityViewInfo evi = new EntityViewInfo();
-//			FilterInfo filter = new FilterInfo();
-//	        StringBuffer sb = new StringBuffer();
-//	        sb.append("select FAsstActTypeID from T_BD_AsstActTypeDefault where FIsAccountCussent=1 ");
-//	        sb.append(" and FCompanyID='" + company.getId().toString() + "'");
-//	        filter.getFilterItems().add(new FilterItemInfo("id", sb.toString(), CompareType.INNER));
-//	      
-//	        evi.setFilter(filter);
-//	        evi.getSorter().add(new SorterItemInfo("realtionDataObject"));
-//	        IAsstActType asstActType = AsstActTypeFactory.getLocalInstance(ctx);
-//	        AsstActTypeCollection asstActTypeCollection = asstActType.getAsstActTypeCollection(evi);
-//			//收款人
-//			if(payReqBill.getSupplier()!=null){
-//				destBillInfo.setPayeeID(payReqBill.getSupplier().getId().toString());
-//				destBillInfo.setPayeeNumber(payReqBill.getSupplier().getNumber());
-//				destBillInfo.setPayeeName(payReqBill.getSupplier().getName());
+			//是否提交付款
+			destBillInfo.setIsNeedPay(payReqBill.isIsPay());
+			//备注
+				destBillInfo.setDescription(payReqBill.getDescription());
+			//款项说明
+				destBillInfo.setSummary(payReqBill.getMoneyDesc());
+			//紧急程度
+				destBillInfo.setUrgentDegree(UrgentDegreeEnum.getEnum(String.valueOf(payReqBill.getUrgentDegree().getValue())));
+			//destBillInfo.setIsEmergency(IsMergencyEnum.getEnum(String.valueOf(payReqBill.getUrgentDegree().getValue())));
+			//紧急程度
+				if(destBillInfo.getUrgentDegree()!=null&&destBillInfo.getUrgentDegree().equals(UrgentDegreeEnum.URGENT)){
+					destBillInfo.put("isEmergency", new Integer(1));
+				}else{
+					destBillInfo.put("isEmergency", new Integer(0));
+				}
+			//收款银行账户
+				destBillInfo.setPayeeBank(payReqBill.getRecBank());
+				destBillInfo.setPayeeAccountBank(payReqBill.getRecAccount());
+			
+			//同城异地以及用途
+			destBillInfo.setIsDifferPlace(payReqBill.getIsDifferPlace());
+			if(destBillInfo.getUsage()==null){
+				destBillInfo.setUsage(payReqBill.getUsage());
+			}
+			destBillInfo.setAccessoryAmt(payReqBill.getAttachment());
+			
+			
+			EntityViewInfo evi = new EntityViewInfo();
+			FilterInfo filter = new FilterInfo();
+	        StringBuffer sb = new StringBuffer();
+	        sb.append("select FAsstActTypeID from T_BD_AsstActTypeDefault where FIsAccountCussent=1 ");
+	        sb.append(" and FCompanyID='" + company.getId().toString() + "'");
+	        filter.getFilterItems().add(new FilterItemInfo("id", sb.toString(), CompareType.INNER));
+	      
+	        evi.setFilter(filter);
+	        evi.getSorter().add(new SorterItemInfo("realtionDataObject"));
+	        IAsstActType asstActType = AsstActTypeFactory.getLocalInstance(ctx);
+	        AsstActTypeCollection asstActTypeCollection = asstActType.getAsstActTypeCollection(evi);
+			//收款人
+			if(payReqBill.getSupplier()!=null){
+				destBillInfo.setPayeeID(payReqBill.getSupplier().getId().toString());
+				destBillInfo.setPayeeNumber(payReqBill.getSupplier().getNumber());
+				destBillInfo.setPayeeName(payReqBill.getSupplier().getName());
 //				for(int k=0;k<asstActTypeCollection.size();k++){
 //					if ("provider".equalsIgnoreCase(asstActTypeCollection.get(k).getAsstHGAttribute())){
 //						destBillInfo.setPayeeType(asstActTypeCollection.get(k));
 //					}
 //				}
-//			}else if(payReqBill.getPerson()!=null){
-//				destBillInfo.setPayeeID(payReqBill.getPerson().getId().toString());
-//				destBillInfo.setPayeeNumber(payReqBill.getPerson().getNumber());
-//				destBillInfo.setPayeeName(payReqBill.getPerson().getName());
-//				for(int k=0;k<asstActTypeCollection.size();k++){
-//					if ("person".equalsIgnoreCase(asstActTypeCollection.get(k).getAsstHGAttribute())){
-//						destBillInfo.setPayeeType(asstActTypeCollection.get(k));
-//					}
-//				}
-//			}
-//			//付款类型
-////			if(destBillInfo.getFdcPayType()==null){
-////				destBillInfo.setFdcPayType(payReqBill.getPaymentType());
-////			}
-//			
-//			/**增加参数，根据参数控制付款申请单审批结束以后生成的付款单的制单人的取值（R090520-176）——by neo **/
-//			boolean isCreator = FDCUtils.getDefaultFDCParamByKey(ctx, 
-//					ContextUtil.getCurrentFIUnit(ctx).getId().toString(),FDCConstants.FDC_PARAM_PAYMENTCREATOR);
-//			if(isCreator){
-//				destBillInfo.setCreator(payReqBill.getCreator());
-//			}
-//			
-//			/**如果是无文本合同：
-//			 * 在启用财务成本一体化参数时，若勾选“无需付款”，则出来s“贷方科目”字段，
-//			 * 审批后，该字段金额自动填入“付款科目”，相应的付款单亦自动“已付款”状态；
-//			 * 若不启用一体化参数，若勾选“无需付款”，无文本合同审批后，对应的付款单自动变为“已付款”。*/
-//			
-//			ContractWithoutTextInfo model = null;
-//			if(!BOSUuid.read(payReqBill.getContractId()).getType().equals(contractType)){
-//				model = (ContractWithoutTextInfo)ContractWithoutTextFactory.getLocalInstance(ctx).
-//						getContractWithoutTextInfo(new ObjectUuidPK(payReqBill.getContractId()),selectors);
-//				if(destBillInfo.getPayerAccount()==null){
-//					destBillInfo.setPayerAccount(model.getAccount());
-//				}
-//			}
-//			if(payReqBill.getSupplier()!=null){
-//				if(payReqBill.getPaymentType()!=null){
-//					destBillInfo.setDescription("支付  "+payReqBill.getSupplier().getName()+" "+payReqBill.getPaymentType().getName());
-//				}else{
-//					destBillInfo.setDescription("支付  "+payReqBill.getSupplier().getName());
-//				}
-//				
-//			}else if(payReqBill.getPerson()!=null){
-//				if(payReqBill.getPaymentType()!=null){
-//					destBillInfo.setDescription("支付  "+payReqBill.getPerson().getName()+" "+payReqBill.getPaymentType().getName());
-//				}else{
-//					destBillInfo.setDescription("支付  "+payReqBill.getPerson().getName());
-//				}
-//			}
-//			if(payReqBill.getBgEntry().size()==1){
-//				destBillInfo.setOppAccount(payReqBill.getBgEntry().get(0).getAccountView());
-//			}
-////			for(int j=0;j<payReqBill.getBgEntry().size();j++){
-////				PaymentBillEntryInfo entry=new PaymentBillEntryInfo();
-////				entry.setAmount(payReqBill.getBgEntry().get(j).getRequestAmount());
-////				entry.setLocalAmt(payReqBill.getBgEntry().get(j).getRequestAmount());
-////	            entry.setActualAmt(payReqBill.getBgEntry().get(j).getRequestAmount());
-////	            entry.setActualLocAmt(payReqBill.getBgEntry().get(j).getRequestAmount());
-////	            entry.setCurrency(payReqBill.getCurrency());
-////	            entry.setExpenseType(payReqBill.getBgEntry().get(j).getExpenseType());
-////	            entry.setSourceBillEntryId(payReqBill.getBgEntry().get(j).getId().toString());
-////	            entry.setCostCenter(payReqBill.getCostedDept());
-////				destBillInfo.getEntries().add(entry);
-////			}
-////			destBillInfo.setCostCenter(payReqBill.getCostedDept());
-//			destBillInfo.setPayBillType(payReqBill.getPayBillType());
-//			
-//			//提交状态
+			}else if(payReqBill.getPerson()!=null){
+				destBillInfo.setPayeeID(payReqBill.getPerson().getId().toString());
+				destBillInfo.setPayeeNumber(payReqBill.getPerson().getNumber());
+				destBillInfo.setPayeeName(payReqBill.getPerson().getName());
+				for(int k=0;k<asstActTypeCollection.size();k++){
+					if ("person".equalsIgnoreCase(asstActTypeCollection.get(k).getAsstHGAttribute())){
+						destBillInfo.setPayeeType(asstActTypeCollection.get(k));
+					}
+				}
+			}
+			
+			/**如果是无文本合同：
+			 * 在启用财务成本一体化参数时，若勾选“无需付款”，则出来s“贷方科目”字段，
+			 * 审批后，该字段金额自动填入“付款科目”，相应的付款单亦自动“已付款”状态；
+			 * 若不启用一体化参数，若勾选“无需付款”，无文本合同审批后，对应的付款单自动变为“已付款”。*/
+			
+			ContractWithoutTextInfo model = null;
+			if(!BOSUuid.read(payReqBill.getContractId()).getType().equals(contractType)){
+				model = (ContractWithoutTextInfo)ContractWithoutTextFactory.getLocalInstance(ctx).
+						getContractWithoutTextInfo(new ObjectUuidPK(payReqBill.getContractId()),selectors);
+				if(destBillInfo.getPayerAccount()==null){
+					destBillInfo.setPayerAccount(model.getAccount());
+				}
+			}
+			if(payReqBill.getSupplier()!=null){
+				if(payReqBill.getPaymentType()!=null){
+					destBillInfo.setDescription("支付  "+payReqBill.getSupplier().getName()+" "+payReqBill.getPaymentType().getName());
+				}else{
+					destBillInfo.setDescription("支付  "+payReqBill.getSupplier().getName());
+				}
+				
+			}else if(payReqBill.getPerson()!=null){
+				if(payReqBill.getPaymentType()!=null){
+					destBillInfo.setDescription("支付  "+payReqBill.getPerson().getName()+" "+payReqBill.getPaymentType().getName());
+				}else{
+					destBillInfo.setDescription("支付  "+payReqBill.getPerson().getName());
+				}
+			}
+			if(payReqBill.getBgEntry().size()==1){
+				destBillInfo.setOppAccount(payReqBill.getBgEntry().get(0).getAccountView());
+			}
+			for(int j=0;j<payReqBill.getBgEntry().size();j++){
+				PaymentBillEntryInfo entry=new PaymentBillEntryInfo();
+				entry.setAmount(payReqBill.getBgEntry().get(j).getRequestAmount());
+				entry.setLocalAmt(payReqBill.getBgEntry().get(j).getRequestAmount());
+	            entry.setActualAmt(payReqBill.getBgEntry().get(j).getRequestAmount());
+	            entry.setActualLocAmt(payReqBill.getBgEntry().get(j).getRequestAmount());
+	            entry.setCurrency(payReqBill.getCurrency());
+	            entry.setExpenseType(payReqBill.getBgEntry().get(j).getExpenseType());
+	            entry.setSourceBillEntryId(payReqBill.getBgEntry().get(j).getId().toString());
+	            entry.setCostCenter(payReqBill.getCostedDept());
+				destBillInfo.getEntries().add(entry);
+			}
+			for(int i=0 ;i<destBillInfo.getEntries().size();i++){
+				destBillInfo.getEntries().get(i).setId(null);
+			}
+			destBillInfo.setCostCenter(payReqBill.getCostedDept());
+			destBillInfo.setPayBillType(payReqBill.getPayBillType());
+			destBillInfo.setSourceSysType(SourceTypeEnum.CASH);
+			destBillInfo.setSourceType(SourceTypeEnum.CASH);
+			//提交状态
 //			final IObjectPK pk = iBTPManager.saveRelations(destBillInfo, botRelateColl);
 //			destBillInfo.setId(BOSUuid.read(pk.toString()));			
-//			
+			
+			PaymentBillFactory.getLocalInstance(ctx).save(destBillInfo);
+			
 //			boolean is = FDCUtils.IsFinacial(ctx,company.getId().toString());
 //			if(model!=null && model.isIsNeedPaid() ){
 //				List list = new ArrayList();
@@ -1906,15 +1836,14 @@ public class PayRequestBillControllerBean extends AbstractPayRequestBillControll
 	}
 	//审核校验
 	private void checkBillForUnAudit(Context ctx, BOSUuid billId,FDCBillInfo billInfo )throws BOSException, EASBizException {
-		PayRequestBillInfo model = (PayRequestBillInfo)billInfo;
-
-        if(model==null  || model.getCurProject()==null ||model.getCurProject().getCompany()==null ){
-        	model= this.getPayRequestBillInfo(ctx,new ObjectUuidPK(billId.toString()),getSic());
-        }
+//		PayRequestBillInfo model = (PayRequestBillInfo)billInfo;
+//
+//        if(model==null  || model.getCurProject()==null ||model.getCurProject().getCompany()==null ){
+//        	model= this.getPayRequestBillInfo(ctx,new ObjectUuidPK(billId.toString()));
+//        }
 		//检查功能是否已经结束初始化
-		String comId = model.getCurProject().getCompany().getId().toString();
-/*			没有判断的必要
- *  by sxhong 2009-07-30 22:20:49
+		/*			没有判断的必要
+		 *  by sxhong 2009-07-30 22:20:49
 		//是否启用财务一体化
 		boolean isInCore = FDCUtils.IsInCorporation( ctx, comId);
 		if(isInCore){

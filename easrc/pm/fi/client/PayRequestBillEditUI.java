@@ -1013,6 +1013,9 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI implement
 
 	public void onLoad() throws Exception {
 		super.onLoad();
+		contuseDepartment.setVisible(false);
+		prmtuseDepartment.setVisible(false);
+		prmtuseDepartment.setRequired(false);
 		pkbookedDate_dataChanged(null);
 		if (getOprtState().equals(OprtState.EDIT) || getOprtState().equals(OprtState.ADDNEW)) {
 			try {
@@ -2981,7 +2984,7 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI implement
 		PayRequestBillInfo billData = (PayRequestBillInfo) editData.clone();
 		billData.setAllInvoiceAmt(this.txtAllInvoiceAmt.getBigDecimalValue()); // 为了让套打显示
 		// 的“累计发票金额”与界面一致。
-		appHlp.print("/bim/fdc/finance/payrequest", new PayRequestBillRowsetProvider(billData, bindCellMap, curProject, contractBill), SwingUtilities.getWindowAncestor(this));
+		appHlp.print("/bim/port/pm/fi/PayRequestBill", new PayRequestBillRowsetProvider(billData, bindCellMap, curProject, contractBill), SwingUtilities.getWindowAncestor(this));
 	}
 
 	/**
@@ -4303,7 +4306,7 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI implement
 			txtrecAccount.setValue(null);
 		}
 		FDCClientVerifyHelper.verifyEmpty(this, this.prmtPayContentType);
-		FDCClientVerifyHelper.verifyEmpty(this, this.prmtuseDepartment);
+//		FDCClientVerifyHelper.verifyEmpty(this, this.prmtuseDepartment);
 
 		if (this.cbIsBgControl.isSelected()) {
 			FDCClientVerifyHelper.verifyEmpty(this, this.prmtApplier);
@@ -4962,40 +4965,42 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI implement
 	 * @author sxhong Date 2007-3-13
 	 */
 	private void initPaymentProp() {
-		String contractId = editData.getContractId();
-		if (contractId != null && !PayReqUtils.isConWithoutTxt(contractId)) {
-			txtpaymentProportion.setRequired(true && !isAutoComplete);
-			txtcompletePrjAmt.setRequired(true && !isAutoComplete && !(isSeparate && contractBill != null && contractBill.isIsCoseSplit()));
-			try {
+		if(contractBill != null){
+			String contractId = editData.getContractId();
+			if (contractId != null && !PayReqUtils.isConWithoutTxt(contractId)) {
+				txtpaymentProportion.setRequired(true && !isAutoComplete);
+				txtcompletePrjAmt.setRequired(true && !isAutoComplete && !(isSeparate && contractBill != null && contractBill.isIsCoseSplit()));
+				try {
 
-				if (!contractBill.isHasSettled() && editData.getPaymentProportion() == null) {
-					// editData.setPaymentProportion(contractBill.getPayScale());
-					// txtpaymentProportion.setValue(contractBill.getPayScale());
-				} else if (contractBill.isHasSettled() && editData.getState() != FDCBillStateEnum.AUDITTED) {
-					if (isSimpleFinancial) {
-						txtpaymentProportion.setEditable(true);
-						txtcompletePrjAmt.setEditable(true);
-						txtpaymentProportion.setRequired(true);
-						txtcompletePrjAmt.setRequired(true);
+					if ( !contractBill.isHasSettled() && editData.getPaymentProportion() == null) {
+						// editData.setPaymentProportion(contractBill.getPayScale());
+						// txtpaymentProportion.setValue(contractBill.getPayScale());
+					} else if (contractBill.isHasSettled() && editData.getState() != FDCBillStateEnum.AUDITTED) {
+						if (isSimpleFinancial) {
+							txtpaymentProportion.setEditable(true);
+							txtcompletePrjAmt.setEditable(true);
+							txtpaymentProportion.setRequired(true);
+							txtcompletePrjAmt.setRequired(true);
 
-					} else {
-						editData.setPaymentProportion(null);
-						editData.setCompletePrjAmt(contractBill.getSettleAmt());
-						txtcompletePrjAmt.setValue(FDCHelper.toBigDecimal(contractBill.getSettleAmt()));
-						txtpaymentProportion.setEditable(false);
-						txtcompletePrjAmt.setEditable(false);
-						txtpaymentProportion.setRequired(false);
-						txtcompletePrjAmt.setRequired(false);
+						} else {
+							editData.setPaymentProportion(null);
+							editData.setCompletePrjAmt(contractBill.getSettleAmt());
+							txtcompletePrjAmt.setValue(FDCHelper.toBigDecimal(contractBill.getSettleAmt()));
+							txtpaymentProportion.setEditable(false);
+							txtcompletePrjAmt.setEditable(false);
+							txtpaymentProportion.setRequired(false);
+							txtcompletePrjAmt.setRequired(false);
+						}
+
 					}
 
+				} catch (Exception e) {
+					handUIException(e);
 				}
-
-			} catch (Exception e) {
-				handUIException(e);
+			} else {
+				txtpaymentProportion.setEditable(false);
+				txtcompletePrjAmt.setEditable(false);
 			}
-		} else {
-			txtpaymentProportion.setEditable(false);
-			txtcompletePrjAmt.setEditable(false);
 		}
 	}
 

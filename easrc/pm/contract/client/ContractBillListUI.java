@@ -694,24 +694,6 @@ protected void tblMain_tableSelectChanged(
 		checkSelected();
 		List idList = ContractClientUtils.getSelectedIdValues(
 				getBillListTable(), getKeyFieldName());
-//		FilterInfo filter = this.mainQuery.getFilter();
-//		if(filter != null){
-//			boolean flag = false;
-//			for(Iterator it=filter.getFilterItems().iterator();it.hasNext();){
-//				FilterItemInfo info = (FilterItemInfo)it.next();
-//				if(info.getPropertyName().equals("id")){
-//					info.setCompareValue(FDCHelper.list2Set(idList));
-//					info.setCompareType(CompareType.INCLUDE);
-//					flag = true;
-//					break;
-//				}
-//			}
-//			if(flag==false){
-//				filter.getFilterItems().add(new FilterItemInfo("id",FDCHelper.list2Set(idList),CompareType.INCLUDE));
-//				filter.setMaskString("( "+filter.getMaskString()+" ) and #"+(filter.getFilterItems().size()-1));
-//			}
-//			
-//		}
 		ArrayList para = getExportParam();
         if (para == null || para.size() <= 0)
         {

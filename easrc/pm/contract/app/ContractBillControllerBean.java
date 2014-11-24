@@ -41,6 +41,7 @@ import com.kingdee.eas.basedata.assistant.ProjectInfo;
 import com.kingdee.eas.basedata.org.CostCenterOrgUnitInfo;
 import com.kingdee.eas.basedata.org.OrgConstants;
 import com.kingdee.eas.basedata.org.PositionInfo;
+import com.kingdee.eas.basedata.org.PurchaseOrgUnitFactory;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.fdc.basedata.ContractCodingTypeCollection;
 import com.kingdee.eas.fdc.basedata.ContractCodingTypeFactory;
@@ -121,6 +122,10 @@ import com.kingdee.eas.port.pm.invest.uitls.CLUtil;
 import com.kingdee.eas.port.pm.invite.WinInviteReportBudgetEntryInfo;
 import com.kingdee.eas.port.pm.invite.WinInviteReportFactory;
 import com.kingdee.eas.port.pm.invite.WinInviteReportInfo;
+import com.kingdee.eas.scm.common.BillBaseStatusEnum;
+import com.kingdee.eas.scm.sm.pur.PurContractEntryInfo;
+import com.kingdee.eas.scm.sm.pur.PurContractFactory;
+import com.kingdee.eas.scm.sm.pur.PurContractInfo;
 import com.kingdee.eas.util.app.ContextUtil;
 import com.kingdee.eas.util.app.DbUtil;
 import com.kingdee.eas.xr.app.XRBillException;
@@ -688,9 +693,10 @@ public class ContractBillControllerBean extends AbstractContractBillControllerBe
 	protected void _audit(Context ctx, BOSUuid billId) throws BOSException, EASBizException {
 		
 		checkBillForAudit( ctx,billId);
-		subBudgetAmount(ctx, new ObjectUuidPK(billId));
 		super._audit(ctx, billId);
-		
+		subBudgetAmount(ctx, new ObjectUuidPK(billId));
+		ContractBillInfo info = ContractBillFactory.getLocalInstance(ctx).getContractBillInfo(new ObjectUuidPK(billId));
+		createPurContractInfo(ctx, info,BillBaseStatusEnum.AUDITED);
 		// 在金额累计之前取主合同的签约金额
 		String mainSignAmount = null;
 		try {
@@ -819,6 +825,34 @@ public class ContractBillControllerBean extends AbstractContractBillControllerBe
 			if("失败".equals(str[0])){
 				 throw new XRBillException(XRBillException.NOBUDGET, new Object[] {"预算编码："+budgetNumber+","+budgetName , str[1]});
 			}
+		}
+	}
+	/**
+	 * 生成采购合同
+	 * */
+	void createPurContractInfo(Context ctx,ContractBillInfo info,BillBaseStatusEnum status) throws EASBizException, BOSException{
+		PurContractInfo pur = PurContractFactory.getLocalInstance(ctx).getPurContractInfo("where number='99999'");
+		if(!PurContractFactory.getLocalInstance(ctx).exists("where number='"+info.getNumber()+"' ")){
+			pur.setId(BOSUuid.create(pur.getBOSType()));
+			pur.getPaymentPlan().get(0).setId(null);
+		}else{
+			pur = PurContractFactory.getLocalInstance(ctx).getPurContractInfo("where number='"+info.getNumber()+"' ");
+		}
+		pur.setNumber(info.getNumber());
+		pur.setSupplier(info.getPartB());
+		pur.setTotalAmount(info.getAmount());
+		ProjectInfo project = ProjectFactory.getLocalInstance(ctx).getProjectInfo(new ObjectUuidPK(info.getCurProject().getId()));
+		pur.setPurOrgUnit(PurchaseOrgUnitFactory.getLocalInstance(ctx).getPurchaseOrgUnitInfo(new ObjectUuidPK(project.getCompany().getId())));
+		PurContractEntryInfo entry = pur.getEntries().get(0);
+		entry.setQty(new BigDecimal(1));
+		entry.setBaseQty(new BigDecimal(1) );
+		entry.setPrice(info.getAmount());
+		entry.setAmount(info.getAmount());
+		if(!BillBaseStatusEnum.AUDITED.equals(pur.getBaseStatus()))
+			PurContractFactory.getLocalInstance(ctx).save(pur);
+		if(PurContractFactory.getLocalInstance(ctx).exists("where number='"+info.getNumber()+"' ")){
+			pur.setBaseStatus(status);
+			PurContractFactory.getLocalInstance(ctx).update(new ObjectUuidPK(pur.getId()), pur);
 		}
 	}
 	private String getNextVersionProg(Context ctx, String nextProgId, FDCSQLBuilder builder, IRowSet rowSet) throws BOSException, SQLException {
@@ -1186,8 +1220,10 @@ public class ContractBillControllerBean extends AbstractContractBillControllerBe
 		if (_exists(ctx, filter)) {
 			throw new ContractException(ContractException.HASACHIVED);
 		}	
-		backBudgetAmount(ctx, new ObjectUuidPK(billId));
 		super._unAudit(ctx, billId);
+		backBudgetAmount(ctx, new ObjectUuidPK(billId));
+		ContractBillInfo info = ContractBillFactory.getLocalInstance(ctx).getContractBillInfo(new ObjectUuidPK(billId));
+		createPurContractInfo(ctx, info,BillBaseStatusEnum.ADD);
 		// 在金额累计之前取补充合同的补充金额
 		// 在金额累计之前取主合同的签约金额
 		String mainSignAmount = null;

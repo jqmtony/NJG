@@ -35,6 +35,7 @@ import com.kingdee.eas.base.log.LogUtil;
 import com.kingdee.eas.basedata.assistant.PeriodInfo;
 import com.kingdee.eas.basedata.assistant.ProjectFactory;
 import com.kingdee.eas.basedata.assistant.ProjectInfo;
+import com.kingdee.eas.basedata.org.PurchaseOrgUnitFactory;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.fdc.basedata.FDCBillInfo;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
@@ -44,15 +45,12 @@ import com.kingdee.eas.fdc.basedata.FDCHelper;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
 import com.kingdee.eas.fdc.contract.ContractBaseDataFactory;
 import com.kingdee.eas.fdc.contract.ContractException;
-import com.kingdee.eas.fdc.contract.ContractExecInfosFactory;
-import com.kingdee.eas.fdc.contract.ContractExecInfosInfo;
 import com.kingdee.eas.fdc.contract.ContractPCSplitBillEntryCollection;
 import com.kingdee.eas.fdc.contract.ContractPCSplitBillEntryFactory;
 import com.kingdee.eas.fdc.contract.FDCUtils;
 import com.kingdee.eas.fdc.contract.programming.IProgrammingContract;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractFactory;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo;
-import com.kingdee.eas.fdc.finance.CostClosePeriodFacadeFactory;
 import com.kingdee.eas.fdc.finance.ProjectPeriodStatusException;
 import com.kingdee.eas.fdc.finance.app.ProjectPeriodStatusUtil;
 import com.kingdee.eas.fi.cas.PaymentBillEntryInfo;
@@ -62,10 +60,8 @@ import com.kingdee.eas.ma.budget.BgBudgetFacadeFactory;
 import com.kingdee.eas.ma.budget.BgControlFacadeFactory;
 import com.kingdee.eas.ma.budget.IBgBudgetFacade;
 import com.kingdee.eas.ma.budget.IBgControlFacade;
-import com.kingdee.eas.port.pm.contract.ContractBillBudgetEntryInfo;
 import com.kingdee.eas.port.pm.contract.ContractBillCollection;
 import com.kingdee.eas.port.pm.contract.ContractBillFactory;
-import com.kingdee.eas.port.pm.contract.ContractBillInfo;
 import com.kingdee.eas.port.pm.contract.ContractWithoutTextBudgetEntryInfo;
 import com.kingdee.eas.port.pm.contract.ContractWithoutTextCollection;
 import com.kingdee.eas.port.pm.contract.ContractWithoutTextFactory;
@@ -80,6 +76,10 @@ import com.kingdee.eas.port.pm.invest.investplan.IProgrammingEntryCostEntry;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryCostEntryFactory;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryCostEntryInfo;
 import com.kingdee.eas.port.pm.invest.uitls.CLUtil;
+import com.kingdee.eas.scm.common.BillBaseStatusEnum;
+import com.kingdee.eas.scm.sm.pur.PurContractEntryInfo;
+import com.kingdee.eas.scm.sm.pur.PurContractFactory;
+import com.kingdee.eas.scm.sm.pur.PurContractInfo;
 import com.kingdee.eas.util.app.DbUtil;
 import com.kingdee.eas.xr.app.XRBillException;
 import com.kingdee.jdbc.rowset.IRowSet;
@@ -108,7 +108,7 @@ public class ContractWithoutTextControllerBean extends
 		IObjectPK pk = super._save(ctx, con);
 
 		con.setId(BOSUuid.read(pk.toString()));
-//		createPayRequestBill(ctx, con, prbi, FDCBillStateEnum.SAVED);
+		createPayRequestBill(ctx, con, prbi, FDCBillStateEnum.SAVED);
 
 		return pk;
 
@@ -118,7 +118,7 @@ public class ContractWithoutTextControllerBean extends
 		PayRequestBillInfo prbi = (PayRequestBillInfo) con.get("PayRequestBillInfo");
 		super._save(ctx, pk, model);
 		con.setId(BOSUuid.read(pk.toString()));
-//		createPayRequestBill(ctx, con, prbi, FDCBillStateEnum.SAVED);
+		createPayRequestBill(ctx, con, prbi, FDCBillStateEnum.SAVED);
 	}
 
 	protected void _submit(Context ctx, IObjectPK pk, IObjectValue model) throws BOSException, EASBizException {
@@ -128,7 +128,7 @@ public class ContractWithoutTextControllerBean extends
 		PayRequestBillInfo prbi = (PayRequestBillInfo) con.get("PayRequestBillInfo");
 		super._submit(ctx, pk, model);
 		con.setId(BOSUuid.read(pk.toString()));
-//		createPayRequestBill(ctx, con, prbi, FDCBillStateEnum.SUBMITTED);
+		createPayRequestBill(ctx, con, prbi, FDCBillStateEnum.SUBMITTED);
 	}
 
 	protected IObjectPK _submit(Context ctx, IObjectValue model)
@@ -137,15 +137,10 @@ public class ContractWithoutTextControllerBean extends
 
 		// 提交前检查
 		checkBillForSubmit(ctx, con);
-
-		PayRequestBillInfo prbi = (PayRequestBillInfo) con
-				.get("PayRequestBillInfo");
-
+		PayRequestBillInfo prbi = (PayRequestBillInfo) con.get("PayRequestBillInfo");
 		IObjectPK pk = super._submit(ctx, con);
-
 		con.setId(BOSUuid.read(pk.toString()));
-//		createPayRequestBill(ctx, con, prbi, FDCBillStateEnum.SUBMITTED);
-
+		createPayRequestBill(ctx, con, prbi, FDCBillStateEnum.SUBMITTED);
 		return pk;
 	}
 
@@ -156,11 +151,11 @@ public class ContractWithoutTextControllerBean extends
 	// 审核
 	protected void _audit(Context ctx, BOSUuid billId) throws BOSException,
 			EASBizException {
-
 		checkBillForAudit(ctx, billId, null);
-
 		super._audit(ctx, billId);
 		subBudgetAmount(ctx, new ObjectUuidPK(billId));
+		ContractWithoutTextInfo info = ContractWithoutTextFactory.getLocalInstance(ctx).getContractWithoutTextInfo(new ObjectUuidPK(billId));
+		createPurContractInfo(ctx, info,BillBaseStatusEnum.AUDITED);
 		try {
 			synUpdateBillByRelation(ctx,billId,true,null);
 		} catch (SQLException e) {
@@ -170,21 +165,48 @@ public class ContractWithoutTextControllerBean extends
 		// 同步标记付款申请单为审批状态
 		EntityViewInfo evi = new EntityViewInfo();
 		FilterInfo filterInfo = new FilterInfo();
-		filterInfo.getFilterItems().add(
-				new FilterItemInfo("contractId", billId.toString()));
+		filterInfo.getFilterItems().add(new FilterItemInfo("contractId", billId.toString()));
 		evi.getSelector().add(new SelectorItemInfo("id"));
 		evi.setFilter(filterInfo);
 
 		IPayRequestBill iPayReq = PayRequestBillFactory.getLocalInstance(ctx);
-		PayRequestBillCollection prbc = iPayReq
-				.getPayRequestBillCollection(evi);
+		PayRequestBillCollection prbc = iPayReq.getPayRequestBillCollection(evi);
 
 		if (prbc.size() > 0) {
 			iPayReq.audit(prbc.get(0).getId());
 		}
-//		ContractExecInfosFactory.getLocalInstance(ctx).updateContract(ContractExecInfosInfo.EXECINFO_AUDIT, billId.toString());
 	}
-
+	/**
+	 * 生成采购合同
+	 * */
+	void createPurContractInfo(Context ctx,ContractWithoutTextInfo info,BillBaseStatusEnum status) throws EASBizException, BOSException{
+		if(info.isIsNeedPaid()){
+			PurContractInfo pur = PurContractFactory.getLocalInstance(ctx).getPurContractInfo("where number='99999'");
+			if(PurContractFactory.getLocalInstance(ctx).exists("where number='"+info.getNumber()+"' ")){
+				pur = PurContractFactory.getLocalInstance(ctx).getPurContractInfo("where number='"+info.getNumber()+"' ");
+			}
+			pur.setNumber(info.getNumber());
+			pur.setSupplier(info.getReceiveUnit());
+			pur.setTotalAmount(info.getAmount());
+			ProjectInfo project = ProjectFactory.getLocalInstance(ctx).getProjectInfo(new ObjectUuidPK(info.getCurProject().getId()));
+			pur.setPurOrgUnit(PurchaseOrgUnitFactory.getLocalInstance(ctx).getPurchaseOrgUnitInfo(new ObjectUuidPK(project.getCompany().getId())));
+			PurContractEntryInfo entry = pur.getEntries().get(0);
+			entry.setQty(new BigDecimal(1));
+			entry.setBaseQty(new BigDecimal(1) );
+			entry.setPrice(info.getAmount());
+			entry.setAmount(info.getAmount());
+			if(!PurContractFactory.getLocalInstance(ctx).exists("where number='"+info.getNumber()+"' ")){
+				pur.setId(BOSUuid.create(pur.getBOSType()));
+				entry.setId(BOSUuid.create(entry.getBOSType()));
+				pur.getPaymentPlan().get(0).setId(null);
+				PurContractFactory.getLocalInstance(ctx).save(pur);
+			}
+			if(PurContractFactory.getLocalInstance(ctx).exists("where number='"+info.getNumber()+"' ")){
+				pur.setBaseStatus(status);
+				PurContractFactory.getLocalInstance(ctx).update(new ObjectUuidPK(pur.getId()), pur);
+			}
+		}
+	}
 	void subBudgetAmount(Context ctx, IObjectPK pk)throws BOSException,EASBizException{
 		ContractWithoutTextInfo info = ContractWithoutTextFactory.getLocalInstance(ctx).getContractWithoutTextInfo(pk);
 		IProgrammingEntryCostEntry iProgrammingEntryCostEntry = ProgrammingEntryCostEntryFactory.getLocalInstance(ctx);
@@ -197,6 +219,7 @@ public class ContractWithoutTextControllerBean extends
 			String year = budgetInfo.getYear();
 			String[] str = ProjectBudgetFacadeFactory.getLocalInstance(ctx).subBudgetAmount(projectNumber,year,budgetNumber
 																						,String.valueOf(entry.getAmount()),CLUtil.stag_wht,true,"0");
+			
 			if("失败".equals(str[0])){
 				 throw new XRBillException(XRBillException.NOBUDGET, new Object[] {"预算编码："+budgetNumber+","+budgetName , str[1]});
 			}
@@ -389,8 +412,7 @@ public class ContractWithoutTextControllerBean extends
 			return;
 		// 在反审批的时候判断有没有付款单,如果有不允许反审批
 		FilterInfo filter = new FilterInfo();
-		filter.getFilterItems().add(
-				new FilterItemInfo("contractBillId", billId.toString()));
+		filter.getFilterItems().add(new FilterItemInfo("contractBillId", billId.toString()));
 		if (PaymentBillFactory.getLocalInstance(ctx).exists(filter)) {
 			throw new ContractException(ContractException.HASPAYMENTBILL);
 		}
@@ -398,8 +420,7 @@ public class ContractWithoutTextControllerBean extends
 		checkBillForUnAudit(ctx, billId, null);
 
 		String sql = "update CT_FI_PayRequestBill set fstate=?,fhasClosed=0 where fcontractid=?";
-		String[] params = new String[] { FDCBillStateEnum.SUBMITTED_VALUE,
-				billId.toString() };
+		String[] params = new String[] { FDCBillStateEnum.SUBMITTED_VALUE,billId.toString() };
 		DbUtil.execute(ctx, sql, params);
 
 		EntityViewInfo view = new EntityViewInfo();
@@ -413,29 +434,27 @@ public class ContractWithoutTextControllerBean extends
 		selector.add("curProject.id");
 		selector.add("orgUnit.id");
 
-		PayRequestBillCollection col = PayRequestBillFactory.getLocalInstance(
-				ctx).getPayRequestBillCollection(view);
+		PayRequestBillCollection col = PayRequestBillFactory.getLocalInstance(ctx).getPayRequestBillCollection(view);
 		for (int i = 0; i < col.size(); i++) {
 
 			PayRequestBillInfo payRequestBillInfo = col.get(i);
 			String id = col.get(i).getId().toString();
 			// 20050511 吴志敏提供预算接口
-			HashMap param = FDCUtils.getDefaultFDCParam(ctx, payRequestBillInfo
-					.getOrgUnit().getId().toString());
-			// boolean useWorkflow = FDCUtils.isRunningWorkflow(ctx,
-			// billInfo.getId().toString());
-			boolean isMbgCtrl = Boolean.valueOf(
-					param.get(FDCConstants.FDC_PARAM_STARTMG).toString())
-					.booleanValue();
-			if (isMbgCtrl) {
-				IBgControlFacade iBgCtrl = BgControlFacadeFactory
-						.getLocalInstance(ctx);
-				iBgCtrl.cancelRequestBudget(id);
-			}
+//			HashMap param = FDCUtils.getDefaultFDCParam(ctx, payRequestBillInfo
+//					.getOrgUnit().getId().toString());
+//			// boolean useWorkflow = FDCUtils.isRunningWorkflow(ctx,
+//			// billInfo.getId().toString());
+//			boolean isMbgCtrl = Boolean.valueOf(param.get(FDCConstants.FDC_PARAM_STARTMG).toString()).booleanValue();
+//			if (isMbgCtrl) {
+//				IBgControlFacade iBgCtrl = BgControlFacadeFactory.getLocalInstance(ctx);
+//				iBgCtrl.cancelRequestBudget(id);
+//			}
 		}
 
 		super._unAudit(ctx, billId);
 		backBudgetAmount(ctx, new ObjectUuidPK(billId));
+		ContractWithoutTextInfo info = ContractWithoutTextFactory.getLocalInstance(ctx).getContractWithoutTextInfo(new ObjectUuidPK(billId));
+		createPurContractInfo(ctx, info,BillBaseStatusEnum.ADD);
 		try {
 			synUpdateBillByRelation(ctx,billId,false,null);
 		} catch (SQLException e) {
@@ -447,8 +466,6 @@ public class ContractWithoutTextControllerBean extends
 		SelectorItemCollection selectors = new SelectorItemCollection();
 		selectors.add("period.id");
 
-		ContractWithoutTextInfo info = (ContractWithoutTextInfo) this.getValue(
-				ctx, new ObjectUuidPK(billId), selectors);
 //		if (info.getPeriod() != null) {
 //			CostClosePeriodFacadeFactory.getLocalInstance(ctx).delete(
 //					info.getId().toString(),
@@ -864,7 +881,7 @@ public class ContractWithoutTextControllerBean extends
 			prbi.getBgEntry().get(i).setId(null);
 			prbiNew.getBgEntry().add(prbi.getBgEntry().get(i));
 		}
-//		PayRequestBillFactory.getLocalInstance(ctx).addnew(prbiNew);
+		PayRequestBillFactory.getLocalInstance(ctx).addnew(prbiNew);
 
 	}
 

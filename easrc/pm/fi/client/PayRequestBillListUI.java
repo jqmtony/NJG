@@ -57,6 +57,7 @@ import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.eas.base.attachment.common.AttachmentClientManager;
 import com.kingdee.eas.base.attachment.common.AttachmentManagerFactory;
 import com.kingdee.eas.base.param.ParamControlFactory;
+import com.kingdee.eas.basedata.assistant.CurrencyFactory;
 import com.kingdee.eas.basedata.assistant.ProjectInfo;
 import com.kingdee.eas.basedata.org.FullOrgUnitFactory;
 import com.kingdee.eas.basedata.org.FullOrgUnitInfo;
@@ -1085,7 +1086,7 @@ public class PayRequestBillListUI extends AbstractPayRequestBillListUI {
 			for (Iterator iter = payRequestBillCollection.iterator(); iter.hasNext();) {
 				PayRequestBillInfo element = (PayRequestBillInfo) iter.next();
 
-				int pre = element.getCurrency().getPrecision();
+				int pre = 2;
 				String curFormat = FDCClientHelper.getNumberFormat(pre, true);
 				IRow row = getBillListTable().addRow();
 				row.getCell("originalAmount").getStyleAttributes().setNumberFormat(curFormat);
@@ -1119,7 +1120,7 @@ public class PayRequestBillListUI extends AbstractPayRequestBillListUI {
 				row.getCell(COL_DATE).setValue(element.getBookedDate());
 				row.getCell(COL_PERIOD).setValue(element.getPeriod());
 
-				row.getCell("currency").setValue(element.getCurrency().getName());
+				row.getCell("currency").setValue(CurrencyFactory.getRemoteInstance().getCurrencyCollection().get(0).getName());
 				row.getCell("originalAmount").setValue(element.getOriginalAmount());
 				if (element.getPaymentType() != null) {
 					row.getCell("paymentType").setValue(element.getPaymentType().getName());
@@ -1686,7 +1687,7 @@ public class PayRequestBillListUI extends AbstractPayRequestBillListUI {
 
 	public void actionUnAudit_actionPerformed(ActionEvent e) throws Exception {
 		checkSelected();
-		FDCClientHelper.checkAuditor(getSelectedIdValues(), "T_Con_PayRequestBill");
+		FDCClientHelper.checkAuditor(getSelectedIdValues(), "CT_fi_PayRequestBill");
 		super.actionUnAudit_actionPerformed(e);
 	}
 
