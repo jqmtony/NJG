@@ -1245,6 +1245,134 @@
             </baseProperty>
         </keyProperties>
     </logicalKey>
+    <events>
+        <event>
+            <name>submitEvent</name>
+            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[submitEvent].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[submitEvent].description</description>
+            <userDefined>true</userDefined>
+            <eventMethods>
+                <eventMethod>
+                    <name>dfd2c083-00fa-1000-e000-001fc0a813e6</name>
+                    <alias>entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[submitEvent].eventMethods.eventMethod[dfd2c083-00fa-1000-e000-001fc0a813e6].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[submitEvent].eventMethods.eventMethod[dfd2c083-00fa-1000-e000-001fc0a813e6].description</description>
+                    <entityMethodRef>
+                        <key name="name" value="submit" />
+                        <key name="innerID" value="dfd2c083-00fa-1000-e000-001fc0a813e6" />
+                    </entityMethodRef>
+                    <parameterMappings>
+                        <parameterMapping>
+                            <name />
+                            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[submitEvent].eventMethods.eventMethod[dfd2c083-00fa-1000-e000-001fc0a813e6].parameterMappings.parameterMappingalias</alias>
+                            <description>entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[submitEvent].eventMethods.eventMethod[dfd2c083-00fa-1000-e000-001fc0a813e6].parameterMappings.parameterMappingdescription</description>
+                            <formalParameterInnerID />
+                            <actualParameterIndex>0</actualParameterIndex>
+                            <isBOPK>true</isBOPK>
+                        </parameterMapping>
+                    </parameterMappings>
+                </eventMethod>
+            </eventMethods>
+            <formalParameters>
+                <formalParameter>
+                    <innerID>e72d753e-cadc-429a-a5d9-4491db6efd17evfp</innerID>
+                    <userDefined>true</userDefined>
+                    <parameter>
+                        <name>model</name>
+                        <alias>entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[submitEvent].formalParameters.formalParameter.parameter[model].alias</alias>
+                        <description>entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[submitEvent].formalParameters.formalParameter.parameter[model].description</description>
+                        <direction>in</direction>
+                        <dataType>ObjectValue</dataType>
+                        <metadataRef>com.kingdee.eas.port.pm.invest.app.YearInvestPlan</metadataRef>
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </formalParameter>
+            </formalParameters>
+        </event>
+        <event>
+            <name>auditEvent</name>
+            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[auditEvent].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[auditEvent].description</description>
+            <userDefined>true</userDefined>
+            <eventMethods>
+                <eventMethod>
+                    <name>c4f47c6f-b723-423f-90b6-5e3b9f32228d</name>
+                    <alias>entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[auditEvent].eventMethods.eventMethod[c4f47c6f-b723-423f-90b6-5e3b9f32228d].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[auditEvent].eventMethods.eventMethod[c4f47c6f-b723-423f-90b6-5e3b9f32228d].description</description>
+                    <entityMethodRef>
+                        <key name="name" value="audit" />
+                        <key name="innerID" value="c4f47c6f-b723-423f-90b6-5e3b9f32228d" />
+                    </entityMethodRef>
+                    <parameterMappings>
+                        <parameterMapping>
+                            <name />
+                            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[auditEvent].eventMethods.eventMethod[c4f47c6f-b723-423f-90b6-5e3b9f32228d].parameterMappings.parameterMappingalias</alias>
+                            <description>entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[auditEvent].eventMethods.eventMethod[c4f47c6f-b723-423f-90b6-5e3b9f32228d].parameterMappings.parameterMappingdescription</description>
+                            <formalParameterInnerID />
+                            <actualParameterIndex>0</actualParameterIndex>
+                            <isBOPK>true</isBOPK>
+                        </parameterMapping>
+                    </parameterMappings>
+                </eventMethod>
+            </eventMethods>
+            <formalParameters>
+                <formalParameter>
+                    <innerID>459ad95a-65c0-4ffa-97a6-f318d9376564evfp</innerID>
+                    <userDefined>true</userDefined>
+                    <parameter>
+                        <name>model</name>
+                        <alias>entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[auditEvent].formalParameters.formalParameter.parameter[model].alias</alias>
+                        <description>entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[auditEvent].formalParameters.formalParameter.parameter[model].description</description>
+                        <direction>in</direction>
+                        <dataType>ObjectValue</dataType>
+                        <metadataRef>com.kingdee.eas.port.pm.invest.app.YearInvestPlan</metadataRef>
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </formalParameter>
+            </formalParameters>
+        </event>
+        <event>
+            <name>unAuditEvent</name>
+            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[unAuditEvent].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[unAuditEvent].description</description>
+            <userDefined>true</userDefined>
+            <eventMethods>
+                <eventMethod>
+                    <name>620078ab-0cc7-4637-8a0a-95a9abad7e69</name>
+                    <alias>entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[unAuditEvent].eventMethods.eventMethod[620078ab-0cc7-4637-8a0a-95a9abad7e69].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[unAuditEvent].eventMethods.eventMethod[620078ab-0cc7-4637-8a0a-95a9abad7e69].description</description>
+                    <entityMethodRef>
+                        <key name="name" value="unAudit" />
+                        <key name="innerID" value="620078ab-0cc7-4637-8a0a-95a9abad7e69" />
+                    </entityMethodRef>
+                    <parameterMappings>
+                        <parameterMapping>
+                            <name />
+                            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[unAuditEvent].eventMethods.eventMethod[620078ab-0cc7-4637-8a0a-95a9abad7e69].parameterMappings.parameterMappingalias</alias>
+                            <description>entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[unAuditEvent].eventMethods.eventMethod[620078ab-0cc7-4637-8a0a-95a9abad7e69].parameterMappings.parameterMappingdescription</description>
+                            <formalParameterInnerID />
+                            <actualParameterIndex>0</actualParameterIndex>
+                            <isBOPK>true</isBOPK>
+                        </parameterMapping>
+                    </parameterMappings>
+                </eventMethod>
+            </eventMethods>
+            <formalParameters>
+                <formalParameter>
+                    <innerID>36063f1b-237b-454d-b911-06b5da2b0a8eevfp</innerID>
+                    <userDefined>true</userDefined>
+                    <parameter>
+                        <name>model</name>
+                        <alias>entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[unAuditEvent].formalParameters.formalParameter.parameter[model].alias</alias>
+                        <description>entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[unAuditEvent].formalParameters.formalParameter.parameter[model].description</description>
+                        <direction>in</direction>
+                        <dataType>ObjectValue</dataType>
+                        <metadataRef>com.kingdee.eas.port.pm.invest.app.YearInvestPlan</metadataRef>
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </formalParameter>
+            </formalParameters>
+        </event>
+    </events>
     <defaultView>
         <name />
         <alias>entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].defaultViewalias</alias>
@@ -1322,6 +1450,150 @@
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[auditEvent].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="审核" />
+            <lang locale="zh_HK" value="審核" />
+            <lang locale="zh_TW" value="審核" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[auditEvent].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="审核" />
+            <lang locale="zh_HK" value="審核" />
+            <lang locale="zh_TW" value="審核" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[auditEvent].eventMethods.eventMethod[c4f47c6f-b723-423f-90b6-5e3b9f32228d].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[auditEvent].eventMethods.eventMethod[c4f47c6f-b723-423f-90b6-5e3b9f32228d].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[auditEvent].eventMethods.eventMethod[c4f47c6f-b723-423f-90b6-5e3b9f32228d].parameterMappings.parameterMappingalias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[auditEvent].eventMethods.eventMethod[c4f47c6f-b723-423f-90b6-5e3b9f32228d].parameterMappings.parameterMappingdescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[auditEvent].formalParameters.formalParameter.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="值对象" />
+            <lang locale="zh_HK" value="值對象" />
+            <lang locale="zh_TW" value="值對象" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[auditEvent].formalParameters.formalParameter.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[submitEvent].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="提交" />
+            <lang locale="zh_HK" value="提交" />
+            <lang locale="zh_TW" value="提交" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[submitEvent].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="提交" />
+            <lang locale="zh_HK" value="提交" />
+            <lang locale="zh_TW" value="提交" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[submitEvent].eventMethods.eventMethod[dfd2c083-00fa-1000-e000-001fc0a813e6].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[submitEvent].eventMethods.eventMethod[dfd2c083-00fa-1000-e000-001fc0a813e6].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[submitEvent].eventMethods.eventMethod[dfd2c083-00fa-1000-e000-001fc0a813e6].parameterMappings.parameterMappingalias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[submitEvent].eventMethods.eventMethod[dfd2c083-00fa-1000-e000-001fc0a813e6].parameterMappings.parameterMappingdescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[submitEvent].formalParameters.formalParameter.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="值对象" />
+            <lang locale="zh_HK" value="值對象" />
+            <lang locale="zh_TW" value="值對象" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[submitEvent].formalParameters.formalParameter.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[unAuditEvent].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="反审核" />
+            <lang locale="zh_HK" value="反審核" />
+            <lang locale="zh_TW" value="反審核" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[unAuditEvent].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="反审核" />
+            <lang locale="zh_HK" value="反審核" />
+            <lang locale="zh_TW" value="反審核" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[unAuditEvent].eventMethods.eventMethod[620078ab-0cc7-4637-8a0a-95a9abad7e69].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[unAuditEvent].eventMethods.eventMethod[620078ab-0cc7-4637-8a0a-95a9abad7e69].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[unAuditEvent].eventMethods.eventMethod[620078ab-0cc7-4637-8a0a-95a9abad7e69].parameterMappings.parameterMappingalias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[unAuditEvent].eventMethods.eventMethod[620078ab-0cc7-4637-8a0a-95a9abad7e69].parameterMappings.parameterMappingdescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[unAuditEvent].formalParameters.formalParameter.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="值对象" />
+            <lang locale="zh_HK" value="值對象" />
+            <lang locale="zh_TW" value="值對象" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[unAuditEvent].formalParameters.formalParameter.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].extendedProperty.OrgType">
