@@ -1,7 +1,5 @@
 package com.kingdee.eas.bpm.selectors;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import com.kingdee.bos.BOSException;
@@ -9,30 +7,25 @@ import com.kingdee.bos.Context;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
-import com.kingdee.bos.metadata.entity.SelectorItemInfo;
+import com.kingdee.eas.basedata.org.AdminOrgUnitFactory;
+import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
+import com.kingdee.eas.basedata.org.CompanyOrgUnitFactory;
+import com.kingdee.eas.basedata.org.CompanyOrgUnitInfo;
 import com.kingdee.eas.bpm.BPMLogFactory;
 import com.kingdee.eas.bpm.BPMLogInfo;
 import com.kingdee.eas.bpm.BillBaseSelector;
-import com.kingdee.eas.bpm.common.StringUtilBPM;
-import com.kingdee.eas.bpm.common.ViewXmlUtil;
 import com.kingdee.eas.common.EASBizException;
+import com.kingdee.eas.fdc.aimcost.AimAimCostAdjustFactory;
+import com.kingdee.eas.fdc.aimcost.AimAimCostAdjustInfo;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
-import com.kingdee.eas.fdc.basedata.PaymentTypeFactory;
-import com.kingdee.eas.fdc.basedata.PaymentTypeInfo;
-import com.kingdee.eas.fdc.contract.CompensationBillFactory;
-import com.kingdee.eas.fdc.contract.CompensationBillInfo;
-import com.kingdee.eas.fdc.contract.ContractBailEntryFactory;
-import com.kingdee.eas.fdc.contract.ContractBailEntryInfo;
-import com.kingdee.eas.fdc.contract.ContractBillEntryFactory;
-import com.kingdee.eas.fdc.contract.ContractBillEntryInfo;
 import com.kingdee.eas.fdc.contract.ContractBillFactory;
 import com.kingdee.eas.fdc.contract.ContractBillInfo;
-import com.kingdee.eas.fdc.contract.ContractPayItemFactory;
-import com.kingdee.eas.fdc.contract.ContractPayItemInfo;
-import com.kingdee.eas.fdc.contract.GuerdonBillFactory;
-//违约金
-public class CompensationFacade implements BillBaseSelector{
+import com.kingdee.eas.fdc.contract.ContractChangeBillFactory;
+import com.kingdee.eas.fdc.contract.ContractChangeBillInfo;
+import com.kingdee.eas.util.app.ContextUtil;
+
+public class AimAimcostAdjustFacade implements BillBaseSelector{
 
 	public String[] ApproveBack(Context ctx, String strBTID,
 			IObjectValue billInfo, String strXML) {
@@ -43,12 +36,14 @@ public class CompensationFacade implements BillBaseSelector{
 	public String[] ApproveClose(Context ctx, String strBSID,
 			IObjectValue billInfo, int procInstID,
 			String processInstanceResult, String strComment, Date dtTime) {
-		CompensationBillInfo Info = (CompensationBillInfo)billInfo;
+		AimAimCostAdjustInfo Info = (AimAimCostAdjustInfo)billInfo;
     	String[] str = new String[3];
     	str[0] = "Y";
+    	String sql = "";
+    	String sql1 = "";
 		try {
 			try{
-				Info = CompensationBillFactory.getLocalInstance(ctx).getCompensationBillInfo(new ObjectUuidPK(Info.getId()),getSelectors());
+				Info = AimAimCostAdjustFactory.getLocalInstance(ctx).getAimAimCostAdjustInfo(new ObjectUuidPK(Info.getId()),getSelectors());
 			}catch (EASBizException e) {
 				str[2] = "根据单据getSelectors获取对象数据，请检查getSelectors方法中属性是否正确,并查看服务器log日志！";
 				e.printStackTrace();
@@ -57,8 +52,13 @@ public class CompensationFacade implements BillBaseSelector{
 				if("1".equals(processInstanceResult)){
 					if(FDCBillStateEnum.AUDITTING.equals(Info.getState()))
 					{
-						CompensationBillFactory.getLocalInstance(ctx).audit(Info.getId());
-						Info.setState(FDCBillStateEnum.AUDITTED);
+						Info.setState(FDCBillStateEnum.SUBMITTED);
+						CompanyOrgUnitInfo company = CompanyOrgUnitFactory.getLocalInstance(ctx).getCompanyOrgUnitInfo(new ObjectUuidPK(Info.getCU().getId()));
+						AdminOrgUnitInfo admin=AdminOrgUnitFactory.getLocalInstance(ctx).getAdminOrgUnitInfo(new ObjectUuidPK(Info.getCU().getId()));                            
+						ContextUtil.setCurrentFIUnit(ctx, company);
+						ContextUtil.setCurrentOrgUnit(ctx, admin);
+						AimAimCostAdjustFactory.getLocalInstance(ctx).audit(Info.getId());
+					    Info.setState(FDCBillStateEnum.AUDITTED); 
 					}
 					else{
 						str[2] = "审批通过失败，该记录状态不是审批中！";
@@ -67,7 +67,9 @@ public class CompensationFacade implements BillBaseSelector{
 				}
 				if("0".equals(processInstanceResult)){
 					if(FDCBillStateEnum.AUDITTING.equals(Info.getState()))
-						Info.setState(FDCBillStateEnum.SAVED);
+					{	
+					 Info.setState(FDCBillStateEnum.SAVED);   //作废改为以保存
+					}
 					else{
 						str[2] = "审批不通过失败，该记录状态不是审批中！";
 						str[0] = "N";
@@ -82,26 +84,27 @@ public class CompensationFacade implements BillBaseSelector{
 					}
 				}
 				if("3".equals(processInstanceResult)){
-					if(FDCBillStateEnum.AUDITTING.equals(Info.getState()))
-					{
-					Info.setState(FDCBillStateEnum.SAVED);
-					String sql = " update t_con_contractbill set fDescription='' where fid='"+Info.getId()+"'";
-					FDCSQLBuilder bu = new FDCSQLBuilder(ctx);
-					bu.appendSql(sql);
-					bu.executeUpdate(ctx);
+					if(FDCBillStateEnum.AUDITTING.equals(Info.getState())){
+						Info.setState(FDCBillStateEnum.SAVED);
+						sql = " update T_AIM_AimAimCostAdjust set fDescription='' where fid='"+Info.getId()+"'";
+						FDCSQLBuilder bu = new FDCSQLBuilder(ctx);
+						bu.appendSql(sql);
+						bu.executeUpdate(ctx);
 					}
 					else{
 						str[2] = "撤销失败，该记录状态不是审批中！";
 						str[0] = "N";
 					}
 				}
-				String sql = " update T_CON_CompensationBill set fState='"+Info.getState().getValue()+"' where fid='"+Info.getId()+"'";
+			   
+				sql = " update T_AIM_AimAimCostAdjust set fState='"+Info.getState().getValue()+"' where fid='"+Info.getId()+"'";
 				FDCSQLBuilder bu = new FDCSQLBuilder(ctx);
 				bu.appendSql(sql);
 				bu.executeUpdate(ctx);
+
 			}
 			catch (BOSException e) {
-				str[2] = "根据单据state值更新状态sql失败，请检查getState方法是否有值,并查看服务器log日志！";
+				str[2] = "根据单据state值更新状态sql失败，请检查getState方法是否有值,并查看服务器log日志！【sql】"+sql;
 				e.printStackTrace();
 			}
 		}catch (Exception e) {
@@ -125,36 +128,8 @@ public class CompensationFacade implements BillBaseSelector{
 
 	public String[] GetbillInfo(Context ctx, String strBSID,
 			IObjectValue billInfo) {
-		CompensationBillInfo Info = (CompensationBillInfo)billInfo;
-    	String[] str = new String[3];
-    	str[0] = "Y";
-    	StringBuffer xml = new StringBuffer();
-		try {
-			try{
-				Info = CompensationBillFactory.getLocalInstance(ctx).getCompensationBillInfo(new ObjectUuidPK(Info.getId()),getSelectors());
-			}catch (EASBizException e) {
-				str[2] = "根据单据getSelectors获取对象数据，请检查getSelectors方法中属性是否正确,并查看服务器log日志！";
-				e.printStackTrace();
-			}
-			DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-			str=ViewXmlUtil.getViewXmlString(ctx, "005",Info.getId().toString());
-		}catch (Exception e) {
-			str[0] = "N";
-			str[2] = "其他异常，请查看服务器log日志！";
-			e.printStackTrace();
-		}finally{
-			BPMLogInfo log = new BPMLogInfo();
-			try {
-				log.setLogDate(new Date());
-				log.setName("合同单据ID："+Info.getId()+"; 编号："+Info.getNumber());
-				log.setDescription("EAS结果:"+str[0]+"; 错误信息"+str[1]+str[2]);
-				log.setBeizhu("调用接口方法：GetbillInfo");
-				BPMLogFactory.getLocalInstance(ctx).save(log);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-		return str;
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	public String[] GetrRelatedBillInfo(Context ctx, String strBTID,
@@ -166,12 +141,12 @@ public class CompensationFacade implements BillBaseSelector{
 	public String[] SubmitResult(Context ctx, String strBSID,
 			IObjectValue billInfo, boolean success, int procInstID,
 			String procURL, String strMessage) {
-		CompensationBillInfo Info = (CompensationBillInfo)billInfo;
+		AimAimCostAdjustInfo Info = (AimAimCostAdjustInfo)billInfo;
     	String[] str = new String[3];
     	str[0] = "Y";
 		try {
 			try{
-				Info = CompensationBillFactory.getLocalInstance(ctx).getCompensationBillInfo(new ObjectUuidPK(Info.getId()),getSelectors());
+				Info = AimAimCostAdjustFactory.getLocalInstance(ctx).getAimAimCostAdjustInfo(new ObjectUuidPK(Info.getId()),getSelectors());
 			}catch (EASBizException e) {
 				str[0] = "N";
 				str[2] = "根据单据getSelectors获取对象数据，请检查getSelectors方法中属性是否正确,并查看服务器log日志！";
@@ -179,7 +154,7 @@ public class CompensationFacade implements BillBaseSelector{
 			}
 			try{
 				Info.setState(FDCBillStateEnum.AUDITTING);
-				String sql = " update T_CON_CompensationBill set fState='"+Info.getState().getValue()+"'" +
+				String sql = " update T_AIM_AimAimCostAdjust set fState='"+Info.getState().getValue()+"'" +
 						", fDescription='"+procURL+"' " +
 						", FSourceFunction='"+procInstID+"' where fid='"+Info.getId()+"'";
 				FDCSQLBuilder bu = new FDCSQLBuilder(ctx);
@@ -212,10 +187,8 @@ public class CompensationFacade implements BillBaseSelector{
 	}
 
 	public SelectorItemCollection getSelectors() {
-		SelectorItemCollection sic = new SelectorItemCollection();
-		sic.add(new SelectorItemInfo("state"));
-
-		return sic;
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

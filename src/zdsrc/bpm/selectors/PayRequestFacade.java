@@ -1,5 +1,6 @@
 package com.kingdee.eas.bpm.selectors;
 
+import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -121,14 +122,15 @@ public class PayRequestFacade implements BillBaseSelector {
 				if("1".equals(processInstanceResult)){
 					if(FDCBillStateEnum.AUDITTING.equals(Info.getState()))
 					{
-					Info.setState(FDCBillStateEnum.SUBMITTED);
-					CompanyOrgUnitInfo company = CompanyOrgUnitFactory.getLocalInstance(ctx).getCompanyOrgUnitInfo(new ObjectUuidPK(Info.getCU().getId()));
-					AdminOrgUnitInfo admin=AdminOrgUnitFactory.getLocalInstance(ctx).getAdminOrgUnitInfo(new ObjectUuidPK(Info.getCU().getId()));                            
-					ContextUtil.setCurrentFIUnit(ctx, company);
-					ContextUtil.setCurrentOrgUnit(ctx, admin);
-				    PayRequestBillFactory.getLocalInstance(ctx).audit(Info.getId());
-				    Info.setState(FDCBillStateEnum.AUDITTED);  
-					}    
+						Info.setState(FDCBillStateEnum.SUBMITTED);
+						CompanyOrgUnitInfo company = CompanyOrgUnitFactory.getLocalInstance(ctx).getCompanyOrgUnitInfo(new ObjectUuidPK(Info.getCU().getId()));
+						AdminOrgUnitInfo admin=AdminOrgUnitFactory.getLocalInstance(ctx).getAdminOrgUnitInfo(new ObjectUuidPK(Info.getCU().getId()));                            
+						ContextUtil.setCurrentFIUnit(ctx, company);
+						ContextUtil.setCurrentOrgUnit(ctx, admin);
+						PayRequestBillFactory.getLocalInstance(ctx).audit(Info.getId());
+						Info.setState(FDCBillStateEnum.AUDITTED); 
+						
+					}
 					else{
 						str[2] = "审批通过失败，该记录状态不是审批中！";
 						str[0] = "N";
@@ -321,7 +323,27 @@ public class PayRequestFacade implements BillBaseSelector {
 			xml.append("<PlanHasCon>"+Info.getPlanHasCon().getName()+"</PlanHasCon>\n");//预算项目
 			if(Info.getMoneyDesc()!=null)
 				xml.append("<Remarks>"+Info.getMoneyDesc()+"</Remarks>\n");//备注
-			xml.append("<allAmount>0</allAmount>\n");//合同已付款金额
+			
+			if(Info.getContractId()!=null)
+			{
+				String sql="select sum(pay.FAmount) SFamount  from t_con_payrequestbill pay left join ";
+				sql+="t_con_contractbill con on pay.FContractId=con.fid where pay.fstate!='1SAVED' ";
+				sql+="and pay.fcontractid='"+Info.getContractId()+"'";
+				FDCSQLBuilder builder=new FDCSQLBuilder(ctx);
+	    		builder.appendSql(sql);
+                IRowSet Rowset=builder.executeQuery();
+                if(Rowset.size()==1)
+                {
+                  Rowset.next();  
+                  xml.append("<allAmount>" +FDCHelper.toBigDecimal(Rowset.getBigDecimal("SFamount")) + "</allAmount>\n");//合同已付款金额
+                }
+                 builder.clear();
+			}
+			else
+			{
+				xml.append("<allAmount>0</allAmount>\n");//合同已付款金额
+			}
+			
 			
 			
 			  EntityViewInfo Myavevi = new EntityViewInfo();
@@ -334,61 +356,64 @@ public class PayRequestFacade implements BillBaseSelector {
 		    	  for(int a=0;a<con.size();a++)
 		    	  {
 		    		  ContractBillInfo conInfo=ContractBillFactory.getLocalInstance(ctx).getContractBillInfo(new ObjectUuidPK(con.get(a).getId()));
-		    		  xml.append("<ContractType>"+conInfo.getContractType().getName()+"</ContractType>\n");//合同类型
+		    		  xml.append("<contractTypeName>"+conInfo.getContractType().getName()+"</contractTypeName>\n");//合同类型
 		    		  xml.append("<HTamount>"+conInfo.getAmount()+"</HTamount>\n");//合同金额
 		    	  }
 		      }
 		      
-		      xml.append("<controlType>1</controlType>\n");//控制类型
 		      xml.append("<CostedName>"+Info.getCostedCompany().getName()+"</CostedName>\n");//合同类型
 		      xml.append("<OrgCode>"+Info.getCostedCompany().getNumber()+"</OrgCode>\n");//合同类型
 		      xml.append("<CostedDept>"+Info.getCostedDept().getName()+"</CostedDept>\n");//合同类型
 		      
 		      
-			  
+			  int control=1;
 				  EntityViewInfo Myavevi2 = new EntityViewInfo();
 			      FilterInfo Myavfilter2 = new FilterInfo();
 			      Myavfilter2.getFilterItems().add(new FilterItemInfo("head",Info.getId(),CompareType.EQUALS));
 			      Myavevi2.setFilter(Myavfilter2);
 			      PayRequestBillBgEntryCollection contractBasecoll=PayRequestBillBgEntryFactory.getLocalInstance(ctx).getPayRequestBillBgEntryCollection(Myavevi2);
 				  if(contractBasecoll.size()>0)
+			  {
+				  xml.append("<billEntries>\n");
+				  for(int ab=0;ab<contractBasecoll.size();ab++)
 				  {
-					  xml.append("<billEntries>\n");
-					  for(int ab=0;ab<contractBasecoll.size();ab++)
-					  {
-						  PayRequestBillBgEntryInfo Conbaseinfo=PayRequestBillBgEntryFactory.getLocalInstance(ctx).getPayRequestBillBgEntryInfo(new ObjectUuidPK(contractBasecoll.get(ab).getId()));
-						  xml.append("<item>\n");
-						  String sql="select FName_L2 from T_BG_BgItem where fid='"+Conbaseinfo.getBgItem().getId()+"'";
-						  FDCSQLBuilder builder=new FDCSQLBuilder(ctx);
-			    		  builder.appendSql(sql);
-		                  IRowSet Rowset=builder.executeQuery();
-		                  if(Rowset.size()==1)
-		                  {
-		                   Rowset.next();  
-		                   xml.append("<BgeItem>"+Rowset.getString("FName_L2")+"</BgeItem>\n");//预算费用
-		                  }
-		                  builder.clear();
-						  
-		                  String sql2="select FName_l2 from T_BD_Currency where fid='"+Conbaseinfo.getCurrency().getId()+"'";
-						  FDCSQLBuilder builders=new FDCSQLBuilder(ctx);
-			    		  builders.appendSql(sql2);
-		                  IRowSet Rowsets=builders.executeQuery();
-		                  if(Rowsets.size()==1)
-		                  {
-		                   Rowsets.next();  
-		                   xml.append("<BgeCurrency>"+Rowsets.getString("FName_L2")+"</BgeCurrency>\n");//币别
-		                  }
-		                  builders.clear();
-						  xml.append("<BgeRate>"+Conbaseinfo.getRate()+"</BgeRate>\n");// 汇率  
-						  xml.append("<BgeAmount>"+Conbaseinfo.getAmount()+"</BgeAmount>\n");//  原币金额 
-						  xml.append("<BgeRequestAmount>"+Conbaseinfo.getRequestAmount()+"</BgeRequestAmount>\n");//本币金额
-						  xml.append("<BgeBalance>"+Conbaseinfo.getBgBalance()+"</BgeBalance>\n");//预算余额 
-						  xml.append("<BgeRemark>"+StringUtilBPM.isNULl(Conbaseinfo.getRemark())+"</BgeRemark>\n");//备注
-					      xml.append("</item>\n");
-					  }
-					  xml.append("</billEntries>\n");
+					  PayRequestBillBgEntryInfo Conbaseinfo=PayRequestBillBgEntryFactory.getLocalInstance(ctx).getPayRequestBillBgEntryInfo(new ObjectUuidPK(contractBasecoll.get(ab).getId()));
+					  xml.append("<item>\n");
+					  String sql="select FName_L2 from T_BG_BgItem where fid='"+Conbaseinfo.getBgItem().getId()+"'";
+					  FDCSQLBuilder builder=new FDCSQLBuilder(ctx);
+		    		  builder.appendSql(sql);
+	                  IRowSet Rowset=builder.executeQuery();
+	                  if(Rowset.size()==1)
+	                  {
+	                   Rowset.next();  
+	                   xml.append("<BgeItem>"+Rowset.getString("FName_L2")+"</BgeItem>\n");//预算费用
+	                  }
+	                  builder.clear();
+					  
+	                  String sql2="select FName_l2 from T_BD_Currency where fid='"+Conbaseinfo.getCurrency().getId()+"'";
+					  FDCSQLBuilder builders=new FDCSQLBuilder(ctx);
+		    		  builders.appendSql(sql2);
+	                  IRowSet Rowsets=builders.executeQuery();
+	                  if(Rowsets.size()==1)
+	                  {
+	                   Rowsets.next();  
+	                   xml.append("<BgeCurrency>"+Rowsets.getString("FName_L2")+"</BgeCurrency>\n");//币别
+	                  }
+	                  builders.clear();
+					  xml.append("<BgeRate>"+Conbaseinfo.getRate()+"</BgeRate>\n");// 汇率  
+					  xml.append("<BgeAmount>"+Conbaseinfo.getAmount()+"</BgeAmount>\n");//  原币金额 
+					  xml.append("<BgeRequestAmount>"+Conbaseinfo.getRequestAmount()+"</BgeRequestAmount>\n");//本币金额
+					  xml.append("<BgeBalance>"+Conbaseinfo.getBgBalance()+"</BgeBalance>\n");//预算余额 
+					  xml.append("<BgeRemark>"+StringUtilBPM.isNULl(Conbaseinfo.getRemark())+"</BgeRemark>\n");//备注
+				      xml.append("</item>\n");
+				      BigDecimal balance=Conbaseinfo.getBgBalance()!=null?Conbaseinfo.getBgBalance():FDCHelper.ZERO;
+				      if(balance.compareTo(Conbaseinfo.getRequestAmount())<0){
+				    	  control=0;
+				      }
 				  }
-			
+				  xml.append("</billEntries>\n");
+			  }
+			xml.append("<controlType>"+control+"</controlType>\n");//控制类型
 			
 			xml.append("</DATA>"); 
 			str[1] = xml.toString();

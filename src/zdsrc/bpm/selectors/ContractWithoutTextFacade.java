@@ -35,6 +35,7 @@ import com.kingdee.eas.bpm.common.TransRMB;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.SysContextConstant;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
+import com.kingdee.eas.fdc.basedata.FDCHelper;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
 import com.kingdee.eas.fdc.basedata.PaymentTypeFactory;
 import com.kingdee.eas.fdc.basedata.PaymentTypeInfo;
@@ -132,12 +133,12 @@ public class ContractWithoutTextFacade implements BillBaseSelector {
 				if("1".equals(processInstanceResult)){
 					if(FDCBillStateEnum.AUDITTING.equals(Info.getState()))
 					{	
-//					Info.setState(FDCBillStateEnum.SUBMITTED);
-//					CompanyOrgUnitInfo company = CompanyOrgUnitFactory.getLocalInstance(ctx).getCompanyOrgUnitInfo(new ObjectUuidPK(Info.getCU().getId()));
-//					AdminOrgUnitInfo admin=AdminOrgUnitFactory.getLocalInstance(ctx).getAdminOrgUnitInfo(new ObjectUuidPK(Info.getCU().getId()));                            
-//					ContextUtil.setCurrentFIUnit(ctx, company);
-//					ContextUtil.setCurrentOrgUnit(ctx, admin);
-//				    ContractBillFactory.getLocalInstance(ctx).audit(Info.getId());
+					Info.setState(FDCBillStateEnum.SUBMITTED);
+					CompanyOrgUnitInfo company = CompanyOrgUnitFactory.getLocalInstance(ctx).getCompanyOrgUnitInfo(new ObjectUuidPK(Info.getCU().getId()));
+					AdminOrgUnitInfo admin=AdminOrgUnitFactory.getLocalInstance(ctx).getAdminOrgUnitInfo(new ObjectUuidPK(Info.getCU().getId()));                            
+					ContextUtil.setCurrentFIUnit(ctx, company);
+					ContextUtil.setCurrentOrgUnit(ctx, admin);
+					ContractWithoutTextFactory.getLocalInstance(ctx).audit(Info.getId());
 				    Info.setState(FDCBillStateEnum.AUDITTED);	
 					}
 					else{
@@ -385,7 +386,7 @@ public class ContractWithoutTextFacade implements BillBaseSelector {
    		      xml.append("<CostedDept>"+Info.getCostedDept().getName()+"</CostedDept>\n");//合同类型
    		      
    		      
-   		      
+   		   int control=1;   
    		   EntityViewInfo Myavevi2 = new EntityViewInfo();
 		      FilterInfo Myavfilter2 = new FilterInfo();
 		      Myavfilter2.getFilterItems().add(new FilterItemInfo("head",Info.getId(),CompareType.EQUALS));
@@ -425,10 +426,14 @@ public class ContractWithoutTextFacade implements BillBaseSelector {
 					  xml.append("<BgeBalance>"+Conbaseinfo.getBgBalance()+"</BgeBalance>\n");//预算余额 
 					  xml.append("<BgeRemark>"+StringUtilBPM.isNULl(Conbaseinfo.getRemark())+"</BgeRemark>\n");//备注
 				      xml.append("</item>\n");
+				      BigDecimal balance=Conbaseinfo.getBgBalance()!=null?Conbaseinfo.getBgBalance():FDCHelper.ZERO;
+				      if(balance.compareTo(Conbaseinfo.getRequestAmount())<0){
+				    	 control=0;
+				      }
 				  }
 				  xml.append("</billEntries>\n");
 			  }
-   		      
+			  xml.append("<controlType>"+control+"</controlType>\n");//控制类型
                 xml.append("</DATA>"); 
                 str[1] = xml.toString();
 			}
@@ -501,7 +506,7 @@ public class ContractWithoutTextFacade implements BillBaseSelector {
 		sic.add(new SelectorItemInfo("PaymentProportion"));
 		sic.add(new SelectorItemInfo("IsNeedPaid"));
 		sic.add(new SelectorItemInfo("FdcDepConPlan"));
-		
+		sic.add(new SelectorItemInfo("CU.id"));
 		sic.add(new SelectorItemInfo("CostedCompany.name"));
 		sic.add(new SelectorItemInfo("CostedCompany.number"));
 		sic.add(new SelectorItemInfo("CostedDept.name"));

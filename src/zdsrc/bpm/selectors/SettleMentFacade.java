@@ -16,12 +16,17 @@ import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.metadata.entity.SelectorItemInfo;
+import com.kingdee.eas.basedata.org.AdminOrgUnitFactory;
+import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
+import com.kingdee.eas.basedata.org.CompanyOrgUnitFactory;
+import com.kingdee.eas.basedata.org.CompanyOrgUnitInfo;
 import com.kingdee.eas.bpm.BPMLogFactory;
 import com.kingdee.eas.bpm.BPMLogInfo;
 import com.kingdee.eas.bpm.BillBaseSelector;
 import com.kingdee.eas.bpm.common.StringUtilBPM;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
+import com.kingdee.eas.fdc.basedata.FDCHelper;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
 import com.kingdee.eas.fdc.basedata.PaymentTypeFactory;
 import com.kingdee.eas.fdc.basedata.PaymentTypeInfo;
@@ -41,6 +46,7 @@ import com.kingdee.eas.fdc.contract.ContractSettlementBillInfo;
 import com.kingdee.eas.fdc.contract.GuerdonBillCollection;
 import com.kingdee.eas.fdc.contract.GuerdonBillFactory;
 import com.kingdee.eas.fdc.contract.GuerdonBillInfo;
+import com.kingdee.eas.fdc.contract.PayRequestBillFactory;
 import com.kingdee.eas.fdc.finance.DeductBillCollection;
 import com.kingdee.eas.fdc.finance.DeductBillEntryCollection;
 import com.kingdee.eas.fdc.finance.DeductBillEntryFactory;
@@ -54,6 +60,8 @@ import com.kingdee.eas.fi.cas.PaymentBillCollection;
 import com.kingdee.eas.fi.cas.PaymentBillFactory;
 import com.kingdee.eas.fi.cas.PaymentBillInfo;
 import com.kingdee.eas.fm.be.ws.PaymentInfo;
+import com.kingdee.eas.util.app.ContextUtil;
+import com.kingdee.jdbc.rowset.IRowSet;
 
 public class SettleMentFacade implements BillBaseSelector {
 
@@ -75,7 +83,15 @@ public class SettleMentFacade implements BillBaseSelector {
 			try {
 				if ("1".equals(processInstanceResult)) {
 					if (FDCBillStateEnum.AUDITTING.equals(Info.getState()))
-						Info.setState(FDCBillStateEnum.AUDITTED);
+					{
+						Info.setState(FDCBillStateEnum.SUBMITTED);
+						CompanyOrgUnitInfo company = CompanyOrgUnitFactory.getLocalInstance(ctx).getCompanyOrgUnitInfo(new ObjectUuidPK(Info.getCU().getId()));
+						AdminOrgUnitInfo admin=AdminOrgUnitFactory.getLocalInstance(ctx).getAdminOrgUnitInfo(new ObjectUuidPK(Info.getCU().getId()));                            
+						ContextUtil.setCurrentFIUnit(ctx, company);
+						ContextUtil.setCurrentOrgUnit(ctx, admin);
+						ContractSettlementBillFactory.getLocalInstance(ctx).audit(Info.getId());
+						Info.setState(FDCBillStateEnum.AUDITTED);	
+					}
 					else {
 						str[2] = "审批通过失败，该记录状态不是审批中！";
 						str[0] = "N";
@@ -188,6 +204,20 @@ public class SettleMentFacade implements BillBaseSelector {
 			xml.append("<Creator>"+ Info.getCreator().getName()+ "</Creator>\n"); // 制单人
 			xml.append("<AttenTwo>"+ Info.getOwnID() + "</AttenTwo>\n"); // 归档稿
 			xml.append("<CreateTime>"+ Info.getCreateTime()+ "</CreateTime>\n"); // 制单时间
+			xml.append("<contractTypeName>合同结算</contractTypeName>\n"); // 制单时间
+		
+				String sql="select Famount as HTFamount from t_con_contractbill where Fnumber='"+Info.getContractBill().getNumber()+"'";
+				FDCSQLBuilder builder=new FDCSQLBuilder(ctx);
+	    		builder.appendSql(sql);
+                IRowSet Rowset=builder.executeQuery();
+                if(Rowset.size()==1)
+                {
+                  Rowset.next();  
+                  xml.append("<HTFamount>" +FDCHelper.toBigDecimal(Rowset.getBigDecimal("HTFamount")) + "</HTFamount>\n");//合同已付款金额
+                }
+                 builder.clear();
+			
+			
 			//xml.append("<DeptName>"+Info.+"</DeptName>\n");//制单部门
 			xml.append("</DATA>");
 			str[1] = xml.toString();
@@ -235,9 +265,6 @@ public class SettleMentFacade implements BillBaseSelector {
 						+ Info.getState().getValue() + "'" + ", fDescription='"
 						+ procURL + "' " + ", FSourceFunction='" + procInstID
 						+ "' where fid='" + Info.getId() + "'";
-//				String sql = " update T_CON_ContractSettlementBill set fState='"
-//					           + Info.getState().getValue() + "'" + ", FSourceFunction='" + procInstID
-//					           + "' where fid='" + Info.getId() + "'";
 				FDCSQLBuilder bu = new FDCSQLBuilder(ctx);
 				bu.appendSql(sql);
 				bu.executeUpdate(ctx);
@@ -278,6 +305,8 @@ public class SettleMentFacade implements BillBaseSelector {
 		sic.add(new SelectorItemInfo("ContractBill.name"));
 		sic.add(new SelectorItemInfo("ContractBill.number"));
 		sic.add(new SelectorItemInfo("Name"));
+		sic.add(new SelectorItemInfo("id"));
+		sic.add(new SelectorItemInfo("cu.id"));
 		sic.add(new SelectorItemInfo("BookedDate"));
 		sic.add(new SelectorItemInfo("Currency.name"));
 		sic.add(new SelectorItemInfo("ExchangeRate"));
@@ -299,6 +328,7 @@ public class SettleMentFacade implements BillBaseSelector {
 		sic.add(new SelectorItemInfo("IsFinalSettle"));
 		sic.add(new SelectorItemInfo("Creator.name"));
 		sic.add(new SelectorItemInfo("State"));
+		sic.add(new SelectorItemInfo("SourceFunction"));
 		return sic;
 	}
 
