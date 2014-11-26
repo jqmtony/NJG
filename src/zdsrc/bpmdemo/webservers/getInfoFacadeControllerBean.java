@@ -15,6 +15,7 @@ import com.kingdee.eas.bpm.BPMLogFactory;
 import com.kingdee.eas.bpm.BPMLogInfo;
 import com.kingdee.eas.bpm.common.UpdateUtil;
 import com.kingdee.eas.bpm.common.ViewXmlUtil;
+import com.kingdee.eas.bpm.selectors.AimAimcostAdjustFacade;
 import com.kingdee.eas.bpm.selectors.ChangeAuditFacade;
 import com.kingdee.eas.bpm.selectors.ChangeOfSettlementFacade;
 import com.kingdee.eas.bpm.selectors.CompensationFacade;
@@ -26,6 +27,7 @@ import com.kingdee.eas.bpm.selectors.JLFacade;
 import com.kingdee.eas.bpm.selectors.PayRequestFacade;
 import com.kingdee.eas.bpm.selectors.SettleMentFacade;
 import com.kingdee.eas.common.EASBizException;
+import com.kingdee.eas.fdc.aimcost.AimAimCostAdjustInfo;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
 import com.kingdee.eas.fdc.contract.ChangeAuditBillInfo;
@@ -98,6 +100,10 @@ public class getInfoFacadeControllerBean extends AbstractgetInfoFacadeController
 			{
 				str=new DeductBillFacade().SubmitResult(ctx, strBSID, billInfo, success, procInstID, procURL, strMessage);
 			}
+			if(billInfo instanceof AimAimCostAdjustInfo)
+			{
+				str=new AimAimcostAdjustFacade().SubmitResult(ctx, strBSID, billInfo, success, procInstID, procURL, strMessage);
+			}
 			return str;
 		}
 		
@@ -153,7 +159,10 @@ public class getInfoFacadeControllerBean extends AbstractgetInfoFacadeController
 			{
 				str=new DeductBillFacade().ApproveClose(ctx, strBSID, billInfo, procInstID, processInstanceResult, strComment, dtTime);
 			}
-
+			if(billInfo instanceof AimAimCostAdjustInfo)
+			{
+				str=new AimAimcostAdjustFacade().ApproveClose(ctx, strBSID, billInfo, procInstID, processInstanceResult, strComment, dtTime);
+			}
 			return str;
 		}
 	}
@@ -201,7 +210,11 @@ public class getInfoFacadeControllerBean extends AbstractgetInfoFacadeController
 			}
 			if(billInfo instanceof DeductBillInfo)
 			{
-				str=ViewXmlUtil.getViewXmlBTString(ctx, "KKD",((DeductBillInfo) billInfo).getId().toString());
+				str=ViewXmlUtil.getViewXmlBTANDFLString(ctx, "KKD",((DeductBillInfo) billInfo).getId().toString());
+			}
+			if(billInfo instanceof AimAimCostAdjustInfo)
+			{
+				str=ViewXmlUtil.getViewXmlBTANDFLString(ctx, "BBCBTZbt",((AimAimCostAdjustInfo) billInfo).getId().toString());
 			}
 			
     	}catch (Exception e) {
@@ -231,10 +244,7 @@ public class getInfoFacadeControllerBean extends AbstractgetInfoFacadeController
 			str[2] = "根据单据ID获取对象数据失败,请检查单据ID是否存在，并查看服务器log日志";
 			e.printStackTrace();
 		}finally{
-			if(billInfo instanceof ContractBillInfo){
-				 str =  ViewXmlUtil.getViewXmlHTString(ctx, strRelatedCode, ((ContractBillInfo) billInfo).getId().toString());
-			}
-           else if(billInfo instanceof ContractSettlementBillInfo)
+			if(billInfo instanceof ContractSettlementBillInfo)
 			{   
 				 ContractSettlementBillInfo  SettlementBillInfo = ((ContractSettlementBillInfo) billInfo);
 				 if(strRelatedCode.equals("HTXX"))
