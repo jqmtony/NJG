@@ -8,6 +8,7 @@ import com.kingdee.eas.bpm.common.StringUtilBPM;
 import com.kingdee.eas.bpmdemo.JBrowserHelper.JFrameBrowser;
 import com.kingdee.eas.bpmdemo.webservers.serviceclient.BPMServiceForERPLocator;
 import com.kingdee.eas.bpmdemo.webservers.serviceclient.BPMServiceForERPSoap;
+import com.kingdee.eas.bpmdemo.webservers.serviceclient.EASLoginProxyServiceLocator;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
@@ -161,19 +162,19 @@ public class CompensationBillEditUIPIEx extends CompensationBillEditUI{
 			   FDCSQLBuilder bu = new FDCSQLBuilder();
 			   bu.appendSql(sql);
 			   bu.executeUpdate();
-		    	String [] str1 = new String[3];
-			   	EASLoginProxy login = new EASLoginProxyServiceLocator().getEASLogin(new URL("http://127.0.0.1:56898/ormrpc/services/EASLogin"));
-			   	WSContext  ws = login.login("kd-user", "kduser", "eas", "test1113", "l2", 1);
-			    if(ws.getSessionId()!=null){
-			    	WSgetInfoFacadeSrvProxy pay = new WSgetInfoFacadeSrvProxyServiceLocator().getWSgetInfoFacade(new URL("http://127.0.0.1:56898/ormrpc/services/WSgetInfoFacade"));
-			    	str1 = pay.getbillInfo("", editData.getId().toString());
-			    	MsgBox.showInfo(str1[0] + str1[1] + str1[2]);
+//		    	String [] str1 = new String[3];
+//			   	EASLoginProxy login = new EASLoginProxyServiceLocator().getEASLogin(new URL("http://127.0.0.1:56898/ormrpc/services/EASLogin"));
+//			   	WSContext  ws = login.login("kd-user", "kduser", "eas", "test1113", "l2", 1);
+//			    if(ws.getSessionId()!=null){
+//			    	WSgetInfoFacadeSrvProxy pay = new WSgetInfoFacadeSrvProxyServiceLocator().getWSgetInfoFacade(new URL("http://127.0.0.1:56898/ormrpc/services/WSgetInfoFacade"));
+//			    	str1 = pay.getbillInfo("", editData.getId().toString());
+//			    	MsgBox.showInfo(str1[0] + str1[1] + str1[2]);
 //			    	String url = StringUtilBPM.getBPMServerURL()+"?bsid=ERP&boid="+editData.getId().toString()+"&btid=WY01";
 //			    	str1 = pay.submitResult("", editData.getId().toString(), true, 1,url, editData.getId().toString());
 //			    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
 //			    	str1 = pay.approveClose("", editData.getId().toString(), 1, "1", "",null);
 //			    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
-			    }
+//			    }
 			   String url = StringUtilBPM.getBPMServerURL()+"?bsid=ERP&boid="+editData.getId().toString()+"&btid=WY01&userid="+SysContext.getSysContext().getUserName()+"";
 			   creatFrame(url);
 		   }
@@ -239,10 +240,13 @@ public class CompensationBillEditUIPIEx extends CompensationBillEditUI{
 			{
 				creatFrame(url);
 			}
+			else if(info.getDescription()!=null&&"保存".equals(info.getState().getAlias())&&info.getDescription().contains("http"))
+			{
+				creatFrame(url);
+			}
 			else if("保存".equals(info.getState().getAlias()))
 			{
-				url = StringUtilBPM.getBPMServerURL()+"?bsid=ERP&boid="+editData.getId().toString()+"&btid=WY01&userid="+SysContext.getSysContext().getUserName()+"";
-				creatFrame(url);
+				MsgBox.showInfo("该单据未发起审批流程,没有对应流程！");
 			}
 			else{
 				MsgBox.showInfo("该单据未发起审批流程，或者已撤销流程，没有对应流程！");

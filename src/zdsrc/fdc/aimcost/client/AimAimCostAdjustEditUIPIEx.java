@@ -1,9 +1,10 @@
-package com.kingdee.eas.fdc.finance.client;
+package com.kingdee.eas.fdc.aimcost.client;
 
 import java.awt.event.ActionEvent;
 import java.net.URL;
 
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+
 import com.kingdee.eas.bpm.common.StringUtilBPM;
 import com.kingdee.eas.bpmdemo.JBrowserHelper.JFrameBrowser;
 import com.kingdee.eas.bpmdemo.webservers.serviceclient.BPMServiceForERPLocator;
@@ -14,6 +15,8 @@ import com.kingdee.eas.bpmdemo.webservers.serviceclient.WSContext;
 import com.kingdee.eas.bpmdemo.webservers.serviceclient.WSgetInfoFacadeSrvProxy;
 import com.kingdee.eas.bpmdemo.webservers.serviceclient.WSgetInfoFacadeSrvProxyServiceLocator;
 import com.kingdee.eas.common.client.SysContext;
+import com.kingdee.eas.fdc.aimcost.AimAimCostAdjustFactory;
+import com.kingdee.eas.fdc.aimcost.AimAimCostAdjustInfo;
 import com.kingdee.eas.fdc.basedata.ContractTypeInfo;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
 import com.kingdee.eas.fdc.finance.DeductBillFactory;
@@ -21,15 +24,12 @@ import com.kingdee.eas.fdc.finance.DeductBillInfo;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.MsgBox;
 
-//扣款
-public class DeductBillEditUIPIEx extends DeductBillEditUI{
-
-	public DeductBillEditUIPIEx() throws Exception {
+public class AimAimCostAdjustEditUIPIEx extends AimAimCostAdjustEditUI{
+  /*目标成本调整单*/
+	public AimAimCostAdjustEditUIPIEx() throws Exception {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-    
-	
 	
 	private ContractTypeInfo typeInfo;
 	private boolean isShiGong = false;
@@ -122,7 +122,7 @@ public class DeductBillEditUIPIEx extends DeductBillEditUI{
 	 * */
 	public void actionRemove_actionPerformed(ActionEvent e) throws Exception {
 		if(editData.getId()!=null){
-			DeductBillInfo info =DeductBillFactory.getRemoteInstance().getDeductBillInfo(new ObjectUuidPK(editData.getId()));
+			AimAimCostAdjustInfo info =AimAimCostAdjustFactory.getRemoteInstance().getAimAimCostAdjustInfo(new ObjectUuidPK(editData.getId()));
 			if("已审批".equals(info.getState().getAlias())||"审批中".equals(info.getState().getAlias()))
 			{
 				MsgBox.showInfo("该单据状态为:"+info.getState().getAlias()+",不能删除！");
@@ -137,7 +137,7 @@ public class DeductBillEditUIPIEx extends DeductBillEditUI{
 	 * */
 	public void actionEdit_actionPerformed(ActionEvent arg0) throws Exception {
 		if(editData.getId()!=null){
-			DeductBillInfo info =DeductBillFactory.getRemoteInstance().getDeductBillInfo(new ObjectUuidPK(editData.getId()));
+			AimAimCostAdjustInfo info =AimAimCostAdjustFactory.getRemoteInstance().getAimAimCostAdjustInfo(new ObjectUuidPK(editData.getId()));
 			if("已审批".equals(info.getState().getAlias())||"审批中".equals(info.getState().getAlias()))
 			{
 				MsgBox.showInfo("该单据状态为:"+info.getState().getAlias()+",不能修改！");
@@ -159,13 +159,13 @@ public class DeductBillEditUIPIEx extends DeductBillEditUI{
 		}
 		if(editData.getId()!=null)
 		{  
-			DeductBillInfo info =DeductBillFactory.getRemoteInstance().getDeductBillInfo(new ObjectUuidPK(editData.getId()));
+			AimAimCostAdjustInfo info =AimAimCostAdjustFactory.getRemoteInstance().getAimAimCostAdjustInfo(new ObjectUuidPK(editData.getId()));
 		   if("审批中".equals(info.getState().getAlias()) && info.getDescription()!=null)
 		   {
 			   MsgBox.showInfo("该单据在审批流程中，不能再次提交！");
 		   }else{
 			   super.actionSubmit_actionPerformed(e);
-			   String sql = " update T_FNC_DeductBill set fState='1SAVED' where fid='"+editData.getId()+"'";
+			   String sql = " update T_AIM_AimAimCostAdjust set fState='1SAVED' where fid='"+editData.getId()+"'";
 			   FDCSQLBuilder bu = new FDCSQLBuilder();
 			   bu.appendSql(sql);
 			   bu.executeUpdate();
@@ -176,14 +176,16 @@ public class DeductBillEditUIPIEx extends DeductBillEditUI{
 			    	WSgetInfoFacadeSrvProxy pay = new WSgetInfoFacadeSrvProxyServiceLocator().getWSgetInfoFacade(new URL("http://127.0.0.1:56898/ormrpc/services/WSgetInfoFacade"));
 			    	str1 = pay.getbillInfo("", editData.getId().toString());
 			    	MsgBox.showInfo(str1[0] + str1[1] + str1[2]);
+			    	
+//			    	MsgBox.showInfo(str1[0] + str1[1] + str1[2]);
 //			    	String url = StringUtilBPM.getBPMServerURL()+"?bsid=ERP&boid="+editData.getId().toString()+"&btid=HT01";
 //			    	str1 = pay.submitResult("", editData.getId().toString(), true, 1,url, editData.getId().toString());
 //			    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
 //			    	str1 = pay.approveClose("", editData.getId().toString(), 1, "1", "",null);
 //			    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
 			    }
-//			   String url = StringUtilBPM.getBPMServerURL()+"?bsid=ERP&boid="+editData.getId().toString()+"&btid=KK01&userid="+SysContext.getSysContext().getUserName()+"";
-//			   creatFrame(url);
+			   String url = StringUtilBPM.getBPMServerURL()+"?bsid=ERP&boid="+editData.getId().toString()+"&btid=CBDT01&userid="+SysContext.getSysContext().getUserName()+"";
+			   creatFrame(url);
 		   }
 		}
 	}
@@ -194,11 +196,11 @@ public class DeductBillEditUIPIEx extends DeductBillEditUI{
 	public void actionAttachment_actionPerformed(ActionEvent e)throws Exception {
 		String result = "";
 		if(editData.getId()!=null){
-			DeductBillInfo info =DeductBillFactory.getRemoteInstance().getDeductBillInfo(new ObjectUuidPK(editData.getId()));
+			AimAimCostAdjustInfo info =AimAimCostAdjustFactory.getRemoteInstance().getAimAimCostAdjustInfo(new ObjectUuidPK(editData.getId()));
 			if("审批中".equals(info.getState().getAlias()))
 			{
 				BPMServiceForERPSoap  login = new BPMServiceForERPLocator().getBPMServiceForERPSoap();
-				result = login.withdraw("KK01", info.getId().toString(), info.getSourceFunction());
+				result = login.withdraw("CBDT01", info.getId().toString(), info.getSourceFunction());
 			}else{
 				MsgBox.showInfo("该单据不在审批流程中，无需撤销流程！");
 			}
@@ -218,7 +220,7 @@ public class DeductBillEditUIPIEx extends DeductBillEditUI{
 	 * */
 	public void actionAudit_actionPerformed(ActionEvent e) throws Exception {
 		if(editData.getId()!=null){
-			DeductBillInfo info =DeductBillFactory.getRemoteInstance().getDeductBillInfo(new ObjectUuidPK(editData.getId()));
+			AimAimCostAdjustInfo info =AimAimCostAdjustFactory.getRemoteInstance().getAimAimCostAdjustInfo(new ObjectUuidPK(editData.getId()));
 		    String url = info.getDescription();
 			if("审批中".equals(info.getState().getAlias()) && ("".equals(info.getDescription())||info.getDescription()==null))
 			{
@@ -240,7 +242,7 @@ public class DeductBillEditUIPIEx extends DeductBillEditUI{
 	 * */
 	public void actionAuditResult_actionPerformed(ActionEvent e) throws Exception {
 		if(editData.getId()!=null){
-			DeductBillInfo info =DeductBillFactory.getRemoteInstance().getDeductBillInfo(new ObjectUuidPK(editData.getId()));
+			AimAimCostAdjustInfo info =AimAimCostAdjustFactory.getRemoteInstance().getAimAimCostAdjustInfo(new ObjectUuidPK(editData.getId()));
 			String url = info.getDescription();
 			if("已审批".equals(info.getState().getAlias())||"审批中".equals(info.getState().getAlias()))
 			{
@@ -269,5 +271,6 @@ public class DeductBillEditUIPIEx extends DeductBillEditUI{
     	jf.setTitle("BPM");
     	jf.OpenJBrowser(this);
     }
+
 
 }

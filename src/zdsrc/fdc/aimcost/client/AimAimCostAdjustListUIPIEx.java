@@ -1,28 +1,26 @@
-package com.kingdee.eas.fdc.finance.client;
+package com.kingdee.eas.fdc.aimcost.client;
 
 import java.awt.event.ActionEvent;
 
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
-import com.kingdee.eas.bpm.common.StringUtilBPM;
 import com.kingdee.eas.bpmdemo.JBrowserHelper.JFrameBrowser;
 import com.kingdee.eas.bpmdemo.webservers.serviceclient.BPMServiceForERPLocator;
 import com.kingdee.eas.bpmdemo.webservers.serviceclient.BPMServiceForERPSoap;
-import com.kingdee.eas.common.client.SysContext;
+import com.kingdee.eas.fdc.aimcost.AimAimCostAdjustFactory;
+import com.kingdee.eas.fdc.aimcost.AimAimCostAdjustInfo;
 import com.kingdee.eas.fdc.basedata.ContractTypeInfo;
-import com.kingdee.eas.fdc.contract.PayRequestBillFactory;
-import com.kingdee.eas.fdc.contract.PayRequestBillInfo;
 import com.kingdee.eas.fdc.finance.DeductBillFactory;
 import com.kingdee.eas.fdc.finance.DeductBillInfo;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.MsgBox;
 
-public class DeductBillListUIPIEx extends DeductBillListUI{
+public class AimAimCostAdjustListUIPIEx extends AimAimCostAdjustListUI{
 
-	public DeductBillListUIPIEx() throws Exception {
+	public AimAimCostAdjustListUIPIEx() throws Exception {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
+     
 	private ContractTypeInfo typeInfo;
 	private boolean isShiGong = false;
 	private boolean isFenBao = false;
@@ -65,7 +63,7 @@ public class DeductBillListUIPIEx extends DeductBillListUI{
 	 * */
 	
 	public void actionRemove_actionPerformed(ActionEvent e) throws Exception {
-		DeductBillInfo info = DeductBillFactory.getRemoteInstance().getDeductBillInfo(new ObjectUuidPK(this.getSelectedKeyValue()));
+		AimAimCostAdjustInfo info = AimAimCostAdjustFactory.getRemoteInstance().getAimAimCostAdjustInfo(new ObjectUuidPK(this.getSelectedKeyValue()));
 		if(info.getId()!=null){
 			//ContractBillInfo info = ContractBillFactory.getRemoteInstance().getContractBillInfo(new ObjectUuidPK(editData.getId()));
 			if("已审批".equals(info.getState().getAlias())||"审批中".equals(info.getState().getAlias()))
@@ -81,7 +79,7 @@ public class DeductBillListUIPIEx extends DeductBillListUI{
 	 * 修改
 	 * */
 	public void actionEdit_actionPerformed(ActionEvent arg0) throws Exception {
-		DeductBillInfo info = DeductBillFactory.getRemoteInstance().getDeductBillInfo(new ObjectUuidPK(this.getSelectedKeyValue()));
+		AimAimCostAdjustInfo info = AimAimCostAdjustFactory.getRemoteInstance().getAimAimCostAdjustInfo(new ObjectUuidPK(this.getSelectedKeyValue()));
 		if(info.getId()!=null){
 			//ContractBillInfo info = ContractBillFactory.getRemoteInstance().getContractBillInfo(new ObjectUuidPK(editData.getId()));
 			if("已审批".equals(info.getState().getAlias())||"审批中".equals(info.getState().getAlias()))
@@ -103,7 +101,7 @@ public class DeductBillListUIPIEx extends DeductBillListUI{
 	 * 撤销流程
 	 * */
 	public void actionAttachment_actionPerformed(ActionEvent e)throws Exception {
-		DeductBillInfo info = DeductBillFactory.getRemoteInstance().getDeductBillInfo(new ObjectUuidPK(this.getSelectedKeyValue()));
+		AimAimCostAdjustInfo info = AimAimCostAdjustFactory.getRemoteInstance().getAimAimCostAdjustInfo(new ObjectUuidPK(this.getSelectedKeyValue()));
 		String result = "";
 		if(info.getId()!=null){
 			//ContractBillInfo info = ContractBillFactory.getRemoteInstance().getContractBillInfo(new ObjectUuidPK(editData.getId()));
@@ -147,7 +145,7 @@ public class DeductBillListUIPIEx extends DeductBillListUI{
 	public void actionAuditResult_actionPerformed(ActionEvent e) throws Exception {
 		if(this.getSelectedKeyValue()!=null)
 		{
-			DeductBillInfo info = DeductBillFactory.getRemoteInstance().getDeductBillInfo(new ObjectUuidPK(this.getSelectedKeyValue()));
+			AimAimCostAdjustInfo info = AimAimCostAdjustFactory.getRemoteInstance().getAimAimCostAdjustInfo(new ObjectUuidPK(this.getSelectedKeyValue()));
 			if(info.getId()!=null)
 			{
 				String url = info.getDescription();

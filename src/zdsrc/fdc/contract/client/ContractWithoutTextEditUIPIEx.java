@@ -3,6 +3,7 @@ package com.kingdee.eas.fdc.contract.client;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.math.BigDecimal;
+import java.net.URL;
 import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.Date;
@@ -38,6 +39,11 @@ import com.kingdee.eas.bpm.common.StringUtilBPM;
 import com.kingdee.eas.bpmdemo.JBrowserHelper.JFrameBrowser;
 import com.kingdee.eas.bpmdemo.webservers.serviceclient.BPMServiceForERPLocator;
 import com.kingdee.eas.bpmdemo.webservers.serviceclient.BPMServiceForERPSoap;
+import com.kingdee.eas.bpmdemo.webservers.serviceclient.EASLoginProxy;
+import com.kingdee.eas.bpmdemo.webservers.serviceclient.EASLoginProxyServiceLocator;
+import com.kingdee.eas.bpmdemo.webservers.serviceclient.WSContext;
+import com.kingdee.eas.bpmdemo.webservers.serviceclient.WSgetInfoFacadeSrvProxy;
+import com.kingdee.eas.bpmdemo.webservers.serviceclient.WSgetInfoFacadeSrvProxyServiceLocator;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
@@ -209,17 +215,19 @@ public class ContractWithoutTextEditUIPIEx extends ContractWithoutTextEditUI{
 			   bu.appendSql(sql);
 			   bu.executeUpdate();
 //			   String [] str1 = new String[3];
-//			   	EASLoginProxy login = new EASLoginProxyServiceLocator().getEASLogin(new URL("http://10.130.12.34:7888/ormrpc/services/EASLogin"));
-//			   	WSContext  ws = login.login("kd-user", "kduser", "eas", "kd_002", "l2", 1);
+//			   	//EASLoginProxy login = new EASLoginProxyServiceLocator().getEASLogin(new URL("http://10.130.12.34:7888/ormrpc/services/EASLogin"));
+//			   EASLoginProxy login = new EASLoginProxyServiceLocator().getEASLogin(new URL("http://127.0.0.1:56898/ormrpc/services/EASLogin"));
+//			   	WSContext  ws = login.login("kd-user", "kduser", "eas", "test1113", "l2", 1);
 //			    if(ws.getSessionId()!=null){
-//			    	WSgetInfoFacadeSrvProxy pay = new WSgetInfoFacadeSrvProxyServiceLocator().getWSgetInfoFacade(new URL("http://10.130.12.34:7888/ormrpc/services/WSgetInfoFacade"));
+//			    	//WSgetInfoFacadeSrvProxy pay = new WSgetInfoFacadeSrvProxyServiceLocator().getWSgetInfoFacade(new URL("http://10.130.12.34:7888/ormrpc/services/WSgetInfoFacade"));
+//			    	WSgetInfoFacadeSrvProxy pay = new WSgetInfoFacadeSrvProxyServiceLocator().getWSgetInfoFacade(new URL("http://127.0.0.1:56898/ormrpc/services/WSgetInfoFacade"));
 //			    	str1 = pay.getbillInfo("", editData.getId().toString());
 //			    	MsgBox.showInfo(str1[0] + str1[1] + str1[2]);
-////			    	String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=WWBHT01";
-////			    	str1 = pay.submitResult("", editData.getId().toString(), true, 1,url, editData.getId().toString());
-////			    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
-////			    	str1 = pay.approveClose("", editData.getId().toString(), 1, "0", "",null);
-////			    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
+//			    	String url = "http://10.130.12.20/BPMStart.aspx?bsid=ERP&boid="+editData.getId().toString()+"&btid=WWBHT01";
+//			    	str1 = pay.submitResult("", editData.getId().toString(), true, 1,url, editData.getId().toString());
+//			    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
+//			    	str1 = pay.approveClose("", editData.getId().toString(), 1, "1", "",null);
+//			    	MsgBox.showInfo(str1[0]+str1[1]+str1[2]);
 //			    }
 			   String url = StringUtilBPM.getBPMServerURL()+"?bsid=ERP&boid="+editData.getId().toString()+"&btid=WWBHT01&userid="+SysContext.getSysContext().getUserName()+"";
 			   creatFrame(url);
@@ -475,6 +483,8 @@ public class ContractWithoutTextEditUIPIEx extends ContractWithoutTextEditUI{
 		f7Editor = new KDTDefaultCellEditor(f7Box);
 		this.kdtBgEntry.getColumn("currency").setEditor(f7Editor);
 		this.kdtBgEntry.getColumn("currency").setRequired(true);
+		
+		this.kdtBgEntry.getColumn("remark").setRequired(true);
 	}
 	protected void kdtBgEntry_tableSelectChanged(KDTSelectEvent e) throws Exception {
 		getBgAmount();
@@ -835,6 +845,11 @@ public class ContractWithoutTextEditUIPIEx extends ContractWithoutTextEditUI{
 			if (((BigDecimal)row.getCell("requestAmount").getValue()).compareTo(FDCHelper.ZERO)<=0) {
 				FDCMsgBox.showWarning(this,"费用清单申请金额必须大于0！");
 				this.kdtBgEntry.getEditManager().editCellAt(row.getRowIndex(), this.kdtBgEntry.getColumnIndex("requestAmount"));
+				SysUtil.abort();
+			}
+			if (row.getCell("remark").getValue() == null||"".equals(row.getCell("remark").getValue().toString().trim())) {
+				FDCMsgBox.showWarning(this, "费用清单备注不能为空！");
+				this.kdtBgEntry.getEditManager().editCellAt(row.getRowIndex(), this.kdtBgEntry.getColumnIndex("remark"));
 				SysUtil.abort();
 			}
 			BgItemInfo bgItem=(BgItemInfo) row.getCell("bgItem").getValue();

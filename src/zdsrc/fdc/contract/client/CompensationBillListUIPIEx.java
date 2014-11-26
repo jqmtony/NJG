@@ -145,10 +145,13 @@ public class CompensationBillListUIPIEx extends CompensationBillListUI{
 			{
 				creatFrame(url);
 			}
+			else if(info.getDescription()!=null&&"保存".equals(info.getState().getAlias())&&info.getDescription().contains("http"))
+			{
+				creatFrame(url);
+			}
 			else if("保存".equals(info.getState().getAlias()))
 			{
-				url = StringUtilBPM.getBPMServerURL()+"?bsid=ERP&boid="+info.getId().toString()+"&btid=WY01&userid="+SysContext.getSysContext().getUserName()+"";
-				creatFrame(url);
+				MsgBox.showInfo("该单据未发起审批流程,没有对应流程！");
 			}
 			else{
 				MsgBox.showInfo("该单据未发起审批流程，或者已撤销流程，没有对应流程！");
