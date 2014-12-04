@@ -261,6 +261,17 @@ public class AbstractEumUseRecordEqmUseInfo extends com.kingdee.eas.framework.Co
     {
         setDate("endTime", item);
     }
+    /**
+     * Object:设备使用记录's 设备编码property 
+     */
+    public String getEqmNumber()
+    {
+        return getString("eqmNumber");
+    }
+    public void setEqmNumber(String item)
+    {
+        setString("eqmNumber", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("460F30A0");
