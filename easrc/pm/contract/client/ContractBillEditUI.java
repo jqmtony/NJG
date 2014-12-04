@@ -2268,6 +2268,8 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
         ObjectValueRender kdtEntry4_name_OVR = new ObjectValueRender();
         kdtEntry4_name_OVR.setFormat(new BizDataFormat("$feeNumber$"));
         this.kdtBudgetEntry.getColumn("budgetNumber").setRenderer(kdtEntry4_name_OVR);
+        
+        txtamount.setEnabled(false);
 	}
 
 	//业务日期变化引起,期间的变化

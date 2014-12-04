@@ -226,7 +226,8 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI {
 		
 		if(OprtState.ADDNEW.equals(getOprtState())){
 			this.prmtapplicant.setValue(SysContext.getSysContext().getCurrentUserInfo().getPerson());
-			this.prmtuseOrg.setValue(SysContext.getSysContext().getCurrentCtrlUnit());
+			this.prmtuseOrg.setValue(SysContext.getSysContext().getCurrentAdminUnit());
+			prmtinviteType.setValue(InviteTypeFactory.getRemoteInstance().getInviteTypeCollection("where number='ZBFS02'").get(0));
 		}
 		this.kdtEntry4.getColumn("seq").getStyleAttributes().setHided(true);
 		this.kdtEntry4.getColumn("content").setWidth(360);
@@ -235,11 +236,11 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI {
 		PersonPromptBox select = new PersonPromptBox(this);
 //		select.setCU(OrgConstants.DEF_CU_ID);
 		select.showAllAdmin();
-		KDBizPromptBox kdtEntry3_invitePerson_PromptBox = new KDBizPromptBox();
-        kdtEntry3_invitePerson_PromptBox.setQueryInfo("com.kingdee.eas.port.pm.base.app.JudgesQuery");
+        final KDBizPromptBox kdtEntry3_invitePerson_PromptBox = new KDBizPromptBox();
+        kdtEntry3_invitePerson_PromptBox.setQueryInfo("com.kingdee.eas.basedata.person.app.PersonQuery");
         kdtEntry3_invitePerson_PromptBox.setVisible(true);
         kdtEntry3_invitePerson_PromptBox.setEditable(true);
-        kdtEntry3_invitePerson_PromptBox.setDisplayFormat("$number$");
+        kdtEntry3_invitePerson_PromptBox.setDisplayFormat("$name$");
         kdtEntry3_invitePerson_PromptBox.setEditFormat("$number$");
         kdtEntry3_invitePerson_PromptBox.setCommitFormat("$number$");
         kdtEntry3_invitePerson_PromptBox.setSelector(select);
@@ -247,6 +248,7 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI {
         this.kdtEntry3.getColumn("invitePerson").setEditor(kdtEntry3_invitePerson_CellEditor);
         ObjectValueRender kdtEntry3_invitePerson_OVR = new ObjectValueRender();
         kdtEntry3_invitePerson_OVR.setFormat(new BizDataFormat("$name$"));
+        this.kdtEntry3.getColumn("invitePerson").setRenderer(kdtEntry3_invitePerson_OVR);
 	}
 
 	// container设置分录按钮以及分录放置模式
@@ -331,9 +333,11 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI {
 		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this,prmtuseOrg, "招标单位");
 		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this,prmtinviteType, "招标方式");
 		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this,txtinviteBudget, "招标预算");
-		
-		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this,
-				prmtvalidTemplate, "符合性审查模板");
+		if(UIRuleUtil.getBigDecimal(txtinviteBudget.getText()).intValue()==0){
+			MsgBox.showError("招标预算不能为0，请选择标段预算！\n 如果选择不到标段预算，请确认是否完成项目启动申请！");
+			SysUtil.abort();
+		}
+		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this,prmtvalidTemplate, "符合性审查模板");
 		if (this.judgeSolution.getSelectedItem().equals(
 				com.kingdee.eas.port.pm.invite.judgeSolution.integrate)) {
 			com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this,
@@ -359,6 +363,8 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI {
 		}
 		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyKDTColumnNull(this, kdtEntry2, "evaEnterprise");
 		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyKDTColumnNull(this, kdtEntry3, "invitePerson");
+		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyKDTColumnNull(this, kdtEntry5, "judgeType");
+		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyKDTColumnNull(this, kdtEntry5, "amount");
 		
 		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyKDTColumnNull(this, kdtE6, "evaluationNameTex");
 		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyKDTColumnNull(this, kdtE6, "weight");
@@ -1175,6 +1181,7 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI {
 		System.out.println("hello " + info.toString());
 		if (info != null) {
 			objectValue.setProName(info);
+			objectValue.setReportName(info.getName());
 		}
 		return objectValue;
 	}

@@ -95,10 +95,6 @@ public abstract class AbstractYearInvestPlanControllerBean extends XRBillBaseCon
             super.cleanUpServiceState();
         }
     }
-    protected IObjectPK _addnew(Context ctx, IObjectValue model) throws BOSException, EASBizException
-    {
-        return super._addnew(ctx, model);
-    }
 
     public void audit(Context ctx, IObjectPK pk) throws BOSException, EASBizException
     {
@@ -643,6 +639,29 @@ public abstract class AbstractYearInvestPlanControllerBean extends XRBillBaseCon
             super.cleanUpServiceState();
         }
     }
+
+					protected IObjectPK _addnew(Context ctx , IObjectValue model) throws BOSException , EASBizException {
+			if (model instanceof com.kingdee.eas.framework.ObjectBaseInfo) {
+				setAutoNumberByOrg(ctx,(com.kingdee.eas.framework.ObjectBaseInfo)model,"NONE");
+			}
+			return super._addnew(ctx,model);
+		}
+		protected void setAutoNumberByOrg(Context ctx,com.kingdee.eas.framework.ObjectBaseInfo model,String orgType) {
+				String sysNumber = null;
+				try {
+					if (!com.kingdee.util.StringUtils.isEmpty(orgType) && !"NONE".equalsIgnoreCase(orgType) && com.kingdee.eas.util.app.ContextUtil.getCurrentOrgUnit(ctx,com.kingdee.eas.basedata.org.OrgType.getEnum(orgType))!=null) {
+						sysNumber = com.kingdee.eas.framework.FrameWorkUtils.getCodeRuleServer(ctx,model,com.kingdee.eas.util.app.ContextUtil.getCurrentOrgUnit(ctx,com.kingdee.eas.basedata.org.OrgType.getEnum(orgType)).getString("id"));
+					}
+					else if (com.kingdee.eas.util.app.ContextUtil.getCurrentOrgUnit(ctx) != null) {
+						sysNumber = com.kingdee.eas.framework.FrameWorkUtils.getCodeRuleServer(ctx,model,com.kingdee.eas.util.app.ContextUtil.getCurrentOrgUnit(ctx).getString("id"));
+					}
+					if (!com.kingdee.util.StringUtils.isEmpty(sysNumber)) {
+						model.setString("number",sysNumber);
+					}
+				}
+				catch (Exception e) {
+				}
+		}
 
     public XRBillBaseCollection getXRBillBaseCollection (Context ctx) throws BOSException
     {

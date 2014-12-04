@@ -191,8 +191,9 @@ public class ContractWithoutTextControllerBean extends
 			ProjectInfo project = ProjectFactory.getLocalInstance(ctx).getProjectInfo(new ObjectUuidPK(info.getCurProject().getId()));
 			pur.setPurOrgUnit(PurchaseOrgUnitFactory.getLocalInstance(ctx).getPurchaseOrgUnitInfo(new ObjectUuidPK(project.getCompany().getId())));
 			PurContractEntryInfo entry = pur.getEntries().get(0);
+			entry.setId(null);
 			entry.setQty(new BigDecimal(1));
-			entry.setBaseQty(new BigDecimal(1) );
+			entry.setBaseQty(new BigDecimal(1));
 			entry.setPrice(info.getAmount());
 			entry.setAmount(info.getAmount());
 			if(!PurContractFactory.getLocalInstance(ctx).exists("where number='"+info.getNumber()+"' ")){
@@ -855,9 +856,7 @@ public class ContractWithoutTextControllerBean extends
 		// 管理单元
 		prbiNew.setCU(con.getCU());
 		
-	
 		// 无需付款的申请单 update by liang_ren at 2010-5-10
-	
 		prbiNew.setIsPay(!((ContractWithoutTextInfo) con).isIsNeedPaid());
 			
 		// 发票号

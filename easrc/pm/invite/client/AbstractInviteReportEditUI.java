@@ -943,7 +943,7 @@ public abstract class AbstractInviteReportEditUI extends com.kingdee.eas.xr.clie
 
         this.kdtEntry3.checkParsed();
         final KDBizPromptBox kdtEntry3_invitePerson_PromptBox = new KDBizPromptBox();
-        kdtEntry3_invitePerson_PromptBox.setQueryInfo("com.kingdee.eas.port.pm.base.app.JudgesQuery");
+        kdtEntry3_invitePerson_PromptBox.setQueryInfo("com.kingdee.eas.basedata.person.app.PersonQuery");
         kdtEntry3_invitePerson_PromptBox.setVisible(true);
         kdtEntry3_invitePerson_PromptBox.setEditable(true);
         kdtEntry3_invitePerson_PromptBox.setDisplayFormat("$number$");
@@ -952,25 +952,8 @@ public abstract class AbstractInviteReportEditUI extends com.kingdee.eas.xr.clie
         KDTDefaultCellEditor kdtEntry3_invitePerson_CellEditor = new KDTDefaultCellEditor(kdtEntry3_invitePerson_PromptBox);
         this.kdtEntry3.getColumn("invitePerson").setEditor(kdtEntry3_invitePerson_CellEditor);
         ObjectValueRender kdtEntry3_invitePerson_OVR = new ObjectValueRender();
-//        kdtEntry3_invitePerson_OVR.setFormat(new BizDataFormat("$personName$"));
+        kdtEntry3_invitePerson_OVR.setFormat(new BizDataFormat("$personName$"));
         this.kdtEntry3.getColumn("invitePerson").setRenderer(kdtEntry3_invitePerson_OVR);
-        			kdtEntry3_invitePerson_PromptBox.addSelectorListener(new SelectorListener() {
-			com.kingdee.eas.port.pm.base.client.JudgesListUI kdtEntry3_invitePerson_PromptBox_F7ListUI = null;
-			public void willShow(SelectorEvent e) {
-				if (kdtEntry3_invitePerson_PromptBox_F7ListUI == null) {
-					try {
-						kdtEntry3_invitePerson_PromptBox_F7ListUI = new com.kingdee.eas.port.pm.base.client.JudgesListUI();
-					} catch (Exception e1) {
-						e1.printStackTrace();
-					}
-					HashMap ctx = new HashMap();
-					ctx.put("bizUIOwner",javax.swing.SwingUtilities.getWindowAncestor(kdtEntry3_invitePerson_PromptBox_F7ListUI));
-					kdtEntry3_invitePerson_PromptBox_F7ListUI.setF7Use(true,ctx);
-					kdtEntry3_invitePerson_PromptBox.setSelector(kdtEntry3_invitePerson_PromptBox_F7ListUI);
-				}
-			}
-		});
-					
         KDTextField kdtEntry3_department_TextField = new KDTextField();
         kdtEntry3_department_TextField.setName("kdtEntry3_department_TextField");
         kdtEntry3_department_TextField.setMaxLength(80);

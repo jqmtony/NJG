@@ -556,7 +556,7 @@ public abstract class AbstractEvaluationEditUI extends com.kingdee.eas.xr.client
 		if (bars != null) {
 			list.addAll(java.util.Arrays.asList(bars));
 		}
-//		list.add(this.kDToolBar1);
+		list.add(this.kDToolBar1);
 		return (com.kingdee.bos.ctrl.swing.KDToolBar[])list.toArray(new com.kingdee.bos.ctrl.swing.KDToolBar[list.size()]);
 	}
 
@@ -811,32 +811,32 @@ kDContainer2.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
         this.toolBar.add(separatorFW2);
         this.toolBar.add(separatorFW3);
         this.toolBar.add(btnReset);
-        this.toolBar.add(btnTraceUp);
-        this.toolBar.add(btnTraceDown);
-        this.toolBar.add(btnWorkFlowG);
-        this.toolBar.add(btnSignature);
-        this.toolBar.add(btnViewSignature);
-        this.toolBar.add(separatorFW4);
-        this.toolBar.add(btnNumberSign);
-        this.toolBar.add(separatorFW7);
-        this.toolBar.add(btnCreateFrom);
-        this.toolBar.add(btnCopyFrom);
-        this.toolBar.add(btnCreateTo);
-        this.toolBar.add(separatorFW5);
-        this.toolBar.add(separatorFW8);
         this.toolBar.add(btnAddLine);
         this.toolBar.add(btnCopyLine);
         this.toolBar.add(btnInsertLine);
         this.toolBar.add(btnRemoveLine);
-        this.toolBar.add(separatorFW6);
-        this.toolBar.add(separatorFW9);
-        this.toolBar.add(btnVoucher);
-        this.toolBar.add(btnDelVoucher);
+        this.toolBar.add(btnCreateFrom);
+        this.toolBar.add(btnCopyFrom);
+        this.toolBar.add(btnTraceUp);
+        this.toolBar.add(btnTraceDown);
         this.toolBar.add(btnAuditResult);
-        this.toolBar.add(btnMultiapprove);
         this.toolBar.add(btnWFViewdoProccess);
         this.toolBar.add(btnWFViewSubmitProccess);
+        this.toolBar.add(btnMultiapprove);
         this.toolBar.add(btnNextPerson);
+        this.toolBar.add(btnVoucher);
+        this.toolBar.add(btnDelVoucher);
+        this.toolBar.add(btnWorkFlowG);
+        this.toolBar.add(separatorFW6);
+        this.toolBar.add(separatorFW4);
+        this.toolBar.add(separatorFW5);
+        this.toolBar.add(separatorFW8);
+        this.toolBar.add(separatorFW9);
+        this.toolBar.add(separatorFW7);
+        this.toolBar.add(btnCreateTo);
+        this.toolBar.add(btnSignature);
+        this.toolBar.add(btnViewSignature);
+        this.toolBar.add(btnNumberSign);
         this.toolBar.add(btnAudit);
         this.toolBar.add(btnUnAudit);
 

@@ -848,6 +848,7 @@ public class ContractBillControllerBean extends AbstractContractBillControllerBe
 		entry.setBaseQty(new BigDecimal(1) );
 		entry.setPrice(info.getAmount());
 		entry.setAmount(info.getAmount());
+		entry.setId(null);
 		if(!BillBaseStatusEnum.AUDITED.equals(pur.getBaseStatus()))
 			PurContractFactory.getLocalInstance(ctx).save(pur);
 		if(PurContractFactory.getLocalInstance(ctx).exists("where number='"+info.getNumber()+"' ")){

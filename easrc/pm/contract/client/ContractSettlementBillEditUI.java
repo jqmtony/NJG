@@ -1718,7 +1718,7 @@ public class ContractSettlementBillEditUI extends
 			filter.getFilterItems().add(new FilterItemInfo("state", FDCBillStateEnum.SUBMITTED));
 			filter.getFilterItems().add(new FilterItemInfo("state", FDCBillStateEnum.AUDITTING));//不知道这种单据状态是否需要考虑
 			filter.setMaskString("#0 and ( #1 or #2)");
-			if(ContractSettlementBillFactory.getRemoteInstance().exists(filter)){
+			if(ContractChangeSettleBillFactory.getRemoteInstance().exists(filter)){
 				FDCMsgBox.showWarning(this,"存在还未审批通过的变更审批单，不允许审批最终结算单！");
 				SysUtil.abort();
 //				throw new ContractException(ContractException.CHANGEBILLNOTAUDIT);

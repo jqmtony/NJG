@@ -51,6 +51,7 @@ import com.kingdee.eas.port.pm.base.CompanyPropertyFactory;
 import com.kingdee.eas.port.pm.base.CompanyPropertyInfo;
 import com.kingdee.eas.port.pm.base.CompanySetupEntryCollection;
 import com.kingdee.eas.port.pm.base.CompanySetupEntryFactory;
+import com.kingdee.eas.port.pm.base.InvestYearFactory;
 import com.kingdee.eas.port.pm.base.InvestYearInfo;
 import com.kingdee.eas.port.pm.base.ProjectTypeInfo;
 import com.kingdee.eas.port.pm.base.coms.PlanTypeEnum;
@@ -66,6 +67,7 @@ import com.kingdee.eas.port.pm.invest.investplan.ProgrammingInfo;
 import com.kingdee.eas.port.pm.invest.investplan.client.ProgrammingEditUI;
 import com.kingdee.eas.util.client.MsgBox;
 import com.kingdee.eas.xr.app.XRBillStatusEnum;
+import com.kingdee.eas.xr.helper.DateXRHelper;
 import com.kingdee.eas.xr.helper.PersonXRHelper;
 import com.kingdee.eas.xr.helper.TableXRHelper;
 import com.kingdee.jdbc.rowset.IRowSet;
@@ -94,7 +96,11 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 		init();
 		String cuid = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
 		if (getOprtState().equals(OprtState.ADDNEW)){
-			prmtbuildType.setValue(BuildTypeFactory.getRemoteInstance().getBuildTypeCollection().get(0));
+			prmtbuildType.setValue(BuildTypeFactory.getRemoteInstance().getBuildTypeCollection("where number='001'").get(0));
+			int year = Integer.parseInt(DateXRHelper.getCustomDateString(new Date(), "yyyy"));
+			prmtyear.setValue(InvestYearFactory.getRemoteInstance().getInvestYearCollection("where number='"+(year+1)+"'").get(0));
+			pkplanStartDate.setValue(DateXRHelper.getFirstYearDate(year+1));
+			pkplanEndDate.setValue(DateXRHelper.getLastYearDate(year+1));
 			String number = txtNumber.getText();
 			if(!"".equals(number)){
 				int s = number.indexOf("-");

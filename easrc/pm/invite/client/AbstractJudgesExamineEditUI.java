@@ -368,14 +368,6 @@ public abstract class AbstractJudgesExamineEditUI extends com.kingdee.eas.xr.cli
 
 
         this.kdtEntryIndicators.checkParsed();
-        KDFormattedTextField kdtEntryIndicators_seq_TextField = new KDFormattedTextField();
-        kdtEntryIndicators_seq_TextField.setName("kdtEntryIndicators_seq_TextField");
-        kdtEntryIndicators_seq_TextField.setVisible(true);
-        kdtEntryIndicators_seq_TextField.setEditable(true);
-        kdtEntryIndicators_seq_TextField.setHorizontalAlignment(2);
-        kdtEntryIndicators_seq_TextField.setDataType(0);
-        KDTDefaultCellEditor kdtEntryIndicators_seq_CellEditor = new KDTDefaultCellEditor(kdtEntryIndicators_seq_TextField);
-        this.kdtEntryIndicators.getColumn("seq").setEditor(kdtEntryIndicators_seq_CellEditor);
         KDTextField kdtEntryIndicators_examCategory_TextField = new KDTextField();
         kdtEntryIndicators_examCategory_TextField.setName("kdtEntryIndicators_examCategory_TextField");
         kdtEntryIndicators_examCategory_TextField.setMaxLength(100);
@@ -756,8 +748,8 @@ vo.put("record","1");
         this.toolBar.add(btnAddNew);
         this.toolBar.add(btnCloud);
         this.toolBar.add(btnEdit);
-        this.toolBar.add(btnSave);
         this.toolBar.add(kDSeparatorCloud);
+        this.toolBar.add(btnSave);
         this.toolBar.add(btnReset);
         this.toolBar.add(btnSubmit);
         this.toolBar.add(btnCopy);

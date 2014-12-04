@@ -29,6 +29,8 @@ import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.eas.base.permission.UserInfo;
 import com.kingdee.eas.base.uiframe.client.UIFactoryHelper;
+import com.kingdee.eas.basedata.assistant.ProjectCollection;
+import com.kingdee.eas.basedata.assistant.ProjectFactory;
 import com.kingdee.eas.basedata.assistant.ProjectInfo;
 import com.kingdee.eas.basedata.org.AdminOrgUnitCollection;
 import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
@@ -175,8 +177,25 @@ public class ProjectStartRequestEditUI extends AbstractProjectStartRequestEditUI
         				prmtyear.setValue(YearInfo);
         				editData.setYear(YearInfo);
         			}
-        		
-        		}
+        		}else{
+            		EntityViewInfo view = new EntityViewInfo();
+            		FilterInfo filter = new FilterInfo();
+            		view.setFilter(filter);
+            		filter.getFilterItems().add(new FilterItemInfo("name","%"+Info.getName()+"%",CompareType.LIKE));
+            		filter.getFilterItems().add(new FilterItemInfo("id",Info.getId(),CompareType.NOTEQUALS));
+            		StringBuffer sb = new StringBuffer();
+            		ProjectCollection coll = ProjectFactory.getRemoteInstance().getProjectCollection(view);
+            		for (int i = 0; i < coll.size(); i++) {
+            			sb.append(coll.get(i).getName());
+            			if(i>0){
+            				sb.append(" 或者  "+coll.get(i).getName());
+            			}
+    				}
+            		MsgBox.showWarning("当前项目没有对应投资规划，可能你选择了父级项目！\n 你是否是要选择【"+sb.toString()+"】，请重新选择！");
+            		prmtprojectName.setValue(null);
+            		editData.setProjectName(null);
+            		SysUtil.abort();
+            	}
         	}
     	}
     	setPortProject(null);

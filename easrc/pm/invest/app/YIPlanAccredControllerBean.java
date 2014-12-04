@@ -318,9 +318,11 @@ public class YIPlanAccredControllerBean extends AbstractYIPlanAccredControllerBe
     ProjectInfo createYearDoc(Context ctx,IProject iproject,YearInvestPlanInfo planInfo) throws EASBizException, BOSException{
     	InvestYearInfo  year = planInfo.getYear();
     	ProjectInfo proInfo = new ProjectInfo();
-    	if(!iproject.exists(" where number='"+year.getNumber()+"' and company='"+planInfo.getCU().getId()+"'")){
+    	CtrlUnitInfo cu = CtrlUnitFactory.getLocalInstance(ctx).getCtrlUnitInfo(new ObjectUuidPK(planInfo.getCU().getId()));
+    	String number = year.getNumber()+"-"+cu.getNumber();
+    	if(!iproject.exists(" where number='"+number+"' and company='"+planInfo.getCU().getId()+"'")){
 			proInfo.setId(BOSUuid.create(proInfo.getBOSType()));
-			proInfo.setNumber(year.getNumber());
+			proInfo.setNumber(number);
 			proInfo.setName(year.getNumber()+"年投资项目");
 			proInfo.setCompany(CompanyOrgUnitFactory.getLocalInstance(ctx).getCompanyOrgUnitInfo(new ObjectUuidPK(planInfo.getCU().getId())));
 			proInfo.setType(ProjectTypeEnum.CUS_PROJECT);
@@ -330,7 +332,7 @@ public class YIPlanAccredControllerBean extends AbstractYIPlanAccredControllerBe
 			iproject.addnew(proInfo);
     	}else{
     		FilterInfo filter = new FilterInfo();
-    		filter.getFilterItems().add(new FilterItemInfo("number", year.getNumber()));
+    		filter.getFilterItems().add(new FilterItemInfo("number", number));
     		filter.getFilterItems().add(new FilterItemInfo("company", planInfo.getCU().getId()));
     		EntityViewInfo view = new EntityViewInfo();
     		view.setFilter(filter);

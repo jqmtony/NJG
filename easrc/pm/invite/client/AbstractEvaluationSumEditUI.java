@@ -266,14 +266,6 @@ public abstract class AbstractEvaluationSumEditUI extends com.kingdee.eas.xr.cli
 
 
         this.kdtEntry.checkParsed();
-        KDFormattedTextField kdtEntry_seq_TextField = new KDFormattedTextField();
-        kdtEntry_seq_TextField.setName("kdtEntry_seq_TextField");
-        kdtEntry_seq_TextField.setVisible(true);
-        kdtEntry_seq_TextField.setEditable(true);
-        kdtEntry_seq_TextField.setHorizontalAlignment(2);
-        kdtEntry_seq_TextField.setDataType(0);
-        KDTDefaultCellEditor kdtEntry_seq_CellEditor = new KDTDefaultCellEditor(kdtEntry_seq_TextField);
-        this.kdtEntry.getColumn("seq").setEditor(kdtEntry_seq_CellEditor);
         final KDBizPromptBox kdtEntry_unitName_PromptBox = new KDBizPromptBox();
         kdtEntry_unitName_PromptBox.setQueryInfo("com.kingdee.eas.basedata.master.cssp.app.F7SupplierDefaultQuery");
         kdtEntry_unitName_PromptBox.setVisible(true);
