@@ -72,12 +72,9 @@ import com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockEntryAttInfo
 import com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockInfo;
 import com.kingdee.eas.port.pm.base.EvaluationIndicatorsFactory;
 import com.kingdee.eas.port.pm.base.EvaluationIndicatorsInfo;
-import com.kingdee.eas.port.pm.base.EvaluationIndicatorsTreeFactory;
-import com.kingdee.eas.port.pm.base.EvaluationIndicatorsTreeInfo;
 import com.kingdee.eas.port.pm.base.EvaluationTemplateEntryInfo;
 import com.kingdee.eas.port.pm.base.EvaluationTemplateInfo;
 import com.kingdee.eas.port.pm.base.IEvaluationIndicators;
-import com.kingdee.eas.port.pm.base.IEvaluationIndicatorsTree;
 import com.kingdee.eas.port.pm.invite.WinInviteReportUnitCollection;
 import com.kingdee.eas.port.pm.invite.WinInviteReportUnitFactory;
 import com.kingdee.eas.port.pm.invite.client.WinInviteReportListUI;
@@ -149,10 +146,10 @@ public class MarketSupplierStockEditUI extends AbstractMarketSupplierStockEditUI
 	        {
 	        	UIContext uiContext = new UIContext(this);
 	        	uiContext.put("IDSET", idSet);
-	        	WinInviteReportListUI ui = (WinInviteReportListUI) UIFactoryHelper.initUIObject(WinInviteReportListUI.class.getName(), uiContext, null,OprtState.VIEW);
-	        	panel.setViewportView(ui);
+	        	panel.setViewportView((Component)UIFactoryHelper.initUIObject(WinInviteReportListUI.class.getName(), uiContext, null,OprtState.VIEW));
 	        	panel.setKeyBoardControl(true);
 	        	panel.setEnabled(false);
+	        
 	        }
     	}
     	
