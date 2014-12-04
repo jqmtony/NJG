@@ -148,8 +148,8 @@
                 <key name="name" value="PayRequestBillQuery" />
             </query>
             <entityRef>
-                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
-                <key name="name" value="CurProject" />
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="Project" />
             </entityRef>
         </subEntity>
         <subEntity>
@@ -215,19 +215,6 @@
             <entityRef>
                 <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
                 <key name="name" value="Type" />
-            </entityRef>
-        </subEntity>
-        <subEntity>
-            <name>payContentType</name>
-            <alias>joinQuery[com.kingdee.eas.port.pm.fi.app.PayRequestBillQuery].subObjects.subEntity[payContentType].alias</alias>
-            <userDefined>true</userDefined>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.fi.app" />
-                <key name="name" value="PayRequestBillQuery" />
-            </query>
-            <entityRef>
-                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
-                <key name="name" value="PayContentType" />
             </entityRef>
         </subEntity>
         <subEntity>
@@ -1450,7 +1437,7 @@
             <returnType />
             <propertyRefs>
                 <propertyRef>
-                    <key>0</key>
+                    <key>abff31a5-3006-4f13-bc15-d5bb891dba54</key>
                     <parentUnit>
                         <key name="name" value="NewUni12" />
                     </parentUnit>
@@ -1574,7 +1561,7 @@
             <returnType />
             <propertyRefs>
                 <propertyRef>
-                    <key>0</key>
+                    <key>bb1c5799-965a-445f-9aef-f52bbc6e155a</key>
                     <parentUnit>
                         <key name="name" value="NewUni22" />
                     </parentUnit>
@@ -1653,68 +1640,6 @@
                 <key name="name" value="PayRequestBillQuery" />
             </query>
         </queryField>
-        <propertyUnit>
-            <name>NewUni24</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.fi.app.PayRequestBillQuery].units.propertyUnit[NewUni24].displayName</displayName>
-            <groupType />
-            <isSelector>false</isSelector>
-            <isFilter>false</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType />
-            <propertyRefs>
-                <propertyRef>
-                    <key>0</key>
-                    <parentUnit>
-                        <key name="name" value="NewUni24" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="curProject" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="fullOrgUnit" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.fi.app" />
-                <key name="name" value="PayRequestBillQuery" />
-            </query>
-        </propertyUnit>
-        <propertyUnit>
-            <name>NewUni25</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.fi.app.PayRequestBillQuery].units.propertyUnit[NewUni25].displayName</displayName>
-            <groupType />
-            <isSelector>false</isSelector>
-            <isFilter>false</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType />
-            <propertyRefs>
-                <propertyRef>
-                    <key>0</key>
-                    <parentUnit>
-                        <key name="name" value="NewUni25" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="fullOrgUnit" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="id" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.fi.app" />
-                <key name="name" value="PayRequestBillQuery" />
-            </query>
-        </propertyUnit>
         <queryField>
             <name>state</name>
             <userDefined>true</userDefined>
@@ -1738,37 +1663,6 @@
                     </subEntity>
                     <refProperty>
                         <key name="name" value="state" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.fi.app" />
-                <key name="name" value="PayRequestBillQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>curProject.isEnabled</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.fi.app.PayRequestBillQuery].units.queryField[curProject.isEnabled].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>Boolean</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>0</key>
-                    <parentUnit>
-                        <key name="name" value="curProject.isEnabled" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="curProject" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="isEnabled" />
                     </refProperty>
                 </propertyRef>
             </propertyRefs>
@@ -2646,37 +2540,6 @@
             </query>
         </queryField>
         <queryField>
-            <name>payContentType.name</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.fi.app.PayRequestBillQuery].units.queryField[payContentType.name].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>366c00f0-12b9-4456-9e50-541231c95aa7</key>
-                    <parentUnit>
-                        <key name="name" value="payContentType.name" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="payContentType" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="name" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.fi.app" />
-                <key name="name" value="PayRequestBillQuery" />
-            </query>
-        </queryField>
-        <queryField>
             <name>applier.name</name>
             <userDefined>true</userDefined>
             <formulaString />
@@ -2708,11 +2571,11 @@
             </query>
         </queryField>
         <propertyUnit>
-            <name>23798210-dd6a-4ba5-8d28-5bc024de4819</name>
+            <name>76d53d16-a42b-49eb-a12c-87f01eceb691</name>
             <userDefined>true</userDefined>
             <formulaString />
             <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.fi.app.PayRequestBillQuery].units.propertyUnit[23798210-dd6a-4ba5-8d28-5bc024de4819].displayName</displayName>
+            <displayName>joinQuery[com.kingdee.eas.port.pm.fi.app.PayRequestBillQuery].units.propertyUnit[76d53d16-a42b-49eb-a12c-87f01eceb691].displayName</displayName>
             <groupType />
             <isSelector>false</isSelector>
             <isFilter>false</isFilter>
@@ -2721,15 +2584,15 @@
             <returnType>String</returnType>
             <propertyRefs>
                 <propertyRef>
-                    <key>04623a4f-50f6-41bc-8422-d42a4936311f</key>
+                    <key>695a346f-d00e-46b7-a807-49b351416cdd</key>
                     <parentUnit>
-                        <key name="name" value="23798210-dd6a-4ba5-8d28-5bc024de4819" />
+                        <key name="name" value="76d53d16-a42b-49eb-a12c-87f01eceb691" />
                     </parentUnit>
                     <subEntity>
-                        <key name="name" value="PayRequestBill" />
+                        <key name="name" value="curProject" />
                     </subEntity>
                     <refProperty>
-                        <key name="name" value="payContentType" />
+                        <key name="name" value="CU" />
                     </refProperty>
                 </propertyRef>
             </propertyRefs>
@@ -2739,11 +2602,11 @@
             </query>
         </propertyUnit>
         <propertyUnit>
-            <name>14b189a3-e868-434e-adcb-3545b71ae6e6</name>
+            <name>37639fc0-3341-41d1-9f92-7925cca83b5a</name>
             <userDefined>true</userDefined>
             <formulaString />
             <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.fi.app.PayRequestBillQuery].units.propertyUnit[14b189a3-e868-434e-adcb-3545b71ae6e6].displayName</displayName>
+            <displayName>joinQuery[com.kingdee.eas.port.pm.fi.app.PayRequestBillQuery].units.propertyUnit[37639fc0-3341-41d1-9f92-7925cca83b5a].displayName</displayName>
             <groupType />
             <isSelector>false</isSelector>
             <isFilter>false</isFilter>
@@ -2752,12 +2615,12 @@
             <returnType>String</returnType>
             <propertyRefs>
                 <propertyRef>
-                    <key>04237b13-3174-4b11-b18f-e562096abb8a</key>
+                    <key>0</key>
                     <parentUnit>
-                        <key name="name" value="14b189a3-e868-434e-adcb-3545b71ae6e6" />
+                        <key name="name" value="37639fc0-3341-41d1-9f92-7925cca83b5a" />
                     </parentUnit>
                     <subEntity>
-                        <key name="name" value="payContentType" />
+                        <key name="name" value="fullOrgUnit" />
                     </subEntity>
                     <refProperty>
                         <key name="name" value="id" />
@@ -2768,6 +2631,60 @@
                 <key name="package" value="com.kingdee.eas.port.pm.fi.app" />
                 <key name="name" value="PayRequestBillQuery" />
             </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>07605733-8d39-459f-8599-0c1f732457e0</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.fi.app.PayRequestBillQuery].units.propertyUnit[07605733-8d39-459f-8599-0c1f732457e0].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>24f6f296-af32-4869-add1-f00fbbeedf0b</key>
+                    <parentUnit>
+                        <key name="name" value="07605733-8d39-459f-8599-0c1f732457e0" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="curProject" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="company" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+        </propertyUnit>
+        <propertyUnit>
+            <name>27342496-45e8-453e-b090-e2c6e9aa45f4</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.fi.app.PayRequestBillQuery].units.propertyUnit[27342496-45e8-453e-b090-e2c6e9aa45f4].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>4e510bad-b15f-43ca-b1c0-11178d6ede14</key>
+                    <parentUnit>
+                        <key name="name" value="27342496-45e8-453e-b090-e2c6e9aa45f4" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="fullOrgUnit" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
         </propertyUnit>
     </units>
     <defaultFilter>
@@ -3135,7 +3052,7 @@
         <join>
             <name>NewJoi12</name>
             <formulaString>#0</formulaString>
-            <type>INNER JOIN</type>
+            <type>LEFT OUTER JOIN</type>
             <leftObject>
                 <key name="name" value="curProject" />
             </leftObject>
@@ -3147,10 +3064,10 @@
                     <name>0</name>
                     <compareType>=</compareType>
                     <leftField>
-                        <key name="name" value="NewUni24" />
+                        <key name="name" value="07605733-8d39-459f-8599-0c1f732457e0" />
                     </leftField>
                     <rightField>
-                        <key name="name" value="NewUni25" />
+                        <key name="name" value="27342496-45e8-453e-b090-e2c6e9aa45f4" />
                     </rightField>
                     <join>
                         <key name="name" value="NewJoi12" />
@@ -3244,36 +3161,6 @@
                     </rightField>
                     <join>
                         <key name="name" value="1f737bb5-9632-4d20-a843-62efdce9bc94" />
-                    </join>
-                </joinItem>
-            </joinItems>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.fi.app" />
-                <key name="name" value="PayRequestBillQuery" />
-            </query>
-        </join>
-        <join>
-            <name>ae46f091-9004-4781-bcb1-05fececee038</name>
-            <formulaString>#0</formulaString>
-            <type>LEFT OUTER JOIN</type>
-            <leftObject>
-                <key name="name" value="PayRequestBill" />
-            </leftObject>
-            <rightObject>
-                <key name="name" value="payContentType" />
-            </rightObject>
-            <joinItems>
-                <joinItem>
-                    <name>a7c10da8-eddd-40da-a275-43e5cfa6e52d</name>
-                    <compareType>=</compareType>
-                    <leftField>
-                        <key name="name" value="23798210-dd6a-4ba5-8d28-5bc024de4819" />
-                    </leftField>
-                    <rightField>
-                        <key name="name" value="14b189a3-e868-434e-adcb-3545b71ae6e6" />
-                    </rightField>
-                    <join>
-                        <key name="name" value="ae46f091-9004-4781-bcb1-05fececee038" />
                     </join>
                 </joinItem>
             </joinItems>
@@ -3505,12 +3392,6 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.fi.app.PayRequestBillQuery].subObjects.subEntity[payContentType].alias">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.fi.app.PayRequestBillQuery].subObjects.subEntity[payType].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -3547,7 +3428,7 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.fi.app.PayRequestBillQuery].units.propertyUnit[14b189a3-e868-434e-adcb-3545b71ae6e6].displayName">
+        <rs key="joinQuery[com.kingdee.eas.port.pm.fi.app.PayRequestBillQuery].units.propertyUnit[07605733-8d39-459f-8599-0c1f732457e0].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -3559,7 +3440,13 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.fi.app.PayRequestBillQuery].units.propertyUnit[23798210-dd6a-4ba5-8d28-5bc024de4819].displayName">
+        <rs key="joinQuery[com.kingdee.eas.port.pm.fi.app.PayRequestBillQuery].units.propertyUnit[27342496-45e8-453e-b090-e2c6e9aa45f4].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.fi.app.PayRequestBillQuery].units.propertyUnit[37639fc0-3341-41d1-9f92-7925cca83b5a].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -3584,6 +3471,12 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.fi.app.PayRequestBillQuery].units.propertyUnit[4be53615-0119-1000-e000-02eac0a8129f].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.fi.app.PayRequestBillQuery].units.propertyUnit[76d53d16-a42b-49eb-a12c-87f01eceb691].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -3656,18 +3549,6 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.fi.app.PayRequestBillQuery].units.propertyUnit[NewUni23].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.fi.app.PayRequestBillQuery].units.propertyUnit[NewUni24].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.fi.app.PayRequestBillQuery].units.propertyUnit[NewUni25].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -4059,17 +3940,6 @@
             <lang locale="zh_HK" value="ID" />
             <lang locale="zh_TW" value="ID" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.fi.app.PayRequestBillQuery].units.queryField[curProject.isEnabled].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="启用的工程项目" />
-            <lang locale="zh_HK" value="啟用的工程項目" />
-            <lang locale="zh_TW" value="啟用的工程項目" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.fi.app.PayRequestBillQuery].units.queryField[curProject.isEnabled].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.fi.app.PayRequestBillQuery].units.queryField[curProject.name].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="工程项目" />
@@ -4301,22 +4171,6 @@
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.fi.app.PayRequestBillQuery].units.queryField[originalAmount].extendedProperty.isSumField">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.fi.app.PayRequestBillQuery].units.queryField[payContentType.name].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="付款事项" />
-            <lang locale="zh_HK" value="付款事項" />
-            <lang locale="zh_TW" value="付款事項" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.fi.app.PayRequestBillQuery].units.queryField[payContentType.name].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.fi.app.PayRequestBillQuery].units.queryField[payContentType.name].extendedProperty.isCommonQuerySorter">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
