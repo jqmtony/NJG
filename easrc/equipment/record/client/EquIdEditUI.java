@@ -546,7 +546,7 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 			{
 				MsgBox.showWarning("请先保存单据！");SysUtil.abort();
 			}
-			String oql = "select id where equName.id='"+editData.getId().toString()+"'";
+			String oql = "select parent.id where E1.equNameOne.id='"+editData.getId().toString()+"'";
 			IRepairOrder IRepairOrder = RepairOrderFactory.getRemoteInstance();
 			Vector v1 = new Vector();
 

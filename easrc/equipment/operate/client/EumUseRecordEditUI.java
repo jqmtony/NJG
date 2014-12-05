@@ -114,7 +114,7 @@ public class EumUseRecordEditUI extends AbstractEumUseRecordEditUI {
 			String id = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
 			StringBuffer sb = new StringBuffer();
 			sb.append("/*dialect*/select");
-			sb.append(" a.fid 设备名称,b.fname_l2 设备类型,a.CFEqmCategory 设备类别,a.CFModel 规格型号");
+			sb.append(" a.fid 设备名称,a.fnumber 设备编号,b.fname_l2 设备类型,a.CFEqmCategory 设备类别,a.CFModel 规格型号");
 			sb.append(" from CT_REC_EquId a");
 			sb.append(" left join T_FA_Cat b on a.CFEqmTypeID = b.fid");
 			sb.append(" where a.cfsbstatus = '1'");
@@ -127,6 +127,7 @@ public class EumUseRecordEditUI extends AbstractEumUseRecordEditUI {
 				IRow row = this.kdtEqmUse.addRow();
 				EquIdInfo equInfo = iEquId.getEquIdInfo(new ObjectUuidPK(rowSet.getString("设备名称")));
 				row.getCell("eqmName").setValue(equInfo);
+				row.getCell("eqmNumber").setValue(rowSet.getString("设备编号"));
 				row.getCell("modelType").setValue(rowSet.getString("规格型号"));
 				row.getCell("eqmCategory").setValue(rowSet.getString("设备类别"));
 				row.getCell("eqmType").setValue(rowSet.getString("设备类型"));
