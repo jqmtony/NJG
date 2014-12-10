@@ -1004,6 +1004,7 @@ public class ComproductionEditUI extends AbstractComproductionEditUI {
 		state.setEnabled(false);
 		pkAuditTime.setEnabled(false);
 		super.onLoad();
+		prmtreportMonth.setRequired(true);
 		this.actionAddNew.setVisible(false);
 		if (OprtState.ADDNEW.equals(getOprtState())) {
 			state.setSelectedItem(XRBillStatusEnum.ADD);
@@ -1385,6 +1386,9 @@ public class ComproductionEditUI extends AbstractComproductionEditUI {
 	}
 
 	protected void verifyInput(ActionEvent e) throws Exception {
+		 if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(prmtreportMonth.getText())) {
+	 			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"报表月份"});
+	 		}
 		super.verifyInput(e);
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 		String time = (df.format(this.pkBizDate.getSqlDate())).substring(0, 7);

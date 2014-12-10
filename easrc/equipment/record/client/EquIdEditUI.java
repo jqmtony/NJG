@@ -91,6 +91,8 @@ import com.kingdee.eas.port.equipment.insurance.InsuranceCoverageE1Collection;
 import com.kingdee.eas.port.equipment.insurance.InsuranceCoverageE1Factory;
 import com.kingdee.eas.port.equipment.maintenance.IRepairOrder;
 import com.kingdee.eas.port.equipment.maintenance.RepairOrderCollection;
+import com.kingdee.eas.port.equipment.maintenance.RepairOrderE1Collection;
+import com.kingdee.eas.port.equipment.maintenance.RepairOrderE1Factory;
 import com.kingdee.eas.port.equipment.maintenance.RepairOrderFactory;
 import com.kingdee.eas.port.equipment.operate.EqmAccidentCollection;
 import com.kingdee.eas.port.equipment.operate.EqmAccidentFactory;
@@ -539,44 +541,44 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 	    }
 	
 	//实现功能：下拉按钮弹窗展现历史相关联设备修理单单据。
-	private void upRepairOrder(){
-		try 
-		{
-			if(editData.getId()==null)
+	 private void upRepairOrder(){
+			try 
 			{
-				MsgBox.showWarning("请先保存单据！");SysUtil.abort();
-			}
-			String oql = "select parent.id where E1.equNameOne.id='"+editData.getId().toString()+"'";
-			IRepairOrder IRepairOrder = RepairOrderFactory.getRemoteInstance();
-			Vector v1 = new Vector();
+				if(editData.getId()==null)
+				{
+					MsgBox.showWarning("请先保存单据！");SysUtil.abort();
+				}
+				String oql = "select parent.id where equNameOne.id='"+editData.getId().toString()+"'";
+//				IRepairOrder IRepairOrder = RepairOrderFactory.getRemoteInstance();
+				Vector v1 = new Vector();
 
-			
-			RepairOrderCollection repairOrderColl = IRepairOrder.getRepairOrderCollection(oql);
-			for (int i = 0; i < repairOrderColl.size(); i++) {
-				v1.add(repairOrderColl.get(i).getId().toString());
+				RepairOrderE1Collection repairOrderColl = RepairOrderE1Factory.getRemoteInstance().getRepairOrderE1Collection(oql);
+//				RepairOrderCollection repairOrderColl = IRepairOrder.getRepairOrderCollection(oql);
+				for (int i = 0; i < repairOrderColl.size(); i++) {
+					v1.add(repairOrderColl.get(i).getParent().getId().toString());
+				}
+				HashMap idList = new HashMap();
+				if(v1.size()<1){
+					MsgBox.showWarning("当前所选数据没有关联维保任务单！");
+					SysUtil.abort();
+				}
+				idList.put("F96E9B71",v1 );
+				ToolHelp.showTraceUI(this, idList, 0);
+				
+			} 
+			catch (EASBizException e) 
+			{
+				e.printStackTrace();
+			} 
+			catch (BOSException e) 
+			{
+				e.printStackTrace();
+			} 
+			catch (Exception e) 
+			{
+				e.printStackTrace();
 			}
-			HashMap idList = new HashMap();
-			if(v1.size()<1){
-				MsgBox.showWarning("当前所选数据没有关联维保任务单！");
-				SysUtil.abort();
-			}
-			idList.put("F96E9B71",v1 );
-			ToolHelp.showTraceUI(this, idList, 0);
-			
-		} 
-		catch (EASBizException e) 
-		{
-			e.printStackTrace();
-		} 
-		catch (BOSException e) 
-		{
-			e.printStackTrace();
-		} 
-		catch (Exception e) 
-		{
-			e.printStackTrace();
 		}
-	}
 	
 	//实现功能：下拉按钮弹窗展现历史相关联设备事故单单据。
 	private void EqmAccident(){

@@ -3,35 +3,40 @@
  */
 package com.kingdee.eas.port.equipment.maintenance.client;
 
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 
 import org.apache.log4j.Logger;
 
 import com.kingdee.bos.BOSException;
+import com.kingdee.bos.ctrl.swing.StringUtils;
+import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.bos.dao.query.IQueryExecutor;
 import com.kingdee.bos.metadata.IMetaDataPK;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
+import com.kingdee.bos.metadata.entity.SelectorItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.util.BOSUuid;
-import com.kingdee.bos.dao.IObjectValue;
-import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
-import com.kingdee.bos.dao.query.IQueryExecutor;
+import com.kingdee.eas.basedata.person.IPerson;
+import com.kingdee.eas.basedata.person.PersonFactory;
+import com.kingdee.eas.basedata.person.PersonInfo;
 import com.kingdee.eas.common.client.SysContext;
-import com.kingdee.eas.framework.*;
 import com.kingdee.eas.port.equipment.maintenance.IRepairOrder;
+import com.kingdee.eas.port.equipment.maintenance.IRepairOrderE1;
+import com.kingdee.eas.port.equipment.maintenance.RepairOrderE1Info;
 import com.kingdee.eas.port.equipment.maintenance.RepairOrderInfo;
-import com.kingdee.eas.port.equipment.special.AnnualYearDetailInfo;
-import com.kingdee.eas.port.equipment.special.IAnnualYearDetail;
 import com.kingdee.eas.tools.datatask.DatataskParameter;
 import com.kingdee.eas.tools.datatask.client.DatataskCaller;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
 import com.kingdee.eas.xr.app.XRBillStatusEnum;
+import com.kingdee.jdbc.rowset.IRowSet;
 
 /**
  * output class name
@@ -731,4 +736,41 @@ public class RepairOrderListUI extends AbstractRepairOrderListUI
 			paramList.add(param);
 			task.invoke(paramList, 0, true);
 	}
+	
+	
+	private IPerson IPerson = PersonFactory.getRemoteInstance();
+	
+	private SelectorItemCollection getselectPerosnInfo()
+	{
+		SelectorItemCollection sic = new SelectorItemCollection();
+    	sic.add(new SelectorItemInfo("name"));
+    	return sic;
+	}
+	
+	protected void getRowSetBeforeFillTable(IRowSet rowSet) {
+		super.getRowSetBeforeFillTable(rowSet);
+		try {
+			rowSet.beforeFirst();
+			while(rowSet.next()){
+				String repPersonID = rowSet.getString("E1.repPersonID");
+				if(UIRuleUtil.isNull(repPersonID))
+					continue;
+				String personId[] = repPersonID.split(";");
+				
+				String personName = "";
+				for (int i = 0; i < personId.length; i++)
+				{
+					String id = personId[i];
+					if(UIRuleUtil.isNull(id))
+						continue;
+					
+					PersonInfo personInfo = IPerson.getPersonInfo(new ObjectUuidPK(id),getselectPerosnInfo());
+					personName = personName+personInfo.getName()+";";
+				}
+			    rowSet.updateObject("E1.repairPerson.name",personName);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} 
+ }
 }
