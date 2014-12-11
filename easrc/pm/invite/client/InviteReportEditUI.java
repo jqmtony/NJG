@@ -7,15 +7,14 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 import java.math.BigDecimal;
-import java.util.HashMap;
+import java.util.Date;
 
 import javax.swing.JOptionPane;
 
 import org.apache.log4j.Logger;
 
+import com.kingdee.bos.BOSException;
 import com.kingdee.bos.ctrl.extendcontrols.BizDataFormat;
 import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
@@ -63,9 +62,11 @@ import com.kingdee.eas.port.pm.base.IEvaluationIndicators;
 import com.kingdee.eas.port.pm.base.IEvaluationIndicatorsTree;
 import com.kingdee.eas.port.pm.base.InviteTypeFactory;
 import com.kingdee.eas.port.pm.base.InviteTypeInfo;
-import com.kingdee.eas.port.pm.invest.client.YearInvestPlanEditUI;
+import com.kingdee.eas.port.pm.invest.IProjectStartRequest;
+import com.kingdee.eas.port.pm.invest.ProjectStartRequestCollection;
+import com.kingdee.eas.port.pm.invest.ProjectStartRequestFactory;
+import com.kingdee.eas.port.pm.invest.client.ProjectStartRequestEditUI;
 import com.kingdee.eas.port.pm.invite.InvitePlanInfo;
-import com.kingdee.eas.port.pm.invite.InviteReportFactory;
 import com.kingdee.eas.port.pm.invite.judgeSolution;
 import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
 import com.kingdee.eas.util.SysUtil;
@@ -129,18 +130,26 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI {
 				} else {
 					UIContext context = new UIContext(this);
 					ProjectInfo info = (ProjectInfo) prmtproName.getValue();
-					
 					if(info.getNJGyearInvest()!=null)
 					{
-						context.put("ID", info.getNJGyearInvest().getId());
-						context.put("InviteView", info.getNJGyearInvest().getId());
+						try {
+							IProjectStartRequest iProjectStartRequest = ProjectStartRequestFactory.getRemoteInstance();
+							ProjectStartRequestCollection reqColl = iProjectStartRequest.getProjectStartRequestCollection("where projectName.id='"+info.getId()+"'");
+							if(reqColl.size()>0){
+								context.put("ID", reqColl.get(0).getId());
+							}else{
+								MsgBox.showWarning("该项目没有进行启动申请！");SysUtil.abort();
+							}
+						} catch (BOSException e2) {
+							e2.printStackTrace();
+						}
 					}
 					else
 					{
 						MsgBox.showWarning("没有对应的年度投资计划！");SysUtil.abort();
 					}
 					try {
-						UIFactory.createUIFactory().create(YearInvestPlanEditUI.class.getName(), context, null,OprtState.VIEW).show();
+						UIFactory.createUIFactory().create(ProjectStartRequestEditUI.class.getName(), context, null,OprtState.VIEW).show();
 					} catch (UIException e1) {
 						e1.printStackTrace();
 					}
@@ -249,6 +258,8 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI {
         ObjectValueRender kdtEntry3_invitePerson_OVR = new ObjectValueRender();
         kdtEntry3_invitePerson_OVR.setFormat(new BizDataFormat("$name$"));
         this.kdtEntry3.getColumn("invitePerson").setRenderer(kdtEntry3_invitePerson_OVR);
+        
+        pkaudDate.setValue(new Date());
 	}
 
 	// container设置分录按钮以及分录放置模式
@@ -1179,9 +1190,19 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI {
 		objectValue.setCoefficient(new BigDecimal(1));
 		ProjectInfo info = (ProjectInfo) getUIContext().get("treeInfo");
 		System.out.println("hello " + info.toString());
-		if (info != null) {
+		if (info != null ) {
 			objectValue.setProName(info);
 			objectValue.setReportName(info.getName());
+			try {
+				IProjectStartRequest iProjectStartRequest = ProjectStartRequestFactory.getRemoteInstance();
+				ProjectStartRequestCollection reqColl = iProjectStartRequest.getProjectStartRequestCollection("where projectName.id='"+info.getId()+"'");
+				if(reqColl.size()==0 && info.getNJGyearInvest()!=null){
+					MsgBox.showWarning("项目没有启动,请到系统【投资管理-项目启动】进行项目启动申请！");
+					SysUtil.abort();
+				}
+			} catch (BOSException e2) {
+				e2.printStackTrace();
+			}
 		}
 		return objectValue;
 	}

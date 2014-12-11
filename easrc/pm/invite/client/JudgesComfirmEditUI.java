@@ -176,7 +176,7 @@ public class JudgesComfirmEditUI extends AbstractJudgesComfirmEditUI
     		for(String s : set) {
     			if(perMap.get(s).compareTo(numberMap.get(s)) != 0) {
     				MsgBox.showWarning("专家构成与招标方案申报不符合!!请检查!!\n" + sb.toString());
-    				SysUtil.abort();
+//    				SysUtil.abort();
     			}
     		}
     	}

@@ -387,4 +387,19 @@ public class Evaluation extends XRBillBase implements IEvaluation
             throw new EJBRemoteException(err);
         }
     }
+    /**
+     *套打临时表-User defined method
+     *@param pk 单据ID
+     *@param param 套打表格
+     *@return
+     */
+    public String TDTempTable(String pk, String param) throws BOSException
+    {
+        try {
+            return getController().TDTempTable(getContext(), pk, param);
+        }
+        catch(RemoteException err) {
+            throw new EJBRemoteException(err);
+        }
+    }
 }

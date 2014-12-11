@@ -48,4 +48,5 @@ public interface IEvaluation extends IXRBillBase
     public void updateBigObject(IObjectPK pk, EvaluationInfo model) throws BOSException;
     public void updatePartial(EvaluationInfo model, SelectorItemCollection selector) throws BOSException, EASBizException;
     public String getBindingProperty() throws BOSException;
+    public String TDTempTable(String pk, String param) throws BOSException;
 }

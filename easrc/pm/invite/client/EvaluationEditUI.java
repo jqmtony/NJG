@@ -7,10 +7,15 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+
+import javax.swing.SwingUtilities;
 
 import org.apache.log4j.Logger;
 
@@ -20,18 +25,29 @@ import com.kingdee.bos.ctrl.kdf.table.IRow;
 import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent;
+import com.kingdee.bos.ctrl.report.forapp.kdnote.client.KDNoteHelper;
+import com.kingdee.bos.ctrl.reportone.kdrs.exception.KDRSException;
 import com.kingdee.bos.ctrl.swing.KDCheckBox;
 import com.kingdee.bos.ctrl.swing.KDFormattedTextField;
 import com.kingdee.bos.ctrl.swing.KDTextField;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.bos.metadata.IMetaDataPK;
+import com.kingdee.bos.metadata.MetaDataPK;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.UIRuleUtil;
+import com.kingdee.bos.util.BOSObjectType;
+import com.kingdee.eas.basedata.assistant.AbstractPrintIntegrationInfo;
+import com.kingdee.eas.basedata.assistant.IPrintIntegration;
+import com.kingdee.eas.basedata.assistant.PrintIntegrationFactory;
 import com.kingdee.eas.basedata.assistant.ProjectInfo;
+import com.kingdee.eas.basedata.assistant.util.CommonPrintIntegrationDataProvider;
+import com.kingdee.eas.basedata.assistant.util.MultiDataSourceDataProviderProxy;
+import com.kingdee.eas.basedata.assistant.util.PrintIntegrationManager;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.port.markesupplier.subill.IMarketSupplierStock;
 import com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockFactory;
@@ -62,6 +78,8 @@ import com.kingdee.eas.port.pm.invite.judgeSolution;
 import com.kingdee.eas.port.pm.utils.FDCClientHelper;
 import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
 import com.kingdee.eas.util.SysUtil;
+import com.kingdee.eas.util.client.EASResource;
+import com.kingdee.eas.xr.helper.common.SqlTaoDaDataProvider;
 
 /**
  * output class name
@@ -1232,22 +1250,6 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
     }
 
     /**
-     * output actionPrint_actionPerformed
-     */
-    public void actionPrint_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionPrint_actionPerformed(e);
-    }
-
-    /**
-     * output actionPrintPreview_actionPerformed
-     */
-    public void actionPrintPreview_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionPrintPreview_actionPerformed(e);
-    }
-
-    /**
      * output actionCopy_actionPerformed
      */
     public void actionCopy_actionPerformed(ActionEvent e) throws Exception
@@ -1256,7 +1258,7 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
     }
 
     /**
-     * output actionAddNew_actionPerformed
+     * output actionAddNew_actionPerformedki
      */
     public void actionAddNew_actionPerformed(ActionEvent e) throws Exception
     {
@@ -1570,4 +1572,117 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
 		return null;
 	}
 
+	/**
+     * output actionPrint_actionPerformed
+     */
+    public void actionPrint_actionPerformed(ActionEvent e) throws Exception
+    {
+//        super.actionPrint_actionPerformed(e);
+    	invokeMultiPrintFunction(false); 
+    }
+
+    /**
+     * output actionPrintPreview_actionPerformed
+     */
+    public void actionPrintPreview_actionPerformed(ActionEvent e) throws Exception
+    {
+//        super.actionPrintPreview_actionPerformed(e);
+    	invokeMultiPrintFunction(false); 
+    }
+    public void actionMultiPrint_actionPerformed(java.awt.event.ActionEvent e)
+    throws Exception
+	{
+		invokeMultiPrintFunction(true);
+	}
+	
+	public void actionMultiPrintPreview_actionPerformed(java.awt.event.ActionEvent e)
+	    throws Exception
+	{
+		invokeMultiPrintFunction(false);
+	}
+	
+	protected void invokeMultiPrintFunction(boolean isPrint)
+	{
+		checkSelected();
+		ArrayList idList = new ArrayList();
+		idList.add(editData.getId().toString());
+		invokeMultiPrintFunction(((List) (idList)), isPrint);
+	}
+	
+    protected IMetaDataPK getTDQueryPK()
+    {
+    	return new MetaDataPK("com.kingdee.eas.port.pm.fi.app.PayRequestBillQuery");
+    }
+	protected void invokeMultiPrintFunction(List idList, boolean isPrint)
+    {
+		if(idList == null || idList.size() == 0 || getTDQueryPK() == null || getTDFileName() == null)
+			return;
+		StringBuffer failToPrintMsg = new StringBuffer();
+		KDNoteHelper tpHelper = new KDNoteHelper();
+		try
+        {
+			int curNum = 1;
+			String bosType = getBizInterface().getType().toString();
+			IPrintIntegration pinfo = PrintIntegrationFactory.getRemoteInstance();
+			List infoList = pinfo.getBillsPrintInfoByList(idList, bosType);
+			tpHelper.prepareBizCall(getTDFileName());
+        }
+		catch(Exception e)
+        {
+			handUIException(e);
+        }
+		if(idList == null || idList.size() == 0 || getTDQueryPK() == null || getTDFileName() == null)
+			return;
+		MultiDataSourceDataProviderProxy data = new MultiDataSourceDataProviderProxy();
+		SqlTaoDaDataProvider mainQueryData = new SqlTaoDaDataProvider( getTaoDaSql());
+		mainQueryData.setFid(idList.get(0).toString());
+		data.put("MainQuery", mainQueryData);
+		SqlTaoDaDataProvider gysQueryData = new SqlTaoDaDataProvider("select cfenterprise from CT_INV_EvaluationEntryUnit  where fparentid='brj1LK9iTFy9ZgOBprhRHU2+aUU='");
+		gysQueryData.setFid(idList.get(0).toString());
+		data.put("gys", gysQueryData);
+//		SqlTaoDaDataProvider fsQueryData = new SqlTaoDaDataProvider( getTaoDaSql());
+//		mainQueryData.setFid(idList.get(0).toString());
+//		data.put("fsQuery", fsQueryData);
+		BOSObjectType bosType = null;
+		try
+        {
+			bosType = getBizInterface().getType();
+			logger.info("current bostype:>>" + bosType.toString());
+        }
+		catch(Exception e)
+        {
+			MsgBox.showError(EASResource.getString("com.kingdee.eas.basedata.assistant.PrintIntegrationResource", "pi.remoteerror"));
+			SysUtil.abort();
+        }
+		CommonPrintIntegrationDataProvider printQueryData = new CommonPrintIntegrationDataProvider(bosType.toString(), PrintIntegrationManager.getPrintQueryPK());
+		data.put("PrintQuery", printQueryData);
+		PrintIntegrationManager.initPrint(tpHelper, bosType, idList, getTDFileName(), "com.kingdee.eas.scm.common.SCMResource", false);
+		if(isPrint)
+			tpHelper.print(getTDFileName(), data, SwingUtilities.getWindowAncestor(this));
+		else
+			tpHelper.printPreview(getTDFileName(), data, SwingUtilities.getWindowAncestor(this));
+    }
+	
+    protected void setCustomerDataProvider(MultiDataSourceDataProviderProxy multidatasourcedataproviderproxy, List list)
+    {
+    }
+	protected FilterInfo getPrintFilter(List ids)
+    {
+		FilterInfo filter = new FilterInfo();
+		if(ids.size() == 1)
+			filter.getFilterItems().add(new FilterItemInfo("id", ids.toArray()[0].toString(), CompareType.EQUALS));
+		else
+			filter.getFilterItems().add(new FilterItemInfo("id", new HashSet(ids), CompareType.INCLUDE));
+		return filter;
+    }
+	String getTaoDaSql(){
+		StringBuffer sb = new StringBuffer();
+		try {
+			String table = EvaluationFactory.getRemoteInstance().TDTempTable("", "");
+			sb.append(" select  * from "+table);
+		} catch (BOSException e) {
+			e.printStackTrace();
+		}
+		return sb.toString();
+	}
 }

@@ -53,4 +53,5 @@ public interface EvaluationController extends XRBillBaseController
     public void updateBigObject(Context ctx, IObjectPK pk, EvaluationInfo model) throws BOSException, RemoteException;
     public void updatePartial(Context ctx, EvaluationInfo model, SelectorItemCollection selector) throws BOSException, EASBizException, RemoteException;
     public String getBindingProperty(Context ctx) throws BOSException, RemoteException;
+    public String TDTempTable(Context ctx, String pk, String param) throws BOSException, RemoteException;
 }

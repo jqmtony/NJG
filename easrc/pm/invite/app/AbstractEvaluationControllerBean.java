@@ -644,6 +644,29 @@ public abstract class AbstractEvaluationControllerBean extends XRBillBaseControl
         }
     }
 
+    public String TDTempTable(Context ctx, String pk, String param) throws BOSException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("93798265-facc-499a-80db-f0e65dcc93b9"), new Object[]{ctx, pk, param});
+            invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
+            String retValue = (String)_TDTempTable(ctx, pk, param);
+            svcCtx.setMethodReturnValue(retValue);
+            }
+            invokeServiceAfter(svcCtx);
+            return (String)svcCtx.getMethodReturnValue();
+        } catch (BOSException ex) {
+            this.setRollbackOnly();
+            throw ex;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected String _TDTempTable(Context ctx, String pk, String param) throws BOSException
+    {    	
+        return null;
+    }
+
     public XRBillBaseCollection getXRBillBaseCollection (Context ctx) throws BOSException
     {
     	return (XRBillBaseCollection)(getEvaluationCollection(ctx).cast(XRBillBaseCollection.class));
