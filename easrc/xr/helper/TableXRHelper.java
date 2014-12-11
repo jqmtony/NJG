@@ -104,11 +104,10 @@ public class TableXRHelper {
 
     }
 	//设置分组融合
-	public static void setMerge(KDTable table, String[] columnNames,
-			boolean isMerge) {
+	public static void setMerge(KDTable table, String[] columnNames,int[] colIndex) {
 
 		for (int i = 0, count = columnNames.length; i < count; i++) {
-			table.getColumn(columnNames[i]).setMergeable(isMerge);
+			mergeThemeRow(table,columnNames[i],colIndex[i]);
 		}
 
 	}
@@ -116,18 +115,17 @@ public class TableXRHelper {
 	 * 设置融合
 	 * */
 	public static void mergeThemeRow(KDTable table, String columnName,int colIndex) {
-		String theme = "";
-		String lastTheme = "";
+		Object theme = "";
+		Object lastTheme = "";
 		KDTMergeManager mm = table.getMergeManager();
 		int rowIndx = 0;
 		int endIndx = 0;
 		for (int i = 0; i < table.getRowCount(); i++) {
 			endIndx = i;
-			theme = (String) table.getRow(i).getCell(columnName).getValue(); // 当前主题
+			theme = table.getRow(i).getCell(columnName).getValue(); // 当前主题
 			if (i > 0) {
-				lastTheme = (String) table.getRow(i - 1).getCell(columnName)
-						.getValue(); // 上一主题
-				if (!theme.equals(lastTheme)) { // 获取当前主题 与 上一主题 不相同，所在的行号
+				lastTheme = table.getRow(i - 1).getCell(columnName).getValue(); // 上一主题
+				if (theme!=null && !theme.equals(lastTheme)) { // 获取当前主题 与 上一主题 不相同，所在的行号
 					mm.mergeBlock(rowIndx, colIndex, endIndx - 1, colIndex); // 将最后相同的主题融合
 					rowIndx = endIndx;
 				}
