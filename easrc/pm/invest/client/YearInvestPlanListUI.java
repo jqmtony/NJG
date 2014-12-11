@@ -33,6 +33,7 @@ import com.kingdee.eas.port.pm.invest.YearInvestPlanInfo;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingInfo;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.MsgBox;
+import com.kingdee.eas.xr.helper.TableXRHelper;
 
 /**
  * output class name
@@ -59,8 +60,12 @@ public class YearInvestPlanListUI extends AbstractYearInvestPlanListUI
     
     public void onLoad() throws Exception {
     	super.onLoad();
+    	tblMain.getDataRequestManager().setDataRequestMode(1);
     }
-    
+    public void onShow() throws Exception {
+    	super.onShow();
+    	TableXRHelper.getFootRow(tblMain, new String[]{"amount","investAmount"});
+    }
     protected String getEditUIModal() {
     	return UIFactoryName.NEWTAB;
     }
@@ -145,6 +150,10 @@ public class YearInvestPlanListUI extends AbstractYearInvestPlanListUI
         com.kingdee.eas.port.pm.invest.YearInvestPlanInfo objectValue = new com.kingdee.eas.port.pm.invest.YearInvestPlanInfo();
 		
         return objectValue;
+    }
+    public void actionQuery_actionPerformed(ActionEvent arg0) throws Exception {
+    	super.actionQuery_actionPerformed(arg0);
+    	TableXRHelper.getFootRow(tblMain, new String[]{"amount","investAmount"});
     }
     /**
      * output getSelectors method
