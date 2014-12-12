@@ -547,6 +547,7 @@ public class PayRequestBillEditUIPIEx extends PayRequestBillEditUI{
 					ee.setRowIndex(rowIndex);
 					ee.setValue(amount);
 					this.kdtEntrys_editStopped(ee);
+					setAdvanceChange(amount);
 				}
 				CRMClientHelper.getFootRow(this.kdtBgEntry, new String[] { "requestAmount" });
 			}

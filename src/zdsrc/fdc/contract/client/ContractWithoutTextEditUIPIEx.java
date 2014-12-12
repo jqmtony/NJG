@@ -644,6 +644,7 @@ public class ContractWithoutTextEditUIPIEx extends ContractWithoutTextEditUI{
                 this.kdtBgEntry.removeRow(top);
                 BigDecimal amount =CRMClientHelper.getColumnValueSum(this.kdtBgEntry, "requestAmount");
     			this.txtamount.setValue(amount);
+    			txtamount_dataChanged(null);
     			CRMClientHelper.getFootRow(this.kdtBgEntry,new String[]{"requestAmount"});
             }
         }
