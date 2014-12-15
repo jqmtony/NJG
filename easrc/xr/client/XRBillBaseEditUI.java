@@ -110,6 +110,8 @@ public abstract class XRBillBaseEditUI extends AbstractXRBillBaseEditUI
 			MsgBox.showWarning(this,"单据状态已经在审核中或者已审核，不能再提交");
 			SysUtil.abort();
 		}
+		if(editData.getId()==null)
+			super.actionSave_actionPerformed(e);
 		super.actionSubmit_actionPerformed(e);
 		if(!getOprtState().equals(OprtState.ADDNEW)){
 			actionSave.setEnabled(false);
@@ -136,7 +138,7 @@ public abstract class XRBillBaseEditUI extends AbstractXRBillBaseEditUI
    	}
 	}
 	public void actionAudit_actionPerformed(ActionEvent e) throws Exception {
-		if(editData!=null && WorkflowXRHelper.checkInProInst(editData.getId().toString())){
+		if(editData!=null && editData.getId()!=null && WorkflowXRHelper.checkInProInst(editData.getId().toString())){
 			MsgBox.showInfo("此单据记录有流程正在运行!");
 			SysUtil.abort();
 		}

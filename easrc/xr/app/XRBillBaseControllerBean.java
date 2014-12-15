@@ -53,6 +53,9 @@ public class XRBillBaseControllerBean extends AbstractXRBillBaseControllerBean
 		if(info.getId()==null || XRBillStatusEnum.ADD.equals(info.getStatus())){
 			info.setStatus(XRBillStatusEnum.TEMPORARILYSAVED);
 		}
+		if(XRBillStatusEnum.SUBMITED.equals(info.getStatus())){
+			info.setStatus(XRBillStatusEnum.SUBMITED);
+		}
 		if(info.getId() == null)
 			info.setId(BOSUuid.create(info.getBOSType()));
 		return super._addnew(ctx, model);
