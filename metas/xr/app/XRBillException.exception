@@ -552,557 +552,569 @@
             <message>bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[CHECKSAVEOK].message</message>
             <userDefined>false</userDefined>
         </bizExceptionSubItem>
+        <bizExceptionSubItem>
+            <subCode>090</subCode>
+            <name>NOBudget</name>
+            <message>bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[NOBudget].message</message>
+            <userDefined>true</userDefined>
+        </bizExceptionSubItem>
     </bizExceptionSubItems>
     <resource>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].alias">
-            <lang locale="zh_CN" value="XR单据基类异常类" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="XR单据基类异常类" />
             <lang locale="zh_HK" value="XR單據基類異常類" />
             <lang locale="zh_TW" value="XR單據基類異常類" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[ARCLOSED_CANNOTUNAUDIT].message">
-            <lang locale="zh_CN" value="存在应收关闭的分录，不能进行反审核" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="存在应收关闭的分录，不能进行反审核" />
             <lang locale="zh_HK" value="存在應收關閉的分錄，不能進行反審核" />
             <lang locale="zh_TW" value="存在應收關閉的分錄，不能進行反審核" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[AUDITBILL_CANLOCK].message">
-            <lang locale="zh_CN" value="只有单据分录状态为审核时才能进行锁库或解锁功能！" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="只有单据分录状态为审核时才能进行锁库或解锁功能！" />
             <lang locale="zh_HK" value="只有單據分錄狀態為審核時才能進行鎖庫或解鎖功能！" />
             <lang locale="zh_TW" value="只有單據分錄狀態為審核時才能進行鎖庫或解鎖功能！" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[BILLMUSTSUBMIT].message">
-            <lang locale="zh_CN" value="单据必须为“提交”状态！" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据必须为“提交”状态！" />
             <lang locale="zh_HK" value="單據必須為“提交”狀態！" />
             <lang locale="zh_TW" value="單據必須為“提交”狀態！" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[BILLTYPE_ISNULL].message">
-            <lang locale="zh_CN" value="单据类型不能为空" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据类型不能为空" />
             <lang locale="zh_HK" value="單據類型不能為空" />
             <lang locale="zh_TW" value="單據類型不能為空" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[BIZDATEAFTERPERIOD].message">
-            <lang locale="zh_CN" value="只能录入以前会计期间的初始化单据，业务日期不能大于当前会计期间起始日期[{0}]" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="只能录入以前会计期间的初始化单据，业务日期不能大于当前会计期间起始日期[{0}]" />
             <lang locale="zh_HK" value="只能錄入以前會計期間的初始化單據，業務日期不能大於當前會計期間起始日期[{0}]" />
             <lang locale="zh_TW" value="只能錄入以前會計期間的初始化單據，業務日期不能大於當前會計期間起始日期[{0}]" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[BIZDATEAFTERPERIOD_VIRTUAL].message">
-            <lang locale="zh_CN" value="生成虚入虚出单时，单据业务日期小于单据财务组织{0}的当前会计期间起始日期[{1}]" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="生成虚入虚出单时，单据业务日期小于单据财务组织{0}的当前会计期间起始日期[{1}]" />
             <lang locale="zh_HK" value="生成虛入虛出單時，單據業務日期小於單據財務組織{0}的當前會計期間起始日期[{1}]" />
             <lang locale="zh_TW" value="生成虛入虛出單時，單據業務日期小於單據財務組織{0}的當前會計期間起始日期[{1}]" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[BIZDATEBEFOREPERIOD_VIRTUAL].message">
-            <lang locale="zh_CN" value="生成初始化虚入虚出单时，单据业务日期大于单据财务组织{0}的当前会计期间起始日期[{1}]" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="生成初始化虚入虚出单时，单据业务日期大于单据财务组织{0}的当前会计期间起始日期[{1}]" />
             <lang locale="zh_HK" value="生成初始化虛入虛出單時，單據業務日期大於單據財務組織{0}的當前會計期間起始日期[{1}]" />
             <lang locale="zh_TW" value="生成初始化虛入虛出單時，單據業務日期大於單據財務組織{0}的當前會計期間起始日期[{1}]" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[BIZDATEISNULL_VIRTUAL].message">
-            <lang locale="zh_CN" value="自动生成的虚入虚出单的业务日期为空" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="自动生成的虚入虚出单的业务日期为空" />
             <lang locale="zh_HK" value="自動生成的虛入虛出單的業務日期為空" />
             <lang locale="zh_TW" value="自動生成的虛入虛出單的業務日期為空" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[BIZDATE_REVERSE_NOT_EQUAL_ORIGINAL].message">
-            <lang locale="zh_CN" value="冲销单据的业务日期必须和被冲销单据一样！" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="冲销单据的业务日期必须和被冲销单据一样！" />
             <lang locale="zh_HK" value="沖銷單據的業務日期必須和被沖銷單據一樣！" />
             <lang locale="zh_TW" value="沖銷單據的業務日期必須和被沖銷單據一樣！" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[BizDateBeforePeriod].message">
-            <lang locale="zh_CN" value="业务日期不能小于当前会计期间起始日期[{0}]" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="业务日期不能小于当前会计期间起始日期[{0}]" />
             <lang locale="zh_HK" value="業務日期不能小於當前會計期間起始日期[{0}]" />
             <lang locale="zh_TW" value="業務日期不能小於當前會計期間起始日期[{0}]" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[BizDateIsNull].message">
-            <lang locale="zh_CN" value="单据的业务日期没有指定，请指定！" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据的业务日期没有指定，请指定！" />
             <lang locale="zh_HK" value="單據的業務日期沒有指定，請指定！" />
             <lang locale="zh_TW" value="單據的業務日期沒有指定，請指定！" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[CANNOT_AUDIT_FICURCARD].message">
-            <lang locale="zh_CN" value="审核失败！数量不能大于领料出库数量" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="审核失败！数量不能大于领料出库数量" />
             <lang locale="zh_HK" value="審核失敗！數量不能大於領料出庫數量" />
             <lang locale="zh_TW" value="審核失敗！數量不能大於領料出庫數量" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[CHECKBILLNUMBLANK].message">
-            <lang locale="zh_CN" value="单据编号不能为空！" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据编号不能为空！" />
             <lang locale="zh_HK" value="單據編號不能為空！" />
             <lang locale="zh_TW" value="單據編號不能為空！" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[CHECKSAVENOTOK].message">
-            <lang locale="zh_CN" value="单据已审核状态,不能删除!" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据已审核状态,不能删除!" />
             <lang locale="zh_HK" value="單據已審核狀態,不能刪除!" />
             <lang locale="zh_TW" value="單據已審核狀態,不能刪除!" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[CHECKSAVEOK].message">
-            <lang locale="zh_CN" value="单据已保存" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据已保存" />
             <lang locale="zh_HK" value="單據已保存" />
             <lang locale="zh_TW" value="單據已保存" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[CHECKSTATEUNSTATE].message">
-            <lang locale="zh_CN" value="非“审核”状态的单据不允许反审核" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="非“审核”状态的单据不允许反审核" />
             <lang locale="zh_HK" value="非“審核”狀態的單據不允許反審核" />
             <lang locale="zh_TW" value="非“審核”狀態的單據不允許反審核" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[CHECK_UNAUDIT].message">
-            <lang locale="zh_CN" value="单据状态不为“审核”，不允许反审核" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据状态不为“审核”，不允许反审核" />
             <lang locale="zh_HK" value="單據狀態不為“審核”，不允許反審核" />
             <lang locale="zh_TW" value="單據狀態不為“審核”，不允許反審核" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[CHECK_UNAUDIT_PARAM].message">
-            <lang locale="zh_CN" value="参数设置单据不能反审核" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="参数设置单据不能反审核" />
             <lang locale="zh_HK" value="參數設置單據不能反審核" />
             <lang locale="zh_TW" value="參數設置單據不能反審核" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[CLOSEACCOUNT_AUDIT].message">
-            <lang locale="zh_CN" value="系统已经关账，不能审核当前期间的单据!" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="系统已经关账，不能审核当前期间的单据!" />
             <lang locale="zh_HK" value="系統已經關賬，不能審核當前期間的單據!" />
             <lang locale="zh_TW" value="系統已經關賬，不能審核當前期間的單據!" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[CLOSEACCOUNT_DEL].message">
-            <lang locale="zh_CN" value="系统已经关账，不能删除当前期间的单据!" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="系统已经关账，不能删除当前期间的单据!" />
             <lang locale="zh_HK" value="系統已經關賬，不能刪除當前期間的單據!" />
             <lang locale="zh_TW" value="系統已經關賬，不能刪除當前期間的單據!" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[CLOSEACCOUNT_SAVE].message">
-            <lang locale="zh_CN" value="系统已经关账，不能保存当前期间的单据!" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="系统已经关账，不能保存当前期间的单据!" />
             <lang locale="zh_HK" value="系統已經關賬，不能保存當前期間的單據!" />
             <lang locale="zh_TW" value="系統已經關賬，不能保存當前期間的單據!" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[CURRENTPERIODISNULLFORINV].message">
-            <lang locale="zh_CN" value="当前库存管理的启用期间不能为空，请在“系统平台---系统配置---系统状态控制”中设置" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="当前库存管理的启用期间不能为空，请在“系统平台---系统配置---系统状态控制”中设置" />
             <lang locale="zh_HK" value="當前庫存管理的啟用期間不能為空，請在“系統平臺---系統配置---系統狀態控制”中設置" />
             <lang locale="zh_TW" value="當前庫存管理的啟用期間不能為空，請在“系統平臺---系統配置---系統狀態控制”中設置" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[CURRENTPERIODISNULL_VIRTUAL].message">
-            <lang locale="zh_CN" value="虚入虚出单记账财务组织{0}的当前库存管理的启用期间不能为空，请在“系统平台---系统配置---系统状态控制”中设置" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="虚入虚出单记账财务组织{0}的当前库存管理的启用期间不能为空，请在“系统平台---系统配置---系统状态控制”中设置" />
             <lang locale="zh_HK" value="虛入虛出單記賬財務組織{0}的當前庫存管理的啟用期間不能為空，請在“系統平臺---系統配置---系統狀態控制”中設置" />
             <lang locale="zh_TW" value="虛入虛出單記賬財務組織{0}的當前庫存管理的啟用期間不能為空，請在“系統平臺---系統配置---系統狀態控制”中設置" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[CURRENT_PERIOD_COLSED].message">
-            <lang locale="zh_CN" value="对应的财务组织{0}已经关账，不允许进行当前操作。如果要进行，请先反关账。" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="对应的财务组织{0}已经关账，不允许进行当前操作。如果要进行，请先反关账。" />
             <lang locale="zh_HK" value="對應的財務組織{0}已經關賬，不允許進行當前操作。如果要進行，請先反關賬。" />
             <lang locale="zh_TW" value="對應的財務組織{0}已經關賬，不允許進行當前操作。如果要進行，請先反關賬。" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[CURRENT_PERIOD_COLSED_VIRTUAL].message">
-            <lang locale="zh_CN" value="生成虚入虚出单对应的财务组织{0}已经关账，不允许进行当前操作。如果要进行，请先反关账。" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="生成虚入虚出单对应的财务组织{0}已经关账，不允许进行当前操作。如果要进行，请先反关账。" />
             <lang locale="zh_HK" value="生成虛入虛出單對應的財務組織{0}已經關賬，不允許進行當前操作。如果要進行，請先反關賬。" />
             <lang locale="zh_TW" value="生成虛入虛出單對應的財務組織{0}已經關賬，不允許進行當前操作。如果要進行，請先反關賬。" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[CheckAuditedNotOK].message">
-            <lang locale="zh_CN" value="单据未审核" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据未审核" />
             <lang locale="zh_HK" value="單據未審核" />
             <lang locale="zh_TW" value="單據未審核" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[CheckAuditedOK].message">
-            <lang locale="zh_CN" value="单据已审核" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据已审核" />
             <lang locale="zh_HK" value="單據已審核" />
             <lang locale="zh_TW" value="單據已審核" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[CheckBlockedNotOK].message">
-            <lang locale="zh_CN" value="单据未冻结" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据未冻结" />
             <lang locale="zh_HK" value="單據未凍結" />
             <lang locale="zh_TW" value="單據未凍結" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[CheckBlockedOK].message">
-            <lang locale="zh_CN" value="单据已冻结" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据已冻结" />
             <lang locale="zh_HK" value="單據已凍結" />
             <lang locale="zh_TW" value="單據已凍結" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[CheckClosedNotOK].message">
-            <lang locale="zh_CN" value="单据未关闭" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据未关闭" />
             <lang locale="zh_HK" value="單據未關閉" />
             <lang locale="zh_TW" value="單據未關閉" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[CheckClosedOK].message">
-            <lang locale="zh_CN" value="单据已关闭" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据已关闭" />
             <lang locale="zh_HK" value="單據已關閉" />
             <lang locale="zh_TW" value="單據已關閉" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[CheckDeletedNotOK].message">
-            <lang locale="zh_CN" value="单据未作废" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据未作废" />
             <lang locale="zh_HK" value="單據未作廢" />
             <lang locale="zh_TW" value="單據未作廢" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[CheckDeletedOK].message">
-            <lang locale="zh_CN" value="单据已作废" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据已作废" />
             <lang locale="zh_HK" value="單據已作廢" />
             <lang locale="zh_TW" value="單據已作廢" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[CheckIsVoucheredNotOK].message">
-            <lang locale="zh_CN" value="单据未生成凭证" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据未生成凭证" />
             <lang locale="zh_HK" value="單據未生成憑證" />
             <lang locale="zh_TW" value="單據未生成憑證" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[CheckIsVoucheredOK].message">
-            <lang locale="zh_CN" value="单据已生成凭证" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据已生成凭证" />
             <lang locale="zh_HK" value="單據已生成憑證" />
             <lang locale="zh_TW" value="單據已生成憑證" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[CheckNotExist].message">
-            <lang locale="zh_CN" value="单据不存在" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据不存在" />
             <lang locale="zh_HK" value="單據不存在" />
             <lang locale="zh_TW" value="單據不存在" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[CheckReleasedNotOK].message">
-            <lang locale="zh_CN" value="单据未下达" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据未下达" />
             <lang locale="zh_HK" value="單據未下達" />
             <lang locale="zh_TW" value="單據未下達" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[CheckReleasedOK].message">
-            <lang locale="zh_CN" value="单据已下达" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据已下达" />
             <lang locale="zh_HK" value="單據已下達" />
             <lang locale="zh_TW" value="單據已下達" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[CheckSubmitNotOK].message">
-            <lang locale="zh_CN" value="单据未提交" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据未提交" />
             <lang locale="zh_HK" value="單據未提交" />
             <lang locale="zh_TW" value="單據未提交" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[CheckSubmitOK].message">
-            <lang locale="zh_CN" value="单据已提交" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据已提交" />
             <lang locale="zh_HK" value="單據已提交" />
             <lang locale="zh_TW" value="單據已提交" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[CurrentPeriodIsNull].message">
-            <lang locale="zh_CN" value="记账财务组织的当前会计期间为空" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="记账财务组织的当前会计期间为空" />
             <lang locale="zh_HK" value="記賬財務組織的當前會計期間為空" />
             <lang locale="zh_TW" value="記賬財務組織的當前會計期間為空" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[CustomerParamsError].message">
-            <lang locale="zh_CN" value="自定义方案参数错误" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="自定义方案参数错误" />
             <lang locale="zh_HK" value="自定義方案參數錯誤" />
             <lang locale="zh_TW" value="自定義方案參數錯誤" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[ENTRIESISNOTAUDIT_CANNOTUNAUDIT].message">
-            <lang locale="zh_CN" value="分录状态必须全为审核，单据才可反审核" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="分录状态必须全为审核，单据才可反审核" />
             <lang locale="zh_HK" value="分錄狀態必須全為審核，單據才可反審核" />
             <lang locale="zh_TW" value="分錄狀態必須全為審核，單據才可反審核" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[ENTRIESNOTNULL].message">
-            <lang locale="zh_CN" value="分录不能为空！" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="分录不能为空！" />
             <lang locale="zh_HK" value="分錄不能為空！" />
             <lang locale="zh_TW" value="分錄不能為空！" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[ENTRIESPRICENOTNULL].message">
-            <lang locale="zh_CN" value="单据第{0}行分录单价不能小于等于0！" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据第{0}行分录单价不能小于等于0！" />
             <lang locale="zh_HK" value="單據第{0}行分錄單價不能小於等於0！" />
             <lang locale="zh_TW" value="單據第{0}行分錄單價不能小於等於0！" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[ENTRIESTAXPRICENOTNULL].message">
-            <lang locale="zh_CN" value="单据第{0}行分录含税单价不能小于等于0！" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据第{0}行分录含税单价不能小于等于0！" />
             <lang locale="zh_HK" value="單據第{0}行分錄含稅單價不能小於等於0！" />
             <lang locale="zh_TW" value="單據第{0}行分錄含稅單價不能小於等於0！" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[EX_MSG_FOR_RPC].message">
-            <lang locale="zh_CN" value="{0}" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="{0}" />
             <lang locale="zh_HK" value="{0}" />
             <lang locale="zh_TW" value="{0}" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[EntrysNoPriceAndAmount].message">
-            <lang locale="zh_CN" value="单据第{0}行分录单价或金额不能小于等于0！" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据第{0}行分录单价或金额不能小于等于0！" />
             <lang locale="zh_HK" value="單據第{0}行分錄單價或金額不能小於等於0！" />
             <lang locale="zh_TW" value="單據第{0}行分錄單價或金額不能小於等於0！" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[EntrysNoTaxPriceAndTaxAmount].message">
-            <lang locale="zh_CN" value="单据第{0}行分录含税单价或价税合计不能小于等于0！" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据第{0}行分录含税单价或价税合计不能小于等于0！" />
             <lang locale="zh_HK" value="單據第{0}行分錄含稅單價或價稅合計不能小於等於0！" />
             <lang locale="zh_TW" value="單據第{0}行分錄含稅單價或價稅合計不能小於等於0！" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[Exception84].message">
-            <lang locale="zh_CN" value="NewMessage" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="NewMessage" />
             <lang locale="zh_HK" value="NewMessage" />
             <lang locale="zh_TW" value="NewMessage" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[Exception85].message">
-            <lang locale="zh_CN" value="NewMessage" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="NewMessage" />
             <lang locale="zh_HK" value="NewMessage" />
             <lang locale="zh_TW" value="NewMessage" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[Exception86].message">
-            <lang locale="zh_CN" value="NewMessage" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="NewMessage" />
             <lang locale="zh_HK" value="NewMessage" />
             <lang locale="zh_TW" value="NewMessage" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[Exception87].message">
-            <lang locale="zh_CN" value="NewMessage" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="NewMessage" />
             <lang locale="zh_HK" value="NewMessage" />
             <lang locale="zh_TW" value="NewMessage" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[FIXREWRITEQTYERROR].message">
-            <lang locale="zh_CN" value="可转出的数量不能小于本次转出数量" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="可转出的数量不能小于本次转出数量" />
             <lang locale="zh_HK" value="可轉出的數量不能小於本次轉出數量" />
             <lang locale="zh_TW" value="可轉出的數量不能小於本次轉出數量" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[GENERATEVOUCHER_CONFLICT].message">
-            <lang locale="zh_CN" value="单据生成凭证发生冲突，单据可能已经生成凭证！" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据生成凭证发生冲突，单据可能已经生成凭证！" />
             <lang locale="zh_HK" value="單據生成憑證發生衝突，單據可能已經生成憑證！" />
             <lang locale="zh_TW" value="單據生成憑證發生衝突，單據可能已經生成憑證！" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[GETBIZPERIODFAIL].message">
-            <lang locale="zh_CN" value="按照单据财务组织和业务日期无法获取会计期间，请先定义期间！" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="按照单据财务组织和业务日期无法获取会计期间，请先定义期间！" />
             <lang locale="zh_HK" value="按照單據財務組織和業務日期無法獲取會計期間，請先定義期間！" />
             <lang locale="zh_TW" value="按照單據財務組織和業務日期無法獲取會計期間，請先定義期間！" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[HASALTER_CANNOTUNAUDIT].message">
-            <lang locale="zh_CN" value="单据存在变更的历史记录，不允许反审核" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据存在变更的历史记录，不允许反审核" />
             <lang locale="zh_HK" value="單據存在變更的歷史記錄，不允許反審核" />
             <lang locale="zh_TW" value="單據存在變更的歷史記錄，不允許反審核" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[HASBLOCKED_CANNOTUNAUDIT].message">
-            <lang locale="zh_CN" value="其上游单据已经冻结，不允许反审核" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="其上游单据已经冻结，不允许反审核" />
             <lang locale="zh_HK" value="其上遊單據已經凍結，不允許反審核" />
             <lang locale="zh_TW" value="其上遊單據已經凍結，不允許反審核" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[HASDESTBILL_CANNOTUNAUDIT].message">
-            <lang locale="zh_CN" value="单据已关联生成其它单据，不允许反审核" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据已关联生成其它单据，不允许反审核" />
             <lang locale="zh_HK" value="單據已關聯生成其他單據，不允許反審核" />
             <lang locale="zh_TW" value="單據已關聯生成其他單據，不允許反審核" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[HASENTRYLOCKED_CANNOTUNAUDIT].message">
-            <lang locale="zh_CN" value="其分录上已有被锁库的记录，不允许反审核" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="其分录上已有被锁库的记录，不允许反审核" />
             <lang locale="zh_HK" value="其分錄上已有被鎖庫的記錄，不允許反審核" />
             <lang locale="zh_TW" value="其分錄上已有被鎖庫的記錄，不允許反審核" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[HASREVERSED_CANNOTUNAUDIT].message">
-            <lang locale="zh_CN" value="单据已被冲销，不允许反审核" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据已被冲销，不允许反审核" />
             <lang locale="zh_HK" value="單據已被沖銷，不允許反審核" />
             <lang locale="zh_TW" value="單據已被沖銷，不允許反審核" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[ISREVERSED_CANNOTUNAUDIT].message">
-            <lang locale="zh_CN" value="单据为冲销单据，不允许反审核" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据为冲销单据，不允许反审核" />
             <lang locale="zh_HK" value="單據為沖銷單據，不允許反審核" />
             <lang locale="zh_TW" value="單據為沖銷單據，不允許反審核" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[ISUNAUDITINPARAM].message">
-            <lang locale="zh_CN" value="参数设置中当前单据设置为不允许反审核！" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="参数设置中当前单据设置为不允许反审核！" />
             <lang locale="zh_HK" value="參數設置中當前單據設置為不允許反審核！" />
             <lang locale="zh_TW" value="參數設置中當前單據設置為不允許反審核！" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[MATCHED_ORDER_CANNOT_REVOKE].message">
-            <lang locale="zh_CN" value="已匹配收款的订单不能作废。" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="已匹配收款的订单不能作废。" />
             <lang locale="zh_HK" value="已匹配收款的訂單不能作廢。" />
             <lang locale="zh_TW" value="已匹配收款的訂單不能作廢。" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[MATERIALFINOTAPPROVE].message">
-            <lang locale="zh_CN" value="以下物料的财务组织{0}未核准：{1}" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="以下物料的财务组织{0}未核准：{1}" />
             <lang locale="zh_HK" value="以下物料的財務組織{0}未核准：{1}" />
             <lang locale="zh_TW" value="以下物料的財務組織{0}未核准：{1}" />
         </rs>
-        <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[NOMAINBIZORGONSAVE].message">
-            <lang locale="zh_CN" value="单据保存时主业务组织为空, 保存失败!" />
+        <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[NOBudget].message">
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="该费用预算不足" />
+            <lang locale="zh_HK" value="該費用預算不足" />
+            <lang locale="zh_TW" value="該費用預算不足" />
+        </rs>
+        <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[NOMAINBIZORGONSAVE].message">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据保存时主业务组织为空, 保存失败!" />
             <lang locale="zh_HK" value="單據保存時主業務組織為空, 保存失敗!" />
             <lang locale="zh_TW" value="單據保存時主業務組織為空, 保存失敗!" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[NOMAINBIZORG].message">
-            <lang locale="zh_CN" value="单据的主业务组织为空, 请指定!" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据的主业务组织为空, 请指定!" />
             <lang locale="zh_HK" value="單據的主業務組織為空, 請指定!" />
             <lang locale="zh_TW" value="單據的主業務組織為空, 請指定!" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[NULL_EXCHANGERATE].message">
-            <lang locale="zh_CN" value="无法获取币别的汇率信息，请检查原币与财务组织的本位币的汇率关系！" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="无法获取币别的汇率信息，请检查原币与财务组织的本位币的汇率关系！" />
             <lang locale="zh_HK" value="無法獲取幣別的匯率信息，請檢查原幣與財務組織的本位幣的匯率關係！" />
             <lang locale="zh_TW" value="無法獲取幣別的匯率信息，請檢查原幣與財務組織的本位幣的匯率關係！" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[NoCordRule].message">
-            <lang locale="zh_CN" value="{0}未定义或者未启用编码规则" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="{0}未定义或者未启用编码规则" />
             <lang locale="zh_HK" value="{0}未定義或者未啟用編碼規則" />
             <lang locale="zh_TW" value="{0}未定義或者未啟用編碼規則" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[NumberRuleError].message">
-            <lang locale="zh_CN" value="按编码规则定义生成的编码重复" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="按编码规则定义生成的编码重复" />
             <lang locale="zh_HK" value="按編碼規則定義生成的編碼重複" />
             <lang locale="zh_TW" value="按編碼規則定義生成的編碼重複" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[ORGTYPEERROE].message">
-            <lang locale="zh_CN" value="组织类型错误,请重新指定" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="组织类型错误,请重新指定" />
             <lang locale="zh_HK" value="組織類型錯誤,請重新指定" />
             <lang locale="zh_TW" value="組織類型錯誤,請重新指定" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[PARTCANNOT_UNAUDIT].message">
-            <lang locale="zh_CN" value="有部分行不能被反审核，请重新选择！" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="有部分行不能被反审核，请重新选择！" />
             <lang locale="zh_HK" value="有部分行不能被反審核，請重新選擇！" />
             <lang locale="zh_TW" value="有部分行不能被反審核，請重新選擇！" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[PARTOFDELETEDBILL_CANNOT_BE_DELETE].message">
-            <lang locale="zh_CN" value="部分单据已被删除，不能进行删除操作！" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="部分单据已被删除，不能进行删除操作！" />
             <lang locale="zh_HK" value="部分單據已被刪除，不能進行刪除操作！" />
             <lang locale="zh_TW" value="部分單據已被刪除，不能進行刪除操作！" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[PurPersonIsNotExist].message">
-            <lang locale="zh_CN" value="不能取得采购员！" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="不能取得采购员！" />
             <lang locale="zh_HK" value="不能取得採購員！" />
             <lang locale="zh_TW" value="不能取得採購員！" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[REVERSE_ORDER_CANNOT_ALTER].message">
-            <lang locale="zh_CN" value="冲销单据不能变更！" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="冲销单据不能变更！" />
             <lang locale="zh_HK" value="沖銷單據不能變更！" />
             <lang locale="zh_TW" value="沖銷單據不能變更！" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[REVERSE_ORDER_CANNOT_CLOSE].message">
-            <lang locale="zh_CN" value="冲销单据不能关闭！" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="冲销单据不能关闭！" />
             <lang locale="zh_HK" value="沖銷單據不能關閉！" />
             <lang locale="zh_TW" value="沖銷單據不能關閉！" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[REVERSE_ORDER_CANNOT_COPY].message">
-            <lang locale="zh_CN" value="冲销单据不能复制！" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="冲销单据不能复制！" />
             <lang locale="zh_HK" value="沖銷單據不能複製！" />
             <lang locale="zh_TW" value="沖銷單據不能複製！" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[REVERSE_ORDER_CANNOT_FREEZE].message">
-            <lang locale="zh_CN" value="冲销单据不能冻结！" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="冲销单据不能冻结！" />
             <lang locale="zh_HK" value="沖銷單據不能凍結！" />
             <lang locale="zh_TW" value="沖銷單據不能凍結！" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[REVERSE_ORDER_CANNOT_LOCK].message">
-            <lang locale="zh_CN" value="冲销单据不能锁库！" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="冲销单据不能锁库！" />
             <lang locale="zh_HK" value="沖銷單據不能鎖庫！" />
             <lang locale="zh_TW" value="沖銷單據不能鎖庫！" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[REVERSE_ORDER_CANNOT_REVOKE].message">
-            <lang locale="zh_CN" value="冲销单据不能作废！" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="冲销单据不能作废！" />
             <lang locale="zh_HK" value="沖銷單據不能作廢！" />
             <lang locale="zh_TW" value="沖銷單據不能作廢！" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[REVERSE_QTY_MUST_BIG_THAN_ZERO].message">
-            <lang locale="zh_CN" value="第{0}行分录冲销数量必须大于0！" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="第{0}行分录冲销数量必须大于0！" />
             <lang locale="zh_HK" value="第{0}行分錄沖銷數量必須大於0！" />
             <lang locale="zh_TW" value="第{0}行分錄沖銷數量必須大於0！" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[REVERSE_QTY_TOO_BIG].message">
-            <lang locale="zh_CN" value="第{0}行分录冲销数量不能大于可冲销数量！" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="第{0}行分录冲销数量不能大于可冲销数量！" />
             <lang locale="zh_HK" value="第{0}行分錄沖銷數量不能大於可沖銷數量！" />
             <lang locale="zh_TW" value="第{0}行分錄沖銷數量不能大於可沖銷數量！" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[SALEORDERENTRYCLOSED_CONNOTAUDIT].message">
-            <lang locale="zh_CN" value="销售订单分录已经关闭，不允许再出库！" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="销售订单分录已经关闭，不允许再出库！" />
             <lang locale="zh_HK" value="銷售訂單分錄已經關閉，不允許再出庫！" />
             <lang locale="zh_TW" value="銷售訂單分錄已經關閉，不允許再出庫！" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[SALEORDERENTRYCLOSED_CONNOTUNAUDIT].message">
-            <lang locale="zh_CN" value="销售订单分录已经关闭，参数控制不允许反审核！" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="销售订单分录已经关闭，参数控制不允许反审核！" />
             <lang locale="zh_HK" value="銷售訂單分錄已經關閉，參數控制不允許反審核！" />
             <lang locale="zh_TW" value="銷售訂單分錄已經關閉，參數控制不允許反審核！" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[STATUSERROR_CANNOTMULTIAPPROVE].message">
-            <lang locale="zh_CN" value="不能多级审批非提交或者变更中状态的单据！" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="不能多级审批非提交或者变更中状态的单据！" />
             <lang locale="zh_HK" value="不能多級審批非提交或者變更中狀態的單據！" />
             <lang locale="zh_TW" value="不能多級審批非提交或者變更中狀態的單據！" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[SalePersonIsNotExist].message">
-            <lang locale="zh_CN" value="不能取得销售员！" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="不能取得销售员！" />
             <lang locale="zh_HK" value="不能取得銷售員！" />
             <lang locale="zh_TW" value="不能取得銷售員！" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[VURCHERFIISNULL].message">
-            <lang locale="zh_CN" value="生成凭证时，委托记账的财务组织为空!" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="生成凭证时，委托记账的财务组织为空!" />
             <lang locale="zh_HK" value="生成憑證時，委託記賬的財務組織為空!" />
             <lang locale="zh_TW" value="生成憑證時，委託記賬的財務組織為空!" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[WRITEBACK_OBJECT_CONFICTED].message">
-            <lang locale="zh_CN" value="需要被反写的来源单据冲突，请稍候再试！" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="需要被反写的来源单据冲突，请稍候再试！" />
             <lang locale="zh_HK" value="需要被反寫的來源單據衝突，請稍候再試！" />
             <lang locale="zh_TW" value="需要被反寫的來源單據衝突，請稍候再試！" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[WRITE_BACE_ERROR].message">
-            <lang locale="zh_CN" value="反写失败：{0}" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="反写失败：{0}" />
             <lang locale="zh_HK" value="反寫失敗：{0}" />
             <lang locale="zh_TW" value="反寫失敗：{0}" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].bizExceptionSubItems.bizExceptionSubItem[bizDateNotNull].message">
-            <lang locale="zh_CN" value="业务日期不能为空！" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="业务日期不能为空！" />
             <lang locale="zh_HK" value="業務日期不能為空！" />
             <lang locale="zh_TW" value="業務日期不能為空！" />
         </rs>
         <rs key="bizException[com.kingdee.eas.xr.app.XRBillException].description">
-            <lang locale="zh_CN" value="供应链单据基类异常类" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="供应链单据基类异常类" />
             <lang locale="zh_HK" value="供應鏈單據基類異常類" />
             <lang locale="zh_TW" value="供應鏈單據基類異常類" />
         </rs>
